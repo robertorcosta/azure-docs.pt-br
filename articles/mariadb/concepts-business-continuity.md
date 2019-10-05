@@ -1,21 +1,21 @@
 ---
-title: Visão geral da continuidade dos negócios com o Banco de Dados do Azure para MariaDB
-description: Visão geral da continuidade dos negócios com o Banco de Dados do Azure para MariaDB.
+title: Entender a continuidade dos negócios no banco de dados do Azure para MariaDB
+description: Saiba mais sobre continuidade de negócios (restauração pontual, data center interrupção, restauração geográfica) ao usar o banco de dados do Azure para serviço MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4c64f920bf56195ad53ac8acbf3f9199090f0a8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d364c3a5fafaca514baade25cd3f5b4c0f10dc26
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61042986"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973606"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-mariadb"></a>Visão geral da continuidade dos negócios com o Banco de Dados do Azure para MariaDB
+# <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Entender a continuidade dos negócios no banco de dados do Azure para MariaDB
 
-Esta visão geral descreve os recursos que o Banco de Dados do Azure para MariaDB fornece para a continuidade dos negócios e a recuperação de desastre. Saiba mais sobre as opções para recuperação dos eventos interruptivos que podem causar perda de dados ou tornar o banco de dados e o aplicativo indisponíveis. Aprenda o que fazer quando um erro de usuário ou de aplicativo afeta a integridade dos dados, quando uma região do Azure tem uma interrupção ou quando seu aplicativo necessita de manutenção.
+Este artigo descreve os recursos que o banco de dados do Azure para MariaDB fornece para a continuidade dos negócios e a recuperação de desastres. Saiba mais sobre as opções para recuperação dos eventos interruptivos que podem causar perda de dados ou tornar o banco de dados e o aplicativo indisponíveis. Aprenda o que fazer quando um erro de usuário ou de aplicativo afeta a integridade dos dados, quando uma região do Azure tem uma interrupção ou quando seu aplicativo necessita de manutenção.
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Recursos que podem ser utilizados para fornecer continuidade dos negócios
 

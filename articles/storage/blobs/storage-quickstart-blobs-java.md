@@ -1,33 +1,37 @@
 ---
-title: Como criar um blob no Armazenamento do Azure usando a biblioteca de clientes para Java v7 | Microsoft Docs
-description: Crie uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, use a biblioteca cliente do Armazenamento do Azure para o Java v7 para carregar um blob no Armazenamento do Microsoft Azure, fazer o download de um blob e listar os blobs em um contêiner.
+title: 'Início Rápido: Biblioteca de cliente do armazenamento de BLOBs do Azure para Java SDK V8'
+description: Crie uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, use a biblioteca de cliente de armazenamento do Azure para Java SDK V8 para carregar um blob no armazenamento do Azure, baixar um blob e listar os BLOBs em um contêiner.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/04/2019
+ms.date: 10/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 0aa3af754082d91c4a5994e42146d1f1f475f64d
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 87bae74265c4d3abe7301af35888561fcd256717
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390328"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971983"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Como carregar, baixar e listar blobs usando a biblioteca de clientes para Java v7
+# <a name="quickstart-azure-blob-storage-client-library-for-java-sdk-v8"></a>Início Rápido: Biblioteca de cliente do armazenamento de BLOBs do Azure para Java SDK V8
 
-Neste guia de instruções, você aprenderá como usar a biblioteca de clientes para Java v7 para carregar, baixar e listar blobs de bloco em um contêiner no Armazenamento de Blobs do Azure.
+Introdução à biblioteca de cliente de armazenamento de BLOBs do Azure para Java. O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. Siga as etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O Armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados.
+
+Use a biblioteca de cliente de armazenamento de BLOBs do Azure para Java para:
+
+* Criar um contêiner
+* Definir permissões em um contêiner
+* Criar um blob no Armazenamento do Azure
+* Baixar o blob em seu computador local
+* Listar todos os blobs em um contêiner
+* Excluir um contêiner
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-Crie também uma conta de armazenamento do Azure no [portal do Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Para obter ajuda sobre como criar a conta, confira [Criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
-
-Certifique-se de ter os seguintes pré-requisitos:
-
-* Instale um IDE que tenha integração com o Maven.
-
+* Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
+* Conta de armazenamento do Azure - [criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Um IDE com integração Maven.
 * Ou instale e configure o Maven para trabalhar da linha de comando.
 
 Este tutorial usa [Eclipse](https://www.eclipse.org/downloads/) com a configuração "Eclipse IDE para desenvolvedores de Java".
@@ -205,6 +209,5 @@ sourceFile.deleteOnExit();
 Neste artigo, você aprendeu a transferir arquivos entre um disco local e o Armazenamento de Blobs do Azure usando Java. Para saber mais sobre como trabalhar com Java, prossiga para o nosso repositório de código de origem do GitHub.
 
 > [!div class="nextstepaction"]
-> [SDK v10 do Armazenamento do Microsoft Azure para Java](https://github.com/azure/azure-storage-java) 
-> [Referência da API de Java](https://docs.microsoft.com/java/azure/)
-> [Exemplos de código para Java](../common/storage-samples-java.md)
+> [Exemplos de código](../common/storage-samples-java.md) 
+>  de [referência da API Java](https://docs.microsoft.com/java/azure/)para Java

@@ -1,17 +1,17 @@
 ---
-title: Como solucionar problemas de desempenho de consulta no Banco de Dados do Azure para MariaDB
-description: Este artigo descreve como usar o EXPLAIN para solucionar problemas de desempenho de consulta no Banco de Dados do Azure para MariaDB.
+title: Solucionar problemas de desempenho de consulta no banco de dados do Azure para MariaDB
+description: Saiba como usar explicar para solucionar problemas de desempenho de consulta no banco de dados do Azure para MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/09/2018
-ms.openlocfilehash: 672635c8d8c84fa16c106ae79e97332fd740928d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a2f5e7e7c9ca39c092e13242ecdac2675b09fc0d
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60745155"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973498"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Como usar o EXPLAIN para perfilar o desempenho da consulta no Banco de Dados do Azure para MariaDB
 **EXPLAIN** é uma ferramenta útil para otimizar consultas. A instrução EXPLAIN pode ser utilizada para obter informações sobre como as instruções SQL são executadas. A saída a seguir mostra um exemplo da execução de uma instrução EXPLAIN.
@@ -163,7 +163,7 @@ O EXPLAIN agora mostra que o MariaDB é capaz de usar o índice combinado para e
  
 ## <a name="conclusion"></a>Conclusão
  
-O uso de EXPLAIN e diferentes tipos de índices pode aumentar significativamente o desempenho. Só porque você tem um índice na tabela não significa necessariamente que o MariaDB seria capaz de usá-lo para suas consultas. Sempre valide suas pressuposições usando a EXPLAIN e otimize as consultas usando índices.
+O uso de EXPLAIN e diferentes tipos de índices pode aumentar significativamente o desempenho. Ter um índice na tabela não significa necessariamente que MariaDB seria capaz de usá-lo para suas consultas. Sempre valide suas pressuposições usando a EXPLAIN e otimize as consultas usando índices.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para localizar respostas de pares às suas perguntas mais preocupantes ou publicar uma nova pergunta/resposta, visite o [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb) ou o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).

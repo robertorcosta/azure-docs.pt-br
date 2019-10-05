@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: abee645f8929c10856f662b1504b163b58d953a5
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: ca7136f6e1c24d32ff5d6e3e53878c11fb5f1edb
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036029"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71975271"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho de aplicativo
 
@@ -135,7 +135,7 @@ Para obter mais informações sobre tamanhos de VM e sobre o IOPS, taxa de trans
 
 ## <a name="nature-of-io-requests"></a>Natureza das solicitações de E/S
 
-Uma solicitação de E/S é uma unidade da operação de entrada/saída que seu aplicativo executará. Identificar a natureza das solicitações de E/S, aleatória ou sequencial, leitura ou gravação, grande ou pequena, ajudará você a determinar os requisitos de desempenho do aplicativo. É importante entender a natureza das solicitações de e/s para tomar as decisões certas ao projetar sua infraestrutura de aplicativo.
+Uma solicitação de E/S é uma unidade da operação de entrada/saída que seu aplicativo executará. Identificar a natureza das solicitações de E/S, aleatória ou sequencial, leitura ou gravação, grande ou pequena, ajudará você a determinar os requisitos de desempenho do aplicativo. É importante entender a natureza das solicitações de e/s para tomar as decisões certas ao projetar sua infraestrutura de aplicativo. O IOs deve ser distribuído uniformemente para obter o melhor desempenho possível.
 
 O tamanho de E/S é um dos fatores mais importantes. O tamanho de E/S é o tamanho da solicitação de operação de entrada/saída gerada pelo aplicativo. O tamanho de E/S tem um impacto significativo no desempenho, especificamente na IOPS e na largura de banda que o aplicativo é capaz de atingir. A fórmula a seguir mostra a relação entre IOPS, tamanho de e/s e largura de banda/taxa de transferência.  
     ![](media/premium-storage-performance/image1.png)
@@ -152,7 +152,7 @@ Se estiver usando um aplicativo que permita alterar o tamanho de E/S, use esta r
 * Tamanho menor de E/S para obter IOPS mais alta. Por exemplo, 8 KB para um aplicativo OLTP.  
 * Tamanho maior de E/S para obter largura de banda/Taxa de Transferência mais alta. Por exemplo, 1024 KB para um aplicativo de data warehouse.
 
-Veja um exemplo de como é possível calcular a IOPS e a Taxa de Transferência/largura de banda do seu aplicativo. Considere um aplicativo usando um disco P30. A IOPS e a Taxa de Transferência/largura de banda máximas que um disco P30 pode atingir é de 5.000 IOPS e 200 MB por segundo, respectivamente. Agora, se seu aplicativo exigir a IOPS máxima do disco P30 e você usar um tamanho de E/S menor, como 8 KB, a largura de banda resultante que você poderá obter será de 40 MB por segundo. No entanto, se seu aplicativo exigir a Taxa de Transferência/largura de banda máxima do disco P30 e você usar um tamanho de E/S maior, como 1024 KB, a IOPS resultante será menor, 200 IOPS. Sendo assim, ajuste o tamanho de E/S, de tal modo que ele atenda aos requisitos de IOPS e Taxa de Transferência/Largura de Banda do aplicativo. A tabela abaixo resume os diferentes tamanhos de E/S e a IOPS e a Taxa de Transferência correspondentes para um disco P30.
+Veja um exemplo de como é possível calcular a IOPS e a Taxa de Transferência/largura de banda do seu aplicativo. Considere um aplicativo usando um disco P30. A IOPS e a Taxa de Transferência/largura de banda máximas que um disco P30 pode atingir é de 5.000 IOPS e 200 MB por segundo, respectivamente. Agora, se seu aplicativo exigir a IOPS máxima do disco P30 e você usar um tamanho de E/S menor, como 8 KB, a largura de banda resultante que você poderá obter será de 40 MB por segundo. No entanto, se seu aplicativo exigir a Taxa de Transferência/largura de banda máxima do disco P30 e você usar um tamanho de E/S maior, como 1024 KB, a IOPS resultante será menor, 200 IOPS. Sendo assim, ajuste o tamanho de E/S, de tal modo que ele atenda aos requisitos de IOPS e Taxa de Transferência/Largura de Banda do aplicativo. A tabela a seguir resume os diferentes tamanhos de e/s e seus IOPS e taxa de transferência correspondentes para um disco p30.
 
 | Requisito de aplicativo | Tamanho de E/S | IOPS | Taxa de Transferência/Largura de Banda |
 | --- | --- | --- | --- |
@@ -189,7 +189,7 @@ Por exemplo, suponha que o requisito de um aplicativo seja de 4.000 IOPS. Para c
 *Custo da operação*  
 Em muitos casos, é possível que o custo geral de operação usando o Armazenamento Premium seja menor do que usando o Armazenamento Padrão.
 
-Por exemplo, considere um aplicativo que exija 16.000 IOPS. Para atingir esse desempenho, você precisará de uma\_VM IaaS do Azure padrão D14, que pode fornecer um máximo de IOPS de 16.000 usando discos de 1 TB de armazenamento padrão de 32. Cada disco de armazenamento Standard de 1 TB pode alcançar um máximo de 500 IOPS. O custo estimado dessa VM por mês será de US$ 1.570. O custo mensal de 32 discos de armazenamento padrão será de US$ 1.638. O custo mensal total estimado será de US$ 3.208.
+Por exemplo, considere um aplicativo que exija 16.000 IOPS. Para atingir esse desempenho, você precisará de uma VM IaaS do Azure padrão @ no__t-0D14, que pode fornecer um máximo de IOPS de 16.000 usando discos de 1 TB de armazenamento Standard de 32. Cada disco de armazenamento Standard de 1 TB pode alcançar um máximo de 500 IOPS. O custo estimado dessa VM por mês será de US$ 1.570. O custo mensal de 32 discos de armazenamento padrão será de US$ 1.638. O custo mensal total estimado será de US$ 3.208.
 
 No entanto, se você tiver hospedado o mesmo aplicativo no Armazenamento Premium, será preciso uma VM menor e menos discos de Armazenamento Premium, reduzindo, assim, o custo geral. Uma VM Standard\_DS13 pode atender ao requisito de 16.000 IOPS usando quatro discos P30. A VM DS13 tem um máximo de 25.600 IOPS e cada disco P30 tem um máximo de 5.000 IOPS. Em geral, essa configuração pode alcançar 5.000 x 4 = 20.000 IOPS. O custo estimado dessa VM por mês será de US$ 1.003. O custo mensal de quatro discos P30 de armazenamento premium será de US$ 544,34. O custo total mensal estimado será de US$ 1.544.
 
@@ -209,13 +209,9 @@ Ao executar Linux com Armazenamento Premium, verifique as últimas atualizaçõe
 
 ## <a name="premium-storage-disk-sizes"></a>Tamanhos de disco do armazenamento Premium
 
-O armazenamento Premium do Azure oferece oito tamanhos de disco de GA e três tamanhos de disco que estão na versão prévia, no momento. Cada tamanho de disco tem um limite de escala diferente para IOPS, largura de banda e armazenamento. Escolha o tamanho certo do disco do Armazenamento Premium de acordo com os requisitos do aplicativo e o tamanho da VM de alta escala. A tabela a seguir mostra os 11 tamanhos de discos e seus recursos. Atualmente, os tamanhos de disco 4, P6, P15, P60, P70, e P80 têm suporte apenas para o Managed Disks.
+O armazenamento Premium do Azure oferece uma variedade de tamanhos para que você possa escolher um que melhor atenda às suas necessidades. Cada tamanho de disco tem um limite de escala diferente para IOPS, largura de banda e armazenamento. Escolha o tamanho certo do disco do Armazenamento Premium de acordo com os requisitos do aplicativo e o tamanho da VM de alta escala. A tabela a seguir mostra os tamanhos dos discos e seus recursos. Atualmente, os tamanhos de disco 4, P6, P15, P60, P70, e P80 têm suporte apenas para o Managed Disks.
 
-| Tipo de discos premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
-|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Tamanho do disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 TiB)    |
-| IOPS por disco       | 120   | 240   | 500   | 1100 | 2\.300              | 5\.000              | 7500              | 7500              | 12.500              | 15.000              | 20.000              |
-| Taxa de transferência por disco | 25 MiB por segundo  | 50 MiB por segundo  | 100 MiB por segundo |125 MiB por segundo | 150 MiB por segundo | 200 MiB por segundo | 250 MiB por segundo | 250 MiB por segundo | 480 MiB por segundo | 750 MiB por segundo | 750 MiB por segundo |
+[!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
 Quantos discos você escolhe depende do tamanho do disco escolhido. Você pode usar um único disco P50 ou vários discos P10 para atender aos requisitos do aplicativo. Leve em conta as considerações listadas abaixo ao fazer sua escolha.
 
@@ -256,7 +252,7 @@ Veja a seguir as configurações recomendadas de cache de disco para discos de d
 
 | **Configuração do cache de disco** | **recomendação sobre quando usar essa configuração** |
 | --- | --- |
-| Nenhum |Configure o cache do host como None para discos de gravação pesada e somente gravação. |
+| Nenhuma |Configure o cache do host como None para discos de gravação pesada e somente gravação. |
 | ReadOnly |Configure o cache do host como ReadOnly para discos de leitura/gravação e somente leitura. |
 | ReadWrite |Configure o cache do host como ReadWrite somente se o aplicativo tratar adequadamente a gravação de dados em cache em discos persistentes quando necessário. |
 
@@ -294,7 +290,7 @@ As seguintes distribuições Linux foram validadas para SSDs Premium. Para obter
 
 Algumas das versões exigem um LIS (Serviços de Integração do Linux) v4.0 para Azure mais recente. Para baixar e instalar uma distribuição, siga o link listado na tabela a seguir. Podemos adicionar imagens à lista à medida que concluímos a validação. Nossas validações mostram que o desempenho varia para cada imagem. O desempenho depende da carga de trabalho e das configurações de imagem. Imagens diferentes são ajustadas para tipos diferentes de carga de trabalho.
 
-| Distribuição | Version | Kernel com suporte | Detalhes |
+| Distribuição | Versão | Kernel com suporte | Detalhes |
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |

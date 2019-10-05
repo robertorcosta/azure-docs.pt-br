@@ -1,17 +1,17 @@
 ---
 title: Regras de firewall de servidor do Banco de Dados do Azure para MariaDB
-description: Descreve as regras de firewall para seu servidor de Banco de Dados do Azure para MariaDB.
+description: Saiba mais sobre como usar regras de firewall para habilitar conexões com o banco de dados do Azure para o servidor MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/22/2019
-ms.openlocfilehash: 94efc87cdea8e1d9b63361d4652b63909c6ce3e7
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 89c4bce33b80e988a9da363a89854e921bee30b0
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203603"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973651"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Regras de firewall de servidor do Banco de Dados do Azure para MariaDB
 Os firewalls impedem todo acesso ao seu servidor de banco de dados até que você especifique quais computadores têm permissão. O firewall concede acesso ao servidor com base no endereço IP de origem de cada solicitação.
@@ -61,7 +61,7 @@ Considere os seguintes pontos quando o acesso ao serviço do servidor de Banco d
 
    * Obtenha o endereçamento IP estático para os computadores cliente e, em seguida, adicione os endereços IP como regras de firewall.
 
-* **O IP do servidor parece ser público:** As conexões com o banco de dados do Azure para o servidor MariaDB são roteadas por meio de um gateway do Azure acessível publicamente. No entanto, o IP do servidor real é protegido pelo firewall. Para obter mais informações, visite o [artigo arquitetura de conectividade](concepts-connectivity-architecture.md). 
+* **O IP do servidor parece ser público:** As conexões com o servidor do Banco de Dados do Azure para MariaDB são roteadas por meio de um gateway do Azure acessível publicamente. No entanto, o IP do servidor real é protegido pelo firewall. Para obter mais informações, consulte o [artigo sobre arquitetura de conectividade](concepts-connectivity-architecture.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Criar e gerenciar regras de firewall do Banco de Dados do Azure para MariaDB usando o portal do Azure](./howto-manage-firewall-portal.md)

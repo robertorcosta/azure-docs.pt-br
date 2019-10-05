@@ -4,21 +4,20 @@ description: Como criar e gerenciar seu perfil do usuário e a ID de usuário co
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 7d069d86-660f-4c94-b6e3-0c0f38c52d0e
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: b8c21b908ca9162a7e44c7af1e222babc6ee1eb7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1fddefeb2a54ae775a9016799ffff1963eab247e
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631919"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970157"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Perfil e ID de usuário do Azure Notebooks
 
@@ -46,7 +45,7 @@ Um comando **Configurar ID de usuário** também aparece ao lado do nome de usu�
 
 Você também pode alterar a ID de usuário a qualquer momento na sua página de perfil.
 
-Deve ser composta por uma ID de usuário entre quatro e dezesseis letras, números e hifens. Nenhum outro caractere é permitido, e a ID de usuário não poderá começar ou terminar com um hífen ou usar vários hífens em uma linha. Como as IDs de usuário são exclusivas em todas as contas de blocos de anotações do Azure, você poderá ver a mensagem, "ID de usuário já está em uso." (A mensagem também aparece se você tentar usar uma marca da Microsoft como uma ID de usuário.) Nesses casos, escolha uma ID de usuário diferente.
+Uma ID de usuário deve ser composta entre quatro e dezesseis letras, números e hifens. Nenhum outro caractere é permitido, e a ID de usuário não poderá começar ou terminar com um hífen ou usar vários hífens em uma linha. Como as IDs de usuário são exclusivas em todas as contas de Azure Notebooks, você pode ver a mensagem "a ID de usuário já está em uso". (A mensagem também será exibida se você tentar usar uma marca registrada da Microsoft como uma ID de usuário.) Nesses casos, escolha uma ID de usuário diferente.
 
 > [!Important]
 > Alterar sua ID invalidará todas as URLs que você possa ter compartilhado usando a ID anterior. É possível alterar sua ID de volta para a ID anterior para revalidar os links. No entanto, é possível que outro usuário reivindique a ID não utilizada nesse meio tempo.
@@ -60,7 +59,7 @@ Para editar seu perfil, use o comando **Editar Informações de Perfil** na sua 
 | `Section` | Conteúdo |
 | --- | --- |
 | Foto de perfil | Uma imagem que é mostrada na sua página de perfil. |
-| Informações da conta | Seu nome de exibição, ID de usuário e conta de email pública. Aqui, a conta de email fornece aos outros usuários uma maneira de como contatá-lo e essa conta pode ser diferente da [conta](azure-notebooks-user-account.md) que você usa para entrar no Azure Notebooks. |
+| Informações da Conta | Seu nome de exibição, ID de usuário e conta de email pública. Aqui, a conta de email fornece aos outros usuários uma maneira de como contatá-lo e essa conta pode ser diferente da [conta](azure-notebooks-user-account.md) que você usa para entrar no Azure Notebooks. |
 | Informações do perfil | Sua localização, empresa, cargo, site e uma breve descrição sobre você. |
 | Perfis sociais | As IDs do Facebook, Twitter e GItHub, se você quiser compartilhá-las. |
 | Configurações de privacidade | Fornece dois comandos:<ul><li>**Exportar Meu Perfil**: cria e baixa um arquivo *.zip* contendo todas as informações que o Azure Notebooks salva no seu perfil, incluindo fotos, informações de perfil e logs de segurança.</li><li>**Excluir Minha Conta**: Exclui permanentemente todas as suas informações pessoais armazenadas no Azure Notebooks.</li></ul> |

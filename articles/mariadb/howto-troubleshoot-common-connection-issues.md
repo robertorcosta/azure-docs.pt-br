@@ -1,18 +1,17 @@
 ---
-title: Solucionar problemas de conexão ao Banco de Dados do Azure para MariaDB | Microsoft Docs
-description: Aprenda a solucionar problemas de conexão com o Banco de Dados do Azure para MariaDB.
-keywords: conexão mariadb, string de conexão, problemas de conectividade, erro transitório, erro de conexão
+title: Solucionar problemas de conexão ao Banco de Dados do Azure para MariaDB
+description: Saiba como solucionar problemas de conexão com o banco de dados do Azure para MariaDB, incluindo erros transitórios que exigem novas tentativas, problemas de firewall e interrupções.
 author: jan-eng
 ms.author: janeng
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/09/2018
-ms.openlocfilehash: f5c5a980a99bac3bf02eaaf9c072861ca753d449
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8354cdc364f221a086f4d2f4ec7da95c55baf6e
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038475"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973527"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Solucionar problemas de conexão ao Banco de Dados do Azure para MariaDB
 
@@ -48,7 +47,7 @@ Se o aplicativo persistentemente falhar ao se conectar ao Banco de Dados do Azur
 
 * Configuração do firewall: O Banco de Dados do Azure para MariaDB ou o firewall do lado do cliente está bloqueando as conexões.
 * Reconfiguração de rede no lado do cliente: Foi adicionado um novo endereço IP ou um servidor proxy.
-* Erro do usuário: Por exemplo, você pode ter digitado parâmetros de conexão, como o nome do servidor na cadeia de caracteres de conexão ou a ausência de um  *\@servername* sufixo no nome do usuário.
+* Erro do usuário: Por exemplo, você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo de *\@servername* ausente no nome de usuário.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Etapas para resolver os problemas de conectividade temporários
 

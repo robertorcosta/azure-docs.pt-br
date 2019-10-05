@@ -1,17 +1,17 @@
 ---
 title: Obter Azure Cosmos DB métricas de Azure Monitor
-description: ''
+description: Saiba como exibir diferentes categorias de Azure Cosmos DB métricas de Azure Monitor usando portal do Azure.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
-ms.openlocfilehash: 762c910336fa2b50a46eda23cf66d8a7aa383c52
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 905eca99c137af2fd40a1243de8fabd15314477c
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241233"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973733"
 ---
 # <a name="monitor-and-debug-azure-cosmos-db-metrics-from-azure-monitor"></a>Monitorar e depurar Azure Cosmos DB métricas de Azure Monitor
 
@@ -23,11 +23,11 @@ Este artigo descreve as diferentes métricas de Azure Cosmos DB que você pode e
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
-1. Selecione **Monitor** na barra de navegação à esquerda e selecione métricas.
+1. Selecione **Monitor** na barra de navegação à esquerda e selecione **métricas**.
 
    ![Painel de métricas no Azure Monitor](./media/cosmos-db-azure-monitor-metrics/monitor-metrics-blade.png)
 
-1. No painel de métricas > **selecione um recurso** > escolha a **assinatura**necessária e o **grupo de recursos**. Para o **tipo de recurso**, selecione **contas de Azure Cosmos DB**, escolha uma das contas existentes do Azure Cosmos e selecione **aplicar**. 
+1. No painel de **métricas** > **selecione um recurso** > escolha a **assinatura**necessária e o **grupo de recursos**. Para o **tipo de recurso**, selecione **contas de Azure Cosmos DB**, escolha uma das contas existentes do Azure Cosmos e selecione **aplicar**. 
 
    ![Escolha uma conta de Cosmos DB para exibir as métricas](./media/cosmos-db-azure-monitor-metrics/select-cosmosdb-account.png)
 

@@ -9,18 +9,17 @@ editor: ''
 tags: connectors
 ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
 ms.service: logic-apps
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 10332b95e0d385d7155003efcc52b4bae3969313
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60538205"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973761"
 ---
 # <a name="get-started-with-the-query-action"></a>Introdução à ação de consulta
 Usando a ação de consulta, você pode trabalhar com lotes e matrizes para executar os fluxos de trabalho para:
@@ -56,30 +55,30 @@ Veja como é possível adicioná-lo em um aplicativo lógico:
 ## <a name="query-action"></a>Ação de consulta
 Veja os detalhes da ação com suporte deste conector. O conector tem uma ação possível.
 
-| Ação | DESCRIÇÃO |
+| Ação | Descrição |
 | --- | --- |
 | Filtrar matriz |Avalia uma condição para cada item em uma matriz e retorna os resultados |
 
 ## <a name="action-details"></a>Detalhes da ação
 A ação de consulta vem com uma ação possível. As tabelas a seguir descrevem os campos de entrada obrigatórios e opcionais para a ação e os detalhes de saída correspondentes associados ao uso da ação.
 
-### <a name="filter-array"></a>Filtrar matriz
+### <a name="filter-array"></a>Matriz do filtro
 Estes são os campos de entrada para a ação, o que cria uma solicitação HTTP de saída.
 Um * significa que é um campo obrigatório.
 
-| Display name | Nome da propriedade | DESCRIÇÃO |
+| Display name | Nome da propriedade | Descrição |
 | --- | --- | --- |
 | De* |from |A matriz a ser filtrada |
-| Condição* |onde |A condição a ser avaliada para cada item |
+| Condição* |where |A condição a ser avaliada para cada item |
 
 <br>
 
 ### <a name="output-details"></a>Detalhes de saída
 A seguir, os detalhes de saída para a resposta HTTP.
 
-| Nome da propriedade | Tipo de dados | DESCRIÇÃO |
+| Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
-| Matriz filtrada |matriz |Uma matriz que contém um objeto para cada resultado filtrado |
+| Matriz filtrada |array |Uma matriz que contém um objeto para cada resultado filtrado |
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: 9854ad7118684e1a5e57b0809d733d812ad64176
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b05473fd9868821285853b089fe711aa48f347fc
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828844"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973433"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gerenciar segredos criptografados nos aplicativos do Service Fabric
 Este guia explica as etapas do gerenciamento de segredos em um aplicativo do Service Fabric. Os segredos podem ser informações confidenciais, como cadeias de conexão de armazenamento, senhas ou outros valores que não devem ser tratados como texto sem formatação.
@@ -56,7 +56,7 @@ Especifique uma [variável de ambiente][environment-variables-link] criptografad
 </CodePackage>
 ```
 
-Os segredos também podem ser incluídos no seu aplicativo Service Fabric especificando um certificado no manifesto do aplicativo. Adicione um elemento **SecretsCertificate** a **ApplicationManifest. xml** e inclua a impressão digital do certificado desejado.
+Os segredos também devem ser incluídos em seu aplicativo Service Fabric especificando um certificado no manifesto do aplicativo. Adicione um elemento **SecretsCertificate** a **ApplicationManifest. xml** e inclua a impressão digital do certificado desejado.
 
 ```xml
 <ApplicationManifest … >

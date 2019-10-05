@@ -1,17 +1,17 @@
 ---
 title: Como solucionar problemas de desempenho de consultas no Banco de Dados do Azure para MySQL
-description: Este artigo descreve como usar a EXPLAIN para solucionar problemas de desempenho de consultas no Banco de Dados do Azure para MySQL.
+description: Saiba como usar explicar para solucionar problemas de desempenho de consulta no banco de dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/28/2018
-ms.openlocfilehash: 819e2393619766d46385cdd6fe550fff1e1a7631
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d58721f1fedd234b3c400a82035048d8e70f8c32
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60720205"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972865"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Como usar a EXPLAIN para analisar o desempenho de consultas no Banco de Dados do Azure para MySQL
 **EXPLAIN** é uma ferramenta útil para otimizar consultas. A instrução EXPLAIN pode ser utilizada para obter informações sobre como as instruções SQL são executadas. A saída a seguir mostra um exemplo da execução de uma instrução EXPLAIN.
@@ -163,7 +163,7 @@ A EXPLAIN agora mostra que o MySQL é capaz de usar o índice combinado para evi
  
 ## <a name="conclusion"></a>Conclusão
  
-O uso de EXPLAIN e diferentes tipos de índices pode aumentar significativamente o desempenho. O simples fato de haver um índice na tabela, não significa necessariamente que o MySQL poderá utilizá-lo para consultas. Sempre valide suas pressuposições usando a EXPLAIN e otimize as consultas usando índices.
+O uso de EXPLAIN e diferentes tipos de índices pode aumentar significativamente o desempenho. Ter um índice na tabela não significa necessariamente que o MySQL seria capaz de usá-lo para suas consultas. Sempre valide suas pressuposições usando a EXPLAIN e otimize as consultas usando índices.
 
 
 ## <a name="next-steps"></a>Próximas etapas

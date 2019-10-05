@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 07b196b8e7081a6cce1ae87297528c1711b3b8bb
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 047c92f1c50409e6a1716f0ef2f774464bd12a0a
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259450"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972772"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Log de diagnóstico para um grupo de segurança de rede
 
 Um grupo de segurança de rede (NSG) contém regras que permitem ou negam o tráfego para uma sub-rede de rede virtual, a interface de rede ou ambos. Quando você habilita o log de diagnóstico para um NSG, você pode registrar as seguintes categorias de informações:
 
-* **Evento:** As entradas são registradas para aquelas regras de NSG que são aplicadas às VMs, com base no endereço MAC. O status para essas regras é coletado a cada 60 segundos.
-* **Contador de regras:** Contém entradas de quantas vezes cada regra de NSG é aplicada para negar ou permitir tráfego.
+* **Evento:** As entradas são registradas para aquelas regras de NSG que são aplicadas às VMs, com base no endereço MAC.
+* **Contador de regras:** Contém entradas de quantas vezes cada regra de NSG é aplicada para negar ou permitir tráfego. O status para essas regras é coletado a cada 60 segundos.
 
 Os logs de diagnóstico estão disponíveis apenas para NSGs implantados por meio do modelo de implantação do Azure Resource Manager. Você não pode habilitar o log de diagnóstico para NSGs implantados por meio do modelo de implantação clássico. Para reconhecimento melhor dos dois modelos, consulte [ Compreendendo os modelos de implantação do Azure ](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 O log de diagnóstico é ativado separadamente para *cada* NSG para o qual você deseja coletar dados de diagnóstico. Se você estiver interessado em operações ou logs de atividades, em vez disso, consulte Azure [o log de atividades](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="enable-logging"></a>Habilitar o registro em log
+## <a name="enable-logging"></a>Habilitar registro em log
 
 Você pode usar o [Portal do Azure](#azure-portal), ou [PowerShell](#powershell), ou a [CLI do Azure](#azure-cli) para habilitar o log de diagnóstico.
 
@@ -42,13 +42,13 @@ Você pode usar o [Portal do Azure](#azure-portal), ou [PowerShell](#powershell)
 3. Escolha o NSG para o qual quer habilitar o log.
 4. Em **monitoramento**, selecione **logs de diagnóstico**e, em seguida, selecione **Ativar diagnóstico**, conforme mostrado na figura a seguir:
 
-   ![Ativar diagnóstico](./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png)
+   ![Ligar diagnósticos](./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png)
 
 5. Em **Configurações de diagnóstico**, insira ou selecione as seguintes informações e, em seguida, selecione **Salvar**:
 
     | Configuração                                                                                     | Valor                                                          |
     | ---------                                                                                   |---------                                                       |
-    | NOME                                                                                        | Um nome de sua escolha.  Por exemplo: *myNsgDiagnostics*      |
+    | Nome                                                                                        | Um nome de sua escolha.  Por exemplo: *myNsgDiagnostics*      |
     | **Arquivo para uma conta de armazenamento**, **fluxo para um hub de eventos**, e **enviar para análise de Log** | Você pode selecionar quantas destinos que escolher. Para saber mais sobre cada um, consulte [destinos de Log](#log-destinations).                                                                                                                                           |
     | LOG                                                                                         | Selecione uma ou ambas as categorias de log. Para saber mais sobre os dados registrados para cada categoria, consulte [categorias de Log](#log-categories).                                                                                                                                             |
 6. Exibir e analisar os logs. Para obter mais informações, consulte [Visualizar e analisar logs](#view-and-analyze-logs).

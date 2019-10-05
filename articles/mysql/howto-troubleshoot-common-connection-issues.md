@@ -1,18 +1,18 @@
 ---
-title: Solucionar problemas de conexão com o Banco de Dados do Azure para MySQL | Microsoft Docs
-description: Saiba como solucionar problemas de conexão com o Banco de Dados do Azure para MySQL.
+title: Solucionar problemas de conexão no Banco de Dados do Azure para MySQL
+description: Saiba como solucionar problemas de conexão com o banco de dados do Azure para MySQL, incluindo erros transitórios que exigem novas tentativas, problemas de firewall e interrupções.
 keywords: conexão do mysql, cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/09/2018
-ms.openlocfilehash: faf378a81a6db24acc676bed82fe495cfb108612
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0203ceeb36352a16814345f5ecdff8271691fd0
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61421835"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972840"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Solucionar problemas de conexão no Banco de Dados do Azure para MySQL
 
@@ -48,7 +48,7 @@ Se o aplicativo falhar persistentemente em se conectar ao Banco de Dados do Azur
 
 * Configuração de firewall do servidor: Certifique-se de que firewall do servidor do Banco de Dados do Azure para MySQL esteja configurado para permitir conexões de seu cliente, incluindo servidores proxy e gateways.
 * Configuração de firewall do cliente: o firewall em seu cliente deve permitir conexões com o servidor de banco de dados. Endereços IP e portas do servidor sem permissão devem ser permitidos, bem como nomes de aplicativo, como MySQL, em alguns firewalls.
-* Erro do usuário: Você pode ter digitado incorretamente os parâmetros de conexão, como o nome do servidor na cadeia de caracteres de conexão ou a ausência de um  *\@servername* sufixo no nome do usuário.
+* Erro do usuário: Você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo *\@servername* ausente no nome de usuário.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Etapas para resolver os problemas de conectividade temporários
 

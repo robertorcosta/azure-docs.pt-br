@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 10/2/2019
+ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: 4096b9201afc98f6e5eb239cf9e6883ac69b6e79
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 1c6e381f5f05bc285b50521c9a57e8b5189a7478
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827979"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969577"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Perguntas frequentes do Microsoft Commercial Marketplace
 
@@ -60,7 +60,7 @@ Com o Azure Marketplace, os clientes podem descobrir aplicativos técnicos compi
 As ofertas do Azure Marketplace podem ser adquiridas por meio de:
 
 * [A vitrine baseada na Web](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [O portal do Azure] [Portal do Azure]
+* [O portal do Azure][portal do Azure]
 * [A CLI (interface de linha de comando) do Azure](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -130,7 +130,7 @@ A assinatura do Azure está incluída no preço da solução ISV (fornecedores i
 
 + *Por usuário:* As assinaturas de SaaS podem ser cobradas por usuário com base em uma cobrança mensal ou anual. 
 
-Os detalhes de preços específicos da oferta podem ser encontrados na página de detalhes [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) da solução no ou dentro do [portal do Azure].
+Os detalhes de preços específicos da oferta podem ser encontrados na página de detalhes da solução no [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) ou no [portal do Azure].
 
 > [!Note]
 > Exceto por valores mensais, as cobranças de uso do Azure são aplicáveis a todos os modelos de preço, a menos que instruído de outro modo.
@@ -171,7 +171,7 @@ Sim, para clientes do EA (Contrato Enterprise), o administrador de registro pode
 
 **Quais métodos de pagamento têm suporte para compras do Marketplace comercial?**
 
-Os clientes podem comprar ofertas do Azure Marketplace e Microsoft AppSource usando cartões de crédito. Se você tiver uma assinatura do Azure existente, as compras do Azure Marketplace usarão o método de pagamento configurado na conta e aparecerão na mesma fatura como um item de linha separado. Algumas ofertas consomem o compromisso monetário do Azure, mas a maioria das compras do ommercial Marketplace não desenha Enterprise Agreement compromissos, embora o consumo de infraestrutura do Azure seja.
+Os clientes podem comprar ofertas do Azure Marketplace e Microsoft AppSource usando cartões de crédito. Se você tiver uma assinatura do Azure existente, as compras do Azure Marketplace usarão o método de pagamento configurado na conta e aparecerão na mesma fatura como um item de linha separado. Algumas ofertas consomem o compromisso monetário do Azure, mas a maioria das compras do Marketplace comercial não desenha Enterprise Agreement compromissos, embora o consumo de infraestrutura do Azure seja.
 
 **Posso aplicar créditos da assinatura do Azure ou fundos de investimento monetário de minha conta para ofertas do Azure Marketplace?**
 
@@ -375,15 +375,15 @@ Para obter mais informações, confira [Excluir uma oferta](./cloud-partner-port
 
 *Aplicativos do O365:*
 
-1.  Entre no com sua conta de desenvolvimento. <https://sellerdashboard.microsoft.com>
+1.  Entre no <https://sellerdashboard.microsoft.com> com sua conta de desenvolvedor.
 1.  Retire o suplemento.
 
     > [!NOTE]
     > Os aplicativos desaparecem de uma listagem existente após 90 dias.
 
-*Power BI aplicativos:*
+**Por que minhas alterações não são refletidas na oferta?**
 
-Contate: [Anjana Sompur (Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com).
+As alterações feitas no Partner Center são atualizadas apenas no sistema e armazenam os frontais depois que você republicou a oferta. Certifique-se de que você enviou a oferta para publicação após qualquer modificação.
 
 ### <a name="benefits-and-go-to-market-gtm-resources"></a>Benefícios e recursos de GTM (Entrada no Mercado)
 
@@ -463,6 +463,16 @@ As transações podem ser realizadas nas 17 moedas a seguir: AUD, BRL, CAD, CHF,
 **Qual é a diferença entre Camada Gratuita e Avaliação de Software Gratuita?**
 
 Uma oferta de assinatura de Camada Gratuita é perpetuamente gratuita.  Uma oferta de Avaliação de Software Gratuita (Experimente Agora) é uma assinatura paga, gratuita apenas por um período limitado.
+
+**Qual é o processo para validar o fluxo de provisionamento e compra de ponta a ponta?**
+
+Durante o processo de publicação, você receberá acesso a uma visualização da sua oferta. O acesso é restrito aos usuários que você especificou na guia Visualização, e essa é uma oferta ao vivo que não é visível para outras pessoas. Você pode comprar isso e testar o processo; no entanto, você será cobrado pelo valor total de acordo com a configuração da sua oferta.
+
+Para concluir uma compra por um preço muito baixo, a Microsoft sugere publicar um plano privado para você mesmo definido com um preço que você pode aceitar como o custo do teste. Há suporte para zero, mas não refletirá a experiência completa como uma assinatura paga.
+
+**A Microsoft fornecerá um reembolso fora das políticas padrão?**
+
+Sim, após a solicitação por meio do tíquete de suporte, a Microsoft processará créditos para seu cliente se você julgar apropriado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

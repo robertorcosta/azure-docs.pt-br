@@ -1,17 +1,17 @@
 ---
-title: Versões com suporte no Banco de Dados do Azure para MySQL
-description: Descreve as versões com suporte no Banco de Dados do Azure para MySQL.
+title: Versões com suporte – banco de dados do Azure para MySQL
+description: Saiba quais versões do MySQL Server têm suporte no banco de dados do Azure para o serviço MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 25251b617522840412a4868331e155285f64a18c
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: f9c7278e60c8342aa7d5b68ab8da7143abaf4c89
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962578"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970525"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versões com suporte do servidor de Banco de Dados do Azure para MySQL
 

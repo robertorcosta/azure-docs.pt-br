@@ -1,21 +1,21 @@
 ---
 title: Repositório de Consultas no banco de dados do Azure para MySQL
-description: Este artigo descreve o recurso Repositório de Consultas no banco de dados do Azure para MySQL
+description: Saiba mais sobre o recurso Repositório de Consultas no banco de dados do Azure para MySQL para ajudá-lo a acompanhar o desempenho ao longo do tempo.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 884824b6f6fd8bf5b4c7730813c4363fae018375
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: e938baa21f9d2351b3270f4fa2411bf8ecb547d4
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950588"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972810"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitorar o desempenho do banco de dados do Azure para MySQL com o Repositório de Consultas
 
-**Aplica-se a:**  banco de dados do Azure para MySQL 5,7
+**Aplica-se a:** banco de dados  Azure para MySQL 5,7
 
 > [!IMPORTANT]
 > Repositório de Consultas está em versão prévia.
@@ -37,7 +37,7 @@ O Repositório de Consultas é um recurso que requer aceitação, portanto, ele 
 ### <a name="enable-query-store-using-the-azure-portal"></a>Habilitar o Repositório de Consultas usando o portal do Azure
 
 1. Entre no portal do Azure e selecione o servidor do banco de dados do Azure para MySQL.
-1. Selecione **parâmetros** de servidor na seção **configurações** do menu.
+1. Selecione **parâmetros de servidor** In as **configurações** section do menu.
 1. Procure o parâmetro query_store_capture_mode.
 1. Defina o valor como todos e **salve**.
 
@@ -78,8 +78,8 @@ Aqui estão alguns exemplos de como você pode obter mais insights sobre sua car
 | **Observação** | **Ação** |
 |---|---|
 |Esperas de bloqueio alto | Verifique os textos de consulta para as consultas afetadas e identifique as entidades de destino. Procure no Repositório de Consultas outras consultas que modificam a mesma entidade, que é executada com frequência e/ou têm alta duração. Depois de identificar essas consultas, considere alterar a lógica do aplicativo para melhorar a simultaneidade ou use um nível de isolamento menos restritivo. |
-|Esperas de E/S de buffer alto | Localize as consultas com um grande número de leituras físicas no Repositório de Consultas. Se eles corresponderem às consultas com altas esperas de e/s, considere a introdução de um índice na entidade subjacente, para fazer buscas em vez de verificações. Isso minimizaria a sobrecarga de E/S das consultas. Verifique as **recomendações** de desempenho para o servidor no portal para ver se há recomendações de índice para esse servidor que otimizaria as consultas. |
-|Esperas de memória alta | Localize as consultas que consomem mais memória no Repositório de Consultas. Essas consultas estão provavelmente atrasando o andamento das consultas afetadas. Verifique as **recomendações** de desempenho para seu servidor no portal para ver se há recomendações de índice que otimizarão essas consultas.|
+|Esperas de E/S de buffer alto | Localize as consultas com um grande número de leituras físicas no Repositório de Consultas. Se eles corresponderem às consultas com altas esperas de e/s, considere a introdução de um índice na entidade subjacente, para fazer buscas em vez de verificações. Isso minimizaria a sobrecarga de E/S das consultas. Verifique as **recomendações de desempenho** Para seu servidor no portal para ver se há recomendações de índice para esse servidor que otimizaria as consultas. |
+|Esperas de memória alta | Localize as consultas que consomem mais memória no Repositório de Consultas. Essas consultas estão provavelmente atrasando o andamento das consultas afetadas. Verifique as **recomendações de desempenho** Para seu servidor no portal para ver se há recomendações de índice que otimizarão essas consultas.|
 
 ## <a name="configuration-options"></a>Opções de configuração
 
@@ -89,7 +89,7 @@ As opções a seguir estão disponíveis para configurar os parâmetros do Repos
 
 | **Parâmetro** | **Descrição** | **Padrão** | **Range** |
 |---|---|---|---|
-| query_store_capture_mode | Ativar/desativar o recurso de repositório de consultas com base no valor. Observação: Se performance_schema estiver OFF, ativar o query_store_capture_mode ativará performance_schema e um subconjunto de instrumentos de esquema de desempenho necessários para esse recurso. | TODOS | NENHUM, TUDO |
+| query_store_capture_mode | Ativar/desativar o recurso de repositório de consultas com base no valor. Observação: Se performance_schema estiver OFF, ativar o query_store_capture_mode ativará performance_schema e um subconjunto de instrumentos de esquema de desempenho necessários para esse recurso. | ALL | NENHUM, TUDO |
 | query_store_capture_interval | O intervalo de captura do repositório de consultas em minutos. Permite especificar o intervalo no qual as métricas de consulta são agregadas | 15 | 5 - 60 |
 | query_store_capture_utility_queries | Ativar ou desativar o para capturar todas as consultas do utilitário que estão sendo executadas no sistema. | NÃO | SIM, NÃO |
 | query_store_retention_period_in_days | Janela de tempo em dias para manter os dados no repositório de consultas. | 7 | 1 a 30 |
@@ -104,11 +104,11 @@ As opções a seguir se aplicam especificamente às estatísticas de espera.
 > [!NOTE]
 > Atualmente, o **query_store_capture_mode** substitui essa configuração, o que significa que **query_store_capture_mode** e **query_store_wait_sampling_capture_mode** precisam ser habilitados para que todas as estatísticas de espera funcionem. Se **query_store_capture_mode** for desativado, as estatísticas de espera serão desativadas, já que as estatísticas de espera utilizam o performance_schema habilitado e o query_text capturado pelo repositório de consultas.
 
-Use o [portal do Azure](howto-server-parameters.md) ou [CLI do Azure](howto-configure-server-parameters-using-cli.md) para obter ou definir um valor diferente para um parâmetro.
+Use o [portal do Azure](howto-server-parameters.md) or [CLI do Azure](howto-configure-server-parameters-using-cli.md) to Get ou defina um valor diferente para um parâmetro.
 
 ## <a name="views-and-functions"></a>Exibições e funções
 
-Exiba e gerencie o Repositório de Consultas usando as seguintes exibições e funções. Qualquer pessoa na [função pública selecionar privilégio](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) pode usar essas exibições para ver os dados em repositório de consultas. Essas exibições estão disponíveis somente no banco de dados **MySQL** .
+Exiba e gerencie o Repositório de Consultas usando as seguintes exibições e funções. Qualquer pessoa na [função pública selecionar privilégio](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) pode usar essas exibições para ver os dados em repositório de consultas. Essas exibições estão disponíveis somente no **mysql** database.
 
 Consultas são normalizadas examinando sua estrutura após a remoção de literais e constantes. Se duas consultas forem idênticas, exceto por valores literais, elas terão o mesmo hash.
 
@@ -116,7 +116,7 @@ Consultas são normalizadas examinando sua estrutura após a remoção de litera
 
 Essa exibição retorna todos os dados no Repositório de Consultas. Há uma linha para cada ID de banco de dados, ID de usuário e ID de consulta distinta.
 
-| **Nome** | **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
+| **Name** | **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
 |---|---|---|---|
 | `schema_name`| varchar(64) | NÃO | Nome do esquema |
 | `query_id`| bigint(20) | NÃO| ID exclusiva gerada para a consulta específica, se a mesma consulta for executada em um esquema diferente, uma nova ID será gerada |
@@ -127,10 +127,10 @@ Essa exibição retorna todos os dados no Repositório de Consultas. Há uma lin
 | `execution_count` | bigint(20)| NÃO| O número de vezes que a consulta foi executada para esta ID de carimbo de data/hora durante o período de intervalo configurado|
 | `warning_count` | bigint(20)| NÃO| Número de avisos que esta consulta gerou durante a|
 | `error_count` | bigint(20)| NÃO| Número de erros que esta consulta gerou durante o intervalo|
-| `sum_timer_wait` | duplo| SIM| Tempo de execução total desta consulta durante o intervalo|
-| `avg_timer_wait` | duplo| SIM| Tempo médio de execução para esta consulta durante o intervalo|
-| `min_timer_wait` | duplo| SIM| Tempo mínimo de execução para esta consulta|
-| `max_timer_wait` | duplo| SIM| Tempo de execução máximo|
+| `sum_timer_wait` | double| SIM| Tempo de execução total desta consulta durante o intervalo|
+| `avg_timer_wait` | double| SIM| Tempo médio de execução para esta consulta durante o intervalo|
+| `min_timer_wait` | double| SIM| Tempo mínimo de execução para esta consulta|
+| `max_timer_wait` | double| SIM| Tempo de execução máximo|
 | `sum_lock_time` | bigint(20)| NÃO| Quantidade total de tempo gasto para todos os bloqueios para esta execução de consulta durante esta janela de tempo|
 | `sum_rows_affected` | bigint(20)| NÃO| Número de linhas afetadas|
 | `sum_rows_sent` | bigint(20)| NÃO| Número de linhas enviadas ao cliente|
@@ -149,7 +149,7 @@ Essa exibição retorna todos os dados no Repositório de Consultas. Há uma lin
 
 Essa exibição retorna os dados de eventos de espera no Repositório de Consultas. Há uma linha para cada ID de banco de dados, ID de usuário, ID de consulta e evento distinto.
 
-| **Nome**| **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
+| **Name**| **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
 |---|---|---|---|
 | `interval_start` | timestamp | NÃO| Início do intervalo (incremento de 15 minutos)|
 | `interval_end` | timestamp | NÃO| Fim do intervalo (incremento de 15 minutos)|
@@ -159,11 +159,11 @@ Essa exibição retorna os dados de eventos de espera no Repositório de Consult
 | `event_type` | varchar(32) | NÃO| Categoria do evento de espera |
 | `event_name` | varchar(128) | NÃO| Nome do evento de espera |
 | `count_star` | bigint(20) | NÃO| Número de eventos de espera amostrados durante o intervalo para a consulta |
-| `sum_timer_wait_ms` | duplo | NÃO| Tempo de espera total (em milissegundos) desta consulta durante o intervalo |
+| `sum_timer_wait_ms` | double | NÃO| Tempo de espera total (em milissegundos) desta consulta durante o intervalo |
 
 ### <a name="functions"></a>Funções
 
-| **Nome**| **Descrição** |
+| **Name**| **Descrição** |
 |---|---|
 | `mysql.az_purge_querystore_data(TIMESTAMP)` | Limpa todos os dados do repositório de consultas antes do carimbo de data/hora fornecido |
 | `mysql.az_procedure_purge_querystore_event(TIMESTAMP)` | Limpa todos os dados de evento de espera antes do carimbo de data/hora fornecido |
@@ -171,10 +171,10 @@ Essa exibição retorna os dados de eventos de espera no Repositório de Consult
 
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 
-- Se um servidor MySQL tiver o parâmetro `default_transaction_read_only` ativado, repositório de consultas não poderá capturar dados.
-- Repositório de consultas funcionalidade poderá ser interrompida se encontrar consultas longas de Unicode\>(= 6000 bytes).
+- Se um servidor MySQL tiver o parâmetro `default_transaction_read_only` em, Repositório de Consultas não poderá capturar dados.
+- Repositório de Consultas funcionalidade poderá ser interrompida se encontrar consultas longas em Unicode (\> = 6000 bytes).
 - O período de retenção para estatísticas de espera é de 24 horas.
-- Estatísticas de espera usa a captura de ti de exemplo uma fração de eventos. A frequência pode ser modificada usando o `query_store_wait_sampling_frequency`parâmetro.
+- Estatísticas de espera usa a captura de ti de exemplo uma fração de eventos. A frequência pode ser modificada usando o parâmetro `query_store_wait_sampling_frequency`.
 
 ## <a name="next-steps"></a>Próximas etapas
 

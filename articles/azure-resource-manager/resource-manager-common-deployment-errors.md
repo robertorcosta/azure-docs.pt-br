@@ -6,20 +6,20 @@ author: tfitzmac
 keywords: erro de implantação, implantação do azure, implante no azure
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 08/30/2019
+ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0e03cd3747fe6770be7dddaf36d634547ed75b39
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: ac700592a63e88936593c24f8f7ce06a08e289ce
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718948"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972681"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solução de erros comuns de implantação do Azure com o Azure Resource Manager
 
 Este artigo descreve alguns erros comuns de implantação do Azure e fornece informações para resolver os erros. Se não encontrar o código de erro para o erro de implantação, confira [Localizar código de erro](#find-error-code).
 
-Se você estiver procurando informações sobre um código de erro e se essas informações não forem fornecidas neste artigo, informe-nos. Na parte inferior desta página, você pode deixar comentários. Os comentários são acompanhados com problemas do GitHub. 
+Se você estiver procurando informações sobre um código de erro e se essas informações não forem fornecidas neste artigo, informe-nos. Na parte inferior desta página, você pode deixar comentários. Os comentários são acompanhados com problemas do GitHub.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -34,7 +34,9 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | AuthorizationFailed | Sua conta ou entidade de serviço não tem acesso suficiente para concluir a implantação. Verifique a função a que sua conta pertence e seu acesso para o escopo da implantação.<br><br>Você pode receber esse erro quando um provedor de recursos necessário não está registrado. | [Controle de Acesso Baseado em Função do Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver registro](resource-manager-register-provider-errors.md) |
 | BadRequest | Você enviou valores de implantação que não coincidem com o que é esperado pelo Resource Manager. Verifique a mensagem de status interna para obter ajuda com a solução de problemas. | [Referência de modelos](/azure/templates/) e [Locais com suporte](resource-location.md) |
 | Conflito | Você está solicitando uma operação não permitida no estado atual do recurso. Por exemplo, o redimensionamento do disco é permitido apenas ao criar uma VM ou quando a VM é desalocada. | |
-| DeploymentActive | Aguarde a conclusão da implantação simultânea nesse grupo de recursos. | |
+| DeploymentActiveAndUneditable | Aguarde a conclusão da implantação simultânea nesse grupo de recursos. | |
+| DeploymentNameInvalidCharacters | O nome da implantação só pode conter letras, dígitos, '-', '. ' ou ' _ '. | |
+| DeploymentNameLengthLimitExceeded | Os nomes de implantação são limitados a 64 caracteres.  | |
 | DeploymentFailed | O erro DeploymentFailed é um erro geral que não fornece os detalhes necessários para resolvê-lo. Examine os detalhes do erro em busca de um código de erro que fornece mais informações. | [Encontrar código do erro](#find-error-code) |
 | DeploymentQuotaExceeded | Caso você atinja o limite de 800 implantações por grupo de recursos, exclua do histórico as implantações que não são mais necessárias. | [Resolver erro quando a contagem de implantação exceder 800](deployment-quota-exceeded.md) |
 | DnsRecordInUse | O nome do registro DNS deve ser exclusivo. Insira um nome diferente. | |
@@ -124,13 +126,13 @@ Você verá mais detalhes sobre a implantação. Selecione a opção para obter 
 
 ![falha na implantação](./media/resource-manager-common-deployment-errors/deployment-failed.png)
 
-Você verá a mensagem de erro e os códigos de erro. Observe que há dois códigos de erro. O primeiro código de erro (**DeploymentFailed**) é um erro geral que não fornece os detalhes necessários para resolver o erro. O segundo código de erro (**StorageAccountNotFound**) fornece os detalhes necessários. 
+Você verá a mensagem de erro e os códigos de erro. Observe que há dois códigos de erro. O primeiro código de erro (**DeploymentFailed**) é um erro geral que não fornece os detalhes necessários para resolver o erro. O segundo código de erro (**StorageAccountNotFound**) fornece os detalhes necessários.
 
 ![detalhes do erro](./media/resource-manager-common-deployment-errors/error-details.png)
 
 ## <a name="enable-debug-logging"></a>Habilitar o log de depuração
 
-Às vezes, você precisa obter mais informações sobre a solicitação e a resposta para descobrir o que deu errado. Durante a implantação, você pode solicitar que informações adicionais sejam registradas durante a implantação. 
+Às vezes, você precisa obter mais informações sobre a solicitação e a resposta para descobrir o que deu errado. Durante a implantação, você pode solicitar que informações adicionais sejam registradas durante a implantação.
 
 ### <a name="powershell"></a>PowerShell
 
