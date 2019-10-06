@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: d6ca7827200815cf9b9b1c7ac697d06f9c6b306d
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 219a3c56f9e4e4c9e132fa759b017fac63ade766
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147061"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977985"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corrigir recursos que não estão em conformidade com o Azure Policy
 
@@ -161,7 +160,7 @@ Os recursos implantados por meio de uma **tarefa de correção** são adicionado
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>Criar uma tarefa de correção por meio do CLI do Azure
 
-Para criar uma **tarefa de correção** com CLI do Azure, use `az policy remediation` os comandos. Substitua `{subscriptionId}` por sua ID de assinatura `{myAssignmentId}` e por sua ID de atribuição de política **deployIfNotExists** ou **Modify** .
+Para criar uma **tarefa de correção** com CLI do Azure, use os comandos `az policy remediation`. Substitua `{subscriptionId}` pela sua ID de assinatura e `{myAssignmentId}` por sua ID de atribuição de política **deployIfNotExists** ou **Modify** .
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -174,7 +173,7 @@ Para outros comandos de correção e exemplos, consulte os comandos [AZ Policy r
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>Criar uma tarefa de correção por meio do Azure PowerShell
 
-Para criar uma **tarefa de correção** com Azure PowerShell, use `Start-AzPolicyRemediation` os comandos. Substitua `{subscriptionId}` por sua ID de assinatura `{myAssignmentId}` e por sua ID de atribuição de política **deployIfNotExists** ou **Modify** .
+Para criar uma **tarefa de correção** com Azure PowerShell, use os comandos `Start-AzPolicyRemediation`. Substitua `{subscriptionId}` pela sua ID de assinatura e `{myAssignmentId}` por sua ID de atribuição de política **deployIfNotExists** ou **Modify** .
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -190,6 +189,6 @@ Para obter outros cmdlets de correção e exemplos, consulte o módulo [AZ. Poli
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Revisar [Compreendendo os efeitos da política](../concepts/effects.md).
-- Entenda como [criar políticas](programmatically-create.md)programaticamente.
+- Entenda como [criar políticas programaticamente](programmatically-create.md).
 - Saiba como [obter dados de conformidade](getting-compliance-data.md).
 - Veja o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

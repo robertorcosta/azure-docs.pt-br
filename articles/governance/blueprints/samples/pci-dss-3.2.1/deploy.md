@@ -7,13 +7,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 430cf7cde22cc8de337d33e1f083121503d084f5
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: f95f9a592085fd93fba5e6b11a1a75609eb70295
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802348"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980934"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Implantar a amostra do PCI-DSS v 3.2.1 Blueprint
 
@@ -98,7 +97,7 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 
 |Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[Visualização\] de auditoria de PCI v 3.2.1: controles de 2018 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de Política|Lista de tipos de recursos | Configuração de diagnóstico de auditoria para tipos de recursos selecionados. O valor padrão é que todos os recursos estão selecionados| 
+|\[Preview @ no__t-1 Audit PCI v 3.2.1: controles de 2018 e implante extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de Política|Lista de tipos de recursos | Configuração de diagnóstico de auditoria para tipos de recursos selecionados. O valor padrão é que todos os recursos estão selecionados| 
 |Locais permitidos|Atribuição de Política|Lista de locais permitidos|Lista de locais de data center permitidos para qualquer recurso a ser implantado. Essa lista é personalizável para os locais do Azure desejados globalmente. Selecione os locais que você deseja permitir.| 
 |Locais permitidos para grupos de recursos|Atribuição de Política |Local permitido |Essa política permite restringir os locais em que sua organização pode criar grupos de recursos. Use para impor seus requisitos de conformidade geográfica.| 
 |Implantar Auditoria em servidores SQL|Atribuição de Política|Dias de retenção|A retenção de dados em número de dias. O valor padrão é 180, mas o PCI requer 365.| 

@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: da4e9626b2bf5b180cddba012af81059dd8b67fe
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 6d2395dcfae5d512412048a683a7f1397967499e
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883274"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978644"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Consultar dados do ambiente de visualização de Azure Time Series Insights usandoC#
 
@@ -31,7 +31,7 @@ O exemplo mostra vários exemplos básicos do uso da API de consulta:
 1. Como um exemplo de solicitação do soquete Web, os dados de eventos agregados são solicitados para o ambiente de interesse. Os dados são solicitados para todo o intervalo de tempo de disponibilidade.
 
 > [!NOTE]
-> Esse código de exemplo também está disponível [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample)em.
+> Esse código de exemplo também está disponível em [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample).
 
 ## <a name="c-example"></a>Exemplo de C#
 
@@ -44,4 +44,4 @@ O exemplo mostra vários exemplos básicos do uso da API de consulta:
 
 - Para saber mais sobre consultas, leia a [referência de API de consulta](https://docs.microsoft.com/rest/api/time-series-insights/preview-query).
 
-- Leia como [conectar um aplicativo JavaScript de página única](tutorial-create-tsi-sample-spa.md) para Time Series insights.
+- Leia como [conectar um aplicativo JavaScript usando o SDK do cliente](https://github.com/microsoft/tsiclient) para Time Series insights.

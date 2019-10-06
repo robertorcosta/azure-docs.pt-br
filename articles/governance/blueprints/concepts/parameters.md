@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: ee44d744c580dd9fbf20e7186b6e76fdc74cc5d0
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 2bb38e0698d7504ba1bb139ca1bd5e3b14e5cdd4
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004076"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981064"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando blueprints dinâmicos por meio de parâmetros
 
@@ -89,7 +88,7 @@ Ao criar um blueprint por meio da API REST, é possível criar [parâmetros de b
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
   ```
 
-- Corpo de Solicitação
+- Corpo da solicitação
 
   ```json
   {
@@ -122,7 +121,7 @@ O exemplo de API REST a seguir cria um artefato de atribuição de função no b
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2018-11-01-preview
   ```
 
-- Corpo de Solicitação
+- Corpo da solicitação
 
   ```json
   {
@@ -147,7 +146,7 @@ A criação de **parâmetros estáticos** em um artefato é semelhante, mas usa 
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2018-11-01-preview
   ```
 
-- Corpo de Solicitação
+- Corpo da solicitação
 
   ```json
   {
@@ -193,7 +192,7 @@ Definir **parâmetros dinâmicos** durante a atribuição é feito inserindo o v
   PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
-- Corpo de Solicitação
+- Corpo da solicitação
 
   ```json
   {

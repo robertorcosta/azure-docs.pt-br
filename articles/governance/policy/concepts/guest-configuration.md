@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 51129f89f45d65007f8a7f37df0353121ebdbdd8
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: ac8d4d2519ce918a943cfe1e93ed2c5c7afd9a47
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338375"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978052"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -97,7 +96,7 @@ O Windows Server nano Server não tem suporte em nenhuma versão.
 
 Para se comunicar com o provedor de recursos de configuração de convidado no Azure, as máquinas exigem acesso de saída aos datacenters do Azure na porta **443**. Se você estiver usando uma rede virtual privada no Azure que não permita o tráfego de saída, configure exceções com regras de [grupo de segurança de rede](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . Uma marca de serviço não existe atualmente para Azure Policy configuração de convidado.
 
-Para listas de endereços IP, você pode baixar [Microsoft Azure intervalos de IP](https://www.microsoft.com/download/details.aspx?id=41653)do datacenter. Esse arquivo é atualizado semanalmente e tem os intervalos atualmente implantados e as alterações futuras nos intervalos de IP. Você só precisa permitir o acesso de saída aos IPs nas regiões em que suas VMs são implantadas.
+Para listas de endereços IP, você pode baixar [Microsoft Azure intervalos de IP do datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Esse arquivo é atualizado semanalmente e tem os intervalos atualmente implantados e as alterações futuras nos intervalos de IP. Você só precisa permitir o acesso de saída aos IPs nas regiões em que suas VMs são implantadas.
 
 > [!NOTE]
 > O arquivo XML do endereço IP do centro de dados do Azure lista os intervalos de endereços IP que são usados nos centros de dados do Microsoft Azure. O arquivo inclui intervalos de computação, SQL e armazenamento. Um arquivo atualizado é postado semanalmente. O arquivo reflete os intervalos atualmente implantados e quaisquer alterações futuras para os intervalos de IP. Novos intervalos que aparecem no arquivo não são usados nos centros de dados por pelo menos uma semana. É uma boa ideia fazer o download do novo arquivo XML toda semana. Em seguida, atualize seu site para identificar corretamente os serviços em execução no Azure. Os usuários do Azure ExpressRoute devem observar que esse arquivo é usado para atualizar o anúncio BGP (Border Gateway Protocol) do espaço do Azure na primeira semana de cada mês.
@@ -122,7 +121,7 @@ O Azure Policy usa a propriedade **complianceStatus** dos provedores de recursos
 > [!NOTE]
 > A política **DeployIfNotExists** é necessária para que a política **AuditIfNotExists** retorne os resultados. Sem o **DeployIfNotExists**, a política **AuditIfNotExists** mostra "0 de 0" recursos como status.
 
-Todas as políticas internas da Configuração de Convidado são incluídas em uma iniciativa para agrupar as definições a serem usadas em atribuições. A iniciativa interna chamada *[Versão Prévia]: As configurações de segurança de senha de auditoria dentro* de computadores Linux e Windows contêm 18 políticas. Há seis pares de **DeployIfNotExists** e **AuditIfNotExists** para o Windows e três para o Linux. A lógica de [definição de política](definition-structure.md#policy-rule) valida que apenas o sistema operacional de destino é avaliado.
+Todas as políticas internas da Configuração de Convidado são incluídas em uma iniciativa para agrupar as definições a serem usadas em atribuições. A iniciativa interna chamada *[Versão Prévia]: As configurações de segurança de senha de auditoria dentro de computadores Linux e Windows @ no__t-0 contém 18 políticas. Há seis pares de **DeployIfNotExists** e **AuditIfNotExists** para o Windows e três para o Linux. A lógica de [definição de política](definition-structure.md#policy-rule) valida que apenas o sistema operacional de destino é avaliado.
 
 ### <a name="multiple-assignments"></a>Várias atribuições
 
@@ -141,11 +140,11 @@ Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindo
 
 Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
 
-Em `<version>` que refere-se ao número de versão atual.
+Onde `<version>` refere-se ao número de versão atual.
 
 ### <a name="collecting-logs-remotely"></a>Coletando logs remotamente
 
-A primeira etapa na solução de problemas de configurações de convidado ou módulos deve ser usar `Test-GuestConfigurationPackage` o cmdlet seguindo as etapas em [testar um pacote de configuração de convidado](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).
+A primeira etapa na solução de problemas de configurações de convidado ou módulos deve ser usar o cmdlet `Test-GuestConfigurationPackage` seguindo as etapas em [testar um pacote de configuração de convidado](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).
 Se isso não for bem-sucedido, coletar logs do cliente poderá ajudar a diagnosticar problemas.
 
 #### <a name="windows"></a>Windows
@@ -182,7 +181,7 @@ Exemplos de configuração de convidado de política estão disponíveis nos seg
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](definition-structure.md).
 - Revisar [Compreendendo os efeitos da política](effects.md).
-- Entenda como [criar políticas](../how-to/programmatically-create.md)programaticamente.
+- Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).
 - Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).
 - Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
 - Veja o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

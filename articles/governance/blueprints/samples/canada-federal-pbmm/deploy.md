@@ -7,13 +7,12 @@ ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: b5cf0cf5dc8a0964d981c5537b6fa41f1c6c2058
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 2e810c810fd2c143f3d3e43a6ff1df87a150fa3b
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968491"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981639"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implantar os exemplos do Canadá Federal PBMM Blueprint
 
@@ -99,8 +98,8 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux |Atribuição de política |Workspace do Log Analytics para VMs Linux |Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux |Atribuição de política |Opcional: Lista de imagens de VM compatíveis com o sistema operacional Linux a serem adicionadas ao escopo |Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional:`[]` |
-|\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows |Atribuição de política |Opcional: Lista de imagens de VM compatíveis com o sistema operacional Windows a serem adicionadas ao escopo |Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional:`[]` |
+|\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux |Atribuição de política |Opcional: Lista de imagens de VM compatíveis com o sistema operacional Linux a serem adicionadas ao escopo |Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: `[]` |
+|\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows |Atribuição de política |Opcional: Lista de imagens de VM compatíveis com o sistema operacional Windows a serem adicionadas ao escopo |Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: `[]` |
 |\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows |Atribuição de política |Workspace do Log Analytics para VMs do Windows |Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 |\[Versão Prévia\]: Auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |ID do workspace do Log Analytics para a qual as VMs devem ser configuradas |Esta é a ID (GUID) do workspace do Log Analytics para a qual as VMs devem ser configuradas. |
 |\[Versão Prévia\]: Auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |Lista de tipos de recurso que devem ter os logs de diagnóstico habilitados |Lista de tipos de recursos para auditar se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
@@ -118,7 +117,7 @@ Agora que você analisou as etapas para implantar o exemplo de PBMM Federal do C
 
 > [!div class="nextstepaction"]
 > [Canadá Federal PBMM Blueprints-visão geral](./index.md)
-> do[Canadá Federal PBMM Blueprints – mapeamento de controle](./control-mapping.md)
+> [Canadá Federal PBMM Blueprints – mapeamento de controle](./control-mapping.md)
 
 Outros artigos sobre blueprints e como usá-los:
 

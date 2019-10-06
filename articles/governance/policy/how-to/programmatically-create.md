@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 695e04dcbc7762c85dd0dd9aaff6e5fd9fe99348
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 047e9cab8d7776fc3b5353aebc571e28ad780ae8
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155571"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977947"
 ---
 # <a name="programmatically-create-policies"></a>Cria políticas de maneira programática
 
@@ -91,7 +90,7 @@ A primeira etapa para obter melhor visibilidade de seus recursos é criar e atri
 
    Substitua _ContosoRG_ pelo nome do grupo de recursos desejado.
 
-   O parâmetro de escopo `New-AzPolicyAssignment` no funciona com grupo de gerenciamento, assinatura, grupo de recursos ou um único recurso. O parâmetro usa um caminho de recurso completo, que a propriedade **ResourceId** em `Get-AzResourceGroup` retorna. O padrão para **Escopo** para cada contêiner é como segue. Substitua `{rName}`, `{rgName}`, `{subId}` e `{mgName}` pelo nome de recurso, nome do grupo de recursos, ID da assinatura e nome do grupo de gerenciamento, respectivamente.
+   O parâmetro de **escopo** no `New-AzPolicyAssignment` funciona com grupo de gerenciamento, assinatura, grupo de recursos ou um único recurso. O parâmetro usa um caminho de recurso completo, que a propriedade **ResourceId** em `Get-AzResourceGroup` retorna. O padrão para **Escopo** para cada contêiner é como segue. Substitua `{rName}`, `{rgName}`, `{subId}` e `{mgName}` pelo nome de recurso, nome do grupo de recursos, ID da assinatura e nome do grupo de gerenciamento, respectivamente.
    `{rType}` deve ser substituído pelo **tipo de recurso**, como `Microsoft.Compute/virtualMachines` para uma VM.
 
    - Recurso: `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`

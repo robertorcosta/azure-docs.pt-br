@@ -1,5 +1,5 @@
 ---
-title: Depurar o PowerShell do Azure Functions localmente
+title: Depurar Azure Functions do PowerShell localmente
 description: Entenda como desenvolver funções usando o PowerShell.
 services: functions
 documentationcenter: na
@@ -11,29 +11,29 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: fc30a2efb21d5b7f3168d9229ec5baf9a7f05eb1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5b396ef6b00d53a313ed4fb426685c12e2c1549d
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706420"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981840"
 ---
-# <a name="debug-powershell-azure-functions-locally"></a>Depurar o PowerShell do Azure Functions localmente
+# <a name="debug-powershell-azure-functions-locally"></a>Depurar Azure Functions do PowerShell localmente
 
-O Azure Functions permite desenvolver funções como scripts do PowerShell.
+Azure Functions permite desenvolver suas funções como scripts do PowerShell.
 
 [!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
-Você pode depurar suas funções do PowerShell localmente, como você faria com qualquer script do PowerShell usando as ferramentas de desenvolvimento padrão a seguir:
+Você pode depurar suas funções do PowerShell localmente como faria com qualquer script do PowerShell usando as seguintes ferramentas de desenvolvimento padrão:
 
-* [Visual Studio Code](https://code.visualstudio.com/): Editor de texto gratuitas, leves e código-fonte aberto da Microsoft com a extensão do PowerShell que oferece uma experiência de desenvolvimento completa do PowerShell.
-* Um console do PowerShell: Depure usando os mesmos comandos que você usaria para depurar qualquer processo do PowerShell.
+* [Visual Studio Code](https://code.visualstudio.com/): Editor de texto gratuito, leve e de software livre da Microsoft com a extensão do PowerShell que oferece uma experiência de desenvolvimento completa do PowerShell.
+* Um console do PowerShell: Depurar usando os mesmos comandos que você usaria para depurar qualquer outro processo do PowerShell.
 
-[Funções principais ferramentas do Azure](functions-run-local.md) dá suporte à depuração local do Azure Functions, incluindo as funções do PowerShell.
+O [Azure Functions Core Tools](functions-run-local.md) dá suporte à depuração local de Azure functions, incluindo o PowerShell functions.
 
-## <a name="example-function-app"></a>Exemplo de aplicativo de função
+## <a name="example-function-app"></a>Exemplo de aplicativo de funções
 
-O aplicativo de função usado neste artigo tem uma única função disparada por HTTP e tem os seguintes arquivos:
+O aplicativo de funções usado neste artigo tem uma única função disparada por HTTP e tem os seguintes arquivos:
 
 ```
 PSFunctionApp
@@ -45,9 +45,9 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-Esse aplicativo de função é semelhante ao que você obtém quando você concluir o [início rápido do PowerShell](functions-create-first-function-powershell.md).
+Esse aplicativo de funções é semelhante ao que você obtém quando conclui o [início rápido do PowerShell](functions-create-first-function-powershell.md).
 
-O código de função em `run.ps1` se parece com o script a seguir:
+O código de função em `run.ps1` é semelhante ao seguinte script:
 
 ```powershell
 param($Request)
@@ -71,9 +71,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 ## <a name="set-the-attach-point"></a>Definir o ponto de anexo
 
-Para depurar qualquer função do PowerShell, a função precisa interromper o depurador a ser anexado. O `Wait-Debugger` cmdlet interrompe a execução e aguarda o depurador.
+Para depurar qualquer função do PowerShell, a função precisa parar para que o depurador seja anexado. O cmdlet `Wait-Debugger` interrompe a execução e aguarda o depurador.
 
-Tudo o que você precisa fazer é adicionar uma chamada para o `Wait-Debugger` cmdlet imediatamente acima do `if` instrução, da seguinte maneira:
+Tudo o que você precisa fazer é adicionar uma chamada ao cmdlet `Wait-Debugger` logo acima da instrução `if`, da seguinte maneira:
 
 ```powershell
 param($Request)
@@ -90,100 +90,103 @@ if($name) {
 # ...
 ```
 
-Depuração de US o `if` instrução. 
+A depuração começa na instrução `if`. 
 
-Com `Wait-Debugger` em vigor, você pode depurar funções usando o Visual Studio Code ou em um console do PowerShell.
+Com `Wait-Debugger` em vigor, agora você pode depurar as funções usando o Visual Studio Code ou um console do PowerShell.
 
 ## <a name="debug-in-visual-studio-code"></a>Depurar no Visual Studio Code
 
-Para depurar suas funções do PowerShell no Visual Studio Code, você deve ter o seguinte instalado:
+Para depurar as funções do PowerShell no Visual Studio Code, você deve ter o seguinte instalado:
 
 * [Extensão do PowerShell para Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
 * [Extensão Azure Functions para Visual Studio Code](functions-create-first-function-vs-code.md)
-* [O PowerShell Core 6.2 ou superior](/powershell/scripting/install/installing-powershell-core-on-windows)
+* [PowerShell Core 6,2 ou superior](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-Depois de instalar essas dependências, carregar um projeto de funções do PowerShell existente, ou [criar seu primeiro projeto de funções do PowerShell](functions-create-first-function-powershell.md).
+Depois de instalar essas dependências, carregue um projeto de funções do PowerShell existente ou [crie seu primeiro projeto de funções do PowerShell](functions-create-first-function-powershell.md).
 
 >[!NOTE]
-> Seu projeto não deve ter os arquivos de configuração necessárias, você precisará adicioná-los.
+> Se o seu projeto não tiver os arquivos de configuração necessários, você será solicitado a adicioná-los.
 
-### <a name="set-the-powershell-version"></a>Defina a versão do PowerShell
+### <a name="set-the-powershell-version"></a>Definir a versão do PowerShell
 
-O PowerShell Core instala lado a lado com o Windows PowerShell. Defina o PowerShell Core como a versão do PowerShell para usar com a extensão do PowerShell para Visual Studio Code.
+O PowerShell Core é instalado lado a lado com o Windows PowerShell. Defina o PowerShell Core como a versão do PowerShell a ser usada com a extensão do PowerShell para Visual Studio Code.
 
-1. Pressione F1 para exibir a paleta de comando, em seguida, pesquise `Session`.
+1. Pressione F1 para exibir o palete de comandos e, em seguida, procure `Session`.
 
-1. Escolha **PowerShell: Mostrar Menu de sessão**.
+1. Escolha **PowerShell: Mostrar menu de sessão @ no__t-0.
 
-1. Se sua **sessão atual** não está **PowerShell Core 6**, escolha **alternar para: O PowerShell Core 6**.
+1. Se a **sessão atual** não for o **PowerShell Core 6**, escolha **Switch para: PowerShell Core 6 @ no__t-0.
 
-Quando você tiver um arquivo do PowerShell aberta, você verá a versão exibida em verde na parte inferior direita da janela. Também selecionar esse texto exibe o menu de sessão. Para obter mais informações, consulte o [escolher uma versão do PowerShell para usar com a extensão](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
+Quando você tiver um arquivo do PowerShell aberto, verá a versão exibida em verde na parte inferior direita da janela. A seleção desse texto também exibe o menu sessão. Para saber mais, consulte [escolhendo uma versão do PowerShell para usar com a extensão](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
 
 ### <a name="start-the-function-app"></a>Iniciar o aplicativo de funções
 
-Verifique se que `Wait-Debugger` é definido na função em que você deseja anexar o depurador.  Com `Wait-Debugger` adicionado, você pode depurar seu aplicativo de funções usando o Visual Studio Code.
+Verifique se `Wait-Debugger` está definido na função em que você deseja anexar o depurador.  Com `Wait-Debugger` adicionado, você pode depurar seu aplicativo de funções usando Visual Studio Code.
 
-Escolha o **Debug** painel e, em seguida **anexar a função do PowerShell**.
+Escolha o painel **depurar** e **anexe à função do PowerShell**.
 
-![Depurador](https://user-images.githubusercontent.com/2644648/56166073-8a7b3780-5f89-11e9-85ce-36ed38e221a2.png)
+![depurador](https://user-images.githubusercontent.com/2644648/56166073-8a7b3780-5f89-11e9-85ce-36ed38e221a2.png)
 
 Você também pode pressionar a tecla F5 para iniciar a depuração.
 
-O inicie a operação de depuração faz as seguintes tarefas:
+A operação iniciar depuração realiza as seguintes tarefas:
 
-* Execuções `func extensions install` no terminal para instalar qualquer extensão de funções do Azure exigido pelo seu aplicativo de funções.
-* Execuções `func host start` no terminal para iniciar o aplicativo de funções no host do Functions.
-* Anexe o depurador do PowerShell para o espaço de execução do PowerShell no tempo de execução de funções.
+* Executa `func extensions install` no terminal para instalar qualquer extensão de Azure Functions exigida pelo seu aplicativo de funções.
+* Executa `func host start` no terminal para iniciar o aplicativo de funções no host do functions.
+* Anexe o depurador do PowerShell ao runspace do PowerShell dentro do tempo de execução do functions.
 
-Com seu aplicativo de função em execução, você precisa de um console do PowerShell separado para chamar a função disparada por HTTP.
+>[!NOTE]
+> Você precisa garantir que PSWorkerInProcConcurrencyUpperBound esteja definido como 1 para garantir a experiência de depuração correta em Visual Studio Code. Esse é o padrão.
 
-Nesse caso, o console do PowerShell é o cliente. O `Invoke-RestMethod` é usado para disparar a função.
+Com seu aplicativo de funções em execução, você precisa de um console do PowerShell separado para chamar a função disparada por HTTP.
 
-No console do PowerShell, execute o seguinte comando:
+Nesse caso, o console do PowerShell é o cliente do. O `Invoke-RestMethod` é usado para disparar a função.
+
+Em um console do PowerShell, execute o seguinte comando:
 
 ```powershell
 Invoke-RestMethod "http://localhost:7071/api/HttpTrigger?Name=Functions"
 ```
 
-Você observará que uma resposta não é retornada imediatamente. Isso ocorre porque `Wait-Debugger` anexou o depurador e o PowerShell execução entrou no modo de interrupção, assim que era possível. Isso é devido a [BreakAll conceito](#breakall-might-cause-your-debugger-to-break-in-an-unexpected-place), que é explicado mais tarde. Depois de pressionar o `continue` botão, o depurador agora quebra na linha logo após `Wait-Debugger`.
+Você observará que uma resposta não é retornada imediatamente. Isso ocorre porque `Wait-Debugger` anexou o depurador e a execução do PowerShell entrou no modo de interrupção assim que possível. Isso ocorre devido ao [conceito de BreakAll](#breakall-might-cause-your-debugger-to-break-in-an-unexpected-place), que é explicado posteriormente. Depois de pressionar o botão `continue`, o depurador agora será interrompido na linha logo após `Wait-Debugger`.
 
-Neste ponto, o depurador é anexado e você pode fazer operações depurador normal. Para obter mais informações sobre como usar o depurador no Visual Studio Code, consulte [a documentação oficial do](https://code.visualstudio.com/Docs/editor/debugging#_debug-actions).
+Neste ponto, o depurador é anexado e você pode fazer todas as operações normais do depurador. Para obter mais informações sobre como usar o depurador no Visual Studio Code, consulte [a documentação oficial](https://code.visualstudio.com/Docs/editor/debugging#_debug-actions).
 
-Depois de você continua e invoca totalmente o seu script, você observará que:
+Depois de continuar e chamar totalmente o script, você observará que:
 
 * O console do PowerShell que fez o `Invoke-RestMethod` retornou um resultado
-* O Console do PowerShell integrado no Visual Studio Code está esperando para ser executado de um script
+* O console integrado do PowerShell no Visual Studio Code está aguardando a execução de um script
 
-Posteriormente, quando você invoca a mesma função, o depurador na extensão do PowerShell interrompe logo após o `Wait-Debugger`.
+Posteriormente, quando você invoca a mesma função, o depurador na extensão do PowerShell é interrompido logo após o `Wait-Debugger`.
 
-## <a name="debugging-in-a-powershell-console"></a>Depuração no Console do PowerShell
+## <a name="debugging-in-a-powershell-console"></a>Depuração em um console do PowerShell
 
 >[!NOTE]
-> Esta seção pressupõe que você leu a [docs as ferramentas básicas do Azure Functions](functions-run-local.md) e saber como usar o `func host start` comando para iniciar seu aplicativo de funções.
+> Esta seção pressupõe que você leu o [Azure Functions Core Tools docs](functions-run-local.md) e saberá como usar o comando `func host start` para iniciar seu aplicativo de funções.
 
-Abra um console `cd` no diretório do seu aplicativo de funções e execute o seguinte comando:
+Abra um console do, `cd` no diretório do seu aplicativo de funções e execute o seguinte comando:
 
 ```sh
 func host start
 ```
 
-Com o aplicativo de função em execução e o `Wait-Debugger` em vigor, você pode anexar ao processo. Você precisa de dois consoles mais do PowerShell.
+Com o aplicativo de funções em execução e o `Wait-Debugger` em vigor, você pode anexar ao processo. Você precisa de mais dois consoles do PowerShell.
 
-Um dos consoles atua como o cliente. A partir disso, você deve chamar `Invoke-RestMethod` para disparar a função. Por exemplo, você pode executar o comando a seguir:
+Um dos consoles atua como o cliente. A partir disso, você chama `Invoke-RestMethod` para disparar a função. Por exemplo, você pode executar o seguinte comando:
 
 ```powershell
 Invoke-RestMethod "http://localhost:7071/api/HttpTrigger?Name=Functions"
 ```
 
-Você observará que ele não retorna uma resposta, que é um resultado do `Wait-Debugger`. O espaço de execução do PowerShell agora está aguardando um depurador seja anexado. Vamos que anexado.
+Você observará que ele não retorna uma resposta, que é um resultado do `Wait-Debugger`. O runspace do PowerShell agora está aguardando a anexação de um depurador. Vamos colocar isso em anexo.
 
-No console do outros PowerShell, execute o seguinte comando:
+No outro console do PowerShell, execute o seguinte comando:
 
 ```powershell
 Get-PSHostProcessInfo
 ```
 
-Esse cmdlet retorna uma tabela que se parece com a seguinte saída:
+Esse cmdlet retorna uma tabela parecida com a seguinte saída:
 
 ```output
 ProcessName ProcessId AppDomainName
@@ -198,9 +201,9 @@ pwsh            32071 None
 pwsh            88785 None
 ```
 
-Anote o `ProcessId` para o item na tabela com o `ProcessName` como `dotnet`. Esse processo é o seu aplicativo de funções.
+Anote o `ProcessId` para o item na tabela com o `ProcessName` como `dotnet`. Esse processo é seu aplicativo de funções.
 
-Em seguida, execute o trecho a seguir:
+Em seguida, execute o seguinte trecho:
 
 ```powershell
 # This enters into the Azure Functions PowerShell process.
@@ -211,7 +214,7 @@ Enter-PSHostProcess -Id $ProcessId
 Debug-Runspace 1
 ```
 
-Depois de iniciado, o depurador interrompe e mostra algo parecido com a seguinte saída:
+Depois de iniciado, o depurador é interrompido e mostra algo semelhante à seguinte saída:
 
 ```
 Debugging Runspace: Runspace1
@@ -224,29 +227,29 @@ At /Path/To/PSFunctionApp/HttpTriggerFunction/run.ps1:13 char:1
 [DBG]: [Process:49988]: [Runspace1]: PS /Path/To/PSFunctionApp>>
 ```
 
-Neste ponto, você ficar parado em um ponto de interrupção na [depurador do PowerShell](/powershell/module/microsoft.powershell.core/about/about_debuggers). A partir daqui, você pode fazer todas as operações de depuração normal, contornar, intervir, continuar, sair, entre outros. Para ver o conjunto completo de comandos de depuração disponíveis no console do, execute as `h` ou `?` comandos.
+Neste ponto, você está parado em um pontos de interrupção no [depurador do PowerShell](/powershell/module/microsoft.powershell.core/about/about_debuggers). A partir daqui, você pode fazer todas as operações de depuração usuais, depurar, entrar, continuar, encerrar e outras. Para ver o conjunto completo de comandos de depuração disponíveis no console do, execute os comandos `h` ou `?`.
 
-Você também pode definir pontos de interrupção nesse nível com o `Set-PSBreakpoint` cmdlet.
+Você também pode definir pontos de interrupção nesse nível com o cmdlet `Set-PSBreakpoint`.
 
-Depois de você continua e invoca totalmente o seu script, você observará que:
+Depois de continuar e chamar totalmente o script, você observará que:
 
 * O console do PowerShell em que você executou `Invoke-RestMethod` agora retornou um resultado.
-* O console do PowerShell em que você executou `Debug-Runspace` está esperando para ser executado de um script.
+* O console do PowerShell em que você executou `Debug-Runspace` está aguardando a execução de um script.
 
-Você pode chamar a mesma função novamente (usando `Invoke-RestMethod` por exemplo) e o depurador interrompe no logo após o `Wait-Debugger` comando.
+Você pode invocar a mesma função novamente (usando `Invoke-RestMethod`, por exemplo) e o depurador é interrompido logo após o comando `Wait-Debugger`.
 
-## <a name="considerations-for-debugging"></a>Considerações sobre a depuração
+## <a name="considerations-for-debugging"></a>Considerações sobre depuração
 
-Tenha em mente os seguintes problemas ao depurar o código de funções.
+Tenha em mente os seguintes problemas ao depurar seu código de funções.
 
-### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll` pode fazer com que o depurador seja interrompido em um lugar inesperado
+### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll` pode fazer com que o depurador quebre em um local inesperado
 
-Os usos de extensão do PowerShell `Debug-Runspace`, que por sua vez se baseia em do PowerShell `BreakAll` recurso. Esse recurso informa ao PowerShell parar no primeiro comando que é executado. Esse comportamento lhe dá a oportunidade de definir pontos de interrupção em um runspace do depurado.
+A extensão do PowerShell usa `Debug-Runspace`, que por sua vez depende do recurso de `BreakAll` do PowerShell. Esse recurso informa ao PowerShell para parar no primeiro comando que é executado. Esse comportamento oferece a oportunidade de definir pontos de interrupção dentro do runspace depurado.
 
-O tempo de execução do Azure Functions executa alguns comandos antes de realmente invocar seu `run.ps1` script, portanto, é possível que o depurador acaba significativa dentro a `Microsoft.Azure.Functions.PowerShellWorker.psm1` ou `Microsoft.Azure.Functions.PowerShellWorker.psd1`.
+O tempo de execução de Azure Functions executa alguns comandos antes de realmente invocar o script de `run.ps1`, portanto, é possível que o depurador acabe a interrupção dentro do `Microsoft.Azure.Functions.PowerShellWorker.psm1` ou `Microsoft.Azure.Functions.PowerShellWorker.psd1`.
 
-Essa interrupção deve ocorrer, execute as `continue` ou `c` comando para ignorar este ponto de interrupção. Você, em seguida, parar no ponto de interrupção esperado.
+Se essa interrupção ocorrer, execute o comando `continue` ou `c` para ignorar esse ponto de interrupção. Em seguida, você pára no ponto de interrupção esperado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como desenvolver funções usando o PowerShell, consulte [guia do desenvolvedor do PowerShell do Azure Functions](functions-reference-powershell.md).
+Para saber mais sobre como desenvolver funções usando o PowerShell, confira [Azure Functions guia do desenvolvedor do PowerShell](functions-reference-powershell.md).

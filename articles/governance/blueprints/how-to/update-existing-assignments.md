@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: e5697d00c2b0a869667d74e93c3ccae593bf200b
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: bf1fdca5476f66249eb5b73bbcbf5913142eb0d3
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231940"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978474"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de blueprint existente
 
@@ -46,9 +45,9 @@ Quando um blueprint é atribuído, a atribuição pode ser atualizada. Há vári
 
 A implantação das atribuições atualizadas segue algumas regras importantes. Essas regras determinam o que acontece com os recursos já implantados. A alteração solicitada e o tipo de artefato de recurso que está sendo implantado ou atualizado determinam quais ações são executadas.
 
-- Atribuições de função
+- Atribuições de Funções
   - Se a função ou o destinatário da função (usuário, grupo ou aplicativo) for alterado, uma nova atribuição de função será criada. A atribuição de função já implantada permanece em vigor.
-- Atribuições de Política
+- Atribuições de Políticas
   - Se os parâmetros da atribuição de política forem alterados, a atribuição existente será atualizada.
   - Se a definição da atribuição de política for alterada, uma nova atribuição de política será criada. Atribuições de política implantadas anteriormente são deixadas no lugar.
   - Se o artefato de atribuição de política for removido do plano gráfico, implantado atribuições são deixadas no lugar de política.

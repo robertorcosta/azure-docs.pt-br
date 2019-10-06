@@ -7,22 +7,21 @@ ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 654ae2da9bcdb6d73de47730aff6870c2e3dfaeb
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 823b890f1898de5006b965ffa19520016aceb121
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001533"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980872"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapeamento de controle dos exemplos do plano gráfico do Reino Unido e do Reino Unido NHS
 
 O artigo a seguir fornece detalhes sobre como os exemplos do plano gráfico do Reino Unido e do Reino Unido NHS são mapeados para os controles OFFICIAL e NHS do Reino Unido. Para obter mais informações sobre os controles, consulte [oficial do Reino Unido](https://www.gov.uk/government/publications/government-security-classifications).
 
-Os mapeamentos a seguir são para os controles **oficial do Reino Unido** e **NHS do Reino Unido** . Use a navegação no lado direito para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa do [Azure Policy](../../../policy/overview.md). Para examinar a iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições**. Em seguida, localize e selecione  **\[os\] controles de auditoria visualização oficial do Reino Unido e NHS do Reino Unido e implante extensões de VM específicas para dar suporte à** iniciativa de política interna de requisitos de auditoria.
+Os mapeamentos a seguir são para os controles **oficial do Reino Unido** e **NHS do Reino Unido** . Use a navegação no lado direito para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa do [Azure Policy](../../../policy/overview.md). Para examinar a iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições**. Em seguida, localize e selecione os **controles \[Preview @ no__t-2 Audit UK e UK NHS e implante extensões de VM específicas para dar suporte** à iniciativa de política interna de requisitos de auditoria.
 
 > [!IMPORTANT]
-> Cada controle abaixo é associado a uma ou mais definições de [Azure Policy](../../../policy/overview.md) . Essas políticas podem ajudá-lo a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle; no entanto, muitas vezes não há uma correspondência completa ou 1:1 entre um controle e uma ou mais políticas. Como tal, em **conformidade** com Azure Policy refere-se apenas às próprias políticas; Isso não garante que você esteja totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição de Azure Policy no momento. Portanto, a conformidade em Azure Policy é apenas uma visão parcial do seu status de conformidade geral. As associações entre controles e definições de Azure Policy para esta amostra do Blueprint de conformidade podem mudar ao longo do tempo. Para exibir o histórico de alterações, consulte o [histórico de confirmação do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
+> Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../../../policy/overview.md). Essas políticas podem ajudar você a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência 1:1 ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias políticas. Não garante que você está totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre controles e definições do Azure Policy desta amostra de blueprint de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
 
 ## <a name="1-data-in-transit-protection"></a>1 proteção de dados em trânsito
 
@@ -166,8 +165,8 @@ Este blueprint ajuda você a garantir que os eventos do sistema sejam registrado
 Agora que você analisou o mapeamento de controle dos planos gráficos do Reino Unido e do Reino Unido NHS, visite os artigos a seguir para saber mais sobre a visão geral e como implantar este exemplo:
 
 > [!div class="nextstepaction"]
-> [Plantas oficiais do Reino Unido e do Reino Unido de NHS-visão geral](./index.md)
-> do Reino Unido[e do Reino Unido do RU NHS-etapas de implantação](./deploy.md)
+> [Plantas NHSis do Reino Unido e do Reino Unido-visão geral](./index.md)
+> [ru Official e plantas de NHS do Reino Unido-etapas de implantação](./deploy.md)
 
 Outros artigos sobre blueprints e como usá-los:
 

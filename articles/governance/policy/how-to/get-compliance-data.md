@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: d9aadc477c3f39cfbb108d2f3eece0c9e0b06264
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: ff50619d7b3d5bc803e8ee8d9e4cbf4389a4191f
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239155"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978096"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade de recursos do Azure
 
@@ -30,7 +29,7 @@ Antes de examinar os métodos de relatório de conformidade, vamos ver quando as
 
 ## <a name="evaluation-triggers"></a>Gatilhos de avaliação
 
-Os resultados de um ciclo de avaliação concluído estão disponíveis no Provedor de Recursos `Microsoft.PolicyInsights` por meio das operações `PolicyStates` e `PolicyEvents`. Para obter mais informações sobre as operações da API REST do Azure Policy insights, consulte [Azure Policy](/rest/api/policy-insights/)insights.
+Os resultados de um ciclo de avaliação concluído estão disponíveis no Provedor de Recursos `Microsoft.PolicyInsights` por meio das operações `PolicyStates` e `PolicyEvents`. Para obter mais informações sobre as operações da API REST do Azure Policy insights, consulte [Azure Policy insights](/rest/api/policy-insights/).
 
 As avaliações de políticas atribuídas e iniciativas ocorrem como resultado de diversos eventos:
 
@@ -88,11 +87,11 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 Em uma atribuição, é um recurso **incompatível** se ele não segue as regras de política ou iniciativa.
 A tabela a seguir mostra como os diferentes efeitos da política funcionam com a avaliação da condição para o estado de conformidade resultante:
 
-| Estado do recurso | Efeito | Avaliação da política | Estado de conformidade |
+| Estado do recurso | Efeito | Avaliação de política | Estado de conformidade |
 | --- | --- | --- | --- |
-| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | verdadeiro | Sem conformidade |
-| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compatível |
-| Novo | Auditoria, AuditIfNotExist\* | verdadeiro | Sem conformidade |
+| Existe | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Sem conformidade |
+| Existe | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compatível |
+| Novo | Auditoria, AuditIfNotExist\* | True | Sem conformidade |
 | Novo | Auditoria, AuditIfNotExist\* | False | Compatível |
 
 \* Os efeitos de Acrescentar, DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja TRUE.
@@ -146,7 +145,7 @@ Quando um recurso é determinado como **não compatível**, há muitas razões p
 
 ## <a name="command-line"></a>Linha de comando
 
-As mesmas informações disponíveis no portal podem ser recuperadas com a API REST (incluindo com [ARMClient](https://github.com/projectkudu/ARMClient)) ou o Azure PowerShell. Para obter detalhes completos sobre a API REST, consulte a referência do [Azure Policy](/rest/api/policy-insights/) insights. As páginas de referência da API REST têm um botão verde "Experimente" em cada operação, permitindo que você experimente diretamente no navegador.
+As mesmas informações disponíveis no portal podem ser recuperadas com a API REST (incluindo com [ARMClient](https://github.com/projectkudu/ARMClient)) ou o Azure PowerShell. Para obter detalhes completos sobre a API REST, consulte a referência do [Azure Policy insights](/rest/api/policy-insights/) . As páginas de referência da API REST têm um botão verde "Experimente" em cada operação, permitindo que você experimente diretamente no navegador.
 
 Para usar os exemplos a seguir no Azure PowerShell, construa um token de autenticação com este exemplo de código. Em seguida, substitua o $restUri pela cadeia de caracteres nos exemplos para recuperar um objeto JSON que pode ser analisado.
 
@@ -413,7 +412,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Logs do Azure Monitor
 
-Se você tiver um [espaço de trabalho log Analytics](../../../log-analytics/log-analytics-overview.md) com `AzureActivity` da [solução análise do log de atividades](../../../azure-monitor/platform/activity-log-collect.md) vinculada à sua assinatura, também poderá exibir os resultados de não conformidade do ciclo de avaliação usando consultas Kusto simples `AzureActivity` e o tabela. Com os detalhes nos logs do Azure Monitor, os alertas poderão ser configurados para inspecionar a não conformidade.
+Se você tiver um [espaço de trabalho log Analytics](../../../log-analytics/log-analytics-overview.md) com `AzureActivity` da [solução análise do log de atividades](../../../azure-monitor/platform/activity-log-collect.md) vinculada à sua assinatura, também poderá exibir resultados de não conformidade do ciclo de avaliação usando consultas simples de Kusto e a tabela `AzureActivity`. Com os detalhes nos logs do Azure Monitor, os alertas poderão ser configurados para inspecionar a não conformidade.
 
 
 ![Azure Policy conformidade usando logs de Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
@@ -423,6 +422,6 @@ Se você tiver um [espaço de trabalho log Analytics](../../../log-analytics/log
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Revisar [Compreendendo os efeitos da política](../concepts/effects.md).
-- Entenda como [criar políticas](programmatically-create.md)programaticamente.
+- Entenda como [criar políticas programaticamente](programmatically-create.md).
 - Saiba como [corrigir recursos sem conformidade](remediate-resources.md).
 - Veja o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

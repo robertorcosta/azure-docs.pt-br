@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: f4eb1b69a1464cacaf666e49f4aff7422d63611d
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 906cff017c3f80cb1bdd369453b18564d19eb492
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264527"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981165"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Casos de uso da Versão Prévia do Azure Time Series Insights
 
@@ -38,7 +38,7 @@ Azure Time Series Insights é uma oferta de plataforma como serviço de ponta a 
 
 Explore e analise instantaneamente bilhões de eventos para identificar anomalias e descobrir tendências ocultas nos seus dados. O Time Series Insights oferece desempenho em tempo quase real para suas cargas de trabalho de análise de IoT e DevOps.
 
-[![Data Explorer](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
+[Gerenciador de @no__t 1Data](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
 
 A maioria dos clientes concorda que a quantidade mínima de tempo necessária para obter informações é um dos recursos Principals da Time Series Insights:
 
@@ -56,11 +56,11 @@ Há três maneiras principais de interagir com os dados armazenados no Time Seri
 
 - A segunda maneira de começar é usar o SDK do JavaScript para inserir rapidamente gráficos e quadros eficientes ao seu aplicativo Web. Com apenas algumas linhas de código, você pode criar consultas avançadas. Use-as para preencher gráficos de linhas, gráficos de pizza, gráficos de barras, mapas de calor, grades de dados e muito mais. Todos esses elementos existem prontos para uso com o SDK. O SDK também abstrai as APIs de consulta do Time Series Insights. Você pode usá-las para criar predicados do tipo SQL para consultar os dados que você deseja mostrar em um painel. Para soluções de camada de apresentação híbridas, o Time Series Insights oferece URLs parametrizadas. Eles fornecem pontos de conexão perfeita com o gerenciador da Versão Prévia do Time Series Insights para aprofundamentos nos dados.
 
-    * Leia a [biblioteca de cliente Time Series insights js](tutorial-explore-js-client-lib.md) e a documentação do [Time Series insights Client](https://github.com/Microsoft/tsiclient) para saber mais sobre o SDK do JavaScript.
+    * Leia sobre a [biblioteca de cliente do time Series insights js](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) e a documentação do [Time Series insights Client](https://github.com/Microsoft/tsiclient) para saber mais sobre o SDK do JavaScript.
 
     * Saiba mais sobre como compartilhar URLs e a nova interface do usuário examinando [Visualizar dados no Gerenciador de Azure Time Series insights Preview](time-series-insights-update-explorer.md).
 
-- A terceira maneira de começar é usar as APIs eficientes para consultar dados armazenados no Time Series Insights. Time Series insights tem operadores temporais, como `from` `first`, `to`, e `last`. `average`Ele tem agregações e transformações, como `max`, `min` `split by` `order by`,,, e `DateHistogram`. `has`Ele também tem operadores de filtragem, como `in` `and`, `or` `greater than`,,, e `REGEX`. Todos esses operadores permitem que aplicativos downstream localizem rapidamente tendências e padrões interessantes em seus dados. Use-os para preencher visualizações criadas internamente para detectar anomalias.
+- A terceira maneira de começar é usar as APIs eficientes para consultar dados armazenados no Time Series Insights. Time Series Insights tem operadores temporais, como `from`, `to`, `first` e `last`. Ele tem agregações e transformações como `average`, `min`, `max`, `split by`, `order by` e `DateHistogram`. Ele também tem operadores de filtragem como `has`, `in`, `and`, `or`, `greater than` e `REGEX`. Todos esses operadores permitem que aplicativos downstream localizem rapidamente tendências e padrões interessantes em seus dados. Use-os para preencher visualizações criadas internamente para detectar anomalias.
 
 ## <a name="operational-analysis-and-driving-process-efficiency"></a>Análise operacional e como impulsionar a eficiência do processo
 

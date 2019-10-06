@@ -7,13 +7,12 @@ ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 21c5ad69a5e2b09e973b7b348690f554fca5dbe2
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: e2109c5b524c0b38886327bf4c1ea7087380b40f
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802322"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978238"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Implantar os exemplos do Blueprint oficial do Reino Unido e do Reino Unido NHS
 
@@ -107,8 +106,8 @@ Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 Agora que você analisou as etapas para implantar os exemplos do plano gráfico do Reino Unido e do Reino Unido NHS, visite os seguintes artigos para saber mais sobre a visão geral e o mapeamento de controle:
 
 > [!div class="nextstepaction"]
-> [Plantas NHSis do Reino Unido e do Reino Unido – visão geral dos](./index.md)
-> plantas do Reino Unido e da NHS do Reino Unido[– mapeamento de controle](./control-mapping.md)
+> [Plantas NHSis do Reino Unido e do Reino Unido-visão geral](./index.md)
+> [ru Official e ru NHS Blueprints – mapeamento de controle](./control-mapping.md)
 
 Outros artigos sobre blueprints e como usá-los:
 

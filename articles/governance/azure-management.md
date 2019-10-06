@@ -2,17 +2,16 @@
 title: Visão geral do Gerenciamento do Azure - Governança do Azure
 description: Visão geral das áreas de gerenciamento de aplicativos do Azure e recursos com links para conteúdo sobre ferramentas de gerenciamento do Azure.
 author: DCtheGeek
-manager: carmonm
 ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: 958f82ef94a08adaf2bbae1ef8ceefae5db289ea
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 2535b64380f67da440698c7577840d5319e6ca4f
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780805"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978545"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Visão geral dos serviços de gerenciamento no Azure
 

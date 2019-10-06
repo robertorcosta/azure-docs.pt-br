@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 06a5ffbef2b841acc7ea7ecc82d05dfccbc0cab1
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 991cfb54dc511c284c5f5d0cf1807d5dd42b34ea
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147010"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978068"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos do Azure Policy
 
@@ -26,7 +25,7 @@ Atualmente, há suporte para esses efeitos em uma definição de política:
 - [Negar](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Desabilitado](#disabled)
-- [EnforceRegoPolicy](#enforceregopolicy) apresentação
+- [EnforceRegoPolicy](#enforceregopolicy) (visualização)
 - [Alterar](#modify)
 
 ## <a name="order-of-evaluation"></a>Ordem de avaliação
@@ -65,7 +64,7 @@ Um efeito acrescentar tem apenas uma matriz **detalhes**, que é necessária. Co
 
 ### <a name="append-examples"></a>Exemplos de acréscimo
 
-Exemplo 1: Par de **campo/valor** único usando um [alias](definition-structure.md#aliases) não **\*[]** com um **valor** de matriz para definir regras de IP em uma conta de armazenamento. Quando o alias não **[\*]** é uma matriz, o efeito acrescenta o **valor** como a matriz inteira. Se já existir a matriz, ocorre um evento de negação como resultado do conflito.
+Exemplo 1: Um único par de **campo/valor** usando um [alias](definition-structure.md#aliases) não **[\*]** com um **valor** de matriz para definir regras de IP em uma conta de armazenamento. Quando o alias não **[\*]** é uma matriz, o efeito acrescenta o **valor** como a matriz inteira. Se já existir a matriz, ocorre um evento de negação como resultado do conflito.
 
 ```json
 "then": {
@@ -97,7 +96,7 @@ Exemplo 2: Par **campo/valor** exclusivo usando um [alias](definition-structure.
 
 ## <a name="modify"></a>Modificar
 
-Modify é usado para adicionar, atualizar ou remover marcas em um recurso durante a criação ou atualização. Um exemplo comum é A atualização de marcas em recursos como costCenter. Uma política de modificação deve ter `mode` sempre definido como _indexado_. Os recursos não compatíveis existentes podem ser corrigidos com uma [tarefa de correção](../how-to/remediate-resources.md).
+Modify é usado para adicionar, atualizar ou remover marcas em um recurso durante a criação ou atualização. Um exemplo comum é A atualização de marcas em recursos como costCenter. Uma política de modificação sempre deve ter `mode` definido como _indexado_. Os recursos não compatíveis existentes podem ser corrigidos com uma [tarefa de correção](../how-to/remediate-resources.md).
 Uma única regra de modificação pode ter qualquer quantidade de operações.
 
 > [!IMPORTANT]
@@ -116,14 +115,14 @@ A propriedade **Details** do efeito modificar tem todas as subpropriedades que d
 - **roleDefinitionIds** [obrigatório]
   - Essa propriedade deve incluir uma matriz de cadeias de caracteres que correspondem à ID de controle de acesso baseado em função que pode ser acessada pela assinatura. Para obter mais informações, confira [correção – configurar a definição de política](../how-to/remediate-resources.md#configure-policy-definition).
   - A função definida deve incluir todas as operações concedidas à função [colaborador](../../../role-based-access-control/built-in-roles.md#contributor) .
-- **operações** do necessária
+- **operações** [obrigatório]
   - Uma matriz de todas as operações de marca a serem concluídas em recursos correspondentes.
   - Propriedades:
-    - **operação** do necessária
+    - **operação** [obrigatório]
       - Define a ação a ser tomada em um recurso correspondente. As opções são: _addOrReplace_, _Adicionar_, _remover_. _Adicionar_ se comporta de forma semelhante ao efeito de [acréscimo](#append) .
-    - **campo** necessária
+    - **campo** [obrigatório]
       - A marca a ser adicionada, substituída ou removida. Os nomes de marca devem aderir à mesma convenção de nomenclatura para outros [campos](./definition-structure.md#fields).
-    - **valor** do adicional
+    - **valor** (opcional)
       - O valor para o qual definir a marca.
       - Essa propriedade será necessária se a **operação** for _addOrReplace_ ou _Add_.
 
@@ -131,9 +130,9 @@ A propriedade **Details** do efeito modificar tem todas as subpropriedades que d
 
 A matriz de propriedades de **operações** torna possível alterar várias marcas de diferentes maneiras de uma única definição de política. Cada operação é composta de propriedades de **operação**, **campo**e **valor** . A operação determina o que a tarefa de correção faz nas marcas, o campo determina qual marca é alterada e o valor define a nova configuração para essa marca. O exemplo a seguir faz as seguintes alterações de marca:
 
-- Define a `environment` marca como "Test", mesmo que ela já exista com um valor diferente.
+- Define a marca `environment` como "Test", mesmo que ela já exista com um valor diferente.
 - Remove a marca `TempResource`.
-- Define a `Dept` marca para o parâmetro de política _deptname_ configurado na atribuição de política.
+- Define a marca `Dept` para o parâmetro de política _deptname_ configurado na atribuição de política.
 
 ```json
 "details": {
@@ -167,7 +166,7 @@ A propriedade **Operation** tem as seguintes opções:
 
 ### <a name="modify-examples"></a>Modificar exemplos
 
-Exemplo 1: Adicione a `environment` marca e substitua as `environment` marcas existentes por "Test":
+Exemplo 1: Adicione a marca `environment` e substitua as marcas `environment` existentes por "teste":
 
 ```json
 "then": {
@@ -187,7 +186,7 @@ Exemplo 1: Adicione a `environment` marca e substitua as `environment` marcas ex
 }
 ```
 
-Exemplo 2: Remova a `env` marca e adicione a `environment` marca ou substitua as `environment` marcas existentes por um valor com parâmetros:
+Exemplo 2: Remova a marca `env` e adicione a marca `environment` ou substitua as marcas `environment` existentes por um valor com parâmetros:
 
 ```json
 "then": {
@@ -241,7 +240,7 @@ Audit é usado para criar um evento de aviso no log de atividades ao avaliar um 
 
 ### <a name="audit-evaluation"></a>Avaliação de auditoria
 
-Audit é o último efeito verificado por Azure Policy durante a criação ou a atualização de um recurso. Azure Policy, em seguida, envia o recurso para o provedor de recursos. Audit funciona da mesma forma para uma solicitação de recurso e um ciclo de avaliação. Azure Policy adiciona uma `Microsoft.Authorization/policies/audit/action` operação ao log de atividades e marca o recurso como sem conformidade.
+Audit é o último efeito verificado por Azure Policy durante a criação ou a atualização de um recurso. Azure Policy, em seguida, envia o recurso para o provedor de recursos. Audit funciona da mesma forma para uma solicitação de recurso e um ciclo de avaliação. Azure Policy adiciona uma operação de `Microsoft.Authorization/policies/audit/action` ao log de atividades e marca o recurso como sem conformidade.
 
 ### <a name="audit-properties"></a>Propriedades de auditoria
 
@@ -263,7 +262,7 @@ O efeito AuditIfNotExists habilita a auditoria em recursos que correspondem à c
 
 ### <a name="auditifnotexists-evaluation"></a>Avaliação de AuditIfNotExists
 
-O efeito AuditIfNotExists é executado depois de um provedor de recursos ter tratado uma solicitação de criação ou atualização de recurso e ter retornado um código de status de êxito. A auditoria ocorre quando não existem recursos relacionados ou se os recursos definidos por **ExistenceCondition** não são avaliados como verdadeiros. Azure Policy adiciona uma `Microsoft.Authorization/policies/audit/action` operação ao log de atividades da mesma maneira que o efeito de auditoria. Quando disparado, o recurso que atendeu à condição **se** é o recurso marcado como não compatível.
+O efeito AuditIfNotExists é executado depois de um provedor de recursos ter tratado uma solicitação de criação ou atualização de recurso e ter retornado um código de status de êxito. A auditoria ocorre quando não existem recursos relacionados ou se os recursos definidos por **ExistenceCondition** não são avaliados como verdadeiros. Azure Policy adiciona uma operação de `Microsoft.Authorization/policies/audit/action` ao log de atividades da mesma maneira que o efeito de auditoria. Quando disparado, o recurso que atendeu à condição **se** é o recurso marcado como não compatível.
 
 ### <a name="auditifnotexists-properties"></a>Propriedades de AuditIfNotExists
 
@@ -274,7 +273,7 @@ A propriedade **detalhes** dos efeitos AuditIfNotExists tem todas as subpropried
   - Se **Details. Type** for um tipo de recurso sob o recurso **If** Condition, a política consultará os recursos desse **tipo** dentro do escopo do recurso avaliado. Caso contrário, as consultas de política dentro do mesmo grupo de recursos que o recurso avaliado.
 - **Nome** (opcional)
   - Especifica o nome exato do recurso a ser correspondido e faz com que a política busque um recurso específico em vez de todos os recursos do tipo especificado.
-  - Quando os valores de condição para **If. Field. Type** e **depois. Details. Type** correspondem, o **nome** torna-se _obrigatório_ e deve ser `[field('name')]`. No entanto, um efeito de [auditoria](#audit) deve ser considerado em vez disso.
+  - Quando os valores de condição para **If. Field. Type** e **. Details. Type** forem correspondentes, o **nome** será _necessário_ e deverá ser `[field('name')]`. No entanto, um efeito de [auditoria](#audit) deve ser considerado em vez disso.
 - **ResourceGroupName** (opcional)
   - Permite que a correspondência do recurso relacionado venha de um grupo de recursos diferente.
   - Não se aplica se **type** for um recurso que estaria sob o recurso de condição **if**.
@@ -345,7 +344,7 @@ A propriedade **Details** do efeito DeployIfNotExists tem todas as subpropriedad
   - Começa tentando buscar um recurso sob o recurso de condição **se**, depois consulta dentro do mesmo grupo de recursos como o recurso de condição **se**.
 - **Nome** (opcional)
   - Especifica o nome exato do recurso a ser correspondido e faz com que a política busque um recurso específico em vez de todos os recursos do tipo especificado.
-  - Quando os valores de condição para **If. Field. Type** e **depois. Details. Type** correspondem, o **nome** torna-se _obrigatório_ e deve ser `[field('name')]`.
+  - Quando os valores de condição para **If. Field. Type** e **. Details. Type** forem correspondentes, o **nome** será _necessário_ e deverá ser `[field('name')]`.
 - **ResourceGroupName** (opcional)
   - Permite que a correspondência do recurso relacionado venha de um grupo de recursos diferente.
   - Não se aplica se **type** for um recurso que estaria sob o recurso de condição **if**.
@@ -432,7 +431,7 @@ Exemplo: Avalia os bancos de dados do SQL Server para determinar se transparentD
 
 ## <a name="enforceregopolicy"></a>EnforceRegoPolicy
 
-Esse efeito é usado com um *modo* de definição de `Microsoft.ContainerService.Data`política de. Ele é usado para passar regras de controle de admissão definidas com [rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) para abrir o OPA ( [agente de política](https://www.openpolicyagent.org/) ) no [serviço kubernetes do Azure](../../../aks/intro-kubernetes.md).
+Esse efeito é usado com um *modo* de definição de política de `Microsoft.ContainerService.Data`. Ele é usado para passar regras de controle de admissão definidas com [rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) para abrir o OPA ( [agente de política](https://www.openpolicyagent.org/) ) no [serviço kubernetes do Azure](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
 > [Azure Policy para kubernetes](rego-for-aks.md) está em visualização pública e só dá suporte a definições de políticas internas.
@@ -446,11 +445,11 @@ A cada 5 minutos, uma verificação completa do cluster é concluída e os resul
 
 A propriedade **Details** do efeito EnforceRegoPolicy tem as subpropriedades que descrevem a regra de controle de admissão rego.
 
-- **política** de necessária
+- **PolicyId** [obrigatório]
   - Um nome exclusivo passado como um parâmetro para a regra de controle de admissão rego.
-- **política** do necessária
+- **política** [obrigatório]
   - Especifica o URI da regra de controle de admissão rego.
-- **políticaparameters** adicional
+- **políticaparameters** [opcional]
   - Define quaisquer parâmetros e valores a serem passados para a política rego.
 
 ### <a name="enforceregopolicy-example"></a>Exemplo de EnforceRegoPolicy
@@ -515,7 +514,7 @@ Cada atribuição é avaliada individualmente. Assim, não existe chance de um r
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](definition-structure.md).
-- Entenda como [criar políticas](../how-to/programmatically-create.md)programaticamente.
+- Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).
 - Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).
 - Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
 - Veja o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

@@ -6,17 +6,16 @@ ms.author: dacoulte
 ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 05cc12f5416cbbbff470b40c870f41647ef37cd5
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: bda7a6caea931a993a6ddd6731688792bf0b3948
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231913"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981009"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Entenda a sequência de implantação nos Blueprints do Azure
 
-Os planos gráficos do Azure usam uma **ordem** de sequenciamento para determinar a ordem de criação de recursos ao processar a atribuição de uma definição de plano gráfico. Este artigo o guiará pelos seguintes conceitos:
+Os planos gráficos do Azure usam uma **ordem de sequenciamento** para determinar a ordem de criação de recursos ao processar a atribuição de uma definição de plano gráfico. Este artigo o guiará pelos seguintes conceitos:
 
 - A ordem de sequenciamento padrão usada
 - Como personalizar o pedido
@@ -56,7 +55,7 @@ A ordenação é realizada definindo uma propriedade `dependsOn` no JSON. A defi
 
 ### <a name="example---ordered-resource-group"></a>Exemplo-grupo de recursos ordenados
 
-Este exemplo de definição de Blueprint tem um grupo de recursos que definiu uma ordem de sequenciamento personalizada declarando um valor para `dependsOn`, junto com um grupo de recursos padrão. Nesse caso, o artefato denominado **assignPolicyTags** será processado antes do grupo de recursos **ordered-rg**.
+Este exemplo de definição de Blueprint tem um grupo de recursos que definiu uma ordem de sequenciamento personalizada declarando um valor para `dependsOn`, juntamente com um grupo de recursos padrão. Nesse caso, o artefato denominado **assignPolicyTags** será processado antes do grupo de recursos **ordered-rg**.
 **standard-rg** será processado de acordo com a ordem de sequenciamento padrão.
 
 ```json

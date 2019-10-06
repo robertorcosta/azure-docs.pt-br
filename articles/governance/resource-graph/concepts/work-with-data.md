@@ -6,26 +6,25 @@ ms.author: dacoulte
 ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: d04f46dbc60a7242e44d76915e15281cc6248d20
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 4da890a5ef7acb44d0e8628dc4ec3904f6a065e4
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786546"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980294"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhando com grandes conjuntos de dados de recurso do Azure
 
 O Azure Resource Graph foi projetado para trabalhar com informações sobre os recursos em seu ambiente do Azure e obtê-las. O Resource Graph facilita a obtenção esses dados rapidamente, mesmo ao consultar milhares de registros. O Resource Graph tem várias opções para trabalhar com esses grandes conjuntos de dados.
 
-Para obter orientação sobre como trabalhar com consultas com alta frequência, consulte [orientação para solicitações limitadas](./guidance-for-throttled-requests.md).
+Para obter orientação sobre como trabalhar com consultas em alta frequência, consulte [diretrizes para solicitações limitadas](./guidance-for-throttled-requests.md).
 
 ## <a name="data-set-result-size"></a>Tamanho do resultado do conjunto de dados
 
 Por padrão, o Resource Graph limita qualquer consulta a retornar apenas **100** registros. Esse controle protege o usuário e o serviço de consultas não intencionais que resultariam em grandes conjuntos de dados. Esse evento geralmente ocorre quando um cliente está experimentando consultas para localizar e filtrar recursos da maneira que atende às suas necessidades específicas. Esse controle é diferente de usar os operadores de linguagem de programação [top](/azure/kusto/query/topoperator) ou [limit](/azure/kusto/query/limitoperator) do Azure Data Explorer para limitar os resultados.
 
 > [!NOTE]
-> Ao usar **primeira**, é recomendável para ordenar os resultados pelo menos uma coluna com `asc` ou `desc`. Sem classificação, os resultados retornados são aleatórias e não repetível.
+> Ao usar o **primeiro**, é recomendável ordenar os resultados por pelo menos uma coluna com `asc` ou `desc`. Sem classificação, os resultados retornados são aleatórios e não podem ser repetidos.
 
 O limite padrão pode ser substituído por meio de todos os métodos de interação com o Resource Graph. Os exemplos a seguir mostram como alterar o limite de tamanho do conjunto de dados para _200_:
 
@@ -48,7 +47,7 @@ O controle que for _mais restritivo_ prevalecerá. Por exemplo, se sua consulta 
 A próxima opção para trabalhar com grandes conjuntos de dados é o controle **Skip**. Esse controle permite que sua consulta pule ou ignore o número definido de registros antes de retornar os resultados. **Skip** é útil para consultas que classificam os resultados de uma maneira significativa, em que a intenção é chegar a registros em algum lugar no meio do conjunto de resultados. Se os resultados necessários estão no final do conjunto de dados retornado, é mais eficiente usar uma configuração de classificação diferente e, em vez disso, recuperar os resultados da parte superior do conjunto de dados.
 
 > [!NOTE]
-> Ao usar **Skip**, é recomendável para ordenar os resultados pelo menos uma coluna com `asc` ou `desc`. Sem classificação, os resultados retornados são aleatórias e não repetível.
+> Ao usar **Skip**, é recomendável ordenar os resultados por pelo menos uma coluna com `asc` ou `desc`. Sem classificação, os resultados retornados são aleatórios e não podem ser repetidos.
 
 Os exemplos a seguir mostram como ignorar os primeiros _10_ registros em que uma consulta resultaria, começando em vez disso o conjunto de resultados pelo 11º registro:
 
@@ -64,12 +63,12 @@ Na [API REST](/rest/api/azureresourcegraph/resources/resources), o controle é *
 
 ## <a name="paging-results"></a>Resultados da paginação
 
-Quando for necessário dividir um conjunto de resultados em conjuntos menores de registros para processamento ou porque um conjunto de resultados exceder o valor máximo permitido de _1000_ registros retornados, usar a paginação. O **QueryResponse** da [API REST](/rest/api/azureresourcegraph/resources/resources) fornece valores para indicar se um conjunto de resultados foi subdividido: **resultTruncated** e **$skipToken**.
+Quando for necessário interromper um conjunto de resultados em conjuntos menores de registros para processamento ou porque um conjunto de resultados excederia o valor máximo permitido de _1000_ registros retornados, use paginação. O **QueryResponse** da [API REST](/rest/api/azureresourcegraph/resources/resources) fornece valores para indicar se um conjunto de resultados foi subdividido: **resultTruncated** e **$skipToken**.
 **resultTruncated** é um valor booliano que informa ao consumidor se existem registros adicionais não retornados na resposta. Essa condição também pode ser identificada quando a propriedade **count** é menor do que a propriedade **totalRecords**. **totalRecords** define quantos registros correspondem à consulta.
 
 Quando **resultTruncated** é **true**, a propriedade **$skipToken** é definida na resposta. Esse valor é usado com os mesmos valores de consulta e de assinatura para obter o próximo conjunto de registros que correspondeu à consulta.
 
-Os exemplos a seguir mostram como **ignore** o primeiro 3000 registros e retornar o **primeiro** 1000 registros após esses ignorados com a CLI do Azure e o Azure PowerShell:
+Os exemplos a seguir mostram como **ignorar** os primeiros 3000 registros e retornar os **primeiros** 1000 registros depois daqueles ignorados com CLI do Azure e Azure PowerShell:
 
 ```azurecli-interactive
 az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
@@ -86,6 +85,6 @@ Para ver um exemplo, confira a [Consulta de próxima página](/rest/api/azureres
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte o idioma em uso no [consultas Starter](../samples/starter.md).
-- Consulte avançada usa na [consultas avançadas](../samples/advanced.md).
-- Saiba como [explore recursos](explore-resources.md).
+- Consulte o idioma em uso em [consultas de início](../samples/starter.md).
+- Consulte usos avançados em [consultas avançadas](../samples/advanced.md).
+- Aprenda a [explorar os recursos](explore-resources.md).

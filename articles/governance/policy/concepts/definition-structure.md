@@ -6,20 +6,19 @@ ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: b2b38fe2d9a2bf4c645e5b1cda4b8fba356353d3
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 27cf1539fc98b2ad7f1b82e194989c1619ab99fb
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181192"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980703"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
 Definições de política de recurso são usadas pelo Azure Policy para estabelecer convenções para recursos. Cada definição descreve a conformidade do recurso e o efeito que ocorre quando um recurso não está em conformidade.
 Definindo as convenções, você pode controlar os custos e muito mais fácil gerenciar seus recursos. Por exemplo, você pode especificar que somente determinados tipos de máquinas virtuais são permitidos. Ou você pode exigir que todos os recursos tenham uma marca específica. As políticas são herdadas por todos os recursos filho. Assim, se uma política for aplicada a um grupo de recursos, ela será aplicável a todos os recursos desse grupo de recursos.
 
-O esquema usado pela política do Azure pode ser encontrado aqui: [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policydefinitions](/azure/templates/microsoft.authorization/2019-01-01/policydefinitions)
+O esquema de definição de política é encontrado aqui: [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
 
 Você usa JSON para criar uma definição de política. A definição de política contém elementos para:
 
@@ -84,7 +83,7 @@ O **modo** determina quais tipos de recursos serão avaliados para uma política
 
 ### <a name="resource-provider-modes"></a>Modos de provedor de recursos
 
-O único modo de provedor de recursos com `Microsoft.ContainerService.Data` suporte no momento é para o gerenciamento de regras do controlador de admissão no [serviço kubernetes do Azure](../../../aks/intro-kubernetes.md).
+O único modo de provedor de recursos com suporte no momento é `Microsoft.ContainerService.Data` para gerenciar regras do controlador de admissão no [serviço kubernetes do Azure](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
 > [Azure Policy para kubernetes](rego-for-aks.md) está em visualização pública e só dá suporte a definições de políticas internas.
@@ -247,7 +246,7 @@ Uma condição avalia se um **campo** ou um acessador de **valor** atende a dete
 Ao usar as condições **like** e **notLike**, você fornece um curinga (`*`) no valor.
 O valor não deve ter mais de um curinga `*`.
 
-Ao usar as condições **Match** e não **Match** , forneça `#` para corresponder um dígito, `?` para uma letra, `.` corresponder a qualquer caractere e qualquer outro caractere para corresponder a esse caractere real.
+Ao usar as condições **Match** e não **match** , forneça `#` para corresponder a um dígito, `?` para uma letra, `.` para corresponder a qualquer caractere e qualquer outro caractere para corresponder a esse caractere real.
 As condições **corresponder** e **notMatch** diferenciam maiúsculas de minúsculas. Estão disponíveis alternativas que diferenciam maiúsculas de minúsculas em **matchInsensitively** e **notMatchInsensitively**. Para obter exemplos, veja [Permitir vários padrões de nome](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Campos
@@ -367,7 +366,7 @@ O uso de _funções de modelo_ em **valor** permite muitas funções aninhadas c
 }
 ```
 
-A regra de política de exemplo acima usa [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) para comparar os três primeiros caracteres de **nome** para **ABC**. Se **Name** for menor que três caracteres, a `substring()` função resultará em um erro. Esse erro faz com que a política se torne um efeito de **negação** .
+A regra de política de exemplo acima usa [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) para comparar os três primeiros caracteres de **nome** para **ABC**. Se **Name** for menor que três caracteres, a função `substring()` resultará em um erro. Esse erro faz com que a política se torne um efeito de **negação** .
 
 Em vez disso, use a função [If ()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) para verificar se os três primeiros caracteres de **nome** são iguais a **ABC** sem permitir que um **nome** com menos de três caracteres cause um erro:
 
@@ -385,7 +384,7 @@ Em vez disso, use a função [If ()](../../../azure-resource-manager/resource-gr
 }
 ```
 
-Com a regra de política revisada, `if()` o verifica o comprimento do **nome** antes `substring()` de tentar obter um em um valor com menos de três caracteres. Se o **nome** for muito curto, o valor "não iniciando com ABC" será retornado em vez disso e comparado com **ABC**. Um recurso com um nome curto que não começa com **ABC** ainda falha na regra de política, mas não causa mais um erro durante a avaliação.
+Com a regra de política revisada, `if()` verifica o comprimento do **nome** antes de tentar obter um `substring()` em um valor com menos de três caracteres. Se o **nome** for muito curto, o valor "não iniciando com ABC" será retornado em vez disso e comparado com **ABC**. Um recurso com um nome curto que não começa com **ABC** ainda falha na regra de política, mas não causa mais um erro durante a avaliação.
 
 ### <a name="effect"></a>Efeito
 
@@ -517,7 +516,7 @@ Vários aliases disponíveis têm uma versão que é exibida como um nome "norma
 
 O alias ' normal ' representa o campo como um único valor. Esse campo é para cenários de comparação de correspondência exata quando o conjunto inteiro de valores deve ser exatamente o mesmo definido, nem mais nem menos.
 
-O **alias\*[]** torna possível comparar com o valor de cada elemento na matriz e propriedades específicas de cada elemento. Essa abordagem possibilita comparar as propriedades do elemento para ' If None of ', ' if any of ', ou ' If All of '. Usando **ipRules [\*]** , um exemplo seria validar se cada _ação_ é _Deny_, mas não se preocupa com quantas regras existem ou qual é o _valor_ de IP. Esta regra de exemplo verifica se há correspondências de **ipRules [\*]. Value** para **10.0.4.1** e aplica o **effecttype** somente se ele não encontrar pelo menos uma correspondência:
+O alias **[\*]** torna possível comparar com o valor de cada elemento na matriz e propriedades específicas de cada elemento. Essa abordagem possibilita comparar as propriedades do elemento para ' If None of ', ' if any of ', ou ' If All of '. Usando **ipRules [\*]** , um exemplo seria validar se cada _ação_ é _Deny_, mas não se preocupa com quantas regras existem ou qual é o _valor_ de IP. Esta regra de exemplo verifica se há correspondências de **ipRules [\*]. valor** para **10.0.4.1** e aplica o **effecttype** somente se ele não encontrar pelo menos uma correspondência:
 
 ```json
 "policyRule": {
@@ -539,7 +538,7 @@ O **alias\*[]** torna possível comparar com o valor de cada elemento na matriz 
 }
 ```
 
-Para obter mais informações, consulte [avaliando\*o alias []](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+Para obter mais informações, consulte [avaliando o alias [\*]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Iniciativas
 
@@ -623,7 +622,7 @@ O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas marcas:
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revisar [Compreendendo os efeitos da política](effects.md).
-- Entenda como [criar políticas](../how-to/programmatically-create.md)programaticamente.
+- Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).
 - Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).
 - Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
 - Veja o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).
