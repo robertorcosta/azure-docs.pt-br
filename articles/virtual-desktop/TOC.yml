@@ -54,7 +54,7 @@
       href: install-office-on-wvd-master-image.md
     - name: Configurar GPU para a Área de Trabalho Virtual do Windows
       href: configure-vm-gpu.md
-    - name: Dimensionar automaticamente hosts da sessão
+    - name: Dimensionar hosts da sessão dinamicamente
       href: set-up-scaling-script.md
     - name: Personalizar o feed para usuários da Área de Trabalho Virtual do Windows
       href: customize-feed-for-virtual-desktop-users.md
@@ -84,7 +84,7 @@
   items:
     - name: 'Visão geral da solução de problemas, comentários e suporte'
       href: troubleshoot-set-up-overview.md
-    - name: Identificar problemas com o recurso de diagnóstico
+    - name: Identificar e diagnosticar problemas
       href: diagnostics-role-service.md
     - name: Criação do pool de host e de locatário
       href: troubleshoot-set-up-issues.md

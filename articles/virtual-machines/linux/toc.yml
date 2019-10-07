@@ -143,6 +143,10 @@
       items:
         - name: Segurança e política
           href: security-policy.md
+        - name: Azure Disk Encryption
+          href: disk-encryption-overview.md
+        - name: Controles de segurança interna
+          href: virtual-machines-linux-security-controls.md
     - name: Estados e ciclo de vida
       href: states-lifecycle.md
     - name: Monitoramento
@@ -151,8 +155,6 @@
       href: backup-recovery.md
     - name: Diretrizes de infraestrutura
       href: infrastructure-example.md
-    - name: Controles de segurança interna
-      href: virtual-machines-linux-security-controls.md
 - name: Guias de instruções
   items:
     - name: Criar VMs
@@ -179,7 +181,29 @@
         - name: Acesso Just-In-Time
           href: ../../security-center/security-center-just-in-time.md
         - name: Criptografar
-          href: encrypt-disks.md
+          items:
+            - name: Cenários de criptografia de disco para Linux
+              href: disk-encryption-linux.md
+            - name: Criptografia de VM com a CLI do Azure
+              href: disk-encryption-cli-quickstart.md
+            - name: Criptografia de VM com o Azure PowerShell
+              href: disk-encryption-powershell-quickstart.md
+            - name: Cofre de chaves para o Azure Disk Encryption
+              href: disk-encryption-key-vault.md
+            - name: Exemplos de scripts da criptografia de disco
+              href: disk-encryption-sample-scripts.md
+            - name: Solução de problemas da criptografia de disco
+              href: disk-encryption-troubleshooting.md
+            - name: Perguntas frequentes sobre a Criptografia do disco
+              href: disk-encryption-faq.md
+            - name: Criptografia de disco – versão anterior (AAD)
+              items:
+                - name: Visão geral
+                  href: disk-encryption-overview-aad.md
+                - name: Cofre de chaves para o Azure Disk Encryption
+                  href: disk-encryption-key-vault-aad.md
+                - name: Cenários de criptografia de disco para Linux
+                  href: disk-encryption-linux-aad.md
         - name: Como usar controles de acesso
           href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Como usar políticas

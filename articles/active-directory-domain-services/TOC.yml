@@ -85,7 +85,7 @@
           href: join-rhel-linux-vm.md
         - name: Ubuntu Server
           href: join-ubuntu-linux-vm.md
-    - name: Implantar aplicativos no Azure AD DS
+    - name: Implantar aplicativos
       items:
         - name: Implantar o Proxy de Aplicativo do Azure AD
           href: deploy-azure-app-proxy.md
@@ -95,11 +95,17 @@
       items:
         - name: Erros comuns
           href: troubleshoot.md
-        - name: Erros de locatário incompatíveis
+        - name: Problemas para ingressar no domínio
+          href: troubleshoot-domain-join.md
+        - name: Bloqueios de conta
+          href: troubleshoot-account-lockout.md
+        - name: Problemas ao entrar
+          href: troubleshoot-sign-in.md
+        - name: Resolver erros de locatário incompatíveis
           href: mismatched-tenant-error.md
         - name: Domínios suspensos
           href: suspension.md
-        - name: LDAP seguro
+        - name: Problemas do LDAP seguro
           href: tshoot-ldaps.md
         - name: Problemas conhecidos
           items:

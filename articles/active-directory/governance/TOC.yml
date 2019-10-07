@@ -36,22 +36,30 @@
       items:
         - name: Cenários comuns
           href: entitlement-management-scenarios.md
-        - name: Criar um pacote de acesso
-          href: entitlement-management-access-package-create.md
-        - name: Editar um pacote de acesso
-          href: entitlement-management-access-package-edit.md
-        - name: Criar um catálogo
-          href: entitlement-management-catalog-create.md
-        - name: Solicitar acesso
-          href: entitlement-management-request-access.md
-        - name: Aprovar solicitações
-          href: entitlement-management-request-approve.md
-        - name: Delegar tarefas
-          href: entitlement-management-delegate.md
-        - name: Exibir relatórios e logs
-          href: entitlement-management-reports.md
-        - name: Solucionar problemas
-          href: entitlement-management-troubleshoot.md
+        - name: Administradores e gerentes de departamento
+          items:
+            - name: Delegar tarefas
+              href: entitlement-management-delegate.md
+            - name: Criar um catálogo de recursos
+              href: entitlement-management-catalog-create.md
+            - name: Exibir relatórios e logs
+              href: entitlement-management-reports.md
+            - name: Solucionar problemas
+              href: entitlement-management-troubleshoot.md
+        - name: Gerentes de projetos
+          items:
+            - name: Criar um pacote de acesso
+              href: entitlement-management-access-package-create.md
+            - name: Editar um pacote de acesso
+              href: entitlement-management-access-package-edit.md
+        - name: Aprovadores
+          items:
+            - name: Aprovar solicitações
+              href: entitlement-management-request-approve.md
+        - name: Solicitantes
+          items:
+            - name: Solicitar acesso
+              href: entitlement-management-request-access.md
     - name: Análises de acesso
       items:
         - name: Grupos e aplicativos

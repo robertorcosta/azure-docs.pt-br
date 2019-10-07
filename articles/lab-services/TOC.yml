@@ -220,6 +220,8 @@
               href: connect-environment-lab-virtual-network.md
             - name: Configurar ambientes de teste com modelos aninhados
               href: deploy-nested-template-environments.md
+            - name: Usar as identidades gerenciadas do Azure para implantar ambientes
+              href: use-managed-identities-environments.md
         - name: Gerenciar modelos reutilizáveis
           items:
             - name: Imagens personalizadas versus fórmulas

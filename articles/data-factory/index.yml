@@ -1,98 +1,173 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação do Azure Data Factory
+summary: Azure Data Factory é o serviço ETL na nuvem do Azure para integração e transformação de dados sem servidor em expansão.  Ele oferece uma interface do usuário sem códigos para criação intuitiva, além de monitoramento e gerenciamento com um painel de controle individual. Também é possível migrar pacotes SSIS existentes por lift-and-shift para o Azure e executá-los com total compatibilidade no ADF (Azure Data Factory). O Azure-SSIS Integration Runtime oferece um serviço totalmente gerenciado, de modo que não é necessário se preocupar com o gerenciamento da infraestrutura.
 metadata:
-  title: 'Documentação do Azure Data Factory - Tutoriais, Referência de API | Microsoft Docs'
-  description: Saiba mais sobre como usar o Data Factory para configurar pipelines de dados automatizados para e de origens locais e na nuvem para mover e processar dados para análise.
+  title: Documentação do Azure Data Factory
+  description: Saiba mais sobre como usar o Data Factory, um serviço de integração de dados na nuvem, para criar armazenamento de dados, serviços de processamento e de movimentação em pipelines de dados automatizados. Os tutoriais e outras documentações mostram como configurar e gerenciar pipelines de dados, bem como mover e transformar dados para análise.
   services: data-factory
-  author: djpmsft
-  ms.author: daperlov
-  manager: craigg
   ms.service: data-factory
-  ms.tgt_pltfrm: na
-  ms.topic: overview
-  ms.date: 08/06/2018
-abstract:
-  description: 'Saiba mais sobre como usar o Data Factory, um serviço de integração de dados na nuvem, para criar armazenamento de dados, serviços de processamento e de movimentação em pipelines de dados automatizados. Os tutoriais e outras documentações mostram como configurar e gerenciar pipelines de dados, bem como mover e transformar dados para análise. <p>Se você estiver usando V1 do serviço do Data Factory, confira <a href=/azure/data-factory/v1/data-factory-introduction>documentação V1.</a></p>'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/index/video.png
-      width: 250
-    title: 'Novos recursos para a integração moderna de dados na nuvem (1: 19:22)'
-    href: 'https://channel9.msdn.com/Events/Build/2018/BRK2204/player'
-    width: 250
-sections:
-  - title: Guia de início rápido de 5 minutos
-    items:
-      - type: paragraph
-        text: 'Saiba como criar um pipeline do Data Factory para mover e processar dados com um dos seguintes inícios rápidos:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/data-factory/media/index/portal.svg
-            text: IU do Data Factory
-            href: /azure/data-factory/quickstart-create-data-factory-portal
-          - image:
-              src: /azure/data-factory/media/index/copy-data-tool.png
-            text: Ferramenta Copiar Dados
-            href: /azure/data-factory/quickstart-create-data-factory-copy-data-tool
-          - image:
-              src: /azure/data-factory/media/index/logo_powershell.svg
-            text: Azure PowerShell
-            href: /azure/data-factory/quickstart-create-data-factory-powershell
-          - image:
-              src: /azure/data-factory/media/index/logo_net.svg
-            text: .NET
-            href: /azure/data-factory/quickstart-create-data-factory-dot-net
-          - image:
-              src: /azure/data-factory/media/index/logo_python.svg
-            text: Python
-            href: /azure/data-factory/quickstart-create-data-factory-python
-          - image:
-              src: /azure/data-factory/media/index/logo_rest.svg
-            text: REST
-            href: /azure/data-factory/quickstart-create-data-factory-rest-api
-          - image:
-              src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
-            text: Modelo do Resource Manager
-            href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
-  - title: Tutoriais Passo a Passo
-    items:
-      - type: paragraph
-        text: 'Saiba como criar e monitorar um data factory:'
-      - type: list
-        style: unordered
-        items:
-          - html: Copiar dados na nuvem - <a href="/azure/data-factory/tutorial-copy-data-tool">ferramenta Copiar Dados</a> | <a href="/azure/data-factory/tutorial-copy-data-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-copy-data-dot-net">.NET</a>
-          - html: Copiar dados locais para a cloud - <a href="/azure/data-factory/tutorial-hybrid-copy-data-tool">Ferramenta Copiar Dados | <a href="/azure/data-factory/tutorial-hybrid-copy-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-hybrid-copy-powershell">Azure PowerShell</a>
-          - html: Copiar dados em massa - <a href="/azure/data-factory/tutorial-bulk-copy-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-bulk-copy">Azure PowerShell</a>
-          - html: Copiar dados incrementalmente - <a href="/azure/data-factory/tutorial-incremental-copy-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-incremental-copy-powershell">Azure PowerShell</a>
-          - html: Transformar dados na nuvem com o Spark - <a href="/azure/data-factory/tutorial-transform-data-spark-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-transform-data-spark-powershell">Azure PowerShell</a>
-          - html: Transformar dados na rede virtual - <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
-          - html: Adicionar ramificação e encadeamento - <a href="/azure/data-factory/tutorial-control-flow-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a>
-          - html: Executar pacotes do SSIS no Azure - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
-          - html: CI/CD (integração e entrega contínuas) no Azure Data Factory – <a href="/azure/data-factory/continuous-integration-deployment">interface do usuário do Data Factory</a>
-  - title: Exemplos
-    items:
-      - type: paragraph
-        text: Use os exemplos a seguir para trabalhar com o Data Factory
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/data-factory/samples-powershell">PowerShell</a>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Linha de comando
-            html: <p><a href="/powershell/module/az.datafactory/">PowerShell do Azure</a></p>
-          - title: Languages
-            html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="/python/api/overview/azure/datafactory?view=azure-python">Python</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/datafactory">API REST</a></p>
+  ms.topic: landing-page
+  ms.collection: collection
+  author: markingmyname
+  ms.author: maghan
+  ms.date: 10/02/2019
+  monikerRange: ''
+  ms.openlocfilehash: 619205d9eb275b9cbe6506fc37d56d757d95d796
+  ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 10/03/2019
+  ms.locfileid: "71937447"
+landingContent:
+- title: Sobre o Azure Data Factory
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Data Factory do Azure?
+      url: /azure/data-factory/introduction
+  - linkListType: reference
+    links:
+    - text: White papers
+      url: /azure/data-factory/whitepapers
+    - text: Preços
+      url: https://azure.microsoft.com/pricing/details/data-factory/
+    - text: Noções básicas sobre preços por meio de exemplos
+      url: /azure/data-factory/pricing-concepts
+    - text: Atualizações recentes de recursos
+      url: https://azure.microsoft.com/updates/?tag=data-factory
+    - text: Blog do ADF
+      url: https://techcommunity.microsoft.com/t5/Azure-Data-Factory/bg-p/AzureDataFactoryBlog
+    - text: Solicitar um recurso
+      url: https://feedback.azure.com/forums/270578-azure-data-factory
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Interface do usuário do Azure Data Factory
+      url: /azure/data-factory/quickstart-create-data-factory-portal
+    - text: Ferramenta Copiar Dados
+      url: /azure/data-factory/quickstart-create-data-factory-copy-data-tool
+    - text: Azure PowerShell
+      url: /azure/data-factory/quickstart-create-data-factory-powershell
+    - text: .NET
+      url: /azure/data-factory/quickstart-create-data-factory-dot-net
+    - text: Python
+      url: /azure/data-factory/quickstart-create-data-factory-python
+    - text: Rest
+      url: /azure/data-factory/quickstart-create-data-factory-rest-api
+    - text: Modelo do Resource Manager
+      url: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
+- title: Movimentação de dados
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Copiar a visão geral da atividade
+      url: /azure/data-factory/copy-activity-overview
+    - text: Copiar o ajuste de desempenho
+      url: /azure/data-factory/copy-activity-performance
+  - linkListType: overview
+    links:
+    - text: Migração do data lake e do data warehouse
+      url: /azure/data-factory/data-migration-guidance-overview
+  - linkListType: tutorial
+    links:
+    - text: Copiar dados para a nuvem
+      url: /azure/data-factory/tutorial-copy-data-tool
+    - text: Copiar dados locais na nuvem
+      url: /azure/data-factory/tutorial-hybrid-copy-data-tool
+    - text: Copiar dados em massa
+      url: /azure/data-factory/
+    - text: Copiar dados incrementalmente
+      url: /azure/data-factory/tutorial-create-azure-ssis-runtime-portal
+    - text: Carregar o ADLS Gen2
+      url: /azure/data-factory/continuous-integration-deployment
+    - text: Carregar o SQL DW
+      url: /azure/data-factory/load-azure-sql-data-warehouse
+    - text: Carregar o SAP BW
+      url: /azure/data-factory/load-sap-bw-data
+- title: Transformação de dados
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: O que são os Fluxos de Dados de Mapeamento?
+      url: /azure/data-factory/concepts-data-flow-overview
+  - linkListType: tutorial
+    links:
+    - text: Criar fluxo de dados
+      url: /azure/data-factory/data-flow-create
+    - text: Linguagem de expressão do fluxo de dados
+      url: /azure/data-factory/data-flow-expression-functions
+    - text: Depurar o fluxo de dados
+      url: /azure/data-factory/concepts-data-flow-debug-mode
+    - text: Executar atividade de fluxo de dados dentro do pipeline
+      url: /azure/data-factory/control-flow-execute-data-flow-activity
+    - text: Monitorar o fluxo de dados
+      url: /azure/data-factory/concepts-data-flow-monitoring
+    - text: Desempenho de fluxo de dados
+      url: /azure/data-factory/concepts-data-flow-performance
+- title: Migrar pacotes SSIS por lift-and-shift
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Migrar os pacotes SSIS para uma instância gerenciada do Banco de Dados SQL do Azure
+      url: /azure/data-factory/scenario-ssis-migration-ssisdb-mi
+  - linkListType: tutorial
+    links:
+    - text: Executar pacotes SSIS no Azure
+      url: /azure/data-factory/tutorial-deploy-ssis-packages-azure
+  - linkListType: how-to-guide
+    links:
+    - text: Provisionar o Azure-SSIS Integration Runtime
+      url: /azure/data-factory/create-azure-ssis-integration-runtime
+    - text: Unir o SSIS IR a uma rede virtual
+      url: /azure/data-factory/join-azure-ssis-integration-runtime-virtual-network
+    - text: Executar pacotes SSIS com a atividade Executar pacote do SSIS
+      url: /azure/data-factory/how-to-invoke-ssis-package-ssis-activity
+    - text: Agendar o runtime de integração do SSIS
+      url: /azure/data-factory/how-to-schedule-azure-ssis-integration-runtime
+    - text: Personalizar a instalação para o SSIS IR
+      url: /azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup
+    - text: Instalar componentes licenciados para SSIS IR
+      url: /azure/data-factory/how-to-develop-azure-ssis-ir-licensed-components
+- title: Segurança
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Considerações de segurança da movimentação de dados
+      url: /azure/data-factory/data-movement-security-considerations
+    - text: Identidade Gerenciada para data factory
+      url: /azure/data-factory/data-factory-service-identity
+    - text: Armazenar credenciais no Azure Key Vault
+      url: /store-credentials-in-key-vault
+- title: Criar, Monitorar e Gerenciar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Monitorar visualmente data factories do Azure
+      url: /azure/data-factory/author-visually
+    - text: Controle do código-fonte
+      url: /azure/data-factory/source-control
+    - text: Integração e entrega contínuas
+      url: /azure/data-factory/continuous-integration-deployment
+    - text: Desenvolvimento iterativo e depuração
+      url: /azure/data-factory/iterative-development-debugging
+    - text: Monitorar visualmente
+      url: /azure/data-factory/monitor-visually
+    - text: Monitorar com Azure Monitor
+      url: /azure/data-factory/monitor-using-azure-monitor
+    - text: Monitorar com SDKs
+      url: /azure/data-factory/monitor-programmatically
+- title: Languages
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.datafactory/
+    - text: .NET
+      url: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactory/
+    - text: Python
+      url: https://docs.microsoft.com/python/api/overview/azure/datafactory?view=azure-python
+    - text: REST
+      url: https://docs.microsoft.com/rest/api/datafactory/
+    - text: Modelo do Resource Manager
+      url: https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions
