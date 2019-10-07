@@ -114,22 +114,34 @@
           href: sisense.md
     - name: Gerenciar
       items:
-        - name: Verificar integridade do cluster
-          href: check-cluster-health.md
-        - name: Selecionar SKU de VM do cluster
-          href: manage-cluster-choose-sku.md
-        - name: Gerenciar escala horizontal do cluster
-          href: manage-cluster-horizontal-scaling.md
-        - name: Gerenciar escala vertical do cluster
-          href: manage-cluster-vertical-scaling.md
-        - name: Gerenciar a segurança do cluster
-          href: manage-cluster-security.md
-        - name: Gerenciar permissões de banco de dados
-          href: manage-database-permissions.md
-        - name: Excluir dados
-          href: delete-data.md
-        - name: Lidar com dados duplicados
-          href: dealing-with-duplicates.md
+        - name: HDInsight
+          items:
+            - name: Selecionar SKU de VM do cluster
+              href: manage-cluster-choose-sku.md
+            - name: Gerenciar escala horizontal do cluster
+              href: manage-cluster-horizontal-scaling.md
+            - name: Gerenciar escala vertical do cluster
+              href: manage-cluster-vertical-scaling.md
+            - name: Gerenciar a segurança do cluster
+              href: manage-cluster-security.md
+            - name: Verificar integridade do cluster
+              href: check-cluster-health.md
+        - name: Banco de dados
+          items:
+            - name: Gerenciar permissões de banco de dados
+              href: manage-database-permissions.md
+            - name: Políticas
+              items:
+                - name: 'C#'
+                  href: database-table-policies-csharp.md
+                - name: Python
+                  href: database-table-policies-python.md
+        - name: Dados
+          items:
+            - name: Excluir dados
+              href: delete-data.md
+            - name: Lidar com dados duplicados
+              href: dealing-with-duplicates.md
     - name: Monitoramento
       items:
         - name: Usar logs de diagnóstico para monitorar a ingestão
