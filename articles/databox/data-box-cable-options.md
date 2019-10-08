@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 4759676eff03606998759a586f758b7a26ead23d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 661cec672aa02f62b479b7f5831adfdaff9e6b21
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077540"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316563"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Opções de cabeamento para o Azure Data Box
 
@@ -74,7 +74,7 @@ Execute as etapas a seguir para cabear o dispositivo.
 
 Execute as etapas a seguir para cabear o dispositivo.
 
-1. Use um cabo Ethernet RJ45 do servidor diretamente para a porta MGMT para fins de configuração.
+1. Use um cabo Ethernet RJ-45 do computador separado diretamente para a porta MGMT para fins de configuração.
 2. Use um RJ45 para DATA 3 ou cabos SFP+ para conectar DATA 1 ou DATA 2 ao servidor. Recomendamos que você use portas DATA 1 ou DATA 2 de 10 GbE para um bom desempenho. As portas de dados são conectadas, por meio de um comutador de 10 GbE, ao servidor com os dados.
 3. Configure o adaptador de Ethernet do notebook que você está usando para se conectar ao dispositivo com:
 

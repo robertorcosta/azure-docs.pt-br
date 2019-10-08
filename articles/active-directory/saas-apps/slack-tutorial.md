@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c2d877a1dc611e02e9fbc245df230ca669a2ae4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: b94607691b662dcfcf0e166cd5c339b00ed0573d
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70171440"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326690"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Slack
 
@@ -87,7 +87,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.slack.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<your Slack company>.slack.com`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `https://slack.com`
 
@@ -136,7 +136,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Em outra janela do navegador da Web, entre no site de empresa do Slack como administrador.
 
-2. Navegue até **Microsoft Azure AD** e depois em **Configurações de Equipe**.
+2. Navegue até o nome de sua empresa do Slack à esquerda que, em nosso caso foi configurado como **Microsoft Azure AD**, e vá até as **Configurações do Team**, conforme mostrado na seguinte captura de tela.
 
      ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial_slack_001.png)
 

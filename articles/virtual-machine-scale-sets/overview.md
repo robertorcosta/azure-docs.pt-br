@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/21/2018
+ms.date: 09/26/2019
 ms.author: manayar
-ms.openlocfilehash: 98c183d65a18c186b515df8ec02ba26b8c2c4143
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 73580814dcfe8f967684aca4ce433a40e7bbedc0
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258300"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679384"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>O que são conjuntos de escala de máquina virtual?
 Os conjuntos de dimensionamento de máquinas virtuais do Azure lhe permitem criar e gerenciar um grupo de VMs idênticas e com balanceamento de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente em resposta à demanda ou a um agendamento definido. Os conjuntos de dimensionamento fornecem alta disponibilidade para seus aplicativos e permitem que você gerencie, configure e atualize um grande número de máquinas virtuais de forma centralizada. Com conjuntos de dimensionamento de máquinas virtuais, você pode criar serviços em grande escala para áreas como computação, big data e cargas de trabalho de contêiner.
@@ -62,6 +62,11 @@ Os conjuntos de dimensionamento são criados a partir de máquinas virtuais. Com
 
 Não há nenhum custo adicional para usar os conjuntos de dimensionamento. Você paga apenas pelos recursos de computação subjacentes, como as instâncias de VM, o balanceador de carga ou o armazenamento do disco gerenciado. Os recursos de automação e gerenciamento, como o dimensionamento automático e a redundância, não incorrem em nenhum custo adicional pelo uso das VMs.
 
+## <a name="how-to-monitor-your-scale-sets"></a>Como monitorar seus conjuntos de dimensionamento
+
+Use o [Azure Monitor para VMs](../azure-monitor/insights/vminsights-overview.md), que tem um processo de integração simples e automatizará a coleção de importantes contadores de desempenho da CPU, da memória, do disco e da rede das VMs em seu conjunto de dimensionamento. Ele também inclui funcionalidades de monitoramento adicionais e visualizações predefinidas que ajudam você a se concentrar na disponibilidade e no desempenho dos seus conjuntos de dimensionamento.
+
+Habilite o monitoramento do seu [aplicativo de conjunto de dimensionamento de máquinas virtuais](../azure-monitor/app/azure-vm-vmss-apps.md) com o Application Insights para coletar informações detalhadas sobre seu aplicativo, incluindo exibições de página, solicitações de aplicativo e exceções. Verifique a disponibilidade do aplicativo configurando um [teste de disponibilidade](../azure-monitor/app/monitor-web-app-availability.md) para simular o tráfego de usuários.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para começar, crie seu primeiro conjunto de dimensionamento de máquinas virtuais no Portal do Azure.

@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Criar aplicativo de aprendizado de máquina Spark no Azure HDInsight'
 description: Tutorial - Instruções passo a passo sobre como criar aplicativos de aprendizado de máquina do Apache Spark em clusters do HDInsight Spark usando o bloco de anotações do Jupyter.
-ms.service: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: e1a52072ab3309454742d2d3e8582b58a33666e3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e77414da964d548b64250bbf98f86bee1529f2ab
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448700"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327005"
 ---
-# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Tutorial: Compilar um aplicativo de aprendizado de máquina do Apache Spark no Azure HDInsight 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Tutorial: Compilar um aplicativo de aprendizado de máquina do Apache Spark no Azure HDInsight
 
 Neste tutorial, você aprenderá a usar o [Jupyter Notebook](https://jupyter.org/) para compilar um aplicativo de aprendizado de máquina do [Apache Spark](https://spark.apache.org/) para o Azure HDInsight.
 
@@ -43,7 +43,7 @@ Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0
 
 1. Crie um bloco de notas do Jupyter usando o kernel PySpark. Para obter instruções, consulte [Criar um bloco de notas do Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-1. Importe os tipos obrigatórios necessários para este cenário. Cole o snippet a seguir em uma célula vazia e pressione **SHIFT+ENTER**. 
+1. Importe os tipos obrigatórios necessários para este cenário. Cole o snippet a seguir em uma célula vazia e pressione **SHIFT+ENTER**.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -60,7 +60,7 @@ Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0
     from numpy import array
     ```
 
-3. Carregue os dados (hvac.csv), analisá-los e usá-los para treinar o modelo. 
+1. Carregue os dados (hvac.csv), analisá-los e usá-los para treinar o modelo.
 
     ```PySpark
     # Define a type called LabelDocument
@@ -72,7 +72,7 @@ Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0
         if (values[3] > values[2]):
             hot = 1.0
         else:
-            hot = 0.0        
+            hot = 0.0
 
         textValue = str(values[4]) + " " + str(values[5])
 
@@ -87,7 +87,7 @@ Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0
 
     No snippet de código, você definirá uma função que compare a temperatura real com a temperatura de destino. Se a temperatura real é maior, o prédio está quente, indicado pelo valor **1,0**. Caso contrário, a compilação fica fria, como indicado pelo valor **0,0**.
 
-4. Configure o pipeline de aprendizado de máquina Spark que consiste de três estágios: tokenizer, hashingTF e lr.
+1. Configure o pipeline de aprendizado de máquina Spark que consiste de três estágios: tokenizer, hashingTF e lr.
 
     ```PySpark
     tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
@@ -98,18 +98,18 @@ Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0
 
     Para obter mais informações sobre o pipeline e como ele funciona, confira [Pipeline de aprendizado de máquina Apache Spark](https://spark.apache.org/docs/latest/ml-pipeline.html).
 
-5. Ajuste o pipeline para o documento de treinamento.
+1. Ajuste o pipeline para o documento de treinamento.
 
     ```PySpark
     model = pipeline.fit(training)
     ```
 
-6. Verifique o documento de treinamento para o ponto de verificação de seu progresso com o aplicativo.
+1. Verifique o documento de treinamento para o ponto de verificação de seu progresso com o aplicativo.
 
     ```PySpark
     training.show()
     ```
-   
+
     A saída deverá ser semelhante a:
 
     ```output
@@ -145,7 +145,7 @@ Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0
 
     Observe como a temperatura real é menor que a temperatura de destino sugerindo que o prédio está frio. Portanto, no resultado do treinamento, o valor para o **rótulo** na primeira linha é **0,0**, o que significa que o prédio não está quente.
 
-7. Prepare um conjunto de dados para executar o modelo treinado. Para fazer isso, você passa por uma ID de sistema e idade de sistema (denotado como **SystemInfo** no resultado de treinamento), e o modelo prevê se o prédio com essa ID de sistema e idade de sistema será mais quente (indicado por 1,0) ou mais frio (indicado pelo 0,0).
+1. Prepare um conjunto de dados para executar o modelo treinado. Para fazer isso, você passa por uma ID de sistema e idade de sistema (denotado como **SystemInfo** no resultado de treinamento), e o modelo prevê se o prédio com essa ID de sistema e idade de sistema será mais quente (indicado por 1,0) ou mais frio (indicado pelo 0,0).
 
     ```PySpark
     # SystemInfo here is a combination of system ID followed by system age
@@ -159,7 +159,7 @@ Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0
         .map(lambda x: Document(*x)).toDF()
     ```
 
-8. Por fim, faça as previsões nos dados de teste.
+1. Por fim, faça as previsões nos dados de teste.
 
     ```PySpark
     # Make predictions on test documents and print columns of interest
@@ -182,14 +182,15 @@ Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0
 
    Na primeira linha na previsão, você pode ver que para um sistema HVAC com ID 20 e sistema de 25 anos, o prédio está quente (**previsão = 1,0**). O primeiro valor de DenseVector (0,49999) corresponde à previsão 0,0 e o segundo valor (0,5001) corresponde à previsão 1,0. Na saída, mesmo que o segundo valor seja apenas um pouco mais alto, o modelo mostra **previsão = 1,0**.
 
-10. Feche o bloco de anotações para liberar os recursos. Para fazer isso, no menu **Arquivo** do notebook, selecione **Fechar e Interromper**. Essa ação desliga e fecha o bloco de anotações.
+1. Feche o bloco de anotações para liberar os recursos. Para fazer isso, no menu **Arquivo** do notebook, selecione **Fechar e Interromper**. Essa ação desliga e fecha o bloco de anotações.
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Use a biblioteca Anaconda scikit-learn para aprendizado de máquina do Spark
+
 Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Também inclui a biblioteca **scikit-learn** para aprendizado de máquina. A biblioteca também inclui vários conjuntos de dados que você pode usar para criar aplicativos de exemplo diretamente de um bloco de anotações do Jupyter. Para obter exemplos sobre como usar a biblioteca scikit-learn, consulte [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se não for continuar usando este aplicativo, exclua o cluster que você criou seguindo estas etapas:
+Se não for continuar a usar este aplicativo, exclua o cluster que criou seguindo estas etapas:
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
@@ -197,11 +198,11 @@ Se não for continuar usando este aplicativo, exclua o cluster que você criou s
 
 1. Selecione **Clusters do HDInsight** em **Serviços**.
 
-1. Na lista de clusters do HDInsight que aparece, selecione **…** ao lado do cluster que você criou para este tutorial.
+1. Na lista de clusters do HDInsight exibida, selecione **…** ao lado do cluster que você criou para este tutorial.
 
 1. Selecione **Excluir**. Selecione **Sim**.
 
-![Excluir um cluster HDInsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Excluir o cluster HDInsight")
+![Excluir um cluster HDInsight no portal do Azure](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Excluir o cluster HDInsight")
 
 ## <a name="next-steps"></a>Próximas etapas
 

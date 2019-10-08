@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 01a2b9d5bad7d490f5ee9f6a21af5bc1308bdab1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d87fd06b45d1d3636c442d962daa79cf526e74f2
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553653"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803276"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em Objective-C no iOS usando o SDK de Fala
+
+Também estão disponíveis inícios rápidos para [sintetização de voz](quickstart-text-to-speech-objectivec-ios.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -34,8 +36,6 @@ Antes de começar, aqui está uma lista de pré-requisitos:
 ## <a name="get-the-speech-sdk-for-ios"></a>Obter o SDK de Fala para iOS
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-A versão atual do SDK de Fala dos Serviços Cognitivos é `1.6.0`.
 
 Atualmente, o SDK de Fala dos Serviços Cognitivos para iOS é distribuído como um Cocoa Framework.
 Ele pode ser baixado [aqui](https://aka.ms/csspeech/iosbinary). Baixe o arquivo para seu diretório inicial.
@@ -87,7 +87,7 @@ Substitua o XML gerado automaticamente por este código:
     <string>Need microphone access for speech recognition from microphone.</string>
     ```
 
-## <a name="building-and-running-the-sample"></a>Criação e execução da amostra
+## <a name="build-and-run-the-sample"></a>Criar e executar a amostra
 
 1. Torne a saída de depuração visível (**Exibição** > **Área de Depuração** > **Ativar Console**).
 1. Escolha o simulador de iOS ou um dispositivo iOS conectado ao computador de desenvolvimento como o destino para o aplicativo da lista no menu **Produto** > **Destino**.

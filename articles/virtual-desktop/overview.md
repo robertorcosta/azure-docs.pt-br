@@ -1,22 +1,22 @@
 ---
-title: O que é a Versão Prévia da Área de Trabalho Virtual do Windows?  - Azure
-description: Uma visão geral da Versão Prévia da Área de Trabalho Virtual do Windows.
+title: O que é a Área de Trabalho Virtual do Windows?  - Azure
+description: Uma visão geral da Área de Trabalho Virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 440ebfffec9378e0dad1fd04e0880c90571bb0f1
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 97087b7fdc6e4cdaccf922a1c72f35284c7a7040
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301008"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676563"
 ---
-# <a name="what-is-windows-virtual-desktop-preview"></a>O que é a Versão Prévia da Área de Trabalho Virtual do Windows? 
+# <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows? 
 
-Agora disponível em versão prévia pública, a Versão Prévia da Área de Trabalho Virtual do Windows é um serviço de virtualização de área de trabalho e aplicativo executado na nuvem.
+A Área de Trabalho Virtual do Windows é um serviço de virtualização de aplicativos e área de trabalho executado na nuvem.
 
 Estas são as tarefas que você pode realizar ao executar a Área de Trabalho Virtual do Windows no Azure:
 
@@ -88,7 +88,19 @@ As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windo
 >[!NOTE]
 >Caso precise de uma assinatura do Azure, [inscreva-se em uma avaliação gratuita de um mês](https://azure.microsoft.com/free/). Se estiver usando a versão de avaliação gratuita do Azure, use o Azure AD Domain Services para manter o Windows Server Active Directory em sincronia com o Azure Active Directory.
 
-A Área de Trabalho Virtual do Windows é composta por áreas de trabalho e aplicativos do Windows que você fornece aos usuários e pela solução de gerenciamento, que é hospedada pela Microsoft como um serviço no Azure. Durante a versão prévia pública, as áreas de trabalho e os aplicativos podem ser implantados em VMs (máquinas virtuais) em qualquer região do Azure, e a solução de gerenciamento e os dados dessas VMs residirão nos Estados Unidos (região Leste dos EUA 2). Isso poderá resultar na transferência de dados para os Estados Unidos enquanto você testa o serviço durante a versão prévia pública. Começaremos expandindo a localização da solução de gerenciamento e dos dados para todas as regiões do Azure, começando com a disponibilidade geral.
+As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windows precisam ter acesso da porta TCP 443 de saída às seguintes URLs:
+
+* *.wvd.microsoft.com
+* *.blob.core.windows.net
+* *.core.windows.net
+* *.servicebus.windows.net
+* prod.warmpath.msftcloudes.com
+* catalogartifact.azureedge.net
+
+>[!NOTE]
+>Abrir essas URLs é essencial para uma implantação da Área de Trabalho Virtual do Windows confiável. Não há suporte ao bloqueio do acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs são correspondentes apenas aos sites e recursos da Área de Trabalho Virtual do Windows e não incluem URLs para outros serviços como o Azure AD.
+
+A Área de Trabalho Virtual do Windows é composta por áreas de trabalho e aplicativos do Windows que você fornece aos usuários e pela solução de gerenciamento, que é hospedada pela Microsoft como um serviço no Azure. As áreas de trabalho e os aplicativos podem ser implantados em VMs (máquinas virtuais) em qualquer região do Azure. A solução de gerenciamento e os dados dessas VMs residirão nos Estados Unidos (região Leste dos EUA 2). Isso poderá resultar na transferência de dados para os Estados Unidos.
 
 Para otimizar o desempenho, verifique se a rede atende aos seguintes requisitos:
 
@@ -108,11 +120,28 @@ Os seguintes clientes da Área de Trabalho Remota são compatíveis com a Área 
 A Área de Trabalho Virtual do Windows dá suporte às seguintes imagens de sistema operacional:
 
 * Windows 10 Enterprise de várias sessões
+* Windows 10 Enterprise
+* Windows 7 Enterprise
+* Windows Server 2019
 * Windows Server 2016
+* Windows Server 2012 R2
+
+As opções de automação e implantação disponíveis dependem do sistema operacional e da versão escolhidos, conforme mostrado na tabela a seguir: 
+
+|Sistema operacional|Galeria de Imagens do Azure|Implantação manual de VM|Integração de modelos do Azure Resource Manager|Provisionar pools de hosts no Azure Marketplace|Atualizações do Agente da Área de Trabalho Virtual do Windows|
+|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
+|Várias sessões do Windows 10, versão 1903|Sim|sim|sim|Sim|Automático|
+|Várias sessões do Windows 10, versão 1809|Sim|sim|Não|Não|Automático|
+|Windows 10 Enterprise, versão 1903|Sim|sim|sim|Sim|Automático|
+|Windows 10 Enterprise, versão 1809|Sim|sim|Não|Não|Automático|
+|Windows 7 Enterprise|Sim|sim|Não|Não|Manual|
+|Windows Server 2019|Sim|sim|Não|Não|Automático|
+|Windows Server 2016|Sim|sim|sim|Sim|Automático|
+|Windows Server 2012 R2|Sim|sim|Não|Não|Automático|
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para começar, você precisará criar um locatário. Para saber mais sobre como criar um locatário, continue para o tutorial de criação de locatário.
 
 > [!div class="nextstepaction"]
-> [Criar um locatário na Versão Prévia da Área de Trabalho Virtual do Windows](tenant-setup-azure-active-directory.md)
+> [Criar um locatário na Área de Trabalho Virtual do Windows](tenant-setup-azure-active-directory.md)

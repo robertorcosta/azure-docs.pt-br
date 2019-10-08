@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6cde60ee31b1654d79affd6e9050f426365ba29f
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 0c7d88d76a3fea87b3cfe4032186140f38c263d3
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240967"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71693398"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Windows
 
@@ -134,7 +134,7 @@ A extensão Ferramentas do Azure IoT Edge oferece modelos de projeto para todas 
    | ----- | ----- |
    | Modelo do Visual Studio | Selecione **Módulo em C#** . | 
    | Nome do Módulo | Aceite o **IotEdgeModule1** padrão. | 
-   | URL do repositório | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner é populada previamente com base no valor de nome do projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. Você pode recuperar o servidor de logon da página Visão Geral do seu registro de contêiner no portal do Azure. <br><br> O repositório de imagem final se parece com \<nome do registro\>.azurecr.io/iotedgemodule1. |
+   | URL do repositório | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner é populada previamente com base no valor de nome do projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. É possível recuperar o valor **Servidor de logon** da página **Visão geral** do seu registro de contêiner no portal do Azure. <br><br> O repositório de imagem final se parece com \<nome do registro\>.azurecr.io/iotedgemodule1. |
 
       ![Configure seu projeto para o dispositivo de destino, tipo de módulo e registro de contêiner](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
@@ -143,33 +143,38 @@ A extensão Ferramentas do Azure IoT Edge oferece modelos de projeto para todas 
 Depois que o novo projeto for carregado na janela do Visual Studio, aguarde um pouco para se familiarizar com os arquivos criados: 
 
 * Um projeto de IoT Edge chamado **CSharpTutorialApp**.
-    * A pasta **módulos** contém ponteiros para os módulos inclusos no projeto. Nesse caso, ela deve ser apenas IotEdgeModule1. 
-    * O arquivo **deployment.template.json** é o modelo para ajudar você a criar um manifesto de implantação. Um *manifesto de implantação* é um arquivo que define exatamente quais módulos você deseja implantar em um dispositivo, como eles devem ser configurados e como eles podem se comunicar entre si e com a nuvem. 
+  * A pasta **módulos** contém ponteiros para os módulos inclusos no projeto. Nesse caso, ela deve ser apenas IotEdgeModule1. 
+  * O arquivo **.env** oculto armazena as credenciais para seu registro de contêiner. Essas credenciais são compartilhadas com seu dispositivo IoT Edge para que ele tenha acesso para efetuar pull de imagens de contêiner.
+  * O arquivo **deployment.template.json** é o modelo para ajudar você a criar um manifesto de implantação. Um *manifesto de implantação* é um arquivo que define exatamente quais módulos você deseja implantar em um dispositivo, como eles devem ser configurados e como eles podem se comunicar entre si e com a nuvem.
+    > [!TIP]
+    > Na seção de credenciais de Registro, o endereço é preenchido automaticamente com as informações fornecidas quando você criou a solução. No entanto, o nome de usuário e a senha referenciam as variáveis armazenadas no arquivo .env. Isso é por questões de segurança, uma vez que o arquivo .env é ignorado pelo git, mas o modelo de implantação não.
 * Um projeto de módulo do IoT Edge chamado **IotEdgeModule1**.
-    * O arquivo **program.cs** contém o código do módulo C# padrão que vem com o modelo de projeto. O módulo padrão obtém a entrada de uma fonte e a passa para o Hub IoT. 
-    * O arquivo **module.json** apresenta detalhes sobre o módulo, incluindo o repositório de imagem completo, a versão da imagem e qual Dockerfile usar para cada plataforma compatível.
+  * O arquivo **program.cs** contém o código do módulo C# padrão que vem com o modelo de projeto. O módulo padrão obtém a entrada de uma fonte e a passa para o Hub IoT. 
+  * O arquivo **module.json** apresenta detalhes sobre o módulo, incluindo o repositório de imagem completo, a versão da imagem e qual Dockerfile usar para cada plataforma compatível.
 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>Forneça suas credenciais de Registro para o agente do IoT Edge
 
-O tempo de execução do IoT Edge precisa das credenciais de registro para efetuar pull de suas imagens de contêineres para o dispositivo IoT Edge. Adicione essas credenciais ao modelo de implantação. 
+O tempo de execução do IoT Edge precisa das credenciais de registro para efetuar pull de suas imagens de contêineres para o dispositivo IoT Edge. A extensão do IoT Edge tenta extrair informações do Registro de Contêiner do Azure e populá-las no modelo de implantação.
 
-1. Abra o arquivo **deployment.template.json**.
+1. Abra o arquivo **deployment.template.json** em sua solução do módulo.
 
-2. Localize a propriedade **registryCredentials** nas propriedades desejadas do $edgeAgent. 
-
-3. Atualize a propriedade com suas credenciais, seguindo este formato: 
+1. Localize a propriedade **registryCredentials** nas propriedades desejadas do $edgeAgent e verifique se ela contém as informações corretas.
 
    ```json
    "registryCredentials": {
      "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
+       "username": "$CONTAINER_REGISTRY_USERNAME_<registry name>",
+       "password": "$CONTAINER_REGISTRY_PASSWORD_<registry name>",
        "address": "<registry name>.azurecr.io"
      }
    }
    ```
 
-4. Salve o arquivo deployment.template.json. 
+1. Abra o arquivo **.env** em sua solução de módulo. (Está oculto por padrão no Gerenciador de Soluções; portanto, pode ser necessário selecionar o botão **Mostrar Todos os Arquivos** para exibi-lo.)
+
+1. Adicione os valores **Nome de usuário** e **Senha** que você copiou do Registro de Contêiner do Azure.
+
+1. Salve suas alterações no arquivo .env.
 
 ### <a name="review-the-sample-code"></a>Revisar o código de exemplo
 

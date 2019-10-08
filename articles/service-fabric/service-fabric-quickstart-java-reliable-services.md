@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: ca6a1063f6ddd5c42d0d08f43b87a3387cc46a14
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 4ef0db5f72f5849942bb043261f1166cf7c046b1
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859258"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703290"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Início Rápido:  Implantar um aplicativo Java no Azure Service Fabric no Linux
 
@@ -28,7 +28,7 @@ Este guia de início rápido mostra como implantar seu primeiro aplicativo Java 
 
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços.
 
-![Captura de tela do aplicativo](./media/service-fabric-quickstart-java/votingapp.png)
+![Amostra de votação do Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
 
 Neste guia de início rápido, você aprende a:
 
@@ -62,22 +62,22 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```
     A inicialização do cluster local leva algum tempo. Para confirmar que o cluster está totalmente funcional, acesse o Service Fabric Explorer em **http://localhost:19080** . Os cinco nós íntegros indicam que o cluster local está em execução.
 
-    ![Integridade do cluster local](./media/service-fabric-quickstart-java/localclusterup.png)
+    ![O Azure Service Fabric Explorer mostra nós íntegros](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Abra o Eclipse.
 3. Selecione **Arquivo** > **Importar** > **Gradle** > **Projeto Gradle Existente** e siga o assistente.
 4. Selecione **Diretório** e escolha o diretório `Voting` na pasta `service-fabric-java-quickstart` clonada do GitHub. Selecione **Concluir**.
 
-    ![Caixa de diálogo Importação do Eclipse](./media/service-fabric-quickstart-java/eclipseimport.png)
+    ![Importar o projeto do Gradle para o Eclipse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
 5. Agora você tem o projeto `Voting` no Explorador de Pacote para o Eclipse.
 6. Clique com o botão direito do mouse no projeto e selecione **Publicar Aplicativo** na lista suspensa **Service Fabric**. Escolha **PublishProfiles/Local.json** como o Perfil de Destino e selecione **Publicar**.
 
-    ![Caixa de diálogo Publicar local](./media/service-fabric-quickstart-java/localjson.png)
+    ![Publicação de JSON local do Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-publish-local-json.png)
 
 7. Abra seu navegador da Web favorito e acesse o aplicativo em `http://localhost:8080`.
 
-    ![Front-end do aplicativo local](./media/service-fabric-quickstart-java/runninglocally.png)
+    ![Host local do Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-local-host.png)
 
 Agora, você pode adicionar um conjunto de opções de votação e começar a votar. O aplicativo é executado e armazena todos os dados no cluster do Service Fabric, sem a necessidade de um banco de dados separado.
 
@@ -92,14 +92,14 @@ Para dimensionar o serviço de front-end da Web, faça o seguinte:
 1. Abra o Service Fabric Explorer no cluster – por exemplo, `https://localhost:19080`.
 2. Selecione as reticências ( **...** ) ao lado do nó **fabric:/Voting/VotingWeb** no modo de exibição de árvore e selecione **Dimensionar Serviço**.
 
-    ![Dimensionar Serviço do Service Fabric Explorer](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
+    ![Dimensionar um serviço no Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)
 
     Agora, você pode optar por dimensionar o número de instâncias do serviço de front-end da Web.
 
 3. Altere o número para **2** e selecione **Dimensionar Serviço**.
 4. Selecione o nó **fabric:/Voting/VotingWeb** do modo de exibição de árvore e expanda o nó de partição (representado por um GUID).
 
-    ![Serviço de colocação em escala do Service Fabric Explorer concluído](./media/service-fabric-quickstart-java/servicescaled.png)
+    ![Serviço dimensionado no Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-explorer-service-scaled.png)
 
     Agora, você pode ver que o serviço tem duas instâncias e no modo de exibição de árvore, você vê em quais nós as instâncias são executadas.
 

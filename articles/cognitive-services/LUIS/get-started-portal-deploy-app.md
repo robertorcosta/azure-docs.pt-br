@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/02/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 4e9ecdad0fb4d02f160977fa28a484b2a3a5bb30
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: f640921e6f48559db3f1414551d6ed974df15e4f
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257084"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703212"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início Rápido: Implantar um aplicativo no portal do LUIS
 
@@ -87,43 +87,50 @@ Treine o aplicativo quando estiver pronto para testá-lo. Publique o aplicativo 
 
 1. Selecione a URL do ponto de extremidade associada ao seu novo nome de recurso. Esta ação abre um navegador da Web com uma URL corretamente construída para fazer uma solicitação `GET` ao tempo de execução do ponto de extremidade de previsão.
 
-1. O `q=` no final da URL é a abreviação de **consulta** e é onde a expressão do usuário é anexada à solicitação GET. Após `q=`, insira a mesma expressão de usuário usado no final do guia de início rápido anterior:
+## <a name="prediction-endpoint-request"></a>Solicitação de ponto de extremidade de previsão
 
-    ```Is there a form named hrf-234098```
+<!-- V3FIX -->
 
-    O navegador mostra a resposta, que é o mesmo JSON que o seu aplicativo cliente receberá:
+O `q=` no final da URL é a abreviação de **consulta** e é onde a expressão do usuário é anexada à solicitação GET. Após `q=`, insira a mesma expressão de usuário usado no final do guia de início rápido anterior:
 
-    ```JSON
+```Is there a form named hrf-234098```
+
+O navegador mostra a resposta, que é o mesmo JSON que o seu aplicativo cliente receberá:
+
+```JSON
+{
+"query": "Is there a form named hrf-234098",
+"topScoringIntent": {
+    "intent": "FindForm",
+    "score": 0.9768753
+},
+"intents": [
     {
-    "query": "Is there a form named hrf-234098",
-    "topScoringIntent": {
-        "intent": "FindForm",
-        "score": 0.9768753
+    "intent": "FindForm",
+    "score": 0.9768753
     },
-    "intents": [
-        {
-        "intent": "FindForm",
-        "score": 0.9768753
-        },
-        {
-        "intent": "None",
-        "score": 0.0216071066
-        }
-    ],
-    "entities": [
-        {
-        "entity": "hrf-234098",
-        "type": "Human Resources Form Number",
-        "startIndex": 22,
-        "endIndex": 31
-        }
-      ]
+    {
+    "intent": "None",
+    "score": 0.0216071066
     }
-    ```
+],
+"entities": [
+    {
+    "entity": "hrf-234098",
+    "type": "Human Resources Form Number",
+    "startIndex": 22,
+    "endIndex": 31
+    }
+    ]
+}
+```
 
-    Essa resposta fornece mais informações do que o painel de teste padrão do tutorial anterior. Para ver este mesmo nível de informações no painel de teste, publique o aplicativo. Depois que o aplicativo for publicado, selecione **Comparar ao publicado** no painel de teste. Use **Mostrar exibição JSON** no painel de teste publicado para ver o mesmo JSON da etapa anterior. Dessa forma, você pode comparar o aplicativo atual, que está trabalhando com um aplicativo que é publicado no ponto de extremidade.
+Essa resposta fornece mais informações do que o painel de teste padrão do tutorial anterior. Para ver este mesmo nível de informações no painel de teste, publique o aplicativo. Depois que o aplicativo for publicado, selecione **Comparar ao publicado** no painel de teste. Use **Mostrar exibição JSON** no painel de teste publicado para ver o mesmo JSON da etapa anterior. Dessa forma, você pode comparar o aplicativo atual, que está trabalhando com um aplicativo que é publicado no ponto de extremidade.
 
-    [![Compare editando no momento versus a versão publicada do aplicativo](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+[![Compare editando no momento versus a versão publicada do aplicativo](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+
+
+
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

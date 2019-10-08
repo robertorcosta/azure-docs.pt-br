@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: bidishac
-ms.openlocfilehash: b1be09a2af712277ccaad827b8e84e24ed9f5c5c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c5a6042e4b181190849b3759325e4aab0c22413b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553255"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71800030"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Início Rápido: Criar um assistente virtual que tem como prioridade o uso de voz com o SDK de Fala, Java
 
-Guias de início rápido também estão disponíveis para [conversão de fala em texto](quickstart-java-jre.md) e [tradução de fala](quickstart-translate-speech-java-jre.md).
+Também estão disponíveis inícios rápidos para [conversão de fala em texto](quickstart-java-jre.md), [conversão de texto em fala](quickstart-text-to-speech-java-jre.md) e [tradução de fala](quickstart-translate-speech-java-jre.md).
 
 Neste artigo, você criará um aplicativo de console Java usando o [SDK de Fala dos Serviços Cognitivos](speech-sdk.md). O aplicativo se conectará a um bot criado anteriormente, configurado para usar o canal de Fala do Direct Line, enviar uma solicitação de voz e retornar uma atividade de resposta de voz (se configurado). O aplicativo é criado com o pacote Maven do SDK de Fala e o Java IDE do Eclipse no Windows, no Ubuntu Linux ou no macOS. Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
 

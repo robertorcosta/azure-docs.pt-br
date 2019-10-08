@@ -1,35 +1,34 @@
 ---
 title: 'Início Rápido: Reconhecer fala, Unity – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para criar um aplicativo de conversão de fala em texto com o Unity e o SDK de Fala para Unity (Beta). Quando terminar, você pode usar o microfone do computador para transcrever a conversão de fala em texto em tempo real.
+description: Use este guia para criar um aplicativo de conversão de fala em texto com o Unity e o SDK de Fala para Unity. Quando terminar, você pode usar o microfone do computador para transcrever a conversão de fala em texto em tempo real.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 09/17/2019
 ms.author: jhakulin
-ms.openlocfilehash: 1b6e60edd86cff2d657b562f05351e20571c0909
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a7ac6831fd21fcc0dc425b57f5d73d8c328f9350
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815458"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803488"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Início Rápido: Reconhecer fala com o SDK de Fala para Unity (Beta)
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity"></a>Início Rápido: Reconhecer fala com o SDK de Fala para Unity
 
 Guias de início rápido também estão disponíveis para [conversão de texto em fala](quickstart-text-to-speech-csharp-unity.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Use este guia para criar um aplicativo de conversão de fala em texto usando o [Unity](https://unity3d.com/) e o SDK de Fala para Unity (Beta).
+Use este guia para criar um aplicativo de conversão de fala em texto com o [Unity](https://unity3d.com/) e o SDK de Fala para Unity.
 Quando terminar, você pode falar com o dispositivo para transcrever a conversão de fala em texto em tempo real.
 Se você é novo no Unity, sugerimos que você estude o [Manual do usuário do Unity](https://docs.unity3d.com/Manual/UnityManual.html) antes de desenvolver o aplicativo.
 
 > [!NOTE]
-> Atualmente, o SDK de Fala para Unity está em beta.
-> Ele dá suporte à Área de Trabalho do Windows (x86 e x64) ou à Plataforma Universal do Windows (x86, x64, ARM/ARM64) e ao Android (x86, ARM32/64).
+> O SDK de Fala para Unity dá suporte à Área de Trabalho do Windows (x86 e x64) ou à Plataforma Universal do Windows (x86, x64, ARM/ARM64), ao Android (x86, ARM32/64) e ao iOS (simulador x64, ARM32 e ARM64)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +36,7 @@ Para concluir este projeto, você precisará de:
 
 - [Unity 2018.3 ou posterior](https://store.unity.com/) com o [Unity 2019.1 adicionando suporte ao UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal).
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). A versão 15.9 ou superior do Visual Studio 2017 também é aceitável.
-  - Para obter suporte ao ARM64, instale as [ferramentas de build opcionais para o ARM64 e o SDK do Windows 10 para ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/).
+- Para obter suporte ao Windows ARM64, instale as [ferramentas de build opcionais para o ARM64 e o SDK do Windows 10 para ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/).
 - Uma chave de assinatura para o Serviço de Fala. [Obtenha uma gratuitamente](get-started.md).
 - Acesso ao microfone do computador.
 
@@ -62,7 +61,7 @@ Para instalar o SDK de Fala para o Unity, siga estas etapas:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-1. Baixe e abra o [SDK de Fala para Unity (Beta)](https://aka.ms/csspeech/unitypackage), que é empacotado como um pacote de ativos do Unity (.unitypackage). Quando o pacote de ativos é aberto, a caixa de diálogo **Importar Pacote do Unity** é exibida.
+1. Baixe e abra o [SDK de Fala para Unity](https://aka.ms/csspeech/unitypackage), que é empacotado como um pacote de ativos do Unity (.unitypackage). Quando o pacote de ativos é aberto, a caixa de diálogo **Importar Pacote do Unity** é exibida.
 
    [![Caixa de diálogo Importar pacote do Unity no Editor do Unity](media/sdk/qs-csharp-unity-01-import.png)](media/sdk/qs-csharp-unity-01-import.png#lightbox)
 1. Verifique se todos os arquivos estão selecionados e selecione **Importar**. Depois de alguns instantes, o pacote de ativos do Unity é importado para o projeto.

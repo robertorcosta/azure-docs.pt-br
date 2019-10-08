@@ -7,18 +7,22 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 15b4d3208be693a5b8d858d30b663347515f5a68
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: d7c2aee3ad73552a57776af5ce6585b36518d169
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130281"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687065"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Criar um ponto de extremidade privado usando portal do Azure
 
 Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste guia de início rápido, você aprenderá a criar uma VM em uma rede virtual do Azure, um servidor do banco de dados SQL com um ponto de extremidade privado do Azure usando o Azure PowerShell. Em seguida, você pode acessar com segurança o servidor do banco de dados SQL da VM.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+
+> [!NOTE]
+> Os pontos de extremidade privados não são permitidos em conjunto com pontos de extremidade de serviço na mesma sub-rede!
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -210,30 +214,31 @@ Depois de criar **myVm*, conecte-se a ele pela Internet da seguinte maneira:
     Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
-3. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+    ```
+3. Instale o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
-4. In **Connect to server**, enter or select this information:
+4. Em  **Conectar-se ao servidor**, insira ou selecione estas informações:
 
-    | Setting | Value |
+    | Configuração | Valor |
     | ------- | ----- |
-    | Server type| Select **Database Engine**.|
-    | Server name| Select *myserver.database.windows.net* |
-    | User name | Enter a password provided during the SQL server creation. |
-    |Password |Enter a password provided during the SQL server creation. |
-    |Remember password|Select **Yes**.|
+    | Tipo de servidor| Selecione **Mecanismo de Banco de Dados**.|
+    | Nome do servidor| Selecione *myserver.database.windows.net* |
+    | Nome de usuário | Insira uma senha fornecida durante a criação do SQL Server. |
+    |Senha |Insira uma senha fornecida durante a criação do SQL Server. |
+    |Lembrar senha|Selecione **Sim**.|
     |||
-1. Select **Connect**.
-2. Browse databases from left menu.
-3. (Optionally) Create or query information from mydatabase.
-4. Close the remote desktop connection to *myVm*. 
+1. Selecione **Conectar**.
+2. Procurar bancos de dados no menu à esquerda.
+3. (Opcionalmente) Crie ou consulte informações no mydatabase.
+4. Feche a Conexão de Área de Trabalho Remota para  *myVm*. 
 
-## Clean up resources 
-When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
-2. Select **Delete resource group**. 
-3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+## <a name="clean-up-resources"></a>Limpar recursos 
+Quando terminar de usar o ponto de extremidade privado, o SQL Server e a VM, exclua o grupo de recursos e todos os recursos que ele contém: 
+1. Insira  *myResourceGroup* na caixa **Pesquisar** na parte superior do portal e selecione *myResourceGroup* nos resultados da pesquisa. 
+2. Selecione **Excluir grupo de recursos**. 
+3. Insira myResourceGroup para **DIGITE O NOME DO GRUPO DE RECURSOS** e selecione **Excluir**.
 
-## Next steps
+## <a name="next-steps"></a>Próximas etapas
 
-In this quickstart, you created a VM on a virtual network, a SQL database server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the SQL database server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint?](private-endpoint-overview.md).
+Neste início rápido, você criou uma VM em uma rede virtual, um servidor do banco de dados SQL e um ponto de extremidade privado para acesso privado. Você se conectou a uma VM pela Internet e se comunicou com segurança com servidor do banco de dados SQL usando o Link Privado. Para saber mais sobre pontos de extremidade privados, confira [O que é o ponto de extremidade privado do Azure?](private-endpoint-overview.md).
 

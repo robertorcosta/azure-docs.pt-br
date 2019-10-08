@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/05/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 1704b62cae6375d376fc43fb7a2940cd9c717072
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 748c51e74db20ac101dc2dff0d924567acded114
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382518"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703233"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Início Rápido: usar aplicativo de automação Inicial predefinido
 
@@ -31,15 +31,15 @@ Para este artigo, você precisa de uma conta gratuita do LUIS, criada no portal 
 ## <a name="create-a-new-app"></a>Criar um novo aplicativo
 Você pode criar e gerenciar seus aplicativos em **Meus Aplicativos**. 
 
-2. Selecione **Criar novo aplicativo**.
+1. Selecione **Criar novo aplicativo**.
 
     [![Captura de tela da lista de aplicativos](media/luis-quickstart-new-app/app-list.png "Captura de tela da lista de aplicativos")](media/luis-quickstart-new-app/app-list.png)
 
-3. Na caixa de diálogo, dê ao seu aplicativo o nome "Automação Residencial".
+1. Na caixa de diálogo, dê ao seu aplicativo o nome "Automação Residencial".
 
     [![Captura de tela da caixa de diálogo pop-up Criar novo aplicativo](media/luis-quickstart-new-app/create-new-app-dialog.png "Captura de tela da caixa de diálogo pop-up Criar novo aplicativo")](media/luis-quickstart-new-app/create-new-app-dialog.png)
 
-4. Escolha a cultura do aplicativo. Para este aplicativo de Automação Residencial, escolha inglês. Em seguida, selecione **Concluído**. O LUIS cria o aplicativo de Automação Residencial. 
+1. Escolha a cultura do aplicativo. Para este aplicativo de Automação Residencial, escolha inglês. Em seguida, selecione **Concluído**. O LUIS cria o aplicativo de Automação Residencial. 
 
     >[!NOTE]
     >A cultura não poderá ser alterada depois que o aplicativo for criado. 
@@ -101,69 +101,27 @@ Selecione **Testar** novamente para recolher o painel de teste.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-1. Vá até o final da URL no endereço, digite `turn off the living room light` e pressione Enter. O navegador exibe a versão da **API V2** da resposta JSON de seu ponto de extremidade HTTP.
+1. Vá até o final da URL no endereço, digite `turn off the living room light` e pressione Enter. 
+
+    #### <a name="v2-prediction-endpointtabv2"></a>[Ponto de extremidade de previsão V2](#tab/V2)
+
+    `https://<region>.api.cognitive.microsoft.com/luis/**v2.0**/apps/<appID>?subscription-key=<YOUR_KEY>&**q=<user-utterance-text>**`
+
+    O navegador exibe a versão da **API V2** da resposta JSON de seu ponto de extremidade HTTP.
 
     ```json
     {
-      "query": "turn off the living room light",
+      "query": "turn off the lights",
       "topScoringIntent": {
         "intent": "HomeAutomation.TurnOff",
-        "score": 0.9753089
+        "score": 0.995867
       },
-      "intents": [
-        {
-          "intent": "HomeAutomation.TurnOff",
-          "score": 0.9753089
-        },
-        {
-          "intent": "HomeAutomation.QueryState",
-          "score": 0.01027893
-        },
-        {
-          "intent": "HomeAutomation.TurnUp",
-          "score": 0.006881481
-        },
-        {
-          "intent": "HomeAutomation.SetDevice",
-          "score": 0.006786365
-        },
-        {
-          "intent": "HomeAutomation.TurnDown",
-          "score": 0.005145787
-        },
-        {
-          "intent": "HomeAutomation.TurnOn",
-          "score": 0.004114749
-        },
-        {
-          "intent": "None",
-          "score": 0.000598924
-        }
-      ],
       "entities": [
         {
-          "entity": "living room",
-          "type": "HomeAutomation.Location",
-          "startIndex": 13,
-          "endIndex": 23,
-          "score": 0.94558233
-        },
-        {
-          "entity": "living room light",
-          "type": "HomeAutomation.DeviceName",
-          "startIndex": 13,
-          "endIndex": 29,
-          "resolution": {
-            "values": [
-              "living room light"
-            ]
-          }
-        },
-        {
-          "entity": "light",
+          "entity": "lights",
           "type": "HomeAutomation.DeviceType",
-          "startIndex": 25,
-          "endIndex": 29,
+          "startIndex": 13,
+          "endIndex": 18,
           "resolution": {
             "values": [
               "light"
@@ -174,56 +132,38 @@ Selecione **Testar** novamente para recolher o painel de teste.
     }
     ```
     
-## <a name="query-the-v3-api-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão da API V3
+    #### <a name="v3-prediction-endpointtabv3"></a>[Ponto de extremidade de previsão V3](#tab/V3)
 
-Para uma [consulta à API V3](luis-migration-api-v3.md), no navegador, altere a solicitação HTTPS do método GET, alterando os valores entre colchetes angulares para seus próprios valores. 
+    Para uma [consulta à API V3](luis-migration-api-v3.md), no navegador, altere a solicitação HTTPS do método GET, alterando os valores entre colchetes angulares para seus próprios valores.     
 
-**URL V2 com método GET**:
+    `https://<region>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/<appID>/**slots**/**production**/**predict**?subscription-key=<YOUR_KEY>&**query=<user-utterance-text>**`
 
-https://\<region>.api.cognitive.microsoft.com/luis/**v2.0**/apps/\<appID>?verbose=true&subscription-key=\<YOUR_KEY>&**q=\<user-utterance-text>**
-
-**URL V3 com método GET**:
-
-https://\<região>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/\<appID>/**slots**/**production**/**predict**?verbose=true&subscription-key=\<YOUR_KEY>&**query=\<user-utterance-text>**
-
-O navegador exibe a versão da **API V3** da resposta JSON de seu ponto de extremidade HTTP.
-
-```json
-{
-    "query": "turn off the lights",
-    "prediction": {
-        "normalizedQuery": "turn off the lights",
-        "topIntent": "HomeAutomation.TurnOff",
-        "intents": {
-            "HomeAutomation.TurnOff": {
-                "score": 0.99649024
-            }
-        },
-        "entities": {
-            "HomeAutomation.DeviceType": [
-                [
-                    "light"
-                ]
-            ],
-            "$instance": {
+    ```json
+    {
+        "query": "turn off the lights",
+        "prediction": {
+            "normalizedQuery": "turn off the lights",
+            "topIntent": "HomeAutomation.TurnOff",
+            "intents": {
+                "HomeAutomation.TurnOff": {
+                    "score": 0.99649024
+                }
+            },
+            "entities": {
                 "HomeAutomation.DeviceType": [
-                    {
-                        "type": "HomeAutomation.DeviceType",
-                        "text": "lights",
-                        "startIndex": 13,
-                        "length": 6,
-                        "modelTypeId": 5,
-                        "modelType": "List Entity Extractor",
-                        "recognitionSources": [
-                            "model"
-                        ]
-                    }
+                    [
+                        "light"
+                    ]
                 ]
             }
         }
     }
-}
-```
+    ```
+
+
+    Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.md).
+    
+    * * * 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

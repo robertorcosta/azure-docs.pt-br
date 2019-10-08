@@ -1,22 +1,22 @@
 ---
-title: Gerenciar grupos de aplicativos para a Versão Prévia da Área de Trabalho Virtual do Windows – Azure
-description: Descreve como configurar locatários da Versão Prévia da Área de Trabalho Virtual do Windows no Azure Active Directory.
+title: Gerenciar grupos de aplicativos para a Área de Trabalho Virtual do Windows – Azure
+description: Descreve como configurar locatários da Área de Trabalho Virtual do Windows no Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 2bec7e490443727fa294e7be9412bb20ae66e691
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e158c0a6090493bec0169c144f030300de921516
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163247"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679449"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Tutorial: Gerenciar grupos de aplicativos para a Versão Prévia da Área de Trabalho Virtual do Windows
+# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>Tutorial: Gerenciar grupos de aplicativos para a Área de Trabalho Virtual do Windows
 
-O grupo de aplicativos padrão criado para um novo pool de hosts da Versão Prévia da Área de Trabalho Virtual do Windows também publica a área de trabalho completa. Além disso, você pode criar um ou mais grupos de aplicativos do RemoteApp para o pool de hosts. Siga este tutorial para criar um grupo de aplicativos do RemoteApp e publicar aplicativos individuais do menu **Iniciar**.
+O grupo de aplicativos padrão criado para um novo pool de hosts da Área de Trabalho Virtual do Windows também publica a área de trabalho completa. Além disso, você pode criar um ou mais grupos de aplicativos do RemoteApp para o pool de hosts. Siga este tutorial para criar um grupo de aplicativos do RemoteApp e publicar aplicativos individuais do menu **Iniciar**.
 
 Neste tutorial, você aprenderá a:
 

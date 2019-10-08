@@ -16,25 +16,22 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 988c73236d9f5ef360ded03bca36a4bb24ebd308
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: c41dedf6b4fe52ba3250ada14b0cca6bbeb636af
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290829"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827125"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>Início Rápido: Conectar usuários e adquirir um token de acesso de um aplicativo de página única do JavaScript
 
-Neste início rápido, você aprenderá como usar um exemplo de código que demonstra como um SPA (aplicativo de página única) do JavaScript pode conectar usuários de contas pessoais, contas corporativas e de estudante. Um SPA JavaScript também pode obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API Web.
-
-![Como funciona o aplicativo de exemplo neste início rápido](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+Neste início rápido, você usará um exemplo de código para aprender como um SPA (aplicativo de página única) do JavaScript pode conectar usuários de contas pessoais, contas corporativas e de estudante. Um SPA JavaScript também pode obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API Web. (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este início rápido requer a seguinte configuração:
-* Para executar o projeto com um servidor Node.js, baixe e instale o [Node.js](https://nodejs.org/en/download/).
-* Para editar os arquivos de projeto, baixe e instale o [Visual Studio Code](https://code.visualstudio.com/download).
-* Para executar o projeto como uma solução do Visual Studio, baixe e instale o [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
+* Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Node.js](https://nodejs.org/en/download/).
+* [Visual Studio Code](https://code.visualstudio.com/download) (para editar arquivos de projeto) ou [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (para executar o projeto como uma Solução do Visual Studio).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Registrar e baixar o aplicativo de início rápido
@@ -81,8 +78,6 @@ Selecione a opção mais adequada ao seu ambiente de desenvolvimento:
 * Para executar o projeto com um servidor Web usando Node.js, [baixe os arquivos de projeto de núcleo](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip). Para abrir os arquivos, use um editor como o [Visual Studio Code](https://code.visualstudio.com/).
 
 * (Opcional) [Baixe o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip) para executar o projeto com o servidor IIS. Extraia o arquivo zip para uma pasta local (por exemplo, *C:\Azure-Samples*).
-
-
 
 #### <a name="step-3-configure-your-javascript-app"></a>Etapa 3: Configurar o aplicativo JavaScript
 
@@ -144,6 +139,10 @@ var msalConfig = {
 Depois que o navegador carregar o aplicativo, selecione **Entrar**. Na primeira vez em que entrar, será solicitado que você forneça seu consentimento para permitir que o aplicativo acesse seu perfil e faça logon. Depois que você se conectar com êxito, as informações do seu perfil de usuário deverão ser exibidas na página.
 
 ## <a name="more-information"></a>Mais informações
+
+### <a name="how-the-sample-works"></a>Como o exemplo funciona
+
+![Como funciona o aplicativo de exemplo neste início rápido](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
 ### <a name="msaljs"></a>msal.js
 

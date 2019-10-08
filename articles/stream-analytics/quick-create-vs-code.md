@@ -4,15 +4,15 @@ description: Este início rápido apresenta uma introdução para criar um traba
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/06/2019
+ms.date: 09/16/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 894f43a7da0abd129123d5c4ddf2bb95347c42c5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 3301be3a067982cb90e663fe3782319eb0b90ba0
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825331"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673141"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Início Rápido: Criar um trabalho em nuvem do Azure Stream Analytics no Visual Studio Code (versão prévia)
 
@@ -60,8 +60,8 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados, q
    
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
-   |Assinatura  | \<Sua assinatura\> |  Selecione a assinatura do Azure que você deseja usar. |
-   |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e insira um novo nome de grupo de recursos para a conta. |
+   |Subscription  | \<Sua assinatura\> |  Selecione a assinatura do Azure que você deseja usar. |
+   |Resource group   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e insira um novo nome de grupo de recursos para a conta. |
    |Região  |  \<Selecione a região mais próxima de seus usuários\> | Selecione uma localização geográfica na qual você possa hospedar o Hub IoT. Use a localização mais próxima dos usuários. |
    |Nome do Hub IoT  | MyASAIoTHub  |   Selecione um nome para o Hub IoT.   |
 
@@ -120,6 +120,25 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados, q
 > [!Note]
 > Ao adicionar entradas e saídas da paleta de comandos, os caminhos correspondentes serão adicionados ao **asaproj.json** automaticamente. Se você adicionar ou remover entradas ou saídas no disco de maneira direta, será necessário adicioná-las ou removê-las manualmente no **asaproj.json**. É possível optar por colocar as entradas e saídas em um local e, em seguida, referenciá-las em diferentes trabalhos, especificando os caminhos em cada **asaproj.json**.
 
+## <a name="define-the-transformation-query"></a>Definir a consulta de transformação
+
+1. Abra **myASAproj.asaql** da pasta de projeto.
+
+2. Adicione a consulta a seguir:
+
+   ```sql
+   SELECT * 
+   INTO Output
+   FROM Input
+   HAVING Temperature > 27
+   ```
+## <a name="test-with-sample-data"></a>Testar com os dados de exemplo
+Antes de executar a consulta na nuvem, você pode testar sua consulta usando dados de exemplo locais para verificar a lógica de consulta.
+
+Siga as instruções em [Testar com os dados de exemplo](vscode-local-run.md) para obter mais detalhes. 
+
+ ![Testar com os dados de exemplo no VS Code](./media/quick-create-vs-code/vscode-localrun.gif)
+
 ## <a name="define-an-input"></a>Definir uma entrada
 
 1. Selecione **Ctrl+Shift+P** para abrir a paleta de comandos e digite **ASA: Adicionar Entrada**.
@@ -134,7 +153,7 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados, q
 
    ![Selecione um script do ASA no Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
 
-4. Insira o nome do arquivo de entrada como **IotHub.json**.
+4. Insira o nome do arquivo de entrada como **IotHub**.
 
 5. Edite **IoTHub.json** com os seguintes valores. Mantenha os valores padrão para os campos não mencionados abaixo. É possível usar o CodeLens para ajudá-lo a inserir uma cadeia de caracteres, selecionar em uma lista suspensa ou alterar o texto diretamente no arquivo.
 
@@ -142,8 +161,11 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados, q
    |-------|---------------|-----------|
    |NOME|Entrada|Insira um nome para identificar a entrada do trabalho.|
    |IotHubNamespace|MyASAIoTHub|Escolha ou insira o nome do Hub IoT. Os nomes do Hub IoT são detectados automaticamente se eles são criados na mesma assinatura.|
-   |EndPoint|Mensagens| |
    |SharedAccessPolicyName|iothubowner| |
+
+   ![Configurar a entrada no Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+
+
 
 ## <a name="define-an-output"></a>Definir uma saída
 
@@ -155,9 +177,9 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados, q
 
 3. Escolha o script de consulta do ASA que usará essa entrada.
 
-4. Insira o nome do arquivo de saída como **BlobStorage.json**.
+4. Insira o nome do arquivo de saída como **BlobStorage**.
 
-5. Edite **BlobStorage.json** com os seguintes valores. Mantenha os valores padrão para os campos não mencionados abaixo. Use o CodeLens para ajudá-lo a inserir uma cadeia de caracteres ou selecionar em uma lista suspensa.
+5. Edite **BlobStorage** com os seguintes valores. Mantenha os valores padrão para os campos não mencionados abaixo. Use o CodeLens para ajudar você a selecionar em uma lista suspensa ou a inserir uma cadeia de caracteres. 
 
    |Configuração|Valor sugerido|DESCRIÇÃO|
    |-------|---------------|-----------|
@@ -166,18 +188,7 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados, q
    |Contêiner|container1|Selecione o contêiner existente que você criou em sua conta de armazenamento.|
    |Padrão de caminho|output|Digite o nome do caminho de arquivo a ser criado dentro do contêiner.|
 
-## <a name="define-the-transformation-query"></a>Definir a consulta de transformação
-
-1. Abra **myASAproj.asaql** da pasta de projeto.
-
-2. Adicione a consulta a seguir:
-
-   ```sql
-   SELECT * 
-   INTO Output
-   FROM Input
-   HAVING Temperature > 27
-   ```
+ ![Configurar saída no Visual Studio Code](./media/quick-create-vs-code/configure-output.png)
 
 ## <a name="compile-the-script"></a>Compilar o script
 
@@ -211,7 +222,10 @@ Há duas maneiras para disparar a compilação de scripts:
 
 5. Selecione **Enviar para o Azure**. Os logs podem ser encontrados na janela de saída. 
 
-6. Quando o trabalho é criado, você poderá vê-lo no Stream Analytics Explorer.
+6. Quando o trabalho for criado, você poderá vê-lo no **Stream Analytics Explorer**.
+
+![Listar trabalho no Stream Analytics Explorer](./media/quick-create-vs-code/list-job.png)
+
 
 ## <a name="run-the-iot-simulator"></a>Executar o simulador de IoT
 

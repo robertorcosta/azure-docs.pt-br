@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: b5d3a687adc8ecefcf581f7eda3b9e13d1973c62
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c775b16eaa15ccd7115f4770bf197545a9de2500
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004031"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828029"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treinar seu primeiro modelo de ML
 
@@ -35,21 +35,15 @@ O único pré-requisito é executar a parte um deste tutorial, [Configurar o amb
 
 Nesta parte do tutorial, você executa o código no Jupyter Notebook de exemplo `tutorials/tutorial-1st-experiment-sdk-train.ipynb` aberto no final da parte um. Este artigo percorre o mesmo código que está no notebook.
 
-## <a name="launch-jupyter-web-interface"></a>Iniciar interface da Web do Jupyter
+## <a name="open-the-notebook"></a>Abrir o notebook
 
-1. Na página do seu workspace no portal do Azure, selecione **VMs de Notebook** à esquerda.
+1. Entre na [página de aterrissagem do workspace](https://ml.azure.com/).
 
-1. Selecione **Jupyter** na coluna **URI** para a VM que você criou na parte um deste tutorial.
+1. Abra o **tutorial-1st-experiment-sdk-train.ipynb** em sua pasta, conforme mostrado na [parte um](tutorial-1st-experiment-sdk-setup.md#open).
 
-    ![Iniciar o servidor do Jupyter notebook](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
-   O link inicia seu servidor de notebook e abre a página da Web do Jupyter notebook em uma nova guia do navegador.  O link só funcionará para a pessoa que cria a VM. Cada usuário do workspace deve criar sua própria VM.
-
-1. Na página da Web do Jupyter Notebook, selecione o nome da pasta superior, que tem seu nome de usuário.  
-
-   Essa pasta existe na [conta de armazenamento](concept-workspace.md#resources) do workspace em vez de na própria VM do notebook.  Se excluir a VM do notebook, você ainda manterá todo o seu trabalho.  Quando você criar uma nova VM do notebook posteriormente, ela será carregada dessa mesma pasta. Se você compartilhar seu workspace com outras pessoas, elas verão sua pasta e você verá as pastas delas.
-
-1. Abra o subdiretório `samples-*` e, em seguida, abra o Jupyter Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, **não** o arquivo `.yml` de mesmo nome. 
+> [!Warning]
+> **Não** *crie* um notebook na interface do Jupyter! O notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` inclui **todo o código e dados necessários** para este tutorial.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Conectar o workspace e criar um experimento
 
@@ -57,7 +51,7 @@ Nesta parte do tutorial, você executa o código no Jupyter Notebook de exemplo 
 > O restante deste artigo contém o mesmo conteúdo que você vê no notebook.  
 >
 > Alterne para o Jupyter Notebook agora se quiser ler enquanto executa o código. 
-> Para executar uma única célula de código em um notebook, clique na célula de código e pressione **Shift + Enter**. Ou execute o notebook inteiro escolhendo a **Célula > Executar Tudo** no menu superior.
+> Para executar uma única célula de código em um notebook, clique na célula de código e pressione **Shift + Enter**. Ou execute o notebook inteiro escolhendo a **Executar tudo** na barra de ferramentas superior.
 
 Importe a classe `Workspace` e carregue suas informações de assinatura do arquivo `config.json` usando a função `from_config().`. Isso busca o arquivo JSON no diretório atual por padrão, mas você também pode especificar um parâmetro de caminho para apontar para o arquivo usando `from_config(path="your/file/path")`. Em um servidor de notebook de nuvem, o arquivo fica automaticamente no diretório raiz.
 

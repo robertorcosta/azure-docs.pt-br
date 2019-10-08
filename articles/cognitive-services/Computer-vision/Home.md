@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 915388b850b1b046dae91a20540881480694a944
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: db62f003f7eb8dd272305b86712cf1d721797114
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967054"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719551"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Pesquisa Visual Computacional?
 
-O serviço de Pesquisa Visual Computacional do Azure fornece aos desenvolvedores acesso a algoritmos avançados que processam imagens e retornam informações. Para analisar uma imagem, você pode carregar uma imagem ou especificar uma URL de imagem. As imagens de algoritmos de processamento podem analisar o conteúdo de várias maneiras diferentes, dependendo dos recursos visuais em que você está interessado. Por exemplo, a Pesquisa Visual Computacional pode determinar se uma imagem apresenta conteúdo erótico ou para adulto ou encontrar todos os rostos humanos em uma imagem.
+O serviço de Pesquisa Visual Computacional do Azure fornece aos desenvolvedores acesso a algoritmos avançados que processam imagens e retornam informações. Para analisar uma imagem, você pode carregar uma imagem ou especificar uma URL de imagem. As imagens de algoritmos de processamento podem analisar o conteúdo de várias maneiras diferentes, dependendo dos recursos visuais em que você está interessado. Por exemplo, a Pesquisa Visual Computacional pode determinar se uma imagem apresenta conteúdo para adulto ou pode localizar todos os rostos em uma imagem.
 
 Você pode usar Pesquisa Visual Computacional em seu aplicativo usando um SDK nativo ou invocando a API REST diretamente. Esta página cobre amplamente o que você pode fazer com a Pesquisa Visual Computacional.
 
@@ -52,7 +52,7 @@ Use também a API do [OCR (reconhecimento óptico de caracteres)](concept-recogn
 
 ## <a name="moderate-content-in-images"></a>Moderar conteúdo em imagens
 
-Use a Pesquisa Visual Computacional para [detectar conteúdo para adulto e erótico](concept-detecting-adult-content.md) em uma imagem e retornar uma pontuação de confiança para ambos. Defina o filtro para detecção de conteúdo erótico e para adulto em uma escala deslizante para atender às suas preferências.
+Use a Pesquisa Visual Computacional para [detectar conteúdo para adulto](concept-detecting-adult-content.md) em uma imagem e retornar pontuações de confiança para diferentes classificações. O limite para a sinalização de conteúdo pode ser definido em uma escala deslizante para acomodar suas preferências.
 
 ## <a name="use-containers"></a>Usar contêineres
 

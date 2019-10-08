@@ -4,16 +4,16 @@ description: Este artigo explica as tarefas comuns que um administrador realiza 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2019
+ms.date: 09/25/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 236a8d6d280e75102df84fec5ab3df51f7ba355b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 87947fb29d8fa7dd86818caef139e776c04c7650
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105478"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71308098"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Portal do EA do Azure
 
@@ -31,7 +31,7 @@ Quando novos AOs (proprietários de conta) são adicionados a um registro de EA 
 
 Depois que um administrador de EA cria um departamento, o administrador corporativo do Azure pode adicionar administradores de departamento e associar cada um deles a um departamento. Um administrador de departamento pode criar novas contas. Novas contas são necessárias para que as assinaturas de EA do Azure sejam criadas.
 
-Para obter mais informações sobre como adicionar um departamento, confira Criar um departamento de EA do Azure.
+Para obter mais informações sobre como adicionar um administrador de departamento, confira [Criar um administrador de departamento do Azure EA](billing-ea-portal-get-started.md#add-a-department-admin).
 
 ## <a name="enterprise-user-roles"></a>Funções de usuário corporativo
 
@@ -124,14 +124,14 @@ Não há tempo de inatividade durante a transferência da conta. Ela poderá ser
 
 Ao solicitar uma transferência de registro, forneça as seguintes informações:
 
-- Para o registro de origem, o número de registro e a conta a serem transferidos
-- Para o registro de destino, o número de registro para o qual transferir
+- Para o registro de origem, o número de registro e a conta a serem transferidos.
+- Para o registro de destino, o número de registro no qual transferir.
 - A data de início de vigência da transferência do registro pode ser uma data igual ou posterior à data de início do registro de destino. A data escolhida não pode afetar o uso de nenhuma fatura excedente já emitida.
 
 Outros pontos para ter em mente antes de uma transferência de registro:
 
-- A aprovação de um administrador de EA é necessária para o registro de origem e o de destino
-  - Em alguns casos, a Microsoft pode solicitar aprovação adicional de um administrador de EA do registro de origem
+- A aprovação de um Administrador de EA é necessária para o registro de origem e o de destino.
+  - Em alguns casos, a Microsoft pode solicitar aprovação adicional de um administrador de EA do registro de origem.
 - Se uma transferência de registro não atender aos seus requisitos, considere uma transferência de conta.
 - Somente as contas que você especificar serão transferidas. Você pode solicitar para transferir todas as suas contas.
 - O registro de origem retém o próprio status como ativo/estendido. Você poderá continuar usando o registro até que ele expire.
@@ -208,7 +208,7 @@ Se uma notificação não tiver sido recebida por um usuário, verifique se as c
 6. Adicione um contato se necessário e clique em **Adicionar**.
 7. Clique em **Save** (Salvar).
 
-![Exemplo mostrando Adicionar Contato para adicionar um ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
+![Exemplo mostrando a caixa Adicionar Contato ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## <a name="azure-sponsorship-offer"></a>Oferta do Azure Sponsorship
 A oferta do Azure Sponsorship é uma conta limitada patrocinada do Microsoft Azure. Ela está disponível via convite por email, somente para clientes limitados selecionados pela Microsoft. Se estiver qualificado para a oferta do Microsoft Azure Sponsorship, você receberá um convite por email para aceitar a oferta para sua ID de conta.

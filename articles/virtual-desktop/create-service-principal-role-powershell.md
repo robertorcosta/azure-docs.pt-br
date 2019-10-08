@@ -1,22 +1,22 @@
 ---
-title: Criar entidades de serviço e atribuições de função da Versão Prévia da Área de Trabalho Virtual do Windows ao usar o PowerShell - Azure
-description: Como criar entidades de serviço e atribuir funções ao usar o PowerShell na Versão Prévia da Área de Trabalho Virtual do Windows.
+title: Criar entidades de serviço e atribuições de função da Área de Trabalho Virtual do Windows ao usar o PowerShell – Azure
+description: Como criar entidades de serviço e atribuir funções ao usar o PowerShell na Área de Trabalho Virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: dbde4ccede7f27ae494c8326babc7ec69b4a1266
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 87057d29d9d95ac0ebca298e40ca0d8c2aa9b0b1
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984998"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679628"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Criar entidades de serviço e atribuições de função usando o PowerShell
 
-As entidades de serviço são identidades que você pode criar no Azure Active Directory para atribuir funções e permissões para uma finalidade específica. Na Versão Prévia da Área de Trabalho Virtual do Windows, você pode criar uma entidade de serviço para:
+As entidades de serviço são identidades que você pode criar no Azure Active Directory para atribuir funções e permissões para uma finalidade específica. Na Área de Trabalho Virtual do Windows, é possível criar uma entidade de serviço para:
 
 - Automatize tarefas específicas de gerenciamento da Área de Trabalho Virtual do Windows.
 - Usá-la como credenciais no lugar de usuários com MFA necessário durante a execução de qualquer modelo do Azure Resource Manager para Windows Virtual Desktop.

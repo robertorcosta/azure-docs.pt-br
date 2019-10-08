@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/28/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 64f02a33a3aeecddf751b8293542776bf5819574
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 5ccfecc2bc61940f72844f43ec81826536cfe89a
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061892"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803222"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em Swift no macOS usando o SDK de Fala
+
+Também estão disponíveis inícios rápidos para [sintetização de voz](quickstart-text-to-speech-swift-macos.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -34,7 +36,7 @@ Antes de começar, aqui está uma lista de pré-requisitos:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Fala dos Serviços Cognitivos é `1.6.0`. Observe que este tutorial não funcionará sem alterações para qualquer versão anterior do SDK.
+Observe que este tutorial não funcionará com uma versão do SDK anterior a 1.6.0.
 
 O SDK de Fala dos Serviços Cognitivos para macOS é distribuído como um quadro de estrutura.
 Ele pode ser usado em projetos do Xcode como um [CocoaPod](https://cocoapods.org/) ou baixados de https://aka.ms/csspeech/macosbinary e vinculados manualmente. Este guia usa um CocoaPod.

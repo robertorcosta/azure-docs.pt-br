@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 528be96f95523089c78562814c292fb0f40849e1
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: b9d724a44a94ed13786391a235bb9967036f29dc
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70240232"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338490"
 ---
 ::: zone target="docs"
 
@@ -53,7 +53,7 @@ Antes de começar, verifique se:
     - Estar conectado a uma rede de alta velocidade. É altamente recomendável que você tenha pelo menos uma conexão de 10 GbE. Se uma conexão de 10 GbE não estiver disponível, um link de dados de 1 GbE poderá ser usado, mas as velocidades de cópia serão afetadas. 
 6. Você deve ter acesso a uma superfície plana na qual possa colocar o Data Box. Caso deseje colocar o dispositivo em uma prateleira de rack padrão, você precisará de um slot 7U no rack de seu datacenter. Você pode colocar o dispositivo no rack na posição horizontal ou vertical.
 7. Você comprou os cabos a seguir para conectar o Data Box ao computador host.
-    - Um ou mais cabos de cobre SFP+ Twinax de 10 GbE ou cabos de fibra ótica SFP+ (usar com adaptadores de rede DATA 1 ou DATA 2). O Data Box tem os Adaptadores Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T com adaptador de rede PCI Express 3.0; portanto, os cabos compatíveis com esse adaptador devem funcionar. Por exemplo, um cabo CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M foi usado para teste interno. Para obter mais informações, confira a [lista de cabos e comutadores compatíveis da Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
+    - Um ou mais cabos de cobre SFP+ Twinax de 10 GbE ou cabos de fibra ótica SFP+ (usar com adaptadores de rede DATA 1 ou DATA 2). O Data Box tem os Adaptadores Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T com adaptador de rede PCI Express 3.0; portanto, os cabos compatíveis com esse adaptador devem funcionar. Por exemplo, um cabo CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP +3M foi usado para teste interno. Para obter mais informações, confira a [lista de cabos e comutadores compatíveis da Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - Um cabo de rede RJ-45 CAT 6 (usar com adaptador de rede MGMT)
     - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (usar com adaptador de rede DATA 3 configurado como 10 Gbps ou 1 Gbps respectivamente)
 

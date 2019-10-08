@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 0aa4286d8cb630f221613bebd13f7ea722224ac6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 993064a36bd12c95e83ffb7c9635c3e4dfcec0f0
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70068837"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803340"
 ---
 # <a name="what-are-the-speech-services"></a>O que é o Serviço de Fala?
 
@@ -41,6 +41,8 @@ Esses recursos compõem o Serviço de Fala do Azure. Use os links nesta tabela p
 
 Saiba o que há de novo no Serviço de Fala do Azure.
 
+* Setembro de 2019
+  * Lançamento do SDK de Fala 1.7.0. Para obter uma lista completa de atualizações, melhorias e problemas conhecidos, confira [Notas sobre a versão](releasenotes.md).
 * agosto de 2019
   * **Novo tutorial**: [Habilitar por voz o bot com o SDK de Fala, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
   * Adição de um novo estilo de fala, [`chat`](speech-synthesis-markup.md#adjust-speaking-styles), para a voz `en-US-JessaNeural`. 

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: cbb86dd4b24cb325b8ea6708ebc2ffc89a697757
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 402bf198981641db74a86bbc420fab83124f0b47
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553391"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802026"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Início Rápido: Tradução de fala com o Speech SDK para Java
 
-Guias de início rápido também estão disponíveis para a [conversão de fala em texto](quickstart-java-jre.md) e o [assistente virtual que tem como prioridade o uso de voz](quickstart-virtual-assistant-java-jre.md).
+Também estão disponíveis inícios rápidos para [conversão de fala em texto](quickstart-java-jre.md), [conversão de texto em fala](quickstart-text-to-speech-java-jre.md) e [assistente virtual voice-first](quickstart-virtual-assistant-java-jre.md).
 
 Neste início rápido, você criará um aplicativo Java simples que captura a fala do usuário do microfone do seu computador, converte a fala e transcreve o texto traduzido para a linha de comando em tempo real. Este aplicativo foi projetado para ser executado no Windows de 64 bits ou no Linux de 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9) ou no macOS 10.13 ou posterior. Ele é criado com o pacote Maven do SDK de Fala e o Java IDE do Eclipse.
 

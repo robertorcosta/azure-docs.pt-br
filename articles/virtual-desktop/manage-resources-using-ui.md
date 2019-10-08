@@ -1,25 +1,25 @@
 ---
 title: Implantar uma ferramenta de gerenciamento – Azure
-description: Como instalar uma ferramenta da interface do usuário para gerenciar recursos de visualização da Área de Trabalho Virtual do Windows.
+description: Como instalar uma ferramenta da interface do usuário para gerenciar recursos da Área de Trabalho Virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: helohr
-ms.openlocfilehash: e0f9dbd9bf6b0c12d3e3f028ab9cd4c80cdb5124
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: f07403d8d0b2c6d0dd7a6b851a87b47b0c32501a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816512"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679480"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Tutorial: Implantar uma ferramenta de gerenciamento
 
-A ferramenta de gerenciamento fornece uma IU (interface do usuário) para gerenciar recursos de Visualização da Área de Trabalho Virtual da Microsoft. Neste tutorial, você aprenderá a implantar a ferramenta de gerenciamento e a conectar-se a ela.
+A ferramenta de gerenciamento fornece uma IU (interface do usuário) para gerenciar recursos da Área de Trabalho Virtual da Microsoft. Neste tutorial, você aprenderá a implantar a ferramenta de gerenciamento e a conectar-se a ela.
 
 >[!NOTE]
->Essas instruções são referentes a uma configuração específica da Visualização da Área de Trabalho Virtual do Windows que pode ser usada com os processos existentes de sua organização.
+>Essas instruções são referentes a uma configuração específica da Área de Trabalho Virtual do Windows que pode ser usada com os processos existentes de sua organização.
 
 ## <a name="important-considerations"></a>Considerações importantes
 

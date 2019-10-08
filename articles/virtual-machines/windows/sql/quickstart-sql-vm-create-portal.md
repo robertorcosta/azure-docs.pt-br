@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3ba804f76f8d443c0b49a9b4e5425333f01f0b9a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bbf127f105f0ef22a23f00541396c2ac66b0e5f9
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102337"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828356"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Windows do SQL Server 2017 no portal do Azure
 
@@ -81,9 +81,10 @@ Na folha **Informações Básicas**, forneça as seguintes informações:
 Na guia **Configurações do SQL Server**, configure as seguintes opções:
 
 1. Em **Segurança e Rede**, selecione _Pública (Internet_) para **Conectividade do SQL** e altere a porta para `1401` a fim de evitar o uso de um número de porta conhecido no cenário público. 
-1. Em **Autenticação do SQL**, selecione **Habilitar**. O logon do SQL é definido como o mesmo nome de usuário e senha que você configurou para a VM. Use as configurações padrão para **Integração do Azure Key Vault** e **Configuração de armazenamento**.  
+1. Em **Autenticação do SQL**, selecione **Habilitar**. O logon do SQL é definido como o mesmo nome de usuário e senha que você configurou para a VM. Use a configuração padrão para a [**Integração do Azure Key Vault**](virtual-machines-windows-ps-sql-keyvault.md). A **configuração de armazenamento** não está disponível para a imagem de VM do SQL Server básica, mas você pode encontrar mais informações sobre as opções disponíveis para outras imagens na [configuração do armazenamento](virtual-machines-windows-sql-server-storage-configuration.md#new-vms).  
 
    ![Configurações de segurança do SQL Server](media/quickstart-sql-vm-create-portal/sql-server-settings.png)
+
 
 1. Altere outras configurações, se necessário e, em seguida, selecione **Examinar + criar**. 
 

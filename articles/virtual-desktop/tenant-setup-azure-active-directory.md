@@ -1,22 +1,22 @@
 ---
-title: Criar um locatário na Versão prévia da Área de Trabalho Virtual do Windows – Azure
-description: Descreve como configurar locatários da Versão Prévia da Área de Trabalho Virtual do Windows no Azure Active Directory.
+title: Criar um locatário na Área de Trabalho Virtual do Windows – Azure
+description: Descreve como configurar locatários da Área de Trabalho Virtual do Windows no Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/06/2019
 ms.author: helohr
-ms.openlocfilehash: 66441e852ebe0a391a5807b90eeadae230130815
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 04a65442e86168239f08fb71303b8d9e9e152e72
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734459"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679465"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Tutorial: Criar um locatário na Versão Prévia da Área de Trabalho Virtual do Windows
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: Criar um locatário na Área de Trabalho Virtual do Windows
 
-A criação de um locatário na Versão prévia da Área de Trabalho Virtual do Windows é a primeira etapa para a criação de sua solução de virtualização de área de trabalho. Um locatário é um grupo de um ou mais pools de host. Cada pool de hosts consiste em vários hosts de sessão, em execução como máquinas virtuais no Azure e registrados no serviço da Área de Trabalho Virtual do Windows. Cada pool de hosts também consiste em um ou mais grupos de aplicativos que são usados para publicar recursos de aplicativo remoto e área de trabalho remota para usuários. Com um locatário, é possível criar pools de hosts, criar grupos de aplicativos, atribuir usuários e fazer conexões por meio do serviço.
+A criação de um locatário na Área de Trabalho Virtual do Windows é a primeira etapa para a criação de sua solução de virtualização de área de trabalho. Um locatário é um grupo de um ou mais pools de host. Cada pool de hosts consiste em vários hosts de sessão, em execução como máquinas virtuais no Azure e registrados no serviço da Área de Trabalho Virtual do Windows. Cada pool de hosts também consiste em um ou mais grupos de aplicativos que são usados para publicar recursos de aplicativo remoto e área de trabalho remota para usuários. Com um locatário, é possível criar pools de hosts, criar grupos de aplicativos, atribuir usuários e fazer conexões por meio do serviço.
 
 Neste tutorial, você aprenderá a:
 
@@ -107,7 +107,7 @@ Para localizar sua ID da assinatura do Azure:
 3. Procure **ID da assinatura** e passe o mouse sobre o valor até que um ícone da área de transferência seja exibido. Selecione o ícone da área de transferência e cole-o em um local prático para poder usá-lo posteriormente como o valor **AzureSubscriptionId**.
    ![Captura de tela das propriedades da assinatura do Azure. O mouse passando sobre o ícone da área de transferência para o "ID da assinatura" para copiar e colar.](media/tenant-subscription-id.png)
 
-## <a name="create-a-windows-virtual-desktop-preview-tenant"></a>Criar um locatário da Versão Prévia da Área de Trabalho Virtual do Windows
+## <a name="create-a-windows-virtual-desktop-tenant"></a>Criar um locatário da Área de Trabalho Virtual do Windows
 
 Agora que você recebeu as permissões de serviço da Área de Trabalho Virtual do Windows para consultar o Azure Active Directory e atribuiu a função TenantCreator a uma conta de usuário, crie um locatário da Área de Trabalho Virtual do Windows.
 

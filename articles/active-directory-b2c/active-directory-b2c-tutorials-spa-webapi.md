@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6d354ab25125b0df90ac3d6852d7eafe5d5aba46
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 60fe9569b0e6e92ae161271439ecbf1b04788ed4
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064686"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694569"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Tutorial: Permitir acesso a uma API Web ASP.NET Core de um aplicativo de página única usando o Azure Active Directory B2C
 
@@ -38,32 +38,15 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="add-a-web-api-application"></a>Adicionar um aplicativo API Web
 
-Os recursos da API Web precisam ser registrados no seu locatário antes de poderem aceitar e responder a solicitações de recurso protegido de aplicativos clientes que apresentem um token de acesso.
-
-1. Entre no [Portal do Azure](https://portal.azure.com).
-1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
-1. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
-1. Selecione **Aplicativos** e, em seguida, selecione **Adicionar**.
-1. Insira um nome para o aplicativo. Por exemplo, *webapi1*.
-1. Para **Incluir aplicativo da Web / API da Web** e **Permitir fluxo implícito**, selecione **Sim**.
-1. Para a **URL de resposta**, insira um ponto de extremidade em que o Azure AD B2C deve retornar os tokens solicitados pelo seu aplicativo. Neste tutorial, o exemplo é executado localmente e escuta em `https://localhost:5000`.
-1. Para um **URI da ID do Aplicativo**, insira um identificador de ponto de extremidade de API ao URI mostrado. Para o tutorial, insira `api` para que o URI completo seja semelhante a `https://contosotenant.onmicrosoft.com/api`.
-1. Clique em **Criar**.
-1. Selecione o aplicativo *webapi1* para abrir sua página de propriedades.
-1. Registre a **ID do Aplicativo** mostrada na página de propriedades. Você precisará dessa ID em uma etapa posterior, ao configurar o aplicativo Web.
+[!INCLUDE [active-directory-b2c-appreg-webapi](../../includes/active-directory-b2c-appreg-webapi.md)]
 
 ## <a name="configure-scopes"></a>Configurar escopos
 
 Os escopos fornecem uma maneira de controlar o acesso a recursos protegidos. Escopos são usados pela API Web para implementar o controle de acesso com base em escopo. Por exemplo, alguns usuários podem ter acesso de leitura e gravação, enquanto outros usuários podem ter permissões somente leitura. Neste tutorial, você define as permissões de leitura e gravação para a API Web.
 
-1. Selecione **Aplicativos** e, em seguida, selecione *webapi1* para abrir sua página de propriedades, caso ela ainda não esteja aberta.
-1. Selecione **Escopos publicados**.
-1. Em **ESCOPO**, insira `Hello.Read` e, na **DESCRIÇÃO**, insira `Read access to hello`.
-1. Em **ESCOPO**, insira `Hello.Write` e, na **DESCRIÇÃO**, insira `Write access to hello`.
-1. Clique em **Salvar**.
-1. Registre o **VALOR DO ESCOPO COMPLETO** do escopo `Hello.Read` a ser usado em uma etapa posterior ao configurar o aplicativo de página única. O valor de escopo completo é semelhante a `https://yourtenant.onmicrosoft.com/api/Hello.Read`.
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Os escopos publicados podem ser usados para conceder permissão de aplicativo cliente para a API Web.
+Registre o **VALOR DO ESCOPO COMPLETO** do escopo `demo.read` a ser usado em uma etapa posterior ao configurar o aplicativo de página única. O valor de escopo completo é semelhante a `https://yourtenant.onmicrosoft.com/api/demo.read`.
 
 ## <a name="grant-permissions"></a>Conceder permissões
 
@@ -71,12 +54,7 @@ Para chamar uma API Web protegida de outro aplicativo, é necessário conceder a
 
 No tutorial de pré-requisito, você criou um aplicativo Web chamado *webapp1*. Neste tutorial, você configura esse aplicativo para chamar a API Web criada em uma seção anterior, *webapi1*.
 
-1. Navegue até seu locatário B2C no portal do Azure
-1. Selecione **Aplicativos** e, em seguida, selecione *webapp1*.
-1. Selecione **Acesso à API** e, em seguida, selecione **Adicionar**.
-1. No menu suspenso **Selecionar API**, selecione *webapi1*.
-1. No menu suspenso **Selecionar Escopos**, selecione os escopos **Hello.Read** e **Hello.Write** definidos anteriormente.
-1. Clique em **OK**.
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 Seu aplicativo Web de página única é registrado para chamar a API Web protegida. Um usuário autentica-se com o Azure AD B2C para usar o aplicativo de página única. O aplicativo de página única obtém uma concessão de autorização do Azure AD B2C para acessar a API Web protegida.
 
@@ -101,8 +79,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
       "ClientId": "<webapi-application-ID>",
       "Policy": "B2C_1_signupsignin1",
 
-      "ScopeRead": "Hello.Read",
-      "ScopeWrite": "Hello.Write"
+      "ScopeRead": "demo.read",
+      "ScopeWrite": "demo.write"
     },
     ```
 
@@ -154,7 +132,7 @@ Nesta seção, você atualiza o aplicativo de página única para chamar a API W
 Para alterar as configurações no SPA:
 
 1. Abra o arquivo *index.html* no projeto [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] que você baixou ou clonou no tutorial anterior.
-1. Configure a amostra com o URI para o escopo *Hello.Read* criado anteriormente e a URL da API Web.
+1. Configure a amostra com o URI para o escopo *demo.read* criado anteriormente e a URL da API Web.
     1. Na definição `appConfig`, substitua o valor `b2cScopes` pelo URI completo do escopo (o **VALOR DO ESCOPO COMPLETO** registrado anteriormente).
     1. Altere o valor `webApi` para o valor `applicationURL` especificado na seção anterior.
 
@@ -163,7 +141,7 @@ Para alterar as configurações no SPA:
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
     var appConfig = {
-      b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/Hello.Read"],
+      b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/demo.read"],
       webApi: "http://localhost:5000/"
     };
     ```

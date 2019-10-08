@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 943cad871330e2f3b6e13b33dca582ab545fe4be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a83980c3d4d03f53a19918ed213c965e50baa406
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726573"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720053"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: Conectar redes virtuais ao emparelhamento de rede virtual usando o portal do Azure
 
@@ -54,7 +54,7 @@ Faça logon no Portal do Azure em https://portal.azure.com.
     |Espaço de endereço|10.0.0.0/16|
     |Assinatura| Selecione sua assinatura.|
     |Grupo de recursos| Selecione **Criar novo** e insira *myResourceGroup*.|
-    |Local padrão| Selecione **Leste dos EUA**.|
+    |Location| Selecione **Leste dos EUA**.|
     |Nome da sub-rede|Subnet1|
     |Intervalo de endereços da sub-rede|10.0.0.0/24|
 
@@ -66,7 +66,7 @@ Faça logon no Portal do Azure em https://portal.azure.com.
     |---|---|
     |NOME|myVirtualNetwork2|
     |Espaço de endereço|10.1.0.0/16|
-    |Grupo de recursos| Clique em **Usar existente** e selecione **myResourceGroup**.|
+    |Resource group| Clique em **Usar existente** e selecione **myResourceGroup**.|
     |Intervalo de endereços da sub-rede|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>Emparelhar redes virtuais
@@ -80,27 +80,18 @@ Faça logon no Portal do Azure em https://portal.azure.com.
 
     |Configuração|Valor|
     |---|---|
-    |NOME|myVirtualNetwork1-myVirtualNetwork2|
-    |Assinatura| Selecione sua assinatura.|
-    |Rede virtual|myVirtualNetwork2 - Para selecionar a rede virtual *myVirtualNetwork2*, selecione **Rede virtual**, em seguida, selecione **myVirtualNetwork2**. Você pode selecione uma rede virtual na mesma região ou em uma região diferente.|
+    |Nome do emparelhamento de myVirtualNetwork1 para a rede virtual remota|myVirtualNetwork1-myVirtualNetwork2 – quando a página for carregada pela primeira vez, você verá a frase "rede virtual remota" aqui. Depois que você escolher a rede virtual remota, a frase "rede virtual remota" será substituída pelo nome da rede virtual remota.|
+    |Subscription| Selecione sua assinatura.|
+    |Rede virtual|myVirtualNetwork2 – Para selecionar a rede virtual *myVirtualNetwork2*, selecione **Rede virtual** e, em seguida, selecione **myVirtualNetwork2 (myResourceGroup)** . Você pode selecione uma rede virtual na mesma região ou em uma região diferente.|
+    |Nome do emparelhamento de myVirtualNetwork2 para myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|
 
-    ![Configurações de emparelhamento](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
+    ![Configurações de emparelhamento](./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional.png)
 
-    O **STATUS DO EMPARELHAMENTO** é *iniciadi*, conforme mostrado na figura a seguir:
+    O **STATUS DO EMPARELHAMENTO** é *Conectado*, conforme mostrado na seguinte imagem:
 
-    ![Status de emparelhamento](./media/tutorial-connect-virtual-networks-portal/peering-status.png)
+    ![Status de emparelhamento](./media/tutorial-connect-virtual-networks-portal/peering-status-connected.png)
 
     Se você não vir o status, atualize seu navegador.
-
-4. Nas caixa **Pesquisar** na parte superior do portal, comece digitando *MyVirtualNetwork2*. Quando **myVirtualNetwork2** aparecer nos resultados da pesquisa, selecione-o.
-5. Conclua as etapas 2 a 3 novamente, com as seguintes alterações, e em seguida, selecione **OK**:
-
-    |Configuração|Valor|
-    |---|---|
-    |NOME|myVirtualNetwork2-myVirtualNetwork1|
-    |Rede virtual|myVirtualNetwork1|
-
-    O **ESTADO DE EMPARELHAMENTO** é *Conectado*. O Azure também alterou o estado de emparelhamento do emparelhamento *myVirtualNetwork2-myVirtualNetwork1* de *Iniciado* para *Conectado.* O emparelhamento de rede virtual não é estabelecido com êxito até que o status de emparelhamento para ambas as redes virtuais seja *Conectado.* 
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 

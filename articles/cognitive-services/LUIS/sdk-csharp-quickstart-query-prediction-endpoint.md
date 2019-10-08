@@ -8,16 +8,16 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: c0b534848232d60929722e2036f69f4b6e670a4a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4d7c02d8cf37f155af1fd9c0d5de7fa8ec948c4b
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563151"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703116"
 ---
-# <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Início Rápido: Consultar o ponto de extremidade de previsão com o SDK do C# do .NET
+# <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>Início Rápido: Consultar o ponto de extremidade de previsão V2 com o SDK do .NET do C#
 
 Use o SDK do .NET, encontrado no [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/), para enviar um enunciado de usuário ao LUIS (Reconhecimento vocal) e receber uma previsão da intenção do usuário. 
 

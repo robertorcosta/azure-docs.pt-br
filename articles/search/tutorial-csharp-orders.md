@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.author: v-pettur
 author: PeterTurcan
 ms.date: 06/21/2019
-ms.openlocfilehash: 32e253b4e131d753ab6937d0aa2a49bda471e091
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 684ce33e5ecf587aa2030a817680f2d405225117
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466529"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327657"
 ---
 # <a name="c-tutorial-order-the-results---azure-search"></a>Tutorial do C#: Ordenar os resultados – Azure Search
 
@@ -320,7 +320,7 @@ Não é necessário modificar nenhum dos modelos para habilitar a ordenação. A
 
     ![Exibição de intervalos de tarifas de hospedagem](./media/tutorial-csharp-create-first-app/azure-search-orders-rooms.png)
 
-A propriedade **OrderBy** dos parâmetros de pesquisa não aceitará uma entrada como **Rooms.BaseRate** para fornecer a tarifa de hospedagem mais barata, mesmo que os quartos já tenham sido classificados por tarifa (o que não é o caso). Para exibir hotéis no conjunto de dados de exemplo, ordenados por tarifa de hospedagem, você precisa ordenar os resultados em seu controlador da tela inicial e enviar esses resultados para a exibição na ordem desejada.
+A propriedade **OrderBy** dos parâmetros de pesquisa não aceitará uma entrada como **Rooms.BaseRate** para fornecer a tarifa de hospedagem mais barata, mesmo que os quartos já tenham sido classificados por tarifa. Nesse caso, as salas não são classificadas em taxa. Para exibir hotéis no conjunto de dados de exemplo, ordenados por tarifa de hospedagem, você precisa ordenar os resultados em seu controlador da tela inicial e enviar esses resultados para a exibição na ordem desejada.
 
 ## <a name="order-results-based-on-multiple-values"></a>Ordenar os resultados conforme diversos valores
 

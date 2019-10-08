@@ -1,41 +1,40 @@
 ---
 title: 'Início Rápido: Sintetizar fala, Unity – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para criar um aplicativo de conversão de texto em fala com o Unity e o SDK de Fala para Unity (Beta). Quando terminar, você poderá sintetizar em tempo real uma fala a partir de texto no alto-falante do seu dispositivo.
+description: Use este guia para criar um aplicativo de conversão de texto em fala com o Unity e o SDK de Fala para Unity. Quando terminar, você poderá sintetizar em tempo real uma fala a partir de texto no alto-falante do seu dispositivo.
 services: cognitive-services
 author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 6/26/2019
+ms.date: 9/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 507ab9ef9bb3e482e5a33d2406424dfb9116de54
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: be5f07b8ea58d0d62c70e0e9dc8ab187ce4a0f63
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553612"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803195"
 ---
-# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-unity-beta"></a>Início Rápido: Sintetizar fala com o SDK de Fala para Unity (Beta)
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-unity"></a>Início Rápido: Sintetização de voz com o SDK de Fala para Unity
 
-Guias de início rápido também estão disponíveis para [reconhecimento de fala](quickstart-csharp-unity.md).
+Também estão disponíveis inícios rápidos para [reconhecimento de fala](quickstart-csharp-unity.md).
 
-Use este guia para criar um aplicativo de conversão de texto em fala com o [Unity](https://unity3d.com/) e o SDK de Fala para Unity (Beta).
+Use este guia para criar um aplicativo de conversão de texto em fala usando o [Unity](https://unity3d.com/) e o SDK de Fala para Unity.
 Quando terminar, você poderá sintetizar em tempo real uma fala a partir de texto no alto-falante do seu dispositivo.
 Caso você não esteja familiarizado com o Unity, será recomendável estudar o [Manual do Usuário do Unity](https://docs.unity3d.com/Manual/UnityManual.html) antes de iniciar o desenvolvimento do aplicativo.
 
 > [!NOTE]
-> Atualmente, o SDK de Fala para Unity está em beta.
-> Ele dá suporte à Área de Trabalho do Windows (x86 e x64) ou à Plataforma Universal do Windows (x86, x64, ARM/ARM64) e ao Android (x86, ARM32/64).
+> Ele dá suporte à Área de Trabalho do Windows (x86 e x64) ou à Plataforma Universal do Windows (x86, x64, ARM/ARM64), ao Android (x86, ARM32/64) e ao iOS (simulador x64, ARM32 e ARM64).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este projeto, você precisará de:
 
 * [Unity 2018.3 ou posterior](https://store.unity.com/) com o [Unity 2019.1 adicionando suporte ao UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-     * Para obter suporte ao ARM64, instale as [ferramentas de build opcionais para o ARM64 e o SDK do Windows 10 para ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). A versão 15.9 ou superior do Visual Studio 2017 também é aceitável.
+* Para obter suporte ao Windows ARM64, instale as [ferramentas de build opcionais para o ARM64 e o SDK do Windows 10 para ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
 * Uma chave de assinatura para o Serviço de Fala. [Obtenha uma gratuitamente](get-started.md).
 
 ## <a name="create-a-unity-project"></a>Criar um projeto do Unity

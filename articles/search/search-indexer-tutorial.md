@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: d0f0abade5d1eea952c5abde293ae90745ee9b04
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 1ba0a965de356cfbe7d9a1cfc8d6d2e8da092934
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640643"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327169"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial do C#: Rastrear um Banco de Dados SQL do Azure usando indexadores do Azure Search
 
@@ -230,7 +230,7 @@ Seu código é executado localmente no Visual Studio, conectando-se ao seu servi
 
 + Informações de conexão do banco de dados em **appsettings.json**. Elas devem ser limitadas à cadeia de conexão ADO.NET obtida no portal, modificadas para incluir um nome de usuário e senha válidos para o seu banco de dados. A conta de usuário deve ter permissão para recuperar dados.
 
-+ Limites de recursos. Lembre-se de que o serviço (gratuito) compartilhado tem um limite de 3 índices, indexadores e fontes de dados. Um serviço no limite máximo não pode criar novos objetos.
++ Limites de recursos. Lembre-se de que a Camada gratuita tem um limite de três índices, indexadores e fontes de dados. Um serviço no limite máximo não pode criar novos objetos.
 
 ## <a name="search-the-index"></a>Pesquisar o índice 
 

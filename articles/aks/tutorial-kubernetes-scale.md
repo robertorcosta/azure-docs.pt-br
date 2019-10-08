@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 4e36362fd42a147ee900005d84b0af1b4839aae1
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 7dd0000d6797411d56143f8a977e4c478d551858
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70965127"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694733"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Dimensionar aplicativos no AKS (Serviço de Kubernetes do Azure)
 
@@ -113,7 +113,7 @@ Após alguns minutos, com carga mínima no aplicativo Azure Vote, o número de r
 
 ## <a name="manually-scale-aks-nodes"></a>Dimensionar nós do AKS manualmente
 
-Se você criou o cluster Kubernetes usando os comandos no tutorial anterior, ele tem um nó. Você pode ajustar o número de nós manualmente se planejar ter mais ou menos cargas de trabalho de contêiner no cluster.
+Se você criou o cluster Kubernetes usando os comandos no tutorial anterior, ele tem dois nós. Você pode ajustar o número de nós manualmente se planejar ter mais ou menos cargas de trabalho de contêiner no cluster.
 
 O exemplo a seguir aumenta o número de nós para três no cluster Kubernetes chamado *myAKSCluster*. Esse comando leva alguns minutos para ser concluído.
 

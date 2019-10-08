@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: ebefe878393b66e5097ebbda5ef6159a8413833f
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: d6ee5f432321753b9a09749ccf45c9a5bda5300d
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298434"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802491"
 ---
 1. Inicie o Eclipse.
 
@@ -45,7 +45,7 @@ ms.locfileid: "68298434"
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-   * Adicione também um elemento `dependencies`, com o SDK do Speech versão 1.6.0 como dependência:
+   * Adicione também um elemento `dependencies`, com o SDK de Fala versão 1.7.0 como uma dependência:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

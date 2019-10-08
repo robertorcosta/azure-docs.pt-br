@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Usar eventos de Azure Data Lake Storage Gen2 para atualizar uma tabela do Databricks Delta | Microsoft Docs'
+title: 'Tutorial: Implementar o padrão de captura do data lake para atualizar uma tabela do Azure Databricks Delta | Microsoft Docs'
 description: Este tutorial mostra como usar uma assinatura de Grade de Eventos, uma função do Azure e um trabalho de Azure Databricks para inserir linhas de dados em uma tabela que é armazenada no Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
-ms.openlocfilehash: 5a85e3b16a5a93fedd6a2257f5601b0673f825ad
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 03a07e70c967f92fe5dcc7c951aeea299b050405
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904646"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326982"
 ---
-# <a name="tutorial-use-azure-data-lake-storage-gen2-events-to-update-a-databricks-delta-table"></a>Tutorial: Usar eventos de Azure Data Lake Storage Gen2 para atualizar uma tabela do Databricks Delta
+# <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Tutorial: Implementar o padrão de captura do data lake para atualizar uma tabela do Databricks Delta
 
 Este tutorial mostra como manipular eventos em uma conta de armazenamento que tem um namespace hierárquico.
 

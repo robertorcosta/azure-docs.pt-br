@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 75469d4522cea2914e0f69d5aa1850e468cb0d50
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 8c4b2d818549da07faf9ecd28f61b4ed5315f745
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064846"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679335"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Permitir acesso a uma API Web do Node.js de um aplicativo da área de trabalho usando o Azure Active Directory B2C
 
@@ -29,48 +29,29 @@ Neste tutorial, você aprenderá como:
 > * Conceder permissões à API Web
 > * Atualizar o exemplo para usar o aplicativo
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua as etapas e os pré-requisitos no [Tutorial: Permitir autenticação de aplicativos da área de trabalho com contas usando o Azure Active Directory B2C](active-directory-b2c-tutorials-desktop-app.md).
 
 ## <a name="add-a-web-api-application"></a>Adicionar um aplicativo API Web
 
-Os recursos da API Web precisam ser registrados no seu locatário antes de poderem aceitar e responder a solicitações de recurso protegido de aplicativos clientes que apresentem um token de acesso.
-
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
-3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
-4. Selecione **Aplicativos** e, em seguida, selecione **Adicionar**.
-5. Insira um nome para o aplicativo. Por exemplo, *webapi1*.
-6. Para **Incluir aplicativo da Web / API da Web** e **Permitir fluxo implícito**, selecione **Sim**.
-7. Para a **URL de resposta**, insira um ponto de extremidade em que o Azure AD B2C deve retornar os tokens solicitados pelo seu aplicativo. Neste tutorial, o exemplo é executado localmente e escuta em `https://localhost:5000`.
-8. Para o **ID do aplicativo URI**, insira o identificador usado para sua API da web. O URI do identificador completo, incluindo o domínio, é gerado para você. Por exemplo, `https://contosotenant.onmicrosoft.com/api`.
-9. Clique em **Criar**.
-10. Na página de propriedades, registre a ID do aplicativo que você usará ao configurar o aplicativo Web.
+[!INCLUDE [active-directory-b2c-appreg-webapi](../../includes/active-directory-b2c-appreg-webapi.md)]
 
 ## <a name="configure-scopes"></a>Configurar escopos
 
 Os escopos fornecem uma maneira de controlar o acesso a recursos protegidos. Escopos são usados pela API Web para implementar o controle de acesso com base em escopo. Por exemplo, alguns usuários podem ter acesso de leitura e gravação, enquanto outros usuários podem ter permissões somente leitura. Neste tutorial, você define as permissões de leitura para a API Web.
 
-1. Selecione **Aplicativos** e, em seguida, selecione *webapi1*.
-2. Selecione **Escopos publicados**.
-3. Em **escopo**, insira `Hello.Read` e, na descrição, insira `Read access to hello`.
-4. Em **escopo**, insira `Hello.Write` e, na descrição, insira `Write access to hello`.
-5. Clique em **Save** (Salvar).
-
-Os escopos publicados podem ser usados para conceder permissão de aplicativo cliente para a API Web.
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
 ## <a name="grant-permissions"></a>Conceder permissões
 
 Para chamar uma API Web protegida de um aplicativo, é necessário conceder permissões ao aplicativo para a API. No tutorial de pré-requisito, você criou um aplicativo Web no Azure AD B2C chamado *app1*. Use este aplicativo para chamar a API Web.
 
 1. Selecione **Aplicativos** e, em seguida, selecione *nativeapp1*.
-2. Selecione **Acesso à API** e, em seguida, selecione **Adicionar**.
-3. No menu suspenso **Selecionar API**, selecione *webapi1*.
-4. No menu suspenso **Selecionar Escopos**, selecione os escopos **Hello.Read** e **Hello.Write** definidos anteriormente.
-5. Clique em **OK**.
+1. Selecione **Acesso à API** e, em seguida, selecione **Adicionar**.
+1. No menu suspenso **Selecionar API**, selecione *webapi1*.
+1. Na lista suspensa **Selecionar Escopos**, selecione os escopos que você definiu anteriormente. Por exemplo, *demo.read* e *demo.write*.
+1. Selecione **OK**.
 
 Um usuário autentica-se com o Azure AD B2C para usar o aplicativo da área de trabalho do WPF. O aplicativo da área de trabalho obtém uma concessão de autorização do Azure AD B2C para acessar a API Web protegida.
 
@@ -83,6 +64,7 @@ Agora que a API Web está registrada e você tem escopos definidos, configure o 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
 ```
+
 O exemplo de API Web Node.js usa a biblioteca de Passport.js para habilitar o Azure AD B2C a proteger chamadas à API.
 
 1. Abra o arquivo `index.js` .

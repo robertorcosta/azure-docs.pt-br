@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2019
+ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 8d47ae84fd489b4841d8bcf7755da6c30cf6035d
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: ab6a0d5c2a4c4623506d90b76b77462abb8fe4af
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967009"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719486"
 ---
 # <a name="quickstart-computer-vision-client-library-for-python"></a>Início Rápido: Biblioteca de clientes da Pesquisa Visual Computacional para Python
 
@@ -64,7 +64,7 @@ Em seguida, crie variáveis para a chave e o ponto de extremidade do Azure do re
 É possível instalar a biblioteca de clientes com:
 
 ```console
-pip install --upgrade azure-cognitiveservices-Computer Vision
+pip install --upgrade azure-cognitiveservices-vision-computervision
 ```
 
 ## <a name="object-model"></a>Modelo de objeto
@@ -128,7 +128,7 @@ O código a seguir detecta objetos comuns na imagem e imprime-os no console. Con
 
 O código a seguir detecta logotipos e marcas corporativas na imagem e imprime-os no console. Confira [Detecção de marca](../concept-brand-detection.md) para obter mais detalhes.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_objects)]
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_brands)]
 
 ### <a name="detect-faces"></a>Detectar faces
 
@@ -136,9 +136,9 @@ O código a seguir retorna os rostos detectados na imagem com suas coordenadas d
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_faces)]
 
-### <a name="detect-adult-or-racy-content"></a>Detectar conteúdo adulto ou erótico
+### <a name="detect-adult-racy-or-gory-content"></a>Detectar conteúdo para adulto, erótico ou violento
 
-O código a seguir imprime a presença detectada de conteúdo adulto ou erótico na imagem. Confira [Conteúdo adulto e erótico](../concept-detecting-adult-content.md) para obter mais detalhes.
+O código a seguir imprime a presença detectada de conteúdo para adulto na imagem. Confira [Conteúdo para adulto, erótico e violento](../concept-detecting-adult-content.md) para obter mais detalhes.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_adult)]
 

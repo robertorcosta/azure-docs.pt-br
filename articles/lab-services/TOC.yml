@@ -78,6 +78,8 @@
           href: classroom-labs/class-type-deep-learning-natural-processing.md
         - name: Script de Shell no Linux
           href: classroom-labs/class-type-shell-scripting-linux.md
+        - name: Hacking ético
+          href: classroom-labs/class-type-ethical-hacking.md
     - name: Laboratórios de sala de aula
       items:
         - name: Criar e configurar contas de laboratório (proprietário da conta de laboratório)
@@ -90,6 +92,8 @@
               href: classroom-labs/how-to-connect-peer-virtual-network.md
             - name: Anexar ou desanexar uma galeria de imagens compartilhada
               href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
+            - name: Habilitar a virtualização aninhada em uma VM modelo
+              href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
         - name: Criar e configurar laboratórios de sala de aula (instrutor)
           items:
             - name: Criar e gerenciar laboratórios de sala de aula

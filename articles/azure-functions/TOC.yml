@@ -82,6 +82,8 @@
       href: functions-deployment-technologies.md
     - name: Eventos e mensagens
       items:
+        - name: Processamento de eventos confiável
+          href: functions-reliable-event-processing.md
         - name: Como criar para entrada idêntica
           href: functions-idempotent.md
     - name: Gatilhos e associações

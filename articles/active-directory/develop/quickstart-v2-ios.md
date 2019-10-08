@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b8637bb1a1ba397750bd04c88c6535fa3d1caa0
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: bdb1ae92b17bef281e3b82a8c1a21344fa37f0da
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309630"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345542"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Início Rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -94,11 +94,11 @@ Em uma janela do terminal, navegue até a pasta que contém o exemplo de código
 > 1. Extraia o arquivo zip e abra o projeto no XCode.
 > 1. Edite **ViewController.swift** e substitua a linha que começa com 'let kClientID' pelo seguinte snippet de código. Lembre-se de atualizar o valor de `kClientID` com a ID do cliente que você salvou quando registrou seu aplicativo no portal anteriormente no início rápido:
 >    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Abra as configurações do projeto. Na seção **Identidade**, insira o **Identificador do Pacote** que você inseriu no portal.
 > 1. Somente para o iOS, clique com o botão direito do mouse em **Info.plist** e selecione **Abrir como** > **Código-fonte**.
-> 1. Somente para o iOS, no nó raiz do dict, substitua `Enter_the_bundle_Id_Here` pela ***ID do Pacote*** que você inseriu no portal.
+> 1. Somente para o iOS, no nó raiz do dict, substitua `CFBundleURLSchemes` pela ***ID do Pacote*** que você inseriu no portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -120,7 +120,7 @@ Em uma janela do terminal, navegue até a pasta que contém o exemplo de código
 > 1. Extraia o arquivo zip e abra o projeto no XCode.
 > 1. Edite **ViewController.swift** e substitua a linha que começa com 'let kClientID' pelo seguinte snippet de código. Lembre-se de atualizar o valor de `kClientID` com a ID do cliente que você salvou quando registrou seu aplicativo no portal anteriormente neste início rápido:
 >    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Abra as configurações do projeto. Na seção **Identidade**, insira o **Identificador do Pacote** que você inseriu no portal.
 > 1. Somente para o iOS, clique com o botão direito do mouse em **Info.plist** e selecione **Abrir como** > **Código-fonte**.

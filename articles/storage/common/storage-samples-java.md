@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: b295c5a945f41059ca98e96d742bc5e1f6b4bf9f
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 2d08180d40233c0ab990bc700f0412d11647d5f1
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744798"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71349957"
 ---
 # <a name="azure-storage-samples-using-java"></a>Exemplos de armazenamento do Azure usando Java
 
@@ -97,5 +97,6 @@ Confira os guias a seguir se você estiver procurando por instruções sobre com
 Para saber mais sobre exemplos para outras linguagens:
 
 * .NET: [Exemplos de Armazenamento do Azure usando .NET](storage-samples-dotnet.md)
+* JavaScript/Node.js: [Exemplos do Armazenamento do Azure que usam JavaScript](storage-samples-javascript.md)
 * Python: [Exemplos do Armazenamento do Azure usando Python](storage-samples-python.md)
 * Todas as outras linguagens: [Exemplos do Armazenamento do Azure](storage-samples.md)

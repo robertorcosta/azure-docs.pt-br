@@ -1,22 +1,22 @@
 ---
-title: Criar um pool de hosts de Versão Prévia da Área de Trabalho Virtual do Windows usando o Azure Marketplace – Azure
-description: Como criar um pool de hosts de Versão Prévia da Área de Trabalho Virtual do Windows usando o Azure Marketplace.
+title: Criar um pool de hosts da Área de Trabalho Virtual do Windows usando o Azure Marketplace – Azure
+description: Como criar um pool de hosts da Área de Trabalho Virtual do Windows usando o Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: d6628f1522880f650bfd8c728fe46fd050a8e6a0
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c0b93529872de774e1a6e915ef8254c5c0e0a1a9
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208391"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676703"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Criar um pool de host usando o Azure Marketplace
 
-Pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas dentro dos ambientes de locatário de Versão Prévia da Área de Trabalho Virtual do Windows. Cada pool de hosts pode conter um grupo de aplicativo com o qual os usuários podem interagir como se eles estivessem em uma área de trabalho física.
+Pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas dentro dos ambientes de locatário da Área de Trabalho Virtual do Windows. Cada pool de hosts pode conter um grupo de aplicativo com o qual os usuários podem interagir como se eles estivessem em uma área de trabalho física.
 
 Este tutorial descreve como criar um pool de hosts em um locatário de Área de Trabalho Virtual do Windows usando uma oferta do Microsoft Azure Marketplace. Essas tarefas incluem:
 
@@ -80,7 +80,7 @@ Para a folha de **configurações da máquina virtual**:
 3. Selecione a rede virtual que tem conectividade com o servidor do Active Directory e escolha uma sub-rede para hospedar as máquinas virtuais.
 4. Selecione **OK**.
 
-### <a name="windows-virtual-desktop-preview-tenant-information"></a>Informações de locatário da Versão Prévia da Área de Trabalho Virtual do Windows
+### <a name="windows-virtual-desktop-tenant-information"></a>Informações de locatário da Área de Trabalho Virtual do Windows
 
 Para a folha **Informações de locatário da Área de Trabalho Virtual do Windows**:
 

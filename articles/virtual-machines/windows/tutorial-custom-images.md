@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 24a382680860890e57c8d5a380b8a1bb097baaa1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1c216e5a572a36d2306326dd0dd6e1b7ed586de8
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101680"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350839"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Tutorial: Criar uma imagem personalizada de uma VM do Azure com o Azure PowerShell
 
@@ -132,6 +132,8 @@ New-AzVm `
     -PublicIpAddressName "myImagePIP" `
     -OpenPorts 3389
 ```
+
+É recomendável que você limite o número de implantações simultâneas para 20 VMs de uma única imagem. Se você estiver planejando implantações simultâneas de grande escala de mais de 20 VMs da mesma imagem personalizada, deverá usar uma [Galeria de Imagens Compartilhadas](shared-image-galleries.md) com várias réplicas de imagem. 
 
 ## <a name="image-management"></a>Gerenciamento de imagens 
 

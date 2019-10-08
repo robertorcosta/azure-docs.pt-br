@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 51bfcc47961e870fb7fb87b26a78aea0f1564d46
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 65678f08399f378b8580eed79e49197dd4d84c64
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390301"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71351139"
 ---
 # <a name="what-is-project-acoustics"></a>O que é Projeto Acústico?
 Projeto Acústico é um mecanismo de acústica de onda para experiências interativas 3D. Ele modela efeitos de onda como oclusão, obstrução, portaling e efeitos de reverberação em cenas complexas sem a necessidade de marcação de zona ou ray tracing com uso intensivo de CPU. Também inclui o mecanismo de jogo e a integração de áudio de middleware. A filosofia do Projeto Acústico é semelhante à da iluminação estática: fazer o bake da física detalhada offline para fornecer uma linha de base física e usar um runtime leve com controles de design expressivos para atender às suas metas artísticas com relação à acústica de seu mundo virtual.
@@ -58,11 +58,10 @@ O plug-in do editor de Projeto Acústico está disponível para as seguintes pla
 ## <a name="download"></a>Baixar
 * [Plug-in e amostras do Unity do Projeto Acústico](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
 * [Plug-ins e amostras do Unreal e do Wwise do Projeto Acústico](https://www.microsoft.com/download/details.aspx?id=58090)
-  * Para suporte e binários do Xbox, entre em contato conosco por meio do formulário de Inscrição abaixo
+  * Para binários do Xbox e outro suporte, contate-nos pelo [fórum](https://github.com/microsoft/ProjectAcoustics/issues).
 
 ## <a name="contact-us"></a>Fale conosco
 * [Discussão do Projeto Acústico e emissão de relatórios](https://github.com/microsoft/ProjectAcoustics/issues)
-* [Inscreva-se para receber atualizações sobre o Projeto Acústico](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Tente um [Início Rápido do Projeto Acústico para o Unit](unity-quickstart.md) ou para o [Unreal](unreal-quickstart.md)

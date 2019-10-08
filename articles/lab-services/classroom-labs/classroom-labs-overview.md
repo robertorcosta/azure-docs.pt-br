@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 05/21/2018
+ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 964f5624a3a588a1520a08365c5fa9c783114e48
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 67ebce2130bf5594d3c8c671934f7141a02eb60d
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958823"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694659"
 ---
 # <a name="introduction-to-classroom-labs"></a>Introdução aos laboratórios de sala de aula
 O Azure Lab Services permite que você configure rapidamente um ambiente de laboratório de sala de aula na nuvem. Um educador cria um laboratório de sala de aula, provisiona máquinas virtuais do Windows ou do Linux, instala o software e as ferramentas necessárias na sala de aula e disponibiliza-os para os alunos. Os alunos na sala de aula se conectam às máquinas virtuais (VM) no laboratório e as usam para projetos, tarefas e exercícios em sala de aula. 
@@ -33,6 +33,9 @@ Os usuários convidados ao seu laboratório obtêm acesso imediato aos recursos 
 
 ## <a name="cost-optimization-and-tracking"></a>Otimização de custo e acompanhamento  
 Mantenha o orçamento sob controle controlando exatamente quantas horas os usuários do laboratório podem usar as máquinas virtuais. Configure agendamentos no laboratório para permitir que os usuários usem as máquinas virtuais somente durante os slots de tempo designado ou configure o desligamento automático recorrente e as horas de início. Controle o uso de usuários individuais e defina limites.
+
+## <a name="example-class-types"></a>Tipos de classe de exemplo
+Você pode configurar laboratórios para vários tipos de classes com o Azure Lab Services. Confira o artigo [Tipos de classe de exemplo no Azure Lab Services](class-types.md) para ver alguns tipos de classes de exemplo para as quais você configurou laboratórios com o Azure Lab Services. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Introdução à configuração de uma conta de laboratório necessária para criar um laboratório de sala de aula usando o Azure Lab Services:

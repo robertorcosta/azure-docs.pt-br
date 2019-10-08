@@ -10,16 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 08/01/2019
 ms.author: aahi
-ms.openlocfilehash: 59a4d79cc68c57faf54bde3d42370fb17a317325
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 28dbcde723e25577545cfd44fed9ef00249d8f30
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725554"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694901"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>Início Rápido: Biblioteca de clientes do Detector de Anomalias para Python
 
-Introdução à biblioteca de clientes Detector de Anomalias para .NET. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O serviço Detector de Anomalias permite localizar anormalidades em seus dados de série temporal usando automaticamente os modelos de melhor ajuste, independentemente do setor, cenário ou volume de dados.
+Introdução à biblioteca de clientes do Detector de Anomalias para Python. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O serviço Detector de Anomalias permite localizar anormalidades em seus dados de série temporal usando automaticamente os modelos de melhor ajuste, independentemente do setor, cenário ou volume de dados.
 
 Use a biblioteca de cliente do Detector de Anomalias para Python para:
 
@@ -70,7 +70,7 @@ A resposta do Detector de Anomalias é um objeto [LastDetectResponse](https://do
 
 ## <a name="code-examples"></a>Exemplos de código 
 
-Esses snippets de códigos mostram como fazer o seguinte com a biblioteca de clientes do Detector de Anomalias para .NET:
+Esses snippets de códigos mostram como fazer o seguinte com a biblioteca de clientes do Detector de Anomalias para Python:
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Carregar um conjunto de dados de série temporal de um arquivo](#load-time-series-data-from-a-file)

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: e5b8cd01a64274e58927a5647897b1f9d86f7c24
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f0888b25258f6a7830df1195995159432b19907d
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390862"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802819"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Tutorial: Usando C#, criar a base de dados de conhecimento e responder à pergunta
 
@@ -41,7 +41,7 @@ Este início rápido chama as APIs REST do QnA Maker:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [**Edição mais recente do Visual Studio Community**](https://www.visualstudio.com/downloads/).
-* Você precisa ter um [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar sua chave, selecione **Teclas** em **Gerenciamento de Recursos** no seu painel. 
+* Você precisa ter um [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a chave e o nome do recurso, selecione **Início Rápido** no portal do Azure para o recurso do QnA Maker. 
 
 > [!NOTE] 
 > Os arquivos da solução completa estão disponíveis no repositório do GitHub [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
@@ -146,13 +146,13 @@ A chamada à API retorna um status 204 de publicação bem-sucedida sem nenhum c
 Para qualquer outra resposta, essa resposta é retornada inalterada.
 
 ## <a name="generating-an-answer"></a>Gerando uma resposta
-Para acessar a base de dados de conhecimento, enviar uma pergunta e receber a melhor resposta, o programa precisará de um _host do ponto de extremidade_ da API de detalhes da base de dados de conhecimento e da _chave do ponto de extremidade primário_ da API de Pontos de Extremidade. Esses métodos estão nas seções a seguir, junto com o método para gerar uma resposta. 
+Para acessar a KB para enviar uma pergunta e receber a melhor resposta, o programa precisará do _nome do recurso_ da API de detalhes da KB e da _chave do ponto de extremidade primário_ da API de Pontos de Extremidade. Esses métodos estão nas seções a seguir, junto com o método para gerar uma resposta. 
 
 A tabela abaixo ilustra como os dados são usados para construir o URI:
 
 |Gerar modelo de URI de resposta|
 |--|
-|https://**HOSTNAME**.azurewebsites.net/qnamaker/knowledgebases/**KBID**/generateAnswer|
+|https://**nome-do-recurso**.azurewebsites.net/qnamaker/knowledgebases/**KBID**/generateAnswer|
 
 O _ponto de extremidade primário_ é passado como um cabeçalho para autenticar a solicitação e gerar uma resposta:
 
@@ -169,7 +169,7 @@ O corpo da solicitação precisa passar o JSON correto:
 ```
 
 ## <a name="get-kb-details"></a>Obter detalhes da base de dados de conhecimento
-Adicione o seguinte método para obter os detalhes da base de dados de conhecimento. Esses detalhes contêm o nome do host da base de dados de conhecimento. O nome do host é o nome do serviço Web do Azure QnA Maker que você inseriu ao criar o recurso do QnA Maker. 
+Adicione o seguinte método para obter os detalhes da base de dados de conhecimento. Esses detalhes contêm o nome do recurso da KB, conhecido como `hostName` no JSON a seguir. O nome do recurso é o nome do recurso do QnA Maker que você inseriu ao criar o recurso do QnA Maker. 
 
 [!code-csharp[Get KB Details](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=260-273 "Add publish method")]
 

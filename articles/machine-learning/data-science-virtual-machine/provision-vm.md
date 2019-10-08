@@ -7,12 +7,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/10/2019
-ms.openlocfilehash: e08287fec79ec634d6e2353328854e19565533ca
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: fcd115b672e4e2677cb7ad48fc94905747d66781
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204037"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675105"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Início Rápido: Configurar a Máquina Virtual de Ciência de Dados para Windows
 
@@ -21,6 +21,7 @@ Inicie o funcionamento usando a Máquina Virtual de Ciência de Dados do Windows
 ## <a name="prerequisite"></a>Pré-requisito
 
 Para criar uma Máquina Virtual de Ciência de Dados do Windows, é necessário ter uma assinatura do Azure. [Experimentar o Azure gratuitamente](https://azure.com/free).
+Observe que as contas gratuitas do Azure não dão suporte a SKUs de máquina virtual habilitada para GPU.
 
 ## <a name="create-your-dsvm"></a>Criar sua DSVM
 

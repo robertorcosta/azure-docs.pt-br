@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 014a5f264b9beed666f718cda52d197381d58876
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 4409f04f9fd370b862ee62f9595ffca9fe6e4406
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266251"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802540"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>Início Rápido: Personalizar biblioteca de clientes para Python
 
@@ -33,9 +33,19 @@ Introdução à biblioteca de clientes do Personalizador para Python. Siga essas
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
 
-## <a name="setting-up"></a>Configurando
+## <a name="using-this-quickstart"></a>Como usar este início rápido
 
-### <a name="create-a-personalizer-azure-resource"></a>Criar um recurso do Azure do Personalizador
+
+Há várias etapas para usar este início rápido:
+
+* No portal do Azure, crie um recurso do Personalizador
+* No portal do Azure, para o recurso do Personalizador, na página **Configurações**, altere a frequência de atualização do modelo
+* Em um editor de códigos, crie um arquivo de código e edite-o
+* Na linha de comando ou no terminal, instale o SDK usando a linha de comando
+* Na linha de comando ou no terminal, execute o arquivo de código
+
+
+## <a name="create-a-personalizer-azure-resource"></a>Criar um recurso do Azure do Personalizador
 
 Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para o Personalizador usando o [portal do Azure](https://portal.azure.com/) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) em seu computador local. Veja [Como criar um recurso dos Serviços Cognitivos usando o portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para obter mais detalhes. Você também pode:
 
@@ -50,7 +60,7 @@ Depois de obter uma chave do recurso ou da assinatura de avaliação, crie duas 
 No portal do Azure, os valores da chave e do ponto de extremidade estão disponíveis na página **Início Rápido**.
 
 
-### <a name="install-the-python-library-for-personalizer"></a>Instalar a biblioteca do Python para o Personalizador
+## <a name="install-the-python-library-for-personalizer"></a>Instalar a biblioteca do Python para o Personalizador
 
 Instale a biblioteca de clientes do Personalizador para Python com o seguinte comando:
 
@@ -58,11 +68,9 @@ Instale a biblioteca de clientes do Personalizador para Python com o seguinte co
 pip install azure-cognitiveservices-personalizer
 ```
 
-Se você estiver usando o IDE do Visual Studio, a biblioteca de clientes estará disponível como um pacote baixável do NuGet.
+## <a name="change-the-model-update-frequency"></a>Alterar a frequência de atualização do modelo
 
-### <a name="change-the-model-update-frequency"></a>Alterar a frequência de atualização do modelo
-
-No recurso do Personalizador no portal do Azure, altere a **Frequência de atualização do modelo** para 10 segundos. Isso treinará o serviço rapidamente, permitindo que você veja como a ação superior é alterada a cada iteração.
+No portal do Azure, no recurso do Personalizador na página **Configurações**, altere a **Frequência de atualização do modelo** para 10 segundos. Isso treinará o serviço rapidamente, permitindo que você veja como a ação superior é alterada a cada iteração.
 
 ![Alterar a frequência de atualização do modelo](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -92,13 +100,15 @@ Crie um novo aplicativo Python em seu IDE ou editor preferido denominado `sample
 
 ## <a name="add-the-dependencies"></a>Adicionar as dependências
 
-No diretório do projeto, abra o arquivo **Program.cs** no IDE ou no editor de sua preferência. Substitua o código `using` existente pelas seguintes diretivas de `using`:
+No diretório do projeto, abra o arquivo **sample.py** no IDE ou no editor de sua preferência. Adicione o seguinte:
 
 [!code-python[Add module dependencies](~/samples-personalizer/quickstarts/python/sample.py?name=Dependencies)]
 
 ## <a name="add-personalizer-resource-information"></a>Adicionar informações de recursos do Personalizador
 
-Na classe **Program**, crie variáveis para a chave e o ponto de extremidade do Azure extraídos das variáveis de ambiente, denominadas `PERSONALIZER_RESOURCE_KEY` e `PERSONALIZER_RESOURCE_ENDPOINT`. Se você tiver criado as variáveis de ambiente depois de iniciar o aplicativo, será necessário fechar e recarregar o editor, o IDE ou o shell em execução para acessar a variável. Os métodos serão criados posteriormente neste início rápido.
+Crie variáveis para a chave e o ponto de extremidade do Azure do recurso extraídos das variáveis de ambiente, chamadas `PERSONALIZER_RESOURCE_KEY` e `PERSONALIZER_RESOURCE_ENDPOINT`. Se você tiver criado as variáveis de ambiente depois de iniciar o aplicativo, será necessário fechar e recarregar o editor, o IDE ou o shell em execução para acessar a variável. Os métodos serão criados posteriormente neste início rápido.
+
+O nome do recurso faz parte da URL do ponto de extremidade: `https://<your-resource-name>.api.cognitive.microsoft.com/`.
 
 [!code-python[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/samples-personalizer/quickstarts/python/sample.py?name=AuthorizationVariables)]
 
@@ -110,7 +120,7 @@ Em seguida, crie um método para retornar um cliente do Personalizador. O parâm
 
 ## <a name="get-content-choices-represented-as-actions"></a>Obter opções de conteúdo representadas como ações
 
-As ações representam as opções de conteúdo que você deseja que o Personalizador classifique. Adicione os seguintes métodos à classe Program para obter a entrada de um usuário da linha de comando para a hora do dia e a preferência de alimentos atual.
+As ações representam as opções de conteúdo que você deseja que o Personalizador classifique. Adicione os métodos a seguir para obter a entrada de um usuário da linha de comando para a hora do dia e a preferência de alimento atual.
 
 [!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=getActions)]
 
@@ -122,7 +132,7 @@ As ações representam as opções de conteúdo que você deseja que o Personali
 
 O loop de aprendizado do Personalizador é um ciclo de chamadas de [classificação](#request-a-rank) e de [recompensa](#send-a-reward). Neste início rápido, cada chamada de classificação, para personalizar o conteúdo, é seguida por uma chamada de recompensa para informar ao Personalizador quão bem o serviço classificou o conteúdo. 
 
-O código a seguir no método `main` do programa executa um loop em um ciclo de perguntar as preferências do usuário na linha de comando, enviar essas informações ao Personalizador para classificar, apresentar a seleção classificada ao cliente para escolher entre as que estão na lista e, em seguida, enviar uma recompensa para Personalizador, sinalizando quão bem o serviço classificou a seleção.
+O código a seguir executa um loop em um ciclo que inclui perguntas sobre as preferências do usuário na linha de comando, envio dessas informações ao Personalizador para classificação, apresentação da seleção classificada ao cliente para escolher uma opção na lista e, em seguida, envio de uma recompensa ao Personalizador, sinalizando o nível de qualidade do serviço na classificação da seleção.
 
 [!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=mainLoop&highlight=9,10,29)]
 
