@@ -1,6 +1,6 @@
 ---
 title: Visão Geral das Funções Duráveis – Azure
-description: Introdução à extensão de Funções Duráveis do Azure Functions.
+description: Introdução à extensão de Durable Functions do Azure Functions.
 services: functions
 author: cgillum
 manager: jeconnoc
@@ -159,7 +159,7 @@ O ponto de verificação automático que ocorre na chamada `await` ou `yield` em
 
 ### <a name="async-http"></a>Padrão 3: APIs HTTP assíncronas
 
-O padrão de API HTTP assíncrona trata do problema de coordenar o estado de operações de execução longa com clientes externos. Uma maneira comum de implementar esse padrão é fazer com que um ponto de extremidade HTTP dispare a ação de execução longa. Em seguida, redirecione o cliente para um ponto de extremidade de status que é sondado pelo para saber quando a operação é concluída.
+O padrão de API HTTP assíncrona trata do problema de coordenar o estado de operações de execução longa com clientes externos. Uma maneira comum de implementar esse padrão é fazer com que um ponto de extremidade HTTP dispare a ação de execução longa. Em seguida, redirecione o cliente para um ponto de extremidade de status que é sondado pelo cliente para saber quando a operação é concluída.
 
 ![Um diagrama do padrão de API HTTP](./media/durable-functions-concepts/async-http-api.png)
 
