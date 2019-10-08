@@ -43,11 +43,29 @@
     - name: Ingestão de dados
       items:
         - name: Hub de evento
-          href: ingest-data-event-hub.md
+          items:
+            - name: Portal do Azure
+              href: ingest-data-event-hub.md
+            - name: python
+              href: data-connection-event-hub-python.md
+            - name: 'C#'
+              href: data-connection-event-hub-csharp.md
         - name: Grade de Eventos
-          href: ingest-data-event-grid.md
+          items:
+            - name: Portal do Azure
+              href: ingest-data-event-grid.md
+            - name: python
+              href: data-connection-event-grid-python.md
+            - name: 'C#'
+              href: data-connection-event-grid-csharp.md
         - name: Hub IoT
-          href: ingest-data-iot-hub.md
+          items:
+            - name: Portal do Azure
+              href: ingest-data-iot-hub.md
+            - name: python
+              href: data-connection-iot-hub-python.md
+            - name: 'C#'
+              href: data-connection-iot-hub-csharp.md
         - name: Ingestão com um clique
           href: ingest-data-one-click.md
         - name: Ingestão de streaming

@@ -443,7 +443,7 @@ Os serviços do Azure registram em log de forma extensiva as atividades do siste
 1.  Navegue de volta para a portal do Azure. No painel de navegação à esquerda, selecione o serviço Azure Active Directory e, em seguida, selecione Registros de aplicativo.
 2.  Na tela resultante, selecione o aplicativo WebApp-OpenIDConnect-DotNet-Code-v2.
 3.  Na guia Autenticação o na seção URIs de redirecionamento, selecione Web na caixa de combinação e adicione os seguintes URIs de redirecionamento.
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o na seção Configurações avançadas, defina URL de logout para https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
+    [https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net](https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ) https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o na seção Configurações avançadas, defina URL de logout para https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
 4.  Na guia identidade visual o, atualize a URL da Home Page para o endereço do seu serviço de aplicativo, https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net por exemplo.
         o salve a configuração.
 5.  Se seu aplicativo chamar uma API da Web, certifique-se de aplicar as alterações necessárias no projeto appSettings. JSON, para que chame a URL da API publicada em vez do localhost.
