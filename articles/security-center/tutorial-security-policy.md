@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: memildin
-ms.openlocfilehash: 488210e4f2c5d3a8a978079d0c7293ce091d998b
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: fce8c75dadbb255a357b85bf85049423f50d18ec
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338765"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996344"
 ---
 # <a name="working-with-security-policies"></a>Trabalhando com políticas de segurança
 
@@ -226,7 +226,7 @@ Este exemplo mostra como remover uma atribuição:
 |Auditoria do SQL |Monitorar o banco de dados SQL não auditado na Central de Segurança do Azure |sqlAuditingMonitoringEffect|
 |Atualizações do sistema |Monitorar atualizações de sistemas ausentes na Central de Segurança do Azure |systemUpdatesMonitoringEffect|
 |Criptografia do armazenamento |Auditar a criptografia de blob ausente para contas de armazenamento |storageEncryptionMonitoringEffect|
-|Acesso à rede JIT |Monitorar o possível acesso Just In Time (JIT) à rede na Central de Segurança do Azure |jitNetworkAccessMonitoringEffect |
+|Acesso à rede JIT |Monitorar um possível acesso JIT (just-in-time) de rede na central de segurança do Azure |jitNetworkAccessMonitoringEffect |
 |Controles de aplicativo adaptáveis |Monitorar a possível lista de permissões de aplicativos na Central de Segurança do Azure |adaptiveApplicationControlsMonitoringEffect|
 |Grupos de segurança de rede |Monitorar o acesso de rede permissivo na Central de Segurança do Azure |networkSecurityGroupsMonitoringEffect| 
 |Configurações de segurança |Monitorar as vulnerabilidades do SO na Central de Segurança do Azure |systemConfigurationsMonitoringEffect| 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: a5d11be7d4fbe7f23b5584775c5d9a57c2214155
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b2b4dc1aa9486e432fb2fae48343c21fba620221
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200990"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996683"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Roteiro de Preparação da Central de Segurança do Azure
 Este documento fornece um roteiro de preparação que ajudará você a começar a usar a Central de Segurança do Azure.
@@ -89,16 +89,16 @@ Artigos
 
 ## <a name="advanced-cloud-defense"></a>Defesa da nuvem avançada
 
-As Máquinas Virtuais do Azure podem tirar proveito dos recursos avançados de defesa de nuvem na Central de Segurança. Esses recursos incluem o acesso de máquina virtual (VM) just in time e os controles de aplicativo adaptável.
+As Máquinas Virtuais do Azure podem tirar proveito dos recursos avançados de defesa de nuvem na Central de Segurança. Esses recursos incluem o acesso à VM (máquina virtual) just-in-time e os controles de aplicativo adaptáveis.
 
 Use os seguintes recursos para saber como usar esses recursos na Central de Segurança.
 
 Vídeos  
-* [Central de Segurança do Azure – Acesso de VM Just-in-Time](https://youtu.be/UOQb2FcdQnU)
+* [Central de segurança do Azure – acesso à VM just-in-time](https://youtu.be/UOQb2FcdQnU)
 * [Central de Segurança do Azure: Controles de Aplicativo Adaptáveis](https://youtu.be/wWWekI1Y9ck)
 
 Artigos    
-* [Gerenciar o acesso à máquina virtual usando o just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Gerenciar o acesso à máquina virtual usando just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Controles de aplicativo adaptáveis na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
 ## <a name="hands-on-activities"></a>Atividades práticas

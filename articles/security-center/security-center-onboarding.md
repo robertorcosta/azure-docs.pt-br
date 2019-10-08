@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: memildin
-ms.openlocfilehash: 7448516e464a379e27abd45834b31760fca3fedd
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 01cc625767cbf437031f503cf4b0d4dc59b62e08
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201855"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996304"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Integração à Central de Segurança do Azure Standard para uma segurança aprimorada
 Atualize para a Central de Segurança Standard para aproveitar o gerenciamento de segurança aprimorado e a proteção contra ameaças para suas cargas de trabalho de nuvem híbrida.  Você pode experimentar o Standard gratuitamente. Para saber mais, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança.
@@ -111,7 +111,7 @@ Neste artigo, você aprendeu como integrar recursos Azure e não Azure para se b
 
 - [Habilitar coleta de dados](security-center-enable-data-collection.md)
 - [Relatório de inteligência de ameaças](security-center-threat-report.md)
-- [Acesso Just-In-Time à VM](security-center-just-in-time.md)
+- [Acesso à VM Just-In-Time](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png

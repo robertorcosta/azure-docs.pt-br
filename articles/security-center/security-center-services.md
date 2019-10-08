@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: ad662cdeb0a87e57eb9e3e7480d120be1c6c729e
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d756f9dfbd0012f884bb0c4a1e27efc76d613234
+ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218266"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71982834"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Recursos com suporte disponíveis na central de segurança do Azure
 
@@ -39,20 +39,21 @@ As seções a seguir mostram os recursos da central de segurança que estão dis
 |----|----|----|----|----|----|----|----|
 |**Ambiente**|**As tabelas**||**Não Azure**|**As tabelas**||**Não Azure**||
 ||**Máquina Virtual**|**Conjunto de Dimensionamento de Máquinas Virtuais**||**Máquina Virtual**|**Conjunto de Dimensionamento de Máquinas Virtuais**|
-|Alertas de detecção de ameaças VMBA|✔|✔|✔|✔ (em versões compatíveis)|✔ (em versões compatíveis)|✔|Recomendações (gratuito) detecção de ameaças (padrão)|
+|Alertas de detecção de ameaças de análise comportamental de máquina virtual|✔|✔|✔|✔ (em versões compatíveis)|✔ (em versões compatíveis)|✔|Recomendações (gratuito) detecção de ameaças (padrão)|
 |Alertas de detecção de ameaças baseadas em rede|✔|✔|X|✔|✔|X|Standard|
 |Integração do Microsoft defender ATP|✔ (em versões compatíveis)|✔ (em versões compatíveis)|✔|X|X|X|Standard|
 |Patches ausentes|✔|✔|✔|✔|✔|✔|Gratuito|
 |Configurações de segurança|✔|✔|✔|✔|✔|✔|Gratuito|
 |Avaliação do Endpoint Protection|✔|✔|✔|X|X|X|Gratuito|
-|Acesso à VM JIT|✔|X|X|✔|X|X|Standard|
+|Acesso à VM just-in-time|✔|X|X|✔|X|X|Standard|
 |Controles de aplicativo adaptáveis|✔|X|✔|✔|X|✔|Standard|
-|FIM|✔|✔|✔|✔|✔|✔|Standard|
+|Monitoramento de Integridade do Arquivo|✔|✔|✔|✔|✔|✔|Standard|
 |Avaliação de criptografia de disco|✔|✔|X|✔|✔|X|Gratuito|
 |Implantação de terceiros|✔|X|X|✔|X|X|Gratuito|
 |Avaliação do NSG|✔|✔|X|✔|✔|X|Gratuito|
 |Detecção de ameaças sem arquivo|✔|✔|✔|X|X|X|Standard|
 |Mapa de rede|✔|✔|X|✔|✔|X|Standard|
+|Proteção de Rede Adaptável|✔|X|X|✔|X|X|Standard|
 |Controles de rede adaptável|✔|✔|X|✔|✔|X|Standard|
 |Painel de conformidade regulatória & relatórios|✔|✔|✔|✔|✔|✔|Standard|
 |Recomendações e detecção de ameaças em contêineres de IaaS hospedados pelo Docker|X|X|X|✔|✔|✔|Standard|
@@ -73,8 +74,8 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 | Trend Micro – todas as versões * | Família Windows Server  | Não | Sim |
 | Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família Windows Server  | Não | Sim |
-| McAfee v10+ | Família de servidores Linux  | Não | Ok **\*** |
-| Sophos v9 +| Família de servidores Linux  | Não | Ok **\***  |
+| McAfee v10+ | Família de servidores Linux  | Não | Sim **\*** |
+| Sophos v9 +| Família de servidores Linux  | Não | Sim **\***  |
 
  **\*** O estado de cobertura e os dados de suporte estão disponíveis no momento apenas no espaço de trabalho Log Analytics associado às suas assinaturas protegidas e não são refletidos no portal da central de segurança do Azure.
 
@@ -96,10 +97,10 @@ Os recursos de PaaS a seguir têm suporte na central de segurança do Azure:
 |CosmosDB|X| ✔|
 |Armazenamento de Blob|✔| ✔|
 |Conta de armazenamento|✔| N/A|
-|Serviço de aplicativo|✔| ✔|
+|serviço de aplicativo|✔| ✔|
 |Função|✔| X|
 |Serviço de Nuvem|✔| X|
-|Rede Virtual|✔| N/A|
+|VNET|✔| N/A|
 |Subnet|✔| N/A|
 |NIC|✔| N/A|
 |NSG|✔| N/A|
@@ -120,7 +121,7 @@ Os recursos de PaaS a seguir têm suporte na central de segurança do Azure:
 
 \* Esses recursos são compatíveis atualmente com a versão prévia pública.
 
-\*\*As recomendações do Azure Active Directory (Azure AD) estão disponíveis apenas para assinaturas padrão.
+as recomendações \* @ no__t-1 Azure Active Directory (Azure AD) estão disponíveis somente para assinaturas padrão.
 
 ## <a name="next-steps"></a>Próximas etapas
 

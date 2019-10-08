@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 327fd5352a3f067638c7f9ceb51e2de9e284d845
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: ef66e6a69b6d33b16a558293fe29b8adf51cd137
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947843"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996764"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Ingerir dados do Hub IoT para o Azure Data Explorer (versão prévia)
 
@@ -80,8 +80,7 @@ Agora você se conecta ao Hub IoT do Azure Data Explorer. Quando essa conexão �
     | Hub IoT | Nome do Hub IoT |
     | Política de acesso compartilhado | O nome da política de acesso compartilhado. Deve ter permissões de leitura |
     | Grupo de consumidores |  O grupo de consumidores definido no ponto de extremidade interno do Hub IoT |
-    | Propriedades do sistema de eventos | As [Propriedades do sistema de eventos do Hub IOT](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages) se houver vários registros por mensagem de evento, as propriedades do sistema serão adicionadas ao primeiro.|
-    | | 
+    | Propriedades do sistema de eventos | As [Propriedades do sistema de eventos do Hub IOT](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages). Ao adicionar propriedades do sistema, [crie](/azure/kusto/management/tables#create-table) ou [atualize](/azure/kusto/management/tables#alter-table-and-alter-merge-table) o esquema de tabela e o [mapeamento](/azure/kusto/management/mappings) para incluir as propriedades selecionadas. | | | 
 
     > [!NOTE]
     > No caso de um [failover manual](/azure/iot-hub/iot-hub-ha-dr#manual-failover), você deve recriar a conexão de dados.
@@ -95,7 +94,7 @@ Agora você se conecta ao Hub IoT do Azure Data Explorer. Quando essa conexão �
     |---|---|---|
     | Tabela | *TestTable* | A tabela que você criou em **TestDB**. |
     | Formato de dados | *JSON* | Os formatos com suporte são Avro, CSV, JSON, JSON MULTILINHA, PSV, SOHSV, SCSV, TSV, TSVE e TXT. |
-    | Mapeamento de coluna | *TestMapping* | O mapeamento que você criou em **TestDB**, que MAPEIA dados JSON de entrada para os nomes de coluna e tipos de dados de **TestDB**. Necessário para JSON, JSON MULTILINHA e AVRO, e opcional para outros formatos.|
+    | Mapeamento de coluna | *TestMapping* | O [mapeamento](/azure/kusto/management/mappings) que você criou em **TestDB**, que mapeia dados JSON de entrada para os nomes de coluna e tipos de dados de **TestDB**. Necessário para JSON, JSON MULTILINHA e AVRO, e opcional para outros formatos.|
     | | |
 
     > [!NOTE]
@@ -165,7 +164,7 @@ Se você não planeja usar o Hub IoT novamente, limpe **Test-Hub-RG**para evitar
 
 1. No portal do Azure, selecione **Grupos de recursos** na extremidade esquerda, depois selecione o recurso de grupo que você criou.  
 
-    Se o menu à esquerda estiver recolhido, selecione ![Botão Expandir](media/ingest-data-event-hub/expand.png) para expandi-lo.
+    Se o menu à esquerda estiver recolhido, selecione ![botão Expandir](media/ingest-data-event-hub/expand.png) para expandi-lo.
 
    ![Selecione o grupo de recursos para excluir](media/ingest-data-event-hub/delete-resources-select.png)
 

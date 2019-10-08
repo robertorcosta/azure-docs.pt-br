@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: f78f7c37fafd7f0b29f76220206b9adfb62f52c9
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: d0314e94e627a42ab55f9e91017acac0cdc8b541
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677744"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001628"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de log no Azure Monitor
 
@@ -127,16 +127,25 @@ Já que o alerta é configurado para disparar com base em um total de violaçõe
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Regra de alerta de pesquisa de logs – acionamento e estado
 
-A regra de alerta de pesquisa de logs funciona com a lógica definida pelo usuário, de acordo com a configuração e a consulta de análise personalizada usada. Como a lógica de monitoramento, incluindo a condição exata ou o motivo pelo qual a regra de alerta deve disparar, é encapsulada em uma consulta de análise, que pode ser diferente em cada regra de alerta de log. Os alertas do Azure têm informações escassa do cenário de causa raiz (ou) subjacente específico que está sendo avaliado quando a condição de limite da regra de alerta de pesquisa de logs é atendida ou excedida. Assim, os alertas de log são conhecidos como sem estado. E as regras de alerta de log continuarão sendo acionadas, desde que a condição de alerta seja atendida pelo resultado da consulta de análise personalizada fornecida. Sem o alerta a cada ser resolvido, como a lógica da causa raiz exata da falha de monitoramento é mascarada dentro da consulta de análise fornecida pelo usuário. Atualmente, não há nenhum mecanismo para alertas de Azure Monitor para deduzir conclusivamente a causa raiz que está sendo resolvida.
+As regras de alerta de pesquisa de log funcionam apenas na lógica que você cria na consulta. O sistema de alerta não tem nenhum outro contexto do estado do sistema, sua intenção ou a causa raiz implícita pela consulta. Dessa forma, os alertas de log são conhecidos como sem estado. As condições são avaliadas como "TRUE" ou "FALSE" sempre que são executadas.  Um alerta será disparado sempre que a avaliação da condição de alerta for "TRUE", independentemente de ser acionada anteriormente.    
 
-Vamos ver o mesmo com um exemplo prático. Suponha que tenhamos uma regra de alerta de log chamada *contoso-log-Alert*, de acordo com a configuração no [exemplo fornecido para o número de resultados de alerta de log](#example-of-number-of-records-type-log-alert) -em que a consulta de alerta personalizada foi criada para procurar o código de resultado 500 nos logs.
+Vamos ver esse comportamento em ação com um exemplo prático. Suponha que tenhamos uma regra de alerta de log chamada *contoso-log-Alert*, que está configurada conforme mostrado no [exemplo fornecido para o número de resultados de alerta de log](#example-of-number-of-records-type-log-alert). A condição é uma consulta de alerta personalizada projetada para procurar o código de resultado 500 em logs. Se um ou mais códigos de resultado 500 forem encontrados nos logs, a condição do alerta será verdadeira. 
 
-- Às 1:05 PM quando contoso-log-Alert foi executado pelos alertas do Azure, o resultado da pesquisa de log gerou zero registros com o código de resultado de 500. Como zero está abaixo do limite e o alerta não é acionado.
-- Na próxima iteração às 1:10, quando contoso-log-Alert foi executado pelos alertas do Azure, o resultado da pesquisa de logs forneceu cinco registros com o código de resultado como 500. Como cinco excede o limite e o alerta é acionado com as ações associadas disparadas.
-- Às 1:15 PM quando contoso-log-Alert foi executado por alertas do Azure, o resultado da pesquisa de logs forneceu dois registros com código de resultado 500. Como dois excedem o limite e o alerta é acionado com as ações associadas disparadas.
-- Agora, na próxima iteração às 1:20, quando contoso-log-Alert foi executado pelo alerta do Azure, o resultado da pesquisa de log forneceu novamente zero registros com o código de resultado 500. Como zero está abaixo do limite e o alerta não é acionado.
+Em cada intervalo abaixo, o sistema de alertas do Azure avalia a condição para o *contoso-log-Alert*.
 
-Mas, no caso listado acima, às 1:15 PM-os alertas do Azure não podem determinar que os problemas subjacentes vistos em 1:10 persistam e se há novas falhas na rede. Como a consulta fornecida pelo usuário pode estar levando em conta registros anteriores – os alertas do Azure podem ter certeza. Como a lógica do alerta é encapsulada na consulta de alerta, portanto, os dois registros com o código de resultado 500 visto às 1:15 PM podem ou não ser vistos na 1:10 PM. Portanto, para o erro no lado do cuidado, quando contoso-log-Alert for executado às 1:15 PM, a ação configurada será disparada novamente. Agora às 1:20, quando zero registros são vistos com o código de resultado de 500, os alertas do Azure não podem ter certeza de que a causa do código de resultado 500 visto às 1:10 e a 1:15 PM agora está resolvida e Azure Monitor alertas pode deduzir com segurança que os problemas de erro de 500 não ocorrerão pelo mesmo motivo s novamente. Portanto, o contoso-log-Alert não será alterado para resolvido no painel de alerta do Azure e/ou as notificações enviadas informando a resolução do alerta. Em vez disso, o usuário que entende a condição ou o motivo exato da lógica incorporada na consulta de análise pode [marcar o alerta como fechado](alerts-managing-alert-states.md) , conforme necessário.
+
+| Time    | Número de registros retornados pela consulta de pesquisa de log | Condição de log evalution | Resultado 
+| ------- | ----------| ----------| ------- 
+| 1:05 PM | 0 registros | 0 não é > 0; portanto, FALSE |  O alerta não é acionado. Nenhuma ação chamada.
+| 1:10 PM | 2 registros | 2 > 0 assim, verdadeiro  | O alerta é acionado e os grupos de ação chamados. Estado de alerta ativo.
+| 1:15 PM | 5 registros | 5 > 0 tão verdadeiro  | O alerta é acionado e os grupos de ação chamados. Estado de alerta ativo.
+| 1:20 PM | 0 registros | 0 não é > 0; portanto, FALSE |  O alerta não é acionado. Nenhuma ação chamada. Estado de alerta deixado ativo.
+
+Usando o caso anterior como exemplo:
+
+Às 1:15, os alertas do Azure não podem determinar se os problemas subjacentes foram vistos em 1:10 Persist e se os registros são novas falhas ou repetições de falhas mais antigas em 1:19:10. A consulta fornecida pelo usuário pode ou não levar em conta registros anteriores e o sistema não sabe. O sistema de alertas do Azure foi criado para erro no decuidado e dispara o alerta e as ações associadas novamente às 1:15. 
+
+Às 1:20 PM quando zero registros são vistos com o código de resultado 500, os alertas do Azure não podem ter certeza de que a causa do código de resultado 500 visto às 1:10 e a 1:15 PM agora está resolvida. Não sabe se os problemas de erro 500 ocorrerão pelos mesmos motivos novamente. Portanto, o *contoso-log-Alert* não é alterado para **resolvido** no painel de alerta do Azure e/ou as notificações não são enviadas informando que o alerta foi resolvido. Somente você, quem entende a condição ou o motivo exato da lógica incorporada na consulta de análise, pode [marcar o alerta como fechado](alerts-managing-alert-states.md) , conforme necessário.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Preços e cobrança dos Alertas de Log
 

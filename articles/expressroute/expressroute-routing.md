@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9bc0d1b31ebeaecce8b4be8699cf87811047b6f9
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 77c90cccbbfa5865878ae4dc47e5009697560ed3
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123254"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001319"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de roteamento da Rota Expressa
 Para se conectar aos serviços de nuvem da Microsoft usando a Rota Expressa, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos a seguir:
@@ -67,7 +67,7 @@ Você deve usar endereços IP públicos que possui para configurar as sessões B
 ### <a name="ip-addresses-used-for-azure-public-peering"></a>Endereços IP usados para o emparelhamento público do Azure
 
 > [!NOTE]
-> O emparelhamento público do Azure não está disponível para novos circuitos.
+> Não está disponível para novos circuitos do emparelhamento público do Azure.
 > 
 
 Você deve usar endereços IP públicos que possui para configurar as sessões BGP. A Microsoft deve ser capaz de verificar a propriedade dos endereços IP por meio de Registros da Internet de Roteamento e Registros de Roteamento da Internet. 
@@ -83,7 +83,7 @@ Você deve usar endereços IP públicos que possui para configurar as sessões B
 ### <a name="private-peering"></a>Emparelhamento privado
 Você pode optar por usar os endereços IPv4 públicos ou privados para o emparelhamento privado. Podemos fornecer um isolamento de ponta a ponta do tráfego para que a sobreposição dos endereços com outros clientes não seja possível no caso do emparelhamento privado. Esses endereços não são divulgados na Internet. 
 
-### <a name="microsoft-peering"></a>Emparelhamento Microsoft
+### <a name="microsoft-peering"></a>Emparelhamento da Microsoft
 O caminho de emparelhamento da Microsoft permite conectar os serviços em nuvem da Microsoft. A lista de serviços inclui serviços do Office 365, como o Exchange Online, o SharePoint Online, o Skype for Business e o Microsoft Teams. A Microsoft dá suporte à conectividade bidirecional no emparelhamento da Microsoft. O tráfego destinado aos serviços de nuvem da Microsoft deve usar os endereços IPv4 públicos válidos antes de entrar na rede da Microsoft.
 
 Verifique se o endereço IP e o número de AS estão registrados em um dos registros abaixo:
@@ -174,10 +174,10 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 | Europa Ocidental | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
 | Sul do Reino Unido | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
 | Oeste do Reino Unido | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
-| Centro da França | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
+| França Central | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | Sul da França | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
 | **Pacífico Asiático** | |
-| Ásia Oriental | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
+| Leste da Ásia | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
 | Sudeste da Ásia | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
 | **Japão** | |
 | Leste do Japão | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
@@ -189,15 +189,15 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 | Austrália Central | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 |
 | Austrália Central 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 |
 | **Índia** | |
-| Índia do Sul | 12076:51019 | 12076:52019 | 12076:53019 | 12076:54019 |
-| Índia Ocidental | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 |
-| Índia Central | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 |
+| Sul da Índia | 12076:51019 | 12076:52019 | 12076:53019 | 12076:54019 |
+| Oeste da Índia | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 |
+| Centro da Índia | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 |
 | **Coreia do Sul** | |
 | Sul da Coreia | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
 | Coreia Central | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
 | **África do Sul**| |
 | Norte da África do Sul | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
-| Oeste da África do Sul | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
+| Sul da África do Sul | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
 | **DOS EAU**| |
 | Norte dos EAU | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
 | EAU Central | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
@@ -234,12 +234,12 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 | **Região do Azure de Nuvens Nacionais**| **Valor de comunidade BGP** |
 | --- | --- |
 | **Governo dos EUA** |  |
-| US Gov – Arizona | 12076:51106 |
+| Governo dos EUA do Arizona | 12076:51106 |
 | US Gov Iowa | 12076:51109 |
-| US Gov - Virgínia | 12076:51105 |
-| US Gov – Texas | 12076:51108 |
-| US DoD — Região Central | 12076:51209 |
-| US DoD — Leste | 12076:51205 |
+| Gov. dos EUA – Virgínia | 12076:51105 |
+| Governo dos EUA do Texas | 12076:51108 |
+| DoD Central dos EUA | 12076:51209 |
+| DoD do Leste dos EUA | 12076:51205 |
 
 
 | **Serviço nas Nuvens Nacionais** | **Valor de comunidade BGP** |

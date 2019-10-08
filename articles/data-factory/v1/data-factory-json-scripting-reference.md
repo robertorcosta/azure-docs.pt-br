@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 69218cedcd5d775fe6e499086663aa124f6bfe25
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
+ms.lasthandoff: 10/07/2019
 ms.locfileid: "70736000"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referência de Script do JSON
@@ -290,7 +290,7 @@ A tabela a seguir descreve as propriedades no JSON acima:
 | typeProperties | Propriedades que correspondem ao tipo selecionado. Consulte a seção [ARMAZENAMENTOS DE DADOS](#data-stores) para saber quais são os tipos com suporte e suas propriedades. |Sim |N/A |
 | external | Sinalizador booliano para especificar se um conjunto de dados é explicitamente produzido por um pipeline de data factory ou não. |Não |false |
 | availability | Define a janela de processamento ou o modelo de fatiamento para a produção de conjunto de dados. Para obter detalhes sobre o modelo de divisão do conjunto de dados, consulte o artigo [Agendamento e Execução](data-factory-scheduling-and-execution.md) . |Sim |N/A |
-| política |Define os critérios ou a condição que as fatias de conjunto de dados devem atender. <br/><br/>Para obter detalhes, confira a seção Política do Conjunto de Dados. |Não |N/A |
+| policy |Define os critérios ou a condição que as fatias de conjunto de dados devem atender. <br/><br/>Para obter detalhes, confira a seção Política do Conjunto de Dados. |Não |N/A |
 
 Cada coluna na seção **structure** contém as seguintes propriedades:
 
@@ -337,7 +337,7 @@ A seção **política** na definição do conjunto de dados define os critérios
 | Nome da política | Descrição | Aplicado a | Necessário | Padrão |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Valida que os dados em um **blob do Azure** atendem aos requisitos de tamanho mínimo (em megabytes). |blob do Azure |Não |N/A |
-| minimumRows |Valida que os dados em um **Banco de Dados SQL do Azure** ou uma **tabela do Azure** contêm o número mínimo de linhas. |<ul><li>Banco de dados SQL do Azure</li><li>Tabela do Azure</li></ul> |Não |N/A |
+| minimumRows |Valida que os dados em um **Banco de Dados SQL do Azure** ou uma **tabela do Azure** contêm o número mínimo de linhas. |<ul><li>Banco de Dados SQL do Azure</li><li>tabela do Azure</li></ul> |Não |N/A |
 
 **Exemplo:**
 
@@ -371,10 +371,10 @@ A seção [Atividade](#activity) forneceu descrições para elementos JSON que s
 
 Clique no link para o armazenamento no qual você está interessado em ver os esquemas JSON para o serviço vinculado, conjunto de dados e a fonte/coletor para a atividade de cópia.
 
-| Categoria | Repositório de dados
+| Categoria | Armazenamento de dados
 |:--- |:--- |
 | **As tabelas** |[Armazenamento de Blobs do Azure](#azure-blob-storage) |
-| &nbsp; |Azure Data Lake Store |
+| &nbsp; |Repositório Azure Data Lake |
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Banco de Dados SQL do Azure](#azure-sql-database) |
 | &nbsp; |[SQL Data Warehouse do Azure](#azure-sql-data-warehouse) |
@@ -583,7 +583,7 @@ Se você estiver copiando dados para um Armazenamento de Blobs do Azure, defina 
 
 Para obter mais informações, consulte o artigo [Conector de Blob do Azure](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-## <a name="azure-data-lake-store"></a>Azure Data Lake Store
+## <a name="azure-data-lake-store"></a>Repositório Azure Data Lake
 
 ### <a name="linked-service"></a>Serviço vinculado
 Para definir um serviço vinculado do Azure Data Lake Store, defina o tipo do serviço vinculado para **AzureDataLakeStore**e especifique as propriedades a seguir na seção **typeProperties**:
@@ -929,7 +929,7 @@ Se você estiver copiando dados para um Azure Cosmos DB, defina o **sink type** 
 
 Para obter mais informações, consulte o artigo [Conector do Azure Cosmos DB](data-factory-azure-documentdb-connector.md#copy-activity-properties).
 
-## <a name="azure-sql-database"></a>Banco de dados SQL do Azure
+## <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
 
 ### <a name="linked-service"></a>Serviço vinculado
 Para definir um serviço vinculado do Banco de Dados SQL do Azure, defina o **type** do serviço vinculado para **AzureSqlDatabase** e especifique as propriedades a seguir na seção **typeProperties**:
@@ -1100,7 +1100,7 @@ Se você estiver copiando dados para um Banco de Dados SQL do Azure, defina o **
 
 Para obter mais informações, consulte o artigo [Conector de SQL do Azure](data-factory-azure-sql-connector.md#copy-activity-properties).
 
-## <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+## <a name="azure-sql-data-warehouse"></a>SQL Data Warehouse do Azure
 
 ### <a name="linked-service"></a>Serviço vinculado
 Para definir um serviço vinculado do SQL Data Warehouse do Azure, defina o **type** do serviço vinculado para **AzureSqlDW** e especifique as propriedades a seguir na seção **typeProperties**:
@@ -4958,7 +4958,7 @@ A tabela a seguir fornece as descrições das propriedades usadas na definição
 }
 ```
 
-## <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
+## <a name="azure-data-lake-analytics"></a>Análise Azure Data Lake
 Você cria um serviço vinculado da **Análise Azure Data Lake** para vincular um serviço de computação da Análise do Azure Data Lake a um Azure Data Factory antes de usar a atividade do [U-SQL da Análise Data Lake](data-factory-usql-activity.md) em um pipeline.
 
 ### <a name="linked-service"></a>Serviço vinculado
@@ -5234,7 +5234,7 @@ Você pode especificar as seguintes propriedades em uma definição de JSON de A
 | mapper | Nome do executável mapeador. No exemplo, cat.exe é o executável do mapeador.|
 | reducer | Nome do executável redutor. No exemplo, wc.exe é o executável do redutor. |
 | input | Arquivo de entrada (incluindo a localização) do mapeador. No exemplo: `"wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"`: adfsample é o contêiner de blob, example/data/Gutenberg é a pasta e davinci.txt é o blob. |
-| saída | Arquivo de saída (incluindo a localização) do redutor. A saída do trabalho de Transmissão do Hadoop é gravada no local especificado para essa propriedade. |
+| output | Arquivo de saída (incluindo a localização) do redutor. A saída do trabalho de Transmissão do Hadoop é gravada no local especificado para essa propriedade. |
 | filePaths | Caminhos para os executáveis do mapeador e do redutor. No exemplo: "adfsample/example/apps/wc.exe", adfsample é o contêiner de blob, example/apps é a pasta e wc.exe é o executável. |
 | fileLinkedService | Serviço vinculado do Armazenamento do Azure que representa o armazenamento do Azure que contém os arquivos especificados na seção filePaths. |
 | arguments | Uma lista de argumentos separados por vírgulas para o programa MapReduce. Em tempo de execução, você verá alguns argumentos extras (por exemplo: mapreduce.job.tags) da estrutura MapReduce. Para diferenciar seus argumentos com os argumentos MapReduce, considere usar opção e valor como argumentos, conforme mostrado no exemplo a seguir (- s, --input - output etc... são opções seguidas imediatamente por seus valores) |
@@ -5539,8 +5539,8 @@ Para saber mais, consulte [Atividade de U-SQL no Data Lake Analytics](data-facto
 Você pode especificar as seguintes propriedades em uma definição de JSON de Atividade de Procedimento de Armazenado. A propriedade de tipo para a atividade deve ser: **SqlServerStoredProcedure**. Você deve primeiro criar um dos serviços vinculados a seguir e especificar o nome do serviço vinculado como um valor para a propriedade **linkedServiceName**.
 
 - SQL Server
-- Banco de dados SQL do Azure
-- Azure SQL Data Warehouse
+- Banco de Dados SQL do Azure
+- SQL Data Warehouse do Azure
 
 As propriedades a seguir possuem suporte na seção **typeProperties** quando você define o tipo de atividade para SqlServerStoredProcedure:
 

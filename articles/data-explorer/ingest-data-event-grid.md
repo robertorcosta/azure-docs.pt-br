@@ -1,24 +1,24 @@
 ---
 title: Ingerir Blobs do Azure no Azure Data Explorer
-description: Neste artigo, você aprenderá como enviar dados de conta de armazenamento para o Data Explorer do Azure usando uma assinatura de grade de eventos.
+description: Neste artigo, você aprenderá a enviar dados da conta de armazenamento para o Azure Data Explorer usando uma assinatura da grade de eventos.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 5854a8974a4d2a9dbc1aa690dc2340fd806f4219
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 3c2407472cd15326c295f70c69606fc5ee663f72
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490128"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996787"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingerir blobs no Azure Data Explorer assinando notificações da Grade de Eventos
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e escalonável para dados de log e telemetria. Ele oferece ingestão contínua (carregamento de dados) de blobs gravados em contêineres de blob. 
 
-Neste artigo, você aprenderá a definir um [grade de eventos do Azure](/azure/event-grid/overview) assinatura e eventos de rota para o Data Explorer do Azure por meio de um hub de eventos. Para começar, você precisa ter uma conta de armazenamento com uma assinatura da grade de eventos que envie notificações para os Hubs de Eventos do Azure. Então, você criará uma conexão de dados da Grade de Eventos e verá o fluxo de dados pelo sistema.
+Neste artigo, você aprenderá a definir uma assinatura da [grade de eventos do Azure](/azure/event-grid/overview) e a rotear eventos para o Azure data Explorer por meio de um hub de eventos. Para começar, você precisa ter uma conta de armazenamento com uma assinatura da grade de eventos que envie notificações para os Hubs de Eventos do Azure. Então, você criará uma conexão de dados da Grade de Eventos e verá o fluxo de dados pelo sistema.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +38,7 @@ Neste artigo, você aprenderá a definir um [grade de eventos do Azure](/azure/e
 
     **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | NOME | *test-grid-connection* | O nome da grade de eventos que você deseja criar.|
+    | Nome | *test-grid-connection* | O nome da grade de eventos que você deseja criar.|
     | Esquema do evento | *Esquema da Grade de Eventos* | O esquema que deve ser usado para a grade de eventos. |
     | Tipo de tópico | *Conta de armazenamento* | O tipo de tópico da grade de eventos. |
     | Recurso do Tópico | *gridteststorage* | O nome da sua conta de armazenamento. |
@@ -77,7 +77,7 @@ Crie uma tabela no Azure Data Explorer em que os Hubs de Eventos enviarão dados
 
 ## <a name="create-an-event-grid-data-connection-in-azure-data-explorer"></a>Criar uma conexão de dados da Grade de Eventos no Azure Data Explorer
 
-Agora conecte-se à grade de eventos no Azure Data Explorer, de modo que os dados que fluem para o contêiner de blobs sejam transmitidos para a tabela de teste.
+Agora, conecte-se à grade de eventos do Data Explorer do Azure, para que os dados que fluem para o contêiner de blob sejam transmitidos para a tabela de teste. 
 
 1. Selecione **Notificações** na barra de ferramentas para verificar se a implantação do hub de eventos foi bem-sucedida.
 
@@ -112,7 +112,7 @@ Agora conecte-se à grade de eventos no Azure Data Explorer, de modo que os dado
      **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Tabela | *TestTable* | A tabela criada na **TestDatabase**. |
-    | Formato de dados | *JSON* | Os formatos com suporte são Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opções de compactação com suporte: ZIP e GZip |
+    | Formato de dados | *JSON* | Os formatos com suporte são Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opções de compactação com suporte: Zip e GZip |
     | Mapeamento de coluna | *TestMapping* | O mapeamento que você criou em **TestDatabase**, que mapeia os dados de entrada JSON para tipos de dados e nomes de coluna da **TestTable**.|
     | | |
     
@@ -196,4 +196,4 @@ Se você não planeja usar sua grade de eventos novamente, limpe **test-hub-rg**
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Consultar dados no Data Explorer do Azure](web-query-data.md)
+* [Consultar dados no Azure Data Explorer](web-query-data.md)

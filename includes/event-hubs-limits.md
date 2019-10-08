@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: a20481ea42a0772ab42322e912cfce67877734d6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8c836582798f40cf6e9ffff264c1612cb4037f74
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71830030"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996895"
 ---
 As tabelas a seguir fornecem cotas e limites específicos para os [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Para saber mais sobre os preços dos Hubs de Eventos, veja os [preços dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -39,7 +39,7 @@ Os limites a seguir são comuns em camadas básica, Standard e dedicada.
 | Número de conexões AMQP por namespace |Namespace |As solicitações subsequentes para conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |100 |5\.000|
 | Período de retenção máximo dos dados do evento |Entidade | &nbsp; |1 dia |Um a sete dias |
 |Apache Kafka namespace habilitado|Namespace |Namespace de hubs de eventos transmite aplicativos usando o protocolo Kafka |Não | Sim |
-|Capturar |Entidade | Quando habilitado, micro lotes no mesmo fluxo |Não |Sim |
+|Captura |Entidade | Quando habilitado, micro lotes no mesmo fluxo |Não |Sim |
 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Hubs de Eventos Dedicados-cotas e limites
@@ -50,10 +50,10 @@ A oferta de Hubs de Eventos Dedicados é cobrada a um preço mensal fixo, com um
 | Largura de banda |  20 CUs |
 | Namespaces | 50 por CU |
 | Hubs de Eventos |  1000 por namespace |
-| Ingressar em eventos | Incluídas |
+| Eventos de entrada | Incluídas |
 | Tamanho da mensagem | 1 MB |
 | Partições | 2000 por CU |
 | Grupos de consumidores | Nenhum limite por CU, 1000 por Hub de eventos |
-| Conexões agenciadas | 100.000 incluídos |
-| Retenção de Mensagem | Até 7 dias, 10 TB incluídos por CU |
-| Capturar | Incluídas |
+| Conexões orientadas | 100.000 incluídos |
+| Retenção de mensagem | 90 dias, 10 TB incluídos por CU |
+| Captura | Incluídas |
