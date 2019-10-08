@@ -10,19 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: c9b63685ae73fb4e056c72a640d6c4049e98b8b8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2f728231c01056ecb8709f84f13e834ef3618dc8
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559503"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803306"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em Java no Android usando SDK de Fala
+
+Guias de início rápido também estão disponíveis para a sintetização de voz e o assistente virtual que tem como prioridade o uso de voz.
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, você aprenderá a desenvolver um aplicativo Java para Android usando Speech SDK dos Serviços Cognitivos para transcrever conversão de fala em texto.
-O aplicativo baseia-se no Pacote Maven do SDK de Fala, versão 1.6.0, bem como no Android Studio 3.3.
+O aplicativo baseia-se no Pacote Maven do SDK de Fala, bem como no Android Studio 3.3.
 O SDK de Fala é atualmente compatível com dispositivos Android que têm processadores ARM de 32/64 bits e Intel x86/x64 compatíveis.
 
 > [!NOTE]

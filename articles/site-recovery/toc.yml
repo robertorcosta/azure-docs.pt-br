@@ -371,7 +371,7 @@
               href: delete-vault.md
     - name: Recuperação de desastre para aplicativos
       items:
-        - name: Configurar a recuperação de desastre para o Azure dos aplicativos locais
+        - name: Sobre a recuperação de desastre para aplicativos locais
           href: site-recovery-workload.md
         - name: Active Directory e DNS
           href: site-recovery-active-directory.md
