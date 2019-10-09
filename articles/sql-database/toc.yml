@@ -32,8 +32,10 @@
       items:
         - name: Regras de firewall de IP no nível de servidor
           href: sql-database-server-level-firewall-rule.md
-        - name: Configurar um ponto de extremidade público na Instância Gerenciada
+        - name: Configurar ponto de extremidade público na instância gerenciada
           href: sql-database-managed-instance-public-endpoint-configure.md
+        - name: Configurar tipos de conexão na instância gerenciada
+          href: sql-database-managed-instance-connection-type.md
         - name: Conexão da VM do cliente com uma instância gerenciada
           href: sql-database-managed-instance-configure-vm.md
         - name: Conexão ponto a site com uma instância gerenciada

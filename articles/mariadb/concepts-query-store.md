@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: ee0a3c41edd144c1220cdc9b5a5463b43bef5551
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
-ms.translationtype: MT
+ms.openlocfilehash: 69e001530de238f5d38c46b0a238a087f4487d9c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973548"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023673"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitorar o desempenho do banco de dados do Azure para MariaDB com o Repositório de Consultas
 
-**Aplica-se a:** banco de dados  Azure para MariaDB 10,2
+**Aplica-se a:** Banco de dados do Azure para MariaDB 10,2
 
 > [!IMPORTANT]
 > Repositório de Consultas está em versão prévia.
@@ -37,14 +37,14 @@ O Repositório de Consultas é um recurso que requer aceitação, portanto, ele 
 ### <a name="enable-query-store-using-the-azure-portal"></a>Habilitar o Repositório de Consultas usando o portal do Azure
 
 1. Entre no portal do Azure e selecione o banco de dados do Azure para o servidor MariaDB.
-1. Selecione **parâmetros de servidor** In as **configurações** section do menu.
+1. Selecione **Parâmetros de Servidor** na seção **Configurações** do menu.
 1. Procure o parâmetro query_store_capture_mode.
-1. Defina o valor como todos e **salve**.
+1. Defina o valor como todos e **salve**.
 
 Para habilitar as estatísticas de espera no seu Repositório de Consultas:
 
 1. Procure o parâmetro query_store_wait_sampling_capture_mode.
-1. Defina o valor como todos e **salve**.
+1. Defina o valor como todos e **salve**.
 
 Aguarde até 20 minutos para que o primeiro lote de dados persista no banco de dado MySQL.
 
@@ -78,8 +78,8 @@ Aqui estão alguns exemplos de como você pode obter mais insights sobre sua car
 | **Observação** | **Ação** |
 |---|---|
 |Esperas de bloqueio alto | Verifique os textos de consulta para as consultas afetadas e identifique as entidades de destino. Procure no Repositório de Consultas outras consultas que modificam a mesma entidade, que é executada com frequência e/ou têm alta duração. Depois de identificar essas consultas, considere alterar a lógica do aplicativo para melhorar a simultaneidade ou use um nível de isolamento menos restritivo. |
-|Esperas de E/S de buffer alto | Localize as consultas com um grande número de leituras físicas no Repositório de Consultas. Se eles corresponderem às consultas com altas esperas de e/s, considere a introdução de um índice na entidade subjacente, para fazer buscas em vez de verificações. Isso minimizaria a sobrecarga de E/S das consultas. Verifique as **recomendações de desempenho** Para seu servidor no portal para ver se há recomendações de índice para esse servidor que otimizaria as consultas. |
-|Esperas de memória alta | Localize as consultas que consomem mais memória no Repositório de Consultas. Essas consultas estão provavelmente atrasando o andamento das consultas afetadas. Verifique as **recomendações de desempenho** Para seu servidor no portal para ver se há recomendações de índice que otimizarão essas consultas.|
+|Esperas de E/S de buffer alto | Localize as consultas com um grande número de leituras físicas no Repositório de Consultas. Se eles corresponderem às consultas com altas esperas de e/s, considere a introdução de um índice na entidade subjacente, para fazer buscas em vez de verificações. Isso minimizaria a sobrecarga de E/S das consultas. Verifique as **Recomendações de desempenho** para seu servidor no portal para ver se há recomendações de índice para esse servidor que otimizariam as consultas. |
+|Esperas de memória alta | Localize as consultas que consomem mais memória no Repositório de Consultas. Essas consultas estão provavelmente atrasando o andamento das consultas afetadas. Verifique as **Recomendações de desempenho** para seu servidor no portal para ver se há recomendações de índice que otimizariam essas consultas.|
 
 ## <a name="configuration-options"></a>Opções de configuração
 
@@ -108,7 +108,7 @@ Use o [portal do Azure](howto-server-parameters.md) para obter ou definir um va
 
 ## <a name="views-and-functions"></a>Exibições e funções
 
-Exiba e gerencie o Repositório de Consultas usando as seguintes exibições e funções. Qualquer pessoa na [função pública selecionar privilégio](howto-create-users.md#create-additional-admin-users) pode usar essas exibições para ver os dados em repositório de consultas. Essas exibições estão disponíveis somente no **mysql** database.
+Exiba e gerencie o Repositório de Consultas usando as seguintes exibições e funções. Qualquer pessoa na [função pública selecionar privilégio](howto-create-users.md#create-additional-admin-users) pode usar essas exibições para ver os dados em repositório de consultas. Essas exibições estão disponíveis somente no banco de dados **MySQL** .
 
 Consultas são normalizadas examinando sua estrutura após a remoção de literais e constantes. Se duas consultas forem idênticas, exceto por valores literais, elas terão o mesmo hash.
 

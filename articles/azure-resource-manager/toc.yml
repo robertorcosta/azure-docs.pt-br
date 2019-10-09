@@ -134,8 +134,7 @@
           href: resource-group-linked-templates.md
         - name: Criar múltiplas instâncias
           href: resource-group-create-multiple.md
-        - name: Criar grupos de recursos e recursos na assinatura
-          displayName: subscription level deployment
+        - name: Recursos do nível de assinatura
           href: deploy-to-subscription.md
     - name: Implantar modelos
       items:
