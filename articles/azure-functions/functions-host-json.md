@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 5a4bc05e0a0b0b6a2c1b859caea2aadc12b8e0e0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3ae75dc988ad70871efa45eb8c61db15804922ee
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096393"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176577"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Referência host.json para o Azure Functions 2.x  
 
@@ -113,10 +113,13 @@ Controla o [recurso de amostragem no Application Insights](./functions-monitorin
 > [!NOTE]
 > A amostragem de log pode fazer com que algumas execuções não apareçam na folha do Monitor do Application Insights.
 
-|Propriedade  |Padrão | Descrição |
+|Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
 |isEnabled|true|Habilita ou desabilita a amostragem.| 
 |maxTelemetryItemsPerSecond|5|O limite em que a amostragem começa.| 
+|EnableLiveMetrics |true|Habilita a coleta de métricas em tempo real.|
+|EnableDependencyTracking|true|Habilita o rastreamento de dependência.|
+|EnablePerformanceCountersCollection|true|Habilita a coleta de contadores de desempenho kudu.|
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -149,7 +152,7 @@ Uma lista de funções que o host de trabalho executa. Uma matriz vazia signific
 Indica a duração do tempo limite para todas as funções. Ele segue o formato de cadeia de caracteres TimeSpan. Em um plano de Consumo sem servidor, o intervalo válido é de 1 segundo a 10 minutos e o valor padrão é 5 minutos.  
 Em um plano dedicado (serviço de aplicativo), não há nenhum limite geral e o padrão depende da versão de tempo de execução: 
 + Versão 1. x: o padrão é *NULL*, o que indica que não há tempo limite.   
-+ Versão 2. x: o valor padrão é 30 minutos. Um valor de `-1` indica execução não vinculada.
++ Versão 2. x: o valor padrão é 30 minutos. Um valor de `-1` indica execução não associada.
 
 ```json
 {
@@ -173,7 +176,7 @@ Definições de configuração para [monitor de integridade de Host](https://git
 }
 ```
 
-|Propriedade  |Padrão | Descrição |
+|Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
 |enabled|true|Especifica se o recurso está habilitado. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade em segundo plano. | 
@@ -207,12 +210,12 @@ Controla os comportamentos de registro em log do aplicativo de funções, inclui
 }
 ```
 
-|Propriedade  |Padrão | Descrição |
+|Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qual nível de log de arquivos está habilitado.  As opções são: `never`, `always` e `debugOnly`. |
-|logLevel|N/D|Objeto que define a filtragem da categoria de log para funções no aplicativo. A versão 2.x segue o layout do ASP.NET Core para filtragem de categoria de log. Isso permite filtrar o registro para funções específicas. Para obter mais informações, consulte [Filtragem de logs](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
-|console|N/D| A configuração de log do [console](#console). |
-|applicationInsights|N/D| A configuração [applicationInsights](#applicationinsights). |
+|logLevel|n/d|Objeto que define a filtragem da categoria de log para funções no aplicativo. A versão 2.x segue o layout do ASP.NET Core para filtragem de categoria de log. Isso permite filtrar o registro para funções específicas. Para obter mais informações, consulte [Filtragem de logs](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
+|console|n/d| A configuração de log do [console](#console). |
+|applicationInsights|n/d| A configuração [applicationInsights](#applicationinsights). |
 
 ## <a name="console"></a>console
 
@@ -230,7 +233,7 @@ Essa configuração é a filha de [Registro em log](#logging). Ela controla o lo
 }
 ```
 
-|Propriedade  |Padrão | Descrição |
+|Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
 |isEnabled|false|Habilita ou desabilita o log de console.| 
 
@@ -262,15 +265,15 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 }
 ```
 
-|Propriedade  |Padrão | Descrição |
+|Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|O período em que ocorrem os bloqueios de nível de função. Os bloqueios têm renovação automática.| 
 |listenerLockPeriod|00:01:00|O período em que ocorrem os bloqueios de ouvinte.| 
 |listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo usado para a recuperação do bloqueio de ouvinte caso não tenha sido possível adquirir um bloqueio de ouvinte durante a inicialização.| 
 |lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo em que o tempo de execução tenta adquirir um bloqueio.| 
-|lockAcquisitionPollingInterval|N/D|O intervalo entre as tentativas de aquisição de bloqueio.| 
+|lockAcquisitionPollingInterval|n/d|O intervalo entre as tentativas de aquisição de bloqueio.| 
 
-## <a name="version"></a>versão
+## <a name="version"></a>version
 
 A cadeia de caracteres de versão `"version": "2.0"` é necessária para um aplicativo de funções que segmente o tempo de execução v2.
 

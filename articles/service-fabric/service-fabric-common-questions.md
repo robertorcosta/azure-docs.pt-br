@@ -13,13 +13,13 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
-ms.author: chackdan
-ms.openlocfilehash: 0bd8a7d403ad1fe0f7abb15356cc9c90ed6b3f02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: pepogors
+ms.openlocfilehash: 23479692e815b5dda010ec2035c206df15715347
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153827"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167422"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas frequentes sobre o Service Fabric
 
@@ -107,7 +107,7 @@ Embora estejamos trabalhando em uma experiência aprimorada, no momento você é
 Sim.  Para obter mais informações, consulte [Criar um cluster com discos de dados anexados](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [Criptografar discos (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), e [Criptografar discos (CLI) ](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>Posso usar VMs de baixa prioridade em um tipo de nó de cluster (conjunto de escala de máquina virtual)?
-Não. Não há suporte para VMs de baixa prioridade. 
+Nº Não há suporte para VMs de baixa prioridade. 
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Quais são os diretórios e os processos que preciso excluir ao executar um programa antivírus no meu cluster?
 
@@ -135,8 +135,8 @@ Não. Não há suporte para VMs de baixa prioridade.
 ### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Como meu aplicativo pode autenticar obter segredos no cofre de chaves?
 A seguir, os meios para o seu aplicativo obter credenciais para autenticação no KeyVault:
 
-a. Durante o trabalho de criação / empacotamento de aplicativos, você pode inserir um certificado no pacote de dados do aplicativo SF e usá-lo para autenticar no KeyVault.
-B. Para hosts MSI habilitada do conjunto de dimensionamento de máquinas virtuais, você pode desenvolver um simples PowerShell SetupEntryPoint para seu aplicativo SF conseguir [um token de acesso do ponto de extremidade MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e, em seguida, [recuperar os segredos do KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+A. Durante o trabalho de criação / empacotamento de aplicativos, você pode inserir um certificado no pacote de dados do aplicativo SF e usá-lo para autenticar no KeyVault.
+B. Para hosts habilitados para MSI do conjunto de dimensionamento de máquinas virtuais, você pode desenvolver um SetupEntryPoint simples do PowerShell para seu aplicativo de it para obter [um token de acesso do ponto de extremidade do MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e, em seguida, [recuperar seus segredos do keyvault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Design do aplicativo
 
@@ -192,4 +192,4 @@ Siga o [Blog do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefab
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre [principais conceitos do Service Fabric](service-fabric-technical-overview.md) e [práticas recomendadas](service-fabric-best-practices-overview.md) gelo concepts](service-fabric-technical-overview.md) de malha e [práticas recomendadas](service-fabric-best-practices-overview.md)
+Saiba mais sobre os [conceitos principais de Service Fabric](service-fabric-technical-overview.md) e [as práticas recomendadas](service-fabric-best-practices-overview.md) conceitos de malha Ice] (Service-Fabric-Technical-Overview.MD) e [as práticas recomendadas](service-fabric-best-practices-overview.md)

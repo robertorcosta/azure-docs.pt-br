@@ -23,9 +23,9 @@
       href: storage-sync-files-extend-servers.md
 - name: Conceitos
   items:
-    - name: Sobre os Arquivos do Azure
+    - name: Planejando uma implantação de Arquivos do Azure
       href: storage-files-planning.md
-    - name: Sobre a Sincronização de Arquivos do Azure
+    - name: Planejando uma implantação da Sincronização de Arquivos do Azure
       href: storage-sync-files-planning.md
     - name: Sobre a camada de nuvem
       href: storage-sync-cloud-tiering.md

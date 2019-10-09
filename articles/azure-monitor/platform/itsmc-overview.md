@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 31d9307d23d308192b362d9570911c86a7dd8372
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: eb9d803bcc9667c26acecbfd098a3022b7421478
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051840"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177660"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -124,7 +124,7 @@ Use este procedimento:
 1. No portal do Azure, clique em **Monitorar**.
 2. No painel esquerdo, clique em **Grupos de ações**. A janela **Adicionar grupo de ações** é exibida.
 
-    ![Grupos de Ações](media/itsmc-overview/action-groups.png)
+    ![Grupos de Ação](media/itsmc-overview/action-groups.png)
 
 3. Forneça um **nome** e um **ShortName** para o grupo de ações. Selecione o **Grupo de Recursos** e a **Assinatura** em que deseja criar seu grupo de ações.
 
@@ -194,11 +194,11 @@ ServiceDeskWorkItemType_s="Incident"
 - Resolvido por
 - Fechado por
 - Origem
-- Atribuída a
+- Atribuído a
 - Categoria
 - Título
-- Descrição
-- Data da Criação
+- DESCRIÇÃO
+- Data de criação
 - Data de fechamento
 - Data de resolução
 - Data da última modificação
@@ -217,7 +217,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Origem
 - Atribuído a
 - Título
-- Tipo
+- type
 - Categoria
 - Estado
 - Escalonamento
@@ -226,16 +226,16 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Priority
 - Risco
 - Impacto
-- Atribuída a
+- Atribuído a
 - Data de criação
 - Data de fechamento
-- Data da Última Modificação
+- Data da última modificação
 - Data de solicitação
 - Data de início prevista
 - Data de término prevista
 - Data de início do trabalho
 - Data de término do trabalho
-- Descrição
+- DESCRIÇÃO
 - Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída de um incidente do ServiceNow
@@ -256,7 +256,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Title_s|  Descrição breve |
 | Description_s|  Observações |
 | CreatedDate_t|  Aberto |
-| ClosedDate_t| fechada|
+| ClosedDate_t| closed|
 | ResolvedDate_t|Resolvido|
 | Computer  | Item de configuração |
 
@@ -269,7 +269,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | Fechado por |
 | AssignedTo_s | Atribuído a  |
 | Title_s|  Descrição breve |
-| Type_s|  Tipo |
+| Type_s|  type |
 | Category_s|  Categoria |
 | CRState_s|  Estado|
 | Urgency_s|  Urgência |
@@ -282,7 +282,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data de término planejada |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de término real|
-| Description_s | Descrição |
+| Description_s | DESCRIÇÃO |
 | Computer  | Item de Configuração |
 
 
@@ -305,7 +305,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 3.  Se você não conseguir criar o namespace de retransmissão do barramento de serviço, certifique-se de que o provedor de recursos necessário está registrado na assinatura. Se ele não estiver registrado, crie manualmente o namespace de retransmissão do barramento de serviço usando o Portal do Azure. Você também pode criá-lo ao [criar a conexão híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) do Portal do Azure.
 
 
-## <a name="contact-us"></a>Contate-nos
+## <a name="contact-us"></a>Fale conosco
 
 Em caso de dúvidas ou comentários sobre o Conector de Gerenciamento de Serviço de TI, entre em contato conosco pelo email [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 

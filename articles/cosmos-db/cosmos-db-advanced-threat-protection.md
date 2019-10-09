@@ -1,18 +1,18 @@
 ---
 title: Proteção avançada contra ameaças para Azure Cosmos DB
 description: Saiba como Azure Cosmos DB fornece criptografia de dados em repouso e como ele é implementado.
-author: monhaber
+author: rkarlin
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: v-mohabe
+ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 035c7e9ed5ab33c89a2a55b1133294db434bfe81
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 2b12d639e734502113b6afdd7250fca6a520c687
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70123888"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176018"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Proteção avançada contra ameaças para Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Para uma experiência de investigação completa dos alertas de segurança, reco
 
 3. Na folha configuração de **segurança avançada** :
 
-    * Clique na opção **proteção avançada contra ameaças** para defini-la como ativada.
+    * Clique na opção **proteção avançada contra ameaças** para defini-la como **ativada**.
     * Clique em **Salvar** para salvar a política de Proteção avançada contra ameaças nova ou atualizada.   
 
 ### <a name="set-up-atp-using-rest-api"></a>Configurar ATP usando a API REST
@@ -88,11 +88,11 @@ Quando ocorre Azure Cosmos DB anomalias de atividade, um alerta de segurança é
 
  Na central de segurança do Azure, você pode examinar e gerenciar seus [alertas de segurança](../security-center/security-center-alerts-overview.md)atuais.  Clique em um alerta específico na [central de segurança](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/0) para exibir as possíveis causas e as ações recomendadas para investigar e atenuar a ameaça em potencial. A imagem a seguir mostra um exemplo de detalhes de alerta fornecidos na central de segurança.
 
- ![Detalhes de ameaças](./media/cosmos-db-advanced-threat-protection/cosmos-db-alert-details.png)
+ ![Detalhes da ameaça](./media/cosmos-db-advanced-threat-protection/cosmos-db-alert-details.png)
 
 Uma notificação por email também é enviada com os detalhes do alerta e as ações recomendadas. A imagem a seguir mostra um exemplo de um email de alerta.
 
- ![Detalhes do alerta](./media/cosmos-db-advanced-threat-protection/cosmos-db-alert.png)
+ ![Detalhes do Alerta](./media/cosmos-db-advanced-threat-protection/cosmos-db-alert.png)
 
 ## <a name="cosmos-db-atp-alerts"></a>Cosmos DB alertas ATP
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 15724adfc6eb875f3d2d5b6d3ecbbb54135a7265
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 90ccc89f80da7c2abce324c077f0fb1a436b8d44
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671420"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170978"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usar ferramentas de automação de infraestrutura com máquinas virtuais no Azure
 Para criar VMs (máquinas virtuais) em larga escala de maneira consistente, é ideal ter algum grau de automação. Há muitas ferramentas e soluções que permitem automatizar a implantação de toda a infraestrutura do Azure e o ciclo de vida de gerenciamento. Este artigo apresenta algumas das ferramentas de automação de infraestrutura que você pode usar no Azure. Essas ferramentas normalmente se encaixam em uma das seguintes abordagens:
@@ -64,15 +64,15 @@ Trabalhamos ativamente com nossos parceiros endossados de distribuição de Linu
 
 
 ## <a name="powershell-dsc"></a>DSC do PowerShell
-A [DSC (Configuração de Estado Desejado) do PowerShell](https://msdn.microsoft.com/powershell/dsc/overview) é uma plataforma de gerenciamento para definir a configuração dos computadores de destino. A DSC também pode ser usada no Linux por meio do [servidor OMI (infraestrutura de gerenciamento aberta)](https://collaboration.opengroup.org/omi/).
+A [DSC (Configuração de Estado Desejado) do PowerShell](/powershell/scripting/dsc/overview/overview) é uma plataforma de gerenciamento para definir a configuração dos computadores de destino. A DSC também pode ser usada no Linux por meio do [servidor OMI (infraestrutura de gerenciamento aberta)](https://collaboration.opengroup.org/omi/).
 
 As configurações de DSC definem o que instalar em um computador e como configurar o host. Um mecanismo do LCM (Gerenciador de Configurações Local) é executado em cada nó de destino que processa as ações solicitadas com base em configurações enviadas por push. Um servidor de pull é um serviço Web que é executado em um host central para armazenar as configurações de DSC e os recursos associados. O servidor de pull se comunica com o mecanismo de LCM em cada host de destino para fornecer as configurações necessárias e os relatórios de conformidade.
 
 Saiba como:
 
 - [Criar uma configuração básica de DSC](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart).
-- [Configurar um servidor de pull de DSC](https://msdn.microsoft.com/powershell/dsc/pullserver).
-- [Usar a DSC para Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted).
+- [Configurar um servidor de pull de DSC](/powershell/scripting/dsc/pull-server/pullserver).
+- [Usar a DSC para Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
 
 
 ## <a name="azure-custom-script-extension"></a>Extensão de Script Personalizado do Azure

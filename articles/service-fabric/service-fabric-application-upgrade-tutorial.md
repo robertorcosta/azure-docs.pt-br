@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 8fe0bf9c8827b7248195f89377176fd834845e32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 5e693a219c4a430f742ebd27878518ebb99ce5da
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615224"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167364"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Tutorial de atualização do aplicativo Service Fabric usando o Visual Studio
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ A seleção de **Publicar** exibe um pop-up, e você pode definir o **Perfil de 
 
 Agora, clique em **Publicar** na caixa de diálogo. Você pode usar o [Gerenciador do Service Fabric para exibir o cluster e o aplicativo](service-fabric-visualizing-your-cluster.md). O aplicativo Visual Objects tem um serviço Web que pode ser acessado digitando [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) na barra de endereços do navegador.  Você deve ver 10 objetos visuais flutuantes na tela.
 
-**OBSERVAÇÃO:** Se implantando `Cloud.xml` perfil (Azure Service Fabric), o aplicativo deve estar disponível em **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/** . Verifique se você tem `8081/TCP` configurado no Balanceador de Carga (localize o Balanceador de Carga no mesmo grupo de recursos que a instância do Service Fabric).
+**OBSERVAÇÃO:** Se estiver implantando no perfil `Cloud.xml` (Service Fabric do Azure), o aplicativo deverá estar disponível em **http://{Perfabricname}. { Região}. cloudapp. Azure. com: 8081/visualobjects/** . Verifique se você tem `8081/TCP` configurado no Balanceador de Carga (localize o Balanceador de Carga no mesmo grupo de recursos que a instância do Service Fabric).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Etapa 2: Atualizar o exemplo de Objetos Visuais
 Você pode notar que a com a versão implantada na Etapa 1, os objetos visuais não giram. Vamos atualizar esse aplicativo para um onde os objetos visuais possam girar.

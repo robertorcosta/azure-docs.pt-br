@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 02c27faa4ac45165747d5eb450e75f666ba7d013
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 62d2a2533bf7b5b0e9e98d09c34583e55403753f
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703466"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174755"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -26,7 +26,7 @@ Este artigo descreve os limites e os detalhes de configuração para criar e exe
 
 Estes são os limites de definição de um único aplicativo lógico:
 
-| Nome | Limite | Observações |
+| NOME | Limite | Observações |
 | ---- | ----- | ----- |
 | Ações por fluxo de trabalho | 500 | Para estender esse limite, adicione fluxos de trabalho aninhados conforme necessário. |
 | Profundidade de aninhamento permitido para ações | 8 | Para estender esse limite, adicione fluxos de trabalho aninhados conforme necessário. |
@@ -48,7 +48,7 @@ Estes são os limites de definição de um único aplicativo lógico:
 
 Estes são os limites de execução de um único aplicativo lógico:
 
-| Nome | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
+| NOME | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
 | Duração da execução | 90 dias | 365 dias | Para alterar o limite padrão, consulte [alterar duração da execução](#change-duration). |
 | Retenção de armazenamento | 90 dias a partir da hora de início de execução | 365 dias | Para alterar o limite padrão, consulte [alterar retenção de armazenamento](#change-retention). |
@@ -75,7 +75,7 @@ Para alterar o limite padrão de duração da execução e retenção de armazen
 
 Estes são os limites de execução de um único aplicativo lógico:
 
-| Nome | Limite | Observações |
+| NOME | Limite | Observações |
 | ---- | ----- | ----- |
 | Simultaneidade do gatilho | * Ilimitada quando o controle de simultaneidade está desativado <p><p>* 25 é o limite padrão, quando o controle de simultaneidade está ativado, o que não pode ser desfeito depois de ativar o controle. Você pode alterar o padrão para um valor entre 1 e 50, inclusive. | Esse limite descreve o número mais alto de instâncias de aplicativo lógico que podem ser executados ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite padrão para um valor entre 1 e 50, inclusive, consulte [Alterar o limite de simultaneidade do gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Disparar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Execuções de espera máximo | Quando o controle de simultaneidade é ativado, o número mínimo de execuções de espera é 10 mais o número de execuções simultâneas (simultaneidade do gatilho). Você pode alterar o número máximo até 100, inclusive. | Esse limite descreve o maior número de instâncias do aplicativo lógico que pode aguardar para ser executado quando o aplicativo lógico já está em execução o número máximo de instâncias simultâneo. <p><p>Para alterar o limite padrão, consulte [execuções de espera da alteração limitam](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
@@ -93,7 +93,7 @@ Estes são os limites de definição de um único aplicativo lógico:
 
 ### <a name="multi-tenant-logic-apps-service"></a>Serviço de aplicativos lógicos multilocatários
 
-| Nome | Limite | Observações |
+| NOME | Limite | Observações |
 | ---- | ----- | ----- |
 | Ação: Execuções a cada 5 minutos | 100.000 é o limite padrão, mas 300.000 é o limite máximo. | Para alterar o limite padrão, consulte [Execute seu aplicativo lógico no modo "alto rendimento"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), que está na visualização. Ou, você pode distribuir a carga de trabalho entre mais de um aplicativo lógico conforme necessário. |
 | Ação: Chamadas de saída simultâneas | ~2.500 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. |
@@ -107,7 +107,7 @@ Estes são os limites de definição de um único aplicativo lógico:
 
 Estes são os limites de taxa de transferência para o SKU Premium:
 
-| Nome | Limite | Observações |
+| NOME | Limite | Observações |
 |------|-------|-------|
 | Limite de execução de unidade base | Sistema-limitado quando a capacidade da infraestrutura atinge 80% | Fornece ~ 4.000 execuções de ação por minuto, que é ~ 160 milhões execuções de ação por mês | |
 | Limite de execução de unidade de escala | Sistema-limitado quando a capacidade da infraestrutura atinge 80% | Cada unidade de escala pode fornecer aproximadamente 2.000 execuções de ação adicionais por minuto, que é ~ 80 milhões mais execuções de ação por mês | |
@@ -131,11 +131,11 @@ O aplicativo lógico do Azure dá suporte a operações de gravação, incluindo
 
 Estes são os limites para uma única solicitação HTTP ou chamada de conector síncrona:
 
-#### <a name="timeout"></a>Tempo Limite
+#### <a name="timeout"></a>Tempo limite
 
 Algumas operações de conector fazem chamadas assíncronas ou escutam solicitações de webhook, portanto o tempo limite para essas operações pode ter mais do que esses limites. Para obter mais informações, consulte os detalhes técnicos para o conector específico e também [Gatilhos e ações de fluxo de trabalho](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Nome | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
+| NOME | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
 | Solicitação de saída | 120 segundos | 240 segundos | Para operações com execução mais longa, use um [padrão de sondagem assíncrona](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou um [até que o loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
 | Resposta síncrona | 120 segundos | 240 segundos | Para a solicitação original obter a resposta, todas as etapas na resposta devem ser finalizadas dentro do limite, a menos que você chame outro aplicativo lógico como um fluxo de trabalho aninhado. Para obter mais informações, consulte [Chamar, acionar ou aninhar aplicativos lógicos](../logic-apps/logic-apps-http-endpoint.md). |
@@ -143,7 +143,7 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam solicita�
 
 #### <a name="message-size"></a>Tamanho da mensagem
 
-| Nome | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
+| NOME | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
 | Tamanho da mensagem | 100 MB | 200 MB | Para contornar esse limite, consulte [Tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. |
 | Tamanho da mensagem com agrupamento | 1 GB | 5 GB | Esse limite se aplica a ações com compatibilidade nativa com o agrupamento ou que permitem que você habilite o agrupamento na configuração de tempo de execução. <p>Para o ambiente do serviço de integração, o mecanismo dos aplicativos lógicos dá suporte a esse limite, mas os conectores têm seus próprios limites de agrupamento até o limite do mecanismo, por exemplo, consulte [conector do armazenamento de BLOBs do Azure](/connectors/azureblob/). Para obter mais informações sobre agrupamento, consulte [tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). |
@@ -152,7 +152,7 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam solicita�
 
 #### <a name="retry-policy"></a>Política de repetição
 
-| Nome | Limite | Observações |
+| NOME | Limite | Observações |
 | ---- | ----- | ----- |
 | Tentativas de repetição | 90 | O padrão é 4. Para alterar o padrão, use o [Parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Atraso máximo de nova tentativa | 1 dia | Para alterar o padrão, use o [Parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). |
@@ -165,7 +165,7 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam solicita�
 
 Aqui estão os limites para conectores personalizados que você pode criar de APIs da Web.
 
-| Nome | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
+| NOME | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
 | Número de conectores personalizados | 1\.000 por assinatura do Azure | 1\.000 por assinatura do Azure ||
 | Número de solicitações por minuto para um conector personalizado | 500 solicitações por minuto por conexão | 2\.000 solicitações por minuto por *conector personalizado* ||
@@ -175,7 +175,7 @@ Aqui estão os limites para conectores personalizados que você pode criar de AP
 
 ## <a name="managed-identities"></a>Identidades gerenciadas
 
-| Nome | Limite |
+| NOME | Limite |
 | ---- | ----- |
 | Número de aplicativos lógicos com identidades gerenciadas atribuídas pelo sistema por assinatura do Azure | 100 |
 |||
@@ -209,7 +209,7 @@ Aqui estão os limites do número de artefatos para cada camada de conta de inte
 > [!NOTE]
 > Use a camada gratuita somente para cenários exploratórios, não cenários de produção. Esta camada restringe o uso e a taxa de transferência e não tem nenhum SLA (Contrato de Nível de Serviço).
 
-| Artefato | Gratuito | Basic | Standard |
+| Artefato | Grátis | Basic | Standard |
 |----------|------|-------|----------|
 | Contratos comerciais de EDI | 10 | 1 | 1\.000 |
 | Parceiros comerciais de EDI | 25 | 2 | 1\.000 |
@@ -245,7 +245,7 @@ Aqui estão os limites do número de artefatos para cada camada de conta de inte
 
 Estes são os limites de tamanho de mensagem que se aplicam aos protocolos B2B:
 
-| Nome | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
+| NOME | Limite de vários locatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
 | AS2 | v2-100 MB<br>v1-50 MB | v2-200 MB <br>v1-50 MB | Aplicável ao decodificar e codificar |
 | X12 | 50 MB | 50 MB | Aplicável ao decodificar e codificar |
@@ -275,7 +275,7 @@ Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada 
 
 * Para aplicativos lógicos executados em um ambiente do serviço de integração (ISE), certifique-se de [abrir essas portas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
 
-* Os aplicativos lógicos não podem acessar diretamente as contas de armazenamento do Azure que têm [regras de firewall](../storage/common/storage-network-security.md) e existem na mesma região. No entanto, os aplicativos lógicos podem acessar contas de armazenamento do Azure que existem em uma região diferente porque um endereço IP público é usado para se comunicar entre regiões. Apenas certifique-se de permitir os [endereços IP de saída para conectores gerenciados em sua região](../logic-apps/logic-apps-limits-and-config.md#outbound). Ou, você pode usar opções mais avançadas aqui:
+* Os aplicativos lógicos não podem acessar diretamente as contas de armazenamento do Azure que têm [regras de firewall](../storage/common/storage-network-security.md) e existem na mesma região. No entanto, se você permitir os [endereços IP de saída para conectores gerenciados em sua região, os](../logic-apps/logic-apps-limits-and-config.md#outbound)aplicativos lógicos poderão acessar contas de armazenamento em uma região diferente, exceto quando você usar o conector de armazenamento de tabela do Azure ou o conector de armazenamento de filas do Azure. Para acessar o armazenamento de tabelas ou o armazenamento de filas, você ainda pode usar o gatilho e as ações de HTTP. Caso contrário, você pode usar as opções mais avançadas aqui:
 
   * Criar um [Ambiente de Serviço de Integração](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que pode se conectar aos recursos em uma rede virtual do Azure.
 
@@ -299,18 +299,18 @@ Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada 
 | Leste do Canadá | 40.86.202.42, 52.229.125.57, 52.232.129.143, 52.232.133.109 |
 | Índia Central | 52.172.157.194, 52.172.184.192, 52.172.191.194, 104.211.73.195 |
 | EUA Central | 13.67.236.76, 40.77.31.87, 40.77.111.254, 104.43.243.39 |
-| Leste da Ásia | 13.75.89.159, 23.97.68.172, 40.83.98.194, 168.63.200.173 |
+| Ásia Oriental | 13.75.89.159, 23.97.68.172, 40.83.98.194, 168.63.200.173 |
 | East US | 40.117.99.79, 40.117.100.228, 137.116.126.165, 137.135.106.54 |
 | Leste dos EUA 2 | 40.70.27.253, 40.79.44.7, 40.84.25.234, 40.84.59.136 |
-| Centro da França | 52.143.162.83, 20.188.33.169, 52.143.156.55, 52.143.158.203 |
+| França Central | 52.143.162.83, 20.188.33.169, 52.143.156.55, 52.143.158.203 |
 | Sul da França | 52.136.131.145, 52.136.129.121, 52.136.130.89, 52.136.131.4 |
 | Leste do Japão | 13.71.146.140, 13.78.43.164, 13.78.62.130, 13.78.84.187 |
 | Oeste do Japão | 40.74.68.85, 40.74.81.13, 40.74.85.215, 40.74.140.173 |
 | Coreia Central | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42 |
 | Sul da Coreia | 52.231.166.168, 52.231.163.55, 52.231.163.150, 52.231.192.64 |
 | Centro-Norte dos EUA | 65.52.9.64, 65.52.211.164, 168.62.249.81, 157.56.12.202 |
-| Europa Setentrional | 13.79.173.49, 40.112.90.39, 52.169.218.253, 52.169.220.174 |
-| Centro-Sul dos EUA | 13.65.98.39, 13.84.41.46, 13.84.43.45, 40.84.138.132 |
+| Norte da Europa | 13.79.173.49, 40.112.90.39, 52.169.218.253, 52.169.220.174 |
+| Centro-Sul dos Estados Unidos | 13.65.98.39, 13.84.41.46, 13.84.43.45, 40.84.138.132 |
 | Sul da Índia | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Sudeste da Ásia | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
 | Centro-oeste dos EUA | 13.78.137.247, 52.161.8.128, 52.161.19.82, 52.161.26.172 |
@@ -335,18 +335,18 @@ Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada 
 | Leste do Canadá | 40.86.203.228, 40.86.216.241, 40.86.217.241, 40.86.226.149, 40.86.228.93, 52.229.120.45, 52.229.126.25, 52.232.128.155 | 40.69.106.240 - 40.69.106.255, 52.242.35.152 |
 | Índia Central | 52.172.154.168, 52.172.185.79, 52.172.186.159, 104.211.74.145, 104.211.90.162, 104.211.90.169, 104.211.101.108, 104.211.102.62 | 104.211.81.192 - 104.211.81.207, 52.172.211.12 |
 | EUA Central | 13.67.236.125, 23.100.82.16, 23.100.86.139, 23.100.87.24, 23.100.87.56, 40.113.218.230, 40.122.170.198, 104.208.25.27 | 13.89.171.80 - 13.89.171.95, 52.173.245.164 |
-| Leste da Ásia | 13.75.94.173, 40.83.73.39, 40.83.75.165, 40.83.77.208, 40.83.100.69, 40.83.127.19, 52.175.33.254, 65.52.175.34 | 13.75.36.64 - 13.75.36.79, 52.175.23.169 |
+| Ásia Oriental | 13.75.94.173, 40.83.73.39, 40.83.75.165, 40.83.77.208, 40.83.100.69, 40.83.127.19, 52.175.33.254, 65.52.175.34 | 13.75.36.64 - 13.75.36.79, 52.175.23.169 |
 | East US | 13.92.98.111, 23.100.29.190, 23.101.132.208, 23.101.136.201, 23.101.139.153, 40.114.82.191, 40.121.91.41, 104.45.153.81 | 40.71.11.80 – 40.71.11.95, 40.71.249.205, 191.237.41.52 |
 | Leste dos EUA 2 | 40.70.26.154, 40.70.27.236, 40.70.29.214, 40.70.131.151, 40.84.30.147, 104.208.140.40, 104.208.155.200, 104.208.158.174 | 40.70.146.208 - 40.70.146.223, 52.232.188.154 |
-| Centro da França | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28,40.89.190.104 | 40.89.135.2 |
+| França Central | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28,40.89.190.104 | 40.89.135.2 |
 | Sul da França | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 52.136.133.184 |
 | Leste do Japão | 13.71.158.3, 13.71.158.120, 13.73.4.207, 13.78.18.168, 13.78.20.232, 13.78.21.155, 13.78.35.229, 13.78.42.223 | 13.78.108.0 - 13.78.108.15, 13.71.153.19 |
 | Oeste do Japão | 40.74.64.207, 40.74.68.85, 40.74.74.21, 40.74.76.213, 40.74.77.205, 40.74.140.4, 104.214.137.243, 138.91.26.45 | 40.74.100.224 - 40.74.100.239, 104.215.61.248 |
 | Coreia Central | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.141.36.214 |
 | Sul da Coreia | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23 | 52.231.163.10 |
 | Centro-Norte dos EUA | 52.162.208.216, 52.162.213.231, 65.52.8.225, 65.52.9.96, 65.52.10.183, 157.55.210.61, 157.55.212.238, 168.62.248.37 | 52.162.107.160 - 52.162.107.175, 52.162.242.161 |
-| Europa Setentrional | 40.112.92.104, 40.112.95.216, 40.113.1.181, 40.113.3.202, 40.113.4.18, 40.113.12.95, 52.178.165.215, 52.178.166.21 | 13.69.227.208 - 13.69.227.223, 52.178.150.68 |
-| Centro-Sul dos EUA | 13.65.82.17, 13.66.52.232, 23.100.124.84, 23.100.127.172, 23.101.183.225, 70.37.54.122, 70.37.50.6, 104.210.144.48 | 104.214.19.48 - 104.214.19.63, 13.65.86.57 |
+| Norte da Europa | 40.112.92.104, 40.112.95.216, 40.113.1.181, 40.113.3.202, 40.113.4.18, 40.113.12.95, 52.178.165.215, 52.178.166.21 | 13.69.227.208 - 13.69.227.223, 52.178.150.68 |
+| Centro-Sul dos Estados Unidos | 13.65.82.17, 13.66.52.232, 23.100.124.84, 23.100.127.172, 23.101.183.225, 70.37.54.122, 70.37.50.6, 104.210.144.48 | 104.214.19.48 - 104.214.19.63, 13.65.86.57 |
 | Sul da Índia | 52.172.50.24, 52.172.52.0, 52.172.55.231, 104.211.227.229, 104.211.229.115, 104.211.230.126, 104.211.230.129, 104.211.231.39 | 40.78.194.240 - 40.78.194.255, 13.71.125.22 |
 | Sudeste da Ásia | 13.67.91.135, 13.67.107.128, 13.67.110.109, 13.76.4.194, 13.76.5.96, 13.76.133.155, 52.163.228.93, 52.163.230.166 | 13.67.8.240 - 13.67.8.255, 52.187.68.19 |
 | Centro-oeste dos EUA | 13.78.129.20, 13.78.137.179, 13.78.141.75, 13.78.148.140, 13.78.151.161, 52.161.18.218, 52.161.9.108, 52.161.27.190 | 13.71.195.32 - 13.71.195.47, 52.161.102.22 |

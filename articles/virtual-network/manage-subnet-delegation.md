@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2019
 ms.author: kumud
-ms.openlocfilehash: 9bf44aa5ab18f94ec91650548dc13360ce1b1f3d
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 5fa340fc3c839d74f292f551b73184ea4df1c0f1
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71938493"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72175958"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Adicionar ou remover uma delegação de sub-rede
 
@@ -36,7 +36,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede que será delegada po
 
     | Configuração | Valor |
     | ------- | ----- |
-    | Nome | Insira *MyVirtualNetwork*. |
+    | NOME | Insira *MyVirtualNetwork*. |
     | Espaço de endereço | Insira *10.0.0.0/16*. |
     | Assinatura | Selecione sua assinatura.|
     | Grupo de recursos | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
@@ -45,6 +45,12 @@ Nesta seção, você criará uma rede virtual e a sub-rede que será delegada po
     | Sub-rede – Intervalo de endereços | Insira *10.0.0.0/24*. |
     |||
 1. Deixe o restante como padrão e, em seguida, selecione **criar**.
+
+## <a name="permissons"></a>Permissões
+
+Se você não criou a sub-rede que deseja delegar a um serviço do Azure, precisará da seguinte permissão: `Microsoft.Network/virtualNetworks/subnets/write`.
+
+A função de [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) interna também contém as permissões necessárias.
 
 ## <a name="delegate-a-subnet-to-an-azure-service"></a>Delegar uma sub-rede a um serviço do Azure
 

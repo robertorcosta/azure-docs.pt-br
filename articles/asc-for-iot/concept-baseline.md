@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2019
+ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: b0f5696b36082375a29e99298395cf16734d5bb4
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: ce5a0625a16c5a02d03ee74f894c585820414fa4
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937149"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176609"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Central de segurança do Azure para linha de base IoT e verificações personalizadas
 
 Este artigo explica a central de segurança do Azure para a linha de base IoT e resume todas as propriedades associadas de verificações personalizadas de linha de base.
 
-## <a name="baseline"></a>Linha de Base
+## <a name="baseline"></a>Linha de base
 
 Uma linha de base estabelece o comportamento padrão para cada dispositivo e torna mais fácil estabelecer comportamento incomum ou desvio de normas esperadas.  
 
@@ -55,7 +55,7 @@ Para configurar verificações personalizadas de linha de base:
         "baselineCustomChecksFilePath": {
           "value" : "/home/user/full_path.xml"
         },
-        "baselineCustomChecksFilePath": {
+        "baselineCustomChecksFileHash": {
           "value" : "#hashexample!"
         }
       }
@@ -64,7 +64,7 @@ Para configurar verificações personalizadas de linha de base:
 
 ## <a name="baseline-custom-check-properties"></a>Propriedades da verificação personalizada de linha de base
 
-| Nome| Status | Valores válidos| Valores padrão| Descrição |
+| NOME| Status | Valores válidos| Valores padrão| DESCRIÇÃO |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |baselineCustomChecksEnabled|Necessário: verdadeiro |Valores válidos:  **Booliano** |Valor padrão: **false** |Intervalo de tempo máximo antes que as mensagens de alta prioridade sejam enviadas.|
 |baselineCustomChecksFilePath |Necessário: verdadeiro|Valores válidos:  **Cadeia de caracteres**, **nulo** |Valor padrão: **nulo** |Caminho completo da configuração XML de linha de base|

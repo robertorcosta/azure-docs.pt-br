@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 65cf71140d1706b8607e721ac323b1a97ae272fa
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: f69348f1a56845716d8d862f2926774cbc537cf0
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898441"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177431"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do gateway de aplicativo
 
@@ -61,7 +61,7 @@ Os NSGs (grupos de segurança de rede) têm suporte no gateway de aplicativo. Ma
 
 Para este cenário, use NSGs na sub-rede do gateway de aplicativo. Coloque as seguintes restrições na sub-rede nesta ordem de prioridade:
 
-1. Permitir tráfego de entrada de um intervalo IP/IP de origem.
+1. Permitir tráfego de entrada de um intervalo IP/IP de origem e para toda a sub-rede do gateway de aplicativo ou para o IP de front-end privado configurado específico. O NSG não funciona em um IP público.
 2. Permitir solicitações de entrada de todas as fontes para as portas 65503-65534 para o SKU do gateway de aplicativo v1 e as portas 65200-65535 para SKU v2 para [comunicação de integridade de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados apropriados em vigor, as entidades externas não podem iniciar alterações nesses pontos de extremidade.
 3. Permitir investigações de Azure Load Balancer de entrada (marca*AzureLoadBalancer* ) e tráfego de rede virtual de entrada (marca*VirtualNetwork* ) no [grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Bloquear todos os outros tráfegos de entrada usando uma regra negar-tudo.
@@ -91,7 +91,7 @@ Há suporte apenas para um endereço IP público ou um endereço IP privado. Voc
 
 - Para um IP privado, você pode especificar um endereço IP privado da sub-rede em que o gateway de aplicativo é criado. Se você não especificar um, um endereço IP arbitrário será selecionado automaticamente da sub-rede. Para obter mais informações, consulte [criar um gateway de aplicativo com um balanceador de carga interno](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
-Um endereço IP de front-end é associado aum ouvinte, que verifica as solicitações de entrada no IP de front-end.
+Um endereço IP de front-end é associado a um *ouvinte*, que verifica as solicitações de entrada no IP de front-end.
 
 ## <a name="listeners"></a>Ouvintes
 
@@ -163,7 +163,7 @@ Para configurar uma página de erro personalizada global, consulte [configuraç�
 
 ### <a name="ssl-policy"></a>Política SSL
 
-Você pode centralizar o gerenciamento de certificados SSL e reduzir a sobrecarga de descriptografia de criptografia para um farm de servidores back-end. A manipulação de SSL centralizado também permite que você especifique uma política SSL central adequada aos seus requisitos de segurança. Você pode escolher política SSL *padrão*, predefinida ou *personalizada* .
+Você pode centralizar o gerenciamento de certificados SSL e reduzir a sobrecarga de descriptografia de criptografia para um farm de servidores back-end. A manipulação de SSL centralizado também permite que você especifique uma política SSL central adequada aos seus requisitos de segurança. Você pode escolher política SSL *padrão*, *predefinida*ou *personalizada* .
 
 Você configura a política SSL para controlar as versões do protocolo SSL. Você pode configurar um gateway de aplicativo para negar TLS 1.0, TLS 1.1 e TLS 1.2. Por padrão, o SSL 2,0 e o 3,0 estão desabilitados e não são configuráveis. Para obter mais informações, consulte [visão geral da política SSL do gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
 
@@ -177,7 +177,7 @@ Ao criar um gateway de aplicativo usando o portal do Azure, você cria uma regra
 
 Ao criar uma regra, você escolhe entre [ *básica* e *baseada em caminho*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
 
-- Escolha básico se desejar encaminhar todas as solicitações no ouvinte associado (por exemplo, *blog<i></i>. contoso.com/\*)* a um único pool de back-ends.
+- Escolha básico se desejar encaminhar todas as solicitações no ouvinte associado (por exemplo, *blog<i></i>. contoso.com/\*)* para um único pool de back-end.
 - Escolha baseado em caminho se desejar rotear solicitações de caminhos de URL específicos para pools de back-end específicos. O padrão de caminho é aplicado somente ao caminho da URL, não aos seus parâmetros de consulta.
 
 #### <a name="order-of-processing-rules"></a>Ordem das regras de processamento
@@ -214,7 +214,7 @@ Para uma regra com base em caminho, adicione várias configurações de HTTP de 
 
 Se o redirecionamento estiver configurado para uma regra básica, todas as solicitações no ouvinte associado serão redirecionadas para o destino. Esse é o redirecionamento *global* . Se o redirecionamento estiver configurado para uma regra baseada em caminho, somente as solicitações em uma área específica do site serão redirecionadas. Um exemplo é uma área de carrinho de compras que é denotada por */cart/\** . Esse é o redirecionamento *baseado em caminho* .
 
-Para obter mais informações sobre redirecionamentos, consulte [visão geral](https://docs.microsoft.com/azure/application-gateway/redirect-overview)do redirecionamento do gateway de aplicativo.
+Para obter mais informações sobre redirecionamentos, consulte [visão geral do redirecionamento do gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
 
 #### <a name="redirection-type"></a>Tipo de redirecionamento
 
@@ -258,9 +258,9 @@ O gateway de aplicativo roteia o tráfego para os servidores back-end usando a c
 
 Esse recurso é útil quando você deseja manter uma sessão de usuário no mesmo servidor. Os cookies gerenciados por gateway permitem que o gateway de aplicativo direcione o tráfego subsequente de uma sessão de usuário para o mesmo servidor para processamento. Isso é importante quando o estado da sessão é salvo localmente no servidor para uma sessão de usuário. Se o aplicativo não puder lidar com a afinidade baseada em cookie, você não poderá usar esse recurso. Para usá-lo, verifique se os clientes dão suporte a cookies.
 
-### <a name="connection-draining"></a>Descarga de conexão
+### <a name="connection-draining"></a>Descarregamento de conexão
 
-O descarregamento de conexão ajuda você a remover normalmente os membros do pool de back-end durante as atualizações de serviço planejadas. Você pode aplicar essa configuração a todos os membros de um pool de back-ends durante a criação da regra. Ele garante que todas as instâncias de cancelamento de registro de um pool de back-end não recebam novas solicitações. Enquanto isso, as solicitações existentes podem ser concluídas dentro de um limite de tempo configurado. O descarregamento de conexão se aplica a instâncias de back-end que são explicitamente removidas do pool de back-end por uma chamada à API. Ele também se aplica a instâncias de back-end que são relatadas como não íntegras pelas investigações de integridade.
+O descarregamento de conexão ajuda você a remover normalmente os membros do pool de back-end durante as atualizações de serviço planejadas. Você pode aplicar essa configuração a todos os membros de um pool de back-ends durante a criação da regra. Ele garante que todas as instâncias de cancelamento de registro de um pool de back-end não recebam novas solicitações. Enquanto isso, as solicitações existentes podem ser concluídas dentro de um limite de tempo configurado. O descarregamento de conexão se aplica a instâncias de back-end que são explicitamente removidas do pool de back-end por uma chamada à API. Ele também se aplica a instâncias de back-end que são relatadas como não *íntegras* pelas investigações de integridade.
 
 ### <a name="protocol"></a>Protocol
 
@@ -272,7 +272,7 @@ Essa configuração combinada com HTTPS no ouvinte dá suporte a [SSL de ponta a
 
 Essa configuração especifica a porta em que os servidores back-end escutam o tráfego do gateway de aplicativo. Você pode configurar portas que variam de 1 a 65535.
 
-### <a name="request-timeout"></a>Solicitar tempo limite
+### <a name="request-timeout"></a>Tempo limite da solicitação
 
 Essa configuração é o número de segundos que o gateway de aplicativo aguarda para receber uma resposta do pool de back-ends antes de retornar uma mensagem de erro "tempo limite de conexão".
 
@@ -303,14 +303,14 @@ Essa configuração permite que você configure um caminho de encaminhamento per
 
 Esse é um atalho de interface do usuário que seleciona as duas configurações necessárias para o back-end do serviço de Azure App. Ele permite **escolher o nome do host do endereço de back-end**e cria uma nova investigação personalizada. (Para obter mais informações, consulte a seção [escolher nome do host do endereço de back-end](#pick) deste artigo.) Uma nova investigação é criada e o cabeçalho de investigação é escolhido do endereço do membro de back-end.
 
-### <a name="use-custom-probe"></a>Usar sonda personalizada
+### <a name="use-custom-probe"></a>Usar investigação personalizada
 
 Essa configuração associa uma [investigação personalizada](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe) a uma configuração de http. Você pode associar apenas uma investigação personalizada a uma configuração de HTTP. Se você não associar explicitamente uma investigação personalizada, a [investigação padrão](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe-settings) será usada para monitorar a integridade do back-end. Recomendamos que você crie uma investigação personalizada para maior controle sobre o monitoramento de integridade de seus back-ends.
 
 > [!NOTE]
 > A investigação personalizada não monitora a integridade do pool de back-end, a menos que a configuração de HTTP correspondente esteja explicitamente associada a um ouvinte.
 
-### <a id="pick"/></a>Escolher o nome do host do endereço de back-end
+### <a id="pick"/> @ no__t-1Pick nome do host do endereço de back-end
 
 Esse recurso define dinamicamente o cabeçalho de *host* na solicitação para o nome de host do pool de back-ends. Ele usa um endereço IP ou FQDN.
 

@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 10/08/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff5f814eac095770990ecbc0c4b01d2e0cc6f931
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 014fcf37930800858cd70f15c19e3f494d3f3776
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667210"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169799"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Alta disponibilidade e balanceamento de carga de seus aplicativos e conectores de proxy de aplicativo
 
@@ -102,3 +102,4 @@ Consulte a documentação do fornecedor do software para entender os requisitos 
 - [Habilitar o logon único](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Habilitar acesso condicional](application-proxy-integrate-with-sharepoint-server.md)
 - [Solucionar problemas que surgirem com o Proxy de Aplicativo](application-proxy-troubleshoot.md)
+- [Saiba como a arquitetura do Azure AD dá suporte à alta disponibilidade](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)

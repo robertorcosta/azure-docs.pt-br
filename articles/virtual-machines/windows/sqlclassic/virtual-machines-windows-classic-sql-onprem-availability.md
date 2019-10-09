@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 28819bc9d2eaf7d4b595bed59bcd1df8741b62a5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 48848fbacdc0e205604bb163aa36bdafcd175b0b
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101838"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173537"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Estender grupos de disponibilidade AlwaysOn locais para o Azure
 Os grupos de disponibilidade AlwaysOn fornecem alta disponibilidade para grupos de bancos de dados adicionando réplicas secundárias. Essas réplicas permitem o failover dos bancos de dados em caso de falha. Além disso, elas podem ser usadas para descarregar cargas de trabalho de leitura ou tarefas de backup.
@@ -55,7 +55,7 @@ Esta seção mostra como usar o **Assistente de Adição de Réplica do Azure** 
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742864.png)
 7. Você preencherá cada campo da página com valores que serão usados para criar a VM (máquina virtual) do Azure que hospedará a réplica.
    
-   | Configuração | Descrição |
+   | Configuração | DESCRIÇÃO |
    | --- | --- |
    | **Imagem** |Selecione a combinação desejada de SO e SQL Server |
    | **Tamanho da MV** |Selecione o tamanho da VM que melhor atenda às suas necessidades de negócios |

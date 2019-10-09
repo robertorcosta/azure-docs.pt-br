@@ -1,17 +1,17 @@
 ---
 title: Terminologia da visualização do compartilhamento de dados do Azure
-description: Terminologia da visualização do compartilhamento de dados do Azure
+description: Saiba mais sobre os termos comuns usados para descrever os recursos usados na visualização do compartilhamento de dados do Azure (provedor de dados, consumidor de dados, compartilhamento de dados, assinatura de compartilhamento, instantâneo, convite, destinatário.)
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: b78a1b250f46c2ddd2b36e19590c4a94ca3ab3fb
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: dd3235b7d87d8e02f44a440741b90f675263d147
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844694"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166285"
 ---
 # <a name="azure-data-share-preview-concepts"></a>Conceitos da visualização do compartilhamento de dados do Azure 
 
@@ -47,7 +47,7 @@ Um provedor de dados pode habilitar uma configuração de instantâneo para um c
 
 Se um provedor de dados habilitar essa configuração, um intervalo de recorrência poderá ser selecionado. O intervalo de recorrência pode ser por hora ou por dia. 
 
-Um consumidor de dados tem a opção de aceitar esse agendamento de instantâneo para receber atualizações incrementais, que inclui todos os dados que foram alterados desde a primeira geração de um novo instantâneo. 
+Um consumidor de dados tem a opção de aceitar esse agendamento de instantâneo para receber atualizações incrementais, que incluem todos os dados que foram alterados desde a primeira geração de um novo instantâneo. 
 
 ## <a name="invitation"></a>Convite
 
@@ -55,7 +55,7 @@ Um provedor de dados pode convidar vários destinatários para seu compartilhame
 
 Um provedor de dados pode excluir um convite após ele ser enviado se ele não tiver sido aceito. Se o provedor de dados excluir um convite e ele ainda não tiver sido aceito, o consumidor de dados não poderá aceitá-lo. 
 
-Os convites podem ser reenviados até 5 vezes por dia. 
+Os convites podem ser reenviados até cinco vezes por dia. 
 
 ## <a name="recipient"></a>Destinatário
 

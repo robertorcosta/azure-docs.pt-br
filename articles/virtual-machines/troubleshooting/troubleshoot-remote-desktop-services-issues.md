@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 9f7957fb0e6e888367c1f8ded1abfb3828697cbb
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7949bedec2d304cd87fb512b44cd61d6f0894638
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087086"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168948"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Serviços de área de trabalho remota não estiver iniciando uma VM do Azure
 
@@ -113,7 +113,7 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>Serviço TermService está parado devido a um problema de acesso negado
 
 1. Conecte-se ao [Console serial](serial-console-windows.md) e abra uma instância do PowerShell.
-2. Faça o download da ferramenta Monitor de Processos executando o seguinte script:
+2. Baixe a ferramenta Process Monitor executando o seguinte script:
 
    ```
    remove-module psreadline  
@@ -141,16 +141,16 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
    procmon /Terminate 
    ```
 
-5. Coletar o arquivo **c:\temp\ProcMonTrace.PML**:
+5. Colete o arquivo **c:\temp\ProcMonTrace.PML**:
 
     1. [Anexar um disco de dados à VM](../windows/attach-managed-disk-portal.md
 ).
     2. Use o Console Serial, você pode copiar o arquivo para a nova unidade. Por exemplo: `copy C:\temp\ProcMonTrace.PML F:\`. Nesse comando, F é a letra do driver do disco de dados anexado.
     3. Desanexe a unidade de dados e conecte-a em uma VM funcional que tenha o ubstakke do Process Monitor instalado.
 
-6. Abra **ProcMonTrace.PML** usando o Process Monitor na VM funcional. Em seguida, filtre por  **O resultado é ACCESS DENIED**, conforme mostrado na seguinte imagem:
+6. Abra **ProcMonTrace.PML** usando o Process Monitor na VM funcional. Em seguida, filtrar por **resultado é acesso negado**, conforme mostrado na seguinte captura de tela:
 
-    ![Filtrar por resultado no Process Monitor](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
+    ![Filtrar por resultado no monitor de processo](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
 6. Corrigir as chaves do registro, pastas ou arquivos que estão na saída. Normalmente, esse problema é causado quando a conta de login usada no serviço não tem permissão da ACL para acessar esses objetos. Para saber a permissão correta da ACL para a conta de entrada, você pode verificar uma VM saudável. 
@@ -221,6 +221,6 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
 
 4. [Desanexe o disco do SO e recrie a VM](../windows/troubleshoot-recovery-disks-portal.md). Em seguida, verifique se o problema for resolvido.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contatar o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 
 Se você ainda precisar de ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema.

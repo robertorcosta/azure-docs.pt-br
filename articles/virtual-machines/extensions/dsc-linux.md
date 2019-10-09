@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 6df6bb5c0be4bf1779541a815bd933965024809f
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: e2faf444aa411f0e60f1b5c7b1f811abc2f6b63a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960401"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176682"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão de DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
 A Configuração de Estado Desejado (DSC) é uma plataforma de gerenciamento que permite gerenciar a equipe de TI e a infraestrutura de desenvolvimento com a configuração como código.
 
-> ! Observe que a extensão de DSC para Linux e a [extensão de máquina virtual Azure monitor para Linux](/virtual-machines/extensions/oms-linux) atualmente apresentam um conflito e não tem suporte em uma configuração lado a lado.  Isso significa que você não deve usar as duas soluções juntas na mesma VM.
+> ! Observe que a extensão de DSC para Linux e a [extensão de máquina virtual Azure monitor para Linux](/azure/virtual-machines/extensions/oms-linux) atualmente apresentam um conflito e não tem suporte em uma configuração lado a lado.  Isso significa que você não deve usar as duas soluções juntas na mesma VM.
 
 A extensão DSCForLinux é publicada e suportada pela Microsoft. A extensão instala o agente OMI e DSC em máquinas virtuais do Azure. Extensão de DSC também pode fazer as seguintes ações
 
@@ -41,7 +41,7 @@ A extensão DSCForLinux é publicada e suportada pela Microsoft. A extensão ins
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A extensão DSC Linux dá suporte a todas as [distribuições do Linux endossadas no Azure](/virtual-machines/linux/endorsed-distros) exceto:
+A extensão DSC Linux dá suporte a todas as [distribuições do Linux endossadas no Azure](/azure/virtual-machines/linux/endorsed-distros) exceto:
 
 | Distribuição | Versão |
 |---|---|
@@ -305,7 +305,7 @@ Para saber a versão mais recente da extensão disponível, execute:
 $ azure vm extension list
 ```
 
-#### <a name="212-resource-manager"></a>2.1.2. Resource Manager
+#### <a name="212-resource-manager"></a>2.1.2. Gerenciador de Recursos
 Você pode mudar para o modo do Gerenciador de Recursos do Azure executando:
 ```
 $ azure config mode arm

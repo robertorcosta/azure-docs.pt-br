@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 0a80630ffa363d2b633667d8104cc0326c4afa2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17db8dbcba8dd0181be9ca7289ea1b85079ff9a1
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478599"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168508"
 ---
 # <a name="plan-virtual-networks"></a>Planejar redes virtuais
 
@@ -27,9 +27,9 @@ Criar uma rede virtual para fazer experiências com ela é bastante simples, mas
 
 ## <a name="naming"></a>Nomenclatura
 
-Todos os recursos do Azure têm um nome. O nome deve ser exclusivo dentro de um escopo, o que pode variar para cada tipo de recurso. Por exemplo, o nome de uma rede virtual deve ser exclusivo dentro de um [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), mas pode ser duplicado em uma [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) ou região do [Azure](https://azure.microsoft.com/regions/#services). Definir uma convenção de nomenclatura que você pode usar consistentemente ao nomear recursos é útil ao gerenciar vários recursos de rede ao longo do tempo. Para sugestões, consulte [Convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#networking).
+Todos os recursos do Azure têm um nome. O nome deve ser exclusivo dentro de um escopo, o que pode variar para cada tipo de recurso. Por exemplo, o nome de uma rede virtual deve ser exclusivo dentro de um [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), mas pode ser duplicado em uma [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) ou região do [Azure](https://azure.microsoft.com/regions/#services). Definir uma convenção de nomenclatura que você pode usar consistentemente ao nomear recursos é útil ao gerenciar vários recursos de rede ao longo do tempo. Para sugestões, consulte [Convenções de nomenclatura](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#virtual-networking).
 
-## <a name="regions"></a>Regiões
+## <a name="regions"></a>Regions
 
 Todos os recursos do Microsoft Azure são criados na região do Azure e assinatura. Um recurso só poderá ser criado a uma rede virtual que existir na mesma região e assinatura em que o recurso está. No entanto, você pode se conectar a redes virtuais que existem em diferentes assinaturas e regiões. Para obter mais informações, consulte [conectividade](#connectivity). Ao decidir quais regiões implantar recursos, considere onde estão localizados fisicamente os consumidores de recursos:
 
@@ -77,7 +77,7 @@ Você pode filtrar o tráfego de rede para e de recursos em uma rede virtual usa
 - Se diferentes VMs dentro de uma sub-rede estiverem dentro das regras de segurança aplicadas a elas, você pode associar a interface de rede na VM a um ou mais grupos de segurança do aplicativo. Uma regra de segurança pode especificar um grupo de segurança do aplicativo em sua origem, destino ou ambos. Essa regra, em seguida, só se aplica às interfaces de rede que são membros do grupo de segurança de aplicativos. Saiba mais sobre [grupos de segurança de rede](security-overview.md) e [grupos de segurança de aplicativo](security-overview.md#application-security-groups).
 - O Azure cria várias regras de segurança padrão dentro de cada grupo de segurança de rede. Uma regra padrão permite que todo o tráfego flua entre todos os recursos em uma rede virtual. Para substituir esse comportamento, use os grupos de segurança de rede, personalizar roteamento para rotear o tráfego a um NVA, ou ambos. É recomendável que você se familiarize com todas regras de segurança padrão do Azure [padrão de regras de segurança](security-overview.md#default-security-rules) e compreenda como as regras de grupo de segurança de rede são aplicadas a um recurso.
 
-Você pode exibir os designs de exemplo para a implementação de uma rede de perímetro (também conhecida como DMZ) entre o Azure e a internet usando um [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
+Você pode exibir os designs de exemplo para implementar uma rede de perímetro (também conhecida como DMZ) entre o Azure e a Internet usando um [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
 
 ### <a name="traffic-routing"></a>Roteamento de tráfego
 

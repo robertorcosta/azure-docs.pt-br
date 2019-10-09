@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
-ms.author: subramar
-ms.openlocfilehash: 7bb9b1c545d30f66a09817ba977f12666a9f41c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 8c34f50e8eb9d9793c146c38aca47691b04049c0
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60394280"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167294"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Criar seu primeiro aplicativo do Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -108,7 +108,7 @@ Projetos de atores não fazem nada por conta própria. Eles exigem outro serviç
 
 1. Execute o script usando o utilitário de inspeção para ver a saída do serviço de ator.
 
-   No caso do MAC OS X, você precisará copiar a pasta myactorsvcTestClient no mesmo local dentro do contêiner, executando os seguintes comandos adicionais.
+   No caso do MAC OS X, você precisa copiar a pasta myactorsvcTestClient para o mesmo local dentro do contêiner executando os seguintes comandos adicionais.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

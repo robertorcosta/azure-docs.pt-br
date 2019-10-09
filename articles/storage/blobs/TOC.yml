@@ -745,10 +745,12 @@
               href: /dotnet/api/overview/azure/storage/management
         - name: Java
           items:
-            - name: 'Blobs, Filas, Tabelas e Arquivos (v7)'
-              href: /java/api/overview/azure/storage/client?view=azure-java-stable
-            - name: SDK do Blob (v10)
-              href: /java/api/overview/azure/storage/client?view=azure-java-preview
+            - name: 'Blobs, Filas e Arquivos (versão 12.x – versão prévia)'
+              href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
+            - name: 'Blobs, filas e arquivos (versão 8)'
+              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+            - name: Provedor de recursos de armazenamento
+              href: /java/api/overview/azure/storage/management
         - name: REST
           items:
             - name: 'Blobs, Filas, Tabelas e Arquivos'

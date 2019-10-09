@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: fb637197139001c67a4cfa773f897e6701dc1e9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 03a0d755cf6d099f07a7c6d853e1d747908eec05
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61425127"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177630"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk para a consulta de log do Azure Monitor
 
@@ -32,10 +32,10 @@ A tabela a seguir compara os conceitos e estruturas de dados entre logs do Splun
  | --- | --- | --- | ---
  | Unidade de implantação  | cluster |  cluster |  O Azure Monitor permite consultas arbitrárias entre clusters. O Splunk, não. |
  | Caches de dados |  buckets  |  Políticas de retenção e armazenamento em cache |  Controla o período e o nível de armazenamento em cache dos dados. Essa configuração afeta diretamente o desempenho das consultas e o custo da implantação. |
- | Partição lógica dos dados  |  índice  |  Banco de Dados  |  Permite a separação lógica dos dados. Ambas as implementações permitem uniões e junções entre essas partições. |
- | Metadados de eventos estruturados | N/D | tabela |  O Splunk não tem o conceito exposto à linguagem de pesquisa de metadados de evento. Os logs do Azure Monitor têm o conceito de uma tabela, que tem colunas. Cada instância de evento é mapeada para uma linha. |
+ | Partição lógica dos dados  |  index  |  database  |  Permite a separação lógica dos dados. Ambas as implementações permitem uniões e junções entre essas partições. |
+ | Metadados de eventos estruturados | N/D | table |  O Splunk não tem o conceito exposto à linguagem de pesquisa de metadados de evento. Os logs do Azure Monitor têm o conceito de uma tabela, que tem colunas. Cada instância de evento é mapeada para uma linha. |
  | Registro de dados | evento | linha |  Mudança de terminologia apenas. |
- | Atributo de registro de dados | field |  coluna |  No Azure Monitor, isso é predefinido como parte da estrutura de tabela. No Splunk, cada evento tem seu próprio conjunto de campos. |
+ | Atributo de registro de dados | field |  column |  No Azure Monitor, isso é predefinido como parte da estrutura de tabela. No Splunk, cada evento tem seu próprio conjunto de campos. |
  | Tipos | tipo de dados |  tipo de dados |  Os tipos de dados do Azure Monitor são mais explícitos, visto que são definidos nas colunas. Ambos têm a capacidade de trabalhar dinamicamente com os tipos de dados e o conjunto praticamente equivalente de tipos de dados, incluindo suporte a JSON. |
  | Consulta e pesquisa  | pequisa | query |  Os conceitos são essencialmente os mesmos entre o Azure Monitor e o Splunk. |
  | Hora da ingestão de evento | Hora do sistema | ingestion_time() |  No Splunk, cada evento obtém um carimbo de data/hora do sistema do momento em que o evento foi indexado. No Azure Monitor, você pode definir uma política chamada ingestion_time que expõe uma coluna do sistema que pode ser referenciada por meio da função ingestion_time(). |
@@ -125,12 +125,12 @@ O Splunk também tem uma função `eval`, que não é comparável ao operador `e
 
 
 ### <a name="rename"></a>Renomear 
-O Azure Monitor usa o mesmo operador para renomear e criar um novo campo. O Splunk tem dois operadores separados, `eval` e `rename`.
+Azure Monitor usa o operador `project-rename` para renomear um campo. `project-rename` permite que a consulta aproveite todos os índices criados previamente para um campo. Splunk tem um operador `rename` para fazer o mesmo.
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **rename** |  <code>Event.Rule=330009.2<br>&#124; rename Date.Exception as execption</code> |
-| Azure Monitor | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend exception = Date_Exception</code> |
+| Azure Monitor | **projeto-renomear** | <code>Office_Hub_OHubBGTaskError<br>&#124; project-rename exception = Date_Exception</code> |
 | | |
 
 

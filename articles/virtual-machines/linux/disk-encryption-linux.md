@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7f8c029c5ceff0865b060cf8edc794454d6c282
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 0a1515144f340938cddfd5ca9f2ac4803bcb3f77
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828474"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174714"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários de Azure Disk Encryption em VMs Linux
 
@@ -36,7 +36,7 @@ Em todos os casos, você deve [fazer um instantâneo](snapshot-copy-managed-disk
 
 ## <a name="install-tools-and-connect-to-azure"></a>Instalar ferramentas e conectar-se ao Azure
 
-Azure Disk Encryption pode ser habilitado e gerenciado por meio do [CLI do Azure](/cli/azure) e [Azure PowerShell](/azure/new-azureps-module-az). Para fazer isso, você deve instalar as ferramentas localmente e conectar-se à sua assinatura do Azure.
+Azure Disk Encryption pode ser habilitado e gerenciado por meio do [CLI do Azure](/cli/azure) e [Azure PowerShell](/powershell/azure/new-azureps-module-az). Para fazer isso, você deve instalar as ferramentas localmente e conectar-se à sua assinatura do Azure.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -66,7 +66,7 @@ az account set --subscription "<subscription name or ID>"
 Para obter mais informações, consulte [Introdução à CLI do Azure 2.0](/cli/azure/get-started-with-azure-cli). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-O [módulo Azure PowerShell AZ](/azure/new-azureps-module-az) fornece um conjunto de cmdlets que usa o modelo de [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) para gerenciar seus recursos do Azure. Você pode usá-lo em seu navegador com [Azure cloud Shell](../../cloud-shell/overview.md), ou pode instalá-lo em seu computador local usando as instruções em [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps). 
+O [módulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) fornece um conjunto de cmdlets que usa o modelo de [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) para gerenciar seus recursos do Azure. Você pode usá-lo em seu navegador com [Azure cloud Shell](../../cloud-shell/overview.md), ou pode instalá-lo em seu computador local usando as instruções em [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps). 
 
 Se você já tiver instalado localmente, verifique se que você usar a versão mais recente do SDK do Azure PowerShell para configurar o Azure Disk Encryption. Baixe a última versão do [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
@@ -193,7 +193,7 @@ Você pode habilitar a criptografia de disco em uma VM Linux existente ou em exe
 
 A tabela a seguir lista os parâmetros de modelo do Resource Manager existente para VMs em execução ou existentes:
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | vmName | Nome da VM para executar a operação de criptografia. |
 | keyVaultName | Nome do cofre de chaves para o qual a chave de criptografia deve ser carregada. Você pode obtê-lo usando o cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` ou o comando CLI do Azure `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`.|
@@ -202,7 +202,7 @@ A tabela a seguir lista os parâmetros de modelo do Resource Manager existente p
 | volumeType | Tipo de volume em que a operação de criptografia é executada. Os valores válidos são _OS_, _Data_ e _All_. 
 | forceUpdateTag | Passe um valor exclusivo como um GUID sempre que a execução da operação precise ser forçada. |
 | resizeOSDisk | A partição do SO deve ser redimensionada para ocupar o VHD do SO completo antes de dividir o volume do sistema. |
-| localização | Local de todos os recursos. |
+| location | Local de todos os recursos. |
 
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Usar o recurso EncryptFormatAll para discos de dados em VMs do Linux
@@ -402,6 +402,6 @@ Azure Disk Encryption não funciona para os seguintes cenários, recursos e tecn
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Visão geral de Azure Disk Encryption](disk-encryption-overview.md)
+- [Visão geral do Azure Disk Encryption](disk-encryption-overview.md)
 - [Azure Disk Encryption scripts de exemplo](disk-encryption-sample-scripts.md)
 - [Solução de problemas Azure Disk Encryption](disk-encryption-troubleshooting.md)

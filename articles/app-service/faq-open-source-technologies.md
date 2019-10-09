@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 941a218dbda2c27a598e5a53f2b947184ee78085
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b92fe0a8073437d2cf0e908b4e734a0c01c342eb
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121207"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169678"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre tecnologias de código aberto para Aplicativos Web do Azure
 
@@ -187,24 +187,24 @@ Serviço de Aplicativo não tem uma funcionalidade de email interno. Para alguma
 
 Se você ter migrado recentemente no Azure, WordPress pode redirecionar para a URL do domínio antigo. Isso é causado por uma configuração no banco de dados MySQL.
 
-WordPress Buddy + é uma extensão de Site do Azure que você pode usar para atualizar a URL de redirecionamento diretamente no banco de dados. Para obter mais informações sobre como usar o WordPress Buddy +, consulte [Ferramentas WordPress e migração do MySQL com WordPress Buddy +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/).
+WordPress Buddy + é uma extensão de Site do Azure que você pode usar para atualizar a URL de redirecionamento diretamente no banco de dados. Para obter mais informações sobre como usar o WordPress Buddy +, consulte [Ferramentas WordPress e migração do MySQL com WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
 Como alternativa, se você preferir atualizar manualmente o redirecionamento de URL usando consultas SQL ou PHPMyAdmin, veja [WordPress: Redirecionamento para a URL errada](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Como alterar minha senha de logon do WordPress?
 
-Se você esqueceu sua senha de logon do WordPress, você pode usar WordPress Buddy + para atualizá-la. Para redefinir sua senha, instale a extensão do Azure Site WordPress Buddy + e, em seguida, conclua as etapas descritas em [Ferramentas WordPress e migração do MySQL com WordPress Buddy +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/).
+Se você esqueceu sua senha de logon do WordPress, você pode usar WordPress Buddy + para atualizá-la. Para redefinir sua senha, instale a extensão do Azure Site WordPress Buddy + e, em seguida, conclua as etapas descritas em [Ferramentas WordPress e migração do MySQL com WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
 ## <a name="i-cant-sign-in-to-wordpress-how-do-i-resolve-this"></a>Não consigo entrar WordPress. Como resolver isso?
 
-Se você estiver o WordPress bloqueado depois de instalar recentemente um plug-in, você pode ter um plug-in com defeito. WordPress Buddy + é uma extensão de Site do Azure que podem ajudá-lo desabilitar plug-ins no WordPress. Para obter mais informações, consulte [Ferramentas WordPress e migração do MySQL com WordPress Buddy +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/).
+Se você estiver o WordPress bloqueado depois de instalar recentemente um plug-in, você pode ter um plug-in com defeito. WordPress Buddy + é uma extensão de Site do Azure que podem ajudá-lo desabilitar plug-ins no WordPress. Para obter mais informações, consulte [Ferramentas WordPress e migração do MySQL com WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
 ## <a name="how-do-i-migrate-my-wordpress-database"></a>Como migrar meu banco de dados do WordPress?
 
 Você tem várias opções para migrar o banco de dados MySQL que está conectado ao seu site de WordPress:
 
 * Desenvolvedores: usar o [prompt de comando ou PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
-* Não desenvolvedores: usar [WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
+* Não desenvolvedores: usar [WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>Como ajudar a proteger melhor o WordPress?
 

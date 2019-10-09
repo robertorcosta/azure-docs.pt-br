@@ -15,12 +15,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d4f9686be08de2589cddadf741dadf243d0e7895
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60348006"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174451"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Aprofundamento de segurança da Autenticação de Passagem do Azure Active Directory
 
@@ -147,7 +147,8 @@ A Autenticação de Passagem trata uma solicitação de entrada do usuário conf
 12. O Agente de Autenticação recebe o resultado do Active Directory, como êxito, nome de usuário ou senha incorretos ou senha expirada.
 
    > [!NOTE]
-   > Se o agente de autenticação falhar durante o processo de logon, a solicitação toda entrada é descartada. Não há nenhuma entrega das solicitações de entrada de um agente de autenticação para o outro agente de autenticação local. Esses agentes se comunicam somente com a nuvem e não entre si.
+   > Se o agente de autenticação falhar durante o processo de entrada, a solicitação de entrada inteira será descartada. Não há nenhuma entrega de solicitações de entrada de um agente de autenticação para outro agente de autenticação local. Esses agentes só se comunicam com a nuvem, e não entre si.
+   
 13. O Agente de Autenticação encaminha o resultado de volta ao serviço de token de segurança do Azure AD através de um canal HTTPS mutuamente autenticado de saída sobre a porta 443. A autenticação mútua usa o certificado anteriormente emitido para o Agente de Autenticação durante o registro.
 14. O serviço de token de segurança do Azure AD verifica se esse resultado corresponde à solicitação de entrada específica no locatário.
 15. O serviço de token de segurança do Azure AD continua com o procedimento de entrada, conforme configurado. Por exemplo, se a validação de senha fosse bem-sucedida, o usuário poderia ser solicitado para a Multi-Factor Authentication ou redirecionado de volta ao aplicativo.
@@ -184,7 +185,7 @@ Para renovar a confiança do Agente de Autenticação com o Azure AD:
 
 ## <a name="auto-update-of-the-authentication-agents"></a>Atualização automática dos Agentes de Autenticação
 
-O aplicativo do atualizador atualiza automaticamente o agente de autenticação quando uma nova versão (com correções de bug ou melhorias de desempenho) é liberada. O aplicativo do atualizador não trata nenhuma solicitação de validação de senha para seu locatário.
+O aplicativo atualizador atualiza automaticamente o agente de autenticação quando uma nova versão (com correções de bugs ou aprimoramentos de desempenho) é lançada. O aplicativo do atualizador não trata nenhuma solicitação de validação de senha para seu locatário.
 
 O Azure AD hospeda a nova versão do software como um **pacote do Windows Installer (MSI)** assinado. O MSI é assinado usando o [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) com SHA256 como o algoritmo hash. 
 
@@ -206,7 +207,7 @@ Para atualizar automaticamente um Agente de Autenticação:
     - Reinicia o serviço do Agente de Autenticação
 
 >[!NOTE]
->Se você tiver vários Agentes de Autenticação registrados no seu locatário, o Azure AD não renovará seus certificados ou os atualizará ao mesmo tempo. Em vez disso, o AD do Azure faz uma por vez para garantir a alta disponibilidade das solicitações de entrada.
+>Se você tiver vários Agentes de Autenticação registrados no seu locatário, o Azure AD não renovará seus certificados ou os atualizará ao mesmo tempo. Em vez disso, o Azure AD faz isso, um de cada vez, para garantir a alta disponibilidade de solicitações de entrada.
 >
 
 
