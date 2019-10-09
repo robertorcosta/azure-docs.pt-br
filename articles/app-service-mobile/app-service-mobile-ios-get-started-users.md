@@ -14,19 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 88e278ced5cbddb132cdc2f760864df119762088
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 674d5f783f43011ba154b668cea4ec41f6a945f5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449129"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025271"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Adicione autenticação ao seu aplicativo do iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center está investindo em novos e integrados serviços essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **construir**, **teste** e **distribuir** services para configurar o pipeline de integração contínua e entrega. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso do seu aplicativo usando o **Analytics** e **diagnóstico** serviços e entre em contato com usuários usando o **enviar por Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados do aplicativo na nuvem. Fazer check-out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-users) hoje mesmo.
->
+> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
 
 Neste tutorial, você adicionará a autenticação ao projeto de [início rápido do iOS] usando um provedor de identidade com suporte. Este tutorial baseia-se no tutorial de [início rápido do iOS] , que você deve concluir primeiro.
 
@@ -81,7 +81,7 @@ No Xcode, pressione **Executar** para iniciar o aplicativo. Uma exceção é cri
     }
     ```
 
-    Altere *google* para *microsoftaccount*, *twitter*, *facebook* ou *windowsazureactivedirectory* se não estiver usando o Google como seu provedor de identidade. Se você usar o Facebook, você deve [colocar os domínios do Facebook][1] em seu aplicativo.
+    Altere *google* para *microsoftaccount*, *twitter*, *facebook* ou *windowsazureactivedirectory* se não estiver usando o Google como seu provedor de identidade. Se você usar o Facebook, deverá ter a lista de permissões de [domínios do Facebook][1] em seu aplicativo.
 
     Substitua o **urlScheme** por um nome exclusivo para seu aplicativo.  O urlScheme deve ser o mesmo que o protocolo de esquema de URL especificado no campo **URLs de redirecionamento externo permitidas** no portal do Azure. O urlScheme é usado pelo retorno de chamada de autenticação a fim de voltar para seu aplicativo depois que a solicitação de autenticação é concluída.
 
@@ -114,7 +114,7 @@ No Xcode, pressione **Executar** para iniciar o aplicativo. Uma exceção é cri
     }
     ```
 
-   Adicione o código diretamente antes da linha que tem `#pragma mark - Core Data stack`.  Substitua os _appname_ com o valor de urlScheme que você usou na etapa 1.
+   Adicione o código diretamente antes da linha que tem `#pragma mark - Core Data stack`.  Substitua o _AppName_ pelo valor urlScheme que você usou na etapa 1.
 
 5. Abra o arquivo `AppName-Info.plist` (substituindo AppName pelo nome de seu aplicativo) e adicione o seguinte código:
 
@@ -167,7 +167,7 @@ No Xcode, pressione **Executar** para iniciar o aplicativo. Uma exceção é cri
     }
     ```
 
-    Altere *google* para *microsoftaccount*, *twitter*, *facebook* ou *windowsazureactivedirectory* se não estiver usando o Google como seu provedor de identidade. Se você usar o Facebook, você deve [colocar os domínios do Facebook][1] em seu aplicativo.
+    Altere *google* para *microsoftaccount*, *twitter*, *facebook* ou *windowsazureactivedirectory* se não estiver usando o Google como seu provedor de identidade. Se você usar o Facebook, deverá ter a lista de permissões de [domínios do Facebook][1] em seu aplicativo.
 
     Substitua o **urlScheme** por um nome exclusivo para seu aplicativo.  O urlScheme deve ser o mesmo que o protocolo de esquema de URL especificado no campo **URLs de redirecionamento externo permitidas** no portal do Azure. O urlScheme é usado pelo retorno de chamada de autenticação a fim de voltar para seu aplicativo depois que a solicitação de autenticação é concluída.
 
@@ -192,7 +192,7 @@ No Xcode, pressione **Executar** para iniciar o aplicativo. Uma exceção é cri
     }
     ```
 
-    Substitua os _appname_ com o valor de urlScheme que você usou na etapa 1.
+    Substitua o _AppName_ pelo valor urlScheme que você usou na etapa 1.
 
 4. Abra o arquivo `AppName-Info.plist` (substituindo AppName pelo nome de seu aplicativo) e adicione o seguinte código:
 
@@ -216,7 +216,7 @@ No Xcode, pressione **Executar** para iniciar o aplicativo. Uma exceção é cri
 
 5. Pressione *Executar* para iniciar o aplicativo e faça logon. Após ter feito o logon você poderá exibir a lista de Tarefas pendentes e fazer atualizações.
 
-A autenticação do Serviço de Aplicativo usa a comunicação interaplicativos da Apple.  Para obter mais detalhes sobre esse assunto, consulte o [documentação da Apple][2]
+A autenticação do Serviço de Aplicativo usa a comunicação interaplicativos da Apple.  Para obter mais detalhes sobre este assunto, consulte a [documentação da Apple][2]
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist

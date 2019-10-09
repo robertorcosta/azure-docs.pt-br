@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d4b7733ce3ac6db4c39f632401661eefce11d20c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a6d0cba41e694e154da32a878cb4c076aae13e65
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827574"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034714"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo Web a uma Rede Virtual do Azure
 Este documento descreve o recurso de integração de rede virtual do serviço Azure App e como configurá-lo com aplicativos no [serviço Azure app](https://go.microsoft.com/fwlink/?LinkId=529714). As [redes virtuais do Azure][VNETOverview] (VNets) permitem que você coloque muitos dos seus recursos do Azure em uma rede roteável que não seja da Internet.  
@@ -63,6 +63,10 @@ Há algumas coisas a que a Integração VNet não dá suporte, incluindo:
 * NetBios
 
 ## <a name="regional-vnet-integration"></a>Integração de VNet regional 
+
+> [!NOTE]
+> O emparelhamento ainda não está disponível para o serviço de aplicativo baseado em Linux.
+>
 
 Quando a integração VNet é usada com VNets na mesma região que seu aplicativo, ele requer o uso de uma sub-rede delegada com pelo menos 32 endereços. A sub-rede não pode ser usada para nada mais. Chamadas de saída feitas de seu aplicativo serão feitas a partir dos endereços na sub-rede delegada. Quando você usa essa versão da integração VNet, as chamadas são feitas de endereços em sua VNet. O uso de endereços em sua VNet permite que seu aplicativo:
 
@@ -112,7 +116,7 @@ Para desconectar o aplicativo da VNet, selecione **Desconectar**. Isso reiniciar
 
 Se você usar o serviço de aplicativo no Linux com as imagens internas, o recurso de integração VNet regional funcionará sem alterações adicionais. Se você usar Aplicativo Web para Contêineres, precisará modificar a imagem do Docker para usar a integração VNet. Na imagem do Docker, use a variável de ambiente PORT como a porta de escuta do servidor Web principal, em vez de usar um número de porta codificado. A variável de ambiente PORT é definida automaticamente pela plataforma do serviço de aplicativo no momento da inicialização do contêiner. Se você estiver usando SSH, o daemon SSH deverá ser configurado para escutar no número da porta especificado pela variável de ambiente SSH_PORT ao usar a integração VNet regional.
 
-### <a name="service-endpoints"></a>Pontos de Extremidade de Serviço
+### <a name="service-endpoints"></a>Pontos de extremidade de serviço
 
 O novo recurso de integração de VNet permite que você use pontos de extremidade de serviço.  Para usar pontos de extremidade de serviço com seu aplicativo, use a nova Integração VNet para se conectar a uma VNet selecionada e, em seguida, configure pontos de extremidade de serviço na sub-rede que você usou para a integração. 
 
@@ -121,7 +125,7 @@ O novo recurso de integração de VNet permite que você use pontos de extremida
 
 Os aplicativos no serviço de aplicativo são hospedados em funções de trabalho. Os planos de preços básicos e mais altos são planos de hospedagem dedicados em que não há nenhuma outra carga de trabalho de clientes em execução nos mesmos trabalhadores. A integração VNet funciona por meio da montagem de interfaces virtuais com endereços na sub-rede delegada. Como o endereço de está em sua VNet, ele tem acesso à maioria das coisas de ou por meio de sua VNet, assim como uma VM em sua VNet. A implementação de rede é diferente de executar uma VM em sua VNet e é por isso que alguns recursos de rede ainda não estão disponíveis ao usar esse recurso.
 
-![Integração da VNet](media/web-sites-integrate-with-vnet/vnet-integration.png)
+![Integração VNet](media/web-sites-integrate-with-vnet/vnet-integration.png)
 
 Quando a integração VNet estiver habilitada, seu aplicativo ainda fará chamadas de saída para a Internet por meio dos mesmos canais que o normal. Os endereços de saída listados no portal de propriedades do aplicativo ainda são os endereços usados pelo seu aplicativo. As alterações para seu aplicativo são chamadas para serviços protegidos de ponto de extremidade de serviço ou endereços RFC 1918 vão para sua VNet. 
 
@@ -240,7 +244,7 @@ Se estiver usando a integração VNet necessária do gateway com o emparelhament
 1. Vá para o Plano do Serviço de Aplicativo > Rede > Interface do usuário da Integração VNet no portal.  Selecione a VNet à qual o aplicativo se conecta. Na seção de roteamento, adicione o intervalo de endereços da VNet que está emparelhada com a VNet à qual o aplicativo está conectado.  
 
 
-## <a name="pricing-details"></a>Detalhes do preço
+## <a name="pricing-details"></a>Detalhes de preço
 O recurso de integração VNet regional não tem nenhum custo adicional para uso além dos encargos do tipo de preço ASP.
 
 Há três encargos relacionados ao uso do recurso de integração VNet exigido pelo gateway:

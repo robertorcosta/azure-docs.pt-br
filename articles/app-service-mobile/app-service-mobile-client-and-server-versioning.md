@@ -14,14 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 7133e8bc7d04b3653b6b788347b7bc5176087f4c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 87c64a98d783d2604c985017fbce586ed51e5c9d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883465"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025433"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controle de versão de cliente e servidor em Aplicativos Móveis e Serviços Móveis
+> [!NOTE]
+> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
+
 A versão mais recente dos Serviços Móveis do Azure é o recurso **Aplicativos Móveis** do Serviço de Aplicativo do Azure.
 
 Os SDKs de cliente e servidor de Aplicativos Móveis são baseados originalmente nos Serviços Móveis, mas *não* são compatíveis entre si.
@@ -50,7 +54,7 @@ Você pode recusar a verificação de versão definindo um valor **verdadeiro** 
 ### <a name="MobileAppsClients"></a> SDKs de cliente de *Aplicativos* Móveis
 A verificação de versão foi introduzida começando com as seguintes versões do SDK do cliente para **Aplicativos Móveis do Azure**:
 
-| Plataforma cliente | Version | Valor de cabeçalho de versão |
+| Plataforma cliente | Versão | Valor de cabeçalho de versão |
 | --- | --- | --- |
 | Cliente gerenciado (Windows, Xamarin) |[2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) |2.0.0 |
 | iOS |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |
@@ -65,9 +69,9 @@ A verificação de versão está incluída nas seguintes versões do SDK do serv
 | Node.js |[azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) |2.0.0 |
 
 ### <a name="behavior-of-mobile-apps-backends"></a>Comportamento dos back-ends de Aplicativos Móveis
-| ZUMO-API-VERSION | Valor de MS_SkipVersionCheck | Resposta |
+| ZUMO-API-VERSION | Valor de MS_SkipVersionCheck | Response |
 | --- | --- | --- |
-| x.y.z ou Null |verdadeiro |200 - OK |
+| x.y.z ou Null |True |200 - OK |
 | Nulo |Falso/não especificado |400 - solicitação inválida |
 | 1.x.y |Falso/não especificado |400 - solicitação inválida |
 | 2.0.0-2.x.y |Falso/não especificado |200 - OK |

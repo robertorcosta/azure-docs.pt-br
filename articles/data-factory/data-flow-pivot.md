@@ -6,15 +6,15 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 0b68007f8c3383997f0d31888198af866d38b590
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 1412f7d822d83a8712d27dd4e86311567d6ac714
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178646"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029304"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Transformação dinâmica do Azure data factory
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Use Dinamizar no Fluxo de Dados do ADF como uma agregação em que uma ou mais colunas de agrupamento tem seus valores de linha distintos transformados em colunas individuais. Basicamente, você pode dinamizar os valores de linha em novas colunas (transformar dados em metadados).
 
@@ -60,7 +60,7 @@ A transformação dinâmica produzirá novos nomes de coluna dinâmicos com base
 
 A tabela dinâmica gera novos nomes de coluna dinamicamente com base em valores de linha. Você pode transformar essas novas colunas em metadados que podem ser referenciados posteriormente no fluxo de dados. Para fazer isso, clique na guia Visualização de dados. Todas as novas colunas geradas pela transformação dinâmica aparecem com um ícone "descompasso" no cabeçalho da tabela. Clique no botão "mapear descompassos" para transformar essas novas colunas em metadados, tornando-as parte do modelo do fluxo de dados.
 
-![Colunas dinâmicas](media/data-flow/newpivot1.png "Mapear colunas dinâmicas descompassos")
+Colunas dinâmicas do(media/data-flow/newpivot1.png "mapa") ![de colunas]dinâmicas
 
 ### <a name="landing-new-columns-in-sink"></a>Novas colunas de aterrissagem no coletor
 

@@ -1,23 +1,23 @@
 ---
-title: Conceitos de servidor no banco de dados do Azure para PostgreSQL – servidor único
-description: Este artigo fornece diretrizes e considerações para configurar e gerenciar o banco de dados do Azure para PostgreSQL – servidor único.
+title: Conceitos de servidor no banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo fornece considerações e diretrizes para configurar e gerenciar o banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: bc135e58d0fbabc809f3718915e9f4e35b8ed875
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd7c24489e8ac7b26cb703923ddf9cbb741cfd68
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067150"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029974"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Banco de Dados do Azure para PostgreSQL – Servidor único
-Este artigo fornece diretrizes e considerações para trabalhar com o banco de dados do Azure para PostgreSQL – servidor único.
+Este artigo fornece considerações e diretrizes para trabalhar com o banco de dados do Azure para PostgreSQL-servidor único.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>O que é um Banco de Dados do Azure para servidor PostgreSQL?
-Um servidor no banco de dados do Azure para PostgreSQL - opção de implantação de servidor único é um ponto administrativo central para vários bancos de dados. É a mesma construção de servidor PostgreSQL com a qual talvez você já esteja familiarizado no mundo local. Especificamente, o serviço PostgreSQL é gerenciado, oferece garantias de desempenho, expõe acesso e recursos no nível do servidor.
+Um servidor no banco de dados do Azure para PostgreSQL-opção de implantação de servidor único é um ponto administrativo central para vários bancos de dados. É a mesma construção de servidor PostgreSQL com a qual talvez você já esteja familiarizado no mundo local. Especificamente, o serviço PostgreSQL é gerenciado, oferece garantias de desempenho, expõe acesso e recursos no nível do servidor.
 
 Um Banco de Dados do Azure para servidor PostgreSQL:
 
@@ -64,6 +64,6 @@ Como um serviço gerenciado para Postgres, os parâmetros configuráveis no banc
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para obter uma visão geral do serviço, consulte  [Banco de Dados do Azure para PostgreSQL na visão geral](overview.md).
-- Para obter informações sobre cotas e limitações de recursos específicas com base na sua  **camada de serviço**, consulte  [Service tiers](concepts-pricing-tiers.md).
+- Para obter informações sobre cotas de recursos e limitações específicas com base em sua **camada de serviço**, consulte [camadas de serviço](concepts-pricing-tiers.md).
 - Para obter informações sobre como se conectar ao serviço, consulte  [Bibliotecas de conexão do Banco de Dados do Azure para PostgreSQL](concepts-connection-libraries.md).
 - Exibir e editar os parâmetros de servidor por meio de [portal do Azure](howto-configure-server-parameters-using-portal.md) ou [CLI do Azure](howto-configure-server-parameters-using-cli.md).

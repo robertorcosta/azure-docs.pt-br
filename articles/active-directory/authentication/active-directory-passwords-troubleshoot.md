@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30fd1ebf8a59c80764335be47c986ea77f5d1438
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c4f236f2f2fdbf2736f87f754f48387f9f41850d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879180"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024627"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solucionar problemas de autoatendimento de redefinição de senha
 
@@ -97,7 +97,7 @@ Uma prática recomendada ao solucionar problemas com o Write-back de senha é in
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Se a origem do evento é ADSync
 
-| Código | Nome ou mensagem | Descrição |
+| Código | Nome ou mensagem | DESCRIÇÃO |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: “Uma restrição impede que a senha seja alterada para a atual especificada.” | Esse evento ocorre quando o serviço de write-back de senha tenta definir uma senha no diretório local que não atende à idade, ao histórico, à complexidade da senha ou aos requisitos de filtragem do domínio. <br> <br> Se você tiver uma duração mínima da senha e tiver alterado a senha recentemente nessa janela de tempo, não poderá alterar a senha novamente até que ela atinja a duração especificada no domínio. Para fins de teste, a idade mínima deve ser definida como 0. <br> <br> Se você tiver requisitos de histórico de senha habilitados, deve selecionar uma senha que não foi usada nas últimas *X* vezes, em que *X* é a configuração de histórico de senha. Se você selecionar uma senha que foi usada nas últimas *X* vezes, verá uma falha. Para fins de teste, o histórico de senha deve ser definido como 0. <br> <br> Se você tiver requisitos de complexidade de senha, todos eles serão impostos quando o usuário tentar alterar ou redefinir uma senha. <br> <br> Se você tiver filtros de senha habilitados e um usuário selecionar uma senha que não atende aos critérios de filtragem, a operação de redefinição ou de alteração falhará. |
 | 6329 | MMS(3040): admaexport.cpp(2837): O servidor não contém o controle da política de senha do LDAP. | Esse problema ocorre se o controle LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) não está habilitado nos controladores de domínio. Para usar o recurso de write-back de senha, é necessário habilitar o controle. Para fazer isso, os DCs devem estar no Windows Server 2008R2 ou posterior. |
@@ -105,7 +105,7 @@ Uma prática recomendada ao solucionar problemas com o Write-back de senha é in
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Se a origem do evento é PasswordResetService
 
-| Código | Nome ou mensagem | Descrição |
+| Código | Nome ou mensagem | DESCRIÇÃO |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | Esse evento indica que o serviço local detectou uma solicitação de redefinição de senha de um usuário federado, com autenticação de passagem ou sincronizado com hash de senha proveniente da nuvem. Esse evento é o primeiro evento em cada operação de write-back de redefinição de senha. |
 | 31002 | PasswordResetSuccess | Esse evento indica que o usuário selecionou uma nova senha durante uma operação de redefinição de senha. Determinamos que essa senha atende aos requisitos de senha corporativa. A senha foi gravada com êxito novamente no ambiente do Active Directory local. |
@@ -174,6 +174,9 @@ Para ter mais granularidade, confira a lista atualizada de [Intervalos de IP do 
 
 Para saber mais, examine os pré-requisitos de conectividade no artigo [Pré-requisitos para o Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).
 
+> [!NOTE]
+> O SSPR também poderá falhar se a conta se as configurações "a senha nunca expirar" ou "o usuário não pode alterar a senha" estiverem configuradas na conta no AD DS local. 
+
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Reiniciar o serviço Sincronização do Azure AD Connect
 
 Para resolver problemas de conectividade ou outros problemas temporários com o serviço, reinicie o serviço Sincronização do Azure AD Connect:
@@ -229,7 +232,7 @@ O Azure AD Connect requer a permissão para **Redefinir Senha** do Active Direct
 
 1. Faça o logon no servidor do Azure AD Connect e inicie o **Synchronization Service Manager** selecionando **Iniciar** > **Serviço de Sincronização**.
 1. Na guia **Conectores**, selecione o conector do **Active Directory Domain Services** local e selecione **Propriedades**.  
-   ![Synchronization Service Manager mostrando como editar propriedades](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+   ![Synchronization Service Manager mostrando como editar propriedades @ no__t-1  
   
 1. Na janela pop-up, selecione **Conectar-se à Floresta do Active Directory** e anote a propriedade **User name**. Essa propriedade é a conta de AD DS usada pelo Azure AD Connect para executar a sincronização de diretório. Para que o Azure AD Connect execute o write-back de senha, a conta do AD DS deve ter permissão para redefinir senha.  
 
@@ -255,7 +258,7 @@ O Azure AD Connect requer a permissão para **Redefinir Senha** do Active Direct
 
 Caso você tenha uma pergunta geral sobre o Azure AD e o autoatendimento de redefinição de senha, peça ajuda à comunidade nos [fóruns do Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Os membros da comunidade incluem engenheiros, gerentes de produto, MVPs e colegas profissionais de TI.
 
-## <a name="contact-microsoft-support"></a>Entrar em contato com o suporte da Microsoft
+## <a name="contact-microsoft-support"></a>Contatar Suporte da Microsoft
 
 Caso não encontre a resposta para um problema, nossas equipes de suporte sempre estarão disponíveis para fornecer assistência adicional.
 
@@ -270,7 +273,7 @@ Para uma assistência adequada, solicitamos que você forneça o máximo de deta
 
   * Se você estiver em uma página sem um código de suporte na parte inferior, selecione F12 para o SID e o CID e envie esses dois resultados para o engenheiro de suporte.
 * **Data, hora e fuso horário**: Inclua a data e a hora exatas *com o fuso horário* em que ocorreu o erro.
-* **ID de Usuário**: Qual usuário viu o erro? Um exemplo é *o\@usuário contoso.com*.
+* **ID de Usuário**: Qual usuário viu o erro? Um exemplo é *User\@contoso.com*.
    * Trata-se de um usuário federado?
    * Trata-se de um usuário de autenticação de passagem?
    * Um usuário sincronizado com hash de senha?

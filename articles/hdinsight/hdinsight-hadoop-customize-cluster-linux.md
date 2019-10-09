@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/02/2019
-ms.openlocfilehash: df9e6e3a9116b9a4490d8847e9a9d3e9e112f4f7
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.date: 10/03/2019
+ms.openlocfilehash: 16b0fdcbae51b30e14fbf7ea4d98699dfaf19804
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098787"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035747"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizar clusters do Azure HDInsight usando ações de script
 
@@ -144,11 +144,11 @@ Scripts de ação de script podem ser usados por meio dos utilitários a seguir:
 
 O HDInsight fornece scripts para instalar os seguintes componentes nos clusters do HDInsight:
 
-| Nome | script |
+| NOME | Script |
 | --- | --- |
 | Adicionar uma conta de Armazenamento do Azure |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Confira [Adicionar outras contas de armazenamento ao HDInsight](hdinsight-hadoop-add-storage.md). |
-| Instalar Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Confira [Instalar e usar o Hue em clusters Hadoop do HDInsight](hdinsight-hadoop-hue-linux.md). |
-| Instalar Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Confira [Instalar o Apache Giraph em clusters Hadoop do HDInsight](hdinsight-hadoop-giraph-install-linux.md). |
+| Instalar o Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Confira [Instalar e usar o Hue em clusters Hadoop do HDInsight](hdinsight-hadoop-hue-linux.md). |
+| Instalar o Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Confira [Instalar o Apache Giraph em clusters Hadoop do HDInsight](hdinsight-hadoop-giraph-install-linux.md). |
 | Pré-carregar bibliotecas Hive |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Confira [Adicionar bibliotecas Apache Hive personalizadas ao criar seu cluster do HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Usar uma ação de script durante a criação do cluster
@@ -157,13 +157,9 @@ Esta seção explica as diferentes maneiras de usar ações de script ao criar u
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Usar uma ação de script durante a criação do cluster no portal do Azure
 
-1. Comece a criar um cluster conforme descrito em [Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md). Durante a criação do cluster, você chega a uma página __Resumo do cluster__. Na página __Resumo do cluster__, selecione o link __Editar__ para __Configurações avançadas__.
+1. Comece a criar um cluster conforme descrito em [Criar clusters baseados em Linux no HDInsight usando o portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md). Durante a criação do cluster, você chega à etapa 6, **ações de script**. Navegue até @no__t **opcional**-1 **+ Enviar novo**.
 
-    ![Configurações avançadas de cluster portal do Azure](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
-
-1. Na seção __Configurações avançadas__, selecione __Ações de script__. Na seção __Ações de script__, selecione __+ Enviar novo__.
-
-    ![Ações de script do portal enviar novo](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
+    ![Ação de script de cluster portal do Azure](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-classic-script-action.png)
 
 1. Use a entrada __Selecionar um script__ para escolher um script criado previamente. Para usar um script personalizado, selecione __Personalizado__. Em seguida, forneça o __Nome__ e o __URI do script de bash__ para o seu script.
 
@@ -174,8 +170,8 @@ Esta seção explica as diferentes maneiras de usar ações de script ao criar u
     | Propriedade | Valor |
     | --- | --- |
     | Selecionar um script | Para usar seu próprio script, selecione __Personalizado__. Caso contrário, selecione um dos scripts fornecidos. |
-    | Nome |Especifique um nome para a ação de script. |
-    | URI do script de bash |Especificar o URI do script. |
+    | NOME |Especifique um nome para a ação de script. |
+    | URI do script Bash |Especificar o URI do script. |
     | Cabeçalho/trabalhador/ZooKeeper |Especifique os nós em que o script deve ser executado: **Head**, **Worker** ou **ZooKeeper**. |
     | parâmetros |Especifique os parâmetros, se exigido pelo script. |
 
@@ -185,7 +181,7 @@ Esta seção explica as diferentes maneiras de usar ações de script ao criar u
 
     ![Ações múltiplas de script do HDInsight](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
-    Ao terminar de adicionar scripts, use o botão __Selecionar__ e, em seguida, o botão __Avançar__ para retornar à seção __Resumo do cluster__.
+    Quando você terminar de adicionar scripts, selecione o botão __selecionar__ e, em seguida, o botão __Avançar__ para continuar na seção __Resumo do cluster__ .
 
 1. Para criar o cluster, selecione __Criar__ na seleção __Resumo do cluster__.
 
@@ -235,9 +231,7 @@ Esta seção explica como aplicar ações de script a um cluster em execução.
 
 Vá para o [Portal do Azure](https://portal.azure.com):
 
-1. No menu esquerdo, selecione **Todos os serviços**.
-
-1. Em **ANÁLISES**, selecione **Clusters do HDInsight**.
+1. No menu à esquerda, navegue até **todos os serviços** >  **Analytics** > **clusters HDInsight**.
 
 1. Selecione seu cluster na lista para abrir a exibição padrão.
 
@@ -256,8 +250,8 @@ Vá para o [Portal do Azure](https://portal.azure.com):
     | Propriedade | Valor |
     | --- | --- |
     | Selecionar um script | Para usar seu próprio script, selecione __personalizado__. Caso contrário, selecione um script fornecido. |
-    | Nome |Especifique um nome para a ação de script. |
-    | URI do script de bash |Especificar o URI do script. |
+    | NOME |Especifique um nome para a ação de script. |
+    | URI do script Bash |Especificar o URI do script. |
     | Head/Worker/ZooKeeper |Especifique os nós em que o script deve ser executado: **Head**, **Worker** ou **ZooKeeper**. |
     | parâmetros |Especifique os parâmetros, se exigido pelo script. |
 
@@ -336,9 +330,7 @@ Para obter um exemplo de como usar o SDK .NET para aplicar scripts a um cluster,
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-1. No menu esquerdo, selecione **Todos os serviços**.
-
-1. Em **ANÁLISES**, selecione **Clusters do HDInsight**.
+1. No menu à esquerda, navegue até **todos os serviços** > **Analytics** > **clusters HDInsight**.
 
 1. Selecione seu cluster na lista para abrir a exibição padrão.
 
@@ -403,8 +395,8 @@ Dois tipos de componentes de software livre estão disponíveis no serviço do H
 
   * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
   * A linguagem de consulta do Hive, [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
-  * [Apache Mahout](https://mahout.apache.org/). 
-    
+  * [Apache Mahout](https://mahout.apache.org/).
+
     Uma lista completa de componentes de cluster está disponível em [Quais são os componentes e versões do Apache Hadoop disponíveis com o HDInsight?](hdinsight-component-versioning.md)
 
 * **Componentes personalizados**. Como usuário do cluster, você pode instalar ou usar em sua carga de trabalho qualquer componente disponível na comunidade ou criado por você.

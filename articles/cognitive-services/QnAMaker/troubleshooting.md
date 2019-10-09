@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 00d3d63ff1a5b4d5dab0534e039145b97091af87
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 51d21dca1d8a5223e67cb7ea8489800989cff55c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802163"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026020"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solução de problemas para QnA Maker
 
@@ -99,7 +99,7 @@ Confira [Locais da fonte de dados](./Concepts/data-sources-supported.md#data-sou
 
 ### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>As atualizações que eu fiz em minha base de dados de conhecimento não são refletidas na publicação. Por que não?
 
-Todas as operações de edição, seja na atualização, teste ou configuração de uma tabela, precisam ser salvas antes de serem publicadas. Clique no botão **Salvar e treinar** após cada operação de edição.
+Todas as operações de edição, seja na atualização, teste ou configuração de uma tabela, precisam ser salvas antes de serem publicadas. Certifique-se de clicar no botão **salvar e treinar** após cada operação de edição.
 
 ### <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>A base de dados de conhecimento oferece suporte a dados avançados ou multimídia?
 
@@ -123,7 +123,7 @@ Quando o ícone de cuidado está ao lado do valor para a base de dados de Conhec
 
 Se você excluir um índice do Azure Search, a operação será final e o índice não poderá ser recuperado. 
 
-### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>Excluí meu `testkb` índice no meu serviço de pesquisa. Como posso corrigir isso? 
+### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>Excluí meu índice `testkb` no meu serviço de pesquisa. Como posso corrigir isso? 
 
 Seus dados antigos não podem ser recuperados. Crie um novo recurso QnA Maker e crie sua base de dados de conhecimento novamente.
 
@@ -179,7 +179,7 @@ Você precisa ter as seguintes informações sobre sua base de dados de conhecim
 
 Com essas informações, vá para o serviço de aplicativo do bot no portal do Azure. Em **configurações-> configuração – > configurações do aplicativo**, altere esses valores.  
 
-A chave do ponto de extremidade da base de `QnAAuthkey` dados de conhecimento é rotulada no serviço ABS. 
+A chave do ponto de extremidade da base de dados de conhecimento é rotulada `QnAAuthkey` no serviço ABS. 
 
 ### <a name="can-two-or-more-client-applications-share-a-knowledge-base"></a>Dois ou mais aplicativos cliente podem compartilhar uma base de dados de conhecimento? 
 

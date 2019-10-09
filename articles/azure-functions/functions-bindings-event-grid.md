@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: d2e15c63ac6d93824aeab3f251c2860b7ea114d6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fbe41bdc5f253f1a605aa291a31191b7339b9850
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086821"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030588"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Gatilho de Grade de Eventos para o Azure Functions
 
@@ -302,7 +302,7 @@ No [biblioteca de tempo de execução de funções Java](/java/api/overview/azur
 
 ## <a name="attributes"></a>Atributos
 
-Em [bibliotecas de classes de C#](functions-dotnet-class-library.md), utilize o atributo [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs).
+Em [bibliotecas de classes de C#](functions-dotnet-class-library.md), utilize o atributo [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs).
 
 Aqui está um atributo `EventGridTrigger` em uma assinatura de método:
 
@@ -320,7 +320,7 @@ Para ver um exemplo completo, confira o exemplo de C#.
 
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json*. Não há parâmetros ou propriedades do construtor para definir o atributo `EventGridTrigger`.
 
-|Propriedade function.json |Descrição|
+|Propriedade function.json |DESCRIÇÃO|
 |---------|---------|
 | **type** | Obrigatório – deve ser definido como `eventGridTrigger`. |
 | **direction** | Obrigatório – deve ser definido como `in`. |

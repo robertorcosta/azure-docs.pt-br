@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: d5326a3a154ed6f193b5527a0150ad84c843c273
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d5f64f0a9abfa736c1db0e562b6f18ecfc1f6de5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570442"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023839"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o padrão de banco de dados por locatário com o Banco de Dados SQL
 
@@ -74,7 +74,7 @@ Escolha seus nomes agora e os escreva.
 
 1. Para monitorar o status da implantação, selecione **Notificações** (o ícone de sino à direita da caixa de pesquisa). A implantação do aplicativo Wingtip Tickets SaaS leva aproximadamente cinco minutos.
 
-   ![Implantação com êxito](media/saas-dbpertenant-get-started-deploy/succeeded.png)
+   ![Implantação bem-sucedida](media/saas-dbpertenant-get-started-deploy/succeeded.png)
 
 ## <a name="download-and-unblock-the-wingtip-tickets-management-scripts"></a>Baixar e desbloquear os scripts de gerenciamento de Wingtip Tickets
 
@@ -114,9 +114,9 @@ Uma página central do **Hub de Eventos** fornece uma lista de links para os loc
 
     ![Hub de Eventos](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-2. Selecione **Fabrikam Jazz Club** no Hub de Eventos.
+2. Selecione **Fabrikam Jazz Club** no Hub de eventos.
 
-    ![Eventos](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
+    ![Events](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
 ### <a name="azure-traffic-manager"></a>Gerenciador de Tráfego do Azure
 
@@ -126,7 +126,7 @@ O aplicativo Wingtip usa o [*Gerenciador de Tráfego do Azure*](../traffic-mana
 
     As partes do formato anterior são explicadas na tabela a seguir.
 
-    | Parte da URL        | Descrição       |
+    | Parte da URL        | DESCRIÇÃO       |
     | :-------------- | :---------------- |
     | http://events.wingtip-dpt | As partes de eventos do aplicativo Wingtip.<br /><br /> *-dpt* distingue a implementação do *banco de dados por locatário* dos tíquetes Wingtip de outras implementações. São exemplos o aplicativo por locatário *único* ( *-sa*) ou as implementações do *banco de dados multilocatário* ( *-mt*). |
     | . *&lt;usuário&gt;* | *af1* no exemplo. |
@@ -220,14 +220,14 @@ Atualize o Hub de Eventos para fazer com que o novo locatário apareça na lista
 
 Agora que você começou a executar uma carga na coleção de locatários, vamos analisar alguns dos recursos que foram implantados.
 
-1. No [portal do Azure](https://portal.azure.com), navegue para sua lista de servidores SQL. Abra o servidor **catalog-dpt-&lt;USUÁRIO&gt;**  .
+1. No [portal do Azure](https://portal.azure.com), navegue para sua lista de servidores SQL. Abra o servidor **catalog-dpt-&lt;USER&gt;** .
     - O servidor de catálogo contém dois bancos de dados, **tenantcatalog** e **basetenantdb** (um banco de dados modelo que é copiado para criar novos locatários).
 
    ![Bancos de dados](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Volte à lista de servidores SQL.
 
-3. Abra o servidor **tenants1-dpt-&lt;USUÁRIO&gt;**  que contém os bancos de dados de locatário.
+3. Abra o servidor**tenants1-dpt-&lt;USER&gt;** que contém os bancos de dados de locatário.
 
 4. Confira os itens a seguir:
 
@@ -240,7 +240,7 @@ Agora que você começou a executar uma carga na coleção de locatários, vamos
 
 Depois de *LoadGenerator.ps1* ser executado por vários minutos, dados suficientes devem estar disponíveis para começar a olhar para alguns recursos de monitoramento. Esses recursos são criados em pools e bancos de dados.
 
-Navegue até o servidor **tenants1-dpt-&lt;usuário&gt;** e selecione **Pool1** para exibir a utilização de recursos do pool. Nos gráficos a seguir, o gerador de carga foi executado em uma hora.
+Navegue até o servidor **tenants1-dpt-&lt;usuário&gt;** e selecione **Pool1** para exibir a utilização de recursos do pool. Nos gráficos a seguir, o gerador de carga foi executado em uma hora.
 
    ![Monitorar pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 

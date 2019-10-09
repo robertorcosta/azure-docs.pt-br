@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 77c90cccbbfa5865878ae4dc47e5009697560ed3
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
-ms.translationtype: HT
+ms.openlocfilehash: a52f9fca172e42aa39a4507347185026451a8ff2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001319"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029030"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de roteamento da Rota Expressa
 Para se conectar aos serviços de nuvem da Microsoft usando a Rota Expressa, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos a seguir:
@@ -163,21 +163,21 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 | Oeste dos EUA 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
 | Centro-oeste dos EUA | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
 | Centro-Norte dos EUA | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 |
-| Centro-Sul dos EUA | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
+| Centro-Sul dos Estados Unidos | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
 | EUA Central | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
 | Canadá Central | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 |
 | Leste do Canadá | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 |
 | **América do Sul** | |
 | Sul do Brasil | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 |
 | **Europa** | |
-| Europa Setentrional | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
+| Norte da Europa | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
 | Europa Ocidental | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
 | Sul do Reino Unido | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
 | Oeste do Reino Unido | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
 | França Central | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | Sul da França | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
 | **Pacífico Asiático** | |
-| Leste da Ásia | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
+| Ásia Oriental | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
 | Sudeste da Ásia | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
 | **Japão** | |
 | Leste do Japão | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
@@ -215,14 +215,16 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 
 | **Serviço** | **Valor de comunidade BGP** |
 | --- | --- |
-| Exchange Online | 12076:5010 |
-| SharePoint Online | 12076:5020 |
-| Skype for Business Online | 12076:5030 |
+| Exchange Online * * | 12076:5010 |
+| SharePoint Online * * | 12076:5020 |
+| Skype for Business Online * * | 12076:5030 |
+| CRM Online |12076:5040 |
 | Serviços Globais do Azure* | 12076:5050 |
-| Outros serviços Online do Office 365 | 12076:5100 |
+| Active Directory do Azure |12076:5060 |
+| Outros serviços online do Office 365 * * | 12076:5100 |
 
 *Os Serviços Globais do Azure incluem apenas o Azure DevOps neste momento.
-
+\* * Autorização necessária da Microsoft, consulte [Configurar filtros de rota para o emparelhamento da Microsoft](how-to-routefilter-portal.md) 
 
 > [!NOTE]
 > A Microsoft não atende a valores de comunidade BGP definidos por você nas rotas anunciadas para a Microsoft.

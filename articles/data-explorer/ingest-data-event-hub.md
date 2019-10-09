@@ -7,14 +7,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: a0568d3c3258fe082fe8451820fe7a25390cfe78
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
-ms.translationtype: HT
+ms.openlocfilehash: 102cfa81c6093ff1aeefdd8d1937143a25cf76f5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996778"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028498"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingerir dados do Hub de Eventos no Azure Data Explorer
+
+> [!div class="op_single_selector"]
+> * [Portal](ingest-data-event-hub.md)
+> * [C#](data-connection-event-hub-csharp.md)
+> * [Python](data-connection-event-hub-python.md)
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O Azure Data Explorer oferece a ingestão (carregamento de dados) dos Hubs de Eventos, uma plataforma de big data streaming e um serviço de ingestão de eventos. Os [Hubs de Eventos](/azure/event-hubs/event-hubs-about) podem processar milhões de eventos por segundo quase em tempo real. Neste artigo, você cria um hub de eventos, conecta-o do Azure Data Explorer e vê o fluxo de dados por meio do sistema.
 
@@ -111,8 +116,8 @@ Agora você se conecta ao hub de eventos no Azure Data Explorer. Quando essa con
     **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Nome da conexão de dados | *teste de hub de conexão* | O nome da conexão que você deseja criar no Azure Data Explorer.|
-    | Namespace de Hub de Eventos | Um nome de namespace exclusivo | O nome escolhido anteriormente que identifica seu namespace. |
-    | Hub de eventos | *test-hub* | O hub de eventos que você criou. |
+    | Namespace do Hub de Eventos | Um nome de namespace exclusivo | O nome escolhido anteriormente que identifica seu namespace. |
+    | Hub de Eventos | *test-hub* | O hub de eventos que você criou. |
     | Grupo de consumidores | *grupo de teste* | O grupo de consumidores definido no hub de eventos que você criou. |
     | Propriedades do sistema de eventos | Selecionar propriedades relevantes | As [Propriedades do sistema do hub de eventos](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Se houver vários registros por mensagem de evento, as propriedades do sistema serão adicionadas ao primeiro. Ao adicionar propriedades do sistema, [crie](/azure/kusto/management/tables#create-table) ou [atualize](/azure/kusto/management/tables#alter-table-and-alter-merge-table) o esquema de tabela e o [mapeamento](/azure/kusto/management/mappings) para incluir as propriedades selecionadas. |
     | | |
@@ -199,7 +204,7 @@ Se você não planeja usar seu hub de eventos novamente, limpe **test-hub-rg** p
 
 1. No portal do Azure, selecione **Grupos de recursos** na extremidade esquerda, depois selecione o recurso de grupo que você criou.  
 
-    Se o menu à esquerda estiver recolhido, selecione ![Botão Expandir](media/ingest-data-event-hub/expand.png) para expandi-lo.
+    Se o menu à esquerda estiver recolhido, selecione ![botão Expandir](media/ingest-data-event-hub/expand.png) para expandi-lo.
 
    ![Selecione o grupo de recursos para excluir](media/ingest-data-event-hub/delete-resources-select.png)
 

@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 67a6de6d85a58f48af4761e0b5d5b0a1a4d74b1a
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 9862866d5cddb227d9417ac15db6b8ea851507e6
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703405"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030298"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Construtor de Expressões de Fluxo de Dados de Mapeamento
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 No Fluxo de Dados de Mapeamento do Azure Data Factory, você encontrará caixas de expressões nas quais será possível inserir expressões para transformação de dados. Use colunas, campos, variáveis, parâmetros, funções do fluxo de dados nessas caixas. Para construir a expressão, use o Construtor de Expressões que é iniciado clicando na caixa de texto de expressões dentro da transformação. Às vezes, você também verá opções de "Coluna Computada" ao selecionar colunas para transformação. Ao clicar nessa opção, você também verá a inicialização do Construtor de Expressões.
 
@@ -51,7 +51,7 @@ Adicione comentários às expressões usando sintaxe de comentário de linha ún
 
 ![Comentários](media/data-flow/comments.png "Comentários")
 
-## <a name="regular-expressions"></a>Expressões Regulares
+## <a name="regular-expressions"></a>Expressões regulares
 
 A linguagem de expressão do Fluxo de Dados do Azure Data Factory, [documentação de referência completa aqui](https://aka.ms/dataflowexpressions), habilita funções que incluem sintaxe de expressão regular. Ao usar funções de expressão regular, o construtor de expressões tentará interpretar a barra invertida (\\) como uma sequência de caracteres de escape. Ao usar barras invertidas em sua expressão regular, coloque todo o Regex em tiques (\`) ou use uma barra invertida dupla.
 

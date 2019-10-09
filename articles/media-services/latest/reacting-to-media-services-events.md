@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: d8cb8fdebb5a7e4bcbc9f979c98085e90ebd4c68
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 07ad39bdcec6e4b00d3b47553930fc05694ca2af
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147151"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026628"
 ---
 # <a name="handling-event-grid-events"></a>Lidando com os eventos da Grade de Eventos
 
@@ -40,7 +40,7 @@ Aplicativos que manipulam eventos de Serviços de Mídia devem seguir algumas pr
 * Use a correspondência de prefixo e sufixo "subject" para limitar os eventos para um evento específico.
 
 > [!NOTE]
-> Os eventos estão sujeitos à Contrato de Nível de Serviço de grade de eventos [(SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/). Se você quiser obter notificações de eventos usando APIs, consulte exemplos de como consumir eventos, com o SDK do [.net](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/ContentProtection/BasicAESClearKey) ou o [SDK do Java](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/BasicAESClearKey).
+> Os eventos estão sujeitos à Contrato de Nível de Serviço de grade de eventos [(SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/). Se você quiser obter notificações de eventos usando APIs, consulte exemplos de como consumir eventos, com o SDK do [.net](https://github.com/Azure-Samples/media-services-v3-dotnet) ou o [SDK do Java](https://github.com/Azure-Samples/media-services-v3-java).
 
 ## <a name="next-steps"></a>Próximas etapas
 

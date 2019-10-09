@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8cb5c82e551ed6299f754f518ebeebca0be4964d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: ca17d049d988b2bc8b60249d99c03f70c555d3fb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679313"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023744"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configure o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C
 
@@ -25,7 +25,7 @@ O fluxo de credenciais de senha de proprietário do recurso (ROPC) é um fluxo d
 
 No Azure Active Directory B2C (Azure AD B2C), há suporte para as seguintes opções:
 
-- **Cliente nativo**: Interação do usuário durante a autenticação ocorre quando o código é executado em um dispositivo do lado do usuário. O dispositivo pode ser um aplicativo móvel que está sendo executado em um sistema operacional nativo, como Android, ou em execução em um navegador, como JavaScript.
+- **Cliente nativo**: Interação do usuário durante a autenticação ocorre quando o código é executado em um dispositivo do lado do usuário. O dispositivo pode ser um aplicativo móvel em execução em um sistema operacional nativo, como Android e iOS.
 - **Fluxo de cliente público**: Somente credenciais de usuário, coletadas por um aplicativo, são enviadas na chamada de API. As credenciais do aplicativo não são enviadas.
 - **Adicionar novas declarações**: O conteúdo do token de ID pode ser alterado para adicionar novas declarações.
 

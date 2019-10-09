@@ -14,21 +14,21 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: eed900ee54f62056eceeb35a43a4ba6526b049ca
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a94b302ad813094cb4ce67e4bffc3dd43586366b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447083"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027050"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Criar um Aplicativo Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 > [!NOTE]
-> Visual Studio App Center está investindo em novos e integrados serviços essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **construir**, **teste** e **distribuir** services para configurar o pipeline de integração contínua e entrega. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso do seu aplicativo usando o **Analytics** e **diagnóstico** serviços e entre em contato com usuários usando o **enviar por Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados do aplicativo na nuvem. Fazer check-out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started) hoje mesmo.
->
+> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo Xamarin Android. Para saber mais, confira [O que são Aplicativos Móveis](app-service-mobile-value-prop.md).
 
 Uma captura de tela do aplicativo completo está disponível abaixo:
@@ -53,18 +53,18 @@ Você acabou de provisionar um back-end do aplicativo móvel do Azure que pode s
 ## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Criar uma conexão de banco de dados e configurar o projeto de cliente e servidor
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="run-the-xamarinandroid-app"></a>Execute o aplicativo xamarin. Android
-1. Abra o projeto xamarin. Android.
+## <a name="run-the-xamarinandroid-app"></a>Executar o aplicativo Xamarin. Android
+1. Abra o projeto Xamarin. Android.
 
-2. Vá para o [portal do Azure](https://portal.azure.com/) e navegue até o aplicativo móvel que você criou. Sobre o `Overview` folha, procure a URL que é o ponto de extremidade público para seu aplicativo móvel. Exemplo – o nome do site para o meu nome de aplicativo "test123" será https://test123.azurewebsites.net.
+2. Vá para a [portal do Azure](https://portal.azure.com/) e navegue até o aplicativo móvel que você criou. Na folha `Overview`, procure a URL que é o ponto de extremidade público para seu aplicativo móvel. Exemplo – o sitename para o nome do meu aplicativo "test123" será https://test123.azurewebsites.net.
 
-3. Abra o arquivo `ToDoActivity.cs` nesta pasta - xamarin.android/ZUMOAPPNAME/ToDoActivity.cs. O nome do aplicativo é `ZUMOAPPNAME`.
+3. Abra o arquivo `ToDoActivity.cs` nesta pasta-xamarin. Android/ZUMOAPPNAME/ToDoActivity. cs. O nome do aplicativo é `ZUMOAPPNAME`.
 
-4. Na `ToDoActivity` classe, substitua `ZUMOAPPURL` variável com o ponto de extremidade público acima.
+4. Na classe `ToDoActivity`, substitua a variável `ZUMOAPPURL` pelo ponto de extremidade público acima.
 
     `const string applicationURL = @"ZUMOAPPURL";`
 
-    torna-se
+    ficará
     
     `const string applicationURL = @"https://test123.azurewebsites.net";`
     
@@ -79,7 +79,7 @@ Você acabou de provisionar um back-end do aplicativo móvel do Azure que pode s
    > [!NOTE]
    > Você pode examinar o código que acessa o back-end do aplicativo móvel para consultar e inserir dados que estão localizados no arquivo ToDoActivity.cs C#.
    
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 Se você tiver problemas para compilar a solução, execute o gerenciador de pacotes NuGet e atualize os pacotes de suporte do `Xamarin.Android`. Os projetos de Início Rápido nem sempre incluem as últimas versões.
 
 Observe que todos os pacotes de suporte referenciados em seu projeto devem ter a mesma versão. O [pacote NuGet de Aplicativos Móveis do Azure](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) depende de `Xamarin.Android.Support.CustomTabs` para a plataforma Android e, portanto, se seu projeto usar pacotes de suporte mais recentes, será necessário instalar diretamente esse pacote com a versão necessária para evitar conflitos.

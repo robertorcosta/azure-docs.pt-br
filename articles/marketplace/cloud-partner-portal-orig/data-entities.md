@@ -1,37 +1,22 @@
 ---
 title: Entidades de dados
-description: Uma visão geral de entidades de dados.
+description: Este artigo de CPP foi substituído e vinculado ao artigo do PC; foi "uma visão geral das entidades de dados".
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: a382f9b3ce08bba266311c2cc1d5f868f1bc3143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 072e06527c7744891db163c637734f4878fe312c
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64934924"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034910"
 ---
 # <a name="data-entities"></a>Entidades de dados
 
-Este artigo define e fornece uma visão geral das entidades de dados. Além disso, inclui informações sobre os recursos das entidades de dados, os cenários em que dão suporte, as categorias que são usadas e os métodos de criá-las.
+O [portal do Cloud Partner](https://cloudpartner.azure.com/) não dá mais suporte à criação e ao gerenciamento do Dynamics 365 para ofertas de finanças e operações. Em vez disso, essa funcionalidade foi movida para o [portal do Microsoft Partner Center](https://partner.microsoft.com/). Para obter mais informações, consulte [criar uma nova oferta do Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-## <a name="overview"></a>Visão geral
-
-Uma entidade de dados é uma abstração da implementação física de tabelas de banco de dados. Por exemplo, em tabelas normalizadas, muitos dos dados de cada cliente podem ser armazenados em uma tabela de clientes e, em seguida, o restante pode ser distribuído em um pequeno conjunto de tabelas relacionadas. Nesse caso, a entidade de dados para o conceito de cliente aparece como uma exibição desnormalizada, na qual cada linha contém todos os dados da tabela de clientes e as tabelas relacionadas. Uma entidade de dados encapsula um conceito de negócio em um formato que facilita o desenvolvimento e a integração. A natureza abstrata de uma entidade de dados pode simplificar o desenvolvimento e a personalização de aplicativos. Posteriormente, a abstração também isola o código de aplicativo da inevitável rotatividade das tabelas físicas entre as versões.
-
-Resumidamente: a entidade de dados fornece abstração e encapsulamento conceituais (exibição desnormalizada) dos esquemas de tabelas subjacentes para representar conceitos e funcionalidades de dados-chave.
-
-## <a name="capabilities"></a>Funcionalidades
-
-Uma entidade de dados tem os recursos a seguir:
-
-- Substitui conceitos divergentes e fragmentados de AXD, entidades DIXF (Estrutura de Importação/Exportação de Dado) e consultas agregadas com um único conceito.
-- Fornece uma única pilha para capturar a lógica de negócios e habilitar cenários como importação/exportação, integração e programação.
-- Torna-se o mecanismo primário para exportar e importar pacotes de dados para o ALM (Gerenciamento do Ciclo de Vida do Aplicativo) e demonstrar cenários de dados.
-- Pode ser exposta como serviços OData e, em seguida, usada em cenários de integração síncrona estilo tabular e integrações do Microsoft Office.
-
-Consulte [Entidades de Dados](https://docs.microsoft.com/dynamics365/operations/dev-itpro/data-entities/data-entities) para obter mais informações.
+Antes de criar uma nova oferta do Dynamics 365 for Operations, você deve ler [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abra o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/directory) com a página **visão geral** selecionada. Siga as instruções em [criar uma nova oferta do Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) para criar sua oferta.

@@ -8,16 +8,16 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2a740d8ee0eb50cfa01f36bd8f5590a58e1e6627
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 8f4ed6de5ff47efa441c371b80670c500f57c9bb
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931924"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034052"
 ---
-# <a name="time-series-model"></a>Modelo de Série Temporal
+# <a name="time-series-model"></a>Modelo do Time Series
 
 Este artigo descreve a parte do modelo do Time Series da Versão Prévia do Azure Time Series Insights. Ele aborda o modelo em si, seus recursos e como começar a criar e atualizar seu próprio modelo.
 
@@ -25,7 +25,7 @@ Tradicionalmente, os dados que são coletados de dispositivos IoT não têm info
 
 Os Modelos do Time Series desempenham um papel vital em consultas e navegação porque eles contextualizam os dispositivo e as entidades que não são dispositivos. Os dados persistidos no modelo do Time Series permitem os cálculos de consulta de série temporal aproveitando as fórmulas armazenadas neles.
 
-[![Visão geral do modelo de série temporal](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
+[Visão geral do modelo da série @no__t 1Time](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
 ## <a name="key-capabilities"></a>Principais recursos
 
@@ -51,7 +51,7 @@ Os *tipos* do modelo do Time Series ajudam a definir variáveis ou fórmulas par
 
 ### <a name="time-series-model-type-json-example"></a>Exemplo JSON do tipo do modelo do Time Series
 
-Amostra:
+Exemplo:
 
 ```JSON
 {
@@ -76,17 +76,17 @@ Amostra:
 
 Para obter mais informações sobre tipos do modelo do Time Series, consulte a [documentação de referência](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
-### <a name="variables"></a>Variáveis
+### <a name="variables"></a>variáveis
 
 Os tipos do Time Series Insights têm variáveis que são cálculos nomeados usando valores dos eventos. As definições de variável do Time Series Insights contêm regras de fórmula e de computação. As definições de variáveis incluem *kind*, *value*, *filter*, *reduction* e *boundaries*. As variáveis são armazenadas na definição de tipo no modelo do Time Series e podem ser fornecidas embutidas por meio de APIs de consulta para substituir a definição armazenada.
 
 A matriz abaixo funciona como uma legenda para definições de variáveis:
 
-[![Tabela de definição de variável de tipo](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
+[tabela de definição de variável ![Type](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
 
-| Definição | Descrição |
+| Definição | DESCRIÇÃO |
 | --- | ---|
-| Tipo de variável |  Há suporte para tipos numéricos e *agregados* |
+| Tipo de variável |  Há suporte para tipos *numéricos* e *agregados* |
 | Filtro de variável | Os filtros de variável especificam uma cláusula de filtro opcional para restringir o número de linhas que está sendo considerado para a computação com base nas condições. |
 | Valor da variável | Os valores de variável são e devem ser usados na computação. O campo relevante para se referir ao ponto de dados em questão. |
 | Agregação de variáveis | A função de agregação da variável permite parte da computação. O Time Series Insights dá suporte a agregações regulares (ou seja, *min*, *mxx*, *avg*, *sum* e *count*). |
@@ -99,7 +99,7 @@ As hierarquias são definidas por *Hierarchy ID*, *name* e *source*. As hierarqu
 
 ### <a name="time-series-model-hierarchy-json-example"></a>Exemplo JSON de hierarquia do modelo do Time Series
 
-Amostra:
+Exemplo:
 
 ```JSON
 {
@@ -148,7 +148,7 @@ A propriedade *Name* é opcional e diferencia maiúsculas de minúsculas. Se *na
 
 ### <a name="time-series-model-instance-json-example"></a>Exemplo JSON de instância do modelo do Time Series
 
-Amostra:
+Exemplo:
 
 ```JSON
 {
@@ -170,7 +170,7 @@ Para obter mais informações sobre instâncias do modelo do Time Series, consul
 
 ### <a name="time-series-model-settings-example"></a>Exemplo de configurações do modelo do Time Series
 
-Amostra:
+Exemplo:
 
 ```JSON
 {

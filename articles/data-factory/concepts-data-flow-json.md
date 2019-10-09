@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 69dce46052c18eec7c3f1fa2082907ed62b367d6
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 37db3e153e8dfcbc1120fcb1f6d2f77187edc78e
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703338"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029657"
 ---
 # <a name="mapping-data-flow-json-handling"></a>Mapeando manipulação de JSON de fluxo de dados
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ## <a name="creating-json-structures-in-expression-editor"></a>Criando estruturas JSON no editor de expressão
 ### <a name="derived-column-transformation"></a>Transformação coluna derivada
@@ -163,7 +163,7 @@ map([1, 2, 3, 4], #item + 2) => [3, 4, 5, 6]
 map(['a', 'b', 'c', 'd'], #item + '_processed') => ['a_processed', 'b_processed', 'c_processed', 'd_processed']
 ```
 
-## <a name="reduce"></a>Diminu
+## <a name="reduce"></a>diminu
 Acumula elementos em uma matriz. A redução espera uma referência a um acumulador e um elemento na primeira função de expressão como #acc e #item e espera que o valor resultante como #result seja usado na segunda função de expressão.
 
 ### <a name="examples"></a>Exemplos
@@ -185,7 +185,7 @@ sort(['a3', 'b2', 'c1'],
         iif(#item1 >= #item2, 1, -1)) => ['a3', 'b2', 'c1']
 ```
 
-## <a name="contains"></a>contém
+## <a name="contains"></a>contains
 Retornará true se qualquer elemento na matriz fornecida for avaliado como true no predicado fornecido. Contains espera uma referência a um elemento na função de predicado como #item.
 
 ### <a name="examples"></a>Exemplos

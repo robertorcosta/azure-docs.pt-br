@@ -1,42 +1,21 @@
 ---
-title: Dynamics 365 para a guia Configurações do cliente Engagement oferecem | O Azure Marketplace
-description: Defina as configurações de uma oferta do Dynamics 365 for Customer Engagement no AppSource Marketplace.
+title: Guia de configurações da oferta do Dynamics 365 for Customer Engagement | Azure Marketplace
+description: Artigo de CPP preterido, artigo vinculado ao PC; foi "definir as configurações da oferta para uma oferta de aplicativo do Dynamics 365 for Customer Engagement no Marketplace do AppSource."
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 219a69632fe29b1d756702d97804613021b57006
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 71cea44a428fe9eca40ac70e56e6e0a80362115a
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942429"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033882"
 ---
 # <a name="dynamics-365-for-customer-engagement-offer-settings-tab"></a>Guia Configurações da Oferta do Dynamics 365 for Customer Engagement
 
-Este artigo descreve como definir as configurações da oferta de um aplicativo do Dynamics 365 for Customer Engagement.
+O [portal do Cloud Partner](https://cloudpartner.azure.com/) não dá mais suporte à criação e ao gerenciamento de ofertas do engajamento do cliente do Dynamics 365. Em vez disso, essa funcionalidade foi movida para o [portal do Microsoft Partner Center](https://partner.microsoft.com/). Para obter mais informações, consulte [criar um novo Dynamics 365 para o envolvimento do cliente & oferta do PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
 
-A página **Dynamics 365 for Customer Engagement** > **Nova Oferta** é aberta com o foco na guia **Configurações da Oferta**.  Um asterisco (*) anexado ao nome do campo indica que é obrigatório.
-
-![Guia Configurações da Oferta do Dynamics 365 for Customer Engagement](./media/dyn365ce-offer-settings-tab.png)
-
-
-## <a name="offer-settings-fields"></a>Campos de Configurações da Oferta
-
-A tabela a seguir descreve os campos dessa guia. Os campos obrigatórios são indicados por um asterisco (*).
-
-|    Campo         |       DESCRIÇÃO                                                            |
-|  ---------       |     ---------------                                                          |
-| **ID da oferta\***   | Um identificador exclusivo (dentro de um perfil de editor) para a oferta. Este identificador estará visível em URLs de produto e relatórios de insight. Tem um comprimento máximo de 50 caracteres e pode usar caracteres alfanuméricos minúsculos e traços (-). (o identificador não pode terminar com um traço). **Observação:** Esse campo não pode ser alterado depois que uma oferta é ativada, porque ele é vinculado à URL base do marketplace da oferta.  |
-| **ID do publicador\***  | Identificador exclusivo da sua organização no Azure Marketplace. Todas as suas ofertas devem ser associadas à sua ID do publicador. Esse valor não pode ser alterado depois que a oferta é salva. |
-| **Nome\***       | O nome de exibição da oferta. Esse nome é exibido no AppSource Marketplace. Ele pode ter um máximo de 50 caracteres. É recomendável usar um nome de marca reconhecível para o seu produto. Não inclua o nome da sua organização, a menos que seja como o seu produto é comercializado. Se você estiver promovendo essa oferta em outros sites e publicações, verifique se o nome é exatamente o mesmo em todas as publicações. |
-|  |  |
-
-Selecione **Salvar** para salvar as configurações da oferta.
-
-
-## <a name="next-steps"></a>Próximas etapas
-
-Use a [guia Informações Técnicas](./cpp-technical-info-tab.md) para configurar as informações de aplicativo e de pacote da oferta.
+Antes de criar uma nova oferta do Dynamics 365 for Customer Engagement, você deve ler [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abrir o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/directory) com a página **visão geral** selecionada. Siga as instruções em [criar um novo Dynamics 365 para o envolvimento do cliente & oferta do PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) para criar sua oferta.

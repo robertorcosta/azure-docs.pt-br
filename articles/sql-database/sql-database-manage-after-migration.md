@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: dead041845c123672d881a8538644b56c34a58a2
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 36e48e86ed3cf7138f7ff5efe89d08c07df87f25
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845594"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028261"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>DBA novo na nuvem – gerenciamento de bancos de dados individuais e em pool no Banco de Dados SQL do Azure
 
@@ -42,7 +42,7 @@ Este artigo discute algumas das principais características do Banco de Dados SQ
 No [portal do Azure](https://portal.azure.com/), você pode monitorar uma utilização de bancos de dados individuais selecionando seu banco de dados e clicando no gráfico de **monitoramento** . Isso abre uma janela **Métrica** que pode ser alterada clicando no botão **Editar gráfico**. Adicione as seguintes métricas:
 
 - Percentual de CPU
-- Porcentual de DTU
+- Porcentagem de DTU
 - Porcentagem de E/S de dados
 - Percentual de tamanho do banco de dados
 
@@ -282,7 +282,7 @@ A [Análise de Desempenho de Consultas](sql-database-query-performance.md) permi
 
 #### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Análise de SQL do Azure (versão prévia) nos logs do Azure Monitor
 
-[Os logs de Azure monitor](../azure-monitor/insights/azure-sql.md) permitem coletar e visualizar as principais métricas de desempenho de SQL Azure do Azure, dando suporte a até 150.000 bancos de dados sql e 5.000 pools elásticos do SQL por espaço de trabalho. Você pode usá-lo para monitorar e receber notificações. Você pode monitorar métricas do Banco de Dados SQL e de pool elástico em várias assinaturas do Azure e pools elásticos, e isso pode ser usado para identificar problemas em cada camada da pilha de um aplicativo.
+[Os logs de Azure monitor](../azure-monitor/insights/azure-sql.md) permitem coletar e visualizar as principais métricas de desempenho do banco de dados SQL do Azure, dando suporte a até 150.000 bancos de dados sql e 5.000 pools elásticos do SQL por espaço de trabalho. Você pode usá-lo para monitorar e receber notificações. Você pode monitorar métricas do Banco de Dados SQL e de pool elástico em várias assinaturas do Azure e pools elásticos, e isso pode ser usado para identificar problemas em cada camada da pilha de um aplicativo.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Estou tendo problemas de desempenho: Como a minha metodologia de solução de problemas do Banco de Dados SQL difere do SQL Server?
 

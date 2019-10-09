@@ -12,12 +12,12 @@ ms.date: 04/11/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4002c14ed6340a0e1a89ee295d47c98436515775
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0c416d7279dd558b8a793064e295b7654925b1c8
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561779"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034899"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Como adicionar ou atualizar as informações do perfil de um usuário usando o Azure Active Directory
 Adicione informações de perfil de usuário, incluindo uma imagem do perfil, informações específicas do trabalho e algumas configurações usando o Azure AD (Azure Active Directory). Para obter mais informações sobre como adicionar novos usuários, consulte [Como adicionar ou excluir usuários no Azure Active Directory](add-users-azure-active-directory.md).
@@ -46,7 +46,7 @@ Como você verá, há mais informações disponíveis no perfil de um usuário d
 
     - **Configurações.** Decida se o usuário pode entrar no locatário do Azure Active Directory. Você também pode especificar a localização global do usuário.
 
-    - **Informações de contato.** Adicione quaisquer informações de contato relevantes para o usuário. Por exemplo, um endereço ou um número de celular.
+    - **Informações de contato.** Adicione quaisquer informações de contato relevantes para o usuário, exceto para algumas informações de contato móvel ou telefone do usuário (somente um administrador global pode atualizar para usuários em funções de administrador).
 
     - **Informações de contato de autenticação.** Verifique essas informações para certificar-se de que há um número de telefone e um endereço de email ativos para o usuário. Essas informações são usadas pelo Azure Active Directory para garantir que o usuário seja realmente o usuário durante a entrada. As informações de contato de autenticação somente podem ser atualizadas por um administrador global.
 

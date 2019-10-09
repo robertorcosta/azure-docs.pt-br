@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a33c6f6621e7fc7944bc116b27e5f26de88f77d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0abc7c4ae370a894c46eda38df41d64a6ef2cd91
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389572"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027711"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como disparar ações complexas com alertas do Azure Monitor
 
@@ -26,7 +26,7 @@ O processo geral é:
 
 -   Criar o Aplicativo Lógico para o respectivo tipo de alerta
 
--   Importe uma carga de exemplo para o respectivo tipo de alerta para o aplicativo lógico.
+-   Importe um conteúdo de exemplo para o respectivo tipo de alerta para o aplicativo lógico.
 
 -   Definir o comportamento do Aplicativo Lógico
 
@@ -38,7 +38,7 @@ O processo será semelhante se você quiser que o aplicativo lógico execute uma
 
 1.  No portal do Microsoft Azure, selecione **Criar um recurso** no canto superior esquerdo.
 
-2.  Pesquise e selecione **Aplicativo Lógico** e, em seguida, selecione **Criar**.
+2.  Pesquise e selecione **Aplicativo Lógico**, sem seguida selecione **Criar**.
 
 3.  Forneça um **Nome** ao Aplicativo Lógico, escolha um **Grupo de recursos** e etc.
 
@@ -58,7 +58,7 @@ O processo será semelhante se você quiser que o aplicativo lógico execute uma
 
     ![Use uma carga de exemplo](media/action-groups-logic-app/use-sample-payload-button.png "Use uma carga de exemplo")
 
-8.  Copie e cole o conteúdo de exemplo a seguir na caixa de diálogo:
+8.  Copie e cole o seguinte conteúdo de exemplo na caixa de diálogo:
 
     ```json
         {
@@ -140,7 +140,7 @@ Na próxima vez que um alerta chamar o grupo de ações, o aplicativo lógico se
 As entradas da Integridade de Serviço do Azure são parte do registro de atividade. O processo para criar o alerta é semelhante para [criar um alerta de registro de atividade](#create-an-activity-log-alert-administrative),mas com algumas alterações:
 
 - As etapas 1 a 7 são as mesmas.
-- Para a etapa 8, use a seguinte carga de exemplo para o gatilho de solicitação HTTP:
+- Para a etapa 8, use o seguinte conteúdo de exemplo para o gatilho de solicitação HTTP:
 
     ```json
     {
@@ -228,7 +228,7 @@ As entradas da Integridade de Serviço do Azure são parte do registro de ativid
 O processo para criar o alerta métrico é semelhante para [criar um alerta de registro de atividade](#create-an-activity-log-alert-administrative),mas com algumas alterações:
 
 - As etapas 1 a 7 são as mesmas.
-- Para a etapa 8, use a seguinte carga de exemplo para o gatilho de solicitação HTTP:
+- Para a etapa 8, use o seguinte conteúdo de exemplo para o gatilho de solicitação HTTP:
 
     ```json
     {

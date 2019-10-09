@@ -7,16 +7,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 160ff8bbcb8ce5a4f1f32245cc366281640c5919
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28fedf96ec178aae0615129421bdae7721a66105
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61347988"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029937"
 ---
-# <a name="azure-data-factory-unpivot-transformation"></a>Transformação não dinâmica do Azure Data Factory
+# <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory transformação não dinâmica
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Use Transformar colunas em linhas no Fluxo de Dados de Mapeamento do ADF como uma maneira de transformar um conjunto de dados não normalizado em uma versão mais normalizada por meio da expansão de valores de colunas múltiplas em um único registro em vários registros com os mesmos valores em uma coluna única.
 
@@ -42,7 +42,7 @@ Por fim, escolha a agregação que você deseja usar para os valores dinâmicos 
 
 (Opcional) É possível definir um padrão de nomenclatura com um prefixo, um intermediário e um sufixo a serem adicionados a cada novo nome de coluna com base nos valores de linha.
 
-Por exemplo, dinamizar “Vendas” por “Região” simplesmente forneceria novos valores de coluna de cada valor de vendas. Por exemplo:  "25", "50", "1000", ... No entanto, se você definir um valor de prefixo de “Vendas”, então “Vendas” será prefixado para os valores.
+Por exemplo, dinamizar “Vendas” por “Região” simplesmente forneceria novos valores de coluna de cada valor de vendas. Por exemplo: "25", "50", "1000", ... No entanto, se você definir um valor de prefixo de “Vendas”, então “Vendas” será prefixado para os valores.
 
 <img src="media/data-flow/unpivot3.png" width="400">
 
@@ -54,4 +54,4 @@ O conjunto final de resultados de dados não dinâmicos mostra os totais de colu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Use o [transformação dinâmica](data-flow-pivot.md) para pivot linhas para as colunas.
+Use a [transformação dinâmica](data-flow-pivot.md) para dinamizar linhas para colunas.

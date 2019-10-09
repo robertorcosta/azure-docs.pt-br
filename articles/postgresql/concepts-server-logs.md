@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: b295ab442e70772a86d6699e1063c7a1c728f1a7
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 17083029f2377037b99abfa3ce8371661eccb957
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091130"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029980"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Logs de servidor no banco de dados do Azure para PostgreSQL-servidor único
 Banco de Dados do Azure para PostgreSQL gera logs de consulta e de erro. Os logs de erro e consulta podem ser usados para identificar, solucionar problemas e reparar erros de configuração e desempenho abaixo do ideal. (O acesso aos logs de transação não está incluído). 
@@ -24,7 +24,7 @@ Você pode configurar o registro em log no seu servidor usando os parâmetros de
 Para obter mais informações sobre esses parâmetros, consulte a documentação [Relatório e registro em log de erros](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) do PostgreSQL. Para saber como configurar parâmetros do Banco de Dados do Azure para PostgreSQL, consulte a [documentação do portal](howto-configure-server-parameters-using-portal.md) ou a [documentação da CLI](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="access-server-logs-through-portal-or-cli"></a>Acessar logs do servidor por meio do portal ou da CLI
-Se você habilitou os logs, poderá acessá-los do armazenamento de logs do Banco de Dados do Azure para PostgreSQL usando o [portal do Azure](howto-configure-server-logs-in-portal.md), a [CLI do Azure](howto-configure-server-logs-using-cli.md) e as APIs REST do Azure. Os arquivos de log fazem um rodízio a cada uma hora ou a cada 100 MB, o que ocorrer primeiro. Você pode definir o período de retenção desse armazenamento de logs usando o parâmetro  **log\_retention\_period**  associado ao seu servidor. O valor padrão é de 3 dias; o valor máximo é de 7 dias. O servidor deve ter armazenamento alocado suficiente para armazenar os arquivos de log. (Esse parâmetro de retenção não controla os Logs de Diagnóstico do Azure).
+Se você habilitou os logs, poderá acessá-los do armazenamento de logs do Banco de Dados do Azure para PostgreSQL usando o [portal do Azure](howto-configure-server-logs-in-portal.md), a [CLI do Azure](howto-configure-server-logs-using-cli.md) e as APIs REST do Azure. Os arquivos de log fazem um rodízio a cada uma hora ou a cada 100 MB, o que ocorrer primeiro. Você pode definir o período de retenção desse armazenamento de logs usando o parâmetro **log\_retention\_period** associado ao seu servidor. O valor padrão é de 3 dias; o valor máximo é de 7 dias. O servidor deve ter armazenamento alocado suficiente para armazenar os arquivos de log. (Esse parâmetro de retenção não controla os Logs de Diagnóstico do Azure).
 
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
@@ -59,9 +59,9 @@ A tabela a seguir descreve o que está em cada log. Dependendo do ponto de extre
 | Categoria | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Nível de log, exemplo: LOG, ERROR, NOTICE |
-| Mensagem | Mensagem de log primária | 
+| Message | Mensagem de log primária | 
 | Domínio | Versão do servidor, o exemplo: postgres-10 |
-| Detalhe | Mensagem de log secundária (se aplicável) |
+| Detalhes | Mensagem de log secundária (se aplicável) |
 | ColumnName | Nome da coluna (se aplicável) |
 | SchemaName | Nome do esquema (se aplicável) |
 | DatatypeName | Nome do tipo de dados (se aplicável) |

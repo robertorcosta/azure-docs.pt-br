@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 10/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 70469a9e8737a9df18628951a061c97081c74080
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b31f3e68fbabc32f301fdcd8066a3bfbf1c2dbd
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127371"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028445"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Conceder permissões de usuário para políticas específicas do laboratório
 ## <a name="overview"></a>Visão geral
@@ -30,7 +30,7 @@ Como discutido no artigo [Controle de acesso baseado em função do Azure](../ro
 
 Nos Laboratórios de Desenvolvimento/Teste, uma política é um tipo de recurso que habilita a ação de RBAC **Microsoft.DevTestLab/labs/policySets/policies/** . Cada política do laboratório é um recurso do tipo de recurso Política e pode ser atribuída como um escopo a uma função RBAC.
 
-Por exemplo, para conceder permissão de leitura/gravação de usuários para o **tamanhos de VM permitidos** diretiva, você criaria uma função personalizada que funciona com o **Microsoft.DevTestLab/labs/policySets/policies/** ação e, em seguida, atribua os usuários apropriados para essa função personalizada no escopo do **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
+Por exemplo, para conceder aos usuários permissão de leitura/gravação para a política de **tamanhos de VM permitidos** , você deve criar uma função personalizada que funcione com a ação **Microsoft. DevTestLab/Labs/policySets/Policies/** e, em seguida, atribuir os usuários apropriados ao Essa função personalizada no escopo de **Microsoft. DevTestLab/Labs/policySets/Policies/AllowedVmSizesInLab**.
 
 Para saber mais sobre as funções personalizadas no RBAC, consulte o [Controle de acesso das funções personalizadas](../role-based-access-control/custom-roles.md).
 
@@ -45,13 +45,13 @@ Depois de configurar os cmdlets do Azure PowerShell, você pode executar as segu
 
 O seguinte script do PowerShell apresenta exemplos de como executar essas tarefas:
 
-    ‘List all the operations/actions for a resource provider.
+    # List all the operations/actions for a resource provider.
     Get-AzProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
 
-    ‘List actions in a particular role.
+    # List actions in a particular role.
     (Get-AzRoleDefinition "DevTest Labs User").Actions
 
-    ‘Create custom role.
+    # Create custom role.
     $policyRoleDef = (Get-AzRoleDefinition "DevTest Labs User")
     $policyRoleDef.Id = $null
     $policyRoleDef.Name = "Policy Contributor"
@@ -62,7 +62,7 @@ O seguinte script do PowerShell apresenta exemplos de como executar essas tarefa
     $policyRoleDef = (New-AzRoleDefinition -Role $policyRoleDef)
 
 ## <a name="assigning-permissions-to-a-user-for-a-specific-policy-using-custom-roles"></a>Atribuir permissões a um usuário para uma política específica usando funções personalizadas
-Depois de definir suas funções personalizadas, você pode atribuí-las aos usuários. Para atribuir uma função personalizada a um usuário, você deve primeiro obter o **ObjectId** que representa esse usuário. Para fazer isso, use o **Get-AzADUser** cmdlet.
+Depois de definir suas funções personalizadas, você pode atribuí-las aos usuários. Para atribuir uma função personalizada a um usuário, você deve primeiro obter o **ObjectId** que representa esse usuário. Para fazer isso, use o cmdlet **Get-AzADUser** .
 
 No exemplo a seguir, o **ObjectId** do usuário *SomeUser* é 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3.
 
@@ -72,7 +72,7 @@ No exemplo a seguir, o **ObjectId** do usuário *SomeUser* é 05DEFF7B-0AC3-4ABF
     -----------                    ----                           --------
     someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
 
-Uma vez que o **ObjectId** para o usuário e um nome de função personalizada, você pode atribuir essa função ao usuário com o **New AzRoleAssignment** cmdlet:
+Depois de obter o **ObjectID** para o usuário e um nome de função personalizado, você pode atribuir essa função ao usuário com o cmdlet **New-AzRoleAssignment** :
 
     PS C:\>New-AzRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
 

@@ -1,44 +1,21 @@
 ---
-title: Publicar do Dynamics 365 para a oferta de aplicativo do envolvimento do cliente | O Azure Marketplace
-description: Descreve os processos e as etapas para publicar uma oferta de aplicativo do Dynamics 365 for Customer Engagement no AppSource Marketplace.
+title: Publicar o Dynamics 365 para oferta de aplicativo do engajamento do cliente | Azure Marketplace
+description: Artigo de CPP preterido, artigo vinculado ao PC; was "descreve o processo e as etapas para publicar uma oferta de aplicativo do Dynamics 365 for Customer Engagement no Marketplace do AppSource."
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Dynamics 365 for Customer Engagement
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/28/2018
-ms.author: pabutler
-ms.openlocfilehash: 65df08d5fa2b7e4e7f6654f520f9caacc696f7c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-chjen
+ms.openlocfilehash: c1f38b046b9bd9bc9e7972656caf51d0ad1d8acc
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942298"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033930"
 ---
 # <a name="publish-a-dynamics-365-for-customer-engagement-offer"></a>Publicar uma oferta do Dynamics 365 for Customer Engagement
 
-Depois de criar uma nova oferta, fornecendo as informações sobre o **nova oferta** página, você pode publicar a oferta. Selecione **publicar** para iniciar o processo de publicação.
+O [portal do Cloud Partner](https://cloudpartner.azure.com/) não dá mais suporte à criação e ao gerenciamento de ofertas do engajamento do cliente do Dynamics 365. Em vez disso, essa funcionalidade foi movida para o [portal do Microsoft Partner Center](https://partner.microsoft.com/). Para obter mais informações, consulte [criar um novo Dynamics 365 para o envolvimento do cliente & oferta do PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
 
-
-O diagrama a seguir mostra as principais etapas no processo de publicação para uma oferta para "entrar no ar".
-
-  ![Etapas de publicação da oferta](./media/offer-publishing-steps.png)
-
-## <a name="detailed-description-of-publishing-steps"></a>Descrição detalhada de etapas de publicação
-
-A tabela a seguir descreve cada etapa de publicação, com um tempo estimado (máximo) para concluir cada etapa.
-A tabela a seguir descreve cada etapa de publicação. Um tempo estimado para concluir cada etapa também é dado.
-
-
-|    Etapa de publicação             |   Hora      |   DESCRIÇÃO                                                              |
-|  -------------------           | --------    | ---------------                                                            |
-| Validar os pré-requisitos         | 15 min   | Informações de oferta e configurações de oferta são validadas.                        |
-| Certificação                  | 1 semana | A oferta é analisada pela equipe de certificação do Azure. A oferta é exeminada em busca de vírus, malware, conformidade de segurança e problemas de segurança. A oferta é verificada para ver se atende aos critérios de qualificação. Para mais informações, consulte os [pré-requisitos](./cpp-prerequisites.md). Comentários serão fornecidos se um problema for encontrado. |
-| Empacotamento | 1 hora  | Os recursos técnicos da oferta são empacotados para uso do cliente e os sistemas de leads são configurados e configurados. |
-|  Saída do editor             |  -        | Revisão final do editor e confirmação antes que a oferta seja publicada. Você pode implantar sua oferta nas assinaturas selecionadas (nas etapas a informações de oferta) para verificar se ele atende a todos os seus requisitos.  Selecione **Go Live** para que sua oferta possa passar para a próxima etapa. |
-| Empacotamento                 | 1 hora | A oferta finalizada é replicada nos sistemas e regiões de produção do mercado. | 
-| Live                           | 4 dias |A oferta é lançada, replicada para as regiões exigidas e disponibilizada ao público. |
-|  |  |  |
-
-## <a name="next-steps"></a>Próximas etapas
-
-Aguarde até 10 dias úteis para que o processo de publicação seja concluído e a oferta seja liberada. Após você concluir o processo de publicação, a oferta será listada no [Microsoft AppSource Marketplace](https://appsource.microsoft.com/marketplace/apps/).
+Antes de criar uma nova oferta do Dynamics 365 for Customer Engagement, você deve ler [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abrir o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/directory) com a página **visão geral** selecionada. Siga as instruções em [criar um novo Dynamics 365 para o envolvimento do cliente & oferta do PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) para criar sua oferta.

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d9b4cf755bbf2e225bee813510c083570b0f8064
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 604f18fe2fbf4d8b4f3778817455d92a2811620b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70280167"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028635"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Diretrizes de preços para VMs do Azure do SQL Server
 
@@ -54,17 +54,17 @@ Para criar uma VM do Azure do SQL Server 2017 com uma destas imagens, acesse os 
 
 Se você tiver uma carga de trabalho de produção não leve, use uma das seguintes edições do SQL Server:
 
-| Edição do SQL Server | Carga de Trabalho |
+| Edição do SQL Server | Carga de trabalho |
 |-----|-----|
 | Web | Sites pequenos |
 | Standard | Cargas de trabalho pequenas a médias |
-| Corporativo | Cargas de trabalho grandes ou críticas|
+| Enterprise | Cargas de trabalho grandes ou críticas|
 
 Você tem duas opções de pagamento para licenciamento dessas edições do SQL Server: *pagamento por uso* ou *BYOL (traga sua própria licença)* .
 
 ## <a name="pay-per-usage"></a>Pagamento por uso
 
-**Pagar a licença do SQL Server por uso** significa que o custo por segundo da execução da VM do Azure inclui o custo da licença do SQL Server. Você pode ver os preços para as diferentes edições do SQL Server (Web, Standard e Enterprise) na página de preços de VMs do Azure para [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) ou [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
+**Pagar a licença de SQL Server por uso** (também conhecido como **pré-pago**) significa que o custo por segundo da execução da VM do Azure inclui o custo da licença de SQL Server. Você pode ver os preços para as diferentes edições do SQL Server (Web, Standard e Enterprise) na página de preços de VMs do Azure para [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) ou [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
 O custo é o mesmo para todas as versões do SQL Server (2012 SP3 a 2017). O custo de licenciamento por segundo depende do número de vCPUs da VM.
 
@@ -74,7 +74,7 @@ O pagamento do licenciamento do SQL Server por uso é recomendável para:
 
 - **Cargas de trabalho com tempo de vida ou escala desconhecidos**. Por exemplo, um aplicativo que pode não ser necessário por alguns meses, ou que pode exigir mais, ou menos capacidade de computação, dependendo da demanda.
 
-Para criar uma VM do Azure do SQL Server 2017 com uma dessas imagens de pagamento por uso, acesse os seguintes links:
+Para criar uma VM do Azure SQL Server 2017 com uma dessas imagens pagas conforme o uso, consulte os links a seguir:
 
 | Plataforma | Imagens licenciadas |
 |---|---|
@@ -111,9 +111,9 @@ Trazer seu próprio licenciamento do SQL por meio da Mobilidade de Licença é r
 
 Para usar BYOL com uma VM do SQL Server, você deve ter uma licença para o SQL Server Standard ou Enterprise e o [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), que é uma opção obrigatória em alguns programas de licenciamento por volume e uma compra adicional com outros. O nível de preço fornecido pelos programas de Licenciamento por Volume varia, com base no tipo de contrato e na quantidade e/ou no compromisso com o SQL Server. Porém, como uma regra geral, trazer sua própria licença para cargas de trabalho de produção contínuas agrega os seguintes benefícios:
 
-| Benefício do método BYOL | Descrição |
+| Benefício do método BYOL | DESCRIÇÃO |
 |-----|-----|
-| **Economia de custos** | A [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) oferece economia de até 55%. Para obter mais informações, consulte [alternar modelo](virtual-machines-windows-sql-ahb.md) de licenciamento |
+| **Economia de custos** | A [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) oferece economia de até 55%. Para obter mais informações, consulte [alternar modelo de licenciamento](virtual-machines-windows-sql-ahb.md) |
 | **Réplica secundária passiva gratuita** | Outro benefício de trazer sua própria licença é o [licenciamento gratuito para uma réplica secundária passiva](https://azure.microsoft.com/pricing/licensing-faq/) por SQL Server para fins de alta disponibilidade. Isso reduz pela metade o custo de licenciamento de uma implantação do SQL Server altamente disponível (por exemplo, usar os Grupos de Disponibilidade Always On). Os direitos para executar a réplica secundária passiva são fornecidos pelo benefício do Software Assurance para Servidores de Failover. |
 
 Para criar uma VM do Azure do SQL Server 2017 com uma dessas imagens traga sua própria licença, veja as VMs com o prefixo "{BYOL}":

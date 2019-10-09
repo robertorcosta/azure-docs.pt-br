@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 3796017af643c993871757482ed17d1765cd6494
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: e33987d382a2afd93644a413084339fcd330d2e2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802409"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029707"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Introdução à identidade do módulo do Hub IoT e ao módulo "". js "
 
@@ -54,9 +54,9 @@ Nesta seção, você criará um aplicativo Node.js que cria uma identidade do di
 
 1. Crie um diretório para manter o código.
 
-2. Dentro desse diretório, primeiro execute  **npm init -y**  para criar um package.json vazio com os padrões. Esse é o arquivo de projeto do código.
+2. Dentro desse diretório, primeiro execute **npm init -y** para criar um package.json vazio com os padrões. Esse é o arquivo de projeto do código.
 
-3. Execute **NPM install-S Azure-iothub\@modules-Preview** para instalar o SDK do serviço dentro do subdiretório **node_modules** .
+3. Execute **NPM install-S Azure-iothub @ no__t-1modules-Preview** para instalar o SDK do serviço dentro do subdiretório **node_modules** .
 
     > [!NOTE]
     > O nome do subdiretório node_modules usa o módulo word para significar "uma biblioteca de nós". Este termo não está relacionado com módulos do Hub IoT.
@@ -133,7 +133,7 @@ Nesta seção, você criará um aplicativo Node.js no dispositivo simulado que a
 
    ![Detalhes do módulo do Portal do Azure](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
 
-2. Da mesma forma que você fez na etapa anterior, crie um diretório para o código do dispositivo e use NPM para inicializá-lo e instalar o SDK do dispositivo (**NPM install-S Azure-IOT\@-Device-AMQP modules-Preview**).
+2. Da mesma forma que você fez na etapa anterior, crie um diretório para o código do dispositivo e use NPM para inicializá-lo e instalar o SDK do dispositivo (**NPM install-S Azure-IOT-Device-AMQP @ no__t-1modules-Preview**).
 
    > [!NOTE]
    > O comando npm install pode parecer lento. Seja paciente, pois está baixando muitos códigos do repositório de pacotes.
@@ -192,7 +192,7 @@ Nesta seção, você criará um aplicativo Node.js no dispositivo simulado que a
     });
     ```
 
-4. Agora, execute isso usando o comando **node twin.js**.
+4. Agora, execute isso usando o comando **node twin.js**.
 
    ```cmd/sh
    F:\temp\module_twin>node twin.js

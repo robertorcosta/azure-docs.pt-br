@@ -1,6 +1,6 @@
 ---
 title: Adicionar autenticação ao seu aplicativo da UWP (Plataforma Universal do Windows) | Microsoft Docs
-description: 'Saiba como usar aplicativos de celular do serviço de aplicativo do Azure para autenticar usuários de seu aplicativo da plataforma Universal do Windows (UWP) usando uma variedade de provedores de identidade, incluindo: AAD, Google, Facebook, Twitter e Microsoft.'
+description: 'Saiba como usar os aplicativos móveis do serviço Azure App para autenticar usuários de seu aplicativo Plataforma Universal do Windows (UWP) usando uma variedade de provedores de identidade, incluindo: AAD, Google, Facebook, Twitter e Microsoft.'
 services: app-service\mobile
 documentationcenter: windows
 author: elamalani
@@ -14,19 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 9a3a6a8d063836094c1285a5ab4c17ee403fc347
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ae1a4c7570a4430c9961109c425298e356c9fa9a
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440227"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027077"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Adicionar autenticação ao seu aplicativo do Windows
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center está investindo em novos e integrados serviços essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **construir**, **teste** e **distribuir** services para configurar o pipeline de integração contínua e entrega. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso do seu aplicativo usando o **Analytics** e **diagnóstico** serviços e entre em contato com usuários usando o **enviar por Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados do aplicativo na nuvem. Fazer check-out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-users) hoje mesmo.
->
+> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
 
 ## <a name="overview"></a>Visão geral
 Este tópico mostra como adicionar autenticação baseada em nuvem ao seu aplicativo móvel. Neste tutorial, você aprenderá a adicionar autenticação ao projeto de início rápido da UWP (Plataforma Universal do Windows) para aplicativos móveis usando um provedor de identidade com suporte no Serviço de Aplicativo do Azure. Após ser autenticado e autorizado com sucesso pelo back-end do Aplicativo Móvel, o valor da ID de usuário é exibido.

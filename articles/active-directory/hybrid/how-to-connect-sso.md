@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86895ab315784c49c2b240badb249dce57ae958a
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 7791e7b50a963d2f92a2cbc460e36f9e83bb1b52
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622568"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025705"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Logon Único Contínuo do Azure Active Directory
 
@@ -53,8 +53,8 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 
 - O nome de usuário de conexão pode ser o nome de usuário local padrão (`userPrincipalName`) ou outro atributo configurado no Azure AD Connect (`Alternate ID`). Ambos casos de uso funcionam porque o SSO Contínuo usa a declaração `securityIdentifier` no tíquete do Kerberos para pesquisar o objeto de usuário correspondente no Azure AD.
 - O SSO Contínuo é um recurso oportunista. Se ele falhar por qualquer motivo, a experiência de entrada do usuário retornará ao comportamento normal, ou seja, o usuário precisará digitar sua senha na página de entrada.
-- Se um aplicativo (por exemplo, `https://myapps.microsoft.com/contoso.com`) encaminhar um `domain_hint` parâmetro (OpenID Connect) `whr` ou (SAML)-identificando seu locatário, `login_hint` ou o parâmetro-identificando o usuário, em sua solicitação de entrada do Azure AD, os usuários serão conectado automaticamente sem que eles insiram nomes de acessações ou senhas.
-- Os usuários também terão uma experiência de logon silenciosa se um aplicativo (por exemplo, `https://contoso.sharepoint.com`) enviar solicitações de entrada para os pontos de extremidade do Azure ad configurados como locatários – ou seja `https://login.microsoftonline.com/contoso.com/<..>` , `https://login.microsoftonline.com/<tenant_ID>/<..>` ou-em vez do ponto de extremidade comum do Azure ad `https://login.microsoftonline.com/common/<...>` – ou seja, .
+- Se um aplicativo (por exemplo, `https://myapps.microsoft.com/contoso.com`) encaminha um parâmetro `domain_hint` (OpenID Connect) ou `whr` (SAML)-identificando seu locatário ou @no__t parâmetro-3-identificando o usuário, em sua solicitação de entrada do Azure AD, os usuários são conectados automaticamente sem eles inserindo nomes de acessadores ou senhas.
+- Os usuários também terão uma experiência de logon silenciosa se um aplicativo (por exemplo, `https://contoso.sharepoint.com`) enviar solicitações de entrada para pontos de extremidade do Azure AD configurados como locatários, ou seja, `https://login.microsoftonline.com/contoso.com/<..>` ou `https://login.microsoftonline.com/<tenant_ID>/<..>`-em vez do ponto de extremidade comum do Azure AD – ou seja, `https://login.microsoftonline.com/common/<...>`.
 - Há suporte para saída. Isso permite que os usuários escolham outra conta do Azure AD para conectar, em vez de conectar automaticamente usando o SSO contínuo automaticamente.
 - Clientes do Office 365 Win32 (Outlook, Word, Excel e outros) com as versões 16.0.8730.xxxx e superiores têm suporte com o uso de um fluxo não interativo. Para o OneDrive, você precisará ativar o [recurso de Configuração silenciosa do OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de logon silenciosa.
 - Isso pode ser habilitado por meio do Azure AD Connect.
@@ -63,7 +63,7 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 
 | Sistema operacional\Navegador |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sim\*|Não|Sim|Sim\*\*\*|N/D
+|Windows 10|Sim\*|Sim|Sim|Sim\*\*\*|N/D
 |Windows 8.1|Sim\*|N/D|Sim|Sim\*\*\*|N/D
 |Windows 8|Sim\*|N/D|Sim|Sim\*\*\*|N/D
 |Windows 7|Sim\*|N/D|Sim|Sim\*\*\*|N/D

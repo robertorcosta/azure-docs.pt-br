@@ -9,16 +9,16 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abfdad1db655c102dbfb300434eac952fe2154dc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1293bbf6d2966caf7e6e095c1721e29890a57b76
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60381837"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025810"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solucionar problemas do Logon Único Contínuo do Azure Active Directory
 
@@ -28,7 +28,6 @@ Este artigo ajuda você a localizar informações de solução de problemas comu
 
 - Em alguns casos, habilitar o SSO contínuo pode levar até 30 minutos.
 - Se você desabilitar e habilitar novamente o SSO Contínuo em seu locatário, os usuários não obterão a experiência de logon único até que seus tíquetes de Kerberos armazenados em cache, normalmente válidos por 10 horas, tenham se expirado.
-- O suporte ao navegador Microsoft Edge não está disponível.
 - Se o SSO Contínuo for bem-sucedido, o usuário não terá a oportunidade de selecionar **Manter-me conectado**. Devido a esse comportamento, os [cenários de mapeamento do SharePoint e do OneDrive](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) não funcionam.
 - Clientes do Office 365 Win32 (Outlook, Word, Excel e outros) com as versões 16.0.8730.xxxx e superiores têm suporte com o uso de um fluxo não interativo. Não há suporte para outras versões; nessas versões, os usuários inserirão seus nomes de usuário, mas não senhas, para entrar. Para o OneDrive, você precisará ativar o [recurso de Configuração silenciosa do OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de logon silenciosa.
 - O SSO Contínuo não funciona no modo de navegação particular no Firefox.
@@ -37,7 +36,7 @@ Este artigo ajuda você a localizar informações de solução de problemas comu
 - Se um usuário fizer parte de muitos grupos no Active Directory, o tíquete Kerberos do usuário provavelmente será muito grande para processar e isso causará falha no SSO Contínuo. Solicitações de HTTPS do Azure AD podem ter cabeçalhos com um tamanho máximo de 50 KB; os tíquetes Kerberos precisam ser muito menores do que o limite para acomodar outros artefatos do Azure AD (tipicamente, 2 a 5 KB), como cookies. Nossa recomendação é reduzir as associações de grupo do usuário e tentar novamente.
 - Se você estiver sincronizando 30 ou mais florestas do Active Directory, não será possível habilitar o SSO Contínuo usando o Azure AD Connect. Como alternativa, você poderá [habilitar manualmente](#manual-reset-of-the-feature) o recurso em seu locatário.
 - Adicionar a URL do serviço Azure AD (https://autologon.microsoftazuread-sso.com) ) à zona Sites confiáveis em vez da zona Intranet local *bloqueia a entrada dos usuários*.
-- O Seamless SSO usa o tipo de criptografia **RC4_HMAC_MD5** para Kerberos. Desabilitar o uso do tipo de criptografia **RC4_HMAC_MD5** em suas configurações do Active Directory interromperá o Seamless SSO. Na ferramenta do Editor de Gerenciamento de Política de Grupo, verifique se o valor da política para **RC4_HMAC_MD5** em **Configuração do Computador -> Configurações do Windows -> Configurações de Segurança -> Políticas Locais -> Opções de Segurança -> "Segurança de Rede: Configurar tipos de criptografia permitidos para Kerberos"** está **habilitado**. Além disso, o Seamless SSO não usa outros tipos de criptografia, portanto, verifique se eles estão **desabilitados**.
+- O SSO contínuo dá suporte aos tipos de criptografia AES256_HMAC_SHA1, AES128_HMAC_SHA1 e RC4_HMAC_MD5 para Kerberos. É recomendável que o tipo de criptografia para a conta AzureADSSOAcc $ seja definido como AES256_HMAC_SHA1 ou um dos tipos AES vs. RC4 para maior segurança. O tipo de criptografia é armazenado no atributo msDS-SupportedEncryptionTypes da conta no seu Active Directory.  Se o tipo de criptografia da conta AzureADSSOAcc $ for definido como RC4_HMAC_MD5 e você quiser alterá-lo para um dos tipos de criptografia AES, certifique-se de que você primeiro se sobreponha à chave de descriptografia do Kerberos da conta AzureADSSOAcc $, conforme explicado no [documento de perguntas frequentes ](how-to-connect-sso-faq.md)sob a pergunta relevante, caso contrário, o SSO contínuo não ocorrerá.
 
 ## <a name="check-status-of-feature"></a>Verificar o status do recurso
 
@@ -121,7 +120,10 @@ Se a solução de problemas não ajudar, você poderá redefinir manualmente o r
 1. Chame `$creds = Get-Credential`. Quando solicitado, insira as credenciais de administrador de domínio da floresta do Active Directory pretendida.
 
    > [!NOTE]
-   > Usamos o nome de usuário do Administrador de Domínio, fornecido no formato de nome UPN (johndoe@contoso.com) ou no formato de conta SAM qualificada por domínio (contoso\johndoe ou contoso.com\johndoe) para localizar a floresta do AD pretendida. Se você usar o nome de conta SAM qualificado do domínio, usaremos a parte de domínio do nome de usuário para [localizar o Controlador de Domínio do Administrador do Domínio usando o DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se você usar o UPN em vez disso, poderemos [traduzi-lo para um nome de conta SAM qualificado de domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriado.
+   >O nome de usuário das credenciais do administrador de domínio deve ser inserido no formato de nome da conta SAM (contoso\johndoe ou contoso. com\johndoe). Usamos a parte de domínio do nome de usuário para localizar o controlador de domínio do administrador de domínio usando DNS.
+
+   >[!NOTE]
+   >A conta de administrador de domínio usada não deve ser um membro do grupo usuários protegidos. Nesse caso, a operação falhará.
 
 2. Chame `Disable-AzureADSSOForest -OnPremCredentials $creds`. Este comando remove a conta do computador `AZUREADSSOACC` do controlador de domínio local dessa floresta do Active Directory específica.
 3. Repita as etapas anteriores para cada floresta do Active Directory onde você configurou o recurso.
@@ -131,7 +133,10 @@ Se a solução de problemas não ajudar, você poderá redefinir manualmente o r
 1. Chame `Enable-AzureADSSOForest`. Quando solicitado, insira as credenciais de administrador de domínio da floresta do Active Directory pretendida.
 
    > [!NOTE]
-   > Usamos o nome de usuário do Administrador de Domínio, fornecido no formato de nome UPN (johndoe@contoso.com) ou no formato de conta SAM qualificada por domínio (contoso\johndoe ou contoso.com\johndoe) para localizar a floresta do AD pretendida. Se você usar o nome de conta SAM qualificado do domínio, usaremos a parte de domínio do nome de usuário para [localizar o Controlador de Domínio do Administrador do Domínio usando o DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se você usar o UPN em vez disso, poderemos [traduzi-lo para um nome de conta SAM qualificado de domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriado.
+   >O nome de usuário das credenciais do administrador de domínio deve ser inserido no formato de nome da conta SAM (contoso\johndoe ou contoso. com\johndoe). Usamos a parte de domínio do nome de usuário para localizar o controlador de domínio do administrador de domínio usando DNS.
+
+   >[!NOTE]
+   >A conta de administrador de domínio usada não deve ser um membro do grupo usuários protegidos. Nesse caso, a operação falhará.
 
 2. Repita as etapas anteriores para cada floresta do Active Directory onde você configurou o recurso.
 

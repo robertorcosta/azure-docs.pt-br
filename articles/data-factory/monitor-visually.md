@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 99ae0139d7b12c0bfb87030d2b749b12834a4f96
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f7c27bde3806684045bc43f8ff99eefb14c8d04a
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141091"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029149"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Monitorar visualmente data factories do Azure
 O Azure Data Factory é um serviço de integração de dados baseado em nuvem. Você pode usá-lo para criar fluxos de trabalho controlados por dados na nuvem para orquestrar e automatizar a movimentação de dados e a transformação de dados. Usando Azure Data Factory, você pode:
@@ -42,25 +42,25 @@ A exibição de lista mostra cada execução de pipeline para seus pipelines de 
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
-| Nome do pipeline | Nome do pipeline |
+| Nome do Pipeline | Nome do pipeline |
 | Ações | Ação única disponível para exibir execuções de atividade |
 | Início da Execução | Data e hora de início para a execução do pipeline (MM/DD/AAAA, HH: MM: SS AM/PM) |
 | Duração | Duração da execução (HH:MM:SS) |
-| Acionado por | Gatilho manual ou gatilho agendado |
+| Disparado por | Gatilho manual ou gatilho agendado |
 | Status | **Com falha, com** **êxito**ou **em andamento** |
-| Parâmetros | Parâmetros para a execução do pipeline (pares de nome/valor) |
+| parâmetros | Parâmetros para a execução do pipeline (pares de nome/valor) |
 | Erro | Erro de execução de pipeline (se houver) |
-| ID de execução | ID da execução de pipeline |
+| ID da execução | ID da execução de pipeline |
 
 ![Exibição de lista para monitoramento de execuções de pipeline](media/monitor-visually/pipeline-runs.png)
 
 ## <a name="monitor-activity-runs"></a>Monitorar execuções de atividade
-A exibição de lista mostra as execuções de atividade que correspondem a cada execução de pipeline. Para exibir as execuções de atividade para cada execução de pipeline, selecione o ícone de execuções de **atividade** na coluna **ações** . A exibição de lista inclui estas colunas:
+A exibição de lista mostra as execuções de atividade que correspondem a cada execução de pipeline. Para exibir as execuções de atividade para cada execução de pipeline, selecione o ícone de **execuções de atividade** na coluna **ações** . A exibição de lista inclui estas colunas:
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
-| Nome da Atividade | Nome da atividade dentro do pipeline |
-| Tipo de Atividade | Tipo de atividade, como **Copy**, **HDInsightSpark**ou **HDInsightHive** |
+| Nome da atividade | Nome da atividade dentro do pipeline |
+| Tipo de atividade | Tipo de atividade, como **Copy**, **HDInsightSpark**ou **HDInsightHive** |
 | Início da Execução | Data e hora de início para a execução da atividade (MM/DD/AAAA, HH: MM: SS AM/PM) |
 | Duração | Duração da execução (HH:MM:SS) |
 | Status | **Com falha, com** **êxito**ou **em andamento** |
@@ -88,7 +88,7 @@ Order pipeline é executado em DESC/ASC de acordo com a hora de início da execu
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
-| Nome do pipeline | Nome do pipeline. As opções incluem filtros rápidos para as **últimas 24 horas**, **última semana**e **últimos 30 dias**. Ou selecione uma data e hora personalizadas. |
+| Nome do Pipeline | Nome do pipeline. As opções incluem filtros rápidos para as **últimas 24 horas**, **última semana**e **últimos 30 dias**. Ou selecione uma data e hora personalizadas. |
 | Início da Execução | Data e hora de início para a execução do pipeline. |
 | Status da execução | O filtro é executado por status: Com **êxito**, **com falha**ou **em andamento**. |
 
@@ -161,7 +161,7 @@ Selecione o ícone de **comentários** para nos enviar comentários sobre vário
 
 ## <a name="alerts"></a>Alertas
 
-Você pode gerar alertas em métricas com suporte no Data Factory. Selecione **monitorar** > **alertas & métricas** na página monitoramento de data Factory para começar.
+Você pode gerar alertas em métricas com suporte no Data Factory. Selecione **monitorar** > **alerta & métricas** na página monitoramento de data Factory para começar.
 
 ![Página monitor do data Factory](media/monitor-visually/alerts01.png)
 
@@ -171,7 +171,7 @@ Para uma introdução de sete minutos e uma demonstração desse recurso, assist
 
 ### <a name="create-alerts"></a>Criar alertas
 
-1.  Selecione **nova regra** de alerta para criar um novo alerta.
+1.  Selecione **nova regra de alerta** para criar um novo alerta.
 
     ![Botão nova regra de alerta](media/monitor-visually/alerts02.png)
 
@@ -201,4 +201,4 @@ Para uma introdução de sete minutos e uma demonstração desse recurso, assist
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como monitorar e gerenciar pipelines, confira o artigo [monitorar e gerenciar pipelines](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) programaticamente.
+Para saber mais sobre como monitorar e gerenciar pipelines, confira o artigo [monitorar e gerenciar pipelines programaticamente](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) .

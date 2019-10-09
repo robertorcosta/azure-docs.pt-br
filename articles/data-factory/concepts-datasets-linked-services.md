@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 788fee724f381ab317b97a682aa21d17ec1ffa9d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c4daa5989013ba8d5c5a7136fe0878fae64f0357
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137313"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030564"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -75,13 +75,13 @@ typeProperties | As propriedades de tipo são diferentes para cada tipo (por exe
 
 ### <a name="data-flow-compatible-dataset"></a>DataSet compatível com fluxo de dados
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Consulte [tipos de conjunto de dados com suporte](#dataset-type) para obter uma lista de tipos de conjuntos de [dados](concepts-data-flow-overview.md) compatíveis. Os conjuntos de dados que são compatíveis com o fluxo de data exigem definições de conjunto de dado refinadas para transformações. Portanto, a definição de JSON é ligeiramente diferente. Em vez de uma propriedade de _estrutura_ , os conjuntos de dados que são compatíveis com o data Flow têm uma propriedade de _esquema_ .
 
 No fluxo de dados, DataSets são usados em transformações de origem e de coletor. Os conjuntos de dados definem os esquemas básicos. Se os dados não tiverem um esquema, você poderá usar descompasso de esquema para a origem e o coletor. O esquema no DataSet representa o tipo de dados físico e a forma.
 
-Ao definir o esquema a partir do conjunto de dados, você obterá os tipos, os formatos de dados, o local do arquivo e as informações de conexão relacionados do serviço vinculado associado. Os metadados dos conjuntos de valores são exibidos na transformação de origem comoa projeção de origem. A projeção na transformação origem representa os dados de fluxo de dados com nomes e tipos definidos.
+Ao definir o esquema a partir do conjunto de dados, você obterá os tipos, os formatos de dados, o local do arquivo e as informações de conexão relacionados do serviço vinculado associado. Os metadados dos conjuntos de valores são exibidos na transformação de origem como a *projeção*de origem. A projeção na transformação origem representa os dados de fluxo de dados com nomes e tipos definidos.
 
 Quando você importa o esquema de um conjunto de dados de fluxo, seleciona o botão **importar esquema** e opta por importar da origem ou de um arquivo local. Na maioria dos casos, você importará o esquema diretamente da origem. Mas se você já tiver um arquivo de esquema local (um arquivo parquet ou CSV com cabeçalhos), poderá direcionar Data Factory para basear o esquema nesse arquivo.
 

@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: juliako
-ms.openlocfilehash: 618aa58fe8553789c831ca933ae6be73843b93dd
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 2d01828cb61937b45665e953a13795b5346a5f1b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801397"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030537"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -48,7 +48,7 @@ Para obter mais informações, consulte [nuvens e regiões nas quais os serviço
 
 ## <a name="july-2019"></a>Julho de 2019
 
-### <a name="content-protection"></a>Proteção de conteúdo
+### <a name="content-protection"></a>Proteção do conteúdo
 
 Ao transmitir conteúdo protegido com restrição de token, os usuários finais precisam obter um token que é enviado como parte da solicitação de entrega de chave. O recurso de *prevenção de reprodução de token* permite que os clientes dos serviços de mídia definam um limite de quantas vezes o mesmo token pode ser usado para solicitar uma chave ou uma licença. Para obter mais informações, consulte [prevenção de reprodução de token](content-protection-overview.md#token-replay-prevention).
 
@@ -275,4 +275,5 @@ Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-co
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Visão geral](media-services-overview.md)
+- [Visão geral](media-services-overview.md)
+- [Notas de versão do Media Services v2](../previous/media-services-release-notes.md)

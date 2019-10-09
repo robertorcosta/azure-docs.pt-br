@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0acd4c2793c7c13fb687f591d01e6d8753f71bdc
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 9b246fe9b09f2939663b4fb74ee1da703264d533
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181150"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028932"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrar clusters de Apache Hadoop locais para o Azure HDInsight
 
@@ -33,7 +33,7 @@ O armazenamento do Azure pode ser replicado geograficamente. Embora a replicaç�
 
 Um dos formatos a seguir pode ser usado para acessar dados armazenados no Armazenamento do Azure:
 
-|Formato de Acesso a Dados |Descrição |
+|Formato de Acesso a Dados |DESCRIÇÃO |
 |---|---|
 |`wasb:///`|Acessar o armazenamento padrão usando comunicação não criptografada.|
 |`wasbs:///`|Acessar o armazenamento padrão usando comunicação criptografada.|
@@ -155,7 +155,7 @@ Por padrão, o HDInsight tem acesso completo aos dados nas contas de Armazenamen
 
 1. Abra o arquivo [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) e altere os valores a seguir:
 
-    |Propriedade Token|Descrição|
+    |Propriedade Token|DESCRIÇÃO|
     |---|---|
     |policy_name|O nome a ser usado para a política armazenada que será criada.|
     |storage_account_name|O nome da sua conta de armazenamento.|
@@ -177,7 +177,7 @@ Por padrão, o HDInsight tem acesso completo aos dados nas contas de Armazenamen
 
 7. Clique no botão **Adicionar** para salvar essa chave e esse valor e clique no botão **Salvar** para salvar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionando acesso de armazenamento SAS", por exemplo) e clique em **Salvar**.
 
-8. Na interface do usuário da Web do Ambari, selecione HDFS na lista à esquerda e, em seguida, selecione **Reiniciar Todos os Afetados** na lista suspensa Ações de Serviço à direita. Quando solicitado, selecione **Confirmar Reiniciar Tudo**.
+8. Na interface do usuário da Web do amAmbari, selecione HDFS na lista à esquerda e, em seguida, selecione **reiniciar todos os afetados** na lista suspensa ações de serviço à direita. Quando solicitado, selecione **Confirmar Reiniciar Tudo**.
 
 9. Repita esse processo para MapReduce2 e YARN.
 

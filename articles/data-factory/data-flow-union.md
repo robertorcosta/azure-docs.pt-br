@@ -7,43 +7,43 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: af2225d749283c7124f89d5a7cd735b2f6bfd121
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35d5b2250cb5f2f5bd5b3a0073dc2e3c655ceccb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61347952"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029926"
 ---
-# <a name="mapping-data-flow-union-transformation"></a>Mapeamento de transformação union de fluxo de dados
+# <a name="mapping-data-flow-union-transformation"></a>Mapeando a transformação de União de fluxo de dados
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-A União combinará vários fluxos de dados em um, com o SQL Union desses fluxos como a nova saída da transformação de União. Todas as do esquema de cada fluxo de entrada serão combinadas dentro de seu fluxo de dados, sem a necessidade de ter uma chave de junção.
 
-Você pode combinar n-número de fluxos na tabela de configurações, selecionando o ícone "+" ao lado de cada linha configurado, incluindo dados de origem, bem como fluxos de transformações existentes em seu fluxo de dados.
+A União combinará vários fluxos de dados em um, com o SQL Union desses fluxos como a nova saída da transformação de União. Todo o esquema de cada fluxo de entrada será combinado dentro do fluxo de dados, sem a necessidade de ter uma chave de junção.
 
-![A transformação Union](media/data-flow/union.png "Union")
+Você pode combinar n-Number de fluxos na tabela de configurações selecionando o ícone "+" ao lado de cada linha configurada, incluindo dados de origem, bem como fluxos de transformações existentes em seu fluxo de dados.
 
-Nesse caso, você pode combinar diferentes metadados de várias fontes (no exemplo, três arquivos de origem diferente) e combiná-los em um único fluxo:
+(media/data-flow/union.png "União") de ![transformação Union]
 
-![Visão geral da transformação Union](media/data-flow/union111.png "1 Union")
+Nesse caso, você pode combinar metadados distintos de várias fontes (neste exemplo, três arquivos de origem diferentes) e combiná-los em um único fluxo:
 
-Para fazer isso, adicione linhas adicionais nas configurações de união, incluindo todos os fonte que você deseja adicionar. Não é necessário para uma chave de pesquisa ou de junção comum:
+![Visão geral da transformação Union](media/data-flow/union111.png "1")
 
-![Configurações de transformação Union](media/data-flow/unionsettings.png "configurações Union")
+Para conseguir isso, adicione linhas adicionais nas configurações de União, incluindo todas as fontes que você deseja adicionar. Não há necessidade de uma pesquisa comum ou chave de junção:
 
-Se você definir uma transformação Select após a união, você poderá renomear sobrepostos campos ou campos que não foram nomeados de fontes sem cabeçalho. Clique em "Inspect" para ver os metadados de combinar com 132 colunas total neste exemplo de três fontes diferentes:
+Configurações da ![transformação Union configurações]de(media/data-flow/unionsettings.png "União")
 
-![Final de transformação Union](media/data-flow/union333.png "3 Union")
+Se você definir uma transformação selecionar após sua União, você poderá renomear campos ou campos sobrepostos que não foram nomeados de fontes sem cabeçalho. Clique em "inspecionar" para ver a combinação de metadados com o total de 132 colunas neste exemplo de três fontes diferentes:
 
-## <a name="name-and-position"></a>Nome e a posição
+![Transformação Union final](media/data-flow/union333.png "União 3")
 
-Quando você escolhe "pelo nome de união", cada valor de coluna cairá na coluna correspondente em cada origem, com um novo esquema de metadados relacionados.
+## <a name="name-and-position"></a>Nome e posição
 
-Se você escolher "união por posição", cada valor de coluna descartará na posição original em cada origem correspondente, resultando em um novo fluxo combinado onde os dados em cada origem são adicionados ao mesmo fluxo de dados:
+Quando você escolhe "Union by Name", cada valor de coluna será inserido na coluna correspondente de cada fonte, com um novo esquema de metadados concatenado.
 
-![Saída de união](media/data-flow/unionoutput.png "saída Union")
+Se você escolher "Union por posição", cada valor de coluna será inserido na posição original de cada fonte correspondente, resultando em um novo fluxo combinado de dados em que os dados de cada fonte são adicionados ao mesmo fluxo:
+
+![](media/data-flow/unionoutput.png "Saída da União") de saída da União
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore as transformações semelhantes incluindo [ingressar](data-flow-join.md) e [Exists](data-flow-exists.md).
+Explore transformações semelhantes, incluindo [Join](data-flow-join.md) e [Exists](data-flow-exists.md).

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27b5a8a7667419e0e3345fb453eefd840368b643
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
-ms.translationtype: HT
+ms.openlocfilehash: 3992ea29d3d81262b5d9b8b126c8fca54feca67d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001682"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026390"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -64,9 +64,9 @@ Usuários com essa função podem definir ou redefinir credenciais de não senha
 
 * Administrador de Autenticação
 * Leitores de Diretório
-* Emissor de Convites Independente
+* Emissor do Convite ao Convidado
 * Leitor do Centro de Mensagens
-* Leitor de relatórios
+* Leitor de Relatórios
 
 > [!IMPORTANT]
 > Usuários com essa função podem alterar credenciais de pessoas que podem ter acesso a informações confidenciais ou particulares ou a configurações críticas dentro e fora do Azure Active Directory. A alteração das credenciais de um usuário pode significar a capacidade de assumir a identidade e as permissões do usuário. Por exemplo:
@@ -212,6 +212,22 @@ Os usuários com essa função têm acesso a todos os recursos administrativos d
 >
 >
 
+### <a name="global-readerglobal-reader-permissions"></a>[Leitor global](#global-reader-permissions)
+
+Os usuários nessa função podem ler configurações e informações administrativas entre Microsoft 365 serviços, mas não podem tomar ações de gerenciamento. O leitor global é o equivalente somente leitura ao administrador global. Atribua um leitor global em vez do administrador global para planejamento, auditorias ou investigações. Use o leitor global em combinação com outras funções de administrador limitadas, como o administrador do Exchange, para facilitar o trabalho sem a invocação da função de administrador global. O leitor global funciona com o novo centro de administração Microsoft 365, o centro de administração do Exchange, o centro de administração da equipe, a central de segurança, o centro de conformidade, o centro de administração do Azure AD e o centro de administração do gerenciamento 
+
+> [!NOTE]
+> A função de leitor global tem as seguintes limitações agora-
+>* Centro de administração do SharePoint-o centro de administração do SharePoint não dá suporte à função de leitor global. Portanto, você não verá o "SharePoint" no painel esquerdo em centros de administração no [centro de administração do M365](https://admin.microsoft.com/Adminportal/Home#/homepage). Você terá acesso negado quando ir para https://{nome do locatário}-admin.sharepoint.com. 
+>* [Portal do AD do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -o leitor global não pode ler o modo de provisionamento de um aplicativo empresarial.
+>* [Centro de administração do M365](https://admin.microsoft.com/Adminportal/Home#/homepage) -o leitor global não pode ler solicitações de lockbox cusomter. Você não encontrará a guia solicitações de lockbox do cliente em suporte no painel esquerdo do centro de administração do M365.
+>* [Central de segurança do M365](https://security.microsoft.com/homepage) -o leitor global não pode ler rótulos de sensibilidade e retenção. Você não encontrará rótulos de sensibilidade, rótulos de retenção e guias de análise de rótulo no painel esquerdo em classificação na central de segurança do M365.
+>* [Centro de administração de equipes](https://admin.teams.microsoft.com) – o leitor global não pode ler o ciclo de vida das equipes, relatórios & análise de chamadas, gerenciamento de dispositivo de telefone IP e catálogo de aplicativos.
+>* [Privileged Access Management (PAM)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) não oferece suporte ao leitor global.
+> 
+> O suporte para esses recursos chegará ao longo do tempo.
+>
+
 ### <a name="guest-inviterguest-inviter-permissions"></a>[Convite do convidado](#guest-inviter-permissions)
 
 Usuários nessa função podem gerenciar convites de usuários convidados do Azure Active Directory B2B quando a configuração do usuário **Membros podem convidar** estiver definida como Não. Mais informações sobre a colaboração B2B em [Sobre a colaboração B2B do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Ela não inclui nenhuma outra permissão.
@@ -221,10 +237,10 @@ Usuários nessa função podem gerenciar convites de usuários convidados do Azu
 Usuários com essa função podem alterar senhas, invalidar tokens de atualização, gerenciar solicitações de serviço e monitorar a integridade do serviço. Invalidar um token de atualização força o usuário a entrar novamente. Os administradores de assistência técnica podem redefinir senhas e invalidar tokens de atualização de outros usuários que não são administradores ou que atribuíram as seguintes funções somente:
 
 * Leitores de Diretório
-* Emissor de Convites Independente
+* Emissor do Convite ao Convidado
 * Administrador de Assistência Técnica
 * Leitor do Centro de Mensagens
-* Leitor de relatórios
+* Leitor de Relatórios
 
 > [!IMPORTANT]
 > Usuários com essa função podem alterar senhas de pessoas que podem ter acesso a informações confidenciais ou particulares ou a configurações críticas dentro e fora do Azure Active Directory. A alteração da senha de um usuário pode significar a capacidade de assumir a identidade e as permissões do usuário. Por exemplo:
@@ -276,8 +292,8 @@ Não use. Essa função foi substituída e será removida do Azure AD no futuro.
 Os usuários com essa função têm a capacidade limitada de gerenciar senhas. Essa função não concede a capacidade de gerenciar solicitações de serviço ou monitorar a integridade do serviço. Os administradores de senha podem redefinir senhas de outros usuários que não são administradores ou membros das seguintes funções:
 
 * Leitores de Diretório
-* Emissor de Convites Independente
-* Administrador de Senhas
+* Emissor do Convite ao Convidado
+* Administrador de senha
 
 ### <a name="power-bi-administratorpower-bi-service-administrator-permissions"></a>[Administrador de Power BI](#power-bi-service-administrator-permissions)
 
@@ -319,7 +335,7 @@ No | O que ele pode fazer
 Identity Protection Center | Todas as permissões da função Leitor de Segurança<br>Além disso, a habilidade de executar todas as operações do Centro de Proteção de Identidade, exceto redefinir senhas
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Todas as permissões da função Leitor de Segurança<br>**Não é possível** gerenciar as atribuições ou configurações de função do Azure AD
 [Centro de Conformidade e Segurança do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gerenciar políticas de segurança<br>Exibir, investigar e responder a ameaças de segurança<br>Exibir relatórios
-Proteção avançada contra ameaças do Azure | Monitorar e responder a atividades suspeitas de segurança
+Proteção Avançada contra Ameaças do Azure | Monitorar e responder a atividades suspeitas de segurança
 Windows Defender ATP e EDR | Atribuir funções<br>Gerenciar grupos de computadores<br>Configurar a detecção de ameaças do ponto de extremidade e a correção automatizada<br>Exibir, investigar e responder a alertas
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Exibe informações de usuário, dispositivo, registro, configuração e aplicativo<br>Não pode fazer alterações no Intune
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Adicionar administradores, adicionar políticas e configurações, carregar logs e executar ações de governança
@@ -404,7 +420,7 @@ Os usuários com essa função podem criar usuários e gerenciar todos os aspect
 | --- | --- |
 |Permissões gerais|<p>Criar usuários e grupos</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Gerenciar tíquetes de suporte do Office<p>Atualizar políticas de expiração de senha|
 |<p>Em todos os usuários, inclusive todos os administradores</p>|<p>Gerenciar licenças</p><p>Gerenciar todas as propriedades de usuário, exceto o nome Principal do usuário</p>
-|Somente em usuários não administradores ou em qualquer um destes procedimentos limitada de funções de administrador:<ul><li>Leitores de Diretório<li>Emissor de Convites Independente<li>Administrador de Assistência Técnica<li>Leitor do Centro de Mensagens<li>Leitor de relatórios<li>Administrador de Usuários|<p>Excluir e restauração</p><p>Desativar e ativar</p><p>Invalidar Tokens de atualização</p><p>Gerenciar todas as propriedades de usuário, incluindo o nome Principal do usuário</p><p>Redefinir Senha</p><p>Atualizar chaves de dispositivo FIDO)</p>|
+|Somente em usuários não administradores ou em qualquer um destes procedimentos limitada de funções de administrador:<ul><li>Leitores de Diretório<li>Emissor do Convite ao Convidado<li>Administrador de Assistência Técnica<li>Leitor do Centro de Mensagens<li>Leitor de Relatórios<li>Administrador de usuários|<p>Excluir e restauração</p><p>Desativar e ativar</p><p>Invalidar Tokens de atualização</p><p>Gerenciar todas as propriedades de usuário, incluindo o nome Principal do usuário</p><p>Redefinir senha</p><p>Atualizar chaves de dispositivo FIDO)</p>|
 
 > [!IMPORTANT]
 > Usuários com essa função podem alterar senhas de pessoas que podem ter acesso a informações confidenciais ou particulares ou a configurações críticas dentro e fora do Azure Active Directory. A alteração da senha de um usuário pode significar a capacidade de assumir a identidade e as permissões do usuário. Por exemplo:
@@ -687,10 +703,10 @@ Pode gerenciar todos os aspectos do Azure AD e dos serviços da Microsoft que us
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
 | microsoft.commerce.billing/allEntities/allTasks | Gerencie todos os aspectos de cobrança do Office 365. |
 | microsoft.intune/allEntities/allTasks | Gerencie todos os aspectos do Intune. |
-| Microsoft.office365.complianceManager/allEntities/allTasks | Gerenciar todos os aspectos do Gerenciador de conformidade do Office 365 |
+| Microsoft.office365.complianceManager/allEntities/allTasks | Gerenciar todos os aspectos do Gerenciador de Conformidade do Office 365 |
 | microsoft.office365.desktopAnalytics/allEntities/allTasks | Gerenciar todos os aspectos da Análise de Área de Trabalho. |
 | Microsoft.office365.Exchange/allEntities/allTasks | Gerencie todos os aspectos do Exchange Online. |
-| Microsoft.office365.lockbox/allEntities/allTasks | Gerenciar todos os aspectos do Cofre de cliente do Office 365 |
+| Microsoft.office365.lockbox/allEntities/allTasks | Gerenciar todos os aspectos do Sistema de Proteção de Dados do Cliente do Office 365 |
 | microsoft.office365.messageCenter/messages/read | Ler mensagens em microsoft.office365.messageCenter. |
 | microsoft.office365.messageCenter/securityMessages/read | Ler securityMessages em microsoft.office365.messageCenter. |
 | Microsoft.office365.protectionCenter/allEntities/allTasks | Gerencie todos os aspectos do Centro de proteção do Office 365. |
@@ -794,7 +810,7 @@ Pode aprovar solicitações de suporte da Microsoft para acessar dados organizac
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
-| Microsoft.office365.lockbox/allEntities/allTasks | Gerenciar todos os aspectos do Cofre de cliente do Office 365 |
+| Microsoft.office365.lockbox/allEntities/allTasks | Gerenciar todos os aspectos do Sistema de Proteção de Dados do Cliente do Office 365 |
 
 ### <a name="desktop-analytics-administrator-permissions"></a>Permissões de administrador do desktop Analytics
 
@@ -965,6 +981,76 @@ Configure os provedores de identidade para uso na Federação direta.
 | **Ações** | **Descrição** |
 | --- | --- |
 | Microsoft. AAD. B2C/identityProviders/minhas tarefas | Ler e configurar provedores de identidade no Azure Active Directory B2C. |
+
+### <a name="global-reader-permissions"></a>Permissões de leitor globais
+Pode ler tudo o que um administrador global pode, mas não editar nada. 
+
+> [!NOTE]
+> Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a [Descrição da função](#global-reader) acima.
+>
+>
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| Microsoft. Commerce. cobrança/entidades/leitura   | Leia todos os aspectos da cobrança do Office 365. |
+| Microsoft. Directory/administrativeUnits/Basic/Read    | Ler as propriedades básicas em administrativeUnits no Azure Active Directory. |
+| Microsoft. Directory/administrativeUnits/Members/Read  | Ler a propriedade Administrativeunits no Azure Active Directory. |
+| Microsoft. Directory/Applications/Basic/Read   | Ler as propriedades básicas em aplicativos do Azure Active Directory. |
+| Microsoft. Directory/Applications/Owners/Read  | Ler a propriedade Owners no Azure Active Directory. |
+| Microsoft. Directory/Applications/Policies/Read    | Leia a propriedade applications.policies no Active Directory do Azure. |
+| Microsoft. Directory/Contacts/Basic/Read   | Ler as propriedades básicas em contatos no Azure Active Directory. |
+| Microsoft. Directory/Contacts/memberOf/Read    | Ler a propriedade Contacts no Azure Active Directory. |
+| Microsoft. Directory/Contracts/Basic/Read  | Ler as propriedades básicas sobre os contratos no Azure Active Directory. |
+| Microsoft. Directory/dispositivos/básico/leitura    | Ler as propriedades básicas em dispositivos no Azure Active Directory. |
+| Microsoft. Directory/Devices/memberOf/Read | Ler a propriedade de memberOf no Azure Active Directory. |
+| Microsoft. Directory/Devices/registeredOwners/Read | Ler a propriedade registeredowners no Azure Active Directory. |
+| Microsoft. Directory/Devices/registeredUsers/Read  | Ler a propriedade registeredusers no Azure Active Directory. |
+| Microsoft. Directory/directoryRoles/Basic/Read | Ler as propriedades básicas no directoryRoles no Azure Active Directory. |
+| Microsoft. Directory/directoryRoles/eligibleMembers/Read   | Ler a propriedade Eligiblemembers no Azure Active Directory. |
+| Microsoft. Directory/directoryRoles/Members/Read   | Ler a propriedade Directoryroles no Azure Active Directory. |
+| Microsoft. Directory/Domains/Basic/Read    | Leia as propriedades básicas em domínios no Active Directory do Azure. |
+| Microsoft. Directory/groups/appRoleAssignments/Read    | Leia a propriedade groups.appRoleAssignments no Active Directory do Azure. |
+| Microsoft. Directory/groups/Basic/Read | Leia as propriedades básicas em grupos no Active Directory do Azure. |
+| Microsoft. Directory/groups/hiddenMembers/Read | Ler a propriedade hiddenmembers no Azure Active Directory. |
+| Microsoft. Directory/groups/memberOf/Read  | Leia a propriedade groups.memberOf no Active Directory do Azure. |
+| Microsoft. Directory/groups/Members/Read   | Leia a propriedade groups.members no Azure Active Directory. |
+| Microsoft. Directory/groups/Owners/Read    | Leia a propriedade groups.owners no Active Directory do Azure. |
+| Microsoft. Directory/groups/Settings/Read  | Leia a propriedade groups.settings no Active Directory do Azure. |
+| Microsoft. Directory/groupSettings/Basic/Read  | Ler as propriedades básicas no groupSettings no Azure Active Directory. |
+| Microsoft. Directory/groupSettingTemplates/Basic/Read  | Ler as propriedades básicas no groupSettingTemplates no Azure Active Directory. |
+| Microsoft. Directory/oAuth2PermissionGrants/Basic/Read | Leia as propriedades básicas em oAuth2PermissionGrants no Active Directory do Azure. |
+| Microsoft. Directory/Organization/Basic/Read   | Leia as propriedades básicas da organização no Active Directory do Azure. |
+| Microsoft. Directory/Organization/trustedCAsForPasswordlessAuth/Read   | Leia a propriedade organization.trustedCAsForPasswordlessAuth no Active Directory do Azure. |
+| Microsoft. Directory/Policies/Standard/Read    | Ler políticas padrão no Azure Active Directory. |
+| Microsoft. Directory/roleAssignments/Basic/Read    | Leia as propriedades básicas em roleAssignments no Azure Active Directory. |
+| Microsoft. Directory/roleDefinitions/Basic/Read    | Leia as propriedades básicas em roleDefinitions no Active Directory do Azure. |
+| Microsoft. Directory/servicePrincipalName/appRoleAssignedTo/leitura  | Ler a propriedade Approleassignedto no Ler a propriedade Approleassignedto no Azure Active Directory.Azure Active Directory. |
+| Microsoft. Directory/servicePrincipalName/appRoleAssignments/leitura | Ler a propriedade ServicePrincipals.AppRoleAssignments no Azure Active Directory. |
+| Microsoft. Directory/servicePrincipalName/Basic/Read  | Ler as propriedades básicas em entidades de serviço no Azure Active Directory. |
+| Microsoft. Directory/servicePrincipalName/memberOf/Read   | Ler a propriedade Serviceprincipals no Azure Active Directory. |
+| Microsoft. Directory/servicePrincipalName/oAuth2PermissionGrants/Basic/Read   | Ler a propriedade servicePrincipals.oAuth2PermissionGrants no Azure Active Directory. |
+| Microsoft. Directory/servicePrincipalName/ownedObjects/leitura   | Ler a propriedade Serviceprincipals no Azure Active Directory. |
+| Microsoft. Directory/servicePrincipalName/proprietários/leitura | Ler a propriedade Serviceprincipals no Azure Active Directory. |
+| Microsoft. Directory/servicePrincipalName/políticas/leitura   | Ler a propriedade servicePrincipals.policies no Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read  | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
+| Microsoft. Directory/subscribedSkus/Basic/Read | Ler as propriedades básicas no subscribedSkus no Azure Active Directory. |
+| Microsoft. Directory/Users/appRoleAssignments/Read | Leia a propriedade users.appRoleAssignments no Active Directory do Azure. |
+| Microsoft. Directory/Users/Basic/Read  | Leia as propriedades básicas dos usuários no Azure Active Directory. |
+| Microsoft. Directory/Users/directReports/Read  | Leia a propriedade users.directReports no Active Directory do Azure. |
+| Microsoft. Directory/Users/Manager/Read    | Leia a propriedade users.manager no Active Directory do Azure. |
+| Microsoft. Directory/Users/memberOf/Read   | Leia a propriedade users.memberOf no Active Directory do Azure. |
+| Microsoft. Directory/Users/oAuth2PermissionGrants/Basic/Read   | Leia a propriedade users.oAuth2PermissionGrants no Active Directory do Azure. |
+| Microsoft. Directory/Users/ownedDevices/Read   | Leia a propriedade users.ownedDevices no Active Directory do Azure. |
+| Microsoft. Directory/Users/ownedObjects/Read   | Leia a propriedade users.ownedObjects no Active Directory do Azure. |
+| Microsoft. Directory/Users/registeredDevices/Read  | Leia a propriedade users.registeredDevices no Active Directory do Azure. |
+| Microsoft. Directory/Users/strongAuthentication/Read   | Leia Propriedades de autenticação forte, como informações de credenciais de MFA. |
+| Microsoft. office365. Exchange/entidades/leitura | Leia todos os aspectos do Exchange Online. |
+| microsoft.office365.messageCenter/messages/read   | Ler mensagens em microsoft.office365.messageCenter. |
+| microsoft.office365.messageCenter/securityMessages/read   | Ler securityMessages em microsoft.office365.messageCenter. |
+| Microsoft.office365.protectionCenter/allEntities/Read | Ler todos os aspectos do Centro de Proteção do Office 365. |
+| Microsoft. office365. securityComplianceCenter/Entities/ler | Leia todas as propriedades padrão em Microsoft. office365. securityComplianceCenter. |
+| Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
+| Microsoft. office365. webportal/myentities/Standard/Read   | Ler propriedades padrão em todos os recursos no Microsoft. office365. webportal. |
 
 ### <a name="guest-inviter-permissions"></a>Permissões do convite do convidado
 Pode convidar usuários convidados independentemente da configuração "membros podem convidar pessoas".
@@ -1513,74 +1599,75 @@ As IDs de modelo de função são usadas principalmente por usuários API do Gra
 
 DisplayName de grafo | portal do Azure nome de exibição | directoryRoleTemplateId
 ----------------- | ------------------------- | -------------------------
-Administrador de Aplicativos | Administrador de aplicativos | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
-Desenvolvedor de Aplicativos | Desenvolvedor de aplicativos | CF1C38E5-3621-4004-A7CB-879624DCED7C
+Administrador de aplicativos | Administrador de aplicativos | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
+Desenvolvedor de aplicativos | Desenvolvedor de aplicativos | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Administrador de Autenticação | Administrador de autenticação | c4e39bd9-1100-46d3-8c65-fb160da0071f
-Administrador da proteção de informações do Azure | Administrador da Proteção de Informações do Azure | 7495fdc4-34c4-4d15-a289-98788ce399fd
+Administrador da proteção de informações do Azure | Administrador da proteção de informações do Azure | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Administrador de fluxo de usuário B2C | Administrador de fluxo de usuário B2C | 6e591065-9bad-43ed-90f3-e9424366d2f0
 Administrador de Atributo de Fluxo do Usuário B2C | Administrador de Atributo de Fluxo do Usuário B2C | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
-Administrador de Conjunto de Chaves do IEF B2C | Administrador de Conjunto de Chaves do IEF B2C | aaf43236-0c0d-4d5f-883a-6955382ac081
-Administrador de Política do IEF B2C | Administrador de Política do IEF B2C | 3edaf663-341e-4475-9f94-5c398ef6c070
-Administrador de Cobrança | Administrador de cobrança | b0f54661-2d74-4c50-afa3-1ec803f12efe
+Administrador de Conjunto de Chaves IEF B2C | Administrador de Conjunto de Chaves IEF B2C | aaf43236-0c0d-4d5f-883a-6955382ac081
+Administrador de Política IEF B2C | Administrador de Política IEF B2C | 3edaf663-341e-4475-9f94-5c398ef6c070
+Administrador de cobrança | Administrador de cobrança | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Administrador de Aplicativos de Nuvem | Administrador de aplicativos de nuvem | 158c047a-c907-4556-b7ef-446551a6b5f7
-Administrador de Dispositivo de Nuvem | Administrador de dispositivo de nuvem | 7698a772-787b-4ac8-901f-60d6b08affd2
+Administrador de Dispositivo de Nuvem | Administrador de dispositivo em nuvem | 7698a772-787b-4ac8-901f-60d6b08affd2
 Administradores de Empresa | Administrador global | 62e90394-69f5-4237-9190-012177145e10
-Administrador de Conformidade | Administrador de conformidade | 17315797-102d-40b4-93e0-432062caca18
-Administrador de Dados de Conformidade | Administrador de dados de conformidade | e6d1a23a-da11-4be4-9570-befc86d067a7
-Administrador de Acesso Condicional | Administrador de Acesso Condicional | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
-Administrador de Serviços de CRM | Administrador do Dynamics 365 | 44367163-eba1-44c3-98af-f5787879f96a
-Aprovador de Acesso do Sistema de Proteção de Dados do Cliente | Aprovador de acesso do Sistema de Proteção de Dados do Cliente | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
-Administrador da Análise de Área de Trabalho | Administrador da Análise de Área de Trabalho | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
-Administradores de Dispositivos | Administradores de dispositivo | 9f06204d-73c1-4d4c-880a-6edb90606fd8
+Administrador de conformidade | Administrador de conformidade | 17315797-102d-40b4-93e0-432062caca18
+Administrador de dados de conformidade | Administrador de dados de conformidade | e6d1a23a-da11-4be4-9570-befc86d067a7
+Administrador de acesso condicional | Administrador de acesso condicional | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
+Administrador de serviços do CRM | Administrador do Dynamics 365 | 44367163-eba1-44c3-98af-f5787879f96a
+Aprovador de acesso do cofre do cliente | Aprovador de acesso do Sistema de Proteção de Dados do Cliente | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
+Administrador de Análise de Área de Trabalho | Administrador de Análise de Área de Trabalho | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
+Administradores de Dispositivo | Administradores de dispositivo | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Ingresso de Dispositivo | Ingresso no dispositivo | 9c094953-4995-41c8-84c8-3ebb9b32c93f
-Gerenciador de Dispositivos | Gerenciadores de dispositivos | 2b499bcd-da44-4968-8aec-78e1674fa64d
+Gerenciadores de Dispositivo | Gerenciadores de dispositivos | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Usuários de Dispositivo | Usuários do dispositivo | d405c6df-0af8-4e3b-95e4-4d06e542189e
-Leitores de Diretório | Leitores de diretório | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
+Leitores de Diretório | Leitores de diretórios | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Contas de sincronização de diretório | Contas de sincronização de diretório | d29b2b05-8046-44ba-8758-1e26182fcf32
-Gravadores de Diretório | Gravadores de diretório | 9360feb5-f418-4baa-8175-e2a00bac4301
+Gravadores de diretório | Gravadores de diretório | 9360feb5-f418-4baa-8175-e2a00bac4301
 Administrador de serviços do Exchange | Administrador do Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
-Administrador de Provedor de Identidade Externo | Administrador de Provedor de Identidade Externo | be2f45a1-457d-42af-a067-6ec1fa63bc45
-Emissor de Convites Independente | Emissor de convites independente | 95e79109-95c0-4d8e-aee3-d01accf2d47b
-Administrador de Assistência Técnica | Administrador de senhas | 729827e3-9c14-49f7-bb1b-9608f156bbb8
-Administrador de Serviços do Intune | Administrador do Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
+Administrador do provedor de identidade externo | Administrador do provedor de identidade externo | be2f45a1-457d-42af-a067-6ec1fa63bc45
+Leitor global | Leitor global | f2ef992c-3afb-46b9-b7cf-a126ee74c451
+Emissor do Convite ao Convidado | Emissor do convite ao convidado | 95e79109-95c0-4d8e-aee3-d01accf2d47b
+Administrador de Assistência Técnica | Administrador de senha | 729827e3-9c14-49f7-bb1b-9608f156bbb8
+Administrador de serviços do Intune | Administrador do Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Administrador do Kaizala | Administrador do Kaizala | 74ef975b-6605-40af-a5d2-b9539d836353
 Administrador de Licenças | Administrador de licenças | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
 Administrador de serviços do Lync | Administrador do Skype for Business | 75941009-915a-4869-abe7-691bff18279e
-Leitor de Privacidade do Centro de Mensagens | Leitor de privacidade do centro de mensagens | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
+Leitor de privacidade do centro de mensagens | Leitor de privacidade do centro de mensagens | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Leitor do Centro de Mensagens | Leitor do centro de mensagens | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
-Suporte de Camada1 a Parceiros | Suporte de camada1 a parceiros | 4ba39ca4-527c-499a-b93d-d9b492c50246
-Suporte de Camada2 a Parceiros | Suporte de camada2 a parceiros | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
-Administrador de Senhas | Administrador de senhas | 966707d0-3269-4727-9be2-8c3a10f19b9d
-Administrador de Serviços do Power BI | Administrador do Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
-Administrador de Autenticação Privilegiada | Administrador de autenticação privilegiada | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
-Administrador de Funções com Privilégios | Administrador de funções com privilégios | e8611ab8-c189-46e8-94e1-60213ab1f814
-Leitor de relatórios | Leitor de relatórios | 4a5d8f65-41da-4de4-8968-e035b65339cf
-Administrador de Pesquisas | Administrador de pesquisas | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
-Editor de Pesquisas | Editor de pesquisas | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
-Administrador de Segurança | Administrador de segurança | 194ae4cb-b126-40b2-bd5b-6091b380977d
-Operador de Segurança | Operador de segurança | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
-Leitor de Segurança | Leitor de segurança | 5d6b6bb7-de71-4623-b4af-96380a352509
-Administrador de suporte a serviço | Administrador de serviços | f023fd81-a637-4b56-95fd-791ac0226033
-Administrador de Serviços do SharePoint | Administrador do SharePoint | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
+Suporte de camada 1 do parceiro | Suporte de camada 1 do parceiro | 4ba39ca4-527c-499a-b93d-d9b492c50246
+Suporte de camada 2 do parceiro | Suporte de camada 2 do parceiro | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
+Administrador de senha | Administrador de senha | 966707d0-3269-4727-9be2-8c3a10f19b9d
+Administrador de serviços do Power BI | Administrador de Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
+Administrador de autenticação privilegiada | Administrador de autenticação privilegiada | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
+Administrador de função com privilégios | Administrador de função com privilégios | e8611ab8-c189-46e8-94e1-60213ab1f814
+Leitor de Relatórios | Leitor de relatórios | 4a5d8f65-41da-4de4-8968-e035b65339cf
+Administrador de pesquisa | Administrador de pesquisa | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
+Editor de pesquisa | Editor de pesquisa | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
+Administrador de segurança | Administrador de segurança | 194ae4cb-b126-40b2-bd5b-6091b380977d
+Operador de segurança | Operador de segurança | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
+Leitor de segurança | Leitor de segurança | 5d6b6bb7-de71-4623-b4af-96380a352509
+Administrador de suporte a serviço | Administrador de serviço | f023fd81-a637-4b56-95fd-791ac0226033
+Administrador de serviços do SharePoint | Administrador do SharePoint | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
 Administrador de Comunicações do Teams | Administrador de Comunicações do Teams | baf37b3a-610e-45da-9e62-d9d1e5e8914b
-Engenheiro de Suporte Técnico de Comunicações do Teams | Engenheiro de Suporte Técnico de Comunicações do Teams | f70938a0-fc10-4177-9e90-2178f8765737
-Especialista de Suporte Técnico de Comunicações do Teams | Especialista de Suporte Técnico de Comunicações do Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
+Engenheiro de Suporte de Comunicações do Teams | Engenheiro de Suporte de Comunicações do Teams | f70938a0-fc10-4177-9e90-2178f8765737
+Especialista em Suporte de Comunicações do Teams | Especialista em Suporte de Comunicações do Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Administrador de Serviços do Teams | Administrador de Serviços do Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
 User | User | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Administrador da conta de usuário | Administrador de usuários | fe930be7-5e62-47db-91af-98c3a49a38b1
-Adição de Dispositivo de Local de Trabalho | Ingresso no dispositivo do local de trabalho | c34f683f-4d5a-4403-affd-6615e00e3a7f
+Ingresso no Dispositivo no Local de Trabalho | Ingresso no dispositivo do local de trabalho | c34f683f-4d5a-4403-affd-6615e00e3a7f
 
 ## <a name="deprecated-roles"></a>Funções preteridas
 
 As seguintes funções não devem ser usadas. Eles foram preteridos e serão removidos do AD do Azure no futuro.
 
-* Administrador de Licenças Ad Hoc
+* Administrador de Licenças AdHoc
 * Ingresso de Dispositivo
 * Gerenciadores de Dispositivo
 * Usuários de Dispositivo
 * Criador de Usuário Verificado por Email
 * Administrador de caixa de correio
-* Adição de Dispositivo de Local de Trabalho
+* Ingresso no Dispositivo no Local de Trabalho
 
 ## <a name="next-steps"></a>Próximas etapas
 

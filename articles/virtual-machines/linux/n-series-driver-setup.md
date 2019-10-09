@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ef060127840838778a00fdabd2d56b2ef23d6f4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3abc221295a90dfbf7e46e3bd5bff1c8c0937162
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082691"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035008"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar drivers NVIDIA GPU em VMs da série N que executam o Linux
 
@@ -190,7 +190,7 @@ Para instalar os drivers NVIDIA GRID nas VMs do NV ou da série NVv3, faça uma 
    
    sudo apt-get install linux-azure -y
    ```
-3. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Apenas use o driver NVIDIA em VMs NVv2 ou NV.) Para fazer isso, crie um arquivo em `/etc/modprobe.d` nome `nouveau.conf` com o seguinte conteúdo:
+3. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Apenas use o driver NVIDIA em VMs NVv2 ou NV.) Para fazer isso, crie um arquivo em `/etc/modprobe.d` chamado `nouveau.conf` com o seguinte conteúdo:
 
    ```
    blacklist nouveau
@@ -254,7 +254,7 @@ Para instalar os drivers NVIDIA GRID nas VMs do NV ou da série NVv3, faça uma 
    sudo yum install hyperv-daemons
    ```
 
-2. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Apenas use o driver NVIDIA em VMs NV2 ou NV.) Para fazer isso, crie um arquivo em `/etc/modprobe.d` nome `nouveau.conf` com o seguinte conteúdo:
+2. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Apenas use o driver NVIDIA em VMs NV2 ou NV.) Para fazer isso, crie um arquivo em `/etc/modprobe.d` chamado `nouveau.conf` com o seguinte conteúdo:
 
    ```
    blacklist nouveau
@@ -362,6 +362,7 @@ Em seguida, crie uma entrada para o seu script de atualização em `/etc/rc.d/rc
 ## <a name="troubleshooting"></a>Solução de problemas
 
 * Você pode definir o modo de persistência usando `nvidia-smi`, de modo que o resultado do comando seja mais rápido quando você precisar consultar cartões. Para definir o modo de persistência, execute `nvidia-smi -pm 1`. Observe que, se a VM for reiniciada, a configuração do modo desaparecerá. Você sempre pode gerar um script da configuração de modo para ser executada na inicialização.
+* Se você tiver atualizado os drivers NVIDIA CUDA para a versão mais recente e encontrar o RDMA connectivcity não estiver mais funcionando, [reinstale os drivers RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) em reistablish com conectividade. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

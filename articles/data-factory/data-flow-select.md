@@ -6,15 +6,15 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 3c81ec5e213364ed6f159fd20e12879a098caad4
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 289f98fdc2f39449cdeede9ee46fb39847ae2cb5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774983"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029277"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Mapeando fluxo de dados selecionar transformação
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Use essa transformação para a seletividade da coluna (reduzindo o número de colunas), colunas de alias e nomes de fluxo e reordenar colunas.
 
@@ -34,7 +34,7 @@ A seleção também pode ser usada como uma maneira de anular a seleção de col
 * Para atribuir alias a colunas individuais, desmarque “Selecionar tudo” e use o mapeamento de colunas na parte inferior.
 * Escolha ignorar duplicatas para eliminar colunas duplicadas dos metadados de entrada ou saída.
 
-![Ignorar duplicatas](media/data-flow/select-skip-dup.png "Ignorar duplicatas")
+![Ignorar]duplicatas(media/data-flow/select-skip-dup.png "ignoram duplicatas")
 
 * Quando você opta por ignorar duplicatas, os resultados ficarão visíveis na guia inspecionar. O ADF manterá a primeira ocorrência da coluna e você verá que cada ocorrência subsequente dessa mesma coluna foi removida do seu fluxo.
 
@@ -44,7 +44,7 @@ A seleção também pode ser usada como uma maneira de anular a seleção de col
 ## <a name="mapping"></a>Mapeamento
 Por padrão, a transformação selecionar mapeará automaticamente todas as colunas, que passarão por todas as colunas de entrada para o mesmo nome na saída. O nome do fluxo de saída definido em selecionar configurações definirá um novo nome de alias para o fluxo. Se você mantiver a seleção definir para mapa automático, poderá alias de todo o fluxo com todas as colunas iguais.
 
-![Selecionar regras de transformação](media/data-flow/rule2.png "Mapeamento baseado em regras")
+![Selecionar regras de transformação](media/data-flow/rule2.png "mapeamento baseado em regras")
 
 Se você quiser criar um alias, remover, renomear ou reordenar colunas, primeiro será necessário desligar o "mapa automático". Por padrão, você verá uma regra padrão inserida para você chamada "todas as colunas de entrada". Você pode deixar essa regra em vigor se pretende sempre permitir que todas as colunas de entrada sejam mapeadas para o mesmo nome em sua saída.
 

@@ -14,16 +14,20 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 6eaaeba8a36bcba8134d605889185fb8827dd05c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 74a522f8761c2eeaf329c90ae35aef0f44c40254
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851182"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027197"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como usar o SDK do Node.js para Aplicativos Móveis
 
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
+
+> [!NOTE]
+> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
 
 Este artigo fornece informações detalhadas e exemplos de como trabalhar com um back-end do Node.js no recurso Aplicativos Móveis do Serviço de Aplicativo do Azure.
 
@@ -135,7 +139,7 @@ O Visual Studio 2015 exige uma extensão para desenvolver aplicativos Node.js no
 
     Salve o arquivo.
 
-1. Execute o aplicativo localmente (a API é servida `http://localhost:3000`) ou publique no Azure.
+1. Execute o aplicativo localmente (a API é servida no `http://localhost:3000`) ou publique no Azure.
 
 ### <a name="create-node-backend-portal"></a>Criar um back-end do Node.js usando o Portal do Azure
 
@@ -192,7 +196,7 @@ Se você quiser apenas essa opção disponível ao desenvolver localmente, é po
 
 O SDK do servidor do Node.js do azure-mobile-apps fornece mecanismos para expor tabelas de dados armazenadas no Banco de Dados SQL do Azure como uma API Web. Ele fornece cinco operações:
 
-| Operação | Descrição |
+| Operação | DESCRIÇÃO |
 | --- | --- |
 | GET /tables/*tablename* |Obter todos os registros na tabela. |
 | GET /tables/*tablename*/:id |Obter um registro específico na tabela. |
@@ -340,7 +344,7 @@ Os Aplicativos Móveis leem um arquivo JavaScript chamado *azureMobile.js* no si
 
 O arquivo azureMobile.js deve exportar um objeto de configuração. As configurações mais comuns são:
 
-* Configurações do banco de dados
+* Configurações de banco de dados
 * Configurações de registro em log de diagnóstico
 * Configurações de CORS alternativas
 
@@ -370,7 +374,7 @@ Recomendamos que você adicione **azureMobile.js** ao arquivo **.gitignore** (ou
 
 A maioria das configurações no arquivo azureMobile.js tem uma Configuração do Aplicativo equivalente no [Portal do Azure]. Use a lista a seguir para configurar seu aplicativo nas **Configurações de Aplicativo**:
 
-| Configurações de aplicativo | Configuração azureMobile.js | Descrição | Valores válidos |
+| Configurações de aplicativo | Configuração azureMobile.js | DESCRIÇÃO | Valores válidos |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |name |Nome do aplicativo |cadeia de caracteres |
 | **MS_MobileLoggingLevel** |logging.level |Nível de log mínimo das mensagens a serem registradas |erro, aviso, informações, detalhado, depuração, simples |

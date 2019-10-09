@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/2/2019
+ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6776d7ff21599a1cfab47fd0e4ab0fbef5d3d8c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 5132581c3d79db88dabc3c20ac3b962226d8a12d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827092"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025841"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de lançamento de versões
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -45,6 +45,8 @@ Nem todas as versões do Azure AD Connect serão disponibilizadas para atualiza�
 
 ## <a name="14250"></a>1.4.25.0
 
+
+
 ### <a name="release-status"></a>Status de liberação
 9/28/2019: Liberado para atualização automática para selecionar locatários. Não disponível para download.
 
@@ -56,12 +58,15 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 
 ## <a name="14180"></a>1.4.18.0
 
+>[!WARNING]
+>Estamos investigando um incidente em que alguns clientes estão enfrentando um problema com os dispositivos ingressados no Azure AD híbridos existentes após a atualização para esta versão do Azure AD Connect. Aconselhamos os clientes que implantaram a junção híbrida do Azure AD para adiar a atualização para esta versão até que a causa raiz desses problemas seja totalmente compreendida e reduzida. Mais informações serão fornecidas assim que possível.
+
 >[!IMPORTANT]
 >Com esta versão do Azure AD Connect alguns clientes podem ver que alguns ou todos os seus dispositivos Windows desaparecem do Azure AD. Isso não é uma causa de preocupação, pois essas identidades de dispositivo não são usadas pelo AD do Azure durante a autorização de acesso condicional. Para obter mais informações, consulte [Understanding Azure ad Connect 1.4. XX. x Device disappearnce](reference-connect-device-disappearance.md)
 
 
 ### <a name="release-status"></a>Status de liberação
-9/25/2019: Liberado para atualização e download automáticos
+9/25/2019: Removido do download manual até que a investigação de incidentes seja concluída.
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 - Novas ferramentas de solução de problemas ajudam a solucionar os cenários "usuário não sincronizando", "grupo não sincronizando" ou "membros do grupo não sincronizando".
@@ -103,7 +108,7 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 >[!IMPORTANT]
 >Há um problema conhecido com a atualização de Azure AD Connect de uma versão anterior para 1.3.21.0 em que o portal do O365 não reflete a versão atualizada, mesmo que Azure AD Connect atualizado com êxito.
 >
-> Para resolver isso, você precisa importar o módulo **AdSync** e, em seguida`Set-ADSyncDirSyncConfiguration` , executar o cmdlet do PowerShell no servidor de Azure ad Connect.  Você pode usar as seguintes etapas:
+> Para resolver isso, você precisa importar o módulo **AdSync** e executar o cmdlet do PowerShell @ no__t-1 no servidor de Azure ad Connect.  Você pode usar as seguintes etapas:
 >
 >1. Abrir o PowerShell no modo administrador
 >2. Execute `Import-Module "ADSync"`
@@ -460,7 +465,7 @@ Bloqueie o acesso à conta do AD DS implementando as seguintes alterações de p
 *   Remova todas as ACEs no objeto especificado, exceto as ACEs específicas ao SELF. Queremos manter as permissões padrão intactas quando se trata do SELF.
 *   Atribua essas permissões específicas:
 
-Tipo     | Nome                          | Access               | Aplica-se a
+Tipo     | NOME                          | Access               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
 Allow    | SYSTEM                        | Controle Total         | Este objeto  |
 Allow    | Administradores Corporativos             | Controle Total         | Este objeto  |
@@ -485,7 +490,7 @@ Para usar o script do PowerShell, para aplicar essas configurações, para uma c
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-Onde 
+Where 
 
 **$ObjectDN** = A conta do Active Directory cujas permissões precisam ser reforçadas.
 
@@ -804,13 +809,13 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Selecionar|
-    |CertKeyAlgorithmParams|CertHashString|Onde|
+    |CertKeyAlgorithmParams|CertHashString|Where|
     |||With|
 
 * As seguintes alterações de esquema foram introduzidas para permitir que os clientes criem regras de sincronização personalizadas para transmitir sAMAccountName, domainNetBios e domainFQDN para objetos de grupo, bem como transmitir distinguishedName para objetos de usuário:
 
   * Os atributos a seguir foram adicionados ao esquema do MV:
-    * Grupo: Nome da Conta
+    * Grupo: AccountName
     * Grupo: domainNetBios
     * Grupo: domainFQDN
     * Pessoa: distinguishedName
@@ -967,7 +972,7 @@ Autenticação de Passagem
 * Correção de um problema que causa uma falha do assistente do Azure AD Connect se a Autenticação de Passagem é selecionada, mas o registro de seu conector falha.
 * Correção de um problema que faz com que o assistente do Azure AD Connect ignore as verificações de validação no método de conexão selecionado quando o recurso SSO da Área de Trabalho está habilitado.
 
-Redefinição de Senha
+Redefinição de senha
 * Correção de um problema que pode fazer com que o servidor do Azure AAD Connect não tente se reconectar se a conexão for interrompida por um firewall ou proxy.
 
 **Novos recursos/melhorias:**
@@ -982,7 +987,7 @@ Gerenciamento dos AD FS
 * Agora é possível especificar uma gMSA (Conta de Serviço Gerenciado de Grupo) existente durante a instalação do AD FS.
 * Agora é possível configurar o SHA-256 como o algoritmo de hash de assinatura para o objeto de confiança de terceira parte confiável do Azure AD.
 
-Redefinição de Senha
+Redefinição de senha
 * Introdução de aprimoramentos para permitir que o produto funcione em ambientes com regras de firewall mais rígidas.
 * Aumento na confiabilidade de conexão com o Barramento de Serviço do Azure.
 

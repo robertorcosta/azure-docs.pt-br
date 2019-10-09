@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: 45200e7620326dedcee92c579843e61bb07ff68e
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: b232df010190a95d12d5a57f076a4c1bf336cea4
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610256"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026587"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre Análise de Tráfego
 
@@ -71,13 +71,13 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 - East US
 - Leste dos EUA 2
 - Centro-Norte dos EUA
-- Centro-Sul dos EUA
+- Centro-Sul dos Estados Unidos
 - EUA Central
 - Oeste dos EUA
 - Oeste dos EUA 2
-- Centro da França
+- França Central
 - Europa Ocidental
-- Europa Setentrional
+- Norte da Europa
 - Sul do Brasil
 - Oeste do Reino Unido
 - Sul do Reino Unido
@@ -90,20 +90,20 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 - Sul da Índia
 - Leste do Japão
 - Oeste do Japão
-- US Gov - Virgínia
+- Gov. dos EUA – Virgínia
 
 O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 - Canadá Central
 - Centro-oeste dos EUA
 - Oeste dos EUA
 - Oeste dos EUA 2
-- Centro-Sul dos EUA
+- Centro-Sul dos Estados Unidos
 - EUA Central
 - East US
 - Leste dos EUA 2
-- Centro da França
+- França Central
 - Europa Ocidental
-- Europa Setentrional
+- Norte da Europa
 - Sul do Reino Unido
 - Leste da Austrália
 - Sudeste da Austrália
@@ -112,7 +112,7 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 - Coreia Central
 - Índia Central
 - Leste do Japão
-- US Gov - Virgínia
+- Gov. dos EUA – Virgínia
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Os NSGs para os quais eu habilito logs de fluxo podem estar em regiões diferentes do meu workspace?
 
@@ -143,8 +143,8 @@ Selecione uma região suportada. Se você selecionar uma região sem suporte, re
 O provedor Microsoft.Insights deve estar registrado para que o log de fluxo funcione corretamente. Se você não tiver certeza se o provedor Microsoft.Insights está registrado para sua assinatura, substitua *xxxxx-xxxxx-xxxxxx-xxxx* no seguinte comando e execute os seguintes comandos do PowerShell:
 
 ```powershell-interactive
-**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Configurei a solução. Por que não visualizo nada no painel?
@@ -248,7 +248,7 @@ Por exemplo, de acordo o [plano de preços](https://azure.microsoft.com/pricing/
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>Com que frequência Análise de Tráfego processar dados?
 
-Consulte a seção de agregação de [dados](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) no esquema de análise de tráfego e no documento de agregação de dados
+Consulte a [seção de agregação de dados](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) no esquema de análise de tráfego e no documento de agregação de dados
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Como Análise de Tráfego decidir que um IP é mal-intencionado? 
 

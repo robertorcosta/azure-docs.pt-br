@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 87ecf534fa7d4f3609882f5f18b314c246e388bd
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b48e0cddfe4880382147e7bfb634335f10d6f5f9
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036640"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028855"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análise para o mercado comercial no Partner Center
 
@@ -26,6 +26,7 @@ Para acessar as ferramentas de análise do Partner Center, abra o painel **[anal
 |[Solicitar](#orders-dashboard)|Informações sobre seus pedidos em um formato gráfico e baixável|
 |[Utilizam](#customer-dashboard)|Informações sobre seus clientes, incluindo tendências de crescimento, apresentadas em um formato gráfico e baixável|
 |[Downloads](#downloads-dashboard)|Uma lista de suas solicitações de download nos últimos 30 dias|
+|[Classificações e análises](#ratings-and-reviews)| Informações sobre classificações e análises que seus clientes deixam para as ofertas adquiridas.
 
 ## <a name="summary-dashboard"></a>Painel de resumo
 
@@ -232,23 +233,23 @@ Você receberá uma notificação pop-up e um email contendo um link para o pain
 
 ### <a name="dictionary-of-data-terms"></a>Dicionário de termos de dados
 
-| Nome do Atributo | Relatórios | Definição|
+| Nome do atributo | Relatórios | Definição|
 |---|---|---|
 | Tipo de licença do Azure | Cliente, pedido | O tipo de contrato de licenciamento usado pelos clientes para comprar o Azure. Também conhecido como canal |
 | Tipo de licença do Azure: Provedor de soluções de nuvem | Cliente, pedido | O cliente final adquire o Azure e sua oferta do Marketplace por meio do Provedor de Soluções de Nuvem, que atua como revendedor.|
-| Tipo de licença do Azure: Corporativo | Cliente, pedido | O cliente final adquire o Azure e sua oferta do Marketplace por meio de um Contrato Enterprise, assinado diretamente com a Microsoft.|
+| Tipo de licença do Azure: Enterprise | Cliente, pedido | O cliente final adquire o Azure e sua oferta do Marketplace por meio de um Contrato Enterprise, assinado diretamente com a Microsoft.|
 | Tipo de licença do Azure: Enterprise por meio do revendedor  | Cliente, pedido | O cliente final compra o Azure e sua oferta do Marketplace por meio de um revendedor que facilita seus Enterprise Agreement com a Microsoft.|  |
-| Tipo de licença do Azure: Pago Conforme o Uso| Cliente, pedido | O cliente final compra o Azure e sua oferta do Marketplace por meio de um contrato "pré-pago", assinado diretamente com a Microsoft.||
+| Tipo de licença do Azure: Pré-pago| Cliente, pedido | O cliente final compra o Azure e sua oferta do Marketplace por meio de um contrato "pré-pago", assinado diretamente com a Microsoft.||
 | Nome da instância de nuvem| Ordem| A Microsoft Cloud em que ocorreu uma implantação de VM.||
 | Nome da instância de nuvem: Azure Global| Ordem| A nuvem global da Microsoft pública.|| |
-| Nome da instância de nuvem: Azure Governamental | Ordem| Nuvens Microsoft específicas do governo para um dos seguintes governos: China, Alemanha ou o Estados Unidos da América.| |
+| Nome da instância de nuvem: Azure Government | Ordem| Nuvens Microsoft específicas do governo para um dos seguintes governos: China, Alemanha ou o Estados Unidos da América.| |
 | Cidade do cliente| Cliente| O nome da cidade fornecida pelo cliente. A cidade pode ser diferente da cidade na assinatura do Azure de um cliente.||
 | Idioma de comunicação do cliente  | Cliente| O idioma preferido pelo cliente para comunicação.||
-| Nome da empresa do cliente | Cliente, pedido | O nome da empresa fornecido pelo cliente. O nome pode ser diferente do nome na assinatura do Azure de um cliente.|  |
+| Nome da empresa do cliente | Cliente, pedido | O nome da empresa fornecido pelo cliente. O nome pode ser diferente da cidade na assinatura do Azure de um cliente.|  |
 | País/Região do cliente | Cliente, pedido | O nome do país fornecido pelo cliente. O país pode ser diferente do país na assinatura do Azure de um cliente.|  |
 | Email do cliente| Cliente| O endereço de email fornecido pelo cliente final. O email pode ser diferente do endereço de email na assinatura do Azure de um cliente.||
 | Nome do cliente| Cliente| O nome fornecido pelo cliente. O nome pode ser diferente do nome fornecido na assinatura do Azure de um cliente.| |
-| ID do Cliente | Cliente, pedido | O identificador exclusivo atribuído a um cliente. Um cliente pode ter zero ou mais assinaturas do Azure Marketplace.|  |
+| ID do cliente | Cliente, pedido | O identificador exclusivo atribuído a um cliente. Um cliente pode ter zero ou mais assinaturas do Azure Marketplace.|  |
 | Código postal do cliente  | Cliente| O CEP fornecido pelo cliente. O código pode ser diferente do código postal fornecido na assinatura do Azure de um cliente.| |
 | Estado do cliente| Cliente| O estado (endereço) fornecido pelo cliente. O estado pode ser diferente do estado fornecido na assinatura do Azure de um cliente.| |
 | Data da aquisição| Cliente| A primeira data em que o cliente comprou qualquer oferta publicada por você.| |
@@ -259,10 +260,10 @@ Você receberá uma notificação pop-up e um email contendo um link para o pain
 | Tipo de licença do Marketplace| Ordem| O método de cobrança da oferta do Marketplace.||
 | Tipo de licença do Marketplace: Cobrado por meio do Azure| Ordem| A Microsoft é seu agente para esta oferta do Marketplace e cobra os clientes em seu nome. (Cartão de crédito PAYG ou fatura Enterprise)||
 | Tipo de licença do Marketplace: Traga sua própria licença | Ordem| A VM requer uma chave de licença fornecida pelo cliente para implantar. A Microsoft não fatura os clientes para listar suas ofertas dessa maneira por meio do Marketplace.||
-| Tipo de licença do Marketplace: Gratuito| Ordem| A oferta está configurada para ser gratuita para todos os usuários. A Microsoft não cobra os clientes pelo uso dessa oferta.||
+| Tipo de licença do Marketplace: Grátis| Ordem| A oferta está configurada para ser gratuita para todos os usuários. A Microsoft não cobra os clientes pelo uso dessa oferta.||
 | Tipo de licença do Marketplace: Microsoft como revendedor  | Ordem| A Microsoft é o revendedor para esta oferta do Marketplace.|  |
 | ID da assinatura do Marketplace | Cliente, pedido | O identificador exclusivo associado à assinatura do Azure que o cliente usou para comprar sua oferta do Marketplace. ID era anteriormente a GUID de assinatura do Azure.||
-| Nome da Oferta  | Ordem| O nome da oferta do Marketplace.|| |
+| Nome da oferta  | Ordem| O nome da oferta do Marketplace.|| |
 | Tipo de Oferta  | Ordem| O tipo de oferta de Microsoft Marketplace.|||
 | Tipo de oferta: Aplicativo gerenciado  | Ordene | Use o aplicativo do Azure: tipo de oferta de aplicativo gerenciado quando as seguintes condições forem necessárias: Você pode implantar uma solução baseada em assinatura para o cliente usando uma VM ou uma solução inteira com base em IaaS. Você ou seu cliente exigem que a solução seja gerenciada por um parceiro. |
 | Tipo de oferta: Aplicativo do Azure| Ordene | Use o tipo de oferta de modelo de solução Aplicativo Azure quando sua solução exigir implantação adicional e automação de configuração além de uma VM simples.||
@@ -270,7 +271,7 @@ Você receberá uma notificação pop-up e um email contendo um link para o pain
 | Tipo de oferta: Contêiner | Ordem| Use o tipo de oferta de Contêiner quando a solução é uma imagem de contêiner do Docker provisionada como um serviço de contêiner do Azure baseado em Kubernetes.||
 | Tipo de oferta: Dynamics 365 Business Central| Ordem| Use esse tipo de oferta quando sua solução estiver integrada com o Dynamics 365 para finanças e operações| |
 | Tipo de oferta: Dynamics 365 for Customer Engagement | Ordem| Use esse tipo de oferta quando sua solução estiver integrada com o Dynamics 365 for Customer Engagement.||
-| Tipo de oferta: Módulo do IoT Edge | Ordem| Os módulos de Azure IoT Edge são as menores unidades de computação gerenciadas pelo IoT Edge e podem conter serviços da Microsoft (como Azure Stream Analytics), serviços de terceiros ou seu próprio código específico da solução. |
+| Tipo de oferta: Módulo IoT Edge | Ordem| Os módulos de Azure IoT Edge são as menores unidades de computação gerenciadas pelo IoT Edge e podem conter serviços da Microsoft (como Azure Stream Analytics), serviços de terceiros ou seu próprio código específico da solução. |
 | Tipo de oferta: Power BI aplicativo | Ordem| Use o tipo de oferta de aplicativo Power BI ao implantar um aplicativo integrado com Power BI.|  |
 | Tipo de oferta: Aplicativo SaaS| Ordem| Use o tipo de oferta de aplicativo SaaS para permitir que o cliente compre a solução técnica baseada em SaaS como uma assinatura.||
 | Tipo de oferta: Máquina Virtual | Ordem| Use o tipo de oferta de Máquina Virtual quando implantar um dispositivo virtual na assinatura associada ao cliente.||
@@ -279,9 +280,44 @@ Você receberá uma notificação pop-up e um email contendo um link para o pain
 | ID do pedido| Ordem| O identificador exclusivo da ordem do cliente para o serviço do Marketplace. As ofertas baseadas em uso da máquina virtual não estão associadas a um pedido.| |
 | Data de compra do pedido| Ordem| A data em que a ordem do Marketplace foi criada.|||
 | Status do pedido| Ordem| O status de um pedido do Marketplace no momento em que os dados foram atualizados pela última vez.|     |
-| Status do pedido: Ativos  | Ordem| O cliente comprou um pedido e não cancelou seu pedido.|         |
+| Status do pedido: Ativo  | Ordem| O cliente comprou um pedido e não cancelou seu pedido.|         |
 | Status do pedido: cancelado | Ordem| O cliente comprou um pedido anteriormente e, subsequentemente, cancelou seu pedido.||
 | Email do provedor| Cliente| O endereço de email do provedor envolvido na relação entre a Microsoft e o cliente final. Se o cliente for uma empresa por meio do revendedor, esse será o revendedor. Se um CSP (provedor de soluções de nuvem) estiver envolvido, esse será o CSP.|
-| Nome do Provedor| Cliente| O nome do provedor envolvido na relação entre a Microsoft e o cliente final. Se o cliente for uma empresa por meio do revendedor, esse será o revendedor. Se um CSP (provedor de soluções de nuvem) estiver envolvido, esse será o CSP.|
+| Nome do provedor| Cliente| O nome do provedor envolvido na relação entre a Microsoft e o cliente final. Se o cliente for uma empresa por meio do revendedor, esse será o revendedor. Se um CSP (provedor de soluções de nuvem) estiver envolvido, esse será o CSP.|
 | SKU| Ordem| Nome do SKU, conforme definido durante a publicação. Uma oferta pode ter muitas SKUs, mas uma SKU só pode ser associada a uma única oferta.||
 | Data de término da avaliação gratuita| Ordem| A data em que o período de avaliação gratuita deste pedido terminará ou terminou.||
+
+## <a name="ratings-and-reviews"></a>Classificações e análises
+
+À medida que os clientes navegam, pesquisam e compram ofertas em ambos os Marketplaces, eles podem deixar classificações e análises para as ofertas adquiridas. Eles são capazes de enviar novas classificações ou revisões e atualizar ou excluir classificações ou revisões já enviadas. As revisões são lançadas no Azure Marketplace ou AppSource na guia revisões da página de exibição do produto da oferta. Os clientes podem incluir seus nomes para classificações ou análises, ou podem postar anonimamente.  
+
+> [!NOTE]
+> Os clientes podem fazer alterações apenas nas classificações e análises que elas possuem.
+
+O **painel de análise de & de classificações** exibe as tendências e as ideias das atividades do cliente. Ele fornece representações gráficas de:
+
+- Avaliações & revisões  
+- Examinar comentários
+
+### <a name="marketplace-storefront-tabs"></a>Guias de vitrine do Marketplace
+
+Os editores podem exibir suas métricas de oferta separadamente nas guias do AppSource & Azure Marketplace. Para exibir as métricas de oferta específicas, selecione **oferta** na lista suspensa:
+
+![Menu suspenso da oferta de análise do Partner Center](./media/analyze-offer-dropdown.png)
+
+### <a name="ratings-and-reviews-summary"></a>Resumo de classificações e avaliações
+
+A seção de resumo classificações & revisões exibe as métricas abaixo para um intervalo de datas selecionado:
+
+- **Classificação média:** Classificação média ponderada em estrela de todas as classificações enviadas pelos clientes para a oferta selecionada.
+- **Divisão de classificação:** Divisão da classificação por estrelas pela contagem de clientes que enviaram classificações. O gráfico de barras é empilhado com classificações reais e revisadas (contagem de classificação atualizada).
+- **Total de classificações:** Contagem geral de classificações enviadas. Essa contagem também inclui classificações com e sem revisões.
+- **Classificações com revisões:** Contagem de revisões enviadas.
+
+![Resumo de análise de avaliações e avaliações do Partner Center](./media/analyze-ratings-summary.png)
+
+### <a name="review-comments"></a>Examinar comentários
+
+As revisões são exibidas em ordem cronológica para quando elas foram lançadas. O modo de exibição padrão exibe todas as revisões. Você pode filtrar por meio das revisões por classificação por estrelas usando o **filtro** no menu suspenso. Você também pode pesquisar palavras-chave que aparecem na revisão.  
+
+![Comentários da análise do Partner Center analisar](./media/analyze-reviews.png)

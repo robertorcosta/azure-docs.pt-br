@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5558eeb4012ac563388ad47df61114534e9859ed
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c6c8bcfec9a8bdf6948190c5f132c2e1763b9973
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308334"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025642"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desenvolvendo com APIs dos serviços de mídia v3
 
@@ -32,7 +32,7 @@ Para estar autorizado a acessar os recursos e a API dos Serviços de Mídia, pri
 * **Autenticação de entidade de serviço** – usada para autenticar um serviço (por exemplo: aplicativos Web, aplicativos de funções, aplicativos lógicos, API e microservices). Os aplicativos que geralmente usam esse método de autenticação são aplicativos que executam serviços daemon, serviços de camada intermediária ou trabalhos agendados. Por exemplo, para aplicativos Web, sempre deve haver uma camada intermediária que se conecte aos serviços de mídia com uma entidade de serviço.
 * **Autenticação de usuário** – usada para autenticar uma pessoa que está usando o aplicativo para interagir com os recursos dos serviços de mídia. O aplicativo interativo deve primeiro solicitar ao usuário as credenciais do usuário. Um exemplo é um aplicativo de console de gerenciamento usado por usuários autorizados para monitorar trabalhos de codificação ou uma transmissão ao vivo.
 
-A API dos serviços de mídia requer que o usuário ou aplicativo que faz as solicitações da API REST tenha acesso ao recurso de conta dos serviços de mídia e use uma função de **colaborador** ou **proprietário** . A API pode ser acessada com a função **leitor** , mas somente as operações **Get** ou **list**   estarão disponíveis. Para obter mais informações, consulte [controle de acesso baseado em função para contas de serviços de mídia](rbac-overview.md).
+A API dos serviços de mídia requer que o usuário ou aplicativo que faz as solicitações da API REST tenha acesso ao recurso de conta dos serviços de mídia e use uma função de **colaborador** ou **proprietário** . A API pode ser acessada com a função **leitor** , mas somente as operações **Get** ou **list** estarão disponíveis. Para obter mais informações, consulte [controle de acesso baseado em função para contas de serviços de mídia](rbac-overview.md).
 
 Em vez de criar uma entidade de serviço, considere o uso de identidades gerenciadas para recursos do Azure para acessar a API dos serviços de mídia por meio de Azure Resource Manager. Para saber mais sobre identidades gerenciadas para recursos do Azure, confira [o que são identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -83,7 +83,7 @@ Os nomes de Arquivos/blobs em um ativo devem seguir os [requisitos de nome do bl
 
 ## <a name="long-running-operations"></a>Operações de execução longa
 
-As operações marcadas `x-ms-long-running-operation` com nos [arquivos do Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) dos serviços de mídia do Azure são operações de longa execução. 
+As operações marcadas com `x-ms-long-running-operation` nos [arquivos Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) dos serviços de mídia do Azure são operações de longa execução. 
 
 Para obter detalhes sobre como rastrear operações assíncronas do Azure, consulte [operações](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)assíncronas.
 
@@ -95,7 +95,7 @@ Os serviços de mídia têm as seguintes operações de execução longa:
 * [Iniciar evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents/start)
 * [Parar LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
 
-  Use o `removeOutputsOnStop` parâmetro para excluir todas as saídas dinâmicas associadas ao parar o evento.  
+  Use o parâmetro `removeOutputsOnStop` para excluir todas as saídas dinâmicas associadas ao parar o evento.  
 * [Redefinir LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
 * [Criar LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
 * [Excluir LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)

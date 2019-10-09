@@ -7,16 +7,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf58db14398026da62ed13c66be815be8fe166a2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61349604"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029893"
 ---
-# <a name="azure-data-factory-window-transformation"></a>Transformação de janela do Azure Data Factory
+# <a name="azure-data-factory-window-transformation"></a>Transformação de janela de Azure Data Factory
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 A Transformação de janela é o local em que você definirá agregações baseadas em janela de colunas em seus fluxos de dados. No Construtor de Expressões, é possível definir diferentes tipos de agregações baseadas em janelas de dados ou de tempo (cláusula SQL OVER) como LEAD, LAG, NTILE, CUMEDIST, RANK, etc.). Um novo campo será gerado na saída que inclui essas agregações. Também é possível incluir campos opcionais agrupar por.
 
@@ -48,4 +48,4 @@ A lista completa de funções analíticas e de agregação disponível para voc�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você estiver procurando por uma agregação group-by simples, use o [transformação agregação](data-flow-aggregate.md)
+Se você estiver procurando uma agregação de grupo por simples, use a [transformação Agregação](data-flow-aggregate.md)

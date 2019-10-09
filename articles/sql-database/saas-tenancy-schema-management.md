@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
-ms.openlocfilehash: 7b238044fd3795ae2f49c2fa21367e6499a65672
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 95d13c997d3871815ebd541e5985eb9fef726a76
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570114"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029747"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerenciar o esquema em um aplicativo SaaS usando o padrão de banco de dados por locatário com o Banco de Dados SQL do Azure
  
@@ -85,8 +85,8 @@ Para criar um novo trabalho, use um conjunto de trabalhos que os procedimentos a
 
 1. No SSMS, conecte-se ao servidor de catálogo: *catalog-dpt-&lt;user&gt;.database.windows.net* 
 1. No SSMS, abra o arquivo …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
-1. Modifique a instrução: Definir @wtpUser = &lt;usuário&gt; e substituir o valor de usuário usado quando você implantou o aplicativo de banco de dados por locatário SaaS Wingtip tickets
-1. Verifique se você está conectado ao banco de dados _jobagent_ e pressione **F5** para executar o script
+1. Modifique a instrução: Defina @wtpUser = &lt;user @ no__t-2 e substitua o valor do usuário usado quando você implantou o aplicativo de banco de dados por locatário SaaS Wingtip tickets
+1. Verifique se você está conectado ao banco de dados _jobaccount_ e pressione **F5** para executar o script
 
 Observe os seguintes elementos no script *DeployReferenceData.sql*:
 * **SP\_add\_target\_group** cria o nome do grupo de destino DemoServerGroup.

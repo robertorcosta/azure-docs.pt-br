@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/01/2019
+ms.date: 10/07/2019
 ms.author: anavin
-ms.openlocfilehash: 100bbb6e0ed8e2ea5b35e30e7759a3b11c169b60
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c488b96940cac03b9c392f0ac4bd1d32a15ba111
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077637"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035291"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
-Emparelhamento de rede virtual permite que você se conecte remotamente do Azure [redes virtuais](virtual-networks-overview.md). Uma vez emparelhadas, as redes virtuais aparecerão como uma para fins de conectividade. O tráfego entre as máquinas virtuais nas redes virtuais emparelhadas será roteado por meio da infraestrutura de backbone da Microsoft, assim como o tráfego é roteado entre as máquinas virtuais na mesma rede virtual somente por endereços IP *privados*. O Azure oferece suporte a:
+O emparelhamento de rede virtual permite que você conecte diretamente as [redes virtuais](virtual-networks-overview.md)do Azure. Uma vez emparelhadas, as redes virtuais aparecerão como uma para fins de conectividade. O tráfego entre as máquinas virtuais nas redes virtuais emparelhadas será roteado por meio da infraestrutura de backbone da Microsoft, assim como o tráfego é roteado entre as máquinas virtuais na mesma rede virtual somente por endereços IP *privados*. O Azure oferece suporte a:
 * Emparelhamento de rede virtual - conexão de redes virtuais na mesma região do Azure
 * Emparelhamento de rede virtual global - conexão de redes virtuais em regiões do Azure
 
@@ -63,11 +63,11 @@ Quando as redes virtuais estiverem emparelhadas, você também poderá configura
 
 ![trânsito de emparelhamento de rede virtual](./media/virtual-networks-peering-overview/figure04.png)
 
-Há suporte para o trânsito de gateway para o emparelhamento de rede virtual e o emparelhamento VNet Global. Gateway de trânsito entre redes virtuais criadas por meio de diferentes modelos de implantação (Resource Manager e clássico) tem suporte apenas se o gateway está na rede virtual (Resource Manager). Para saber mais sobre como usar um gateway para trânsito, consulte [Configurar um gateway de VPN para trânsito em um emparelhamento de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+O trânsito de gateway tem suporte para emparelhamento VNet e emparelhamento VNet global. O gateway de trânsito entre redes virtuais criadas por meio de diferentes modelos de implantação (Gerenciador de recursos e clássico) só terá suporte se o gateway estiver na rede virtual (Resource Manager). Para saber mais sobre como usar um gateway para trânsito, consulte [Configurar um gateway de VPN para trânsito em um emparelhamento de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Quando as redes virtuais que compartilham uma única conexão de Azure ExpressRoute forem emparelhadas, o tráfego entre elas passará pela relação de emparelhamento (isto é, pela rede de backbone do Azure). Você ainda pode usar gateways locais em cada rede virtual para se conectar ao circuito local. Como alternativa, você pode usar um gateway compartilhado e configurar o trânsito para conectividade local.
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 Para confirmar um emparelhamento de rede virtual, você pode [verificar rotas efetivas](diagnose-network-routing-problem.md) para uma interface de rede em qualquer sub-rede em uma rede virtual. Se um emparelhamento de rede virtual existir, todas as sub-redes na rede virtual terão rotas com o tipo de próximo salto *Emparelhamento VNet*, para cada espaço de endereço em cada rede virtual emparelhada.
 
@@ -78,7 +78,7 @@ Você também pode experimentar a [Solução de problemas para problemas de empa
 ## <a name="requirements-and-constraints"></a>Requisitos e restrições
 
 As seguintes restrições se aplicam somente quando as redes virtuais são emparelhadas globalmente:
-- Recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um balanceador interno de carga básico em uma rede virtual emparelhada globalmente. Só existe suporte para Load Balancer Basic dentro da mesma região. Existe suporte para o balanceador de carga padrão para tanto, emparelhamento de rede virtual e o emparelhamento VNet Global. Serviços que usam um balanceador de carga básico que não funcionará em emparelhamento VNet Global estão documentados [aqui.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
+- Os recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um balanceador de carga interno básico em uma rede virtual emparelhada globalmente. O suporte para Load Balancer básica existe apenas na mesma região. O suporte para Standard Load Balancer existe tanto para o emparelhamento VNet quanto para o emparelhamento de VNet global. Os serviços que usam um balanceador de carga básico que não funcionará em emparelhamento VNet global são documentados [aqui.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 
 Para saber mais sobre requisitos e restrições, confira [Restrições e requisitos de emparelhamento de redes virtuais](virtual-network-manage-peering.md#requirements-and-constraints). Para saber mais sobre os limites de número de emparelhamentos que você pode criar para uma rede virtual, confira [Limites de rede do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
@@ -90,7 +90,7 @@ Para saber mais sobre as permissões necessárias para criar um emparelhamento d
 
 Há um custo nominal para tráfego de entrada e saída que utiliza uma conexão de emparelhamento de rede virtual. Para obter mais informações sobre o emparelhamento de VNet e preços do emparelhamento VNet Global, consulte a [página de preços](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Trânsito de gateway é uma propriedade de emparelhamento que permite que uma rede virtual para utilizar um gateway VPN/ExpressRoute em uma rede virtual emparelhada para entre instalações ou VNet para conectividade. Tráfego que passa por um gateway remoto neste cenário está sujeito à [encargos de gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) ou o gateway de ExpressRoute de encargos e não incorre em [encargos de emparelhamento de rede virtual.](https://azure.microsoft.com/pricing/details/virtual-network) Por exemplo, se VNetA tem um gateway de VPN para conectividade local e VNetB VNetA é emparelhada com as propriedades apropriadas configuradas, o tráfego da VNetB para locais é cobrado apenas egresso por preços de gateway VPN ou ExpressRoute de preços. Encargos de emparelhamento de VNet não se aplicam. Saiba como [configurar o tráfego do gateway de VPN para o emparelhamento de rede virtual.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+O trânsito de gateway é uma propriedade de emparelhamento que permite que uma rede virtual utilize um gateway de VPN/ExpressRoute em uma rede virtual emparelhada para conectividade entre locais ou VNet a VNet. Para obter mais detalhes, consulte cobranças de [Gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) ou encargos de gateway de ExpressRoute e [encargos de emparelhamento VNet.](https://azure.microsoft.com/pricing/details/virtual-network)
 
 ## <a name="next-steps"></a>Próximas etapas
 

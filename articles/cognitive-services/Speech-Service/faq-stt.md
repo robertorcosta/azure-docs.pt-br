@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: a437927f6ad43f4c3a90433faa5b9fa6f964aa5c
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: bde68a70ac047433e86b7e06bc5f4a56bdd28595
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839244"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028502"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
@@ -63,13 +63,13 @@ O conjunto de dados antigo e o novo devem ser combinados em um único arquivo .z
 
 **R**: As implantações NÃO serão atualizadas automaticamente.
 
-Se você tiver adaptado e implantado um modelo com a linha de base V1.0, essa implantação permanecerá como está. Os clientes podem encerrar o modelo implantado, adaptar novamente usando a versão mais recente da linha de base e implante novamente.
+Se você tiver adaptado e implantado um modelo com a linha de base V1.0, essa implantação permanecerá como está. Os clientes podem desativar o modelo implantado, adaptar-se novamente usando a versão mais recente da linha de base e reimplantar.
 
 **P: E se eu precisar de maior simultaneidade para o modelo implantado do que o oferecido no portal?**
 
 **R**: Você pode aumentar o modelo em incrementos de 20 solicitações simultâneas.
 
-Entre em contato com [suporte de fala](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) se você precisar de uma escala maior.
+Contate o [suporte de fala](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) se você precisar de uma escala mais alta.
 
 **P: Posso baixar meu modelo e executá-lo localmente?**
 
@@ -83,9 +83,9 @@ Entre em contato com [suporte de fala](mailto:speechsupport@microsoft.com?subjec
 
 **R**: A API REST limita as solicitações a 25 a cada 5 segundos. Detalhes podem ser encontrados em nossas páginas de [Conversão de fala em texto](speech-to-text.md).
 
-**P: Como sou cobrado por dois canais de áudio?**
+**P: Como sou cobrado por áudio de canal duplo?**
 
-**R**: Se você enviar cada canal separadamente (cada canal em seu próprio arquivo), você será cobrado pela duração de cada arquivo a. Se você enviar um único arquivo com cada canal multiplexada juntos, em seguida, você será cobrado para a duração de um único arquivo.
+**R**: Se você enviar cada canal separadamente (cada canal em seu próprio arquivo), você será cobrado de acordo com a duração de cada arquivo. Se você enviar um único arquivo com cada canal multiplexado, você será cobrado pela duração do único arquivo.
 
 > [!IMPORTANT]
 > Se você tiver mais problemas de privacidade que o impeçam de usar o serviço de voz personalizada, entre em contato com um dos canais de suporte.
@@ -96,7 +96,7 @@ Entre em contato com [suporte de fala](mailto:speechsupport@microsoft.com?subjec
 
 **R**: O limite atual de um conjunto de dados é de 2 GB. O limite é devido à restrição quanto ao tamanho de um arquivo para upload HTTP. 
 
-**P: Posso compactar meus arquivos de texto para carregar um arquivo de texto maior?** 
+**P: Posso compactar meus arquivos de texto para carregar um arquivo de texto maior?** 
 
 **R**: Nº No momento são permitidos apenas os arquivos de texto não compactados.
 
@@ -140,7 +140,7 @@ Entre em contato com [suporte de fala](mailto:speechsupport@microsoft.com?subjec
 
 **R**: Os resultados mostram uma comparação entre o modelo de linha de base e o modelo personalizado. Você deve tentar atingir o modelo de referência para que a personalização seja útil.
 
-**P: Como fazer para determinar o WER de um modelo base para ver se houve uma melhoria?** 
+**P: Como fazer para determinar o WER de um modelo base para ver se houve uma melhoria?** 
 
 **R**: Os resultados do teste offline mostram a precisão da linha de base do modelo personalizado e a melhoria em relação à linha de base.
 

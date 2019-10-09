@@ -7,20 +7,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: e0b41850c149ff7095333cf77b780dec1f03b882
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd29753ff14d16081a46eebbc2ea02d94e5985f1
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234422"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029351"
 ---
-# <a name="azure-data-factory-filter-transformation"></a>Transformação de filtro de fábrica de dados do Azure
+# <a name="azure-data-factory-filter-transformation"></a>Transformação de filtro de data factory do Azure
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-As transformações de filtro proporcionam filtragem de linha. Crie uma expressão que defina a condição do filtro. Clique na caixa de texto para iniciar o Construtor de Expressões. Dentro do construtor de expressões, crie uma expressão de filtro para controlar quais linhas do fluxo de dados atual podem passar (filtrar) para a próxima transformação. Considere a transformação de filtro da cláusula WHERE de uma instrução SQL.
 
-## <a name="filter-on-loanstatus-column"></a>Filtrar coluna loan_status:
+As transformações de filtro proporcionam filtragem de linha. Crie uma expressão que defina a condição do filtro. Clique na caixa de texto para iniciar o Construtor de Expressões. Dentro do construtor de expressões, crie uma expressão de filtro para controlar quais linhas do fluxo de dados atual podem passar (filtrar) para a próxima transformação. Considere a transformação de filtro como a cláusula WHERE de uma instrução SQL.
+
+## <a name="filter-on-loan_status-column"></a>Filtrar na coluna loan_status:
 
 ```
 in([‘Default’, ‘Charged Off’, ‘Fully Paid’], loan_status).
@@ -34,4 +34,4 @@ year > 1980
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Tente uma coluna de filtragem de transformação, o [Selecionar transformação](data-flow-select.md)
+Experimente uma transformação filtragem de coluna, a [transformação selecionar](data-flow-select.md)

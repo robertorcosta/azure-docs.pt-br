@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: e9bc0cf3ab0d168a55ab04913bdc71eed5c5fced
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
-ms.translationtype: HT
+ms.openlocfilehash: e80d79c16b0748e25e549365001990fb014b5f14
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001223"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030547"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é o aprendizado de máquina automatizado?
 
@@ -37,13 +37,12 @@ Cientistas de dados, analistas e desenvolvedores em setores podem usar ML automa
 + Aproveitar as práticas recomendadas de ciência de dados
 + Fornecer solução de problemas ágil
 
-Os casos comuns de uso de ML automatizados incluem:
-+ [Detecção de fraudes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)
-+ [Previsão de marketing](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing/auto-ml-classification-bank-marketing.ipynb)
-+ [Previsão de demanda](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
-+ [Previsão de vendas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)
-+ [Previsão de desempenho](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance/auto-ml-regression-hardware-performance.ipynb)
-+ [Previsão de durabilidade de material](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-concrete-strength/auto-ml-regression-concrete-strength.ipynb)
+A tabela a seguir lista casos comuns de uso de ML automatizados. 
+
+classificação| Regressão | Previsão de série temporal
+---|---|---
+[Detecção de fraudes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)|[Previsão de desempenho da CPU](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance/auto-ml-regression-hardware-performance.ipynb) |[Previsão de demanda](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)|
+[Previsão de marketing](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing/auto-ml-classification-bank-marketing.ipynb)|[Previsão de durabilidade de material](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-concrete-strength/auto-ml-regression-concrete-strength.ipynb)|[Previsão de vendas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)
 
 ## <a name="how-automated-ml-works"></a>Como o ML automatizado funciona
 
@@ -82,7 +81,7 @@ Em todos os experimentos de aprendizado de máquina automatizados, seus dados s�
 
 Em todos os experimentos de aprendizado de máquina automatizados, seus dados são dimensionados e normalizados automaticamente para ajudar os algoritmos a executarem bem.  Durante o treinamento do modelo, uma das técnicas de dimensionamento ou normalização a seguir será aplicada a cada modelo.
 
-|Dimensionamento de @ no__t-0 @ no__t-1 @ no__t-2normalization| Descrição |
+|Dimensionamento de @ no__t-0 @ no__t-1 @ no__t-2normalization| DESCRIÇÃO |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Padronizar recursos removendo a média e dimensionamento para a variação de unidade  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transforma recursos dimensionando cada recurso pelo mínimo e máximo da coluna  |
@@ -140,7 +139,7 @@ Como os algoritmos de classificação geralmente são avaliados por exatidão, a
 
 Além disso, as execuções automáticas de ML geram automaticamente os gráficos a seguir, o que pode ajudá-lo a entender a exatidão das classificações do modelo e identificar os modelos potencialmente afetados por dados desequilibrados.
 
-Gráfico| Descrição
+Gráfico| DESCRIÇÃO
 ---|---
 [Matriz de confusão](how-to-understand-automated-ml.md#confusion-matrix)| Avalia os rótulos classificados corretamente em relação aos rótulos reais dos dados. 
 [Recall de precisão](how-to-understand-automated-ml.md#precision-recall-chart)| Avalia a proporção de rótulos corretos em relação à taxa de instâncias de rótulo encontradas dos dados 
@@ -162,7 +161,7 @@ Com Azure Machine Learning, você pode usar o ML automatizado para criar um mode
 
 O ML automatizado também está disponível em outras soluções da Microsoft, como:
 
-|Integrações|Descrição|
+|Integrações|DESCRIÇÃO|
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Seleção automática de modelos e treinamento em aplicativos .NET usando o Visual Studio e Visual Studio Code com o ML automatizado ML.NET (versão prévia).|
 |[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Escale horizontalmente seus trabalhos de treinamento de ML automatizados no Spark em clusters HDInsight em paralelo.|

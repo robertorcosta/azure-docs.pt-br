@@ -13,18 +13,18 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 6a6db136926a7f9d631c717f5cab6c025d97fb48
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: b67e0eaabe63707455eaa6cd4b235ec828dddff3
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67443535"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025453"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Como usar o SDK de Aplicativos Móveis do Azure para Android
 
 > [!NOTE]
-> Visual Studio App Center está investindo em serviços novos e integrados central para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem. Confira [app Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-how-to-use-client-library) hoje.
->
+> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
 
 Este guia mostra como usar o SDK de cliente Android para Aplicativos Móveis a fim de implementar cenários comuns, como:
 
@@ -201,7 +201,7 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Para saber como criar tabelas adicionais no seu back-end de aplicativos móveis, consulte [Como: Defina um controlador][15] de tabela (back-end do .net) ou [defina tabelas usando um esquema dinâmico][16] (back-end do node. js).
+Para saber como criar tabelas adicionais no seu back-end de aplicativos móveis, consulte [Como: Defina um controlador de tabela @ no__t-0 (back-end do .NET) ou [defina tabelas usando um esquema dinâmico][16] (back-end do node. js).
 
 Uma tabela de back-end dos Aplicativos Móveis do Azure define cinco campos especiais, quatro deles disponíveis para clientes:
 
@@ -314,7 +314,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-O exemplo anterior retorna todos os resultados (até o tamanho máximo da página definida pelo servidor).  O método `.execute()` executa a consulta no back-end.  A consulta é convertida em uma consulta [OData v3][19] antes da transmissão para o back-end dos aplicativos móveis.  Após o recebimento, o back-end dos Aplicativos Móveis converte a consulta em uma instrução SQL antes de executá-la na instância do SQL Azure.  Como a atividade de rede leva algum tempo `.execute()` , o método [`ListenableFuture<E>`][18]retorna um.
+O exemplo anterior retorna todos os resultados (até o tamanho máximo da página definida pelo servidor).  O método `.execute()` executa a consulta no back-end.  A consulta é convertida em uma consulta [OData v3][19] antes da transmissão para o back-end dos aplicativos móveis.  Após o recebimento, o back-end dos Aplicativos Móveis converte a consulta em uma instrução SQL antes de executá-la na instância do SQL Azure.  Como a atividade de rede leva algum tempo, o método `.execute()` retorna um [`ListenableFuture<E>`][18].
 
 ### <a name="filtering"></a>Filtrar dados retornados
 
@@ -1007,7 +1007,7 @@ Obtenha a ID do usuário conectado de um **MobileServiceUser** usando o método 
 
 ### <a name="caching"></a>Armazenar tokens de autenticação em cache
 
-Armazenar em cache os tokens de autenticação exige que você armazene uma ID de usuário e o token de autenticação localmente no dispositivo. Na próxima vez que o aplicativo iniciar, você verificará o cache e, se esses valores estiverem presentes, poderá ignorar o procedimento de logon e reidratar o cliente com esses dados. No entanto, esses dados são confidenciais e, para segurança, devem ser armazenados criptografados caso o telefone seja roubado.  Você pode ver um exemplo completo de como armazenar em cache tokens de autenticação na seção de tokens de [autenticação de cache][7].
+Armazenar em cache os tokens de autenticação exige que você armazene uma ID de usuário e o token de autenticação localmente no dispositivo. Na próxima vez que o aplicativo iniciar, você verificará o cache e, se esses valores estiverem presentes, poderá ignorar o procedimento de logon e reidratar o cliente com esses dados. No entanto, esses dados são confidenciais e, para segurança, devem ser armazenados criptografados caso o telefone seja roubado.  Você pode ver um exemplo completo de como armazenar em cache tokens de autenticação na [seção de tokens de autenticação de cache][7].
 
 Ao tentar usar um token expirado, você receberá uma resposta *401 não autorizado* . Você pode tratar erros de autenticação usando filtros.  Filtros interceptam as solicitações para o back-end do Serviço de Aplicativo. O código do filtro testa a resposta para um 401, dispara o processo de logon e retoma a solicitação que gerou o 401.
 

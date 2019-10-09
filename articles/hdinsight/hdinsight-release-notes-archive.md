@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: cf985f08f13198a9041b1d50f2c6c7f0fec70911
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 16ce90d3db1091fa759d940f4bbf91a3ef924e42
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945048"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025531"
 ---
 # <a name="archived-release-notes"></a>Notas de versão arquivadas
 
@@ -82,7 +82,7 @@ Versões mais recentes de alguns componentes do Apache, às vezes, estão inclu�
 
 ## <a name="apache-patch-information"></a>Informações de patch do Apache
 
-### <a name="hadoop"></a>Hadoop
+### <a name="hadoop"></a>O Hadoop
 
 Esta versão oferece Hadoop Common 2.7.3 e os seguintes patches de Apache:
 
@@ -822,73 +822,73 @@ Esta seção aborda todos os Common Vulnerabilities and Exposures (CVE) que são
 
 ### <a name="cve-2017-7676"></a>**CVE-2017-7676**
 
-| **Resumo:**  A avaliação da política do Apache Ranger ignora os caracteres após o caractere curinga "\*" |
+| **Resumo:** A avaliação da política do Apache Ranger ignora caracteres após o caractere curinga ' \* ' |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Gravidade:**  crítico                                                                           |
-| **Fornecedor:**  Hortonworks                                                                          |
-| **Versões Afetadas:**  Versões do HDInsight 3.6 incluindo as versões 0.5.x / 0.6.x / 0.7.0 do Apache Ranger     |
-| **Usuários afetados:**  Ambientes que usam políticas do Ranger com caracteres após o caractere curinga "\*" - como meu \*teste, teste \*.txt |
-| **Impacto:**  O comparador de recursos de política ignora os caracteres após o caractere curinga "\*", o que pode resultar em comportamento não intencional.      |
-| **Detalhes da correção:**  o correspondente de recursos da política do Ranger foi atualizado para lidar corretamente com correspondências curinga.           |
-| **Ação recomendada:**  Atualize para o HDI 3.6 (com o Apache Ranger 0.7.1+).                                |
+| **Gravidade:** Crítica                                                                           |
+| **Fornecedor:** Hortonworks                                                                          |
+| **Versões afetadas:** Versões do HDInsight 3,6 incluindo Apache Ranger versões 0,5. x/0,6. x/0.7.0     |
+| **Usuários afetados:** Ambientes que usam políticas de Ranger com caracteres após o caractere curinga ' \* ' – como meu @ no__t-1Test, test\*.txt |
+| **Causa** O correspondente de recursos de política ignora os caracteres após o caractere curinga ' \* ', o que pode resultar em comportamento indesejado.      |
+| **Detalhe da correção:** O correspondente de recursos de política do Ranger foi atualizado para tratar corretamente as correspondências de curinga.           |
+| **Ação recomendada:** Atualize para o HDI 3,6 (com o Apache Ranger 0.7.1 +).                                |
 
 ### <a name="cve-2017-7677"></a>**CVE-2017-7677**
 
-| **Resumo:**  O Autorizador do Apache Ranger Hive deve verificar a permissão do RWX quando o local externo for especificado |
+| **Resumo:** O autorizador do Apache Ranger Hive deve verificar a permissão de RWX quando o local externo é especificado |
 |--------------------------------------------------------------------------------------------------|
-| **Gravidade:**  crítico                                                                           |
-| **Fornecedor:**  Hortonworks                                                                          |
-| **Versões Afetadas:**  Versões do HDInsight 3.6 incluindo as versões 0.5.x / 0.6.x / 0.7.0 do Apache Ranger |
-| **Usuários afetados:**   Ambientes que usam localização externa para tabelas de seção |
-| **Impacto:**  Em ambientes que usam local externo para tabelas de seção, o Autorizador do Apache Ranger Hive deve verificar a permissão do RWX para o local externo especificado para a tabela de criação. |
-| **Detalhes da correção:**  O Autorizador Ranger Hive foi atualizado para lidar corretamente com a verificação de permissões com o local externo. |
-| **Ação recomendada:**  os usuários devem atualizar para o HDI 3.6 (com o Apache Ranger 0.7.1+). |
+| **Gravidade:** Crítica                                                                           |
+| **Fornecedor:** Hortonworks                                                                          |
+| **Versões afetadas:** Versões do HDInsight 3,6 incluindo Apache Ranger versões 0,5. x/0,6. x/0.7.0 |
+| **Usuários afetados:** Ambientes que usam o local externo para tabelas do hive |
+| **Causa** Em ambientes que usam o local externo para tabelas Hive, o autorizador hive do Apache Ranger deve verificar a permissão RWX para o local externo especificado para CREATE TABLE. |
+| **Detalhe da correção:** O Gerenciador de sessão do Ranger foi atualizado para tratar corretamente a verificação de permissão com o local externo. |
+| **Ação recomendada:** Os usuários devem atualizar para o HDI 3,6 (com o Apache Ranger 0.7.1 +). |
 
 ### <a name="cve-2017-9799"></a>**CVE-2017-9799**
 
-| **Resumo:**  potencial execução de código como o usuário errado no Apache Storm |
+| **Resumo:** Potencial execução de código como o usuário errado no Apache Storm |
 |--------------------------------------------------------------------------------------------------|
-|**Gravidade:**  importantes |
-| **Fornecedor:**  Hortonworks |
-| **As versões afetadas:**  HDP 2.4.0 HDP-2.5.0 2.6.0 HDP |
-| **Usuários afetados:**  Usuários que usam o Storm no modo seguro e estão usando o blobstore para distribuir artefatos baseados em topologia ou usar o blobstore para distribuir quaisquer recursos de topologia. |
-| **Impacto:**  Em algumas situações e configurações de tempestade, é teoricamente possível para o proprietário de uma topologia enganar o supervisor para iniciar um trabalhador como um usuário diferente, não de raiz. Na pior das hipóteses, isso pode levar a proteger as credenciais do usuário de serem comprometidas. Essa vulnerabilidade só se aplica a instalações do Apache Storm com segurança habilitada. |
-| **Mitigação:**  atualizar para HDP 2.6.2.1, pois não há atualmente nenhuma solução alternativa.  |
+|**Gravidade:** Importante |
+| **Fornecedor:** Hortonworks |
+| **Versões afetadas:** HDP 2.4.0, HDP-2.5.0, HDP-2.6.0 |
+| **Usuários afetados:** Usuários que usam o Storm no modo de segurança e estão usando blobstore para distribuir artefatos baseados em topologia ou usando o blobstore para distribuir qualquer recurso de topologia. |
+| **Causa** Em algumas situações e configurações do Storm, é teoricamente possível que o proprietário de uma topologia enganar o supervisor para iniciar um trabalho como um usuário diferente, não raiz. Na pior das hipóteses, isso pode levar a proteger as credenciais do usuário de serem comprometidas. Essa vulnerabilidade só se aplica a instalações do Apache Storm com segurança habilitada. |
+| **Atenuação:** Atualize para HDP-2.6.2.1, pois não há soluções alternativas no momento.  |
 
 ### <a name="cve-2016-4970"></a>**CVE-2016-4970**
 
-| **Resumo:**  handler/ssl/OpenSslEngine.java na 4.0.x Netty antes de 4.0.37.Final e 4.1.x antes 4.1.1.Final permite que os invasores remotos causar uma negação de serviço (loop infinito) |
+| **Resumo:** handler/ssl/OpenSslEngine.java na 4.0.x Netty antes de 4.0.37.Final e 4.1.x antes 4.1.1.Final permite que os invasores remotos causam uma negação de serviço (loop infinito) |
 |--------------------------------------------------------------------------------------------------|
 | **Gravidade:** Moderado  |
-| **Fornecedor:**  Hortonworks  |
-| **As versões afetadas:**  2.x.x HDP desde 2.3  |
-| **Os usuários afetados:**  todos os usuários que usam o HDFS. |
-| **Impacto:**  impacto é baixa, como Hortonworks não usa OpenSslEngine.java diretamente na Base de código do Hadoop.     |
-| **Ação recomendada:**  atualização para HDP 2.6.3.   |
+| **Fornecedor:** Hortonworks  |
+| **Versões afetadas:** HDP 2. x. x desde 2,3. x  |
+| **Usuários afetados:** Todos os usuários que usam o HDFS. |
+| **Causa** O impacto é baixo, pois o Hortonworks não usa OpenSslEngine. java diretamente na base de código do Hadoop.     |
+| **Ação recomendada:** Atualize para HDP 2.6.3.   |
 
 ### <a name="cve-2016-8746"></a>**CVE-2016-8746**
 
-| **Resumo:**  problema na avaliação da política de correspondência de caminho de Apache Ranger                                                                    |
+| **Resumo:** Problema de correspondência de caminho do Apache Ranger na avaliação da política                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
-| **Gravidade:**  Normal                                                                                                                   |
+| **Gravidade:** Normal                                                                                                                   |
 | **Fornecedor:** Hortonworks                                                                                                                |
-| **Versões afetadas:**  todas as versões do HDP 2.5, incluindo Apache Ranger versões 0.6.0/0.6.1/0.6.2                                         |
-| **Os usuários afetados:**  todos os usuários do que a ferramenta de administração de política do ranger.                                                                         |
-| **Impacto:**  mecanismo de políticas do Ranger incorretamente corresponde à caminhos em certas condições quando uma política contém sinalizadores de curingas e recursivas. |
+| **Versões afetadas:** Todas as versões do HDP 2,5, incluindo o Apache Ranger versões 0.6.0/0.6.1/0.6.2                                         |
+| **Usuários afetados:** Todos os usuários da ferramenta de administração de políticas do Ranger.                                                                         |
+| **Causa** O mecanismo de política do Ranger corresponde incorretamente a caminhos em determinadas condições quando uma política contém curingas e sinalizadores recursivos. |
 | **Detalhe da correção:** Corrigida a lógica de avaliação de política                                                                                          |
-| **Ação recomendada:**  Os usuários devem atualizar para o HDP 2.5.4+ (com o Apache Ranger 0.6.3+) ou o HDP 2.6+ (com o Apache Ranger 0.7.0+)         |
+| **Ação recomendada:** Os usuários devem atualizar para o HDP 2.5.4 + (com o Apache Ranger 0.6.3 +) ou o HDP 2.6 + (com o Apache Ranger 0.7.0 +)         |
 
 ### <a name="cve-2016-8751"></a>**CVE-2016-8751**
 
-| **Resumo:**  Apache Ranger armazenou um problema de script entre sites  |
+| **Resumo:** Problema de script entre sites armazenado do Apache Ranger  |
 |--------------------------------------------------------------------------------------------------|
-| **Gravidade:**  Normal |
-| **Fornecedor:**  Hortonworks |
-| **Versões afetadas:**  todas as versões de 2.3/2.4/2.5 HDP incluindo Apache Ranger versões 0.5.x/0.6.0/0.6.1/0.6.2  |
-| **Os usuários afetados:**  todos os usuários do que a ferramenta de administração de política do ranger. |
-| **Impacto:**  O Apache Ranger é vulnerável a um Scripting entre sites armazenado ao inserir condições de políticas personalizadas. Os usuários administradores podem armazenar um código de javascript arbitrário quando usuários normais entrarem e acessarem as políticas. |
-| **Corrigir detalhes:**  adicionada lógica para limpar a entrada do usuário.  |
-| **Ação recomendada:**  Os usuários devem atualizar para o HDP 2.5.4+ (com o Apache Ranger 0.6.3+) ou o HDP 2.6+ (com o Apache Ranger 0.7.0+)  |
+| **Gravidade:** Normal |
+| **Fornecedor:** Hortonworks |
+| **Versões afetadas:** Todas as versões do HDP 2.3/2.4/2.5 incluindo Apache Ranger versões 0.5. x/0.6.0/0.6.1/0.6.2  |
+| **Usuários afetados:** Todos os usuários da ferramenta de administração de políticas do Ranger. |
+| **Causa** O Apache Ranger é vulnerável a um script armazenado entre sites ao inserir condições de política personalizada. Os usuários administradores podem armazenar um código de javascript arbitrário quando usuários normais entrarem e acessarem as políticas. |
+| **Detalhe da correção:** Lógica adicionada para limpar a entrada do usuário.  |
+| **Ação recomendada:** Os usuários devem atualizar para o HDP 2.5.4 + (com o Apache Ranger 0.6.3 +) ou o HDP 2.6 + (com o Apache Ranger 0.7.0 +)  |
 
 ## <a name="fixed-issues-for-support"></a>Correção de problemas para obter suporte
 

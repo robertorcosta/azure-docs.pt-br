@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 29418345aaa8042e50b1297541cac3af0a3c1504
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 7b7d041b678ccf2a476afc6d0744f6971349677e
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935205"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034871"
 ---
 # <a name="data-querying"></a>Consultas de dados
 
@@ -35,7 +35,7 @@ A [linguagem TSX (expressão de série de tempo)](https://docs.microsoft.com/res
 
 Há suporte para as APIs principais a seguir.
 
-[![Visão geral de consulta de série temporal](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
+[Visão geral da consulta da série @no__t 1Time](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
 ## <a name="environment-apis"></a>APIs de ambiente
 

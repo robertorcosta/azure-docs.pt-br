@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: 0f64642d04504770415c0d2243ec77b44bde05f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fbc4628ff3d3d7d90f7ec2c47c87f7afa3e9cd43
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566290"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028826"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolvendo diferenças de Transact-SQL durante a migração para o Banco de Dados SQL
 
@@ -82,7 +82,7 @@ Para obter mais informações sobre a gramática, uso e exemplos do Transact-SQL
 
 ### <a name="about-the-applies-to-tags"></a>Sobre as marcas "Aplica-se a"
 
-A referência do Transact-SQL inclui artigos relacionados a versões do SQL Server da 2008 à atual. Abaixo do título do artigo, há um ícone de barra, listando as quatro plataformas do SQL Server e que indica a aplicabilidade. Por exemplo, grupos de disponibilidade foram introduzidos no SQL Server 2012. O artigo  [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx)  indica que a instrução se aplica a  **SQL Server (a partir de 2012)** . A instrução não se aplica ao SQL Server 2008, ao SQL Server 2008 R2, ao Banco de Dados SQL do Azure, ao SQL Data Warehouse ou ao Parallel Data Warehouse.
+A referência do Transact-SQL inclui artigos relacionados a versões do SQL Server da 2008 à atual. Abaixo do título do artigo, há um ícone de barra, listando as quatro plataformas do SQL Server e que indica a aplicabilidade. Por exemplo, grupos de disponibilidade foram introduzidos no SQL Server 2012. O [grupo de disponibilidade CREATE](https://msdn.microsoft.com/library/ff878399.aspx) article indica que a instrução se aplica a **SQL Server (começando com 2012)** . A instrução não se aplica ao SQL Server 2008, ao SQL Server 2008 R2, ao Banco de Dados SQL do Azure, ao SQL Data Warehouse ou ao Parallel Data Warehouse.
 
 Em alguns casos, o assunto geral de um artigo pode ser usado em um produto, mas há pequenas diferenças entre os produtos. As diferenças são indicadas em pontos médios no artigo, conforme apropriado. Em alguns casos, o assunto geral de um artigo pode ser usado em um produto, mas há pequenas diferenças entre os produtos. As diferenças são indicadas em pontos médios no artigo, conforme apropriado. Por exemplo, o artigo CREATE TRIGGER está disponível no Banco de Dados SQL. No entanto, a opção **ALL SERVER** para gatilhos de nível de servidor indica que os gatilhos de nível de servidor não podem ser usados no Banco de Dados SQL. Use gatilhos de nível de banco de dados em vez disso.
 

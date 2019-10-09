@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 61004ed75a1935ada21b5c620a909fb5289aebb8
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: f7558a5836d8f087e719346fb38bbf24ece2c8fb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051005"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026776"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Encontre notícias com a Pesquisa do Bing e os Aplicativos Lógicos do Azure
 
@@ -54,7 +54,7 @@ Ou, se a conexão já existir, forneça as informações necessárias para o gat
 
    Para este exemplo, forneça critérios para retornar artigos de correspondência correspondentes da Pesquisa do Bing.
 
-   | Propriedade | Necessário | Value | Descrição |
+   | Propriedade | Obrigatório | Value | DESCRIÇÃO |
    |----------|----------|-------|-------------|
    | Search Query | Sim | <*search-words*> | Insira os termos de pesquisa que você quer utilizar. |
    | Market | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
@@ -81,7 +81,7 @@ Em Aplicativos Lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
 
 1. No portal do Azure ou no Visual Studio, abra o aplicativo lógico no Designer do Aplicativo Lógico. Este exemplo usa o portal do Azure.
 
-2. No gatilho ou ação, selecione **nova etapa** > **Adicionar uma ação**.
+2. No gatilho ou ação, selecione **nova etapa** > **Adicionar uma ação**.
 
    Este exemplo usa este gatilho:
 
@@ -90,7 +90,7 @@ Em Aplicativos Lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
    ![Adicionar ação](./media/connectors-create-api-bing-search/add-action.png)
 
    Para adicionar uma ação entre etapas existentes, mova o mouse sobre a seta de conexão. 
-   Selecione o sinal de adição **+** () que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Selecione o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 3. Na caixa de pesquisa, insira "Pesquisa do Bing" como seu filtro.
 Na lista de ações, selecione a ação desejada.
@@ -105,7 +105,7 @@ Na lista de ações, selecione a ação desejada.
 
    Para este exemplo, forneça os critérios para retornar ao subconjunto dos resultados do gatilho.
 
-   | Propriedade | Necessário | Value | Descrição |
+   | Propriedade | Obrigatório | Value | DESCRIÇÃO |
    |----------|----------|-------|-------------|
    | Search Query | Sim | <*search-expression*> | Insira uma expressão para consultar os resultados do gatilho. É possível selecionar os campos ou a lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
    | Market | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
@@ -152,7 +152,7 @@ Na lista de ações, selecione a ação desejada.
 
 1. Quando for solicitado a fornecer informações de conexão, forneça estes detalhes:
 
-   | Propriedade | Necessário | Value | Descrição |
+   | Propriedade | Obrigatório | Value | DESCRIÇÃO |
    |----------|----------|-------|-------------|
    | Nome da Conexão | Sim | <*connection-name*> | O nome a criar para a conexão |
    | Versão da API | Sim | <*API-version*> | Por padrão, a versão da API de Pesquisa do Bing é definida para a versão atual. É possível selecionar uma versão anterior, conforme necessário. |

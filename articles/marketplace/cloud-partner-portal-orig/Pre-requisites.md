@@ -1,40 +1,22 @@
 ---
 title: Pré-requisitos para curadoria de aplicativos
-description: Lista de pré-requisitos para curadoria de aplicativos.
+description: Artigo de CPP preterido, artigo vinculado ao PC; foi "lista de pré-requisitos para a organização do aplicativo."
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 03/13/2019
-ms.author: pabutler
-ms.openlocfilehash: 0219d7e8a94dd6710c553f2133442867e39f6870
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: a92d32084dd36433fdc872db66f0f375a770bfda
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935537"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034440"
 ---
 # <a name="prerequisites-for-application-curation"></a>Pré-requisitos para curadoria de aplicativos
 
-A Microsoft exige revisões específicas para validar o cumprimento dos seguintes requisitos:
+O [portal do Cloud Partner](https://cloudpartner.azure.com/) não dá mais suporte à criação e ao gerenciamento do Dynamics 365 para ofertas de finanças e operações. Em vez disso, essa funcionalidade foi movida para o [portal do Microsoft Partner Center](https://partner.microsoft.com/). Para obter mais informações, consulte [criar uma nova oferta do Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-- O código personalizado de\' parceiro que atenda às diretrizes da Microsoft.
-- Um pacote de soluções do Microsoft Dynamics Lifecycle Services (LCS) implantado com êxito.
-- As transações podem ser concluídas.
-
-Atualmente, os parceiros devem demonstrar que esses requisitos foram atendidos, fazendo implantações de teste e compartilhando os resultados com a Microsoft. Nenhum código será implantado em um ambiente de cliente que a Microsoft não tenha validado\'. Os parceiros devem concluir os seguintes artefatos e testes de curadoria:
-
-- CAR (Relatório de Análise de Código)
-- BPM (Modelador de Processo de Negócios)/scripts de teste
-- Nome e descrição do projeto
-- Backup de banco de dados comercial
-- PDPs (Pacotes de Dados do Processo) e Pacotes de Dados
-- Metodologia
-- Binários (opcional)
-- Pacotes implantáveis
-- Modelos (código e testes)
-- Conteúdo de marketing
-
-Para obter mais informações sobre os requisitos técnicos e de processo, consulte [validar aplicativos para Finanças e operações](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions).  Além disso, se você ainda não fez isso, examine os [Office 365, Dynamics 365, PowerApps e Power BI oferecem guia de publicação](../appsource-offer-publishing-guide.md).
-
+Antes de criar uma nova oferta do Dynamics 365 for Operations, você deve ler [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abra o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/directory) com a página **visão geral** selecionada. Siga as instruções em [criar uma nova oferta do Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) para criar sua oferta.

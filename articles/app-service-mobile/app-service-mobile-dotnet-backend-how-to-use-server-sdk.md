@@ -15,15 +15,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: d277786fd08e1448b3d5ccf4fd45055fe069e4c0
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 6481d95db27df9e0b957d61bef24a1cc40b243e7
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097770"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025322"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
+
+> [!NOTE]
+> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
 
 Este tópico mostra como usar o SDK do servidor de back-end do .NET nos principais cenários dos Aplicativos Móveis do Serviço de Aplicativo do Azure. Os Aplicativos Móveis SDK do Azure ajuda você a trabalhar com clientes móveis de seu aplicativo ASP.NET.
 
@@ -54,7 +58,7 @@ Instale a carga de trabalho do Azure por meio do Instalador do Visual Studio par
 1. Abra a caixa de diálogo **Novo Projeto** (de **Arquivo** > **Novo** > **Projeto...** ).
 2. Expanda **Visual C#** e selecione **Web**.
 3. Selecione **Aplicativo Web ASP .NET (.NET Framework)** .
-4. Preencha o nome do projeto. Clique em **OK**.
+4. Preencha o nome do projeto. Em seguida, clique em **OK**.
 5. Selecione **Aplicativo Móvel do Azure** da lista de modelos.
 6. Clique em **OK** para criar a solução.
 7. Clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e escolha **Publicar...** e, em seguida, escolha **Serviço de Aplicativo** como o destino de publicação.
@@ -67,7 +71,7 @@ Instale o [SDK do Azure para .net][4] (versão 2.9.0 ou posterior) para criar um
 1. Abra a caixa de diálogo **Novo Projeto** (de **Arquivo** > **Novo** > **Projeto...** ).
 2. Expanda **Modelos** > **Visual C#** e selecione **Web**.
 3. Selecione **Aplicativo Web do ASP.NET**.
-4. Preencha o nome do projeto. Clique em **OK**.
+4. Preencha o nome do projeto. Em seguida, clique em **OK**.
 5. Em *Modelos do ASP.NET 4.5.2*, selecione **Aplicativo Móvel do Azure**. Marque **Host na nuvem** para criar um novo back-end móvel na nuvem no qual você possa publicar esse projeto.
 6. Clique em **OK**.
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/06/2019
-ms.openlocfilehash: 8c35877c7de2fa89a8fe7a94c11787814183df9e
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/02/2019
+ms.openlocfilehash: 6f2ef181e7f61696245a4413d7a28d84801f2838
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162247"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72032878"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Perguntas frequentes sobre bancos de dados SQL do Azure da Hiperescala
 
@@ -37,22 +37,22 @@ A camada de serviço Hiperescala está disponível apenas para bancos de dados i
 
 ### <a name="how-does-the-hyperscale-service-tier-differ-from-the-general-purpose-and-business-critical-service-tiers"></a>Como o nível de serviço da Hiperescala difere dos níveis de serviço de uso geral e de negócios críticos?
 
-As camadas de serviço baseadas em vCore são basicamente diferenciadas com base na disponibilidade, no tipo de armazenamento e no IOPs.
+As camadas de serviço baseadas em vCore são basicamente diferenciadas com base na disponibilidade, no tipo de armazenamento e no IOPS.
 
 - A camada de serviço de Propósito Geral é apropriada para a maioria das cargas de trabalho de negócios, oferecendo um conjunto equilibrado de opções de computação e armazenamento em que a latência de I/O ou tempos de failover não são a prioridade.
 - A camada de serviço da Hiperescala é otimizada para cargas de trabalho de banco de dados muito grandes.
 - A camada de serviço Business Critical é apropriada para cargas de trabalho de negócios em que a latência de I/O é uma prioridade.
 
-| | Tipo de recurso | Objetivo Geral |  Hiperescala | Essencial Para os Negócios |
+| | Tipo de recurso | Uso geral |  Hiperescala | Comercialmente Crítico |
 |:---:|:---:|:---:|:---:|:---:|
-| **Mais adequado para** |Todas|  A maioria das cargas de trabalho comerciais. Oferece opções equilibradas de computação e armazenamento orientadas ao orçamento. | Aplicativos de dados com grandes requisitos de capacidade de dados e a capacidade de dimensionar e armazenar em escala automática os recursos de computação. | Aplicativos OLTP com alta taxa de transação e menor I/O de latência. Oferece maior resiliência a falhas usando várias réplicas isoladas.|
+| **Mais adequado para** |Todas|Oferece opções equilibradas de computação e armazenamento orientadas ao orçamento.|A maioria das cargas de trabalho comerciais. Dimensionamento automático do tamanho de armazenamento de até 100 TB, dimensionamento vertical e horizontal de computação de fluxo, restauração rápida de banco de dados.|Aplicativos OLTP com alta taxa de transação e baixa latência de e/s. Oferece maior resiliência a falhas e failovers rápidos usando várias réplicas atualizadas de forma síncrona.|
 |  **Tipo de recurso** ||Banco de dados único / Elástico pool / instância gerenciada | Banco de dados individual | Banco de dados único / Elástico pool / instância gerenciada |
 | **Tamanho da computação**|Banco de dados único / Elástico pool * | 1 a 80 vCores | 1 a 80 vCores * | 1 a 80 vCores |
 | |Instância gerenciada | 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 8, 16, 24, 32, 40, 64, 80 vCores |
 | **Tipo de armazenamento** | Todas |Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache SSD local (por instância) | Armazenamento SSD local super rápido (por instância) |
 | **Tamanho de armazenamento** | Banco de dados único / Elástico pool | 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
 | | Instância gerenciada  | 32 GB A 8 TB | N/D | 32 GB – 4 TB |
-| **Taxa de transferência de e/s** | Banco de dados único ** | 500 IOPS por vCore com máximo de 7.000 IOPS | O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPs efetivo dependerá da carga de trabalho. | 5000 IOPS com 200.000 IOPS máximo|
+| **IOPS** | Banco de dados único ** | 500 IOPS por vCore com máximo de 7.000 IOPS | O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPS efetivo dependerá da carga de trabalho. | 5000 IOPS com 200.000 IOPS máximo|
 | | Instância gerenciada | Depende do tamanho do arquivo | N/D | Instância Gerenciada: Depende do tamanho do arquivo|
 |**Disponibilidade**|Todas|1 réplica, sem escala de leitura, sem cache local | Várias réplicas, até 4 escala de leitura, cache local parcial | 3 réplicas, 1 HA de escala de leitura, com redundância de zona, cache local completo |
 |**Backups**|Todas|RA-GRS, 7-35 dias (7 dias por padrão)| RA-GRS, 7 dias, tempo constante de recuperação point-in-time (PITR) | RA-GRS, 7-35 dias (7 dias por padrão) |
@@ -61,7 +61,7 @@ As camadas de serviço baseadas em vCore são basicamente diferenciadas com base
 
 ### <a name="who-should-use-the-hyperscale-service-tier"></a>Quem deve usar o nível de serviço Hiperescala
 
-A camada de serviço Hiperescala destina-se principalmente a clientes que possuem grandes bancos de dados SQL Server locais e desejam modernizar seus aplicativos migrando para a nuvem ou para clientes que já usam o Banco de Dados SQL do Azure e desejam expandir significativamente o potencial de crescimento do banco de dados. A Hiperescala também é destinado a clientes que buscam alto desempenho e alta escalabilidade. Com em Hiperescala, você obtém:
+A camada de serviço de hiperescala destina-se a clientes que têm grandes bancos de dados de SQL Server locais e que desejam modernizar seus aplicativos ao migrar para a nuvem ou para clientes que já estão usando o banco de dados SQL do Azure e que desejam expandir significativamente o potencial para o crescimento do banco de dados. A Hiperescala também é destinado a clientes que buscam alto desempenho e alta escalabilidade. Com em Hiperescala, você obtém:
 
 - Suporte para até 100 TB de tamanho de banco de dados
 - Backups rápidos de banco de dados, independentemente do tamanho do banco de dados (os backups são baseados em instantâneos de arquivos)
@@ -173,7 +173,7 @@ O tamanho do seu banco de dados aumenta automaticamente à medida que você inse
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>Em que incrementos o tamanho do meu banco de dados aumenta?
 
-1 GB
+Cada arquivo de dados aumenta em 10 GB. Vários arquivos de dados podem crescer ao mesmo tempo.
 
 ### <a name="is-the-storage-in-sql-database-hyperscale-local-or-remote"></a>O armazenamento da Hiperescala de Banco de Dados SQL é local ou remota
 
@@ -217,9 +217,9 @@ Nº Neste momento, você não pode mover um banco de dados de hiperescala para o
 
 Sim. Alguns dos recursos do banco de dados SQL do Azure ainda não são compatíveis com o hiperscale, incluindo, mas não limitado, o backup de retenção de longo prazo. Depois de migrar seus bancos de dados para o Hiperescala, esses recursos param de funcionar.  Esperamos que essas limitações sejam temporárias.
 
-### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>Posso mover meu banco de dados do SQL Server local ou meu banco de dados de máquina virtual do SQL Server para a Hiperescala
+### <a name="can-i-move-my-on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>Posso mover meu banco de dados de SQL Server local ou meu banco de dados de máquina virtual SQL Server para o subdimensionamento
 
-Sim. Você pode usar todas as tecnologias de migração existentes para migrar para a Hiperescala, incluindo BACPAC, replicação transacional, carregamento de dados lógicos. Consulte também o [Serviço de Migração de Banco de Dados do Azure](../dms/dms-overview.md).
+Sim. Você pode usar todas as tecnologias de migração existentes para migrar para o hiperescala, incluindo a replicação transacional e quaisquer outras tecnologias de movimentação de dados (cópia em massa, Azure Data Factory, Azure Databricks, SSIS). Consulte também o [Serviço de Migração de Banco de Dados do Azure](../dms/dms-overview.md).
 
 ### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>Qual é o meu tempo de inatividade durante a migração de um ambiente de máquina local ou virtual para a Hiperescala e como posso minimizá-lo
 
@@ -228,11 +228,13 @@ O tempo de inatividade é o mesmo que o tempo de inatividade quando você migra 
 
 ### <a name="how-much-time-would-it-take-to-bring-in-x-amount-of-data-to-sql-database-hyperscale"></a>Quanto tempo levaria para trazer X quantidade de dados para o banco de dados SQL Hiperescala
 
-O hiperscale é capaz de consumir 100 MB/s de dados novos/alterados.
+O hiperscale é capaz de consumir 100 MB/s de dados novos/alterados, mas o tempo necessário para mover dados para bancos de dado SQL do Azure também é afetado pela taxa de transferência de rede disponível, pela velocidade de leitura de origem e pelo objetivo de nível de serviço de banco de dados de hiperescala de destino.
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-and-sql-data-warehouse"></a>Posso ler dados do armazenamento de blob e fazer uma carga rápida (como o Polybase e o SQL Data Warehouse)
 
 Você pode ler dados do Armazenamento do Azure e carregar a carga de dados em um banco de dados Hiperescala (assim como você pode fazer com um único banco de dados comum). Atualmente, o Polybase não é suportado no Banco de Dados SQL do Azure. Você pode fazer o Polybase usando o [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) ou executando um trabalho do Spark em [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) com o conector [Spark do SQL](sql-database-spark-connector.md). O conector do Spark SQL dá suporte à inserção em massa.
+
+Também é possível ler em massa dados do armazenamento de BLOBs do Azure usando BULK INSERT ou OPENROWSET: [Exemplos de acesso em massa aos dados no armazenamento de BLOBs do Azure](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
 A recuperação simples ou o modelo de log em massa não é suportada na Hiperescala. O modelo de recuperação total é necessário para fornecer alta disponibilidade. No entanto, a Hiperescala fornece uma taxa de entrada de dados melhor em comparação a um único banco de dados SQL do Azure devido à nova arquitetura de log.
 
@@ -364,12 +366,12 @@ Você pode conectar-se a esses nós de computação adicionais somente leitura c
 
 ### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-node-using-ssms--other-client-tools"></a>Como fazer validar se eu tiver me conectado com êxito ao nó de computação secundário usando o SSMS/outras ferramentas de cliente?
 
-Você pode executar a seguinte consulta T-SQL usando o SSMS/outras ferramentas de `SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`cliente:.
-O resultado será `READ_ONLY` se sua conexão estiver apontando para o nó secundário somente leitura ou `READ_WRITE` se a conexão estiver apontando para o nó primário.
+Você pode executar a seguinte consulta T-SQL usando o SSMS/outras ferramentas de cliente: `SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`.
+O resultado será `READ_ONLY` se sua conexão estiver apontando para o nó secundário somente leitura ou o `READ_WRITE` se a conexão estiver apontando para o nó primário.
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>Posso criar um endpoint dedicado para a réplica em escala de leitura
 
-Nº Você só pode se conectar à réplica de escala de leitura `ApplicationIntent=ReadOnly`especificando.
+Nº Você só pode se conectar à réplica de escala de leitura especificando `ApplicationIntent=ReadOnly`.
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>O sistema faz o balanceamento de carga inteligente da carga de trabalho de leitura
 

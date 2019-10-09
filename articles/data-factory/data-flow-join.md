@@ -7,16 +7,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 18f713198ef9aa45cb72a6718c0f7b086c019258
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48cf9d58c8acd85e545a5bcb5104d7069670e349
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348513"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029327"
 ---
-# <a name="mapping-data-flow-join-transformation"></a>Transformação de associação de fluxo de dados de mapeamento
+# <a name="mapping-data-flow-join-transformation"></a>Mapeando a transformação junção de fluxo de dados
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Use a junção para combinar dados de duas tabelas em seu Fluxo de Dados. Clique na transformação que será a relação esquerda e adicione uma transformação de junção da caixa de ferramentas. Dentro da transformação de junção, você selecionará outro fluxo de dados de seu fluxo de dados para ser relação direita.
 
@@ -24,11 +24,11 @@ Use a junção para combinar dados de duas tabelas em seu Fluxo de Dados. Clique
 
 ## <a name="join-types"></a>Tipos de junção
 
-Selecionar tipo de junção é necessária para a transformação de junção.
+A seleção do tipo de junção é necessária para a transformação junção.
 
 ### <a name="inner-join"></a>Junção interna
 
-Junção interna será passado somente linhas que correspondem às condições de coluna das duas tabelas.
+A junção interna passará apenas por linhas que correspondam às condições de coluna de ambas as tabelas.
 
 ### <a name="left-outer"></a>Externa esquerda
 
@@ -40,11 +40,11 @@ Todas as linhas do fluxo direito que não atenderem à condição de junção s�
 
 ### <a name="full-outer"></a>Externa completa
 
-Externa completa produz todas as colunas e linhas de ambos os lados com valores NULL para colunas que são não presente na outra tabela.
+Externo completo produz todas as colunas e linhas de ambos os lados com valores nulos para colunas que não estão presentes na outra tabela.
 
 ### <a name="cross-join"></a>União cruzada
 
-Especifique o produto cruzado de dois fluxos com uma expressão. Você pode usar isso para criar condições de junção personalizadas.
+Especifique o produto cruzado dos dois fluxos com uma expressão. Você pode usar isso para criar condições de junção personalizadas.
 
 ## <a name="specify-join-conditions"></a>Especificar condições de junção
 
@@ -54,11 +54,11 @@ A condição Junção Esquerda é decorrente do fluxo de dados conectado à esqu
 
 ## <a name="join-performance-optimizations"></a>Otimizações de desempenho de junção
 
-Ao contrário da Junção de Mesclagem em ferramentas como o SSIS, a Junção no Fluxo de Dados do ADF não é uma operação de junção de mesclagem obrigatória. Portanto, as chaves de junção não precisam ser classificadas primeiro. A operação de junção ocorrerá no Spark usando o Databricks com base na operação de junção ideal no Spark: Junção de difusão/do lado do mapa:
+Ao contrário da Junção de Mesclagem em ferramentas como o SSIS, a Junção no Fluxo de Dados do ADF não é uma operação de junção de mesclagem obrigatória. Portanto, as chaves de junção não precisam ser classificadas primeiro. A operação de junção ocorrerá com base na operação de junção ideal no Spark: Junção de difusão/do lado do mapa:
 
 ![Otimização da transformação de junção](media/data-flow/joinoptimize.png "Otimização de junção")
 
-Se o conjunto de dados puder se ajustar à memória do nó de trabalho do Databricks, poderemos otimizar o desempenho da junção. Também é possível especificar o particionamento dos dados na operação de junção para criar conjuntos de dados que podem se adequar melhor à memória por trabalho.
+Se o conjunto de seus conjuntos de trabalho puder se ajustar à memória do nó do trabalhador, podemos otimizar seu desempenho de junção. Também é possível especificar o particionamento dos dados na operação de junção para criar conjuntos de dados que podem se adequar melhor à memória por trabalho.
 
 ## <a name="self-join"></a>Autojunção
 
@@ -70,8 +70,8 @@ No diagrama acima, a Transformação de seleção está na parte superior. Tudo 
 
 ## <a name="composite-and-custom-keys"></a>Chaves compostas e personalizadas
 
-Você pode criar chaves compostas e personalizadas em tempo real dentro da transformação junção. Adicione linhas para colunas de junção adicional com o sinal de adição (+) ao lado de cada linha da relação. Ou um novo valor de chave no construtor de expressão para um valor de junção na hora de computação.
+Você pode criar chaves compostas e personalizadas em tempo real dentro da transformação de junção. Adicione linhas para colunas de junção adicionais com o sinal de adição (+) ao lado de cada linha de relação. Ou Compute um novo valor de chave no construtor de expressões para um valor de junção em tempo real.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Após a associação de dados, em seguida, você pode [criar novas colunas](data-flow-derived-column.md) e [seus dados do coletor para um armazenamento de dados de destino](data-flow-sink.md).
+Depois de unir os dados, você pode [criar novas colunas](data-flow-derived-column.md) e [coletar seus dados para um armazenamento de dados de destino](data-flow-sink.md).

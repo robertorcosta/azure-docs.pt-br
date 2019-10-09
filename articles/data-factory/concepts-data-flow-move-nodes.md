@@ -1,21 +1,21 @@
 ---
 title: Nós de Movimentação de Fluxo de Dados do Azure Data Factory
-description: Como mover os nós em um Azure Data Factory mapeamento dados diagrama de fluxo
+description: Como mover nós em um diagrama de fluxo de dados de mapeamento de Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 951a5d4fcbd561b085b0377bde48e820dc8972a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 853fff955a953052b94ad4e7e1dd55371069c30b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65519962"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030196"
 ---
 # <a name="mapping-data-flow-move-nodes"></a>Nós de movimentação de fluxo de dados de mapeamento
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ![Opções de transformação de agregação](media/data-flow/agghead.png "cabeçalho agregador")
 
@@ -33,4 +33,4 @@ Se não tiver transformações subsequentes após o nó que você selecionou, so
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de concluir o design de fluxo de dados, ative o botão de depuração e testá-lo no modo de depuração ou diretamente na [designer de fluxo de dados](concepts-data-flow-debug-mode.md) ou [depuração de pipeline](control-flow-execute-data-flow-activity.md).
+Depois de concluir o design do fluxo de dados, ative o botão de depuração e teste-o no modo de depuração diretamente no [Designer de fluxo de dados](concepts-data-flow-debug-mode.md) ou na depuração de [pipeline](control-flow-execute-data-flow-activity.md).

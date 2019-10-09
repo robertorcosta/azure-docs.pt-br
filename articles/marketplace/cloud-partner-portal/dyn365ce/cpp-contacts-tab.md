@@ -1,47 +1,21 @@
 ---
-title: Dynamics 365 for Customer Engagement oferece guia Contatos | O Azure Marketplace
-description: Configure informações de contato para a oferta do Dynamics 365 for Customer Engagement no AppSource Marketplace.
+title: Guia de contatos da oferta do Dynamics 365 for Customer Engagement | Azure Marketplace
+description: Este artigo da CPP foi preterido, vinculado ao artigo do PC; Foi "configurar informações de contato para o Dynamics 365 para a oferta do compromisso com o cliente no AppSource Marketplace".
 services: Dynamics 365 for Customer Engagement, Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: cdd3d01c9295ef5ae8e7bc1936b5926fb38cfe77
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 8a04d7d6f5913a100ab6c4187a42a4d6c470cbda
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942505"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033913"
 ---
 # <a name="azure-application-contacts-tab"></a>Guia Contatos do aplicativo do Azure
 
-Use a guia **Contatos** para fornecer informações sobre atendimento ao cliente e suporte de engenharia para a oferta do Dynamics 365 for Customer Engagement.
+O [portal do Cloud Partner](https://cloudpartner.azure.com/) não dá mais suporte à criação e ao gerenciamento de ofertas do engajamento do cliente do Dynamics 365. Em vez disso, essa funcionalidade foi movida para o [portal do Microsoft Partner Center](https://partner.microsoft.com/). Para obter mais informações, consulte [criar um novo Dynamics 365 para o envolvimento do cliente & oferta do PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
 
-![Guia Contatos da oferta](./media/dynce-contacts-tab.png)
-
-
-## <a name="specify-customer-and-engineering-contacts"></a>Especificar contatos do cliente e de engenharia
-
-Forneça os valores a seguir para definir o **Contato principal de Engenharia** da oferta. Os campos obrigatórios são indicados por um asterisco (*).
-
-|    Campo        |  DESCRIÇÃO                    |
-|    ---------    |  ---------------                |
-|  **Nome\***       |  Nome do contato de engenharia do aplicativo. Esse contato receberá comunicações técnicas da Microsoft.   |
-|  **Email\***      |  Endereço de email do contato de engenharia  |
-|  **Telefone\***      |  Número de telefone do contato de engenharia  |
-|  |  |
-
-Forneça os valores a seguir para definir o **Contato principal de Suporte** da oferta.
-
-|    Campo        |   DESCRIÇÃO                   |
-|    ---------    |  ---------------                |
-|  **Nome\***       |  Nome do contato de atendimento ao cliente do aplicativo. Esse contato receberá comunicações relacionadas a suporte da Microsoft.   |
-|  **Email\***      |  Endereço de email do contato de atendimento ao cliente  |
-|  **Telefone\***      |  Número de telefone do contato de atendimento ao cliente  |
-|  |  |
-
-
-## <a name="next-steps"></a>Próximas etapas
-
-Depois de verificar se você solicitou [ativos técnicos](./cpp-create-technical-assets.md) para sua oferta, você estará pronto para [publicar a oferta do Dynamics 365 for Customer Engagement](./cpp-publish-offer.md).
+Antes de criar uma nova oferta do Dynamics 365 for Customer Engagement, você deve ler [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abrir o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/directory) com a página **visão geral** selecionada. Siga as instruções em [criar um novo Dynamics 365 para o envolvimento do cliente & oferta do PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) para criar sua oferta.

@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: danlep
-ms.openlocfilehash: ad7f93bb3934ca01b7f45c0bd4b5cc8be81ea54b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 05f1bcd5e80d7c06fbaca1abe89c84f6743a5979
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325532"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034979"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
@@ -29,6 +29,7 @@ Os grupos de contêineres implantados em uma rede virtual do Azure permitem cen�
 
 > [!IMPORTANT]
 > Esse recurso está na versão prévia no momento; algumas [limitações se aplicam](#preview-limitations). As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares][terms-of-use]. Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
+
 
 ## <a name="virtual-network-deployment-limitations"></a>Limitações da implantação na rede virtual
 
@@ -235,7 +236,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Implante o grupo de contêineres com o comando [AZ container Create][az-container-create] , especificando o nome do arquivo `--file` YAML para o parâmetro:
+Implante o grupo de contêineres com o comando [AZ container Create][az-container-create] , especificando o nome de arquivo YAML para o parâmetro `--file`:
 
 ```azurecli
 az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml
@@ -264,9 +265,13 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 ### <a name="delete-network-resources"></a>Excluir recursos de rede
 
+
+> [!NOTE]
+> Se você receber um erro ao tentar remover o perfil de rede, aguarde 2-3 dias para a plataforma atenuar automaticamente o problema e tentar a exclusão novamente. Se você ainda tiver problemas ao remover o perfil de rede, [abra um reqest de suporte.](https://azure.microsoft.com/support/create-ticket/)
+
 A versão prévia inicial desse recurso exige vários comandos adicionais para excluir os recursos de rede criados anteriormente. Se você usou os comandos de exemplo nas seções anteriores deste artigo para criar sua rede virtual e sub-rede, pode usar o script a seguir para excluir esses recursos de rede.
 
-Antes de executar o script, defina a variável `RES_GROUP` como o nome do grupo de recursos que contém a rede virtual e a sub-rede que devem ser excluídas. Atualize o nome da rede virtual se você não usou o `aci-vnet` nome sugerido anteriormente. O script é formatado para o shell do Bash. Se você preferir outro shell, como o PowerShell ou o Prompt de Comando, você precisará ajustar a atribuição de variável e os acessadores adequadamente.
+Antes de executar o script, defina a variável `RES_GROUP` como o nome do grupo de recursos que contém a rede virtual e a sub-rede que devem ser excluídas. Atualize o nome da rede virtual se você não usou o nome `aci-vnet` sugerido anteriormente. O script é formatado para o shell do Bash. Se você preferir outro shell, como o PowerShell ou o Prompt de Comando, você precisará ajustar a atribuição de variável e os acessadores adequadamente.
 
 > [!WARNING]
 > Esse script exclui recursos! Ele exclui a rede virtual e todas as sub-redes que ela contém. Certifique-se de que você não precisa mais de *qualquer* um dos recursos na rede virtual, incluindo todas as sub-redes que ela contém, antes de executar esse script. Depois de excluídos, **esses recursos são irrecuperáveis**.

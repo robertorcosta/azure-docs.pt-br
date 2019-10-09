@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 66f3a9ae1f29d863170dcb4bc43e38b648602eed
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 1eec8b79579a1c4d5c889b830706299ccc25e88b
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695021"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035641"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Coletar dados de log com o agente de Log Analytics
 
@@ -53,7 +53,7 @@ O agente para Linux e Windows não é apenas para se conectar ao Azure Monitor, 
 Há suporte oficial para as seguintes versões do sistema operacional Windows para o agente para Windows:
 
 * Windows Server 2019
-* Windows Server 2008 R2, 2012, 2012 R2, 2016, versão 1709 e 1803
+* Windows Server 2008 SP2 (x64), 2008 R2, 2012, 2012 R2, 2016, versão 1709 e 1803
 * Windows 7 SP1, Windows 8 Enterprise e pro e Windows 10 Enterprise e pro
 
 >[!NOTE]
@@ -91,7 +91,7 @@ Começando com versões lançadas depois de agosto de 2018, estamos fazendo as s
 
 A tabela a seguir realça os pacotes necessários para distribuições do Linux com suporte em que o agente será instalado.
 
-|Pacote necessário |Descrição |Versão mínima |
+|Pacote necessário |DESCRIÇÃO |Versão mínima |
 |-----------------|------------|----------------|
 |Glibc |    Biblioteca GNU C | 2.5-12 
 |Openssl    | Bibliotecas OpenSSL | 1,0. x ou 1.1. x |
@@ -130,9 +130,9 @@ Para o agente Linux, o servidor proxy pode ser especificado durante a instalaç�
 > [!NOTE]
 > Se seu servidor proxy não exigir autenticação, o agente para Linux exigirá mesmo assim fornecendo um pseudo usuário/senha. Isso pode ser qualquer nome de usuário ou senha.
 
-|Propriedade| Descrição |
+|Propriedade| DESCRIÇÃO |
 |--------|-------------|
-|Protocol | https |
+|Protocol | HTTPS |
 |usuário | Nome de usuário opcional para autenticação de proxy |
 |password | Senha opcional para autenticação de proxy |
 |proxyhost | Endereço ou FQDN do servidor proxy/gateway do Log Analytics |
@@ -147,7 +147,7 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 Conectar computadores em sua assinatura do Azure ou ambiente híbrido diretamente com Azure Monitor logs pode ser feito usando métodos diferentes, dependendo de seus requisitos. A tabela a seguir realça cada método para determinar o que funciona melhor em sua organização.
 
-|Origem | Método | Descrição|
+|Origem | Método | DESCRIÇÃO|
 |-------|-------------|-------------|
 |Azure VM| - Extensão de VM do Log Analytics para [Windows](../../virtual-machines/extensions/oms-windows.md) ou [Linux](../../virtual-machines/extensions/oms-linux.md) usando a CLI do Azure ou com um modelo do Azure Resource Manager<br>- [manualmente no portal do Azure](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json)<br>- [provisionamento automático da central de segurança do Azure](../../security-center/security-center-enable-data-collection.md)| -A extensão instala o agente de Log Analytics em máquinas virtuais do Azure e os registra em um espaço de trabalho Azure Monitor existente.<br>-A central de segurança do Azure pode provisionar o agente de Log Analytics em todas as VMs do Azure com suporte e quaisquer novas que forem criadas se você habilitá-la para monitorar vulnerabilidades de segurança e ameaças. Se habilitada, qualquer VM nova ou existente sem um agente instalado será provisionada.|
 | Computador Windows híbrido|- [Instalação manual](agent-windows.md)<br>- [DSC de Automação do Azure](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Modelo do Resource Manager com o Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Instalar o agente Microsoft Monitoring da linha de comando ou usando um método automatizado como DSC de automação do Azure, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), ou com um modelo do Azure Resource Manager, se você implantou o Microsoft Azure Stack no seu datacenter.| 

@@ -1,18 +1,18 @@
 ---
-title: Configurar e acessar logs do servidor para PostgreSQL – servidor único, usando a CLI do Azure
-description: Este artigo descreve como configurar e acessar os logs do servidor no banco de dados do Azure para PostgreSQL - servidor único usando a linha de comando da CLI do Azure.
+title: Configurar e acessar logs de servidor para PostgreSQL-servidor único usando CLI do Azure
+description: Este artigo descreve como configurar e acessar os logs de servidor no banco de dados do Azure para PostgreSQL-servidor único usando a linha de comando CLI do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 4702db31ffeb15481584b9638f5be1aa640ff39e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb33debaa23ad8625b6ddc1cc63738b13bcd19e1
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067203"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023631"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e acessar logs de servidor usando a CLI do Azure
 Você pode listar e baixar logs de erro do servidor PostgreSQL do Azure usando a interface de linha de comando (CLI do Azure). No entanto, não há suporte para acesso aos logs de transação. 
@@ -25,12 +25,12 @@ Para seguir este guia de instruções, você precisa:
 ## <a name="configure-logging"></a>Configurar o registro em log
 Você pode configurar o servidor para acessar os logs de erro e os logs de consulta. Os logs de erros podem ter informações de ponto de verificação, conexão e vácuo automático.
 1. Ative o registro em log.
-2. Para ativar o registro em log de consulta, atualize **log\_statement** e **log\_min\_duration\_statement**.
+2. Para ativar o registro em log de consulta, atualize **log\_statement** e **log\_min\_duration\_statement**.
 3. Atualize o período de retenção.
 
 Para mais informações, confira [Personalizando os parâmetros de configuração do servidor](howto-configure-server-parameters-using-cli.md).
 
-## <a name="list-logs"></a>Lista de logs
+## <a name="list-logs"></a>Listar logs
 Para listar os arquivos de log disponíveis para o servidor, execute o comando [az postgres server-logs list](/cli/azure/postgres/server-logs).
 
 Você pode listar os arquivos de log para o servidor **mydemoserver.postgres.database.azure.com** no grupo de recursos **myresourcegroup**. Em seguida, direcione-os para um arquivo de texto chamado **log\_files\_list.txt**.

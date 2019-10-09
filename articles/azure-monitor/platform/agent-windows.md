@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 10/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 5e1fe6252f396a4585b5d7d7190728b79229d5c7
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6c8d25a9df49323866e99487ef6c648dede40ec4
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073985"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033959"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Conectar computadores Windows ao Azure Monitor
 
@@ -51,7 +51,11 @@ Antes de instalar o agente do Log Analytics para Windows, você precisa da ID do
 5. Copie e cole em seu editor favorito, a **ID do workspace** e a **chave primária**.    
    
 ## <a name="configure-agent-to-use-tls-12"></a>Configurar o agente para usar o TLS 1.2
-Para configurar o uso do protocolo9 [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) para comunicação entre o agente do Windows e o serviço Log Analytics, você pode seguir as etapas abaixo para habilitar antes que o agente seja instalado na máquina virtual ou posteriormente.   
+Para configurar o uso do protocolo9 [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) para comunicação entre o agente do Windows e o serviço Log Analytics, você pode seguir as etapas abaixo para habilitar antes que o agente seja instalado na máquina virtual ou posteriormente.
+
+>[!NOTE]
+>Se você estiver configurando uma VM que executa o Windows Server 2008 SP2 x64 para usar o TLS 1,2, primeiro será necessário instalar a seguinte [atualização de suporte à assinatura de código SHA-2](https://support.microsoft.com/help/4474419/sha-2-code-signing-support-update) antes de executar as etapas abaixo. 
+>
 
 1. Localize a seguinte subchave do Registro: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
 2. Crie uma subchave em **protocolos** para TLS 1,2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1,2**

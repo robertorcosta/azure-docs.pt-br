@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/29/2019
-ms.openlocfilehash: cb7d55db978cb8eb7944ffe3f3f51d025d5fb891
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: ae7baf09df42a5824e5f59e7ebb372f4d9f6350c
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164299"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72032860"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra baseado em vCore
 
@@ -52,7 +52,7 @@ Para limites do modelo de compra baseado em DTU para bancos de dados individuais
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo (64 KB)|500|1000|1500|2000|2500|3000|
-|Taxa máxima de logs (MBps)|3,75|7.5|11,25|15|18,75|22,5|
+|Taxa máxima de logs (MBps)|3,75|7,5|11,25|15|18,75|22,5|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1\.200|
 |Máximo de sessões simultâneas|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -98,7 +98,7 @@ Para limites do modelo de compra baseado em DTU para bancos de dados individuais
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo (64 KB)|1000|2000|3000|4000|5\.000|6000|7000|
-|Taxa máxima de logs (MBps)|3,75|7.5|11,25|15|18,75|22,5|26,25|
+|Taxa máxima de logs (MBps)|3,75|7,5|11,25|15|18,75|22,5|26,25|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1\.200|1400|
 |Máximo de sessões simultâneas|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -195,7 +195,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está em ver
 |Memória (GB)|7|14|21|28|35|42|
 |Suporte de columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|1|2|3|4|5|6|
-|Tipo de armazenamento|SSD local|SSD Local|SSD Local|SSD Local|SSD Local|SSD local|
+|Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Tamanho máximo de dados (GB)|650|650|650|650|650|650|
 |Tamanho máximo de log (GB)|195|195|195|195|195|195|
 |Tamanho máximo de dados de TempDB (GB)|32|64|96|128|160|192|
@@ -219,7 +219,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está em ver
 |Memória (GB)|49|56|63|70|112|168|
 |Suporte de columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|7|8|9,5|11|20|36|
-|Tipo de armazenamento|SSD local|SSD Local|SSD Local|SSD Local|SSD Local|SSD local|
+|Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Tamanho máximo de dados (GB)|650|650|650|650|1024|1024|
 |Tamanho máximo de log (GB)|195|195|195|195|307|307|
 |Tamanho máximo de dados de TempDB (GB)|224|256|288|320|384|384|
@@ -246,7 +246,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está em ver
 |Tamanho máximo de dados (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Tamanho máximo de log (GB)|307|307|307|461|461|922|922|
 |Tamanho máximo de dados de TempDB (GB)|64|128|192|256|320|384|384|
-|Tipo de armazenamento|SSD local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD local|
+|Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de dados máximo (64 KB)|8000|16000|24000|32000|40000|48000|56000|
 |Taxa máxima de logs (MBps)|12|24|36|48|60|72|84|
@@ -270,7 +270,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está em ver
 |Tamanho máximo de dados (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Tamanho máximo de log (GB)|922|922|922|1229|1229|1229|1229|
 |Tamanho máximo de dados de TempDB (GB)|384|384|384|384|384|384|384|
-|Tipo de armazenamento|SSD local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD local|
+|Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de dados máximo (64 KB)|64000|72000|80000|96000|128000|160000|320000|
 |Taxa máxima de logs (MBps)|96|96|96|96|96|96|96|
@@ -291,27 +291,32 @@ A [camada de computação sem servidor](sql-database-serverless.md) está em ver
 |Geração de computação|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|8|16|24|32|40|80|
 |Memória (GB)|10.2|20,4|40,8|81,6|122,4|163,2|204|408|
+|[RBPEX](sql-database-service-tier-hyperscale.md#compute) Tamanho|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|
 |Suporte de columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
 |Tamanho máximo do log (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |Tamanho máximo de dados de TempDB (GB)|64|128|256|384|384|384|384|384|
-|Tipo de armazenamento|SSD local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD local|
-|IOPS de dados máximo (64 KB)| [Observação 1](#note-1) |[Observação 1](#note-1)|[Observação 1](#note-1) |[Observação 1](#note-1) |[Observação 1](#note-1) |[Observação 1](#note-1) |[Observação 1](#note-1) | [Observação 1](#note-1) |
-|Latência de E/S (aproximada)|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|
+|Tipo de armazenamento| [Observação 1](#notes) |[Observação 1](#notes)|[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) | [Observação 1](#notes) |
+|IOPS de dados máximo (64 KB)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|
+|Latência de E/S (aproximada)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|2400|3200|4000|8000|
 |Máximo de sessões simultâneas|30000|30000|30000|30000|30000|30000|30000|30000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Escala de leitura|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
-|Armazenamento de backup incluído |7|7|7|7|7|7|7|7|
+|Retenção de armazenamento de backup|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|
 |||
 
-### <a name="note-1"></a>Observação 1
+#### <a name="notes"></a>Observações
 
-O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPS efetivo dependerá da carga de trabalho.
+**Observação 1**: O hiperscale é uma arquitetura de várias camadas com componentes de armazenamento e computação separados: [Arquitetura da camada de serviço de hiperescala](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
 
-### <a name="next-steps"></a>Próximas etapas
+**Observação 2**: A arquitetura de várias camadas de hiperescala tem cache em vários níveis. O IOPS efetivo dependerá da carga de trabalho.
+
+**Observação 3**: A latência é 1-2 ms para dados no cache baseado em SSD RBPEX em réplicas de computação, que armazena em cache as páginas de dados mais usadas. Maior latência de dados recuperados de servidores de páginas.
+
+## <a name="next-steps"></a>Próximas etapas
 
 - Para os limites de recursos de DTU de um único banco de dados, confira [limites de recursos para bancos de dados individuais usando o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-single-databases.md)
 - Para ver os limites de recursos do vCore para os pools elásticos, confira os [limites de recursos para pools elásticos usando o modelo de compras baseado em vCore](sql-database-vcore-resource-limits-elastic-pools.md)

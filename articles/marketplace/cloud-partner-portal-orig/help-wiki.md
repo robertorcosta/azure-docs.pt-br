@@ -1,19 +1,19 @@
 ---
 title: Wiki de Ajuda do Dynamics 365 for Operations
-description: Página de informações do Wiki de Ajuda do Dynamics 365 for Operations
+description: Preterido este artigo e vinculado ao artigo sobre o PC; foi "Dynamics 365 for Operations Help wiki página de informações"
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: d957055a3545d790b9419ed1523352155ecc3add
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: cf21f0aa42eef089d02632ba9323574768459054
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935188"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034408"
 ---
 # <a name="dynamics-365-for-operations-help-wiki"></a>Wiki de Ajuda do Dynamics 365 for Operations
 
