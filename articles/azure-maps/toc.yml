@@ -105,6 +105,8 @@
               href: map-add-line-layer.md
             - name: Adicionar uma camada de polígono
               href: map-add-shape.md
+            - name: Adicionar uma camada de polígonos de extrusão
+              href: map-extruded-polygon.md
             - name: Adicionar uma camada do mapa de calor
               href: map-add-heat-map-layer.md
             - name: Adicionar um pop-up

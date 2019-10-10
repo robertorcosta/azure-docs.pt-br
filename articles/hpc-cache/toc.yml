@@ -36,3 +36,5 @@
   items:
     - name: Abra um tíquete de suporte
       href: hpc-cache-support-ticket.md
+    - name: Recuperar-se de uma interrupção regional
+      href: hpc-region-recovery.md

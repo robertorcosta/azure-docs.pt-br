@@ -9,14 +9,18 @@ ms.service: app-service-mobile
 ms.topic: landing-page
 ms.date: 05/25/2018
 ms.author: gwallace
-ms.openlocfilehash: 5526f7ce11722469909adfaad11773bc2c8e4b66
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 38b1acad5e8eb869d1ed2a8d218a2416bd3b8098
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610215"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024745"
 ---
 # <a name="mobile-apps-documentation"></a>Documentação dos Aplicativos Móveis
+
+> [!NOTE]
+> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar os serviços de **Build**, **Teste** e **Distribuição** para configurar o pipeline de integração e entrega contínuas. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso dos respectivos aplicativos usando os serviços de **Análise** e **Diagnóstico** e se envolver com usuários usando o serviço de **Push**. Os desenvolvedores também podem aproveitar o serviço de **Autenticação** para autenticar os respectivos usuários e o serviço de **Dados** para persistir e sincronizar dados de aplicativo na nuvem.
+> Se você deseja integrar os serviços de nuvem em seu aplicativo móvel, inscreva-se com o App Center [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 Saiba como usar os Aplicativos Móveis no Serviço de Aplicativo do Azure para compilar aplicativos nativos do iOS, do Android ou do Windows, ou aplicativos de plataforma cruzada usando Xamarin ou Cordova. Os tutoriais, os vídeos, a documentação do SDK do cliente e muito mais mostram como compilar e hospedar o back-end para qualquer aplicativo móvel.
 

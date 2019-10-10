@@ -137,23 +137,6 @@
           href: how-to-train-with-datasets.md
     - name: Treinar modelos
       items:
-        - name: Configurar ambientes de treinamento
-          displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
-          href: how-to-set-up-training-targets.md
-        - name: Estimadores de uso para treinar
-          items:
-            - name: Criar estimadores no treinamento
-              href: how-to-train-ml-models.md
-            - name: Usar o Scikit-learn
-              href: how-to-train-scikit-learn.md
-            - name: Usar TensorFlow
-              href: how-to-train-tensorflow.md
-            - name: Usar o Keras
-              href: how-to-train-keras.md
-            - name: Usar PyTorch
-              href: how-to-train-pytorch.md
-            - name: Usar Chainer
-              href: how-to-train-chainer.md
         - name: Usar interface visual
           displayName: sample visual interface experiments
           items:
@@ -175,25 +158,29 @@
             - name: Prever atrasos nos voos
               displayName: 'classification, studio'
               href: how-to-ui-sample-classification-predict-flight-delay.md
-        - name: Ajustar hiperparâmetros
-          displayName: parameter
-          href: how-to-tune-hyperparameters.md
-        - name: Usar o Key Vault durante o treinamento
-          displayName: secrets keyvault
-          href: how-to-use-secrets-in-runs.md
-    - name: Acompanhar e monitorar testes
-      items:
-        - name: 'Iniciar, monitorar ou cancelar execuções'
-          displayName: 'cancel, fail, status, child run'
-          href: how-to-manage-runs.md
-        - name: Métricas de logs para execuções de treinamento
-          href: how-to-track-experiments.md
-        - name: Acompanhar experimentos com o MLflow
-          displayName: 'log, monitor, metrics'
-          href: how-to-use-mlflow.md
-        - name: Visualizar execuções com o TensorBoard
-          displayName: 'log, monitor, metrics'
-          href: how-to-monitor-tensorboard.md
+        - name: Estimadores de uso para o ML
+          items:
+            - name: Criar estimadores no treinamento
+              href: how-to-train-ml-models.md
+            - name: Configurar ambientes de treinamento
+              displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+              href: how-to-set-up-training-targets.md
+            - name: Ajustar hiperparâmetros
+              displayName: parameter
+              href: how-to-tune-hyperparameters.md
+            - name: Usar o Key Vault durante o treinamento
+              displayName: secrets keyvault
+              href: how-to-use-secrets-in-runs.md
+        - name: Scikit-learn
+          href: how-to-train-scikit-learn.md
+        - name: TensorFlow
+          href: how-to-train-tensorflow.md
+        - name: Keras
+          href: how-to-train-keras.md
+        - name: PyTorch
+          href: how-to-train-pytorch.md
+        - name: Encadeador
+          href: how-to-train-chainer.md
     - name: Automatizar o aprendizado de máquina
       displayName: 'automl, auto ml'
       items:
@@ -210,6 +197,19 @@
           href: how-to-auto-train-forecast.md
         - name: Entender os gráficos e as métricas
           href: how-to-understand-automated-ml.md
+    - name: Acompanhar e monitorar testes
+      items:
+        - name: 'Iniciar, monitorar ou cancelar execuções'
+          displayName: 'cancel, fail, status, child run'
+          href: how-to-manage-runs.md
+        - name: Métricas de logs para execuções de treinamento
+          href: how-to-track-experiments.md
+        - name: Acompanhar experimentos com o MLflow
+          displayName: 'log, monitor, metrics'
+          href: how-to-use-mlflow.md
+        - name: Visualizar execuções com o TensorBoard
+          displayName: 'log, monitor, metrics'
+          href: how-to-monitor-tensorboard.md
     - name: Implantar e fornecer modelos
       items:
         - name: Onde e como implantar
