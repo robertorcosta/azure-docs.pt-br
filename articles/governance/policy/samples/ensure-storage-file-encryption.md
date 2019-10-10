@@ -2,17 +2,16 @@
 title: Exemplo – Assegurar a criptografia de arquivo de armazenamento
 description: Esta definição de política de exemplo exige que a criptografia de arquivo esteja habilitada para contas de armazenamento.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 78d1f14132d19b65f78638986661eef78a406734
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e6a9796d7c70bb4e09d4ce1c2cd9be479a06be0d
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275752"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980475"
 ---
 # <a name="sample---ensure-storage-file-encryption"></a>Exemplo – Assegurar a criptografia de arquivo de armazenamento
 

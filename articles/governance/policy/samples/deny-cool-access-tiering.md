@@ -2,17 +2,16 @@
 title: Exemplo – negar camadas de acesso esporádico para contas de armazenamento
 description: Esta definição de política de exemplo proíbe o uso de camadas de acesso esporádico para contas de Armazenamento de Blobs.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 90c579871a2cc19d226f56febca17ceb5e7561b6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 21ee0e62e300b5807e3a38a0834c3365ab123dad
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263614"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977245"
 ---
 # <a name="sample---deny-cool-access-tiering-for-storage-accounts"></a>Exemplo – negar camadas de acesso esporádico para contas de armazenamento
 

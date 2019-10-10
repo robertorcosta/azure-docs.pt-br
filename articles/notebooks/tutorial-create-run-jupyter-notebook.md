@@ -4,21 +4,20 @@ description: Como criar e executar um Jupyter Notebook no Azure Notebooks que de
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 65bbb5fe-9939-4e8e-8f5b-c197d4be142a
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 09d4038e705fb3bc4ff2c82daf5dc4c07f346f94
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 827338c299b19d04245d7114a99d946d0332c82f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751761"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973038"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um Jupyter Notebook com Python
 

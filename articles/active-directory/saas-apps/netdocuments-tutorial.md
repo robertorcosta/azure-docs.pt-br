@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bf25ce318415a8aa36bca8d4cd7380e4e8e67ca
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 71e5e13485c4a10664d98363e8e99bfd3b4f4bcf
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743469"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035710"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao NetDocuments
 
@@ -85,6 +85,8 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
+    
+    c. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `http://netdocuments.com/VAULT`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de resposta e a URL de logon propriamente ditas. A ID do repositório é um valor que começa com **CA-** seguido por um código de oito caracteres associado a seu repositório do NetDocuments. Você pode conferir o [documento de suporte de identidade federada do NetDocuments](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) para obter mais informações. Como alternativa, você pode contatar a [equipe de suporte ao cliente do NetDocuments](https://support.netdocuments.com/hc/) para obter esses valores se tiver dificuldades para configurar usando as informações acima. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

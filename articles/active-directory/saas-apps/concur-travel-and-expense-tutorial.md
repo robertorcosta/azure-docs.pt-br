@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64d2c5bc38a91c60186ca1249ca69326858b6c37
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 75f933cf54b354475146c1291b486173e0b57dbb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70846861"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026728"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur-travel-and-expense"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Concur Travel and Expense
 
@@ -83,7 +83,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica de SAML** , o aplicativo é pré-configurado no modo iniciado por  **IDP** e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração clicando no botão **Salvar** .
+1. Na seção **Configuração Básica de SAML**, o aplicativo é pré-configurado no modo iniciado do **IDP** e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão **Salvar**.
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 

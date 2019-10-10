@@ -2,17 +2,16 @@
 title: Exemplo – Tipos de recursos permitidos
 description: Esta definição de política de exemplo garante que apenas tipos de recursos aprovados sejam implantados.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 9235f771abeaa5ccf053f697707aeb32115c7f01
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 91a5b7b44b12ee581488d5aa0d3d9eca8c4dce83
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280988"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980617"
 ---
 # <a name="sample---allowed-resource-types"></a>Exemplo – Tipos de recursos permitidos
 

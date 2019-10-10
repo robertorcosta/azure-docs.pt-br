@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7cf5a5e2669fcbb5344fc6dd4b5c6de8318c3a5
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 43fd1375ac8ffa850ca3f2c4c2b34e63631a9811
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70846851"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025928"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-arc-facilities"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ARC Facilities
 
@@ -91,7 +91,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![image](common/edit-attribute.png)
 
-1. Além do demonstrado acima, o aplicativo ARC Facilities espera que mais alguns atributos sejam passados na resposta SAML. Na seção **Atributos e Declarações de Usuário** da caixa de diálogo **Declarações de Grupo (Versão Prévia)**  , execute as seguintes etapas:
+1. Além do demonstrado acima, o aplicativo ARC Facilities espera que mais alguns atributos sejam passados na resposta SAML. Na seção**Atributos e Declarações de Usuário** na caixa de diálogo **Declarações de Grupo (Versão Prévia)** , execute as seguintes etapas:
 
     a. Clique na **caneta** ao lado de **Grupos retornados na declaração**.
 

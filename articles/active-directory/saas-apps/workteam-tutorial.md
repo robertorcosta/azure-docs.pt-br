@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b3b9e48ed5c02834f1e6575ca79d49ff2e0bd7
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 0b14c08604fcc0f6d2550127ca1f1aa053172b75
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172242"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026743"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workteam"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Workteam
 
@@ -80,7 +80,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica de SAML** , o aplicativo é pré-configurado no modo iniciado por  **IDP** e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração clicando no botão **Salvar** .
+1. Na seção **Configuração Básica de SAML**, o aplicativo é pré-configurado no modo iniciado do **IDP** e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão **Salvar**.
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 

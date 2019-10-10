@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 9fdbf3466256c5e24de17541770fa2095fcf38a4
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 92ee9b0a8a0906bca31d7dcb1730c3464d0d6cbc
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171080"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839186"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adicionar uma associação de fila do Armazenamento do Azure à sua função do Python
 
@@ -30,20 +30,11 @@ A maioria das associações requer uma cadeia de conexão armazenada que o Funct
 
 Antes de iniciar este artigo, conclua as etapas na [parte 1 do início rápido do Python](functions-create-first-function-python.md).
 
+[!INCLUDE [functions-cloud-shell-note](../../includes/functions-cloud-shell-note.md)]
+
 ## <a name="download-the-function-app-settings"></a>Baixar as configurações do aplicativo de funções
 
-No artigo de Início Rápido anterior, você criou um aplicativo de funções no Azure, juntamente com a conta de armazenamento necessária. A cadeia de conexão dessa conta é armazenada com segurança nas configurações do aplicativo no Azure. Neste artigo, você escreverá mensagens em uma Fila de armazenamento na mesma conta. Para se conectar à sua Conta de armazenamento ao executar a função localmente, é necessário baixar as configurações do aplicativo para o arquivo local.settings.json. Execute o comando do Azure Functions Core Tools a seguir para baixar as configurações para local.settings.json, substituindo `<APP_NAME>` pelo nome do seu aplicativo de funções do artigo anterior:
-
-```bash
-func azure functionapp fetch-app-settings <APP_NAME>
-```
-
-Talvez você precise entrar em sua conta do Azure.
-
-> [!IMPORTANT]  
-> Como ela contém segredos, o arquivo local.settings.json nunca é publicado e deve ser excluído do controle do código-fonte.
-
-É necessário ter o valor `AzureWebJobsStorage`, que é a cadeia de conexão da Conta de armazenamento. Use esta conexão para verificar se a associação de saída funciona conforme o esperado.
+[!INCLUDE [functions-app-settings-download-local-cli](../../includes/functions-app-settings-download-local-cli.md)]
 
 ## <a name="enable-extension-bundles"></a>Habilitar pacotes de extensão
 
@@ -53,80 +44,13 @@ Agora, você pode adicionar a associação de saída do Armazenamento ao seu pro
 
 ## <a name="add-an-output-binding"></a>Adicionar uma associação de saída
 
-No Functions, cada tipo de associação requer que um `direction`, um `type` e um `name` exclusivo seja definido no arquivo functions.json. Dependendo do tipo de associação, outras propriedades podem ser necessárias. A [configuração de saída da fila](functions-bindings-storage-queue.md#output---configuration) descreve os campos obrigatórios para uma associação de fila do Armazenamento do Azure.
+No Functions, cada tipo de associação requer que um `direction`, `type` e um `name` exclusivo seja definido no arquivo functions.json. A maneira como você define esses atributos depende do idioma do seu aplicativo de funções.
 
-Para criar uma associação, adicione um objeto de configuração de associação ao arquivo function.json. Edite o arquivo function.json em sua pasta HttpTrigger para adicionar um objeto à matriz `bindings` que tem estas propriedades:
-
-| Propriedade | Valor | DESCRIÇÃO |
-| -------- | ----- | ----------- |
-| **`name`** | `msg` | O nome que identifica o parâmetro de associação referenciado em seu código. |
-| **`type`** | `queue` | A associação é uma associação de fila do Armazenamento do Azure. |
-| **`direction`** | `out` | A associação é uma associação de saída. |
-| **`queueName`** | `outqueue` | O nome da fila na qual a associação escreve. Quando o `queueName` não existe, a associação o cria no primeiro uso. |
-| **`connection`** | `AzureWebJobsStorage` | O nome de uma configuração de aplicativo que contém a cadeia de conexão da Conta de armazenamento. A configuração `AzureWebJobsStorage` contém a cadeia de conexão para a Conta de armazenamento criada com o aplicativo de funções. |
-
-O arquivo function.json agora deve ter a aparência do exemplo a seguir:
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    },
-  {
-      "type": "queue",
-      "direction": "out",
-      "name": "msg",
-      "queueName": "outqueue",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
+[!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Adicionar o código que usa a associação de saída
 
-Depois que o `name` estiver configurado, será possível começar a usá-lo para acessar a associação como um atributo de método na assinatura de função. No exemplo a seguir, `msg` é uma instância do [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest).
-
-```python
-import logging
-
-import azure.functions as func
-
-
-def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
-
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
-
-    if name:
-        msg.set(name)
-        return func.HttpResponse(f"Hello {name}!")
-    else:
-        return func.HttpResponse(
-            "Please pass a name on the query string or in the request body",
-            status_code=400
-        )
-```
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
 
 Ao usar uma associação de saída, não é necessário usar o código do SDK do Armazenamento do Azure para se autenticar, para obter uma referência de fila ou para escrever dados. O tempo de execução do Functions e a associação de saída da fila fazem essas tarefas para você.
 
@@ -149,34 +73,11 @@ Em seguida, use a CLI do Azure para exibir a nova fila e verifique se uma mensag
 
 ### <a name="set-the-storage-account-connection"></a>Definir a conexão da Conta de armazenamento
 
-Abra o arquivo local.settings.json e copie o valor de `AzureWebJobsStorage`, que é a cadeia de conexão da Conta de armazenamento. Defina a variável de ambiente `AZURE_STORAGE_CONNECTION_STRING` como a cadeia de conexão usando o seguinte comando do Bash:
-
-```azurecli-interactive
-export AZURE_STORAGE_CONNECTION_STRING=<STORAGE_CONNECTION_STRING>
-```
-
-Quando você definir a cadeia de conexão na variável de ambiente `AZURE_STORAGE_CONNECTION_STRING`, é possível acessar a conta de Armazenamento sem ter que fornecer a autenticação toda vez.
+[!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
 
 ### <a name="query-the-storage-queue"></a>Consultar a Fila de armazenamento
 
-É possível usar o comando [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) para exibir as Filas de armazenamento em sua conta, como no exemplo a seguir:
-
-```azurecli-interactive
-az storage queue list --output tsv
-```
-
-A saída desse comando inclui uma fila denominada `outqueue`, que é a fila que foi criada quando a função foi executada.
-
-Em seguida, use o comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para exibir as mensagens nessa fila, como no exemplo a seguir:
-
-```azurecli-interactive
-echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
-```
-
-A cadeia de caracteres retornada deve ser a mesma que a mensagem enviada para testar a função.
-
-> [!NOTE]  
-> O exemplo anterior decodifica a cadeia de caracteres retornada de base64. Isso ocorre porque as associações de Armazenamento de fila gravam e leem do Armazenamento do Azure como [cadeias de caracteres base64](functions-bindings-storage-queue.md#encoding).
+[!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
 Agora, chegou a hora de republicar o aplicativo de funções atualizado no Azure.
 

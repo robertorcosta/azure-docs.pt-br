@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2019
 ms.author: magoedte
-ms.openlocfilehash: fa3c8b8cee0b8621a6a2800655f62a3d339f67c3
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 24eb8440ed4746b51b92ce371b5d58b8d55de9a3
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211990"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177604"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Criando sua implantação de logs de Azure Monitor
 
@@ -32,7 +32,7 @@ Um espaço de trabalho do Log Analytics fornece:
 
 * Uma localização geográfica para armazenamento de dados.
 * Isolamento de dados concedendo direitos de acesso de usuários diferentes após uma das nossas estratégias de design recomendadas.
-* Escopo para configuração de configurações, como [tipo de preço](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retenção](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)e limitação de [dados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
+* Escopo para configuração de configurações, como [tipo de preço](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retenção](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)e limitação de [dados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume).
 
 Este artigo fornece uma visão geral detalhada das considerações de design e migração, visão geral do controle de acesso e uma compreensão das implementações de design recomendadas para sua organização de ti.
 
@@ -69,7 +69,7 @@ Com o RBAC (controle de acesso baseado em função), você pode conceder aos usu
 
 Os dados aos quais um usuário tem acesso são determinados por uma combinação de fatores listados na tabela a seguir. Cada um é descrito nas seções a seguir.
 
-| Fator | Descrição |
+| Fator | DESCRIÇÃO |
 |:---|:---|
 | [Modo de acesso](#access-mode) | Método usado pelo usuário para acessar o espaço de trabalho.  Define o escopo dos dados disponíveis e o modo de controle de acesso que é aplicado. |
 | [Modo de controle de acesso](#access-control-mode) | Configuração no espaço de trabalho que define se as permissões são aplicadas no nível de espaço de trabalho ou de recurso. |
@@ -121,7 +121,7 @@ O *modo de controle de acesso* é uma configuração em cada espaço de trabalho
 
     Essa é a configuração padrão para todos os espaços de trabalho criados antes de março de 2019.
 
-* **Usar permissões de recurso ou espaço de trabalho**: Esse modo de controle permite RBAC granular. Os usuários podem receber acesso a apenas dados associados aos recursos que podem exibir atribuindo permissão do Azure `read` . 
+* **Usar permissões de recurso ou espaço de trabalho**: Esse modo de controle permite RBAC granular. Os usuários podem receber acesso a apenas dados associados aos recursos que podem exibir atribuindo permissão do Azure `read`. 
 
     Quando um usuário acessa o espaço de trabalho no modo de contexto de espaço de trabalho, as permissões de espaço de trabalho se aplicam. Quando um usuário acessa o espaço de trabalho no modo de contexto de recurso, somente as permissões de recurso são verificadas e as permissões de espaço de trabalho são ignoradas. Habilite o RBAC para um usuário removendo-os das permissões do espaço de trabalho e permitindo que suas permissões de recurso sejam reconhecidas.
 

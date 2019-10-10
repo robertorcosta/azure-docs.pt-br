@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 9/27/2019
-ms.openlocfilehash: 5b9be86b0a3d17c9c325b565979fccbec92f5733
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: d8ea5a507cc110c92bb74491c3376f7b671638d9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815873"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72175999"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
 
@@ -38,7 +38,7 @@ O tutorial mostra como executar as seguintes tarefas:
 > * Iniciar uma execução de pipeline
 > * Monitorar as execuções de pipeline e de atividade
 
-Este tutorial usa o .NET SDK. Você pode usar outros mecanismos para interagir com o Azure Data Factory. Para obter guias de início rápido do Data Factory, confira os [Guias de início rápido de cinco minutos](https://docs.microsoft.com/azure/data-factory/#5-minute-quickstarts).
+Este tutorial usa o .NET SDK. Você pode usar outros mecanismos para interagir com o Azure Data Factory. Para obter guias de início rápido do Data Factory, confira os [Guias de início rápido de cinco minutos](/azure/data-factory/quickstart-create-data-factory-portal).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 

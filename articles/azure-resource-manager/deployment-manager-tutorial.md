@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a42ccb1c0e60f5bf1568ccea13392186577f2875
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 97d9aa1ed9440011fdaab3aa8eb9d3942b5a8acf
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205714"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170357"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager (versão prévia pública)
 
@@ -80,7 +80,7 @@ Há dois serviços alocados nos locais Centro-Oeste dos EUA e Leste dos EUA.  Ca
 
 ## <a name="download-the-tutorial-files"></a>Baixar os arquivos do tutorial
 
-1. Baixe [os modelos e os artefatos](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) usados por este tutorial.
+1. Baixe [os modelos e os artefatos](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) usados por este tutorial.
 2. Descompacte os arquivos em seu computador local.
 
 Na pasta raiz, há duas pastas:

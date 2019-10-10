@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d2c6719cf37959d01375ec099cdf1c2cea3afa5
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 03dcc0c62781b6bec0369b7e642976e6d6f9c2f5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543892"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026641"
 ---
 # <a name="tutorial-tutorial-azure-active-directory-single-sign-on-sso-integration-with-pronovos-analytics"></a>Tutorial: Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ProNovos Analytics
 
@@ -82,7 +82,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica de SAML** , o aplicativo é pré-configurado no modo iniciado por  **IDP** e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração clicando no botão **Salvar** .
+1. Na seção **Configuração Básica de SAML**, o aplicativo é pré-configurado no modo iniciado do **IDP** e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão **Salvar**.
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 

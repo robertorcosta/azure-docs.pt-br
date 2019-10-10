@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3a5f6b5b1f66542a534c9016c5d9d60a1273975f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: cf145e04ca0e0ddf336521e72f6dc230dc8fc86b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544779"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024962"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Node.js e MongoDB no Serviço de Aplicativo do Azure no Linux
 
@@ -186,7 +186,7 @@ Copie o valor de `primaryMasterKey`. Essas informações serão necessárias na 
 
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configurar a cadeia de conexão em seu aplicativo Node.js
 
-No repositório local do MEAN.js, na pasta _config/env/_, crie um arquivo chamado _local-production.js_. _.gitignore_ está configurado para manter esse arquivo fora do repositório.
+No repositório local do MEAN.js, na pasta _config/env/_ , crie um arquivo chamado _local-production.js_. _.gitignore_ está configurado para manter esse arquivo fora do repositório.
 
 Copie o seguinte código dentro dele. Lembre-se de substituir os dois espaços reservados *\<cosmosdb-name>* pelo nome do banco de dados do Cosmos DB e o espaço reservado *\<primary-master-key>* pela chave copiada na etapa anterior.
 
@@ -259,7 +259,7 @@ Por padrão, o projeto MEAN.js mantém _config/env/local-production.js_ fora do 
 
 Para definir as configurações do aplicativo, use o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell.
 
-O exemplo a seguir define uma configuração de aplicativo `MONGODB_URI` no aplicativo do Azure. Substitua os espaços reservados *\<app-name>*, *\<cosmosdb-name>* e *\<primary-master-key>* pelo nome do aplicativo, pelo nome do Cosmos DB e pela chave mestra primária.
+O exemplo a seguir define uma configuração de aplicativo `MONGODB_URI` no aplicativo do Azure. Substitua os espaços reservados *\<app-name>* , *\<cosmosdb-name>* e *\<primary-master-key>* pelo nome do aplicativo, pelo nome do Cosmos DB e pela chave mestra primária.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb-name>:<primary-master-key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true"
@@ -297,7 +297,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app-name>.scm.azurewebsites.net/<app-name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ```
 
 É possível notar que o processo de implantação executa [Gulp](https://gulpjs.com/) após `npm install`. O Serviço de Aplicativo não executa tarefas Gulp ou Grunt durante a implantação, portanto, esse repositório de exemplo possui dois arquivos adicionais em seu diretório raiz para habilitá-lo:
@@ -428,7 +428,7 @@ NODE_ENV=production node server.js
 
 Navegue até `http://localhost:8443` em um navegador e certifique-se de que está conectado.
 
-Clique em **Admin > Gerenciar Artigos** e, em seguida, adicione um artigo selecionando o botão **+**.
+Clique em **Admin > Gerenciar Artigos** e, em seguida, adicione um artigo selecionando o botão **+** .
 
 Agora, você verá a nova caixa de texto `Comment`.
 

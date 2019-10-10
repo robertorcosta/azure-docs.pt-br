@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d0810c393cf9b6060f456c5ff01d03673b62a9
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 6d8fdc8ba2337a3be49a4645e48a45120fb0ccec
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861311"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026101"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-watch-by-colors"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Watch by Colors
 
@@ -80,7 +80,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica de SAML** , o aplicativo é pré-configurado no modo iniciado por  **IDP** e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração clicando no botão **Salvar** .
+1. Na seção **Configuração Básica de SAML**, o aplicativo é pré-configurado no modo iniciado do **IDP** e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão **Salvar**.
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 

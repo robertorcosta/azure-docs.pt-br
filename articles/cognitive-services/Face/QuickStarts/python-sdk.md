@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: f237af58bb98f667d4481a88bbb4daa77657468c
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 617e9a40c253d98c32ae8b4c9426f3148c23d125
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70966919"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176129"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Início Rápido: Biblioteca de clientes de Detecção Facial para Python
 
@@ -65,7 +65,7 @@ Em seguida, crie variáveis para a chave e o ponto de extremidade do Azure do re
 É possível instalar a biblioteca de clientes com:
 
 ```console
-pip install --upgrade azure-cognitiveservices-Face
+pip install --upgrade azure-cognitiveservices-vision-face
 ```
 
 ## <a name="object-model"></a>Modelo de objeto

@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 05/08/2019
+ms.date: 10/01/2019
 ms.author: aahi
-ms.openlocfilehash: 8d3f5d0e10fadd31fd8bde77339b872c1b90451f
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 75c2c8bf8b3baee1f9f89282840622e1e29d2a18
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721463"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71837764"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Detecção de anomalias nos dados de streaming usando o Azure Databricks
 
@@ -166,10 +166,10 @@ Neste tutorial, você usará as [APIs do Detector de Anomalias dos Serviços Cog
     |Valor |DESCRIÇÃO  |
     |---------|---------|
     |NOME     | Um nome para o recurso do Detector de Anomalias.        |
-    |Assinatura     | A assinatura do Azure à qual o recurso será associado.        |
-    |Local padrão     | Uma localização do Azure.        |
+    |Subscription     | A assinatura do Azure à qual o recurso será associado.        |
+    |Location     | Uma localização do Azure.        |
     |Tipo de preço     | Um tipo de preço para o serviço. Para obter mais informações sobre os preços do Detector de Anomalias, confira a [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
-    |Grupo de recursos     | Especifique se deseja criar um grupo de recursos ou selecionar um existente.        |
+    |Resource group     | Especifique se deseja criar um grupo de recursos ou selecionar um existente.        |
 
 
      Selecione **Criar**.

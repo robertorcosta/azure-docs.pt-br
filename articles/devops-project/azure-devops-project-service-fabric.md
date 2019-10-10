@@ -2,19 +2,19 @@
 title: 'Tutorial: Implantar seu aplicativo ASP.NET Core no Azure Service Fabric usando o Azure DevOps Projects'
 description: O Azure DevOps Projects facilita o uso inicial do Azure. Com o DevOps Projects, é possível implantar do aplicativo ASP.NET Core no Azure Service Fabric com algumas etapas rápidas.
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 8ba217cb9ce849e57b15d3e6cc73529c78bf340e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5f14164da5cd89cc7d0578e6b64c39d227734d75
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453745"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969472"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Tutorial: Implantar seu aplicativo ASP.NET Core no Azure Service Fabric usando o Azure DevOps Projects
 

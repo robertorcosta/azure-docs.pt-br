@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 30751bebd397b378924453987462c9e2b3b55ebf
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c4b46bc952782fc7c9b56d6f0c049fe17b63d0f2
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803890"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71836471"
 ---
 # <a name="electric-vehicle-routing-using-azure-notebooks-python"></a>Roteamento de veículo elétrico usando o Azure Notebooks (Python)
 
-O Azure Mapas é um portfólio de APIs de serviço geoespacial nativamente integradas ao Azure, que permite que desenvolvedores, empresas e ISVs criem aplicativos com reconhecimento de localização e soluções de IoT, mobilidade, logística e acompanhamento de ativos. As APIs REST do Azure Mapas podem ser chamadas de linguagens como Python e R para habilitar a análise de dados geoespaciais e cenários de aprendizado de máquina. O Azure Mapas oferece um conjunto robusto de [APIs de roteamento]([https://docs.microsoft.com/rest/api/maps/route) que permite que os usuários calculem rotas entre vários pontos de dados com base em várias condições, tais como tipo de veículo ou área alcançável. Neste tutorial, veremos um cenário para ajudar um motorista de veículo elétrico cujo veículo está com pouca carga da bateria a encontrar a estação de cobrança mais próxima possível, com relação ao tempo de deslocamento.
+O Azure Mapas é um portfólio de APIs de serviço geoespacial nativamente integradas ao Azure, que permite que desenvolvedores, empresas e ISVs criem aplicativos com reconhecimento de localização e soluções de IoT, mobilidade, logística e acompanhamento de ativos. As APIs REST do Azure Mapas podem ser chamadas de linguagens como Python e R para habilitar a análise de dados geoespaciais e cenários de aprendizado de máquina. O Azure Mapas oferece um conjunto robusto de [APIs de roteamento](https://docs.microsoft.com/rest/api/maps/route) que permite que os usuários calculem rotas entre vários pontos de dados com base em várias condições, tais como tipo de veículo ou área alcançável. Neste tutorial, veremos um cenário para ajudar um motorista de veículo elétrico cujo veículo está com pouca carga da bateria a encontrar a estação de cobrança mais próxima possível, com relação ao tempo de deslocamento.
 
 Neste tutorial, você irá:
 

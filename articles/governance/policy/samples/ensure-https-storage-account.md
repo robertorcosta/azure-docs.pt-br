@@ -2,17 +2,16 @@
 title: Exemplo – Assegurar tráfego HTTPS somente para a conta de armazenamento
 description: Esta definição de política de exemplo exige que as contas de armazenamento usem o tráfego HTTPS.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 044091ab83d64676c011ea25c73c8bf00528a6b8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 07694c7f6ca4590615c1f5530c19a530025c6add
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279135"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977088"
 ---
 # <a name="sample---ensure-https-traffic-only-for-storage-account"></a>Exemplo – Assegurar tráfego HTTPS somente para a conta de armazenamento
 

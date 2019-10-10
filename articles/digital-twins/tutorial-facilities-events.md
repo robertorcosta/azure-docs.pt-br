@@ -2,18 +2,19 @@
 title: 'Tutorial: Capturar eventos de um espaço dos Gêmeos Digitais do Azure | Microsoft Docs'
 description: Saiba como receber notificações de seus espaços integrando os Gêmeos Digitais do Azure ao Aplicativo Lógico do Azure usando as etapas deste tutorial.
 services: digital-twins
+ms.author: alinast
 author: alinamstanciu
+manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 09/23/2019
-ms.author: alinast
-ms.openlocfilehash: fe2eb357ef89d70512e85db24d22f95cac1bd0ac
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 26976956722d77e2dfb8c17734c207b2667c0126
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300084"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949171"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Receber notificações de espaços dos Gêmeos Digitais do Azure usando Aplicativos Lógicos
 

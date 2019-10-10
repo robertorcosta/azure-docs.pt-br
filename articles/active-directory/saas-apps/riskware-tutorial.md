@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b2bfbed33433521fd086d474ea4b754f5435f5e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6eaa1be81d3ac0733c0829bc45e1b62f8aae5755
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092917"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integração do Azure Active Directory ao Riskware
 
@@ -170,7 +170,7 @@ Para configurar o logon único do Azure AD com Riskware, execute as seguintes et
 
     g. Na caixa de texto **Nome da Marca de Identidade XML**, digite o atributo que contém o identificador exclusivo na resposta SAML, como NameID.
 
-    h. Abra o **XML de Metadados** baixado do portal do Azure no Bloco de notas, copie o certificado do arquivo de Metadados e cole-o na caixa de texto **Certificado**
+    h. Abra o **XML de metadados** baixado do portal do Azure no bloco de notas, copie o certificado do arquivo de metadados e cole-o na caixa de texto **Certificado**
 
     i. Na caixa de texto **URL do Consumidor**, cole o valor da **URL de Resposta**, que você recebe da equipe de suporte.
 

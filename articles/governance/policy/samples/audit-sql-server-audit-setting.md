@@ -2,17 +2,16 @@
 title: Exemplo – Auditar a configuração da auditoria no nível do SQL Server
 description: Esta definição de política de exemplo audita as configurações de auditoria do SQL Server se elas não correspondem a uma configuração especificada.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: dcba50cc3ed30940c461312c7f09577e693f9b2e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 158efc86c460cfc96f1cd01294bbd653aff1d0f9
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269072"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980586"
 ---
 # <a name="sample---audit-sql-server-level-audit-setting"></a>Exemplo – Auditar a configuração da auditoria no nível do SQL Server
 

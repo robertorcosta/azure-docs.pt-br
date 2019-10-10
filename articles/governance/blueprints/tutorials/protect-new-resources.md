@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 274c437acd8df50d631727fc352c4b9ebecead18
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a82b24f89cea580a1c79a1dec60996629b7b14f3
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479982"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978135"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Proteger recursos novos com bloqueios de recursos do Azure Blueprints
 
@@ -157,8 +156,8 @@ Depois que a definição de blueprint for publicada, será possível atribuí-la
 
      |Nome do artefato|Tipo de artefato|Nome do parâmetro|Valor|DESCRIÇÃO|
      |-|-|-|-|-|
-     |Grupo de recursos RGtoLock|Grupo de recursos|NOME|TestingBPLocks|Define o nome do novo grupo de recursos ao qual os bloqueios de blueprint serão aplicados.|
-     |Grupo de recursos RGtoLock|Grupo de recursos|Local padrão|Oeste dos EUA 2|Define a localização do novo grupo de recursos ao qual os bloqueios de blueprint serão aplicados.|
+     |Grupo de recursos RGtoLock|Resource group|NOME|TestingBPLocks|Define o nome do novo grupo de recursos ao qual os bloqueios de blueprint serão aplicados.|
+     |Grupo de recursos RGtoLock|Resource group|Location|Oeste dos EUA 2|Define a localização do novo grupo de recursos ao qual os bloqueios de blueprint serão aplicados.|
      |StorageAccount|Modelo do Resource Manager|storageAccountType (StorageAccount)|Standard_GRS|O SKU de armazenamento. O valor padrão é _Standard_LRS_.|
 
 1. Depois que você tiver inserido todos os parâmetros, selecione **Atribuir** na parte inferior da página.

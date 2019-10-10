@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b342838c41ad72609cf9917b345ef0f72b352f2e
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: c180a5d751b44346760706b1bd3d1e8acb70099d
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907147"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71837509"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
@@ -51,9 +51,6 @@ var endpoint = process.env[endpoint_var];
 ## <a name="configure-the-request"></a>Configurar a solicitação
 
 O método `request()`, disponibilizado por meio do módulo de solicitação, nos permite passar o método HTTP, a URL, os parâmetros de solicitação, os cabeçalhos e o JSON do corpo como um objeto `options`. Neste snippet de código, configuraremos a solicitação:
-
->[!NOTE]
-> Para saber mais sobre pontos de extremidade, rotas e parâmetros de solicitação, confira [API de Tradução de Texto 3.0: Detectar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ```javascript
 let options = {
@@ -103,7 +100,10 @@ node detect.js
 
 ## <a name="sample-response"></a>Resposta de exemplo
 
-Localize a abreviação do país/região nesta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Depois de executar o exemplo, você deverá ver o seguinte impresso no terminal:
+
+> [!NOTE]
+> Localize a abreviação do país/região nesta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

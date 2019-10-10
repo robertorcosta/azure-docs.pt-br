@@ -2,17 +2,16 @@
 title: Exemplo – Permitir imagem de VM personalizada de um grupo de recursos
 description: Esta definição de política de exemplo exige que as imagens personalizadas sejam provenientes de um grupo de recursos aprovado.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 29f42a278d9a1d0879d464b6c4e1cfad8f73d518
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c109f870736274f82bf4e165f890d49237c22cbc
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266011"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977813"
 ---
 # <a name="sample---allow-custom-vm-image-from-a-resource-group"></a>Exemplo – Permitir imagem de VM personalizada de um grupo de recursos
 

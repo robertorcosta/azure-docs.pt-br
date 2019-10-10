@@ -2,17 +2,16 @@
 title: Exemplo – imagens de VM aprovadas
 description: Esta definição de política de exemplo exige que apenas as imagens personalizadas aprovadas sejam implantadas no ambiente.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 8def11c2d92af618054d0353fa2687d2e88e1134
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 34a3cf54879dcf6fc25fab50bcbabde28fff653a
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266708"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980839"
 ---
 # <a name="sample---approved-virtual-machine-images"></a>Exemplo – imagens aprovadas de máquina virtual
 
