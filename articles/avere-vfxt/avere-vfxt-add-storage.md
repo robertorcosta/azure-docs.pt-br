@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.author: v-erkell
-ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: 86b63e6d9799387347093e469015fbd3019069d1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515876"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255052"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
@@ -118,7 +118,7 @@ Para adicionar o Armazenamento de Blobs depois de criar o cluster, siga estas et
 
 1. Preencha as informações a seguir para criar uma credencial para o arquivista central de nuvem: 
 
-   | Campo | Value |
+   | Campo | Valor |
    | --- | --- |
    | Nome da credencial | qualquer nome descritivo |
    | Tipo de serviço | (selecione a Chave de Acesso de Armazenamento do Azure) |

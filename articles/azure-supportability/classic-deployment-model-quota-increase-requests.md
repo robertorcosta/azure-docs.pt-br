@@ -5,14 +5,14 @@ author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 06/20/2019
 ms.topic: article
-ms.service: azure
+ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: c7860a098096d718a6c5d7cd661ef2b1c1b21e89
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: d803cc0dfa4a266f79b522207a8cf0f70e06cf3d
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802660"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248715"
 ---
 # <a name="classic-deployment-model"></a>Modelo de implantação clássico
 
@@ -72,11 +72,11 @@ Siga as instruções abaixo usando para criar uma solicitação de suporte por m
 
 1. Em https://portal.azure.com, selecione **Assinaturas**.
 
-   ![Inscrições](./media/resource-manager-core-quotas-request/subscriptions.png)
+   ![Assinaturas](./media/resource-manager-core-quotas-request/subscriptions.png)
 
 2. Selecione a assinatura que precisa de uma cota maior.
 
-   ![Selecionar assinatura](./media/resource-manager-core-quotas-request/select-subscription.png)
+   ![Escolha a assinatura](./media/resource-manager-core-quotas-request/select-subscription.png)
 
 3. Selecione **Uso + cotas**
 
@@ -84,7 +84,7 @@ Siga as instruções abaixo usando para criar uma solicitação de suporte por m
 
 4. No canto superior direito, selecione **Solicitar Aumento**.
 
-   ![Solicitar aumento](./media/resource-manager-core-quotas-request/request-increase.png)
+   ![Solicitar Aumento](./media/resource-manager-core-quotas-request/request-increase.png)
 
 5. Selecione **computação – o limite de assinatura de VM (núcleos-vCPUs) aumenta** como o tipo de cotação. 
 

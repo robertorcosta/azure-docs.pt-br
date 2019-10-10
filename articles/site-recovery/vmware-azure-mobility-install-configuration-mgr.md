@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 35c317c4b73e9a22e3b0d6192abcfc2a596066b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ee92ad6e0687018f69044bf3edde76b9f98cee52
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60598274"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255596"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatizar a instalação do Serviço de Mobilidade com o System Center Configuration Manager
 
@@ -24,7 +24,7 @@ Este artigo fornece um exemplo de como é possível usar o System Center Configu
 
 Este artigo usa o System Center Configuration Manager 2012 R2 para demonstrar a atividade de implantação. Vamos assumir que você está utilizando a versão **9.9.4510.1** ou superior do serviço de Mobilidade.
 
-Como alternativa, você pode automatizar a instalação do serviço de mobilidade com [DSC de automação do Azure](vmware-azure-mobility-deploy-automation-dsc.md).
+Como alternativa, você pode automatizar a instalação do serviço de mobilidade com o [Azure DSC de automação](vmware-azure-mobility-deploy-automation-dsc.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -178,10 +178,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
    ![Captura de tela do Assistente para Criar Pacote e Programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
 
-9. Na próxima página, selecione os sistemas operacionais de destino. O Serviço de Mobilidade pode ser instalado somente no Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2.
-
-   ![Captura de tela do Assistente para Criar Pacote e Programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2.png)
-
+9. Na próxima página, selecione os sistemas operacionais de destino. 
 10. Para concluir o assistente, clique em **Avançar** duas vezes.
 
 

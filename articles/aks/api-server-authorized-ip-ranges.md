@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 59e64b7c84e589da57ea28d6655c9305f4fdc101
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 5819a6c6d73b2ee51fc72d2b56d99b0efb3ea0be
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058338"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241119"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Visualização-acesso seguro ao servidor de API usando intervalos de endereços IP autorizados no serviço de kubernetes do Azure (AKS)
 
@@ -228,7 +228,7 @@ Para habilitar intervalos de IP autorizados do servidor de API, forneça uma lis
 
 Use o comando [AZ AKs Update][az-aks-update] e especifique os *intervalos de--API-Server-Authorized-IP* para permitir. Esses intervalos de endereços IP geralmente são intervalos de endereços usados por suas redes locais. Adicione o endereço IP público do seu próprio firewall do Azure obtido na etapa anterior, como *20.42.25.196/32*.
 
-O exemplo a seguir habilita os intervalos de IP autorizados do servidor de API no cluster chamado *myAKSCluster* no grupo de recursos chamado *MyResource*Group. Os intervalos de endereços IP a serem autorizados são *20.42.25.196/32* (o endereço IP público do firewall do Azure), em seguida, *172.0.0.0/16* e *168.10.0.0/18*:
+O exemplo a seguir habilita os intervalos de IP autorizados do servidor de API no cluster chamado *myAKSCluster* no grupo de recursos chamado *MyResource*Group. Os intervalos de endereços IP a serem autorizados são *20.42.25.196/32* (o endereço IP público do firewall do Azure), em seguida, *172.0.0.0/16* (intervalo de endereços de Pod/nós) e *168.10.0.0/18* (CIDR):
 
 ```azurecli-interactive
 az aks update \
@@ -236,6 +236,13 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.0/16,168.10.0.0/18
 ```
+
+> [!NOTE]
+> Você deve adicionar esses intervalos a uma lista de permissões:
+> - O endereço IP público do firewall
+> - O CIDR do serviço
+> - O intervalo de endereços para as sub-redes, com os nós e pods
+> - Qualquer intervalo que represente as redes das quais você administrará o cluster
 
 ## <a name="update-or-disable-authorized-ip-ranges"></a>Atualizar ou desabilitar intervalos de IP autorizados
 

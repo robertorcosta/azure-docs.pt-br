@@ -5,17 +5,17 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: 1317e900fd4448ded046ffea481313f8ea9f68e3
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409866"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256242"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planejar seu sistema Avere vFXT
 
-Este artigo explica como planejar um vFXT Avere novo para o cluster do Azure que é posicionado e o tamanho apropriado para suas necessidades. 
+Este artigo explica como planejar um novo avere vFXT para o cluster do Azure que está posicionado e dimensionado adequadamente para suas necessidades. 
 
 Antes de passar para o Azure Marketplace ou criar qualquer VM, considere como o cluster vai interagir com outros elementos no Azure. Planeje o local em que os recursos de cluster estarão localizados em sua rede privada e sub-redes e decida qual será seu armazenamento de back-end. Certifique-se de que os nós de cluster que você cria sejam eficientes o suficiente para dar suporte ao seu fluxo de trabalho. 
 
@@ -32,22 +32,22 @@ Siga estas diretrizes ao planejar a infraestrutura de rede do seu sistema do Ave
 * Todos os elementos devem ser gerenciados com uma nova assinatura criada para a implantação do vFXT Avere. Os benefícios incluem: 
   * Acompanhamento de custo mais simples – exibir e auditar todos os custos de ciclos de recursos, infraestrutura e computação em uma assinatura de auditoria.
   * Limpeza mais fácil – você pode remover toda a assinatura quando tiver terminado o projeto.
-  * Particionamento conveniente do recurso de cotas - proteger outras cargas de trabalho críticas de limitação, isolando o Avere vFXT clientes e o cluster em uma única assinatura de recursos possíveis. Isso evita conflitos ao colocar um grande número de clientes para um fluxo de trabalho de computação de alto desempenho.
+  * Particionamento conveniente de cotas de recursos – proteja outras cargas de trabalho críticas de uma possível limitação de recursos isolando os clientes e o cluster avere vFXT em uma única assinatura. Isso evita conflitos ao trazer um grande número de clientes para um fluxo de trabalho de computação de alto desempenho.
 
 * Localize seus sistemas de computação de cliente perto do cluster vFXT. O armazenamento de back-end pode ser mais remoto.  
 
-* O cluster vFXT e a VM do controlador de cluster devem estar localizados na mesma rede virtual (vnet), no grupo de recursos e usam a mesma conta de armazenamento. O modelo de criação de cluster automatizada lida com isso para a maioria das situações.
+* O cluster vFXT e a VM do controlador de cluster devem estar localizados na mesma rede virtual (vnet), no mesmo grupo de recursos e usar a mesma conta de armazenamento. O modelo de criação automatizado de cluster trata isso na maioria das situações.
 
 * O cluster deve estar localizado em sua própria sub-rede para evitar conflitos de endereço IP com clientes ou recursos de computação. 
 
-* O modelo de criação de cluster pode criar a maioria dos recursos de infraestrutura necessária para o cluster, incluindo contas de armazenamento, redes virtuais, sub-redes e grupos de recursos. Se você quiser usar os recursos que já existem, certifique-se de que eles atendem aos requisitos nesta tabela. 
+* O modelo de criação de cluster pode criar a maioria dos recursos de infraestrutura necessários para o cluster, incluindo grupos de recursos, redes virtuais, sub-redes e contas de armazenamento. Se você quiser usar recursos que já existem, verifique se eles atendem aos requisitos nesta tabela. 
 
   | Resource | Usar existente? | Requisitos |
   |----------|-----------|----------|
-  | Grupo de recursos | Sim, se estiver vazia | Deve estar vazio| 
-  | Conta de armazenamento | Sim se conectando a um existente contêiner do Blob após a criação do cluster <br/>  Não se criar um novo contêiner de Blob durante a criação do cluster | Contêiner de Blob existente deve estar vazio <br/> &nbsp; |
-  | Rede virtual | Sim | Deve incluir um ponto de extremidade de serviço de armazenamento, se criar um novo contêiner de BLOBs do Azure | 
-  | Sub-rede | Sim |   |
+  | Grupo de recursos | Sim, se estiver vazio | Deve estar vazio| 
+  | Conta de armazenamento | Sim se estiver conectando um contêiner de blob existente após a criação do cluster <br/>  Não se estiver criando um novo contêiner de blob durante a criação do cluster | O contêiner de blob existente deve estar vazio <br/> &nbsp; |
+  | Rede virtual | Sim | Deve incluir um ponto de extremidade de serviço de armazenamento se estiver criando um novo contêiner de blob do Azure | 
+  | Subnet | Sim |   |
 
 ## <a name="ip-address-requirements"></a>Requisitos de endereço IP 
 
@@ -76,7 +76,7 @@ Cada nó vFXT será idêntico. Ou seja, se você criar um cluster de três nós,
 
 | Tipo de instância | vCPUs | Memória  | Armazenamento SSD local  | Discos de dados máximos | Taxa de transferência de disco sem cache | NIC (contagem) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | 51\.200 IOPS <br/> 768 MBps | 16\.000 MBps (8)  |
+| Standard_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | 51.200 IOPS <br/> 768 MBps | 16.000 MBps (8)  |
 
 O cache de disco por nó é configurável e pode variar de 1.000 GB a 8.000 GB. 4 TB por nó é o tamanho de cache recomendado para nós Standard_E32s_v3.
 
@@ -124,23 +124,23 @@ Para obter detalhes sobre essas opções, leia a [Documentação da Rede Virtual
 
 Se você definir um endereço IP público no controlador de cluster, poderá usá-lo como um host de atalho para contatar o cluster do Avere vFXT de fora da sub-rede privada. No entanto, como o controlador tem privilégios de acesso para modificar nós de cluster, isso cria um pequeno risco de segurança.  
 
-Para melhorar a segurança para um controlador com um endereço IP público, o script de implantação cria automaticamente um grupo de segurança de rede que restringe o acesso de entrada somente a porta 22. Você pode proteger ainda mais o sistema bloqueando o acesso a seu intervalo de endereços IP de origem, ou seja, permitir somente conexões de computadores que você pretende usar para acesso ao cluster.
+Para melhorar a segurança de um controlador com um endereço IP público, o script de implantação cria automaticamente um grupo de segurança de rede que restringe o acesso de entrada apenas à porta 22. Você pode proteger ainda mais o sistema bloqueando o acesso a seu intervalo de endereços IP de origem, ou seja, permitir somente conexões de computadores que você pretende usar para acesso ao cluster.
 
 Ao criar o cluster, você pode escolher se deseja ou não criar um endereço IP público no controlador de cluster. 
 
 * Se você criar uma VNET ou uma nova sub-rede, o controlador de cluster receberá um endereço IP público.
 * Se você selecionar uma VNET e uma sub-rede existentes, o controlador de cluster terá apenas os endereços IP privados. 
 
-## <a name="vm-access-roles"></a>Funções de acesso VM 
+## <a name="vm-access-roles"></a>Funções de acesso à VM 
 
-O Azure usa [controle de acesso baseado em função](../role-based-access-control/index.yml) (RBAC) para autorizar as VMs do cluster para executar determinadas tarefas. Por exemplo, o controlador de cluster precisa de autorização para criar e configurar as VMs do nó de cluster. Os nós de cluster precisam ser capaz de atribuir ou reatribuir os endereços IP para outros nós do cluster.
+O Azure usa o RBAC ( [controle de acesso baseado em função](../role-based-access-control/index.yml) ) para autorizar as VMs de cluster a executar determinadas tarefas. Por exemplo, o controlador de cluster precisa de autorização para criar e configurar as VMs do nó de cluster. Os nós de cluster precisam ser capazes de atribuir ou reatribuir endereços IP a outros nós de cluster.
 
-Duas funções internas do Azure são usadas para as máquinas de virtuais Avere vFXT: 
+Duas funções internas do Azure são usadas para as máquinas virtuais avere vFXT: 
 
-* O controlador de cluster usa a função interna [Avere Colaborador](../role-based-access-control/built-in-roles.md#avere-contributor). 
-* Nós de cluster usam a função interna [Avere operador](../role-based-access-control/built-in-roles.md#avere-operator)
+* O controlador de cluster usa a função interna [colaborador do avere](../role-based-access-control/built-in-roles.md#avere-contributor). 
+* Nós de cluster usam o operador de função interna [avere](../role-based-access-control/built-in-roles.md#avere-operator)
 
-Se você precisar personalizar as funções de acesso para Avere vFXT componentes, você deve definir sua própria função e, em seguida, atribuí-lo para as VMs no momento em que eles são criados. Você não pode usar o modelo de implantação no Azure Marketplace. Consulte o suporte e atendimento ao cliente Microsoft abrindo um tíquete no portal do Azure, conforme descrito em [Obtenha ajuda com o seu sistema](avere-vfxt-open-ticket.md). 
+Se você precisar personalizar funções de acesso para componentes avere vFXT, deverá definir sua própria função e, em seguida, atribuí-la às VMs no momento em que elas forem criadas. Você não pode usar o modelo de implantação no Azure Marketplace. Consulte atendimento ao cliente da Microsoft e suporte abrindo um tíquete no portal do Azure, conforme descrito em [obter ajuda com o sistema](avere-vfxt-open-ticket.md). 
 
 ## <a name="next-step-understand-the-deployment-process"></a>Próxima etapa: Compreender o processo de implantação
 

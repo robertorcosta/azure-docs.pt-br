@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: 830be92d37f304598cca05c3ac80973158c38a59
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: rohogue
+ms.openlocfilehash: 098ed98c1680fa2ea38c377e9e34719ba778b175
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439979"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255024"
 ---
 # <a name="access-the-vfxt-cluster"></a>Acessar o cluster do vFXT
 
@@ -29,9 +29,9 @@ Antes de se conectar, certifique-se de que o par de chaves pública/privada SSH 
 
 ## <a name="create-an-ssh-tunnel"></a>Criar um túnel SSH 
 
-Você pode criar um túnel SSH na linha de comando de um baseado em Linux ou sistema de cliente do Windows 10. 
+Você pode criar um túnel SSH na linha de comando de um sistema cliente baseado em Linux ou Windows 10. 
 
-Use um comando com essa forma de túnel de SSH: 
+Use um comando de túnel SSH com este formulário: 
 
 ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 

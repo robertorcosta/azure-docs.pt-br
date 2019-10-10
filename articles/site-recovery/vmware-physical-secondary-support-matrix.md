@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: raynew
-ms.openlocfilehash: c330afb2c5d315b3d386d1477669f1aab2f6e6f9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 908d681b271aa8acdb0898676c33d396461d8f9a
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972074"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255194"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para um site secundário
 
@@ -25,12 +25,23 @@ Este artigo resume o que é suportado quando você usa o serviço [Azure Site Re
 > [!NOTE]
 > A replicação de VMs VMware e servidores físicos locais é fornecida pelo InMage Scout. O InMage Scout está incluído na assinatura para o serviço Azure Site Recovery.
 
+## <a name="end-of-support-announcement"></a>Anúncio do fim do suporte
+O cenário de Site Recovery para replicação entre data centers físicos ou VMware locais está atingindo o fim do suporte.
+
+- De agosto de 2018, o cenário não pode ser configurado no cofre dos serviços de recuperação e o software InMage Scout não pode ser baixado do cofre. As implantações existentes terão suporte.
+- - De 31 de dezembro de 2020, o cenário não terá suporte.
+Parceiros existentes podem integrar o cenário de novos clientes até o término do suporte.
+- Durante a 2018 e 2019, duas atualizações serão lançadas:
+
+    - Atualização 7: Corrige problemas de configuração e conformidade de rede e dá suporte a TLS 1.2.
+    - Atualização 8: Adiciona suporte para sistemas operacionais Linux RHEL/CentOS 7.3/7.4/7.5 e para SUSE 12
+    - Após a Atualização 8, nenhuma outra atualização será lançada. Haverá suporte de hotfix limitado para os sistemas operacionais adicionados na Atualização 8 e correções de bugs com base no melhor esforço.
 
 ## <a name="host-servers"></a>Servidores de host
 
 **Sistema operacional** | **Detalhes**
 --- | ---
-vCenter Server | vCenter 5.5, 6.0 e 6.5<br/><br/> Se você executar 6.0 ou 6.5, observe que apenas os recursos de 5.5 têm suporte.
+Servidor vCenter | vCenter 5.5, 6.0 e 6.5<br/><br/> Se você executar 6.0 ou 6.5, observe que apenas os recursos de 5.5 têm suporte.
 
 
 ## <a name="replicated-vm-support"></a>Suporte de VM replicada

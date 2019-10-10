@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e07d154ce5dae8a461bf9db19303db685f8a4152
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 6771164c26c51e40d80d0c82b42f04c4f95c4c37
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103071"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255096"
 ---
-# <a name="troubleshoot-azure-file-sync"></a>Solução de problemas da Sincronização de Arquivos do Azure
+# <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
 
 Este artigo foi projetado para ajudá-lo a solucionar problemas e resolver problemas encontrados com a implantação da Sincronização de arquivos do Azure. Nós também descrevemos como coletar logs importantes do sistema para ajudar em uma investigação mais profunda dos problemas. Se você não vir a resposta para sua pergunta aqui, poderá entrar em contato conosco pelos seguintes canais (em ordem progressiva):
@@ -41,7 +41,7 @@ Se você tentar instalar o agente de sincronização em um controlador de domín
 
 Para resolver, transfira a função de PDC para outro controlador de domínio em execução no Windows Server 2012 R2 ou mais recente e, em seguida, instale a sincronização.
 
-<a id="server-registration-prerequisites"></a>**O registro do servidor exibe a seguinte mensagem: "Os pré-requisitos estão ausentes"**
+<a id="server-registration-prerequisites"></a>o registro **Server exibe a seguinte mensagem: "Os pré-requisitos estão ausentes"**
 
 Essa mensagem será exibida se o módulo do PowerShell AZ ou AzureRM não estiver instalado no PowerShell 5,1. 
 
@@ -56,7 +56,7 @@ Para instalar o módulo AZ ou AzureRM no PowerShell 5,1, execute as seguintes et
     - [Módulo AzureRM]( https://go.microsoft.com/fwlink/?linkid=856959)
 3. Execute ServerRegistration.exe e siga o assistente para registrar o servidor com um Serviço de Sincronização de Armazenamento.
 
-<a id="server-already-registered"></a>**O registro do servidor exibe a seguinte mensagem: "Este servidor já está registrado"** 
+<a id="server-already-registered"></a>o registro **Server exibe a seguinte mensagem: "Este servidor já está registrado"** 
 
 ![Uma captura de tela da caixa de diálogo de Registro do Servidor com a mensagem de erro “o servidor já está registrado”](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
@@ -100,7 +100,7 @@ Esse erro ocorrerá se sua conta de usuário não tiver direitos suficientes par
 Para criar um ponto de extremidade de nuvem, sua conta de usuário deve ter as seguintes permissões de Autorização da Microsoft:  
 * Ler: Obter a definição da função
 * Gravação: Criar ou atualizar definição de função personalizada
-* Ler: Obter atribuição de função
+* Ler: Obter a atribuição da função
 * Gravação: Criar atribuição de função
 
 As seguintes funções internas têm as permissões de Autorização da Microsoft adequadas:  
@@ -1010,6 +1010,17 @@ Se os arquivos não ser recuperados:
 > [!NOTE]
 > Uma ID de Evento 9006 é registrada uma vez por hora no log de eventos de Telemetria se um arquivo não for recuperado (um evento é registrado por código de erro). Os logs de eventos operacionais e de diagnóstico devem ser usados se informações adicionais forem necessárias para diagnosticar um problema.
 
+### <a name="recall-errors-and-remediation"></a>Recuperar erros e correção
+
+| HRESULT | HRESULT (decimal) | Cadeia de caracteres de erro | Problema | Correção |
+|---------|-------------------|--------------|-------|-------------|
+| 0x80070079 | -121 | ERROR_SEM_TIMEOUT | Falha ao recuperar o arquivo devido a um tempo limite de e/s. Esse problema pode ocorrer por vários motivos: restrições de recursos de servidor, conectividade de rede deficiente ou um problema de armazenamento do Azure (por exemplo, limitação). | Nenhuma ação é necessária. Se o erro persistir por várias horas, abra um caso de suporte. |
+| 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | Falha ao recuperar o arquivo devido a um problema de rede.  | Se o erro persistir, verifique a conectividade de rede para o compartilhamento de arquivos do Azure. |
+| 0x80c80037 | -2134376393 | ECS_E_SYNC_SHARE_NOT_FOUND | Falha ao recuperar o arquivo porque o ponto de extremidade do servidor foi excluído. | Para resolver esse problema, consulte [arquivos em camadas não podem ser acessados no servidor após a exclusão de um ponto de extremidade do servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
+| 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | Falha ao recuperar o arquivo devido a um erro de acesso negado. Esse problema pode ocorrer se as configurações de firewall e rede virtual na conta de armazenamento estiverem habilitadas e o servidor não tiver acesso à conta de armazenamento. | Para resolver esse problema, adicione o endereço IP do servidor ou a rede virtual seguindo as etapas documentadas na seção [Configurar o firewall e as configurações de rede virtual](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) no guia de implantação. |
+| 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Falha ao recuperar o arquivo porque ele não está acessível no compartilhamento de arquivos do Azure. | Para resolver esse problema, verifique se o arquivo existe no compartilhamento de arquivos do Azure. Se o arquivo existir no compartilhamento de arquivos do Azure, atualize para a versão mais recente do agente de Sincronização de Arquivos do Azure. |
+| 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | Falha ao recuperar o arquivo devido a uma falha de autorização na conta de armazenamento. | Para resolver esse problema, verifique se [sincronização de arquivos do Azure tem acesso à conta de armazenamento](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac). |
+
 ### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>Arquivos em camadas não são acessíveis no servidor após a exclusão de um ponto de extremidade do servidor
 Os arquivos em camadas em um servidor ficarão inacessíveis se os arquivos não forem recuperados antes de excluir um ponto de extremidade do servidor.
 
@@ -1044,7 +1055,7 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 
 <a id="remove-orphaned"></a>**Como remover arquivos em camadas órfãos** 
 
-*Opção 1: Excluir os arquivos órfãos em camadas*
+*Opção 1: Excluir os arquivos órfãos em camadas @ no__t-0
 
 Essa opção exclui os arquivos em camadas órfãos no Windows Server, mas exige a remoção do ponto de extremidade do servidor, se ele existir devido à recreação após 30 dias ou se estiver conectado a um grupo de sincronização diferente. Os conflitos de arquivo ocorrerão se os arquivos forem atualizados no Windows Server ou no compartilhamento de arquivos do Azure antes de o ponto de extremidade do servidor ser recriado.
 
@@ -1077,7 +1088,7 @@ $orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
 
 7. Opcional: Recrie o ponto de extremidade do servidor se excluído na etapa 3.
 
-*Opção 2: Montar o compartilhamento de arquivos do Azure e copiar os arquivos localmente que estão órfãos no servidor*
+*Opção 2: Monte o compartilhamento de arquivos do Azure e copie os arquivos localmente que estão órfãos no servidor @ no__t-0
 
 Essa opção não requer a remoção do ponto de extremidade do servidor, mas requer espaço em disco suficiente para copiar os arquivos completos localmente.
 

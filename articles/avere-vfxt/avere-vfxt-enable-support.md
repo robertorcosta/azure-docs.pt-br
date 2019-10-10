@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: fe096b2e2a75cc89e3ce5ef905d8e4c347cc153a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: ac7db46a681fcde6bfcbb7695e2d66724f738918
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409800"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256222"
 ---
 # <a name="enable-support-uploads"></a>Habilitar uploads de suporte
 
@@ -42,6 +42,6 @@ Siga as etapas do painel de controle Avere para ativar o suporte. (Leia [Acesse 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você precisar adicionar um local ou existentes do sistema de armazenamento para o cluster na nuvem, siga as instruções em [configurar o armazenamento](avere-vfxt-add-storage.md). 
+Se você precisar adicionar um sistema de armazenamento em nuvem local ou existente ao cluster, siga as instruções em [Configurar armazenamento](avere-vfxt-add-storage.md). 
 
 Se você estiver pronto para começar a anexação de clientes para o cluster, leia [montar o cluster de vFXT Avere](avere-vfxt-mount-clients.md).

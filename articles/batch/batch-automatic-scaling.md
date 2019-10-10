@@ -11,19 +11,19 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
-ms.date: 06/20/2017
+ms.date: 10/08/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2014b00a82a6d56bf58b471336c6d809721abea9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bdea67d682bab335de02e55f5864460e3daefb95
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095427"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254952"
 ---
-# <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula de dimensionamento automático para expandir nós de computação em um pool do Lote
+# <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula automática para dimensionar nós de computação em um pool do lote
 
-Lote do Azure pode escalar automaticamente os pools baseado nos parâmetros que você definir. Com o dimensionamento automático, o Lote adiciona dinamicamente nós a um pool à medida que as demandas de tarefas aumentam e remove os nós de computação à medida que diminuem. Você pode economizar tempo e dinheiro ao ajustar automaticamente o número de nós de computação utilizados pelo seu aplicativo em Lote. 
+Lote do Azure pode escalar automaticamente os pools baseado nos parâmetros que você definir. Com o dimensionamento automático, o Lote adiciona dinamicamente nós a um pool à medida que as demandas de tarefas aumentam e remove os nós de computação à medida que diminuem. Você pode economizar tempo e dinheiro ao ajustar automaticamente o número de nós de computação utilizados pelo seu aplicativo em Lote.
 
 Você habilita o dimensionamento automático em um pool de nós de computação, associando a ele uma *fórmula de dimensionamento automático* definida por você. O serviço de Lote usa a fórmula de dimensionamento automático para determinar o número de nós de computação que são necessários para executar a carga de trabalho. Os nós de computação podem ser nós dedicados ou [nós de baixa prioridade](batch-low-pri-vms.md). O Lote responde aos dados de métricas de serviço que são coletados periodicamente. Utilizando esses dados de métricas, o Lote ajusta o número de nós de computação no pool baseado na sua fórmula e em um intervalo configurável.
 
@@ -39,6 +39,7 @@ Este artigo aborda as diversas entidades que compõem as fórmulas de dimensiona
 >
 
 ## <a name="automatic-scaling-formulas"></a>Fórmulas de dimensionamento automático
+
 Uma fórmula de dimensionamento automático é um valor de cadeia de caracteres que você definir e que contém uma ou mais instruções. A fórmula de dimensionamento automático é atribuída ao elemento [autoScaleFormula][rest_autoscaleformula] do pool (REST do lote) ou à propriedade [CloudPool. autoScaleFormula][net_cloudpool_autoscaleformula] (.net do lote). O serviço do Lote usa sua fórmula para determinar o número de destino dos nós de computação no pool para o próximo intervalo de processamento. A cadeia de caracteres da fórmula não pode exceder 8 KB, pode incluir até 100 instruções que são separadas por ponto e vírgula e pode incluir quebras de linha e comentários.
 
 Você pode pensar em fórmulas de dimensionamento automático como uma "linguagem" de autoescala do Lote. As instruções da fórmula são expressões de forma livre que podem incluir as variáveis definidas pelo serviço (variáveis definidas pelo serviço de Lote) e as variáveis definidas pelo usuário (variáveis que você define). Eles podem executar várias operações com esses valores usando tipos, operadores e funções internas. Por exemplo, uma instrução pode ter a seguinte forma:
@@ -60,15 +61,17 @@ O número de nós de destino pode ser maior, menor ou o mesmo que o número atua
 
 ### <a name="sample-autoscale-formulas"></a>Fórmulas de autoescala de exemplo
 
-Abaixo estão exemplos de duas fórmulas de dimensionamento automático, que podem ser ajustadas para funcionar na maioria dos cenários. As variáveis `startingNumberOfVMs` e `maxNumberofVMs` nas fórmulas de exemplo podem ser ajustadas às suas necessidades.
+Abaixo estão exemplos de duas fórmulas de dimensionamento automático, que podem ser ajustadas para funcionar na maioria dos cenários. As variáveis `startingNumberOfVMs` e `maxNumberofVMs` no exemplo de fórmulas podem ser ajustadas às suas necessidades.
 
 #### <a name="pending-tasks"></a>Tarefas pendentes
+
 ```
 startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
 pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
 pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
 $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
+$NodeDeallocationOption = taskcompletion;
 ```
 
 Com esta fórmula de dimensionamento automático, o pool é criado inicialmente com uma única VM. A métrica `$PendingTasks` define o número de tarefas que estão executando ou na fila. A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define a variável `$TargetDedicatedNodes` em conformidade. A fórmula garante que o número de nós dedicados de destino jamais exceda 25 VMs. Conforme novas tarefas são enviadas, o pool aumenta automaticamente. Conforme as tarefas são concluídas, as VMs são liberadas uma a uma e a fórmula de dimensionamento automático reduz o pool.
@@ -76,15 +79,18 @@ Com esta fórmula de dimensionamento automático, o pool é criado inicialmente 
 Esta fórmula reduz os nós dedicados, mas também pode ser modificada para aplicar à escala dos nós de baixa prioridade.
 
 #### <a name="preempted-nodes"></a>Nós admitidos 
+
 ```
 maxNumberofVMs = 25;
 $TargetDedicatedNodes = min(maxNumberofVMs, $PreemptedNodeCount.GetSample(180 * TimeInterval_Second));
 $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicatedNodes);
+$NodeDeallocationOption = taskcompletion;
 ```
 
-Este exemplo cria um pool que começa com 25 nós de baixa prioridade. Toda vez que um nó de baixa prioridade é preempção, ele é substituído por um nó dedicado. Assim como no primeiro exemplo, a `maxNumberofVMs` variável impede que o pool exceda 25 VMS. Este exemplo é útil para aproveitar as VMs de baixa prioridade, garantindo também que apenas um número fixo de preempçãos ocorrerá durante o tempo de vida do pool.
+Este exemplo cria um pool que começa com 25 nós de baixa prioridade. Toda vez que um nó de baixa prioridade é preempção, ele é substituído por um nó dedicado. Assim como no primeiro exemplo, a variável `maxNumberofVMs` impede que o pool exceda 25 VMs. Este exemplo é útil para aproveitar as VMs de baixa prioridade, garantindo também que apenas um número fixo de preempçãos ocorrerá durante o tempo de vida do pool.
 
-## <a name="variables"></a>Variáveis
+## <a name="variables"></a>variáveis
+
 Você pode usar as variáveis **definidas pelo serviço** e **definidas pelo usuário** em suas fórmulas de dimensionamento automático. As variáveis definidas pelo serviço são incorporadas ao serviço de Lote. Algumas variáveis definidas pelo serviço são de leitura e gravação e algumas são somente leitura. Variáveis definidas pelo usuário são as variáveis que você definir. Na fórmula de exemplo mostrada na seção anterior, `$TargetDedicatedNodes` e `$PendingTasks` são variáveis definidas pelo serviço. As variáveis de `startingNumberOfVMs` e `maxNumberofVMs` são variáveis definidas pelo usuário.
 
 > [!NOTE]
@@ -100,7 +106,7 @@ As tabelas a seguir mostram as variáveis de leitura e gravação e de somente l
 | --- | --- |
 | $TargetDedicatedNodes |O número de nós de computação dedicados de destino para o pool. O número de nós dedicados é especificado como um destino porque um pool nem sempre consegue o número de nós desejado. Por exemplo, se o número de nós dedicados de destino for modificado por uma avaliação de autoescala antes que o pool tenha alcançado o destino inicial, então, o pool poderá não alcançar o destino. <br /><br /> Um pool em uma conta criada com a configuração do Serviço de Lote talvez não consiga atingir seu destino, se o destino exceder um nó da conta do Lote ou uma cota de núcleos. Um pool em uma conta criada com a configuração de Assinatura de Usuário poderá não atingir seu destino, se o destino exceder a cota de núcleos compartilhada para a assinatura.|
 | $TargetLowPriorityNodes |O número de destino de nós de computação de baixa prioridade para o pool. O número de nós de baixa prioridade é especificado como um destino porque um pool nem sempre consegue o número de nós desejado. Por exemplo, se o número de nós de baixa prioridade de destino for modificado por uma avaliação de autoescala antes que o pool tenha alcançado o destino inicial, então, o pool poderá não alcançar o destino. Um pool também não poderá atingir seu destino, se o destino exceder um nó da conta do Lote ou uma cota de núcleos. <br /><br /> Para obter mais informações sobre nós de computação de baixa prioridade, consulte [Usar VMs de baixa prioridade com o Lote (versão prévia)](batch-low-pri-vms.md). |
-| $NodeDeallocationOption |A ação que ocorre quando nós de computação são removidos de um pool. Os valores possíveis são:<ul><li>**requeue** – finaliza tarefas imediatamente e as coloca novamente na fila de trabalhos para que elas sejam reagendadas.<li>**terminate** – finaliza tarefas imediatamente e as remove da fila de trabalhos.<li>**taskcompletion** – aguarda que as tarefas em execução sejam concluídas e remove o nó do pool.<li>**retaineddata** - aguarda que todos os dados de tarefas locais retidos no nó sejam limpos antes de remover o nó do pool.</ul> |
+| $NodeDeallocationOption |A ação que ocorre quando nós de computação são removidos de um pool. Os valores possíveis são:<ul><li>recolocar na **fila**--o valor padrão. Encerra as tarefas imediatamente e as coloca novamente na fila de trabalho para que elas sejam reagendadas. Essa ação garante que o número de destino dos nós seja atingido o mais rápido possível, mas pode ser menos eficiente, pois qualquer tarefa em execução será interrompida e precisará ser reiniciada, desperdiçando qualquer trabalho que já tenha feito. <li>**terminate** – finaliza tarefas imediatamente e as remove da fila de trabalhos.<li>**taskcompletion** – aguarda que as tarefas em execução sejam concluídas e remove o nó do pool. Use essa opção para evitar que tarefas sejam interrompidas e recolocadas na fila, desperdiçando qualquer trabalho que a tarefa tenha feito. <li>**retaineddata** - aguarda que todos os dados de tarefas locais retidos no nó sejam limpos antes de remover o nó do pool.</ul> |
 
 É possível obter o valor dessas variáveis definidas pelo serviço para fazer ajustes que se são baseados em métricas do serviço de Lote:
 
@@ -132,6 +138,7 @@ As tabelas a seguir mostram as variáveis de leitura e gravação e de somente l
 >
 
 ## <a name="types"></a>Tipos
+
 Esses tipos têm suporte em uma fórmula:
 
 * double
@@ -161,6 +168,7 @@ Esses tipos têm suporte em uma fórmula:
   * TimeInterval_Year
 
 ## <a name="operations"></a>Operações
+
 Essas operações são permitidas nos tipos listados na seção anterior.
 
 | Operação | Operadores com suporte | Tipo de resultado |
@@ -216,6 +224,7 @@ Algumas das funções descritas na tabela anterior podem aceitar uma lista como 
 O valor de *doubleVecList* é convertido em um único *doubleVec* antes da avaliação. Por exemplo, se `v = [1,2,3]`, então chamar `avg(v)` equivale a chamar `avg(1,2,3)`. Chamar `avg(v, 7)` é equivalente a chamar `avg(1,2,3,7)`.
 
 ## <a name="getsampledata"></a>Obter dados de exemplo
+
 As fórmulas de dimensionamento automático atuam em dados de métricas (exemplos) que são fornecidos pelo serviço de Lote. Uma fórmula aumenta ou diminui o tamanho do pool com base nos valores obtidos do serviço. As variáveis definidas pelo serviço que foram descritas anteriormente são objetos que fornecem vários métodos para acessar os dados associados a esse objeto. Por exemplo, a expressão a seguir mostra uma solicitação para obter os últimos cinco minutos de uso da CPU:
 
 ```
@@ -275,6 +284,7 @@ Já que pode haver um atraso na disponibilidade do exemplo, é importante sempre
 >
 
 ## <a name="metrics"></a>Métricas
+
 Você pode usar as métricas do recurso e da tarefa quando estiver definindo uma fórmula. Você ajustará o número alvo de nós dedicados no pool com base nos dados de métrica que você obtiver e avaliar. Consulte a seção acima [Variáveis](#variables) para obter mais informações sobre cada métrica.
 
 <table>
@@ -321,13 +331,15 @@ Você pode usar as métricas do recurso e da tarefa quando estiver definindo uma
 </table>
 
 ## <a name="write-an-autoscale-formula"></a>Criar uma fórmula de autoescala
+
 Crie uma fórmula de autoescala formando instruções que usam os componentes acima e combine essas instruções em uma fórmula completa. Nesta seção, criamos um exemplo de fórmula de autoescala que pode executar algumas decisões de dimensionamento do mundo real.
 
 Primeiro, vamos definir os requisitos para nossa nova fórmula de autoescala. A fórmula deve:
 
 1. Aumente o número de nós de computação dedicados de destino em um pool, se o uso da CPU for alto.
-2. Diminua o número de nós de computação dedicados de destino em um pool, quando o uso da CPU for baixo.
-3. Sempre restrinja o número máximo de nós dedicados a 400.
+1. Diminua o número de nós de computação dedicados de destino em um pool, quando o uso da CPU for baixo.
+1. Sempre restrinja o número máximo de nós dedicados a 400.
+1. Ao reduzir o número de nós, não remova os nós que estão executando tarefas; se necessário, aguarde até que as tarefas tenham sido concluídas para remover os nós.
 
 Para aumentar o número de nós durante o uso elevado da CPU, defina a instrução que preenche uma variável definida pelo usuário (`$totalDedicatedNodes`) com um valor que seja 110% do número de nós dedicados de destino atual, mas somente se o uso médio mínimo da CPU durante os últimos 10 minutos foi acima de 70%. Caso contrário, use o valor para o número de nós dedicados atual.
 
@@ -365,7 +377,7 @@ $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 
 ## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Criar um pool habilitado para autoescala com SDKs do lote
 
-O dimensionamento automático do pool pode ser configurado usando qualquer um dos [SDKs](batch-apis-tools.md#azure-accounts-for-batch-development)do lote, os cmdlets do [PowerShell do lote](batch-powershell-cmdlets-get-started.md)da [API REST do lote](https://docs.microsoft.com/rest/api/batchservice/) e a CLI do [lote](batch-cli-get-started.md). Nesta seção, você pode ver exemplos para .NET e Python.
+O dimensionamento automático do pool pode ser configurado usando qualquer um dos [SDKs](batch-apis-tools.md#azure-accounts-for-batch-development)do lote, os [cmdlets do PowerShell do lote](batch-powershell-cmdlets-get-started.md)da [API REST do lote](https://docs.microsoft.com/rest/api/batchservice/) e a CLI do [lote](batch-cli-get-started.md). Nesta seção, você pode ver exemplos para .NET e Python.
 
 ### <a name="net"></a>.NET
 
@@ -391,7 +403,7 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Ao criar um pool habilitado para autoescala não especifique o parâmetro _targetDedicatedNodes_ ou o parâmetro _targetLowPriorityNodes_ na chamada para **CreatePool**. Em vez disso, especifique as propriedades **AutoScaleEnabled** e **AutoScaleFormula** no pool. Os valores para essas propriedades determinam o número de destino de cada tipo de nó. Além disso, para redimensionar manualmente um pool habilitado para autoescala (por exemplo, com [BatchClient. PoolOperations. ResizePoolAsync][net_poolops_resizepoolasync]), primeiro desabilite o dimensionamento automático no pool e, em seguida, redimensione-o.
+> Ao criar um pool habilitado para autoescala não especifique o parâmetro _targetDedicatedNodes_ ou o parâmetro _targetLowPriorityNodes_ na chamada para **CreatePool**. Em vez disso, especifique as propriedades **AutoScaleEnabled** e **AutoScaleFormula** no pool. Os valores para essas propriedades determinam o número de destino de cada tipo de nó. Além disso, para redimensionar manualmente um pool habilitado para autoescala (por exemplo, com [BatchClient. PoolOperations. ResizePoolAsync][net_poolops_resizepoolasync]), primeiro **desabilite** o dimensionamento automático no pool e, em seguida, redimensione-o.
 >
 >
 
@@ -634,9 +646,11 @@ Error:
 ```
 
 ## <a name="example-autoscale-formulas"></a>Fórmulas de autoescala de exemplo
+
 Vejamos algumas fórmulas que mostram diferentes maneiras de ajustar a quantidade de recursos de computação em um pool.
 
 ### <a name="example-1-time-based-adjustment"></a>Exemplo 1: ajuste baseado no tempo
+
 Suponha que você deseja ajustar o tamanho do pool baseado no dia da semana e hora do dia. Este exemplo mostra como aumentar ou diminuir adequadamente o número de nós no pool.
 
 A fórmula primeiro obtém a hora atual. Se trata-se de um dia da semana (1-5) e durante o horário de trabalho (8h-18h), o tamanho do pool de destino é definido como 20 nós. Caso contrário, ele é definido como 10 nós.
@@ -647,9 +661,11 @@ $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
 $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
 $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
+$NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-2-task-based-adjustment"></a>Exemplo 2: ajuste baseado em tarefa
+
 Neste exemplo, o tamanho do pool é ajustado com base no número de tarefas na fila. Ambos os comentários e as quebras de linha são aceitáveis em cadeias de caracteres de fórmulas.
 
 ```csharp
@@ -664,11 +680,12 @@ $targetVMs = $tasks > 0? $tasks:max(0, $TargetDedicatedNodes/2);
 // The pool size is capped at 20, if target VM value is more than that, set it
 // to 20. This value should be adjusted according to your use case.
 $TargetDedicatedNodes = max(0, min($targetVMs, 20));
-// Set node deallocation mode - keep nodes active only until tasks finish
+// Set node deallocation mode - let running tasks finish before removing a node
 $NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-3-accounting-for-parallel-tasks"></a>Exemplo 3: contabilização de tarefas paralelas
+
 Esse exemplo ajusta o tamanho do pool baseado no número de tarefas. Essa fórmula também leva em conta o valor de [MaxTasksPerComputeNode][net_maxtasks] que foi definido para o pool. Essa abordagem é útil em situações nas quais a [execução de tarefas paralelas](batch-parallel-node-tasks.md) foi habilitada em seu pool.
 
 ```csharp
@@ -690,6 +707,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-4-setting-an-initial-pool-size"></a>Exemplo 4: definindo um tamanho de pool inicial
+
 Este exemplo mostra um snippet de código C# com uma fórmula de autoescala que define o tamanho do pool para um número especificado de nós por um período de tempo inicial. Em seguida, ele ajusta o tamanho do pool com base no número de execução e tarefas ativas depois de decorrido o período de tempo inicial.
 
 A fórmula no seguinte snippet de código:
@@ -714,6 +732,7 @@ string formula = string.Format(@"
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Maximizar o uso dos recursos de computação do Lote do Azure com tarefas simultâneas do nó](batch-parallel-node-tasks.md) contém detalhes sobre como executar várias tarefas simultaneamente nos nós de computação em seu pool. Além de dimensionamento automático, esse recurso pode ajudar a reduzir a duração do trabalho para algumas cargas de trabalho, economizando dinheiro.
 * Para outro auxiliar de eficiência, certifique-se de que o aplicativo do Lote consulte o serviço de Lote da maneira ideal. Consulte [Consultar o serviço do Lote do Azure com eficiência](batch-efficient-list-queries.md) para saber como limitar a quantidade de dados que passam por transmissão ao consultar o status de potencialmente milhares de nós de computação ou tarefas.
 

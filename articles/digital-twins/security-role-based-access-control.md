@@ -8,16 +8,16 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 1d4243457f51f11db5bc9681b29d27293fbc6250
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: e89a8f98d92e92fa8afe93340576b14ff1dd5051
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949062"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249191"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Controle de acesso baseado em função em Gêmeos Digitais do Azure
 
-O Azure Digital Twins permite o controle preciso do acesso a dados, recursos e ações específicos em seu gráfico espacial. Isso é feito por meio de um gerenciamento granular de funções e permissões chamado RBAC (controle de acesso baseado em função). O RBAC consiste em _funções_ e _atribuições de funções_. Funções de identificam o nível de permissões. As atribuições de função associam uma função com um usuário ou dispositivo.
+O Azure digital gêmeos permite o controle de acesso preciso sobre dados, recursos e ações específicos em seu grafo espacial. Ele faz isso por meio de função granular e gerenciamento de permissões chamado de RBAC ( [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/) ). O RBAC consiste em _funções_ e _atribuições de funções_. Funções de identificam o nível de permissões. As atribuições de função associam uma função com um usuário ou dispositivo.
 
 Usando o RBAC, pode ser concedida permissão para:
 
@@ -84,3 +84,5 @@ Para conceder permissões a um destinatário, crie uma atribuição de função.
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre como criar e gerenciar atribuições de função dos Gêmeos Digitais do Azure, leia [Criar e gerenciar atribuições de função](./security-create-manage-role-assignments.md).
+
+- Leia mais sobre o [RBAC para Azure](https://docs.microsoft.com/azure/role-based-access-control/).

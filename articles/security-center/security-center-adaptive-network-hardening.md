@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 28761b78b49ad0774594b45db4587c710fc7d810
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 060a5a6a356574e04a3492cdeadd93ddf9a38535
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996728"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255250"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Proteção de rede adaptável na central de segurança do Azure
 Saiba como configurar a proteção de rede adaptável na central de segurança do Azure.
@@ -49,7 +49,7 @@ Por exemplo, digamos que a regra NSG existente seja permitir o tráfego de 140.2
 
 2. Na guia **recursos não íntegros** , selecione uma VM para exibir os alertas e as regras de proteção recomendadas a serem aplicadas.
 
-    ![protegendo alertas](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+    ![protegendo alertas](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
 
 
 ## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Examinar e aplicar regras recomendadas de proteção de rede adaptável

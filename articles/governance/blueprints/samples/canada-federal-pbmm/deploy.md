@@ -1,18 +1,18 @@
 ---
 title: Exemplo – Blueprint de PBMM Federal do Canadá – etapas de implantação
-description: Implante as etapas dos exemplos federais do Canadá PBMM Blueprint.
+description: Implante as etapas para o exemplo do Canadá Federal PBMM Blueprint, incluindo detalhes do parâmetro de artefato do Blueprint.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 2e810c810fd2c143f3d3e43a6ff1df87a150fa3b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 0e799de92f25c688b41d3ac5718fe3a2b7a8aba0
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981639"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249007"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implantar os exemplos do Canadá Federal PBMM Blueprint
 
@@ -66,7 +66,7 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
 1. Forneça os valores de parâmetro para a atribuição de blueprint:
 
-   - Noções Básicas
+   - Noções básicas
 
      - **Assinaturas**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou a cópia do exemplo de blueprint. Se você selecionar mais de uma assinatura, será criada uma atribuição para cada uma, usando os parâmetros inseridos.
      - **Nome da atribuição**: O nome é pré-preenchido para você com base no nome do blueprint.
@@ -82,7 +82,7 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
      Deixe a opção de identidade gerenciada _atribuída ao sistema_ padrão.
 
-   - Parâmetros de artefato
+   - Parâmetros do artefato
 
      Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele está definido. Esses são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters), pois são definidos durante a atribuição do blueprint. Para obter uma lista completa ou parâmetros de artefato e suas descrições, confira a [Tabela de parâmetros de artefato](#artifact-parameters-table).
 
@@ -95,17 +95,17 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
 A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 
-Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
+Nome do artefato|Tipo de artefato|Nome do parâmetro|DESCRIÇÃO|
 |-|-|-|-|
-|\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux |Atribuição de política |Workspace do Log Analytics para VMs Linux |Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux |Atribuição de política |Workspace do Log Analytics para as VMs do Linux |Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 |\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux |Atribuição de política |Opcional: Lista de imagens de VM compatíveis com o sistema operacional Linux a serem adicionadas ao escopo |Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: `[]` |
 |\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows |Atribuição de política |Opcional: Lista de imagens de VM compatíveis com o sistema operacional Windows a serem adicionadas ao escopo |Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: `[]` |
-|\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows |Atribuição de política |Workspace do Log Analytics para VMs do Windows |Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows |Atribuição de política |Workspace do Log Analytics para as VMs do Windows |Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 |\[Versão Prévia\]: Auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |ID do workspace do Log Analytics para a qual as VMs devem ser configuradas |Esta é a ID (GUID) do workspace do Log Analytics para a qual as VMs devem ser configuradas. |
-|\[Versão Prévia\]: Auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |Lista de tipos de recurso que devem ter os logs de diagnóstico habilitados |Lista de tipos de recursos para auditar se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
+|\[Versão Prévia\]: Auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |Lista de tipos de recursos que devem ter os logs de diagnóstico habilitados |Lista de tipos de recursos para auditar se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
 |\[Versão Prévia\]: Auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |Grupo de administradores |Group. Exemplo: `Administrator; myUser1; myUser2` |
 |\[Versão Prévia\]: Auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |Lista de usuários que devem ser incluídos no grupo de administradores de VM do Windows |Uma lista separada por ponto e vírgula de membros que devem ser incluídos no grupo local de Administradores. Exemplo: `Administrator; myUser1; myUser2` |
-|Implantar a Proteção Avançada contra Ameaças em Contas de Armazenamento |Atribuição de política |Efeito |As informações sobre os efeitos da política podem ser encontradas em [entender Azure Policy efeitos](../../../policy/concepts/effects.md). |
+|Implantar a Proteção Avançada contra Ameaças nas Contas de Armazenamento |Atribuição de política |Efeito |As informações sobre os efeitos da política podem ser encontradas em [entender Azure Policy efeitos](../../../policy/concepts/effects.md). |
 |Implantar Auditoria em servidores SQL |Atribuição de política |O valor em dias do período de retenção (0 é uma indicação de retenção ilimitada) |Dias de retenção (opcional, _180_ dias se não especificado) |
 |Implantar Auditoria em servidores SQL |Atribuição de política |Nome do grupo de recursos da conta de armazenamento para auditoria do SQL Server |A auditoria grava eventos de banco de dados em um log de auditoria na sua conta de armazenamento do Azure (uma conta de armazenamento é criada em cada região em que um SQL Server é criado, que é compartilhado por todos os servidores nessa região). Importante-para uma operação adequada de auditoria, não exclua ou renomeie o grupo de recursos ou as contas de armazenamento. |
 |Implantar configurações de diagnóstico para Grupos de Segurança de Rede |Atribuição de política |Prefixo da conta de armazenamento para diagnóstico do grupo de segurança de rede |Esse prefixo é combinado com o local do grupo de segurança de rede para formar o nome da conta de armazenamento criada. |

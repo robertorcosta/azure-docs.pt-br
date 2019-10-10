@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2019
 ms.author: vashan
-ms.openlocfilehash: 9825ef1426a1c93f94b502c396fbaab1f86a924e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 95a313b3c6995d55b86561c685641b447edae127
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71263497"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240934"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas de imagem do sistema operacional do conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -83,7 +83,7 @@ Os seguintes SKUs são compatíveis atualmente (e mais são adicionados periodic
 ### <a name="service-fabric-requirements"></a>Requisitos de Service Fabric
 
 Se você estiver usando Service Fabric, verifique se as seguintes condições foram atendidas:
--   Service Fabric [nível](../service-fabric/service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de durabilidade é prata ou ouro, e não bronze.
+-   Service Fabric [nível de durabilidade](../service-fabric/service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) é prata ou ouro, e não bronze.
 -   A extensão de Service Fabric na definição do modelo do conjunto de dimensionamento deve ter TypeHandlerVersion 1,1 ou superior.
 -   O nível de durabilidade deve ser o mesmo no Cluster Service Fabric e na extensão Service Fabric na definição do modelo do conjunto de dimensionamento.
 
@@ -112,14 +112,14 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Use o cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. O exemplo a seguir configura as atualizações automáticas para o conjunto de dimensionamento chamado myscalemodeset no grupo de recursos chamado MyResource Group:
+Use o cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para configurar atualizações automáticas de imagem do sistema operacional para seu conjunto de dimensionamento. O exemplo a seguir configura as atualizações automáticas para o conjunto de dimensionamento chamado *Myscalemodeset* no grupo de recursos chamado *MyResource*Group:
 
 ```azurepowershell-interactive
 Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -AutomaticOSUpgrade $true
 ```
 
 ### <a name="azure-cli-20"></a>CLI do Azure 2.0
-Use [az vmss update](/cli/azure/vmss#az-vmss-update) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. Use a CLI do Azure 2.0.47 ou posterior. O exemplo a seguir configura as atualizações automáticas para o conjunto de dimensionamento chamado myscalemodeset no grupo de recursos chamado MyResource Group:
+Use [AZ vmss Update](/cli/azure/vmss#az-vmss-update) para configurar atualizações automáticas de imagem do sistema operacional para seu conjunto de dimensionamento. Use a CLI do Azure 2.0.47 ou posterior. O exemplo a seguir configura as atualizações automáticas para o conjunto de dimensionamento chamado *Myscalemodeset* no grupo de recursos chamado *MyResource*Group:
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
@@ -172,7 +172,7 @@ Há várias maneiras de implantar a extensão de Integridade do Aplicativo para 
 Você pode verificar o histórico da atualização do sistema operacional mais recente executado no conjunto de dimensionamento com o Azure PowerShell, a CLI do Azure 2.0 ou as APIs REST. Você pode obter o histórico das últimas cinco tentativas de atualização do sistema operacional nos últimos dois meses.
 
 ### <a name="rest-api"></a>API REST
-O exemplo a seguir usa a [API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) para verificar o status do conjunto de dimensionamento chamado myscaleset no grupo de recursos chamado MyResource Group:
+O exemplo a seguir usa a [API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) para verificar o status do conjunto de dimensionamento chamado *myscaleset* no grupo de recursos chamado *MyResource*Group:
 
 ```
 GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2018-10-01`
@@ -216,14 +216,14 @@ A chamada GET retorna propriedades semelhantes à saída de exemplo a seguir:
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Use o cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. O exemplo a seguir fornece detalhes sobre como examinar o status de atualização do sistema operacional de um conjunto de dimensionamento chamado myscalemodeset no grupo de recursos chamado MyResource Group:
+Use o cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. O exemplo a seguir fornece detalhes sobre como examinar o status de atualização do sistema operacional de um conjunto de dimensionamento chamado *Myscalemodeset* no grupo de recursos chamado *MyResource*Group:
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -OSUpgradeHistory
 ```
 
 ### <a name="azure-cli-20"></a>CLI do Azure 2.0
-Use [az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. Use a CLI do Azure 2.0.47 ou posterior. O exemplo a seguir fornece detalhes sobre como examinar o status de atualização do sistema operacional de um conjunto de dimensionamento chamado myscalemodeset no grupo de recursos chamado MyResource Group:
+Use [az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. Use a CLI do Azure 2.0.47 ou posterior. O exemplo a seguir fornece detalhes sobre como examinar o status de atualização do sistema operacional de um conjunto de dimensionamento chamado *Myscalemodeset* no grupo de recursos chamado *MyResource*Group:
 
 ```azurecli-interactive
 az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSet
@@ -257,21 +257,21 @@ Para casos específicos em que você não deseja esperar que o orquestrador apli
 > O gatilho manual de atualizações de imagem do sistema operacional não fornece recursos de reversão automática. Se uma instância não recuperar sua integridade após uma operação de atualização, o disco do so anterior não poderá ser restaurado.
 
 ### <a name="rest-api"></a>API REST
-Use a chamada à API de [atualização do sistema operacional](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) para iniciar uma atualização sem interrupção para mover todas as instâncias do conjunto de dimensionamento de máquinas virtuais para a versão mais recente do sistema operacional da imagem de plataforma disponível. As instâncias que já estão executando a versão mais recente do so disponível não são afetadas. O exemplo a seguir fornece detalhes sobre como você pode iniciar uma atualização do sistema operacional sem interrupção em um conjunto de dimensionamento chamado myscalemodeset no grupo de recursos chamado MyResource Group:
+Use a chamada à API de [atualização do sistema operacional](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) para iniciar uma atualização sem interrupção para mover todas as instâncias do conjunto de dimensionamento de máquinas virtuais para a versão mais recente do sistema operacional da imagem de plataforma disponível. As instâncias que já estão executando a versão mais recente do so disponível não são afetadas. O exemplo a seguir fornece detalhes sobre como você pode iniciar uma atualização do sistema operacional sem interrupção em um conjunto de dimensionamento chamado *Myscalemodeset* no grupo de recursos chamado *MyResource*Group:
 
 ```
 POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2018-10-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Use o cmdlet [Start-AzVmssRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. O exemplo a seguir fornece detalhes sobre como você pode iniciar uma atualização do sistema operacional sem interrupção em um conjunto de dimensionamento chamado myscalemodeset no grupo de recursos chamado MyResource Group:
+Use o cmdlet [Start-AzVmssRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. O exemplo a seguir fornece detalhes sobre como você pode iniciar uma atualização do sistema operacional sem interrupção em um conjunto de dimensionamento chamado *Myscalemodeset* no grupo de recursos chamado *MyResource*Group:
 
 ```azurepowershell-interactive
 Start-AzVmssRollingOSUpgrade -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
 ### <a name="azure-cli-20"></a>CLI do Azure 2.0
-Use [AZ vmss upgradeing-upgrade Start](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) para verificar o histórico de atualização do sistema operacional de seu conjunto de dimensionamento. Use a CLI do Azure 2.0.47 ou posterior. O exemplo a seguir fornece detalhes sobre como você pode iniciar uma atualização do sistema operacional sem interrupção em um conjunto de dimensionamento chamado myscalemodeset no grupo de recursos chamado MyResource Group:
+Use [AZ vmss upgradeing-upgrade Start](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) para verificar o histórico de atualização do sistema operacional de seu conjunto de dimensionamento. Use a CLI do Azure 2.0.47 ou posterior. O exemplo a seguir fornece detalhes sobre como você pode iniciar uma atualização do sistema operacional sem interrupção em um conjunto de dimensionamento chamado *Myscalemodeset* no grupo de recursos chamado *MyResource*Group:
 
 ```azurecli-interactive
 az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScaleSet" --subscription "subscriptionId"

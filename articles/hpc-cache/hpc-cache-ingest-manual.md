@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.author: v-erkell
-ms.openlocfilehash: e1ca6fa4ea1ae4a5bf5996e88d32e1e00416f067
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.author: rohogue
+ms.openlocfilehash: 7e29cbd202b32897026bed074743de543d3fd587
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299983"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254476"
 ---
 # <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Ingestão de dados do cache HPC do Azure (visualização)-método de cópia manual
 

@@ -5,26 +5,26 @@ author: anavinahar
 ms.author: anavin
 ms.date: 06/19/2019
 ms.topic: article
-ms.service: azure
+ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 48d7e9cc4a3034e149901931f2addbc7df78e2bc
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 278e9ff68fa20a0a99a6447bb4cf7ac7fddbfb7b
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67297287"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249109"
 ---
 # <a name="networking-limit-increase"></a>Aumento de limite de rede
 
-Para exibir seu uso de rede atual e a cota, você pode visitar o **usos + cota** folha no portal do Azure. Você também pode usar o uso [CLI](https://docs.microsoft.com//cli/azure/network?view=azure-cli-latest#az-network-list-usages), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.13.0) ou o [API de uso de rede](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks/listusage) para exibir o uso de rede e os limites.
+Para exibir a cota e o uso de rede atual, você pode visitar a folha **usos + cota** no portal do Azure. Você também pode usar a [CLI](https://docs.microsoft.com//cli/azure/network?view=azure-cli-latest#az-network-list-usages)de uso, o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.13.0) ou a [API de uso de rede](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks/listusage) para exibir o uso da rede e os limites.
 
-Você pode solicitar um aumento via **ajuda + suporte** folha ou o **usos + cota** folha no portal.
+Você pode solicitar um aumento via folha **ajuda + suporte** ou a folha **usos + cota** no Portal.
 
-## <a name="request-networking-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Solicitar aumento de cota de rede no nível de assinatura usando o **ajuda + suporte** folha
+## <a name="request-networking-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Solicitar aumento de cota de rede no nível de assinatura usando a folha **ajuda + suporte**
 
-Siga as instruções abaixo para criar uma solicitação de suporte por meio da folha de 'Ajuda + suporte' do Azure disponível no portal do Azure. 
+Siga as instruções abaixo para criar uma solicitação de suporte por meio da folha ' ajuda + suporte ' do Azure disponível no portal do Azure. 
 
-1. Partir https://portal.azure.com, selecione **ajuda + suporte**.
+1. Em https://portal.azure.com, selecione **ajuda + suporte**.
 
     ![Ajuda + suporte](./media/resource-manager-core-quotas-request/helpsupport.png)
  
@@ -32,34 +32,34 @@ Siga as instruções abaixo para criar uma solicitação de suporte por meio da 
 
     ![Nova solicitação de suporte](./media/resource-manager-core-quotas-request/newsupportrequest.png)
 
-3. No menu suspenso tipo de problema, escolha **limites de serviço e assinatura (cotas)** .
+3. Na lista suspensa tipo de problema, escolha **limites de serviço e assinatura (cotas)** .
 
-    ![Lista suspensa de tipo de problema](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+    ![Lista suspensa tipo de problema](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
 
 4. Selecione a assinatura que precisa de uma cota maior.
 
-    ![Selecione a assinatura newSR](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
+    ![Selecionar notícias de assinatura](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
    
-5. Selecione **Networking** na **tipo de cota** lista suspensa. 
+5. Selecione **rede** na lista suspensa **tipo de cota** . 
 
-    ![Selecione o tipo de cota](./media/networking-quota-request/select-quota-type-network.png)
+    ![Selecionar tipo de cota](./media/networking-quota-request/select-quota-type-network.png)
 
-6. Na **detalhes do problema**, forneça informações adicionais para ajudar a processar sua solicitação clicando **fornecem detalhes**.
+6. Em **detalhes do problema**, forneça informações adicionais para ajudar a processar sua solicitação clicando em **fornecer detalhes**.
 
-    ![Forneça detalhes](./media/resource-manager-core-quotas-request/provide-details.png)
+    ![Fornecer detalhes](./media/resource-manager-core-quotas-request/provide-details.png)
 
-7. No **detalhes da cota** painel, selecione o modelo de implantação, um local e os recursos que você deseja solicitar um aumento.
+7. No painel **detalhes da cota** , selecione modelo de implantação, um local e os recursos para os quais você deseja solicitar um aumento.
 
     ![Detalhes da cota DM](./media/networking-quota-request/quota-details-network.png)
 
-8.  Insira os novos limites desejados na assinatura. Para remover uma linha, desmarque o recurso na lista suspensa recurso ou clique no ícone "x" de descarte. Depois de inserir a cota desejada para cada recurso, clique em **salvar e continuar** no painel de detalhes da cota para continuar com a criação de solicitação de suporte.
+8.  Insira os novos limites desejados na assinatura. Para remover uma linha, desmarque o recurso do menu suspenso de recursos ou clique no ícone descartar "x". Depois de inserir a cota desejada para cada recurso, clique em **salvar e continue** no painel detalhes da cota para continuar com a criação da solicitação de suporte.
 
     ![Novos limites](./media/networking-quota-request/network-new-limits.png)
 
 
-## <a name="request-networking-quota-increase-at-subscription-level-using-usages--quota-blade"></a>Solicitar aumento de cota de rede no nível de assinatura usando **usos + cota** folha
+## <a name="request-networking-quota-increase-at-subscription-level-using-usages--quota-blade"></a>Solicitar aumento de cota de rede no nível da assinatura usando **usos +** folha de cota
 
-Siga as instruções abaixo usar para criar uma solicitação de suporte por meio do Azure "uso + cota" folha disponível no portal do Azure. 
+Siga as instruções abaixo usando para criar uma solicitação de suporte por meio da folha ' uso + cota ' do Azure disponível no portal do Azure. 
 
 1. Em https://portal.azure.com, selecione **Assinaturas**.
 
@@ -77,8 +77,8 @@ Siga as instruções abaixo usar para criar uma solicitação de suporte por mei
 
     ![Solicitar Aumento](./media/resource-manager-core-quotas-request/request-increase.png)
 
-5. Siga as etapas, começando na etapa 3 das *aumento de cota de solicitação de rede no nível de assinatura* seção usando o **ajuda + suporte** seção da folha
+5. Siga as etapas a partir da etapa 3 na seção *solicitar aumento de cota de rede na assinatura* usando a seção da folha **ajuda + suporte**
 
 ## <a name="about-networking-limits"></a>Sobre limites de rede
 
-Para saber mais sobre limites de rede, consulte o [seção rede](../azure-subscription-service-limits.md#networking-limits) da página limites ou nossas perguntas frequentes sobre limites de rede
+Para saber mais sobre os limites de rede, consulte a [seção rede](../azure-subscription-service-limits.md#networking-limits) da página limites ou nossas perguntas frequentes sobre limites de rede

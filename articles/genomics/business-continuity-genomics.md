@@ -1,21 +1,21 @@
 ---
-title: Continuidade dos negócios – Microsoft Genomics | Microsoft Docs
-titleSuffix: Azure
-description: Esta visão geral descreve os recursos que o Microsoft Genomics fornece para a continuidade dos negócios e a recuperação de desastre. Saiba mais sobre as opções para recuperação de eventos de interrupção, como uma interrupção de região do Azure, o que poderia causar perda de dados.
+title: Visão geral da continuidade dos negócios
+titleSuffix: Microsoft Genomics
+description: Esta visão geral descreve os recursos que o Microsoft Genomics fornece para a continuidade dos negócios e a recuperação de desastre.
 keywords: continuidade de negócios, recuperação de desastre
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/06/2018
-ms.openlocfilehash: 7a51477dbbf6f4e50959a6d979342961c7e49ad9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 28a4a53851155c56e8d34981862bf52a3a2cf15b
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60641102"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249188"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Visão geral da continuidade dos negócios com o Microsoft Genomics
 Esta visão geral descreve os recursos que o Microsoft Genomics fornece para a continuidade dos negócios e a recuperação de desastre. Saiba mais sobre as opções para recuperação de eventos de interrupção, como uma interrupção de região do Azure, o que poderia causar perda de dados. 
@@ -30,7 +30,7 @@ Embora seja raro, um data center do Azure pode ter uma interrupção, o que pode
 
 
 ### <a name="manually-failover-microsoft-genomics-workflows-to-another-region"></a>Faça failover manualmente de fluxos de trabalho do Microsoft Genomics para outra região
-No caso de uma interrupção do data center regional, você pode optar por enviar fluxos de trabalho do Microsoft Genomics em uma região secundária, com base em soberania individual de dados e necessidades de continuidade de negócios. Para fazer failover manualmente de fluxos de trabalho do Microsoft Genomics, você usaria uma especificação diferente de região. Criar conta do Genomics e enviar o trabalho com credenciais apropriadas da conta de armazenamento e do Genomics específicas da região.
+Se ocorrer uma interrupção de data center regional, você poderá optar por enviar fluxos de trabalho de Microsoft Genomics em uma região secundária, com base em seus requisitos de soberania de negócios e de continuidade de dados individuais. Para fazer failover manualmente de fluxos de trabalho do Microsoft Genomics, você usaria uma especificação diferente de região. Criar conta do Genomics e enviar o trabalho com credenciais apropriadas da conta de armazenamento e do Genomics específicas da região.
 
 Especificamente, você precisará:
 * Criar uma conta do Genomics na região secundária, usando o Portal do Azure. 

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 10/09/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 982996bdbc5e618cf90aa4b028c0585a7898f465
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 30fed5a75e368e9d87da54d4c75e6f69759813e7
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670951"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249283"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure do PowerShell
 
@@ -23,7 +23,7 @@ ms.locfileid: "71670951"
 Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o PowerShell.
 
 > [!IMPORTANT]
-> O uso de chaves gerenciadas pelo cliente com a criptografia de armazenamento do Azure exige que o cofre de chaves tenha duas propriedades obrigatórias configuradas, **exclusão reversível** e **não limpar**. Essas propriedades são habilitadas por padrão quando você cria um novo cofre de chaves no portal do Azure. No entanto, se você precisar habilitar essas propriedades em um cofre de chaves existente, deverá usar o PowerShell ou CLI do Azure.
+> O uso de chaves gerenciadas pelo cliente com a criptografia de armazenamento do Azure requer que duas propriedades sejam definidas no cofre de chaves, **exclusão reversível** e **não sejam limpas**. Essas propriedades não são habilitadas por padrão. Para habilitar essas propriedades, use o PowerShell ou o CLI do Azure.
 > Somente chaves RSA e tamanho de chave 2048 têm suporte.
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Atribuir uma identidade à conta de armazenamento

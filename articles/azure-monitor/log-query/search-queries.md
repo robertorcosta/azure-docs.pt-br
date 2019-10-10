@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: b118740f3a57e168c5dfb071c199bcf424bd5113
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: a0ceb5aa82b0d38ab5d2567689e3e131ba781ce9
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295570"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254995"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Consultas de pesquisa nos logs do Azure Monitor
 As consultas de log do Azure Monitor podem começar com um nome de tabela ou um comando de pesquisa. Este tutorial abrange consultas baseadas em pesquisa. Há vantagens em cada método.
@@ -50,7 +50,7 @@ search in (Event, SecurityEvent) "error"
 ```
 
 ### <a name="table-and-column-scoping"></a>Tabela e coluna de escopo
-Por padrão, a **pesquisa** avaliará todas as colunas no conjunto de dados. Para pesquisar somente uma coluna específica, use a seguinte sintaxe:
+Por padrão, a **pesquisa** avaliará todas as colunas no conjunto de dados. Para pesquisar apenas uma coluna específica (denominada *origem* no exemplo abaixo), use esta sintaxe:
 
 ```Kusto
 search in (Event) Source:"error"
@@ -58,7 +58,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Se você usar `==` em vez de `:`, os resultados seriam incluir registros em que o *origem* coluna tem o valor exato "error" e nesse caso exato. Usando ':' incluirá registros em que *origem* tem valores como "código de erro 404" ou "Error".
+> Se você usar `==` em vez de `:`, os resultados seriam incluir registros em que o *origem* coluna tem o valor exato "error" e nesse caso exato. Usar ': ' incluirá registros em que a *origem* tem valores como "código de erro 404" ou "erro".
 
 ## <a name="case-sensitivity"></a>Diferenciar maiusculas de minúsculas
 Por padrão, pesquisa de termo diferencia maiusculas de minúsculas, portanto, pesquisar "dns" pode produzir resultados como "DNS", "dns" ou "Dns". Para tornar a pesquisa diferencia maiusculas de minúsculas, use o `kind` opção:

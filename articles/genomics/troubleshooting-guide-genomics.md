@@ -1,29 +1,29 @@
 ---
-title: 'Microsoft Genomics: Guia de solução de problemas | Microsoft Docs'
-titleSuffix: Azure
-description: Saiba mais sobre estratégias para solucionar problemas
+title: Guia de solução de problemas
+titleSuffix: Microsoft Genomics
+description: Saiba mais sobre estratégias de solução de problemas para usar o Microsoft Genomics.
 keywords: solução de problemas, erro, depuração
-services: microsoft-genomics
+services: genomics
 author: ruchir
 editor: jasonwhowell
 ms.author: ruchir
 ms.service: genomics
 ms.workload: genomics
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/29/2018
-ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce8af4d444e642a8f67f43f8cf403ce9b2cb08ab
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790497"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248525"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 
 Confira algumas dicas de solução de problemas comuns que podem acontecer ao usar o serviço do MSGEN, o Microsoft Genomics.
 
  Para ver as perguntas frequentes não relacionadas com a solução de problemas, confira [Perguntas comuns](frequently-asked-questions-genomics.md).
-## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Etapa 1: Localize os códigos de erro associados com o fluxo de trabalho
+## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Etapa 1: Localizar códigos de erro associados ao fluxo de trabalho
 
 É possível localizar as mensagens de erro associadas ao fluxo de trabalho destas formas:
 
@@ -99,8 +99,8 @@ Esta seção descreve brevemente os erros comuns gerados pelo serviço do msgen 
 
 O serviço do msgen (Microsoft Genomics) pode gerar dois tipos de erros:
 
-1. Erros de serviço interno: Erros que são internos ao serviço, que pode não ser resolvido, corrigindo parâmetros ou arquivos de entrada. Às vezes, enviar novamente o fluxo de trabalho pode corrigir esses erros.
-2. Erros de entrada: Formatos de arquivo de erros que podem ser resolvidos usando os argumentos corretos ou correção.
+1. Erros de serviço interno: Erros que são internos ao serviço, que podem não ser resolvidos corrigindo parâmetros ou arquivos de entrada. Às vezes, enviar novamente o fluxo de trabalho pode corrigir esses erros.
+2. Erros de entrada: Erros que podem ser resolvidos usando os argumentos corretos ou corrigindo formatos de arquivo.
 
 ### <a name="1-internal-service-errors"></a>1. Erros de serviço interno
 
@@ -116,7 +116,7 @@ Esses erros são acionáveis pelo usuário. Com base no tipo de arquivo e o cód
 
 | Tipo de arquivo | Código do erro | Mensagem de erro                                                                           | Etapas de solução de problemas recomendadas                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Qualquer          | 701        | A leitura [readId] tem [numberOfBases] bases, mas o limite é [maxReadLength]           | O motivo mais comum para esse erro é um arquivo corrompido, o que leva à concatenação de duas leituras. Verifique os arquivos de entrada. |
+| Any          | 701        | A leitura [readId] tem [numberOfBases] bases, mas o limite é [maxReadLength]           | O motivo mais comum para esse erro é um arquivo corrompido, o que leva à concatenação de duas leituras. Verifique os arquivos de entrada. |
 | BAM          | 200        |   Não é possível ler o arquivo "[yourFileName]".                                                                                       | Verifique o formato do arquivo BAM. Envie o fluxo de trabalho novamente com um arquivo formatado corretamente.                                                                           |
 | BAM          | 201        |  Não é possível ler o arquivo BAM [File_name].                                                                                      |Verifique o formato do arquivo BAM.  Envie o fluxo de trabalho com um arquivo formatado corretamente.                                                                            |
 | BAM          | 202        | Não é possível ler o arquivo BAM [File_name]. Arquivo muito pequeno e cabeçalho ausente.                                                                                        | Verifique o formato do arquivo BAM.  Envie o fluxo de trabalho com um arquivo formatado corretamente.                                                                            |
@@ -137,7 +137,7 @@ Esses erros são acionáveis pelo usuário. Com base no tipo de arquivo e o cód
 | FASTQ        | 308        |  Erro de leitura do FASTQ. As leituras de ambas as extremidades tiveram respostas diferentes. Você escolheu os arquivos FASTQ corretos?                                                                                       | Corrija o formato do arquivo FASTQ e envie o fluxo de trabalho novamente.                                                                         |
 |        |       |                                                                                        |                                                                           |
 
-## <a name="step-3-contact-microsoft-genomics-support"></a>Etapa 3: Entre em contato com o suporte do Microsoft Genomics
+## <a name="step-3-contact-microsoft-genomics-support"></a>Etapa 3: Contatar Microsoft Genomics suporte
 
 Se você continuar a ter falhas de trabalho, ou se você tiver outras dúvidas, contate o suporte do Microsoft Genomics a partir do portal do Azure. Informações adicionais sobre como enviar uma solicitação de suporte podem ser encontradas [aqui](file-support-ticket-genomics.md).
 

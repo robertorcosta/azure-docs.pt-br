@@ -1,17 +1,17 @@
 ---
-title: Entenda como auditar o conteúdo de um computador
+title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como o Azure Policy usa a configuração de convidado para auditar as configurações dentro de um computador do Azure.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: ac8d4d2519ce918a943cfe1e93ed2c5c7afd9a47
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 82279e6937fccfbbef13f9580f76cd344593b0df
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978052"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255841"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -19,7 +19,7 @@ Além da auditoria e da [correção](../how-to/remediate-resources.md) dos recur
 
 - A configuração do sistema operacional
 - Configuração ou presença de aplicativo
-- Configurações do ambiente
+- Configurações de ambiente
 
 Neste momento, Azure Policy configuração de convidado audita apenas as configurações dentro do computador. Ele não aplica configurações.
 
@@ -75,7 +75,7 @@ O cliente de Configuração Convidado verifica o novo conteúdo a cada 5 minutos
 
 A tabela a seguir mostra uma lista de sistemas operacionais com suporte em imagens do Azure:
 
-|Publicador|Nome|Versões|
+|Publicador|NOME|Versões|
 |-|-|-|
 |Canônico|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|

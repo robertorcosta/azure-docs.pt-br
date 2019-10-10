@@ -3,15 +3,15 @@ title: White papers e estudos de caso – Avere vFTX para Azure
 description: Contém links para white papers baixáveis, estudos de caso e outros artigos que ilustram o Avere vFXT para Azure e como ele pode ser usado.
 ms.service: avere-vfxt
 author: ekpgh
-ms.author: v-erkell
+ms.author: rohogue
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.openlocfilehash: cf111f2ebe4233ea5d02cf5c7fbc0967655475d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 257164a7417d4356c83cd1804939973b7029a4f1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409185"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255334"
 ---
 # <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>White papers e outros recursos do Avere vFTX para Azure 
 

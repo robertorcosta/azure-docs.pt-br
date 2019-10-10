@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 5326e765701a42323ea62df8d35128c4117b2ed9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: a75c64ebb6ba3eeffeccd98cf41365fe96218573
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981429"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255903"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -58,12 +58,11 @@ Use **DisplayName** e **Description** para identificar a atribuição de políti
 
 ## <a name="enforcement-mode"></a>Modo de imposição
 
-A **Propriedade** impolicymode fornece aos clientes a capacidade de testar o resultado de uma política em recursos existentes sem iniciar o efeito da política ou disparar entradas no [log de atividades do Azure](../../../azure-monitor/platform/activity-logs-overview.md).
-Esse cenário é conhecido como "What If" e alinha-se às práticas de implantação seguras.
+A **Propriedade** impolicymode fornece aos clientes a capacidade de testar o resultado de uma política em recursos existentes sem iniciar o efeito da política ou disparar entradas no [log de atividades do Azure](../../../azure-monitor/platform/activity-logs-overview.md). Esse cenário é conhecido como "What If" e alinha-se às práticas de implantação seguras. **imposiçãomode** é diferente do efeito [desabilitado](./effects.md#disabled) , pois esse efeito impede que a avaliação de recursos aconteça.
 
 Essa propriedade tem os seguintes valores:
 
-|Modo |Valor JSON |Tipo |Corrigir manualmente |Entrada do log de atividades |Descrição |
+|Modo |Valor JSON |type |Corrigir manualmente |Entrada do log de atividades |DESCRIÇÃO |
 |-|-|-|-|-|-|
 |Enabled |Padrão |cadeia de caracteres |Sim |Sim |O efeito de política é imposto durante a criação ou atualização de recursos. |
 |Desabilitado |DoNotEnforce |cadeia de caracteres |Sim |Não | O efeito de política não é imposto durante a criação ou atualização de recursos. |
@@ -75,7 +74,7 @@ Se **imposiçãomode** não for especificado em uma definição de política ou 
 Este campo deve ser o nome do caminho completo de uma definição de política ou uma definição de iniciativa.
 `policyDefinitionId` é uma cadeia de caracteres e não uma matriz. É recomendável que, em vez disso, várias políticas sejam atribuídas juntas, para usar uma [iniciativa](./definition-structure.md#initiatives) .
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parâmetros
 
 Esse segmento da atribuição de política fornece os valores para os parâmetros definidos na definição de [política ou definição de iniciativa](./definition-structure.md#parameters).
 Esse design torna possível reutilizar uma definição de política ou iniciativa com recursos diferentes, mas verificar valores comerciais ou resultados diferentes.

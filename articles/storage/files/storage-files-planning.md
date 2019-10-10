@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 76637c566d85816b3af6d0ed457031e7d4cd4068
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 075eaaa188307e4320337ef21fd0875942e9e7e7
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327664"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249347"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 
@@ -184,7 +184,7 @@ O GRS replica seus dados para outro datacenter em uma região secundária, mas e
 
 Para uma conta de armazenamento com GRS habilitado, todos os dados são replicados primeiro com LRS (armazenamento com redundância local). Uma atualização primeiro é confirmada para o local primário e replicados usando o LRS. A atualização, em seguida, é replicada assincronamente para a região secundária usando GRS. Quando dados são gravados para o local secundário, ela também é replicada dentro desse local usando o LRS.
 
-Ambas as regiões primárias e secundárias gerenciam réplicas entre domínios de falha separados e atualizar domínios dentro de uma unidade de escala de armazenamento. A unidade de escala de armazenamento é a unidade de replicação básica dentro do datacenter. A replicação nesse nível é fornecida por LRS; para obter mais informações, [consulte LRS (armazenamento com redundância local): Redundância de dados de baixo custo para o Armazenamento do Azure](../common/storage-redundancy-lrs.md).
+Ambas as regiões primárias e secundárias gerenciam réplicas entre domínios de falha separados e atualizar domínios dentro de uma unidade de escala de armazenamento. A unidade de escala de armazenamento é a unidade de replicação básica dentro do datacenter. A replicação nesse nível é fornecida por LRS; para obter mais informações, consulte 0Locally-LRS (armazenamento com redundância de @no__t): Redundância de dados de baixo custo para o Armazenamento do Azure](../common/storage-redundancy-lrs.md).
 
 Lembre-se esses pontos ao decidir qual opção de replicação para usar:
 
@@ -211,18 +211,18 @@ Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiõe
 |Região |Redundância com suporte |Dá suporte a contas de armazenamento existentes |Suporte do portal * |
 |-------|---------|---------|---------|
 |Leste da Austrália |LRS     |Não    |Sim|
-|Sudeste da Austrália|LRS     |Não    |Ainda não|
-|Índia Central  |LRS     |Não    |Ainda não|
-|Leste da Ásia      |LRS     |Não    |Ainda não|
-|East US        |LRS     |Não    |Ainda não|
-|Centro da França |LRS, ZRS|Não    |LRS-Sim, ZRS-ainda não|
+|Sudeste da Austrália|LRS |Não    |Sim|
+|Índia Central  |LRS     |Não    |Sim|
+|Ásia Oriental      |LRS     |Não    |Sim|
+|East US        |LRS     |Não    |Sim|
+|França Central |LRS, ZRS|Não    |Sim|
 |Sul da França   |LRS     |Não    |Sim|
-|Europa Setentrional   |LRS     |Não    |Ainda não|
-|Sul da Índia    |LRS     |Não    |Ainda não|
+|Norte da Europa   |LRS     |Não    |Ainda não|
+|Sul da Índia    |LRS     |Não    |Sim|
 |Sudeste da Ásia |LRS, ZRS|Não    |Sim|
-|Centro-oeste dos EUA|LRS     |Não    |Ainda não|
+|Centro-oeste dos EUA|LRS     |Não    |Sim|
 |Europa Ocidental    |LRS, ZRS|Não    |Sim|
-|Oeste dos EUA        |LRS     |Não    |Ainda não|
+|Oeste dos EUA        |LRS     |Não    |Sim|
 |Oeste dos EUA 2      |LRS, ZRS|Não    |Sim|
 
 

@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 48ef7aeb1804aca9001288f6babd302b9c3a8347
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d035f26e4b550eb1e5d2cca161f14880814a15f6
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969550"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244156"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma nova oferta de SaaS
 
@@ -129,7 +129,7 @@ Liste sua oferta aos clientes com um link para uma avaliação gratuita fornecen
 > [!NOTE]
 > Os tokens que seu aplicativo receberá por meio do link de avaliação só podem ser usados para obter informações do usuário por meio do Azure AD para automatizar a criação de contas em seu aplicativo. As contas da Microsoft (MSA) não têm suporte para autenticação usando esse token.
 
-##### <a name="contact-me"></a>Entre em contato
+##### <a name="contact-me"></a>Entrar em contato comigo
 Colete informações de contato do cliente conectando seu sistema de gerenciamento de relacionamento com o cliente (CRM). O cliente será solicitado a fornecer permissão para compartilhar suas informações. Esses detalhes do cliente, juntamente com o nome da oferta, a ID e a origem do Marketplace onde encontraram sua oferta, serão enviados para o sistema CRM que você configurou. Para obter mais informações sobre como configurar seu CRM, consulte [Connect Lead Management](#connect-lead-management). 
 
 ## <a name="example-marketplace-offer-listing"></a>Exemplo de listagem de oferta do Marketplace
@@ -160,18 +160,7 @@ Ao habilitar o test drive, você será solicitado a configurar um ambiente de de
 
 ## <a name="connect-lead-management"></a>Conectar gerenciamento de leads
 
-Conecte-se com os clientes diretamente, listando sua oferta nos Marketplaces e conectando seu sistema de CRM (gerenciamento de relacionamento com o cliente) para que você possa receber informações de contato do cliente imediatamente depois que um cliente expressar o interesse ou implantar seu remessa.
-
-- **Escolha um destino de cliente potencial** (menu suspenso): Forneça detalhes de conexão para o sistema CRM, em que você deseja que possamos enviar leads do cliente. 
-
-O Partner Center dá suporte aos seguintes sistemas CRM para gerenciamento de leads. Selecione o link para obter instruções de instalação.
-
-- Blob do Azure – forneça o email de contato, o nome do contêiner e a cadeia de conexão da conta de armazenamento. 
-- [Tabela do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – forneça o email de contato e a cadeia de conexão da conta de armazenamento. 
-- [Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – forneça o email de contato, a URL e o modo de autenticação (Office 365 ou Azure Active Directory).
-- [Ponto de extremidade https](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – forneça o email de contato e a URL do ponto de extremidade HTTPS. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – forneça o email de contato, a ID do formulário, a ID da conta do Munchkin e a ID do servidor.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -forneça o email de contato e a ID da organização. 
+[!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
 #### <a name="additional-lead-management-resources"></a>Recursos adicionais de gerenciamento de leads
 - [Perguntas frequentes sobre gerenciamento de Lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)

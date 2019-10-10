@@ -4,19 +4,19 @@ description: O Azure DevOps Projects facilita o uso inicial do Azure. Ele ajuda 
 author: shizn
 manager: ''
 ms.author: xshi
-ms.date: 07/09/2019
+ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 109a7e327217a342f485dd61b53115569f2346cd
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: daa4bc7b1584dc2159d4128fa4b44056df347ecb
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722987"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72253042"
 ---
-# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Criar um pipeline de CI/CD para o IoT Edge com projetos de DevOps do Azure
+# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Criar um pipeline de CI/CD para IoT Edge com Azure DevOps Projects
 
 Configure a integração contínua (CI) e a entrega contínua (CD) para seu aplicativo IoT Edge com os Azure DevOps Projects. O DevOps Projects do Azure simplifica a configuração inicial de um pipeline de build e de lançamento no Azure Pipelines.
 
@@ -38,7 +38,7 @@ O DevOps Projects cria um pipeline de CI/CD no Azure DevOps. É possível criar 
 
    ![Selecione o idioma para criar um novo aplicativo](./media/how-to-devops-project/select-language.png)
 
-2. Selecione **IoT simples** como sua estrutura de aplicativo e selecione **próxima**.
+2. Selecione **IOT simples** como sua estrutura de aplicativo e, em seguida, selecione **Avançar**.
 
    ![Selecione a estrutura de IoT simples](media/how-to-devops-project/select-iot.png)
 
@@ -56,6 +56,8 @@ O DevOps Projects cria um pipeline de CI/CD no Azure DevOps. É possível criar 
 
    4. Use o nome do Hub IoT gerado pelo nome do seu projeto, ou forneça outro nome.
 
+   5. Aceite o local padrão ou escolha um próximo a você. 
+
    5. Selecione **Configurações adicionais** para configurar os recursos do Azure que o DevOps Projects cria em seu nome.
 
    6. Selecione **Concluído** para terminar de criar seu projeto. 
@@ -64,7 +66,7 @@ O DevOps Projects cria um pipeline de CI/CD no Azure DevOps. É possível criar 
 
 Após alguns minutos, o painel do DevOps Projects é exibido no portal do Azure. Selecione o nome do projeto para ver o andamento. Talvez seja necessário atualizar a página. Um aplicativo de IoT Edge é configurado em um repositório em sua organização do Azure DevOps, é executado um build, e seu aplicativo é implantado no IoT Edge. Esse painel oferece visibilidade ao seu repositório de código, pipeline de CI/CD e seu aplicativo no Azure.
 
-   ![Aplicativo de exibição no portal do DevOps](./media/how-to-devops-project/devops-portal.png)
+   ![Exibir aplicativo no portal do Azure](./media/how-to-devops-project/devops-portal.png)
 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Confirmar as alterações de código e executar CI/CD
@@ -77,23 +79,16 @@ O DevOps Projects criou um repositório Git para seu projeto no Azure Repos. Nes
 
 2. As etapas a seguir mostram como usar o navegador da Web para fazer alterações de código. Se você, em vez disso, deseja clonar o repositório localmente, selecione **Clonar** no canto superior direito da janela. Use a URL fornecida para clonar seu repositório Git no Visual Studio Code ou na ferramenta de desenvolvimento desejada. 
 
-3. O repositório já contém código para um módulo chamado **SampleModule** baseado na linguagem de aplicativo que você escolheu no processo de criação. Abra o arquivo **modules/SampleModule/module.json**.
+3. O repositório já contém código para um módulo chamado **FilterModule** com base no idioma do aplicativo que você escolheu no processo de criação. Abra o arquivo **modules/FilterModule/Module. JSON** .
 
    ![Abrir arquivo module.json no Azure Repos](./media/how-to-devops-project/open-module-json.png)
 
-4. Selecione **Editar**, depois faça uma alteração no `"version"` em `"tag"`. Por exemplo, você pode atualizá-lo para `"version": "${BUILD_BUILDID}"` usar [variáveis de compilação do Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) como parte de sua marca de imagem de módulo do Azure IoT Edge.
+4. Observe que esse arquivo usa [variáveis de compilação DevOps do Azure](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) no parâmetro **version** . Essa configuração garante que uma nova versão do módulo será criada toda vez que uma nova compilação for executada. 
 
-   ![Editar versão para aceitar as variáveis de compilação](media/how-to-devops-project/update-module-json.png)
-
-5. Selecione **Confirmar**, depois salve as alterações.
-
-6. No navegador, volte ao painel do DevOps Projects no portal do Azure. Agora você deve ver uma compilação que está em andamento. As alterações feitas são automaticamente compiladas e implantadas via pipeline de CI/CD.
-
-    ![Exibir o status em andamento](media/how-to-devops-project/ci-cd-in-progress.png)
 
 ## <a name="examine-the-cicd-pipeline"></a>Examinar o pipeline de CI/CD
 
-Nas seções anteriores, o Azure DevOps Projects configurou automaticamente um pipeline de CI/CD para o seu aplicativo IoT Edge. Em seguida, você testou o pipeline de build confirmando alterações em um dos arquivos. Agora, explore e personalize o pipeline da maneira que achar necessário. Siga as etapas a seguir para se familiarizar com os pipelines de build e de lançamento do Azure DevOps.
+Nas seções anteriores, o Azure DevOps Projects configurou automaticamente um pipeline de CI/CD para o seu aplicativo IoT Edge. Agora, explore e personalize o pipeline da maneira que achar necessário. Use as etapas a seguir para se familiarizar com os pipelines de versão e de compilação DevOps do Azure.
 
 1. Para exibir os pipelines de build no projeto do DevOps, selecione **Pipelines de Build** no menu do painel do projeto. Esse link abre uma guia de navegador e o pipeline de build do Azure DevOps para seu novo projeto.
 
@@ -111,7 +106,7 @@ Nas seções anteriores, o Azure DevOps Projects configurou automaticamente um p
 
 5. Selecione **Salvar e colocar na fila** selecione **Salvar**.
 
-6. No menu do pipeline de build, selecione **Gatilhos** no menu. O DevOps Projects criou automaticamente um gatilho de CI e cada confirmação no repositório inicia um novo build.  Você pode optar por incluir ou excluir os branches do processo de CI.
+6. Selecione **gatilhos** no menu pipeline de compilação. O DevOps Projects criou automaticamente um gatilho de CI e cada confirmação no repositório inicia um novo build.  Você pode optar por incluir ou excluir os branches do processo de CI.
 
 7. Selecione **Retenção**. Dependendo do seu cenário, você pode especificar políticas para manter ou remover um determinado número de compilações.
 

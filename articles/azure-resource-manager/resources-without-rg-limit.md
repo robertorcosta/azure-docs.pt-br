@@ -4,14 +4,14 @@ description: Lista os tipos de recursos do Azure que podem ter mais de 800 inst�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/4/2019
+ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6677290999049dead40f39e9a840735810c7c763
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0f9db618b69ff692350f333b8a4a4354f4980169
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973315"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249130"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos não limitados a 800 instâncias por grupo de recursos
 
@@ -32,13 +32,13 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
-* botServices-contatar o suporte para estender o limite.
+* botServices-por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
-* discos
-* imagens
-* instantâneos
+* disks
+* images
+* snapshots
 * virtualMachines
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
@@ -58,21 +58,21 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
-* servidores
+* servers
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
-* servidores
+* servers
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 * serverGroups
-* servidores
+* servers
 * serversv2
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
-* serviços
+* services
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
@@ -128,7 +128,7 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses-contatar o suporte para estender o limite.
+* publicIPAddresses-por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
@@ -139,7 +139,7 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
-* workspaceCollections-contatar o suporte para estender o limite.
+* workspaceCollections-por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
@@ -147,10 +147,10 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
-* aplicativos
+* de dimensionamento da Web
 * containerGroups
 * gateways
-* redes
+* networks
 * segredos
 * volumes
 

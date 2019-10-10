@@ -1,52 +1,53 @@
 ---
-title: Acompanhar o andamento de projetos de ciência de dados – processo de ciência de dados da equipe
-description: Como os gerentes de grupos de ciência de dados, líderes de equipe e líderes de projeto podem acompanhar o progresso de um projeto de ciência de dados.
+title: Acompanhar o progresso de projetos de processo de ciência de dados de equipe
+description: Como os gerentes de grupo de ciência de dados, líderes de equipe e leads de projeto podem acompanhar o progresso de um projeto de ciência de dados.
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 09/26/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7745a53084f4477f7b736ea9d130ffd3eed771f4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 28bd3e558294c000ba65a1c60fe227bbae7e82dd
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60252563"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244075"
 ---
-# <a name="tracking-the-progress-of-data-science-projects"></a>Acompanhar o progresso de projetos de ciência de dados
+# <a name="track-the-progress-of-data-science-projects"></a>Acompanhe o progresso de projetos de ciência de dados
 
-Os gerentes de grupos de Ciência de Dados, líderes de equipe e líderes de projeto precisam acompanhar o progresso de seus projetos, o trabalho que foi feito neles e por quem e o que permaneceu na lista de tarefas pendentes. 
+Os gerentes de grupo de ciência de dados, líderes de equipe e leads de projeto podem acompanhar o progresso de seus projetos, como o trabalho feito, quem fez o trabalho e o trabalho restante. 
 
 ## <a name="azure-devops-dashboards"></a>Dashboards do Azure DevOps
-Se você estiver usando o Azure DevOps, será possível criar dashboards para acompanhar as atividades e os itens de trabalho associados a um determinado projeto do Agile. 
 
-Para saber mais sobre como criar e personalizar os dashboards e widgets no Azure DevOps, veja os seguintes conjuntos de instruções:
+Se você estiver usando o Azure DevOps, poderá criar painéis para acompanhar as atividades e os itens de trabalho associados a um determinado projeto Agile. Para obter mais informações sobre painéis, consulte [dashboards, relatórios e widgets](/azure/devops/report/dashboards/).
 
-- [Adicionar e gerenciar painéis](https://docs.microsoft.com/azure/devops/report/dashboards/dashboards)
-- [Adicione widgets a um painel](https://docs.microsoft.com/azure/devops/report/dashboards/add-widget-to-dashboard).
+Para obter instruções sobre como criar e personalizar painéis e widgets no Azure DevOps, consulte os guias de início rápido a seguir:
+
+- [Adicionar e gerenciar painéis](/azure/devops/report/dashboards/dashboards)
+- [Adicionar widgets a um painel](/azure/devops/report/dashboards/add-widget-to-dashboard)
 
 ## <a name="example-dashboard"></a>Painel Exemplo
 
-Aqui está um painel de exemplo simples que é criado para acompanhar as atividades de um projeto de ciência de dados do Agile, bem como o número de confirmações de sprint para repositórios associados. O painel **superior esquerdo** mostra:
+Aqui está um painel de exemplo simples que controla as atividades do sprint de um projeto de ciência de dados ágil, incluindo o número de confirmações para repositórios associados. 
 
-- a contagem regressiva do sprint atual, 
-- o número de confirmações para cada repositório nos últimos sete dias
-- o item de trabalho para usuários específicos. 
+- O bloco **contagem regressiva** mostra o número de dias que permanecem no Sprint atual. 
 
-Os painéis restantes mostram o diagrama de fluxo cumulativo (CFD), o burndown e o burnup para um projeto:
+- Os dois **blocos de código** mostram o número de confirmações nos dois repositórios de projeto dos últimos sete dias. 
 
-- **Inferior esquerdo**:  CFD da quantidade de trabalho em um determinado estado, mostrando os aprovados em cinza, os confirmados em azul e os concluídos em verde.
-- **Superior direito**: gráfico de burndown o trabalho que resta concluir versus o tento restante).
-- **Inferior direito**: gráfico de burnup o trabalho concluído versus a quantidade total de trabalho.
+- **Itens de trabalho para o projeto de cliente do TDSP** mostra os resultados de uma consulta para todos os itens de trabalho e seu status. 
 
-![painel Transações da Web](./media/track-progress/dashboard.png)
+- Um CFD ( **diagrama de fluxo cumulativo** ) mostra o número de itens de trabalho fechados e ativos.
 
-Para obter uma descrição de como criar esses gráficos, veja os guias de início rápido e os tutoriais em [Painéis](https://docs.microsoft.com/azure/devops/report/dashboards/).
- 
+- O **gráfico de Burndown** mostra o trabalho que ainda deve ser concluído em relação ao tempo restante no Sprint.
+
+- O **gráfico burnup** mostra o trabalho concluído em comparação com a quantidade total de trabalho no Sprint.
+
+![painel](./media/track-progress/dashboard.png)
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Também são fornecidas instruções passo a passo que demonstram todas as etapas do processo para **cenários específicos**. Eles estão listados e vinculados a descrições em miniatura no artigo [Instruções passo a passo de exemplo](walkthroughs.md). Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
+[Os passo a passos que executam o processo de ciência de dados de equipe](walkthroughs.md) listam orientações que demonstram todas as etapas no processo para cenários específicos, com descrições de miniaturas e links. Os cenários vinculados ilustram como combinar ferramentas e serviços de nuvem e locais em fluxos de trabalho ou pipelines para criar aplicativos inteligentes. 

@@ -2,32 +2,27 @@
 title: Como criar uma solicitação de suporte do Azure | Microsoft Docs
 description: Como criar uma solicitação de suporte do Azure.
 services: Azure Supportability
-documentationcenter: ''
 author: ganganarayanan
 manager: scotthit
-editor: ''
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.openlocfilehash: 462a14d7845c6723a3482e50b01c50e3d913beee
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 0195cc86875b075e00e9305d803b8d637905db78
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71072076"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248702"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Como criar uma solicitação de suporte do Azure
 ## <a name="summary"></a>Resumo
 Os clientes do Azure podem criar e gerenciar solicitações de suporte no Portal do Azure, [https://portal.azure.com](https://portal.azure.com).
 
 > [!NOTE]
-> Portal do Azure para uso desaconselhável é [https://portal.azure.com](https://portal.azure.com) portal do Azure para a Alemanha é[https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
-> portal do Azure para o Estados Unidos governamental é[https://portal.azure.us](https://portal.azure.us)
+> Portal do Azure para uso desaconselhável é [https://portal.azure.com](https://portal.azure.com) portal do Azure para a alemanha é [https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
+> Portal do Azure para o Estados Unidos governamental é [https://portal.azure.us](https://portal.azure.us)
 
 
 Com base nos comentários dos clientes, atualizamos a experiência de solicitação de suporte com foco em três metas principais:
@@ -45,13 +40,13 @@ Você pode criar uma solicitação de suporte no menu de navegação superior ou
 
 Na página Ajuda e Suporte, selecione “Nova solicitação de suporte”
 
-![Nova Solicitação de Suporte](./media/how-to-create-azure-support-request/NewSupportRequest.png)
+![Nova solicitação de suporte](./media/how-to-create-azure-support-request/NewSupportRequest.png)
 
 **Na folha de um recurso**
 
 ![No contexto](./media/how-to-create-azure-support-request/Incontext.png)
 
-## <a name="basics"></a>Noções Básicas
+## <a name="basics"></a>Noções básicas
 A primeira etapa do processo de solicitação de suporte coleta informações básicas sobre o problema e seu plano de suporte.
 
 Vamos pegar um exemplo: Você está enfrentando dificuldades técnicas com sua máquina virtual e suspeita de um problema de conectividade de rede.
@@ -86,10 +81,10 @@ Se as soluções recomendadas não ajudarem, você poderá continuar o processo 
 
 ![Folha do problema 3](./media/how-to-create-azure-support-request/Problem03.png)
 
-## <a name="contact-information"></a>Informações de Contato
+## <a name="contact-information"></a>Informações de contato
 A última etapa do assistente confirma suas informações e opções de contato para que saibamos como contatar você.
 
-![Informações de Contato](./media/how-to-create-azure-support-request/ContactInformation.png)
+![Informações de contato](./media/how-to-create-azure-support-request/ContactInformation.png)
 
 Dependendo da severidade do problema, poderá ser solicitado que você indique se deseja que entremos em contato durante o horário comercial ou se prefere uma resposta em qualquer hora do dia, todos os dias da semana.
 

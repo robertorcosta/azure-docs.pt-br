@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: d74d1c33816b3c028a26335af4c6d5b23b7a2046
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 4fd73f528ac823a8e794a880f87dd5f8872e1251
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958483"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243274"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -176,7 +176,7 @@ def main(req: func.HttpRequest,
 Quando a função é invocada, a solicitação HTTP é transmitida para a função como `req`. Uma entrada será recuperada do armazenamento de BLOBs do Azure com base na _ID_ na URL de rota e disponibilizada como `obj` no corpo da função.  Aqui, a conta de armazenamento especificada é a cadeia de conexão encontrada em, que é a mesma conta de armazenamento usada pelo aplicativo de funções.
 
 
-## <a name="outputs"></a>Saídas
+## <a name="outputs"></a>outputs
 
 A saída pode ser expressa em parâmetros de saída e em valores retornados. Se houver apenas uma saída, recomendamos usar o valor retornado. Para múltiplas saídas, você precisará usar parâmetros de saída.
 
@@ -238,7 +238,7 @@ def main(req):
 
 Há outros métodos de registro em log disponíveis que permitem a gravação no console em níveis de rastreamento diferentes:
 
-| Método                 | Descrição                                |
+| Método                 | DESCRIÇÃO                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | Grava uma mensagem com nível CRÍTICO no agente raiz.  |
 | **`error(_message_)`**   | Grava uma mensagem com nível ERRO no agente raiz.    |
@@ -331,7 +331,7 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-A classe de [**contexto**](/python/api/azure-functions/azure.functions.context?view=azure-python) tem os seguintes métodos:
+A classe de [**contexto**](/python/api/azure-functions/azure.functions.context?view=azure-python) tem os seguintes atributos de cadeia de caracteres:
 
 `function_directory`  
 O diretório no qual a função está em execução.

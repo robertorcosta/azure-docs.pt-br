@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd752540d078ef57c8b6150edbf9b124bc445fe0
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: f4f26c82d4cda6ce3d8bf01c7fd52fa579e86dcf
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949307"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240241"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Personalizar declarações emitidas no token SAML para aplicativos empresariais
 
@@ -59,20 +59,20 @@ Se a solicitação SAML não contiver um elemento para NameIDPolicy, o Azure AD 
 
 Na lista suspensa **escolher formato do identificador de nome** , você pode selecionar uma das opções a seguir.
 
-| Formato NameID | Descrição |
+| Formato NameID | DESCRIÇÃO |
 |---------------|-------------|
 | **Padrão** | O Azure AD usará o formato de origem padrão. |
 | **Persistente** | O Azure AD usará persistente como o formato NameID. |
 | **EmailAddress** | O Azure AD usará EmailAddress como o formato NameID. |
 | **Não especificado** | O AD do Azure usará não especificado como o formato NameID. |
 
-Para saber mais sobre o atributo NameIDPolicy, consulte [protocolo SAML de logon único](single-sign-on-saml-protocol.md).
+A NameID transitória também tem suporte, mas não está disponível na lista suspensa e não pode ser configurada no lado do Azure. Para saber mais sobre o atributo NameIDPolicy, consulte [protocolo SAML de logon único](single-sign-on-saml-protocol.md).
 
 ### <a name="attributes"></a>Atributos
 
 Selecione a fonte desejada para a declaração `NameIdentifier` (ou NameID). Você pode selecionar entre as opções a seguir.
 
-| Nome | Descrição |
+| NOME | DESCRIÇÃO |
 |------|-------------|
 | Email | Endereço de email do usuário |
 | userprincipalName | UPN (nome principal do usuário) do usuário |
@@ -102,7 +102,7 @@ Você também pode atribuir qualquer valor constante (estático) a qualquer decl
 
 Você também pode usar as funções de transformações de declarações.
 
-| Função | Descrição |
+| Função | DESCRIÇÃO |
 |----------|-------------|
 | **ExtractMailPrefix()** | Remove o sufixo de domínio do endereço de email ou do nome principal do usuário. Isso extrai somente a primeira parte do nome de usuário que está sendo passada (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
 | **Join()** | Une um atributo a um domínio verificado. Se o valor do identificador de usuário selecionado tiver um domínio, ele extrairá o nome de usuário para anexar o domínio verificado selecionado. Por exemplo, se você selecionar o email (joe_smith@contoso.com) como o valor de identificador de usuário e selecionar contoso.onmicrosoft.com como o domínio verificado, isso resultará em joe_smith@contoso.onmicrosoft.com. |
@@ -121,7 +121,7 @@ Para adicionar declarações específicas do aplicativo:
 
 Você também pode usar as funções de transformações de declarações.
 
-| Função | Descrição |
+| Função | DESCRIÇÃO |
 |----------|-------------|
 | **ExtractMailPrefix()** | Remove o sufixo de domínio do endereço de email ou do nome principal do usuário. Isso extrai somente a primeira parte do nome de usuário que está sendo passada (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
 | **Join()** | Cria um novo valor unindo dois atributos. Opcionalmente, você pode usar um separador entre os dois atributos. |

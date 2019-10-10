@@ -1,18 +1,18 @@
 ---
 title: Exemplo-Blueprint oficial do Reino Unido e do Reino Unido NHS-etapas de implantação
-description: Implante as etapas dos exemplos do Blueprint oficial do Reino Unido e do Reino Unido NHS.
+description: Implante as etapas para os exemplos do Blueprint oficial do Reino Unido e do Reino Unido NHS, incluindo detalhes do parâmetro de artefato do Blueprint.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: e2109c5b524c0b38886327bf4c1ea7087380b40f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: c2c6089d9c600626a93906e460ef1c662c32cb59
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978238"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248287"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Implantar os exemplos do Blueprint oficial do Reino Unido e do Reino Unido NHS
 
@@ -66,7 +66,7 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
 1. Forneça os valores de parâmetro para a atribuição de blueprint:
 
-   - Noções Básicas
+   - Noções básicas
 
      - **Assinaturas**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou a cópia do exemplo de blueprint. Se você selecionar mais de uma assinatura, será criada uma atribuição para cada uma, usando os parâmetros inseridos.
      - **Nome da atribuição**: O nome é pré-preenchido para você com base no nome do blueprint.
@@ -82,7 +82,7 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
      Deixe a opção de identidade gerenciada _atribuída ao sistema_ padrão.
 
-   - Parâmetros de artefato
+   - Parâmetros do artefato
 
      Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele está definido. Esses são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters), pois são definidos durante a atribuição do blueprint. Para obter uma lista completa ou parâmetros de artefato e suas descrições, confira a [Tabela de parâmetros de artefato](#artifact-parameters-table).
 
@@ -95,7 +95,7 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
 A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 
-Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
+Nome do artefato|Tipo de artefato|Nome do parâmetro|DESCRIÇÃO|
 |-|-|-|-|
 |Iniciativa Blueprint para o Reino Unido ou o NHS UK|Atribuição de política |Tipos de recurso para auditar logs de diagnóstico (política: Iniciativa Blueprint para o Reino Unido ou o NHS UK) |Lista de tipos de recursos para auditoria se a configuração do log de diagnóstico está habilitada.  Para obter valores aceitáveis, consulte [serviços, esquemas e categorias com suporte para logs de diagnóstico do Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
 |\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux |Atribuição de política |Opcional: Lista de imagens de VM com suporte do SO Linux para adicionar ao escopo (política: \[Versão Prévia\]: Implantar o agente de Log Analytics para VMs do Linux) |Adicional O valor padrão é _None_. Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
