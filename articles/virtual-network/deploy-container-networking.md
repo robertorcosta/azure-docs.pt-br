@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 657c23ad410d7aade17b3153f02ba0138edf4250
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5146675b6eefd11fc1e6875ed9009ece92753ffb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104090"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028099"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Implantar o plug-in do adaptador de rede de contêiner da Rede Virtual do Azure
 
@@ -159,10 +159,10 @@ O arquivo de configuração de rede CNI é descrito no formato JSON. Ele está, 
 
 - **cniVersion**: Os plug-ins de CNI da Rede Virtual do Azure dão suporte às versões 0.3.0 e 0.3.1 do [CNI spec](https://github.com/containernetworking/cni/blob/master/SPEC.md).
 - **nome**: Nome da rede. Esta propriedade pode ser definida para qualquer valor exclusivo.
-- **type**: Nome do plug-in de rede. Definido como *azure-vnet*.
+- **type**: Nome do plug-in de rede. Definido como *azure-vnet*.
 - **mode**: Modo operacional. Esse campo é opcional. O único modo compatível é "bridge". Para obter mais informações, consulte [modos operacionais](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
 - **bridge**: Nome da ponte que será usada para conectar contêineres a uma rede virtual. Esse campo é opcional. Se omitido, o plug-in escolhe automaticamente um nome exclusivo, com base no índice de interface mestre.
-- **ipam type**: Nome do plug-in de IPAM. Sempre definido como  *azure-vnet-ipam*.
+- **ipam type**: Nome do plug-in de IPAM. Sempre definido como *azure-vnet-ipam*.
 
 ## <a name="download-and-install-the-plug-in"></a>Baixar e instalar o plug-in
 

@@ -6,12 +6,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 06e53f07969ab5dfdebec88d36d0cb3d06cc87e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5055734ae3529d7fca87688c5f9410f38368a634
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078423"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959360"
 ---
 # <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
 
@@ -51,7 +51,7 @@ Seus domínios e registros podem ser gerenciados usando o portal do Azure, os cm
 
 ## <a name="customizable-virtual-networks-with-private-domains"></a>Redes virtuais personalizáveis com domínios privados
 
-O DNS do Azure também dá suporte a domínios de DNS privado, que está atualmente em versão prévia pública. Esse recurso permite que você use seus próprios nomes de domínio personalizados em suas redes virtuais privadas em vez dos nomes fornecidos pelo Azure atualmente disponíveis.
+O DNS do Azure também dá suporte a domínios DNS privados. Esse recurso permite que você use seus próprios nomes de domínio personalizados em suas redes virtuais privadas em vez dos nomes fornecidos pelo Azure atualmente disponíveis.
 
 Para ver mais informações, confira [Usar o DNS do Azure para domínios privados](private-dns-overview.md).
 

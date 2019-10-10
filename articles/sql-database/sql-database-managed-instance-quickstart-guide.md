@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 07/11/2019
-ms.openlocfilehash: a8dfe0db5277a995b6e6675381ebeb5aeb243c9b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 65b6b503d107b36813d1716348ce5f11fa840cc0
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647209"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937225"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introdução à instância gerenciada do Banco de Dados SQL do Azure
 
@@ -73,6 +73,6 @@ Saiba mais sobre o [processo de migração recomendado](sql-database-managed-ins
 ## <a name="next-steps"></a>Próximas etapas
 
 - Encontre uma [lista de alto nível dos recursos com suporte na instância gerenciada aqui](sql-database-features.md) e [detalhes e problemas conhecidos aqui](sql-database-managed-instance-transact-sql-information.md).
-- Saiba mais sobre as [características técnicas da instância gerenciada](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+- Saiba mais sobre as [características técnicas da instância gerenciada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 - Encontre instruções mais avançadas em [como usar uma instância gerenciada no Banco de Dados SQL do Azure](sql-database-howto-managed-instance.md).
 - [Identifique a SKU de banco de dados SQL/instância gerenciada do Azure do banco de dados local](/sql/dma/dma-sku-recommend-sql-db/).

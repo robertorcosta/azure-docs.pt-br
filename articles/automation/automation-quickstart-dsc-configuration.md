@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 2c01172bf22fb286f790543b02a4c1e482b05fe7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d5eca6ffce8390b2f8b4deae589d43f40897756d
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850562"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243467"
 ---
 # <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Configurar uma máquina virtual com Desired State Configuration
 
@@ -42,7 +42,7 @@ Há vários métodos diferentes para integrar um computador e habilitar o Desire
 2. Clique em **Adicionar** para abrir a página de seleção da VM.
 3. Localize a máquina virtual para a qual você deseja habilitar o DSC. É possível usar as opções de campo e filtro de pesquisa para encontrar uma máquina virtual específica.
 4. Clique na máquina virtual e, em seguida, selecione **Conectar**
-5. Selecione as configurações de DSC adequadas para a máquina virtual. Se você já preparou uma configuração, é possível especificá-lo como *Nome da Configuração do Nó*. É possível definir o [modo de configuração](https://docs.microsoft.com/powershell/dsc/metaconfig) para controlar o comportamento de configuração do computador.
+5. Selecione as configurações de DSC adequadas para a máquina virtual. Se você já preparou uma configuração, é possível especificá-lo como *Nome da Configuração do Nó*. É possível definir o [modo de configuração](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig) para controlar o comportamento de configuração do computador.
 6. Clique em **OK**
 
 ![Integração de uma VM do Azure ao DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -64,7 +64,7 @@ Os módulos contêm recursos DSC e muitos podem ser encontrados na [Galeria do P
 
 Este guia de início rápido usa uma configuração DSC que configura o Apache HTTP Server, o MySQL e o PHP no computador.
 
-Para obter informações sobre as configurações DSC, consulte [Configurações DSC](https://docs.microsoft.com/powershell/dsc/configurations).
+Para obter informações sobre as configurações DSC, consulte [Configurações DSC](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations).
 
 Em um editor de texto, digite o seguinte e salve localmente como `LAMPServer.ps1`.
 
@@ -142,7 +142,7 @@ Neste guia de início rápido, você carregou uma VM Linux para o DSC, criou uma
 > [!div class="nextstepaction"]
 > [Implantação contínua em uma VM usando DSC e Chocolatey](./automation-dsc-cd-chocolatey.md)
 
-* Para saber mais sobre o Desired State Configuration do PowerShell, consulte [PowerShell Desired State Configuration Overview](https://docs.microsoft.com/powershell/dsc/overview) (Visão geral do Desired State Configuration do PowerShell).
+* Para saber mais sobre o Desired State Configuration do PowerShell, consulte [PowerShell Desired State Configuration Overview](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) (Visão geral do Desired State Configuration do PowerShell).
 * Para saber mais sobre como gerenciar o DSC de Automação do PowerShell, consulte [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/)
 * Para saber como encaminhar relatórios de DSC nos logs do Azure Monitor para relatórios e alertas, veja [Encaminhando Relatórios DSC para logs do Azure Monitor](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
 

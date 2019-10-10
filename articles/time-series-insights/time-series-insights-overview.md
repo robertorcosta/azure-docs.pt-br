@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 706960f18080b4883735195b21ed05c3763e8617
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 0c832e272029dc110e156ef89deb908fec02f1b2
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264509"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981208"
 ---
 # <a name="what-is-azure-time-series-insights"></a>O que é o Azure Time Series Insights?
 
@@ -31,7 +31,7 @@ O Azure Time Series Insights tem quatro tarefas principais:
 - O Time Series Insights fornece uma visualização simples por meio do Gerenciador do Time Series Insights. 
 - O Time Series Insights fornece um serviço de consulta no Gerenciador do Time Series Insights e pelas APIs que são fáceis de integrar para inserir dados de séries temporais em aplicativos personalizados.
 
-Se você estiver compilando um aplicativo para consumo interno ou para a utilização de clientes externos, o Azure Time Series Insights pode ser usado como um back-end. Você pode usá-lo para indexação, armazenamento e agregação de dados de série temporal. Para compilar uma visualização personalizada e uma experiência do usuário na parte superior usando o [SDK Cliente](tutorial-explore-js-client-lib.md). O Time Series Insights também está equipado com várias [APIs de Consulta](how-to-shape-query-json.md) para ativar esses cenários personalizados.
+Se você estiver compilando um aplicativo para consumo interno ou para a utilização de clientes externos, o Azure Time Series Insights pode ser usado como um back-end. Você pode usá-lo para indexação, armazenamento e agregação de dados de série temporal. Para compilar uma visualização personalizada e uma experiência do usuário na parte superior usando o [SDK Cliente](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). O Time Series Insights também está equipado com várias [APIs de Consulta](how-to-shape-query-json.md) para ativar esses cenários personalizados.
 
 Dados de série temporal representam como um processo ou um ativo é alterado ao longo do tempo. Os dados de série temporal são indexados por carimbos de data/hora e o tempo é o eixo mais significativo ao longo do qual esses dados são organizados. Normalmente, os dados de série temporal chegam em ordem sequencial e são tratados como uma inserção em vez de uma atualização do banco de dados.
 
