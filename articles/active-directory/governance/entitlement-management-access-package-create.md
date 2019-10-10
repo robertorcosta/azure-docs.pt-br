@@ -16,12 +16,12 @@ ms.date: 09/24/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1283549ce78535757b7ba42eaf7054538f0c9784
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a99aa766ed4e6cacbe22933db226b2037d3e736d
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326351"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170004"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Criar um novo pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -56,7 +56,7 @@ O diagrama a seguir mostra o processo de alto nível para criar um novo pacote d
 
 1. Clique em **Novo pacote de acesso**.
 
-## <a name="basics"></a>Noções Básicas
+## <a name="basics"></a>Noções básicas
 
 Na guia **noções básicas** , você dá um nome ao pacote de acesso e especifica em qual catálogo criar o pacote de acesso.
 
@@ -126,5 +126,3 @@ Na guia **revisar + criar** , você pode examinar as configurações e verificar
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Editar e gerenciar um pacote de acesso existente](entitlement-management-access-package-edit.md)
-- [Adicionar um proprietário do catálogo ou um Gerenciador de pacotes do Access](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
-- [Criar e gerenciar um catálogo](entitlement-management-catalog-create.md)

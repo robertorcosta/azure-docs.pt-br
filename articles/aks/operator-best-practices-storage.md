@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.author: mlearned
-ms.openlocfilehash: b42cdae634a6c2d8d994225d4cb6b440a99918e5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8e5f394987de06feaeb9a635face643eecc97cb9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67614587"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174217"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para armazenamento e backups no Serviço de Kubernetes do Azure (AKS)
 
@@ -86,13 +86,13 @@ Para ver esses volumes em ação, consulte como criar e usar dinamicamente um vo
 
 Como parte de suas definições de classe de armazenamento, defina o *reclaimPolicy* adequado. Este reclaimPolicy controla o comportamento do recurso de armazenamento do Azure subjacente quando o pod é excluído e o volume persistente talvez não seja mais necessário. O recurso de armazenamento subjacente pode ser excluído ou retido para uso com um pod futuro. O reclaimPolicy pode ser definido como *reter* ou *excluir*. Entenda as necessidades de seu aplicativo e implemente verificações regulares de armazenamento retido para minimizar a quantidade usada e cobrada de armazenamento não usado.
 
-Para obter mais informações sobre opções de classe de armazenamento, consulte políticas de redeclaração de [armazenamento][reclaim-policy].
+Para obter mais informações sobre opções de classe de armazenamento, consulte [políticas de redeclaração de armazenamento][reclaim-policy].
 
 ## <a name="secure-and-back-up-your-data"></a>Proteja e faça backup de seus dados
 
-**Diretrizes** de práticas recomendadas-faça backup dos dados usando uma ferramenta apropriada para seu tipo de armazenamento, como Velero ou Azure site Recovery. Verifique a integridade e a segurança desses backups.
+**Diretrizes de práticas recomendadas** -faça backup dos dados usando uma ferramenta apropriada para seu tipo de armazenamento, como Velero ou Azure site Recovery. Verifique a integridade e a segurança desses backups.
 
-Quando seus aplicativos armazenam e consomem dados persistentes em discos ou arquivos, você precisa fazer backups ou instantâneos regulares desses dados. Os Discos do Azure podem usar tecnologias internas de instantâneo. Talvez você precise de um gancho para que seus aplicativos liberem as gravações no disco antes de executar a operação de instantâneo. O [Velero][velero] pode fazer backup de volumes persistentes juntamente com configurações e recursos de cluster adicionais. Se você não puder [remover o estado de seus aplicativos][remove-state], faça backup dos dados de volumes persistentes e teste regularmente as operações de restauração para verificar a integridade dos dados e os processos necessários.
+Quando seus aplicativos armazenam e consomem dados persistentes em discos ou arquivos, você precisa fazer backups ou instantâneos regulares desses dados. Os Discos do Azure podem usar tecnologias internas de instantâneo. Talvez seja necessário procurar seus aplicativos para liberar gravações no disco antes de executar a operação de instantâneo. O [Velero][velero] pode fazer backup de volumes persistentes juntamente com configurações e recursos de cluster adicionais. Se você não puder [remover o estado de seus aplicativos][remove-state], faça backup dos dados de volumes persistentes e teste regularmente as operações de restauração para verificar a integridade dos dados e os processos necessários.
 
 Entenda as limitações das diferentes abordagens de backups de dados e se será preciso desativar os dados antes de tirar o instantâneo. Os backups de dados não necessariamente permitem que você restaure seu ambiente de aplicativo da implantação do cluster. Para obter mais informações sobre esses cenários, consulte [práticas recomendadas para continuidade dos negócios e recuperação de desastres no AKs][best-practices-multi-region].
 

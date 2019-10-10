@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: f6e2fedf3f2f8384d4a6062852888c312e8285a1
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212872"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173491"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de Automação do Azure aos planos de recuperação
 
@@ -51,7 +51,7 @@ Quando um script é executado, ele injeta um contexto de plano de recuperação 
 | GroupID |Identifica o número de grupo no plano de recuperação quando o plano está em execução. |
 | VmMap |Uma matriz de todas as VMs do grupo. |
 | Chave VMMap |Uma chave exclusiva (GUID) para cada VM. |
-| Id de Assinatura |A ID da assinatura do Azure em que a VM foi criada. |
+| SubscriptionId |A ID da assinatura do Azure em que a VM foi criada. |
 | ResourceGroupName | Nome do grupo de recursos no qual a VM está localizada.
 | CloudServiceName |O nome de serviço de nuvem do Azure no qual a VM foi criada. |
 | RoleName |O nome da VM do Azure. |
@@ -112,12 +112,12 @@ O blog de Aman Sharma na [coleta de nuvens](http://harvestingclouds.com) tem um 
 ## <a name="customize-the-recovery-plan"></a>Personalizar o plano de recuperação
 
 1. No cofre, selecione **planos de recuperação (site Recovery)**
-2. Para criar um plano de recuperação, clique em **+ plano de recuperação**. [Saiba mais](/site-recovery-create-recovery-plans.md). Se você já tiver um plano de recuperação, selecione para abri-lo.
+2. Para criar um plano de recuperação, clique em **+ plano de recuperação**. [Saiba mais](site-recovery-create-recovery-plans.md). Se você já tiver um plano de recuperação, selecione para abri-lo.
 3. Na página plano de recuperação, clique em **Personalizar**.
 
     ![Clicar no botão Personalizar](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. Clique nas reticências (...) ao lado **do grupo 1: Iniciar**adição > de**ação post**.
+2. Clique nas reticências (...) ao lado de **Group 1: Inicie o @ no__t-0 @ no__t-1**Adicionar post action**.
 3. Em **Inserir ação**, verifique se o **script** está selecionado e especifique um nome para o script (**Olá, mundo**).
 4. Especifique uma conta de automação e selecione um runbook. Para salvar o script, clique em **OK**. O script é adicionado ao **Grupo 1: Etapas posteriores**.
 

@@ -16,16 +16,16 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2598ce01c749574833d53133ed3aced184e71737
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 616a637df20e43c20faadaf3db9243c28f94de34
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694614"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174741"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
->Seja notificado sobre quando revisitar esta página para obter atualizações copiando e colando esta URL `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` : em ![seu ícone](./media/whats-new/feed-icon-16x16.png) de leitor de feed RSS.
+>Seja notificado sobre quando revisitar esta página para obter atualizações copiando e colando esta URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` em seu @no__t ícone do leitor de feeds 1RSS @ no__t-2 Feed Reader.
 
 O Azure AD recebe melhorias de forma contínua. Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
 
@@ -137,7 +137,7 @@ Novos cmdlets foram adicionados ao módulo AzureADPreview para ajudar a definir 
 **Categoria de serviço:** Outros  
 **Funcionalidade do produto:** Diretório
 
-Lançamos uma versão atualizada do Azure AD Connect para clientes de atualização automática. Essa nova versão inclui vários novos recursos, aprimoramentos e correções de bugs. Para obter mais informações sobre essa nova versão, consulte [Azure AD Connect: histórico de lançamento de versões](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#14x0).
+Lançamos uma versão atualizada do Azure AD Connect para clientes de atualização automática. Essa nova versão inclui vários novos recursos, aprimoramentos e correções de bugs. Para obter mais informações sobre essa nova versão, consulte [Azure AD Connect: histórico de lançamento de versões](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#14250).
 
 ---
 
@@ -262,7 +262,7 @@ Agora, as identidades gerenciadas atribuídas pelo usuário estão disponíveis 
 
 Os usuários que registraram um aplicativo móvel com sua organização agora podem redefinir sua própria senha, aprovando uma notificação do aplicativo Microsoft Authenticator ou inserindo um código de seu aplicativo móvel ou token de hardware.
 
-Para obter mais informações, [consulte Como funciona: Redefinição de senha self-service do Azure AD](https://aka.ms/authappsspr). Para obter mais informações sobre a experiência do usuário, consulte [visão geral de redefinir sua própria senha corporativa ou de estudante](https://docs.microsoft.com/azure/active-directory/user-help/user-help-password-reset-overview).
+Para obter mais informações, consulte [How funciona: Redefinição de senha self-service do Azure AD](https://aka.ms/authappsspr). Para obter mais informações sobre a experiência do usuário, consulte [visão geral de redefinir sua própria senha corporativa ou de estudante](https://docs.microsoft.com/azure/active-directory/user-help/user-help-password-reset-overview).
 
 ---
 
@@ -272,7 +272,7 @@ Para obter mais informações, [consulte Como funciona: Redefinição de senha s
 **Categoria de serviço:** Autenticações (Logons)  
 **Funcionalidade do produto:** Autenticação de Usuário
 
-A partir da ADAL.NET (biblioteca de autenticação do Azure AD) versão 5.0.0-Preview, os desenvolvedores de aplicativos devem [serializar um cache por conta para aplicativos Web e APIs da Web](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api). Caso contrário, alguns cenários que usam o [fluxo em nome de](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow), juntamente com alguns casos de uso específicos `UserAssertion`do, podem resultar em uma elevação de privilégio. Para evitar essa vulnerabilidade, o ADAL.NET agora ignora o cache compartilhado da biblioteca de autenticação da Microsoft para dotNet (MSAL.NET) para cenários em nome de.
+A partir da ADAL.NET (biblioteca de autenticação do Azure AD) versão 5.0.0-Preview, os desenvolvedores de aplicativos devem [serializar um cache por conta para aplicativos Web e APIs da Web](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api). Caso contrário, alguns cenários que usam o [fluxo em nome de](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow), juntamente com alguns casos de uso específicos de `UserAssertion`, podem resultar em uma elevação de privilégio. Para evitar essa vulnerabilidade, o ADAL.NET agora ignora o cache compartilhado da biblioteca de autenticação da Microsoft para dotNet (MSAL.NET) para cenários em nome de.
 
 Para obter mais informações sobre esse problema, consulte [Azure Active Directory vulnerabilidade de elevação de privilégio da biblioteca de autenticação](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1258).
 
@@ -292,7 +292,7 @@ Para obter mais informações sobre os aplicativos, consulte [integração de ap
 
 ---
 
-### <a name="new-versions-of-the-azuread-powershell-and-azureadpreview-powershell-modules-are-available"></a>Novas versões dos módulos AzureAD PowerShell e AzureADPreview PowerShell estão disponíveis
+### <a name="new-versions-of-the-azuread-powershell-and-azureadpreview-powershell-modules-are-available"></a>Estão disponíveis novas versões dos módulos do PowerShell AzureAD e AzureADPreview
 
 **Tipo:** Recurso alterado  
 **Categoria de serviço:** Outros  
@@ -300,7 +300,7 @@ Para obter mais informações sobre os aplicativos, consulte [integração de ap
 
 Novas atualizações para os módulos do PowerShell de visualização do AzureAD e AzureAD estão disponíveis:
 
-- Um novo `-Filter` parâmetro foi adicionado `Get-AzureADDirectoryRole` ao parâmetro no módulo AzureAD. Esse parâmetro ajuda você a filtrar as funções de diretório retornadas pelo cmdlet.
+- Um novo parâmetro `-Filter` foi adicionado ao parâmetro `Get-AzureADDirectoryRole` no módulo AzureAD. Esse parâmetro ajuda você a filtrar as funções de diretório retornadas pelo cmdlet.
 - Novos cmdlets foram adicionados ao módulo AzureADPreview para ajudar a definir e atribuir funções personalizadas no Azure AD, incluindo:
 
     - `Get-AzureADMSRoleAssignment`
@@ -331,13 +331,13 @@ Para obter mais informações, consulte [gerenciar regras de associação dinâm
 **Categoria de serviço:** Revisões de Acesso  
 **Funcionalidade do produto:** Governança de Identidade
 
-Apresentamos uma nova permissão de aplicativo Microsoft Graph, `AccessReview.ReadWrite.Membership`, que permite que os aplicativos criem e recuperem automaticamente as revisões de acesso para associações de grupo e atribuições de aplicativo. Essa permissão pode ser usada por seus trabalhos agendados ou como parte de sua automação, sem a necessidade de um contexto de usuário conectado.
+Apresentamos uma nova permissão de aplicativo Microsoft Graph, `AccessReview.ReadWrite.Membership`, que permite aos aplicativos criar e recuperar automaticamente as revisões de acesso para associações de grupo e atribuições de aplicativo. Essa permissão pode ser usada por seus trabalhos agendados ou como parte de sua automação, sem a necessidade de um contexto de usuário conectado.
 
 Para obter mais informações, confira o [exemplo como criar revisões de acesso do Azure ad usando Microsoft Graph permissões de aplicativo com o blog do PowerShell](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-how-to-create-Azure-AD-access-reviews-using-Microsoft/m-p/807241).
 
 ---
 
-### <a name="azure-ad-activity-logs-are-now-available-for-government-cloud-instances-in-azure-monitor"></a>Os logs de atividade do Azure AD agora estão disponíveis para instâncias de nuvem do governo no Azure Monitor
+### <a name="azure-ad-activity-logs-are-now-available-for-government-cloud-instances-in-azure-monitor"></a>Os logs de atividade do Azure AD agora estão disponíveis para instâncias de nuvem governamental no Azure Monitor
 
 **Tipo:** Recurso alterado  
 **Categoria de serviço:** Relatório  
@@ -357,7 +357,7 @@ Para obter mais informações sobre como configurar Azure Monitor, consulte [log
 
 Em 25 de setembro de 2019, vamos desligar a experiência de informações de segurança antiga e não avançada para registrar e gerenciar informações de segurança do usuário e ativar apenas a nova [versão aprimorada](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271). Isso significa que os usuários não poderão mais usar a experiência antiga.
 
-Para obter mais informações sobre a experiência de informações de segurança aprimorada, consulte nossa [documentação](https://aka.ms/securityinfodocs) de administração e a [documentação do usuário](https://aka.ms/securityinfoguide).
+Para obter mais informações sobre a experiência de informações de segurança aprimorada, consulte nossa documentação de [administrador](https://aka.ms/securityinfodocs) and nossa [documentação do usuário](https://aka.ms/securityinfoguide).
 
 #### <a name="to-turn-on-this-new-experience-you-must"></a>Para ativar essa nova experiência, você deve:
 
@@ -374,11 +374,11 @@ Para obter mais informações sobre a experiência de informações de seguranç
     Depois de salvar suas configurações, você não terá mais acesso à antiga experiência de informações de segurança.
 
 >[!Important]
->Se você não concluir essas etapas antes de 25 de setembro de 2019, seu locatário de Azure Active Directory será habilitado automaticamente para a experiência aprimorada. Se você tiver dúvidas, entre em contato conosco registrationpreview@microsoft.comem.
+>Se você não concluir essas etapas antes de 25 de setembro de 2019, seu locatário de Azure Active Directory será habilitado automaticamente para a experiência aprimorada. Se você tiver dúvidas, entre em contato conosco em registrationpreview@microsoft.com.
 
 ---
 
-### <a name="authentication-requests-using-post-logins-will-be-more-strictly-validated"></a>As solicitações de autenticação que usam os logons POST serão mais rigorosamente validadas
+### <a name="authentication-requests-using-post-logins-will-be-more-strictly-validated"></a>As solicitações de autenticação que usam logons POST serão mais rigorosamente validadas
 
 **Tipo:** Recurso alterado  
 **Categoria de serviço:** Autenticações (Logons)  
@@ -434,7 +434,7 @@ Estamos removendo o endereço IP do servidor MFA do [endereço IP do Office 365 
 
 Em 26 de julho de 2019, alteramos a maneira como fornecemos tokens somente de aplicativo por meio da [concessão de credenciais de cliente](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow). Anteriormente, os aplicativos podiam obter tokens para chamar outros aplicativos, independentemente se o aplicativo cliente estava no locatário. Atualizamos esse comportamento para que recursos de locatário único, às vezes chamados de APIs da Web, só possam ser chamados por aplicativos cliente que existem no locatário do recurso.
 
-Se seu aplicativo não estiver localizado no locatário de recursos, você receberá uma mensagem de erro dizendo `The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.` , para corrigir esse problema, deverá criar a entidade de serviço de aplicativo cliente no locatário, usando o [ponto de extremidade de consentimento do administrador](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint) ou [por meio do PowerShell ](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell), que garante que seu locatário tenha dado a permissão do aplicativo para operar dentro do locatário.
+Se seu aplicativo não estiver localizado no locatário de recursos, você receberá uma mensagem de erro que diz, `The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.` para corrigir esse problema, você deve criar a entidade de serviço de aplicativo cliente no locatário, usando o [ponto de extremidade de consentimento do administrador](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint) ou [por meio do PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell), que garante que seu locatário tenha dado a permissão do aplicativo para operar dentro do locatário.
 
 Para obter mais informações, consulte [o que há de novo para autenticação?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant).
 
@@ -469,7 +469,7 @@ Para obter mais informações sobre os aplicativos, consulte [integração de ap
 
 ---
 
-### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>Automatizar o provisionamento de conta de usuário para esses aplicativos SaaS recentemente suportados
+### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>Automatizar o provisionamento de conta de usuário para esses aplicativos SaaS com suporte recente
 
 **Tipo:** Novo recurso  
 **Categoria de serviço:** Aplicativos empresariais  
@@ -493,7 +493,7 @@ Para obter mais informações sobre como proteger melhor sua organização usand
 
 ---
 
-### <a name="new-azure-ad-domain-services-service-tag-for-network-security-group"></a>Nova marca de serviço de Azure AD Domain Services para o grupo de segurança de rede
+### <a name="new-azure-ad-domain-services-service-tag-for-network-security-group"></a>Nova marca de serviço do Azure AD Domain Services para o Grupo de Segurança de Rede
 
 **Tipo:** Novo recurso  
 **Categoria de serviço:** Azure AD Domain Services  
@@ -573,7 +573,7 @@ Para obter mais informações, consulte [Federação direta com AD FS e provedor
 
 ---
 
-### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>Automatizar o provisionamento de conta de usuário para esses aplicativos SaaS recentemente suportados
+### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>Automatizar o provisionamento de conta de usuário para esses aplicativos SaaS com suporte recente
 
 **Tipo:** Novo recurso  
 **Categoria de serviço:** Aplicativos empresariais  
@@ -597,7 +597,7 @@ Para obter mais informações sobre como proteger melhor sua organização usand
 
 ---
 
-### <a name="new-check-for-duplicate-group-names-in-the-azure-ad-portal"></a>Nova verificação de nomes de grupo duplicados no portal do Azure AD
+### <a name="new-check-for-duplicate-group-names-in-the-azure-ad-portal"></a>Nova verificação para nomes de grupo duplicados no portal do Azure AD
 
 **Tipo:** Novo recurso  
 **Categoria de serviço:** Gerenciamento de Grupo  
@@ -615,9 +615,9 @@ Para obter mais informações, consulte [gerenciar grupos no portal do Azure ad]
 **Categoria de serviço:** Autenticações (Logons)  
 **Funcionalidade do produto:** Autenticação de Usuário
 
-Os aplicativos do Azure ad agora podem registrar e usar URIs de resposta (redirecionamento) com parâmetros de `https://contoso.com/oauth2?idp=microsoft`consulta estáticos (por exemplo,) para solicitações do OAuth 2,0. O parâmetro de consulta estática está sujeito à correspondência de cadeia de caracteres para URIs de resposta, assim como qualquer outra parte do URI de resposta. Se não houver nenhuma cadeia de caracteres registrada que corresponda ao redirecionamento de URL decodificado-URI, a solicitação será rejeitada. Se o URI de resposta for encontrado, a cadeia de caracteres inteira será usada para redirecionar o usuário, incluindo o parâmetro de consulta estática.
+Os aplicativos do Azure AD agora podem registrar e usar URIs de resposta (redirecionamento) com parâmetros de consulta estáticos (por exemplo, `https://contoso.com/oauth2?idp=microsoft`) para solicitações do OAuth 2,0. O parâmetro de consulta estática está sujeito à correspondência de cadeia de caracteres para URIs de resposta, assim como qualquer outra parte do URI de resposta. Se não houver nenhuma cadeia de caracteres registrada que corresponda ao redirecionamento de URL decodificado-URI, a solicitação será rejeitada. Se o URI de resposta for encontrado, a cadeia de caracteres inteira será usada para redirecionar o usuário, incluindo o parâmetro de consulta estática.
 
-Os URIs de resposta dinâmica ainda são proibidos porque representam um risco de segurança e não podem ser usados para reter informações de estado em uma solicitação de autenticação. Para essa finalidade, use o `state` parâmetro.
+Os URIs de resposta dinâmica ainda são proibidos porque representam um risco de segurança e não podem ser usados para reter informações de estado em uma solicitação de autenticação. Para essa finalidade, use o parâmetro `state`.
 
 Atualmente, as telas de registro do aplicativo do portal do Azure ainda bloqueiam parâmetros de consulta. No entanto, você pode editar manualmente o manifesto do aplicativo para adicionar e testar parâmetros de consulta em seu aplicativo. Para obter mais informações, consulte [o que há de novo para autenticação?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#redirect-uris-can-now-contain-query-string-parameters).
 
@@ -675,7 +675,7 @@ Para obter mais informações sobre os aplicativos, consulte [integração de ap
 
 ---
 
-### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>Automatizar o provisionamento de conta de usuário para esses aplicativos SaaS recentemente suportados
+### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>Automatizar o provisionamento de conta de usuário para esses aplicativos SaaS com suporte recente
 
 **Tipo:** Novo recurso  
 **Categoria de serviço:** Aplicativos empresariais  
@@ -707,7 +707,7 @@ Para obter mais informações, consulte [verificar o status do provisionamento d
 
 ---
 
-### <a name="company-branding-now-appears-on-sign-out-and-error-screens"></a>A identidade visual da empresa agora aparece nas telas sair e erro
+### <a name="company-branding-now-appears-on-sign-out-and-error-screens"></a>A identidade visual da empresa agora é exibida na saída e nas telas de erro
 
 **Tipo:** Recurso alterado  
 **Categoria de serviço:** Autenticações (Logons)  

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3992ea29d3d81262b5d9b8b126c8fca54feca67d
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d70a2aa6ad0e092fc6df9f5792029dc759345321
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026390"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169787"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -214,18 +214,19 @@ Os usuários com essa função têm acesso a todos os recursos administrativos d
 
 ### <a name="global-readerglobal-reader-permissions"></a>[Leitor global](#global-reader-permissions)
 
-Os usuários nessa função podem ler configurações e informações administrativas entre Microsoft 365 serviços, mas não podem tomar ações de gerenciamento. O leitor global é o equivalente somente leitura ao administrador global. Atribua um leitor global em vez do administrador global para planejamento, auditorias ou investigações. Use o leitor global em combinação com outras funções de administrador limitadas, como o administrador do Exchange, para facilitar o trabalho sem a invocação da função de administrador global. O leitor global funciona com o novo centro de administração Microsoft 365, o centro de administração do Exchange, o centro de administração da equipe, a central de segurança, o centro de conformidade, o centro de administração do Azure AD e o centro de administração do gerenciamento 
+Os usuários nessa função podem ler configurações e informações administrativas entre Microsoft 365 serviços, mas não podem tomar ações de gerenciamento. O leitor global é o equivalente somente leitura ao administrador global. Atribua um leitor global em vez do administrador global para planejamento, auditorias ou investigações. Use o leitor global em combinação com outras funções de administrador limitadas, como o administrador do Exchange, para facilitar o trabalho sem a atribuição da função de administrador global. O leitor global funciona com Microsoft 365 centro de administração, centro de administração do Exchange, centro de administração do Team, central de segurança, centro de conformidade, centro de administração do Azure AD e centro de administração do gerenciamento de dispositivos.
 
 > [!NOTE]
-> A função de leitor global tem as seguintes limitações agora-
->* Centro de administração do SharePoint-o centro de administração do SharePoint não dá suporte à função de leitor global. Portanto, você não verá o "SharePoint" no painel esquerdo em centros de administração no [centro de administração do M365](https://admin.microsoft.com/Adminportal/Home#/homepage). Você terá acesso negado quando ir para https://{nome do locatário}-admin.sharepoint.com. 
+> A função de leitor global tem algumas limitações no momento-
+>
+>* Centro de administração do SharePoint – o centro de administração do SharePoint não oferece suporte à função de leitor global. Você não verá o ' SharePoint ' no painel esquerdo em centros de administração no [centro de administração Microsoft 365](https://admin.microsoft.com/Adminportal/Home#/homepage)e terá acesso negado quando tentar ir para *https://{Azure ad Organization name}-admin.SharePoint.com*.
 >* [Portal do AD do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -o leitor global não pode ler o modo de provisionamento de um aplicativo empresarial.
->* [Centro de administração do M365](https://admin.microsoft.com/Adminportal/Home#/homepage) -o leitor global não pode ler solicitações de lockbox cusomter. Você não encontrará a guia solicitações de lockbox do cliente em suporte no painel esquerdo do centro de administração do M365.
->* [Central de segurança do M365](https://security.microsoft.com/homepage) -o leitor global não pode ler rótulos de sensibilidade e retenção. Você não encontrará rótulos de sensibilidade, rótulos de retenção e guias de análise de rótulo no painel esquerdo em classificação na central de segurança do M365.
->* [Centro de administração de equipes](https://admin.teams.microsoft.com) – o leitor global não pode ler o ciclo de vida das equipes, relatórios & análise de chamadas, gerenciamento de dispositivo de telefone IP e catálogo de aplicativos.
->* [Privileged Access Management (PAM)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) não oferece suporte ao leitor global.
-> 
-> O suporte para esses recursos chegará ao longo do tempo.
+>* [Centro de administração do M365](https://admin.microsoft.com/Adminportal/Home#/homepage) -o leitor global não pode ler solicitações de lockbox do cliente. Você não encontrará a guia **solicitações de lockbox do cliente** em **suporte** no painel esquerdo do centro de administração do M365.
+>* [Central de segurança do M365](https://security.microsoft.com/homepage) -o leitor global não pode ler rótulos de sensibilidade e retenção. Você não encontrará **Rótulos de sensibilidade**, **Rótulos de retenção**e guias de análise de **rótulo** no painel esquerdo da central de segurança do M365.
+>* [Centro de administração do teams](https://admin.teams.microsoft.com) – o leitor global não pode ler o **ciclo de vida das equipes**, **relatórios de & de análise**, gerenciamento de dispositivo de **telefone IP** e **Catálogo**
+>* [Privileged Access Management (PAM)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) não oferece suporte à função de leitor global.
+>
+> No momento, esses recursos estão em desenvolvimento.
 >
 
 ### <a name="guest-inviterguest-inviter-permissions"></a>[Convite do convidado](#guest-inviter-permissions)

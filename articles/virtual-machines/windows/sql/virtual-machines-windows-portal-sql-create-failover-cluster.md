@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3e954a6c714e525e5bbefe8f62c798cf8ac9a517
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b30ccbcba0b2126d1fe1abce9ae67a55ce25f601
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036396"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170263"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de Failover do SQL Server em máquinas virtuais do Azure
 
@@ -81,7 +81,7 @@ Além disso, você deve ter uma compreensão geral das tecnologias a seguir:
 - [Grupos de recursos do Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> Neste momento, a [extensão do SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md) não é compatível com a FCI do SQL Server no Azure. É recomendável que você desinstale a extensão de VMs que participam da FCI. Essa extensão dá suporte a recursos, como Backup Automatizado e Aplicação de Patch Automatizada, além de alguns recursos do portal para SQL. Esses recursos não funcionarão para VMs do SQL depois que o agente for desinstalado.
+> Neste momento, SQL Server instâncias de cluster de failover em máquinas virtuais do Azure só têm suporte com o modo de gerenciamento [leve](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) da [extensão do agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Desinstale a extensão completa das VMs que participam do cluster de failover e registre-as com o provedor de recursos de VM do SQL no modo `lightweight`. A extensão completa oferece suporte a recursos como backup automatizado, aplicação de patch e gerenciamento avançado do Portal. Esses recursos não funcionarão para VMs do SQL depois que o agente for reinstalado no modo de gerenciamento leve.
 
 ### <a name="what-to-have"></a>O que é preciso ter
 
@@ -277,7 +277,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 #### <a name="windows-server-2019"></a>Windows Server 2019
 
-O PowerShell a seguir cria um cluster de failover para o Windows Server 2019.  Para obter mais informações, consulte o [cluster de failover do blog: Objeto](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97)de rede do cluster.  Atualize o script com os nomes dos nós (os nomes das máquinas virtuais) e um endereço IP da VNET do Azure:
+O PowerShell a seguir cria um cluster de failover para o Windows Server 2019.  Para obter mais informações, consulte o blog @no__t cluster-0Failover: Objeto de rede de cluster @ no__t-0.  Atualize o script com os nomes dos nós (os nomes das máquinas virtuais) e um endereço IP da VNET do Azure:
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
@@ -409,7 +409,7 @@ Para criar o balanceador de carga:
 
    - **Nome**: um nome para a investigação de integridade.
    - **Protocolo**: TCP.
-   - **Porta**: Defina para a porta que você criou no firewall para a investigação de integridade nesta [etapa](#ports). Neste artigo, o exemplo usa a porta `59999`TCP.
+   - **Porta**: Defina para a porta que você criou no firewall para a investigação de integridade nesta [etapa](#ports). Neste artigo, o exemplo usa a porta TCP `59999`.
    - **Intervalo**: 5 segundos.
    - **Limite não íntegro**: duas falhas consecutivas.
 
@@ -485,7 +485,7 @@ Teste o failover de FCI para validar a funcionalidade do cluster. Execute as seg
 
 **Gerenciador de Cluster de Failover** mostra a função, e seus recursos ficam offline. Os recursos são movidos e ficam online no outro nó.
 
-### <a name="test-connectivity"></a>Testar conectividade
+### <a name="test-connectivity"></a>Testar a conectividade
 
 Para testar a conectividade, faça logon em outra máquina virtual na mesma rede virtual. Abra o **SQL Server Management Studio** e conecte-se ao nome de FCI do SQL Server.
 

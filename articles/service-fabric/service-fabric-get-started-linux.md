@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 6916eea26f03d7b9cd0b3792fa65354619f97f74
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.author: atsenthi
+ms.openlocfilehash: 6471d3f58fbe0e19910f39e9527f193d00a228be
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828497"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170613"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar seu ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -272,7 +272,7 @@ Você pode instalar o plug-in Eclipse do Service Fabric de dentro do IDE do Ecli
 > 
 > No Ubuntu, é recomendável instalar diretamente a partir do site do Eclipse em vez de usar um instalador de pacote (`apt` ou `apt-get`). Isso garante que você obtenha a versão mais atual do Eclipse. Você pode instalar o IDE do Eclipse para Desenvolvedores Java ou para Java EE para Desenvolvedores.
 
-1. No Eclipse, verifique se você instalou o Eclipse Neon ou posterior e o Buildship versão 2.2.1 ou posterior. Verifique as versões dos componentes instalados selecionando **Ajuda** > **Sobre o Eclipse** > **Detalhes da Instalação**. Você pode atualizar Buildship usando as instruções em [Buildship do Eclipse: Plug-ins do Eclipse para][buildship-update]gradle.
+1. No Eclipse, verifique se você instalou o Eclipse Neon ou posterior e o Buildship versão 2.2.1 ou posterior. Verifique as versões dos componentes instalados selecionando **Ajuda** > **Sobre o Eclipse** > **Detalhes da Instalação**. Você pode atualizar Buildship usando as instruções em [Buildship do Eclipse: Plug-ins Eclipse para gradle @ no__t-0.
 
 2. Para instalar o plug-in Service Fabric, selecione**Ajuda** > **Instalar Novo Software**.
 

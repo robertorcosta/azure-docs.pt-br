@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: 0f8c8900782ec8beb9f9b11c8fe7f7651901c343
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 6996a5965454dfd5997f0c0404e0c348c68b626f
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958986"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177466"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação serviço a serviço no Azure Key Vault usando o .NET
 
@@ -87,7 +87,7 @@ Para usar CLI do Azure:
 
 1. Entre no portal do Azure: *AZ login* para entrar no Azure.
 
-1. Verifique o acesso digitando *AZ Account Get-Access-token*. Se você receber um erro, verifique se a versão correta do CLI do Azure está instalada corretamente.
+1. Verifique o acesso inserindo *AZ Account Get-Access-token--resource https://vault.azure.net* . Se você receber um erro, verifique se a versão correta do CLI do Azure está instalada corretamente.
 
    Se CLI do Azure não estiver instalado no diretório padrão, você poderá receber um relatório de erros que `AzureServiceTokenProvider` não pode localizar o caminho para CLI do Azure. Use a variável de ambiente **AzureCLIPath** para definir a pasta de instalação do CLI do Azure. `AzureServiceTokenProvider` adiciona o diretório especificado na variável de ambiente **AzureCLIPath** à variável de ambiente **Path**, quando necessário.
 

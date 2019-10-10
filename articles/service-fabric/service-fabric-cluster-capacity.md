@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/09/2019
-ms.author: chackdan
-ms.openlocfilehash: 2d13364093776028f96b75c5bfef252e2fdfc790
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.author: pepogors
+ms.openlocfilehash: 334ccbf64e32655b5e78ac6564abb65996ac53da
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679393"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167401"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planejamento de capacidade de cluster do Service Fabric
 Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns dos itens que você precisa considerar como parte desse processo.
@@ -76,8 +76,8 @@ A camada de durabilidade é usada para indicar ao sistema os privilégios que as
 
 | Camada de durabilidade  | Número mínimo necessário de VMs | SKUs de VM com suporte                                                                  | Atualizações que você faz no seu conjunto de dimensionamento de máquina virtual                               | Atualizações e manutenção iniciada pelo Azure                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Ouro             | 5                              | SKUs de nó completo dedicado a um único cliente (por exemplo, L32s, GS5, G5, DS15_v2, D15_v2) | Pode ser atrasado até aprovado pelo cluster do Service Fabric | Pode ser pausado por 2 horas por UD para possibilitar tempo adicional para réplicas para recuperar de falhas anteriores |
-| Prata           | 5                              | VMs de núcleo único ou superior com pelo menos 50 GB de SSD local                      | Pode ser atrasado até aprovado pelo cluster do Service Fabric | Não pode ser atrasado por qualquer período de tempo significativo                                                    |
+| Gold             | 5                              | SKUs de nó completo dedicado a um único cliente (por exemplo, L32s, GS5, G5, DS15_v2, D15_v2) | Pode ser atrasado até aprovado pelo cluster do Service Fabric | Pode ser pausado por 2 horas por UD para possibilitar tempo adicional para réplicas para recuperar de falhas anteriores |
+| Silver           | 5                              | VMs de núcleo único ou superior com pelo menos 50 GB de SSD local                      | Pode ser atrasado até aprovado pelo cluster do Service Fabric | Não pode ser atrasado por qualquer período de tempo significativo                                                    |
 | Bronze           | 1                              | VMs com pelo menos 50 GB de SSD local                                              | Não será atrasado pelo cluster do Service Fabric           | Não pode ser atrasado por qualquer período de tempo significativo                                                    |
 
 > [!WARNING]
@@ -143,8 +143,8 @@ Aqui está a recomendação sobre como escolher o nível de confiabilidade.  O n
 | --- | --- |
 | 1 |Não especifique o parâmetro de camada de confiabilidade, o sistema calculará |
 | 3 |Bronze |
-| 5 ou 6|Prata |
-| 7 ou 8 |Ouro |
+| 5 ou 6|Silver |
+| 7 ou 8 |Gold |
 | 9 e superior |Platinum |
 
 ## <a name="primary-node-type---capacity-guidance"></a>Tipo de nó primário - diretrizes de capacidade

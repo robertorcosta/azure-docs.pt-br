@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 09145612821cb669e26e3ccb8d15611112eca700
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 996006c60e754437f8f863c7e7a72c929ed77f2c
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618618"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166203"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implantar o aplicativo em conjuntos de dimensionamento de máquinas virtuais
 
@@ -45,7 +45,7 @@ A extensão de script personalizado baixa e executa scripts em VMs do Azure. Ess
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Instalar um aplicativo em uma VM do Windows com o DSC do PowerShell
-A [DSC (Configuração de Estado Desejado) do PowerShell](https://msdn.microsoft.com/powershell/dsc/overview) é uma plataforma de gerenciamento para definir a configuração dos computadores de destino. As configurações de DSC definem o que instalar em um computador e como configurar o host. Um mecanismo do LCM (Gerenciador de Configurações Local) é executado em cada nó de destino que processa as ações solicitadas com base em configurações enviadas por push.
+A [DSC (Configuração de Estado Desejado) do PowerShell](/powershell/scripting/dsc/overview/overview) é uma plataforma de gerenciamento para definir a configuração dos computadores de destino. As configurações de DSC definem o que instalar em um computador e como configurar o host. Um mecanismo do LCM (Gerenciador de Configurações Local) é executado em cada nó de destino que processa as ações solicitadas com base em configurações enviadas por push.
 
 A extensão de DSC do PowerShell permite que você personalize as instâncias de VM em um conjunto de dimensionamento com o PowerShell. O exemplo a seguir:
 

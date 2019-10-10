@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: abf2a752eaf0f1d0a9a8b07072dfc0b4c1ae45b7
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 97ecf3ea324f43753030f415c8a5e254b87595e5
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812713"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170082"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutorial: Configurar o alimento para provisionamento automático de usuário
 
@@ -118,7 +118,7 @@ Configure o provisionamento automático de usuário para o alimento no Azure AD 
 
 1. Em **credenciais de administrador**, faça o seguinte:
 
-   a. Na caixa **URL do locatário** , insira o valor **https://concierge.food.ee/scim/v2** que você recuperou anteriormente.
+   a. Na caixa **URL do locatário** , insira o valor **https: \//concierge. food. ee/scim/v2** que você recuperou anteriormente.
 
    b. Na caixa **token secreto** , insira o valor do **token de API** que você recuperou anteriormente.
    

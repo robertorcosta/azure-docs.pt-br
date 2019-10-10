@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: a9ef2cd695f9591f299bb85b95d14d60b987c38d
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1654a7be8c3aba4efa6fcf96024ea987e2957e73
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258699"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173456"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicação remota do serviço em C# com Reliable Services
 
@@ -36,7 +36,7 @@ Para serviços que não estão vinculados a um protocolo de comunicação espec�
 Você pode configurar a comunicação remota para um serviço em duas etapas simples:
 
 1. Crie uma interface para implementar o serviço. Essa interface define os métodos disponíveis para uma chamada de procedimento remoto no seu serviço. Os métodos devem ser métodos assíncronos que retornam tarefas. A interface deve implementar `Microsoft.ServiceFabric.Services.Remoting.IService` para sinalizar que o serviço tem uma interface de comunicação remota.
-2. Use um ouvinte de comunicação remota em seu serviço. RemotingListener é uma implementação `ICommunicationListener` que fornece funcionalidades de comunicação remota. O namespace `Microsoft.ServiceFabric.Services.Remoting.Runtime` contém um método de extensão `CreateServiceRemotingListener` para serviços com e sem estado que pode ser usado para criar um ouvinte de comunicação remota usando o protocolo de transporte remoto padrão.
+2. Use um ouvinte de comunicação remota em seu serviço. RemotingListener é uma implementação `ICommunicationListener` que fornece funcionalidades de comunicação remota. O namespace `Microsoft.ServiceFabric.Services.Remoting.Runtime` contém um método de extensão `CreateServiceRemotingInstanceListeners` para serviços com e sem estado que pode ser usado para criar um ouvinte de comunicação remota usando o protocolo de transporte remoto padrão.
 
 >[!NOTE]
 >O `Remoting` namespace está disponível como um pacote NuGet separado chamado `Microsoft.ServiceFabric.Services.Remoting`.
@@ -322,7 +322,7 @@ Siga estas etapas:
 Para atualizar da V1 para a V2 (compatível com interface, conhecida como V2_1), são necessárias atualizações de duas etapas. Siga as etapas deste tutorial.
 
 > [!NOTE]
-> Ao atualizar do v1 para o v2, verifique `Remoting` se o namespace está atualizado para usar v2. Exemplo: ' Microsoft. FabricTransport. Services. Remoting. v2. Client '
+> Ao atualizar do v1 para o v2, verifique se o namespace `Remoting` está atualizado para usar v2. Exemplo: ' Microsoft. FabricTransport. Services. Remoting. v2. Client '
 >
 >
 

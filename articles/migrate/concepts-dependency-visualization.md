@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 33594e09778b9a629645e12357e6bafe561ad35e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b71146f0c2aff51a0c2498705b047e9fa4632c8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202905"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178129"
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -36,12 +36,12 @@ As migrações para Azure usam a solução [mapa do serviço](../operations-mana
 - Para aproveitar a visualização de dependência, você precisa associar um espaço de trabalho do Log Analytics novo ou existente a um projeto das Migrações para Azure.
 - Você só pode criar ou anexar um espaço de trabalho na mesma assinatura em que o projeto de migrações para Azure é criado.
 - Para anexar um espaço de trabalho Log Analytics a um projeto:
-    1. Na guia **Servidores**, no bloco **Migrações para Azure: Bloco avaliação** do servidor, clique em **visão geral**.
+    1. Na guia **Servidores**, no bloco **Migrações para Azure: Avaliação do servidor @ no__t-0, clique em **visão geral**.
     2. Em **visão geral**, clique na seta para baixo para expandir o **Essentials**.
     3. No **espaço de trabalho do OMS**, clique em **requer configuração**.
     4. Em **Configurar espaço de trabalho**, especifique se deseja criar um novo espaço de trabalho ou usar um existente:
     
-    ![Adicionar workspace](./media/how-to-create-group-machine-dependencies/workspace.png)
+    ![Adicionar espaço de trabalho](./media/how-to-create-group-machine-dependencies/workspace.png)
 
 - Durante a associação de um workspace, haverá a opção de criar um workspace ou anexar um existente:
   - Ao criar um workspace, você precisará especificar um nome para ele. Você pode escolher a [região](https://azure.microsoft.com/global-infrastructure/regions/) na qual o espaço de trabalho será criado.
@@ -51,7 +51,7 @@ As migrações para Azure usam a solução [mapa do serviço](../operations-mana
   > Depois de anexar um workspace a um projeto, você não poderá mais alterá-lo.
 
   > [!NOTE]
-  > Atualmente, as migrações para Azure dão suporte à criação do espaço de trabalho do OMS nas regiões leste dos EUA, Sudeste Asiático e Europa Ocidental. Se o espaço de trabalho for criado fora da migração do Azure em qualquer outra região, ele não poderá ser associado a um projeto de migrações para Azure no momento. 
+  > Atualmente, as migrações para Azure dão suporte à criação ou associação de espaços de trabalho Log Analytics nas regiões leste dos EUA, Sudeste Asiático e Europa Ocidental. Se o espaço de trabalho for criado fora da migração do Azure em uma região sem suporte, ele não poderá ser associado a um projeto de migrações para Azure no momento. 
 
 - O workspace associado é marcado com a chave **Projeto de Migração** e o valor **Nome do projeto**, que pode ser usado para pesquisar no portal do Azure.
 - Para navegar até o workspace associado ao projeto, acesse a seção **Essentials** na página **Visão geral** do projeto e acesse o workspace

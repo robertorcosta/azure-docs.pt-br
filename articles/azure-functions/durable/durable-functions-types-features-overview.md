@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 7b395bd6024beb52b9263ac4fe655b5328a8e662
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
+ms.lasthandoff: 10/09/2019
 ms.locfileid: "70933150"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Tipos de Durable Functions e recursos (Azure Functions)
 
-Durable Functions é uma extensão de [Azure Functions](../functions-overview.md). Você pode usar Durable Functions para orquestração com estado da execução da função. Um aplicativo de funções durável é uma solução composta por diferentes funções do Azure. As funções podem reproduzir funções diferentes em uma orquestração de função durável. 
+As Durable Functions são uma extensão do [Azure Functions](../functions-overview.md). Você pode usar Durable Functions para orquestração com estado da execução da função. Um aplicativo de funções durável é uma solução composta por diferentes funções do Azure. As funções podem reproduzir funções diferentes em uma orquestração de função durável. 
 
 Atualmente, há quatro tipos de função duráveis em Azure Functions: Activity, Orchestrator, Entity e Client. O restante desta seção apresenta mais detalhes sobre os tipos de funções envolvidas em uma orquestração.
 
@@ -40,17 +40,17 @@ Ao contrário das funções de orquestrador, as funções de atividade não são
 > [!NOTE]
 > Como as funções de atividade garantem apenas *pelo menos uma vez a* execução, recomendamos que você torne a lógica da função de atividade *idempotente* sempre que possível.
 
-Use um [gatilho de atividade](durable-functions-bindings.md#activity-trigger) para definir uma função de atividade. As funções do .NET recebem um [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) como um parâmetro. Você também pode associar o gatilho a qualquer outro objeto serializável em JSON para transmitir entradas para a função. No JavaScript, você pode acessar uma entrada por meio `<activity trigger binding name>` da propriedade [ `context.bindings` no objeto](../functions-reference-node.md#bindings). As funções de atividade só podem ter um único valor passado a elas. Para passar vários valores, você deve usar tuplas, matrizes ou tipos complexos.
+Use um [gatilho de atividade](durable-functions-bindings.md#activity-trigger) para definir uma função de atividade. As funções do .NET recebem um [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) como um parâmetro. Você também pode associar o gatilho a qualquer outro objeto serializável em JSON para transmitir entradas para a função. No JavaScript, você pode acessar uma entrada por meio da propriedade `<activity trigger binding name>` no [objeto `context.bindings`](../functions-reference-node.md#bindings). As funções de atividade só podem ter um único valor passado a elas. Para passar vários valores, você deve usar tuplas, matrizes ou tipos complexos.
 
 > [!NOTE]
 > Você pode disparar uma função de atividade somente de uma função de orquestrador.
 
 ## <a name="entity-functions"></a>Funções de entidade
 
-As funções de entidade definem operações para ler e atualizar pequenas partes de estado. Geralmente, nos referimos a essas entidades com estado como *entidades duráveis*. Como as funções de orquestrador, as funções de entidade são funções com um tipo de gatilho especial, *gatilho de entidade*. Eles também podem ser invocados de funções de cliente ou de funções de orquestrador. Ao contrário das funções de orquestrador, as funções de entidade não têm nenhuma restrição de código específica. As funções de entidade também gerenciam o estado explicitamente, em vez de representar implicitamente o estado por meio do fluxo de controle.
+As funções de entidade definem operações para ler e atualizar pequenas partes de estado. Geralmente, nos referimos a essas entidades com estado como *entidades duráveis*. Como as funções de orquestrador, as funções de entidade são funções com um tipo de gatilho especial, o *gatilho de entidade*. Eles também podem ser invocados de funções de cliente ou de funções de orquestrador. Ao contrário das funções de orquestrador, as funções de entidade não têm nenhuma restrição de código específica. As funções de entidade também gerenciam o estado explicitamente, em vez de representar implicitamente o estado por meio do fluxo de controle.
 
 > [!NOTE]
-> Funções de entidade e funcionalidade relacionada só estão disponíveis no Durable Functions 2,0 e superior. As funções de entidade estão atualmente em visualização pública.
+> As funções de entidade e a funcionalidade relacionada estão disponíveis apenas nas Durable Functions 2.0 e superior. As funções de entidade estão em versão prévia pública no momento.
 
 Para obter mais informações sobre funções de entidade, consulte o artigo sobre [entidades duráveis](durable-functions-entities.md) .
 

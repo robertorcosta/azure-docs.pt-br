@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2018
-ms.author: subramar
-ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 6f8c517c33393647e2dc5205b5a8f4afba4ae3b0
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60614389"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167583"
 ---
 # <a name="application-upgrade-parameters"></a>Parâmetros de atualização de aplicativo
 Este artigo descreve os vários parâmetros que se aplicam durante a atualização de um aplicativo do Service Fabric do Azure. Parâmetros de atualização de aplicativo controlam o tempo limite e as verificações de integridade que são aplicadas durante a atualização, e especificam as políticas que devem ser aplicadas quando uma atualização falha. Parâmetros de aplicativo aplicam-se a atualizações usando:
@@ -94,7 +94,7 @@ As atualizações de aplicativos do Service Fabric usando a CLI do Service Fabri
 
 | Parâmetro | DESCRIÇÃO |
 | --- | --- |
-| application-id  |ID do aplicativo que está sendo atualizado. <br> Normalmente, esse é o nome completo do aplicativo sem o esquema de URI 'fabric:'. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo é ' fabric: / myapp/app1 ', a identidade do aplicativo será ' myapp\~app1' em 6.0 + e "meuaplicativo/Aplicativo1" nas versões anteriores.|
+| application-id  |ID do aplicativo que está sendo atualizado. <br> Normalmente, esse é o nome completo do aplicativo sem o esquema de URI 'fabric:'. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for ' Fabric:/MyApp/App1 ', a identidade do aplicativo será ' MyApp @ no__t-0app1 ' em 6.0 + e ' MyApp/App1 ' nas versões anteriores.|
 application-version |Versão do tipo de aplicativo visado pela atualização.|
 parameters  |Uma lista codificada em JSON de substituições de parâmetro de aplicativo a serem aplicadas ao atualizar o aplicativo.|
 

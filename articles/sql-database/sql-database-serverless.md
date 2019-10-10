@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 86c03554f5faa1ebb40faa20b6a271f5310ccd4f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 3b2cc5c0b5deab084c6fdae9435ea3a90b2dd8a6
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828228"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173411"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Banco de dados SQL do Azure sem servidor (visualização)
 
@@ -68,7 +68,7 @@ A tabela a seguir resume as diferenças entre a camada de computação sem servi
 |**Padrão de uso do banco de dados**| Uso intermitente e imprevisível com menor utilização média de computação ao longo do tempo. |  Padrões de uso mais regulares com maior utilização média de computação ao longo do tempo ou a vários bancos de dados usando pools elásticos.|
 | **Esforço de gerenciamento de desempenho** |Inferior|Superior|
 |**Dimensionamento de computação**|Automático|Manual|
-|**Capacidade de resposta de computação**|Inferior após períodos de inatividade|Imediato|
+|**Capacidade de resposta de computação**|Inferior após períodos de inatividade|Imediata|
 |**Granularidade de cobrança**|Por segundo|Por hora|
 
 ## <a name="purchasing-model-and-service-tier"></a>Camada de serviço e modelo de compra
@@ -145,7 +145,7 @@ O reinício retomado também é disparado durante a implantação de algumas atu
 
 Se um banco de dados sem servidor for pausado, o primeiro logon retomará o banco de dados e retornará um erro informando que o banco de dados está indisponível com o código de erro 40613. Depois que o banco de dados for retomado, o logon deve ser repetido para estabelecer a conectividade. Os clientes do banco de dados com lógica de repetição de conexão não devem ser modificados.
 
-### <a name="latency"></a>Latência
+### <a name="latency"></a>Latency
 
 A latência para retomar e pausar a autopausa em um banco de dados sem servidor geralmente é uma ordem de 1 minuto para retomar e 1-10 minutos para pausar a autopausa.
 
@@ -157,21 +157,21 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
    |Nome do objetivo de serviço|Camada de serviço|Geração de hardware|Máx. vCores|
    |---|---|---|---|
-   |GP_S_Gen5_1|Objetivo Geral|Gen5|1|
-   |GP_S_Gen5_2|Objetivo Geral|Gen5|2|
-   |GP_S_Gen5_4|Objetivo Geral|Gen5|4|
-   |GP_S_Gen5_6|Objetivo Geral|Gen5|6|
-   |GP_S_Gen5_8|Objetivo Geral|Gen5|8|
-   |GP_S_Gen5_10|Objetivo Geral|Gen5|10|
-   |GP_S_Gen5_12|Objetivo Geral|Gen5|12|
-   |GP_S_Gen5_14|Objetivo Geral|Gen5|14|
-   |GP_S_Gen5_16|Objetivo Geral|Gen5|16|
+   |GP_S_Gen5_1|Uso geral|Gen5|1|
+   |GP_S_Gen5_2|Uso geral|Gen5|2|
+   |GP_S_Gen5_4|Uso geral|Gen5|4|
+   |GP_S_Gen5_6|Uso geral|Gen5|6|
+   |GP_S_Gen5_8|Uso geral|Gen5|8|
+   |GP_S_Gen5_10|Uso geral|Gen5|10|
+   |GP_S_Gen5_12|Uso geral|Gen5|12|
+   |GP_S_Gen5_14|Uso geral|Gen5|14|
+   |GP_S_Gen5_16|Uso geral|Gen5|16|
 
 2. Opcionalmente, especifique o mínimo de vCores e o atraso de autopausa para alterar seus valores padrão. A tabela a seguir mostra os valores disponíveis para esses parâmetros.
 
    |Parâmetro|Opções de valor|Valor padrão|
    |---|---|---|---|
-   |vCores mínimos|Depende do máximo de vCores configurado-consulte [limites de recursos](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|vCores de 0,5|
+   |VCores mín.|Depende do máximo de vCores configurado-consulte [limites de recursos](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|vCores de 0,5|
    |Atraso de pausa automática|Mínimo: 60 minutos (1 hora)<br>Maior 10.080 minutos (7 dias)<br>Incrementos: 60 minutos<br>Desabilitar pausa automática: -1|60 minutos|
 
 > [!NOTE]
@@ -229,21 +229,21 @@ Um banco de dados sem servidor pode ser movido para uma camada de computação p
 
 #### <a name="use-powershell"></a>Usar o PowerShell
 
-Modificar o vCores máximo é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o `MaxVcore` argumento.
+Modificar o vCores máximo é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o argumento `MaxVcore`.
 
 ### <a name="minimum-vcores"></a>Mínimo de vCores
 
 #### <a name="use-powershell"></a>Usar o PowerShell
 
-Modificar o vCores mínimo é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o `MinVcore` argumento.
+Modificar o mínimo de vCores é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o argumento `MinVcore`.
 
 ### <a name="autopause-delay"></a>Atraso de pausa automática
 
 #### <a name="use-powershell"></a>Usar o PowerShell
 
-Modificar o atraso de autopausa é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o `AutoPauseDelayInMinutes` argumento.
+Modificar o atraso de autopausa é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o argumento `AutoPauseDelayInMinutes`.
 
-## <a name="monitoring"></a>Monitorando
+## <a name="monitoring"></a>Monitoramento
 
 ### <a name="resources-used-and-billed"></a>Recursos usados e cobrados
 
@@ -261,16 +261,16 @@ O pool de recursos do usuário é o limite interno de gerenciamento de recursos 
 
 As métricas para monitorar o uso de recursos do pacote do aplicativo e do pool de usuários de um banco de dados sem servidor são listadas na tabela a seguir:
 
-|Entidade|Métrica|Descrição|Unidades|
+|Entidade|Métrica|DESCRIÇÃO|Unidades|
 |---|---|---|---|
-|Pacote do Aplicativo|app_cpu_percent|Percentual de vCores usados pelo aplicativo em relação ao máximo de vCores permitido para o aplicativo.|Porcentagem|
+|Pacote do Aplicativo|app_cpu_percent|Percentual de vCores usados pelo aplicativo em relação ao máximo de vCores permitido para o aplicativo.|Percentual|
 |Pacote do Aplicativo|app_cpu_billed|A quantidade de computação cobrada para o aplicativo durante o período do relatório. O valor pago durante esse período é o produto dessa métrica e o preço unitário de vCore. <br><br>Os valores dessa métrica são determinados pela agregação ao longo do tempo do máximo de CPU usado e a memória usada por segundo. Se o valor usado for menor que a quantidade mínima provisionada conforme definido pelo mínimo de vCores e de memória, a quantidade mínima provisionada será cobrada. Para comparar CPU com memória para fins de cobrança, a memória é normalizada em unidades de vCores ao redimensionar a quantidade de memória em GB por 3 GB por vCore.|Segundos de vCore|
-|Pacote do Aplicativo|app_memory_percent|Percentual de memória usada pelo aplicativo em relação ao máximo de memória permitida para o aplicativo.|Porcentagem|
-|Pool de usuários|cpu_percent|Percentual de vCores usados pela carga de trabalho do usuário em relação ao máximo de vCores permitido para a carga de trabalho do usuário.|Porcentagem|
-|Pool de usuários|data_IO_percent|Percentual de IOPS de dados usados pela carga de trabalho do usuário em relação ao máximo de IOPS de dados permitido para a carga de trabalho do usuário.|Porcentagem|
-|Pool de usuários|log_IO_percent|Percentual de MB/s de log usados pela carga de trabalho do usuário em relação ao máximo de MB/s de log permitido para a carga de trabalho do usuário.|Porcentagem|
-|Pool de usuários|workers_percent|Percentual de funções de trabalho usadas pela carga de trabalho do usuário em relação ao máximo de funções de trabalho permitidas para a carga de trabalho do usuário.|Porcentagem|
-|Pool de usuários|sessions_percent|Percentual de sessões usadas pela carga de trabalho do usuário em relação ao máximo de sessões permitidas para a carga de trabalho do usuário.|Porcentagem|
+|Pacote do Aplicativo|app_memory_percent|Percentual de memória usada pelo aplicativo em relação ao máximo de memória permitida para o aplicativo.|Percentual|
+|Pool de usuários|cpu_percent|Percentual de vCores usados pela carga de trabalho do usuário em relação ao máximo de vCores permitido para a carga de trabalho do usuário.|Percentual|
+|Pool de usuários|data_IO_percent|Percentual de IOPS de dados usados pela carga de trabalho do usuário em relação ao máximo de IOPS de dados permitido para a carga de trabalho do usuário.|Percentual|
+|Pool de usuários|log_IO_percent|Percentual de MB/s de log usados pela carga de trabalho do usuário em relação ao máximo de MB/s de log permitido para a carga de trabalho do usuário.|Percentual|
+|Pool de usuários|workers_percent|Percentual de funções de trabalho usadas pela carga de trabalho do usuário em relação ao máximo de funções de trabalho permitidas para a carga de trabalho do usuário.|Percentual|
+|Pool de usuários|sessions_percent|Percentual de sessões usadas pela carga de trabalho do usuário em relação ao máximo de sessões permitidas para a carga de trabalho do usuário.|Percentual|
 
 ### <a name="pause-and-resume-status"></a>Pausar e retomar status
 
@@ -314,7 +314,7 @@ Nesse caso, o banco de dados é cobrado para computação e armazenamento durant
 
 Mais precisamente, a fatura de computação neste exemplo é calculada da seguinte maneira:
 
-|Intervalo de Tempo|vCores usado por segundo|GB usados a cada segundo|Dimensão de computação cobrada|segundos de vCore cobrados com o intervalo de tempo|
+|Intervalo de tempo|vCores usado por segundo|GB usados a cada segundo|Dimensão de computação cobrada|segundos de vCore cobrados com o intervalo de tempo|
 |---|---|---|---|---|
 |0:00-1:00|4|9|vCores usado|4 vCores * 3600 segundos = 14400 vCore segundos|
 |1:00-2:00|1|12|Memória usada|12 GB * 1/3 * 3600 segundos = 14400 vCore segundos|
@@ -326,7 +326,7 @@ Suponha que o preço de unidade de computação seja US$ 0,000073/vCore/segundo.
 
 ## <a name="available-regions"></a>Regiões disponíveis
 
-A camada de computação sem servidor está disponível em todo o mundo, exceto as seguintes regiões: Austrália Central, Leste da China, Norte da China, sul da França, Alemanha central, Alemanha nordeste, Índia ocidental, sul da Coreia, oeste da África do Sul, Norte do Reino Unido, Sul do Reino Unido, Oeste do Reino Unido e EUA Central ocidental.
+A camada de computação sem servidor está disponível em todo o mundo, exceto as seguintes regiões: Leste da China, Norte da China, Alemanha central, Alemanha nordeste, Norte do Reino Unido, Sul do Reino Unido 2, Oeste EUA Central e US Gov central (Iowa).
 
 ## <a name="next-steps"></a>Próximas etapas
 

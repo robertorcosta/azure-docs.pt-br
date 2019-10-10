@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d0fd26da81c4f59f16b5f0364cf165ec36a6ea39
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 2daae1637c568b72d548330abbcb73da21b12683
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516342"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176848"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 Este artigo explica diferentes ambientes de computação que você pode usar para processar ou transformar dados. Ele também fornece detalhes sobre as diferentes configurações (sob demanda versus traga a sua própria) com suporte pela Data Factory ao configurar serviços vinculados que vinculam esses ambientes de computação para uma Azure Data Factory.
@@ -95,7 +95,7 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 >
 > 
 
-### <a name="properties"></a>Propriedades
+### <a name="properties"></a>Properties
 | Propriedade                     | Descrição                              | Necessário |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | A propriedade de tipo deve ser configurada como **HDInsightOnDemand**. | Sim      |
@@ -104,7 +104,7 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 | clusterResourceGroup         | O cluster HDInsight é criado nesse grupo de recursos. | Sim      |
 | timeToLive                   | O tempo ocioso permitido para o cluster HDInsight sob demanda. Especifica quanto tempo o cluster HDInsight sob demanda permanece ativo após a conclusão de uma atividade executada se não há nenhum outro trabalho ativo no cluster. O mínimo valor permitido é de 5 minutos (00:05:00).<br/><br/>Por exemplo, se uma execução de atividade demora 6 minutos e o timetolive é definido como 5 minutos, o cluster fica ativo durante 5 minutos após a execução de 6 minutos de execução da atividade. Se outra atividade é executada com a janela de 6 minutos, ela é processada pelo mesmo cluster.<br/><br/>A criação de um cluster HDInsight sob demanda é uma operação cara (pode demorar um pouco) e, portanto, use essa configuração conforme o necessário para melhorar o desempenho de um data factory com a reutilização de um cluster HDInsight sob demanda.<br/><br/>Se você definir o valor de timetolive como 0, o cluster é excluído assim que a atividade executada é processada. Enquanto que, se você definir um valor alto, o cluster poderá permanecer ocioso para que você faça logon a fim de realizar alguma solução de problemas, mas isso poderá resultar em altos custos. Portanto, é importante que você defina o valor apropriado com base em suas necessidades.<br/><br/>Se o valor da propriedade timetolive foi definido apropriadamente, vários pipelines podem compartilhar a instância do cluster HDInsight sob demanda. | Sim      |
 | clusterType                  | O tipo do cluster HDInsight a ser criado. Os valores permitidos são "hadoop" e "spark". Se não for especificado, o valor padrão será hadoop. O cluster habilitado pelo Enterprise Security Package não pode ser criado sob demanda, em vez disso, use um [cluster existente/traga sua própria computação](#azure-hdinsight-linked-service). | Não       |
-| versão                      | Versão do cluster HDInsight Se não for especificada, será usada a versão padrão atual definida do HDInsight. | Não       |
+| version                      | Versão do cluster HDInsight Se não for especificada, será usada a versão padrão atual definida do HDInsight. | Não       |
 | hostSubscriptionId           | A ID de assinatura do Azure usada para criar o cluster HDInsight. Se não for especificada, será usada a ID da assinatura de seu contexto de logon do Azure. | Não       |
 | clusterNamePrefix           | O prefixo do nome do cluster HDI, um carimbo de data/hora, será acrescentado automaticamente ao final do nome do cluster| Não       |
 | sparkVersion                 | A versão do Spark se o tipo de cluster for "Spark" | Não       |
@@ -146,17 +146,17 @@ O serviço vinculado do HDInsight sob demanda exige uma autenticação de entida
 
 Use a autenticação de entidade de serviço especificando as seguintes propriedades:
 
-| Propriedade                | Descrição                              | Necessário |
+| Propriedade                | Descrição                              | Obrigatório |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Especifique a ID do cliente do aplicativo.     | Sim      |
 | **servicePrincipalKey** | Especifique a chave do aplicativo.           | Sim      |
 | **tenant**              | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Sim      |
 
-### <a name="advanced-properties"></a>Propriedades Avançadas
+### <a name="advanced-properties"></a>Propriedades avançadas
 
 Você também pode especificar as seguintes propriedades para a configuração granular do cluster HDInsight sob demanda.
 
-| Propriedade               | Descrição                              | Necessário |
+| Propriedade               | Descrição                              | Obrigatório |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Especifica os parâmetros de configuração principal (como core-site. xml) para o cluster HDInsight a ser criado. | Não       |
 | hBaseConfiguration     | Especifica os parâmetros de configuração HBase (hbase-site.xml) para o cluster HDInsight. | Não       |
@@ -224,7 +224,7 @@ Você também pode especificar as seguintes propriedades para a configuração g
 ### <a name="node-sizes"></a>Tamanhos dos nós
 Você pode especificar os tamanhos de nós de dados, principais e zookeeper usando as seguintes propriedades: 
 
-| Propriedade          | Descrição                              | Necessário |
+| Propriedade          | Descrição                              | Obrigatório |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Especificar o tamanho do nó principal O valor padrão é: Standard_D3. Veja a seção **Especificando tamanhos dos nós** para obter detalhes. | Não       |
 | dataNodeSize      | Especifica o tamanho do nó principal O valor padrão é: Standard_D3. | Não       |
@@ -250,7 +250,7 @@ Esse tipo de configuração tem suporte para os ambientes de computação a segu
 * Azure HDInsight
 * Lote do Azure
 * Machine Learning do Azure
-* Azure Data Lake Analytics
+* Análise Azure Data Lake
 * Banco de Dados SQL do Azure, SQL DW do Azure, SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Serviço vinculado do Azure HDInsight
@@ -283,7 +283,7 @@ Você pode criar um serviço vinculado Azure HDInsight para registrar seu própr
   }
 ```
 
-### <a name="properties"></a>Propriedades
+### <a name="properties"></a>Properties
 | Propriedade          | Descrição                                                  | Necessário |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | type              | A propriedade de tipo deve ser configurada como **HDInsight**.            | Sim      |
@@ -343,7 +343,7 @@ Veja os tópicos a seguir se você for novo no serviço de Lote do Azure:
 ```
 
 
-### <a name="properties"></a>Propriedades
+### <a name="properties"></a>Properties
 | Propriedade          | Descrição                              | Necessário |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | A propriedade de tipo deve ser definida como **AzureBatch**. | Sim      |
@@ -379,10 +379,10 @@ Criar um serviço vinculado de Machine Learning do Azure para registrar um ponto
 }
 ```
 
-### <a name="properties"></a>Propriedades
-| Propriedade               | Descrição                              | Necessário                                 |
+### <a name="properties"></a>Properties
+| Propriedade               | Descrição                              | Obrigatório                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| Tipo                   | A propriedade de tipo deve ser configurada como: **AzureML**. | Sim                                      |
+| type                   | A propriedade de tipo deve ser configurada como: **AzureML**. | Sim                                      |
 | mlEndpoint             | A URL de pontuação do lote.                   | Sim                                      |
 | apiKey                 | A API do modelo de workspace publicada.     | Sim                                      |
 | updateResourceEndpoint | A URL do recurso de atualização para um ponto de extremidade de serviço Web do Azure ML usado para atualizar o serviço Web preditivo com o arquivo de modelo treinado | Não                                       |
@@ -421,7 +421,7 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 }
 ```
 
-### <a name="properties"></a>Propriedades
+### <a name="properties"></a>Properties
 
 | Propriedade             | Descrição                              | Necessário                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
@@ -438,7 +438,9 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 
 
 ## <a name="azure-databricks-linked-service"></a>Serviço vinculado do Azure Databricks
-É possível criar o **serviço vinculado do Azure Databricks** para registrar o workspace do Databricks que você usará para executar as cargas de trabalho do Databricks (blocos de notas).
+Você pode criar **Azure Databricks serviço vinculado** para registrar o espaço de trabalho do databricks que será usado para executar as cargas de trabalho do databricks (Notebook, jar, Python). 
+> [!IMPORTANT]
+> Os serviços vinculados do databricks dão suporte a [pools de instância](https://aka.ms/instance-pools). 
 
 ### <a name="example---using-new-job-cluster-in-databricks"></a>Exemplo - Usar o novo cluster de trabalho no Databricks
 
@@ -481,7 +483,7 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 
 ```
 
-### <a name="properties"></a>Propriedades
+### <a name="properties"></a>Properties
 
 | Propriedade             | Descrição                              | Obrigatório                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
@@ -490,6 +492,7 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 | domínio               | Especifique a Região do Azure de acordo com a região do workspace do Databricks. Exemplo: https://eastus.azuredatabricks.net | Sim                                 |
 | accessToken          | O token de acesso é necessário para que o Data Factory autentique-se no Azure Databricks. O token de acesso precisa ser gerado a partir do workspace do Databricks. Etapas mais detalhadas para encontrar o token de acesso podem ser encontradas [aqui](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Sim                                       |
 | existingClusterId    | ID do cluster de um cluster existente para executar todos os trabalhos. Esse deve ser um cluster interativo já criado. Talvez seja necessário reiniciar manualmente o cluster se ele parar de responder. O Databricks sugerem a execução de trabalhos em novos clusters para maior confiabilidade. Você pode encontrar a ID do cluster de um cluster interativo no workspace do Databricks -&gt; Clusters -&gt; Nome do Cluster Interativo -&gt; Configuração -&gt; Marcas. [Mais detalhes:](https://docs.databricks.com/user-guide/clusters/tags.html) | Não 
+| instancePoolId    | ID do pool de instâncias de um pool existente no espaço de trabalho do databricks.  | Não  |
 | newClusterVersion    | A versão do Spark do cluster. Ele criará um cluster de trabalho no Databricks. | Não  |
 | newClusterNumOfWorker| Número de nós de trabalho que esse cluster deve ter. Um cluster possui um Spark Driver e um num_workers Executors para um total de num_workers + 1 nós do Spark. Uma cadeia de caracteres formatada Int32, como "1" significa que numOfWorker é 1 ou "1:10" significa autoescala de 1 como mínimo e 10 como máximo.  | Não                |
 | newClusterNodeType   | Esse campo codifica, por meio de um único valor, os recursos disponíveis para cada um dos nós do Spark neste cluster. Por exemplo, os nós do Spark podem ser provisionados e otimizados para cargas de trabalho intensivas de computação e memória. Esse campo é necessário para um novo cluster                | Não               |

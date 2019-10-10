@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: d749e1355e69ad93c8c211474043f88127ec76f0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.author: atsenthi
+ms.openlocfilehash: aa7b63453a5147742e27b9bb32ad05221e745f8c
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599396"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168798"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de rede de contêiner do Service Fabric
 
@@ -203,11 +203,11 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
    |Configuração |Valor | |
    | --- | --- | --- |
    |Priority |2000 | |
-   |Nome |Custom_Dns  | |
+   |NOME |Custom_Dns  | |
    |Origem |VirtualNetwork | |
-   |Destino | VirtualNetwork | |
+   |Destination | VirtualNetwork | |
    |Serviço | DNS (UDP/53) | |
-   |Action | Allow  | |
+   |Ação | Allow  | |
    | | |
 
 4. Especifique o modo de rede no manifesto do aplicativo para cada serviço: `<NetworkConfig NetworkType="Open">`. O modo de rede **Aberto** resulta no fornecimento de um endereço IP dedicado para o serviço. Se um modo não for especificado, o serviço torna **nat** o modo padrão. Assim, no exemplo de manifesto a seguir, os serviços `NodeContainerServicePackage1` e `NodeContainerServicePackage2` podem escutar na mesma porta (os dois serviços estão escutando em `Endpoint1`). Quando o modo de rede Aberto é especificado, `PortBinding` as configurações não podem ser especificadas.

@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 7c4812a63137dc2efc5eab2cb3b9e136a5465e78
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 28a391fded422b00508e006bfd613d6c98d82f17
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300452"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166465"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns nas Instâncias de Contêiner do Azure
 
-Este artigo mostra como solucionar problemas ao gerenciar ou implantar contêineres para Instâncias de Contêiner do Azure. Consulte também [perguntas frequentes](container-instances-faq.md). 
+Este artigo mostra como solucionar problemas ao gerenciar ou implantar contêineres para Instâncias de Contêiner do Azure. Consulte também [perguntas frequentes](container-instances-faq.md).
 
 Se precisar de suporte adicional, consulte Opções de **ajuda + suporte** disponíveis no [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -176,7 +176,7 @@ Outra maneira de reduzir o impacto do pull da imagem no tempo de inicialização
 
 ### <a name="cached-images"></a>Imagens armazenadas em cache
 
-As instâncias de contêiner do Azure usam um mecanismo de cache para ajudar a acelerar o tempo de inicialização do contêiner para imagens `nanoserver:1809`criadas `servercore:ltsc2019`em [imagens básicas](container-instances-faq.md#what-windows-base-os-images-are-supported)comuns do Windows, incluindo, e `servercore:1809`. Imagens do Linux comumente usadas, `ubuntu:1604` como `alpine:3.6` e também são armazenadas em cache. Para obter uma lista atualizada de imagens e marcas armazenadas em cache, use a API da [lista de imagens em cache][list-cached-images] .
+As instâncias de contêiner do Azure usam um mecanismo de cache para ajudar a acelerar o tempo de inicialização do contêiner para imagens criadas em [imagens básicas](container-instances-faq.md#what-windows-base-os-images-are-supported)comuns do Windows, incluindo `nanoserver:1809`, `servercore:ltsc2019` e `servercore:1809`. Imagens do Linux comumente usadas, como `ubuntu:1604` e `alpine:3.6`, também são armazenadas em cache. Para obter uma lista atualizada de imagens e marcas armazenadas em cache, use a API da [lista de imagens em cache][list-cached-images] .
 
 > [!NOTE]
 > Use as imagens com base no Windows Server 2019 nas instâncias de contêiner do Azure nesta versão prévia.
@@ -204,9 +204,9 @@ As Instâncias de Contêiner do Azure não expõem acesso direto para a infraest
 
 ## <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>O endereço IP do grupo de contêineres pode não estar acessível devido a portas incompatíveis
 
-As instâncias de contêiner do Azure ainda não dão suporte ao mapeamento de porta como com a configuração regular do Docker. Se você achar que o endereço IP de um grupo de contêineres não está acessível quando acreditar que deveria ser, certifique-se de ter configurado sua imagem de contêiner para escutar as mesmas portas que você expõe `ports` em seu grupo de contêineres com a propriedade.
+As instâncias de contêiner do Azure ainda não dão suporte ao mapeamento de porta como com a configuração regular do Docker. Se você achar que o endereço IP de um grupo de contêineres não está acessível quando acreditar que deveria ser, certifique-se de ter configurado sua imagem de contêiner para escutar as mesmas portas que você expõe em seu grupo de contêineres com a propriedade `ports`.
 
-Se você quiser confirmar que as instâncias de contêiner do Azure podem escutar na porta configurada na sua imagem de contêiner, teste uma `aci-helloworld` implantação da imagem que expõe a porta. Execute também o `aci-helloworld` aplicativo para que ele escute na porta. `aci-helloworld`aceita uma variável `PORT` de ambiente opcional para substituir a porta padrão 80 escutada. Por exemplo, para testar a porta 9000:
+Se você quiser confirmar que as instâncias de contêiner do Azure podem escutar na porta configurada na sua imagem de contêiner, teste uma implantação da imagem `aci-helloworld` que expõe a porta. Execute também o aplicativo `aci-helloworld` para que ele escute na porta. `aci-helloworld` aceita uma variável de ambiente opcional `PORT` para substituir a porta padrão 80 escutada. Por exemplo, para testar a porta 9000:
 
 1. Configure o grupo de contêineres para expor a porta 9000 e passe o número da porta como o valor da variável de ambiente:
     ```azurecli
@@ -215,11 +215,11 @@ Se você quiser confirmar que as instâncias de contêiner do Azure podem escuta
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. Localize o endereço IP do grupo de contêineres na saída de comando `az container create`de. Procure o valor de **IP**. 
+1. Localize o endereço IP do grupo de contêineres na saída de comando de `az container create`. Procure o valor de **IP**. 
 1. Depois que o contêiner for provisionado com êxito, navegue até o endereço IP e a porta do aplicativo de contêiner em seu navegador, por exemplo: `192.0.2.0:9000`. 
 
     Você deve ver o "bem-vindo às instâncias de contêiner do Azure!" mensagem exibida pelo aplicativo Web.
-1. Quando você terminar o contêiner, remova-o usando o `az container delete` comando:
+1. Quando você terminar o contêiner, remova-o usando o comando `az container delete`:
 
     ```azurecli
     az container delete --resource-group myResourceGroup --name mycontainer
@@ -230,7 +230,7 @@ Se você quiser confirmar que as instâncias de contêiner do Azure podem escuta
 Saiba como [recuperar logs de contêiner e eventos](container-instances-get-logs.md) para ajudar a depurar seus contêineres.
 
 <!-- LINKS - External -->
-[azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
+[azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming
 [windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore
