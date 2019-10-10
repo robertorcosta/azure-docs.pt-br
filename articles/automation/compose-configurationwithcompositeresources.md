@@ -10,16 +10,16 @@ ms.author: robreed
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e153186a3917be3aa94cb663dec58bc3db46aae9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d9d16d9d9967af5bf8f9e13406e13d5637325f52
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850406"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243363"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Compor configurações de DSC na configuração do estado de automação do Azure (DSC) usando recursos compostos
 
-Quando um recurso precisa ser gerenciado com mais de uma configuração de configuração de estado desejado (DSC), o melhor caminho é usar [recursos compostos](/powershell/dsc/authoringresourcecomposite). Um recurso composto é uma configuração aninhada e parametrizada sendo usada como um recurso DSC em outra configuração. Isso permite a criação de configurações complexas, permitindo que os recursos compostos subjacentes (configurações parametrizadas) sejam gerenciados e construídos individualmente.
+Quando um recurso precisa ser gerenciado com mais de uma configuração de configuração de estado desejado (DSC), o melhor caminho é usar [recursos compostos](/powershell/scripting/dsc/resources/authoringresourcecomposite). Um recurso composto é uma configuração aninhada e parametrizada sendo usada como um recurso DSC em outra configuração. Isso permite a criação de configurações complexas, permitindo que os recursos compostos subjacentes (configurações parametrizadas) sejam gerenciados e construídos individualmente.
 
 A Automação do Azure permite a [importação e a compilação de recursos compostos](automation-dsc-compile.md#compiling-configurations-in-azure-automation-that-contain-composite-resources).
 Depois que os recursos compostos tiverem sido importados para sua conta de automação, você poderá usar a experiência **Compor configuração** na página **Configuração do estado (DSC)** .

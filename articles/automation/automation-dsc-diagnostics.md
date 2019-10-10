@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6b7feb1b980054ba224173d5054907879a88cdd5
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5905afdb9832f32e837dc4496e4a951fca41b8b0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952867"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243544"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Encaminhe os dados do relatório de configuração de estado da automação do Azure para Azure Monitor logs
 
@@ -78,7 +78,7 @@ Depois de configurar a integração com os logs de Azure Monitor para os dados d
 
 ![Botão Pesquisar Log](media/automation-dsc-diagnostics/log-search-button.png)
 
-A folha **Pesquisa de Log** é aberta e você verá uma operação **DscNodeStatusData** para cada nó da Configuração do Estado e uma operação **DscResourceStatusData** para cada [Recurso DSC](/powershell/dsc/resources) chamado na configuração do nó aplicada a esse nó.
+A folha **Pesquisa de Log** é aberta e você verá uma operação **DscNodeStatusData** para cada nó da Configuração do Estado e uma operação **DscResourceStatusData** para cada [Recurso DSC](/powershell/scripting/dsc/resources/resources) chamado na configuração do nó aplicada a esse nó.
 
 A operação **DscResourceStatusData** contém informações de erro para todos os recursos DSC que falharam.
 
@@ -126,7 +126,7 @@ O diagnóstico da automação do Azure cria duas categorias de registros em logs
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | TimeGenerated |Data e hora quando a verificação de conformidade foi executada. |
 | OperationName |DscNodeStatusData |
@@ -150,14 +150,14 @@ O diagnóstico da automação do Azure cria duas categorias de registros em logs
 | ResourceId |Especifica a conta de Automação do Azure. |
 | ResultDescription | A descrição para esta operação. |
 | SubscriptionId | O GUID (ID de assinatura do Azure) para a Conta de automação. |
-| GrupoRecuso | Nome do grupo de recursos para a Conta de automação. |
+| ResourceGroup | Nome do grupo de recursos para a Conta de automação. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 | CorrelationId |O GUID que é a Id de correlação do relatório de conformidade. |
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | TimeGenerated |Data e hora quando a verificação de conformidade foi executada. |
 | OperationName |DscResourceStatusData|
@@ -181,7 +181,7 @@ O diagnóstico da automação do Azure cria duas categorias de registros em logs
 | ResourceId |Especifica a conta de Automação do Azure. |
 | ResultDescription | A descrição para esta operação. |
 | SubscriptionId | O GUID (ID de assinatura do Azure) para a Conta de automação. |
-| GrupoRecuso | Nome do grupo de recursos para a Conta de automação. |
+| ResourceGroup | Nome do grupo de recursos para a Conta de automação. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 | CorrelationId |O GUID que é a Id de correlação do relatório de conformidade. |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 36465f016eeb066c0e12f6434deb98fd7b10966a
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 599b5b075f32294f9e68c776c4a7744283e9c269
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958749"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244037"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implantar sua solução IoT Edge em produção
 
@@ -50,7 +50,7 @@ Antes de colocar qualquer dispositivo em produção, você deve saber como geren
 * Bibliotecas do sistema operacional
 * Mecanismo de contêiner, como Moby
 * Daemon do IoT Edge
-* Certificados de Autoridade de Certificação
+* Certificados de AC
 
 Para obter mais informações, consulte [atualizar o tempo de execução de IOT Edge](how-to-update-iot-edge.md). Os métodos atuais para atualizar o daemon IoT Edge exigem acesso físico ou SSH ao dispositivo IoT Edge. Se você tiver muitos dispositivos para atualizar, considere adicionar as etapas de atualização a um script ou usar uma ferramenta de automação como Ansible.
 
@@ -177,9 +177,11 @@ Esta lista de verificação é um ponto de partida para regras de firewall:
    | mcr.microsoft.com  | 443 | Registro de contêiner da Microsoft |
    | global.azure-devices-provisioning.net  | 443 | Acesso DPS (opcional) |
    | \*.azurecr.io | 443 | Registros de contêineres pessoais e de terceiros |
-   | \*.blob.core.windows.net | 443 | Download de deltas de imagem | 
+   | \*.blob.core.windows.net | 443 | Baixar deltas de imagem do registro de contêiner do Azure do armazenamento de BLOBs  | 
    | \*.azure-devices.net | 5671, 8883, 443 | Acesso do Hub IoT |
    | \*. docker.io  | 443 | Acesso ao Hub do Docker (opcional) |
+
+Algumas dessas regras de firewall são herdadas do registro de contêiner do Azure. Para obter mais informações, consulte [configurar regras para acessar um registro de contêiner do Azure atrás de um firewall](../container-registry/container-registry-firewall-access-rules.md).
 
 ### <a name="configure-communication-through-a-proxy"></a>Configurar a comunicação por meio de um proxy
 

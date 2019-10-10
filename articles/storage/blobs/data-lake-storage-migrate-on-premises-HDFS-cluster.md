@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: ff23b27b73918734e10a481cbe9b1f77519b8764
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 508c67f73bc0e11330b5772b1c1ba3f9bee5e231
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847263"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255677"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Usar Azure Data Box para migrar dados de um repositório HDFS local para o armazenamento do Azure
 
@@ -57,13 +57,13 @@ Siga estas etapas para copiar dados por meio das APIs REST do armazenamento de b
 
     ![Página "conectar e copiar"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
-2. Na caixa de diálogo acessar conta de armazenamento e carregar dados, copie o **ponto de extremidade do serviço blob** e a **chave da conta de armazenamento**. No ponto de extremidade do serviço BLOB, `https://` omita o e a barra à direita.
+2. Na caixa de diálogo acessar conta de armazenamento e carregar dados, copie o **ponto de extremidade do serviço blob** e a **chave da conta de armazenamento**. No ponto de extremidade do serviço BLOB, omita o `https://` e a barra à direita.
 
-    Nesse caso, o ponto de extremidade é `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`:. A parte do host do URI que você usará é: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Para obter um exemplo, consulte como [se conectar ao REST sobre http](/azure/databox/data-box-deploy-copy-data-via-rest). 
+    Nesse caso, o ponto de extremidade é: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. A parte do host do URI que você usará é: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Para obter um exemplo, consulte como [se conectar ao REST sobre http](/azure/databox/data-box-deploy-copy-data-via-rest). 
 
      ![Caixa de diálogo "acessar conta de armazenamento e carregar dados"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
-3. Adicione o ponto de extremidade e o data Box ou o endereço IP `/etc/hosts` do nó de data Box Heavy para em cada nó.
+3. Adicione o ponto de extremidade e o Data Box ou o endereço IP do nó Data Box Heavy para `/etc/hosts` em cada nó.
 
     ```    
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
@@ -71,9 +71,9 @@ Siga estas etapas para copiar dados por meio das APIs REST do armazenamento de b
 
     Se você estiver usando algum outro mecanismo para DNS, certifique-se de que o ponto de extremidade de Data Box possa ser resolvido.
 
-4. Defina a variável `azjars` `hadoop-azure` do Shell para o local dos arquivos `azure-storage` jar e. Você pode encontrar esses arquivos no diretório de instalação do Hadoop.
+4. Defina a variável do Shell `azjars` como o local dos arquivos jar `hadoop-azure` e `azure-storage`. Você pode encontrar esses arquivos no diretório de instalação do Hadoop.
 
-    Para determinar se esses arquivos existem, use o seguinte comando: `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`. Substitua o `<hadoop_install_dir>` espaço reservado pelo caminho para o diretório em que você instalou o Hadoop. Certifique-se de usar caminhos totalmente qualificados.
+    Para determinar se esses arquivos existem, use o seguinte comando: `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`. Substitua o espaço reservado `<hadoop_install_dir>` pelo caminho para o diretório em que você instalou o Hadoop. Certifique-se de usar caminhos totalmente qualificados.
 
     Exemplos:
 
@@ -88,13 +88,13 @@ Siga estas etapas para copiar dados por meio das APIs REST do armazenamento de b
     -mkdir -p  wasb://<container_name>@<blob_service_endpoint>/<destination_directory>
     ```
 
-    * Substitua o `<blob_service_endpoint>` espaço reservado pelo nome do ponto de extremidade do serviço BLOB.
+    * Substitua o espaço reservado `<blob_service_endpoint>` pelo nome do ponto de extremidade do serviço BLOB.
 
-    * Substitua o `<account_key>` espaço reservado pela chave de acesso da sua conta.
+    * Substitua o espaço reservado `<account_key>` pela chave de acesso da sua conta.
 
-    * Substitua o `<container-name>` espaço reservado pelo nome do seu contêiner.
+    * Substitua o espaço reservado `<container-name>` pelo nome do seu contêiner.
 
-    * Substitua o `<destination_directory>` espaço reservado pelo nome do diretório no qual você deseja copiar os dados.
+    * Substitua o espaço reservado `<destination_directory>` pelo nome do diretório no qual você deseja copiar os dados.
 
 6. Execute um comando de lista para garantir que o contêiner e o diretório foram criados.
 
@@ -105,11 +105,11 @@ Siga estas etapas para copiar dados por meio das APIs REST do armazenamento de b
     -ls -R  wasb://<container_name>@<blob_service_endpoint>/
     ```
 
-   * Substitua o `<blob_service_endpoint>` espaço reservado pelo nome do ponto de extremidade do serviço BLOB.
+   * Substitua o espaço reservado `<blob_service_endpoint>` pelo nome do ponto de extremidade do serviço BLOB.
 
-   * Substitua o `<account_key>` espaço reservado pela chave de acesso da sua conta.
+   * Substitua o espaço reservado `<account_key>` pela chave de acesso da sua conta.
 
-   * Substitua o `<container-name>` espaço reservado pelo nome do seu contêiner.
+   * Substitua o espaço reservado `<container-name>` pelo nome do seu contêiner.
 
 7. Copie dados do HDFS do Hadoop para Data Box armazenamento de BLOBs no contêiner que você criou anteriormente. Se o diretório no qual você está copiando não for encontrado, o comando o criará automaticamente.
 
@@ -123,21 +123,21 @@ Siga estas etapas para copiar dados por meio das APIs REST do armazenamento de b
            wasb://<container_name>@<blob_service_endpoint>/<destination_directory>
     ```
 
-    * Substitua o `<blob_service_endpoint>` espaço reservado pelo nome do ponto de extremidade do serviço BLOB.
+    * Substitua o espaço reservado `<blob_service_endpoint>` pelo nome do ponto de extremidade do serviço BLOB.
 
-    * Substitua o `<account_key>` espaço reservado pela chave de acesso da sua conta.
+    * Substitua o espaço reservado `<account_key>` pela chave de acesso da sua conta.
 
-    * Substitua o `<container-name>` espaço reservado pelo nome do seu contêiner.
+    * Substitua o espaço reservado `<container-name>` pelo nome do seu contêiner.
 
-    * Substitua o `<exlusion_filelist_file>` espaço reservado pelo nome do arquivo que contém a lista de exclusões de arquivo.
+    * Substitua o espaço reservado `<exlusion_filelist_file>` pelo nome do arquivo que contém a lista de exclusões de arquivo.
 
-    * Substitua o `<source_directory>` espaço reservado pelo nome do diretório que contém os dados que você deseja copiar.
+    * Substitua o espaço reservado `<source_directory>` pelo nome do diretório que contém os dados que você deseja copiar.
 
-    * Substitua o `<destination_directory>` espaço reservado pelo nome do diretório no qual você deseja copiar os dados.
+    * Substitua o espaço reservado `<destination_directory>` pelo nome do diretório no qual você deseja copiar os dados.
 
-    A `-libjars` opção é usada para tornar o `hadoop-azure*.jar` e os arquivos `azure-storage*.jar` dependentes disponíveis `distcp`para o. Isso pode já ocorrer em alguns clusters.
+    A opção `-libjars` é usada para disponibilizar o `hadoop-azure*.jar` e os arquivos `azure-storage*.jar` dependentes para `distcp`. Isso pode já ocorrer em alguns clusters.
 
-    O exemplo a seguir mostra como `distcp` o comando é usado para copiar dados.
+    O exemplo a seguir mostra como o comando `distcp` é usado para copiar dados.
 
     ```
      hadoop distcp \
@@ -194,23 +194,23 @@ Você pode copiar dados usando Azure Data Factory ou usando o cluster Hadoop bas
     hadoop distcp -Dfs.azure.account.key.<source_account>.dfs.windows.net=<source_account_key> abfs://<source_container> @<source_account>.dfs.windows.net/<source_path> abfs://<dest_container>@<dest_account>.dfs.windows.net/<dest_path>
     ```
 
-    * Substitua os `<source_account>` espaços `<dest_account>` reservados e pelos nomes das contas de armazenamento de origem e de destino.
+    * Substitua os espaços reservados `<source_account>` e `<dest_account>` pelos nomes das contas de armazenamento de origem e de destino.
 
-    * Substitua os `<source_container>` espaços `<dest_container>` reservados e pelos nomes dos contêineres de origem e de destino.
+    * Substitua os espaços reservados `<source_container>` e `<dest_container>` pelos nomes dos contêineres de origem e de destino.
 
-    * Substitua os `<source_path>` espaços `<dest_path>` reservados e pelos caminhos de diretório de origem e de destino.
+    * Substitua os espaços reservados `<source_path>` e `<dest_path>` pelos caminhos de diretório de origem e de destino.
 
-    * Substitua o `<source_account_key>` espaço reservado pela chave de acesso da conta de armazenamento que contém os dados.
+    * Substitua o espaço reservado `<source_account_key>` pela chave de acesso da conta de armazenamento que contém os dados.
 
     Esse comando copia dados e metadados de sua conta de armazenamento para sua conta de armazenamento Data Lake Storage Gen2.
 
 ### <a name="create-a-service-principal-for-your-azure-data-lake-storage-gen2-account"></a>Criar uma entidade de serviço para sua conta de Azure Data Lake Storage Gen2
 
-Para criar uma entidade de serviço, [consulte Como: Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Para criar uma entidade de serviço, consulte [How para: Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
 * Ao executar as etapas da seção [Atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, atribua a função **Colaborador dos Dados do Storage Blob** à entidade de serviço.
 
-* Ao executar as etapas na seção [obter valores para entrar no](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artigo, ID do aplicativo e valores de segredo do cliente em um arquivo de texto. Você precisará deles em breve.
+* Ao executar as etapas na seção [obter valores para entrar no](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artigo, salve a ID do aplicativo e os valores de segredo do cliente em um arquivo de texto. Você precisará deles em breve.
 
 ### <a name="generate-a-list-of-copied-files-with-their-permissions"></a>Gerar uma lista de arquivos copiados com suas permissões
 
@@ -228,7 +228,7 @@ Esse comando gera uma lista de arquivos copiados com suas permissões.
 
 ### <a name="generate-a-list-of-identities-and-map-them-to-azure-active-directory-add-identities"></a>Gerar uma lista de identidades e mapeá-las para Azure Active Directory (Adicionar) identidades
 
-1. Baixe o `copy-acls.py` script. Consulte a seção [baixar scripts auxiliares e configurar o nó de borda para executá-los](#download-helper-scripts) deste artigo.
+1. Baixe o script `copy-acls.py`. Consulte a seção [baixar scripts auxiliares e configurar o nó de borda para executá-los](#download-helper-scripts) deste artigo.
 
 2. Execute este comando para gerar uma lista de identidades exclusivas.
 
@@ -241,7 +241,7 @@ Esse comando gera uma lista de arquivos copiados com suas permissões.
 
 3. Abra o arquivo `id_map.json` em um editor de texto.
 
-4. Para cada objeto JSON que aparece no arquivo, atualize o `target` atributo de um UPN (nome principal de usuário) do AAD ou ObjectId (OID), com a identidade mapeada apropriada. Depois de terminar, salve o arquivo. Você precisará desse arquivo na próxima etapa.
+4. Para cada objeto JSON que aparece no arquivo, atualize o atributo `target` de um nome UPN ou ObjectId (OID) do AAD, com a identidade mapeada apropriada. Depois de terminar, salve o arquivo. Você precisará desse arquivo na próxima etapa.
 
 ### <a name="apply-permissions-to-copied-files-and-apply-identity-mappings"></a>Aplicar permissões a arquivos copiados e aplicar mapeamentos de identidade
 
@@ -253,9 +253,9 @@ Execute este comando para aplicar permissões aos dados que você copiou para a 
 
 * Substitua o espaço reservado `<storage-account-name>` pelo nome da sua conta de armazenamento.
 
-* Substitua o `<container-name>` espaço reservado pelo nome do seu contêiner.
+* Substitua o espaço reservado `<container-name>` pelo nome do seu contêiner.
 
-* Substitua os `<application-id>` espaços `<client-secret>` reservados e pela ID do aplicativo e o segredo do cliente que você coletou ao criar a entidade de serviço.
+* Substitua os espaços reservados `<application-id>` e `<client-secret>` pela ID do aplicativo e pelo segredo do cliente que você coletou ao criar a entidade de serviço.
 
 ## <a name="appendix-split-data-across-multiple-data-box-devices"></a>Apêndice: Dividir dados em vários dispositivos Data Box
 
@@ -303,7 +303,7 @@ Se o tamanho de seus dados exceder o tamanho de um único dispositivo Data Box, 
 
 Se os dados não excederem o tamanho de um único dispositivo Data Box, você poderá prosseguir para a próxima seção.
 
-1. Com permissões elevadas, execute `generate-file-list` o script que você baixou seguindo as orientações na seção anterior.
+1. Com permissões elevadas, execute o script `generate-file-list` que você baixou seguindo as diretrizes na seção anterior.
 
    Aqui está uma descrição dos parâmetros de comando:
 

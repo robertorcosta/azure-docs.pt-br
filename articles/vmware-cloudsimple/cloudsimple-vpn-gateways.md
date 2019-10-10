@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8b7b02c164021ac084dccf5663122620b2af1b15
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 662fa342b3a18f726b418c496ff3fda937445301
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972901"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244780"
 ---
 # <a name="vpn-gateways-overview"></a>Visão geral de gateways de VPN
 
@@ -52,7 +52,7 @@ Uma conexão VPN site a site usa os seguintes parâmetros criptográficos padrã
 | Algoritmo de hash| SHA 256 | SHA 256 | SHA 1 |
 | Grupo Diffie Hellman (grupo DH) | 2 | 2 | 2 |
 | Tempo de vida | 28.800 segundos | 28.800 segundos | 28.800 segundos |
-| Tamanho dos Dados | 4 GB | 4 GB | 4 GB |
+| Tamanho dos dados | 4 GB | 4 GB | 4 GB |
 
 #### <a name="phase-2-proposals"></a>Propostas da fase 2
 
@@ -62,7 +62,11 @@ Uma conexão VPN site a site usa os seguintes parâmetros criptográficos padrã
 | Algoritmo de hash| SHA 256 | SHA 256 | SHA 1 |
 | Grupo de sigilo contínuo (grupo PFS) | Nenhum | Nenhum | Nenhum |
 | Tempo de vida | 1\.800 segundos | 1\.800 segundos | 1\.800 segundos |
-| Tamanho dos Dados | 4 GB | 4 GB | 4 GB |
+| Tamanho dos dados | 4 GB | 4 GB | 4 GB |
+
+
+> [!IMPORTANT]
+> Defina TCP MSS fixação MSS às 1200 em seu dispositivo VPN. Ou, se os dispositivos VPN não oferecerem suporte a MSS fixação MSS, você poderá definir, como alternativa, o MTU na interface de túnel como 1240 bytes.
 
 ## <a name="point-to-site-vpn-gateway"></a>Gateway de VPN ponto a site
 

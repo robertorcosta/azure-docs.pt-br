@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 991cfb54dc511c284c5f5d0cf1807d5dd42b34ea
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: eb15aa3c6dbe0f4db62a2029a3c97b4475ab53a2
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978068"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255872"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos do Azure Policy
 
@@ -44,6 +44,9 @@ No momento, não há nenhuma ordem de avaliação para o efeito de **EnforceRego
 ## <a name="disabled"></a>Desabilitado
 
 Esse efeito é útil para testar situações ou quando a definição de política tiver parametrizado o efeito. Essa flexibilidade possibilita desabilitar uma única atribuição em vez de desabilitar todas as atribuições da política.
+
+Uma alternativa ao efeito desabilitado é **imposiçãomode** , que é definida na atribuição de política.
+Quando **imposiçãomode** é _desabilitada_, os recursos ainda são avaliados. Registro em log, como logs de atividade, e o efeito de política não ocorre. Para obter mais informações, consulte [atribuição de política – modo de imposição](./assignment-structure.md#enforcement-mode).
 
 ## <a name="append"></a>Acrescentar
 
@@ -158,7 +161,7 @@ A matriz de propriedades de **operações** torna possível alterar várias marc
 
 A propriedade **Operation** tem as seguintes opções:
 
-|Operação |Descrição |
+|Operação |DESCRIÇÃO |
 |-|-|
 |addOrReplace |Adiciona a marca e o valor definidos ao recurso, mesmo que a marca já exista com um valor diferente. |
 |Adicionar |Adiciona a marca e o valor definidos ao recurso. |
@@ -234,7 +237,7 @@ Exemplo: Usando o efeito deny.
 }
 ```
 
-## <a name="audit"></a>Auditar
+## <a name="audit"></a>Audit
 
 Audit é usado para criar um evento de aviso no log de atividades ao avaliar um recurso fora de conformidade, mas ela não para a solicitação.
 

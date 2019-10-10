@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 55950892bec71fdff50cdd0e0b1aae107d845739
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: f943aac4a91217983963fac6f8d0b2b3ba6895a1
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169730"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243619"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Introdução à Configuração de Estado da Automação do Azure
 
-Este artigo explica como executar as tarefas mais comuns com a Configuração de Estado da Automação do Azure como criar, importar e compilar configurações, integrar computadores para gerenciar e exibir relatórios. Para obter uma visão geral do que é a Configuração de Estado da Automação do Azure, consulte [Visão geral da Configuração de Estado da Automação do Azure](automation-dsc-overview.md). Para a documentação da DSC (Desired State Configuration), consulte [Visão geral da Desired State Configuration do Windows PowerShell](/powershell/dsc/overview).
+Este artigo explica como executar as tarefas mais comuns com a Configuração de Estado da Automação do Azure como criar, importar e compilar configurações, integrar computadores para gerenciar e exibir relatórios. Para obter uma visão geral do que é a Configuração de Estado da Automação do Azure, consulte [Visão geral da Configuração de Estado da Automação do Azure](automation-dsc-overview.md). Para a documentação da DSC (Desired State Configuration), consulte [Visão geral da Desired State Configuration do Windows PowerShell](/powershell/scripting/dsc/overview/overview).
 
 Este artigo fornece um guia passo a passo sobre o uso da Configuração de Estado da Automação do Azure. Caso deseje obter um ambiente de exemplo que já esteja configurado sem seguir as etapas descritas neste artigo, use o seguinte modelo do Resource Manager: [Modelo de Nó Gerenciado da Automação do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Este modelo configura um ambiente de Configuração de Estado da Automação do Azure concluído, incluindo uma VM do Azure gerenciada pela Configuração de Estado da Automação do Azure.
 
@@ -31,7 +31,7 @@ Para concluir os exemplos neste artigo, são necessários:
 
 ## <a name="creating-a-dsc-configuration"></a>Criando uma configuração de DSC
 
-Crie uma [configuração de DSC](/powershell/dsc/configurations) simples que garante a presença ou a ausência do WindowsFeature do **Servidor Web** (IIS), dependendo de como os nós são atribuídos.
+Crie uma [configuração de DSC](/powershell/scripting/dsc/configurations/configurations) simples que garante a presença ou a ausência do WindowsFeature do **Servidor Web** (IIS), dependendo de como os nós são atribuídos.
 
 1. Inicie o [VSCode](https://code.visualstudio.com/docs) (ou qualquer editor de texto).
 1. Digite o seguinte texto:
@@ -61,7 +61,7 @@ Crie uma [configuração de DSC](/powershell/dsc/configurations) simples que gar
     ```
 1. Salve o arquivo como `TestConfig.ps1`.
 
-Esta configuração chama um recurso em cada bloco de nó, o [recurso WindowsFeature](/powershell/dsc/windowsfeatureresource), que garante a presença ou a ausência da funcionalidade **Servidor Web** .
+Esta configuração chama um recurso em cada bloco de nó, o [recurso WindowsFeature](/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource), que garante a presença ou a ausência da funcionalidade **Servidor Web** .
 
 ## <a name="importing-a-configuration-into-azure-automation"></a>Importando uma configuração na Automação do Azure
 
@@ -94,7 +94,7 @@ Depois de importar uma configuração, você pode vê-la no Portal do Azure.
 ## <a name="compiling-a-configuration-in-azure-automation"></a>Compilando uma configuração na Automação do Azure
 
 Antes de aplicar um estado desejado a um nó, uma configuração DSC definindo esse estado deve ser compilada em uma ou mais configurações de nó (documento MOF) e colocada no servidor de pull do DSC de Automação. Para obter uma descrição mais detalhada da compilação de configurações na Configuração do Estado da Automação do Azure, consulte [Compilar configurações na Configuração de Estado da Automação do Azure](automation-dsc-compile.md).
-Para obter mais informações sobre a compilação das configurações, consulte [Configurações da DSC](/powershell/dsc/configurations).
+Para obter mais informações sobre a compilação das configurações, consulte [Configurações da DSC](/powershell/scripting/dsc/configurations/configurations).
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **Todos os recursos** e, em seguida, no nome de sua conta de Automação.
@@ -195,7 +195,7 @@ Na folha de um relatório individual, você pode ver as seguintes informações 
 - O nome, o endereço IP e o modo de configuração do nó.
 
 Você também pode clicar em **Exibir relatório bruto** para ver os dados reais que o nó envia para o servidor.
-Para obter mais informações sobre como usar esses dados, consulte [Usando um servidor de relatório da DSC](/powershell/dsc/reportserver).
+Para obter mais informações sobre como usar esses dados, consulte [Usando um servidor de relatório da DSC](/powershell/scripting/dsc/pull-server/reportserver).
 
 Pode levar algum tempo depois de um nó ser integrado até que o primeiro relatório esteja disponível. Talvez seja necessário aguardar até 30 minutos para o primeiro relatório após você integrar um nó.
 
@@ -233,6 +233,6 @@ Se você não desejar mais que um nó seja gerenciado pelo DSC de Automação do
 
 - [Visão geral da Configuração de Estado da Automação do Azure](automation-dsc-overview.md)
 - [Integrar computadores para gerenciamento por Configuração de Estado da Automação do Azure](automation-dsc-onboarding.md)
-- [Visão Geral da Configuração de Estado Desejado do Windows PowerShell](/powershell/dsc/overview)
+- [Visão Geral da Configuração de Estado Desejado do Windows PowerShell](/powershell/scripting/dsc/overview/overview)
 - [Cmdlets da Configuração de Estado da Automação do Azure](/powershell/module/azurerm.automation/#automation)
 - [Preço da Configuração de Estado da Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)

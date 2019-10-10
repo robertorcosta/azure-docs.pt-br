@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 5/8/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b79ed7ea3113f097f767ad7ff8bdc47b4e4916eb
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 338977c236ebb8f1b800eb6c28747a010e708300
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883556"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244232"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
@@ -58,9 +58,9 @@ Neste momento, o HSM Dedicado do Azure fornece apenas HSMs com autenticação ba
 
 A Microsoft oferece o HSM de Rede Gemalto SafeNet Luna apenas por meio do serviço HSM Dedicado e não é possível hospedar qualquer dispositivo fornecido por clientes.
 
-### <a name="q-does-azure-dedicated-hsm-support-payment-pinetf-features"></a>P: O HSM dedicado do Azure dá suporte a recursos de pagamento (PIN/ETF)?
+### <a name="q-does-azure-dedicated-hsm-support-payment-pineft-features"></a>P: O HSM dedicado do Azure dá suporte a recursos de pagamento (PIN/TEF)?
 
-O serviço HSM Dedicado do Azure usa dispositivos de HSM de Rede SafeNet Luna 7 (modelo A790). Esses dispositivos não dão suporte à funcionalidade específica do HSM de pagamento (por exemplo, PIN ou ETF) ou certificações. Se você quiser que o serviço HSM dedicado do Azure ofereça suporte a HSMs de pagamento no futuro, passe os comentários para seu representante de conta da Microsoft.
+O serviço HSM Dedicado do Azure usa dispositivos de HSM de Rede SafeNet Luna 7 (modelo A790). Esses dispositivos não dão suporte à funcionalidade específica do HSM de pagamento (como PIN ou TEF) ou certificações. Se você quiser que o serviço HSM dedicado do Azure ofereça suporte a HSMs de pagamento no futuro, passe os comentários para seu representante de conta da Microsoft.
 
 ### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>P: Em quais regiões do Azure o HSM dedicado está disponível?
 
@@ -69,10 +69,10 @@ Desde o final de março de 2019, o HSM dedicado está disponível nas 14 regiõe
 * East US
 * Leste dos EUA 2
 * Oeste dos EUA
-* Centro-Sul dos EUA
+* Centro-Sul dos Estados Unidos
 * Sudeste da Ásia
 * Ásia Oriental
-* Europa Setentrional
+* Norte da Europa
 * Europa Ocidental
 * Sul do Reino Unido
 * Oeste do Reino Unido

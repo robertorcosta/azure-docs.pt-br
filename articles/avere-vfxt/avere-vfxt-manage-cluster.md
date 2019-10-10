@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.author: v-erkell
-ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: bcdba7f14147714c5e29c13bfe9e20fa44a27ef9
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409699"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256197"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gerenciar cluster do Avere vFXT
 
@@ -98,7 +98,7 @@ Forneça os seguintes valores:
 * Nome do grupo de recursos para o cluster e também para recursos de rede e armazenamento, se não forem o mesmo do cluster
 * Localização do cluster
 * Sub-rede e rede de cluster 
-* Função de acesso do nó de cluster (usar a função interna [Avere operador](../role-based-access-control/built-in-roles.md#avere-operator))
+* Função de acesso de nó de cluster (use a função interna [operador avere](../role-based-access-control/built-in-roles.md#avere-operator))
 * Endereço IP de gerenciamento de cluster e senha administrativa 
 * Número de nós a serem adicionados (1, 2 ou 3)
 * Valores de tamanho de tipo e cache da instância de nó 
@@ -187,7 +187,7 @@ Você pode destruir as instâncias de nó excluindo-as permanentemente no portal
 
 ### <a name="delete-additional-cluster-resources-from-the-azure-portal"></a>Excluir recursos de cluster adicionais do portal do Azure
 
-Se você tiver criado recursos adicionais especificamente para o cluster vFXT, talvez queira removê-los como parte da subdivisão do cluster. Destrói os elementos que contêm dados que você precisa, ou todos os itens que são compartilhados com outros projetos.
+Se você tiver criado recursos adicionais especificamente para o cluster vFXT, talvez queira removê-los como parte da subdivisão do cluster. Não destrua elementos que contêm dados necessários ou quaisquer itens compartilhados com outros projetos.
 
 Além de excluir os nós de cluster, considere remover estes componentes: 
 

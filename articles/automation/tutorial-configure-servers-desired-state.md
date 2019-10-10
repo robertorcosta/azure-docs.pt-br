@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 0d877dafc4ab4f8ec4edb0a94450fa9c5dfcd0bb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 09ba4bc9e5ac496a7d1d65ff145d56818e53116e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850241"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243348"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurar servidores para um estado desejado e gerenciar dessincronização
 
@@ -34,7 +34,7 @@ Para concluir este tutorial, você precisará de:
 - Uma conta de Automação do Azure. Para obter instruções sobre como criar uma conta Executar Como de Automação do Azure, consulte [Conta Executar Como do Azure](automation-sec-configure-azure-runas-account.md).
 - Uma VM do Azure Resource Manager (não clássica) executando o Windows Server 2008 R2 ou posterior. Para obter instruções sobre a criação de uma VM, consulte [Criar sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 - Versão de módulo do Azure PowerShell 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
-- Familiaridade com a Configuração do Estado Desejado (DSC). Para obter informações sobre a DSC, consulte [Visão Geral da Desired State Configuration do Windows PowerShell](https://docs.microsoft.com/powershell/dsc/overview)
+- Familiaridade com a Configuração do Estado Desejado (DSC). Para obter informações sobre a DSC, consulte [Visão Geral da Desired State Configuration do Windows PowerShell](/powershell/scripting/dsc/overview/overviews)
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -48,7 +48,7 @@ Connect-AzureRmAccount
 
 Para este tutorial, usaremos uma configuração DSC simples que garanta que o IIS seja instalado na VM.
 
-Para obter informações sobre as configurações DSC, consulte [Configurações DSC](/powershell/dsc/configurations).
+Para obter informações sobre as configurações DSC, consulte [Configurações DSC](/powershell/scripting/dsc/configurations/configurations).
 
 Em um editor de texto, digite o seguinte e salve localmente como `TestConfig.ps1`.
 
@@ -65,7 +65,7 @@ configuration TestConfig {
 ```
 
 > [!NOTE]
-> Em cenários mais avançados em que você precisa que vários módulos sejam importados para fornecer recursos de DSC, verifique se cada `Import-DscResource` módulo tem uma linha exclusiva em sua configuração.
+> Em cenários mais avançados em que você precisa que vários módulos sejam importados para fornecer recursos de DSC, certifique-se de que cada módulo tenha uma linha `Import-DscResource` exclusiva em sua configuração.
 
 Chame o cmdlet `Import-AzureRmAutomationDscConfiguration` para carregar a configuração em sua conta de Automação:
 
@@ -77,7 +77,7 @@ Chame o cmdlet `Import-AzureRmAutomationDscConfiguration` para carregar a config
 
 Uma configuração DSC deverá ser compilada em uma configuração de nó para que ela possa ser atribuída a um nó.
 
-Para obter informações de como compilar configurações, consulte [Configurações DSC](/powershell/dsc/configurations).
+Para obter informações de como compilar configurações, consulte [Configurações DSC](/powershell/scripting/dsc/configurations/configurations).
 
 Chame o cmdlet `Start-AzureRmAutomationDscCompilationJob` para compilar a configuração `TestConfig` em uma configuração de nó:
 
@@ -116,7 +116,7 @@ Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -Automati
 
 Para obter mais informações de como definir as propriedades de configuração para um nó gerenciado, consulte [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode).
 
-Para obter mais informações sobre as definições de configuração de DSC, consulte [Configurando o Gerenciador de Configurações Local](/powershell/dsc/metaconfig).
+Para obter mais informações sobre as definições de configuração de DSC, consulte [Configurando o Gerenciador de Configurações Local](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 ## <a name="assign-a-node-configuration-to-a-managed-node"></a>Atribuir uma configuração de nó a um nó gerenciado
 
@@ -132,7 +132,7 @@ Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAcc
 
 Isso atribuirá a configuração de nó denominada `TestConfig.WebServer` ao nó de DSC registrado chamado `DscVm`.
 Por padrão, o nó de DSC é verificado quanto à conformidade com a configuração do nó a cada 30 minutos.
-Para obter informações de como alterar o intervalo de verificação de conformidade, consulte [Configurando System Center Configuration Manager Local](/PowerShell/DSC/metaConfig).
+Para obter informações de como alterar o intervalo de verificação de conformidade, consulte [Configurando System Center Configuration Manager Local](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 ## <a name="working-with-partial-configurations"></a>Trabalhando com configurações parciais
 

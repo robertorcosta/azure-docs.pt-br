@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 78702b52b1a5c490bfd6273c3f4e575c6e3c20fb
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 78a73e687d653998cf4e641c216f383474dcc8bd
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969606"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244445"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Criar uma nova oferta do Dynamics 365 Business central
 
@@ -56,7 +56,7 @@ Liste sua oferta aos clientes com um link para uma avaliação gratuita fornecen
 > [!NOTE]
 > Os tokens que seu aplicativo receberá por meio do link de avaliação só podem ser usados para obter informações do usuário por meio do Azure Active Directory (Azure AD) para automatizar a criação da conta em seu aplicativo. Não há suporte para contas da Microsoft para autenticação usando esse token.
 
-#### <a name="contact-me"></a>Entre em contato
+#### <a name="contact-me"></a>Entrar em contato comigo
 
 Colete informações de contato do cliente conectando seu sistema de gerenciamento de relacionamento com o cliente (CRM). O cliente será solicitado a fornecer permissão para compartilhar suas informações. Esses detalhes do cliente, juntamente com o nome da oferta, a ID e a origem do Marketplace onde encontraram sua oferta, serão enviados para o sistema CRM que você configurou. Para obter mais informações sobre como configurar seu CRM, consulte [Connect Lead Management](#connect-lead-management). 
 
@@ -85,7 +85,7 @@ Selecione uma das seguintes opções:
 
 ## <a name="connect-lead-management"></a>Conectar gerenciamento de leads
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
 Para obter mais informações, consulte [visão geral do gerenciamento de Lead](./commercial-marketplace-get-customer-leads.md).
 
@@ -130,7 +130,7 @@ Você precisará definir detalhes do Marketplace (nome da oferta, descrição, i
 > [!NOTE]
 > A oferta de conteúdo de listagem (como descrição, documentos, capturas de tela, termos de uso etc.) não precisa estar em inglês, desde que a descrição da oferta comece com a frase ", este aplicativo está disponível apenas em [idioma diferente do inglês]". Também é aceitável fornecer uma URL de *Link útil* para oferecer conteúdo em um idioma diferente daquele usado no conteúdo de listagem da oferta.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>NOME
 
 O nome que você digitar aqui será mostrado aos clientes como o título da sua listagem de ofertas. Esse campo é preenchido previamente com o texto inserido para o **alias de oferta** quando você criou a oferta, mas pode alterar esse valor. Esse nome pode ser marcado (e você pode incluir os símbolos de marca registrada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -138,7 +138,7 @@ O nome que você digitar aqui será mostrado aos clientes como o título da sua 
 
 Forneça uma breve descrição da sua oferta (até 100 caracteres), que pode ser usada nos resultados da pesquisa do Marketplace.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIÇÃO
 
 Forneça uma descrição mais longa da sua oferta (até 3.000 caracteres). Essa descrição será exibida aos clientes na visão geral de listagem do Marketplace. Inclua a proposta de valor da sua oferta, os principais benefícios, a categoria e/ou as associações do setor, as oportunidades de compra no aplicativo e as divulgações necessárias. 
 
@@ -191,7 +191,7 @@ Nesta seção, você pode fornecer logotipos e imagens que serão usados ao most
 
 Forneça o logotipo de sua oferta em dois tamanhos: **Pequeno (48 x 48)** e **grande (216 x 216)** .
 
-#### <a name="hero"></a>Herói
+#### <a name="hero"></a>Hero
 
 A imagem do Hero é opcional. Se você fornecer um, ele deve medir 815 x 290 pixels.
 
@@ -199,7 +199,7 @@ A imagem do Hero é opcional. Se você fornecer um, ele deve medir 815 x 290 pix
 
 Adicione capturas de tela que mostram como sua oferta funciona. Pelo menos três capturas de tela são necessárias e você pode adicionar até cinco. Todas as capturas de tela devem ser 1280 x 720 pixels.
 
-#### <a name="videos"></a>Vídeos
+#### <a name="videos"></a>vídeos
 
 Opcionalmente, você pode adicionar até cinco vídeos que demonstram sua oferta. Esses vídeos devem ser hospedados no YouTube e/ou no Vimeo. Para cada um, insira o nome do vídeo, sua URL e uma imagem em miniatura do vídeo (1280 x 720 pixels)
 
@@ -241,7 +241,7 @@ Selecione a opção que se aplica à sua oferta:
 - **Adicionar em**: Um aplicativo complementar estende a experiência e a funcionalidade existente do Dynamics 365 Business central. Para obter mais informações, consulte [aplicativos complementares](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
 - **Conectar**: Um aplicativo Connect pode ser usado no cenário em que deve ser estabelecido uma conexão ponto a ponto entre o Dynamics 365 Business central e um serviço ou solução de terceiros. Para obter mais informações, consulte [conectar](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
 
-### <a name="file-upload"></a>Upload de arquivo
+### <a name="file-upload"></a>Upload de arquivos
 
 Se você selecionou **Adicionar** acima, onde você carregará o arquivo de pacote da sua oferta, juntamente com os arquivos de pacote para qualquer extensão na qual ele tenha dependências.
 

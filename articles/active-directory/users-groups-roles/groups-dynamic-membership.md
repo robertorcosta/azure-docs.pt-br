@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dafc78e49cb0118181bae4522d4cb456509ea2cb
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: bb9b3a4add951079ab918d3ac02ca5e38eff6161
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673417"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241164"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
@@ -43,7 +43,7 @@ Aqui estão alguns exemplos de regras avançadas ou sintaxe para as quais recome
 - Regra com mais de cinco expressões
 - A regra de relatórios diretos
 - Definindo a [precedência de operador](groups-dynamic-membership.md#operator-precedence)
-- [Regras com expressões complexas](groups-dynamic-membership.md#rules-with-complex-expressions); por exemplo`(user.proxyAddresses -any (_ -contains "contoso"))`
+- [Regras com expressões complexas](groups-dynamic-membership.md#rules-with-complex-expressions); por exemplo `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > O construtor de regras pode não ser capaz de exibir algumas regras construídas na caixa de texto. Você poderá ver uma mensagem quando o construtor de regras não puder exibir a regra. O construtor de regras não altera a sintaxe com suporte, a validação nem o processamento de regras de grupo dinâmicas de forma alguma.
@@ -78,7 +78,7 @@ A ordem das partes dentro de uma expressão é importante para evitar erros de s
 
 Há três tipos de propriedades que podem ser usadas para construir uma regra de associação.
 
-- Booliano
+- Boolean
 - String
 - Coleção de Cadeias de Caracteres
 
@@ -138,11 +138,11 @@ A tabela a seguir lista os operadores com suporte e sua sintaxe para uma única 
 | Operator | Sintaxe |
 | --- | --- |
 | Não é igual a |-ne |
-| Igual |-eq |
+| É igual a |-eq |
 | Não começa com |-notStartsWith |
 | Começa com |-startsWith |
 | Não contém |-notContains |
-| Contém |-contains |
+| Contém: |-contains |
 | Não corresponde |-notMatch |
 | Corresponde |-match |
 | No | -in |
@@ -342,7 +342,7 @@ Atributos de extensão e propriedades de extensão personalizadas têm suporte c
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-Propriedades de extensão personalizadas são sincronizadas do local AD do Windows Server ou de um aplicativo SaaS conectado e estão no formato de `user.extension_[GUID]__[Attribute]`, onde:
+Propriedades de extensão personalizadas são sincronizadas do local AD do Windows Server ou de um aplicativo SaaS conectado e estão no formato de `user.extension_[GUID]_[Attribute]`, onde:
 
 * [GUID] é o identificador exclusivo no Microsoft Azure Active Directory para o aplicativo que criou a propriedade do Microsoft Azure Active Directory
 * [Atributo] é o nome da propriedade como ele foi criado
@@ -350,7 +350,7 @@ Propriedades de extensão personalizadas são sincronizadas do local AD do Windo
 Um exemplo de uma regra que usa um atributo personalizado:
 
 ```
-user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
+user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
 
 O nome da propriedade personalizada pode ser encontrado no diretório por meio da consulta do atributo de um usuário, usando o Graph Explorer e procurando o nome do atributo. Ainda, agora você pode selecionar o link **Obter propriedades de extensão personalizadas** no construtor de regra dinâmico de grupo dos usuários para inserir uma ID do aplicativo exclusiva e receber a lista completa das propriedades de extensão personalizadas para usar ao criar uma regra de associação dinâmica. Essa lista também pode ser atualizada para obter as novas propriedades de extensão personalizadas do aplicativo.

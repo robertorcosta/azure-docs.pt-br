@@ -1,7 +1,7 @@
 ---
-title: Enviar um fluxo de trabalho usando assinaturas de acesso compartilhado - Microsoft Genomics
-titleSuffix: Azure
-description: O artigo pressupõe que você tem o cliente msgen instalado e executou com êxito os dados de exemplo por meio do serviço.
+title: Fluxo de trabalho usando assinaturas de acesso compartilhado
+titleSuffix: Microsoft Genomics
+description: Este artigo demonstra como enviar um fluxo de trabalho para o serviço de Microsoft Genomics usando assinaturas de acesso compartilhado (SAS) em vez de chaves de conta de armazenamento.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,18 +9,18 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: 833067f53f53f347ce091a64702d44a78cde836f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657109"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248578"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Enviar um fluxo de trabalho para o Microsoft Genomics usando SAS em vez de uma chave de conta de armazenamento 
 
-Este artigo demonstra como enviar um fluxo de trabalho para o serviço Microsoft Genomics usando um arquivo txt que contenha [(SAS) de assinaturas de acesso compartilhado](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) em vez de chaves da conta de armazenamento. Esse recurso pode ser útil em caso de problemas de segurança quanto a ter a chave da conta de armazenamento visível no arquivo txt. 
+Este artigo demonstra como enviar um fluxo de trabalho para o serviço de Microsoft Genomics usando um arquivo config. txt que contém [assinaturas de acesso compartilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) em vez de chaves de conta de armazenamento. Esse recurso pode ser útil em caso de problemas de segurança quanto a ter a chave da conta de armazenamento visível no arquivo txt. 
 
-Este artigo pressupõe que você já instalou e executou o cliente `msgen` e está familiarizado sobre como usar o Armazenamento do Azure. Se você enviou um fluxo de trabalho usando os dados de exemplo fornecidos com êxito, você está pronto para prosseguir com este artigo. 
+Este artigo pressupõe que você já instalou e executou o cliente `msgen` e está familiarizado sobre como usar o Armazenamento do Azure. Se você enviou com êxito um fluxo de trabalho usando os dados de exemplo fornecidos, você está pronto para continuar com este artigo. 
 
 ## <a name="what-is-a-sas"></a>O que é uma SAS?
 Uma [SAS (Assinatura de Acesso Compartilhado)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) fornece acesso delegado aos recursos da sua conta de armazenamento. Com uma SAS, você pode conceder acesso aos recursos em sua conta de armazenamento sem compartilhar as chaves de conta. Este é o ponto principal do uso de assinaturas de acesso compartilhado em seus aplicativos: uma SAS é uma maneira segura de compartilhar seus recursos de armazenamento sem comprometer as chaves da conta.
@@ -33,14 +33,14 @@ O URI para um token SAS (assinatura de acesso compartilhado) de nível de servi�
 Dois ou mais tokens SAS são necessários para cada fluxo de trabalho enviado para o serviço Microsoft Genomics, um para cada arquivo de entrada e um para o contêiner de saída.
 
 A SAS para os arquivos de entrada deve ter as seguintes propriedades:
-1.  Escopo (conta, contêiner, blob): blob
-2.  Término: 48 horas a partir de agora
-3.  Permissões: leitura
+ - Escopo (conta, contêiner, blob): blob
+ - Término: 48 horas a partir de agora
+ - Permissões: leitura
 
 A SAS para o contêiner de saída deve ter as seguintes propriedades:
-1.  Escopo (conta, contêiner, blob): contêiner
-2.  Término: 48 horas a partir de agora
-3.  Permissões: leitura, gravação, exclusão
+ - Escopo (conta, contêiner, blob): contêiner
+ - Término: 48 horas a partir de agora
+ - Permissões: leitura, gravação, exclusão
 
 
 ## <a name="create-a-sas-for-the-input-files-and-the-output-container"></a>Criar uma SAS para os arquivos de entrada e o contêiner de saída
@@ -56,7 +56,7 @@ A SAS para os arquivos de entrada deve ser delimitada para o arquivo de entrada 
  ![Gerenciador de Armazenamento SAS do Genomics](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Gerenciador de Armazenamento SAS do Genomics")
 
 
-### <a name="set-up-create-a-sas-programmatically"></a>Configurar: Criar uma SAS programaticamente
+### <a name="set-up-create-a-sas-programmatically"></a>Configurar: Criar uma SAS de forma programática
 
 Para criar uma SAS usando o SDK do Armazenamento do Azure, confira a documentação existente em várias linguagens, incluindo [.NET](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) e [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 

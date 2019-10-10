@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 352833b12c00abbefcf7016d27dfb580ee25e450
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: dce359d1567ee763cd988e778b1e0e44475388cc
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409226"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255360"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o Avere vFXT
 
@@ -30,16 +30,16 @@ Para criar uma nova assinatura do Azure no portal do Azure:
 
 ## <a name="configure-subscription-owner-permissions"></a>Configure as permissões do proprietário da assinatura
 
-Um usuário com permissões de proprietário para a assinatura deve criar o cluster do vFXT. Permissões de proprietário de assinatura são necessárias para aceitar os termos de software do serviço e executar outras ações. 
+Um usuário com permissões de proprietário para a assinatura deve criar o cluster do vFXT. As permissões de proprietário da assinatura são necessárias para aceitar os termos de serviço do software e executar outras ações. 
 
-Existem alguns cenários de solução alternativa que permitem que um não proprietário criar um vFTX Avere para cluster do Azure. Esses cenários envolvem restringindo os recursos e atribuir funções adicionais para o criador. Em ambos os casos, um proprietário de assinatura deve também [aceitar os termos de software Avere vFXT](#accept-software-terms) antecipadamente. 
+Há alguns cenários de solução alternativa que permitem que um não proprietário crie um avere vFTX para o cluster do Azure. Esses cenários envolvem a restrição de recursos e a atribuição de funções adicionais ao criador. Em ambos os casos, um proprietário de assinatura também deve [aceitar os termos de software avere vFXT](#accept-software-terms) antes do tempo. 
 
-| Cenário | Restrições | Funções de acesso necessárias para criar o cluster de vFXT Avere | 
+| Cenário | Restrições | Funções de acesso necessárias para criar o cluster avere vFXT | 
 |----------|--------|-------|
-| Administrador de grupo de recursos | A rede virtual, o controlador de cluster e nós de cluster devem ser criados no grupo de recursos | [Administrador de acesso do usuário](../role-based-access-control/built-in-roles.md#user-access-administrator) e [Colaborador](../role-based-access-control/built-in-roles.md#contributor) funções, tanto no escopo para o grupo de recursos de destino | 
-| Rede virtual externa | O controlador de cluster e nós de cluster são criados no grupo de recursos, mas uma rede virtual existente em um grupo de recursos diferente é usada | (1) [administrador de acesso de usuário](../role-based-access-control/built-in-roles.md#user-access-administrator) e [Colaborador](../role-based-access-control/built-in-roles.md#contributor) funções com escopo para o grupo de recursos vFXT; e (2) [colaborador da máquina Virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [acesso do usuário Administrador](../role-based-access-control/built-in-roles.md#user-access-administrator), e [Avere Colaborador](../role-based-access-control/built-in-roles.md#avere-contributor) funções com escopo para o grupo de recursos de rede virtual. |
+| Administrador do grupo de recursos | A rede virtual, o controlador de cluster e os nós de cluster devem ser criados dentro do grupo de recursos | Funções de administrador e [colaborador](../role-based-access-control/built-in-roles.md#contributor) de [acesso do usuário](../role-based-access-control/built-in-roles.md#user-access-administrator) , ambas com escopo para o grupo de recursos de destino | 
+| Vnet externa | O controlador de cluster e os nós de cluster são criados dentro do grupo de recursos, mas uma rede virtual existente em um grupo de recursos diferente é usada | (1) funções de administrador e [colaborador](../role-based-access-control/built-in-roles.md#contributor) de [acesso de usuário](../role-based-access-control/built-in-roles.md#user-access-administrator) com escopo para o grupo de recursos vFXT; e (2) [colaborador de máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [administrador de acesso de usuário](../role-based-access-control/built-in-roles.md#user-access-administrator)e funções de [colaborador avere](../role-based-access-control/built-in-roles.md#avere-contributor) com escopo para o grupo de recursos de VNET. |
  
-Uma alternativa é criar uma função RBAC (controle) de acesso baseado em função personalizada antecipadamente e atribuir privilégios para o usuário, conforme explicado em [deste artigo](avere-vfxt-non-owner.md). Esse método fornece permissões significativas para esses usuários. 
+Uma alternativa é criar uma função de RBAC (controle de acesso baseado em função) personalizada antecipadamente e atribuir privilégios ao usuário, conforme explicado neste [artigo](avere-vfxt-non-owner.md). Esse método fornece permissões significativas para esses usuários. 
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Cota para o cluster vFXT
 
@@ -79,20 +79,20 @@ Para aceitar os termos de software de antemão:
 
 ## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>Criar um ponto de extremidade de serviço de armazenamento em sua rede virtual (se necessário)
 
-Um [ponto de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) mantém o tráfego de BLOBs do Azure local em vez de roteá-la fora da rede virtual. É recomendável para qualquer vFXT Avere para cluster do Azure que usa BLOBs do Azure para armazenamento de dados back-end. 
+Um [ponto de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) mantém o tráfego de BLOBs do Azure local, em vez de roteá-lo fora da rede virtual. É recomendável para qualquer vFXT avere para o cluster do Azure que usa o blob do Azure para armazenamento de dados de back-end. 
 
-Se você estiver fornecendo uma rede virtual existente e criar um novo contêiner de BLOBs do Azure para seu armazenamento de back-end como parte da criação do cluster, você deve ter um ponto de extremidade de serviço na rede virtual para o armazenamento do Microsoft. Esse ponto de extremidade deve existir antes da criação do cluster, ou a criação falhará. 
+Se você estiver fornecendo uma vnet existente e criando um novo contêiner de blob do Azure para o armazenamento de back-end como parte da criação do cluster, você deverá ter um ponto de extremidade de serviço na vnet para o armazenamento da Microsoft. Esse ponto de extremidade deve existir antes da criação do cluster ou a criação falhará. 
 
-Um ponto de extremidade de serviço de armazenamento é recomendado para qualquer vFXT Avere para cluster do Azure que usa o armazenamento de BLOBs do Azure, mesmo se você adicionar o armazenamento mais tarde. 
+Um ponto de extremidade de serviço de armazenamento é recomendado para qualquer vFXT avere para o cluster do Azure que usa o armazenamento de BLOBs do Azure, mesmo que você adicione o armazenamento posteriormente. 
 
 > [!TIP] 
 > * Ignore esta etapa se você estiver criando uma nova rede virtual como parte da criação do cluster. 
-> * Esta etapa é opcional se você não estiver criando o armazenamento de BLOBs durante a criação do cluster. Nesse caso, você pode criar o ponto de extremidade de serviço posteriormente se você decidir usar BLOBs do Azure.
+> * Essa etapa será opcional se você não estiver criando o armazenamento de blob durante a criação do cluster. Nesse caso, você poderá criar o ponto de extremidade de serviço posteriormente se decidir usar o blob do Azure.
 
-Crie o ponto de extremidade de serviço de armazenamento do portal do Azure. 
+Crie o ponto de extremidade do serviço de armazenamento no portal do Azure. 
 
 1. No portal, clique em **Redes virtuais** à esquerda.
-1. Selecione a rede virtual para seu cluster. 
+1. Selecione a vnet para o cluster. 
 1. Clique em **Pontos de extremidade de serviço** à esquerda.
 1. Clique em **Adicionar** na parte superior.
 1. Deixe o serviço como ``Microsoft.Storage`` e escolha a sub-rede do cluster.
