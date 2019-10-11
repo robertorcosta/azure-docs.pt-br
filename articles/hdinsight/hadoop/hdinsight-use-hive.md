@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 06/06/2019
-ms.openlocfilehash: ea8f14a7013a937ddd77baf0f50b8dca09cabad6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 10/04/2019
+ms.openlocfilehash: aa3e3b63bdfda7aa6d875055dee4c69b9840db25
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076321"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167361"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Saiba mais sobre o Apache Hive e o HiveQL no Azure HDInsight?
 
@@ -45,10 +45,9 @@ Use a tabela a seguir para descobrir diferentes formas de usar o Hive com HDInsi
 | [API REST](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X ou Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
-
 ## <a name="hiveql-language-reference"></a>Referência da linguagem HiveQL
 
-Referência da linguagem HiveQL está disponível na [manual de linguagem](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+A referência de linguagem HiveQL está disponível no [manual de idioma](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
 
 ## <a name="hive-and-data-structure"></a>Hive e estrutura de dados
 
@@ -91,7 +90,7 @@ Há dois tipos de tabelas que você pode criar com o Hive:
     * Você precisa de um local personalizado, como uma conta de armazenamento não padrão.
     * Um programa que não seja o hive gerencia o formato de dados, local etc.
 
-Para obter mais informações, consulte o [Hive internos e externos de Introdução às tabelas](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/) postagem de blog.
+Para obter mais informações, consulte a postagem do blog [introdução às tabelas internas e externas do hive](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/) .
 
 ## <a name="user-defined-functions-udf"></a>UDF (Funções definidas pelo usuário)
 
@@ -127,13 +126,12 @@ CREATE EXTERNAL TABLE log4jLogs (
     t7 string)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
-SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
-    WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
+    WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log'
     GROUP BY t4;
 ```
 
 No exemplo anterior, as instruções HiveQL executam as seguintes ações:
-
 
 * `DROP TABLE`: Se a tabela já existir, exclua-a.
 
@@ -141,7 +139,7 @@ No exemplo anterior, as instruções HiveQL executam as seguintes ações:
 
 * `ROW FORMAT`: Informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
 
-* `STORED AS TEXTFILE LOCATION`: Informa ao Hive o local em que os dados são armazenados (o diretório `example/data`) e se são armazenados como texto. Os dados podem estar em um arquivo ou distribuídos em vários arquivos dentro do diretório.
+* `STORED AS TEXTFILE LOCATION`: Informa ao hive onde os dados são armazenados (o diretório `example/data`) e que são armazenados como texto. Os dados podem estar em um arquivo ou distribuídos em vários arquivos dentro do diretório.
 
 * `SELECT`: Seleciona uma contagem de todas as linhas nas quais a coluna **t4** contém o valor **[ERROR]** . Essa instrução retorna um valor de **3**, já que há três linhas que contêm esse valor.
 
@@ -171,7 +169,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 Essas instruções executam as seguintes ações:
 
-* `CREATE TABLE IF NOT EXISTS`: Se a tabela não existir, crie uma. Uma vez que a palavra-chave **EXTERNA** não é usada, essa instrução cria uma tabela interna. Uma tabela interna é armazenada no data warehouse do Hive e é totalmente gerenciada pelo Hive.
+* `CREATE TABLE IF NOT EXISTS`: Se a tabela não existir, crie uma. Como a palavra-chave **external** não é usada, essa instrução cria uma tabela interna. Uma tabela interna é armazenada no data warehouse do Hive e é totalmente gerenciada pelo Hive.
 
 * `STORED AS ORC`: Armazena os dados no formato OCR (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
 
@@ -184,7 +182,7 @@ Essas instruções executam as seguintes ações:
 
 ### <a id="usetez"></a>Apache Tez
 
-[Apache Tez](https://tez.apache.org) é uma estrutura que permite que aplicativos com uso intenso de dados como o Hive executem de maneira muito mais eficiente em escala. O Tez está habilitado por padrão.  Os [documentos de design do Apache Hive no Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contêm vários detalhes das escolhas de implantação e configurações de ajuste.
+[Apache Tez](https://tez.apache.org) é uma estrutura que permite que aplicativos com uso intenso de dados como o Hive executem de maneira muito mais eficiente em escala. O tez é habilitado por padrão.  Os [documentos de design do Apache Hive no Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contêm vários detalhes das escolhas de implantação e configurações de ajuste.
 
 ### <a name="low-latency-analytical-processing-llap"></a>Processamento analítico de baixa latência (LLAP)
 
@@ -204,11 +202,11 @@ O Azure Data Factory permite que você use o HDInsight como parte de um pipeline
 
 Também é possível usar o SSIS (SQL Server Integration Services) para executar um trabalho do Hive. O Feature Pack do Azure para SSIS fornece os seguintes componentes que funcionam com trabalhos do Hive no HDInsight.
 
-* [Tarefa do Hive do HDInsight do Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
+* [Tarefa do hive do Azure HDInsight](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Gerenciador de Conexão de assinatura do Azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
+* [Gerenciador de conexões de assinatura do Azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-Para obter mais informações, consulte o [Feature Pack do Azure](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis) documentação.
+Para obter mais informações, consulte a documentação do [Azure Feature Pack](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis) .
 
 ### <a name="apache-oozie"></a>Apache Oozie
 
