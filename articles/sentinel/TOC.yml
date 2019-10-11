@@ -46,6 +46,8 @@
               href: connect-azure-ad-identity-protection.md
             - name: Conectar Proteção de Informações do Azure
               href: connect-azure-information-protection.md
+            - name: Conectar o Microsoft Defender ATP
+              href: connect-microsoft-defender-advanced-threat-protection.md
             - name: Conectar ATP do Azure
               href: connect-azure-atp.md
             - name: Conectar Central de Segurança do Azure

@@ -8,10 +8,10 @@ metadata:
   author: ekpgh
   ms.service: avere-vfxt
   ms.topic: landing-page
-  ms.date: 10/31/2018
-  ms.author: v-erkell
+  ms.date: 10/09/2019
+  ms.author: rohogue
 abstract:
-  description: 'O Avere vFXT para Azure fornece uma camada de cache baseada em nuvem para as tarefas de computação de alto desempenho (HPC) de dados intensos. Armazenando em cache arquivos próximos de seus nós de computação, o Avere vFXT agiliza os tempos de leitura e permite que você trabalhe com mais facilidade, até mesmo em picos de carga. O Avere vFXT funciona melhor com sistemas que têm entre 1.000 e 40.000 núcleos do cliente. <p>O Avere vFXT pode trabalhar com seu armazenamento de dados local existente para fornecer um acesso local dos recursos de computação baseados no Azure aos arquivos ativos armazenados por longo prazo em seu datacenter.'
+  description: 'O Avere vFXT para Azure fornece uma camada de cache baseada em nuvem para as tarefas de HPC (computação de alto desempenho) de dados intensos. Armazenando em cache arquivos próximos de seus nós de computação, o Avere vFXT agiliza os tempos de leitura e permite que você trabalhe com mais facilidade, até mesmo em picos de carga. O Avere vFXT funciona melhor com sistemas que têm entre 1.000 e 40.000 núcleos do cliente. <p>O Avere vFXT trabalha com seu armazenamento de dados existente para aproximar os arquivos de recursos de computação baseados no Azure. No longo prazo, os arquivos ativos ainda são armazenados no data center.'
 sections:
   - title: Introdução ao Avere vFXT para Azure
     items:

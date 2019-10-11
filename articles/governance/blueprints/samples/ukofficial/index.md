@@ -1,18 +1,18 @@
 ---
-title: Amostras – Blueprints do UK OFFICIAL e do UK NHS – Visão geral
-description: Visão geral e arquitetura das amostras dos blueprints do UK OFFICIAL e do UK NHS.
+title: Exemplo – Blueprint do UK OFFICIAL e do UK NHS – Visão Geral
+description: Visão geral e arquitetura das amostras dos blueprints do UK OFFICIAL e do UK NHS. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 96e0a8e6d1a028cece6b8cc36a079062a02320eb
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 2478dce573fac52d948e6e180d9716beda34b44b
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980734"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248777"
 ---
 # <a name="overview-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Visão geral das amostras dos blueprints do UK OFFICIAL e do UK NHS
 

@@ -1,17 +1,17 @@
 ---
-title: Amostras – blueprint NIST SP 800-53 R4 – Visão geral
-description: Visão geral da amostra de blueprint NIST SP 800-53 R4.
+title: Exemplo – blueprint NIST SP 800-53 R4 – Visão Geral
+description: Visão geral da amostra de blueprint NIST SP 800-53 R4. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos NIST SP 800-53 R4.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 09249b7f8acb171eb63cdc88b647ebf2048c7358
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 6edec05d157df35fb4096e41059b12e36cefd3da
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980943"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248372"
 ---
 # <a name="overview-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Visão geral da amostra de blueprint NIST SP 800-53 R4
 

@@ -1,17 +1,17 @@
 ---
 title: Amostra – Blueprint do PBMM Federal do Canadá – visão geral
-description: Visão geral da amostra de blueprint do PBMM Federal do Canadá.
+description: Visão geral da amostra de blueprint do PBMM Federal do Canadá. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos PBMM Federais do Canadá.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 16d4f618aadd1e2157cdf06ca292f069f415d1b6
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 3c2e579d546cbbf3f0e6ca4183d0d150a31a3ed4
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981621"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248479"
 ---
 # <a name="overview-of-the-canada-federal-pbmm-blueprint-sample"></a>Visão geral da amostra de blueprint do PBMM Federal do Canadá
 
