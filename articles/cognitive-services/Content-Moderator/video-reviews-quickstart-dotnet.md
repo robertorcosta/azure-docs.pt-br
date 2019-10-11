@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6ec258bc52513772716fa8fe1078653575c923f3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5a0d462f08e88ae4d26e1c684cfaf772910d2220
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882019"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242845"
 ---
 # <a name="create-video-reviews-using-net"></a>Criar análises de vídeo usando .NET
 
@@ -86,8 +86,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 ```
 
@@ -166,7 +165,7 @@ Crie uma análise de vídeo com **ContentModeratorClient.Reviews.CreateVideoRevi
 **CreateVideoReviews** tem os seguintes parâmetros necessários:
 1. Uma cadeia de caracteres que contém um tipo MIME, que deve ser "application/json". 
 1. O nome da sua equipe do Content Moderator.
-1. Um **objeto\<> IList CreateVideoReviewsBodyItem** . Cada objeto **CreateVideoReviewsBodyItem** representa uma análise de vídeo. Este guia de início rápido cria uma análise de cada vez.
+1. Um objeto de **> IList @ no__t-1CreateVideoReviewsBodyItem** . Cada objeto **CreateVideoReviewsBodyItem** representa uma análise de vídeo. Este guia de início rápido cria uma análise de cada vez.
 
 **CreateVideoReviewsBodyItem** tem várias propriedades. Defina, no mínimo, as propriedades a seguir:
 - **Content**. A URL do vídeo a ser analisado.
@@ -174,7 +173,7 @@ Crie uma análise de vídeo com **ContentModeratorClient.Reviews.CreateVideoRevi
 - **Status**. Defina o valor como "Não publicado." Se você não defini-lo, o padrão será "Pendente", o que significa que a análise de vídeo será publicada e a análise humana ficará como pendente. Após uma análise de vídeo ser publicada, você já não poderá adicionar quadros de vídeo, uma transcrição ou um resultado de moderação da transcrição a ela.
 
 > [!NOTE]
-> **CreateVideoReviews** retorna uma cadeia\<de caracteres IList >. Cada uma dessas cadeias de caracteres contém uma ID de uma análise de vídeo. Esses IDs são GUIDs e não são iguais ao valor da propriedade **ContentId**. 
+> **CreateVideoReviews** retorna um > IList @ no__t-1string. Cada uma dessas cadeias de caracteres contém uma ID de uma análise de vídeo. Esses IDs são GUIDs e não são iguais ao valor da propriedade **ContentId**. 
 
 Adicione a seguinte definição de método ao namespace VideoReviews, classe Programa.
 
@@ -224,18 +223,18 @@ Você pode adicionar quadros de vídeo a uma análise de vídeo com **ContentMod
 1. Uma cadeia de caracteres que contém um tipo MIME, que deve ser "application/json".
 1. O nome da sua equipe do Content Moderator.
 1. A ID da análise de vídeo retornada por **CreateVideoReviews**.
-1. Um **objeto\<> IList VideoFrameBodyItem** . Cada objeto **VideoFrameBodyItem** representa um quadro de vídeo.
+1. Um objeto de **> IList @ no__t-1VideoFrameBodyItem** . Cada objeto **VideoFrameBodyItem** representa um quadro de vídeo.
 
 **VideoFrameBodyItem** tem as propriedades a seguir:
 - **Timestamp**. Uma cadeia de caracteres que contém, em segundos, o tempo do vídeo do qual foi feito o quadro de vídeo.
 - **FrameImage**. A URL do quadro de vídeo.
-- **Metadados**. > IList\<VideoFrameBodyItemMetadataItem. **VideoFrameBodyItemMetadataItem** é simplesmente um par chave/valor. Chaves válidas incluem:
+- **Metadados**. Um > IList @ no__t-0VideoFrameBodyItemMetadataItem. **VideoFrameBodyItemMetadataItem** é simplesmente um par chave/valor. Chaves válidas incluem:
 - **reviewRecommended**. True se uma revisão humana do quadro de vídeo é recomendada.
 - **adultScore**. Um valor de 0 a 1 que classifica a severidade do conteúdo somente para adultos no quadro de vídeo.
 - **a**. True se o vídeo contém conteúdo adulto.
 - **racyScore**. Um valor de 0 a 1 que classifica a severidade do conteúdo obsceno no quadro de vídeo.
 - **r**. True se o quadro de vídeo contém conteúdo obsceno.
-- **ReviewerResultTags**. > IList\<VideoFrameBodyItemReviewerResultTagsItem. **VideoFrameBodyItemReviewerResultTagsItem** é simplesmente um par chave/valor. Um aplicativo pode usar essas marcas para organizar os quadros de vídeo.
+- **ReviewerResultTags**. Um > IList @ no__t-0VideoFrameBodyItemReviewerResultTagsItem. **VideoFrameBodyItemReviewerResultTagsItem** é simplesmente um par chave/valor. Um aplicativo pode usar essas marcas para organizar os quadros de vídeo.
 
 > [!NOTE]
 > Este guia de início rápido gera valores aleatórios para as propriedades **adultScore** e **racyScore**. Em um aplicativo de produção, você poderia obter esses valores do [serviço de moderação de vídeo](video-moderation-api.md), implantado como um Serviço de Mídia do Azure.
