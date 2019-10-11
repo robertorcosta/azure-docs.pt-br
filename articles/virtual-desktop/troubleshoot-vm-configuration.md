@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 4c684a2db02b7587b6d81eaf2f034540250fc001
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 167d880f82314fc3b5ade299442f04d62b5dacb9
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841288"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274499"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do host da sessão
 
@@ -80,7 +80,7 @@ A maneira recomendada para provisionar VMs é usar a Azure Resource Manager **cr
 
 Siga estas instruções para confirmar se os componentes estão instalados e para verificar se há mensagens de erro.
 
-1. Confirme se os dois componentes estão instalados marcando em **painel** > de controle**programas** > programas**e recursos**. Se o **agente de área de trabalho virtual do Windows** e o carregador de inicialização do **Windows Virtual Desktop Agent** não estiverem visíveis, eles não serão instalados na VM.
+1. Confirme se os dois componentes estão instalados, fazendo check-in no **painel de controle** > **programas** > **programas e recursos**. Se o **agente de área de trabalho virtual do Windows** e o carregador de inicialização do **Windows Virtual Desktop Agent** não estiverem visíveis, eles não serão instalados na VM.
 2. Abra o **Explorador de arquivos** e navegue até **C:\Windows\Temp\scriptlogs.log**. Se o arquivo estiver ausente, isso indica que a DSC do PowerShell que instalou os dois componentes não pôde ser executada no contexto de segurança fornecido.
 3. Se o arquivo **C:\Windows\Temp\scriptlogs.log** estiver presente, abra-o e verifique se há mensagens de erro.
 
@@ -233,7 +233,7 @@ A VM usada para executar a correção deve estar na mesma sub-rede e domínio qu
 Siga estas instruções para executar a correção da mesma sub-rede e domínio:
 
 1. Conecte-se com o protocolo RDP padrão (RDP) à VM de onde a correção será aplicada.
-2. Baixe o PsExec https://docs.microsoft.com/sysinternals/downloads/psexec de.
+2. Baixe o PsExec do https://docs.microsoft.com/sysinternals/downloads/psexec.
 3. Descompacte o arquivo baixado.
 4. Inicie o prompt de comando como administrador local.
 5. Navegue até a pasta em que o PsExec foi descompactado.
@@ -296,13 +296,13 @@ Se o seu sistema operacional for o Microsoft Windows 10, continue com as instru�
 
 16. Quando os cmdlets forem concluídos em execução, reinicie a VM com a pilha lado a lado com problemas.
 
-## <a name="remote-licensing-model-isnt-configured"></a>O modelo de licenciamento remoto não está configurado
+## <a name="remote-desktop-licensing-mode-isnt-configured"></a>O modo de licenciamento Área de Trabalho Remota não está configurado
 
 Se você entrar no Windows 10 Enterprise Multi-Session usando uma conta administrativa, poderá receber uma notificação dizendo que "o modo de licenciamento Área de Trabalho Remota não está configurado, Serviços de Área de Trabalho Remota deixará de funcionar em X dias. No servidor do agente de conexão, use Gerenciador do Servidor para especificar o modo de licenciamento de Área de Trabalho Remota ".
 
 Se o limite de tempo expirar, será exibida uma mensagem de erro dizendo "a sessão remota foi desconectada porque não há licenças de acesso de cliente Área de Trabalho Remota disponíveis para este computador".
 
-Se você vir uma dessas mensagens, isso significa que precisará abrir o editor de Política de Grupo e configurar manualmente o modo de licenciamento para **por usuário**. O processo de configuração manual é diferente dependendo da versão do Windows 10 Enterprise Multi-Session que você está usando. As seções a seguir explicam como verificar o número de versão e o que fazer para cada um.
+Se você vir uma dessas mensagens, isso significa que a imagem não tem as atualizações mais recentes do Windows instaladas ou que você está definindo o modo de licenciamento de Área de Trabalho Remota como **por usuário**. Remova qualquer configuração que esteja definindo essa política e siga as etapas para identificar a versão do Windows 10 Enterprise Multi-Session e instalar a atualização correspondente.  
 
 >[!NOTE]
 >A área de trabalho virtual do Windows requer uma CAL (licença de acesso para cliente) do RDS quando o pool de hosts contém hosts de sessão do Windows Server. Para saber como configurar um RDS CAL, confira [licenciar sua implantação de RDS com licenças de acesso para cliente](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
@@ -322,59 +322,20 @@ Agora que você conhece o número de versão, pule para a seção relevante.
 
 ### <a name="version-1809"></a>Versão 1809
 
-Se o seu número de versão diz "1809", você pode atualizar para o Windows 10 Enterprise Multi-Session, versão 1903 ou reimplantar o pool de hosts com a imagem mais recente.
-
-Para atualizar para o Windows 10, versão 1903:
-
-1. Se você ainda não fez isso, baixe e instale o [Windows 10 de maio de 2019 atualização](https://support.microsoft.com/help/4028685/windows-10-get-the-update).
-2. Entre em seu computador com sua conta de administrador.
-3. Execute **gpedit. msc** para abrir o editor de política de grupo.
-4. Em configuração do computador, vá **para modelos administrativos** > **componentes** > do Windows**serviços de área de trabalho remota** > licenciamento**host da sessão da área de trabalho remota** > .
-5. Selecione **definir o modo de licenciamento área de trabalho remota**.
-6. Na janela que é aberta, primeiro selecione **habilitada**e, em opções, especifique o modo de licenciamento para o servidor de host da Sessão RD de acordo com o **usuário**, conforme mostrado na imagem a seguir.
-    
-    ![Uma captura de tela da janela "definir o modo de licenciamento Área de Trabalho Remota" configurada de acordo com as instruções na etapa 6.](media/group-policy-editor-per-user.png)
-
-7. Escolha **Aplicar**.
-8. Selecione **OK**.
-9.  Reinicie seu computador.
-
-Para reimplantar o pool de hosts com a imagem mais recente:
-
-1. Siga as instruções em [criar um pool de hosts usando o Azure Marketplace](create-host-pools-azure-marketplace.md) até que você seja solicitado a escolher uma versão do so da imagem. Você pode escolher o Windows 10 Enterprise Multi-Session com ou sem o Office365 ProPlus.
-2. Entre em seu computador com sua conta de administrador.
-3. Execute **gpedit. msc** para abrir o editor de política de grupo.
-4. Em configuração do computador, vá **para modelos administrativos** > **componentes** > do Windows**serviços de área de trabalho remota** > licenciamento**host da sessão da área de trabalho remota** > .
-5. Selecione **definir o modo de licenciamento área de trabalho remota**.
-6. Na janela que é aberta, primeiro selecione **habilitada**e, em opções, especifique o modo de licenciamento para o servidor de host da Sessão RD de acordo com o **usuário**.
-7. Escolha **Aplicar**.
-8. Selecione **OK**.
-9.  Reinicie seu computador.
+Se o seu número de versão diz "1809", instale [a atualização do KB4516077](https://support.microsoft.com/help/4516077).
 
 ### <a name="version-1903"></a>Versão 1903
 
-Se o seu número de versão diz "1903", siga estas instruções:
-
-1. Entre em seu computador com sua conta de administrador.
-2. Execute **gpedit. msc** para abrir o editor de política de grupo.
-3. Em configuração do computador, vá **para modelos administrativos** > **componentes** > do Windows**serviços de área de trabalho remota** > licenciamento**host da sessão da área de trabalho remota** > .
-4. Selecione **definir o modo de licenciamento área de trabalho remota**.
-6. Na janela que é aberta, primeiro selecione **habilitada**e, em opções, especifique o modo de licenciamento para o servidor de host da Sessão RD de acordo com o **usuário**, conforme mostrado na imagem a seguir.
-    
-    ![Uma captura de tela da janela "definir o modo de licenciamento Área de Trabalho Remota" configurada de acordo com as instruções na etapa 6.](media/group-policy-editor-per-user.png)
-
-7. Escolha **Aplicar**.
-8. Selecione **OK**.
-9.  Reinicie seu computador.
+Se o seu número de versão diz "1903", instale [a atualização do KB4517211](https://support.microsoft.com/help/4517211).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
-- Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool](troubleshoot-set-up-issues.md)de hosts.
+- Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool de hosts](troubleshoot-set-up-issues.md).
 - Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).
 - Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [área de trabalho remota conexões de cliente](troubleshoot-client-connection.md).
 - Para solucionar problemas ao usar o PowerShell com a área de trabalho virtual do Windows, consulte [PowerShell da área de trabalho virtual do Windows](troubleshoot-powershell.md).
 - Para saber mais sobre o serviço, consulte [ambiente de área de trabalho virtual do Windows](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Para percorrer um tutorial de solução de problemas, confira [Tutorial: Solucionar problemas de implantações](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)de modelo do Resource Manager.
+- Para percorrer um tutorial de solução de problemas, confira [Tutorial: Solucionar problemas de implantações de modelo do Resource Manager @ no__t-0.
 - Para saber sobre as ações de auditoria, consulte [Auditar operações com o Gerenciador de Recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - Para saber sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

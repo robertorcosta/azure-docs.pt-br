@@ -9,26 +9,26 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: ddaff590fd493b430a72c30dd35cb1b891b80d84
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 647cb0573922bb53232dbce3f3a7a2557553d47d
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205344"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263900"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Executar trabalhos do Apache Spark no AKS
 
-O [Apache Spark][apache-spark] é um mecanismo rápido para processamento de dados em grande escala. A partir do [Spark versão 2.3.0][spark-latest-release], o Apache Spark fornece suporte para integração nativa com clusters de Kubernetes. O AKS (Serviço de Kubernetes do Azure) é um ambiente Kubernetes gerenciado em execução no Azure. Este documento detalha a preparação e execução de trabalhos do Apache Spark em um cluster do AKS (Serviço de Kubernetes do Azure).
+[Apache Spark][apache-spark] é um mecanismo rápido para processamento de dados em larga escala. A partir da [versão 2.3.0 do Spark][spark-latest-release], o Apache Spark dá suporte à integração nativa com clusters kubernetes. O AKS (Serviço de Kubernetes do Azure) é um ambiente Kubernetes gerenciado em execução no Azure. Este documento detalha a preparação e execução de trabalhos do Apache Spark em um cluster do AKS (Serviço de Kubernetes do Azure).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas deste artigo, você precisa dos itens a seguir.
 
-* Reconhecimento básico de Kubernetes e [Apache Spark][spark-quickstart].
-* Conta de [Hub do Docker][docker-hub] ou um [Registro de Contêiner do Azure][acr-create].
-* CLI do Azure [instalada][azure-cli] no sistema de desenvolvimento.
-* [JDK 8][java-install] instalado no sistema.
-* SBT ([Ferramenta de Compilação Scala][sbt-install]) instalada no sistema.
+* Noções básicas sobre kubernetes e [Apache Spark][spark-quickstart].
+* Conta do [Hub do Docker][docker-hub] ou um [registro de contêiner do Azure][acr-create].
+* CLI do Azure [instalado][azure-cli] no seu sistema de desenvolvimento.
+* [JDK 8][java-install] instalado em seu sistema.
+* SBT ([ferramenta de criação escalar][sbt-install]) instalada em seu sistema.
 * Ferramentas de linha de comando do Git instaladas no sistema.
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster AKS
@@ -55,7 +55,7 @@ Conecte o cluster do AKS.
 az aks get-credentials --resource-group mySparkCluster --name mySparkCluster
 ```
 
-Se você estiver utilizando o ACR (Registro de Contêiner do Azure) para armazenar imagens de contêiner, configure a autenticação entre o AKS e o ACR. Consulte a [Documentação de autenticação do ACR][acr-aks] para essas etapas.
+Se você estiver utilizando o ACR (Registro de Contêiner do Azure) para armazenar imagens de contêiner, configure a autenticação entre o AKS e o ACR. Consulte a [documentação de autenticação do ACR][acr-aks] para essas etapas.
 
 ## <a name="build-the-spark-source"></a>Compilar a fonte do Spark
 
@@ -313,7 +313,7 @@ Ao executar o trabalho, em vez de indicar uma URL do Jar remota, o esquema `loca
 ```
 
 > [!WARNING]
-> Do Spark [documentação][spark-docs]: "O Agendador Kubernetes está atualmente experimental. Em versões futuras, pode haver alterações de comportamento em torno de configuração, imagens de contêiner e pontos de entrada".
+> Na [documentação][spark-docs]do Spark: "O Agendador kubernetes é experimental no momento. Em versões futuras, pode haver alterações de comportamento em torno de configuração, imagens de contêiner e pontos de entrada".
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -333,7 +333,7 @@ Faça check-out da documentação do Spark para obter mais detalhes.
 
 
 <!-- LINKS - internal -->
-[acr-aks]: https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks
+[acr-aks]: cluster-container-registry-integration.md
 [acr-create]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
 [aks-quickstart]: https://docs.microsoft.com/azure/aks/
 [azure-cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest

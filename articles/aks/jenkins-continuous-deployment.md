@@ -7,12 +7,12 @@ author: zr-msft
 ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 7a81f26b4dad5f7257e5c3fd012dffaf06d573bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e46e2c2933ee9afda860b68b10c135ac75a5d247
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073778"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263935"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implantar o GitHub para o AKS (Serviço de Kubernetes do Azure) com a integração e implantação contínuas do Jenkins
 
@@ -33,24 +33,24 @@ Para concluir este tutorial, você precisará destes itens:
 
 - Reconhecimento básico de Kubernetes, Git, CI/CD e imagens de contêiner
 
-- Um [cluster AKS][aks-quickstart] e `kubectl` configurado com as [credenciais do cluster AKS][aks-credentials]
+- Um [cluster AKs][aks-quickstart] e o `kubectl` configurados com as [credenciais do cluster AKs][aks-credentials]
 
-- Um [Registro de Contêiner do Azure (ACR)][acr-quickstart], o nome do servidor de login ACR e o cluster AKS configurado para [autenticar com o registro ACR][acr-authentication]
+- Um [registro de ACR (registro de contêiner do Azure)][acr-quickstart], o nome do servidor de logon do ACR e o cluster AKs configurado para [autenticar com o registro do ACR][acr-authentication]
 
-- A CLI do Azure versão 2.0.46 ou posterior, instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+- A CLI do Azure versão 2.0.46 ou posterior, instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
 
-- [Docker instalado][docker-install] no sistema de desenvolvimento
+- [Docker instalado][docker-install] em seu sistema de desenvolvimento
 
-- Uma conta do GitHub [token de acesso pessoal do GitHub][git-access-token]e o cliente Git instalados no sistema de desenvolvimento
+- Uma conta do GitHub, o [token de acesso pessoal do GitHub][git-access-token]e o cliente git instalados no seu sistema de desenvolvimento
 
-- Se você fornecer sua própria instância do Jenkins, em vez de usar esse método para implementar o Jenkins, sua instância do Jenkins precisará do [Docker instalado e configurado][docker-install] e [kubectl][kubectl-install].
+- Se você fornecer sua própria instância de Jenkins em vez desse modo de script de exemplo para implantar o Jenkins, sua instância do Jenkins precisará do [Docker instalado e configurado][docker-install] e [kubectl][kubectl-install].
 
 ## <a name="prepare-your-app"></a>Preparação do aplicativo
 
 Neste artigo, você usa um aplicativo de voto do Azure de exemplo que contém uma interface da Web hospedada em um ou mais pods, além de um segundo pod que hospeda o Redis para armazenamento de dados temporário. Antes de integrar o Jenkins e o AKS para implantações automatizadas, primeiro prepare e implante manualmente o aplicativo de voto do Azure no seu cluster do AKS. Essa implantação manual é a versão um do aplicativo e permite que você veja o aplicativo em ação.
 
 > [!NOTE]
-> O aplicativo de voto do Azure de exemplo usa um pod de Linux que está agendado para ser executado em um nó do Linux. O fluxo descrito neste artigo também funciona para um pod do Windows Server agendado em um nó do Windows Server.
+> O aplicativo de exemplo do Azure vote usa um pod do Linux que está agendado para ser executado em um nó do Linux. O fluxo descrito neste artigo também funciona para um pod do Windows Server agendado em um nó do Windows Server.
 
 Faça a bifurcação do repositório do GitHub a seguir para o aplicativo de exemplo – [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis). Para bifurcar o repositório para sua conta do GitHub, selecione o botão **Bifurcação** no canto superior direito.
 
@@ -72,7 +72,7 @@ Para criar as imagens de contêiner necessárias para o aplicativo de exemplo, u
 docker-compose up -d
 ```
 
-É efetuado o pull das imagens base necessárias e os contêineres do aplicativo são compilados. Depois, é possível usar o comando [docker images][docker-images] para ver a imagem criada. Três imagens foram baixadas ou criadas. A imagem `azure-vote-front` contém o aplicativo e usa a imagem `nginx-flask` como base. A imagem `redis` é usada para iniciar uma instância do Redis:
+É efetuado o pull das imagens base necessárias e os contêineres do aplicativo são compilados. Em seguida, você pode usar o comando [Docker images][docker-images] para ver a imagem criada. Três imagens foram baixadas ou criadas. A imagem `azure-vote-front` contém o aplicativo e usa a imagem `nginx-flask` como base. A imagem `redis` é usada para iniciar uma instância do Redis:
 
 ```
 $ docker images
@@ -83,13 +83,13 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Antes de efetuar push da imagem de contêiner *azure-vote-front* para o ACR, obtenha seu servidor de logon do ACR com o comando [az acr list][az-acr-list]. O exemplo a seguir obtém o endereço do servidor de logon do ACR para um registro no grupo de recursos denominado *myResourceGroup*:
+Antes de poder enviar por push a imagem de contêiner *Azure-vote-front* para ACR, obtenha seu servidor de logon do ACR com o comando [AZ ACR List][az-acr-list] . O exemplo a seguir obtém o endereço do servidor de logon do ACR para um registro no grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Use o comando [docker tag][docker-tag] para marcar a imagem com o nome do servidor de logon do ACR e um número de versão `v1`. Forneça seu próprio nome `<acrLoginServer>` obtido na etapa anterior:
+Use o comando [Docker tag][docker-tag] para marcar a imagem com o nome do servidor de logon do ACR e um número de versão `v1`. Forneça seu próprio nome `<acrLoginServer>` obtido na etapa anterior:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
@@ -111,13 +111,13 @@ containers:
   image: microsoft/azure-vote-front:v1
 ```
 
-Em seguida, use o comando [kubectl apply][kubectl-apply] para implantar o aplicativo no seu cluster do AKS:
+Em seguida, use o comando [kubectl Apply][kubectl-apply] para implantar o aplicativo em seu cluster AKs:
 
 ```console
 kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
-Um serviço de balanceador de carga do Kubernetes é criado para expor o aplicativo à Internet. Esse processo pode levar alguns minutos. Para monitorar o progresso da implantação do balanceador de carga, use o comando [kubectl get service][kubectl-get] com o argumento `--watch`. Depois que o endereço *EXTERNAL-IP* for alterado de *pendente* para um *endereço IP*, use `Control + C` para interromper o processo kubectl watch.
+Um serviço de balanceador de carga do Kubernetes é criado para expor o aplicativo à Internet. Esse processo pode levar alguns minutos. Para monitorar o progresso da implantação do balanceador de carga, use o comando [kubectl Get Service][kubectl-get] com o argumento `--watch`. Depois que o endereço *EXTERNAL-IP* for alterado de *pendente* para um *endereço IP*, use `Control + C` para interromper o processo kubectl watch.
 
 ```console
 $ kubectl get service azure-vote-front --watch
@@ -179,7 +179,7 @@ Para permitir que o Jenkins compile e, depois, efetue push das imagens de contê
 
 ### <a name="create-a-service-principal-for-jenkins-to-use-acr"></a>Criar uma entidade de serviço para o Jenkins usar o ACR
 
-Em primeiro lugar, use o comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] para criar uma entidade de serviço:
+Primeiro, crie uma entidade de serviço usando o comando [AZ ad SP Create-for-RBAC][az-ad-sp-create-for-rbac] :
 
 ```azurecli
 $ az ad sp create-for-rbac --skip-assignment
@@ -195,7 +195,7 @@ $ az ad sp create-for-rbac --skip-assignment
 
 Anote a *appId* e a *senha* mostradas na sua saída. Esses valores são usados nas etapas a seguir para configurar o recurso de credencial no Jenkins.
 
-Obtenha a ID do recurso do Registro do ACR usando o comando [az acr show][az-acr-show] e armazene-a como variável. Forneça o nome de grupo de recursos e o nome do ACR:
+Obtenha a ID de recurso do seu registro ACR usando o comando [AZ ACR show][az-acr-show] e armazene-o como uma variável. Forneça o nome de grupo de recursos e o nome do ACR:
 
 ```azurecli
 ACR_ID=$(az acr show --resource-group myResourceGroup --name <acrLoginServer> --query "id" --output tsv)
@@ -230,8 +230,8 @@ Clique em **OK** e retorne ao portal do Jenkins.
 Na página inicial do portal do Jenkins, selecione **Novo item** no lado esquerdo:
 
 1. Insira *azure-vote* como nome do trabalho. Escolha **Projeto Freestyle** e selecione **OK**
-1. Sob o **gerais** seção, selecione **projeto GitHub** e insira a URL do repositório bifurcado, como *https:\//github.com/\<your-github-account\>/azure-voting-app-redis*
-1. Sob o **gerenciamento de código-fonte** seção, selecione **Git**, insira seu repositório bifurcado *. git* URL, como *https:\//github.com/\<sua conta github\>/azure-voting-app-redis.git*
+1. Na seção **geral** , selecione **projeto do GitHub** e insira a URL do repositório bifurcado, como *https: \//github. com/\<your-GitHub-Account @ no__t-5/Azure-votação-app-Redis*
+1. Na seção **Gerenciamento de código-fonte** , selecione **git**, insira a URL do repositório bifurcado *. Git* , como *https: \//GitHub. com/\<your-GitHub-Account @ no__t-6/Azure-Voting-app-Redis. git*
 
 1. Na seção **Gatilhos de Build**, selecione **Gatilho de gancho do GitHub para sondagem de GITscm**
 1. Em **Ambiente de Build**, selecione **Usar arquivos ou textos secretos**
@@ -313,7 +313,7 @@ Depois que o build estiver concluído, atualize seu navegador da Web do aplicati
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a usar o Jenkins como parte de uma solução de CI/CD. O AKS pode ser integrado com outras soluções de CI/CD e ferramentas de automação, como o [Projeto do Azure DevOps][azure-devops] ou [criação de um cluster do AKS com Ansible][aks-ansible].
+Neste artigo, você aprendeu a usar o Jenkins como parte de uma solução de CI/CD. O AKS pode se integrar a outras soluções de CI/CD e ferramentas de automação, como o [projeto DevOps do Azure][azure-devops] ou [criar um cluster AKs com Ansible][aks-ansible].
 
 <!-- LINKS - external -->
 [docker-images]: https://docs.docker.com/engine/reference/commandline/images/
@@ -326,7 +326,7 @@ Neste artigo, você aprendeu a usar o Jenkins como parte de uma solução de CI/
 
 <!-- LINKS - internal -->
 [az-acr-list]: /cli/azure/acr#az-acr-list
-[acr-authentication]: ../container-registry/container-registry-auth-aks.md#grant-aks-access-to-acr
+[acr-authentication]: cluster-container-registry-integration.md
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-credentials]: /cli/azure/aks#az-aks-get-credentials
 [aks-quickstart]: kubernetes-walkthrough.md

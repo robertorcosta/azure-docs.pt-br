@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98baa8d3f951a8922bcd1f40449fa26840f3a3c4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 9af53728ee038a6511c434aeedfdb9afdab6d04b
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051481"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273879"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Entrada e armazenamento de dados na Versão Prévia do Azure Time Series Insights
 
@@ -25,7 +25,7 @@ Este artigo descreve as alterações à entrada e ao armazenamento de dados da V
 
 Azure Time Series Insights políticas de entrada de dados determinam de onde os dados podem ser originados e em qual formato.
 
-[![Visão geral do modelo de série temporal](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
+[Visão geral do modelo da série @no__t 1Time](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
 
 ### <a name="ingress-policies"></a>Políticas de entrada
 
@@ -34,7 +34,7 @@ A versão prévia do Time Series Insights dá suporte às mesmas fontes de event
 - [Hub IoT do Azure](../iot-hub/about-iot-hub.md)
 - [Hubs de eventos do Azure](../event-hubs/event-hubs-about.md)
   
-O Azure Time Series Insights dá suporte a JSON enviado por meio do Hub IoT do Azure ou hubs de eventos do Azure. Para otimizar seus dados de JSON de IoT, saiba [como formatar JSON](./time-series-insights-send-events.md#json).
+O Azure Time Series Insights dá suporte a JSON enviado por meio do Hub IoT do Azure ou hubs de eventos do Azure. Para otimizar seus dados de JSON de IoT, saiba [como formatar JSON](./time-series-insights-send-events.md#supported-json-shapes).
 
 ### <a name="data-storage"></a>Armazenamento de dados
 
@@ -56,7 +56,7 @@ A Time Series Insights visualização indexa dados usando uma estratégia de oti
 > * Durante a versão prévia, espere um período mais longo antes de os dados ficarem disponíveis.
 > * Se você tiver alguma latência significativa, fale conosco.
 
-### <a name="scale"></a>Dimensionar
+### <a name="scale"></a>Escala
 
 A visualização de Time Series Insights dá suporte a uma escala de entrada inicial de até 1 Mega byte por segundo (Mbps) por ambiente. Suporte aprimorado de dimensionamento está em andamento. Planejamos atualizar nossa documentação para refletir essas melhorias.
 
@@ -130,7 +130,7 @@ Você talvez queira acessar dados armazenados no gerenciador da Versão Prévia 
 Você pode acessar seus dados de três maneiras gerais:
 
 * No Gerenciador de visualização Time Series Insights: você pode exportar dados como um arquivo CSV do Gerenciador de visualização de Time Series Insights. Para obter mais informações, confira [Gerenciador da Versão Prévia do Time Series Insights](./time-series-insights-update-explorer.md).
-* Na Time Series Insights APIs de visualização: o ponto de extremidade da API pode `/getRecorded`ser acessado em. Para saber mais sobre essa API, confira [Consulta de Série Temporal](./time-series-insights-update-tsq.md).
+* Na Time Series Insights APIs de visualização: o ponto de extremidade da API pode ser acessado em `/getRecorded`. Para saber mais sobre essa API, confira [Consulta de Série Temporal](./time-series-insights-update-tsq.md).
 * Diretamente de uma conta de armazenamento do Azure (abaixo).
 
 #### <a name="from-an-azure-storage-account"></a>De uma conta de armazenamento do Azure

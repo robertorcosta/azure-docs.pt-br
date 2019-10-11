@@ -1,45 +1,44 @@
 ---
-title: Configurar regras personalizadas de v2 de Firewall do aplicativo Web usando o Azure PowerShell
-description: Saiba como configurar regras personalizadas do v2 WAF usando o Azure PowerShell
+title: Configurar regras personalizadas do firewall do aplicativo Web usando Azure PowerShell
+description: Saiba como configurar regras personalizadas do firewall do aplicativo Web usando Azure PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: f4d2fd7342e0efe95a1bc69e0dba77692053cf14
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9e50b47e22f5760c213cd0cafad82ecca592dec8
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164746"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263734"
 ---
-# <a name="configure-web-application-firewall-v2--with-a-custom-rule-using-azure-powershell"></a>Configurar o Firewall do aplicativo Web v2 com uma regra personalizada usando o Azure PowerShell
+# <a name="configure-web-application-firewall-v2-custom-rules-by-using-azure-powershell"></a>Configurar regras personalizadas do firewall do aplicativo Web usando Azure PowerShell
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-Regras personalizadas permitem que você crie suas próprias regras avaliadas para cada solicitação que passa a v2 de Firewall de aplicativo da Web (WAF). Essas regras mantenha uma prioridade maior que o restante das regras em conjuntos de regras gerenciado. As regras personalizadas têm uma ação (permitir ou bloquear), uma condição de correspondência e um operador para permitir a personalização completa.
+Com as regras personalizadas, você pode criar suas próprias regras, que são avaliadas para cada solicitação que passa pelo WAF (firewall do aplicativo Web). Essas regras têm uma prioridade mais alta do que o restante das regras nos conjuntos de regras gerenciadas. Para permitir a personalização completa, as regras personalizadas têm uma ação (para permitir ou bloquear), uma condição de correspondência e um operador.
 
-Este artigo cria um v2 do WAF do Gateway de aplicativo que usa uma regra personalizada. A regra personalizada bloqueia o tráfego se o cabeçalho da solicitação contém o *evilbot* User-Agent.
+Este artigo cria um Aplicativo Azure gateway WAF v2 que usa uma regra personalizada. A regra personalizada bloqueia o tráfego se o cabeçalho da solicitação contém o *evilbot* User-Agent.
 
-Para ver mais exemplos de regra personalizada, consulte [criar e usar regras de firewall de aplicativo da web personalizado](create-custom-waf-rules.md)
+Para exibir mais exemplos de regras personalizadas, consulte [criar e usar regras personalizadas de firewall do aplicativo Web](create-custom-waf-rules.md).
 
-Se você quiser executar o Azure PowerShell neste artigo em um script contínuo que você pode copiar, colar e executar, consulte [exemplos de Gateway de aplicativo do Azure PowerShell](powershell-samples.md).
+Para executar o código de Azure PowerShell neste artigo em um script contínuo que você pode copiar, colar e executar, consulte [exemplos do PowerShell do aplicativo Azure gateway](powershell-samples.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-### <a name="azure-powershell-module"></a>Módulo do Azure PowerShell
+* Você precisa de um módulo Azure PowerShell. Se você optar por instalar e usar Azure PowerShell localmente, esse script exigirá Azure PowerShell versão do módulo 2.1.0 ou posterior. Faça o seguinte:
 
-Se você optar por instalar e usar o Azure PowerShell localmente, esse script exigirá o módulo do Azure PowerShell versão 2.1.0 ou posterior.
-
-1. Para saber qual é a versão, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
-2. Para criar uma conexão com o Azure execute `Connect-AzAccount`.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+  1. Para saber qual é a versão, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
+  2. Para criar uma conexão com o Azure execute `Connect-AzAccount`.
 
 ## <a name="example-script"></a>Script de exemplo
 
-### <a name="set-up-variables"></a>Definir variáveis
+### <a name="set-up-variables"></a>Configurar variáveis
+
+Execute o código a seguir:
 
 ```azurepowershell
 $rgname = "CustomRulesTest"
@@ -51,11 +50,15 @@ $appgwName = "WAFCustomRules"
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
+Execute o código a seguir:
+
 ```azurepowershell
 $resourceGroup = New-AzResourceGroup -Name $rgname -Location $location
 ```
 
-### <a name="create-a-vnet"></a>Criar uma VNET
+### <a name="create-a-virtual-network"></a>Criar uma rede virtual
+
+Execute o código a seguir:
 
 ```azurepowershell
 $sub1 = New-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -AddressPrefix "10.0.0.0/24"
@@ -68,12 +71,16 @@ $vnet = New-AzvirtualNetwork -Name "Vnet1" -ResourceGroupName $rgname -Location 
 
 ### <a name="create-a-static-public-vip"></a>Criar um VIP público estático
 
+Execute o código a seguir:
+
 ```azurepowershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
   -location $location -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="create-pool-and-frontend-port"></a>Criar a porta de front-end e de pool
+### <a name="create-a-pool-and-front-end-port"></a>Criar um pool e uma porta de front-end
+
+Execute o código a seguir:
 
 ```azurepowershell
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -VirtualNetwork $vnet
@@ -88,7 +95,9 @@ $pool = New-AzApplicationGatewayBackendAddressPool -Name "pool1" `
 $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 80
 ```
 
-### <a name="create-a-listener-http-setting-rule-and-autoscale"></a>Criar um ouvinte, a configuração http, a regra e o dimensionamento automático
+### <a name="create-a-listener-http-setting-rule-and-autoscale"></a>Criar um ouvinte, uma configuração de HTTP, uma regra e um dimensionamento automático
+
+Execute o código a seguir:
 
 ```azurepowershell
 $listener01 = New-AzApplicationGatewayHttpListener -Name "listener1" -Protocol Http `
@@ -105,7 +114,9 @@ $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 3
 $sku = New-AzApplicationGatewaySku -Name WAF_v2 -Tier WAF_v2
 ```
 
-### <a name="create-the-custom-rule-and-apply-it-to-waf-policy"></a>Criar a regra personalizada e aplicá-la à política de WAF
+### <a name="create-the-custom-rule-and-apply-it-to-waf-policy"></a>Criar a regra personalizada e aplicá-la à política WAF
+
+Execute o código a seguir:
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestHeaders -Selector User-Agent
@@ -119,7 +130,9 @@ $wafPolicy = New-AzApplicationGatewayFirewallPolicy -Name wafPolicy -ResourceGro
 $wafConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
-### <a name="create-the-application-gateway"></a>Criar o Application Gateway
+### <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
+
+Execute o código a seguir:
 
 ```azurepowershell
 $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname `

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: be10d144fadb21a695c5573c82681a26136e71d4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b1331865224d34f731dbd388cebdaec8b7c9fe7f
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004105"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264654"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados no aplicativo lógico do Azure
 
@@ -46,7 +46,7 @@ Cada ponto de extremidade de solicitação em um aplicativo lógico tem uma [ass
 
 `https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`
 
-Cada URL contém um `sp`parâmetro `sv`de consulta `sig` , e, conforme descrito nesta tabela:
+Cada URL contém um parâmetro de consulta `sp`, `sv` e `sig`, conforme descrito nesta tabela:
 
 | Parâmetro de consulta | Descrição |
 |-----------------|-------------|
@@ -83,7 +83,7 @@ Se você compartilhar a URL do ponto de extremidade para um gatilho baseado em s
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
-No corpo, inclua a `NotAfter`propriedade usando uma cadeia de caracteres de data JSON. Essa propriedade retorna uma URL de retorno de chamada válida somente até a data e hora `NotAfter`.
+No corpo, inclua o `NotAfter`property usando uma cadeia de caracteres de data JSON. Essa propriedade retorna uma URL de retorno de chamada válida somente até a data e hora `NotAfter`.
 
 <a name="primary-secondary-key"></a>
 
@@ -122,7 +122,7 @@ Se você quiser que seu aplicativo lógico seja disparado apenas como um aplicat
 
 #### <a name="restrict-incoming-ip-ranges-in-azure-resource-manager-template"></a>Restringir os intervalos de IP de entrada no modelo de Azure Resource Manager
 
-Se você automatizar implantações de aplicativo lógico usando um [modelo de Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md), poderá especificar os intervalos de IP usando `accessControl` a seção com `triggers` a seção na definição de recurso do aplicativo lógico, por exemplo:
+Se você automatizar implantações de aplicativo lógico usando um [modelo de Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md), poderá especificar os intervalos de IP usando a seção `accessControl` com a seção `triggers` na definição de recurso do aplicativo lógico, por exemplo:
 
 ``` json
 {
@@ -183,7 +183,7 @@ Para impedir que outras pessoas alterem ou excluam seu aplicativo lógico, você
 
 ## <a name="access-to-run-history-data"></a>Acesso a dados de histórico de execução
 
-Durante a execução de um aplicativo lógico, todos os dados são criptografados durante o trânsito usando [TLS (segurança de camada de trânsito)](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/) e em [repouso](../security/fundamentals/encryption-atrest.md). Quando seu aplicativo lógico terminar de ser executado, você poderá exibir o histórico dessa execução, incluindo as etapas que foram executadas junto com o status, a duração, as entradas e as saídas de cada ação. Esse detalhe rico fornece informações sobre como seu aplicativo lógico foi executado e onde você pode começar a solucionar problemas que surgem.
+Durante a execução de um aplicativo lógico, todos os dados são criptografados durante o trânsito usando [TLS (segurança de camada de transporte)](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/) e em [repouso](../security/fundamentals/encryption-atrest.md). Quando seu aplicativo lógico terminar de ser executado, você poderá exibir o histórico dessa execução, incluindo as etapas que foram executadas junto com o status, a duração, as entradas e as saídas de cada ação. Esse detalhe rico fornece informações sobre como seu aplicativo lógico foi executado e onde você pode começar a solucionar problemas que surgem.
 
 Quando você acessa o histórico de execução do aplicativo lógico, os aplicativos lógicos autenticam seu acesso e fornecem links para as entradas e saídas das solicitações e respostas na execução do seu aplicativo lógico. No entanto, para ações que lidam com senhas, segredos, chaves ou outras informações confidenciais, você deseja impedir que outras pessoas exibam e acessem esses dados. Por exemplo, se seu aplicativo lógico obtiver um segredo de [Azure Key Vault](../key-vault/key-vault-overview.md) para usar ao autenticar uma ação http, você deseja ocultar esse segredo da exibição.
 
@@ -201,7 +201,7 @@ Para controlar o acesso às entradas e saídas no histórico de execução do ap
 
 ### <a name="restrict-access-by-ip-address-range"></a>Restringir o acesso por intervalo de endereços IP
 
-Você pode limitar o acesso às entradas e saídas no histórico de execução do aplicativo lógico para que somente as solicitações de intervalos de endereços IP específicos possam exibir esses dados. Por exemplo, para impedir que qualquer pessoa acesse entradas e saídas, especifique um intervalo `0.0.0.0-0.0.0.0`de endereços IP, como. Somente uma pessoa com permissões de administrador pode remover essa restrição, que fornece a possibilidade de acesso "Just-in-time" aos dados do seu aplicativo lógico. Você pode especificar os intervalos de IP para restringir usando o portal do Azure ou em um modelo de Azure Resource Manager que você usa para a implantação de aplicativo lógico.
+Você pode limitar o acesso às entradas e saídas no histórico de execução do aplicativo lógico para que somente as solicitações de intervalos de endereços IP específicos possam exibir esses dados. Por exemplo, para impedir que qualquer pessoa acesse entradas e saídas, especifique um intervalo de endereços IP, como `0.0.0.0-0.0.0.0`. Somente uma pessoa com permissões de administrador pode remover essa restrição, que fornece a possibilidade de acesso "Just-in-time" aos dados do seu aplicativo lógico. Você pode especificar os intervalos de IP para restringir usando o portal do Azure ou em um modelo de Azure Resource Manager que você usa para a implantação de aplicativo lógico.
 
 #### <a name="restrict-ip-ranges-in-azure-portal"></a>Restringir intervalos de IP no portal do Azure
 
@@ -217,7 +217,7 @@ Você pode limitar o acesso às entradas e saídas no histórico de execução d
 
 #### <a name="restrict-ip-ranges-in-azure-resource-manager-template"></a>Restringir intervalos de IP no modelo de Azure Resource Manager
 
-Se você automatizar implantações de aplicativo lógico usando um [modelo de Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md), poderá especificar os intervalos de IP usando `accessControl` a seção com `contents` a seção na definição de recurso do aplicativo lógico, por exemplo:
+Se você automatizar implantações de aplicativo lógico usando um [modelo de Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md), poderá especificar os intervalos de IP usando a seção `accessControl` com a seção `contents` na definição de recurso do aplicativo lógico, por exemplo:
 
 ``` json
 {
@@ -298,7 +298,7 @@ Muitos gatilhos e ações têm configurações para ocultar entradas, saídas ou
 
 #### <a name="secure-inputs-and-outputs-in-code-view"></a>Proteger entradas e saídas no modo de exibição de código
 
-Na definição de gatilho ou ação subjacente, adicione ou atualize a `runtimeConfiguration.secureData.properties` matriz com um ou ambos os valores:
+Na definição de gatilho ou ação subjacente, adicione ou atualize a matriz `runtimeConfiguration.secureData.properties` com um ou ambos os valores:
 
 * `"inputs"`: Protege as entradas no histórico de execução.
 * `"outputs"`: Protege as saídas no histórico de execução.
@@ -361,14 +361,14 @@ Aqui estão algumas [considerações a serem examinadas](#obfuscation-considerat
 
 Se você implantar em ambientes diferentes, considere a possibilidade de parametrização dos valores na definição do fluxo de trabalho que variam de acordo com esses ambientes. Dessa forma, você pode usar um [modelo de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#parameters) para implantar seu aplicativo lógico, proteger informações confidenciais definindo parâmetros protegidos e fornecer essas entradas de parâmetro separadamente por meio dos parâmetros do modelo usando um [parâmetro arquivo](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values).
 
-Por exemplo, se você autenticar ações HTTP com [Azure Active Directory](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication), poderá definir e proteger os parâmetros que aceitam a ID do cliente e o segredo do cliente usados para autenticação. Para definir esses parâmetros para seu aplicativo lógico, use a `parameters` seção dentro da definição de fluxo de trabalho do aplicativo lógico. Para proteger os valores de parâmetro que você não deseja mostrar ao editar seu aplicativo lógico ou exibir o histórico de execução, defina os `securestring` parâmetros `secureobject` usando o tipo ou e use a codificação conforme necessário. Parâmetros que têm esse tipo não são retornados com a definição de recurso e não são acessíveis ao exibir o recurso após a implantação. Para acessar esses valores de parâmetro durante o tempo de `@parameters('<parameter-name>')` execução, use a expressão dentro de sua definição de fluxo de trabalho. Essa expressão é avaliada apenas em tempo de execução e é descrita pela [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md).
+Por exemplo, se você autenticar ações HTTP com [Azure Active Directory](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication), poderá definir e proteger os parâmetros que aceitam a ID do cliente e o segredo do cliente usados para autenticação. Para definir esses parâmetros para seu aplicativo lógico, use a seção `parameters` dentro da definição de fluxo de trabalho do aplicativo lógico. Para proteger os valores de parâmetro que você não deseja mostrar ao editar seu aplicativo lógico ou exibir o histórico de execução, defina os parâmetros usando o tipo `securestring` ou `secureobject` e use a codificação conforme necessário. Parâmetros que têm esse tipo não são retornados com a definição de recurso e não são acessíveis ao exibir o recurso após a implantação. Para acessar esses valores de parâmetro durante o tempo de execução, use a expressão `@parameters('<parameter-name>')` dentro de sua definição de fluxo de trabalho. Essa expressão é avaliada apenas em tempo de execução e é descrita pela [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > Se você usar um parâmetro em cabeçalhos ou corpo de uma solicitação HTTP, esse parâmetro poderá ser visível quando você exibir o histórico de execução do aplicativo lógico e a solicitação HTTP de saída. Certifique-se de também definir suas políticas de acesso de conteúdo adequadamente. Cabeçalhos de autorização nunca são visíveis por meio de entradas ou saídas. Portanto, se um segredo for usado lá, ele não será recuperável.
 
 Para obter mais informações, consulte [proteger parâmetros em definições de fluxo de trabalho](#secure-parameters-workflow) mais adiante neste tópico.
 
-Ao automatizar implantações com [modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#parameters), você pode definir parâmetros de modelo protegidos, que são avaliados na implantação, `securestring` usando `secureobject` os tipos e. Para definir parâmetros de modelo, use a seção de nível `parameters` superior do modelo, que é separada e diferente da seção da `parameters` sua definição de fluxo de trabalho. Para fornecer os valores para parâmetros de modelo, use um [arquivo de parâmetro](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values)separado.
+Ao automatizar implantações com [modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#parameters), você pode definir parâmetros de modelo protegidos, que são avaliados na implantação, usando os tipos `securestring` e `secureobject`. Para definir parâmetros de modelo, use a seção `parameters` de nível superior do modelo, que é separada e diferente da seção `parameters` da definição de fluxo de trabalho. Para fornecer os valores para parâmetros de modelo, use um [arquivo de parâmetro](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values)separado.
 
 Por exemplo, se você usar segredos, poderá definir e usar parâmetros de modelo protegidos que recuperem esses segredos de [Azure Key Vault](../key-vault/key-vault-overview.md) na implantação. Em seguida, você pode fazer referência ao cofre de chaves e ao segredo em seu arquivo de parâmetro. Para saber mais, consulte esses tópicos:
 
@@ -379,7 +379,7 @@ Por exemplo, se você usar segredos, poderá definir e usar parâmetros de model
 
 ### <a name="secure-parameters-in-workflow-definitions"></a>Proteger parâmetros em definições de fluxo de trabalho
 
-Para proteger informações confidenciais na definição de fluxo de trabalho do aplicativo lógico, use parâmetros protegidos para que essas informações não fiquem visíveis depois que você salvar seu aplicativo lógico. Por exemplo, suponha que você tenha uma ação HTTP requer autenticação básica, que usa um nome de usuário e senha. Na definição de fluxo de trabalho `parameters` , a seção `basicAuthPasswordParam` define `basicAuthUsernameParam` os parâmetros e usando `securestring` o tipo. Em seguida, a definição de ação faz referência `authentication` a esses parâmetros na seção.
+Para proteger informações confidenciais na definição de fluxo de trabalho do aplicativo lógico, use parâmetros protegidos para que essas informações não fiquem visíveis depois que você salvar seu aplicativo lógico. Por exemplo, suponha que você tenha uma ação HTTP requer autenticação básica, que usa um nome de usuário e senha. Na definição de fluxo de trabalho, a seção `parameters` define os parâmetros `basicAuthPasswordParam` e `basicAuthUsernameParam` usando o tipo `securestring`. Em seguida, a definição de ação faz referência a esses parâmetros na seção `authentication`.
 
 ```json
 "definition": {
@@ -425,21 +425,21 @@ Para proteger informações confidenciais na definição de fluxo de trabalho do
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Proteger parâmetros em modelos de Azure Resource Manager
 
-Um modelo do Resource Manager para um aplicativo lógico tem `parameters` várias seções. Para proteger senhas, chaves, segredos e outras informações confidenciais, defina parâmetros protegidos no nível do modelo e nível de definição de fluxo de trabalho `securestring` usando `secureobject` o tipo ou. Em seguida, você pode armazenar esses valores em [Azure Key Vault](../key-vault/key-vault-overview.md) e usar o [arquivo de parâmetro](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values) para fazer referência ao cofre de chaves e ao segredo. Em seguida, o modelo recupera essas informações na implantação. Para obter mais informações, consulte [usar Azure Key Vault para passar valores de parâmetros seguros na implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+Um modelo do Resource Manager para um aplicativo lógico tem várias seções `parameters`. Para proteger senhas, chaves, segredos e outras informações confidenciais, defina parâmetros protegidos no nível de modelo e nível de definição de fluxo de trabalho usando o tipo `securestring` ou `secureobject`. Em seguida, você pode armazenar esses valores em [Azure Key Vault](../key-vault/key-vault-overview.md) e usar o [arquivo de parâmetro](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values) para fazer referência ao cofre de chaves e ao segredo. Em seguida, o modelo recupera essas informações na implantação. Para obter mais informações, consulte [usar Azure Key Vault para passar valores de parâmetros seguros na implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
-Aqui estão mais informações sobre estas `parameters` seções:
+Aqui estão mais informações sobre essas seções `parameters`:
 
-* No nível superior do modelo, uma `parameters` seção define os parâmetros para os valores que o modelo usa na *implantação*. Por exemplo, esses valores podem incluir cadeias de conexão para um ambiente de implantação específico. Você pode armazenar esses valores em um arquivo de [parâmetro](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values)separado, o que torna a alteração desses valores mais fácil.
+* No nível superior do modelo, uma seção `parameters` define os parâmetros para os valores que o modelo usa na *implantação*. Por exemplo, esses valores podem incluir cadeias de conexão para um ambiente de implantação específico. Você pode armazenar esses valores em um arquivo de [parâmetro](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values)separado, o que torna a alteração desses valores mais fácil.
 
-* Dentro da definição de recurso do aplicativo lógico, mas fora de sua definição de `parameters` fluxo de trabalho, uma seção especifica os valores para os parâmetros da definição de fluxo de trabalho. Nesta seção, você pode atribuir esses valores usando expressões de modelo que fazem referência aos parâmetros do modelo. Essas expressões são avaliadas na implantação.
+* Dentro da definição de recurso do aplicativo lógico, mas fora de sua definição de fluxo de trabalho, uma seção `parameters` especifica os valores para os parâmetros da definição de fluxo de trabalho. Nesta seção, você pode atribuir esses valores usando expressões de modelo que fazem referência aos parâmetros do modelo. Essas expressões são avaliadas na implantação.
 
-* Dentro de sua definição de fluxo `parameters` de trabalho, uma seção define os parâmetros que seu aplicativo lógico usa no tempo de execução. Em seguida, você pode fazer referência a esses parâmetros dentro do fluxo de trabalho do aplicativo lógico usando expressões de definição de fluxo de trabalho, que são avaliadas no tempo de execução.
+* Dentro de sua definição de fluxo de trabalho, uma seção `parameters` define os parâmetros que seu aplicativo lógico usa no tempo de execução. Em seguida, você pode fazer referência a esses parâmetros dentro do fluxo de trabalho do aplicativo lógico usando expressões de definição de fluxo de trabalho, que são avaliadas no tempo de execução.
 
-Este modelo de exemplo que tem várias definições de parâmetros protegidas `securestring` que usam o tipo:
+Este modelo de exemplo que tem várias definições de parâmetros protegidas que usam o tipo `securestring`:
 
 | Nome do parâmetro | Descrição |
 |----------------|-------------|
-| `TemplatePasswordParam` | Um parâmetro de modelo que aceita uma senha que é passada para o parâmetro da `basicAuthPasswordParam` definição de fluxo de trabalho |
+| `TemplatePasswordParam` | Um parâmetro de modelo que aceita uma senha que é passada para o parâmetro `basicAuthPasswordParam` da definição de fluxo de trabalho |
 | `TemplateUsernameParam` | Um parâmetro de modelo que aceita um nome de usuário que é passado para o parâmetro `basicAuthUserNameParam` da definição de fluxo de trabalho |
 | `basicAuthPasswordParam` | Um parâmetro de definição de fluxo de trabalho que aceita a senha para autenticação básica em uma ação HTTP |
 | `basicAuthUserNameParam` | Um parâmetro de definição de fluxo de trabalho que aceita o nome de usuário para autenticação básica em uma ação HTTP |

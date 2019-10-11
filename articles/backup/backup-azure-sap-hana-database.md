@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9f16a00bd8bc8e61aecbf6d6bd7f31e90f50140a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 50fbd0a2169fb120424d76e786a6269243eeb3e1
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067097"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273939"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Fazer backup de um banco de dados SAP HANA no Azure
 
@@ -27,7 +27,7 @@ O [backup do Azure](backup-overview.md) dá suporte ao backup de bancos de dados
 --- | ---
 **Áreas geográficas com suporte** | Sudeste da Austrália, Austrália oriental <br> Sul do Brasil <br> Canadá central, leste do Canadá <br> Ásia Oriental do Sul, Ásia Oriental <br> Leste dos EUA, leste dos EUA 2, Oeste EUA Central, oeste dos EUA, oeste dos EUA 2, norte EUA Central, EUA Central, Sul EUA Central<br> Índia central, sul da Índia <br> Leste do Japão, Oeste do Japão<br> Coreia Central, Sul da Coreia <br> Norte da Europa, Europa Ocidental <br> Sul do Reino Unido, Oeste do Reino Unido
 **Sistemas operacionais de VM com suporte** | SLES 12 com SP2, SP3 ou SP4.
-**Versões do HANA com suporte** | SDC no HANA 1. x, MDC no HANA 2. x < = SPS04 Rev 42
+**Versões do HANA com suporte** | SDC no HANA 1. x, MDC no HANA 2. x < = SPS04 Rev 43
 
 ### <a name="current-limitations"></a>Limitações atuais
 
@@ -40,7 +40,7 @@ O [backup do Azure](backup-overview.md) dá suporte ao backup de bancos de dados
 - Você pode fazer backup de logs de banco de dados a cada 15 minutos. Os backups de log só começam a fluir após a conclusão de um backup completo bem-sucedido para o banco de dados.
 - Você pode fazer backups completos e diferenciais. Atualmente, não há suporte para backup incremental.
 - Você não pode modificar a política de backup depois de aplicá-la para backups de SAP HANA. Se você quiser fazer backup com configurações diferentes, crie uma nova política ou atribua uma política diferente.
-  - Para criar uma nova política, no cofre, clique em **políticas** > **políticas** > de backup **+ Adicionar** > **SAP Hana na VM do Azure**e especifique as configurações de política.
+  - Para criar uma nova política, no cofre, clique em **políticas** > **políticas de backup** >  **+ Adicionar** > **SAP Hana na VM do Azure**e especifique as configurações de política.
   - Para atribuir uma política diferente, nas propriedades da VM que executa o banco de dados, clique no nome da política atual. Em seguida, na página **política de backup** , você pode selecionar uma política diferente a ser usada para o backup.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -101,7 +101,7 @@ Agora, habilite o backup.
 
 1. Na etapa 2, clique em **Configurar backup**.
 2. Em **selecionar itens para fazer backup**, selecione todos os bancos de dados que você deseja proteger > **OK**.
-3. Em **política** > de backup,**escolha política de backup**, crie uma nova política de backup para os bancos de dados, de acordo com as instruções abaixo.
+3. Em **política de backup** > **escolha política de backup**, crie uma nova política de backup para os bancos de dados, de acordo com as instruções abaixo.
 4. Depois de criar a política, no menu **backup** , clique em **habilitar backup**.
 5. Acompanhe o progresso da configuração de backup na área de **notificações** do Portal.
 
@@ -158,7 +158,7 @@ Os backups são executados de acordo com o agendamento da política. Você pode 
 
 1. No menu do cofre, clique em **Itens de backup**.
 2. Em **itens de backup**, selecione a VM que executa o banco de dados SAP Hana e clique em **fazer backup agora**.
-3. Em **fazer backup agora**, use o controle de calendário para selecionar o último dia em que o ponto de recuperação deve ser retido. Clique em **OK**.
+3. Em **fazer backup agora**, use o controle de calendário para selecionar o último dia em que o ponto de recuperação deve ser retido. Em seguida, clique em **OK**.
 4. Monitorar as notificações do portal. Você pode monitorar o andamento do trabalho no painel do cofre > **trabalhos de Backup** > em andamento. Dependendo do tamanho do banco de dados, a criação do backup inicial pode demorar um pouco.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Executar o backup do SAP HANA Studio em um banco de dados com o backup do Azure habilitado
@@ -167,7 +167,7 @@ Se você quiser fazer um backup local (usando o HANA Studio) de um banco de dado
 
 1. Aguarde até que os backups completos ou de log do banco de dados sejam concluídos. Verifique o status no SAP HANA Studio.
 2. Desabilite os backups de log e defina o catálogo de backup para o sistema de arquivos para o banco de dados relevante.
-3. Para fazer isso, clique duas vezes em**configuração** > do **systemdb** > **selecionar** > **filtro de banco de dados (log)** .
+3. Para fazer isso, clique duas vezes em **systemdb** > **configuração** > **Selecione banco de dados** > **filtro (log)** .
 4. Defina **enable_auto_log_backup** como **não**.
 5. Defina **log_backup_using_backint** como **false**.
 6. Faça um backup completo ad hoc do banco de dados.
