@@ -10,40 +10,37 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/20/2019
+ms.date: 10/7/2019
 ms.author: raiye
-ms.openlocfilehash: 6168e877022eccd9cbe818c20e81266cc3ea1f69
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 736cb30942646788ee6f365f67244d27f1aa0316
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169356"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035189"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. As atualizações sempre são postergadas para a [família][family-explain] específica em que foram introduzidas.
 
 ## <a name="september-2019-guest-os"></a>SO convidado de setembro de 2019
 
->[!NOTE]
->O sistema operacional convidado de setembro está sendo distribuído para VMs do serviço de nuvem que estão configuradas para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os patches a seguir estão incluídos no sistema operacional convidado de setembro. Esta lista está sujeita a alterações.
-
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  2,90, 3,77, 4,70  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4516115]  |  Piscando   |  2,90, 3,77, 4,70, 5,35, 6,11  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4512578]  |  Atualização cumulativa mais recente   |  6.11  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4514366]  |  .NET Framework 3,5 e 4.7.2   |  6.11  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4516044]  |  Atualização cumulativa mais recente   |  5,35  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4516064]  |  Segurança do Windows   |  4,7  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4514350]  |  .NET Framework 3.5   |  4,7  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  4,7  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4516062]  |  Segurança do Windows   |  3,77  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4514349]  |  .NET Framework 3.5   |  3,77  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  3,77  |  10 de setembro de 2019  |
-|  Rel 19-09   |  [4516033]  |  Segurança do Windows   |  2,9  |  12 de setembro de 2019  |
-|  Rel 19-09   |  [4512488]  |  Não segurança   |  4,7  |  13 de agosto de 2019  |
-|  Rel 19-09   |  [4512518]  |  Não segurança   |  3,77  |  13 de agosto de 2019  |
-|  Rel 19-09   |  [4512506]  |  Não segurança   |  2,9  |  13 de agosto de 2019  |
+|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  [2,90], [3,77], [4,70]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4516115]  |  Piscando   |  [2,90], [3,77], [4,70], [5,35], [6,11]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4512578]  |  Atualização cumulativa mais recente   |  [6,11]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4514366]  |  .NET Framework 3,5 e 4.7.2   |  [6,11]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4516044]  |  Atualização cumulativa mais recente   |  [5,35]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4516064]  |  Segurança do Windows   |  [4,70]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4514350]  |  .NET Framework 3.5   |  [4,70]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  [4,70]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4516062]  |  Segurança do Windows   |  [3,77]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4514349]  |  .NET Framework 3.5   |  [3,77]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  [3,77]  |  10 de setembro de 2019  |
+|  Rel 19-09   |  [4516033]  |  Segurança do Windows   |  [2,90]  |  12 de setembro de 2019  |
+|  Rel 19-09   |  [4512488]  |  Não segurança   |  [4,70]  |  13 de agosto de 2019  |
+|  Rel 19-09   |  [4512518]  |  Não segurança   |  [3,77]  |  13 de agosto de 2019  |
+|  Rel 19-09   |  [4512506]  |  Não segurança   |  [2,90]  |  13 de agosto de 2019  |
 
 [4516046]: https://support.microsoft.com/kb/4516046
 [4516115]: https://support.microsoft.com/kb/4516115
@@ -60,6 +57,11 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [4512488]: https://support.microsoft.com/kb/4512488
 [4512518]: https://support.microsoft.com/kb/4512518
 [4512506]: https://support.microsoft.com/kb/4512506
+[6,11]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5,35]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4,70]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3,77]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2,90]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="august-2019-guest-os"></a>SO convidado de agosto de 2019
@@ -1157,7 +1159,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | MS15-075 |[3072633] |Vulnerabilidades no OLE poderiam permitir elevação de privilégio |4.22, 3.29, 2.41 |14 de julho de 2015 |
 | MS15-076 |[3067505] |A vulnerabilidade na chamada de procedimento remoto do Windows poderia permitir elevação de privilégio |4.22, 3.29, 2.41 |14 de julho de 2015 |
 | MS15-077 |[3077657] |A vulnerabilidade no driver de fonte do ATM poderia permitir elevação de privilégio |4.22, 3.29, 2.41 |14 de julho de 2015 |
-| N/A |[3057154] |Atualização para restringir o uso de criptografia DES |4.22, 3.29, 2.41 |14 de julho de 2015 |
+| ND |[3057154] |Atualização para restringir o uso de criptografia DES |4.22, 3.29, 2.41 |14 de julho de 2015 |
 
 ## <a name="june-2015-guest-os"></a>SO convidado de junho de 2015
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -1190,7 +1192,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | MS15-040 |[3045711] |Vulnerabilidade no ADFS poderia permitir a divulgação de informações |4.20, 3.27, 2.39 |17 de abril de 2015 |
 | MS15-041 |[3048010] |Vulnerabilidade no .NET Framework poderia permitir a divulgação de informações |4.20, 3.27, 2.39 |17 de abril de 2015 |
 | MS15-042 |[3047234] |Vulnerabilidade no Hyper-V do Windows poderia permitir a negação de serviço |4.20, 3.27, 2.39 |17 de abril de 2015 |
-| N/A |[3045755] |Atualização para melhorar a autenticação PKU2U |4.20, 3.27, 2.39 |17 de abril de 2015 |
+| ND |[3045755] |Atualização para melhorar a autenticação PKU2U |4.20, 3.27, 2.39 |17 de abril de 2015 |
 
 ## <a name="april-2015-guest-os"></a>SO convidado de abril de 2015
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
