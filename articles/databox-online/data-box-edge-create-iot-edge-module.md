@@ -30,7 +30,7 @@ Neste artigo, você aprenderá a:
 
 ## <a name="about-the-iot-edge-module"></a>Sobre o módulo do IoT Edge
 
-Seu dispositivo Data Box Edge pode implantar e executar módulos do IoT Edge. Os módulos do Edge são, essencialmente, contêineres do Docker que executam uma tarefa específica, por exemplo, ingerir uma mensagem de um dispositivo, transformar uma mensagem ou enviar uma mensagem para um Hub IoT. Neste artigo, você criará um módulo que copia arquivos de um compartilhamento local para um compartilhamento na nuvem em seu dispositivo do Data Box Edge.
+Seu dispositivo Data Box Edge pode implantar e executar módulos do IoT Edge. Os módulos do Microsoft Edge são, essencialmente, contêineres do Microsoft Docker que executam uma tarefa específica, por exemplo, ingerir uma mensagem de um dispositivo, transformar uma mensagem ou enviar uma mensagem para um Hub IoT. Neste artigo, você criará um módulo que copia arquivos de um compartilhamento local para um compartilhamento na nuvem em seu dispositivo do Data Box Edge.
 
 1. Os arquivos são gravados no compartilhamento local em seu dispositivo Data Box Edge.
 2. O gerador de evento de arquivo cria um evento de arquivo para cada arquivo gravado no compartilhamento local. Os eventos de arquivo também são gerados quando um arquivo é modificado. Depois, os eventos de arquivo são enviados ao Hub IoT Edge (no tempo de execução do IoT Edge).

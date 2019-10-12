@@ -58,7 +58,7 @@ O arquivo multipath.conf tem cinco seções:
 
 - **Os padrões de nível de sistema** *(o padrão é)* : Você pode substituir os padrões de nível de sistema.
 - **Dispositivos incluídos em listas negras** *(blacklist)* : Você pode especificar a lista de dispositivos que não devem ser controlados pelo device-mapper.
-- **Exceções de lista de bloqueios** *(blacklist_exceptions)* : Você pode identificar dispositivos específicos a serem tratados como dispositivos de vários caminhos, mesmo se listado na lista negra.
+- **Exceções de lista de bloqueios** *(blacklist_exceptions)* : Você pode identificar dispositivos específicos a serem tratados como dispositivos de vários caminhos, mesmo se listado na lista de bloqueios.
 - **Configurações específicas do controlador de armazenamento** *(dispositivos)* : Você pode especificar definições de configuração que serão aplicadas a dispositivos que têm informações de fornecedor e o produto.
 - **As configurações específicas de dispositivo** *(multipaths)* : Você pode usar esta seção para ajustar as definições de configuração para LUNs individuais.
 
@@ -211,12 +211,12 @@ Os dispositivos multipath-supported podem ser automaticamente descobertos e conf
         }
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Etapa 2: Configurar vários caminhos para volumes do StorSimple
-Por padrão, todos os dispositivos estão na lista negra no arquivo multipath.conf e serão ignorados. Será necessário criar exceções de lista negra para permitir vários caminhos para volumes desde dispositivos StorSimple.
+Por padrão, todos os dispositivos estão na lista de bloqueios no arquivo multipath.conf e serão ignorados. Será necessário criar exceções de lista de bloqueios para permitir vários caminhos para volumes desde dispositivos StorSimple.
 
 1. Edite o arquivo `/etc/mulitpath.conf` . Digite:
    
     `vi /etc/multipath.conf`
-1. Localize a seção blacklist_exceptions no arquivo multipath.conf. Seu dispositivo StorSimple precisa estar relacionado como uma exceção de lista negra nesta seção. Você pode retirar o comentário de linhas relevantes neste arquivo para modificá-lo como mostrado abaixo (use somente o modelo específico do dispositivo que você estiver usando):
+1. Localize a seção blacklist_exceptions no arquivo multipath.conf. Seu dispositivo StorSimple precisa estar relacionado como uma exceção de lista de bloqueios nesta seção. Você pode retirar o comentário de linhas relevantes neste arquivo para modificá-lo como mostrado abaixo (use somente o modelo específico do dispositivo que você estiver usando):
    
         blacklist_exceptions {
             device {
@@ -376,9 +376,9 @@ Repita esse comando para todas as interfaces de rede conectadas no destino iSCSI
     iscsiadm -m node --login -T <TARGET_IQN>
 
 
-P. Não sei se meu dispositivo está na lista branca.
+P. Não sei se meu dispositivo está na lista de permissões.
 
-a. Para verificar se seu dispositivo está na lista branca, use o seguinte comando interativo de solução de problemas:
+a. Para verificar se seu dispositivo está na lista de permissões, use o seguinte comando interativo de solução de problemas:
 
     multipathd –k
     multipathd> show devices

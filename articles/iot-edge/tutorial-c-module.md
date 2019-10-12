@@ -304,7 +304,7 @@ Verifique se seu dispositivo IoT Edge está em funcionamento.
 
 2. Clique com o botão direito no nome do seu dispositivo IoT Edge e selecione **Criar Implantação para Dispositivo Único**.
 
-3. Selecione o arquivo **deployment.json** na pasta **config** e clique em **Selecionar Manifesto de Implantação do Edge**. Não use o arquivo deployment.template.json.
+3. Selecione o arquivo **deployment.json** na pasta **config** e clique em **Selecionar Manifesto de Implantação do Microsoft Edge**. Não use o arquivo deployment.template.json.
 
 4. Clique no botão Atualizar. Você deve ver o novo **CModule** sendo executado junto com o módulo **SimulatedTemperatureSensor** e **$edgeAgent** e **$edgeHub**.
 

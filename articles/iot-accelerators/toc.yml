@@ -243,7 +243,7 @@
       items:
         - name: Plataforma de Logística Conectada da Intel
           href: 'https://www.azureiotsolutions.com/Accelerators#description/intel-connected-logistics-platform'
-        - name: Análise de Dinamômetro do Edge
+        - name: Análise de Dinamômetro do Microsoft Edge
           href: 'https://www.azureiotsolutions.com/Accelerators#description/edge-dynamometer-analysis'
         - name: Solução de Sinalização Digital
           href: 'https://www.azureiotsolutions.com/Accelerators#description/digital-signage-solution'

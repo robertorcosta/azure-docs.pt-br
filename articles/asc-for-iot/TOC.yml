@@ -7,7 +7,7 @@
       href: architecture.md
     - name: Agentes de segurança
       href: security-agent-architecture.md
-    - name: Módulo de segurança do Edge
+    - name: Módulo de segurança do Microsoft Edge
       href: security-edge-architecture.md
     - name: Pré-requisitos do serviço
       href: service-prerequisites.md
@@ -65,7 +65,7 @@
           href: azure-iot-security-local-configuration-c.md
         - name: 'Configuração local para C#'
           href: azure-iot-security-local-configuration-csharp.md
-    - name: Implantar módulo de segurança do Edge
+    - name: Implantar módulo de segurança do Microsoft Edge
       href: how-to-deploy-edge.md
     - name: Configurar agentes de segurança
       href: how-to-agent-configuration.md

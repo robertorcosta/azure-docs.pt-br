@@ -33,7 +33,7 @@ landingContent:
       url: architecture.md
     - text: Agentes da Central de Segurança do Azure para IoT
       url: security-agent-architecture.md
-    - text: Módulo de segurança do Edge
+    - text: Módulo de segurança do Microsoft Edge
       url: security-edge-architecture.md
 - title: Integrar a Central de Segurança do Azure para IoT no Hub IoT
   linkLists:
@@ -69,7 +69,7 @@ landingContent:
       url: how-to-deploy-linux-cs.md
     - text: Implantar um agente de segurança baseado em C da Central de Segurança do Azure para IoT para Linux
       url: how-to-deploy-linux-c.md
-    - text: Implantar módulo de segurança do Edge
+    - text: Implantar módulo de segurança do Microsoft Edge
       url: how-to-deploy-edge.md
     - text: Configurar agentes de segurança
       url: how-to-agent-configuration.md

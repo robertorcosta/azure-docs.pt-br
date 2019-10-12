@@ -116,7 +116,7 @@ O formulário do Marketplace pede campos que aparecem no [Azure Marketplace](htt
 
 ### <a name="preview-subscription-ids"></a>IDs de assinatura para versão prévia
 
-Insira uma lista de IDs de assinatura do Azure que podem acessar a oferta após a publicação. Use essas assinaturas da lista branca para testar a oferta de versão prévia antes de ativá-la. É possível compilar uma lista de permissões com até 100 assinaturas no portal de parceiros.
+Insira uma lista de IDs de assinatura do Azure que podem acessar a oferta após a publicação. Use essas assinaturas da lista de permissões para testar a oferta de versão prévia antes de ativá-la. É possível compilar uma lista de permissões com até 100 assinaturas no portal de parceiros.
 
 ### <a name="suggested-categories"></a>Categorias sugeridas
 

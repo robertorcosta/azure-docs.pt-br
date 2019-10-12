@@ -32,7 +32,7 @@ Escolha em nossa solução ininterrupta sem agente ou aproveite a segurança abr
 
 À medida que bilhões de dispositivos novos estiverem conectados à Internet e integrados a nossas vidas diárias e nossas empresas, suas equipes de operações de segurança devem garantir que suas estratégias de segurança evoluam rapidamente para cobrir cada nova superfície de ataque. Como qualquer outro sistema, para proteger de forma abrangente sua solução de IoT, ela requer proteção em todos os estágios de implementação. 
 
-A central de segurança do Azure para IoT simplifica a proteção de carga de trabalho híbrida fornecendo visibilidade e controle unificados, prevenção de ameaças adaptáveis e detecção de ameaças inteligentes e resposta entre cargas de trabalho em execução no Edge, no local, no Azure e em outras nuvens. 
+A central de segurança do Azure para IoT simplifica a proteção de carga de trabalho híbrida fornecendo visibilidade e controle unificados, prevenção de ameaças adaptáveis e detecção de ameaças inteligentes e resposta entre cargas de trabalho em execução no Microsoft Edge, no local, no Azure e em outras nuvens. 
 
 ![Arquitetura da Central de Segurança do Azure para IoT](./media/architecture/azure-iot-security-architecture.png)
 

@@ -70,7 +70,7 @@ O NSX Data Center fornece recursos de virtualização de rede, micro segmentaç�
 
 * Gerenciador de NSXT
 * Zonas de transporte
-* Perfil de uplink do host e do Edge
+* Perfil de uplink do host e do Microsoft Edge
 * Comutador lógico para transporte de borda, Ext1 e ext2
 * Pool de IPS para nó de transporte ESXi
 * Pool de IPS para o nó de transporte de borda

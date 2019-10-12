@@ -315,7 +315,7 @@ for i in Image.list(workspace=ws):
         i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
 ```
 
-## <a name="2-deploy-to-cloud-or-edge"></a>2. Implantar na nuvem ou no Edge
+## <a name="2-deploy-to-cloud-or-edge"></a>2. Implantar na nuvem ou no Microsoft Edge
 
 ### <a name="deploy-to-the-cloud"></a>Implantar na nuvem
 

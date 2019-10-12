@@ -129,7 +129,7 @@ A seção **Grupos de VMs** contém três guias:
    - **Alertas**: quaisquer violações registradas.
    - **Nº de VMs**: o número de máquinas virtuais com este tipo de alerta.
 
-6. Em **Regras de lista branca de editores**, **Regras de lista branca de editores** e **Regras de lista de permissões em hash**, você pode ver quais regras de lista de permissões estão configuradas nas VMs de um grupo, de acordo com o tipo de coleção de regras. Para cada regra, você pode ver:
+6. Em **Regras de permissões de editores**, **Regras de lista de permissões de editores** e **Regras de lista de permissões em hash**, você pode ver quais regras de lista de permissões estão configuradas nas VMs de um grupo, de acordo com o tipo de coleção de regras. Para cada regra, você pode ver:
 
    - **Regra**: Os parâmetros específicos de acordo com os quais um aplicativo é examinado pelo AppLocker para determinar se um aplicativo pode ser executado.
    - **Tipo de arquivo**: Os tipos de arquivo que são cobertos por uma regra específica. Pode ser um dos seguintes: EXE, Script, MSI ou qualquer permutação desses tipos.
@@ -143,7 +143,7 @@ A seção **Grupos de VMs** contém três guias:
 
 ### <a name="not-recommended-list"></a>Lista de não recomendados
 
-O Security Center recomenda apenas políticas de lista branca de aplicativos para máquinas virtuais que executam um conjunto estável de aplicativos. As recomendações não serão criadas se os aplicativos nas VMs associadas sofrerem mudança.
+O Security Center recomenda apenas políticas de lista de permissões de aplicativos para máquinas virtuais que executam um conjunto estável de aplicativos. As recomendações não serão criadas se os aplicativos nas VMs associadas sofrerem mudança.
 
 ![Recomendação](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
 
@@ -151,7 +151,7 @@ A lista contém:
 - **Nome do grupo**: o nome da assinatura e do grupo
 - **VMs e computadores**: o número de máquinas virtuais no grupo
 
-A Central de Segurança do Azure permite definir uma política de lista branca de aplicativos em grupos de VMs não recomendados também. Siga os mesmos princípios descritos anteriormente para configurar também uma política de lista de permissões de aplicativos nesses grupos.
+A Central de Segurança do Azure permite definir uma política de lista de permissões de aplicativos em grupos de VMs não recomendados também. Siga os mesmos princípios descritos anteriormente para configurar também uma política de lista de permissões de aplicativos nesses grupos.
 
 ## <a name="move-a-vm-from-one-group-to-another"></a>Mover uma VM de um grupo para outro
 

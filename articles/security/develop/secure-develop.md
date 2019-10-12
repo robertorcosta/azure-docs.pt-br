@@ -50,7 +50,7 @@ Valide a entrada no início do fluxo de dados para garantir que apenas os dados 
 
 As listas negras e de lista de permissões são duas abordagens gerais para executar a validação da sintaxe de entrada:
 
-  - As tentativas de lista negra para verificar se uma determinada entrada do usuário não contém conteúdo "conhecido como mal-intencionado".
+  - As tentativas de lista de bloqueios para verificar se uma determinada entrada do usuário não contém conteúdo "conhecido como mal-intencionado".
 
   - As tentativas de lista de permissões para verificar se uma determinada entrada do usuário corresponde a um conjunto de entradas "boas conhecidas". A lista de permissões baseada em caractere é uma forma de lista de permissões em que um aplicativo verifica se a entrada do usuário contém apenas caracteres "corretos" ou se essa entrada corresponde a um formato conhecido.
     Por exemplo, isso pode envolver a verificação de que um nome de usuário contém apenas caracteres alfanuméricos ou que contém exatamente dois números.

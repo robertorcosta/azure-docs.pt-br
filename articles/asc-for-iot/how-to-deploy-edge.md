@@ -105,7 +105,7 @@ Há três etapas para criar uma implantação de IoT Edge para a central de segu
     ```
 
 1. Clique em **Salvar**.
-1. Role até a parte inferior da guia e selecione **definir configurações avançadas de tempo de execução do Edge**. 
+1. Role até a parte inferior da guia e selecione **definir configurações avançadas de tempo de execução do Microsoft Edge**. 
    
 1. Altere a **imagem** em **Hub de borda** para **MCR.Microsoft.com/azureiotedge-Hub:1.0.9-RC2**.
 
