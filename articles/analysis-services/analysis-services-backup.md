@@ -2,18 +2,17 @@
 title: Backup e restauração do banco de dados do Analysis Services do Azure | Microsoft Docs
 description: Descreve como fazer backup e restaurar um banco de dados do Analysis Services do Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2e751d45e4b76852426d454f8d29196c01396504
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fde545f3764f5910d00da5a8ce7f0e8c1772c7ea
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932469"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295423"
 ---
 # <a name="backup-and-restore"></a>Backup e restauração
 

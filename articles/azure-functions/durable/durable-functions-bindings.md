@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: f297c89d2c3ba5692a44fab631c0d46c75f48692
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 1b056ce8afe86fcd6629aff23ac95acae02ed9ba
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033595"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299869"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Associações para Funções Duráveis (Azure Functions)
 
@@ -90,7 +90,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> O `context` objeto em JavaScript não representa o DurableOrchestrationContext, mas o [contexto de função como um todo](../functions-reference-node.md#context-object). Você pode acessar os métodos de orquestração por meio da propriedade `df` do objeto `context`.
+> O objeto `context` em JavaScript não representa o DurableOrchestrationContext, mas o [contexto de função como um todo](../functions-reference-node.md#context-object). Você pode acessar os métodos de orquestração por meio da propriedade `df` do objeto `context`.
 
 > [!NOTE]
 > Os orquestradores JavaScript devem usar `return`. A biblioteca `durable-functions` é responsável por chamar o método `context.done`.
@@ -244,9 +244,9 @@ A associação de cliente de orquestração permite que você grave funções qu
 * Enviar eventos a elas durante sua execução.
 * Limpar o histórico de instância.
 
-Se você estiver usando o Visual Studio, poderá associar ao cliente Orchestration usando o atributo [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .net para Durable Functions 1,0. A partir da versão prévia do Durable Functions 2,0, você pode associar ao cliente Orchestration usando o `DurableClientAttribute` atributo .net.
+Se você estiver usando o Visual Studio, poderá associar ao cliente Orchestration usando o atributo [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .net para Durable Functions 1,0. A partir da versão prévia do Durable Functions 2,0, você pode associar ao cliente Orchestration usando o atributo `DurableClientAttribute` .NET.
 
-Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *. js* ) para desenvolvimento, o gatilho de orquestração será definido pelo seguinte `bindings` objeto JSON na matriz de *Function. JSON*:
+Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *. js* ) para desenvolvimento, o gatilho de orquestração será definido pelo seguinte objeto JSON na matriz `bindings` de *Function. JSON*:
 
 ```json
 {
@@ -266,7 +266,7 @@ Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *
 
 ### <a name="client-usage"></a>Uso do cliente
 
-Em funções .NET, normalmente você associa a `DurableOrchestrationClient`, que oferece acesso completo a todas as APIs de cliente com suporte de Durable Functions. A partir do Durable Functions 2,0, você associa à `IDurableOrchestrationClient` interface. No JavaScript, as mesmas APIs são expostas pelo objeto retornado `getClient`de. APIs no objeto cliente incluem:
+Em funções .NET, normalmente você associa a `DurableOrchestrationClient`, que oferece acesso completo a todas as APIs de cliente com suporte de Durable Functions. A partir do Durable Functions 2,0, você associa à interface `IDurableOrchestrationClient`. No JavaScript, as mesmas APIs são expostas pelo objeto retornado de `getClient`. APIs no objeto cliente incluem:
 
 * [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)
 * [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_)
@@ -319,7 +319,7 @@ Se não estiver usando o Visual Studio para desenvolvimento, você poderá criar
 
 A seguir, temos exemplos específico a um idioma que iniciam novas instâncias de função do orquestrador.
 
-#### <a name="c-sample"></a>Exemplo do C#
+#### <a name="c-sample"></a>Exemplo de C#
 
 O exemplo a seguir mostra como usar a associação de cliente de orquestração durável para iniciar uma nova instância de função de uma função de script em C#:
 
@@ -351,7 +351,7 @@ Mais detalhes sobre como iniciar instâncias podem ser encontrados em [Gerenciam
 
 Os gatilhos de entidade permitem que você crie [funções de entidade](durable-functions-entities.md). Esse gatilho dá suporte ao processamento de eventos para uma instância de entidade específica.
 
-Quando você usa as ferramentas do Visual Studio para Azure functions, o gatilho de entidade é configurado `EntityTriggerAttribute` usando o atributo .net.
+Quando você usa as ferramentas do Visual Studio para Azure Functions, o gatilho de entidade é configurado usando o atributo `EntityTriggerAttribute` .NET.
 
 > [!NOTE]
 > Os gatilhos de entidade estão disponíveis no Durable Functions 2,0 e superior. Os gatilhos de entidade ainda não estão disponíveis para JavaScript.
@@ -371,64 +371,64 @@ Qualquer alteração de estado feita em uma entidade durante sua execução ser�
 
 ### <a name="trigger-usage-net"></a>Uso de gatilho (.NET)
 
-Cada função de entidade tem um tipo de `IDurableEntityContext`parâmetro, que tem os seguintes membros:
+Cada função de entidade tem um tipo de parâmetro de `IDurableEntityContext`, que tem os seguintes membros:
 
-* **EntityName**: Obtém o nome da entidade atualmente em execução.
-* **EntityKey**: Obtém a chave da entidade em execução no momento.
-* **EntityId**: Obtém a ID da entidade em execução no momento.
-* **OperationName**: Obtém o nome da operação atual.
-* **IsNewlyConstructed**: retorna `true` se a entidade não existia antes da operação.
-* **GetState\<TState > ()** : Obtém o estado atual da entidade. O `TState` parâmetro deve ser um tipo primitivo ou serializável por JSON.
-* **SetState (objeto)** : atualiza o estado da entidade. O `object` parâmetro deve ser um objeto primitivo ou serializável por JSON.
-* **Getinput\<TInput > ()** : Obtém a entrada para a operação atual. O `TInput` parâmetro de tipo deve representar um tipo primitivo ou serializável por JSON.
-* **Return (Object)** : retorna um valor para a orquestração que chamou a operação. O `object` parâmetro deve ser um objeto primitivo ou serializável por JSON.
-* **DestructOnExit ()** : exclui a entidade depois de concluir a operação atual.
-* **SignalEntity (EntityId, String, Object)** : envia uma mensagem unidirecional para uma entidade. O `object` parâmetro deve ser um objeto primitivo ou serializável por JSON.
+* **EntityName**: o nome da entidade atualmente em execução.
+* **EntityKey**: a chave da entidade atualmente em execução.
+* **EntityId**: a ID da entidade em execução no momento.
+* **OperationName**: o nome da operação atual.
+* **HasState**: se a entidade existe, ou seja, tem algum estado. 
+* **GetState @ no__t-1TState > ()** : Obtém o estado atual da entidade. Se ele ainda não existir, ele será criado e inicializado para `default<TState>`. O parâmetro `TState` deve ser um tipo primitivo ou serializável por JSON. 
+* **GetState @ no__t-1TState > (initfunction)** : Obtém o estado atual da entidade. Se ele ainda não existir, ele será criado chamando o parâmetro `initfunction` fornecido. O parâmetro `TState` deve ser um tipo primitivo ou serializável por JSON. 
+* **SetState (ARG)** : cria ou atualiza o estado da entidade. O parâmetro `arg` deve ser um objeto serializável em JSON ou primitivo.
+* **Deletestate ()** : exclui o estado da entidade. 
+* **Getinput @ no__t-1TInput > ()** : Obtém a entrada para a operação atual. O parâmetro de tipo `TInput` deve ser um tipo primitivo ou serializável por JSON.
+* **Return (ARG)** : retorna um valor para a orquestração que chamou a operação. O parâmetro `arg` deve ser um objeto primitivo ou serializável em JSON.
+* **SignalEntity (EntityId, operação, entrada)** : envia uma mensagem unidirecional para uma entidade. O parâmetro `operation` deve ser uma cadeia de caracteres não nula e o parâmetro `input` deve ser um objeto primitivo ou serializável por JSON.
+* **CreateNewOrchestration (orchestratorFunctionName, entrada)** : inicia uma nova orquestração. O parâmetro `input` deve ser um objeto primitivo ou serializável em JSON.
 
-Ao usar o modo de programação de entidade baseada em classe `IDurableEntityContext` , o objeto pode ser referenciado usando a `Entity.Current` Propriedade thread-static.
+O objeto `IDurableEntityContext` passado para a função de entidade pode ser acessado usando a propriedade local Async-1 @no__t. Essa abordagem é conveniente ao usar o modelo de programação baseado em classe.
 
-### <a name="trigger-sample---entity-function"></a>Exemplo de gatilho – função de entidade
+### <a name="trigger-sample-function-based-syntax"></a>Exemplo de gatilho (sintaxe baseada em função)
 
-O código a seguir é um exemplo de uma entidade de *contador* simples implementada como uma função padrão. Essa função define três *operações*, `add` `reset`, e `get`, cada uma operando em um valor de estado inteiro, `currentValue`.
+O código a seguir é um exemplo de uma entidade de *contador* simples implementada como uma função durável. Essa função define três operações, `add`, `reset` e `get`, cada uma operando em um estado inteiro.
 
 ```csharp
-[FunctionName(nameof(Counter))]
+[FunctionName("Counter")]
 public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
-    int currentValue = ctx.GetState<int>();
-
     switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
-            int amount = ctx.GetInput<int>();
-            currentValue += operand;
+            ctx.SetState(ctx.GetState<int>() + ctx.GetInput<int>());
             break;
         case "reset":
-            currentValue = 0;
+            ctx.SetState(0);
             break;
         case "get":
-            ctx.Return(currentValue);
+            ctx.Return(ctx.GetState<int>()));
             break;
     }
-
-    ctx.SetState(currentValue);
 }
 ```
 
-### <a name="trigger-sample---entity-class"></a>Exemplo de gatilho – classe de entidade
+Para obter mais informações sobre a sintaxe baseada em função e como usá-la, consulte [sintaxe baseada em função](durable-functions-dotnet-entities.md#function-based-syntax).
 
-O exemplo a seguir é uma implementação equivalente da entidade `Counter` anterior usando classes e métodos .net.
+### <a name="trigger-sample-class-based-syntax"></a>Exemplo de gatilho (sintaxe baseada em classe)
+
+O exemplo a seguir é uma implementação equivalente da entidade `Counter` usando métodos e classes.
 
 ```csharp
+[JsonObject(MemberSerialization.OptIn)]
 public class Counter
 {
     [JsonProperty("value")]
     public int CurrentValue { get; set; }
 
     public void Add(int amount) => this.CurrentValue += amount;
-    
+
     public void Reset() => this.CurrentValue = 0;
-    
+
     public int Get() => this.CurrentValue;
 
     [FunctionName(nameof(Counter))]
@@ -437,21 +437,25 @@ public class Counter
 }
 ```
 
-> [!NOTE]
-> O método de ponto de entrada de `[FunctionName]` função com o atributo `static` *deve* ser declarado ao usar classes de entidade. Métodos de ponto de entrada não estáticos podem resultar em várias inicializações de objeto e potencialmente outros comportamentos indefinidos.
+O estado dessa entidade é um objeto do tipo `Counter`, que contém um campo que armazena o valor atual do contador. Para persistir esse objeto no armazenamento, ele é serializado e desserializado pela biblioteca [JSON.net](https://www.newtonsoft.com/json) . 
 
-As classes de entidade têm mecanismos especiais para interagir com associações e injeção de dependência do .NET. Para obter mais informações, consulte o artigo sobre [entidades duráveis](durable-functions-entities.md) .
+Para obter mais informações sobre a sintaxe baseada em classe e como usá-la, consulte [definindo classes de entidade](durable-functions-dotnet-entities.md#defining-entity-classes).
+
+> [!NOTE]
+> O método de ponto de entrada de função com o atributo `[FunctionName]` *deve* ser declarado `static` ao usar classes de entidade. Métodos de ponto de entrada não estáticos podem resultar em várias inicializações de objeto e potencialmente outros comportamentos indefinidos.
+
+As classes de entidade têm mecanismos especiais para interagir com associações e injeção de dependência do .NET. Para obter mais informações, consulte [construção de entidade](durable-functions-dotnet-entities.md#entity-construction).
 
 ## <a name="entity-client"></a>Cliente de entidade
 
 A associação de cliente de entidade permite que você dispare de forma assíncrona [funções de entidade](#entity-trigger). Essas funções são, às vezes, chamadas de [funções de cliente](durable-functions-types-features-overview.md#client-functions).
 
-Se você estiver usando o Visual Studio, poderá associar ao cliente da entidade usando o `DurableClientAttribute` atributo .net.
+Se você estiver usando o Visual Studio, poderá associar ao cliente da entidade usando o atributo `DurableClientAttribute` .NET.
 
 > [!NOTE]
 > O `[DurableClientAttribute]` também pode ser usado para associar ao [cliente de orquestração](#orchestration-client).
 
-Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *. js* ) para desenvolvimento, o gatilho de entidade será definido pelo seguinte `bindings` objeto JSON na matriz de *Function. JSON*:
+Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *. js* ) para desenvolvimento, o gatilho de entidade será definido pelo seguinte objeto JSON na matriz `bindings` de *Function. JSON*:
 
 ```json
 {
@@ -471,19 +475,17 @@ Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *
 
 ### <a name="entity-client-usage"></a>Uso de cliente de entidade
 
-Em funções do .net, você normalmente se `IDurableEntityClient`associa a, que fornece acesso completo a todas as APIs de cliente com suporte de entidades duráveis. Você também pode associar à `IDurableClient` interface, que fornece acesso a APIs de cliente para entidades e orquestrações. APIs no objeto cliente incluem:
+Em funções do .NET, você normalmente se associa a `IDurableEntityClient`, que fornece acesso completo a todas as APIs de cliente com suporte de entidades duráveis. Você também pode associar à interface `IDurableClient`, que fornece acesso a APIs de cliente para entidades e orquestrações. APIs no objeto cliente incluem:
 
-* **ReadEntityStateAsync\<T >** : lê o estado de uma entidade.
+* **ReadEntityStateAsync @ no__t-1T >** : lê o estado de uma entidade. Ele retorna uma resposta que indica se a entidade de destino existe e, em caso afirmativo, qual é seu estado.
 * **SignalEntityAsync**: envia uma mensagem unidirecional para uma entidade e aguarda que ela seja enfileirada.
-* **SignalEntityAsync\<TEntityInterface >** :igual`TEntityInterface`a ,masusaumobjetoproxy`SignalEntityAsync` gerado do tipo.
-* **CreateEntityProxy\<TEntityInterface >** : gera dinamicamente um proxy dinâmico do tipo `TEntityInterface` para fazer chamadas de tipo seguro para entidades.
+
+Não é necessário criar a entidade de destino antes de enviar um sinal-o estado da entidade pode ser criado de dentro da função de entidade que manipula o sinal.
 
 > [!NOTE]
-> É importante entender que as operações de "sinal" anteriores são assíncronas. Não é possível invocar uma função de entidade e recuperar um valor de retorno de um cliente. Da mesma forma `SignalEntityAsync` , o pode retornar antes que a entidade comece a executar a operação. Somente as funções de orquestrador podem invocar funções de entidade de forma síncrona e processar valores de retorno.
+> É importante entender que os "sinais" enviados do cliente são simplesmente enfileirados, para serem processados de forma assíncrona em um momento posterior. Em particular, o `SignalEntityAsync` geralmente retorna antes que a entidade inicie a operação, e não é possível retornar o valor de retorno ou observar as exceções. Se forem necessárias garantias mais fortes (por exemplo, para fluxos de trabalho), as *funções de orquestrador* deverão ser usadas, o que pode esperar que as operações de entidade sejam concluídas e pode processar valores de retorno e observar exceções.
 
-As `SignalEntityAsync` APIs exigem a especificação do identificador exclusivo da entidade como um `EntityId`. Essas APIs também usam opcionalmente o nome da operação de entidade como um `string` e a carga da operação como uma `object`serializável por JSON. Se a entidade de destino não existir, ela será criada automaticamente com a ID de entidade especificada.
-
-### <a name="client-sample-untyped"></a>Exemplo de cliente (não tipado)
+### <a name="example-client-signals-entity-directly"></a>Exemplo: cliente sinaliza a entidade diretamente
 
 Aqui está um exemplo de função disparada por fila que invoca uma entidade "Counter".
 
@@ -500,16 +502,16 @@ public static Task Run(
 }
 ```
 
-### <a name="client-sample-typed"></a>Exemplo de cliente (digitado)
+### <a name="example-client-signals-entity-via-interface"></a>Exemplo: o cliente sinaliza a entidade por meio da interface
 
-É possível gerar um objeto proxy para acesso de tipo seguro a operações de entidade. Para gerar um proxy de tipo seguro, o tipo de entidade deve implementar uma interface. Por exemplo, suponha que `Counter` a entidade mencionada anteriormente `ICounter` implementou uma interface, definida da seguinte maneira:
+Sempre que possível, é recomendável [acessar entidades por meio de interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) porque ela fornece mais verificação de tipo. Por exemplo, suponha que a entidade `Counter` mencionada anteriormente implementou uma interface `ICounter`, definida da seguinte maneira:
 
 ```csharp
 public interface ICounter
 {
     void Add(int amount);
     void Reset();
-    int Get();
+    Task<int> Get();
 }
 
 public class Counter : ICounter
@@ -518,7 +520,7 @@ public class Counter : ICounter
 }
 ```
 
-O código do cliente poderia `SignalEntityAsync<TEntityInterface>` , então, `ICounter` usar e especificar a interface como o parâmetro de tipo para gerar um proxy de tipo seguro. Esse uso de proxies de tipo seguro é demonstrado no exemplo de código a seguir:
+Em seguida, o código do cliente pode usar `SignalEntityAsync<ICounter>` para gerar um proxy de tipo seguro:
 
 ```csharp
 [FunctionName("UserDeleteAvailable")]
@@ -532,23 +534,14 @@ public static async Task AddValueClient(
 }
 ```
 
-No exemplo anterior, `proxy` o parâmetro é uma instância gerada dinamicamente do `ICounter`, que converte internamente a chamada para `Add` na chamada equivalente (não tipada) para `SignalEntityAsync`.
-
-Há algumas regras para definir interfaces de entidade:
-
-* O parâmetro `TEntityInterface` de tipo `SignalEntityAsync<TEntityInterface>` em deve ser uma interface.
-* As interfaces de entidade devem definir apenas métodos.
-* Os métodos de interface de entidade não devem definir mais de um parâmetro.
-* Os métodos de interface de `void`entidade devem retornar `Task<T>` , `T` ou onde é um valor de `Task`retorno.
-* As interfaces de entidade devem ter exatamente uma classe de implementação concreta dentro do mesmo assembly (ou seja, a classe de entidade).
-
-Se qualquer uma dessas regras for violada, uma `InvalidOperationException` será lançada em tempo de execução. A mensagem de exceção explicará qual regra foi quebrada.
+O parâmetro `proxy` é uma instância gerada dinamicamente de `ICounter`, que converte internamente a chamada para `Add` na chamada equivalente (não tipada) para `SignalEntityAsync`.
 
 > [!NOTE]
-> As `SignalEntityAsync` APIs representam operações unidirecionais. Se uma interface de entidade `Task<T>`retornar, o valor `T` do parâmetro será sempre nulo ou `default`.
+> As APIs `SignalEntityAsync` representam operações unidirecionais. Se uma interface de entidade retornar `Task<T>`, o valor do parâmetro `T` será sempre nulo ou `default`.
+
+Em particular, não faz sentido sinalizar a operação `Get`, uma vez que nenhum valor é retornado. Em vez disso, os clientes podem usar o `ReadStateAsync` para acessar o estado do contador diretamente ou podem iniciar uma função de orquestrador que chama a operação `Get`. 
 
 <a name="host-json"></a>
-
 ## <a name="hostjson-settings"></a>configurações de host.json
 
 [!INCLUDE [durabletask](../../../includes/functions-host-json-durabletask.md)]

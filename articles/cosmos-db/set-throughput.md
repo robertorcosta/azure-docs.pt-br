@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: rimman
-ms.openlocfilehash: 146cc9e89959035ca211a036be4730b59cae8c0b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 0f906cc6b62252d8d94498ed22e22a5cab12765e
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987386"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298365"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar a taxa de transferência para contêineres e bancos de dados
 
@@ -24,7 +24,7 @@ Com Azure Cosmos DB, você pode provisionar a taxa de transferência em duas gra
 
 ## <a name="set-throughput-on-a-container"></a>Definir taxa de transferência em um contêiner  
 
-A taxa de transferência provisionada em um contêiner Cosmos do Azure é reservada exclusivamente para esse contêiner. O contêiner recebe a taxa de transferência provisionada o tempo todo. A taxa de transferência provisionada em um contêiner é respaldada financeiramente por SLAs. Para saber como configurar a taxa de transferência em um contêiner, confira provisionar [taxa de transferência em um contêiner Cosmos do Azure](how-to-provision-container-throughput.md).
+A taxa de transferência provisionada em um contêiner Cosmos do Azure é reservada exclusivamente para esse contêiner. O contêiner recebe a taxa de transferência provisionada o tempo todo. A taxa de transferência provisionada em um contêiner é respaldada financeiramente por SLAs. Para saber como configurar a taxa de transferência em um contêiner, confira [provisionar taxa de transferência em um contêiner Cosmos do Azure](how-to-provision-container-throughput.md).
 
 Definir a taxa de transferência provisionada em um contêiner é a opção usada com mais frequência. Você pode dimensionar de forma elástica a taxa de transferência para um contêiner Provisionando qualquer quantidade de taxa de transferência usando as [unidades de solicitação (RUs)](request-units.md). 
 
@@ -56,15 +56,30 @@ Os exemplos a seguir demonstram onde é preferível provisionar a taxa de transf
 
 * Compartilhar a taxa de transferência provisionada de um banco de dados em um conjunto de contêineres é útil quando você migra um banco de dados NoSQL, como MongoDB ou Cassandra, hospedado em um cluster de VMs ou de servidores físicos locais para o Azure Cosmos DB. Pense na taxa de transferência provisionada configurada no banco de dados do Azure Cosmos como um equivalente lógico, porém mais econômico e elástico, ao da capacidade de computação do cluster do MongoDB ou Cassandra.  
 
-Todos os contêineres criados dentro de um banco de dados com taxa de transferência provisionada devem ser criados com uma [chave de partição](partition-data.md). A qualquer momento, a taxa de transferência alocada a um contêiner dentro de um banco de dados será distribuída entre todas as partições lógicas desse contêiner. Quando você tem contêineres que compartilham a taxa de transferência provisionada configurada em um banco de dados, não é possível aplicar seletivamente a taxa de transferência a um contêiner específico ou a uma partição lógica. 
+Todos os contêineres criados dentro de um banco de dados com taxa de transferência provisionada devem ser criados com uma [chave de partição](partition-data.md). Em qualquer momento determinado, a taxa de transferência alocada para um contêiner em um banco de dados é distribuída entre todas as partições lógicas desse contêiner. Quando você tem contêineres que compartilham a taxa de transferência provisionada configurada em um banco de dados, não é possível aplicar seletivamente a taxa de transferência a um contêiner específico ou a uma partição lógica. 
 
 Se a carga de trabalho em uma partição lógica consumir mais do que a taxa de transferência alocada para uma partição lógica específica, suas operações serão limitadas por taxa. Quando a limitação de taxa ocorre, você pode aumentar a taxa de transferência do banco de dados inteiro ou tentar novamente as operações. Para saber mais sobre particionamento, confira [Partições lógicas](partition-data.md).
 
-A taxa de transferência provisionada em um banco de dados pode ser compartilhada pelos contêineres dentro desse banco de dados. Um máximo de 25 contêineres pode compartilhar a taxa de transferência provisionada no banco de dados. Além de 25 contêineres, para cada novo contêiner criado nesse banco de dados, é possível compartilhar uma parte da taxa de transferência do banco de dados com outras coleções já disponíveis no banco de dados. A quantidade de taxa de transferência que pode ser compartilhada depende do número de contêineres provisionados no banco de dados. 
+A taxa de transferência provisionada em um banco de dados pode ser compartilhada pelos contêineres dentro desse banco de dados. Cada novo contêiner na taxa de transferência compartilhada no nível do banco de dados exigirá 100 RU/s. Ao provisionar contêineres com oferta de banco de dados compartilhado:
 
-Se suas cargas de trabalho envolvem excluir e recriar todas as coleções em um banco de dados, é recomendável descartar o banco de dados vazio e recriar um novo banco de dados antes da criação da coleção.
+* Cada 25 contêineres é agrupado em um conjunto de partições e a taxa de transferência do banco de dados (D) é compartilhada entre os contêineres no conjunto de partições. Se houver até 25 contêineres no banco de dados e em qualquer ponto no tempo, se você estiver usando apenas um contêiner, esse contêiner poderá usar uma taxa de transferência máxima de ' d'.
 
-A imagem a seguir mostra como uma partição física pode hospedar uma ou mais partições lógicas que pertencem a contêineres diferentes dentro de um banco de dados:
+* Para cada novo contêiner criado após 25 contêineres, um novo conjunto de partições é criado e a taxa de transferência do banco de dados é dividida entre os novos conjuntos de partições criados (ou seja, D/2 para 2 conjuntos de partições, D/3 para 3 conjuntos de partições...). Em qualquer momento, se você estiver usando apenas um contêiner do banco de dados, ele poderá usar um máximo de (D/2, D/3, D/4... taxa de transferência), respectivamente. Dada a taxa de transferência reduzida, é recomendável que você não crie mais do que 25 contêineres em um banco de dados.
+
+**Exemplo**
+
+* Se você criar um banco de dados chamado "MyDB" com uma taxa de transferência provisionada de 10K RU/s.
+
+* Se você provisionar 25 contêineres em "MyDB", todos os contêineres serão agrupados em um conjunto de partições. Em qualquer momento, se você estiver usando apenas um contêiner do banco de dados, ele poderá usar um máximo de 10K RU/s (D).
+
+* Quando você provisiona o contêiner 26, um novo conjunto de partições é criado e a taxa de transferência é dividida igualmente entre os dois conjuntos de partições. Portanto, em qualquer ponto no tempo, se você estiver usando apenas um contêiner do banco de dados, ele poderá usar um máximo de 5K RU/s (D/2). Como há dois conjuntos de partições, o fator de compartilhamento de produtividade é dividido em D/2.
+
+   A imagem a seguir demonstra o exemplo anterior graficamente:
+
+   ![Fator de compartilhamento na taxa de transferência no nível do banco de dados](./media/set-throughput/database-level-throughput-shareability-factor.png)
+
+
+Se suas cargas de trabalho envolvem excluir e recriar todas as coleções em um banco de dados, é recomendável descartar o banco de dados vazio e recriar um novo banco de dados antes da criação da coleção. A imagem a seguir mostra como uma partição física pode hospedar uma ou mais partições lógicas que pertencem a contêineres diferentes dentro de um banco de dados:
 
 ![Partição física](./media/set-throughput/resource-partition2.png)
 
@@ -73,7 +88,7 @@ A imagem a seguir mostra como uma partição física pode hospedar uma ou mais p
 É possível combinar os dois modelos. É permitido provisionar a taxa de transferência tanto no banco de dados como no contêiner. O exemplo a seguir mostra como provisionar a taxa de transferência em um banco de dados do Azure Cosmos e em um contêiner:
 
 * Você pode criar um banco de dados Cosmos do Azure chamado *Z* com taxa de transferência provisionada de *"K"* RUs. 
-* Em seguida, crie cinco contêineres chamados *a*, *B*, *C*, *D*e e no banco de dados. Ao criar o contêiner B, certifique-se de habilitar provisionar **taxa de transferência dedicada para essa** opção de contêiner e configurar explicitamente *"P"* RUs de taxa de transferência provisionada neste contêiner. Observe que você pode configurar a taxa de transferência compartilhada e dedicada somente ao criar o banco de dados e o contêiner. 
+* Em seguida, crie cinco contêineres chamados *a*, *B*, *C*, *D*e *e no banco de dados* . Ao criar o contêiner B, certifique-se de habilitar **provisionar taxa de transferência dedicada para essa** opção de contêiner e configurar explicitamente *"P"* RUs de taxa de transferência provisionada neste contêiner. Observe que você pode configurar a taxa de transferência compartilhada e dedicada somente ao criar o banco de dados e o contêiner. 
 
    ![Definindo a taxa de transferência no nível do contêiner](./media/set-throughput/coll-level-throughput.png)
 
@@ -91,11 +106,11 @@ Depois de criar um contêiner Cosmos do Azure ou um banco de dados, você pode a
 * A taxa de transferência máxima que você já provisiona no contêiner
 * O número máximo de contêineres de Cosmos do Azure que você já criou em um banco de dados com taxa de transferência compartilhada. 
 
-Você pode recuperar a taxa de transferência mínima de um contêiner ou de um banco de dados programaticamente usando os SDKs ou exibir o valor no portal do Azure. Ao usar o SDK do .NET, o método [DocumentClient. ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) permite que você dimensione o valor da taxa de transferência provisionada. Ao usar o SDK do Java, o método requestoptions [. setOfferThroughput](sql-api-java-samples.md#offer-examples) permite que você dimensione o valor de taxa de transferência provisionado. 
+Você pode recuperar a taxa de transferência mínima de um contêiner ou de um banco de dados programaticamente usando os SDKs ou exibir o valor no portal do Azure. Ao usar o SDK do .NET, o método [DocumentClient. ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) permite que você dimensione o valor da taxa de transferência provisionada. Ao usar o SDK do Java, o método [Requestoptions. setOfferThroughput](sql-api-java-samples.md#offer-examples) permite que você dimensione o valor de taxa de transferência provisionado. 
 
 Ao usar o SDK do .NET, o método [DocumentClient. ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) permite que você recupere a taxa de transferência mínima de um contêiner ou de um banco de dados. 
 
-Você pode dimensionar a taxa de transferência provisionada de um contêiner ou de um banco de dados a qualquer momento. Quando uma operação de dimensionamento é executada para aumentar a taxa de transferência, ela pode levar mais tempo devido às tarefas do sistema para provisionar os recursos necessários. Você pode verificar o status da operação de dimensionamento em portal do Azure ou programaticamente usando os SDKs. Ao usar o SDK do .net, você pode obter o status da operação de dimensionamento usando `DocumentClient.ReadOfferAsync` o método.
+Você pode dimensionar a taxa de transferência provisionada de um contêiner ou de um banco de dados a qualquer momento. Quando uma operação de dimensionamento é executada para aumentar a taxa de transferência, ela pode levar mais tempo devido às tarefas do sistema para provisionar os recursos necessários. Você pode verificar o status da operação de dimensionamento em portal do Azure ou programaticamente usando os SDKs. Ao usar o SDK do .net, você pode obter o status da operação de dimensionamento usando o método `DocumentClient.ReadOfferAsync`.
 
 ## <a name="comparison-of-models"></a>Comparação de modelos
 

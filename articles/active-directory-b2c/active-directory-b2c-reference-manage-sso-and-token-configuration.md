@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 966386bfed5f94556f145afab1c665eb3c90546a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 36a95b502c13ccf360ba4ac56b4837d41ee487c8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065552"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296401"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gerenciar a personalização de SSO e de token usando políticas personalizadas no Azure Active Directory B2C
 
@@ -102,5 +102,5 @@ Para alterar o comportamento da sessão e as configurações de SSO, você adici
 Os seguintes valores são configurados no exemplo anterior:
 
 - **(SSO) logon único** – o logon único é configurado com o **SingleSignOn**. Os valores aplicáveis são `Tenant`, `Application`, `Policy` e `Suppressed`.
-- **Tempo de vida de sessão de aplicativo Web (minutos)** – o tempo de vida de sessão do aplicativo Web é definido com o elemento **SessionExpiryInSeconds**. O valor padrão é de 86400 segundos (1440 minutos).
 - **Tempo limite de sessão do aplicativo Web** – o tempo limite de sessão do aplicativo Web é definido com o elemento **SessionExpiryType**. Os valores aplicáveis são `Absolute` e `Rolling`.
+- **Tempo de vida da sessão do aplicativo** Web-o tempo de vida da sessão do aplicativo Web é definido com o elemento **SessionExpiryInSeconds** . O valor padrão é de 86400 segundos (1440 minutos).

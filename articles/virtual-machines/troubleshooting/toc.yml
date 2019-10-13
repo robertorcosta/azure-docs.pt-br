@@ -65,8 +65,6 @@
       href: detailed-troubleshoot-ssh-connection.md
 - name: Mensagens de erro comuns
   href: error-messages.md
-- name: Dados a serem coletados quando você abre um caso para a Automação do Microsoft Azure
-  href: collect-data-microsoft-azure-automation-case.md
 - name: Problemas de desempenho com as VMs
   href: performance-diagnostics.md
 - name: Solução de problemas genéricos de desempenho de Máquina Virtual do Azure executando Linux ou Windows

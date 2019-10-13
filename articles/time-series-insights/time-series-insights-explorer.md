@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a6bebfa11294821ff717f221e3e0ddfd68cd65c
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: aa04b2508f89b9658d904624e884bf9133caf3b7
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948221"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299546"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
 
@@ -76,7 +76,7 @@ Alguns minutos após conectar a origem do evento ao ambiente do Time Series Insi
          |`<`, `>`, `<=`, `>=`     |  Double, DateTime, TimeSpan       |         |
          |`=`, `!=`, `<>`     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |
          |IN     | String, Bool, Double, DateTime, TimeSpan, NULL        |  Todos os operandos devem ser do mesmo tipo ou ser uma constante NULL.        |
-         |HAS     | Cadeia        |  Somente literais de cadeia de caracteres constantes são permitidos no lado direito. Cadeia de caracteres vazia e NULL não são permitidos.       |
+         |HAS     | Cadeia de caracteres        |  Somente literais de cadeia de caracteres constantes são permitidos no lado direito. Cadeia de caracteres vazia e NULL não são permitidos.       |
 
       - **Exemplos de consultas**
 
@@ -126,4 +126,5 @@ Agora você viu os vários recursos e opções disponíveis no aplicativo Web Ti
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [diagnosticar e resolver problemas](time-series-insights-diagnose-and-solve-problems.md) em seu ambiente de time Series insights.
+
 - Faça o Tour de [início rápido Azure Time Series insights](time-series-quickstart.md) guiado.

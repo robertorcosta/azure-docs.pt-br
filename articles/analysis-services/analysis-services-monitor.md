@@ -2,18 +2,17 @@
 title: Monitorar métricas do servidor do Azure Analysis Services | Microsoft Docs
 description: Saiba como monitorar as métricas do servidor do Analysis Services no portal do Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7c7aaf911930f83775f66c47377bc68edb059519
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: a66089d01ed9eabdb78975eb1738b87c99fbf311
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958977"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294879"
 ---
 # <a name="monitor-server-metrics"></a>Monitorar métricas do servidor
 
@@ -38,7 +37,7 @@ Para executar diagnóstico mais detalhado, rastrear o desempenho e identificar t
 
 Use essa tabela para determinar quais métricas são melhores para o seu cenário de monitoramento. Apenas as métricas da mesma unidade podem ser mostradas no mesmo gráfico.
 
-|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
+|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|DESCRIÇÃO|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Comprimento da fila de trabalho do pool de comando|Contagem|Average|Número de trabalhos na fila do pool de threads de comando.|
 |CurrentConnections|Conexão: Conexões atuais|Contagem|Average|Número atual de conexões de cliente estabelecidas.|
@@ -55,11 +54,11 @@ Use essa tabela para determinar quais métricas são melhores para o seu cenári
 |MemoryLimitLow|Memória: Limite de memória inferior|Bytes|Average|Limite de memória inferior, do arquivo de configuração.|
 |MemoryLimitVertiPaq|Memória: Limite de memória VertiPaq|Bytes|Average|Limite na memória, do arquivo de configuração.|
 |MemoryUsage|Memória: Uso de Memória|Bytes|Average|Uso de memória do processo do servidor, como usado no cálculo de preço de memória do limpador. Igual ao contador Process\PrivateBytes mais o tamanho dos dados mapeados em memória, ignorando qualquer memória mapeada ou alocada pelo mecanismo de análise in-memory (VertiPaq), além do Limite de Memória do mecanismo.|
-|private_bytes_metric|Bytes Privados |Bytes|Average|A quantidade total de memória que o processo do mecanismo de Analysis Services e os processos de contêiner do mashup alocaram, não incluindo a memória compartilhada com outros processos.|
+|private_bytes_metric|Bytes Particulares |Bytes|Average|A quantidade total de memória que o processo do mecanismo de Analysis Services e os processos de contêiner do mashup alocaram, não incluindo a memória compartilhada com outros processos.|
 |virtual_bytes_metric|Bytes Virtuais |Bytes|Average|O tamanho atual do espaço de endereço virtual que Analysis Services processo do mecanismo e os processos de contêiner do mashup estão usando.|
 |mashup_engine_private_bytes_metric|Bytes privados do mecanismo M |Bytes|Average|A quantidade total de processos de contêiner de mashup de memória alocados, não incluindo a memória compartilhada com outros processos.|
 |mashup_engine_virtual_bytes_metric|Bytes virtuais do mecanismo M |Bytes|Average|O tamanho atual dos processos de contêiner do mashup de espaço de endereço virtual está usando.|
-|Cota|Memória: Cota|Bytes|Average|Cota de memória atual, em bytes. A cota de memória também é conhecida como uma reserva de memória ou concessão de memória.|
+|Quota|Memória: Quota|Bytes|Average|Cota de memória atual, em bytes. A cota de memória também é conhecida como uma reserva de memória ou concessão de memória.|
 |QuotaBlocked|Memória: Cota bloqueada|Contagem|Average|Número atual de solicitações de cota bloqueadas até que outras cotas de memória sejam liberadas.|
 |VertiPaqNonpaged|Memória: VertiPaq não paginado|Bytes|Average|Bytes de memória bloqueada no conjunto de trabalho para uso pelo mecanismo na memória.|
 |VertiPaqPaged|Memória: VertiPaq paginado|Bytes|Average|Bytes de memória paginada em uso para dados na memória.|

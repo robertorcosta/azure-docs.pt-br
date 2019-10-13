@@ -2,18 +2,17 @@
 title: Instalar o gateway de dados local para Azure Analysis Services | Microsoft Docs
 description: Saiba como instalar e configurar um Gateway de dados local.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e87a8221a4db4dfab132a91a31a9ba5b5602a3db
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 6f182976ac655692f8c50d4e7560aa21444ce848
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678424"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298654"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados local
 
@@ -76,14 +75,14 @@ Para criar um recurso de gateway no Azure, você precisa registrar a instância 
 
 1.  Selecione **Registrar um novo gateway neste computador**.
 
-    ![Registro](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Registrar](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Digite um nome e uma chave de recuperação para o gateway. Por padrão, o gateway usa a região padrão de sua assinatura. Se precisar selecionar uma região diferente, selecione **Alterar Região**.
 
     > [!IMPORTANT]
     > Salve sua chave de recuperação em um local seguro. A chave de recuperação é necessária para controlar, migrar ou restaurar um gateway. 
 
-   ![Registro](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+   ![Registrar](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-resource"></a>Criar um recurso de gateway do Azure

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0ff2d9b8c0ca891b25dfcd6bf1f19d1541fd1541
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: ca6b055b5d3702cea4ca1986ad1c81b59f76cee3
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673230"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299629"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>Autorizar o acesso a BLOBs e filas com Azure Active Directory de um aplicativo cliente
 
@@ -31,7 +31,7 @@ Para autenticar uma entidade de segurança do seu aplicativo de armazenamento do
 
 A primeira etapa no uso do Azure AD para autorizar o acesso aos recursos de armazenamento é registrar seu aplicativo cliente com um locatário do Azure AD do [portal do Azure](https://portal.azure.com). Ao registrar seu aplicativo cliente, você fornece informações sobre o aplicativo para o Azure AD. O Azure AD, em seguida, fornece uma ID do cliente (também chamado de *ID do aplicativo*) que você usa para associar o aplicativo ao Azure AD no tempo de execução. Para saber mais sobre a ID do cliente, consulte [Objetos de entidade de serviço e aplicativo no Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-Para registrar seu aplicativo de armazenamento do Azure, siga as etapas [mostradas em início rápido: Registre um aplicativo com a plataforma](../../active-directory/develop/quickstart-configure-app-access-web-apis.md)de identidade da Microsoft. A imagem a seguir mostra as configurações comuns para o registro de um aplicativo Web:
+Para registrar seu aplicativo de armazenamento do Azure, siga as etapas mostradas em [Quickstart: Registre um aplicativo com a plataforma de identidade da Microsoft @ no__t-0. A imagem a seguir mostra as configurações comuns para o registro de um aplicativo Web:
 
 ![Captura de tela mostrando como registrar seu aplicativo de armazenamento com o Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
@@ -76,7 +76,7 @@ O aplicativo precisa de um segredo do cliente para provar sua identidade ao soli
 
 Depois de registrar seu aplicativo e conceder permissões de ti para acessar dados no armazenamento de BLOBs do Azure ou armazenamento de filas, você pode adicionar código ao seu aplicativo para autenticar uma entidade de segurança e adquirir um token 2,0 do OAuth. Para autenticar e adquirir o token, você pode usar uma das [bibliotecas de autenticação da plataforma de identidade da Microsoft](../../active-directory/develop/reference-v2-libraries.md) ou outra biblioteca de software livre que ofereça suporte a OpenID Connect 1,0. Seu aplicativo pode, então, usar o token de acesso para autorizar uma solicitação no armazenamento de BLOBs do Azure ou no armazenamento de filas.
 
-Para obter uma lista de cenários para os quais há suporte para tokens de aquisição, consulte a seção [cenários](https://aka.ms/msal-net-scenarios) do repositório do GITHUB do [MSAL (biblioteca de autenticação da Microsoft) para .net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) .
+Para obter uma lista de cenários para os quais há suporte para tokens de aquisição, consulte a seção [fluxos de autenticação](/en-us/azure/active-directory/develop/msal-authentication-flows) do conteúdo da biblioteca de [autenticação da Microsoft](/azure/active-directory/develop/msal-overview).
 
 ## <a name="well-known-values-for-authentication-with-azure-ad"></a>Valores conhecidos para autenticação com Azure AD
 
@@ -177,7 +177,7 @@ Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 
 Em seguida, adicione um método que solicite um token do Azure AD em nome do usuário. Esse método define o escopo para o qual as permissões devem ser concedidas. Para obter mais informações sobre permissões e escopos, consulte [permissões e consentimento no ponto de extremidade da plataforma Microsoft Identity](../../active-directory/develop/v2-permissions-and-consent.md).
 
-Use a ID do recurso para construir o escopo para o qual adquirir o token. O exemplo constrói o escopo usando a ID do recurso junto com o `user_impersonation` escopo interno, que indica que o token está sendo solicitado em nome do usuário.
+Use a ID do recurso para construir o escopo para o qual adquirir o token. O exemplo constrói o escopo usando a ID do recurso junto com o escopo `user_impersonation` interno, que indica que o token está sendo solicitado em nome do usuário.
 
 Tenha em mente que talvez seja necessário apresentar ao usuário uma interface que permita ao usuário consentir que solicite o token de seu nome. Quando o consentimento é necessário, o exemplo captura o **MsalUiRequiredException** e chama outro método para facilitar a solicitação de consentimento:
 
@@ -201,7 +201,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-Consentimento é o processo de um usuário conceder autorização a um aplicativo para acessar recursos protegidos em seu nome. A plataforma de identidade da Microsoft 2,0 dá suporte ao consentimento incremental, o que significa que uma entidade de segurança pode solicitar um conjunto mínimo de permissões inicialmente e adicionar permissões ao longo do tempo, conforme necessário. Quando o código solicitar um token de acesso, especifique o escopo das permissões de que seu aplicativo precisa em um determinado momento no `scope` parâmetro. Para obter mais informações sobre o consentimento incremental, consulte a seção intitulada **consentimento incremental e dinâmico** em [por que atualizar para a plataforma Microsoft Identity (v 2.0)?](../../active-directory/develop/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+Consentimento é o processo de um usuário conceder autorização a um aplicativo para acessar recursos protegidos em seu nome. A plataforma de identidade da Microsoft 2,0 dá suporte ao consentimento incremental, o que significa que uma entidade de segurança pode solicitar um conjunto mínimo de permissões inicialmente e adicionar permissões ao longo do tempo, conforme necessário. Quando o código solicitar um token de acesso, especifique o escopo das permissões de que seu aplicativo precisa em um determinado momento no parâmetro `scope`. Para obter mais informações sobre o consentimento incremental, consulte a seção intitulada **consentimento incremental e dinâmico** em [por que atualizar para a plataforma Microsoft Identity (v 2.0)?](../../active-directory/develop/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
 O método a seguir constrói as propriedades de autenticação para solicitar o consentimento incremental:
 
@@ -293,7 +293,7 @@ Ao executar o exemplo, você pode descobrir que precisa atualizar o URI de redir
 
 1. Navegue até o registro do aplicativo no portal do Azure.
 1. Na seção Gerenciar, selecione a configuração de **autenticação** .
-1. Em **URIs**de redirecionamento, edite a porta para correspondência usada pelo aplicativo de exemplo, conforme mostrado na imagem a seguir:
+1. Em **URIs de redirecionamento**, edite a porta para correspondência usada pelo aplicativo de exemplo, conforme mostrado na imagem a seguir:
 
     ![Captura de tela mostrando URIs de redirecionamento para registro de aplicativo](media/storage-auth-aad-app/redirect-uri.png)
 
@@ -301,4 +301,4 @@ Ao executar o exemplo, você pode descobrir que precisa atualizar o URI de redir
 
 - Para saber mais sobre a plataforma de identidade da Microsoft, consulte [plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
 - Para saber mais sobre as funções RBAC para o armazenamento do Azure, consulte [gerenciar direitos de acesso aos dados de armazenamento com o RBAC](storage-auth-aad-rbac.md).
-- Para saber mais sobre como usar identidades gerenciadas para recursos do Azure com o armazenamento do Azure, confira autenticar o [acesso a BLOBs e filas com Azure Active Directory e identidades gerenciadas para recursos do Azure](storage-auth-aad-msi.md).
+- Para saber mais sobre como usar identidades gerenciadas para recursos do Azure com o armazenamento do Azure, confira [autenticar o acesso a BLOBs e filas com Azure Active Directory e identidades gerenciadas para recursos do Azure](storage-auth-aad-msi.md).

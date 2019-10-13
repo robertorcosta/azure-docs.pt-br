@@ -1,5 +1,5 @@
 ---
-title: Suporte de localização em mapas do Azure | Microsoft Docs
+title: Suporte à localização no Azure Maps | Microsoft Docs
 description: Saiba mais sobre idiomas com suporte para os serviços nos Mapas do Azure
 author: walsehgal
 ms.author: v-musehg
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a9446301cc4bb46c989223ad020c7a8e8b353ad3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b3382cffdc41685f8329a640aaf6c6c526375a83
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446183"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299832"
 ---
-# <a name="localization-support-in-azure-maps"></a>Suporte de localização em mapas do Azure
+# <a name="localization-support-in-azure-maps"></a>Suporte à localização no Azure Maps
 
-Mapas do Azure dá suporte a vários idiomas e modos de exibição com base no país/região. Este artigo fornece as exibições para ajudar a orientar a implementação de mapas do Azure e os idiomas com suporte.
+O Azure Maps dá suporte a várias linguagens e exibições baseadas em país/região. Este artigo fornece os idiomas e as exibições com suporte para ajudar a orientar sua implementação do Azure Maps.
 
 
 ## <a name="azure-maps-supported-languages"></a>Idiomas com suporte nos Mapas do Azure
@@ -70,7 +70,7 @@ Os Mapas do Azure foram traduzidos para variedade de idiomas nos serviços. A ta
 | pt-PT      | Português (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ro-RO      | Romeno               |       |    ✓    |         |         ✓         |                |     ✓     |
 | ru-RU      | Russo                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| sr-Cyrl-RS | Sérvio (cirílico)     |       |    Sérvio (cirílico) (sr-RS)   |         |                   |                |     ✓     |
+| sr-Cyrl-RS | Sérvio (cirílico)     |       |    Sérvio (cirílico) (Sr-RS)   |         |                   |                |     ✓     |
 | sr-Latn-RS | Sérvio (latino)        |       |        |         |                   |                |     ✓     |
 | sk-SK      | Eslovaco              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | sl-SL      | Esloveno              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
@@ -83,73 +83,73 @@ Os Mapas do Azure foram traduzidos para variedade de idiomas nos serviços. A ta
 | vi-VN      | Vietnamita             |       |    ✓   |         |                   |                |     ✓     |
 
 
-## <a name="azure-maps-supported-views"></a>Mapas do Azure com suporte a modos de exibição
+## <a name="azure-maps-supported-views"></a>Exibições com suporte do Azure Maps
 
 > [!Note]
-> Estamos lançando o mapas do Azure nos seguintes países/regiões em 1 de agosto de 2019:
+> O Azure Maps foi lançado nos seguintes países/regiões em 1º de agosto de 2019:
 >  * Argentina
 >  * Índia
 >  * Marrocos
 >  * Paquistão
 >
-> Após 1 de agosto de 2019 **exibição** a configuração de parâmetro definirá o conteúdo do mapa retornado para novos regiões/países listados acima. Incentivamos você a garantir que você configurou o parâmetro de modo de exibição conforme necessário para as APIs REST e SDKs que seus serviços estão usando.
+> Após 1º de agosto de 2019, a configuração de parâmetros de **exibição** definirá o conteúdo do mapa retornado para as novas regiões/países listados acima. Incentivamos você a garantir que tenha configurado o parâmetro de exibição conforme necessário para as APIs REST e SDKs que seus serviços estão usando.
 >  
 >
->  **APIs de REST:**
+>  **APIs REST:**
 >  
->  Certifique-se de que você configurou o parâmetro de modo de exibição conforme necessário. Parâmetro de modo de exibição especifica qual conjunto de conteúdo geopoliticamente contestado é retornado por meio de serviços de mapas do Azure. 
+>  Verifique se você configurou o parâmetro de exibição conforme necessário. O parâmetro View especifica qual conjunto de conteúdo de litígio geopolíticos é retornado por meio dos serviços do Azure Maps. 
 >
->  Serviços REST afetado mapas do Azure:
+>  Serviços REST do Azure Maps afetados:
 >    
->    * Obter a peça de mapa
+>    * Obter bloco de mapa
 >    * Obter imagem do mapa 
->    * Obter pesquisa difusa
->    * Obter pesquisa de POI
->    * Obter a categoria de POI de pesquisa
->    * Obter pesquisa próximos
->    * Obter o endereço de pesquisa
+>    * Obter difusa de pesquisa
+>    * Obter POI de pesquisa
+>    * Obter categoria de POI de pesquisa
+>    * Obter pesquisa próxima
+>    * Obter endereço de pesquisa
 >    * Obter o endereço de pesquisa estruturado
->    * Obter o endereço de pesquisa inversa
->    * Obter o endereço de pesquisa inversa Rua de cruzada
->    * Pesquisa de postagem dentro de geometria
->    * Versão prévia do lote endereço de pesquisa de postagem
->    * Lançar a versão prévia do lote inversa de endereço de pesquisa
->    * Pesquisa de POST ao longo da rota
->    * Versão prévia do lote difusa de pesquisa de postagem
+>    * Obter reversão de endereço de pesquisa
+>    * Obter endereço de cruz inverso da pesquisa
+>    * Postar pesquisa dentro da geometria
+>    * Versão prévia do lote de endereços de pesquisa
+>    * Pós pesquisa endereço versão prévia do lote reverso
+>    * Postar pesquisa ao longo do roteiro
+>    * Visualização do lote difusa da pesquisa posterior
 >
 >    
->  **SDKs:**
+>  **SDK**
 >
->  Certifique-se de que você configurou o parâmetro de modo de exibição conforme necessário, e você tem a versão mais recente do SDK para Web e do SDK do Android. SDKs afetados:
+>  Verifique se você configurou o parâmetro de exibição conforme necessário e se tem a versão mais recente do SDK Web e SDK do Android. SDKs afetados:
 >
 >    * SDK da Web do Azure Mapas
 >    * SDK do Android do Azure Mapas
 
 
-Mapas do Azure **exibição** parâmetro (também chamado de "parâmetro de região do usuário") é uma letra de dois código do país ISO 3166 que mostrará os mapas corretos para esse país/região especificando qual conjunto de geopoliticamente questionadas conteúdo retornado por meio de serviços de mapas do Azure, incluindo bordas e os rótulos exibidos no mapa. 
+O parâmetro de **exibição** do Azure Maps (também conhecido como "parâmetro de região do usuário") é um código de país ISO-3166 de duas letras que mostrará os mapas corretos para esse país/região especificando qual conjunto de conteúdo georelacionado geopolíticos é retornado por meio de mapas do Azure serviços, incluindo bordas e rótulos exibidos no mapa. 
 
-Por padrão, o parâmetro de modo de exibição é definido como **unificado**, mesmo se você ainda não tiver definido-lo na solicitação. É sua responsabilidade para determinar o local dos seus usuários e, em seguida, defina o parâmetro View corretamente para esse local. Como alternativa, você tem a opção para definir ' modo de exibição = Auto', que retornará os dados de mapa com base no endereço IP da solicitação.  O parâmetro de modo de exibição em mapas do Azure deve ser usado em conformidade com as leis aplicáveis, incluindo aquelas sobre mapeamento do país em que os mapas, imagens e outros conteúdos de terceiros e dados que você está autorizado a acessar por meio do Azure mapas é disponibilizado.
+Por padrão, o parâmetro de exibição é definido como **unificado**, mesmo que você não o tenha definido na solicitação. É sua responsabilidade determinar o local dos usuários e, em seguida, definir o parâmetro de exibição corretamente para esse local. Como alternativa, você tem a opção de definir ' View = auto ', que retornará os dados do mapa com base no endereço IP da solicitação.  O parâmetro View no Azure Maps deve ser usado em conformidade com as leis aplicáveis, incluindo aquelas em relação ao mapeamento do país em que mapas, imagens e outros dados e conteúdo de terceiros que você está autorizado a acessar por meio do mapas do Azure são disponibilizados.
 
 
 A tabela a seguir fornece exibições com suporte.
 
-| Visualizar         | DESCRIÇÃO                            |  Mapas | Search | Controle de mapa JS |
+| Visualizar         | DESCRIÇÃO                            |  Mapas | Search | JS Controle de Mapeamento |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
-| AE           | Emirados Árabes Unidos (exibição árabe)    |   ✓   |        |     ✓          |
-| AR           | Argentina (exibição Argentinian)           |   ✓   |    ✓   |     ✓          |
-| BH           | Bahrein (exibição árabe)                 |   ✓   |        |     ✓          |
-| IN           | Índia (exibição Indiana)                    |   ✓   |   ✓     |     ✓          |
-| IQ           | Iraque (exibição árabe)                    |   ✓   |        |     ✓          |
-| JO           | Jordânia (exibição árabe)                  |   ✓   |        |     ✓          |
-| KW           | Kuwait (exibição árabe)                  |   ✓   |        |     ✓          |
-| LB           | Líbano (exibição árabe)                 |   ✓   |        |     ✓          |
-| MA           | Marrocos (exibição Maroko)                |   ✓   |   ✓     |     ✓          |
-| OM           | Omã (exibição árabe)                    |   ✓   |        |     ✓          |
-| PK           | Paquistão (exibição paquistanesa)              |   ✓   |    ✓    |     ✓          |
-| PS           | Autoridade Palestina (exibição árabe)    |   ✓   |        |     ✓          |
-| QA           | Catar (exibição árabe)                   |   ✓   |        |     ✓          |
-| SA           | Arábia Saudita (exibição árabe)            |   ✓   |        |     ✓          |
-| SY           | Síria (exibição árabe)                   |   ✓   |        |     ✓          |
-| YE           | Iêmen (exibição árabe)                   |   ✓   |        |     ✓          |
-| Automático         | Retorne os dados de mapa com base no endereço IP da solicitação.|   ✓   |    ✓   |     ✓          |
-| Unificado      | Exibição unificada (outros)                  |   ✓   |   ✓     |     ✓          |
+| AE           | Emirados Árabes Unidos (modo de exibição árabe)    |   ✓   |        |     ✓          |
+| AR           | Argentina (exibição de Argentinian)           |   ✓   |    ✓   |     ✓          |
+| BH           | Bahrein (exibição em árabe)                 |   ✓   |        |     ✓          |
+| IN           | Índia (exibição indiana)                    |   ✓   |   ✓     |     ✓          |
+| IQ           | Iraque (exibição em árabe)                    |   ✓   |        |     ✓          |
+| JO           | Jordânia (exibição em árabe)                  |   ✓   |        |     ✓          |
+| KW           | Kuwait (exibição em árabe)                  |   ✓   |        |     ✓          |
+| LB           | Líbano (exibição em árabe)                 |   ✓   |        |     ✓          |
+| MA           | Marrocos (exibição de Tamazight)                |   ✓   |   ✓     |     ✓          |
+| OM           | Omã (exibição em árabe)                    |   ✓   |        |     ✓          |
+| PK           | Paquistão (exibição Rúpia)              |   ✓   |    ✓    |     ✓          |
+| PS           | Autoridade Palestina (exibição em árabe)    |   ✓   |        |     ✓          |
+| QA           | Catar (exibição em árabe)                   |   ✓   |        |     ✓          |
+| SA           | Arábia Saudita (exibição em árabe)            |   ✓   |        |     ✓          |
+| SY           | Síria (exibição em árabe)                   |   ✓   |        |     ✓          |
+| YE           | Iêmen (exibição em árabe)                   |   ✓   |        |     ✓          |
+| Automático         | Retornar os dados do mapa com base no endereço IP da solicitação.|   ✓   |    ✓   |     ✓          |
+| Unificado      | Exibição unificada (outras)                  |   ✓   |   ✓     |     ✓          |

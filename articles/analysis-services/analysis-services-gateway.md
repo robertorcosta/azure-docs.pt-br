@@ -2,18 +2,17 @@
 title: Gateway de dados local para Azure Analysis Services | Microsoft Docs
 description: Um gateway local será necessário se o servidor do Analysis Services no Azure for se conectar a fontes de dados locais.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b783e6b709700104985ef3f052443cf1284bf2d6
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 8d9df32070ff252dff791650788888d1d9a6ce84
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678384"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294945"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conectando-se a fontes de dados locais com o gateway de dados local
 
@@ -32,7 +31,7 @@ Por Azure Analysis Services, obter a configuração com o gateway na primeira ve
 ## <a name="how-it-works"> </a>Como funciona
 O gateway que você instala em um computador de sua organização é executado como um serviço Windows, o **Gateway de dados local**. Esse serviço local é registrado no Serviço de Nuvem do Gateway por meio do Barramento de Serviço do Azure. Em seguida, você cria um recurso de gateway de dados local para sua assinatura do Azure. Seus servidores de Azure Analysis Services são então conectados ao recurso de gateway do Azure. Quando modelos em seu servidor precisarem se conectar às fontes de dados locais para consultas ou processamento, um fluxo de dados e consultas atravessará o recurso de gateway, o Barramento de Serviço do Azure, o serviço de gateway de dados local e suas fontes de dados. 
 
-![Como funciona](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
+![Como ele funciona](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
 Fluxo de dados e consultas:
 
@@ -55,7 +54,7 @@ Talvez seja necessário colocar os endereços IP da lista de permissões em sua 
 
 Estes são os nomes de domínio totalmente qualificados usados pelo Gateway.
 
-| Nomes de domínio | Portas de saída | Descrição |
+| Nomes de domínio | Portas de saída | DESCRIÇÃO |
 | --- | --- | --- |
 | *.powerbi.com |80 |HTTP usado para baixar o instalador. |
 | *.powerbi.com |443 |HTTPS |

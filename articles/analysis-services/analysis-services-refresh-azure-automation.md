@@ -1,47 +1,46 @@
 ---
-title: Atualizar modelos do Azure Analysis Services com a automação do Azure | Microsoft Docs
-description: Saiba como as atualizações de modelo de código usando a automação do Azure.
+title: Atualizar modelos de Azure Analysis Services com a automação do Azure | Microsoft Docs
+description: Saiba como codificar atualizações de modelo usando a automação do Azure.
 author: chrislound
-manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 4cae93cff594ad561973f8029ea7335dc4c60263
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ed1634ef1009149dc2937174b20248eab9cd335f
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356994"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294785"
 ---
 # <a name="refresh-with-azure-automation"></a>Atualizar com Automação do Azure
 
-Usando a automação do Azure e Runbooks do PowerShell, você pode executar operações de atualização de dados automatizado em seus modelos de tabela de análise do Azure.  
+Usando a automação do Azure e os Runbooks do PowerShell, você pode executar operações automatizadas de atualização de dados em seus modelos de tabela de análise do Azure.  
 
-O exemplo neste artigo usa o [módulos do PowerShell SqlServer](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps).
+O exemplo neste artigo usa os [módulos do SqlServer do PowerShell](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps).
 
-Um Runbook do PowerShell, que demonstra a atualização de um modelo de exemplo é fornecido neste artigo.  
+Um runbook do PowerShell de exemplo, que demonstra a atualização de um modelo é fornecido posteriormente neste artigo.  
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
-Todas as chamadas devem ser autenticadas com um token válido do Azure Active Directory (OAuth 2).  O exemplo neste artigo usará um serviço Principal (SPN) para se autenticar no Azure Analysis Services.
+Todas as chamadas devem ser autenticadas com um token de Azure Active Directory (OAuth 2) válido.  O exemplo neste artigo usará uma entidade de serviço (SPN) para autenticar para Azure Analysis Services.
 
-Para saber mais sobre como criar uma entidade de serviço, consulte [criar uma entidade de serviço usando o portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md).
+Para saber mais sobre como criar uma entidade de serviço, consulte [criar uma entidade de serviço usando portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!IMPORTANT]
-> O exemplo a seguir pressupõe que o firewall do Azure Analysis Services está desabilitado. Se o firewall estiver habilitado, o endereço IP público do iniciador solicitação será necessário na lista de permissões no firewall.
+> O exemplo a seguir pressupõe que o firewall de Azure Analysis Services está desabilitado. Se o firewall estiver habilitado, o endereço IP público do iniciador de solicitação precisará estar na lista de permissões no firewall.
 
-### <a name="install-sqlserver-modules-from-powershell-gallery"></a>Instale os módulos do SQL Server da Galeria do PowerShell.
+### <a name="install-sqlserver-modules-from-powershell-gallery"></a>Instale os módulos do SqlServer da galeria do PowerShell.
 
-1. Em sua conta de automação do Azure, clique em **módulos**, em seguida, **procurar na galeria**.
+1. Na sua conta de automação do Azure, clique em **módulos**e **procure Galeria**.
 
 2. Na barra de pesquisa, pesquise **SqlServer**.
 
-    ![Módulos de pesquisa](./media/analysis-services-refresh-azure-automation/1.png)
+    ![Pesquisar módulos](./media/analysis-services-refresh-azure-automation/1.png)
 
-3. Selecione o SQL Server, clique **importação**.
+3. Selecione SqlServer e clique em **importar**.
  
     ![Importar módulo](./media/analysis-services-refresh-azure-automation/2.png)
 
@@ -49,107 +48,107 @@ Para saber mais sobre como criar uma entidade de serviço, consulte [criar uma e
  
 ### <a name="create-a-service-principal-spn"></a>Criar uma entidade de serviço (SPN)
 
-Para saber mais sobre como criar uma entidade de serviço, consulte [criar uma entidade de serviço usando o portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md).
+Para saber mais sobre como criar uma entidade de serviço, consulte [criar uma entidade de serviço usando portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ### <a name="configure-permissions-in-azure-analysis-services"></a>Configurar permissões no Azure Analysis Services
  
-A entidade de serviço que você cria deve ter permissões de administrador do servidor no servidor. Para saber mais, consulte [Adicionar uma entidade de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md).
+A entidade de serviço que você criar deve ter permissões de administrador do servidor no servidor. Para saber mais, consulte [Adicionar uma entidade de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md).
 
-## <a name="design-the-azure-automation-runbook"></a>Criar o Runbook de automação do Azure
+## <a name="design-the-azure-automation-runbook"></a>Projetar o runbook de automação do Azure
 
-1. Na conta de automação, criar uma **credenciais** recurso que será usado para armazenar com segurança a entidade de serviço.
+1. Na conta de automação, crie um recurso de **credenciais** que será usado para armazenar com segurança a entidade de serviço.
 
     ![Criar credencial](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Insira os detalhes da credencial.  Para o **nome de usuário**, insira o **SPN ClientId**, para o **senha**, digite o **SPN segredo**.
+2. Insira os detalhes da credencial.  Para o **nome de usuário**, insira **o SPN ClientID**, para a **senha**, insira o **segredo SPN**.
 
     ![Criar credencial](./media/analysis-services-refresh-azure-automation/7.png)
 
-3. Importar o Runbook de automação
+3. Importar o runbook de automação
 
     ![Importar Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Navegue para o **Model.ps1 atualização** do arquivo, forneça um **nome** e **descrição**e, em seguida, clique em **criar**.
+4. Procure o arquivo **Refresh-Model. ps1** , forneça um **nome** e uma **Descrição**e, em seguida, clique em **criar**.
 
     ![Importar Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
-5. Quando o Runbook tiver sido criado, ele entrará automaticamente em modo de edição.  Selecione **Publicar**.
+5. Quando o runbook tiver sido criado, ele entrará automaticamente no modo de edição.  Selecione **Publicar**.
 
     ![Publicar runbook](./media/analysis-services-refresh-azure-automation/10.png)
 
     > [!NOTE]
-    > O recurso de credencial que foi criado anteriormente é recuperado pelo runbook usando o **Get-AutomationPSCredential** comando.  Esse comando é então passado para o **Invoke-ProcessASADatabase** comando do PowerShell para realizar a autenticação ao Azure Analysis Services.
+    > O recurso de credencial que foi criado anteriormente é recuperado pelo runbook usando o comando **Get-AutomationPSCredential** .  Esse comando é passado para o comando **Invoke-ProcessASADatabase** do PowerShell para executar a autenticação para Azure Analysis Services.
 
-6. Testar o runbook clicando **iniciar**.
+6. Teste o runbook clicando em **Iniciar**.
 
-    ![Iniciar o Runbook](./media/analysis-services-refresh-azure-automation/11.png)
+    ![Iniciar o runbook](./media/analysis-services-refresh-azure-automation/11.png)
 
-7. Preencha a **DATABASENAME**, **ANALYSISSERVER**, e **REFRESHTYPE** parâmetros e depois clique em **Okey**. O **WEBHOOKDATA** parâmetro não é necessário quando o Runbook é executado manualmente.
+7. Preencha os parâmetros **DatabaseName**, **ANALYSISSERVER**e **RefreshType** e, em seguida, clique em **OK**. O parâmetro **WEBHOOKDATA** não é necessário quando o runbook é executado manualmente.
 
-    ![Iniciar o Runbook](./media/analysis-services-refresh-azure-automation/12.png)
+    ![Iniciar o runbook](./media/analysis-services-refresh-azure-automation/12.png)
 
-Se o Runbook é executado com êxito, você receberá uma saída semelhante à seguinte:
+Se o runbook for executado com êxito, você receberá uma saída semelhante à seguinte:
 
 ![Execução bem-sucedida](./media/analysis-services-refresh-azure-automation/13.png)
 
-## <a name="use-a-self-contained-azure-automation-runbook"></a>Usar um Runbook de automação do Azure independentes
+## <a name="use-a-self-contained-azure-automation-runbook"></a>Usar um runbook autocontido da automação do Azure
 
-O Runbook pode ser configurado para disparar a atualização de modelo do Azure Analysis Services de forma programada.
+O runbook pode ser configurado para disparar a atualização do modelo de Azure Analysis Services em uma base agendada.
 
 Isso pode ser configurado da seguinte maneira:
 
-1. No Runbook de automação, clique em **agendas**, em seguida, **adicionar um agendamento**.
+1. No runbook de automação, clique em **agendas**e **adicione uma agenda**.
  
     ![Criar agenda](./media/analysis-services-refresh-azure-automation/14.png)
 
-2. Clique em **agendamento** > **criar um novo agendamento**e, em seguida, preencha os detalhes.
+2. Clique em **agendar** > **crie uma nova agenda**e preencha os detalhes.
 
     ![Configurar agendamento](./media/analysis-services-refresh-azure-automation/15.png)
 
 3. Clique em **Criar**.
 
-4. Preencha os parâmetros para a agenda. Eles serão usados sempre que dispara o Runbook. O **WEBHOOKDATA** parâmetro deverá ser deixado em branco durante a execução por meio de uma agenda.
+4. Preencha os parâmetros para a agenda. Eles serão usados cada vez que o runbook for disparado. O parâmetro **WEBHOOKDATA** deve ser deixado em branco ao ser executado por meio de um agendamento.
 
     ![Configurar parâmetros](./media/analysis-services-refresh-azure-automation/16.png)
 
 5. Clique em **OK**.
 
-## <a name="consume-with-data-factory"></a>Consumir com o Data Factory
+## <a name="consume-with-data-factory"></a>Consumir com Data Factory
 
-Para consumir o runbook usando o Azure Data Factory, primeiro crie uma **Webhook** para o runbook. O **Webhook** fornecerá uma URL que pode ser chamada por meio de uma atividade de web do Azure Data Factory.
+Para consumir o runbook usando Azure Data Factory, primeiro crie um **webhook** para o runbook. O **webhook** fornecerá uma URL que pode ser chamada por meio de uma atividade da Web Azure data Factory.
 
 > [!IMPORTANT]
-> Para criar uma **Webhook**, o status do Runbook deve ser **publicado**.
+> Para criar um **webhook**, o status do runbook deve ser **publicado**.
 
-1. Em seu Runbook de automação, clique em **Webhooks**e, em seguida, clique em **adicionar Webhook**.
+1. No runbook de automação, clique em **WebHooks**e, em seguida, clique em **Adicionar webhook**.
 
-   ![Add Webhook](./media/analysis-services-refresh-azure-automation/17.png)
+   ![Adicionar webhook](./media/analysis-services-refresh-azure-automation/17.png)
 
-2. Atribuir ao Webhook um nome e uma expiração.  O nome só identifica o Webhook dentro do Runbook de automação, ele não fazem parte da URL.
+2. Dê um nome e uma expiração ao webhook.  O nome identifica apenas o webhook dentro do runbook de automação; ele não faz parte da URL.
 
    >[!CAUTION]
-   >Certifique-se de que copiar a URL antes de fechar o assistente, pois você não pode recuperá-lo uma vez fechado.
+   >Certifique-se de copiar a URL antes de fechar o assistente, pois você não pode obtê-lo novamente depois de fechado.
     
-   ![Configure Webhook](./media/analysis-services-refresh-azure-automation/18.png)
+   ![Configurar webhook](./media/analysis-services-refresh-azure-automation/18.png)
 
-    Os parâmetros para o webhook podem permanecer em branco.  Ao configurar a atividade de web do Azure Data Factory, os parâmetros podem ser passados no corpo da chamada de web.
+    Os parâmetros para o webhook podem permanecer em branco.  Ao configurar a atividade da Web do Azure Data Factory, os parâmetros podem ser passados para o corpo da chamada da Web.
 
-3. No Data Factory, configure um **atividade da web**
+3. Em Data Factory, configure uma **atividade da Web**
 
 ### <a name="example"></a>Exemplo
 
-   ![Atividade da Web de exemplo](./media/analysis-services-refresh-azure-automation/19.png)
+   ![Exemplo de atividade da Web](./media/analysis-services-refresh-azure-automation/19.png)
 
-O **URL** é a URL criada a partir do Webhook.
+A **URL** é a URL criada no webhook.
 
 O **corpo** é um documento JSON que deve conter as seguintes propriedades:
 
 
-|Propriedade  |Value  |
+|Propriedade  |Valor  |
 |---------|---------|
-|**AnalysisServicesDatabase**     |O nome do banco de dados do Azure Analysis Services <br/> Exemplo: AdventureWorksDB         |
-|**AnalysisServicesServer**     |O nome do servidor do Azure Analysis Services. <br/> Exemplo: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
-|**DatabaseRefreshType**     |O tipo de atualização para executar. <br/> Exemplo: Completo         |
+|**AnalysisServicesDatabase**     |O nome do banco de dados Azure Analysis Services <br/> Exemplo: AdventureWorksDB         |
+|**AnalysisServicesServer**     |O nome do servidor de Azure Analysis Services. <br/> Exemplo: https: \//westus. asazure. Windows. net/servers/meuservidor/Models/AdventureWorks/         |
+|**DatabaseRefreshType**     |O tipo de atualização a ser executada. <br/> Exemplo: Completo         |
 
 Exemplo de corpo JSON:
 
@@ -161,30 +160,30 @@ Exemplo de corpo JSON:
 }
 ```
 
-Esses parâmetros são definidos no runbook de script do PowerShell.  Quando a atividade da web é executada, o conteúdo JSON passado é WEBHOOKDATA.
+Esses parâmetros são definidos no script do PowerShell do runbook.  Quando a atividade da Web é executada, a carga JSON passada é WEBHOOKDATA.
 
-Isso é desserializado e armazenado como parâmetros do PowerShell, que são usados pelo comando Invoke-ProcesASDatabase PowerShell.
+Isso é desserializado e armazenado como parâmetros do PowerShell, que são usados pelo comando Invoke-ProcesASDatabase do PowerShell.
 
 ![Webhook desserializado](./media/analysis-services-refresh-azure-automation/20.png)
 
-## <a name="use-a-hybrid-worker-with-azure-analysis-services"></a>Usar um trabalhador híbrido com o Azure Analysis Services
+## <a name="use-a-hybrid-worker-with-azure-analysis-services"></a>Usar um Hybrid Worker com Azure Analysis Services
 
-Uma máquina de Virtual do Azure com um endereço IP público estático pode ser usado como um Hybrid Worker de automação do Azure.  Esse endereço IP público, em seguida, pode ser adicionado ao firewall do Azure Analysis Services.
+Uma máquina virtual do Azure com um endereço IP público estático pode ser usada como um Hybrid Worker de Automação do Azure.  Esse endereço IP público pode ser adicionado ao firewall do Azure Analysis Services.
 
 > [!IMPORTANT]
-> Verifique se que o endereço IP público de máquina Virtual é configurado como estático.
+> Verifique se o endereço IP público da máquina virtual está configurado como estático.
 >
->Para saber mais sobre como configurar Workers híbridos da automação do Azure, consulte [automatizar recursos em seu datacenter ou nuvem usando o Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker).
+>Para saber mais sobre como configurar os trabalhos híbridos de automação do Azure, confira [automatizar recursos em seu datacenter ou nuvem usando Hybrid runbook Worker](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker).
 
-Depois de configurar um Hybrid Worker, criar um Webhook conforme descrito na seção [consumir com o Data Factory](#consume-with-data-factory).  A única diferença aqui é selecionar o **executado no** > **Hybrid Worker** opção ao configurar o Webhook.
+Quando uma Hybrid Worker estiver configurada, crie um webhook conforme descrito na seção [consumir com data Factory](#consume-with-data-factory).  A única diferença aqui é selecionar a opção **executar em** > **Hybrid Worker** ao configurar o webhook.
 
-Webhook de exemplo usando o Hybrid Worker:
+Webhook de exemplo usando Hybrid Worker:
 
-![Exemplo Hybrid Worker Webhook](./media/analysis-services-refresh-azure-automation/21.png)
+![Exemplo Hybrid Worker webhook](./media/analysis-services-refresh-azure-automation/21.png)
 
-## <a name="sample-powershell-runbook"></a>Exemplo de Runbook do PowerShell
+## <a name="sample-powershell-runbook"></a>Exemplo de runbook do PowerShell
 
-O trecho de código a seguir é um exemplo de como executar a atualização do modelo do Azure Analysis Services usando um Runbook do PowerShell.
+O trecho de código a seguir é um exemplo de como executar a atualização do modelo de Azure Analysis Services usando um runbook do PowerShell.
 
 ```powershell
 param

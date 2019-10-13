@@ -2,18 +2,17 @@
 title: Fontes de dados com suporte no Azure Analysis Services | Microsoft Docs
 description: Descreve as fontes de fonte de dados com suporte para modelos de dados no Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 81fc73ffd61a49eae1c4f107733b6f9f53efbb4f
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 79346f0bf80386fb83f55daccda8790652ff8541
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993381"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298630"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -62,7 +61,7 @@ Conectar a fontes de dados locais e ao servidor de AS do Azure requer um gateway
 |---------|
 |Banco de Dados do Access     |  
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
-|Analysis Services     |  
+|Serviços de análise     |  
 |Analytics Platform System     |  
 |Arquivo CSV  |
 |Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
@@ -82,7 +81,7 @@ Conectar a fontes de dados locais e ao servidor de AS do Azure requer um gateway
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
 |SharePoint List<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
-|Banco de Dados Sybase     |  
+|Banco de dados Sybase     |  
 |Arquivo TXT  |
 |Tabela XML<sup>[1](#tab1400b)</sup>    |  
 ||

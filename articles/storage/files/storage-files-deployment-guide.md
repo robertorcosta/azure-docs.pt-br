@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 802b4deb91f1df784ac0aed2952d3f915b54ce73
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 3ce754a67643f4506fa825f0780969dc4a06f826
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699714"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299591"
 ---
 # <a name="how-to-deploy-azure-files"></a>Como implantar Arquivos do Azure
 O [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo SMB padrão no setor. Este artigo mostra como implantar Arquivos do Azure de maneira prática dentro de sua organização.
@@ -63,7 +63,7 @@ As etapas a seguir importarão dados de uma localização local para o compartil
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    Vários compartilhamentos com uma conta de armazenamento podem ser especificados. Consulte [Preparar o arquivo CSV de conjunto de dados](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file) para obter mais informações.
+    Vários compartilhamentos com uma conta de armazenamento podem ser especificados. Consulte [Preparar o arquivo CSV de conjunto de dados](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter mais informações.
 
 5. Crie o arquivo CSV de conjunto de unidades. O arquivo CSV de conjunto de unidades lista os discos disponíveis para o agente de exportação local. Por exemplo, o arquivo CSV de conjunto de unidades a seguir lista as unidades `X:`, `Y:` e `Z:` para serem usadas no trabalho de exportação local:
 
@@ -74,7 +74,7 @@ As etapas a seguir importarão dados de uma localização local para o compartil
     Z,Format,SilentMode,Encrypt,
     ```
     
-    Consulte [Preparar o arquivo CSV de conjunto de unidades](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file) para obter mais informações.
+    Consulte [Preparar o arquivo CSV de conjunto de unidades](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter mais informações.
 
 6. Use a [ferramenta WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) para copiar seus dados para um ou mais discos rígidos.
 

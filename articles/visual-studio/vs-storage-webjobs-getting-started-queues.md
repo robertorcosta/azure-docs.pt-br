@@ -1,5 +1,5 @@
 ---
-title: Introdução ao armazenamento de filas e aos serviços conectados do Visual Studio (projetos de Trabalho Web) | Microsoft Docs
+title: Introdução ao armazenamento de filas usando o Visual Studio (projetos de trabalho Web)
 description: Como começar a usar o armazenamento de fila do Azure em um projeto WebJob depois de se conectar a uma conta de armazenamento usando os serviços conectados do Visual Studio.
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 0afed158f5a19f3d82a3953f828f2b5566a6d5ff
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: ffba203bafaf3837cd2d7fc1a6fd962a6926b186
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510797"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298754"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao Armazenamento de Fila do Azure e aos Serviços Conectados do Visual Studio (Projetos WebJob)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -190,7 +191,7 @@ Para obter mais informações, consulte [Desligamento normal dos trabalhos Web](
 Para gravar uma função que cria uma nova mensagem da fila, use o atributo **Queue** . Como **QueueTrigger**, você passa o nome da fila como uma cadeia de caracteres ou pode [definir o nome da fila dinamicamente](#how-to-set-configuration-options).
 
 ### <a name="string-queue-messages"></a>Mensagens da fila da cadeia
-O exemplo de código não síncrono a seguir cria uma nova mensagem de fila na fila denominada "outputqueue" com o mesmo conteúdo que a mensagem da fila recebida na fila denominada "inputqueue". (Para funções assíncronas, use **\<IAsyncCollector T >** conforme mostrado mais adiante nesta seção.)
+O exemplo de código não síncrono a seguir cria uma nova mensagem de fila na fila denominada "outputqueue" com o mesmo conteúdo que a mensagem da fila recebida na fila denominada "inputqueue". (Para funções assíncronas, use **IAsyncCollector @ no__t-1T >** conforme mostrado posteriormente nesta seção.)
 
 ```csharp
 public static void CreateQueueMessage(
@@ -216,7 +217,7 @@ public static void CreateQueueMessage(
 O SDK serializa automaticamente o objeto em JSON. Uma mensagem da fila sempre é criada, mesmo que o objeto seja nulo.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Criar várias mensagens ou em funções assíncronas
-Para criar várias mensagens, crie o tipo de parâmetro para a fila de saída **\<ICollector t >** ou **\<IAsyncCollector t >** , conforme mostrado no exemplo a seguir.
+Para criar várias mensagens, crie o tipo de parâmetro para a fila de saída **ICollector @ no__t-1T >** ou **IAsyncCollector @ no__t-3T >** , conforme mostrado no exemplo a seguir.
 
 ```csharp
 public static void CreateQueueMessages(

@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/11/2019
 ms.author: lahugh
-ms.openlocfilehash: e4572ac6041caffc6c77d74dcbb2cf52f9f0aed0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 314056b6e55838d32c70d81570cdeaf7a84b6671
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173797"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300645"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Suporte para VMs de geração 2 (versão prévia) no Azure
 
@@ -93,7 +93,7 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 | Suporte ao conjunto de dimensionamento de máquinas virtuais | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :x:                |
 | Backup/restauração                    | :heavy_check_mark: | :heavy_check_mark: |
-| Galeria de imagens compartilhadas              | :heavy_check_mark: | :x:                |
+| Galeria de imagens compartilhadas              | :heavy_check_mark: | :heavy_check_mark: |
 | Criptografia de disco do Azure             | :heavy_check_mark: | :x:                |
 
 ## <a name="creating-a-generation-2-vm"></a>Criando uma VM de geração 2
@@ -121,7 +121,7 @@ Quando você seleciona uma SKU do Windows Server como a oferta, na guia **avanç
 
 Você também pode usar o PowerShell para criar uma VM referenciando diretamente a SKU de geração 1 ou geração 2.
 
-Por exemplo, use o seguinte cmdlet do PowerShell para obter uma lista das SKUs na `WindowsServer` oferta.
+Por exemplo, use o seguinte cmdlet do PowerShell para obter uma lista das SKUs na oferta `WindowsServer`.
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
@@ -152,7 +152,7 @@ Você também pode criar VMs de geração 2 usando conjuntos de dimensionamento 
 * **Há uma diferença de preço entre as VMs de geração 1 e de geração 2?**  
    Nº
 
-* **Tenho um arquivo. vhd da minha VM de geração 2 local. Posso usar esse arquivo. VHD para criar uma VM de geração 2 no Azure?**
+* **I tem um arquivo. vhd da minha VM de geração 2 local. Posso usar esse arquivo. VHD para criar uma VM de geração 2 no Azure?**
   Sim, você pode colocar seu arquivo. VHD de geração 2 no Azure e usá-lo para criar uma VM de geração 2. Use as seguintes etapas para fazer isso:
     1. Carregue o. VHD em uma conta de armazenamento na mesma região em que você gostaria de criar sua VM.
     1. Crie um disco gerenciado com base no arquivo. vhd. Defina a propriedade de geração do Hyper-V como v2. Os comandos do PowerShell a seguir definem a propriedade de geração do Hyper-V ao criar um disco gerenciado.

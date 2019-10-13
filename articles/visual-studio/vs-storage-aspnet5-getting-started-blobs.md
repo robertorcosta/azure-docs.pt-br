@@ -1,5 +1,5 @@
 ---
-title: Introdução ao armazenamento de blobs e aos serviços conectados do Visual Studio (ASP.NET Core) | Microsoft Docs
+title: Introdução ao armazenamento de BLOBs usando o Visual Studio (ASP.NET Core)
 description: Como começar a usar o Armazenamento de Blobs do Azure em um projeto do ASP.NET Core no Visual Studio após a criação de uma conta de armazenamento usando os serviços conectados do Visual Studio
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: c0f4124ffdb03a7a193791515444c4c7001378d7
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 81df41470c893f569fd17345e8bdf4b29641ec64
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511557"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298841"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introdução ao Armazenamento de Blobs do Azure e aos Serviços Conectados do Visual Studio (ASP.NET Core)
 
@@ -27,7 +28,7 @@ Este artigo descreve como começar a usar o armazenamento de Blobs do Azure no V
 
 Armazenamento de Blob do Azure é um serviço para armazenar grandes quantidades de dados não estruturados que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Um único blob pode ter qualquer tamanho. Blobs podem ser coisas como imagens, arquivos de áudio e vídeo, dados brutos e arquivos de documentos. Este artigo descreve como começar a usar o armazenamento de blobs depois de criar uma conta de armazenamento do Azure usando o recurso **Serviços Conectados** do Visual Studio em um projeto do ASP.NET Core.
 
-Assim como arquivos residem em pastas, blobs de armazenamento residem em contêineres. Após ter criado um blob, crie um ou mais contêineres nesse blob. Por exemplo, em um blob chamado "Scrapbook", você pode criar contêineres chamados "imagens" para armazenar fotos e "áudio" para armazenar arquivos de áudio. Depois de criar os contêineres, você poderá carregar arquivos individuais para eles. Confira [Início Rápido: Carregar, baixar e listar BLOBs usando o](../storage/blobs/storage-quickstart-blobs-dotnet.md) .net para obter mais informações sobre como manipular BLOBs programaticamente.
+Assim como arquivos residem em pastas, blobs de armazenamento residem em contêineres. Após ter criado um blob, crie um ou mais contêineres nesse blob. Por exemplo, em um blob chamado "Scrapbook", você pode criar contêineres chamados "imagens" para armazenar fotos e "áudio" para armazenar arquivos de áudio. Depois de criar os contêineres, você poderá carregar arquivos individuais para eles. Confira [Início Rápido: Carregar, baixar e listar BLOBs usando. NET @ no__t-0 para obter mais informações sobre como manipular BLOBs programaticamente.
 
 Algumas das APIs de armazenamento do Azure são assíncronas e o código neste artigo supõe que os métodos assíncronos estejam sendo usados. Confira [Programação assíncrona](https://docs.microsoft.com/dotnet/csharp/async) para saber mais.
 
@@ -140,7 +141,7 @@ do
 } while (token != null);
 ```
 
-Confira [Início Rápido: Carregar, baixar e listar BLOBs usando o](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) .net para outras maneiras de listar o conteúdo de um contêiner de BLOBs.
+Confira [Início Rápido: Carregar, baixar e listar BLOBs usando. NET @ no__t-0 para outras maneiras de listar o conteúdo de um contêiner de BLOB.
 
 ## <a name="download-a-blob"></a>Baixar um blob
 
@@ -157,7 +158,7 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-Confira [Início Rápido: Carregue, baixe e liste BLOBs usando o](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) .net para outras maneiras de salvar BLOBs como arquivos.
+Confira [Início Rápido: Carregar, baixar e listar BLOBs usando. NET @ no__t-0 para outras maneiras de salvar BLOBs como arquivos.
 
 ## <a name="delete-a-blob"></a>Excluir um blob
 

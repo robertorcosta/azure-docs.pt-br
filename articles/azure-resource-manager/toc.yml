@@ -228,8 +228,6 @@
           href: resource-group-delete.md
         - name: Bloquear recursos
           href: resource-group-lock-resources.md
-        - name: API de autenticação para acessar assinaturas
-          href: resource-manager-api-authentication.md
         - name: Criar assinaturas de EA
           href: programmatically-create-subscription.md
         - name: Conceder acesso para criar assinaturas de EA

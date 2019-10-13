@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 67d323d5a3574100760c78427db6983f6aff5ac8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: bc03e10e40e90845c8e1a3dd064c4f50fafeac00
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933991"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299819"
 ---
-# <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3.0: Traduzir
+# <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3.0: Translate
 
 Traduz texto.
 
-## <a name="request-url"></a>URL da solicitação
+## <a name="request-url"></a>URL de Solicitação
 
 Envie uma solicitação `POST` para:
 
@@ -29,20 +29,20 @@ Envie uma solicitação `POST` para:
 https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 ```
 
-## <a name="request-parameters"></a>Parâmetros de solicitação
+## <a name="request-parameters"></a>Parâmetros da solicitação
 
 Os parâmetros de solicitação passados na cadeia de caracteres de consulta são:
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
-  <th>Descrição</th>
+  <th>DESCRIÇÃO</th>
   <tr>
     <td>api-version</td>
     <td><em>Parâmetro obrigatório</em>.<br/>Versão da API solicitada pelo cliente. O valor precisa ser <code>3.0</code>.</td>
   </tr>
   <tr>
     <td>from</td>
-    <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localize quais idiomas estão disponíveis para tradução, consultando <a href="./v3-0-languages.md">idiomas com suporte</a> usando o escopo <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem. <br/><br/>Você deve usar o <code>from</code> parâmetro em vez da detecção automática ao usar o recurso de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dicionário dinâmico</a> .</td>
+    <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localize quais idiomas estão disponíveis para tradução, consultando <a href="./v3-0-languages.md">idiomas com suporte</a> usando o escopo <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem. <br/><br/>Você deve usar o parâmetro <code>from</code> em vez da detecção automática ao usar o recurso de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dicionário dinâmico</a> .</td>
   </tr>
   <tr>
     <td>para</td>
@@ -95,7 +95,7 @@ Os cabeçalhos de solicitação incluem:
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
-  <th>Descrição</th>
+  <th>DESCRIÇÃO</th>
   <tr>
     <td>Cabeçalho (s) de autenticação</td>
     <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
@@ -114,7 +114,7 @@ Os cabeçalhos de solicitação incluem:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Solicitar corpo
+## <a name="request-body"></a>Corpo da solicitação
 
 O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objeto JSON com uma propriedade de cadeia nomeada `Text`, que representa a cadeia de caracteres a ser traduzida.
 
@@ -173,7 +173,7 @@ Exemplos de respostas JSON são fornecidos na seção [exemplos](#examples).
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
-  <th>Descrição</th>
+  <th>DESCRIÇÃO</th>
     <tr>
     <td>X-RequestId</td>
     <td>Valor gerado pelo serviço para identificar a solicitação. É usado para fins de solução de problemas.</td>
@@ -189,11 +189,11 @@ Exemplos de respostas JSON são fornecidos na seção [exemplos](#examples).
 Veja a seguir os possíveis códigos de status HTTP retornados por uma solicitação. 
 
 <table width="100%">
-  <th width="20%">Código de Status</th>
-  <th>Descrição</th>
+  <th width="20%">Código de status</th>
+  <th>DESCRIÇÃO</th>
   <tr>
     <td>200</td>
-    <td>Êxito.</td>
+    <td>Sucesso.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -217,7 +217,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
   </tr>
   <tr>
     <td>500</td>
-    <td>Ocorreu um erro inesperado. Se o erro persistir, relate-o com: data e hora da falha, identificador da solicitação do cabeçalho de resposta <code>X-RequestId</code> e identificador do cliente do cabeçalho de solicitação <code>X-ClientTraceId</code>.</td>
+    <td>Erro inesperado. Se o erro persistir, relate-o com: data e hora da falha, identificador da solicitação do cabeçalho de resposta <code>X-RequestId</code> e identificador do cliente do cabeçalho de solicitação <code>X-ClientTraceId</code>.</td>
   </tr>
   <tr>
     <td>503</td>
@@ -354,7 +354,7 @@ Se você quiser evitar conteúdo ofensivo na tradução, independentemente da pr
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>Action</th>
+  <th>Ação</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>Esse é o comportamento padrão. O conteúdo ofensivo passará da origem para o destino.<br/><br/>
@@ -469,8 +469,10 @@ A resposta é:
 
 As informações de alinhamento iniciam com `0:2-0:1`, significando que os três primeiros caracteres no texto de origem (`The`) são mapeados para os dois primeiros caracteres no texto traduzido (`La`).
 
+#### <a name="limitations"></a>Limitações
 Observe as seguintes restrições:
 
+* O alinhamento não está disponível para texto no formato HTML, ou seja, TextType = HTML
 * O alinhamento é retornado apenas para um subconjunto dos pares de idiomas:
   - do inglês para qualquer outro idioma;
   - de qualquer outro idioma para o inglês, exceto chinês simplificado, chinês tradicional e letão para inglês;

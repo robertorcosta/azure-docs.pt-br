@@ -1,5 +1,5 @@
 ---
-title: Examine a saída do indexador de vídeo de serviços de mídia do Azure produzida pela API v2
+title: Examinar os serviços de mídia do Azure Video Indexer saída produzida pela API v2
 titlesuffix: Azure Media Services
 description: Este tópico examina a saída do Video Indexer produzida pela API v2.
 services: media-services
@@ -8,18 +8,18 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 10/11/2019
 ms.author: juliako
-ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20a973e5386cd9cad7d090236f021ced9a64cafc
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799074"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300932"
 ---
-# <a name="examine-the-video-indexer-output-produced-by-api"></a>Examine a saída do indexador de vídeo produzida pela API
+# <a name="examine-the-video-indexer-output-produced-by-api"></a>Examinar a saída de Video Indexer produzida pela API
 
-Quando você chama o **obter índice de vídeo** API e o status da resposta está Okey, você obterá uma saída detalhada do JSON como o conteúdo da resposta. O conteúdo JSON contém detalhes das informações do vídeo especificado. As informações incluem dimensões, como: transcrições, reconhece, faces, tópicos, blocos, etc. As dimensões têm instâncias de intervalos de tempo que mostram quando cada dimensão apareceu no vídeo.  
+Quando você chama o **obter índice de vídeo** API e o status da resposta está Okey, você obterá uma saída detalhada do JSON como o conteúdo da resposta. O conteúdo JSON contém detalhes das informações do vídeo especificado. As informações incluem dimensões como: transcrições, OCRs, rostos, tópicos, blocos, etc. As dimensões têm instâncias de intervalos de tempo que mostram quando cada dimensão apareceu no vídeo.  
 
 Você também pode examinar visualmente os insights resumidos do vídeo pressionando o botão **Reproduzir** no vídeo no site do [Video Indexer](https://www.videoindexer.ai/). Para obter mais informações, consulte [insights de vídeo de exibir e editar](video-indexer-view-edit.md).
 
@@ -42,7 +42,7 @@ Este artigo examina o conteúdo JSON retornado pela **API Get Video Index**.
 |userName|O nome do usuário que criou a lista de reprodução.|
 |criado|Hora de criação da lista de reprodução.|
 |privacyMode|Modo de privacidade da lista de reprodução (pública/privada).|
-|estado|A playlist (upload, processamento, processamento, falha, quarentena).|
+|state|A playlist (upload, processamento, processamento, falha, quarentena).|
 |isOwned|Indica se a lista de reprodução foi criada pelo usuário atual.|
 |isEditable|Indica se o usuário atual está autorizado a editar a lista de reprodução.|
 |isBase|Indica se a lista de reprodução é uma lista de reprodução básica (um vídeo) ou uma lista de reprodução de outros vídeos (derivados).|
@@ -80,7 +80,7 @@ Esta seção mostra o resumo das informações.
 |privacyMode|O detalhamento pode ter um dos seguintes modos: **Privado**, **Público**. **Público**: o vídeo é visível para todos na sua conta e para qualquer pessoa que tenha um link para o vídeo. **Privada** -o vídeo é visível para todos em sua conta.|
 |duration|Contém uma duração que descreve o tempo que uma percepção ocorreu. Duração é em segundos.|
 |thumbnailVideoId|A ID do vídeo da qual a miniatura foi tirada.
-|thumbnailId|A ID da miniatura do vídeo. Para obter a miniatura real, chame [Get-miniatura](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passá-lo thumbnailVideoId e thumbnailId.|
+|thumbnailId|A ID da miniatura do vídeo. Para obter a miniatura real, chame [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passe-o thumbnailVideoId e thumbnailid.|
 |faces|Pode conter zero ou mais faces. Para obter mais informações, consulte [faces](#faces).|
 |palavras-chave|Pode conter zero ou mais palavras-chave. Para obter mais informações, consulte [palavras-chave](#keywords).|
 |sentiments|Pode conter zero ou mais sentimentos. Para obter mais informações, consulte [sentimentos](#sentiments).|
@@ -98,7 +98,7 @@ Esta seção mostra o resumo das informações.
 |accountId|A ID da conta VI do vídeo.|
 |id|ID do vídeo.|
 |name|Nome do vídeo.
-|estado|Estado do vídeo (carregado, processado, processado, com falha, em quarentena).|
+|state|Estado do vídeo (carregado, processado, processado, com falha, em quarentena).|
 |processingProgress|O progresso do processamento durante o processamento (por exemplo, 20%).|
 |failureCode|O código de falha se não for processado (por exemplo, 'UnsupportedFileType').|
 |failureMessage|A mensagem de falha se não for processada.|
@@ -107,7 +107,7 @@ Esta seção mostra o resumo das informações.
 |metadata|Os metadados externos do vídeo (se especificado pelo usuário).|
 |isAdult|Indica se o vídeo foi revisado manualmente e identificado como um vídeo adulto.|
 |Insights|O objeto de insights. Para obter mais informações, consulte [insights](#insights).|
-|thumbnailId|A ID da miniatura do vídeo. Para obter a chamada real de miniatura [Get-miniatura](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passá-lo a ID de vídeo e thumbnailId.|
+|thumbnailId|A ID da miniatura do vídeo. Para obter a chamada de miniatura real [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passá-la para a ID de vídeo e thumbnailid.|
 |publishedUrl|Uma URL para transmitir o vídeo.|
 |publishedUrlProxy|Uma URL para transmitir o vídeo (para dispositivos Apple).|
 |viewToken|Um símbolo de visualização de curta duração para transmitir o vídeo.|
@@ -149,12 +149,12 @@ Os insights são um conjunto de dimensões (por exemplo, linhas transcritas, fac
 
 Um rosto pode ter uma ID, um nome, uma miniatura, outros metadados e uma lista de suas instâncias temporais (por exemplo: 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 e 00:41:21 – 00:41:49). Cada instância temporal pode ter metadados adicionais. Por exemplo, o retângulo da face coordena (20,230,60,60).
 
-|Version|A versão do código|
+|Versão|A versão do código|
 |---|---|
 |sourceLanguage|O idioma de origem do vídeo (assumindo um idioma mestre). Na forma de um [BCP-47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
 |language|A linguagem de insights (traduzida do idioma de origem). Na forma de um [BCP-47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
 |transcript|A dimensão da [transcrição](#transcript).|
-|ocr|O [OCR](#ocr) dimensão.|
+|ocr|A dimensão de [OCR](#ocr) .|
 |palavras-chave|A dimensão [palavras-chave](#keywords).|
 |Blocos|Pode conter um ou mais [blocos](#blocks)|
 |faces|A dimensão [faces](#faces).|
@@ -201,7 +201,7 @@ instances|Uma lista de intervalos de tempo deste bloco.|
 |NOME|DESCRIÇÃO|
 |---|---|
 |id|A ID da linha.|
-|text|A própria transcrição.|
+|texto|A própria transcrição.|
 |language|O idioma da transcrição. Tem o objetivo dar suporte à transcrição na qual cada linha pode ter um idioma diferente.|
 |instances|Uma lista com os intervalos de tempo nos quais essa linha apareceu. Se a instância for transcrita, ela terá apenas 1 instância.|
 
@@ -239,14 +239,14 @@ Exemplo:
 |NOME|DESCRIÇÃO|
 |---|---|
 |id|A ID da linha de OCR.|
-|text|O texto de OCR.|
+|texto|O texto de OCR.|
 |confidence|A confiança do reconhecimento.|
 |language|O idioma do OCR.|
 |instances|Uma lista de intervalos de tempo nos quais essa OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
-|height|A altura do retângulo de OCR|
-|top|O local superior na px|
-|esquerda| O local à esquerda no px|
-|width|A largura do retângulo de OCR|
+|height|A altura do retângulo OCR|
+|top|O local principal em px|
+|esquerda| O local à esquerda em px|
+|width|A largura do retângulo OCR|
 
 ```json
 "ocr": [
@@ -274,7 +274,7 @@ Exemplo:
 |NOME|DESCRIÇÃO|
 |---|---|
 |id|A ID da palavra-chave.|
-|text|O texto da palavra-chave.|
+|texto|O texto da palavra-chave.|
 |confidence|A confiança do reconhecimento da palavra-chave.|
 |language|O idioma da palavra-chave (quando traduzida).|
 |instances|Uma lista de intervalos de tempo nos quais essa palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
@@ -409,7 +409,7 @@ Exemplo:
 |NOME|DESCRIÇÃO|
 |---|---|
 |id|A ID da cena.|
-|instances|Uma lista de intervalos de tempo desta cena (uma cena pode ter apenas 1 instância).|
+|instances|Uma lista de intervalos de tempo desta cena (uma cena só pode ter 1 instância).|
 
 ```json
 "scenes":[  
@@ -442,7 +442,7 @@ Exemplo:
 |NOME|DESCRIÇÃO|
 |---|---|
 |id|A ID da captura.|
-|keyFrames|Uma lista de quadros-chave dentro a captura (cada um tem uma ID e uma lista de intervalos de tempo de instâncias). Cada instância de quadro-chave tem um campo de thumbnailId, que mantém a miniatura do quadro-chave ID.|
+|keyFrames|Uma lista de quadros-chave dentro da captura (cada um tem uma ID e uma lista de instâncias de intervalos de tempo). Cada instância de quadro-chave tem um campo de miniaturaid, que contém a ID de miniatura do quadro-chave.|
 |instances|Uma lista de intervalos de tempo desta captura (uma captura pode ter apenas 1 instância).|
 
 ```json
@@ -760,13 +760,13 @@ O Video Indexer identifica emoções com base em indicações de fala e de áudi
 
 #### <a name="topics"></a>topics
 
-O Video Indexer faz inferências dos principais tópicos das transcrições. Quando possível, a taxonomia de [IPTC](https://iptc.org/standards/media-topics/) de 1º nível é incluída. 
+O Video Indexer faz inferências dos principais tópicos das transcrições. Quando possível, a taxonomia [IPTC](https://iptc.org/standards/media-topics/) de 2º nível é incluída. 
 
 |NOME|DESCRIÇÃO|
 |---|---|
 |id|A ID do tópico.|
 |name|O nome do tópico, por exemplo: "Farmacêuticos".|
-|referenceId|Trilhas refletindo a hierarquia de tópicos. Por exemplo:  "Saúde e bem-estar / Medicina e serviços de saúde / Produtos farmacêuticos".|
+|referenceId|Trilhas refletindo a hierarquia de tópicos. Por exemplo: "Saúde e bem-estar / Medicina e serviços de saúde / Produtos farmacêuticos".|
 |confidence|A pontuação de confiança no intervalo [0,1]. Um valor mais alto indica maior confiança.|
 |language|O idioma usado no tópico.|
 |iptcName|O nome do código de mídia IPTC se detectado.|
