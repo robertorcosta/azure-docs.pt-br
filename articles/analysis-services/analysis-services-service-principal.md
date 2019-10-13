@@ -2,18 +2,17 @@
 title: Automatize as tarefas do Azure Analysis Services com entidades de serviço | Microsoft Docs
 description: Saiba como criar entidades de serviço para automatizar tarefas do Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4bfa969089407a35658160cf05a6407f8c717714
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 94f1313825b21b3adf7173b56798fce22736ea87
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347963"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294572"
 ---
 # <a name="automation-with-service-principals"></a>Automação com entidades de serviço
 
@@ -49,9 +48,9 @@ AppID de entidade de serviço e senha ou certificado podem ser usados em cadeias
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Usando o módulo AZ. AnalysisServices
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a>módulo <a name="azmodule" />Using AZ. AnalysisServices
 
-Ao usar uma entidade de serviço para operações de gerenciamento de recursos com o módulo [AZ. AnalysisServices](/powershell/module/az.analysisservices) , use `Connect-AzAccount` o cmdlet. 
+Ao usar uma entidade de serviço para operações de gerenciamento de recursos com o módulo [AZ. AnalysisServices](/powershell/module/az.analysisservices) , use o cmdlet `Connect-AzAccount`. 
 
 No exemplo a seguir, appID e uma senha são usados para executar operações de plano de controle para sincronização para réplicas somente leitura e escala vertical/horizontal:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: f3cfb892fc116640df5dd30abf857bde6e196224
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: b7d2e1b08653cb8023ef6a5190ab53ecc3d568a6
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880105"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297067"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo MXChip IoT DevKit ao aplicativo Azure IoT Central
 
@@ -34,7 +34,7 @@ Para concluir as etapas neste artigo, você precisa dos seguintes recursos:
 
 ## <a name="get-device-connection-details"></a>Obter detalhes de conexão do dispositivo
 
-No aplicativo IoT Central do Azure, selecione a guia **Administração** e selecione **conexão do dispositivo**. Anote a **ID do escopo** e a **chave primária**.
+No aplicativo IoT Central do Azure, selecione a guia **Administração** e selecione **conexão do dispositivo**. Anote o **escopo da ID** e a **chave primária**.
 
 ![Detalhes de conexão do grupo de dispositivos](media/howto-connect-devkit-pnp/device-group-connection-details.png)
 
@@ -61,7 +61,7 @@ No aplicativo IoT Central do Azure, selecione a guia **Administração** e selec
 
     - O nome de sua rede WiFi (SSID).
     - Sua senha de rede WiFi.
-    - Os detalhes da conexão: a **ID do dispositivo** que você pode escolher por conta própria e a ID de **escopo** e a **chave primária de SAS do grupo** anotada anteriormente.
+    - Os detalhes da conexão: a **ID do dispositivo** que você pode escolher por conta própria e o escopo da **ID** e a **chave primária de SAS do grupo** anotada anteriormente.
 
     > [!NOTE]
     > Atualmente, o IoT DevKit pode se conectar somente a Wi-Fi de 2,4 GHz, não há suporte para 5 GHz devido a restrições de hardware.
@@ -86,7 +86,7 @@ No aplicativo IoT Central, selecione a guia **dispositivos** , selecione o dispo
 
 ## <a name="review-the-code"></a>Examine o código
 
-Para examinar o código ou modificá-lo, vá para o [repositório GitHub do código de exemplo do MXChip IOT devkit](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp).
+Para examinar o código ou modificá-lo e compilá-lo, vá para os [exemplos de código](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp/sample/).
 
 ## <a name="next-steps"></a>Próximas etapas
 
