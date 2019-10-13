@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: be77ae932ec72239bea04fce298d7f1b84e5e4d8
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 35d3451327a0ce7bcaf567f93c48d532842b4f25
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240643"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285922"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestão de dados do Azure Data Explorer
 
@@ -88,7 +88,7 @@ O Kusto oferece um SDK cliente que pode ser usado para ingerir e consultar dados
 
 **Latência de métodos diferentes**:
 
-| Método | Latência |
+| Método | Latency |
 | --- | --- |
 | **Ingestão embutida** | Imediata |
 | **Ingestão de consulta** | Tempo de consulta + tempo de processamento |
@@ -119,7 +119,7 @@ Para organizações com uma infraestrutura existente baseada em um serviço de m
 
 Para todos os métodos de ingestão diferentes da ingestão de consulta, formate os dados de modo que o Azure Data Explorer possa analisá-los. Os formatos de dados compatíveis são:
 
-* CSV, TSV, TSVE, PSV, SCSV, SOH
+* TXT, CSV, TSV, TSVE, PSV, SCSV, SOH
 * JSON (multilinha, separado por linha), Avro
 * ZIP e GZIP 
 

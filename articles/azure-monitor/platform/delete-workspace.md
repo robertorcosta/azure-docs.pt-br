@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 09/26/2019
 ms.author: magoedte
-ms.openlocfilehash: f8dcab1a7a46d518b752e48f9886b60a37d8ec4c
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
-ms.translationtype: MT
+ms.openlocfilehash: 4f03fc71a11c1ecb2e96b316efac9249395fc333
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299534"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285551"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Excluir e restaurar o espaço de trabalho do Azure Log Analytics
 Este artigo explica o conceito de exclusão reversível do espaço de trabalho do Azure Log Analytics e como recuperar o espaço de trabalho excluído. 
@@ -41,7 +41,7 @@ A operação de exclusão do espaço de trabalho remove o recurso do Gerenciador
 > [!NOTE] 
 > As soluções instaladas e os serviços vinculados, como a conta de automação, são removidos permanentemente do espaço de trabalho no momento da exclusão e não podem ser recuperados. Eles devem ser reconfigurados após a operação de recuperação para colocar o espaço de trabalho em sua funcionalidade anterior. 
 
-Você pode excluir um espaço de trabalho usando o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), a [API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)ou no [portal do Azure](https://portal.azure.com).
+Você pode excluir um espaço de trabalho usando o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), a [API REST](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)ou em [portal do Azure](https://portal.azure.com).
 
 ### <a name="delete-workspace-in-azure-portal"></a>Excluir espaço de trabalho no portal do Azure
 1. Para entrar, vá para a [portal do Azure](https://portal.azure.com). 
@@ -54,11 +54,12 @@ Você pode excluir um espaço de trabalho usando o [PowerShell](https://docs.mic
 ## <a name="recover-workspace"></a>Recuperar espaço de trabalho
 Se você tiver permissões de colaborador para a assinatura e o grupo de recursos em que o espaço de trabalho foi associado antes da operação de exclusão reversível, poderá recuperá-lo durante o período de exclusão reversível, incluindo seus dados, configuração e agentes conectados. Após o período de exclusão reversível, o espaço de trabalho é não recuperável e atribuído para exclusão permanente.
 
-Você pode recuperar um espaço de trabalho recriando o espaço de trabalho usando qualquer um dos métodos Create com suporte: PowerShell, CLI do Azure ou da portal do Azure contanto que essas propriedades sejam preenchidas com os detalhes do espaço de trabalho excluído, incluindo:
+Você pode recuperar um espaço de trabalho recriando o espaço de trabalho usando o [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) ou o espaço de trabalho da [API REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) criar métodos, desde que essas propriedades sejam preenchidas com os detalhes do espaço de trabalho excluído, incluindo:
 1.  ID da assinatura
 2.  Nome do Grupo de Recursos
-3.  Nome do Workspace
+3.  Nome do workspace
 4.  Região
 
 > [!NOTE]
-> Os nomes dos espaços de trabalho excluídos são mantidos preservados para o período de exclusão reversível e não podem ser usados durante a criação de um novo espaço de trabalho. Os nomes do espaço de trabalho são *liberados* e estão disponíveis para uso na nova criação do espaço de trabalho após o período de exclusão reversível expirar.
+> * A recuperação do espaço de trabalho não tem suporte no [portal do Azure](https://portal.azure.com). Recriar um espaço de trabalho durante o período de exclusão reversível dá uma indicação de que esse nome de espaço de trabalho já está em uso.
+> * Os nomes dos espaços de trabalho excluídos são preservados para o período de exclusão reversível e não podem ser usados durante a criação de um novo espaço de trabalho.

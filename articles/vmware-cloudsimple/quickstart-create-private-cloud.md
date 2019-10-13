@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1bd84a40236b54d799efcf04eae707aea9c6c945
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b38779681dfe612369fefb9d752389395965e7b4
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828937"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285775"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Início rápido-configurar um ambiente de nuvem privada
 
@@ -27,7 +27,7 @@ Examine os [pré-requisitos de rede](cloudsimple-network-checklist.md).
 
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-private-cloud"></a>Criar uma Nuvem Privada
+## <a name="create-a-private-cloud"></a>Criar uma nuvem privada
 
 Uma nuvem privada é uma pilha VMware isolada que dá suporte a hosts ESXi, vCenter, vSAN e NSX.
 
@@ -47,7 +47,7 @@ As nuvens privadas são gerenciadas por meio do portal do CloudSimple. Eles têm
 
     ![Criar nuvem privada-informações básicas](media/create-private-cloud-basic-info.png)
 
-9. Clique em **Avançar: Opções**avançadas.
+9. Clique em **Avançar: Opções avançadas @ no__t-0.
 10. Insira o intervalo CIDR para sub-redes vSphere/vSAN. Certifique-se de que o intervalo CIDR não se sobreponha a nenhuma das suas sub-redes do Azure locais ou outras (redes virtuais) ou com a sub-rede de gateway.
 
     **Opções de intervalo CIDR:** /24,/23,/22 ou/21. Um intervalo CIDR/24 dá suporte a até 26 nós, um intervalo CIDR/23 dá suporte a até 58 nós, e um intervalo CIDR/22 e/21 dá suporte a nós 64 (o número máximo de nós em uma nuvem privada).  Para saber mais e VLANs e sub-redes, consulte [visão geral de VLANs e sub-redes](cloudsimple-vlans-subnets.md).
@@ -55,7 +55,7 @@ As nuvens privadas são gerenciadas por meio do portal do CloudSimple. Eles têm
       > [!IMPORTANT]
       > Os endereços IP no intervalo CIDR vSphere/vSAN são reservados para uso pela infraestrutura de nuvem privada.  Não use o endereço IP nesse intervalo em qualquer máquina virtual.
 
-11. Clique em **Avançar: Revise e**crie.
+11. Clique em **Avançar: Examine e crie @ no__t-0.
 12. Examine as configurações. Se você precisar alterar as configurações, clique em **anterior**.
 13. Clique em **Criar**.
 
@@ -155,7 +155,7 @@ Agora você pode entrar no vCenter para configurar máquinas virtuais e polític
 
 1. Para acessar o vCenter, inicie no portal do CloudSimple. Na Home Page, em **tarefas comuns**, clique em **Iniciar vSphere cliente**.  Selecione a nuvem privada e clique em **Iniciar vSphere cliente** na nuvem privada.
 
-    ![Iniciar Cliente vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
+    ![Iniciar cliente do vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. Selecione seu cliente vSphere preferencial para acessar o vCenter e entrar com seu nome de usuário e senha.  Os padrões são:
     * Nome de usuário: **CloudOwner@cloudsimple.local**
@@ -183,9 +183,9 @@ Se você definir uma senha que não atenda aos requisitos:
 * Se você usar o cliente vSphere flash, ele relatará um erro
 * Se você usar o cliente HTML5, ele não relatará um erro. O cliente não aceita a alteração e a senha antiga continua a funcionar.
 
-## <a name="change-nsx-administrator-password"></a>Alterar a senha de administrador do NSX
+## <a name="access-nsx-manager"></a>Acessar o Gerenciador do NSX
 
-O NSX Manager é implantado com uma senha padrão.  Recomendamos que você altere a senha depois de criar sua nuvem privada.
+O NSX Manager é implantado com uma senha padrão. 
 
 * Nome de usuário: **administrador**
 * Senha: **CloudSimple123!**
@@ -198,8 +198,6 @@ Você pode encontrar o FQDN (nome de domínio totalmente qualificado) e o endere
 4. Use o FQDN ou o endereço IP do **NSX Manager** e conecte-se usando um navegador da Web.
 
     ![Localizar FQDN do NSX Manager](media/private-cloud-nsx-manager-fqdn.png)
-
-Para alterar a senha, siga as instruções em [instalação do NSX Manager](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html).
 
 ## <a name="create-a-port-group"></a>Criar um grupo de portas
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: bc2be73f85ebec7785b9aa06d6152447eee7e33e
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: e23a83ab3a5b110f74ab4ac203dfc020e8920c24
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147299"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285990"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Consulte de Serviços para o Azure Marketplace e AppSource
 Os Serviços de Consultoria no Azure Marketplace e AppSource fornecem a parceiros da Microsoft a meta de conectar clientes com os serviços de suporte e estender seu uso e objetivos de negócios. 
@@ -79,7 +79,6 @@ Serviços de consultoria e ofertas de serviços gerenciados baseados em Microsof
 |Dinamarca   |Itália   |     Noruega          |Estados Unidos |
 |Finlândia   |Japão   |     Polônia          
 
-O lançamento dos serviços de consultoria do entrarão em funcionamento em uma região geográfica específica. O primeiro lançamento será em: Estados Unidos, Canadá, Reino Unido e Austrália. Os catálogos de outros países/regiões ficarão ativos depois que um número significativo e a seleção convincente de ofertas de serviço tiverem sido enviadas por parceiros e aprovadas pela Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Como se registrar para Serviços de consultoria no Azure Marketplace e AppSource
 Comece [registrando](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) as informações da sua empresa no marketplace. Os editores podem consultar [Tornar-se um editor no Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), para obter uma lista de verificação completa dos requisitos de registro. 
@@ -151,7 +150,7 @@ Exemplos:
 
 Ao revisar Descrições da Oferta e Resumos da Oferta, a equipe aplicará os seguintes critérios:
 
-|Tipo de Oferta  |Necessário |Recomendado  |
+|Tipo de Oferta  |Obrigatório |Recomendado  |
 |---------|---------|---------|
 |**Avaliação**    |   Incluir uma agenda detalhada para avaliações de vários dias ou várias semanas e articular o que o cliente pode esperar      |    Otimize seu resumo de ofertas com suas principais palavras-chave de Otimização do Mecanismo de Pesquisa     |
 |**Resumo**    |   Articular qual entrega o cliente pode esperar. Lembre-se de que o Resumo deve ser ofertado pessoalmente. Se você estiver fornecendo um serviço virtual, escolha um tipo de oferta diferente    |  Otimize seu resumo de ofertas com suas principais palavras-chave de Otimização do Mecanismo de Pesquisa       |

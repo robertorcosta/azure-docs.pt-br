@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: e82ce8f5c97aed7e2cb832d8e808ff84691f7c9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2785d85db47ed3b214044e673566a2837b83e984
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401186"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285497"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Mensagens e conexões no Serviço do Azure SignalR
 
@@ -42,13 +42,15 @@ A contagem de mensagens mostrada no portal do Azure permanecerá 0 até que ela 
 
 ## <a name="how-connections-are-counted"></a>Como as conexões são contadas
 
-Existem conexões de servidor e conexões de cliente. Por padrão, cada servidor de aplicativos tem cinco conexões por hub com o Serviço do Azure SignalR e cada cliente tem uma conexão de cliente com o Serviço do Azure SignalR.
+Há conexões de servidor e conexões de cliente com o serviço de Signaler do Azure. Por padrão, cada servidor de aplicativos começa com cinco conexões iniciais por Hub e cada cliente tem uma conexão de cliente.
 
 A contagem de conexões mostrada no portal do Azure inclui conexões de servidor e de cliente.
 
 Por exemplo, suponha que você tem dois servidores de aplicativos e que você define cinco hubs no código. A contagem de conexão do servidor será 50: 2 servidores de aplicativos * 5 hubs * 5 conexões por hub.
 
-O ASP.NET SignalR calcula conexões de servidor de maneira diferente. Ele inclui um hub padrão, além dos hubs que você definir. Por padrão, cada servidor de aplicativos precisa de mais cinco conexões de servidor. A contagem de conexões do hub padrão se mantém consistente com a dos outros hubs.
+O ASP.NET SignalR calcula conexões de servidor de maneira diferente. Ele inclui um hub padrão, além dos hubs que você definir. Por padrão, cada servidor de aplicativos precisa de mais cinco conexões de servidor iniciais. A contagem de conexões inicial para o Hub padrão permanece consistente com o dos outros hubs.
+
+Durante o tempo de vida do servidor de aplicativos, o serviço e o servidor de aplicativos mantêm o status da conexão de sincronização e fazem ajustes nas conexões do servidor para melhorar o desempenho e a estabilidade do serviço. Portanto, você pode ver o número de conexão do servidor ser alterado de tempos em tempos.
 
 ## <a name="how-inboundoutbound-traffic-is-counted"></a>Como o tráfego de entrada/saída é contado
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8fbb09ecf09008c25c84a11c7b43dfb26450e30a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: ee7bbff8ab501a1159030a8ee9c57f1c5a64ea22
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338764"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286541"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conhecidos e solução de problemas Azure Machine Learning
 
@@ -37,7 +37,7 @@ Talvez você queira executar um experimento que contenha apenas o conjunto de um
  
 Antes da correção, você pode conectar o conjunto de dados a qualquer módulo de Data Transformation (selecione as colunas no DataSet, editar metadados, dividir dados etc.) e executar o experimento. Em seguida, você pode visualizar o conjunto de os. 
 
-A imagem abaixo mostra como ![: visulize-data](./media/resource-known-issues/aml-visualize-data.png)
+A imagem abaixo mostra como: ![visulize-data @ no__t-1
 
 ## <a name="sdk-installation-issues"></a>Problemas de instalação do SDK
 
@@ -73,7 +73,7 @@ Caso veja `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <
 
 Não será possível implantar modelos em FPGAs até que você tenha solicitado e recebido aprovação para cota de FPGA. Para solicitar acesso, preencha o formulário de solicitação de cota: https://aka.ms/aml-real-time-ai
 
-## <a name="automated-machine-learning"></a>Aprendizado de máquina automatizado
+## <a name="automated-machine-learning"></a>Machine Learning automatizado
 
 O aprendizado de máquina automatizado do tensor Flow atualmente não dá suporte à versão 1,13 do fluxo do tensor. A instalação desta versão fará com que as dependências do pacote parem de funcionar. Estamos trabalhando para corrigir esse problema em uma versão futura. 
 
@@ -101,7 +101,7 @@ Quando você usa recursos automatizados de aprendizado de máquina no Azure Data
 
 ### <a name="10-iterations-for-automated-machine-learning"></a>> 10 iterações para o aprendizado de máquina automatizado
 
-Em configurações automatizadas do Machine Learning, se você tiver mais de 10 iterações `show_output` , `False` defina como quando enviar a execução.
+Em configurações automatizadas do Machine Learning, se você tiver mais de 10 iterações, defina `show_output` como `False` ao enviar a execução.
 
 ### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget para o SDK do Azure Machine Learning/Machine Learning automatizado
 
@@ -128,11 +128,11 @@ Se essas etapas não resolverem o problema, tente reiniciar o cluster.
 
 ### <a name="failtosendfeather"></a>FailToSendFeather
 
-Se você vir um `FailToSendFeather` erro ao ler dados no cluster Azure Databricks, consulte as seguintes soluções:
+Se você vir um erro `FailToSendFeather` ao ler dados no cluster Azure Databricks, consulte as seguintes soluções:
 
-* Atualize `azureml-sdk[automl_databricks]` o pacote para a versão mais recente.
-* Adicione `azure-dataprep` a versão 1.1.8 ou superior.
-* Adicione `pyarrow` a versão 0,11 ou superior.
+* Atualize o pacote `azureml-sdk[automl_databricks]` para a versão mais recente.
+* Adicione `azure-dataprep` versão 1.1.8 ou superior.
+* Adicione `pyarrow` versão 0,11 ou superior.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -177,7 +177,7 @@ Se você estiver usando o compartilhamento de arquivos para outras cargas de tra
 
 ## <a name="webservices-in-azure-kubernetes-service-failures"></a>WebServices em falhas do serviço kubernetes do Azure 
 
-Muitas falhas de WebService no serviço kubernetes do Azure podem ser depuradas conectando-se `kubectl`ao cluster usando. Você pode obter o `kubeconfig.json` para um cluster do serviço kubernetes do Azure executando
+Muitas falhas de WebService no serviço kubernetes do Azure podem ser depuradas conectando-se ao cluster usando `kubectl`. Você pode obter o `kubeconfig.json` para um cluster do serviço kubernetes do Azure executando
 
 ```bash
 az aks get-credentials -g <rg> -n <aks cluster name>
@@ -185,7 +185,12 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## <a name="updating-azure-machine-learning-components-in-aks-cluster"></a>Atualizando Azure Machine Learning componentes no cluster AKS
 
-As atualizações para Azure Machine Learning componentes instalados em um cluster do serviço kubernetes do Azure devem ser aplicadas manualmente. Você pode aplicar essas atualizações desanexando o cluster do espaço de trabalho Azure Machine Learning e anexando novamente o cluster ao espaço de trabalho. Se o SSL estiver habilitado no cluster, será necessário fornecer o certificado SSL e a chave privada ao anexar novamente o cluster. 
+As atualizações para Azure Machine Learning componentes instalados em um cluster do serviço kubernetes do Azure devem ser aplicadas manualmente. 
+
+> [!WARNING]
+> Antes de executar as seguintes ações, verifique a versão do seu cluster do serviço kubernetes do Azure. Se a versão do cluster for igual ou maior que 1,14, você não poderá anexar novamente o cluster ao espaço de trabalho Azure Machine Learning.
+
+Você pode aplicar essas atualizações desanexando o cluster do espaço de trabalho Azure Machine Learning e anexando novamente o cluster ao espaço de trabalho. Se o SSL estiver habilitado no cluster, será necessário fornecer o certificado SSL e a chave privada ao anexar novamente o cluster. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
@@ -206,14 +211,14 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-Se você não tiver mais o certificado SSL e a chave privada, ou se estiver usando um certificado gerado pelo Azure Machine Learning, poderá recuperar os arquivos antes de desanexar o cluster conectando-se ao cluster `kubectl` usando e recuperando o segredo `azuremlfessl`.
+Se você não tiver mais o certificado SSL e a chave privada, ou se estiver usando um certificado gerado pelo Azure Machine Learning, poderá recuperar os arquivos antes de desanexar o cluster conectando-se ao cluster usando `kubectl` e recuperando o segredo `azuremlfessl`.
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes armazena os segredos no formato codificado em base-64. Você precisará de base-64 decodificar `cert.pem` os `key.pem` componentes e dos segredos antes de fornecer a `attach_config.enable_ssl`eles. 
+>Kubernetes armazena os segredos no formato codificado em base-64. Você precisará definir-64 decodificar os componentes `cert.pem` e `key.pem` dos segredos antes de fornecer a `attach_config.enable_ssl`. 
 
 ## <a name="recommendations-for-error-fix"></a>Recomendações para correção de erro
 Com base na observação geral, aqui estão as recomendações do Azure ML para corrigir alguns dos erros comuns no Azure ML.
