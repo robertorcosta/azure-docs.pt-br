@@ -14,20 +14,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: b-juche
-ms.openlocfilehash: a401cae7140d9ceec5ec81274e1b6f3b2b46b55a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 76e01055043932f2c7e7d57bd7eed6265d666a8c
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371490"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302781"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montar ou desmontar um volume para máquinas virtuais do Windows ou do Linux 
 
 Você pode montar ou desmontar um volume para máquinas virtuais do Windows ou do Linux conforme necessário.  As instruções de montagem para máquinas virtuais do Linux estão disponíveis no Azure NetApp Files.  
 
-1. Clique o **Volumes** folha e, em seguida, selecione o volume para o qual você deseja montar. 
-2. Clique em **instruções de montagem** do volume selecionado e, em seguida, siga as instruções para montar o volume. 
+1. Clique na folha **volumes** e selecione o volume para o qual você deseja montar. 
+2. Clique em **instruções de montagem** do volume selecionado e siga as instruções para montar o volume. 
 
     ![Instruções de montagem NFS](../media/azure-netapp-files/azure-netapp-files-mount-instructions-nfs.png)
 
     ![Instruções de montagem SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)
+    
+Se você estiver usando o NFSv 4.1, use o seguinte comando para montar o sistema de arquivos: `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab48579c6eda085d77e2a6ab080b0a4a1ce806bd
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: dfcd46f06035e356f6528a79b749350627541121
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72000323"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303533"
 ---
 # <a name="what-is-passwordless"></a>O que é sem senha?
 
@@ -55,7 +55,7 @@ Uma chave de segurança **deve** implementar os seguintes recursos e extensões 
 | 3 | HMAC-segredo | Essa extensão garante que você possa entrar em seu dispositivo quando ele estiver offline ou no modo avião. |
 | 4 | Várias contas por RP | Esse recurso garante que você possa usar a mesma chave de segurança em vários serviços, como conta da Microsoft e Azure Active Directory. |
 
-Os provedores a seguir oferecem chaves de segurança FIDO2 de fatores forma diferentes que são conhecidos como compatíveis com a experiência do paswordless. A Microsoft incentiva os clientes a avaliar as propriedades de segurança dessas chaves contatando o fornecedor, bem como a FIDO Alliance.
+Os provedores a seguir oferecem chaves de segurança FIDO2 de fatores forma diferentes que são conhecidos como compatíveis com a experiência sem senha. A Microsoft incentiva os clientes a avaliar as propriedades de segurança dessas chaves contatando o fornecedor, bem como a FIDO Alliance.
 
 | Provedor | Contato |
 | --- | --- |

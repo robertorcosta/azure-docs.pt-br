@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4446b92a8998f05aae47a3bab6a2cea4785fddf2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a2970c46c7cbc978bf6d7491c9258dcccc5404bd
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094557"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302682"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Persistir dados de tarefa e trabalho no Armazenamento do Microsoft Azure com a biblioteca de Convenções de Arquivo em Lotes para .NET
 
@@ -63,12 +63,12 @@ Para manter os dados de saída no Armazenamento do Azure usando a biblioteca Con
 
 ## <a name="persist-output-data"></a>Manter os dados de saída
 
-Para manter os dados de saída de trabalho e tarefa com a biblioteca Convenções de Arquivo, crie um contêiner no Armazenamento do Azure e salve a saída no contêiner. Use a [biblioteca de cliente do Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) em seu código de tarefa para carregar a saída da tarefa para o contêiner. 
+Para manter os dados de saída de trabalho e tarefa com a biblioteca Convenções de Arquivo, crie um contêiner no Armazenamento do Azure e salve a saída no contêiner. Use a [biblioteca de cliente do Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) em seu código de tarefa para carregar a saída da tarefa para o contêiner.
 
 Para obter mais informações sobre como trabalhar com contêineres e blobs no Armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!WARNING]
-> Todas as saídas de trabalho e tarefa mantidas com a biblioteca Convenções de Arquivo são armazenadas no mesmo contêiner. Se um grande número de tarefas tentar manter arquivos ao mesmo tempo, poderão ser impostos [limites de limitação de armazenamento](../storage/common/storage-performance-checklist.md#blobs).
+> Todas as saídas de trabalho e tarefa mantidas com a biblioteca Convenções de Arquivo são armazenadas no mesmo contêiner. Se um grande número de tarefas tentar persistir arquivos ao mesmo tempo, os limites de limitação de armazenamento do Azure poderão ser aplicados. Para obter mais informações sobre limites de limitação, consulte [lista de verificação de desempenho e escalabilidade para armazenamento de BLOBs](../storage/blobs/storage-performance-checklist.md).
 
 ### <a name="create-storage-container"></a>Criar um contêiner de armazenamento
 
@@ -109,7 +109,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-O parâmetro `kind` do método [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) categoriza os arquivos mantidos. Há quatro tipos de [TaskOutputKind][net_taskoutputkind] predefinidos `TaskPreview`: `TaskLog` `TaskOutput`,, `TaskIntermediate.` e você também pode definir categorias personalizadas de saída.
+O parâmetro `kind` do método [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) categoriza os arquivos mantidos. Há quatro tipos de [TaskOutputKind][net_taskoutputkind] predefinidos: `TaskOutput`, `TaskPreview`, `TaskLog` e `TaskIntermediate.` também é possível definir categorias personalizadas de saída.
 
 Esses tipos de saída permitem que você especifique qual tipo de saídas listar ao consultar posteriormente o Lote para obter as saídas persistentes de determinada tarefa. Em outras palavras, ao listar as saídas de uma tarefa, você pode filtrar a lista em um dos tipos de saída. Por exemplo, "Forneça a saída de *visualização* da tarefa *109*". Mais informações sobre listagem e recuperação de saídas estão disponíveis em Recuperar saída mais adiante no artigo.
 
@@ -161,7 +161,7 @@ using (ITrackedSaveOperation stdout =
 }
 ```
 
-A seção comentada `Code to process data and produce output file(s)` é um espaço reservado para o código que sua tarefa normalmente executaria. Por exemplo, você pode ter código que baixa dados do Armazenamento do Azure e executa uma transformação ou um cálculo neles. A parte importante desse trecho de código é demonstrar como você pode encapsular esse códigos em `using` um bloco para atualizar periodicamente um arquivo com [SaveTrackedAsync][net_savetrackedasync].
+A seção comentada `Code to process data and produce output file(s)` é um espaço reservado para o código que sua tarefa normalmente executaria. Por exemplo, você pode ter código que baixa dados do Armazenamento do Azure e executa uma transformação ou um cálculo neles. A parte importante desse trecho de código é demonstrar como você pode encapsular esse códigos em um bloco `using` para atualizar periodicamente um arquivo com [SaveTrackedAsync][net_savetrackedasync].
 
 O agente do nó é um programa executado em cada nó no pool e fornece a interface de comando e controle entre o nó e o serviço do Lote. A chamada `Task.Delay` é necessária no final deste bloco `using` para garantir que o agente do nó tenha tempo para liberar o conteúdo do padrão que sai para o arquivo stdout.txt no nó. Sem esse atraso, é possível ignorar os últimos segundos de saída. Esse atraso pode não ser necessário para todos os arquivos.
 

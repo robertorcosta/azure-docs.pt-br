@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 10/13/2019
 ms.author: spelluru
-ms.openlocfilehash: e4d9aeb527461cc7292235fef1de0abdfa4242bd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1d7175d000eebd3f68665e7f097bbe3f68025bc8
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311330"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302791"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Adicionar marcas a um laboratório no Azure DevTest Labs
 
@@ -52,6 +52,9 @@ Cada marca é composta de um par **nome**/**valor**. Por exemplo, você pode cri
 
     ![Gerenciar marcas](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
 
+> [!NOTE]
+> Marcas criadas no nível de laboratório fluem por todos os recursos faturáveis que o laboratório gira em sua assinatura. Por exemplo, as marcas de nível de laboratório fluem para as VMs de computação subjacentes de VMs de laboratório. você pode usar marcas no contexto do gerenciamento de custos. As marcas de nível de laboratório aparecem no filtro de marca para o gerenciamento de custos.
+
 ## <a name="understanding-limitations-to-tags"></a>Entendendo as limitações das marcas
 
 As seguintes limitações se aplicam a marcas:
@@ -66,4 +69,4 @@ As seguintes limitações se aplicam a marcas:
 
 ## <a name="next-steps"></a>Próximas etapas
 * É possível aplicar restrições e convenções em sua assinatura usando políticas personalizadas. Uma política que você definir pode exigir que todos os recursos tenham uma valor para uma marcação específica. Para obter mais informações, consulte [Definir políticas e agendamentos](devtest-lab-set-lab-policy.md).
-* Explore a [galeria de modelos de Início Rápido do Azure Resource Manager do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).
+* Explore a [Galeria de modelos do DevTest Labs Azure Resource Manager guia de início rápido](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d242b2815d59676432beb878bbc955a9f39de0f1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ca55d49721f9c22f35ba79e819efa354a660d92a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171919"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72302281"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e recuperação de desastre de discos de IaaS do Azure
 
@@ -130,7 +130,7 @@ Suas escolhas de alta disponibilidade, backup e DR nos níveis do aplicativo ou 
 
 O [Backup do Azure](../articles/backup/backup-azure-vms-introduction.md) pode fazer backup das VMs que executam Windows ou Linux no cofre dos serviços de recuperação do Azure. Fazer backup e restaurar dados críticos para os negócios é complicado, pois os dados críticos para os negócios precisam ser copiados em backup enquanto os aplicativos que produzem os dados estão em execução. 
 
-Para resolver esse problema, o Backup do Azure fornece backups consistentes com o aplicativo para cargas de trabalho da Microsoft. Ele usa o serviço de sombra de volume para garantir que os dados são gravados corretamente no armazenamento. Para VMs Linux, somente backups consistentes com os arquivos são possíveis, pois o Linux não tem uma funcionalidade equivalente ao serviço de sombra de volume.
+Para resolver esse problema, o Backup do Azure fornece backups consistentes com o aplicativo para cargas de trabalho da Microsoft. Ele usa o serviço de sombra de volume para garantir que os dados são gravados corretamente no armazenamento. Para VMs do Linux, o modo de consistência de backup padrão é backups consistentes com o arquivo, pois o Linux não tem funcionalidade equivalente ao serviço de sombra de volume, como no caso do Windows. Para computadores Linux, consulte [backup consistente com o aplicativo de VMs Linux do Azure](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
 ![Fluxo do Backup do Azure][1]
 
@@ -148,7 +148,7 @@ Use as etapas a seguir para habilitar backups das VMs usando o [portal do Azure]
 
     b. No menu **Cofres dos Serviços de Recuperação**, clique em **Adicionar** e siga as etapas para criar um novo cofre na mesma região da VM. Por exemplo, se a VM estiver na região Oeste dos EUA, escolha Oeste dos EUA para o cofre.
 
-1.  Verifique a replicação de armazenamento do cofre recém-criado. Acesse o cofre em **cofres dos serviços de recuperação** e vá para **Properties** > **configuração de Backup** > **atualização** . Verifique se a opção **Armazenamento com redundância geográfica** está selecionada por padrão. Essa opção garante que o cofre é replicado automaticamente em um data center secundário. Por exemplo, o cofre do Oeste dos EUA é replicado automaticamente no Leste dos EUA.
+1.  Verifique a replicação de armazenamento do cofre recém-criado. Acesse o cofre em **cofres dos serviços de recuperação** e vá para **Propriedades** > **configuração de backup** > **atualização**. Verifique se a opção **Armazenamento com redundância geográfica** está selecionada por padrão. Essa opção garante que o cofre é replicado automaticamente em um data center secundário. Por exemplo, o cofre do Oeste dos EUA é replicado automaticamente no Leste dos EUA.
 
 1.  Configure a política de backup e selecione a VM na mesma interface do usuário.
 

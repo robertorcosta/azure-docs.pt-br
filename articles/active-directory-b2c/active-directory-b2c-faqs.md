@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d852b786c1cc1c1eb9d39b931f9b8a142f969815
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 91f07b8da2cbc9beaa24730f2ec9f2ddb4639f37
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065861"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302547"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure Active Directory B2C: Perguntas frequentes (FAQ)
 
@@ -27,7 +27,7 @@ Há duas razões comuns para porque a extensão do AD do Azure não está funcio
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Posso usar recursos do AD B2C do Azure no locatário existente de AD do Azure, com base em funcionário?
 
-O Azure AD e o Azure AD B2C são ofertas de produtos separadas e não podem coexistir no mesmo locatário. Um locatário do Azure AD representa uma organização. Um locatário do Azure AD B2C representa uma coleção de identidades a serem usadas com aplicativos de terceira parte confiável. Com as políticas personalizadas (em visualização pública), o Azure AD B2C pode se federar ao Azure AD, permitindo a autenticação de funcionários em uma organização.
+O Azure AD e o Azure AD B2C são ofertas de produtos separadas e não podem coexistir no mesmo locatário. Um locatário do Azure AD representa uma organização. Um locatário do Azure AD B2C representa uma coleção de identidades a serem usadas com aplicativos de terceira parte confiável. Com as políticas personalizadas, Azure AD B2C pode federar o Azure AD, permitindo a autenticação de funcionários em uma organização.
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Posso usar AD B2C do Azure para fornecer logon social (Facebook e Google+) no Office 365?
 
@@ -122,7 +122,7 @@ Não, o AD B2C do Azure não dá suporte ao mesmo conjunto de relatórios que o 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Posso localizar a interface de usuário das páginas atendidas pelo AD B2C do Azure? Quais são os idiomas com suporte?
 
-Sim!  Leia sobre a [personalização de linguagem](active-directory-b2c-reference-language-customization.md), que está em visualização pública. Podemos fornecer traduções para 36 idiomas e você pode substituir qualquer cadeia de caracteres para atender às suas necessidades.
+Sim, consulte [personalização de idioma](active-directory-b2c-reference-language-customization.md). Podemos fornecer traduções para 36 idiomas e você pode substituir qualquer cadeia de caracteres para atender às suas necessidades.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>Posso usar minhas próprias URLs em minhas páginas de inscrição e de entrada atendidas pelo AD B2C do Azure? Por exemplo, posso alterar a URL de contoso.b2clogin.com para login.contoso.com?
 

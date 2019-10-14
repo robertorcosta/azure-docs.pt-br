@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 017c02a10137579e6e3497775e9e4a3ac0a5d72d
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 0f55f3ce4856e7b6eccf665faaa1b1fa45b84b58
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350867"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72302278"
 ---
 **Retenção e volume de coleta de dados** 
 
 | Tipo | Limite por dia | Retenção de dados | Comentário |
 |:---|:---|:---|:---|
 | Tipo de preço atual por GB<br>(introduzido em abril de 2018) | Sem limite | 30-730 dias | A retenção de dados além de 31 dias está disponível para encargos adicionais. Saiba mais sobre preços de Azure Monitor. |
-| Camadas gratuitas herdadas<br>(introduzido em abril de 2016) | 500 MB | Sete dias | Quando seu espaço de trabalho atinge o limite de 500 MB por dia, a ingestão de dados é interrompida e retomada no início do dia seguinte. Um dia é baseado em UTC. Observe que os dados coletados pela central de segurança do Azure não estão incluídos neste limite de 500 MB por dia e continuarão a ser coletados acima desse limite.  |
+| Camadas gratuitas herdadas<br>(introduzido em abril de 2016) | 500 MB | 7 dias | Quando seu espaço de trabalho atinge o limite de 500 MB por dia, a ingestão de dados é interrompida e retomada no início do dia seguinte. Um dia é baseado em UTC. Observe que os dados coletados pela central de segurança do Azure não estão incluídos neste limite de 500 MB por dia e continuarão a ser coletados acima desse limite.  |
 | Camada autônoma herdada por GB<br>(introduzido em abril de 2016) | Sem limite | 30 a 730 dias | A retenção de dados além de 31 dias está disponível para encargos adicionais. Saiba mais sobre preços de Azure Monitor. |
 | Herdado por nó (OMS)<br>(introduzido em abril de 2016) | Sem limite | 30 a 730 dias | A retenção de dados além de 31 dias está disponível para encargos adicionais. Saiba mais sobre preços de Azure Monitor. |
 | Camada padrão herdada | Sem limite | 30 dias  | A retenção não pode ser ajustada |
@@ -35,21 +35,21 @@ ms.locfileid: "71350867"
 
 **Portal do Azure**
 
-| Categoria | Limites | Comentários |
+| Categoria | limites | Comentários |
 |:---|:---|:---|
 | Máximo de registros retornados por uma consulta de log | 10.000 | Reduza os resultados usando o escopo da consulta, o intervalo de tempo e os filtros na consulta. |
 
 
 **API do Coletor de dados**
 
-| Categoria | Limites | Comentários |
+| Categoria | limites | Comentários |
 |:---|:---|:---|
 | Tamanho máximo para uma única postagem | 30 MB | Dividir volumes maiores em várias postagens. |
 | Tamanho máximo para valores de campo  | 32 KB | Campos com mais de 32 KB são truncados. |
 
 **API de pesquisa**
 
-| Categoria | Limites | Comentários |
+| Categoria | limites | Comentários |
 |:---|:---|:---|
 | Máximo de registros retornados em uma única consulta | 500,000 | |
 | Tamanho máximo dos dados retornados | 64 milhões bytes (~ 61 MiB)| |
@@ -58,11 +58,11 @@ ms.locfileid: "71350867"
 
 **Limites gerais do espaço de trabalho**
 
-| Categoria | Limites | Comentários |
+| Categoria | limites | Comentários |
 |:---|:---|:---|
 | Máximo de colunas em uma tabela         | 500 | |
 | Máximo de caracteres para o nome da coluna | 500 | |
-| Regiões em capacidade | Centro-oeste dos EUA | No momento, não é possível criar um novo espaço de trabalho nesta região, pois ele está em um limite de capacidade temporário. Esse limite está planejado para ser resolvido até o final de outubro de 2019. |
+| Regiões em capacidade | Centro-oeste dos EUA | No momento, não é possível criar um novo espaço de trabalho nesta região, pois ele está em um limite de capacidade temporário. Esse limite está planejado para ser resolvido até o final de novembro de 2019. |
 | Exportação de dados | Não disponível no momento | Use o Azure Function ou o aplicativo lógico para agregar e exportar dados. | 
 
 **Taxa de volume de ingestão de dados**

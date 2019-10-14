@@ -1,33 +1,31 @@
 ---
 title: Executar tarefas em segundo plano com o WebJobs – Serviço de Aplicativo do Azure
 description: Saiba como usar o WebJobs para executar tarefas em segundo plano em aplicativos Web, aplicativos de API ou aplicativos móveis do Serviço de Aplicativo do Azure.
-services: app-service
 author: ggailey777
-manager: jeconnoc
-editor: jimbe
-ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
+manager: wgallace
+s.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 53f808570a298c8e576b6df7b4654196ffc56813
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 2d97f826f4288d13589a2fb9da8148d58a2c5e1e
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177502"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303571"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com o WebJobs no Serviço de Aplicativo do Azure
 
+Este artigo mostra como implantar o WebJobs usando o [portal do Azure](https://portal.azure.com) para carregar um executável ou um script. Para obter informações sobre como desenvolver e implantar o WebJobs usando o Visual Studio, consulte [Implantar o WebJobs usando o Visual Studio](webjobs-dotnet-deploy-vs.md).
+
 ## <a name="overview"></a>Visão geral
-WebJobs é um recurso do [Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/) que permite executar um programa ou script no mesmo contexto de um aplicativo Web, aplicativo de API ou aplicativo móvel. Não há nenhum custo adicional para usar Trabalhos Web.
+WebJobs é um recurso do [Serviço de Aplicativo do Azure](index.yml) que permite executar um programa ou script no mesmo contexto de um aplicativo Web, aplicativo de API ou aplicativo móvel. Não há nenhum custo adicional para usar Trabalhos Web.
 
 > [!IMPORTANT]
 > O WebJobs ainda não é suportado para o Serviço de Aplicativo no Linux.
-
-Este artigo mostra como implantar o WebJobs usando o [portal do Azure](https://portal.azure.com) para carregar um executável ou um script. Para obter informações sobre como desenvolver e implantar o WebJobs usando o Visual Studio, consulte [Implantar o WebJobs usando o Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 O SDK do WebJobs do Azure pode ser usado com o WebJobs para simplificar muitas tarefas de programação. Para obter mais informações, consulte [O que é o SDK de Trabalhos Web](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
@@ -180,6 +178,8 @@ Você pode inserir uma [expressão NCRONTAB](../azure-functions/functions-bindin
 ```
 
 Para saber mais, consulte [agendando um WebJob disparado](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
+
+[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
 ## <a name="ViewJobHistory"></a> Exibir o histórico de trabalhos
 
