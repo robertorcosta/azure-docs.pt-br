@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 388b389cca7c3e820ea3ccfd37a2a93ccd476b31
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: c3c13b7e28ef7c17fd45682d828f318de5326542
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68254648"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293874"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -30,6 +30,10 @@ Este artigo pressupõe que você tenha completado as seguintes etapas:
 
 * [Guia do desenvolvedor do Azure Functions](functions-reference.md)
 * [Ferramentas do Azure Functions Visual Studio 2019](functions-develop-vs.md)
+
+## <a name="supported-versions"></a>Versões com suporte
+
+O tempo de execução do Azure Functions 2. x usa o .NET Core 2,2. O código de função pode usar as APIs do .NET Core 2,2 Atualizando as configurações do projeto do Visual Studio. Os modelos de função não têm como padrão o .NET Core 2,2 para evitar afetar negativamente os clientes que não têm o .NET Core 2,2 instalado.
 
 ## <a name="functions-class-library-project"></a>Projeto de biblioteca de classes de funções
 
@@ -55,6 +59,7 @@ Esse é o diretório implantado no aplicativo de funções no Azure. As extensõ
 > [!IMPORTANT]
 > O processo de compilação cria um arquivo *function.json* para cada função. Esse arquivo *function.json* não deve ser editado diretamente. Você não pode alterar a configuração de associação ou desabilitar a função por meio da edição desse arquivo. Para aprender como desabilitar uma função, consulte [Como desabilitar funções](disable-function.md#functions-2x---c-class-libraries).
 
+
 ## <a name="methods-recognized-as-functions"></a>Métodos reconhecidos como funções
 
 Em uma biblioteca de classe, uma função é um método estático com um `FunctionName` e um atributo de gatilho, conforme mostrado no exemplo a seguir:
@@ -72,7 +77,7 @@ public static class SimpleExample
 } 
 ```
 
-O atributo `FunctionName` marca o método como um ponto de entrada da função. O nome deve ser exclusivo em um projeto, começar com uma letra e conter apenas letras, números, `_`e `-`até 127 caracteres de comprimento. Modelos de projeto geralmente criam um método chamado `Run`, mas o nome do método pode ser qualquer nome de método C# válido.
+O atributo `FunctionName` marca o método como um ponto de entrada da função. O nome deve ser exclusivo em um projeto, começar com uma letra e conter apenas letras, números, `_` e `-`, até 127 caracteres de comprimento. Modelos de projeto geralmente criam um método chamado `Run`, mas o nome do método pode ser qualquer nome de método C# válido.
 
 O atributo de gatilho especifica o tipo de gatilho e associa dados de entrada a um parâmetro de método. A função de exemplo é disparada por uma mensagem de fila, a qual é transmitida para o método no parâmetro `myQueueItem`.
 
@@ -250,7 +255,7 @@ public static class SimpleExample
 
 Evite usar `Console.Write` no Azure Functions. Para obter mais informações, consulte [Gravar logs mas funções C#](functions-monitoring.md#write-logs-in-c-functions) no artigo **Monitorar o Azure Functions**.
 
-## <a name="async"></a>Async
+## <a name="async"></a>Assíncrono
 
 Para tornar uma função [assíncrona](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use a palavra-chave `async` e retorne um objeto `Task`.
 
@@ -344,7 +349,7 @@ Defina uma associação obrigatória da seguinte maneira:
   }
   ```
 
-  `BindingTypeAttribute` é o atributo do .NET que define a associação, e `T` é um tipo de entrada ou saída com suporte nesse tipo de associação. `T` não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela de aplicativos móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [\<ICollector t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector\<> t](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) com associação imperativa.
+  `BindingTypeAttribute` é o atributo do .NET que define a associação, e `T` é um tipo de entrada ou saída com suporte nesse tipo de associação. `T` não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela de aplicativos móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [ICollector @ no__t-2T >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector @ no__t-4T suporta >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) com associação imperativa.
 
 ### <a name="single-attribute-example"></a>Exemplo de atributo único
 
