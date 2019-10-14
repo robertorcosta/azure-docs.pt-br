@@ -5,15 +5,15 @@ metadata:
   description: " Saiba como habilitar a migração perfeita de várias fontes de banco de dados para as plataformas de dados do Azure com um tempo de inatividade mínimo usando o Serviço de Migração de Banco de Dados do Azure."
   author: HJToland3
   ms.author: jtoland
-  ms.date: 10/04/2019
+  ms.date: 10/12/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: 41b2733152a93705c81134ccbb75866bf6f0af1b
-  ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+  ms.openlocfilehash: bb2eec4e07eb444549c5b8491799d491a1960250
+  ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/03/2019
-  ms.locfileid: "71843001"
+  ms.lasthandoff: 10/13/2019
+  ms.locfileid: "72293777"
 landingContent:
 - title: Serviço de Migração de Banco de Dados do Azure
   linkLists:
@@ -31,14 +31,6 @@ landingContent:
     links:
     - text: Criar serviço – Portal
       url: quickstart-create-data-migration-service-portal.md
-  - linkListType: how-to-guide
-    links:
-    - text: Monitorar a atividade de migração
-      url: how-to-monitor-migration-activity.md
-    - text: Solucionar problemas e erros comuns
-      url: known-issues-troubleshooting-dms.md
-    - text: Solucionar problemas de conectividade do banco de dados de origem
-      url: known-issues-troubleshooting-dms-source-connectivity.md
   - linkListType: video
     links:
     - text: Introdução ao Serviço de Migração de Banco de Dados do Azure
@@ -47,10 +39,8 @@ landingContent:
       url: https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/
     - text: O processo de migração e as ferramentas/os serviços recomendados
       url: https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/
-    - text: Pré-requisitos de endereço e criar uma instância do DMS
+    - text: Abordar pré-requisitos e criar uma instância do Serviço de Migração de Dados do Azure
       url: https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/
-    - text: Monitorar uma migração online e executar substituição
-      url: https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/
   - linkListType: whats-new
     links:
     - text: Confira nosso blog
@@ -59,95 +49,59 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Migrar o SQL Server para o banco de dados individual do BD SQL do Azure online
+    - text: Migrar para o banco de dados individual do Banco de Dados SQL – online
       url: tutorial-sql-server-azure-sql-online.md
-    - text: Migrar o SQL Server para o banco de dados individual do BD SQL do Azure offline
+    - text: Migrar para o banco de dados individual do Banco de Dados SQL – offline
       url: tutorial-sql-server-to-azure-sql.md
-    - text: Migrar o SQL Server para a instância gerenciada do BD SQL do Azure online
+    - text: Migrar para a instância gerenciada do Banco de Dados SQL – online
       url: tutorial-sql-server-managed-instance-online.md
-    - text: Migrar o SQL Server para a instância gerenciada do BD SQL do Azure offline
+    - text: Migrar para a instância gerenciada do Banco de Dados SQL – offline
       url: tutorial-sql-server-to-managed-instance.md
-    - text: Migrar o RDS SQL Server para o banco de dados individual do BD SQL do Azure ou a instância gerenciada do BD SQL do Azure online
+    - text: Migrar o RDS SQL Server para o banco de dados individual/a instância gerenciada do Banco de Dados SQL – online
       url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
-  - linkListType: how-to-guide
+  - linkListType: reference
     links:
-    - text: Usar o PowerShell para migrar o SQL Server para o banco de dados individual do BD SQL do Azure
-      url: howto-sql-server-to-azure-sql-powershell.md
-    - text: Usar o PowerShell para migrar o SQL Server para a instância gerenciada do BD SQL do Azure
-      url: howto-sql-server-to-azure-sql-mi-powershell.md
-    - text: Reimplantar pacotes do SSIS no banco de dados individual do Banco de Dados SQL do Azure
-      url: how-to-migrate-ssis-packages.md
-    - text: Reimplantar pacotes do SSIS em uma instância gerenciada do Banco de Dados SQL do Azure
-      url: how-to-migrate-ssis-packages-managed-instance.md
-  - linkListType: concept
-    links:
-    - text: Problemas conhecidos – Migração online para o banco de dados individual do BD SQL do Azure
+    - text: Problemas conhecidos – Migração online para o banco de dados individual do Banco de Dados SQL
       url: known-issues-azure-sql-online.md
-    - text: Topologias de rede para migrações de instância gerenciada do BD SQL do Azure
+    - text: Topologias de rede para migrações de instância gerenciada do Banco de Dados SQL
       url: resource-network-topologies.md
   - linkListType: video
     links:
-    - text: Migrar o SQL Server 2008 para a Instância Gerenciada do Banco de Dados SQL do Azure
+    - text: Migrar o SQL Server 2008 para a instância gerenciada do Banco de Dados SQL
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
-- title: Migrar PostgreSQL para Banco de Dados do Azure para PostgreSQL
+- title: Migrar bancos de dados open-source para o Azure
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Migrar o PostgreSQL para o BD do Azure do PostgreSQL – Servidor único online
+    - text: Migrar para o Banco de Dados do Azure para PostgreSQL – Servidor individual – online
       url: tutorial-postgresql-azure-postgresql-online.md
-    - text: Migrar o PostgreSQL RDS para o Banco de Dados do Azure para PostgreSQL – Servidor único online
+    - text: Migrar o PostgreSQL RDS para o Banco de Dados do Azure para PostgreSQL – Servidor único – online
       url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
-  - linkListType: concept
-    links:
-    - text: Problemas conhecidos – Migração online do PostgreSQL para o BD do Azure para PostgreSQL – Servidor único
-      url: known-issues-azure-postgresql-online.md
-  - linkListType: video
-    links:
-    - text: Migrar PostgreSQL para Banco de Dados do Azure para PostgreSQL
-      url: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
-- title: Migrar o MySQL para o Banco de Dados do Azure para MySQL
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Migrar MySQL para Azure DB do MySQL online
+    - text: Migrar para o Banco de Dados do Azure para MySQL – online
       url: tutorial-mysql-azure-mysql-online.md
-    - text: Migrar RDS MySQL para Azure DB do MySQL online
+    - text: Migrar o RDS MySQL para o Banco de Dados do Azure para MySQL – online
       url: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
-  - linkListType: concept
-    links:
-    - text: Problemas conhecidos – Migração online para o BD do Azure para MySQL
-      url: known-issues-azure-mysql-online.md
-- title: Migrar MongoDB para o Azure Cosmos DB
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Migrar o MongoDB para o Azure Cosmos DB online
+    - text: Migrar para a API do Mongo do Azure Cosmos DB – online
       url: tutorial-mongodb-cosmos-db-online.md
-    - text: Migrar o MongoDB para o Azure Cosmos DB offline
+    - text: Migrar para a API do Mongo do Azure Cosmos DB – offline
       url: tutorial-mongodb-cosmos-db.md
+  - linkListType: reference
+    links:
+    - text: Problemas conhecidos – Migração online para o Banco de Dados do Azure para PostgreSQL – Servidor individual
+      url: known-issues-azure-postgresql-online.md
+    - text: Problemas conhecidos – Migração online para o Banco de Dados do Azure para MySQL
+      url: known-issues-azure-mysql-online.md
   - linkListType: video
     links:
-    - text: Migrar MongoDB para o Azure Cosmos DB
+    - text: Migrar o PostgreSQL para o Banco de Dados do Azure para PostgreSQL – Servidor individual
+      url: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
+    - text: Migrar para a API do Mongo do Azure Cosmos DB
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
-- title: Migrar Oracle para o Azure
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Migrar o Oracle para o Banco de Dados do Azure para PostgreSQL – Servidor único online
-      url: tutorial-oracle-azure-postgresql-online.md
-  - linkListType: concept
-    links:
-    - text: Problemas conhecidos – Migração online do Oracle para o BD do Azure para PostgreSQL – Servidor único
-      url: known-issues-oracle-azure-postgresql-online.md
-  - linkListType: video
-    links:
-    - text: Migrar o Oracle para o banco de dados individual do Banco de Dados SQL do Azure
-      url: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
 - title: Ferramentas e orientações
   linkLists:
   - linkListType: reference
     links:
-    - text: Serviço e ferramentas disponíveis para cenários de migração de dados
+    - text: Serviço e ferramentas por cenário de migração de dados
       url: dms-tools-matrix.md
     - text: Guia de migração de banco de dados
       url: https://datamigration.microsoft.com/
@@ -159,3 +113,17 @@ landingContent:
       url: https://docs.microsoft.com/sql/dea/database-experimentation-assistant-overview?view=sql-server-2017
     - text: Kit de ferramentas de migração de acesso a dados
       url: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit
+- title: Migrar Oracle para o Azure
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Migrar para o Banco de Dados do Azure para PostgreSQL – Servidor individual – online
+      url: tutorial-oracle-azure-postgresql-online.md
+  - linkListType: reference
+    links:
+    - text: Problemas conhecidos – Migração online para o Banco de Dados do Azure para PostgreSQL – Servidor individual
+      url: known-issues-oracle-azure-postgresql-online.md
+  - linkListType: video
+    links:
+    - text: Migrar para o banco de dados individual do Banco de Dados SQL
+      url: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/

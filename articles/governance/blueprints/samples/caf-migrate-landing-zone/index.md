@@ -1,5 +1,5 @@
 ---
-title: Exemplo – Blueprint da zona de aterrissagem de migração do CAF – Visão Geral
+title: Exemplo de blueprint da zona de aterrissagem de Migração do CAF – Visão geral
 description: Visão geral e arquitetura do exemplo de blueprint da zona de aterrissagem de migração do CAF.
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,16 +7,16 @@ ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: 469ddfa647a2ee739756414ba1bad87c983057c6
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: c74ec9f425b99bb11011fce7b0b7bdca98005ad8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243978"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297864"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Visão geral do exemplo de blueprint da zona de aterrissagem de migração do Cloud Adoption Framework da Microsoft para o Azure
 
-O blueprint da zona de aterrissagem de migração do CAF (Cloud Adoption Framework da Microsoft para o Azure) é um conjunto de infraestrutura para ajudá-lo na configuração para migrar sua primeira carga de trabalho e gerenciar o estado de nuvem em alinhamento com o CAF.
+O blueprint da zona de aterrissagem de migração do CAF (Cloud Adoption Framework) da Microsoft para o Azure é um conjunto de infraestrutura para ajudar você na configuração para migrar sua primeira carga de trabalho e gerenciar o estado de nuvem em alinhamento com o CAF.
 
 O exemplo de blueprint da [Base do CAF](../caf-foundation/index.md) estende esse exemplo.
 
@@ -47,7 +47,7 @@ Para obter mais informações, confira o [Cloud Adoption Framework da Microsoft 
 Você revisou a visão geral e arquitetura do exemplo de blueprint da zona de aterrissagem da Migração do CAF.
 
 > [!div class="nextstepaction"]
->  [Blueprint da zona de aterrissagem da Migração do CAF – Etapas de implantação](./deploy.md)
+>  [Blueprint da zona de aterrissagem de Migração do CAF – Etapas de implantação](./deploy.md)
 
 Outros artigos sobre blueprints e como usá-los:
 
