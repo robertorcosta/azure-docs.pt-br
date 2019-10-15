@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9acedc081166c84935e3abfde8401b55c64156a7
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 34ef0497b5cacb66ccf92079e740acd98a05021a
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174372"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026433"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao CakeHR
 
@@ -137,11 +137,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Abra uma nova janela do navegador da Web e entre em seu site de empresa do CakeHR como administrador.
 
-2. No canto superior direito da página, clique em **Perfil** e, em seguida, navegue até **Configurações**.
+2. No canto superior direito da página, clique em **Perfil** e navegue até **Configurações**.
 
     ![Configuração do CakeHR](./media/cakehr-tutorial/config01.png)
 
-3. No lado esquerdo da barra de menus, clique em **INTEGRAÇÕES** > **SSO DO SAML** e execute as seguintes etapas:
+3. No lado esquerdo da barra de menus, clique em **INTEGRAÇÕES** > **SSO DO SAML** e execute as seguintes etapas:
 
      ![Configuração do CakeHR](./media/cakehr-tutorial/config02.png)
 
@@ -163,7 +163,7 @@ Para permitir que os usuários do Azure AD entrem no CakeHR, eles precisam ser p
 
 1. Entre no CakeHR como Administrador de segurança.
 
-2. No lado esquerdo da barra de menus, clique em **EMPRESA** > **ADICIONAR**.
+2. No lado esquerdo da barra de menus, clique em **EMPRESA** > **ADICIONAR**.
 
     ![Configuração do CakeHR](./media/cakehr-tutorial/config03.png)
 

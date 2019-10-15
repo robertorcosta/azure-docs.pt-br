@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Configurar tópicos no Barramento de Serviço do Azure usando o Ansible | Microsoft Docs
+title: Tutorial – Configurar tópicos no Barramento de Serviço do Azure usando o Ansible
 description: Saiba como usar o Ansible para criar um tópico do Barramento de Serviço do Azure
 keywords: ansible, azure, devops, bash, guia estratégico, barramento de serviço, tópicos, assinaturas
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: ca8d849796520ac260d888d772c064316db68a30
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 952779db582f9437f10608bf86b0b80560ded2c0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230865"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241226"
 ---
 # <a name="tutorial-configure-topics-in-azure-service-bus-using-ansible"></a>Tutorial: Configurar tópicos no Barramento de Serviço do Azure usando o Ansible
 

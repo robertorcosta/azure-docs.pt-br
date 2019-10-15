@@ -4,16 +4,16 @@ description: Este artigo explica as tarefas comuns que um administrador realiza 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/25/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 87947fb29d8fa7dd86818caef139e776c04c7650
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 21e9d4af783ed5d9eb3ace1c8b5189163b89f8b0
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308098"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035214"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Portal do EA do Azure
 
@@ -87,10 +87,11 @@ Outros pontos para ter em mente antes de uma transferência de conta:
 - A aprovação de um administrador de EA é necessária para o registro de origem e o de destino
   - Em alguns casos, a Microsoft pode solicitar aprovação adicional de um administrador de EA do registro de origem
 - Se uma transferência de conta não atender aos seus requisitos, considere uma transferência de registro.
-- A transferência de conta transfere todos os serviços, assinaturas, contas, departamentos e toda a estrutura de registro, incluindo todos os administradores de departamento do EA.
-- A transferência de conta define o status do registro de origem como _Transferido_. A conta transferida está disponível apenas para fins de relatório de uso histórico.
-- Você não pode adicionar funções nem assinaturas a um registro com status transferido. O status impede o uso adicional em relação ao registro.
-- Qualquer saldo de compromisso monetário restante no contrato de origem é perdido, incluindo termos futuros.
+- A transferência de conta transfere todos os serviços e assinaturas relacionados às contas específicas.
+- Depois que a transferência for concluída, a conta transferida será exibida como inativa no registro de origem.
+- Uma transferência de conta pode ser pré-datada para qualquer data desde a data de início do registro de destino.
+- A conta mostra a data de término correspondente à data de transferência efetiva no registro de origem e como uma data de início no registro de destino.
+- Qualquer uso ocorrido para a conta antes da data de transferência efetiva permanece sob o registro de origem.
 
 
 ## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Transferir Registro Enterprise para um novo registro
@@ -156,7 +157,7 @@ Se a assinatura for transferida para uma conta em um locatário diferente do Azu
 - Teclas de acesso para serviços como Armazenamento. Para saber mais, confira [Visão geral da conta de armazenamento do Azure](../storage/common/storage-account-overview.md).
 - Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure.
 
-Se o destinatário precisar restringir o acesso a seus recursos do Azure, ele deverá considerar a atualização dos segredos associados ao serviço. A maioria dos recursos são atualizados usando as seguintes etapas:
+Se o destinatário precisar restringir o acesso a seus recursos do Azure, ele deverá considerar a atualização dos segredos associados ao serviço. A maioria dos recursos pode ser atualizada usando as seguintes etapas:
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. No menu Hub, selecione **Todos os recursos**.

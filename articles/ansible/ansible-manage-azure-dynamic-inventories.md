@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Configurar inventários dinâmicos de seus recursos do Azure usando o Ansible| Microsoft Docs
+title: Tutorial – Configurar inventários dinâmicos de seus recursos do Azure usando o Ansible
 description: Saiba como usar o Ansible para gerenciar seus inventários dinâmicos do Azure
 keywords: ansible, azure, devops, bash, cloudshell, inventário dinâmico
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 46b13fae437a555edf0bdd0b0d4c1496d7596e0f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: d89150f43205a4b38612008033ab5649acd9af5b
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230711"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241572"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Tutorial: Configurar inventários dinâmicos de seus recursos do Azure usando o Ansible
 

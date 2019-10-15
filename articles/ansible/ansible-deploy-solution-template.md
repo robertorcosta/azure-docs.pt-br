@@ -1,5 +1,5 @@
 ---
-title: Início Rápido – Implantar o modelo de solução do Ansible para Azure para o CentOS | Microsoft Docs
+title: Início Rápido – Implantar o modelo de solução Ansible para Azure para o CentOS
 description: No início rápido, saiba como implantar o modelo de solução do Ansible em uma máquina virtual do CentOS hospedado no Azure, juntamente com ferramentas configuradas para funcionar com o Azure.
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 58f28d5cf7d31a3fbddc8e1ca18be4dbcf617f61
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ababe9eb1f680378e882970df2d0b008287a7c4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231010"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241706"
 ---
 # <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Início Rápido: Implantar o modelo de solução Ansible para Azure para o CentOS
 

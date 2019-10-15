@@ -1,22 +1,22 @@
 ---
 title: Visão geral do serviço de banco de dados relacional Banco de Dados do Azure para MySQL
-description: Visão geral do serviço de banco de dados relacional Banco de Dados do Azure para MySQL.
-ms.service: mysql
+description: Saiba mais sobre o Banco de Dados do Azure para MySQL, um serviço de banco de dados relacional no Microsoft Cloud baseado no MySQL Community Edition.
 author: ajlam
+ms.service: mysql
 ms.author: andrela
 ms.custom: mvc
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 08/13/2019
-ms.openlocfilehash: 1299f82c28181d1c24f68a0d36ba13c6b40d21ee
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
-ms.translationtype: MT
+ms.openlocfilehash: f193dceaf26361fececde9df9df6769e2a971543
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013401"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178115"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>O que é o Banco de Dados do Azure para MySQL?
 
-O banco de dados do Azure para MySQL é um serviço de banco de dados relacional no Microsoft Cloud baseado no [MySQL Community Edition](https://www.mysql.com/products/community/) (disponível no mecanismo de banco de dados licença do GPLv2), versões 5,6, 5,7 e 8,0. O Banco de Dados do Azure para MySQL fornece:
+O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional no Microsoft Cloud com base no mecanismo de banco de dados [MySQL Community Edition](https://www.mysql.com/products/community/) (disponível sob a licença GPLv2), versões 5.6, 5.7 e 8.0. O Banco de Dados do Azure para MySQL fornece:
 
 - Alta disponibilidade interna sem nenhum custo adicional.
 - Desempenho previsível, com preços pré-pagos inclusivos.
@@ -50,12 +50,12 @@ O SLA (Contrato de Nível de Serviço) de disponibilidade de 99,99% do Azure, qu
 ## <a name="secure-your-data"></a>Proteja seus dados
 Os serviços de banco de dados do Azure têm uma tradição de segurança de dados que o Banco de Dados do Azure para MySQL mantém, com recursos que limitam o acesso, protegem dados em repouso e em movimento e ajudam a monitorar atividades. Visite a [Central de Confiabilidade do Azure](https://www.microsoft.com/en-us/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure.
 
-O serviço Banco de Dados do Azure para MySQL usa a criptografia de armazenamento para dados em repouso e está em conformidade com FIPS 140-2. Os dados incluindo backups são criptografados no disco (com exceção dos arquivos temporários que são criados pelo mecanismo durante a execução de consultas). O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
+O serviço Banco de Dados do Azure para MySQL usa o módulo de criptografia validado por FIPS 140-2 para criptografia de armazenamento de dados em repouso. Os dados, incluindo backups, são criptografados no disco, com exceção dos arquivos temporários criados durante a execução de consultas. O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
 
 Por padrão, o serviço Banco de Dados do Azure para MySQL está configurado para exigir a [segurança da conexão SSL](./concepts-ssl-connection-security.md) para dados em movimento em toda a rede. Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo. Como opção, você pode desabilitar a exigência de SSL para conectar ao seu serviço de banco de dados, se seu aplicativo cliente não oferecer suporte à conectividade SSL.
 
 ## <a name="contacts"></a>Contatos
-Para quaisquer dúvidas ou sugestões que você possa ter sobre como trabalhar com o Banco de Dados do Azure para MySQL, envie um e-mail para o Banco de Dados do Azure para a Equipe do MySQL ([ @Ask Azure DB for MySQL ](mailto:AskAzureDBforMySQL@service.microsoft.com)). Observe que isso não é um alias de suporte técnico.
+Para quaisquer dúvidas ou sugestões que você possa ter sobre como trabalhar com o Banco de Dados do Azure para MySQL, envie um e-mail para o Banco de Dados do Azure para a Equipe do MySQL ([ @Ask Azure DB for MySQL ](mailto:AskAzureDBforMySQL@service.microsoft.com)). Esse endereço de email não é um alias de suporte técnico.
 
 Além disso, considere os seguintes pontos de contato, conforme apropriado:
 

@@ -1,26 +1,26 @@
 ---
-title: O que é o Microsoft Genomics? | Microsoft Docs
-titleSuffix: Azure
-description: Saiba como o Microsoft Genomics pode potencializar o sequenciamento do genoma, oferecendo agora uma implementação em nuvem do Alinhador Burrows-Wheeler (BWA) e do Genome Analysis Toolkit (GATK) para análise secundária. É certificado pela ISO e está em conformidade com os regulamentos da HIPAA.
+title: O que é o Microsoft Genomics?
+titleSuffix: Microsoft Genomics
+description: Saiba como o Microsoft Genomics pode impulsionar o sequenciamento de genomas usando a implementação na nuvem do BWA (Burrows-Wheeler Aligner) e do GATK (Genome Analysis Toolkit).
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: article
+ms.topic: overview
 ms.date: 12/07/2017
-ms.openlocfilehash: 1b52f47d692cf2fb2925ebb2a9882b9c79c29a87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 04ecab58db822aa80ca2abba1bebaa39598498bd
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60780888"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244006"
 ---
 # <a name="what-is-microsoft-genomics"></a>O que é o Microsoft Genomics?
 O Microsoft Genomics oferece implementação na nuvem do Burrows-Wheeler Aligner (BWA) e do Genome Analysis Toolkit (GATK) para análise secundária. O serviço possui certificação ISO e está em conformidade com os regulamentos da HIPPA, e oferece previsibilidade de preço para suas necessidades de sequenciamento de genoma. Saiba como usar o serviço Microsoft Genomics e integrar com a nossa API lendo nossa documentação, tutoriais e guias de início rápido.
 
 ## <a name="support-your-most-demanding-sequencing-needs"></a>Receba suporte para as suas necessidades de sequenciamento mais exigentes
-Em vez de gerenciar as suas próprias centrais de dados, aproveite a escala e experiência da Microsoft em executar cargas de trabalho em escalas de exabytes. Nossa implementação na nuvem do BWA-GATK é altamente harmoniosa com pipeline de melhores práticas do Broad Institute.
+Em vez de gerenciar as suas próprias centrais de dados, aproveite a escala e experiência da Microsoft em executar cargas de trabalho em escalas de exabytes. Nossa implementação na nuvem do BWA-GATK é altamente compatível com o pipeline de melhores práticas do Broad Institute.
 
 
 ## <a name="keep-your-business-running"></a>Mantenha a continuidade dos negócios
@@ -28,7 +28,7 @@ O Microsoft Genomics oferece 99,99% de disponibilidade de Contrato de Nível de 
 
 
 ## <a name="secure-your-data"></a>Proteja seus dados
-O serviço Microsoft Genomics é certificado pelo ISO 27001, ISO 27018 e ISO 9001, e está em conformidade com os regulamentos da HIPAA. Visite a [Central de Confiabilidade do Azure](https://www.microsoft.com/en-us/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure.
+O serviço Microsoft Genomics é certificado pelo ISO 27001, ISO 27018 e ISO 9001, e está em conformidade com os regulamentos da HIPAA. Visite a [Central de Confiabilidade do Azure](https://www.microsoft.com/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure.
 
 
 ## <a name="next-steps"></a>Próximas etapas

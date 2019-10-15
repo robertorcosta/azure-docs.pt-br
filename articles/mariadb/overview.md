@@ -1,18 +1,18 @@
 ---
 title: Visão geral do Banco de Dados do Azure para o serviço de banco de dados relacional MariaDB
-description: Visão geral do banco de dados do Azure para o serviço de banco de dados relacional MariaDB.
+description: Saiba mais sobre o serviço do Banco de Dados do Azure para MariaDB, um serviço de banco de dados relacional na nuvem da Microsoft baseada no MySQL Community Edition.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
 ms.date: 08/13/2019
-ms.openlocfilehash: 20f6ff518daae71856446415099ae4cb095ff728
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 46ba972c489326157cbdea19a1363a30e18f72b8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013621"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177972"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>O que é o Banco de Dados do Azure para o MariaDB?
 
@@ -55,7 +55,7 @@ O SLA de disponibilidade de 99,99%, líder no setor, do Azure é impulsionado po
 
 Os serviços de banco de dados do Azure têm uma tradição de segurança de dados que o Banco de Dados do Azure para MariaDB mantém. O Banco de Dados do Azure para MariaDB oferece recursos que limitam o acesso, protegem dados em repouso e em movimento e ajudam você a monitorar a atividade. Visite a [Central de Confiabilidade do Azure](https://www.microsoft.com/en-us/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure.
 
-O serviço Banco de Dados do Azure para MariaDB usa a criptografia de armazenamento para dados em repouso e está em conformidade com o FIPS 140-2. Os dados, incluindo dados backups, são criptografados em disco. (Os arquivos temporários criados pelo mecanismo quando são executadas consultas não são criptografados em disco.) O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure. As chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
+O serviço Banco de Dados do Azure para MariaDB usa o módulo de criptografia validado por FIPS 140-2 para criptografia de armazenamento de dados em repouso. Os dados, incluindo backups, são criptografados no disco, com exceção dos arquivos temporários criados durante a execução de consultas. O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure. As chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
 
 Por padrão, o serviço de Banco de Dados do Azure para MariaDB é configurado para exigir [segurança de conexão SSL](./concepts-ssl-connection-security.md) para dados em movimento na rede. Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo. Como opção, você pode desabilitar a exigência de SSL para conectar ao seu serviço de banco de dados, se seu aplicativo cliente não oferecer suporte à conectividade SSL.
 

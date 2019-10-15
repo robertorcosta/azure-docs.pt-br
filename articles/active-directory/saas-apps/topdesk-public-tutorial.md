@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
-ms.openlocfilehash: a2a0ffd670a03aeaaa262b83127a385be9efc978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5575a2e8f776e87fcd4e6f4a7a9244752ebfd9a
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088489"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950419"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutorial: Integração do Azure Active Directory ao TOPdesk – Público
 
@@ -120,8 +120,10 @@ Para configurar o logon único do Azure AD com o TOPdesk – Public, execute as 
 
     d. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<companyname>.topdesk.net`
 
-    e. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.topdesk.net/tas/public/login/verify`
-
+    e. Na caixa de texto **Identificador de URL**, preencha a URL de metadados do TOPdesk que você pode recuperar da configuração do TOPdesk. Ela deve usar o seguinte padrão: `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
+    
+    f. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<companyname>.topdesk.net/tas/public/login/verify`
+    
     > [!NOTE] 
     > Se os valores **Identificador** e **URL de resposta** não forem preenchidos automaticamente, você precisará reinseri-los manualmente. Para o identificador, siga o padrão, conforme mencionado acima, e obtenha o valor da URL de resposta na seção **Configurar o logon único do TOPdesk – Public** que é explicada posteriormente no tutorial. O valor de **URL de logon** não é real, então é necessário atualizar o valor com a URL de logon real. Entre em contato com a [equipe de suporte ao cliente do TOPdesk – Public](https://help.topdesk.com/saas/enterprise/user/) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 

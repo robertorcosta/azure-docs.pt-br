@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b6ac528d0d2916f513be4e2a72bff061bdad8e58
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: bacd26cdba24e7ad503a3ae58d5c77d5a3311537
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718640"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177755"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado da CDN do Azure
 
@@ -132,7 +132,9 @@ Conceda à CDN do Azure permissão para acessar os certificados (segredos) em su
 
 3. Selecione **Permissões de certificado** e, em seguida, marque as caixas de seleção **Obter** e **Listar** para permitir que a CDN execute essas permissões para obter e listar os certificados.
 
-4. Selecione **OK**. 
+4. Selecione **Permissões secretas** e, em seguida, marque as caixas de seleção **Obter** e **Listar** para permitir que a CDN execute essas permissões para obter e listar os segredos.
+
+5. Selecione **OK**. 
 
     A CDN do Azure pode acessar este cofre de chaves e os certificados (segredos) que estão armazenados nesse cofre.
  
@@ -190,7 +192,7 @@ A validação automática geralmente demora algumas horas. Se o domínio não fo
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>O domínio personalizado não é mapeado para o ponto de extremidade da CDN
 
 >[!NOTE]
->Se você estiver usando a **CDN do Azure do Akamai**, o CNAME a seguir deverá ser configurado para habilitar a validação de domínio automatizada. "_acme-challenge.<custom domain hostname> -> CNAME -> <custom domain hostname>.ak-acme-challenge.azureedge.net"
+>Se você estiver usando a **CDN do Azure do Akamai**, o CNAME a seguir deverá ser configurado para habilitar a validação de domínio automatizada. "_acme-challenge.&lt;nome de host do domínio personalizado&gt; -> CNAME -> &lt;nome de host do domínio personalizado&gt;.ak-acme-challenge.azureedge.net"
 
 Se a entrada do registro CNAME do ponto de extremidade não existir mais ou contiver o subdomínio cdnverify, siga o restante das instruções nesta etapa.
 

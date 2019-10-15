@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Usar o detector de logotipo personalizado para reconhecer serviços do Azure – Visão Personalizada'
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, você acompanhará as etapas de um aplicativo de exemplo que usa a Visão Personalizada do Azure como parte de um cenário de detecção de logotipo. Saiba como a Visão Personalizada é usada com outros componentes para entregar um aplicativo completo.
+description: Neste tutorial, você acompanhará as etapas de um aplicativo de exemplo que usa a Visão Personalizada como parte de um cenário de detecção de logotipo. Saiba como a Visão Personalizada é usada com outros componentes para entregar um aplicativo completo.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: bdcf8a0d63b880075cd22c73305afa8cf09a2e3b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b48d82354a8e733db5ddd0c86e34bab1fa9caa8d
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261981"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177782"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconhecer logotipos de serviços do Azure em imagens da câmera
 
-Neste tutorial, você explorará um aplicativo de exemplo que usa a Visão Personalizada do Azure como parte de um cenário maior. O aplicativo de Provisionamento Visual e IA, um aplicativo Xamarin.Forms para plataformas móveis, analisa imagens da câmera de logotipos de serviços do Azure e, em seguida, implanta os serviços reais na conta do Azure do usuário. Aqui você aprenderá como ele usa a Visão Personalizada em coordenação com outros componentes para entregar um aplicativo útil de ponta a ponta. Você pode executar todo o cenário do aplicativo por conta própria ou apenas concluir a parte da Visão Personalizada da instalação e explorar como o aplicativo a utiliza.
+Neste tutorial, você explorará um aplicativo de exemplo que usa a Visão Personalizada como parte de um cenário maior. O aplicativo de Provisionamento Visual e IA, um aplicativo Xamarin.Forms para plataformas móveis, analisa imagens da câmera de logotipos de serviços do Azure e, em seguida, implanta os serviços reais na conta do Azure do usuário. Aqui você aprenderá como ele usa a Visão Personalizada em coordenação com outros componentes para entregar um aplicativo útil de ponta a ponta. Você pode executar todo o cenário do aplicativo por conta própria ou apenas concluir a parte da Visão Personalizada da instalação e explorar como o aplicativo a utiliza.
 
 Este tutorial mostrará como:
 

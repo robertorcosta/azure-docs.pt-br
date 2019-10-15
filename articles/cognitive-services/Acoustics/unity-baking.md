@@ -11,245 +11,251 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: b7249c3048ba3af3adbaac01f43770482a0d38ad
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 310decf8053ea16ba46250ba3aabe81c9c254e5e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933234"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243119"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutorial de bake do Projeto Acústico do Unity
-Este tutorial descreve a preparação de acústica com o Projeto Acústico no Unity.
+Este tutorial descreve o bake da acústica usando o Projeto Acústico no Unity.
 
 Requisitos de software:
 * [Unity 2018.2+](https://unity3d.com) para Windows ou MacOS
-* [Plugin do Projeto Acústico integrado em seu projeto do Unity](unity-integration.md) ou o [conteúdo de exemplo do Projeto Acústico do Unity](unity-quickstart.md)
-* Opcional: Uma [conta do Lote do Azure](create-azure-account.md) para acelerar os bakes usando a computação em nuvem
+* [Plug-in do Projeto Acústico integrado no projeto do Unity](unity-integration.md) ou o [conteúdo de exemplo do Projeto Acústico do Unity](unity-quickstart.md)
+* *Opcional:* Uma [conta do Lote do Azure](create-azure-account.md) para acelerar os bakes usando a computação em nuvem
 
 ## <a name="open-the-project-acoustics-bake-window"></a>Abra a janela do bake do Projeto Acústico
-Escolha **Window > Acústica** no menu Unity:
+No Unity, selecione **Acústico** no menu **Janela**.
 
-![Captura de tela do editor do Unity com a opção de menu da janela Acústico realçada](media/window-acoustics.png)
+![O editor do Unity com a opção Acústico realçada no menu Janela](media/window-acoustics.png)
 
 ## <a name="create-a-navigation-mesh"></a>Criar uma malha de navegação
-O Projeto Acústico usa uma malha de navegação para colocar pontos de investigação do ouvinte para simulação. Você pode usar o [fluxo de trabalho da malha de navegação](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html) do Unity, ou usar outro pacote de modelagem 3D para criar sua própria malha. 
+O Projeto Acústico usa uma malha de navegação para colocar pontos de investigação do ouvinte para simulação. Use o [fluxo de trabalho da malha de navegação do Unity](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html). Ou use outro pacote de modelagem 3D para criar sua própria malha.
 
 ## <a name="mark-acoustic-scene-objects"></a>Marque os objetos da cena acústica
-O Projeto Acústico se baseia em dois tipos de objetos de cena para simulação: os objetos que refletem e ocluem o som na simulação e a malha de navegação do player que restringe os pontos de investigação do ouvinte na simulação. Ambos os tipos de objeto são marcados usando a guia **Objetos**. 
+O Projeto Acústico depende de dois tipos de objetos de cena para simulação:
+- Os objetos que refletem e ocluem o som na simulação
+- A malha de navegação do player que restringe pontos de investigação do ouvinte na simulação
 
-Uma vez simplesmente marcar os objetos adiciona os componentes **AcousticsGeometry** ou **AcousticsNavigation** ao objeto, você também pode usar o [fluxo de trabalho do componente padrão do Unity](https://docs.unity3d.com/Manual/UsingComponents.html)para marcar ou desmarcar os objetos. Apenas Renderizadores e Terrenos Mesh podem ser marcados. Todos os outros tipos de objeto serão ignorados. As caixas de seleção marcarão ou desmarcarão todos os objetos afetados.
+Ambos os tipos de objetos são marcados por meio da guia **Objetos**.
+
+Uma vez simplesmente marcar os objetos adiciona os componentes *AcousticsGeometry* ou *AcousticsNavigation* ao objeto, você também pode usar o [fluxo de trabalho do componente padrão do Unity](https://docs.unity3d.com/Manual/UsingComponents.html)para marcar ou desmarcar os objetos. Só é possível marcar terrenos e renderizadores de malha. Todos os outros tipos de objeto serão ignorados. As caixas de seleção marcam ou desmarcam todos os objetos afetados.
 
 ### <a name="mark-acoustic-occlusion-and-reflection-geometry"></a>Marcar oclusão acústica e geometria de reflexão
-Abra a guia **Objetos** da janela **Acústica**. Marque todos os objetos como **Geometria Acústica**, se eles devem ocluir, refletir ou absorver som. Geometria acústica pode incluir coisas como zero, paredes, preench, janelas e vidro da janela, tapetes e móveis grandes. Você pode usar qualquer nível arbitrário de complexidade para esses objetos. Como a cena é voxelizada antes da simulação, malhas altamente detalhadas, como árvores com muitas folhas pequenas, não são mais onerosas para bake do que objetos simplificados.
+Abra a guia **Objetos** da janela **Acústica**. Marque todos os objetos como *Geometria Acústica*, se eles devem ocluir, refletir ou absorver som. A geometria acústica pode incluir itens como piso, paredes, tetos, janelas e vidro das janelas, tapetes e móveis grandes. Você pode usar qualquer nível arbitrário de complexidade para esses objetos. Como a cena é voxelizada antes da simulação, malhas altamente detalhadas, como árvores com muitas folhas pequenas, não são mais caras para o bake do que objetos simplificados.
 
 Não inclua elementos que não devem afetar a acústica, como malhas de colisão invisíveis.
 
-A transformação de um objeto no momento do cálculo do probe (por meio da guia **Probes**, abaixo) é fixada nos resultados do cozimento. Mover qualquer um dos objetos marcados na cena exigirá refazer o cálculo da sonda e reciclar a cena.
+A transformação de um objeto durante o cálculo da investigação (por meio da guia **Investigações**) é corrigida nos resultados do bake. Se um objeto marcado na cena for movido posteriormente, o cálculo da investigação e o bake precisarão ser refeitos.
 
 ### <a name="mark-the-navigation-mesh"></a>Marcar a malha de navegação
-Malhas de navegação criadas com o fluxo de trabalho do Unity serão captadas pelo sistema acústica. Para usar suas próprias malhas, marque-as na guia **Objetos**.
+As malhas de navegação criadas por meio do fluxo de trabalho do Unity serão selecionadas pelo sistema de acústica. Para usar suas próprias malhas, marque-as na guia **Objetos**.
 
 ### <a name="for-reference-the-objects-tab-parts"></a>Para referência: As partes da guia Objetos
-As partes da página da guia são:
+As partes da página da guia (ilustradas após as descrições) são:
 
-1. Botões de seleção da guia (**objetos** guia selecionada). Use esses botões para percorrer as várias etapas de execução de acústica, da esquerda para a direita.
-2. Uma breve descrição do que você precisa fazer usando esta página.
-3. Filtros disponíveis para a janela de hierarquia. Use isso para filtrar a janela de hierarquia para objetos do tipo especificado, para que você possa marcá-los com mais facilidade. Se você ainda não marcou nada para acústica, selecionar as duas últimas opções não mostrará nada. No entanto, eles podem ser úteis para encontrar objetos marcados depois de ter feito isso.
-4. Quando nenhum objeto é selecionado, esta seção mostra o status de todos os objetos na cena:
-    * Total - O número total de objetos ativos e não ocultos na cena.
-    * Ignorada - O número de objetos que não são Renderizadores de Malha ou Terrenos.
-    * Mesh - O número de objetos do Mesh Renderer na cena
-    * Terrain - O número de objetos Terrain na cena
-    * Geometry - O número de objetos Mesh ou Terrain na cena marcada como "Geometria Acústica"
-    * Navegação - O número de objetos Mesh ou Terrain na cena marcada como "Navegação acústica". Esse número não inclui NavMesh do Unity.
-5. Mostra o número total de objetos 'marcáveis' na cena, que são apenas Mesh Renderers e Terrains. Mostra caixas de seleção que você pode usar para marcar (adicionar o componente apropriado a) esses objetos como geometria ou navegação para acústica
-6. Quando nada é selecionado, esta nota lembra-lhe para selecionar objetos para marcação, se necessário. Você também pode marcar uma ou ambas as caixas de seleção para marcar todos os objetos na cena sem selecionar nada.
-7. Quando objetos são selecionados, esta seção mostra o status apenas dos objetos selecionados.
-8. Mostra o número total de objetos selecionados 'marcáveis'. Marcar ou desmarcar as caixas de seleção marcará ou desmarcará apenas os objetos selecionados.
+1. Os botões de seleção da guia (com a guia **Objetos** selecionada). Use esses botões para percorrer as várias etapas de um bake da acústica, da esquerda para a direita.
+1. Uma breve descrição do que você pode fazer usando essa guia.
+1. Filtros disponíveis para a janela de hierarquia. Use essas opções para filtrar a janela de hierarquia para os objetos do tipo especificado, de modo que você possa marcá-los com mais facilidade. Caso você ainda não tenha marcado nada para acústica, a seleção das duas últimas opções não mostrará nada. No entanto, essas opções ajudam você a localizar objetos depois de serem marcados.
+1. Quando nenhum objeto é selecionado, esta seção mostra o status de todos os objetos na cena.
+    * Total: O número total de objetos ativos e não ocultos.
+    * Ignorados: O número de objetos que não são terrenos nem renderizadores de malha.
+    * Malha: O número de objetos de renderizador de malha.
+    * Terreno: O número de objetos de terreno.
+    * Geometria: O número de objetos de malha ou terreno marcados como **Geometria Acústica**.
+    * Navegação: O número de objetos de malha ou terreno marcados como **Navegação Acústica**. Esse número não inclui a NavMesh do Unity.
+1. O número total de objetos "marcáveis" na cena, que são apenas terrenos e renderizadores de malha. Use as caixas de seleção para marcar (adicionar o componente apropriado a) esses objetos como geometria ou navegação para acústica.
+1. Quando nada é selecionado, esta observação lembra você de selecionar objetos para marcação, se necessário. Marque também uma ou ambas as caixas de seleção para marcar todos os objetos na cena.
+1. Quando objetos são selecionados, esta seção mostra o status apenas dos objetos selecionados.
+1. O número total de objetos selecionados "marcáveis". Marcar ou desmarcar as caixas de seleção marca ou desmarca apenas os objetos selecionados.
 
-Se você não tiver selecionado nada em sua cena, a guia Objetos será semelhante à seguinte imagem:
+Se você não tiver nada selecionado na cena, a guia **Objetos** será semelhante à imagem a seguir.
 
-![Captura de tela da guia Objetos Acústicos sem nenhuma seleção](media/objects-tab-no-selection-detail.png)
+![A guia Objetos Acústicos sem nada selecionado](media/objects-tab-no-selection-detail.png)
 
-Se você tiver algo selecionado em sua cena ou janela de hierarquia, será semelhante à seguinte imagem:
+Se você tiver algo selecionado na cena ou na janela de hierarquia, a guia será semelhante à imagem a seguir.
 
-![Captura de tela da guia Objetos Acústicos com seleção mostrada](media/objects-tab-selection-detail.png)
+![A guia Objetos Acústicos com seleções](media/objects-tab-selection-detail.png)
 
-Se alguns objetos são marcados e outros não, a caixa de seleção apropriada mostrará um valor "misto":
+Se alguns objetos estiverem marcados e outros não, as caixas de seleção apropriadas mostrarão um valor "misto", como a imagem a seguir.
 
-![Captura de tela da guia Objetos Acústicos com um ícone de seleção mista realçado](media/mixed-object-selection-detail.png)
+![A guia Objetos Acústicos com uma seleção mista de ícones realçada](media/mixed-object-selection-detail.png)
 
-Clicar na caixa de seleção forçará todos os objetos a serem marcados, e clicar novamente desmarcará todos os objetos.
+Marque a caixa de seleção para marcar todos os itens. Desmarque-a para desmarcar todos os objetos.
 
 Objetos podem ser marcados para geometria e navegação.
 
 ## <a name="select-acoustic-materials"></a>Selecionar materiais acústicos
-Quando seus objetos estiverem marcados, clique no botão **Materiais** e atribua os materiais acústicos. O sistema dos materiais do Projeto Acústico é vinculado ao sistema de materiais visuais do Unity: para dois objetos terem materiais acústicos separados, devem ter materiais visuais separados.
+Depois que os objetos estiverem marcados, selecione o botão **Materiais**. Em seguida, atribua materiais acústicos. O sistema de materiais do Projeto Acústico está vinculado ao sistema de materiais de visuais do Unity. Para que dois objetos tenham materiais acústicos separados, eles precisam ter materiais visuais separados.
 
-Os materiais acústicos controlam a quantidade de energia sonora refletida de volta de cada superfície. O material acústico padrão tem absorção semelhante ao concreto. O Projeto Acústico sugere materiais com base no nome do material visual. Você pode atribuir o material acústico “Personalizado” para um material para habilitar um controle deslizante de coeficiente de absorção.
+A seleção de material acústico determina a quantidade de energia de som que é refletida novamente de cada superfície. O material acústico padrão tem absorção semelhante ao aço. O Projeto Acústico sugere materiais com base no nome do material visual. Atribua também o material acústico **Personalizado** a um material para ativar um controle deslizante de coeficiente de absorção.
 
-O tempo de reverberação de um determinado material em uma sala é inversamente relacionado ao seu coeficiente de absorção, com a maioria dos materiais tendo valores de absorção na faixa de 0,01 a 0,20. Materiais com coeficientes de absorção fora desta faixa são muito absorventes.
+O tempo de reverberação de determinado material em uma sala está relacionado inversamente ao coeficiente de absorção. A maioria dos materiais tem valores de absorção em um intervalo de 0,01 a 0,20. Os materiais que têm coeficientes de absorção fora desse intervalo são muito absorventes.
 
-![Grafo mostrando a correlação negativa do tempo de reverberação com coeficiente de absorção](media/reverb-time-graph.png)
+![Um grafo mostra a correlação negativa do tempo de reverberação e do coeficiente de absorção.](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>Para referência: Partes do guia de materiais
-![Captura de tela da guia Materiais Acústicos no Unity](media/materials-tab-detail.png)
-
-1. O botão da guia **Materiais**, usado para abrir esta página.
-2. Uma breve descrição do que você precisa fazer usando esta página.
-3. Quando marcado, somente os materiais usados pelos objetos marcados como **Geometria Acústica** serão listados. Caso contrário, todos os materiais usados na cena serão listados.
-4. Use essas opções para alterar a ordem do menu suspenso exibido ao clicar em uma lista suspensa na coluna Acústica abaixo (nº 6). **Nome** classifica os materiais acústicos pelo nome. "Absorptivity" classifica em ordem de absorptivity de baixa a alta.
-5. A lista de materiais usados na cena, classificados em ordem alfabética. Se a caixa de seleção **Show Marked Only** estiver marcada (#3), somente os materiais usados pelos objetos marcados como **Geometria Acústica** serão mostrados. Clicar em um material aqui selecionará todos os objetos na cena que usam esse material.
-6. Mostra o material acústico ao qual o material da cena foi atribuído. Clique em um menu suspenso para reatribuir um material de cena a um material acústico diferente. Você pode alterar a ordem de classificação do menu mostrado ao clicar em um item aqui usando as opções **Classificar acústica por:** acima (# 4).
-7. Mostra o coeficiente de absorção acústica do material selecionado na coluna anterior. Um valor de zero significa perfeitamente reflexivo (sem absorção), enquanto um valor de 1 significa perfeitamente absorvente (sem reflexão). O coeficiente de absorção não pode ser alterado a menos que o material selecionado seja "Personalizado".
-8. Para um material atribuído a "Personalizado", o controle deslizante não está mais desativado e você pode escolher o coeficiente de absorção usando o controle deslizante ou digitando um valor.
+![A guia Materiais Acústicos no Unity](media/materials-tab-detail.png)
+1. O botão **Materiais** exibe essa guia.
+2. Uma breve descrição do que você pode fazer usando essa guia.
+3. Quando essa caixa de seleção está marcada, somente os materiais usados por objetos marcados como **Geometria Acústica** são listados. Caso contrário, todos os materiais usados na cena são listados.
+4. Use essas opções para alterar a ordem das opções em um menu na coluna **Acústica** (nº 6). Classifique os materiais acústicos por **Nome** ou por **Capacidade de Absorção**, de baixa a alta.
+5. Uma lista de materiais classificados em ordem alfabética que são usados na cena. Se a caixa de seleção **Mostrar Somente Marcados** estiver marcada (nº 3), somente os materiais usados pelos objetos marcados como **Geometria Acústica** serão mostrados. Selecione um material aqui para selecionar todos os objetos na cena que usam esse material.
+6. O material acústico ao qual o material da cena foi atribuído. Selecione qualquer item para alterar o material acústico atribuído a esse material da cena. Para alterar a ordem de classificação desses menus, use as opções **Classificar Acústica por** (nº 4).
+7. O coeficiente de absorção acústica do material selecionado na coluna à esquerda (nº 6). Um valor igual a 0 significa perfeitamente reflexivo (sem absorção), enquanto 1 significa perfeitamente absorvente (sem reflexão). O coeficiente de absorção não pode ser alterado, a menos que o material selecionado seja **Personalizado.**
+8. Para um material marcado como **Personalizado**, o controle deslizante é ativado. Mova o controle deslizante ou digite um valor para atribuir um coeficiente de absorção.
 
 ## <a name="calculate-and-review-listener-probe-locations"></a>Calcular e revisar os locais de investigação do ouvinte
-Depois de atribuir os materiais, alterne para a guia **Investigações** e clique em **Calcular** para colocar pontos de investigação do ouvinte para simulação.
+Depois de atribuir os materiais, alterne para a guia **Investigações**. Selecione **Calcular** para posicionar os pontos de investigação do ouvinte para simulação.
 
-### <a name="what-the-calculate-button-calculates"></a>Calcula o que o botão "Calcular..."
-O botão **Calcular...**  usa sua geometria da cena acústica selecionada para preparar sua cena de simulação:
+### <a name="what-the-calculate-button-does"></a>O que o botão "Calcular" faz
+O botão **Calcular** usa a geometria da cena acústica selecionada para preparar a cena para simulação:
 
-1. Ele pega a geometria das malhas da cena e calcula um volume de voxel. O volume do voxel é um volume tridimensional que envolve toda a sua cena e é composto de pequenos "voxels" cúbicos. O tamanho dos voxels é determinado pela frequência de simulação, que é definida pela configuração **Simulation Resolution**. Cada voxel é marcado como "aberto" ou contendo geometria de cena. Se um voxel contém geometria, o voxel é marcado com o coeficiente de absorção do material atribuído a essa geometria.
-2. Ele usa a malha de navegação para colocar os pontos de investigação do ouvinte. O algoritmo equilibra as questões concorrentes de cobertura espacial e tempo de simulação e tamanho do arquivo, garantindo que restrinjam os corredores e espaços pequenos sempre que houver alguma quantidade de cobertura. As contagens do ponto de investigação típico variam de 100 para cenas pequenas a alguns milhares de cenas grandes.
+- Ele usa a geometria das malhas da cena e calcula um *volume de voxel*. O volume de voxel é um volume de toda a cena composto por pequenos "voxels" cúbicos. O tamanho de voxel é determinado pela frequência de simulação, que é controlada pela configuração **Resolução de Simulação**. Cada voxel é marcado como "aberto" ou contendo a geometria da cena. Se um voxel contém geometria, ele é marcado com o coeficiente de absorção do material atribuído a essa geometria.
+- Ele usa a malha de navegação para colocar os pontos de investigação do ouvinte. O algoritmo equilibra as preocupações concorrentes da cobertura espacial, do tempo de simulação e do tamanho do arquivo. Ele visa garantir que corredores estreitos e espaços pequenos sempre tenham alguma cobertura. As contagens do ponto de investigação típico variam de 100 para cenas pequenas a alguns milhares de cenas grandes.
 
 Dependendo do tamanho da sua cena e da velocidade da sua máquina, esses cálculos podem levar vários minutos.
 
 ### <a name="review-voxel-and-probe-placement"></a>Voxel de revisão e posicionamento da investigação
-Visualize os dados voxel e os locais de ponto de investigação para garantir que você está pronto para implementar sua cena. Uma malha de navegação incompleta ou ausente ou geometria acústica extra geralmente estará rapidamente visível na versão prévia. O posicionamento do Voxel e da investigação pode ser habilitado ou desabilitado usando o menu Gizmos:
+Visualize os dados de voxel e as localizações do ponto de investigação para garantir que você esteja pronto para implementar a cena. Em geral, uma malha de navegação incompleta ou ausente ou uma geometria acústica extra fica rapidamente visível na visualização. Habilite ou desabilite o posicionamento de investigação e voxel usando o menu **Utensílios**.
 
-![Captura de tela do menu Gizmos no Unity](media/gizmos-menu.png)
+![O menu Utensílios no Unity](media/gizmos-menu.png)
 
-Voxels contendo geometria acústica são mostrados como cubos verdes. Explore sua cena e verifique se tudo o que deveria ser geometria tem voxels. A câmera cena deve estar a cerca de 5 metros do objeto para os voxels mostrarem.
+Os voxels que contêm geometria acústica são mostrados como cubos verdes. Explore a cena e verifique se tudo o que deve ser geometria tem voxels. A câmera cena deve estar a cerca de 5 metros do objeto para os voxels mostrarem.
 
-Se você comparar os voxels criados com resolução grossa vs resolução fina, verá que os voxels grossos serão duas vezes maiores.
+Se você comparar os voxels criados com resolução grossa versus resolução fina, verá que os voxels grossos serão duas vezes maiores.
 
-![Captura de tela da versão prévia de voxels grossos no editor do Unity](media/voxel-cubes-preview.png)
+![A visualização de voxels grossos no editor do Unity](media/voxel-cubes-preview.png)
 
-Os resultados da simulação são interpolados entre os locais de ponto de investigação do ouvinte em tempo de execução. Verifique se existem pontos de investigação perto de qualquer lugar onde o player deve viajar na cena.
+Os resultados da simulação são interpolados entre os locais de ponto de investigação do ouvinte em tempo de execução. Verifique se existem pontos de investigação perto de qualquer lugar em que o player deve entrar na cena.
 
-![Captura de tela da versão prévia de investigação no editor do Unity](media/probes-preview.png)
+![A visualização de investigações no editor do Unity](media/probes-preview.png)
 
 ### <a name="take-care-with-scene-renames"></a>Tenha cuidado com renomeações de cena
-O nome da cena é usado para conectar a cena a arquivos que armazenam o posicionamento do ponto de teste e a voxelização. Se a cena for renomeada depois que os pontos da sonda forem calculados, os dados de atribuição e posicionamento do material serão perdidos e deverão ser executados novamente.
+O nome da cena é usado para conectar a cena aos arquivos que armazenam o posicionamento do ponto de investigação e a voxelização. Se você renomear a cena depois que os pontos de investigação forem calculados, os dados de atribuição e posicionamento do material serão perdidos e deverão ser executados novamente.
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>Para referência: Partes do guia de testes
-![Captura de tela da guia Investigação Acústica no Unity](media/probes-tab-detail.png)
+![A guia Investigações Acústicas no Unity](media/probes-tab-detail.png)
 
-1. O **investigações** botão guia usada para abrir essa página
-2. Uma breve descrição do que você precisa fazer usando essa página
-3. Usá-los para escolher uma resolução de simulação fino ou grosso. Grande é mais rápido, mas tem determinadas vantagens e desvantagens. Veja [Fazer o Bake da Resolução](bake-resolution.md) abaixo para obter detalhes.
-4. Escolha o local onde os arquivos de dados acústicos devem ser colocados usando este campo. Clique no botão "..." para usar um seletor de pastas. O padrão é **Assets / AcousticsData**. Uma subpasta **Editor** também será criada nesse local. Para mais informações sobre arquivos de dados, consulte [Arquivos de Dados](#Data-Files) abaixo.
-5. Os arquivos de dados para esta cena serão nomeados usando o prefixo fornecido aqui. O padrão é "Acústica_ [Nome da cena]".
-6. Após as probes terem sido calculadas, os controles acima serão desativados. Clique no botão **Limpar** para apagar os cálculos e habilitar os controles para que você possa recalcular usando as novas configurações.
-7. Clique no botão **Calcular...** para voxelizar a cena e calcular os locais dos pontos da sonda. Isso é feito localmente em sua máquina e deve ser feito antes de fazer um cozimento.
+1. O botão **Investigações** exibe essa guia.
+2. Uma breve descrição do que você pode fazer nessa guia.
+3. Use essas opções para definir a resolução de simulação grossa ou fina. Grossa é mais rápida, mas há desvantagens. Para obter detalhes, confira [Resolução de bake](bake-resolution.md).
+4. Especifica em que local os arquivos de dados acústicos serão colocados. Selecione o botão " **...** " para acessar um seletor de pasta. A localização padrão é *Assets/AcousticsData*. Uma subpasta *Editor* também é criada nessa localização. Para obter mais informações, confira [Arquivos de dados adicionados pelo processo de bake](#Data-Files) mais adiante neste artigo.
+5. O prefixo especificado aqui é usado para nomear os arquivos de dados para esta cena. O padrão é "Acústica_ *[Nome da Cena]* ".
+6. Depois que as investigações são calculadas, os controles que acabamos de descrever são desabilitados. Selecione o botão **Limpar** para apagar os cálculos e habilitar os controles, de modo que você possa fazer o cálculo novamente com novas configurações.
+7. Selecione **Calcular** para voxelizar a cena e calcular as localizações dos pontos de investigação. O cálculo é feito localmente no computador. Ele precisa ser feito antes de fazer um bake.
 
-Nesta versão do Project Acoustics, os probes não podem ser colocados manualmente e devem ser colocados através do processo automatizado fornecido na guia **Probes**.
+Nesta versão do Projeto Acústico, as investigações não podem ser colocadas manualmente. Use o processo automatizado na guia **Investigações**.
 
-Veja [Fazer o Bake da Resolução](bake-resolution.md) para obter mais detalhes sobre resolução bruta vs. fina.
+Para obter mais informações sobre resolução grossa versus fina, confira [Resolução de bake](bake-resolution.md).
 
-## <a name="bake-your-scene-using-azure-batch"></a>Fazer sua cena usando o Lote do Azure
-É possível fazer o bake da cena com um cluster de cálculo na nuvem usando o serviço do Lote do Azure. O plugin do Unity do Projeto Acústico conecta-se diretamente ao Lote do Azure para instanciar, gerenciar e desativar um cluster do Lote do Azure para cada bake. Na guia **Bake**, insira as credenciais do Azure, selecione um tipo e tamanho de computador de cluster e clique em **Bake**.
+## <a name="bake-your-scene-by-using-azure-batch"></a>Fazer o bake da cena usando o Lote do Azure
+Faça o bake da cena em um cluster de computação na nuvem usando o serviço Lote do Azure. O plug-in do Unity do Projeto Acústico conecta-se diretamente ao Lote do Azure para criar uma instância de um cluster do Lote do Azure, gerenciá-lo e destruí-lo para cada bake. Na guia **Bake**, insira suas credenciais do Azure, selecione um tipo e um tamanho de computador de cluster e, em seguida, selecione **Bake**.
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>Para referência: Partes da guia Bake
-![Captura de tela da guia Bake da Acústica no Unity](media/bake-tab-details.png)
+![A guia Bake da Acústica no Unity](media/bake-tab-details.png)
 
-1. O botão de incorporar essa guia usado para abrir essa página.
-2. Uma breve descrição do que fazer nesta página.
-3. Campos para inserir suas credenciais do Azure assim que sua conta do Azure for criada. Para obter mais informações, consulte [criar uma conta do lote do Azure](create-azure-account.md).
-4. Marca de imagem do docker para o conjunto de ferramentas acústicas.
-5. Inicie o portal do Azure para gerenciar suas assinaturas, monitorar o uso e exibir informações de cobrança etc. 
-6. Tipo de nó de computação em lote do Azure a ser usado para o cálculo. O tipo de nó deve ser suportado pelo seu local do datacenter do Azure. Se não souber, deixe **Standard_F8s_v2**.
-7. Número de nós a serem usados para este cálculo. O número digitado aqui afeta o tempo para concluir o cozimento e é limitado pela alocação principal do Lote do Azure. A alocação padrão permite apenas dois nós principais de 8 ou um nó de 16 núcleos, mas pode ser expandida. Para obter mais informações sobre restrições de alocação de core, consulte [criar uma conta do lote do Azure](create-azure-account.md).
-8. Marque essa caixa de seleção para configurar seu pool de computação para usar [nós de baixa prioridade](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Os nós de computação de baixa prioridade têm um custo muito inferior, mas eles podem não estar sempre disponíveis ou podem admitir preempção a qualquer momento.
-9. A contagem de sondas para sua cena, conforme calculada na guia **Sondas**. O número de probes determina o número de simulações que precisam ser executadas na nuvem. Você não pode especificar mais nós do que probes.
-10. A quantidade de tempo decorrido esperada para que seu trabalho seja executado na nuvem. Isso não inclui o tempo de inicialização do nó. Uma vez que o trabalho comece a funcionar, isso é quanto tempo deve ser antes de você retornar os resultados. Observe que isso é apenas uma estimativa.
-11. A quantidade total de tempo de computação necessária para executar as simulações. Essa é a quantidade total de tempo de computação do nó que será usado no Azure. Ver [estimativa tortas custo](#Estimating-bake-cost) abaixo para obter mais informações sobre como usar esse valor.
-12. Esta mensagem informa onde os resultados do cozimento serão salvos assim que o trabalho for concluído.
-13. (Somente para uso avançado) Se por algum motivo você precisar forçar o Unity a esquecer um assado que você enviou (por exemplo, você baixou os resultados usando outra máquina), clique no botão **Limpar Estado** para esquecer o trabalho que estava submetido. Note que isso significa que o arquivo de resultado, quando pronto, **não** será baixado, e **isso não é o mesmo que cancelar o trabalho**. O trabalho, se em execução, continuará a ser executado na nuvem.
-14. Clique no botão **Bake** para enviar o bake para a nuvem. Enquanto um trabalho está em execução, isso mostra **Cancelar trabalho**.
-15. Prepara para a simulação acústica de processamento[ em seu computador](#Local-bake).
-16. Essa área mostra o status do tortas. Quando concluído, ele deve mostrar **Downloaded**.
+1. O botão **Bake** exibe essa guia.
+2. Uma breve descrição do que você pode fazer nessa página.
+3. Insira suas credenciais do Azure nesses campos depois que a sua conta do Azure for criada. Para obter mais informações, confira [Criar uma conta do Lote do Azure](create-azure-account.md).
+4. O campo da tag de imagem do Docker para o conjunto de ferramentas Acústicas.
+5. Abre o portal do Azure para gerenciar suas assinaturas, monitorar o uso e exibir informações de cobrança.
+6. Especifica o tipo de nó de computação do Lote do Azure a ser usado para o cálculo. O tipo de nó precisa ter o suporte da localização do datacenter do Azure. Se você não tiver certeza, mantenha-o como **Standard_F8s_v2**.
+7. O número de nós a serem usados para o cálculo. Esse número afeta o tempo do bake. Ele é limitado pela alocação de núcleos do Lote do Azure. A alocação padrão só permite dois nós de 8 núcleos ou um nó de 16 núcleos, mas pode ser expandida. Para obter mais informações sobre restrições de alocação de núcleos, confira [Criar uma conta do Lote do Azure](create-azure-account.md).
+8. Marque essa caixa de seleção para configurar o pool de computação para que ele use [nós de baixa prioridade](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Os nós de computação de baixa prioridade têm um custo muito menor. Porém, eles nem sempre podem estar disponíveis ou ser tentados novamente a qualquer momento.
+9. A contagem de sondas para sua cena, conforme calculada na guia **Sondas**. O número de investigações determina o número de simulações que precisam ser executadas na nuvem. Não é possível especificar mais nós do que investigações.
+10. Uma estimativa do tempo que o trabalho levará para ser executado na nuvem, excluindo o tempo de inicialização do nó. Depois que o trabalho começar a ser executado, esse campo mostrará uma estimativa de quanto tempo levará até você obter os resultados.
+11. A quantidade total de tempo de computação necessária para executar as simulações. Esse valor é o tempo total de computação do nó que será usado no Azure. Para obter mais informações, confira [Estimar o custo de bake do Azure](#Estimating-bake-cost) mais adiante neste artigo.
+12. Esta mensagem informa o local em que os resultados do bake serão salvos quando o trabalho for concluído.
+13. *(Somente uso avançado:)* Este botão força o Unity a esquecer um bake enviado. Por exemplo, se você tiver usado os resultados usando outro computador, selecione o botão **Limpar Estado** para esquecer esse trabalho. O arquivo de resultado, quando estiver pronto, *não* será baixado. *Isso não é o mesmo que cancelar o trabalho. O trabalho, se estiver em execução, continuará sendo executado na nuvem.*
+14. Selecione este botão para enviar o bake para a nuvem. Enquanto um trabalho está em execução, esse botão se torna **Cancelar Trabalho**.
+15. Selecione este botão para preparar o processamento da [simulação de acústica no computador](#Local-bake).
+16. Essa área mostra o status do tortas. Quando o bake for concluído, ele mostrará "Baixado".
 
-Você sempre pode obter informações completas sobre os trabalhos ativos, pools de computação e armazenamento no [portal do Azure](https://portal.azure.com).
+Você sempre pode obter informações completas sobre os trabalhos ativos, os pools de computação e o armazenamento no [portal do Azure](https://portal.azure.com).
 
-Enquanto um trabalho está em execução, o botão **Bake** muda para **Cancelar trabalho**. Use este botão para cancelar o trabalho em andamento.Use esse botão para cancelar o trabalho em andamento. Você será solicitado a confirmar antes do trabalho é cancelado. O cancelamento de um trabalho não pode ser desfeito, nenhum resultado estará disponível e você ainda será cobrado por qualquer tempo de computação do Azure usado.
+Enquanto um trabalho está em execução, o rótulo do botão **Bake** é alterado para **Cancelar Trabalho**. Use este botão para cancelar o trabalho em andamento. Você deverá confirmar essa opção. Não é possível desfazer o cancelamento de um trabalho. Quando você cancelá-lo, nenhum resultado ficará disponível, mas você ainda será cobrado por qualquer tempo de computação do Azure usado.
 
-Depois de iniciar um assar, você pode fechar o Unity. Dependendo do projeto, do tipo de nó e do número de nós, um cozimento na nuvem pode levar várias horas. O status do trabalho de cozimento será atualizado quando você recarregar o projeto e abrir a janela Acústica. Se o trabalho foi concluído, o arquivo de saída será baixado.
+Depois de iniciar um bake, feche o Unity. Dependendo do projeto, do tipo de nó e do número de nós, um cozimento na nuvem pode levar várias horas. O status do trabalho de cozimento será atualizado quando você recarregar o projeto e abrir a janela Acústica. Se o trabalho for concluído, o arquivo de saída será baixado.
 
-As credenciais do Azure são armazenadas com segurança em sua máquina local e associadas ao seu editor do Unity. Eles são usados exclusivamente para estabelecer uma conexão segura com o Azure.
+Por segurança, as credenciais do Azure são armazenadas no computador local e associadas ao editor do Unity. Elas só são usadas para estabelecer uma conexão segura com o Azure.
 
-## <a name="to-find-the-status-of-a-running-job-on-the-azure-portal"></a>Para localizar o status de um trabalho em execução no portal do Azure
+## <a name="find-the-status-of-a-running-job-on-the-azure-portal"></a>Localizar o status de um trabalho em execução no portal do Azure
 
-1. Localize a ID do trabalho do bake na guia bake:
+1. Localize a ID do trabalho do bake na guia **Bake**.
 
-![Captura de tela da ID do trabalho bake do Unity](media/unity-job-id.png)  
+    ![A ID do trabalho do bake do Unity realçada na guia Bake](media/unity-job-id.png)  
 
-2. Abra o [portal do Azure](https://portal.azure.com), navegue até a conta de Lote usada para a bake e selecione **Trabalhos**
+2. Abra o [portal do Azure](https://portal.azure.com), acesse a conta do Lote usada para o bake e selecione **Trabalhos**.
 
-![Captura de tela do link de Trabalhos](media/azure-batch-jobs.png)  
+    ![O link Trabalhos no portal do Azure](media/azure-batch-jobs.png)  
 
-3. Pesquisar a ID do trabalho na lista de trabalhos
+3. Pesquise a ID do trabalho na lista de trabalhos.
 
-![Captura de tela do status do trabalho bake](media/azure-bake-job-status.png)  
+   ![O status do trabalho do bake realçado no portal do Azure](media/azure-bake-job-status.png)  
 
-4. Clique na ID do trabalho para ver o status das tarefas relacionadas e o status geral do trabalho
+4. Selecione a ID do trabalho para ver o status das tarefas relacionadas e o status geral do trabalho.
 
-![Captura de tela do status da tarefa bake](media/azure-batch-task-state.png)  
+   ![O status da tarefa do bake](media/azure-batch-task-state.png)  
 
 
-### <a name="Estimating-bake-cost"></a> Estimar o custo do bake do Azure
+### <a name="Estimating-bake-cost"></a> Estimar o custo de bake do Azure
 
-Para estimar o custo de um dado bake, pegue o valor mostrado para **Estimated Compute Cost**, que é uma duração, e multiplique-o pelo custo por hora em sua moeda local do **VM Node Type** você selecionou. O resultado não incluirá o tempo de nó necessárias para colocar os nós e em execução. Por exemplo, se você selecionar **Standard_F8s_v2** para seu tipo de nó, que tem um custo de US$ 0,40/h, e o custo estimado de computação for de 3 horas e 57 minutos, o custo estimado para executar o trabalho será de US$ 0,40 * ~ 4 horas = ~ US$ 1,60. O custo real provavelmente será um pouco maior devido ao tempo extra para iniciar os nós. Você pode encontrar o custo de nó por hora na página [Preço do lote do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (selecione "Computar otimizado" ou "Computação de alto desempenho" para a categoria).
+Para estimar o custo de um bake, comece com o valor do **Custo de Computação Estimado**, que é uma duração. Multiplique esse valor pelo custo por hora na moeda local para o **Tipo de Nó da VM** selecionado. Observe que o resultado não incluirá o tempo do nó necessário para colocar os nós em funcionamento.
+
+Por exemplo, digamos que você selecione **Standard_F8s_v2** para o tipo de nó, que tem um custo de US$ 0,40/h. Se o **Custo de Computação Estimado** for de 3 horas e 57 minutos, o custo estimado para execução do trabalho será de US$ 0,40 * ~4 horas = ~US$ 1,60. O custo real provavelmente será um pouco mais alto devido ao tempo extra para iniciar os nós.
+
+Encontre o custo dos nós por hora em [Preços do Lote do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux). (Selecione **Computação otimizada** ou **Computação de alto desempenho** como a categoria.)
 
 ## <a name="Local-bake"></a> Prepare sua cena no seu PC
-Você pode preparar sua cena em seu próprio computador. Isso pode ser útil para testar com a acústica com cenas pequenas antes de criar uma conta do Lote do Microsoft Azure. Observe que a simulação acústica pode levar muito tempo, dependendo do tamanho da cena.
+Faça também o bake da cena em seu próprio computador. Essa método pode ser útil para fazer experimentos com a acústica em cenas pequenas antes de criar uma conta do Lote do Azure. Observe, porém, que a simulação acústica local pode levar muito tempo, dependendo do tamanho da cena.
 
 ### <a name="minimum-hardware-requirements"></a>Requisitos mínimos de hardware
 * Um processador x86-64 com pelo menos 8 núcleos e 32 GB de RAM
 * [Hyper-V habilitado](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) para executar o Docker
 
-Por exemplo, em nosso teste em uma máquina de 8 núcleos com Intel Xeon E5-1660 @ 3 GHz e 32 GB RAM -
-* Uma cena pequena com 100 investigações leva cerca de 2 horas em um bake grosso e cerca de 32 horas em um bake fino.
-* Uma cena média com 1000 investigações leva cerca de 20 horas em um bake grosso e cerca de 21 dias em um bake fino.
+Por exemplo, em nosso teste em um computador de 8 núcleos, Intel Xeon E5-1660 @ 3 GHz e 32 GB RAM:
+* Uma cena pequena com 100 investigações levou cerca de 2 horas para um bake grosso ou 32 horas para um bake fino.
+* Uma cena média com 1.000 investigações levou cerca de 20 horas para um bake grosso ou 21 dias para um bake fino.
 
-### <a name="setup-docker"></a>Configurar Docker
-Instalar e configurar o Docker no PC que processará a simulação -
-1. Instalar a [Área de Trabalho do Docker](https://www.docker.com/products/docker-desktop).
-2. Inicie as configurações do Docker, navegue até as opções "Avançadas" e configure os recursos para terem pelo menos 8 GB de RAM. Quanto mais CPUs você puder alocar para o Docker, mais rápido será o bake.  
-![Captura de tela do exemplo de configurações do Docker](media/docker-settings.png)
-1. Navegue até "Unidades Compartilhadas" e ative o compartilhamento para a unidade usada no processamento.  
-![Captura de tela de opções do drive compartilhado do Docker](media/docker-shared-drives.png)
+### <a name="set-up-docker"></a>Configurar o Docker
+Instale e configure o Docker no computador que processará a simulação:
+1. Instale o [Docker Desktop](https://www.docker.com/products/docker-desktop).
+2. Abra as configurações do Docker, acesse **Avançado** e configure os recursos para, pelo menos, 8 GB de RAM. Quanto mais CPUs você puder alocar para o Docker, mais rápido o bake será concluído.  
+![Configurações de exemplo do Docker](media/docker-settings.png)
+1. Acesse **Unidades Compartilhadas** e ative o compartilhamento para a unidade usada no processamento.  
+![Opções de unidade compartilhada do Docker](media/docker-shared-drives.png)
 
-### <a name="run-local-bake"></a>Executar um bake local
-1. Clique no botão "Preparar Bake Local" na guia **Bake** e selecione uma pasta onde os arquivos de entrada e scripts de execução serão salvos. É possível executar o bake em qualquer máquina, desde que ela atenda aos requisitos mínimos de hardware e tenha o Docker instalado, copiando a pasta para essa máquina.
-2. Inicie a simulação usando o script "runlocalbake.bat" no Windows ou usando o script "runlocalbake.sh" no MacOS. Esse script buscará a imagem do Docker do Project Acoustics com o conjunto de ferramentas necessário para o processamento da simulação e dará início a ela. 
-3. Quando a simulação terminar, copie o arquivo .ace resultante de volta para seu projeto Unity. Para garantir que o Unity reconheça o arquivo como binário, acrescente “.bytes” à extensão do arquivo (por exemplo, “Scene1.ace.bytes”). Os logs detalhados da simulação são armazenados em “AcousticsLog.txt”. Se você tiver algum problema, compartilhe esse arquivo para ajudar com o diagnóstico.
+### <a name="run-the-local-bake"></a>Executar o bake local
+1. Selecione o botão **Preparar Bake Local** na guia **Bake**. Em seguida, selecione uma localização de pasta para salvar os arquivos de entrada e os scripts de execução. Em seguida, você poderá executar o bake em qualquer computador, desde que ele atenda aos requisitos mínimos de hardware e você instale o Docker copiando a pasta para esse computador.
+2. Para iniciar a simulação, execute o script *runlocalbake.bat* no Windows ou o script *runlocalbake.sh* no macOS. Esse script busca a imagem do Docker do Projeto Acústico com o conjunto de ferramentas necessário para o processamento da simulação e inicia a simulação.
+3. Após a conclusão da simulação, copie o arquivo *.ace* resultante novamente para o projeto do Unity. Para garantir que o Unity o reconheça como um arquivo binário, acrescente ".bytes" à extensão do arquivo (por exemplo, "Scene1.ace.bytes"). Os logs detalhados da simulação são armazenados em *AcousticsLog.txt.* Se você tiver algum problema, inspecione esse arquivo para ajudar a diagnosticar o problema.
 
 ## <a name="Data-Files"></a> Arquivos de dados adicionados pelo processo de bake
 
-Há quatro arquivos de dados criados durante o processo de bake. Um contém os resultados da simulação e é fornecido com o seu título. Os outros armazenam dados relacionados ao Editor do Unity.
+Os quatro arquivos de dados a seguir são criados durante o processo de bake. Um contém os resultados da simulação e é fornecido com o seu título. Os outros armazenam dados relacionados ao editor do Unity.
 
 Resultado da simulação:
-* **Assets/AcousticsData/Acoustics\_[SceneName].ace.bytes**: Essa é a tabela de pesquisa de tempo de execução e contém os resultados de simulação e os elementos da cena acústica voxelizada. O local e o nome desse arquivo podem ser alterados usando os campos na **investigações** guia.
+* *Assets/AcousticsData/Acoustics\_[SceneName].ace.bytes*: Esse arquivo é a tabela de pesquisa do runtime. Ele contém os resultados da simulação e os elementos da cena acústica voxelizados. Altere o nome e a localização desse arquivo na guia **Investigações**.
 
-Tome cuidado para não excluir o arquivo de resultado da simulação. Isso não é recuperável, exceto por re-gravar a cena.
+   *Tome cuidado para não excluir o arquivo de resultado da simulação. Ele não é recuperável, exceto por fazer outro bake da cena.*
 
 Arquivos de dados do editor:
-* **Assets/Editor/[SceneName]\_AcousticsParameters.asset**: Esse arquivo armazena os dados inseridos nos campos da interface do usuário do Acoustics. O local e o nome deste arquivo não podem ser alterados.
-* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox**: Esse arquivo armazena a geometria de acústica voxelizada e as propriedades de material que são calculadas usando o botão **Calcular...**  na guia Investigações. A localização e o nome desse arquivo podem ser alterados usando os campos da guia **Sondas**.
-* **Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml**: Esse arquivo armazena os parâmetros de simulação calculados usando o botão **Calcular...** na Guia **Investigações**. A localização e o nome desse arquivo podem ser alterados usando os campos da guia **Sondas**.
+* *Assets/Editor/[SceneName]\_AcousticsParameters.asset*: Esse arquivo armazena os dados inseridos nos campos da interface do usuário do Acústico. Não é possível alterar o nome e a localização desse arquivo.
+* *Assets/AcousticsData/Editor/Acoustics_[SceneName].vox*: Esse arquivo armazena a geometria de acústica voxelizada e as propriedades de material que são calculadas quando você seleciona o botão **Calcular** na guia **Investigações**. Altere o nome e a localização desse arquivo na guia **Investigações**.
+* *Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml*: Esse arquivo armazena os parâmetros de simulação que são calculados quando você seleciona **Calcular**. Altere o nome e a localização desse arquivo na guia **Investigações**.
 
 ## <a name="set-up-the-acoustics-lookup-table"></a>Configurar a tabela de pesquisa acústica
-Arraste e solte o **pré-fabricado do Projeto Acústico** do painel do projeto em sua cena:
+Arraste o pré-fabricado do **Projeto Acústico** do painel do projeto para a cena:
 
-![Captura de tela do pré-fabricado Acústica no Unity](media/acoustics-prefab.png)
+![O pré-fabricado do Acústico no Unity](media/acoustics-prefab.png)
 
-Clique no **ProjectAcoustics** Game Object e vá até o painel de inspetores. Especifique a localização do seu resultado de cozimento (o arquivo .ACE, em **Assets / AcousticsData**) arrastando-o e soltando-o no script do Acoustics Manager, ou clicando no botão de círculo ao lado da caixa de texto.
+Selecione o objeto de jogo **ProjectAcoustics** e acesse o painel Inspetor. Especifique a localização do resultado do bake (o arquivo .ace, em *Assets/AcousticsData*): Arraste-a para o script do Gerenciador Acústico ou selecione o botão de círculo ao lado da caixa de texto.
 
-![Captura de tela do pré-fabricado Gerenciador Acústico no Unity](media/acoustics-manager.png)  
+![O pré-fabricado do Gerenciador Acústico no Unity](media/acoustics-manager.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Explore os [controles de design do Unity](unity-workflow.md)
-* Explore os [conceitos de design do Projeto Acústico](design-process.md)
-
+* Explore os [controles de design do Unity](unity-workflow.md).
+* Explore os [conceitos de design do Projeto Acústico](design-process.md).

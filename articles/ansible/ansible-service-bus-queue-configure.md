@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Configurar as filas no Barramento de Serviço do Azure usando o Ansible | Microsoft Docs
+title: Tutorial – Configurar filas no Barramento de Serviço do Azure usando o Ansible
 description: Saiba como usar o Ansible para criar uma fila do Barramento de Serviço do Azure
 keywords: ansible, azure, devops, bash, playbook, service bus, queue
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 6efc11106fae18beac43ab1896733ab6bfc64dad
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: a48796c2177a8b5b818553bf8aa0ff36f712d4e0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230776"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241389"
 ---
 # <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>Tutorial: Configurar as filas no Barramento de Serviço do Azure usando o Ansible
 
@@ -140,7 +140,7 @@ Salve o guia estratégico a seguir como `servicebus_namespace_info.yml`:
 ```
 
 Antes de executar o guia estratégico, confira as observações a seguir:
-- O valor `show_sas_policies` indica se é necessário mostrar as políticas SAS no namespace especificado. Por padrão, o valor é `False` para evitar sobrecarga de rede adicional.
+- O valor `show_sas_policies` indica se é necessário mostrar as políticas de SAS no namespace especificado. Por padrão, o valor é `False` para evitar sobrecarga de rede adicional.
 
 Execute o guia estratégico usando o comando `ansible-playbook`:
 

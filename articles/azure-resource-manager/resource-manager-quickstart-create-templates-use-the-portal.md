@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: d5deedb12afb1b766255ad0a9f247594ed70acaa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 708656ee88f5bacaa498bcd84fde34d69228d28b
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069293"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170277"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Início Rápido: Criar e implantar modelos do Azure Resource Manager usando o portal do Azure
 
@@ -45,7 +45,7 @@ Muitos desenvolvedores de modelos experientes usam esse método para gerar model
     |NOME|Valor|
     |----|----|
     |**Grupo de recursos**|Selecione **Criar** e especifique um nome de grupo de recursos de sua escolha. Na captura de tela, o nome do grupo de recursos é *mystorage1016rg*. Um grupo de recursos é um contêiner para os recursos do Azure. O grupo de recursos facilita o gerenciamento de recursos do Azure. |
-    |**Nome**|Dê um nome exclusivo à conta de armazenamento. O nome da conta de armazenamento deve ser exclusivo em todo o Azure e conter apenas letras minúsculas e números. O nome deve ter entre 3 e 24 caracteres. Se você receber uma mensagem de erro informando "O nome da conta de armazenamento 'mystorage1016' já foi preenchido", tente usar **&lt;seu nome>storage&lt;Data de hoje em MMDD>** , por exemplo **joaodolestorage1016**. Para obter mais informações, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).|
+    |**Nome**|Dê um nome exclusivo à conta de armazenamento. O nome da conta de armazenamento deve ser exclusivo em todo o Azure e conter apenas letras minúsculas e números. O nome deve ter entre 3 e 24 caracteres. Se você receber uma mensagem de erro informando "O nome da conta de armazenamento 'mystorage1016' já foi preenchido", tente usar **&lt;seu nome>storage&lt;Data de hoje em MMDD>** , por exemplo **joaodolestorage1016**. Para obter mais informações, consulte [Regras e restrições de nomenclatura](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming).|
 
     Você pode usar valores padrão para as outras propriedades.
 
@@ -192,7 +192,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a gerar um modelo no portal do Azure e a implantar o modelo usando o portal. O modelo usado neste Início Rápido é um modelo simples com um recurso do Azure. Quando o modelo é complexo, é mais fácil usar o Visual Studio Code ou o Visual Studio para desenvolvê-lo. O próximo início rápido também mostra como implantar modelos usando o Azure PowerShell e a Interface da Linha de Comando (CLI) do Azure.
+Neste tutorial, você aprendeu a gerar um modelo no portal do Azure e a implantar o modelo usando o portal. O modelo usado neste Início Rápido é um modelo simples com um recurso do Azure. Quando o modelo é complexo, é mais fácil usar o Visual Studio Code ou o Visual Studio para desenvolvê-lo. Para saber mais sobre o desenvolvimento de modelos, confira nossa nova série de tutoriais para iniciantes:
 
 > [!div class="nextstepaction"]
-> [Criar modelos usando o Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)
+> [Tutoriais para iniciante](./template-tutorial-create-first-template.md)

@@ -1,5 +1,5 @@
 ---
-title: O que é a Visão Personalizada do Azure?
+title: O que é Visão Personalizada?
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar o Serviço de Visão Personalizada para criar classificadores de imagem personalizada na nuvem do Azure.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 033b0317b1738e24e4ac9c9ae2150b015cc5a8e5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9e455a42945ba4d6ce334d557b7390c3c50e7ff9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560960"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177822"
 ---
-# <a name="what-is-azure-custom-vision"></a>O que é a Visão Personalizada do Azure?
+# <a name="what-is-custom-vision"></a>O que é Visão Personalizada?
 
-A Visão Personalizada do Azure é um serviço cognitivo que permite compilar, implantar e aprimorar seus próprios classificadores de imagens. Um classificador de imagem é um serviço de inteligência artificial que aplica rótulos (que representam _classes_) a imagens de acordo com suas características visuais. Ao contrário do serviço [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), a Visão Personalizada permite que você determine quais rótulos aplicar.
+A Visão Personalizada é um serviço cognitivo que permite criar, implantar e aprimorar seus próprios classificadores de imagens. Um classificador de imagem é um serviço de inteligência artificial que aplica rótulos (que representam _classes_) a imagens de acordo com suas características visuais. Ao contrário do serviço [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), a Visão Personalizada permite que você determine quais rótulos aplicar.
 
 ## <a name="what-it-does"></a>O que faz
 

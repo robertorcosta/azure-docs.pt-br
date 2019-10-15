@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 2f1ee5caf89af718d91abeac01730700c131ab41
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: bc7858aeceea7cbd35bc2d834ddfb4fb5d656321
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048966"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174825"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Início Rápido: Usar um modelo de funcionalidade do dispositivo para criar um dispositivo IoT Plug and Play e conectá-lo ao aplicativo do IoT Central
 
@@ -42,12 +42,12 @@ Para concluir este início rápido, você precisa instalar o seguinte software n
     npm i -g dps-keygen
     ```
 
-### <a name="install-azure-iot-device-workbench"></a>Instalar o Azure IoT Device Workbench
+### <a name="install-azure-iot-tools"></a>Instalar as Ferramentas do Azure IoT
 
-Use as seguintes etapas para instalar a extensão Azure IoT Device Workbench no VS Code:
+Use as seguintes etapas para instalar o pacote de extensão Azure IoT Tools no VS Code:
 
 1. No VS Code, selecione a guia **Extensões**.
-1. Pesquise **Azure IoT Device Workbench**.
+1. Pesquise por **Azure IoT Tools**.
 1. Selecione **Instalar**.
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento

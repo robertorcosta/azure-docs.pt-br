@@ -13,12 +13,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: quickstart
 ms.author: yucwan
-ms.openlocfilehash: cbeaccf4cdea87d6f34d5ee77e6a08b32abd76b5
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: d25a5720e3aaa8ad6306a72d2db8d3ca2e89861b
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708189"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169438"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-intellij-idea"></a>Início Rápido: Criar e implantar modelos do Azure Resource Manager usando o IntelliJ IDEA
 
@@ -40,7 +40,7 @@ Para concluir este artigo, você precisa do seguinte:
 
 ## <a name="deploy-a-quickstart-template"></a>Implantar um modelo de Início Rápido
 
-Em vez de criar um modelo do zero, você pode abrir um modelo de [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/). Modelos de Início Rápido do Azure é um repositório de modelos do Gerenciador de Recursos. O modelo usado neste início rápido é chamado [Criar uma conta de armazenamento padrão](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). Ele define um recurso da conta de Armazenamento do Azure. 
+Em vez de criar um modelo do zero, você pode abrir um modelo de [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/). Modelos de Início Rápido do Azure é um repositório de modelos do Resource Manager. O modelo usado neste início rápido é chamado [Criar uma conta de armazenamento padrão](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). Ele define um recurso da conta de Armazenamento do Azure.
 
 1. Clique com o botão direito do mouse e salve o [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) e o [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) em seu computador local.
 
@@ -89,10 +89,10 @@ Em vez de criar um modelo do zero, você pode abrir um modelo de [Modelos de In�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O foco principal deste início rápido é usar o IntelliJ IDEA para implantar um modelo existente com base em modelos de Início Rápido do Azure. Você também aprendeu como exibir e atualizar uma implantação existente no Azure. Os modelos do Início Rápido do Azure podem não oferecer tudo o que você precisa. O próximo tutorial mostra como localizar as informações de referência de modelo para que você possa criar uma conta de armazenamento criptografada do Azure.
+O foco principal deste início rápido é usar o IntelliJ IDEA para implantar um modelo existente com base em modelos de Início Rápido do Azure. Você também aprendeu como exibir e atualizar uma implantação existente no Azure. Os modelos do Início Rápido do Azure podem não oferecer tudo o que você precisa. Para saber mais sobre o desenvolvimento de modelos, confira nossa nova série de tutoriais para iniciantes:
 
 > [!div class="nextstepaction"]
-> [Criar uma conta de armazenamento criptografada](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [Tutoriais para iniciante](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
 > [Visite o Java no Centro de Desenvolvimento do Azure](https://docs.microsoft.com/azure/java)

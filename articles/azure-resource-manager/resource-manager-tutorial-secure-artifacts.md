@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 10/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bf004f07558ae1f252a6bd26b4fd59ea9e4eea6e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bcf64d98f53d85937ee7960ec3938280814267d8
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069266"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170187"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutorial: Proteger os artefatos em implantações de modelo do Azure Resource Manager
 
@@ -64,7 +64,7 @@ Para automatizar essas etapas usando um script do PowerShell, confira o script e
 
 ### <a name="download-the-bacpac-file"></a>Baixe o arquivo BACPAC
 
-Baixe o [arquivo BACPAC](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac) e salve o arquivo em seu computador local com o mesmo nome, **SQLDatabaseExtension.bacpac**.
+Baixe o [arquivo BACPAC](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac) e salve o arquivo em seu computador local com o mesmo nome, **SQLDatabaseExtension.bacpac**.
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -134,13 +134,13 @@ Um contêiner de Blob é necessário antes de carregar todos os arquivos.
 
 ## <a name="open-an-existing-template"></a>Abrir um modelo existente
 
-Nesta sessão, você modifica o modelo criado no [Tutorial: Importar arquivos BACPAC do SQL com modelos do Azure Resource Manager](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md) para chamar o arquivo BACPAC com um token SAS.  O modelo desenvolvido no tutorial de extensão do SQL é compartilhado em [https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json).
+Nesta sessão, você modifica o modelo criado no [Tutorial: Importar arquivos BACPAC do SQL com modelos do Azure Resource Manager](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md) para chamar o arquivo BACPAC com um token SAS.  O modelo desenvolvido no tutorial de extensão do SQL é compartilhado em [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
 
 1. No Visual Studio Code, escolha **Arquivo**>**Abrir Arquivo**.
 2. Em **Nome do arquivo**, cole a seguinte URL:
 
     ```url
-    https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json
     ```
 3. Escolha **Abrir** para abrir o arquivo.
 

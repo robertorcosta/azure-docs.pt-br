@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b8faf3801a2217e6ef7040a7c2b67c7e6fad8e60
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ea3fc21891f1e4d4e744449032a4b2cfcdfbb2f0
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709597"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177526"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Acompanhar o saldo de crédito Azure no Contrato de Cliente da Microsoft
 
 Verifique o saldo de crédito Azure para o Contrato de Cliente da Microsoft no portal do Azure. Use créditos para pagar pelos encargos que são cobertos pelos créditos.
 
-Você é cobrado quando usa produtos que não são cobertos pelos créditos ou quando seu uso excede o saldo de crédito. Para obter mais informações, confira [Produtos que não são cobertos pelos créditos Azure.(#products-that-arent-covered-by-azure-credits).
+Você é cobrado quando usa produtos que não são cobertos pelos créditos ou quando seu uso excede o saldo de crédito. Para obter mais informações, confira [Produtos que não são cobertos pelos créditos Azure](#products-that-arent-covered-by-azure-credits).
 
 Este artigo aplica-se a uma conta de cobrança para um Contrato de Cliente da Microsoft. [Verifique se você tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 

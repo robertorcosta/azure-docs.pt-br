@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 013e477b66d2772698ce5c9cc61a59f8a5a04a5a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd54466e054055ff84cd5bb2b28c5cc074ac0017
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67094890"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026810"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutorial: Integração do Azure Active Directory ao Pega Systems
 
@@ -124,7 +124,7 @@ Para configurar o logon único do Azure AD com o Pega Systems, siga estas etapas
     > [!NOTE]
     > Os valores fornecidos aqui são espaços reservados. Você precisa usar o identificador, a URL de resposta, a URL de logon único e a URL de estado de retransmissão reais. Você pode obter os valores do identificador e da URL de resposta de um aplicativo Pega, conforme explicado mais adiante neste tutorial. Para obter o valor do estado de retransmissão, entre em contato com a [equipe de suporte do Pega Systems](https://www.pega.com/contact-us). Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-6. O aplicativo Pega Systems precisa que as declarações do SAML estejam em um formato específico. Para obtê-las no formato correto, você precisa adicionar mapeamentos de atributo personalizados à sua configuração de atributos do token SAML. A captura de tela a seguir mostra os atributos padrão. Selecione o ícone **Editar** para abrir a caixa de diálogo **Atributos de usuário** :
+6. O aplicativo Pega Systems precisa que as declarações do SAML estejam em um formato específico. Para obtê-las no formato correto, você precisa adicionar mapeamentos de atributo personalizados à sua configuração de atributos do token SAML. A captura de tela a seguir mostra os atributos padrão. Selecione o ícone **Editar** para abrir a caixa de diálogo **Atributos do Usuário**:
 
     ![Atributos de usuário](common/edit-attribute.png)
 
@@ -282,4 +282,4 @@ Ao selecionar o bloco do Pega Systems no Painel de Acesso, você deverá ser con
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

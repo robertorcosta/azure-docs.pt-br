@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d716eb761ab406b65f10898b29775327a801ac45
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f68bc211be3cffb61b3381390ae2eeacaffa4213
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875483"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960416"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Tutorial: Use o Azure IoT Central para monitorar seus dispositivos
 
@@ -41,7 +41,7 @@ Antes de começar, o construtor deve concluir os três tutorial para construtore
 
 O Azure IoT Central envia notificações sobre dispositivos como mensagens de email. O construtor adicionou uma regra para enviar uma notificação quando a temperatura em um ar-condicionado conectado exceder um limite. Verifique os emails enviados para a conta escolhida pelo construtor para receber notificações.
 
-Abra a mensagem de email recebida no final do tutorial [Configurar regras e ações para o seu dispositivo](tutorial-configure-rules.md). No email, escolha **Clique aqui para abrir o seu dispositivo**:
+Abra a mensagem de email recebida no final do tutorial [Configurar regras e ações para o seu dispositivo](tutorial-configure-rules.md). No email, selecione o link para o dispositivo ao lado de **Nome do Dispositivo** na seção **Detalhes**:
 
 ![Email de notificação de alerta](media/tutorial-monitor-devices/email.png)
 

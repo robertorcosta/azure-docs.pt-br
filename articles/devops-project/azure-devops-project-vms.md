@@ -2,19 +2,19 @@
 title: 'Tutorial: Implantar o aplicativo ASP.NET em máquinas virtuais do Azure com o Azure DevOps Projects'
 description: O Azure DevOps Project facilita o uso do Azure e a implantação do aplicativo ASP.NET em máquinas virtuais do Azure em algumas etapas rápidas.
 ms.author: mlearned
-ms.manager: douge
+manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 05643f342d51d99645d3c9204d6e63adcf2a0a73
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: b03fb27c46d4fd925b91b8927fdd50ff4912aaec
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165689"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969553"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>Tutorial: Implantar o aplicativo ASP.NET em máquinas virtuais do Azure com o Azure DevOps Projects
 
@@ -180,7 +180,7 @@ Com o Azure Application Insights, você pode monitorar facilmente o aplicativo q
 1. Na lista suspensa **Métrica**, examine as várias métricas de alerta.  
     O alerta padrão é para um **tempo de resposta do servidor maior do que 1 segundo**. Você pode configurar facilmente vários alertas para melhorar os recursos de monitoramento do seu aplicativo.
 
-1. Marque a caixa de seleção **Notificar proprietários, colaboradores e leitores por email**.  
+1. Selecione a caixa de seleção **Notificar proprietários, colaboradores e leitores por email**.  
     Como opção, você pode executar ações adicionais quando um alerta é exibido executando um aplicativo lógico do Azure.
 
 1. Selecione **OK** para criar o alerta.  
@@ -190,7 +190,7 @@ Com o Azure Application Insights, você pode monitorar facilmente o aplicativo q
 
 1. Selecione **Disponibilidade** e selecione **Adicionar teste**. 
 
-1. Insira um nome de teste e selecione **Criar**.  
+1. Insira um nome de teste, depois selecione **Criar**.  
     Um teste de ping simples é criado para verificar a disponibilidade do seu aplicativo. Depois de alguns minutos, os resultados de teste estão disponíveis e o painel do Application Insights exibe um status de disponibilidade.
 
 ## <a name="clean-up-resources"></a>Limpar recursos

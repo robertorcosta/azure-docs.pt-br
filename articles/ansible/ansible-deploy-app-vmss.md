@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Implantar aplicativos nos conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible | Microsoft Docs
+title: Tutorial – Implantar aplicativos nos Conjuntos de Dimensionamento de Máquinas Virtuais no Azure usando o Ansible
 description: Saiba como usar o Ansible para configurar um conjunto de dimensionamento de máquinas virtuais no Azure e implantar aplicativos nesse conjunto de dimensionamento
 keywords: ansible, azure, devops, bash, guia estratégico, máquina virtual, conjunto de dimensionamento de máquinas virtuais, vmss
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: a44fd06ace9b21122f5f4253ac7d9601b54e6b62
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f9035259d466a50b83fe0094d43bc0fe985e8c4e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231029"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241741"
 ---
 # <a name="tutorial-deploy-apps-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: Implantar aplicativos nos conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible
 

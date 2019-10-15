@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/18/2019
+ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c5399f46106d94d593a15530ee0c223a3f5f3eaf
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 869e59aea9b78c44b1a920e58ecefab5e0ca4920
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802055"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169405"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Criar modelos do Azure Resource Manager vinculados
 
@@ -166,7 +166,7 @@ O modelo vinculado cria uma conta de armazenamento. O modelo vinculado pode ser 
 
 ## <a name="upload-the-linked-template"></a>Carregar o modelo vinculado
 
-O modelo principal e o modelo vinculado precisam estar acessíveis do local em que você executa a implantação. Neste tutorial, você deve usar o método de implantação do Cloud Shell usado no [Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). O modelo principal (azuredeploy.json) é carregado no shell. O modelo vinculado (linkedTemplate.json) deve ser compartilhado em algum lugar com segurança. O seguinte script do PowerShell cria uma conta de Armazenamento do Azure, carrega o modelo para a conta de Armazenamento e, em seguida, gera um token SAS para permitir acesso limitado geral ao arquivo de modelo. Para simplificar o tutorial, o script baixa um modelo vinculado concluído de uma localização compartilhada. Se você quiser usar o modelo vinculado é criado, poderá usar o [Cloud Shell](https://shell.azure.com) para carregar o modelo vinculado e, em seguida, modificar o script para usar seu próprio modelo vinculado.
+O modelo principal e o modelo vinculado precisam estar acessíveis do local em que você executa a implantação. Neste tutorial, você deve usar o método de implantação do Cloud Shell usado no [Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). O modelo principal (azuredeploy.json) é carregado no shell. O modelo vinculado (linkedTemplate.json) deve ser compartilhado em algum lugar com segurança. O seguinte script do PowerShell cria uma conta de Armazenamento do Azure, carrega o modelo para a conta de Armazenamento e, em seguida, gera um token SAS para permitir acesso limitado geral ao arquivo de modelo. Para simplificar o tutorial, o script baixa um modelo vinculado concluído de um repositório GitHub. Se você quiser usar o modelo vinculado é criado, poderá usar o [Cloud Shell](https://shell.azure.com) para carregar o modelo vinculado e, em seguida, modificar o script para usar seu próprio modelo vinculado.
 
 > [!NOTE]
 > O script limita o token SAS a ser usado dentro de oito horas. Se você precisar de mais tempo para concluir este tutorial, aumente o tempo de expiração.
@@ -179,7 +179,7 @@ $resourceGroupName = $projectNamePrefix + "rg"
 $storageAccountName = $projectNamePrefix + "store"
 $containerName = "linkedtemplates" # The name of the Blob container to be created.
 
-$linkedTemplateURL = "https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
+$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
 $fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
 # Download the tutorial linked template
@@ -259,7 +259,7 @@ O modelo principal se chama azuredeploy.json.
       "properties": {
           "mode": "Incremental",
           "templateLink": {
-              "uri":"https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json"
+              "uri":"https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json"
           },
           "parameters": {
               "storageAccountName":{"value": "[variables('storageAccountName')]"},

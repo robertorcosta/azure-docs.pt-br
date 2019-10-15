@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 709bf2e413ddb40ae1ed84672cea0c0b71be2ce6
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 21409eb056743d92db42e0787af24f8cec07db1b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305932"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026966"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Harness
 
@@ -141,11 +141,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 3. Se desejar configurar o Harness manualmente, abra uma nova janela do navegador da Web, entre no site da empresa Harness como administrador e execute as seguintes etapas:
 
-4. Na parte superior direita da página, clique em **Segurança Contínua** > **Gerenciamento de Acesso** > **Configurações de Autenticação**.
+4. Na parte superior direita da página, clique em **Segurança Contínua** > **Gerenciamento de Acesso** > **Configurações de Autenticação**.
 
     ![Configuração do agente](./media/harness-tutorial/configure01.png)
 
-5. Na seção **Provedores de SSO**, clique em **+ Adicionar Provedores de SSO** > **SAML**.
+5. Na seção **Provedores de SSO**, clique em **+ Adicionar Provedores de SSO** > **SAML**.
 
     ![Configuração do agente](./media/harness-tutorial/configure03.png)
 
@@ -169,11 +169,11 @@ Para permitir que os usuários do Azure AD entrem no Harness, eles devem ser pro
 
 1. Entre no Harness como administrador.
 
-1. Na parte superior direita da página, clique em **Segurança Contínua** > **Gerenciamento de Acesso** > **Usuários**.
+1. Na parte superior direita da página, clique em **Segurança Contínua** > **Gerenciamento de Acesso** > **Usuários**.
 
     ![Configuração do agente](./media/harness-tutorial/configure04.png)
 
-1. No lado direito da página, clique em **+ Adicionar Usuário**.
+1. No lado direito da página, clique em **+ Adicionar Usuário**.
 
     ![Configuração do agente](./media/harness-tutorial/configure05.png)
 

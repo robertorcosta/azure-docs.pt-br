@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/4/2019
+ms.date: 10/08/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: c685b2314d15e431ccac3470fd337ca92697e1a5
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 5be1a673ac456b0896ce83afcb469e4ac6b8b40a
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241176"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001331"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Firewall do Azure?
 
@@ -78,10 +78,6 @@ Todos os endereços IP de tráfego de rede virtual de saída são convertidos no
 O tráfego de rede de entrada para seu endereço IP público do firewall é movido (conversão de endereços de rede de destino) e filtrado para os endereços IP privados em suas redes virtuais.
 
 ## <a name="multiple-public-ip-addresses"></a>Vários endereços IP públicos
-
-> [!IMPORTANT]
-> O Firewall do Azure com vários endereços IP públicos está disponível por meio do portal do Azure, do Azure PowerShell, da CLI do Azure, do REST e de modelos.
-
 
 Você pode associar vários endereços IP públicos (até 100) com o seu firewall.
 

@@ -2,18 +2,18 @@
 title: 'Tutorial: Carregar dados e executar consultas em um cluster Apache Spark no Azure HDInsight'
 description: Tutorial - Aprenda a carregar dados e executar consultas interativas em clusters do Spark no Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.author: hrasheed
-ms.date: 05/16/2019
-ms.openlocfilehash: 109ed1a2ef22e498c2d19fd2e4f1848f289e9b55
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 10/03/2019
+ms.openlocfilehash: 3d6b7cf67faa94d0947d16cc79d0d5b839de7acb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735268"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027798"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas em um cluster Apache Spark no Azure HDInsight
 
@@ -30,11 +30,11 @@ Um cluster do Apache Spark no HDInsight. Veja [Criar um cluster do Apache Spark]
 
 ## <a name="create-a-jupyter-notebook"></a>Criar um notebook Jupyter
 
-O Jupyter Notebook é um ambiente de notebook interativo que oferece suporte a várias linguagens de programação. O notebook permite que você interaja com seus dados, combine código com texto markdown e execute visualizações simples. 
+O Jupyter Notebook é um ambiente de notebook interativo que oferece suporte a várias linguagens de programação. O notebook permite que você interaja com seus dados, combine código com texto markdown e execute visualizações simples.
 
 1. Edite a URL `https://SPARKCLUSTER.azurehdinsight.net/jupyter` substituindo `SPARKCLUSTER` com pelo nome do seu cluster do Spark. Em seguida, insira a URL editada em um navegador da Web. Em caso de solicitação, insira as credenciais de logon do cluster.
 
-2. Na página da Web do Jupyter, selecione **Novo** > **PySpark** para criar um notebook. 
+2. Na página da Web do Jupyter, selecione **Novo** > **PySpark** para criar um notebook.
 
    ![Criar um Jupyter Notebook para executar consulta interativa SQL do Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Criar um Jupyter Notebook para executar uma consulta interativa SQL do Spark")
 
@@ -45,8 +45,8 @@ O Jupyter Notebook é um ambiente de notebook interativo que oferece suporte a v
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Criar um dataframe usando um arquivo CSV
 
-Os aplicativos podem criar dataframes diretamente de arquivos ou pastas no armazenamento remoto, como o Armazenamento do Azure ou Azure Data Lake Storage; de uma tabela de Hive; ou de outras fontes de dados com suporte pelo Spark, como o Cosmos DB, BD SQL do Azure, DW, etc. A captura de tela a seguir mostra um instantâneo do arquivo HVAC.csv usado neste tutorial. O arquivo CSV vem com todos os clusters do Spark no HDInsight. Os dados capturam as variações de temperatura de algumas construções.
-    
+Os aplicativos podem criar dataframes diretamente de arquivos ou pastas no armazenamento remoto, como o Armazenamento do Azure ou Azure Data Lake Storage; de uma tabela de Hive; ou de outras fontes de dados compatíveis com o Spark, como o Cosmos DB, BD SQL do Azure, DW, etc. A captura de tela a seguir mostra um instantâneo do arquivo HVAC.csv usado neste tutorial. O arquivo CSV vem com todos os clusters do Spark no HDInsight. Os dados capturam as variações de temperatura de algumas construções.
+
 ![Instantâneo de dados para consulta SQL interativa do Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Instantâneo de dados para consulta SQL interativa do Spark")
 
 1. Cole o código a seguir em uma célula vazia do Jupyter Notebook e, em seguida, pressione **SHIFT + ENTER** para executar o código. O código importa os tipos obrigatórios necessários para este cenário:
@@ -60,7 +60,7 @@ Os aplicativos podem criar dataframes diretamente de arquivos ou pastas no armaz
 
     ![Status de consulta interativa SQL Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status de consulta interativa SQL Spark")
 
-2. Execute o seguinte código para criar um dataframe e uma tabela temporária (**hvac**) executando o código a seguir. 
+2. Execute o seguinte código para criar um dataframe e uma tabela temporária (**hvac**) executando o código a seguir.
 
     ```python
     # Create a dataframe and table from sample data

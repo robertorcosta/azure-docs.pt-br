@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d69d5ffcae77e7144f97cb423d5bee93cb88fb27
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 713b43f720e3bccae3b9c6457a3317427fb3fc1a
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121614"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960053"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SSO do SAML para o JIRA da Microsoft
 
@@ -60,8 +60,8 @@ Para começar, você precisará dos seguintes itens:
 
 ## <a name="supported-versions-of-jira"></a>Versões com suporte do JIRA
 
-* JIRA Core e Software: 6.4 a 8.0
-* Jira Service Desk: 3.0.0 a 3.5.0
+* JIRA Core e Software: 6.4 a 8.2.4
+* JIRA Service Desk 3.0.0 a 4.2.1
 * O JIRA também fornece suporte para 5.2. Para obter mais detalhes, clique em [Logon único do Microsoft Azure Active Directory para JIRA 5.2](jira52microsoft-tutorial.md)
 
 > [!NOTE]
@@ -181,11 +181,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 5. Depois que o plug-in for instalado, ele será exibido na seção de complementos **Instalados pelo Usuário** da seção **Gerenciar Complemento**. Clique em **Configurar** para configurar o novo plug-in.
 
-    ![Configurar o logon único](./media/jiramicrosoft-tutorial/addon13.png)
+    ![Configurar o logon único](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. Realize as seguintes etapas na página de configuração:
 
-    ![Configurar o logon único](./media/jiramicrosoft-tutorial/addon53.png)
+    ![Configurar o logon único](./media/jiramicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Verifique se há apenas um certificado mapeado no aplicativo, para que não haja nenhum erro na resolução dos metadados. Se houver vários certificados, após a resolução dos metadados, o administrador receberá um erro.
@@ -195,6 +195,8 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
     1. Copie os valores de **Identificador, URL de Resposta e URL de Logon** e cole-os nas caixas de texto **Identificador, URL de Resposta e URL de Logon**, respectivamente, na seção **Domínio e URLs do SSO do SAML para o JIRA da Microsoft** do portal do Azure.
 
     1. Em **Nome do Botão de Logon**, digite o nome do botão que sua organização deseja que os usuários vejam na tela de logon.
+    
+    1. Em **Nome do Botão de Logon**, digite a descrição do botão que sua organização deseja que os usuários vejam na tela de logon.
 
     1. Em **Locais da ID de Usuário SAML**, selecione **A ID de Usuário está no elemento NameIdentifier da instrução Subject** ou **A ID de Usuário está em um elemento Attribute**.  Essa ID deve ser a ID de usuário do JIRA. Se a ID de usuário não tiver uma correspondência, o sistema não permitirá que os usuários entrem.
 
@@ -212,7 +214,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
     1. Habilite a caixa de seleção **Forçar Logon do Azure** caso deseje entrar somente por meio das credenciais do Azure AD.
     
        > [!Note]
-       > Para habilitar o formulário de logon padrão para o logon de administrador na página de logon quando a opção Forçar Logon do Azure estiver habilitada, adicione o parâmetro de consulta à URL do navegador.
+       >Para habilitar o formulário de logon padrão para o logon de administrador na página de logon quando a opção Forçar Logon do Azure estiver habilitada, adicione o parâmetro de consulta à URL do navegador.
        > `https://<domain:port>/login.action?force_azure_login=false`
 
     1. Clique no botão **Salvar** para salvar as alterações.

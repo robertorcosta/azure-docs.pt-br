@@ -1,6 +1,6 @@
 ---
 title: Tutorial da Central de segurança do Azure - Proteger seus recursos com a Central de Segurança do Azure | Microsoft Docs
-description: Este tutorial mostra como configurar uma política de acesso just in time de VM e uma política de controle de aplicativo.
+description: Este tutorial mostra como configurar uma política de acesso Just-In-Time de VM e uma política de controle de aplicativo.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 28da3933cf1f1970758fcaec1358c9c16558af03
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8cb07f3447e50528a94811f33a2142086f698586
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200667"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996327"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Proteger seus recursos com a Central de Segurança do Azure
-A Central de Segurança limita a exposição a ameaças por meio de controles de acesso e de aplicativo a fim de bloquear atividades mal-intencionadas. O acesso da VM (máquina virtual) JIT (just-in-time) reduz a exposição a ataques permitindo que você negue o acesso persistente às VMs. Em vez disso, você fornece acesso controlado e auditado às VMs somente quando for necessário. Controles de aplicativo adaptáveis ajudam a proteger VMs contra malware, controlando quais aplicativos podem ser executados em suas VMs. A Central de Segurança usa o aprendizado de máquina para analisar os processos em execução na VM e ajuda a aplicar regras de lista de permissões usando essa inteligência.
+A Central de Segurança limita a exposição a ameaças por meio de controles de acesso e de aplicativo a fim de bloquear atividades mal-intencionadas. O acesso de VM (máquina virtual) JIT (Just-In-Time) reduz a exposição a ataques permitindo que você negue o acesso persistente às VMs. Em vez disso, você fornece acesso controlado e auditado às VMs somente quando for necessário. Controles de aplicativo adaptáveis ajudam a proteger VMs contra malware, controlando quais aplicativos podem ser executados em suas VMs. A Central de Segurança usa o aprendizado de máquina para analisar os processos em execução na VM e ajuda a aplicar regras de lista de permissões usando essa inteligência.
 
 Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-> * Configurar uma política de acesso de VM just in time
+> * Configurar uma política de acesso de VM Just-In-Time
 > * Configurar uma política de controle de aplicativo
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
@@ -38,25 +38,25 @@ Para percorrer os recursos abordados neste tutorial, você deve estar em um tipo
 ## <a name="manage-vm-access"></a>Gerenciar acesso à VM
 O acesso JIT à VM pode ser usado para bloquear o tráfego de entrada às suas VMs do Azure, reduzindo a exposição aos ataques, fornecendo acesso fácil para conectar às VMs quando necessário.
 
-As portas de gerenciamento não precisam ficar abertas o tempo todo. Elas só precisam ser abertas enquanto você estiver conectado à VM, por exemplo, para realizar tarefas de manutenção ou gerenciamento. Quando o just in time está habilitado, a Central de Segurança usa regras de NSG (Grupo de Segurança de Rede), que restringem o acesso às portas de gerenciamento para que elas não se tornem alvo de invasores.
+As portas de gerenciamento não precisam ficar abertas o tempo todo. Elas só precisam ser abertas enquanto você estiver conectado à VM, por exemplo, para realizar tarefas de manutenção ou gerenciamento. Quando o Just-In-Time está habilitado, a Central de Segurança usa as regras do NSG (Grupo de Segurança de Rede), que restringem o acesso às portas de gerenciamento, de modo que elas não se tornem alvo de invasores.
 
-1. No menu principal da Central de Segurança, selecione **Acesso Just-in-Time à VM** em **DEFESA AVANÇADA DE NUVEM**.
+1. No menu principal da Central de Segurança, selecione **Acesso Just-In-Time à VM** em **DEFESA AVANÇADA DE NUVEM**.
 
-   ![Acesso just in time à VM][1]
+   ![Acesso à VM Just-In-Time][1]
 
-   O **Acesso à VM Just-in-Time** fornece informações sobre o estado das suas VMs:
+   O **Acesso à VM Just-In-Time** fornece informações sobre o estado das suas VMs:
 
-   - **Configurada** – VMs que foram configuradas para dar suporte ao acesso à VM just in time.
-   - **Recomendada** – VMs que podem dar suporte ao acesso à VM just in time, mas não foram configurados para isso.
+   - **Configurado**: VMs que foram configuradas para dar suporte ao acesso JIT à VM.
+   - **Recomendado**: VMs que podem oferecer suporte ao acesso JIT à VM, mas não foram configuradas para isso.
    - **Nenhuma recomendação** – as razões que podem fazer com que uma VM não seja recomendada são:
 
-     - NSG ausente – a solução just in time exige que um NSG esteja em vigor.
-     - VM Clássica – o acesso à VM just in time da Central de Segurança atualmente dá suporte apenas às VMs implantadas por meio do Azure Resource Manager.
-     - Outros – uma VM estará nessa categoria se a solução just in time estiver desativada na política de segurança da assinatura ou do grupo de recursos ou se estiver faltando um IP público da VM e ela não tiver um NSG em vigor.
+     - NSG ausente: a solução Just-In-Time exige que um NSG esteja em vigor.
+     - VM Clássica: o acesso Just-In-Time à VM pela Central de Segurança atualmente oferece suporte apenas às VMs implantadas por meio do Azure Resource Manager.
+     - Outros: uma VM entra nessa categoria se a solução Just-In-Time estiver desativada na política de segurança da assinatura ou do grupo de recursos, ou se estiver faltando um IP público da VM e ela não tiver um NSG em vigor.
 
-2. Selecione uma VM recomendada e clique em **Habilitar JIT em 1 VM** para configurar uma política just in time para essa VM:
+2. Selecione uma VM recomendada e clique em **Habilitar JIT em 1 VM** para configurar uma política Just-In-Time para essa VM:
 
-   Você pode salvar as portas padrão recomendadas pela Central de Segurança, ou pode adicionar e configurar uma nova porta na qual você deseja habilitar a solução just in time. Neste tutorial, vamos adicionar uma porta selecionando **Adicionar**.
+   Você pode salvar as portas padrão recomendadas pela Central de Segurança ou pode adicionar e configurar uma nova porta na qual você deseja habilitar a solução Just-In-Time. Neste tutorial, vamos adicionar uma porta selecionando **Adicionar**.
 
    ![Adicionar configuração de porta][2]
 
@@ -119,7 +119,7 @@ Se quiser desabilitar o provisionamento automático:
 Neste tutorial, você aprendeu a limitar sua exposição a ameaças fazendo o seguinte:
 
 > [!div class="checklist"]
-> * Configurando uma política de acesso just in time à VM para fornecer acesso controlado e auditado às VMs somente quando for necessário
+> * Configurando uma política de acesso Just-In-Time à VM para fornecer acesso controlado e auditado às VMs somente quando for necessário
 > * Configurando uma política de controles de aplicativo adaptável para controlar quais aplicativos podem ser executados em suas VMs
 
 Avance para o próximo tutorial para saber mais sobre como responder a incidentes de segurança.

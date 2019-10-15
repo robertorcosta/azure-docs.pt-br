@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 05/06/2019
-ms.openlocfilehash: f4023fa84215a0319669de0d812d8306b62278e3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5194cf51fd7f1debeba76edb48e8377919ae448a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073279"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177958"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>O que é o Banco de Dados do Azure para PostgreSQL?
 O Banco de Dados do Azure para PostgreSQL é um serviço de banco de dados relacional na nuvem da Microsoft projetado para desenvolvedores. Ele se baseia na versão da comunidade do mecanismo de banco de dados do [PostgreSQL](https://www.postgresql.org/) de software livre e está disponível em duas opções de implantação: Servidor único e Hiperescala (Citus) (versão prévia).
@@ -48,7 +48,7 @@ Observe que a Hiperescala (Citus) está em versão prévia pública e como tal, 
 ## <a name="data-security"></a>Segurança de dados
 O Banco de Dados do Azure para PostgreSQL detém a tradição dos serviços do banco de dados do Azure de segurança de dados. Ele tem recursos que limitam o acesso, protegem dados em repouso e em movimento e ajudam você a monitorar a atividade. Visite a [Central de Confiabilidade do Azure](https://azure.microsoft.com/overview/trusted-cloud/) para obter informações sobre a segurança da plataforma do Azure.
 
-O serviço Banco de Dados do Azure para PostgreSQL usa a criptografia de armazenamento para dados em repouso e está em conformidade com o FIPS 140-2. Os dados, incluindo backups, são criptografados em disco. O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada. Por padrão, o serviço do Banco de Dados do Azure para PostgreSQL exige conexões seguras para dados em movimento em toda a rede e entre o banco de dados e o aplicativo cliente.
+O serviço Banco de Dados do Azure para PostgreSQL usa o módulo de criptografia validado por FIPS 140-2 para criptografia de armazenamento de dados em repouso. Os dados, incluindo backups, são criptografados no disco, com exceção dos arquivos temporários criados durante a execução de consultas. O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada. Por padrão, o serviço do Banco de Dados do Azure para PostgreSQL exige conexões seguras para dados em movimento em toda a rede e entre o banco de dados e o aplicativo cliente.
 
 ## <a name="contacts"></a>Contatos
 Para perguntas ou sugestões sobre como trabalhar com o Banco de Dados do Azure para PostgreSQL, envie um email para a equipe do Banco de Dados do Azure para PostgreSQL ([@Ask Banco de Dados do Azure para PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Esse endereço destina-se a perguntas gerais em vez de tíquetes de suporte.

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a6d0c3e9daba6f4f37778fabde161751944e174a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 338054aadbf04c6c6e2b496677476c2c5634b6ba
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774869"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169293"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Tutorial: Implantar extensões de máquina virtual com modelos do Azure Resource Manager
 
@@ -48,7 +48,7 @@ Para concluir este artigo, você precisa do seguinte:
 
 ## <a name="prepare-a-powershell-script"></a>Preparar um script do PowerShell
 
-Um script do PowerShell com o seguinte conteúdo é compartilhado de uma [conta de armazenamento do Azure com acesso público](https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1):
+Um script do PowerShell com o seguinte conteúdo é compartilhado do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -63,7 +63,7 @@ Modelos de Início Rápido do Azure é um repositório de modelos do Resource Ma
 1. No Visual Studio Code, escolha **Arquivo** > **Abrir Arquivo**.
 1. Na caixa **Nome do arquivo**, cole a URL a seguir: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
 
-1. Para abrir o arquivo, selecione **Abrir**.  
+1. Para abrir o arquivo, selecione **Abrir**.
     O modelo define cinco recursos:
 
    * **Microsoft.Storage/storageAccounts**. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
@@ -96,7 +96,7 @@ Adicione um recurso de extensão de máquina virtual ao modelo existente com o s
         "autoUpgradeMinorVersion":true,
         "settings": {
             "fileUris": [
-                "https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1"
+                "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1"
             ],
             "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1"
         }
@@ -109,7 +109,7 @@ Para obter mais informações sobre essa definição de recurso, veja [referênc
 * **nome**: como o recurso de extensão é um recurso filho do objeto de máquina virtual, o nome deve ter o prefixo do nome da máquina virtual. Confira [Definir o nome e o tipo de recursos filho](child-resource-name-type.md).
 * **dependsOn**: Crie o recurso de extensão depois de criar a máquina virtual.
 * **fileUris**: os locais em que os arquivos de script são armazenados. Se você optar por não usar o local fornecido, precisará atualizar os valores.
-* **commandToExecute**: esse comando chama o script.  
+* **commandToExecute**: esse comando chama o script.
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
@@ -118,8 +118,7 @@ Para obter o procedimento de implantação, veja a seção "Implantar o modelo" 
 ## <a name="verify-the-deployment"></a>Verificar a implantação
 
 1. No portal do Azure, selecione a VM.
-1. Na visão geral da VM, copie o endereço IP selecionando **Clique para copiar** e, em seguida, cole-o em uma guia do navegador.  
-   A página de boas-vindas do IIS (Serviços de Informações da Internet) padrão é aberta:
+1. Na visão geral da VM, copie o endereço IP selecionando **Clique para copiar** e, em seguida, cole-o em uma guia do navegador. A página de boas-vindas do IIS (Serviços de Informações da Internet) padrão é aberta:
 
 ![A página de boas-vindas dos Serviços de Informações da Internet](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 
@@ -129,7 +128,7 @@ Quando você não precisa mais dos recursos do Azure que implantou, limpe-os exc
 
 1. No portal do Azure, no painel esquerdo, selecione **Grupo de recursos**.
 2. Na caixa **Filtrar por nome**, insira o nome do grupo de recursos.
-3. Selecione o nome do grupo de recursos.  
+3. Selecione o nome do grupo de recursos.
     Seis recursos serão exibidos no grupo de recursos.
 4. No menu do grupo, selecione **Excluir grupo de recursos**.
 

@@ -6,16 +6,16 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8677d906375853bdde5c192c86dacc7479f2e31e
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: c7f71dbadf24244756cf65f68ceea24547190737
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311037"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170251"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
 
-Com o Visual Studio, você pode criar um projeto que implementa sua infraestrutura e o código no Azure. Por exemplo, você pode implantar o host da Web, o site da Web e o código para o site da Web. O Visual Studio fornece muitos modelos iniciais diferentes para implantar cenários comuns. Neste artigo, você implanta um aplicativo Web.  
+Com o Visual Studio, você pode criar um projeto que implementa sua infraestrutura e o código no Azure. Por exemplo, você pode implantar o host da Web, o site e o código para o site. O Visual Studio fornece muitos modelos iniciais diferentes para implantar cenários comuns. Neste artigo, você implanta um aplicativo Web.
 
 Este artigo mostra como usar o [Visual Studio 2019 ou posterior com as cargas de trabalho de desenvolvimento do Azure e ASP.NET instaladas](/visualstudio/install/install-visual-studio?view=vs-2019). Se você usar o Visual Studio 2017, sua experiência será basicamente a mesma.
 
@@ -205,13 +205,13 @@ Neste ponto, você implantou a infraestrutura de seu aplicativo, mas não há ne
 
     ![Adicionar recurso](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 
-1. Dessa vez, selecione **Implantação da Web para aplicativos Web**. 
+1. Dessa vez, selecione **Implantação da Web para aplicativos Web**.
 
     ![Adicionar implantação da Web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
 
    Salve o modelo.
 
-1. Existem alguns parâmetros novos no seu modelo. Eles foram adicionados na etapa anterior. Você não precisa fornecer valores para **_artifactsLocation** ou **_artifactsLocationSasToken**, pois esses valores são gerados automaticamente. No entanto, você deve definir o nome de arquivo e pasta para o caminho que contém o pacote de implantação. Os nomes desses parâmetros terminam com **PackageFolder** e **PackageFileName**. A primeira parte do nome é o nome do recurso Implantação da Web que você adicionou. Neste artigo, eles são denominados **ExampleAppPackageFolder** e **ExampleAppPackageFileName**. 
+1. Existem alguns parâmetros novos no seu modelo. Eles foram adicionados na etapa anterior. Você não precisa fornecer valores para **_artifactsLocation** ou **_artifactsLocationSasToken**, pois esses valores são gerados automaticamente. No entanto, você deve definir o nome de arquivo e pasta para o caminho que contém o pacote de implantação. Os nomes desses parâmetros terminam com **PackageFolder** e **PackageFileName**. A primeira parte do nome é o nome do recurso Implantação da Web que você adicionou. Neste artigo, eles são denominados **ExampleAppPackageFolder** e **ExampleAppPackageFileName**.
 
    Abra **Website.parameters.json** e defina esses parâmetros para os valores que você viu nas propriedades da referência. Defina **ExampleAppPackageFolder** para o nome da pasta. Defina **ExampleAppPackageFileName** para o nome do arquivo zip.
 
@@ -386,7 +386,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu a criar e implantar modelos usando o Visual Studio. O próximo tutorial mostra como localizar as informações de referência de modelo para que você possa criar uma conta de armazenamento criptografada do Azure.
+Neste início rápido, você aprendeu a criar e implantar modelos usando o Visual Studio. Para saber mais sobre o desenvolvimento de modelos, confira nossa nova série de tutoriais para iniciantes:
 
 > [!div class="nextstepaction"]
-> [Criar uma conta de armazenamento criptografada](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [Tutoriais para iniciante](./template-tutorial-create-first-template.md)

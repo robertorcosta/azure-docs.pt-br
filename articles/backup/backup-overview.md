@@ -8,17 +8,16 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 526c60916854d4918607a1fd1b887ac9d27cd1c7
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 29e0b05ee9cb8f7dc67f90b54081bca4db0691b6
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950023"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035231"
 ---
 # <a name="what-is-the-azure-backup-service"></a>O que é o serviço de Backup do Azure?
 
 O serviço de Backup do Azure faz backup de dados na nuvem do Microsoft Azure. Você pode fazer backup de computadores e cargas de trabalho locais e de VMs (máquinas virtuais) do Azure.
-
 
 ## <a name="why-use-azure-backup"></a>Por que usar o Backup do Azure?
 
@@ -28,16 +27,15 @@ O Backup do Azure oferece estes principais benefícios:
 - **Faça backup de VMs IaaS do Azure**: O Backup do Azure fornece backups independentes e isolados para proteger contra a destruição acidental de dados originais. Os backups são armazenados em um cofre dos Serviços de Recuperação com gerenciamento interno de pontos de recuperação. A configuração e a escalabilidade são simples, os backups são otimizados e você pode fazer uma restauração com facilidade, conforme necessário.
 - **Dimensionar com facilidade** – o Backup do Azure usa o poder subjacente e a escala ilimitada da nuvem do Azure para proporcionar alta disponibilidade sem sobrecarga de manutenção ou de monitoramento.
 - **Obter transferência de dados ilimitados**: o Backup do Azure não limita a quantidade de dados de entrada ou saída transferidos nem cobra pelos dados transferidos.
-    - Os dados de saída são aqueles transferidos de um cofre dos Serviços de Recuperação durante uma operação de restauração.
-    - Se você fizer um backup inicial offline usando o serviço de Importação/Exportação do Azure para importar grandes quantidades de dados, haverá um custo associado aos dados de entrada.  [Saiba mais](backup-azure-backup-import-export.md).
+  - Os dados de saída são aqueles transferidos de um cofre dos Serviços de Recuperação durante uma operação de restauração.
+  - Se você fizer um backup inicial offline usando o serviço de Importação/Exportação do Azure para importar grandes quantidades de dados, haverá um custo associado aos dados de entrada.  [Saiba mais](backup-azure-backup-import-export.md).
 - **Mantenha os dados seguros**: O Backup do Azure fornece soluções para proteger dados em trânsito e em repouso.
 - **Obtenha backups consistentes com aplicativo**: Um backup consistente com aplicativo significa que um ponto de recuperação tem todos os dados necessários para restaurar a cópia de backup. O Backup do Azure fornece backups consistentes com aplicativos, garantindo que correções adicionais não sejam necessárias para restaurar os dados. Restaurar dados consistentes com aplicativos reduz o tempo de restauração, permitindo que você rapidamente retorne ao estado de execução.
-- **Manter os dados de curto e longo prazo**: Use os cofres dos Serviços de Recuperação para retenção de dados de curto e longo prazo. O Azure não limita o período de tempo que os dados podem ser mantidos em um cofre de Serviços de Recuperação. Você poderá mantê-los por quanto tempo desejar. O Backup do Azure tem um limite de pontos de recuperação 9999 por instância protegidos. 
+- **Manter os dados de curto e longo prazo**: Use os cofres dos Serviços de Recuperação para retenção de dados de curto e longo prazo. O Azure não limita o período de tempo que os dados podem ser mantidos em um cofre de Serviços de Recuperação. Você poderá mantê-los por quanto tempo desejar. O Backup do Azure tem um limite de pontos de recuperação 9999 por instância protegidos.
 - **Gerenciamento automático de armazenamento** - ambientes híbridos geralmente exigem armazenamento heterogêneo, alguns locais e alguns na nuvem. Com o Backup do Azure, não há nenhum custo para o uso de dispositivos de armazenamento local. O Backup do Azure aloca e gerencia o armazenamento de backup automaticamente e usa um modelo de pagamento conforme o uso, de modo que você pague apenas pelo armazenamento que consumir. [ Saiba mais ](https://azure.microsoft.com/pricing/details/backup) sobre preços.
 - **Várias opções de armazenamento** – o Backup do Azure oferece dois tipos de replicação para manter seu armazenamento/seus dados altamente disponíveis.
-    - O [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy-lrs.md) replica seus dados três vezes (ele cria três cópias dos dados) em uma unidade de escala de armazenamento em um datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger seus dados contra falhas de hardware local.
-    - O [GRS (armazenamento com redundância geográfica)](../storage/common/storage-redundancy-grs.md) é a opção de replicação padrão e recomendada. O GRS replica seus dados para uma região secundária (a centenas de quilômetros da região primária dos dados de origem). O GRS é mais caro do que o LRS, mas fornece um nível mais alto de durabilidade para seus dados, mesmo se houver uma interrupção regional.
-
+  - O [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy-lrs.md) replica seus dados três vezes (ele cria três cópias dos dados) em uma unidade de escala de armazenamento em um datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger seus dados contra falhas de hardware local.
+  - O [GRS (armazenamento com redundância geográfica)](../storage/common/storage-redundancy-grs.md) é a opção de replicação padrão e recomendada. O GRS replica seus dados para uma região secundária (a centenas de quilômetros da região primária dos dados de origem). O GRS é mais caro do que o LRS, mas fornece um nível mais alto de durabilidade para seus dados, mesmo se houver uma interrupção regional.
 
 ## <a name="whats-the-difference-between-azure-backup-and-azure-site-recovery"></a>Qual é a diferença entre o Backup do Azure e o Azure Site Recovery?
 
@@ -66,16 +64,16 @@ O Backup do Azure pode fazer backup de computadores locais e VMs do Azure.
 **Computador** | **Cenário de backup**
 --- | ---
 **Backup local** |  1) Execute o agente do MARS (Serviços de Recuperação do Microsoft Azure) do Backup do Azure em computadores Windows locais para fazer backup do estado do sistema e de arquivos individuais. <br/><br/>2) Faça backup de computadores locais em um servidor de backup (System Center DPM [Data Protection Manager] ou MABS [Servidor de Backup do Microsoft Azure]) e, em seguida, configure o servidor de backup para fazer backup em um cofre dos Serviços de Recuperação do Backup do Azure no Azure.
-**VMs do Azure** | 1) Habilite o backup para VMs individuais do Azure. Quando você habilita o backup, o Backup do Azure instala uma extensão no agente de VM do Azure em execução na VM. O agente faz backup de toda a VM.<br/><br/> 2) Execute o agente do MARS em uma VM do Azure. Isso é útil se você deseja fazer backup de arquivos e pastas individuais na VM.<br/><br/> 
-
+**VMs do Azure** | 1) Habilite o backup para VMs individuais do Azure. Quando você habilita o backup, o Backup do Azure instala uma extensão no agente de VM do Azure em execução na VM. O agente faz backup de toda a VM.<br/><br/> 2) Execute o agente do MARS em uma VM do Azure. Isso é útil se você deseja fazer backup de arquivos e pastas individuais na VM.<br/><br/>
 
 ## <a name="why-use-a-backup-server"></a>Por que usar um servidor de backup?
+
 As vantagens de fazer backup de computadores e aplicativos no armazenamento DPM/MABS e, em seguida, fazer backup do armazenamento DPM/MABS em um cofre são as seguintes:
 
 - Fazer backup no MABS/DPM fornece backups com reconhecimento de aplicativo otimizados para aplicativos comuns, como SQL Server, Exchange e SharePoint, além de backups de arquivo/pasta/volume e backups de estado do computador (bare-metal, estado do sistema).
 - Para computadores locais, você não precisa instalar o agente do MARS em cada computador que deseja fazer backup. Cada computador executa o agente de proteção do DPM/MABS e o agente do MARS é executado somente no MABS/DPM.
 - Você tem mais flexibilidade e opções de agendamento granulares para a execução de backups.
-- Você pode gerenciar backups para vários computadores reunidos em grupos de proteção em um único console. Isso é particularmente útil quando os aplicativos são organizados em camadas em vários computadores e você deseja fazer backup deles juntos.
+- Você pode gerenciar backups para vários computadores reunidos em grupos de proteção em um único console. Isso é útil quando os aplicativos são organizados em camadas em vários computadores e você deseja fazer backup deles juntos.
 
 Saiba mais sobre [como funciona o backup](backup-architecture.md#architecture-back-up-to-dpmmabs) ao usar um servidor de backup e os [requisitos de suporte](backup-support-matrix-mabs-dpm.md) para servidores de backup.
 
@@ -118,7 +116,7 @@ O Backup do Azure tem um limite de 9999 pontos de recuperação, também conheci
 
 A tabela a seguir mostra a frequência de backup máxima para cada componente. A configuração da política de backup determina a rapidez com a qual você pode consumir os pontos de recuperação. Por exemplo, se você criar um ponto de recuperação por dia, poderá depois retê-los por 27 anos antes de executá-los. Se você usar um ponto de recuperação por mês, poderá depois retê-los por 833 anos antes de executá-los. O serviço de Backup não define um limite de tempo de validade em um ponto de recuperação.
 
-|  | Agente de Backup do Azure | System Center DPM | Servidor de Backup do Azure | Backup de VM IaaS do Azure |
+|  | Agente de Backup do Azure (MARS)| System Center DPM | Servidor de Backup do Azure | Backup de VM IaaS do Azure |
 | --- | --- | --- | --- | --- |
 | Frequência de backup<br/> (para o Cofre dos Serviços de Recuperação) |Três backups por dia |Dois backups por dia |Dois backups por dia |Um backup por dia |
 | Frequência de backup<br/> (para o disco) |Não aplicável |A cada 15 minutos para o SQL Server<br/><br/> A cada hora para outras cargas de trabalho |A cada 15 minutos para o SQL Server<br/><br/> A cada hora para outras cargas de trabalho |Não aplicável |
