@@ -7,18 +7,21 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: 9b187696524e96bc13254a24fd8f39d5aeb89e7d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 0e7516fc4874e4cbc387f2f494efc6ef745d64f7
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676693"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311598"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivo
 
 O serviço de área de trabalho virtual do Windows oferece contêineres de perfil de FSLogix como a solução de perfil de usuário recomendada. Não recomendamos o uso da solução UPD (disco de perfil do usuário), que será preterida em versões futuras da área de trabalho virtual do Windows.
 
 Este artigo informará como configurar um compartilhamento de contêiner de perfil FSLogix para um pool de hosts usando um compartilhamento de arquivos baseado em máquina virtual. Para obter mais documentação do FSLogix, consulte o [site do FSLogix](https://docs.fslogix.com/).
+
+>[!NOTE]
+>Se você estiver procurando material de comparação sobre as diferentes opções de armazenamento de contêiner de perfil FSLogix no Azure, consulte [Opções de armazenamento para contêineres de perfil FSLogix](store-fslogix-profile.md).
 
 ## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Criar uma nova máquina virtual que atuará como um compartilhamento de arquivos
 
@@ -62,10 +65,10 @@ Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte e
 6. Crie uma chave chamada **perfis**.
 7. Crie os seguintes valores para a chave de perfis:
 
-| Nome                | type               | Dados/valor                        |
+| NOME                | Tipo               | Dados/valor                        |
 |---------------------|--------------------|-----------------------------------|
 | Enabled             | DWORD              | 1                                 |
 | VHDLocations        | Valor de cadeia de caracteres múltipla | "Caminho de rede para compartilhamento de arquivos"     |
 
 >[!IMPORTANT]
->Para ajudar a proteger seu ambiente da Área de Trabalho Virtual do Windows no Azure, recomendamos que você não abra a porta de entrada 3389 nas VMs. A Área de Trabalho Virtual do Windows não exige uma porta de entrada 3389 aberta para que os usuários acessem as VMs do pool de hosts. Caso você precise abrir a porta 3389 para fins de solução de problemas, recomendamos o uso do [acesso just-in-time à VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
+>Para ajudar a proteger seu ambiente da Área de Trabalho Virtual do Windows no Azure, recomendamos que você não abra a porta de entrada 3389 nas VMs. A Área de Trabalho Virtual do Windows não exige uma porta de entrada 3389 aberta para que os usuários acessem as VMs do pool de hosts. Caso você precise abrir a porta 3389 para fins de solução de problemas, recomendamos o uso do [acesso just-in-time à VM](../security-center/security-center-just-in-time.md).

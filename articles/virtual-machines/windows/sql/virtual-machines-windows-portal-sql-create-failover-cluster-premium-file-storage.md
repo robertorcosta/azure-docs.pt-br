@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 839faa4cf2455ee2b0de38046a464ce824f007cd
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f51263a91ca174a6c8108ed4414ff0f8b9745aff
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301861"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311891"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurar SQL Server instância de cluster de failover com compartilhamento de arquivos Premium em máquinas virtuais do Azure
 
@@ -37,7 +37,7 @@ Você deve ter uma compreensão operacional das seguintes tecnologias:
 - [Tecnologias de cluster do Windows](/windows-server/failover-clustering/failover-clustering-overview)
 - [Instâncias de Cluster de Failover do SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-Uma diferença importante é que, em um cluster de failover de VM IaaS do Azure, recomendamos uma única NIC por servidor (nó de cluster) e uma única sub-rede. A rede do Azure tem redundância física, o que torna desnecessários os adaptadores de rede e as sub-redes adicionais em um cluster de convidado de uma VM de IaaS do Azure. Embora o relatório de validação de cluster emita um aviso de que os nós só podem ser acessados em uma única rede, esse aviso pode ser ignorado com segurança em clusters de failover de VM IaaS do Azure. 
+Uma diferença importante é que, em um cluster de failover de VM IaaS do Azure, recomendamos uma única NIC por servidor (nó de cluster) e uma única sub-rede. A rede do Azure tem redundância física que torna as NICs e sub-redes adicionais desnecessárias em um cluster convidado da VM IaaS do Azure. Embora o relatório de validação de cluster emita um aviso de que os nós só podem ser acessados em uma única rede, esse aviso pode ser ignorado com segurança em clusters de failover de VM IaaS do Azure. 
 
 Além disso, você deve ter uma compreensão geral das tecnologias a seguir:
 
@@ -165,34 +165,20 @@ Depois que as máquinas virtuais são criadas e configuradas, você pode configu
 1. Entre no [portal do Azure](https://portal.azure.com) e vá para sua conta de armazenamento.
 1. Vá para **compartilhamentos de arquivos** em **serviço de arquivo** e selecione o compartilhamento de arquivos premium que você deseja usar para o armazenamento do SQL. 
 1. Selecione **conectar** para exibir a cadeia de conexão para o compartilhamento de arquivos. 
-1. Selecione a letra da unidade que você deseja usar na lista suspensa e, em seguida, copie os dois comandos do PowerShell dos dois blocos de comando do PowerShell.  Cole-os em um editor de texto, como o bloco de notas. 
+1. Selecione a letra da unidade que você deseja usar na lista suspensa e, em seguida, copie os dois blocos de código para um bloco de notas.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/premium-file-storage-commands.png" alt-text="Copie os dois comandos do PowerShell do portal de conexão de compartilhamento de arquivos":::
 
 1. RDP na VM SQL Server usando a conta que seu SQL Server FCI usará para a conta de serviço. 
 1. Inicie um console de comando do PowerShell administrativo. 
-1. Execute o comando `Test-NetConnection` para testar a conectividade com a conta de armazenamento. Não execute o comando `cmdkey` do primeiro bloco de código. 
+1. Execute os comandos do portal que você salvou anteriormente. 
+1. Navegue até o compartilhamento com o explorador de arquivos ou a caixa de diálogo **executar** (chave do Windows + r) usando o caminho de rede `\\storageaccountname.file.core.windows.net\filesharename`. Exemplo: `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
-   ```console
-   example: Test-NetConnection -ComputerName  sqlvmstorageaccount.file.core.windows.net -Port 445
-   ```
-
-1. Execute o comando `cmdkey` do *segundo* bloco de código para montar o compartilhamento de arquivos como uma unidade e persistá-lo. 
-
-   ```console
-   example: cmdkey /add:sqlvmstorageaccount.file.core.windows.net /user:Azure\sqlvmstorageaccount /pass:+Kal01QAPK79I7fY/E2Umw==
-   net use M: \\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare /persistent:Yes
-   ```
-
-1. Abra o **Explorador de arquivos** e navegue até **este computador**. O compartilhamento de arquivos está visível em locais de rede: 
-
-   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/file-share-as-storage.png" alt-text="Compartilhamento de arquivos visível como armazenamento no explorador de arquivos":::
-
-1. Abra a unidade mapeada recentemente e crie pelo menos uma pasta aqui para inserir seus arquivos de dados SQL. 
+1. Crie pelo menos uma pasta no compartilhamento de arquivos conectado recentemente para posicionar seus arquivos de dados SQL. 
 1. Repita essas etapas em cada VM SQL Server que participará do cluster. 
 
   > [!IMPORTANT]
-  > Não use o mesmo compartilhamento de arquivos para os arquivos de dados e o back-ups. Use as mesmas etapas para configurar um compartilhamento de arquivos secundário para backups se desejar fazer backup de seus bancos de dados em um compartilhamento de arquivos. 
+  > Considere usar um compartilhamento de arquivos separado para arquivos de backup para salvar a capacidade de IOPS e tamanho desse compartilhamento para arquivos de dados e de log. Você pode usar um compartilhamento de arquivos Premium ou Standard para arquivos de backup
 
 ## <a name="step-3-configure-failover-cluster-with-file-share"></a>Etapa 3: Configurar cluster de failover com compartilhamento de arquivos 
 
@@ -349,7 +335,7 @@ Para criar o balanceador de carga:
    - **Nome**: um nome que identifica o balanceador de carga.
    - **Região**: use a mesma localização do Azure que suas máquinas virtuais.
    - **Tipo**: o balanceador de carga pode ser público ou privado. Um balanceador de carga privado pode ser acessado na mesma VNET. A maioria dos aplicativos do Azure pode usar um balanceador de carga privado. Se o aplicativo precisa ter acesso ao SQL Server diretamente pela Internet, use um balanceador de carga público.
-   - **SKU**: A SKU para o balanceador de carga deve ser padrão. 
+   - **SKU**: A SKU do balanceador de carga deve ser padrão. 
    - **Rede virtual**: a mesma rede que a das máquinas virtuais.
    - **Atribuição de endereço IP**: A atribuição de endereço IP deve ser estática. 
    - **Endereço IP privado**: o mesmo endereço IP que foi atribuído ao recurso de rede de cluster de FCI do SQL Server.

@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 10/14/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 749b4077b457eff836ec515f21d97e892e663156
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50109d7ba4688606a5a4f1b813d15d78636b7817
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60899174"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311787"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modelo de dados do Application Insights Telemetry
 
@@ -49,7 +49,7 @@ O modelo do Application Insights Telemetry define uma forma de [correlacionar](.
 
 O modelo de dados do Application Insights é uma maneira simples e básica, mas poderosa de modelar a telemetria de aplicativo. Nos esforçamos para manter o modelo simples e reduzido para dar suporte a cenários essenciais e permitir a extensão do esquema para uso avançado.
 
-Para relatar problemas de esquema ou modelo de dados e sugestões, use o repositório [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/labels/schema) do GitHub.
+Para relatar problemas de esquema ou modelo de dados e sugestões, use o repositório [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/issues) do GitHub.
 
 ## <a name="next-steps"></a>Próximas etapas
 

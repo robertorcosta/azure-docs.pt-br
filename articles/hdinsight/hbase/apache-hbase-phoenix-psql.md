@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 43465a1c31b953620c45dfe759de7b6e1b4dc3c9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: f00f6bcf07cbdc5aeaeb04aeccf7e88cf4822dbf
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917264"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311718"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Carregar dados em massa para o Apache Phoenix usando psql
 
@@ -141,6 +141,6 @@ Para carregamento de maior taxa de transferência distribuído pelo cluster, use
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Carregamento de dados em massa com o Apache Phoenix](https://phoenix.apache.org/bulk_dataload.html)
-* [Usar o Apache Phoenix com clusters do Apache HBase baseado em Linux no HDInsight](../hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [Usar o Apache Phoenix com clusters do Apache HBase baseado em Linux no HDInsight](../hbase/apache-hbase-query-with-phoenix.md)
 * [Tabelas distribuídas](https://phoenix.apache.org/salted.html)
 * [Gramática do Apache Phoenix](https://phoenix.apache.org/language/index.html)

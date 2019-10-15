@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c82bba6ccb1eaa1933176362e34b8c3e30c37f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a35558b81d064680981bcf403a3584e3a3d00e4f
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783626"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311749"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o conector de agente de Application Proxy
 
@@ -37,13 +37,16 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 3.  **Autenticação do administrador** – durante a instalação, o usuário deve fornecer credenciais de administrador para concluir a instalação do conector.
 
+> [!NOTE]
+> Os logs de instalação do conector podem ser encontrados na pasta% TEMP% e podem ajudar a fornecer informações adicionais sobre o que está causando uma falha de instalação.
+
 ## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Verifique a conectividade com o serviço de Application Proxy de nuvem e a página de Logon da Microsoft
 
 **Objetivo:** verificar se o computador do conector pode se conectar ao ponto de extremidade de registro do Proxy do Aplicativo do AAD, bem como à página de logon da Microsoft.
 
-1.  Abra um navegador e vá para a seguinte página da Web: <https://aadap-portcheck.connectorporttest.msappproxy.net> e verifique se a conectividade com data centers aos EUA Central e Leste dos EUA com portas 80 e 443 está funcionando.
+1.  No servidor do conector, execute um teste de porta usando [Telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) ou outra ferramenta de teste de porta para verificar se as portas 443 e 80 estão abertas.
 
-2.  Se qualquer uma dessas portas não for bem-sucedida (não tem uma marca de seleção verde), verifique se o proxy do Firewall ou back-end tem portas 80 e 443 de \*.msappproxy.net definidas corretamente.
+2.  Se qualquer uma dessas portas não for bem-sucedida, verifique se o firewall ou proxy de back-end tem acesso aos domínios e portas necessários, confira [preparar seu ambiente local](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 3.  Abra um navegador (guia separada) e vá para a seguinte página da Web: <https://login.microsoftonline.com>, certifique-se de que você pode fazer logon nessa página.
 
@@ -52,7 +55,7 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 **Objetivo:** verificar se o computador do conector, o proxy de back-end e o firewall podem oferecer suporte ao certificado criado pelo conector para confiança futura.
 
 >[!NOTE]
->O conector tenta criar um certificado SHA512 com suporte a TLS1.2. Se o computador ou o firewall back-end e o proxy não oferece suporte a TLS1.2, a instalação falha.
+>O conector tenta criar um certificado SHA512 com suporte a TLS1.2. Se o computador ou o firewall de back-end e o proxy não suportarem o TLS 1.2, a instalação falhará.
 >
 >
 
@@ -64,13 +67,13 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Verifique se o administrador é usado para instalar o conector
 
-**Objetivo:** verificar se o usuário que tenta instalar o conector é um administrador com as credenciais corretas. Atualmente, o usuário deve ser pelo menos um administrador do aplicativo para a instalação tenha êxito.
+**Objetivo:** verificar se o usuário que tenta instalar o conector é um administrador com as credenciais corretas. No momento, o usuário deve ter pelo menos um administrador de aplicativos para que a instalação seja realizada com sucesso.
 
 **Para verificar se as credenciais estão corretas:**
 
 Conecte-se ao <https://login.microsoftonline.com> e use as mesmas credenciais. Verifique se o logon foi bem-sucedido. Você pode verificar a função de usuário acessando **Azure Active Directory** -&gt;**Usuários e grupos** -&gt;**Todos os usuários**. 
 
-Selecione sua conta de usuário, em seguida, "função do Directory" no menu resultante. Verifique se a função selecionada é "Administrador do aplicativo". Se não for possível acessar qualquer uma das páginas ao longo dessas etapas, você tem a função exigida.
+Selecione sua conta de usuário, em seguida, "função do Directory" no menu resultante. Verifique se a função selecionada é "administrador do aplicativo". Se não for possível acessar qualquer uma das páginas ao longo dessas etapas, você tem a função exigida.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md)

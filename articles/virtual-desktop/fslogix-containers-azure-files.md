@@ -7,18 +7,21 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 5e52275cc7215f6c54c2ff6a11faf82114c414b4
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e651695055b9bfdbfbb5b6281af8c1d21235009b
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676608"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311803"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contêineres de perfil FSLogix e arquivos do Azure
 
 O serviço de área de trabalho virtual do Windows recomenda contêineres de perfil FSLogix como uma solução de perfil de usuário. O FSLogix é projetado para perfis de roaming em ambientes de computação remota, como área de trabalho virtual do Windows. Ele armazena um perfil de usuário completo em um único contêiner. Ao entrar, esse contêiner é dinamicamente anexado ao ambiente de computação usando o VHD (disco rígido virtual) com suporte nativo e o VHDX (disco rígido virtual) do Hyper-V. O perfil do usuário fica imediatamente disponível e aparece no sistema exatamente como um perfil de usuário nativo. Este artigo descreve como os contêineres de perfil FSLogix usados com os arquivos do Azure funcionam na área de trabalho virtual do Windows.
 
-## <a name="user-profiles"></a>Perfis de usuário
+>[!NOTE]
+>Se você estiver procurando material de comparação sobre as diferentes opções de armazenamento de contêiner de perfil FSLogix no Azure, consulte [Opções de armazenamento para contêineres de perfil FSLogix](store-fslogix-profile.md).
+
+## <a name="user-profiles"></a>Perfis do usuário
 
 Um perfil de usuário contém elementos de dados sobre um indivíduo, incluindo informações de configuração, como configurações de área de trabalho, conexões de rede persistentes e configurações de aplicativo. Por padrão, o Windows cria um perfil de usuário local totalmente integrado ao sistema operacional.
 
