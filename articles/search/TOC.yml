@@ -169,7 +169,7 @@
           href: search-howto-complex-data-types.md
         - name: Modelar dados relacionais
           href: index-sql-relational-data.md
-    - name: Carregar dados
+    - name: Indexar todos os dados
       items:
         - name: Visão geral da importação de dados
           href: search-what-is-data-import.md
@@ -181,7 +181,21 @@
           href: search-howto-large-index.md
         - name: Suporte a atualizações simultâneas
           href: search-howto-concurrency.md
-    - name: Carregar dados com indexadores
+    - name: Indexar dados de blob do Azure
+      items:
+        - name: Usar IA com dados de blob
+          href: search-blob-ai-integration.md
+        - name: Adicionar pesquisa de texto completo
+          href: search-blob-storage-integration.md
+        - name: Configurar um indexador de Blob
+          href: search-howto-indexing-azure-blob-storage.md
+        - name: Indexar Blobs um-para-muitos
+          href: search-howto-index-one-to-many-blobs.md
+        - name: Indexar blobs do CSV
+          href: search-howto-index-csv-blobs.md
+        - name: Indexar blobs do JSON
+          href: search-howto-index-json-blobs.md
+    - name: Indexação com "indexadores"
       items:
         - name: Visão geral dos indexadores
           href: search-indexer-overview.md
@@ -191,16 +205,6 @@
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
         - name: Indexador do Azure Cosmos DB
           href: search-howto-index-cosmosdb.md
-        - name: Indexador do armazenamento de Blobs do Azure
-          items:
-            - name: Configurar um indexador de Blob
-              href: search-howto-indexing-azure-blob-storage.md
-            - name: Indexar Blobs um-para-muitos
-              href: search-howto-index-one-to-many-blobs.md
-            - name: Indexar blobs do CSV
-              href: search-howto-index-csv-blobs.md
-            - name: Indexar blobs do JSON
-              href: search-howto-index-json-blobs.md
         - name: Indexadores do agendamento
           href: search-howto-schedule-indexers.md
         - name: Mapear campos
