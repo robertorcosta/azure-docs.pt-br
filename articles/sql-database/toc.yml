@@ -22,14 +22,13 @@
               href: sql-database-purchase-models.md
             - name: Modelo baseado em vCore
               href: sql-database-service-tiers-vcore.md
+              items:
+                - name: Camada de computação sem servidor
+                  href: sql-database-serverless.md
+                - name: Pagar antecipadamente por capacidade reservada
+                  href: sql-database-reserved-capacity.md
             - name: Camadas de serviço DTU
               href: sql-database-service-tiers-dtu.md
-            - name: Camada de computação sem servidor
-              href: sql-database-serverless.md
-            - name: Pagar antecipadamente por capacidade reservada
-              href: sql-database-reserved-capacity.md
-            - name: Migrar da camada de serviço Premium RS
-              href: sql-database-service-tiers-prs.md
         - name: Computação e armazenamento
           items:
             - name: Visão geral
@@ -43,6 +42,8 @@
               href: sql-database-service-tier-hyperscale.md
             - name: Perguntas frequentes de Hiperescala
               href: sql-database-service-tier-hyperscale-faq.md
+            - name: Migrar da camada de serviço Premium RS
+              href: sql-database-service-tiers-prs.md
 - name: Guia de início rápido
   expanded: true
   items:
@@ -224,6 +225,8 @@
               href: sql-database-disaster-recovery.md
             - name: Simulações de recuperação
               href: sql-database-disaster-recovery-drills.md
+            - name: Configurar um grupo de failover
+              href: sql-database-configure-failover-group.md
     - name: Monitorar e ajustar
       items:
         - name: Monitorar e ajustar a documentação
@@ -488,7 +491,7 @@
           href: sql-database-active-geo-replication-portal.md
         - name: Configurar a Sincronização de Dados SQL do Azure
           href: sql-database-get-started-sql-data-sync.md
-        - name: Adicionar a um grupo de failover para o pool elástico
+        - name: Adicionar pool elástico a um grupo de failover
           href: sql-database-elastic-pool-failover-group-tutorial.md
         - name: Configurar a segurança
           href: sql-database-security-tutorial.md
@@ -604,8 +607,6 @@
           href: sql-database-geo-replication-portal.md
         - name: Configurar segurança para réplicas geográficas
           href: sql-database-geo-replication-security-config.md
-        - name: Configurar um grupo de failover
-          href: sql-database-configure-failover-group.md
         - name: Experimente os recursos de memória
           href: sql-database-in-memory-sample.md
         - name: Habilitar o ajuste automático
@@ -714,6 +715,8 @@
           href: replication-with-sql-database-managed-instance.md
         - name: Configurar a segurança
           href: sql-database-managed-instance-aad-security-tutorial.md
+        - name: Adicionar uma instância gerenciada a um grupo de failover
+          href: sql-database-managed-instance-failover-group-tutorial.md
     - name: Conceitos
       items:
         - name: Referência da API de Gerenciamento

@@ -148,6 +148,8 @@
           href: automation-onboard-solutions-from-automation-account.md
     - name: Guias de instruções
       items:
+        - name: Gerenciar atualizações e patches para suas Máquinas Virtuais do Azure
+          href: automation-tutorial-update-management.md
         - name: Gerenciar atualizações de várias VMs
           href: manage-update-multi.md
         - name: Scripts prévios e posteriores
@@ -157,6 +159,14 @@
         - name: Integrar SCCM com Gerenciamento de Atualizações
           href: oms-solution-updatemgmt-sccmintegration.md
           displayName: Configuration Manager
+        - name: Configurar o Windows Update para o Gerenciamento de Atualizações
+          href: automation-configure-windows-update.md
+        - name: Usar grupos dinâmicos com o Gerenciamento de Atualizações
+          href: automation-update-management-groups.md
+        - name: Consultar os logs do Gerenciamento de Atualizações
+          href: automation-update-management-query-logs.md
+        - name: Exibir as avaliações de atualização
+          href: automation-view-update-assessments.md
     - name: Solucionar problemas
       items:
         - name: Integração
@@ -300,14 +310,18 @@
       href: automation-connections.md
     - name: Credenciais
       href: automation-credentials.md
-    - name: Módulos
-      href: automation-integration-modules.md
+    - name: Módulos do PowerShell
+      items:
+        - name: Módulos
+          href: automation-integration-modules.md
+        - name: Usar módulos Az na Automação do Azure
+          href: az-modules.md
+        - name: Atualizar os módulos do Azure PowerShell
+          href: automation-update-azure-modules.md
     - name: Agendas
       href: automation-schedules.md
     - name: variáveis
       href: automation-variables.md
-    - name: Atualizar os módulos do Azure PowerShell
-      href: automation-update-azure-modules.md
     - name: Gerenciar pacotes do Python 2
       href: python-packages.md
     - name: Solucionar problemas de recursos compartilhados

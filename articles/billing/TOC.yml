@@ -7,28 +7,34 @@
       href: billing-understand-your-bill.md
     - name: Entenda sua fatura de EA
       href: billing-understand-your-bill-ea.md
-    - name: Entenda sua fatura – apenas o Contrato de Cliente Microsoft
+    - name: Entenda sua fatura – Contrato de Cliente da Microsoft
       href: billing-mca-understand-your-bill.md
+    - name: Entenda sua fatura – Contrato de Parceiro da Microsoft
+      href: billing-mpa-understand-your-bill.md
     - name: Exibir e baixar sua fatura do Microsoft Azure
       href: billing-download-azure-invoice.md
     - name: Exibir e baixar sua fatura de uso e cobrança do Microsoft Azure
       href: billing-download-azure-daily-usage.md
-    - name: Exibir e baixar documentos de impostos do seu Contrato de Cliente Microsoft
+    - name: Exibir e baixar documentos de imposto
       href: billing-mca-download-tax-document.md
     - name: Encargos de serviço de terceiros
       href: billing-understand-your-azure-marketplace-charges.md
     - name: Termos de uso explicados
       href: billing-understand-your-usage.md
-    - name: Termos de uso explicados – apenas o Contrato de Cliente Microsoft
+    - name: Termos de uso explicados – Contrato de Cliente da Microsoft
       href: billing-mca-understand-your-usage.md
     - name: Termos da fatura explicados
       href: billing-understand-your-invoice.md
-    - name: Termos da fatura explicados – apenas o Contrato de Cliente Microsoft
+    - name: Termos da fatura explicados – Contrato de Cliente da Microsoft
       href: billing-mca-understand-your-invoice.md
-    - name: Como pagar sua fatura – apenas o Contrato de Cliente Microsoft
+    - name: Termos da fatura explicados – Contrato de Parceiro da Microsoft
+      href: billing-mpa-invoice-terms-explained.md
+    - name: Como pagar sua fatura – Contrato de Cliente da Microsoft
       href: billing-how-to-pay-bill.md
     - name: Contas de cobrança para o Contrato de Cliente Microsoft
       href: billing-mca-overview.md
+    - name: Contas de cobrança do Contrato de Parceiro da Microsoft
+      href: mpa-overview.md
 - name: Gerenciar os custos
   items:
     - name: Evitar custos inesperados
@@ -115,10 +121,8 @@
           href: billing-avoid-charges-free-account.md
         - name: Verificar o uso
           href: billing-check-free-service-usage.md
-        - name: Atualizar assinatura
+        - name: Atualizar a conta
           href: billing-upgrade-azure-subscription.md
-        - name: Entender mapeamento do medidor
-          href: billing-understand-free-service-meter-mapping.md
     - name: Editar perfil
       href: billing-how-to-change-azure-account-profile.md
     - name: Abrir serviços bancários e autenticação forte do cliente
@@ -158,7 +162,7 @@
         - name: Tarefas de EA no Contrato de Cliente Microsoft
           href: billing-mca-enterprise-operations.md
     - name: Configurar conta de cobrança para o Contrato de Cliente Microsoft
-      href: billing-mca-setup-account.md
+      href: mca-setup-account.md
     - name: Inscrever-se com conta do Office 365
       href: billing-use-existing-office-365-account-azure-subscription.md
     - name: Inscrever-se no Office 365 com a conta do Azure
@@ -173,6 +177,8 @@
       href: billing-subscription-transfer.md
     - name: Solicitar propriedade – Contrato de Cliente Microsoft
       href: billing-mca-request-billing-ownership.md
+    - name: Solicitar propriedade – Contrato de Parceiro da Microsoft
+      href: mpa-request-ownership.md
     - name: Cancelar assinatura
       href: billing-how-to-cancel-azure-subscription.md
     - name: Mudar cartão de crédito
