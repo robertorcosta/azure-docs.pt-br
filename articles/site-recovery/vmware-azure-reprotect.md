@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/12/2019
+ms.date: 10/14/2019
 ms.author: mayg
-ms.openlocfilehash: 4202d95b540efb98b526f8a8abd17da22a908ebe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2f6f865f019b8b2a403865db4e59a7e86f59e509
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60482893"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331053"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Proteja novamente e execute o failback de computadores em um site local após o failover no Azure
 
@@ -34,8 +34,9 @@ Se você usou um modelo para criar suas máquinas virtuais, verifique se cada m�
 - Se um vCenter Server gerenciar as máquinas virtuais para as quais fará failback, certifique-se de que você possui as [permissões necessárias](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) para descoberta de VMs nos servidores vCenter.
 - Exclua instantâneos no servidor de destino mestre antes da nova proteção. Se as capturas instantâneas estiverem presentes no destino principal local ou na máquina virtual, a reprotecção falhará. Os instantâneos na máquina virtual são mesclados automaticamente durante um trabalho de nova proteção.
 - Todas as máquinas virtuais de um grupo de replicação deve ser do mesmo tipo de sistema operacional (todos os Windows ou Linux todos). Um grupo de replicação com sistemas operacionais mistos atualmente não há suporte para a nova proteção e o failback para local. Isso ocorre porque o destino principal deve ser do mesmo sistema operacional da máquina virtual. Todas as máquinas virtuais de um grupo de replicação deve ter o mesmo destino mestre. 
-- Um servidor de configuração é necessário localmente ao fazer um failback. Durante o failback, a máquina virtual deve existir no banco de dados do servidor de configuração. Caso contrário, o failback será malsucedido. Certifique-se de que você faça backups agendados regularmente de seu servidor de configuração. Em caso de desastre, restaure o servidor com o mesmo endereço IP para que o failback funcione.
-- Que passou por failover e failback exigem uma VPN site a site (S2S) replicar dados. Forneça a rede de modo que as máquinas virtuais que passaram por failover no Azure possam alcançar (executar ping) o servidor de configuração local. Também convém implantar um servidor de processo na rede do Azure da máquina virtual com failover. Este servidor de processo também deve ser capaz de se comunicar com o servidor de configuração no local.
+- Um servidor de configuração é necessário localmente ao fazer um failback. Durante o failback, a máquina virtual deve existir no banco de dados do servidor de configuração. Caso contrário, o failback será malsucedido. Certifique-se de que você faça backups agendados regularmente de seu servidor de configuração. Em caso de desastre, restaure o servidor com o mesmo endereço IP para que o failback funcione. 
+- A nova proteção e o failback exigem uma VPN de site a site (S2S) ou um emparelhamento privado do ExpressRoute para replicar dados. Forneça a rede de modo que as máquinas virtuais que passaram por failover no Azure possam alcançar (executar ping) o servidor de configuração local. Você precisa implantar um servidor de processo na rede do Azure das máquinas virtuais com failover. Esse servidor de processo também deve ser capaz de se comunicar com o servidor de configuração local e com o servidor de destino mestre.
+- Caso os endereços IP dos itens replicados tenham sido retidos no failover, a conectividade S2S ou do ExpressRoute deve ser estabelecida entre as máquinas virtuais do Azure e a NIC de failback do servidor de configuração. Observe que a retenção de endereço IP requer que o servidor de configuração tenha duas NICs-uma para conectividade de computadores de origem e outra para a conectividade de failback do Azure. Isso é para evitar a sobreposição de intervalos de endereços de sub-rede da origem e as máquinas virtuais com failover.
 - Certifique-se de que você abrir as seguintes portas para failover e failback:
 
     ![Portas para failover e failback](./media/vmware-azure-reprotect/failover-failback.png)
@@ -44,12 +45,11 @@ Se você usou um modelo para criar suas máquinas virtuais, verifique se cada m�
 
 ## <a name="deploy-a-process-server-in-azure"></a>Implantar um servidor em processo no Azure
 
-Talvez seja necessário um servidor de processo no Azure antes de failback para o site local:
-- O servidor de processo recebe dados de máquina virtual protegida no Azure e, em seguida, envia dados para o site local.
-- Uma rede de baixa latência é necessária entre o servidor de processo e a máquina virtual protegida. Em geral, é necessário considerar a latência ao decidir se você precisa de um servidor de processo no Azure:
-    - Se você tiver uma conexão de rota expressa do Azure configurado, você pode usar um servidor de processo no local para enviar dados porque a latência entre a máquina virtual e o servidor de processo é insuficiente.
-    - No entanto, se você tiver apenas uma VPN S2S, é recomendável implantar o servidor de processo no Azure.
-    - É recomendável usar um servidor de processo com base no Azure durante o failback. O desempenho da replicação será maior se o servidor de processo estiver mais próximo da máquina virtual de replicação (a máquina no Azure que passou pelo failover). Para uma prova de conceito, você pode usar o servidor de processos local e o ExpressRoute com emparelhamento privado.
+Você precisa de um servidor de processo no Azure antes de realizar o failback para o site local:
+
+- O servidor de processo recebe dados das máquinas virtuais protegidas no Azure e, em seguida, envia dados para o site local.
+- Uma rede de baixa latência é necessária entre o servidor de processo e a máquina virtual protegida. Portanto, é recomendável que você implante um servidor de processo no Azure. O desempenho da replicação será maior se o servidor de processo estiver mais próximo da máquina virtual de replicação (a máquina no Azure que passou pelo failover). 
+- Para uma prova de conceito, você pode usar o servidor de processos local e o ExpressRoute com emparelhamento privado.
 
 Para implantar um servidor de processo no Azure:
 
@@ -98,7 +98,7 @@ Depois que uma máquina virtual é reinicializada no Azure, leva algum tempo par
 4. Para **Repositório de Dados**, selecione o repositório de dados no qual você deseja recuperar os discos localmente. Essa opção é usada quando a máquina virtual no local é excluída e você precisa criar novos discos. Essa opção será ignorada se os discos já existem. Você ainda precisa especificar um valor.
 5. Selecione a unidade de retenção.
 6. A politica de failback é selecionada automaticamente.
-7. Selecione **Okey** para iniciar a nova proteção. Um trabalho começará a replicar a máquina virtual do Azure para o site local. Você pode acompanhar o andamento na guia **Trabalhos**. Quando a nova proteção for bem-sucedida, a máquina virtual entra em um estado protegido.
+7. Selecione **Okey** para iniciar a nova proteção. Um trabalho começará a replicar a máquina virtual do Azure para o site local. Você pode acompanhar o progresso na guia **trabalhos** . Quando a nova proteção for realizada com sucesso, a máquina virtual entrará em um estado protegido.
 
 Observe as seguintes informações:
 - Se você quiser recuperar para um local alternativo (quando a máquina virtual local for excluída), selecione a unidade de retenção e o repositório de dados configurados para o servidor de destino mestre. Quando você realiza o failback para o site local, as máquinas virtuais do VMware no plano de proteção de failback usam o mesmo repositório de dados que o servidor de destino mestre. Então, uma nova máquina virtual é criada no vCenter.
@@ -129,7 +129,7 @@ Observe as seguintes informações:
     - Você pode não apenas para um host de ESXi. Não é possível failback de VMs VMware ou servidores físicos para hosts do Hyper-V, computadores físicos ou estações de trabalho VMware.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois que a máquina virtual entrou em um estado protegido, você poderá [iniciar um failback](vmware-azure-failback.md). O failback desliga a máquina virtual no Azure e inicia a máquina virtual no local. Espere algum tempo de inatividade do aplicativo. Escolha um horário para realizar failback quando o aplicativo puder tolerar o tempo de inatividade.
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: bb0c6e9d20c12df3532a52df1fe4d9574344d4b3
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 8a72f70fbc1ab6052587beb1d949dd73b1ad3559
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104727"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376141"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Conectar-se de forma privada a uma conta de armazenamento usando o ponto de extremidade privado do Azure
 O ponto de extremidade privado do Azure é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado.
@@ -24,7 +24,7 @@ Neste guia de início rápido, você aprenderá a criar uma VM em uma rede virtu
 
 Entre no Portal do Azure em https://portal.azure.com.
 
-## <a name="create-a-vm"></a>Criar uma máquina virtual
+## <a name="create-a-vm"></a>Criar uma VM
 Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM que é usada para acessar seu recurso de link privado (uma conta de armazenamento neste exemplo).
 
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
@@ -34,14 +34,14 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Rede virtual**.
 1. Em **Criar rede virtual**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | Value |
     | ------- | ----- |
-    | Nome | Insira *MyVirtualNetwork*. |
+    | name | Insira *MyVirtualNetwork*. |
     | Espaço de endereço | Insira *10.1.0.0/16*. |
-    | Assinatura | Selecione sua assinatura.|
-    | Grupo de recursos | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
+    | Subscription | Selecione sua assinatura.|
+    | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
     | Location | Selecione **WestCentralUS**.|
-    | Sub-rede – Nome | Insira *mysubnet*. |
+    | Sub-rede – Nome | Insira *mySubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
 1. Deixe o restante com os valores padrão e selecione **Criar**.
@@ -53,38 +53,38 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 
 1. Em **Criar uma máquina virtual – Noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | Value |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
-    | Assinatura | Selecione sua assinatura. |
-    | Grupo de recursos | Selecione **myResourceGroup**. Você o criou na seção anterior.  |
+    | Subscription | Selecione sua assinatura. |
+    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.  |
     | **DETALHES DA INSTÂNCIA** |  |
     | Nome da máquina virtual | Insira *myVm*. |
     | Região | Selecione **WestCentralUS**. |
     | Opções de disponibilidade | Deixe o padrão **Nenhuma redundância de infraestrutura necessária**. |
-    | Image | Selecione **Windows Server 2019 datacenter**. |
-    | Size | Deixe o padrão **Standard DS1 v2**. |
+    | Imagem | Selecione **Windows Server 2019 Datacenter**. |
+    | Tamanho | Deixe o padrão **Standard DS1 v2**. |
     | **CONTA DE ADMINISTRADOR** |  |
-    | Nome de usuário | Insira um nome de usuário de sua escolha. |
+    | Nome de Usuário | Insira um nome de usuário de sua escolha. |
     | Senha | Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirme a senha | Reinsira a senha. |
+    | Confirmar Senha | Reinsira a senha. |
     | **REGRAS DE PORTA DE ENTRADA** |  |
     | Porta de entrada públicas | Deixar o padrão **Nenhum**. |
     | **ECONOMIZE DINHEIRO** |  |
     | Já tem uma licença do Windows? | Deixe o padrão **Não**. |
     |||
 
-1. Selecione **Avançar: Discos**.
+1. Selecione **Avançar: discos**.
 
-1. Em **criar uma máquina virtual-discos**, deixe os padrões e selecione **avançar: Rede**.
+1. Em **criar uma máquina virtual-discos**, deixe os padrões e selecione **Avançar: rede**.
 
 1. Em **Criar uma máquina virtual – Rede**, selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | Value |
     | ------- | ----- |
-    | Rede virtual | Deixe o **MyVirtualNetwork**padrão.  |
-    | Espaço de endereço | Deixe o **10.1.0.0/24**padrão.|
-    | Subnet | Deixe o padrão **mysubnet (10.1.0.0/24)** .|
+    | Rede virtual | Deixe o padrão **MyVirtualNetwork**.  |
+    | Espaço de endereço | Deixar o padrão **10.1.0.0/24**.|
+    | Sub-rede | Deixar o padrão **mySubnet (10.1.0.0/24)** .|
     | IP público | Deixe o padrão **(novo) myVm-ip**. |
     | Porta de entrada públicas | Selecione **Permitir portas selecionadas**. |
     | Selecione as portas de entrada | Selecione **HTTP** e **RDP**.|
@@ -101,47 +101,47 @@ Nesta seção, você criará uma conta de armazenamento particular usando um pon
 
 1. Em **criar conta de armazenamento-noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | Value |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
-    | Assinatura | Selecione sua assinatura. |
-    | Grupo de recursos | Selecione **myResourceGroup**. Você o criou na seção anterior.|
+    | Subscription | Selecione sua assinatura. |
+    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
     | **DETALHES DA INSTÂNCIA** |  |
     | Nome da conta de armazenamento  | Insira *mystorageaccount*. Se esse nome já estiver sendo usado, crie um nome exclusivo. |
     | Região | Selecione **WestCentralUS**. |
-    | Desempenho| Deixe o padrão **Standard**. |
+    | Performance| Deixe o padrão **Standard**. |
     | Tipo de conta | Deixe o **armazenamento padrão (uso geral v2)** . |
     | Replicação | Selecione **armazenamento com redundância geográfica com acesso de leitura (ra-grs)** . |
     |||
   
-3. Selecione **avançar: Rede**.
-4. Em **criar uma conta de armazenamento –** método de conectividade, rede, selecione **ponto de extremidade privado**.
-5. Em **criar uma conta de armazenamento – rede**, selecione **Adicionar ponto de extremidade privado**. 
-6. Em **criar ponto de extremidade privado**, insira ou selecione estas informações:
+3. Selecione **Avançar: rede**.
+4. Em **criar uma conta de armazenamento –** método de conectividade, rede, selecione **ponto de extremidade privado**.
+5. Em **criar uma conta de armazenamento – rede**, selecione **Adicionar ponto de extremidade privado**. 
+6. Em **criar ponto de extremidade privado**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | Value |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
-    | Assinatura | Selecione sua assinatura. |
-    | Grupo de recursos | Selecione **myResourceGroup**. Você o criou na seção anterior.|
+    | Subscription | Selecione sua assinatura. |
+    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
     |Location|Selecione **WestCentralUS**.|
-    |Nome|Insira *myPrivateEndpoint*.  |
-    |Subrecurso de armazenamento|Deixe o **blob**padrão. |
+    |name|Insira *myPrivateEndpoint*.  |
+    |Subrecurso de armazenamento|Deixe o **blob**padrão. |
     | **REDE** |  |
     | Rede virtual  | Selecione *MyVirtualNetwork* no grupo de recursos *MyResource*Group. |
-    | Subnet | Selecione *mysubnet*. |
+    | Sub-rede | Selecione  *mySubnet*. |
     | **INTEGRAÇÃO DE DNS PRIVADO**|  |
-    | Integrar com a zona DNS privada  | Deixe o padrão **Sim**. |
-    | Zona de DNS privado  | Deixe o padrão  ** (novo) privatelink.blob.Core.Windows.net**. |
+    | Integrar com a zona DNS privado  | Deixe o padrão **Sim**. |
+    | Zona DNS privada  | Deixe o padrão * * (New) privatelink.blob.core.windows.net * *. |
     |||
-7. Selecione **OK**. 
-8. Selecione **revisão + criar**. Você é levado para a página **revisar + criar** , na qual o Azure valida sua configuração. 
-9. Quando você vir a mensagem **validação aprovada** , selecione **criar**. 
+7. Selecione **OK**. 
+8. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração. 
+9. Quando vir a mensagem **Validação aprovada**, selecione **Criar**. 
 10. Navegue até o recurso de conta de armazenamento que você acabou de criar.
-11. Selecione **chaves de acesso** no menu conteúdo à esquerda.
+11. Selecione **chaves de acesso** no menu conteúdo à esquerda.
 12. Selecione **copiar** na cadeia de conexão para key1.
  
-## <a name="connect-to-a-vm-from-the-internet"></a>Conecte uma VM a partir da Internet
+## <a name="connect-to-a-vm-from-the-internet"></a>Conectar uma VM a partir da Internet
 
 Conecte-se à VM *myVm* da Internet da seguinte maneira:
 
@@ -151,7 +151,7 @@ Conecte-se à VM *myVm* da Internet da seguinte maneira:
 
 1. Selecione **Baixar Arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
 
-1. Abra o arquivo. rdp * baixado.
+1. Abra o arquivo downloaded.rdp*.
 
     1. Se solicitado, selecione **Conectar**.
 
@@ -173,8 +173,8 @@ Nesta seção, você se conectará de forma privada à conta de armazenamento us
 > [!IMPORTANT]
 > A configuração de DNS para armazenamento precisa de uma modificação manual no arquivo de hosts para incluir o FQDN da conta específica, modifique o seguinte arquivo usando permissões de administrador no Windows: c:\Windows\System32\Drivers\etc\hosts ou Linux/etc/hosts Inclua as informações de DNS para a conta da etapa anterior no seguinte formato [endereço IP privado] myaccount.blob.core.windows.net
 
-1. No Área de Trabalho Remota do *myVM*, abra o PowerShell.
-2. Digite `nslookup mystorageaccount.blob.core.windows.net` você receberá uma mensagem semelhante a esta:
+1. Na Área de Trabalho Remota de  *myVM*, abra o PowerShell.
+2. Insira @ no__t-0 você receberá uma mensagem semelhante a esta:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -182,29 +182,30 @@ Nesta seção, você se conectará de forma privada à conta de armazenamento us
     Name:    mystorageaccount123123.privatelink.blob.core.windows.net
     Address:  10.0.0.5
     Aliases:  mystorageaccount.blob.core.windows.net
-3. Install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
-4. Select **Storage accounts** with the right-click.
-5. Select **Connect to an azure storage**.
-6. Select **Use a connection string**.
-7. Select **Next**.
-8. Enter the connection string by pasting the information previously copied.
-9. Select **Next**.
-10. Select **Connect**.
-11. Browse the Blob containers from mystorageaccount 
-12. (Optionally) Create folders and/or upload files to *mystorageaccount*. 
-13. Close the remote desktop connection to *myVM*. 
+    ```
+3. Instale o [Gerenciador de Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
+4. Selecione **contas de armazenamento** com o botão direito do mouse.
+5. Selecione **conectar a um armazenamento do Azure**.
+6. Selecione **usar uma cadeia de conexão**.
+7. Selecione **Avançar**.
+8. Insira a cadeia de conexão colando as informações copiadas anteriormente.
+9. Selecione **Avançar**.
+10. Selecione **Conectar**.
+11. Procurar os contêineres de blob de mystorageaccount 
+12. Opcionalmente Crie pastas e/ou carregue arquivos no *mystorageaccount*. 
+13. Feche a conexão de área de trabalho remota para *myVM*. 
 
-Additional options to access the storage account:
-- Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
+Opções adicionais para acessar a conta de armazenamento:
+- Gerenciador de Armazenamento do Microsoft Azure é um aplicativo autônomo gratuito da Microsoft que permite que você trabalhe visualmente com os dados do armazenamento do Azure no Windows, no macOS e no Linux. Você pode instalar o aplicativo para navegar de forma privada o conteúdo da conta de armazenamento. 
  
-- The AzCopy utility is another option for high-performance scriptable data transfer for Azure storage. Use AzCopy to transfer data to and from Blob, File, and Table storage. 
+- O utilitário AzCopy é outra opção para transferência de dados programável por scripts de alto desempenho para o armazenamento do Azure. Use AzCopy para transferir dados para e do armazenamento de Blobs, Arquivo e Tabela. 
 
 
-## Clean up resources 
-When you're done using the Private Endpoint, storage account and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
-2. Select **Delete resource group**. 
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
+## <a name="clean-up-resources"></a>Limpar recursos 
+Quando você terminar de usar o ponto de extremidade privado, a conta de armazenamento e a VM, exclua o grupo de recursos e todos os recursos que ele contém: 
+1. Insira o *MyResource* in a caixa de **pesquisa** na parte superior do portal e selecione *MyResource*be from os resultados da pesquisa. 
+2. Selecione **Excluir grupo de recursos**. 
+3. Insira *MyResource*Group  Para **digite o nome do grupo de recursos** e selecione **excluir**. 
 
-## Next steps
-In this Quickstart, you created a VM on a virtual network and storage account and a Private Endpoint. You connected to one VM from the internet and securely communicated to the storage account using Private Link. To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
+## <a name="next-steps"></a>Próximos passos
+Neste guia de início rápido, você criou uma VM em uma rede virtual e uma conta de armazenamento e um ponto de extremidade privado. Você se conectou a uma VM da Internet e se comunica com segurança à conta de armazenamento usando o link privado. Para saber mais sobre o ponto de extremidade privado, consulte [o que é o ponto de extremidade privado do Azure?](private-endpoint-overview.md).

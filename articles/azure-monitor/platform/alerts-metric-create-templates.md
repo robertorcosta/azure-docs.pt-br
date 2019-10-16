@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 70da3a518746d1989e8807cee9bc7c87cc634c27
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: b08c7d1b91f89aba4c9cb8a23bb5c688521cb37e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873286"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372767"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
@@ -22,7 +22,7 @@ ms.locfileid: "70873286"
 Este artigo mostra como você pode usar um [o modelo do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar [alertas de métricas novos](../../azure-monitor/platform/alerts-metric-near-real-time.md) no Azure Monitor. Os modelos do Resource Manager permitem que você configure programaticamente os alertas de maneira consistente e reproduzível em seus ambientes. Alertas de métrica novos estão disponíveis atualmente [neste conjunto de tipos de recurso](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Modelo de recursos para criar alertas de métrica para o tipo de recurso: O espaço de trabalho do Azure Log Analytics (ou seja `Microsoft.OperationalInsights/workspaces`), requer etapas adicionais. Para obter detalhes, consulte o artigo sobre [Alerta de Métrica para Logs - Modelo de Recursos](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Modelo de recurso para criar alertas de métrica para o tipo de recurso: o espaço de trabalho do Azure Log Analytics (ou seja,) `Microsoft.OperationalInsights/workspaces`, requer etapas adicionais. Para obter detalhes, consulte o artigo sobre [Alerta de Métrica para Logs - Modelo de Recursos](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 Estas são as etapas básicas:
 
@@ -2480,7 +2480,7 @@ Salve o JSON abaixo como list-of-vms-static.json para usar neste passo a passo.
                 "PT5M",
                 "PT15M",
                 "PT30M",
-                "PT1H""
+                "PT1H"
             ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
@@ -3097,7 +3097,7 @@ az group deployment create \
     --parameters @availabilityalert.parameters.json
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre os [alertas no Azure](alerts-overview.md)
 - Saiba como [criar um grupo de ações com modelos do Resource Manager](action-groups-create-resource-manager-template.md)

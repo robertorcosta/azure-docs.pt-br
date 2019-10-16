@@ -9,12 +9,12 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5be247e8bb999ee5306d10e67c46c7273953dc71
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 3e56b44988dc6dbfed99f339795fee6d15c7dd57
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534690"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372795"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitar o gerenciamento de atualizações, o controle de alterações e as soluções de inventário em várias VMs
 
@@ -105,41 +105,41 @@ Se você tiver usado a solução Iniciar/parar VMs durante os horários fora de 
 
 * Iniciar e parar agendas de runbook da VM
 * Iniciar e parar runbooks da VM
-* Variáveis
+* variáveis
 
 Como alternativa, você também pode desvincular seu espaço de trabalho de sua conta de automação do seu espaço de trabalho Log Analytics. Em seu espaço de trabalho, selecione **conta de automação** em **recursos relacionados**. Na página conta de automação, selecione **desvincular conta**.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 
 Ao integrar várias máquinas, pode haver máquinas que mostrem como **Não é possível ativar**. Há diferentes razões que algumas máquinas não podem ser ativadas. As seções a seguir mostram possíveis razões para o estado **Impossível ativar** em uma VM ao tentar integrar.
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>Relatórios de VM para outro workspace: '\<workspaceName\>'.  Alterar a configuração para usá-lo para ativar
 
-**Causa**: este erro mostra a máquina virtual em que você está tentando carregar relatórios para outro workspace.
+**Causa**: este erro mostra a máquina virtual que você está tentando carregar relatórios para outro workspace.
 
-**Solução**: Clique em **Usar como configuração**  para alterar o espaço de trabalho da conta de automação e do Log Analytics.
+**Solução**: Clique em **Usar como configuração** para alterar o espaço de trabalho do Log Analytics e da conta de Automação.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>Relatórios VM para um workspace que não está disponível nesta assinatura
 
-**Causa**: o workspace ao qual a máquina virtual se reporta:
+**Causa**: O workspace que se reporta a máquina virtual:
 
 * Está em uma assinatura diferente ou
 * Não existe mais, ou
 * Está em um grupo de recursos que você não tem as permissões de acesso
 
-**Solução**: localizar a conta de automação associada ao workspace ao qual a máquina virtual se reporta e integrar a máquina virtual ao alterar a configuração do escopo.
+**Solução**: localizar a conta de automação associada com o workspace que se reporta a VM e integrar a máquina virtual, alterando a configuração do escopo.
 
 ### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>A versão ou distribuição do sistema operacional VM não é suportada
 
-**Causa:** a solução não é suportada em todas as distribuições do Linux ou em todas as versões do Windows.
+**Causa:** A solução não é suportada em todas as distribuições do Linux ou em todas as versões do Windows.
 
-**Solução:** consulte a [lista de clientes compatíveis](automation-update-management.md#clients) para obter a solução.
+**Solução:** consulte a [lista de clientes com suporte](automation-update-management.md#clients) para a solução.
 
 ### <a name="classic-vms-cannot-be-enabled"></a>VMs clássicas não podem ser habilitadas
 
 **Causa**: máquinas virtuais que usam o modelo de implantação clássico não são suportadas.
 
-**Solução**: Migre a máquina virtual para o modelo de implantação do Gerenciador de recursos. Para aprender como fazer isso, consulte [ Migrar recursos do modelo de implantação clássico ](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Solução**: migre a máquina virtual para o modelo de implantação do Gerenciador de recursos. Para aprender como fazer isso, consulte [ Migrar recursos do modelo de implantação clássico ](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>A VM está parada. (deslocada)
 
@@ -147,12 +147,19 @@ Ao integrar várias máquinas, pode haver máquinas que mostrem como **Não é p
 
 **Solução**: para integrar uma VM a uma solução, a VM deve estar em execução. Clique no link embutido **Iniciar VM** para iniciar a VM sem sair da página.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Agora que a solução está habilitada para suas máquinas virtuais, visite o artigo Visão Geral do Gerenciamento de Atualizações para saber como visualizar a avaliação de atualizações de suas máquinas.
+Para remover uma VM do Gerenciamento de Atualizações:
+
+* No espaço de trabalho do Log Analytics, remova a VM da pesquisa salva para a Configuração de Escopo `MicrosoftDefaultScopeConfig-Updates`. As pesquisas salvas podem ser encontradas em **Geral** no workspace.
+* Remover o [agente do Microsoft Monitoring](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente do Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+
+## <a name="next-steps"></a>Próximos passos
+
+Agora que a solução está habilitada para suas máquinas virtuais, visite o artigo Gerenciamento de Atualizações visão geral para saber como criar uma **implantação de atualização** para seus computadores.
 
 > [!div class="nextstepaction"]
-> [Gerenciamento de atualização - avaliação de atualização do modo de exibição](./automation-update-management.md#viewing-update-assessments)
+> [Gerenciamento de Atualizações-gerenciar atualizações e patches para suas VMs do Azure](./automation-tutorial-update-management.md)
 
 Tutoriais de adição sobre as soluções e como usá-los:
 

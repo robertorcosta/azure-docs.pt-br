@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f6f66779bec9ed4e38e5a662c2d3728ba2034b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8afb226406c02f395c7112d485d4616bfbec140e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545295"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373864"
 ---
 # <a name="single-page-applications"></a>Aplicativos de página única
 
@@ -51,7 +51,7 @@ Veja os [exemplos de código para cenários de aplicativo de página única](sam
 
 ## <a name="app-registration"></a>Registro do aplicativo
 
-* Locatário único: se você estiver criando um aplicativo apenas para a sua organização, ele deverá ser registrado no diretório da sua empresa usando o portal do Azure.
+* Locatário Único – Se você estiver criando um aplicativo apenas para a sua organização, ele deverá ser registrado no diretório da sua empresa usando o portal do Azure.
 * Multilocatário – Se você estiver criando um aplicativo que pode ser usado por usuários fora da sua organização, ele deverá ser registrado no diretório da sua empresa, mas também deverá ser registrado no diretório de cada organização que usará o aplicativo. Para disponibilizar seu aplicativo em seu diretório, você pode incluir um processo de inscrição para os clientes que os permita ter autorização para seu aplicativo. Ao se inscreverem para seu aplicativo, uma caixa de diálogo será apresentada, mostrando as permissões exigidas pelo aplicativo e, em seguida, a opção de consentimento. Dependendo das permissões necessárias, um administrador na outra organização talvez precise dar consentimento. Quando o usuário ou administrador der seu consentimento, o aplicativo é registrado em seu diretório.
 
 Depois de registrar o aplicativo, ele deve ser configurado para usar o protocolo OAuth 2.0 de concessão implícita. Por padrão, esse protocolo é desabilitado para aplicativos. Para habilitar o protocolo de concessão implícita OAuth2, edite o manifesto do aplicativo no portal do Azure e defina o valor de "oauth2AllowImplicitFlow" como true. Para obter mais informações, veja [Manifesto do aplicativo](reference-app-manifest.md).
@@ -65,7 +65,7 @@ Usar o ADAL.js ajuda a:
 
 Após uma autenticação bem-sucedida, o Azure AD grava um cookie no navegador do usuário para estabelecer uma sessão. A sessão existe entre o usuário e o Azure AD, e não entre o usuário e o aplicativo Web. Quando um token expira, o ADAL.js usa essa sessão para obter silenciosamente outro token. O ADAL.js faz isso usando um iFrame oculto para enviar e receber a solicitação usando o protocolo de concessão implícita OAuth. O ADAL.js também pode usar o mesmo mecanismo para obter silenciosamente os tokens de acesso para outros recursos da API da Web que o aplicativo chama, contanto que esses recursos ofereçam suporte a CORS (compartilhamento de recursos entre origens), que eles estejam registrados no diretório do usuário e que qualquer consentimento necessário tenha sido fornecido pelo usuário durante o logon.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* Saiba mais sobre outros [Tipos e cenários de aplicativo](app-types.md)
-* Saiba mais sobre as [noções básicas de autenticação](authentication-scenarios.md) do Azure AD
+* Saiba mais sobre outros [Tipos de aplicativo e cenários](app-types.md)
+* Saiba mais sobre as [noções básicas de autenticação](v1-authentication-scenarios.md) do Azure AD

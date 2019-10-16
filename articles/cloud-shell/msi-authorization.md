@@ -1,25 +1,21 @@
 ---
-title: Use identidades gerenciadas para recursos do Azure no Azure Cloud Shell | Microsoft Docs
+title: Usar identidades gerenciadas para recursos no Azure Cloud Shell
 description: Autenticação de código com MSI no Azure Cloud Shell
 services: azure
-documentationcenter: ''
 author: maertendMSFT
-manager: timlt
+ms.author: damaerte
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
-ms.author: damaerte
-ms.openlocfilehash: 7cadaaf67f9c6923ee9e9eb2596941aa8e1f0c9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5d49a16324a5a97f4a0507f9abf47ea602ea072
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199475"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72328711"
 ---
 # <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Use identidades gerenciadas para recursos do Azure no Azure Cloud Shell
 
@@ -49,6 +45,6 @@ Se você armazenar em cache o token em seu código, deverá estar preparado para
 
 Para tratar erros de token, visite a [página MSI sobre tokens de acesso MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token#error-handling).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Saiba mais sobre MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)  
 [Aquisição de tokens de acesso da MSI VMs](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)

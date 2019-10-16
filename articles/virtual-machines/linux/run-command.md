@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: abf0f69ea70bae4102806214f0ef0fcfc25aad3a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6550b6e3f59ff7e6bac39dfc1abcf829256122d4
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477039"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376348"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Executar scripts de shell em sua VM Linux com o recurso Executar Comando
 
@@ -41,7 +41,20 @@ A seguir há uma lista de restrições que estão presentes ao usar o recurso Ex
 > [!NOTE]
 > Para funcionar corretamente, o Comando Executar requer conectividade (porta 443) a endereços IP públicos do Azure. Se a extensão não tiver acesso a esses pontos de extremidade, os scripts poderão ser executados com êxito, mas não retornarão os resultados. Se você estiver bloqueando o tráfego na máquina virtual, poderá usar [tags de serviço](../../virtual-network/security-overview.md#service-tags) para permitir o tráfego para os endereços IP públicos do Azure usando a tag `AzureCloud`.
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="available-commands"></a>Comandos disponíveis
+
+Esta tabela mostra a lista de comandos disponíveis para VMs Linux. O comando **RunShellScript** pode ser usado para executar qualquer script personalizado desejado. Ao usar o CLI do Azure ou o PowerShell para executar um comando, o valor que você fornece para o parâmetro `--command-id` ou `-CommandId` deve ser um dos valores listados abaixo. Quando você especifica um valor que não é um comando disponível, você recebe o erro.
+
+```error
+The entity was not found in this Azure location
+```
+
+|**Nome**|**Descrição**|
+|---|---|
+|**RunShellScript**|Executa um script de shell do Linux.|
+|**ifconfig**| Obtenha a configuração de todas as interfaces de rede.|
+
+## <a name="azure-cli"></a>Azure CLI
 
 A seguir, veja um exemplo que usa o comando [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) para executar um script de shell em uma VM Linux do Azure.
 
@@ -67,23 +80,22 @@ Quando o comando for escolhido, clique em **Executar** para executar o script. O
 
 ![Executar saída de script de comando](./media/run-command/run-command-script-output.png)
 
-## <a name="available-commands"></a>Comandos disponíveis
+### <a name="powershell"></a>PowerShell
 
-Esta tabela mostra a lista de comandos disponíveis para VMs Linux. O comando **RunShellScript** pode ser usado para executar qualquer script personalizado desejado.
+Veja a seguir um exemplo usando o cmdlet [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) para executar um script do PowerShell em uma VM do Azure. O cmdlet espera que o script referenciado no parâmetro `-ScriptPath` seja o local onde o cmdlet é executado.
 
-|**Name**|**Descrição**|
-|---|---|
-|**RunShellScript**|Executa um script de shell do Linux.|
-|**ifconfig**| Obtenha a configuração de todas as interfaces de rede.|
+```powershell-interactive
+Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
+```
 
 ## <a name="limiting-access-to-run-command"></a>Limitando o acesso ao recurso Executar Comando
 
-Listando os comandos de execução ou mostrando os detalhes de um comando exigem o `Microsoft.Compute/locations/runCommands/read` permissão no nível da assinatura, que internos [leitor](../../role-based-access-control/built-in-roles.md#reader) função e ter maior.
+Listar os comandos de execução ou mostrar os detalhes de um comando requer a permissão `Microsoft.Compute/locations/runCommands/read` no nível da assinatura, que a função [leitor](../../role-based-access-control/built-in-roles.md#reader) interna e superior tem.
 
-Executar um comando exige o `Microsoft.Compute/virtualMachines/runCommand/action` permissão no nível da assinatura, que o [colaborador da máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) função e ter maior.
+A execução de um comando requer a permissão `Microsoft.Compute/virtualMachines/runCommand/action` no nível da assinatura, que a função [colaborador da máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) e superior tem.
 
 É possível usar uma das funções [internas](../../role-based-access-control/built-in-roles.md) ou criar uma função [personalizada](../../role-based-access-control/custom-roles.md) para usar o recurso Executar Comando.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte [Run scripts in your Linux VM](run-scripts-in-vm.md) (Executar scripts em sua VM Linux) para conhecer outras maneiras de executar scripts e comandos remotamente em sua VM.

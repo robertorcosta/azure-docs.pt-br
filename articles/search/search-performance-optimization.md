@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 97628535deb79733e9d286977534a6ea97ba60e6
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 566c208ef415f6fc9f3ada419e2f9e9244bc066d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182279"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333153"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Estratégias de implantação e práticas recomendadas para otimizar o desempenho no Azure Search
 
@@ -45,8 +45,8 @@ Ao criar essas cargas de trabalho de teste, tenha em mente algumas característi
 ## <a name="scaling-for-high-query-volume-and-throttled-requests"></a>Dimensionamento para alto volume de consulta e solicitações limitadas
 Quando você estiver recebendo muitas solicitações limitadas ou exceder suas taxas de latência de destino de uma carga de consulta maior, você pode procurar diminuir as taxas de latência de uma das duas maneiras:
 
-1. **Aumentar as réplicas:**  Uma réplica é semelhante a uma cópia dos seus dados, e permite que o Azure Search equilibre as solicitações nas várias cópias.  Todo o balanceamento de carga e a replicação de dados entre as réplicas é gerenciado pelo Azure Search, e você pode alterar o número de réplicas alocadas para o serviço a qualquer momento.  É possível alocar até 12 réplicas em um serviço de pesquisa Standard e três réplicas em um serviço de pesquisa Básico. As réplicas podem ser ajustadas no [Portal do Azure](search-create-service-portal.md) ou [PowerShell](search-manage-powershell.md).
-2. **Aumentar a Camada de Pesquisa:**  O Azure Search vem em [várias camadas](https://azure.microsoft.com/pricing/details/search/), e cada uma dessas camadas oferece níveis diferentes de desempenho.  Em alguns casos, você pode ter tantas consultas que a camada na qual você está não consegue fornecer taxas latência suficientemente baixas, mesmo quando as réplicas são maximizadas. Nesse caso, convém considerar a utilização de uma das camadas de pesquisa mais altas, como a Azure Search camada S3 que é adequada para cenários com um grande número de documentos e cargas de trabalho de consulta extremamente altas.
+1. **Aumentar as Réplicas:** uma réplica é semelhante a uma cópia dos seus dados, permitindo que o Azure Search balanceie a carga de solicitações em várias cópias.  Todo o balanceamento de carga e a replicação de dados entre as réplicas é gerenciado pelo Azure Search, e você pode alterar o número de réplicas alocadas para o serviço a qualquer momento.  É possível alocar até 12 réplicas em um serviço de pesquisa Standard e três réplicas em um serviço de pesquisa Básico. As réplicas podem ser ajustadas no [Portal do Azure](search-create-service-portal.md) ou [PowerShell](search-manage-powershell.md).
+2. **Aumentar a Camada de Pesquisa:** o Azure Search vem em [várias camadas](https://azure.microsoft.com/pricing/details/search/), e cada uma dessas camadas oferece níveis diferentes de desempenho.  Em alguns casos, você pode ter tantas consultas que a camada em que você está em não pode fornecer taxas de latência suficientemente baixas, mesmo quando as réplicas são maximizadas. Nesse caso, convém considerar a utilização de uma das camadas de pesquisa mais altas, como a Azure Search camada S3 que é adequada para cenários com um grande número de documentos e cargas de trabalho de consulta extremamente altas.
 
 ## <a name="scaling-for-slow-individual-queries"></a>Dimensionamento para consultas individuais lentas
 Outro motivo para taxas de alta latência é uma única consulta demorando muito para ser concluída. Nesse caso, a adição de réplicas não ajudará. Duas opções possíveis que podem ajudar incluem o seguinte:
@@ -55,9 +55,9 @@ Outro motivo para taxas de alta latência é uma única consulta demorando muito
    
    Pode haver no máximo 12 partições no serviço de pesquisa Standard, e uma partição no serviço de pesquisa Básico.  As partições podem ser ajustadas no [Portal do Azure](search-create-service-portal.md) ou [PowerShell](search-manage-powershell.md).
 
-2. **Limitar campos de alta cardinalidade:** Um campo de alta cardinalidade consiste em um campo de facetable ou filtrável que tem um número significativo de valores exclusivos e, como resultado, consome recursos significativos ao calcular os resultados. Por exemplo, definir uma ID do produto ou um campo de descrição como facetable/filtrável conta como alta cardinalidade porque a maioria dos valores de documento para documento são exclusivos. Sempre que for possível, limite o número de campos de alta cardinalidade.
+2. **Limitar campos de cardinalidade alta:** Um campo de alta cardinalidade consiste em um campo de facetable ou filtrável que tem um número significativo de valores exclusivos e, como resultado, consome recursos significativos ao calcular os resultados. Por exemplo, definir uma ID do produto ou um campo de descrição como facetable/filtrável conta como alta cardinalidade porque a maioria dos valores de documento para documento são exclusivos. Sempre que for possível, limite o número de campos de alta cardinalidade.
 
-3. **Aumentar a Camada de Pesquisa:**  Mudar para uma camada mais alto do Azure Search pode ser outra maneira de melhorar o desempenho de consultas lentas. Cada camada mais alta fornece CPUs mais rápidas e mais memória, as quais têm um impacto positivo no desempenho da consulta.
+3. **Aumentar a Camada de Pesquisa:** mudar para um nível mais alto do Azure Search pode ser outra maneira de melhorar o desempenho de consultas lentas. Cada camada mais alta fornece CPUs mais rápidas e mais memória, as quais têm um impacto positivo no desempenho da consulta.
 
 ## <a name="scaling-for-availability"></a>Dimensionamento para disponibilidade
 As réplicas não apenas ajudam a reduzir a latência da consulta, mas também permitem a alta disponibilidade. Com uma única réplica, você deve esperar um tempo de inatividade periódico devido à reinicialização do servidor após atualizações de software ou a outros eventos de manutenção.  Como resultado, é importante considerar se seu aplicativo exige alta disponibilidade de pesquisas (consultas), bem como gravações (eventos de indexação). O Azure Search oferece opções de SLA em todas as ofertas de pesquisa pagas, com os seguintes atributos:
@@ -95,12 +95,7 @@ Se você estiver usando a API REST Azure Search para [enviar conteúdo por push 
 
    ![Tabela de referência cruzada de serviços por região, com o Gerenciador de tráfego central][3]
 
-## <a name="monitor-performance"></a>Monitorar o desempenho
-O Azure Search oferece a capacidade de analisar e monitorar o desempenho do seu serviço por meio da [análise de tráfego de pesquisa](search-traffic-analytics.md). Ao habilitar essa funcionalidade e adicionar instrumentação ao seu aplicativo cliente, você pode opcionalmente registrar as operações de pesquisa individuais, bem como métricas agregadas para uma conta de armazenamento do Azure que pode ser processada para análise ou visualizada no Power BI. As métricas captura dessa maneira fornecem estatísticas de desempenho, como o número médio de consultas ou tempos de resposta de consulta. Além disso, o registro em log das operações permite a análise de detalhes das operações de pesquisa específicas.
-
-A análise de tráfego é útil para entender as taxas de latência dessa Azure Search perspectiva. Como as métricas de desempenho de consulta registradas têm base no tempo que uma consulta leva para ser completamente processada no Azure Search (desde o momento da solicitação até quando é enviada), você poderá usá-las para determinar se os problemas de latência estão no lado do serviço de Azure Search, ou fora do serviço, como a latência de rede.  
-
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre os limites de serviços e os tipos de preço para cada um, confira [Limites do serviço de Azure Search](search-limits-quotas-capacity.md).
 
 Visite [Planejamento de capacidade](search-capacity-planning.md) para saber mais sobre combinações de partição e de réplica.

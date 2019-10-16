@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: fd8168b5786f669de0c5c2109c9e02b43c62c582
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f3d443eed43cc1e131cd3dc47407ce2dfb023ce8
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933663"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326392"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle do código-fonte no Azure Data Factory
 
@@ -25,6 +25,9 @@ A experiência de interface do usuário do Azure Data Factory (UX) tem duas expe
 
 - Criar diretamente com o serviço de Data Factory
 - Crie com Azure Repos a integração do git ou do GitHub
+
+> [!NOTE]
+> Somente a criação direta com o serviço de Data Factory tem suporte na nuvem do Azure governamental.
 
 ## <a name="author-directly-with-the-data-factory-service"></a>Criar diretamente com o serviço de Data Factory
 
@@ -57,7 +60,7 @@ Na home page Azure Data Factory, selecione **configurar repositório de código*
 
 ![Configurar um repositório de código do Azure Repos](media/author-visually/configure-repo.png)
 
-#### <a name="configuration-method-2-ux-authoring-canvas"></a>Método de configuração 2: Tela de criação de UX
+#### <a name="configuration-method-2-ux-authoring-canvas"></a>Método de configuração 2: Tela de criação da UX
 Na tela de criação do Azure Data Factory UX, selecione o menu suspenso **Data Factory** e, em seguida, selecione **configurar repositório de código**.
 
 ![Configurar as definições do repositório de código para a criação de UX](media/author-visually/configure-repo-2.png)
@@ -68,7 +71,7 @@ Ambos os métodos abrem o painel de configuração configurações do repositór
 
 O painel de configuração mostra as seguintes configurações de Azure Repos repositório de código:
 
-| Configuração | Descrição | Valor |
+| Configuração | Descrição | Value |
 |:--- |:--- |:--- |
 | **Tipo de repositório** | O tipo do repositório de código do Azure Repos.<br/> | Azure DevOps git ou GitHub |
 | **Azure Active Directory** | Seu nome de locatário do Microsoft Azure AD. | `<your tenant name>` |
@@ -123,7 +126,7 @@ Na home page Azure Data Factory, selecione **configurar repositório de código*
 
 ![Configurar um repositório de código do Azure Repos](media/author-visually/configure-repo.png)
 
-#### <a name="configuration-method-2-ux-authoring-canvas"></a>Método de configuração 2: Tela de criação de UX
+#### <a name="configuration-method-2-ux-authoring-canvas"></a>Método de configuração 2: Tela de criação da UX
 
 Na tela de criação do Azure Data Factory UX, selecione o menu suspenso **Data Factory** e, em seguida, selecione **configurar repositório de código**.
 
@@ -140,7 +143,7 @@ O painel de configuração mostra as seguintes configurações do repositório d
 | **Tipo de repositório** | O tipo do repositório de código do Azure Repos. | GitHub |
 | **Usar GitHub Enterprise** | Caixa de seleção para selecionar o GitHub Enterprise | não selecionado (padrão) |
 | **URL do GitHub Enterprise** | A URL raiz do GitHub Enterprise. Por exemplo: https://github.mydomain.com. Necessário somente se **usar o GitHub Enterprise** estiver selecionado | `<your GitHub enterprise url>` |                                                           
-| **Conta do GitHub** | Seu nome de conta do GitHub. Esse nome pode ser encontrado em https:\//github.com/{Account Name}/{Repository Name}. Navegar até essa página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub. | `<your GitHub account name>` |
+| **Conta do GitHub** | Seu nome de conta do GitHub. Esse nome pode ser encontrado em https: \//github. com/{nome da conta}/{Repository Name}. Navegar até essa página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub. | `<your GitHub account name>` |
 | **Nome do repositório**  | O nome do repositório de código do GitHub. As contas do GitHub contêm repositórios Git para gerenciar seu código-fonte. Você pode criar um novo repositório ou usar um existente que já esteja na conta. | `<your repository name>` |
 | **Ramificação de colaboração** | Sua ramificação de colaboração do GitHub usada para publicação. Por padrão, seu mestre. Altere essa configuração se você desejar publicar recursos de outra ramificação. | `<your collaboration branch>` |
 | **Pasta raiz** | Sua pasta raiz em sua ramificação de colaboração GitHub. |`<your root folder name>` |
@@ -198,7 +201,7 @@ Quando você especifica um novo branch de publicação, o Data Factory não excl
 
 ### <a name="publish-code-changes"></a>Publicar alterações de código
 
-Depois de mesclar as alterações para a ramificação de`master` colaboração (é o padrão), clique em **publicar** para publicar manualmente as alterações de código no Branch mestre para o serviço de data Factory.
+Depois de mesclar as alterações para a ramificação de colaboração (`master` é o padrão), clique em **publicar** para publicar manualmente as alterações de código no Branch mestre para o serviço de data Factory.
 
 ![Publicar as alterações no serviço do Data Factory](media/author-visually/publish-changes.png)
 
@@ -253,7 +256,7 @@ Selecione **Feedback** para comentar sobre os recursos ou notificar a Microsoft 
 
 ![Comentários](media/author-visually/provide-feedback.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre o monitoramento e o gerenciamento de pipelines, c [Monitorar e gerenciar os pipelines programaticamente](monitor-programmatically.md).
 * Para implementar a integração e a implantação contínuas, consulte [integração e entrega contínuas (CI/CD) em Azure data Factory](continuous-integration-deployment.md).

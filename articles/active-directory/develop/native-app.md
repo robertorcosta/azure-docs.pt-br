@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6bf24124c4b072a64ef59500b2f723ff6abbb0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0034668231d97e64602bdbdd0836bded97bb733d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545836"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373882"
 ---
 # <a name="native-apps"></a>Aplicativos nativos
 
@@ -52,7 +52,7 @@ Consulte os exemplos de código para os cenários de aplicativo nativo para API 
 
 ## <a name="app-registration"></a>Registro do aplicativo
 
-Para registrar um aplicativo com o ponto de extremidade do Azure AD v 1.0, consulte [registrar um aplicativo](quickstart-register-app.md).
+Para registrar um aplicativo com o ponto de extremidade v 1.0 do Azure AD, consulte [registrar um aplicativo](quickstart-register-app.md).
 
 * Locatário único – O aplicativo nativo e a API Web devem ser registrados no mesmo diretório no Azure AD. A API da Web pode ser configurada para expor um conjunto de permissões, que são usadas para limitar o acesso do aplicativo nativo a seus recursos. O aplicativo cliente seleciona as permissões desejadas no menu suspenso "Permissões para Outros Aplicativos" no portal do Azure.
 * Multilocatário – Primeiro, o aplicativo nativo registrado apenas no diretório do desenvolvedor ou do editor. Em segundo lugar, o aplicativo nativo é configurado para indicar as permissões necessárias para que seja funcional. Essa lista de permissões necessárias é mostrada em uma caixa de diálogo quando um usuário ou administrador no diretório de destino dá consentimento para o aplicativo, o que o torna disponível para sua organização. Alguns aplicativos exigem apenas permissões de nível de usuário, que qualquer usuário na organização pode conceder. Outros aplicativos exigem permissões de nível administrativo, que um usuário na organização não pode conceder. Somente um administrador do diretório pode dar consentimento para aplicativos que exigem esse nível de permissões. Quando o usuário ou administrador concede sua permissão, somente a API da Web é registrada no diretório. 
@@ -61,7 +61,7 @@ Para registrar um aplicativo com o ponto de extremidade do Azure AD v 1.0, consu
 
 Quando o aplicativo nativo usa seu código de autorização para obter um token de acesso JWT, ele também recebe um token de atualização JWT. Quando o token de acesso expira, o token de atualização pode ser usado para autenticar o usuário novamente sem a necessidade de fazer logon novamente. Esse token de atualização é usado para autenticar o usuário, o que resulta em um novo token de acesso e token de atualização.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre outros [Tipos e cenários de aplicativo](app-types.md)
-- Saiba mais sobre as [noções básicas de autenticação](authentication-scenarios.md) do Azure AD
+- Saiba mais sobre outros [Tipos de aplicativo e cenários](app-types.md)
+- Saiba mais sobre as [noções básicas de autenticação](v1-authentication-scenarios.md) do Azure AD

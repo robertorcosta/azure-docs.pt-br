@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: b287a67c470cc1697065838e52916c285a2233a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0fc1e143ce7d271d5faaa8dda0eb40cdfc9e006
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60704281"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332790"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Criar e gerenciar um modelo de sala de aula no Azure Lab Services
 Um modelo em um laboratório é uma imagem básica da máquina virtual a partir do qual todas as máquinas virtuais de todos os usuários são criadas. Configure a máquina virtual do modelo para que ela seja configurada exatamente com o que você deseja fornecer aos usuários de laboratório. Você pode fornecer um nome e uma descrição do modelo exibido para os usuários do laboratório. Em seguida, publique o modelo para tornar as instâncias do modelo de VM disponíveis para os usuários do laboratório. Quando você publicar um modelo, o Azure Lab Services criará VMs no laboratório usando o modelo. O número de VMs criadas neste processo é o mesmo que o número máximo de usuários permitidos em um laboratório, que você pode definir na política de uso do laboratório. Todas as máquinas virtuais têm a mesma configuração que o modelo.
@@ -26,104 +26,44 @@ Um modelo em um laboratório é uma imagem básica da máquina virtual a partir 
 Este artigo descreve como criar e gerenciar uma máquina virtual de modelo em um laboratório de sala de aula dos Serviços de Laboratório do Azure. 
 
 ## <a name="publish-a-template-while-creating-a-classroom-lab"></a>Publicar um modelo ao criar um laboratório de sala de aula
-Primeiro, você pode configurar e publicar um modelo ao criar um laboratório de sala de aula.
-
-1. Navegue até [Site do Azure Lab Services](https://labs.azure.com). 
-2. Selecione **Iniciar sessão** e insira suas credenciais. O Azure Lab Services oferece suporte a contas organizacionais e contas Microsoft. 
-3. Na janela **Novo laboratório**, execute as seguintes ações: 
-    1. Especifique um **nome** para o laboratório. 
-    2. Especifique o **número de usuários** máximo permitido no laboratório. 
-    6. Clique em **Salvar**.
-
-        ![Criar um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-window.png)
-4. Na página **Selecionar especificações da máquina virtual**, siga estas etapas:
-    1. Selecione um **tamanho** para as VMs (máquinas virtuais) criadas no laboratório. 
-    2. Selecione a **região** na qual você deseja criar as VMs. 
-    3. Selecione a **imagem da VM** a ser usada para criar as VMs no laboratório. 
-    4. Selecione **Avançar**.
-
-        ![Definir as especificações da VM](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
-5. Na página **Definir credenciais**, especifique as credenciais padrão para todas as VMs no laboratório. 
-    1. Especifique o **nome do usuário** para todas as VMs no laboratório.
-    2. Especifique a **senha** do usuário. 
-
-        > [!IMPORTANT]
-        > Anote o nome de usuário e a senha. Eles não serão mostrados novamente.
-    3. Selecione **Criar**. 
-
-        ![Definir as credenciais](../media/tutorial-setup-classroom-lab/set-credentials.png)
-6. Na página **Configurar modelo**, você vê o status do processo de criação do laboratório. A criação do modelo no laboratório leva até 20 minutos. 
-
-    ![Configurar o modelo](../media/tutorial-setup-classroom-lab/configure-template.png)
-7. Após a configuração do modelo ser concluída, você verá a seguinte página: 
-
-    ![Página de configuração do modelo após a conclusão](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. As seguintes etapas do tutorial são opcionais: 
-    1. Inicie a VM modelo selecionando **Iniciar**.
-    2. Conecte-se à VM modelo selecionando **Conectar**. 
-    3. Instale e configure software em sua VM modelo. 
-    4. **Pare** a VM.  
-    5. Insira uma **descrição** do modelo
-
-        !["Avançar" na página de configuração do modelo](../media/tutorial-setup-classroom-lab/configure-template-next.png)
-9. Selecione **Avançar** na página do modelo. 
-10. Na página **Publicar o modelo**, execute as seguintes ações. 
-    1. Para publicar o modelo imediatamente, marque a caixa de seleção *Eu entendo que não posso modificar o modelo depois da publicação. Esse processo só pode ser feito uma vez e pode levar até uma hora* e selecione **Publicar**.  
-
-        > [!WARNING]
-        > Depois de publicar, você não pode cancelar a publicação. 
-    2. Para publicar mais tarde, selecione **Salvar para mais tarde**. É possível publicar a VM modelo após a conclusão do assistente. Para obter detalhes sobre como configurar e publicar após a conclusão do assistente, consulte a seção Publicar o modelo no artigo [Como gerenciar laboratórios de curso](how-to-manage-classroom-labs.md).
-
-        ![Publicar modelo](../media/tutorial-setup-classroom-lab/publish-template.png)
-11. Você vê o **andamento da publicação** do modelo. Esse processo pode levar até uma hora. 
-
-    ![Publicar modelo – andamento](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
-12. Você verá a página a seguir quando o modelo for publicado com êxito. Selecione **Concluído**.
-
-    ![Publicar modelo – êxito](../media/tutorial-setup-classroom-lab/publish-success.png)
-1. Você verá o **painel** do laboratório. 
-    
-    ![Painel de laboratório de sala de aula](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
-
+Para saber como publicar um modelo durante a criação de um laboratório de sala de aula, consulte [criar um laboratório de sala de aula](how-to-manage-classroom-labs.md#create-a-classroom-lab)
  
 ## <a name="set-or-update-template-title-and-description"></a>Definir ou atualizar modelo de título e descrição
 Use as etapas a seguir para definir o título e descrição para a primeira vez e atualizá-los mais tarde. 
 
-1. Na seção **Modelo** seção, mova o mouse sobre **Nome** do modelo ou **descrição** do modelo e selecione-o. 
-2. Insira o **novo nome** ou **nova descrição** para o modelo e pressione **ENTER**.
+1. Na página **modelo** , insira o novo **título** para o laboratório.  
+2. Insira a nova **Descrição** para o modelo. Quando você move o foco para fora da caixa de texto, ele é salvo automaticamente. 
 
     ![Nome do modelo e descrição](../media/how-to-create-manage-template/template-name-description.png)
 
-## <a name="set-up-or-update-a-template-vm"></a>Configurar ou atualizar um modelo de VM
- Você se conecta à VM modelo e instala todo o software necessário antes de disponibilizá-la para os alunos. Use as seguintes etapas para configurar um modelo VM pela primeira vez ou atualizar a VM. 
+## <a name="update-a-template-vm"></a>Atualizar uma VM de modelo
+Use as etapas a seguir para atualizar uma VM de modelo.  
 
-1. Aguarde até que a máquina virtual do modelo esteja pronta. Quando estiver pronto, o botão **Iniciar** deverá ser habilitado. Para iniciar a máquina virtual, selecione **Iniciar**.
+1. Na página **modelo** , selecione **Personalizar modelo** na barra de ferramentas. 
 
-    ![Iniciar a VM modelo](../media/tutorial-setup-classroom-lab/start-template-vm.png)
-1. Leia o aviso e selecione **Iniciar**. 
+    ![Botão Personalizar modelo](../media/how-to-create-manage-template/customize-template-button.png)
+2. Na caixa de diálogo **Personalizar modelo** , selecione **continuar**. Depois de iniciar o modelo e fazer alterações, ele não terá mais a mesma configuração que as máquinas virtuais publicadas pela última vez para os usuários. As alterações de modelo não serão refletidas nas máquinas virtuais existentes de seus usuários até que você publique novamente.
 
-    ![Iniciar o modelo – aviso](../media/how-to-create-manage-template/start-template-warning.png)
-2. Você vê o status no bloco do laboratório na seção **Modelo**.
+    ![Caixa de diálogo Personalizar](../media/how-to-create-manage-template/customize-template-dialog.png)
+1. Selecione o botão **conectar ao modelo** na barra de ferramentas para se conectar à VM do modelo e siga as instruções. Se for um computador Windows, você verá uma opção para baixar o arquivo RDP. 
 
-    ![Iniciar o modelo - status](../media/how-to-create-manage-template/template-start-status.png)
-1. Depois que ela for iniciada, para se conectar à VM, selecione **Conectar** e siga as instruções. 
-
-    ![Conectar ou parar a VM do modelo](../media/how-to-create-manage-template/connect-stop-vm.png)
+    ![Conectar à VM modelo](../media/how-to-create-manage-template/connect-template-vm.png)
 1. Instale o software necessário para que os alunos façam o laboratório (por exemplo, Visual Studio, Gerenciador de Armazenamento do Azure etc.). 
 2. Desconecte (feche sua sessão de área de trabalho remota) da VM modelo. 
-3. **Pare** a VM modelo selecionando **Parar**. 
+3. **Pare** a VM do modelo selecionando **parar modelo**. 
+4. Siga as etapas na próxima seção para **publicar** a VM de modelo atualizada. 
 
 ## <a name="publish-the-template-vm"></a>Publicar a VM modelo  
-Se você não publique o modelo ao criar o laboratório, você pode publicá-lo mais tarde. Antes de publicar, você talvez queira se conectar ao modelo de VM e atualizá-lo com qualquer software. Quando você publicar um modelo, o Azure Lab Services criará VMs no laboratório usando o modelo. O número de VMs criadas neste processo é o mesmo que o número máximo de usuários permitidos em um laboratório, que você pode definir na política de uso do laboratório. Todas as máquinas virtuais têm a mesma configuração que o modelo. 
+Se você não publique o modelo ao criar o laboratório, você pode publicá-lo mais tarde. Antes de publicar, você talvez queira se conectar ao modelo de VM e atualizá-lo com qualquer software. Quando você publicar um modelo, o Azure Lab Services criará VMs no laboratório usando o modelo. O número de VMs criadas nesse processo são o número de VMs que você especificou quando a publicou pela primeira vez ou o que você especificou na página do pool de máquinas virtuais. Todas as máquinas virtuais têm a mesma configuração que o modelo. 
 
-1. Selecione **Publicar** na seção **Modelo**. 
-
-    ![Publicar a VM modelo](../media/tutorial-setup-classroom-lab/public-access.png)
+1. Na página **modelo** , selecione **publicar** na barra de ferramentas. 
 1. Sobre o **publicar o modelo** caixa de mensagem, examine a mensagem e selecione **publicar**. Esse processo poderá levar algum tempo, dependendo de quantas VMs estão sendo criadas.
-    
+
+    ![Botão Publicar](../media/how-to-create-manage-template/publish-button.png)
+
     > [!IMPORTANT]
     > Depois que um modelo é publicado, ele não pode ser cancelado. No entanto você poderá republicar o modelo. 
-4. Aguarde até o status do modelo ser alterado para **Publicado**. 
+4. Você pode ver o status do processo de publicação na página de modelo. Aguarde até o status do modelo ser alterado para **Publicado**. 
 
     ![Status de publicação](../media/how-to-create-manage-template/publish-status.png)
 1. Alterne para a página **Máquinas virtuais** e confirme que você vê cinco máquinas virtuais no estado **Não Atribuído**. Essas máquinas virtuais ainda não foram atribuídas aos alunos. Aguarde até que as máquinas virtuais sejam criadas. Elas devem estar no estado **Parado**. Você pode iniciar a VM de um aluno, conectar-se à VM, parar a VM e excluir a VM nesta página. Você pode iniciá-los nesta página ou permitir que os alunos iniciem as máquinas virtuais. 
@@ -131,23 +71,7 @@ Se você não publique o modelo ao criar o laboratório, você pode publicá-lo 
     ![Máquinas virtuais no estado parado](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 
-## <a name="republish-the-template"></a>Republicar o modelo 
-Depois de publicar um modelo, pode ainda se conectar ao modelo de VM, atualizá-lo e, em seguida, republicá-lo. Quando você republicar um modelo de VM, todas as VMs for desconectadas de usuário e eles são recriados com base no modelo atualizado. 
-
-1. Na página do painel do seu laboratório, selecione **republicar** na seção de modelo. 
-
-    ![Republish button](../media/how-to-create-manage-template/republish-button.png)
-2. Na caixa de mensagem **Republicar o modelo**, revise o texto e selecione **Republicar** para continuar. Caso contrário, selecione **Cancelar**. 
-
-    ![Republicar a mensagem do modelo](../media/how-to-create-manage-template/republish-template-message.png)
-3. Você vê o status da republicação no bloco na seção **Modelo**.
-
-    ![Status de republicação](../media/how-to-create-manage-template/republish-status-publishing.png)
-4. Depois que o modelo for publicado, o status é definido como **publicado**. 
-
-    ![Êxito ao republicar](../media/how-to-create-manage-template/republish-success.png)
-
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Confira os seguintes artigos:
 
 - [Como administrador, crie e gerencie contas de laboratório](how-to-manage-lab-accounts.md)

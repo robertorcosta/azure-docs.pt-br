@@ -1,21 +1,21 @@
 ---
-title: Controle de versão do aplicativo Blockchain na visualização do Azure Blockchain Workbench
+title: Controle de versão do aplicativo Blockchain – Azure Blockchain Workbench
 description: Como usar versões de aplicativo na visualização do Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 33ecb6dea48117edd876b90eda54768785f25c20
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: f6edbb54962ff11b5ed1497b6a202b9010c67aae
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843886"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72328836"
 ---
 # <a name="azure-blockchain-workbench-preview-application-versioning"></a>Versão prévia do aplicativo do Azure Blockchain Workbench
 
@@ -60,6 +60,6 @@ Por padrão, a versão mais recente habilitada do aplicativo habilitada é usada
 
     Você pode criar novos contratos ou executar ações em contratos de versão anterior. A versão do aplicativo é exibida após o nome do aplicativo e será exibido um aviso sobre a versão mais antiga.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Solução de problemas do Azure Blockchain Workbench](troubleshooting.md)

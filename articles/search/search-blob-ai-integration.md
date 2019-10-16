@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 2513825fcb275aeb3c4f0ca49ff5f2a6bd9441f0
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 5dc81f6e35f86c6dee77d44ff5c59c2657434a37
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303009"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376262"
 ---
 # <a name="use-ai-to-understand-blob-data"></a>Usar o ia para entender os dados do blob
 
@@ -44,11 +44,11 @@ No, between é a própria arquitetura de pipeline. O pipeline é baseado no recu
 
 Você pode iniciar diretamente em sua página do portal da conta de armazenamento. Clique em **adicionar Azure Search** e crie um novo serviço de Azure Search ou selecione um existente. Se você já tiver um serviço de pesquisa existente na mesma assinatura, clicar em **adicionar Azure Search** abrirá o assistente de importação de dados para que você possa percorrer imediatamente a indexação, o enriquecimento e a definição de índice.
 
-Depois de adicionar Azure Search à sua conta de armazenamento, você pode seguir o processo padrão para enriquecer dados em qualquer fonte de dados do Azure. Supondo que você já tenha conteúdo de BLOB, você pode usar o assistente de importação de dados no Azure Search para obter uma introdução inicial fácil ao enriquecimento de ia. Este guia de início rápido explica as etapas: [Crie um pipeline de enriquecimento de ia no portal](cognitive-search-quickstart-blob.md). 
+Depois de adicionar Azure Search à sua conta de armazenamento, você pode seguir o processo padrão para enriquecer dados em qualquer fonte de dados do Azure. Supondo que você já tenha conteúdo de BLOB, você pode usar o assistente de importação de dados no Azure Search para obter uma introdução inicial fácil ao enriquecimento de ia. Este guia de início rápido explica as etapas: [criar um pipeline de enriquecimento de ia no portal](cognitive-search-quickstart-blob.md). 
 
 Nas seções a seguir, exploraremos mais componentes e conceitos.
 
-## <a name="use-blob-indexers"></a>Usar indexadores de BLOB
+## <a name="begin-with-blob-indexers"></a>Começar com indexadores de BLOB
 
 O enriquecimento de ia é um complemento em um pipeline de indexação e, em Azure Search, esses pipelines são criados sobre um *indexador*. Um indexador é um subserviço com reconhecimento de fonte de dados equipado com lógica interna para dados de amostragem, leitura de dados de metadados, recuperação de dados e serialização de dados de formatos nativos em documentos JSON para importação subsequente. Os indexadores geralmente são usados por si próprios para importação, separados do ia, mas se você quiser criar um pipeline de enriquecimento de ia, precisará de um indexador e de um configurador para seguir. Nesta seção, vamos nos concentrar no próprio indexador.
 
@@ -76,32 +76,35 @@ As habilidades internas apoiadas por serviços cognitivas exigem uma chave de as
 
 Se você usar apenas habilidades personalizadas e habilidades internas do utilitário, não haverá dependência ou custos relacionados a serviços cognitivas.
 
-## <a name="order-of-operations"></a>Ordem das operações
+<!-- ## Order of operations
 
-Agora, abordamos os indexadores, a extração de conteúdo e as habilidades, podemos dar uma olhada mais detalhada nos mecanismos de pipeline e na ordem das operações.
+Now we've covered indexers, content extraction, and skills, we can take a closer look at pipeline mechanisms and order of operations.
 
-Um qualificable é uma composição de uma ou mais habilidades. Quando várias habilidades estão envolvidas, o qualificable Opera como pipeline sequencial, produzindo grafos de dependência, em que a saída de uma habilidade se torna entrada para outra. 
+A skillset is a composition of one or more skills. When multiple skills are involved, the skillset operates as sequential pipeline, producing dependency graphs, where output from one skill becomes input to another. 
 
-Por exemplo, dado um grande blob de texto não estruturado, uma ordem de exemplo de operações para análise de texto pode ser a seguinte:
+For example, given a large blob of unstructured text, a sample order of operations for text analytics might be as follows:
 
-1. Use o divisor de texto para dividir o blob em partes menores.
-1. Use Detecção de Idioma para determinar se o conteúdo é inglês ou outro idioma.
-1. Use o conversor de texto para obter todo o texto em uma linguagem comum.
-1. Execute o reconhecimento de entidade, Extração de Frases-chave ou Análise de Sentimento em partes de texto. Nesta etapa, novos campos são criados e preenchidos. As entidades podem ser local, pessoas, organização, datas. Frases-chave são pequenas combinações de palavras que parecem pertencer. A pontuação de sentimentos é uma classificação no continuum de uma opinião negativa (0) a positiva (1).
-1. Use a fusão de texto para reconstituir o documento a partir de partes menores.
+1. Use Text Splitter to break the blob into smaller parts.
+1. Use Language Detection to determine if content is English or another language.
+1. Use Text Translator to get all text into a common language.
+1. Run Entity Recognition, Key Phrase Extraction, or Sentiment Analysis on chunks of text. In this step, new fields are created and populated. Entities might be location, people, organization, dates. Key phrases are short combinations of words that appear to belong together. Sentiment score is a rating on continuum of negative (0) to positive (1) sentiment.
+1. Use Text Merger to reconstitute the document from the smaller chunks. -->
 
+## <a name="how-to-use-ai-enriched-content"></a>Como usar o conteúdo aprimorado do ia
 
-## <a name="outputs-and-use-cases"></a>Saídas e casos de uso
+A saída do enriquecimento de AI é um índice de pesquisa em Azure Search ou uma loja de conhecimento no armazenamento do Azure.
 
-Um documento aprimorado no final do pipeline difere de sua versão de entrada original pela presença de campos adicionais que contêm novas informações que foram extraídas ou geradas durante o enriquecimento. Dessa forma, você pode trabalhar com uma combinação de valores originais e criados de várias maneiras.
+No Azure Search, um índice de pesquisa é usado para exploração interativa usando texto livre e consultas filtradas em um aplicativo cliente. Os documentos aprimorados criados por meio do ia são formatados em JSON e indexados da mesma forma que todos os documentos são indexados em Azure Search, aproveitando todos os benefícios que um indexador fornece. Por exemplo, durante a indexação, o indexador de blob refere-se aos parâmetros de configuração e configurações para utilizar qualquer mapeamento de campo ou lógica de detecção de alteração. Essas configurações estão totalmente disponíveis para indexação regular e cargas de trabalho de ia aprimoradas. Após a indexação, quando o conteúdo é armazenado no Azure Search, você pode criar consultas avançadas e expressões de filtro para entender o conteúdo.
 
-As formações de saída são um índice de pesquisa em Azure Search ou uma loja de conhecimento no armazenamento do Azure.
+No armazenamento do Azure, uma loja de conhecimento tem duas manifestações: um contêiner de BLOB ou tabelas no armazenamento de tabelas. 
 
-Em Azure Search, documentos aprimorados são formatados em JSON e podem ser indexados da mesma forma que todos os documentos são indexados, com os benefícios que um indexador fornece. Os campos de documentos aprimorados são mapeados para um esquema de índice. Durante a indexação, o indexador de blob refere-se aos parâmetros de configuração e configurações para utilizar qualquer mapeamento de campo ou lógica de detecção de alteração que você especificou. Após a indexação, quando o conteúdo é armazenado no Azure Search, você pode criar consultas avançadas e expressões de filtro para entender o conteúdo.
++ Um contêiner de blob captura documentos aprimorados em sua totalidade, o que é útil se você quiser alimentar outros processos. 
 
-No armazenamento do Azure, uma loja de conhecimento tem duas manifestações: um contêiner de BLOB ou tabelas no armazenamento de tabelas. Um contêiner de blob captura documentos aprimorados em sua totalidade, o que é útil se você quiser alimentar outros processos. Por outro lado, o armazenamento de tabelas pode acomodar projeções físicas de documentos aprimorados. Você pode criar fatias ou camadas de documentos aprimorados que incluem ou excluem partes específicas. Para análise no Power BI, as tabelas no armazenamento de tabelas do Azure tornam-se a fonte de dados para visualização e exploração adicionais.
++ Por outro lado, o armazenamento de tabelas pode acomodar projeções físicas de documentos aprimorados. Você pode criar fatias ou camadas de documentos aprimorados que incluem ou excluem partes específicas. Para análise no Power BI, as tabelas no armazenamento de tabelas do Azure tornam-se a fonte de dados para visualização e exploração adicionais.
 
-## <a name="next-steps"></a>Próximas etapas
+Um documento aprimorado no final do pipeline difere de sua versão de entrada original pela presença de campos adicionais que contêm novas informações que foram extraídas ou geradas durante o enriquecimento. Dessa forma, você pode trabalhar com uma combinação de conteúdo original e criado, independentemente da estrutura de saída usada.
+
+## <a name="next-steps"></a>Próximos passos
 
 Há muito mais que você pode fazer com a enriquecimento de ia para tirar o máximo proveito de seus dados no armazenamento do Azure, incluindo a combinação de serviços cognitivas de maneiras diferentes e a criação de habilidades personalizadas para casos em que não há nenhum serviço de cognitiva existente para o cenário. Você pode aprender mais seguindo os links abaixo.
 

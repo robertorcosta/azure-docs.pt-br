@@ -1,88 +1,88 @@
 ---
-title: Serviço de Blockchain do Azure Consortium
-description: ''
+title: Consórcio do serviço Blockchain do Azure
+description: Entenda como o serviço Blockchain do Azure usa um consórcio privado
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e745a4ee4789ef46a61b5cb0bbf806c41ef631ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 04ea4a4ebecec958ba9d9a72711e101adb3690ab
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65027909"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329285"
 ---
-# <a name="azure-blockchain-service-consortium"></a>Serviço de Blockchain do Azure Consortium
+# <a name="azure-blockchain-service-consortium"></a>Consórcio do serviço Blockchain do Azure
 
-Usando o serviço de Blockchain do Azure, você pode criar consortium privada blockchain redes em que cada rede de blockchain pode ser limitado aos participantes específicos na rede. Somente os participantes na rede privada consortium blockchain podem exibir e interagir com o blockchain. Redes Consortium no serviço de Blockchain do Azure podem conter dois tipos de funções de membro participante:
+Usando o serviço Blockchain do Azure, você pode criar redes Blockchain do consórcio privadas em que cada rede Blockchain pode ser limitada a participantes específicos na rede. Somente os participantes na rede particular do consórcio blockchain podem exibir e interagir com o blockchain. As redes Consortium no serviço Blockchain do Azure podem conter dois tipos de funções de participante de membro:
 
-* **Administrador** -privilegiado participantes que podem executar ações de gerenciamento consortium e podem participar de transações de blockchain.
+* Participantes com privilégios de **administrador** que podem tomar ações de gerenciamento de consórcio e podem participar de transações de blockchain.
 
-* **Usuário** -os participantes que não podem executar qualquer ação de gerenciamento consortium, mas podem participar de transações de blockchain.
+* **Usuários** -participantes que não podem realizar nenhuma ação de gerenciamento de consórcio, mas podem participar de transações de blockchain.
 
-Redes Consortium podem ser uma combinação de funções de participante e podem ter um número arbitrário de cada tipo de função. Deve haver pelo menos um administrador.
+As redes Consortium podem ser uma combinação de funções de participante e podem ter um número arbitrário de cada tipo de função. Deve haver pelo menos um administrador.
 
-O diagrama a seguir mostra uma rede de consórcio com vários participantes:
+O diagrama a seguir mostra uma rede Consortium com vários participantes:
 
-![Diagrama de rede privada consortium](./media/consortium/network-diagram.png)
+![Diagrama de rede do consórcio privado](./media/consortium/network-diagram.png)
 
-Com o gerenciamento de consortium no serviço de Blockchain do Azure, você pode gerenciar os participantes na rede de consórcio. Gerenciamento do consórcio é baseado no modelo de consenso da rede. Na versão de visualização atual, o serviço de Blockchain do Azure fornece um modelo de consenso centralizado para gerenciamento consortium. Qualquer participante com privilégios com uma função de administrador pode executar ações de gerenciamento de consortium, como adicionar ou remover participantes de uma rede.
+Com o gerenciamento de consórcio no serviço Blockchain do Azure, você pode gerenciar os participantes na rede do consórcio. O gerenciamento do consórcio é baseado no modelo de consenso da rede. Na versão de visualização atual, o serviço de Blockchain do Azure fornece um modelo de consenso centralizado para o gerenciamento do consórcio. Qualquer participante privilegiado com uma função de administração pode tomar ações de gerenciamento de consórcio, como adicionar ou remover participantes de uma rede.
 
 ## <a name="roles"></a>Funções
 
-Os participantes de um consórcio podem ser indivíduos ou organizações e podem ser atribuídos uma função de usuário ou uma função de administrador. A tabela a seguir lista as diferenças entre as duas funções de alto nível:
+Os participantes de um consórcio podem ser indivíduos ou organizações e podem ser atribuídos a uma função de usuário ou uma função de administrador. A tabela a seguir lista as diferenças de alto nível entre as duas funções:
 
 | Ação | Função de usuário | Função de administrador
 |--------|:----:|:------------:|
-| Criar novo membro | Sim | Sim |
-| Convidar novos membros | Não | Sim |
-| Definir ou alterar a função de membro participante | Não | Sim |
-| Alterar nome de exibição de membro | Somente para o próprio membro | Somente para o próprio membro |
-| Remover membros | Somente para o próprio membro | Sim |
-| Participar de transações de blockchain | Sim | Sim |
+| Criar novo membro | SIM | SIM |
+| Convidar novos membros | Não | SIM |
+| Definir ou alterar a função de participante do membro | Não | SIM |
+| Alterar nome de exibição do membro | Somente para o próprio membro | Somente para o próprio membro |
+| Remover membros | Somente para o próprio membro | SIM |
+| Participar de transações de blockchain | SIM | SIM |
 
 ### <a name="user-role"></a>Função de usuário
 
-Os usuários são participantes consortium sem capacidades de administrador. Eles não podem participar no gerenciamento de membros relacionados ao consortium. Os usuários podem alterar seu nome de exibição de membro e podem remover de um consórcio.
+Os usuários são participantes do consórcio sem recursos de administrador. Eles não podem participar do gerenciamento de membros relacionados ao consórcio. Os usuários podem alterar seu nome de exibição de membro e podem se remover de um consórcio.
 
 ### <a name="administrator"></a>Administrador
 
-Um administrador pode gerenciar os membros dentro do consortium. Um administrador pode convidar membros, remover membros ou atualizar funções de membros dentro do consórcio.
-Sempre deve haver pelo menos um administrador em um consórcio. O último administrador deve especificar outro participante como uma função de administrador antes de deixar um consórcio.
+Um administrador pode gerenciar Membros no consórcio. Um administrador pode convidar Membros, remover membros ou atualizar funções de membros dentro do consórcio.
+Sempre deve haver pelo menos um administrador em um consórcio. O último administrador deve especificar outro participante como uma função de administrador antes de sair de um consórcio.
 
-## <a name="managing-members"></a>Gerenciamento de membros
+## <a name="managing-members"></a>Gerenciando Membros
 
-Somente os administradores podem convidar outros participantes do consortium. Os administradores de convidar participantes usando a ID de assinatura do Azure.
+Somente os administradores podem convidar outros participantes para o consórcio. Os administradores convidam participantes usando sua ID de assinatura do Azure.
 
-Depois que o convidado, os participantes poderão ingressar o blockchain consortium Implantando um novo membro no serviço de Blockchain do Azure. Para exibir e Junte-se o convidado consortium, você deve especificar a mesma ID de assinatura do Azure usada no convite pelo administrador de rede.
+Uma vez convidado, os participantes podem ingressar no blockchain Consortium implantando um novo membro no serviço Blockchain do Azure. Para exibir e ingressar no consórcio convidado, você deve especificar a mesma ID de assinatura do Azure usada no convite pelo administrador de rede.
 
-Os administradores podem remover todos os participantes do consórcio, incluindo outros administradores. Os membros só podem remover em si de um consórcio.
+Os administradores podem remover qualquer participante do consórcio, incluindo outros administradores. Os membros só podem se remover de um consórcio.
 
-## <a name="consortium-management-smart-contract"></a>Contrato de inteligentes de gerenciamento Consortium
+## <a name="consortium-management-smart-contract"></a>Contrato inteligente de gerenciamento do consórcio
 
-Gerenciamento de Consortium no serviço de Blockchain do Azure é feito por meio de contratos inteligentes de gerenciamento consortium. Os contratos inteligentes são implantados automaticamente para os nós quando você implanta um novo membro de blockchain.
+O gerenciamento de consórcio no serviço Blockchain do Azure é feito por meio de contratos inteligentes de gerenciamento de consórcio. Os contratos inteligentes são implantados automaticamente em seus nós quando você implanta um novo membro blockchain.
 
-O endereço do contrato raiz consortium gerenciamento inteligente pode ser exibido no portal do Azure. O **RootContract endereço** está na seção de visão geral de blockchain do membro.
+O endereço do contrato inteligente de gerenciamento do consórcio raiz pode ser exibido no portal do Azure. O **endereço RootContract** está na seção visão geral do membro do blockchain.
 
 ![Endereço RootContract](./media/consortium/rootcontract-address.png)
 
-Você pode interagir com o contrato de inteligentes de gerenciamento do consortium usando o gerenciamento de consortium [módulo do PowerShell](manage-consortium-powershell.md), o Azure portal, ou diretamente por meio do contrato inteligente usando o serviço de Blockchain do Azure gerado Ethereum conta.
+Você pode interagir com o contrato inteligente de gerenciamento do consórcio usando o [módulo do PowerShell](manage-consortium-powershell.md)de gerenciamento do consórcio, portal do Azure ou diretamente por meio do contrato inteligente usando a conta Ethereum gerada pelo serviço Blockchain do Azure.
 
-## <a name="ethereum-account"></a>Conta Ethereum
+## <a name="ethereum-account"></a>Conta do Ethereum
 
-Quando um membro é criado, uma chave de conta Ethereum é criada. Azure Blockchain Service usa a chave para criar as transações relacionadas ao gerenciamento de consortium. A chave da conta Ethereum é gerenciada automaticamente pelo serviço de Blockchain do Azure.
+Quando um membro é criado, uma chave de conta do Ethereum é criada. O serviço Blockchain do Azure usa a chave para criar transações relacionadas ao gerenciamento do consórcio. A chave de conta do Ethereum é gerenciada pelo serviço de Blockchain do Azure automaticamente.
 
-A conta de membro pode ser exibida no portal do Azure. A conta do membro é na seção de visão geral de blockchain do membro.
+A conta de membro pode ser exibida no portal do Azure. A conta de membro está na seção de visão geral do membro do blockchain.
 
-![Conta do membro](./media/consortium/member-account.png)
+![Conta de membro](./media/consortium/member-account.png)
 
-Você pode redefinir a sua conta de Ethereum clicando em sua conta do membro e inserindo uma nova senha. O endereço da conta Ethereum e a senha serão redefinidas.  
+Você pode redefinir sua conta do Ethereum clicando em sua conta de membro e inserindo uma nova senha. O endereço da conta do Ethereum e a senha serão redefinidos.  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-[Como gerenciar os membros no serviço de Blockchain do Azure usando o PowerShell](manage-consortium-powershell.md)
+[Como gerenciar Membros no serviço Blockchain do Azure usando o PowerShell](manage-consortium-powershell.md)

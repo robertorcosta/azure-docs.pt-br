@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: d34b1c39d9789409dc365cd4cf07fdc3d5a780fd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b90fc6f1f50ec2ea75619188cca36f78061f28df
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003526"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326798"
 ---
-# <a name="select-clause"></a>Cláusula SELECT
+# <a name="select-clause-in-azure-cosmos-db"></a>Cláusula SELECT no Azure Cosmos DB
 
 Cada consulta consiste em uma cláusula SELECT e em cláusulas opcional from e [Where](sql-query-where.md) , por padrões [de](sql-query-from.md) SQL ANSI. Normalmente, a origem na cláusula FROM é enumerada e a cláusula WHERE aplica um filtro na origem para recuperar um subconjunto de itens JSON. Em seguida, a cláusula SELECT projeta os valores JSON solicitados na lista de seleção.
 
@@ -78,7 +78,7 @@ Ambos `SELECT <select_list>` e `SELECT *` são "açúcar sintático" e podem ser
   
 ## <a name="examples"></a>Exemplos
 
-O exemplo de consulta Select a `address` seguir `Families` retorna `id` de `AndersenFamily`cujas correspondências:
+O exemplo de consulta SELECT a seguir retorna `address` de `Families` cujos `id` corresponde a `AndersenFamily`:
 
 ```sql
     SELECT f.address
@@ -109,7 +109,7 @@ Você pode acessar as propriedades usando o operador de propriedade entre aspas 
 
 ### <a name="nested-properties"></a>Propriedades aninhadas
 
-O exemplo a seguir projeta duas propriedades `f.address.state` aninhadas e. `f.address.city`
+O exemplo a seguir projeta duas propriedades aninhadas, `f.address.state` e `f.address.city`.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -147,7 +147,7 @@ Os resultados são:
     }]
 ```
 
-No exemplo anterior, a cláusula SELECT precisa criar um objeto JSON e, como o exemplo não fornece nenhuma chave, a cláusula usa o nome `$1`da variável de argumento implícito. A consulta a seguir retorna duas variáveis de argumento `$1` implícitas: e `$2`.
+No exemplo anterior, a cláusula SELECT precisa criar um objeto JSON e, como o exemplo não fornece nenhuma chave, a cláusula usa o nome da variável de argumento implícito `$1`. A consulta a seguir retorna duas variáveis de argumento implícitas: `$1` e `$2`.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -170,8 +170,8 @@ Os resultados são:
     }]
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Guia de Introdução](sql-query-getting-started.md)
+- [Introdução](sql-query-getting-started.md)
 - [Amostras do .NET no Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Cláusula WHERE](sql-query-where.md)

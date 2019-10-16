@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 57070b297446badb92ae1df4c435dd54cfe26823
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 622b4e53be68025ad9553ce604041d14885bb2b2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710191"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330840"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem de VHD mestre
 
-Este artigo mostra como preparar uma imagem de VHD (disco rígido virtual) mestre para carregar no Azure, incluindo como criar máquinas virtuais (VMs) e instalar software neles. Essas instruções são para uma configuração específica da área de trabalho virtual do Windows que pode ser usada com os processos existentes da sua organização.
+Este artigo mostra como preparar uma imagem de VHD (disco rígido virtual) mestre para carregar no Azure, incluindo como criar máquinas virtuais (VMs) e instalar software neles. Essas instruções são referentes a uma configuração específica da Área de Trabalho Virtual do Windows que pode ser usada com os processos existentes de sua organização.
 
-## <a name="create-a-vm"></a>Criar uma máquina virtual
+## <a name="create-a-vm"></a>Criar uma VM
 
 O Windows 10 Enterprise Multi-Session está disponível na Galeria de imagens do Azure. Há duas opções para personalizar essa imagem.
 
@@ -62,11 +62,25 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ## <a name="software-preparation-and-installation"></a>Preparação e instalação de software
 
-Esta seção aborda como preparar e instalar o FSLogix, o Windows Defender e outros aplicativos comuns. 
+Esta seção aborda como preparar e instalar o FSLogix e o Windows Defender, bem como algumas opções de configuração básicas para aplicativos e o registro da imagem. 
 
-Se você estiver instalando o Office 365 ProPlus e o OneDrive em sua VM, consulte [instalar o Office em uma imagem VHD mestre](install-office-on-wvd-master-image.md). Siga o link nas próximas etapas do artigo para retornar a este artigo e concluir o processo mestre VHD.
+Se você estiver instalando o Office 365 ProPlus e o OneDrive em sua VM, vá para [instalar o Office em uma imagem VHD mestre](install-office-on-wvd-master-image.md) e siga as instruções para instalar os aplicativos. Depois de terminar, retorne a este artigo.
 
 Se os usuários precisarem acessar determinados aplicativos LOB, recomendamos que você os instale depois de concluir as instruções desta seção.
+
+### <a name="set-up-user-profile-container-fslogix"></a>Configurar o contêiner de perfil de usuário (FSLogix)
+
+Para incluir o contêiner FSLogix como parte da imagem, siga as instruções em [criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Você pode testar a funcionalidade do contêiner FSLogix com este guia de [início rápido](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
+
+### <a name="configure-windows-defender"></a>Configurar o Windows Defender
+
+Se o Windows Defender estiver configurado na VM, verifique se ele está configurado para não verificar todo o conteúdo dos arquivos VHD e VHDX durante o anexo.
+
+Essa configuração remove apenas a verificação de arquivos VHD e VHDX durante o anexo, mas não afeta a verificação em tempo real.
+
+Para obter instruções mais detalhadas sobre como configurar o Windows Defender no Windows Server, consulte [configurar exclusões do Windows Defender antivírus no Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
+
+Para saber mais sobre como configurar o Windows Defender para excluir determinados arquivos da verificação, consulte [configurar e validar exclusões com base na extensão do arquivo e no local da pasta](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
 
 ### <a name="disable-automatic-updates"></a>Desabilitar Atualizações Automáticas
 
@@ -88,20 +102,6 @@ Execute este comando para especificar um layout inicial para PCs com Windows 10.
 ```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
-
-### <a name="set-up-user-profile-container-fslogix"></a>Configurar o contêiner de perfil de usuário (FSLogix)
-
-Para incluir o contêiner FSLogix como parte da imagem, siga as instruções em [criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Você pode testar a funcionalidade do contêiner FSLogix com este guia de [início rápido](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
-
-### <a name="configure-windows-defender"></a>Configurar o Windows Defender
-
-Se o Windows Defender estiver configurado na VM, verifique se ele está configurado para não verificar todo o conteúdo dos arquivos VHD e VHDX durante o anexo.
-
-Essa configuração remove apenas a verificação de arquivos VHD e VHDX durante o anexo, mas não afeta a verificação em tempo real.
-
-Para obter instruções mais detalhadas sobre como configurar o Windows Defender no Windows Server, consulte [configurar exclusões do Windows Defender antivírus no Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
-
-Para saber mais sobre como configurar o Windows Defender para excluir determinados arquivos da verificação, consulte [configurar e validar exclusões com base na extensão do arquivo e no local da pasta](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
 
 ### <a name="configure-session-timeout-policies"></a>Configurar políticas de tempo limite de sessão
 
@@ -157,7 +157,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 ### <a name="include-additional-language-support"></a>Incluir suporte a idiomas adicionais
 
-Este artigo não aborda como configurar o suporte a idiomas e regionais. Para obter mais informações, confira os seguintes artigos:
+Este artigo não aborda como configurar o suporte a idiomas e regionais. Para obter mais informações, consulte os seguintes artigos:
 
 - [Adicionar idiomas a imagens do Windows](https://docs.microsoft.com/windows-hardware/manufacture/desktop/add-language-packs-to-windows)
 - [Recursos sob demanda](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities)
@@ -220,12 +220,12 @@ As instruções a seguir lhe dirão como carregar sua imagem mestra em uma conta
 
     ![Uma captura de tela da notificação "imagem criada com êxito".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você tem uma imagem, você pode criar ou atualizar pools de hosts. Para saber mais sobre como criar e atualizar pools de hosts, consulte os seguintes artigos:
 
 - [Criar um pool de host com um modelo do Azure Resource Manager](create-host-pools-arm-template.md)
-- [Tutorial: Criar um pool de host com o Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Tutorial: criar um pool de hosts com o Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Criar um pool de host com o PowerShell](create-host-pools-powershell.md)
 - [Criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md)
 - [Configurar o método de balanceamento de carga de área de trabalho virtual do Windows](configure-host-pool-load-balancing.md)

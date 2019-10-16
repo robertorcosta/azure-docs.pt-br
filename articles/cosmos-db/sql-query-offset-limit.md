@@ -1,23 +1,23 @@
 ---
-title: Cláusula de deslocamento de limite no Azure Cosmos DB
-description: Saiba mais sobre a cláusula de deslocamento de limite para o Azure Cosmos DB.
+title: Cláusula de limite de deslocamento no Azure Cosmos DB
+description: Saiba mais sobre a cláusula de limite de deslocamento para Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 60ac28c80e9f7cc72f4d6005c12cb5f68671341e
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 7aae56783f83f13b50321c88d69f07d910e589dd
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342604"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326884"
 ---
-# <a name="offset-limit-clause"></a>Cláusula de deslocamento de limite
+# <a name="offset-limit-clause-in-azure-cosmos-db"></a>Cláusula de limite de deslocamento no Azure Cosmos DB
 
-A cláusula de limite de deslocamento é uma cláusula opcional para ignorar e levar a um número de valores da consulta. A contagem de deslocamento e a contagem de limite são necessários na cláusula de deslocamento de limite.
+A cláusula de limite de deslocamento é uma cláusula opcional para ignorar e, em seguida, pegar um número de valores da consulta. A contagem de deslocamento e a contagem de limites são necessárias na cláusula de limite de deslocamento.
 
-Quando o limite de deslocamento é usado em conjunto com uma cláusula ORDER BY, o conjunto de resultados é produzido, fazendo ignorar e levar nos valores ordenados. Se nenhuma cláusula ORDER BY for usada, isso resultará em uma ordem determinista de valores.
+Quando o limite de deslocamento é usado em conjunto com uma cláusula ORDER BY, o conjunto de resultados é produzido ao fazer a ação de ignorar e assumir os valores ordenados. Se nenhuma cláusula ORDER BY for usada, ela resultará em uma ordem determinística de valores.
 
 ## <a name="syntax"></a>Sintaxe
   
@@ -29,7 +29,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 - `<offset_amount>`
 
-   Especifica o número inteiro de itens que devem ignorar os resultados da consulta.
+   Especifica o número inteiro de itens que os resultados da consulta devem ignorar.
 
 - `<limit_amount>`
   
@@ -37,11 +37,11 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## <a name="remarks"></a>Comentários
   
-  A contagem de deslocamento e a contagem de limite são necessárias na cláusula de deslocamento de limite. Se um opcional `ORDER BY` cláusula as for usada, o conjunto de resultados é produzido, fazendo a ignorar sobre os valores ordenados. Caso contrário, a consulta retornará uma ordem fixa de valores. No momento, esta cláusula é tem suporte para consultas em uma única partição, ele ainda não suportam a consultas entre partições.
+  A contagem de deslocamento e a contagem de limites são necessárias na cláusula de limite de deslocamento. Se uma cláusula opcional `ORDER BY` for usada, o conjunto de resultados será produzido fazendo o ignorar os valores ordenados. Caso contrário, a consulta retornará uma ordem fixa de valores. Atualmente, essa cláusula tem suporte para consultas em apenas uma única partição, as consultas entre partições ainda não dão suporte a ela.
 
 ## <a name="examples"></a>Exemplos
 
-Por exemplo, aqui está uma consulta que ignora o primeiro valor e retorna o segundo valor (na ordem do nome da cidade do residente):
+Por exemplo, aqui está uma consulta que ignora o primeiro valor e retorna o segundo valor (na ordem do nome da cidade residente):
 
 ```sql
     SELECT f.id, f.address.city
@@ -80,8 +80,8 @@ Os resultados são:
     ]
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Guia de Introdução](sql-query-getting-started.md)
+- [Introdução](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)
 - [Cláusula ORDER BY](sql-query-order-by.md)

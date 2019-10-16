@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 395e8b1bc92ea64c8a5cea114be443d6411c7412
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: c8fc6c552920cf7790bf5c89531fc04ad4c57d36
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170325"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333210"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Crie aplicativos de armazenamento do Azure altamente disponíveis com GZRS (armazenamento com redundância de zona geográfica) (visualização)
 
@@ -25,7 +25,7 @@ A Microsoft recomenda o uso do GZRS para aplicativos que exigem consistência, d
 
 ## <a name="about-the-preview"></a>Sobre a visualização
 
-Somente as contas de armazenamento de uso geral v2 dão suporte a GZRS e RA-GZRS. Para obter mais informações sobre os tipos de conta de armazenamento, consulte [Visão geral da conta de armazenamento do Azure](storage-account-overview.md). GZRS e RA-GZRS dão suporte a blobs de blocos, blobs de páginas que não são discos VHD, arquivos, tabelas e filas.
+Somente as contas de armazenamento de uso geral v2 dão suporte a GZRS e RA-GZRS. Para obter mais informações sobre os tipos de conta de armazenamento, consulte [Visão geral da conta de armazenamento do Azure](storage-account-overview.md). GZRS e RA-GZRS dão suporte a blobs de blocos, blobs de páginas (que não são discos VHD), arquivos, tabelas e filas.
 
 GZRS e RA-GZRS estão disponíveis atualmente para visualização nas seguintes regiões:
 
@@ -49,7 +49,7 @@ Quando os dados são gravados em uma conta de armazenamento com GZRS ou RA-GZRS 
 > [!IMPORTANT]
 > A replicação assíncrona envolve um atraso entre a hora em que os dados são gravados na região primária e quando eles são replicados para a região secundária. Caso ocorra um desastre na região, as alterações que ainda não foram replicadas para a região secundária poderão ser pedidas se os dados não puderem ser recuperados na região primária.
 
-Ao criar uma conta de armazenamento, você especifica como os dados dessa conta serão replicados e também especifica a região primária dessa conta. A região secundária emparelhada para uma conta replicada geograficamente é determinada com base na região primária e não pode ser alterada. Para obter informações atualizadas sobre regiões compatíveis com o Azure, consulte [Continuidade dos negócios e recuperação de desastres (BCDR): regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Para obter informações sobre como criar uma conta de armazenamento usando GZRS ou RA-GZRS, consulte [criar uma conta de armazenamento](storage-quickstart-create-account.md).
+Ao criar uma conta de armazenamento, você especifica como os dados dessa conta serão replicados e também especifica a região primária dessa conta. A região secundária emparelhada para uma conta replicada geograficamente é determinada com base na região primária e não pode ser alterada. Para obter informações atualizadas sobre regiões suportadas pelo Azure, consulte [Continuidade de negócios e recuperação de desastre (BCDR): regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Para obter informações sobre como criar uma conta de armazenamento usando GZRS ou RA-GZRS, consulte [criar uma conta de armazenamento](storage-quickstart-create-account.md).
 
 ### <a name="use-ra-gzrs-for-high-availability"></a>Usar RA-GZRS para alta disponibilidade
 
@@ -137,19 +137,19 @@ Para solicitar uma migração ao vivo, use o [portal do Azure](https://ms.portal
 2. Preencha o **Básico** com base nas informações da sua conta. Na seção **serviço** , selecione **Gerenciamento de conta de armazenamento** e especifique a conta a ser migrada.
 3. Selecione **Avançar**.
 4. Especifique os seguintes valores na seção **Problema**:
-    - **Gravidade**: Deixe o valor padrão como-está.
-    - **Tipo de problema**: Selecione **Migração de Dados**.
-    - **Categoria**: Selecione **migrar para (ra-) GZRS em uma região**.
-    - **Título**: Digite um título descritivo, por exemplo, **(ra-) GZRS de migração de conta**.
-    - **Detalhes**: Digite detalhes adicionais na caixa de **detalhes** , por exemplo, "Eu gostaria de migrar para GZRS de [lRS, grs] na região \_ @ no__t-2". ou "Eu gostaria de migrar para o RA-GZRS de [LRS, RA-GRS] na região \_ @ no__t-1".
+    - **Severidade**: deixe o valor padrão como-está.
+    - **Tipo de problema**: selecione **migração de dados**.
+    - **Categoria**: selecione **migrar para (ra-) GZRS em uma região**.
+    - **Título**: digite um título descritivo, por exemplo, **(ra-) GZRS de migração de conta**.
+    - **Detalhes**: digite detalhes adicionais na caixa de **detalhes** , por exemplo, "Eu gostaria de migrar para GZRS de [lRS, GRS] na região \_ @ no__t-3". ou "Eu gostaria de migrar para o RA-GZRS de [LRS, RA-GRS] na região \_ @ no__t-1".
 5. Selecione **Avançar**.
 6. Verifique se as informações de contato estão corretas na **informações de contato** folha.
-7. Selecione **Criar**.
+7. Clique em **Criar**.
 
 Um representante de suporte entrará em contato com você para fornecer assistência.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 - [Replicação de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
-- [Armazenamento com redundância local (LRS): Redundância de dados de baixo custo para o Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
-- [ZRS (armazenamento com redundância de zona): Aplicativos de Armazenamento do Azure altamente disponíveis](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 
+- [LRS (armazenamento com redundância local): redundância de dados de baixo custo para Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
+- [ZRS (armazenamento com redundância de zona): aplicativos de Armazenamento do Microsoft Azure altamente disponíveis](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 

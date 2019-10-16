@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f3cbf740016a4c162c63343be4cb9cd577f85935
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c05b79d2f1da8076b507ca9ee7a06504de21d5ea
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699364"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333171"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Visão geral de instantâneos de compartilhamento para Arquivos do Azure 
 Os Arquivos do Azure fornecem a funcionalidade de tirar instantâneos de compartilhamentos de arquivos. Os instantâneos de compartilhamento capturam o estado de compartilhamento naquele ponto no tempo. Neste artigo, descreveremos quais recursos os instantâneos de compartilhamento fornecem e como você pode aproveitá-los no seu caso de uso personalizado.
@@ -71,7 +71,7 @@ Você pode copiar arquivos individuais de um instantâneo de compartilhamento de
 
 O instantâneo de compartilhamento permanece intacto após a cópia, mas o compartilhamento de arquivos base é substituído por uma cópia dos dados que estavam disponíveis no instantâneo de compartilhamento. Todos os arquivos restaurados contam como “conteúdo alterado”.
 
-Você pode copiar um arquivo em um instantâneo de compartilhamento para um destino com um nome diferente. O arquivo de destino resultante é um arquivo gravável que não é um instantâneo de compartilhamento.
+Você pode copiar um arquivo em um instantâneo de compartilhamento para um destino diferente com um nome diferente. O arquivo de destino resultante é um arquivo gravável que não é um instantâneo de compartilhamento. Nesse caso, o compartilhamento de arquivos base permanecerá intacto.
 
 Quando um arquivo de destino é substituído por uma cópia, todos os instantâneos de compartilhamento associados ao arquivo de destino original permanecem intactos.
 
@@ -82,7 +82,7 @@ Antes de implantar o agendador de instantâneos de compartilhamento, leve em con
 
 Compartilhamentos de instantâneos fornecem apenas a proteção no nível de arquivo. Compartilhamentos de instantâneos não impedem exclusões de digitação acidental em uma conta de armazenamento ou compartilhamento de arquivos. Para ajudar a proteger a conta de armazenamento de exclusões acidentais, você pode bloquear a conta de armazenamento ou o grupo de recursos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Trabalhar com instantâneos de compartilhamento em:
     - [PowerShell](storage-how-to-use-files-powershell.md)
     - [CLI](storage-how-to-use-files-cli.md)

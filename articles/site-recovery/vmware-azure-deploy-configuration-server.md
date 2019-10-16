@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: c25ca8c27b84f34b025ec5abce00c8d8c70e5df6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5812cc73fb1da58c591d0593e079851e05bd0940
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125688"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331955"
 ---
 # <a name="deploy-a-configuration-server"></a>Implante um servidor de configuração
 
@@ -32,26 +32,26 @@ Os requisitos mínimos de hardware para um servidor de configuração estão res
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
-## <a name="azure-active-directory-permission-requirements"></a>Requisitos de permissão do Active Directory do Azure
+## <a name="azure-active-directory-permission-requirements"></a>Requisitos de permissão do Azure Active Directory
 
-Você precisar de um usuário com **um dos seguintes** conjunto de permissões no AAD (Azure Active Directory) para registrar o servidor de configuração com os serviços do Azure Site Recovery.
+Você precisa de um usuário com **uma das seguintes** permissões definidas no AAD (Azure Active Directory) para registrar o servidor de configuração com os serviços Azure site Recovery.
 
-1. Usuário deve ter a função de "Desenvolvedor do aplicativo" para criar o aplicativo.
-   1. Para verificar, entrar no portal do Azure</br>
-   1. Navegue para o Azure Active Directory > funções e os administradores</br>
-   1. Verifique se a função de "Desenvolvedor do aplicativo" é atribuída ao usuário. Se não, use um usuário com essa permissão, ou vá para [administrador para habilitar a permissão](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+1. O usuário deve ter a função "desenvolvedor do aplicativo" para criar o aplicativo.
+   1. Para verificar, entre no portal do Azure</br>
+   1. Navegue até Azure Active Directory funções e administradores do ></br>
+   1. Verifique se a função "desenvolvedor de aplicativos" está atribuída ao usuário. Caso contrário, use um usuário com essa permissão ou entre em contato com [o administrador para habilitar a permissão](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
     
-1. Se não puder ser atribuída a função "Desenvolvedor de aplicativos", certifique-se de que o sinalizador de "Usuário pode registrar o aplicativo" é definido como true para o usuário criar a identidade. Para habilitar acima permissões,
-   1. Entre no portal do Azure
-   1. Navegue para o Azure Active Directory > configurações do usuário
-   1. Em * * registros do aplicativo ","Os usuários podem registrar aplicativos"deve ser escolhido como"Sim".
+1. Se a função "desenvolvedor de aplicativos" não puder ser atribuída, verifique se o sinalizador "o usuário pode registrar o aplicativo" está definido como verdadeiro para o usuário criar a identidade. Para habilitar as permissões acima,
+   1. Entre no Portal do Azure
+   1. Navegue até Azure Active Directory > configurações de usuário
+   1. Em * * Registros de aplicativo "," os usuários podem registrar aplicativos "devem ser escolhidos como" Sim ".
 
       ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> É Services(ADFS) de Federação do Active Directory **não tem suporte**. Use uma conta gerenciada por meio [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+> **Não há suporte para**serviços de Federação do Active Directory (AD FS) (ADFS). Use uma conta gerenciada por meio de [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
 
-## <a name="capacity-planning"></a>planejamento de capacidade
+## <a name="capacity-planning"></a>Planejamento de capacidade
 
 Os requisitos de dimensionamento para o servidor de configuração dependem da taxa potencial de alteração de dados. Use essa tabela como um guia.
 
@@ -74,7 +74,7 @@ Se você estiver replicando mais de uma VM do VMware, leia as [considerações d
    >Também é possível baixar a versão mais recente do modelo de servidor de configuração diretamente do [Centro de Download da Microsoft](https://aka.ms/asrconfigurationserver).
 
 > [!NOTE]
-> A licença fornecida com o modelo OVA é uma licença de avaliação válida por 180 dias. Após esse período, cliente precisa ativar o windows com uma licença adquirida.
+> A licença fornecida com o modelo OVA é uma licença de avaliação válida por 180 dias. Poste esse período, o cliente precisa ativar as janelas com uma licença adquirida.
 
 ## <a name="import-the-template-in-vmware"></a>Importar o modelo para a VMware
 
@@ -99,6 +99,9 @@ Se você estiver replicando mais de uma VM do VMware, leia as [considerações d
 
 ## <a name="add-an-additional-adapter"></a>Adicionar mais um adaptador
 
+> [!NOTE]
+> Duas NICs serão necessárias se você estiver planejando manter os endereços IP dos computadores de origem no failover e desejar fazer failback para o local mais tarde. Uma NIC será conectada a computadores de origem e a outra NIC será usada para a conectividade do Azure.
+
 Se você deseja adicionar mais uma NIC ao servidor de configuração, adicione-o antes de registrar o servidor no cofre. Adicionar outros adaptadores não é suportado após o registro.
 
 1. No inventário vSphere Cliente, clique com o botão direito na VM e selecione **Editar configurações**.
@@ -115,19 +118,19 @@ Se você deseja adicionar mais uma NIC ao servidor de configuração, adicione-o
 5. Insira um nome que seja usado para registrar o servidor de configuração com o Site Recovery. Em seguida, selecione **Avançar**.
 6. A ferramenta verifica se a VM pode se conectar ao Azure. Depois que a conexão for estabelecida, selecione **Entrar** para fazer logon na sua assinatura do Azure.</br>
     a. As credenciais devem ter acesso ao cofre no qual você deseja registrar o servidor de configuração.</br>
-    b. Certifique-se de que a conta de usuário escolhido tem permissões para criar um aplicativo no Azure. Para habilitar as permissões necessárias, siga as diretrizes fornecidas [aqui](#azure-active-directory-permission-requirements).
+    b. Verifique se a conta de usuário escolhida tem permissões para criar um aplicativo no Azure. Para habilitar as permissões necessárias, siga as diretrizes fornecidas [aqui](#azure-active-directory-permission-requirements).
 7. A ferramenta executa algumas tarefas de configuração e, em seguida, é reinicializada.
 8. Entre novamente no computador. O assistente de gerenciamento do servidor de configuração será iniciado **automaticamente** em alguns segundos.
 
 ### <a name="configure-settings"></a>Configurar definições
 
-1. No assistente de gerenciamento do servidor de configuração, selecione **Configurar conectividade**. Nas listas suspensas, primeiro selecione a NIC usada pelo servidor de processo interno para descoberta e instalação por push do serviço de mobilidade em computadores de origem e, em seguida, selecione a NIC que o servidor de configuração usa para conectividade com o Azure. Em seguida, selecione **Salvar**. Depois de configurado, você não pode alterar essa configuração. É altamente recomendável não alterar o endereço IP de um servidor de configuração. Certifique-se de que o IP atribuído ao servidor de configuração é o IP estático e não o IP DHCP.
-2. Na **selecionar serviços de recuperação do cofre**, entrar no Microsoft Azure com as credenciais usadas na **etapa 6** de "[registrar o servidor de configuração com os serviços do Azure Site Recovery](#register-the-configuration-server-with-azure-site-recovery-services)" .
-3. Depois de entrar, selecione sua assinatura do Azure e o grupo de recursos relevantes e o cofre.
+1. No assistente de gerenciamento do servidor de configuração, selecione **Configurar conectividade**. Nas listas suspensas, primeiro selecione a NIC usada pelo servidor de processo interno para descoberta e instalação por push do serviço de mobilidade em computadores de origem e, em seguida, selecione a NIC que o servidor de configuração usa para conectividade com o Azure. Em seguida, selecione **Salvar**. Você não pode alterar essa configuração depois que ela é configurada. É altamente recomendável não alterar o endereço IP de um servidor de configuração. Certifique-se de que o IP atribuído ao servidor de configuração é o IP estático e não o IP DHCP.
+2. Em **selecionar cofre dos serviços de recuperação**, entre no Microsoft Azure com as credenciais usadas na **etapa 6** de "[registrar servidor de configuração com serviços de Azure site Recovery](#register-the-configuration-server-with-azure-site-recovery-services)".
+3. Depois de entrar, selecione sua assinatura do Azure e o grupo de recursos e o cofre relevantes.
 
     > [!NOTE]
     > Uma vez registrado, não há flexibilidade para alterar o cofre de serviços de recuperação.
-    > Cofre dos serviços de recuperação alteração exigiria desassociação de servidor de configuração do cofre atual e a replicação de todas as máquinas virtuais protegidas no servidor de configuração é interrompida. Saiba [mais](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault).
+    > A alteração do cofre de serviços de recuperação exigiria a desassociação do servidor de configuração do cofre atual, e a replicação de todas as máquinas virtuais protegidas no servidor de configuração será interrompida. Saiba [mais](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault).
 
 4. Em **Instalar software de terceiros**,
 
@@ -152,7 +155,7 @@ Para atualizar o servidor de configuração para a versão mais recente, siga es
 
 Para evitar interrupções na replicação em andamento, assegure-se de que o endereço IP do servidor de configuração não seja alterado após o servidor de configuração ter sido registrado em uma área segura. Você pode aprender mais sobre as tarefas comuns de gerenciamento do servidor de configuração [aqui](vmware-azure-manage-configuration-server.md).
 
-## <a name="faq"></a>Perguntas frequentes
+## <a name="faq"></a>Perguntas Frequentes
 
 1. Por quanto tempo a licença fornecida no servidor de configuração implantada por meio do OVF é válida? O que acontece se eu não reativar a licença?
 
@@ -184,7 +187,7 @@ Para evitar interrupções na replicação em andamento, assegure-se de que o en
     No **Cofre dos Serviços de Recuperação**, **Gerenciar** > **Infraestrutura do Site Recovery** > **Servidores de Configuração**. Em Servidores, selecione **Baixar chave de registro** para baixar o arquivo de credenciais do cofre.
 10. Posso clonar um servidor de configuração existente e usá-lo para orquestração de replicação?
 
-    **Não**, não há suporte para o uso de um componente de servidor de configuração clonado. Clone do servidor de processo de expansão também é um cenário sem suporte. Componentes de clonagem do Site Recovery afetam replicações contínuas.
+    **Não**, não há suporte para o uso de um componente de servidor de configuração clonado. O clone do servidor de processo de escalabilidade horizontal também é um cenário sem suporte. Clonar Site Recovery componentes impactar as replicações em andamento.
 
 11. Posso alterar o IP do servidor de configuração?
 
@@ -201,6 +204,6 @@ Para obter mais respostas a perguntas frequentes sobre o servidor de configuraç
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Configurar a recuperação de desastre de [VMs do VMware](vmware-azure-tutorial.md) para o Azure.

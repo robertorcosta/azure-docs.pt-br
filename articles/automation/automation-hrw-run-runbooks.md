@@ -9,18 +9,18 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 100740e87c13887a3e7ac85aa5fce3d67c838ea0
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 5ff36230095b90418a2619bbf1c5bb02863072b5
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240319"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372842"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks em um Hybrid Runbook Worker
 
 Não há diferença na estrutura de runbooks executados na Automação do Azure daqueles que executam em um Hybrid Runbook Worker. Provavelmente, os runbooks usados em cada um serão bem diferentes. Essa diferença ocorre porque os runbooks direcionados a um Hybrid Runbook Worker normalmente gerenciam recursos no próprio computador local, ou com base em recursos no ambiente local onde ele é implantado. Os runbooks na Automação do Azure normalmente gerenciam recursos na nuvem do Azure.
 
-Ao criar runbooks para executar em um Hybrid Runbook Worker, é necessário editar e testar os runbooks no computador que hospeda o Hybrid Worker. O computador host possui todos os módulos e acesso à rede do PowerShell necessários para gerenciar e acessar os recursos locais. Após um runbook ser testado no computador do Hybrid Worker, você poderá carregá-lo no ambiente de Automação do Azure, onde ficará disponível para execução no Hybrid Worker. É importante conhecer os trabalhos executados na conta Sistema Local para Windows ou em uma conta de usuário especial `nxautomation` no Linux. No Linux, isso significa que você deve garantir que a `nxautomation` conta tenha acesso ao local onde você armazena seus módulos. Ao usar o cmdlet [install-Module](/powershell/module/powershellget/install-module) , especifique **AllUsers** para o `-Scope` parâmetro para confirmar que a `naxautomation` conta tem acesso.
+Ao criar runbooks para executar em um Hybrid Runbook Worker, é necessário editar e testar os runbooks no computador que hospeda o Hybrid Worker. O computador host possui todos os módulos e acesso à rede do PowerShell necessários para gerenciar e acessar os recursos locais. Após um runbook ser testado no computador do Hybrid Worker, você poderá carregá-lo no ambiente de Automação do Azure, onde ficará disponível para execução no Hybrid Worker. É importante conhecer os trabalhos executados na conta Sistema Local para Windows ou em uma conta de usuário especial `nxautomation` no Linux. No Linux, isso significa que você deve garantir que a conta `nxautomation` tenha acesso ao local onde você armazena seus módulos. Ao usar o cmdlet [install-Module](/powershell/module/powershellget/install-module) , especifique **AllUsers** para o parâmetro `-Scope` para confirmar que a conta de `naxautomation` tem acesso.
 
 Para obter mais informações sobre o PowerShell no Linux, consulte [problemas conhecidos do PowerShell em plataformas que não são do Windows](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms).
 
@@ -89,9 +89,8 @@ Para usar uma identidade gerenciada para recursos do Azure em um Hybrid Runbook 
 
 1. Criar uma VM do Azure
 2. [Configurar identidades gerenciadas para recursos do Azure em sua VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
-3. [Conceder acesso a um grupo de recursos no Resource Manager para sua VM](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)
-4. [Obter um token de acesso usando a identidade gerenciada atribuída pelo sistema da VM](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
-5. [Instalar o Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) na máquina virtual.
+3. [Conceda à sua VM acesso a um grupo de recursos no Resource Manager](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager) tutorial-Windows-VM-Access-ARM. MD # Get-a-Access-token-usando-The-VMs-System-Assign-Managed-Identity-and-use-it-to-Call-Azure-Resource-Manager)
+4. [Instalar o Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) na máquina virtual.
 
 Depois que as etapas anteriores forem concluídas, você poderá usar `Connect-AzureRmAccount -Identity` no runbook para autenticação nos recursos do Azure. Essa configuração reduz a necessidade de utilizar uma conta Executar como e gerenciar o certificado para a conta Executar como.
 
@@ -102,6 +101,9 @@ Connect-AzureRmAccount -Identity
 # Get all VM names from the subscription
 Get-AzureRmVm | Select Name
 ```
+
+> [!NOTE]
+> `Connect-AzureRMAccount -Identity` funciona para um Hybrid Runbook Worker usando uma identidade atribuída pelo sistema e uma identidade de usuário único atribuída. Se você precisar usar várias identidades atribuídas pelo usuário no HRW, deverá especificar o parâmetro `-AccountId` para selecionar a identidade específica atribuída ao usuário.
 
 ### <a name="runas-script"></a>Conta de automação Executar como
 
@@ -308,7 +310,7 @@ O runbook assinado terá o nome `<runbook name>.asc`.
 
 O runbook assinado agora pode ser carregado na Automação do Azure e pode ser executado como um runbook normal.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre os diferentes métodos que podem ser usados para iniciar um runbook, confira [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md).
 * Para entender as várias maneiras de trabalhar com runbooks do PowerShell na Automação do Azure usando o editor de texto, confira [Editar um runbook na Automação do Azure](automation-edit-textual-runbook.md)

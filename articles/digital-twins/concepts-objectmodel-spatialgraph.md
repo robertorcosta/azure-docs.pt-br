@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 67a4aceb157ee3fe1b1d1553efd587a0f2838d88
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 1186fec8d50d7e986d1c613cd96f741c34ca181a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950003"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372610"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Noções básicas sobre modelos de objeto e grafos de inteligência espacial dos Gêmeos Digitais
 
@@ -78,14 +78,14 @@ Após implantar os Gêmeos Digitais pelo [portal do Azure](https://portal.azure.
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Nome | Substitua por |
+| name | Substitua por |
 | --- | --- |
 | NOME_DA_SUA_INSTÂNCIA | O nome da instância dos Gêmeos Digitais |
 | SUA_LOCALIZAÇÃO | Em qual região do servidor de sua instância está hospedada |
 
  O formato completo da URL aparece nesta imagem.
 
-(![API de Gerenciamento do portal de Gêmeos Digitais](media/concepts/digital-twins-spatial-graph-management-api-url.png)] (Media/Concepts/digital-Twins-Spatial-Graph-Management-API-URL. png # Lightbox)
+[API de gerenciamento do portal de gêmeos @no__t 1Digital](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
 
 Para obter mais detalhes sobre como usar grafos de inteligência espacial, visite a versão prévia das APIs de Gerenciamento de Gêmeos Digitais do Azure.
 
@@ -97,7 +97,7 @@ Saiba mais sobre [como usar o Swagger](how-to-use-swagger.md).
 
 Todas as chamadas à API devem ser autenticadas usando [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). As APIs seguem as [convenções de Diretrizes da API REST da Microsoft](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). A maioria das APIs que retorna coleções é compatível com opções de consulta do sistema [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre conectividade do dispositivo e como enviar mensagens de telemetria para Gêmeos Digitais, leia [Entrada de telemetria e conectividade do dispositivo de Gêmeos Digitais do Azure](concepts-device-ingress.md).
 

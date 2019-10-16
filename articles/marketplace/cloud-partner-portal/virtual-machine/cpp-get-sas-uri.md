@@ -1,5 +1,5 @@
 ---
-title: Obter o URI de assinatura de acesso compartilhado para sua imagem VM do Microsoft baseado no Azure | O Azure Marketplace
+title: Obter o URI da assinatura de acesso compartilhado para sua imagem VM baseada em Microsoft Azure | Azure Marketplace
 description: Explica como obter o URI de assinatura de acesso compartilhado (SAS) para a sua imagem VM.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 4da82b2f6aaa3fc664d2e91b80722329533b0cd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c242fbcd19187abb608ca80a49d04dae195bd7c6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938676"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374363"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtenha o URI de assinatura de acesso compartilhado para suas imagens VM
 
@@ -33,7 +33,7 @@ A URL de SAS pode ser gerada de duas maneiras comuns usando as seguintes ferrame
 -   CLI do Azure - recomendado para ambientes de integração contínua ou automatizada e sistemas operacionais Windows
 
 
-### <a name="azure-cli"></a>CLI do Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Use as etapas a seguir para gerar um URI de SAS com a CLI do Azure.
 
@@ -44,7 +44,7 @@ Use as etapas a seguir para gerar um URI de SAS com a CLI do Azure.
    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
    ```
     
-3. Edite o arquivo para fornecer os seguintes valores de parâmetro.  Datas devem ser fornecidas no formato de data e hora UTC, por exemplo `10-25-2016T00:00:00Z`.
+3. Edite o arquivo para fornecer os seguintes valores de parâmetro.  Datas devem ser fornecidas no formato de data e hora UTC, por exemplo `2016-10-25T00:00:00Z`.
    - `<account-name>` -O nome da conta de armazenamento do Azure
    - `<account-key>` -Sua chave de conta de armazenamento do Azure
    - `<vhd-name>` - nome do VHD
@@ -129,6 +129,6 @@ Revise e verifique se que cada URI SAS gerado usando a seguinte lista de verific
 - Copie e cole o URI em um navegador para começar a fazer o download do blob associado.  (você pode cancelar a operação antes que o download seja concluído)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você estiver tendo dificuldades para gerar um URI de SAS, consulte [URL de SAS comum emite](./cpp-common-sas-url-issues.md).  Caso contrário, salve as URI(s) a SAS para um local seguro para uso posterior. Será necessário [publicar sua oferta VM](./cpp-publish-offer.md) no Portal do Cloud Partner.

@@ -9,11 +9,11 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: ba9cda5aeebaf0764068a463cdb55f3ef5542ea3
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 22a5a2e157c0b2095673e75e7a3bc9ccb80f8ffd
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "69997812"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory 
@@ -67,9 +67,6 @@ A seção a seguir ajudará você a decidir qual método de autenticação é ad
 
 ## <a name="decision-tree"></a>Árvore de decisão
 
-> [!NOTE]
-> PTA só funciona com uma ID alternativa quando UserPrincipalName é escolhido como a ID alternativa. Somente então o UserPrincipalName local será sincronizado do AD para o AAD. Para obter mais informações, consulte [a autenticação de passagem dá suporte à "ID alternativa" como o nome de usuário, em vez de "userPrincipalName"?](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname).
-
 ![Árvore de decisão da autenticação do Azure AD](./media/choose-ad-authn/azure-ad-authn-image1.png)
 
 Detalhes sobre questões de decisão:
@@ -89,7 +86,7 @@ Detalhes sobre questões de decisão:
 
 ## <a name="detailed-considerations"></a>Considerações detalhadas
 
-### <a name="cloud-authentication-password-hash-synchronization"></a>Autenticação na nuvem: Sincronização de hash de senha
+### <a name="cloud-authentication-password-hash-synchronization"></a>Autenticação na nuvem: sincronização de hash de senha
 
 * **Esforço**. A sincronização de hash de senha exige o mínimo de esforço de implantação, manutenção e infraestrutura.  Esse nível de esforço normalmente aplica-se a organizações que precisam apenas que seus usuários entrem no Office 365, em aplicativos SaaS e em outros recursos baseados no Azure AD. Quando ativada, a sincronização de hash de senha faz parte do processo de sincronização do Azure AD Connect e é executada a cada dois minutos.
 
@@ -111,7 +108,7 @@ Detalhes sobre questões de decisão:
 
 Veja [como implementar a sincronização de hash de senha](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) para obter as etapas de implantação.
 
-### <a name="cloud-authentication-pass-through-authentication"></a>Autenticação na nuvem: Autenticação de Passagem  
+### <a name="cloud-authentication-pass-through-authentication"></a>Autenticação na nuvem: autenticação de passagem  
 
 * **Esforço**. Para a autenticação de passagem, você precisa de um ou mais (recomendamos três) agentes leves instalados nos servidores existentes. Esses agentes precisam ter acesso ao Active Directory Domain Services local, incluindo os controladores de domínio locais do AD. Esses precisam ter acesso de saída à Internet e acesso aos controladores de domínio. Por esse motivo, não há suporte para implantação dos agentes em uma rede de perímetro. 
 
@@ -179,16 +176,16 @@ Os diagramas a seguir descrevem os componentes da arquitetura de alto nível nec
 
 |Consideração|Sincronização de hash de senha + SSO Contínuo|Autenticação de Passagem + SSO Contínuo|Federação com o AD FS|
 |:-----|:-----|:-----|:-----|
-|Onde a autenticação ocorre?|Na nuvem|Na nuvem, após uma troca de verificação de senha segura com o agente de autenticação local|Configuração local|
+|Onde a autenticação ocorre?|Na nuvem|Na nuvem, após uma troca de verificação de senha segura com o agente de autenticação local|Local|
 |Quais são os requisitos de servidor local além do sistema de provisionamento: Azure AD Connect?|Nenhum|Um servidor para cada agente de autenticação adicional|Dois ou mais servidores do AD FS<br><br>Dois ou mais servidores WAP na rede de perímetro/DMZ|
 |Quais são os requisitos de Internet e de redes locais, além do sistema de provisionamento?|Nenhum|[Acesso à Internet de saída](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) dos servidores executando agentes de autenticação|[Acesso à Internet de entrada](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) aos servidores WAP no perímetro<br><br>Acesso à rede de entrada aos servidores AD FS por meio dos servidores WAP no perímetro<br><br>Balanceamento de carga de rede|
-|Há algum requisito de certificado SSL?|Não|Não|sim|
-|Há alguma solução de monitoramento de integridade?|Não requerido|Status do agente fornecido pelo [Centro de administração do Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
-|Usuários podem obter o logon único para recursos de nuvem de dispositivos que ingressaram no domínio dentro da rede da empresa?|Sim, com [SSO Contínuo](../../active-directory/hybrid/how-to-connect-sso.md)|Sim, com [SSO Contínuo](../../active-directory/hybrid/how-to-connect-sso.md)|sim|
+|Há algum requisito de certificado SSL?|Não|Não|SIM|
+|Há alguma solução de monitoramento de integridade?|Não obrigatório|Status do agente fornecido pelo [Centro de administração do Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
+|Usuários podem obter o logon único para recursos de nuvem de dispositivos que ingressaram no domínio dentro da rede da empresa?|Sim, com [SSO Contínuo](../../active-directory/hybrid/how-to-connect-sso.md)|Sim, com [SSO Contínuo](../../active-directory/hybrid/how-to-connect-sso.md)|SIM|
 |Há suporte para quais tipos de entrada?|Nome Principal do Usuário + senha<br><br>Autenticação Integrada do Windows usando [SSO Contínuo](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de logon alternativa](../../active-directory/hybrid/how-to-connect-install-custom.md)|Nome Principal do Usuário + senha<br><br>Autenticação Integrada do Windows usando [SSO Contínuo](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de logon alternativa](../../active-directory/hybrid/how-to-connect-pta-faq.md)|Nome Principal do Usuário + senha<br><br>sAMAccountName + senha<br><br>Autenticação Integrada do Windows<br><br>[Autenticação de certificado e cartão inteligente](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID de logon alternativa](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Há suporte para o Windows Hello for Business?|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Requer nível funcional do domínio do Windows Server 2016*|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confiança de certificado](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Quais são as opções de autenticação multifator?|[MFA do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controles personalizados com acesso condicional *](../../active-directory/conditional-access/controls.md)|[MFA do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controles personalizados com acesso condicional *](../../active-directory/conditional-access/controls.md)|[MFA do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Servidor MFA do Azure](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[MFA de Terceiros](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Controles personalizados com acesso condicional *](../../active-directory/conditional-access/controls.md)|
-|Há suporte para quais estados de conta de usuário?|Contas desabilitadas<br>(até 30 minutos de atraso)|Contas desabilitadas<br><br>Conta bloqueada<br><br>A conta expirou<br><br>Senha expirada<br><br>Horários de entrada|Contas desabilitadas<br><br>Conta bloqueada<br><br>A conta expirou<br><br>Senha expirada<br><br>Horários de entrada|
+|Há suporte para quais estados de conta de usuário?|Contas desabilitadas<br>(até 30 minutos de atraso)|Contas desabilitadas<br><br>Conta bloqueada<br><br>Conta expirada<br><br>Senha expirada<br><br>Horários de entrada|Contas desabilitadas<br><br>Conta bloqueada<br><br>Conta expirada<br><br>Senha expirada<br><br>Horários de entrada|
 |Quais são as opções de acesso condicional?|[Acesso condicional do Azure AD, com Azure AD Premium](../../active-directory/conditional-access/overview.md)|[Acesso condicional do Azure AD, com Azure AD Premium](../../active-directory/conditional-access/overview.md)|[Acesso condicional do Azure AD, com Azure AD Premium](../../active-directory/conditional-access/overview.md)<br><br>[Regras de declaração do AD FS](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
 |Há suporte para protocolos herdados de bloqueio?|[Sim](../../active-directory/conditional-access/conditions.md)|[Sim](../../active-directory/conditional-access/conditions.md)|[Sim](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |Você pode personalizar o logotipo, a imagem e a descrição nas páginas de entrada?|[Sim, com o Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Sim, com o Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Sim](../../active-directory/hybrid/how-to-connect-fed-management.md)|
@@ -222,7 +219,7 @@ Este artigo descreve várias opções de autenticação que as organizações po
 
 Considere cada método de autenticação. O esforço para implantar a solução e a experiência do usuário do processo de entrada atende aos seus requisitos de negócios? Avalie se a organização precisa dos cenários avançados e dos recursos de continuidade dos negócios de cada método de autenticação. Por fim, avalie as considerações de cada método de autenticação. Algum deles impede a implementação de sua escolha?
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Atualmente, as ameaças estão presentes 24 horas por dia e vêm de qualquer lugar. Implemente o método de autenticação correto e isso atenuará os riscos de segurança e protegerá as identidades.
 

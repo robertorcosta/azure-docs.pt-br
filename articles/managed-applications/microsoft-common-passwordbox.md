@@ -1,6 +1,6 @@
 ---
 title: Elemento de interface do usuário PasswordBox do Azure | Microsoft Docs
-description: Descreve o elemento de interface do usuário Microsoft.Common.PasswordBox para o portal do Azure.
+description: Descreve o elemento de interface do usuário Microsoft.Common.PasswordBox para o portal do Azure. Permite que os usuários forneçam um valor secreto ao implantar aplicativos gerenciados.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 944f59da680c3a058a3cd245cca48d903e44ab87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a8b760d113e29efb0efacbd41dcaa7432ecdcfd
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710928"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332796"
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Elemento de interface do usuário Microsoft.Common.PasswordBox
 Um controle que pode ser usado para fornecer e confirmar uma senha.
@@ -58,6 +58,6 @@ Um controle que pode ser usado para fornecer e confirmar uma senha.
 "p4ssw0rd"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](create-uidefinition-elements.md).

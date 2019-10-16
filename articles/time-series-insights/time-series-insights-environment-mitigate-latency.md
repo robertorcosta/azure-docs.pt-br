@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 275eff59c56229f45a131e107668b8fefab24536
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 389e1472e1e1fcbed6dd3b6c1d155199246d877f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70123750"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332955"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorar e melhorar a limitação para reduzir a latência no Azure Time Series Insights
 
@@ -44,15 +44,15 @@ Os alertas podem ajudá-lo a diagnosticar e atenuar os problemas de latência ca
 
 1. No portal do Azure, selecione **alertas**.
 
-   [![Alertas](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
+   [![Alerts](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
 
 1. O painel **criar regra** será exibido. Selecione **Adicionar** em **condição**.
 
-   [![Adicionar alerta](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
+   [alerta de ![Add](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
 
 1. Em seguida, configure as condições exatas para a lógica de sinal.
 
-   [![Configurar lógica de sinal](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
+   [lógica de sinal de @no__t 1Configure](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
 
    A partir daí, você pode configurar alertas usando algumas das seguintes condições:
 
@@ -70,15 +70,15 @@ Os alertas podem ajudá-lo a diagnosticar e atenuar os problemas de latência ca
 
 1. Depois de configurar a lógica de sinal desejada, examine visualmente a regra de alerta escolhida.
 
-   [![Entrada](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+   [![Ingress](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
 
 ## <a name="throttling-and-ingress-management"></a>Limitação e gerenciamento de entrada
 
-* Se você estiver sendo limitado, verá um valor para o *retardo de tempo de mensagens recebidas de entrada*, informando quantos segundos atrás de TSI é do tempo real em que a mensagem atinge a origem do evento (excluindo o tempo de indexação de Appx. 30-60 segundos).  
+* Se você estiver sendo limitado, verá um valor para o *retardo de tempo de mensagens recebidas de entrada*, informando quantos segundos por trás do ambiente de análise de séries temporais são do tempo real em que a mensagem atinge a origem do evento (excluindo o tempo de indexação do Appx. 30-60 segundos).  
 
   *Retardo de contagem de mensagens recebidas de entrada* também deve ter um valor, permitindo que você determine a quantas mensagens atrás você está.  A maneira mais fácil de alcançar é aumentar a capacidade do seu ambiente para um tamanho que permitirá superar a diferença.  
 
-  Por exemplo, se você tiver um único ambiente S1 de unidade e ver que há um atraso de mensagem 5 milhões, poderá aumentar o tamanho do seu ambiente para seis unidades por um dia para ser atualizado.  Você pode aumentar ainda mais para alcançar mais rapidamente. O período de atualização é uma ocorrência comum ao provisionar inicialmente um ambiente, especialmente ao se conectar a uma origem de evento que já tenha eventos nela ou quando você carrega em massa grandes quantidades de dados históricos.
+  Por exemplo, se você perceber que seu ambiente S1 está demonstrando o atraso de 5 milhões mensagens, poderá aumentar o tamanho do seu ambiente para seis unidades por cerca de um dia para ser pego.  Você pode aumentar ainda mais para alcançar mais rapidamente. O período de atualização é uma ocorrência comum ao provisionar inicialmente um ambiente, especialmente ao se conectar a uma origem de evento que já tenha eventos nela ou quando você carrega em massa grandes quantidades de dados históricos.
 
 * Outra técnica é definir um alerta **Eventos de Entrada Armazenados** >= um limite um pouco abaixo da capacidade total do ambiente por um período de 2 horas.  Esse alerta pode ajudá-lo a entender se você está constantemente na capacidade, o que indica uma alta probabilidade de latência. 
 
@@ -92,8 +92,8 @@ Para reduzir a limitação ou a latência enfrentada, a melhor maneira de corrig
 
 É possível evitar a latência e a limitação configurando corretamente o ambiente para a quantidade de dados que você deseja analisar. Para obter mais informações sobre como adicionar capacidade ao seu ambiente, consulte [Dimensionar o ambiente](time-series-insights-how-to-scale-your-environment.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Para obter etapas de solução de problemas adicionais, consulte [Diagnosticar e solucionar problemas no ambiente do Time Series Insights](time-series-insights-diagnose-and-solve-problems.md).
+- Leia sobre como [diagnosticar e resolver problemas em seu ambiente de time Series insights](time-series-insights-diagnose-and-solve-problems.md).
 
-- Para obter mais assistência, inicie uma conversa no [fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) ou no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). Também contate o [suporte do Azure](https://azure.microsoft.com/support/options/) para obter opções de suporte assistido.
+- Saiba [como dimensionar seu ambiente de time Series insights](time-series-insights-how-to-scale-your-environment.md).

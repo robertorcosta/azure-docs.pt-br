@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 334ccbf64e32655b5e78ac6564abb65996ac53da
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1cbbc1fde22262d5841766978d40487f812e0963
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167401"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333103"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planejamento de capacidade de cluster do Service Fabric
 Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns dos itens que você precisa considerar como parte desse processo.
@@ -81,7 +81,7 @@ A camada de durabilidade é usada para indicar ao sistema os privilégios que as
 | Bronze           | 1                              | VMs com pelo menos 50 GB de SSD local                                              | Não será atrasado pelo cluster do Service Fabric           | Não pode ser atrasado por qualquer período de tempo significativo                                                    |
 
 > [!WARNING]
-> Tipos de nó executados com durabilidade Bronze não têm _nenhum privilégio_. Isso significa que trabalhos de infraestrutura que afetam sus cargas de trabalho sem estado não serão interrompidas ou atrasadas, que podem afetar suas cargas de trabalho. Use somente Bronze para tipos de nós que executam somente cargas de trabalho sem estado. Para cargas de trabalho de produção, em execução Prata ou superior é recomendado. 
+> Tipos de nó executados com durabilidade Bronze não têm _nenhum privilégio_. Isso significa que os trabalhos de infraestrutura que afetam suas cargas de trabalho com estado não serão interrompidos ou atrasados, o que pode afetar suas cargas de trabalho. Use somente Bronze para tipos de nós que executam somente cargas de trabalho sem estado. Para cargas de trabalho de produção, em execução Prata ou superior é recomendado. 
 > 
 > Independentemente de qualquer nível de durabilidade, a operação [Desalocação](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) no Conjunto de Dimensionamento de VM destruirá o cluster
 
@@ -108,8 +108,8 @@ Use a durabilidade Prata ou Gold para todos os tipos de nós que hospedam servi�
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Recomendações operacionais para o tipo de nó configurado para o nível de durabilidade Prata ou Ouro.
 
 - Mantenha sempre a integridade do cluster e dos aplicativos e verifique se os aplicativos respondem a todos os [eventos de ciclo de vida de réplica do Serviço](service-fabric-reliable-services-lifecycle.md) (como quando a réplica sendo compilada está paralisada) de maneira oportuna.
-- Adote maneiras mais seguras de alterar a SKU de VM (escalar/reduzir verticalmente): Alterar o SKU da VM de um conjunto de dimensionamento de máquinas virtuais requer várias etapas e considerações. Veja o processo que você pode seguir para evitar problemas comuns.
-    - **Para tipos de nós não primários:** É recomendável que você crie um novo conjunto de dimensionamento de máquinas virtuais, modifique a restrição de posicionamento do serviço para incluir o novo tipo de nó/conjunto de dimensionamento de máquinas virtuais e, em seguida, reduza a contagem de instância antiga do conjunto de dimensionamento de máquinas virtuais para zero, um nó por vez (isso é para fazer Certifique-se de que a remoção dos nós não afete a confiabilidade do cluster).
+- Adote maneiras mais seguras de fazer uma alteração de SKU de VM (escalar verticalmente): alterar a SKU de VM de um conjunto de dimensionamento de máquinas virtuais requer várias etapas e considerações. Veja o processo que você pode seguir para evitar problemas comuns.
+    - **Para tipos de nó não primário:** Recomenda-se criar um novo conjunto de dimensionamento de máquina virtual, modificar a restrição de veiculação de serviço para incluir o novo conjunto de escala / tipo de nó de máquina virtual e reduzir o antigo conjunto de dimensionamento de máquina virtual Contagem de instância para zero, um nó por vez (isso é para garantir que a remoção dos nós não cause impacto na confiabilidade do cluster).
     - **Para o tipo de nó primário:** Se o SKU da VM selecionado estiver na capacidade e você quiser alterar para um SKU de VM maior, siga nossas diretrizes sobre [o dimensionamento vertical de um tipo de nó primário](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-node-type). 
 
 - Mantenha uma contagem mínima de cinco nós para qualquer conjunto de dimensionamento de máquinas virtuais que tenha o nível de durabilidade Ouro ou Prata habilitado.
@@ -123,7 +123,7 @@ A camada de confiabilidade é usada para definir o número de réplicas dos serv
 
 A camada de confiabilidade pode ter os valores a seguir:
 
-* Platina - Executar os serviços do sistema com uma contagem de set de réplicas de destino de sete
+* Platina - executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de nove
 * Ouro - executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de sete
 * Prata - executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de cinco 
 * Bronze - executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de três
@@ -151,9 +151,9 @@ Aqui está a recomendação sobre como escolher o nível de confiabilidade.  O n
 
 A seguir, as diretrizes de planejamento da capacidade do tipo de nó primário:
 
-- **Número de instâncias de VM para executar qualquer carga de trabalho de produção no Azure:** Você deve especificar um tamanho mínimo de tipo de nó primário de 5 e uma camada de confiabilidade de prata.  
+- **Número de instâncias de VM para executar qualquer carga de trabalho de produção no Azure:** você deve especificar um tamanho mínimo de tipo de Nó Primário de 5 e uma Camada de Confiabilidade de Prata.  
 - **Número de instâncias de VM para executar cargas de trabalho de teste no Azure** Você pode especificar um tamanho mínimo de tipo de nó primário de 1 ou 3. O cluster de um nó é executado com uma configuração especial e, portanto, não há suporte para expansão desse cluster. O cluster de um nó não tem confiabilidade e assim, em seu modelo do Resource Manager, você precisa remover ou não especificar essa configuração (não definir o valor de configuração não é suficiente). Se você configurar o cluster de um nó configurado por meio do Portal, em seguida, a configuração será feita automaticamente. Não há suporte para clusters de um e três nós para executar cargas de trabalho de produção. 
-- **SKU DA VM:** O tipo de nó primário é onde os serviços do sistema são executados, portanto, o SKU de VM que você escolher para ele deve levar em conta a carga de pico geral que você planeja colocar no cluster. Aqui está uma analogia para ilustrar o que quero dizer – pense no tipo de nó primário como seus "pulmões", ele fornece oxigênio para seu cérebro e, dessa forma, se o cérebro não obtiver oxigênio suficiente, seu corpo será prejudicado. 
+- **SKU da VM:** o tipo de nó Primário é onde os serviços do sistema são executados e, portanto, a SKU de VM escolhida deve levar em consideração o pico de carga geral que você planeja colocar no cluster. Aqui está uma analogia para ilustrar o que quero dizer – pense no tipo de nó primário como seus "pulmões", ele fornece oxigênio para seu cérebro e, dessa forma, se o cérebro não obtiver oxigênio suficiente, seu corpo será prejudicado. 
 
 Como as necessidades de capacidade de um cluster são determinadas pela carga de trabalho que você planeja executar no cluster, não podemos fornecer a você uma diretriz qualitativa para sua carga de trabalho específica, mas veja estas diretrizes amplas para ajudar você a começar
 
@@ -174,11 +174,11 @@ Para cargas de trabalho de produção:
 
 Este guia é para cargas de trabalho com monitoração de estado usando o Service Fabric [coleções confiáveis ou reliable Actors](service-fabric-choose-framework.md) que você está executando no tipo de nó não primário.
 
-**Número de instâncias de VM:** Para cargas de trabalho de produção com monitoração de estado, é recomendável executá-las com uma contagem de réplicas mínima e de destino de 5. Isso significa que no estado estável, você fica com uma réplica (de um conjunto de réplicas) em cada domínio de falha e em cada domínio de atualização. O conceito de camada de confiabilidade inteira para o tipo de nó primário é, na verdade, apenas uma maneira de especificar essa configuração para serviços do sistema. Portanto a mesma consideração aplica-se aos serviços com monitoração de estado também.
+**Número de instâncias de VM:** para as cargas de trabalho de produção com monitoração de estado, é recomendável que você as execute com uma contagem de réplica mínima e de destino de 5. Isso significa que no estado estável, você fica com uma réplica (de um conjunto de réplicas) em cada domínio de falha e em cada domínio de atualização. O conceito de camada de confiabilidade inteira para o tipo de nó primário é, na verdade, apenas uma maneira de especificar essa configuração para serviços do sistema. Portanto a mesma consideração aplica-se aos serviços com monitoração de estado também.
 
 Assim, para cargas de trabalho de produção, o tamanho mínimo recomendado do tamanho do tipo de Nó não Principal é 5, se você estiver executando cargas de trabalho com monitoração de estado nele.
 
-**SKU DA VM:** Esse é o tipo de nó em que os serviços de aplicativo estão em execução, portanto, a SKU de VM que você escolher para ele deve levar em conta a carga de pico que você planeja colocar em cada nó. As necessidades de capacidade do tipo de nó são determinadas pela carga de trabalho que você planeja executar no cluster. Por isso, não podemos fornecer orientação qualitativa para sua carga de trabalho específica, mas aqui está a orientação geral para ajudá-lo a começar
+**SKU de VM:** esse é o tipo de nó em que seus serviços de aplicativo estão sendo executados e, portanto, a SKU de VM escolhida deverá levar em conta a carga máxima que você deseja colocar em cada nó. As necessidades de capacidade do tipo de nó são determinadas pela carga de trabalho que você planeja executar no cluster. Por isso, não podemos fornecer orientação qualitativa para sua carga de trabalho específica, mas aqui está a orientação geral para ajudá-lo a começar
 
 Para cargas de trabalho de produção 
 
@@ -191,9 +191,9 @@ Para cargas de trabalho de produção
 
 Esta orientação de cargas de trabalho sem estado que você está executando no tipo de nó não primário.
 
-**Número de instâncias de VM:** Para cargas de trabalho de produção sem monitoração de estado, o tamanho mínimo de tipo de nó não primário com suporte é 2. Isso permite a execução de duas instâncias sem monitoração de estado do seu aplicativo e permite que seu serviço sobreviva à perda de uma instância de VM. 
+**Número de instâncias de VM:** para cargas de trabalho de produção sem estado, o tamanho mínimo do tipo de Nó não Principal com suporte é 2. Isso permite a execução de duas instâncias sem monitoração de estado do seu aplicativo e permite que seu serviço sobreviva à perda de uma instância de VM. 
 
-**SKU DA VM:** Esse é o tipo de nó em que os serviços de aplicativo estão em execução, portanto, a SKU de VM que você escolher para ele deve levar em conta a carga de pico que você planeja colocar em cada nó. As necessidades de capacidade do tipo de nó são determinadas pela carga de trabalho que você planeja executar no cluster. Não podemos fornecer orientação qualitativa para sua carga de trabalho específica.  No entanto, aqui está a ampla orientação para ajudá-lo a começar.
+**SKU de VM:** esse é o tipo de nó em que seus serviços de aplicativo estão sendo executados e, portanto, a SKU de VM escolhida deverá levar em conta a carga máxima que você deseja colocar em cada nó. As necessidades de capacidade do tipo de nó são determinadas pela carga de trabalho que você planeja executar no cluster. Não podemos fornecer orientação qualitativa para sua carga de trabalho específica.  No entanto, aqui está a ampla orientação para ajudá-lo a começar.
 
 Para cargas de trabalho de produção 
 
@@ -204,7 +204,7 @@ Para cargas de trabalho de produção
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Após concluir o planejamento de capacidade e configurar um cluster, leia o seguinte:
 
 * [Segurança do Cluster do Service Fabric](service-fabric-cluster-security.md)

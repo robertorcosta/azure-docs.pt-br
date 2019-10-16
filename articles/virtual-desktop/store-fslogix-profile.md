@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 8bee226c85e6433500fcbef9b084cc547ef2b58f
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: fc869bc0c52a54044cbc095cd20f0395e590c852
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301666"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332826"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opções de armazenamento para contêineres de perfil FSLogix na área de trabalho virtual do Windows
 
@@ -24,29 +24,28 @@ As tabelas a seguir comparam as soluções de armazenamento ofertas de armazenam
 
 ## <a name="azure-platform-details"></a>Detalhes da plataforma Azure
 
-|Recursos|Arquivos do Azure|Azure NetApp Files|Espaços de armazenamento Diretos|
+|Recursos|Arquivos do Azure|Azure NetApp Files|Espaços de Armazenamento Diretos|
 |--------|-----------|------------------|---------------------|
 |Serviço de plataforma|Sim, solução nativa do Azure|Sim, solução nativa do Azure|Não, autogerenciado|
-|Disponibilidade regional|Anel 0, ampla disponibilidade|Anel 1, disponível no momento em [pelo menos nove regiões](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|As regiões de controlador de domínio com suporte de computação do Azure, os discos Premium estão amplamente disponíveis e recomendados para Espaços de Armazenamento Diretos|
+|Disponibilidade regional|Todas as regiões|[Selecionar regiões](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Todas as regiões|
 |Redundância|Localmente redundante/com redundância de zona/redundância geográfica|Localmente Redundante|Localmente redundante/com redundância de zona/redundância geográfica|
-|Camadas e desempenho|Standard<br>Premium<br>Até máx. de 100 mil IOPS por compartilhamento com 5 GBps por compartilhamento em aproximadamente 3 ms de latência|Standard<br>Premium<br>Altíssima<br>Até 320K (16K) IOPS com 4,5 GBps por volume em aproximadamente 1 ms de latência|HDD Standard: até 500 de IOPS por disco limites<br>SSD Standard: até 4K IOPS por disco limites<br>SSD Premium: limites de até 20 mil IOPS por disco|
+|Camadas e desempenho|Standard<br>Premium<br>Até máx. de 100 mil IOPS por compartilhamento com 5 GBps por compartilhamento em aproximadamente 3 ms de latência|Standard<br>Premium<br>Altíssima<br>Até 320K (16K) IOPS com 4,5 GBps por volume em aproximadamente 1 ms de latência|HDD Standard: até 500 de IOPS por disco limites<br>SSD Standard: até 4K IOPS por disco limites<br>SSD Premium: limites de até 20 mil IOPS por disco<br>Recomendamos discos Premium para Espaços de Armazenamento Diretos|
 |Capacity|100 TiB por compartilhamento|100 TiB por volume, até 12,5 PiB por assinatura|Máximo de 32 TiB por disco|
 |Infraestrutura necessária|Tamanho mínimo de compartilhamento 1 GiB|Pool mínimo de capacidade 4 TiB, tamanho mínimo de volume 100 GiB|Duas VMs no Azure IaaS (+ testemunha de nuvem) ou pelo menos três VMs sem e custos para discos|
 |Protocolos|SMB 2.1/3. e REST|NFSv3, NFSv 4.1 (visualização), SMB 3. x/2. x|NFSv3, NFSv 4.1, SMB 3,1|
 
 ## <a name="azure-management-details"></a>Detalhes de gerenciamento do Azure
 
-|Recursos|Arquivos do Azure|Azure NetApp Files|Espaços de armazenamento Diretos|
+|Recursos|Arquivos do Azure|Azure NetApp Files|Espaços de Armazenamento Diretos|
 |--------|-----------|------------------|---------------------|
-|Access|Nuvem, local e híbrido (sincronização de arquivos do Azure)|Nuvem, local (via ExpressRoute)|Nuvem, local|
-|Integração do Microsoft Azure Active Directory|Azure Active Directory e Azure Active Directory Domain Services|Azure Active Directory Domain Services e Active Directory nativo|Somente suporte nativo Active Directory ou Azure Active Directory Domain Services|
+|Acesso|Nuvem, local e híbrido (sincronização de arquivos do Azure)|Nuvem, local (via ExpressRoute)|Nuvem, local|
 |Backup|Integração de instantâneo do backup do Azure|Instantâneos de Azure NetApp Files|Integração de instantâneo do backup do Azure|
 |Segurança e conformidade|[Todos os certificados com suporte do Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO concluído|[Todos os certificados com suporte do Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
-|Integração do Microsoft Azure Active Directory|Azure Active Directory e Azure Active Directory Domain Services|[Azure Active Directory Domain Services e Active Directory nativo](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Somente suporte nativo Active Directory ou Azure Active Directory Domain Services|
+|Integração do Azure Active Directory|Azure Active Directory e Azure Active Directory Domain Services|[Azure Active Directory Domain Services e Active Directory nativo](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Somente suporte nativo Active Directory ou Azure Active Directory Domain Services|
 
 Depois de escolher o método de armazenamento, confira [preços da área de trabalho virtual do Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/) para obter informações sobre nossos planos de preços.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre contêineres de perfil do FSLogix, discos de perfil do usuário e outras tecnologias de perfil de usuário, consulte a tabela em [contêineres de perfil do FSLogix e arquivos do Azure](fslogix-containers-azure-files.md).
 

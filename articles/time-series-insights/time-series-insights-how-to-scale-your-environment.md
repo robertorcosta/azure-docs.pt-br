@@ -10,18 +10,18 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 13fa2b892013cf4a3fb96220c901030c6b0aee0b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: a899de22137decc1eb1578369a2751710c17abda
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129099"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332870"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Como dimensionar o ambiente do Time Series Insights
 
-Este artigo descreve como alterar a capacidade do seu ambiente Time Series Insights usando o Portal do Azure. A capacidade é o multiplicador aplicado à taxa de ingresso, à capacidade de armazenamento e ao custo associado com a SKU selecionada.
+Este artigo descreve como alterar a capacidade de seu ambiente de Time Series Insights usando o [portal do Azure](https://portal.azure.com). A capacidade é o multiplicador aplicado à taxa de ingresso, à capacidade de armazenamento e ao custo associado com a SKU selecionada.
 
 Você pode usar o Portal do Azure para aumentar ou diminuir a capacidade de um determinada SKU de preços.
 
@@ -49,16 +49,22 @@ As capacidades são dimensionadas linearmente, portanto, uma SKU S1 com capacida
 
 1. No menu de seu ambiente do Time Series Insights, escolha **Configurar**.
 
-   [![configure.png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
+   [@no__t -1configure. png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
 
 1. Ajuste o controle deslizante **Capacidade** para selecionar a capacidade que atenda aos requisitos de suas taxas de entrada e capacidade de armazenamento. Observe que a **Taxa de entrada**, a **Capacidade de armazenamento** e o **Custo estimado** são atualizadas dinamicamente para mostrar o impacto da alteração.
 
-   [![Classificação](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
+   [![Slider](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
 
    Como alternativa, você pode digitar o número do multiplicador de capacidade na caixa de texto à direita do controle deslizante.
 
 1. Selecione **Salvar** para dimensionar o ambiente. O indicador de progresso é exibido momentaneamente até que a alteração seja confirmada.
 
-## <a name="next-steps"></a>Próximas etapas
+1. Verifique se a nova capacidade é [suficiente para evitar a limitação](time-series-insights-diagnose-and-solve-problems.md).
 
-- Verifique se a nova capacidade é [suficiente para evitar a limitação](time-series-insights-diagnose-and-solve-problems.md).
+## <a name="next-steps"></a>Próximos passos
+
+- Para mais informações, veja [Noções básicas sobre retenção no Time Series Insights](time-series-insights-concepts-retention.md).
+
+- Saiba mais sobre como [Configurar a retenção de dados no Azure Time Series insights](time-series-insights-how-to-configure-retention.md).
+
+- Saiba mais sobre como [planejar o seu ambiente](time-series-insights-environment-planning.md).

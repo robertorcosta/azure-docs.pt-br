@@ -1,5 +1,5 @@
 ---
-title: Monitorar aplicativos Python com o Azure Monitor | Microsoft Docs
+title: Monitorar aplicativos Python com o Azure Monitor (versão prévia) | Microsoft Docs
 description: Fornece instruções para conectar o Python OpenCensus com o Azure Monitor
 services: application-insights
 keywords: ''
@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.reviewer: mbullwin
 manager: carmonm
-ms.openlocfilehash: 1316cf6808f6ccfc4165ad162c51421638b130be
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ed61cb1bc88c48fe89c4a9390f04747749bd48c5
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293983"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329473"
 ---
-# <a name="set-up-azure-monitor-for-your-python-application"></a>Configurar Azure Monitor para seu aplicativo Python
+# <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurar Azure Monitor para seu aplicativo Python (versão prévia)
 
 O Azure Monitor dá suporte ao rastreamento distribuído, à coleta de métrica e ao log de aplicativos Python por meio da integração com o [OpenCensus](https://opencensus.io). Este artigo orientará você passo a passo pelo processo de configuração do OpenCensus para Python e pela obtenção dos dados de monitoramento para Azure Monitor.
 
@@ -30,7 +30,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-application-insights-resource-in-azure-monitor"></a>Criar Application Insights recurso no Azure Monitor
 
@@ -42,11 +42,11 @@ Primeiro, você precisa criar um recurso de Application Insights no Azure Monito
 
    Uma caixa de configuração é exibida. Use a tabela a seguir para preencher os campos de entrada.
 
-    | Configurações        | Valor           | DESCRIÇÃO  |
+    | Configurações        | Value           | Descrição  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Valor Globalmente Exclusivo | Nome que identifica o aplicativo que você está monitorando |
+   | **Nome**      | Valor Globalmente Exclusivo | Nome que identifica o aplicativo que você está monitorando |
    | **Grupo de recursos**     | myResourceGroup      | Nome para o novo grupo de recursos no qual hospedar dados do Application Insights |
-   | **Localidade** | East US | Escolher uma localização perto de você ou perto onde seu aplicativo está hospedado |
+   | **Localidade** | Leste dos Estados Unidos | Escolher uma localização perto de você ou perto onde seu aplicativo está hospedado |
 
 2. Clique em **Criar**.
 
@@ -130,7 +130,7 @@ Primeiro, você precisa criar um recurso de Application Insights no Azure Monito
 
 4. Agora, ao executar o script Python, você ainda deve ser solicitado a inserir valores, mas agora apenas o valor está sendo impresso no Shell. O `SpanData` criado será enviado para Azure Monitor. Você pode encontrar os dados de span emitidos em `dependencies`.
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>Métricas
 
 1. Primeiro, vamos gerar alguns dados de métrica local. Criaremos uma métrica simples para acompanhar o número de vezes que o usuário pressiona ENTER.
 
@@ -306,7 +306,7 @@ Primeiro, você precisa criar um recurso de Application Insights no Azure Monito
 
     Uma vez que o objetivo era apenas rastrear uma chamada de método, nosso mapa do aplicativo não é tão interessante. Porém, o mapa do aplicativo pode ser dimensionado para visualizar aplicativos muito mais distribuídos:
 
-   ![Mapa de aplicativo](media/opencensus-python/application-map.png)
+   ![Mapa de Aplicativos](media/opencensus-python/application-map.png)
 
 3. Selecione **Investigar Desempenho** para executar uma análise de desempenho detalhada e determinar a causa raiz da lentidão no desempenho.
 
@@ -339,7 +339,7 @@ Primeiro, você precisa criar um recurso de Application Insights no Azure Monito
 * [Integração do MySQL](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-mysql)
 * [PostgreSQL](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-postgresql)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Resumo da API](./../../azure-monitor/app/api-custom-events-metrics.md)
 * [Mapa do aplicativo](./../../azure-monitor/app/app-map.md)
@@ -347,6 +347,6 @@ Primeiro, você precisa criar um recurso de Application Insights no Azure Monito
 
 ### <a name="alerts"></a>Alertas
 
-* [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md): Crie testes para garantir que o site esteja visível na Web.
-* [Diagnóstico inteligente](../../azure-monitor/app/proactive-diagnostics.md): Esses testes são executados automaticamente, portanto, nenhuma configuração adicional será necessária. Eles informam se o aplicativo tem uma taxa incomum de solicitações com falha.
+* [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md): criar testes para verificar se seu site está visível na web.
+* [Inteligente diagnóstico](../../azure-monitor/app/proactive-diagnostics.md): esses testes são executados automaticamente, portanto você não precisa fazer nada para configurá-los. Eles informam se o aplicativo tem uma taxa incomum de solicitações com falha.
 * [Alertas de métrica](../../azure-monitor/app/alerts.md): Defina alertas para avisá-lo se uma métrica ultrapassar um limite. Você pode defini-los em métricas personalizadas que você codifica em seu aplicativo.

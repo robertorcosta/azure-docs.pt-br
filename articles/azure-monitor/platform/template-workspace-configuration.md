@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 810ecbd4421eec8e8e809b429270601a0c94d623
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 9c5fb38e66cb783b02d314d55cf0d0510523b6a7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840911"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375973"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager
 
@@ -44,12 +44,12 @@ Este artigo fornece exemplos de código que ilustram algumas das configurações
 
 A tabela a seguir lista a versão de API para os recursos usados neste exemplo.
 
-| Resource | Tipo de recurso | Versão da API |
+| Grupos | Tipo de recurso | Versão da API |
 |:---|:---|:---|
 | Workspace   | workspaces    | 2017-03-15-preview |
 | Pesquisa      | savedSearches | 2015-03-20 |
 | Fonte de dados | datasources   | 2015-11-01-preview |
-| Solução    | soluções     | 2015-11-01-preview |
+| Solução    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho do Log Analytics
 
@@ -243,7 +243,7 @@ O exemplo de modelo a seguir ilustra como:
     "customlogName": {
     "type": "string",
     "metadata": {
-      "description": "custom log name"
+      "description": "The custom log name"
       }
     },
     "variables": {
@@ -419,7 +419,7 @@ O exemplo de modelo a seguir ilustra como:
           "type": "dataSources",
           "name": "[concat(parameters('workspaceName'), parameters('customlogName'))]",
           "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+            "[concat('Microsoft.OperationalInsights/workspaces/', '/', parameters('workspaceName'))]"
           ],
           "kind": "CustomLog",
           "properties": {
@@ -462,7 +462,7 @@ O exemplo de modelo a seguir ilustra como:
               }
             ]
           }
-        }
+        },
         {
           "apiVersion": "2015-11-01-preview",
           "type": "datasources",
@@ -592,6 +592,7 @@ O exemplo de modelo a seguir ilustra como:
 }
 
 ```
+
 ### <a name="deploying-the-sample-template"></a>Implantar o modelo de exemplo
 
 Para implantar o modelo de exemplo:
@@ -623,7 +624,7 @@ A Galeria de modelos de início rápido do Azure inclui vários modelos para Log
 * [Monitorar o Azure Web Apps usando um espaço de trabalho do Log Analytics](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
 * [Adicionar uma conta de armazenamento existente ao Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Implantar agente do Windows a VMs do Azure usando modelos do Gerenciador de Recursos](../../virtual-machines/extensions/oms-windows.md).
 

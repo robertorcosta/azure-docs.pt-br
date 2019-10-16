@@ -15,12 +15,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef652b05f62218ee1d0e72543bfa546f0c14abe
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 5ff6d9e33e15aa04adfa03705172166492f87e30
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001703"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330017"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatize o provisionamento e o desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory
 
@@ -56,11 +56,11 @@ Alguns motivos comuns para usar esse recurso incluem:
 
 O **serviço de provisionamento do Azure ad** provisiona usuários para aplicativos SaaS e outros sistemas conectando-se aos pontos de extremidade da API de gerenciamento de usuários fornecidos por cada fornecedor de aplicativos. Esses pontos de extremidade de API de gerenciamento permitem que o Azure AD crie, atualize e remova usuários por meio de programação. Para os aplicativos selecionados, o serviço de provisionamento também pode criar, atualizar e remover objetos adicionais relacionados à identidade, como grupos e funções.
 
-Serviço de provisionamento do AD ![Azure @ no__t-1 @ no__t-2Figure 1: Serviço de provisionamento do Azure AD*
+Serviço de provisionamento do AD ![Azure @ no__t-1*Figura 1: o serviço de provisionamento do Azure ad*
 
-fluxo de trabalho de provisionamento de usuário do @no__t 0Outbound @ no__t-1 @ no__t-2Figure 2: fluxo de trabalho de provisionamento do usuário de "saída" do Azure AD para aplicativos SaaS populares*
+fluxo de trabalho de provisionamento de usuário @no__t 0Outbound @ no__t-1*Figura 2: fluxo de trabalho de provisionamento de usuário de "saída" do Azure ad para aplicativos SaaS populares*
 
-fluxo de trabalho de provisionamento de usuário do @no__t 0Inbound @ no__t-1 @ no__t-2Figure 3: fluxo de trabalho de provisionamento do usuário de "entrada" de aplicativos de HCM (gerenciamento de capital humano) para o Azure Active Directory e o Windows Server Active Directory*
+fluxo de trabalho de provisionamento de usuário @no__t 0Inbound @ no__t-1*Figura 3: fluxo de trabalho de provisionamento de usuário de "entrada" de aplicativos de HCM (gerenciamento de capital humano) populares para Azure Active Directory e Windows Server Active Directory*
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Quais aplicativos e sistemas posso usar com o provisionamento de usuário automático do Azure AD?
 
@@ -99,7 +99,7 @@ Use o portal de Azure Active Directory para configurar o serviço de provisionam
 
 1. Selecione a opção automática para o **modo de provisionamento** para especificar configurações para credenciais de administrador, mapeamentos, início e parada e sincronização.
 
-   - Expanda **credenciais de administrador** para inserir as credenciais necessárias para que o Azure ad se conecte à API de gerenciamento de usuários do aplicativo. Esta seção também permite habilitar notificações por email se as credenciais falharem ou o trabalho de provisionamento entrar em [quarentena](#quarantine).
+   - Expanda **credenciais de administrador** para inserir as credenciais necessárias para que o Azure ad se conecte à API de gerenciamento de usuários do aplicativo. Esta seção também permite habilitar notificações por email se as credenciais falharem ou o trabalho de provisionamento entrar em [quarentena](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
    - Expanda **mapeamentos** para exibir e editar os atributos de usuário que fluem entre o Azure AD e o aplicativo de destino quando as contas de usuário são provisionadas ou atualizadas. Se o aplicativo de destino oferecer suporte a ele, esta seção permitirá que você configure o provisionamento de grupos e contas de usuário opcionalmente. Selecione um mapeamento na tabela para abrir o editor de mapeamento à direita, onde você pode exibir e personalizar os atributos de usuário.
 
      Os **filtros de escopo** informam ao serviço de provisionamento quais usuários e grupos no sistema de origem devem ser provisionados ou desprovisionados para o sistema de destino. No painel **mapeamento de atributo** , selecione **escopo do objeto de origem** para filtrar em valores de atributo específicos. Por exemplo, você pode especificar que apenas os usuários com um atributo "Departamento" de "Vendas" devem estar no escopo para provisionamento. Para obter mais informações, consulte [Como usar filtros de escopo](define-conditional-rules-for-provisioning-user-accounts.md).
@@ -125,7 +125,7 @@ Quando o serviço de provisionamento for iniciado, a primeira sincronização j�
 
 1. Consultar todos os usuários e grupos do sistema de origem, recuperando todos os atributos definidos nos [mapeamentos de atributo](customize-application-attributes.md).
 1. Filtre os usuários e os grupos retornados usando qualquer [atribuição](assign-user-or-group-access-portal.md) configurada ou [filtros de escopo com base em atributo](define-conditional-rules-for-provisioning-user-accounts.md).
-1. Quando um usuário é atribuído ou está no escopo para provisionamento, o serviço consulta o sistema de destino para um usuário correspondente usando os [atributos correspondentes](customize-application-attributes.md#understanding-attribute-mapping-properties)especificados. Exemplo: Se o nome userPrincipal no sistema de origem for o atributo correspondente e for mapeado para userName no sistema de destino, o serviço de provisionamento consultará o sistema de destino em busca de userNames que correspondam aos valores de nome de Principal no sistema de origem.
+1. Quando um usuário é atribuído ou está no escopo para provisionamento, o serviço consulta o sistema de destino para um usuário correspondente usando os [atributos correspondentes](customize-application-attributes.md#understanding-attribute-mapping-properties)especificados. Exemplo: se o nome userPrincipal no sistema de origem for o atributo correspondente e for mapeado para userName no sistema de destino, o serviço de provisionamento consultará o sistema de destino em busca de userNames que correspondam aos valores de nome de Principal no sistema de origem.
 1. Se um usuário correspondente não for encontrado no sistema de destino, ele será criado usando os atributos retornados do sistema de origem. Depois que a conta de usuário é criada, o serviço de provisionamento detecta e armazena em cache a ID do sistema de destino para o novo usuário, que é usado para executar todas as operações futuras nesse usuário.
 1. Se um usuário correspondente for encontrado, ele será atualizado usando os atributos fornecidos pelo sistema de origem. Após a correspondência da conta de usuário, o serviço de provisionamento detecta e armazena em cache a ID do sistema de destino para o novo usuário, que é usado para executar todas as operações futuras nesse usuário.
 1. Se os mapeamentos de atributo contiverem atributos de "referência", o serviço fará atualizações adicionais no sistema de destino para criar e vincular os objetos referenciados. Por exemplo, um usuário pode ter um atributo "Manager" no sistema de destino, vinculado a outro usuário criado no sistema de destino.
@@ -173,7 +173,7 @@ Se a maioria ou todas as chamadas feitas no sistema de destino falharem consiste
 
 Quando em quarentena, a frequência de ciclos incrementais é reduzida gradualmente para uma vez por dia.
 
-O trabalho de provisionamento será removido da quarentena depois que todos os erros incorretos forem corrigidos e o próximo ciclo de sincronização for iniciado. Se permanecer em quarentena por mais de quatro semanas, o trabalho de provisionamento será desabilitado.
+O trabalho de provisionamento será removido da quarentena depois que todos os erros incorretos forem corrigidos e o próximo ciclo de sincronização for iniciado. Se permanecer em quarentena por mais de quatro semanas, o trabalho de provisionamento será desabilitado. Saiba mais aqui sobre o status de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>Quanto tempo levará para provisionar os usuários?
 
@@ -215,7 +215,7 @@ No entanto, o uso de grupos dinâmicos pode afetar o desempenho geral de provisi
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>O provisionamento automático de usuário para o trabalho de aplicativos SaaS com grupos dinâmicos no Azure Active Directory?
 
-Nº Quando configurado para "sincronizar apenas usuários e grupos atribuídos", o serviço de provisionamento de usuários do Azure AD não é capaz de ler ou provisionar usuários que estão em grupos aninhados. Só é capaz de ler e provisionar usuários que são membros imediatos do grupo explicitamente atribuído.
+Não. Quando configurado para "sincronizar apenas usuários e grupos atribuídos", o serviço de provisionamento de usuários do Azure AD não é capaz de ler ou provisionar usuários que estão em grupos aninhados. Só é capaz de ler e provisionar usuários que são membros imediatos do grupo explicitamente atribuído.
 
 Essa é uma limitação de "atribuições baseadas em grupo para aplicativos", o que também afeta o logon único e é descrito em [Usar um grupo para gerenciar o acesso a aplicativos SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 

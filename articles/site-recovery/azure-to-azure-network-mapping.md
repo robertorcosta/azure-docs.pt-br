@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 10/15/2019
 ms.author: mayg
-ms.openlocfilehash: 6249a3c1c8ea3be02ca802d6be7e720bd900f675
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 687c21170c0397b89270e9c3a6af1e994c758179
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178089"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331106"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurar mapeamento de rede e endereçamento IP para VNets
 
@@ -67,8 +67,8 @@ A sub-rede da VM de destino é selecionada com base no nome da sub-rede da VM de
 
 O endereço IP de cada NIC em uma máquina virtual de destino é configurado conforme a seguir:
 
-- **DHCP**: Se o NIC da VM de origem usar DHCP, um NIC da VM de destino também será definido para usar DHCP.
-- **Endereço IP estático**: Se o NIC da VM de origem usar endereçamento IP estático, o NIC da VM de destino também usará um endereço IP estático.
+- **DHCP**: se o NIC da VM de origem usar DHCP, o NIC da VM de destino também será definido para usar DHCP.
+- **Endereço IP estático**: se o NIC da VM de origem usar endereçamento IP estático, o NIC da VM de destino também usará um endereço IP estático.
 
 
 ## <a name="ip-address-assignment-during-failover"></a>Atribuição de endereço IP durante failover
@@ -76,8 +76,7 @@ O endereço IP de cada NIC em uma máquina virtual de destino é configurado con
 **Sub-redes de origem e destino** | **Detalhes**
 --- | ---
 Mesmo espaço de endereço | O endereço IP do NIC da VM de origem é definido como o endereço IP do NIC da VM de destino.<br/><br/> Se o endereço não estiver disponível, o próximo endereço IP disponível será definido como o destino.
-
-Espaço de endereço diferente<br/><br/> O próximo endereço IP disponível na sub-rede de destino é definido como o endereço NIC da VM de destino.
+Espaço de endereço diferente | O próximo endereço IP disponível na sub-rede de destino é definido como o endereço NIC da VM de destino.
 
 
 
@@ -85,15 +84,15 @@ Espaço de endereço diferente<br/><br/> O próximo endereço IP disponível na 
 
 **Rede de destino** | **Detalhes**
 --- | ---
-Rede de destino é a VNet de failover | - O endereço IP de destino é estático, mas não o mesmo endereço IP daquele reservado para failover.<br/><br/>  - O endereço atribuído é o próximo endereço disponível no final do intervalo de sub-rede.<br/><br/> Por exemplo: Se o endereço IP de origem for 10.0.0.19 e a rede de failover usar o intervalo 10.0.0.0/24, o próximo endereço IP atribuído à VM de destino será 10.0.0.254.
-A rede de destino não é a VNet de failover | - O endereço IP de destino será estático com o mesmo endereço IP reservado para failover.<br/><br/>  -Se o mesmo endereço IP já estiver atribuído, o endereço IP será o próximo disponível no final do intervalo de sub-rede.<br/><br/> Por exemplo: Se o endereço IP estático de origem for 10.0.0.19 e o failover estiver em uma rede que não seja a de failover, com o intervalo 10.0.0.0/24, o endereço IP estático de destino será 10.0.0.0.19 se disponível, e caso contrário, será 10.0.0.254.
+Rede de destino é a VNet de failover | -O endereço IP de destino será estático com o mesmo endereço IP. <br/><br/>  -Se o mesmo endereço IP já estiver atribuído, o endereço IP será o próximo disponível no final do intervalo de sub-rede. Por exemplo: se o endereço IP de origem for 10.0.0.19 e a rede de failover usar o intervalo 10.0.0.0/24, o próximo endereço IP atribuído à VM de destino será 10.0.0.254.
+A rede de destino não é a VNet de failover | -O endereço IP de destino será estático com o mesmo endereço IP.<br/><br/>  -Se o mesmo endereço IP já estiver atribuído, o endereço IP será o próximo disponível no final do intervalo de sub-rede.<br/><br/> Por exemplo: se o endereço IP estático de origem for 10.0.0.19 e o failover estiver em uma rede que não seja a de failover, com o intervalo 10.0.0.0/24, o endereço IP estático de destino será 10.0.0.0.19 se disponível, e caso contrário, será 10.0.0.254.
 
 - A rede virtual de failover é a rede de destino selecionada quando você configura a recuperação de desastre.
 - É recomendável sempre usar uma rede de não produção para failover de teste.
 - Você pode modificar o endereço IP de destino nas configurações **Computação e Rede** da VM.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Revise as [diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md) para recuperação de desastre da VM do Azure.
 - [Saiba mais](site-recovery-retain-ip-azure-vm-failover.md) sobre como reter endereços IP após failover.

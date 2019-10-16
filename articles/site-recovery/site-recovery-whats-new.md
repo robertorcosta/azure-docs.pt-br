@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 8e034153a2e98a101527f411c78ace6e46b01b29
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
-ms.translationtype: MT
+ms.openlocfilehash: 5c449136339a4c31cb1829b53f62e1724caa4736
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937520"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372263"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades do Site Recovery
 
@@ -20,11 +20,26 @@ O serviço [Azure Site Recovery](site-recovery-overview.md) é atualizado e apri
 
 Você pode seguir e assinar Site Recovery notificações de atualização no canal de [atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery) .
 
+## <a name="update-to-servicing-stack-updatesha-2"></a>Atualizar para atualização da pilha de manutenção/SHA-2
+
+Para a recuperação de desastre de VMs do Azure para uma região secundária ou VMs VMware locais ou servidores físicos para o Azure, observe o seguinte:
+
+- Da versão 9.30. x. x da extensão do serviço de mobilidade (para VMs do Azure) e do agente de serviço de mobilidade (para VMware/máquinas físicas), alguns sistemas operacionais de máquina devem estar executando a atualização da pilha de manutenção e o SHA-2. Os detalhes são mostrados na tabela a seguir.
+- Instale a atualização e o SHA-2 de acordo com a base de conhecimento vinculada.
+- Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
+
+**Sistema operacional** | **VM do Azure** | **VM VMware/computador físico**
+--- | --- | ---
+**Windows 2008 R2 SP1** | [Atualização da pilha de manutenção](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Atualização da pilha de manutenção](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
+**Windows 2008 SP2** | [Atualização da pilha de manutenção](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Atualização da pilha de manutenção](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
+**Windows 7 SP1** | [Atualização da pilha de manutenção](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Atualização da pilha de manutenção](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419).
+
+
 ## <a name="supported-updates"></a>Atualizações com suporte
 
 Para componentes de Site Recovery, damos suporte a versões N-4, em que N é a versão mais recente lançada. Eles são resumidos na tabela a seguir.
 
-**Atualização** |  **Configuração unificada** | **Ova do servidor de configuração** | **Agente de serviço de mobilidade** | **Provedor de Site Recovery** | **Agente dos Serviços de Recuperação**
+**Atualizar** |  **Configuração unificada** | **Ova do servidor de configuração** | **Agente de serviço de mobilidade** | **Provedor de Site Recovery** | **Agente dos Serviços de Recuperação**
 --- | --- | --- | --- | --- | ---
 [ROLLUP 40](https://support.microsoft.com/help/4517283/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [ROLLUP 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
@@ -42,7 +57,7 @@ Para componentes de Site Recovery, damos suporte a versões N-4, em que N é a v
 
 O [pacote cumulativo](h https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) de atualizações 40 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Atualizações para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
@@ -82,7 +97,7 @@ Conta de armazenamento | O Site Recovery agora dá suporte ao uso de contas de a
 
 O [pacote cumulativo](https://support.microsoft.com/help/4517283/update-rollup-39-for-azure-site-recovery) de atualizações 39 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Atualizações para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
@@ -103,7 +118,7 @@ Os novos recursos para a recuperação de desastres de VM do Azure são resumido
 
 O [pacote cumulativo](https://support.microsoft.com/help/4513507/) de atualizações 38 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Atualizações para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
@@ -124,7 +139,7 @@ Agora você pode replicar discos de até 8 TB ao replicar para uma VM do Azure c
 
 O [pacote cumulativo](https://support.microsoft.com/help/4508614/) de atualizações 37 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Atualizações para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
@@ -146,7 +161,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 O [pacote cumulativo](https://support.microsoft.com/help/4503156) de atualizações 36 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
@@ -179,7 +194,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 O [pacote cumulativo](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery) de atualizações 35 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
@@ -200,7 +215,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 O [pacote cumulativo](https://support.microsoft.com/help/4490016/update-rollup-34-for-azure-site-recovery) de atualizações 34 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo).
@@ -210,7 +225,7 @@ O [pacote cumulativo](https://support.microsoft.com/help/4490016/update-rollup-3
 
 O [pacote cumulativo](https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery) de atualizações 33 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo).
@@ -248,7 +263,7 @@ A rede acelerada habilita o SR-IOV (virtualização de e/s de raiz única) para 
 
 O [pacote cumulativo](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery) de atualizações 32 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo).
@@ -275,7 +290,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 O [pacote cumulativo](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery) de atualizações 31 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo).
@@ -286,7 +301,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 --- | ---
 **Suporte para Linux** | Foi adicionado suporte para Oracle Linux 6,8 e 6,9/7.0 e para o kernel UEK5.
 **LVM** | Suporte adicionado para volumes LVM e LVM2.<br/><br/> Agora há suporte para o diretório/boot em uma partição de disco e em volumes LVM.
-**Diretórios** | O suporte foi adicionado para esses diretórios configurados como partições separadas ou sistemas de arquivos que não estão no mesmo disco do sistema:<br/><br/> /(root), /boot, /usr, /usr/local, /var, /etc.
+**Diretórios** | O suporte foi adicionado para esses diretórios configurados como partições separadas ou sistemas de arquivos que não estão no mesmo disco do sistema:<br/><br/> /(raiz),/boot,/usr,/usr/local,/var,/etc.
 **Windows Server 2008** | Suporte adicionado para discos dinâmicos.
 **Failover** | Tempo de failover melhorado para VMs VMware em que storvsc e vsbus não são drivers de inicialização.
 **Suporte a UEFI** | As VMs do Azure não dão suporte ao tipo de inicialização UEFI. Agora você pode migrar servidores físicos locais com UEFI para o Azure com o Site Recovery. Site Recovery migra o servidor convertendo o tipo de inicialização para BIOS antes da migração. Site Recovery anteriormente suportava essa conversão somente para VMs. O suporte está disponível para servidores físicos que executam o Windows Server 2012 ou posterior.
@@ -327,7 +342,7 @@ A recuperação de desastres de VMs do Azure incorre em custos de licenciamento 
 
 O [pacote cumulativo](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30) de atualizações 30 fornece as atualizações a seguir.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo).
@@ -347,7 +362,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 O [pacote cumulativo](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery) de atualizações 29 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo).
@@ -359,7 +374,7 @@ O [pacote cumulativo](https://support.microsoft.com/help/4466466/update-rollup-2
 
 O [pacote cumulativo](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery) de atualizações 28 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo).
@@ -388,7 +403,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 O [pacote cumulativo](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery) de atualizações 27 fornece as seguintes atualizações.
 
-**Atualização** | **Detalhes**
+**Atualizar** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para Site Recovery agentes e provedores (conforme detalhado no acúmulo).
 **Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo).
@@ -411,6 +426,6 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Mantenha-se atualizado com nossas atualizações na página [Atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery).

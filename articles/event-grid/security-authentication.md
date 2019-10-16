@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 87cfce6045ce84f83ca651472635227547c26ee9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f22d8c57b0127e646321a20587d0cd89f5c9ea45
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66117018"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72325419"
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança e autenticação da Grade de Eventos 
 
@@ -35,23 +35,23 @@ Como muitos outros serviços que dão suporte a webhooks, a Grade de Eventos do 
 
 Se você estiver usando qualquer outro tipo de ponto de extremidade, como uma função do Azure baseada no gatilho HTTP, o código do ponto de extremidade precisará participar de um handshake de validação com o EventGrid. A Grade de Eventos dá suporte a duas maneiras de validar a assinatura.
 
-1. **Handshake de ValidationCode (programático)** : Se você controlar o código-fonte para o ponto de extremidade, esse método é recomendado. No momento da criação da assinatura, a Grade de Eventos posta um Evento de Validação de Assinatura para o ponto de extremidade de destino. O esquema desse evento é semelhante a qualquer outro evento da Grade de Eventos. A parte de dados desse evento inclui um `validationCode` propriedade. Seu aplicativo verifica se a solicitação de validação é para uma assinatura de evento esperado e retorna o código de validação à Grade de Eventos. Esse mecanismo de handshake é compatível com todas as versões da Grade de Eventos.
+1. **ValidationCode handshake (programático)** : se você controlar o código-fonte para seu ponto de extremidade, esse método é recomendado. No momento da criação da assinatura, a Grade de Eventos posta um Evento de Validação de Assinatura para o ponto de extremidade de destino. O esquema desse evento é semelhante a qualquer outro evento da Grade de Eventos. A parte de dados desse evento inclui um `validationCode` propriedade. Seu aplicativo verifica se a solicitação de validação é para uma assinatura de evento esperado e retorna o código de validação à Grade de Eventos. Esse mecanismo de handshake é compatível com todas as versões da Grade de Eventos.
 
-2. **Handshake ValidationURL (manual)** : Em alguns casos, você não pode acessar o código-fonte do ponto de extremidade para implementar o handshake ValidationCode. Por exemplo, se você usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), não será possível responder de volta programaticamente com o código de validação.
+2. **Handshake ValidationURL (manual)** : em determinados casos, você não pode acessar o código-fonte do ponto de extremidade para implementar o handshake ValidationCode. Por exemplo, se você usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), não será possível responder de volta programaticamente com o código de validação.
 
    A partir da versão 2018-05-01-preview, a Grade de Eventos dá suporte a um handshake de validação manual. Se você estiver criando uma inscrição de evento com um SDK ou ferramenta que usa a versão da API 2018-05-01-preview ou posterior, a Grade de Eventos envia uma propriedade `validationUrl` na parte de dados do evento de validação da assinatura. Para concluir o handshake, encontre essa URL nos dados do evento e manualmente enviar uma solicitação GET para ela. Você pode usar um cliente REST ou o navegador da web.
 
-   A URL fornecida é válida por 5 minutos. Durante esse tempo, o estado de fornecimento da assinatura do evento é `AwaitingManualAction`. Se você não concluir a validação manual dentro de 5 minutos, o estado de provisionamento é definido como `Failed`. Você terá que criar a inscrição do evento novamente antes de iniciar a validação manual.
+   A URL fornecida é válida por 5 minutos. Durante esse tempo, o estado de fornecimento da assinatura do evento é `AwaitingManualAction`. Se você não concluir a validação manual em 5 minutos, o estado de provisionamento será definido como `Failed`. Você terá que criar a inscrição do evento novamente antes de iniciar a validação manual.
 
-    Esse mecanismo de autenticação também requer o ponto de extremidade de webhook para retornar um código de status HTTP de 200 para que ele saiba que o POST para o evento de validação foi aceito antes que ele possa ser colocado no modo de validação manual. Em outras palavras, se o ponto de extremidade retorna 200, mas não retorna uma resposta de validação por meio de programação, o modo é transferido para o modo de validação manual. Se houver um GET na URL de validação dentro de 5 minutos, o handshake de validação é considerado bem-sucedida.
+    Esse mecanismo de autenticação também exige que o ponto de extremidade do webhook retorne um código de status HTTP 200 para que ele saiba que a POSTAgem do evento de validação foi aceita antes que possa ser colocada no modo de validação manual. Em outras palavras, se o ponto de extremidade retornar 200, mas não retornar uma resposta de validação programaticamente, o modo será transferido para o modo de validação manual. Se houver um GET na URL de validação em 5 minutos, o handshake de validação será considerado com êxito.
 
 > [!NOTE]
-> Usando certificados autoassinados para a validação não é suportado. Use um certificado assinado de uma autoridade de certificação (CA).
+> Não há suporte para o uso de certificados autoassinados para validação. Em vez disso, use um certificado assinado de uma autoridade de certificação (CA).
 
 ### <a name="validation-details"></a>Detalhes da validação
 
 * No momento da criação/atualização da assinatura, a Grade de Eventos posta um Evento de Validação de Assinatura para o ponto de extremidade de destino. 
-* O evento contém um valor de cabeçalho "aeg-event-type: SubscriptionValidation".
+* O evento contém um valor de cabeçalho "Aeg-Event-Type: SubscriptionValidation".
 * O corpo do evento tem o mesmo esquema que outros eventos da Grade de Eventos.
 * A propriedade eventType do evento é `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * Os dados de propriedade do evento incluem uma propriedade `validationCode` com uma cadeia de caracteres gerada aleatoriamente. Por exemplo, "validationCode: acb13…".
@@ -67,8 +67,8 @@ Um SubscriptionValidationEvent de exemplo é mostrado no exemplo a seguir:
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "0000000000-0000-0000-0000-00000000000000",
-    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=0000000000-0000-0000-0000-0000000000000&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=512d38b6-c7b8-40c8-89fe-f46f9e9622b6&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",
@@ -93,7 +93,7 @@ Para obter um exemplo de lidar com o handshake de validação de assinatura, con
 
 ### <a name="checklist"></a>Lista de verificação
 
-Durante a criação de assinatura de evento, se você estiver vendo uma mensagem de erro como "ao tentar validar o ponto de extremidade fornecido https:\//your-endpoint-here falhou. Para obter mais detalhes, visite https:\//aka.ms/esvalidation ", ele indica que há uma falha no handshake de validação. Para resolver esse erro, verifique os seguintes aspectos:
+Durante a criação da assinatura do evento, se você estiver vendo uma mensagem de erro como "a tentativa de validar o ponto de extremidade fornecido https: \//seu ponto de extremidade-aqui falhou. Para obter mais detalhes, visite https: \//aka. ms/esvalidation ", mas isso indica que há uma falha no handshake de validação. Para resolver esse erro, verifique os seguintes aspectos:
 
 * Você tem o controle do código do aplicativo no ponto de extremidade de destino? Por exemplo, se você está escrevendo um Azure Function com base em gatilho HTTP, você tem acesso ao código do aplicativo para fazer alterações nele?
 * Se você tiver acesso ao código do aplicativo, implemente o mecanismo de handshake com base em ValidationCode como mostrado no exemplo acima.
@@ -278,7 +278,7 @@ Se você precisar especificar permissões que são diferentes de funções inter
 
 A seguir estão definições de função da Grade de Eventos de exemplo que permitem aos usuários executar diferentes ações. Essas funções personalizadas são diferentes das funções internas porque elas concedem acesso mais amplo do que apenas assinaturas de eventos.
 
-**EventGridReadOnlyRole.json**: Permitir apenas operações somente leitura.
+**EventGridReadOnlyRole.json**: permitir apenas operações somente leitura.
 
 ```json
 {
@@ -297,7 +297,7 @@ A seguir estão definições de função da Grade de Eventos de exemplo que perm
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**: Permitir ações restritas posteriores, mas impedir ações de exclusão.
+**EventGridNoDeleteListKeysRole.json**: permitir ações restritas posteriores, mas impedir ações de exclusão.
 
 ```json
 {
@@ -320,7 +320,7 @@ A seguir estão definições de função da Grade de Eventos de exemplo que perm
 }
 ```
 
-**EventGridContributorRole.json**: Permite todas as ações de grade de eventos.
+**EventGridContributorRole.json**: permitir todas as ações da grade de eventos.
 
 ```json
 {
@@ -344,6 +344,6 @@ A seguir estão definições de função da Grade de Eventos de exemplo que perm
 
 Você pode criar funções personalizadas com [PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md) e [REST](../role-based-access-control/custom-roles-rest.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para ver uma introdução à Grade de Eventos, confira [Sobre a Grade de Eventos](overview.md)

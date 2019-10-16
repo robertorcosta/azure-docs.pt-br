@@ -4,16 +4,16 @@ description: Saiba como usar a biblioteca bulk executor para importar dados grá
 author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 51bd14c536e46291c8720e6c22e2e03a30243ddf
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
-ms.translationtype: HT
+ms.openlocfilehash: 35f42f3e222767d9d201d9948581151ae3cb5127
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827265"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327186"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Usar a biblioteca .NET bulk executor do grafo para executar operações em massa na API Gremlin do Azure Cosmos DB
 
@@ -128,7 +128,7 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 Esse repositório contém o exemplo GraphBulkExecutor com os seguintes arquivos:
 
-Arquivo|DESCRIÇÃO
+Arquivo|Descrição
 ---|---
 `App.config`|É aqui que o aplicativo e os parâmetros específicos do banco de dados são especificados. Primeiro, esse arquivo precisa ser modificado para se conectar ao banco de dados de destino e às coleções.
 `Program.cs`| Esse arquivo contém a lógica por trás da criação da coleção `DocumentClient`, do tratamento das limpezas e do envio das solicitações do bulk executor.
@@ -136,7 +136,7 @@ Arquivo|DESCRIÇÃO
 
 No arquivo `App.config`, os itens a seguir são os valores de configuração que podem ser fornecidos:
 
-Configuração|DESCRIÇÃO
+Configuração|Descrição
 ---|---
 `EndPointUrl`|Este é **seu ponto de extremidade do SDK do .NET**, localizado na folha Visão geral de sua conta do banco de dados da API Gremlin do Azure Cosmos DB. O identificador tem o formato: `https://your-graph-database-account.documents.azure.com:443/`
 `AuthorizationKey`|Essa é a Chave Primária ou Secundária listada em sua conta do Azure Cosmos DB. Saiba mais sobre [Como proteger o acesso aos dados do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#master-keys)
@@ -154,7 +154,7 @@ Configuração|DESCRIÇÃO
 2. Execute o aplicativo. Isso irá chamar `BulkImportAsync` duas vezes, uma vez para importar os vértices e outra para importar as bordas. Se qualquer um dos objetos gerar um erro quando forem inseridos, eles serão adicionados a `.\BadVertices.txt` ou `.\BadEdges.txt`.
 3. Avalie os resultados consultando o banco de dados do gráfico. Se a opção `ShouldCleanupOnFinish` estiver definida como true, o banco de dados será automaticamente excluído.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Para saber mais sobre os detalhes do pacote NuGet e as notas sobre a versão da biblioteca .NET do executor em massa, confira [Detalhes do SDK do executor em massa](sql-api-sdk-bulk-executor-dot-net.md). 
 * Confira as [Dicas de desempenho](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) para otimizar ainda mais o uso do bulk executor.
 * Examine o [artigo de referência BulkExecutor.Graph](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) para ver mais detalhes sobre as classes e métodos definidos nesse namespace.

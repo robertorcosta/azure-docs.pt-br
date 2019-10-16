@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 3437634ff70371f9679423149b6996a099c044b5
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: fb464d2c75e271bf2f7f1684ed991d01691d70e4
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950724"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330932"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
 
@@ -66,9 +66,9 @@ No momento, o Time Series Insights não dá suporte à exclusão granular de dad
 
 Para obter mais informações, confira [Configurando a retenção no Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* Leia mais sobre como [conceder acesso a dados ao seu ambiente de TSI](./time-series-insights-data-access.md).
+* Leia mais sobre como [conceder acesso a dados ao seu ambiente de Azure Time Series insights](./time-series-insights-data-access.md).
 
 * Exiba o [Azure Time Series insights Explorer](time-series-insights-explorer.md).
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 6b8693768e08f7ed80765015efa5af1a73b850c7
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0069d2e8ccd3b4f65ced8b6e18ce568689f81e14
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476597"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374416"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário a partir de uma máquina virtual do Azure
 
@@ -26,7 +26,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Habilitar as soluções
 
-Acesse uma máquina virtual existente. Em **OPERAÇÕES** , selecione **Gerenciamento de atualizações**, **Inventário** ou **Controle de alterações**. A máquina virtual pode existir em qualquer região não importa o local de sua conta de automação. Quando uma solução de uma VM de integração que você precisa ter o `Microsoft.OperationalInsights/workspaces/read` permissão para determinar se a VM estiver integrado a um espaço de trabalho. Para saber mais sobre permissões adicionais que são necessários em geral, consulte [permissões necessárias para integrar máquinas](automation-role-based-access-control.md#onboarding).
+Acesse uma máquina virtual existente. Em **OPERAÇÕES** , selecione **Gerenciamento de atualizações**, **Inventário** ou **Controle de alterações**. A máquina virtual pode existir em qualquer região, independentemente do local da sua conta de automação. Ao realizar a integração de uma solução de uma VM, você precisa ter a permissão `Microsoft.OperationalInsights/workspaces/read` para determinar se a VM está integrada a um espaço de trabalho. Para saber mais sobre permissões adicionais que são necessárias em geral, confira [as permissões necessárias para carregar computadores](automation-role-based-access-control.md#onboarding).
 
 Para habilitar a solução somente para a VM, assegure-se de que **Habilitar para esta VM** está selecionado. Para integrar várias máquinas à solução, selecione **Habilitar para VMs nesta assinatura** e, em seguida, selecione **Clique para selecionar as máquinas para habilitar**. Para saber como integrar várias máquinas de uma só vez, consulte [Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário](automation-onboard-solutions-from-automation-account.md).
 
@@ -34,7 +34,7 @@ Selecione o espaço de trabalho do Azure Log Analytics e a conta de Automação 
 
 ![Integrar solução de Gerenciamento de Atualizações](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
-Acesse outras soluções e selecione **Habilitar**. O espaço de trabalho do Log Analytics e listas de menu suspenso de conta de automação estão desabilitadas porque essas soluções usam o mesmo espaço de trabalho e a conta de automação como a solução anteriormente habilitada.
+Acesse outras soluções e selecione **Habilitar**. As listas suspensas Log Analytics espaço de trabalho e conta de automação estão desabilitadas porque essas soluções usam o mesmo espaço de trabalho e conta de automação que a solução habilitada anteriormente.
 
 > [!NOTE]
 > O **Controle de Alterações** e **Inventário** usam a mesma solução. Quando uma dessas soluções estiver habilitada, a outra também estará habilitada.
@@ -59,7 +59,7 @@ Quando um computador é adicionado às soluções Gerenciamento de Atualizaçõe
 
 Vá até seu workspace. Em **Geral**, selecione **Pesquisas salvas**. As duas pesquisas salvas usadas por essas soluções são mostradas na tabela a seguir:
 
-|NOME     |Categoria  |Alias  |
+|name     |Categoria  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Atualizações        | Updates__MicrosoftDefaultComputerGroup         |
@@ -76,7 +76,7 @@ As seguintes soluções são dependentes de um espaço de trabalho do Log Analyt
 * [Controle de alterações](automation-change-tracking.md)
 * [Iniciar/parar VMs durante os horários fora de pico](automation-solution-vm-management.md)
 
-Se você decidir que você não deseja mais integrar sua conta de automação com um espaço de trabalho do Log Analytics, você pode desvincular sua conta diretamente do portal do Azure.  Antes de prosseguir, você precisa remover as soluções mencionadas anteriormente, caso contrário, esse processo será impedido de continuar. Examine o artigo sobre a solução específica que você importou para entender as etapas necessárias para removê-la.
+Se você decidir que não deseja mais integrar sua conta de automação a um espaço de trabalho Log Analytics, você poderá desvincular sua conta diretamente da portal do Azure.  Antes de prosseguir, você precisa remover as soluções mencionadas anteriormente, caso contrário, esse processo será impedido de continuar. Examine o artigo sobre a solução específica que você importou para entender as etapas necessárias para removê-la.
 
 Depois de remover essas soluções, você poderá executar as etapas a seguir para desvincular sua conta de Automação.
 
@@ -105,9 +105,16 @@ Se você tiver usado a solução Iniciar/parar VMs durante os horários fora de 
 * Iniciar e parar runbooks da VM
 * variáveis
 
-Como alternativa, você também pode desvincular seu espaço de trabalho de sua conta de automação do espaço de trabalho do Log Analytics. No espaço de trabalho, selecione **conta de automação** sob **recursos relacionados**. Na página conta de automação, selecione **desvincular conta**.
+Como alternativa, você também pode desvincular seu espaço de trabalho de sua conta de automação do seu espaço de trabalho Log Analytics. Em seu espaço de trabalho, selecione **conta de automação** em **recursos relacionados**. Na página conta de automação, selecione **desvincular conta**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Para remover uma VM do Gerenciamento de Atualizações:
+
+* No espaço de trabalho do Log Analytics, remova a VM da pesquisa salva para a Configuração de Escopo `MicrosoftDefaultScopeConfig-Updates`. As pesquisas salvas podem ser encontradas em **Geral** no workspace.
+* Remover o [agente do Microsoft Monitoring](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente do Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+
+## <a name="next-steps"></a>Próximos passos
 
 Continue com os tutoriais das soluções para aprender como utilizá-las:
 

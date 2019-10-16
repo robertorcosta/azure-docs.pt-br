@@ -5,16 +5,16 @@ keywords: ferramentas de ciência de dados, máquina virtual de ciência de dado
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 03/16/2018
-ms.openlocfilehash: dec1589898cf6cc239dbe737519e078f1c4bc7b1
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.date: 10/11/2019
+ms.openlocfilehash: 8eae1501973d24dc468056229e8a762910f2f181
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744916"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330747"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Ferramentas de ciência de dados e aprendizado de máquina em máquinas virtuais de ciência de dados do Azure
 As DSVMs (máquinas virtuais de ciência de dados) do Azure têm um conjunto avançado de ferramentas e bibliotecas para o aprendizado de máquina disponível em linguagens populares, como Python, R e Julia.
@@ -22,6 +22,7 @@ As DSVMs (máquinas virtuais de ciência de dados) do Azure têm um conjunto ava
 Aqui estão algumas das ferramentas e bibliotecas de aprendizado de máquina no DSVMs.
 
 ## <a name="azure-machine-learning-sdk-for-python"></a>SDK do Azure Machine Learning para Python
+
 Consulte a referência completa para o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml).
 
 |    |           |
@@ -34,18 +35,40 @@ Consulte a referência completa para o [SDK do Azure Machine Learning para Pytho
 | Link para exemplos      | Exemplos Jupyter Notebooks estão incluídos no diretório `AzureML` em notebooks.  |
 | Ferramentas relacionadas      | Visual Studio Code, Jupyter   |
 
-## <a name="xgboost"></a>XGBoost 
+## <a name="h2o"></a>H2O
+
 |    |           |
 | ------------- | ------------- |
-| O que é?   |   Uma biblioteca de aumento de gradiente rápida, portátil e distribuída (GBDT, GBRT ou GBM) para Python, R, Java, escalabilidade C++, e muito mais. Ele é executado em um único computador e no Apache Hadoop e no Spark.    |
+| O que é?   | Uma plataforma de ia de software livre que dá suporte ao aprendizado de máquina na memória, distribuída, rápida e escalonável.  |
+| Versões com suporte      | Linux   |
+| Usos típicos      | Aprendizado de máquina distribuído e escalonável de uso geral   |
+| Como é configurado ou instalado?      | O H2O é instalado em `/dsvm/tools/h2o`.      |
+| Como usá-lo ou executá-lo      | Conecte-se à VM usando o X2Go. Inicie um novo terminal e execute `java -jar /dsvm/tools/h2o/current/h2o.jar`. Em seguida, inicie um navegador da Web e conecte-se ao `http://localhost:54321`.      |
+| Link para exemplos      | Os exemplos estão disponíveis na VM em Jupyter no diretório `h2o`.      |
+| Ferramentas relacionadas      | Apache Spark, MXNet, XGBoost, Sparkling Water, Deep Water    |
+
+Há várias outras bibliotecas de aprendizado de máquina em DSVMs, como o popular pacote `scikit-learn` que faz parte da distribuição Anaconda Python para DSVMs. Para verificar a lista de pacotes disponíveis em Python, R e Julia, execute os respectivos gerenciadores de pacotes.
+
+## <a name="lightgbm"></a>LightGBM
+
+|    |           |
+| ------------- | ------------- |
+| O que é?   | Uma estrutura de reforço de gradiente rápida, distribuída e de alto desempenho (GBDT, GBRT, GBM ou MART) com base em algoritmos de árvore de decisão. Ele é usado para classificação, classificação e muitas outras tarefas de aprendizado de máquina.    |
+| Versões com suporte      | Windows, Linux    |
+| Usos típicos      | Estrutura de aumento de gradiente de uso geral      |
+| Como é configurado ou instalado?      | No Windows, LightGBM é instalado como um pacote do Python. No Linux, o executável de linha de comando está em `/opt/LightGBM/lightgbm`, o pacote R está instalado e pacotes Python estão instalados.     |
+| Link para exemplos      | [Guia do LightGBM](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
+| Ferramentas relacionadas      | MXNet, XgBoost  |
+
+## <a name="rattle"></a>Rattle
+|    |           |
+| ------------- | ------------- |
+| O que é?   |   Uma interface gráfica do usuário para Data Mining usando o R.   |
 | Edições com suporte     | Windows, Linux     |
-| Usos típicos      | Biblioteca geral de aprendizado de máquina      |
-| Como é configurado ou instalado?      |  Instalada com o suporte a GPU   |
-| Como usá-lo ou executá-lo      | Como uma biblioteca do Python (2,7 e 3,5), pacote R e ferramenta de linha de comando no caminho (`C:\dsvm\tools\xgboost\bin\xgboost.exe` para Windows e `/dsvm/tools/xgboost/xgboost` para Linux)    |
-| Links para exemplos      | Exemplos são incluídos na VM, em `/dsvm/tools/xgboost/demo` no Linux e em `C:\dsvm\tools\xgboost\demo` no Windows.   |
-| Ferramentas relacionadas      | LightGBM, MXNet   |
-
-
+| Usos típicos      | Ferramenta de mineração de dados de interface do usuário geral para R    |
+| Como usá-lo ou executá-lo      | Como uma ferramenta de interface do usuário. No Windows, inicie um prompt de comando, execute R e, dentro do R, execute `rattle()`. No Linux, conecte-se com o X2Go, inicie um terminal, execute R e, em R, execute `rattle()`. |
+| Link para exemplos      | [Rattle](https://togaware.com/onepager/) |
+| Ferramentas relacionadas      |LightGBM, Weka, XGBoost   |
 
 ## <a name="vowpal-wabbit"></a>Vowpal Wabbit
 |    |           |
@@ -69,35 +92,15 @@ Consulte a referência completa para o [SDK do Azure Machine Learning para Pytho
 | Link para exemplos      | [Exemplos de Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Ferramentas relacionadas      |LightGBM, Rattle, XGBoost   |
 
-## <a name="rattle"></a>Rattle
+## <a name="xgboost"></a>XGBoost 
 |    |           |
 | ------------- | ------------- |
-| O que é?   |   Uma interface gráfica do usuário para Data Mining usando o R.   |
+| O que é?   |   Uma biblioteca de aumento de gradiente rápida, portátil e distribuída (GBDT, GBRT ou GBM) para Python, R, Java, escalabilidade C++, e muito mais. Ele é executado em um único computador e no Apache Hadoop e no Spark.    |
 | Edições com suporte     | Windows, Linux     |
-| Usos típicos      | Ferramenta de mineração de dados de interface do usuário geral para R    |
-| Como usá-lo ou executá-lo      | Como uma ferramenta de interface do usuário. No Windows, inicie um prompt de comando, execute R e, em seguida, dentro `rattle()`do r, execute. No Linux, conecte-se com o X2Go, inicie um terminal, execute R e, em R `rattle()`, execute. |
-| Link para exemplos      | [Rattle](https://togaware.com/onepager/) |
-| Ferramentas relacionadas      |LightGBM, Weka, XGBoost   |
+| Usos típicos      | Biblioteca geral de aprendizado de máquina      |
+| Como é configurado ou instalado?      |  Instalada com o suporte a GPU   |
+| Como usá-lo ou executá-lo      | Como uma biblioteca do Python (2,7 e 3,5), pacote R e ferramenta de linha de comando no caminho (`C:\dsvm\tools\xgboost\bin\xgboost.exe` para Windows e `/dsvm/tools/xgboost/xgboost` para Linux)    |
+| Links para exemplos      | Exemplos são incluídos na VM, em `/dsvm/tools/xgboost/demo` no Linux e em `C:\dsvm\tools\xgboost\demo` no Windows.   |
+| Ferramentas relacionadas      | LightGBM, MXNet   |
 
-## <a name="lightgbm"></a>LightGBM
-|    |           |
-| ------------- | ------------- |
-| O que é?   | Uma estrutura de reforço de gradiente rápida, distribuída e de alto desempenho (GBDT, GBRT, GBM ou MART) com base em algoritmos de árvore de decisão. Ele é usado para classificação, classificação e muitas outras tarefas de aprendizado de máquina.    |
-| Versões com suporte      | Windows, Linux    |
-| Usos típicos      | Estrutura de aumento de gradiente de uso geral      |
-| Como é configurado ou instalado?      | No Windows, LightGBM é instalado como um pacote do Python. No Linux, o executável de linha de comando está em `/opt/LightGBM/lightgbm`, o pacote R está instalado e pacotes Python estão instalados.     |
-| Link para exemplos      | [Guia do LightGBM](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
-| Ferramentas relacionadas      | MXNet, XgBoost  |
 
-## <a name="h2o"></a>H2O
-|    |           |
-| ------------- | ------------- |
-| O que é?   | Uma plataforma de ia de software livre que dá suporte ao aprendizado de máquina na memória, distribuída, rápida e escalonável.  |
-| Versões com suporte      | Linux   |
-| Usos típicos      | Aprendizado de máquina distribuído e escalonável de uso geral   |
-| Como é configurado ou instalado?      | O H2O é instalado em `/dsvm/tools/h2o`.      |
-| Como usá-lo ou executá-lo      | Conecte-se à VM usando o X2Go. Inicie um novo terminal e execute `java -jar /dsvm/tools/h2o/current/h2o.jar`. Em seguida, inicie um navegador da Web e conecte-se ao `http://localhost:54321`.      |
-| Link para exemplos      | Os exemplos estão disponíveis na VM em Jupyter no diretório `h2o`.      |
-| Ferramentas relacionadas      | Apache Spark, MXNet, XGBoost, Sparkling Water, Deep Water    |
-
-Há várias outras bibliotecas de aprendizado de máquina em DSVMs, como o pacote popular `scikit-learn` que faz parte da distribuição Anaconda Python para DSVMs. Para verificar a lista de pacotes disponíveis em Python, R e Julia, execute os respectivos gerenciadores de pacotes.

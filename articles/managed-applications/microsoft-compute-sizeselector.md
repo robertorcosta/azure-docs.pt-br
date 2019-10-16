@@ -1,6 +1,6 @@
 ---
 title: Elemento de interface do usuário SizeSelector do Azure | Microsoft Docs
-description: Descreve o elemento de interface do usuário Microsoft.Compute.SizeSelector para o Portal do Azure.
+description: Descreve o elemento de interface do usuário Microsoft.Compute.SizeSelector para o Portal do Azure. Use para selecionar o tamanho de uma máquina virtual.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: e5be5635964ebeedc7be4d1d1f5403e4d281b55c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 288ea7e887a170c8560b0126fa53c9132da35db6
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64722356"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332662"
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Elemento de interface do usuário Microsoft.Compute.SizeSelector
 Um controle para selecionar um tamanho de uma ou mais instâncias de máquina virtual.
@@ -80,6 +80,6 @@ Depois de selecionar o controle, o usuário vê uma exibição expandida dos tam
 "Standard_D1"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](create-uidefinition-elements.md).

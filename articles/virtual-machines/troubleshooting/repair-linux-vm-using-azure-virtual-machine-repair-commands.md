@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
 ms.openlocfilehash: 56e420f9641638bfa79ff077be73132b00b934ab
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71132085"
 ---
-# <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Linux usando os comandos de reparo da máquina virtual do Azure
+# <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Linux usando os comandos de reparo da Máquina Virtual do Azure
 
 Se sua VM (máquina virtual) do Linux no Azure encontrar um erro de disco ou de inicialização, talvez seja necessário executar a mitigação no próprio disco. Um exemplo comum seria uma atualização de aplicativo com falha que impede a inicialização bem-sucedida da VM. Este artigo fornece detalhes sobre como usar os comandos de reparo de máquina virtual do Azure para conectar o disco a outra VM Linux para corrigir erros e, em seguida, recriar sua VM original.
 
@@ -54,13 +54,13 @@ Para obter mais informações e documentação, consulte [AZ VM Repair](https://
 
    Se preferir instalar e usar a CLI localmente, este início rápido exigirá a CLI do Azure versão 2.0.30 ou posterior. Execute ``az --version`` para encontrar a versão. Se você precisar instalar ou atualizar seu CLI do Azure, consulte [instalar CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-2. Se esta for a primeira vez que você usou os `az vm repair` comandos, adicione a extensão da CLI de reparo de VM.
+2. Se esta for a primeira vez que você usou os comandos `az vm repair`, adicione a extensão da CLI de reparo de VM.
 
    ```azurecli-interactive
    az extension add -n vm-repair
    ```
 
-   Se você tiver usado os `az vm repair` comandos anteriormente, aplique todas as atualizações à extensão de reparo de VM.
+   Se você usou anteriormente os comandos `az vm repair`, aplique todas as atualizações à extensão de reparo de VM.
 
    ```azurecli-interactive
    az extension update -n vm-repair
@@ -84,13 +84,13 @@ Para obter mais informações e documentação, consulte [AZ VM Repair](https://
 
 O seguinte exemplo habilita a extensão de diagnóstico na VM chamada ``myVMDeployed`` no grupo de recursos chamado ``myResourceGroup``:
 
-CLI do Azure
+Azure CLI
 
 ```azurecli-interactive
 az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGroup --storage https://mystor.blob.core.windows.net/
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Se você estiver tendo problemas para se conectar à sua VM, consulte [solucionar problemas de conexões RDP para uma máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection).
 * Para problemas com o acesso a aplicativos executados em sua VM, consulte [solucionar problemas de conectividade de aplicativos em máquinas virtuais no Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-app-connection).

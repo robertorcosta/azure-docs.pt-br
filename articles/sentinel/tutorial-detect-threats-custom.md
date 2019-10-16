@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 18c11198f6b81e72e371b3ab06ed3a7330078c52
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5d4c549eaded78c69d3e7fa7173b5ad9b1d82f2f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023780"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333139"
 ---
-# <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>Tutorial: Criar regras analíticas personalizadas para detectar ameaças suspeitas
+# <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>Tutorial: criar regras analíticas personalizadas para detectar ameaças suspeitas
 
 Depois de [conectar suas fontes de dados](quickstart-onboard.md) to Azure Sentinel, você pode criar regras personalizadas que podem Pesquisar critérios específicos em seu ambiente e gerar incidentes quando os critérios forem correspondidos, para que você possa investigar-los. Este tutorial ajuda você a criar regras personalizadas para detectar ameaças com o Azure Sentinel.
 
@@ -56,7 +56,7 @@ Você pode criar regras analíticas personalizadas para ajudá-lo a Pesquisar os
     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
 
    > [!NOTE]
-   > O comprimento da consulta deve estar entre 1 e 1, 0000 caracteres e não pode conter "Search \*" ou "Union \*".
+   > O comprimento da consulta deve ter entre 1 e 1.000 caracteres e não pode conter "Search \*" ou "Union \*".
 
     1. Em **agendamento de consulta**, defina os seguintes parâmetros:
 
@@ -84,7 +84,7 @@ Você pode criar regras analíticas personalizadas para ajudá-lo a Pesquisar os
 > [!NOTE]
 > Os alertas gerados no Azure Sentinel estão disponíveis por meio do [Microsoft Graph Security](https://aka.ms/securitygraphdocs). Para obter mais informações, consulte a [documentação de alertas de segurança do Microsoft Graph](https://aka.ms/graphsecurityreferencebetadocs).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você aprendeu a começar a detectar ameaças usando o Azure Sentinel.
 
