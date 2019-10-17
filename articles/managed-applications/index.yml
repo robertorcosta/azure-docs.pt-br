@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentação dos Aplicativos Gerenciados do Azure
 metadata:
-  title: 'Documentação dos Aplicativos Gerenciados do Azure - Tutoriais, Referência de API'
+  title: Documentação dos Aplicativos Gerenciados do Azure
   description: Use os Aplicativos Gerenciados do Azure para publicar soluções de nuvem mais fáceis para os consumidores manterem.
   services: managed-applications
   author: tfitzmac
