@@ -1,6 +1,6 @@
 ---
-title: Configurar a criptografia de SSL e autenticação para o Apache Kafka no HDInsight do Azure
-description: Configure a criptografia SSL para comunicação entre os clientes do Kafka e agentes do Kafka, bem como entre os agentes do Kafka. Configure a autenticação SSL de clientes.
+title: Configurar a criptografia e a autenticação SSL para Apache Kafka no Azure HDInsight
+description: Configure a criptografia SSL para a comunicação entre os clientes Kafka e os agentes Kafka, bem como entre os agentes Kafka. Configurar a autenticação SSL de clientes.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,58 +8,50 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5d567074a0038915cc43a585b34c9c71ccf3eb1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19a817124afb9afcee25b5f2bff73b8a17e16519
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464988"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72431285"
 ---
-# <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurar a criptografia Secure Sockets Layer (SSL) e autenticação para o Apache Kafka no HDInsight do Azure
+# <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurar a criptografia e autenticação do protocolo SSL (SSL) para Apache Kafka no Azure HDInsight
 
-Este artigo mostra como configurar a criptografia SSL entre os clientes do Apache Kafka e agentes do Apache Kafka. Ele também mostra como configurar a autenticação de clientes (também conhecido como SSL bidirecional).
+Este artigo mostra como configurar a criptografia SSL entre Apache Kafka clientes e Apache Kafka agentes. Ele também mostra como configurar a autenticação de clientes (às vezes chamados de SSL bidirecional).
 
 > [!Important]
-> Há dois clientes que você pode usar para aplicativos de Kafka: um cliente de Java e um cliente de console. Somente o cliente de Java `ProducerConsumer.java` pode usar o SSL para produzir e consumir. O cliente de produtor do console `console-producer.sh` não funciona com SSL.
+> Há dois clientes que você pode usar para aplicativos Kafka: um cliente Java e um cliente de console. Somente o cliente Java `ProducerConsumer.java` pode usar SSL para produção e consumo. O cliente do produtor do console `console-producer.sh` não funciona com SSL.
 
-## <a name="apache-kafka-broker-setup"></a>Instalação do agente do Apache Kafka
+## <a name="apache-kafka-broker-setup"></a>Instalação do Apache Kafka Broker
 
-A configuração do SSL de Kafka broker usará quatro VMs do cluster do HDInsight da seguinte maneira:
+A instalação do agente SSL do Kafka usará quatro VMs do cluster HDInsight da seguinte maneira:
 
-* nó principal 0 - autoridade de certificação (CA)
-* os agentes de nó de trabalho, 0, 1 e 2-
+* cabeçalho 0-autoridade de certificação (CA)
+* nó de trabalho 0, 1 e 2-agentes
 
 > [!Note] 
 > Este guia usará certificados autoassinados, mas a solução mais segura é usar certificados emitidos por autoridades de certificação confiáveis.
 
-O resumo do processo de instalação do agente é da seguinte maneira:
+O resumo do processo de configuração do agente é o seguinte:
 
-1. As etapas a seguir são repetidas em cada um de nós de trabalho de três:
+1. As etapas a seguir são repetidas em cada um dos três nós de trabalho:
 
-    1. Gere um certificado.
-    1. Crie um solicitação de assinatura de certificado.
-    1. Envie o certificado de assinatura de solicitação para a autoridade de certificação (CA).
-    1. Entrar para a autoridade de certificação e assinar a solicitação.
-    1. SCP certificado assinado de volta para o nó de trabalho.
-    1. O certificado público da autoridade de certificação para o nó de trabalho do SCP.
+    1. Gerar um certificado.
+    1. Crie uma solicitação de assinatura de certificado.
+    1. Envie a solicitação de assinatura de certificado para a autoridade de certificação (CA).
+    1. Entre na AC e assine a solicitação.
+    1. SCP o certificado assinado de volta para o nó de trabalho.
+    1. SCP o certificado público da autoridade de certificação para o nó de trabalho.
 
-1. Depois de todos os certificados, colocados os certificados no repositório de certificados.
-1. Vá para Ambari e alterar as configurações.
+1. Depois que você tiver todos os certificados, coloque os certificados no repositório de certificados.
+1. Vá para Ambari e altere as configurações.
 
-Use as seguintes instruções detalhadas para concluir a instalação do agente:
+Use as seguintes instruções detalhadas para concluir a configuração do agente:
 
 > [!Important]
-> Os trechos de código a seguir wnX é uma abreviação para um de nós de trabalho de três e deve ser substituído por `wn0`, `wn1` ou `wn2` conforme apropriado. `WorkerNode0_Name` e `HeadNode0_Name` devem ser substituídos com os nomes dos respectivos computadores, como `wn0-abcxyz` ou `hn0-abcxyz`.
+> Nos trechos de código a seguir, wnX é uma abreviação de um dos três nós de trabalho e deve ser substituído por `wn0`, `wn1` ou `wn2`, conforme apropriado. `WorkerNode0_Name` e `HeadNode0_Name` devem ser substituídos pelos nomes dos respectivos computadores, como `wn0-abcxyz` ou `hn0-abcxyz`.
 
-1. Execute a configuração inicial no nó principal 0, que preencherá a função de autoridade de certificação (CA) para o HDInsight.
-
-    ```bash
-    # Create a new directory 'ssl' and change into it
-    mkdir ssl
-    cd ssl
-    ```
-
-1. Execute a mesma configuração inicial em cada um dos agentes do (nós de trabalho 0, 1 e 2).
+1. Execute a configuração inicial no nó de cabeçalho 0, que para o HDInsight preencherá a função da autoridade de certificação (CA).
 
     ```bash
     # Create a new directory 'ssl' and change into it
@@ -67,10 +59,18 @@ Use as seguintes instruções detalhadas para concluir a instalação do agente:
     cd ssl
     ```
 
-1. Em cada um de nós de trabalho, execute as seguintes etapas usando o trecho de código a seguir.
-    1. Criar um repositório de chaves e preenchê-lo com um novo certificado privado.
-    1. Crie um solicitação de assinatura de certificado.
-    1. A solicitação de assinatura de certificado à autoridade de certificação (headnode0) do SCP
+1. Execute a mesma configuração inicial em cada um dos agentes (nós de trabalho 0, 1 e 2).
+
+    ```bash
+    # Create a new directory 'ssl' and change into it
+    mkdir ssl
+    cd ssl
+    ```
+
+1. Em cada um dos nós de trabalho, execute as etapas a seguir usando o trecho de código abaixo.
+    1. Crie um repositório de chaves e popule-o com um novo certificado privado.
+    1. Crie uma solicitação de assinatura de certificado.
+    1. SCP a solicitação de assinatura de certificado para a autoridade de certificação (headnode0)
 
     ```bash
     keytool -genkey -keystore kafka.server.keystore.jks -validity 365 -storepass "MyServerPassword123" -keypass "MyServerPassword123" -dname "CN=FQDN_WORKER_NODE" -storetype pkcs12
@@ -78,7 +78,7 @@ Use as seguintes instruções detalhadas para concluir a instalação do agente:
     scp cert-file sshuser@HeadNode0_Name:~/ssl/wnX-cert-sign-request
     ```
 
-1. Mude para a máquina de autoridade de certificação e assinar todos o certificado recebido solicitações de assinatura:
+1. Altere para o computador da CA e assine todas as solicitações de assinatura de certificado recebidas:
 
     ```bash
     openssl x509 -req -CA ca-cert -CAkey ca-key -in wn0-cert-sign-request -out wn0-cert-signed -days 365 -CAcreateserial -passin pass:"MyServerPassword123"
@@ -86,7 +86,7 @@ Use as seguintes instruções detalhadas para concluir a instalação do agente:
     openssl x509 -req -CA ca-cert -CAkey ca-key -in wn2-cert-sign-request -out wn2-cert-signed -days 365 -CAcreateserial -passin pass:"MyServerPassword123"
     ```
 
-1. Envie os certificados autoassinados de volta para os nós de trabalho da autoridade de certificação (headnode0).
+1. Envie os certificados assinados de volta para os nós de trabalho da CA (headnode0).
 
     ```bash
     scp wn0-cert-signed sshuser@WorkerNode0_Name:~/ssl/cert-signed
@@ -102,7 +102,7 @@ Use as seguintes instruções detalhadas para concluir a instalação do agente:
     scp ca-cert sshuser@WorkerNode2_Name:~/ssl/ca-cert
     ```
 
-1. Em cada nó de trabalho, adicione o certificado de autoridades de certificação pública para o repositório de chaves e truststore. Em seguida, adicione o certificado assinado do nó de trabalho para o repositório de chaves
+1. Em cada nó de trabalho, adicione o certificado público de CAs ao trustStore e ao keystore. Em seguida, adicione o próprio certificado assinado do nó de trabalho ao repositório de chaves
 
     ```bash
     keytool -keystore kafka.server.truststore.jks -alias CARoot -import -file ca-cert -storepass "MyServerPassword123" -keypass "MyServerPassword123" -noprompt
@@ -113,7 +113,7 @@ Use as seguintes instruções detalhadas para concluir a instalação do agente:
 
 ## <a name="update-kafka-configuration-to-use-ssl-and-restart-brokers"></a>Atualizar a configuração do Kafka para usar SSL e reiniciar os agentes
 
-Você agora tem configurar cada agente Kafka com um repositório de chaves e truststore e importar os certificados corretos. Em seguida, modifique as propriedades de configuração do Kafka relacionadas usando o Ambari e reinicie os agentes do Kafka.
+Agora você configurou cada agente do Kafka com um repositório de chaves e trustStore e importou os certificados corretos. Em seguida, modifique as propriedades de configuração do Kafka relacionadas usando o Ambari e reinicie os agentes do Kafka.
 
 Execute as seguintes etapas para concluir a modificação à configuração:
 
@@ -124,11 +124,11 @@ Execute as seguintes etapas para concluir a modificação à configuração:
 
     ![Editar as propriedades de configuração de SSL do Kafka no Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
 
-1. Em **Agente do Kafka personalizado**, defina a propriedade **ssl.client.auth** para `required`. Essa etapa só é necessária se você estiver configurando a autenticação e criptografia.
+1. Em **Agente do Kafka personalizado**, defina a propriedade **ssl.client.auth** para `required`. Esta etapa só será necessária se você estiver configurando a autenticação e a criptografia.
 
     ![Editar as propriedades de configuração de SSL do Kafka no Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
-1. Adicione propriedades de configuração ao arquivo `server.properties` do Kafka para anunciar endereços IP em vez do FQDN (nome de domínio totalmente qualificado).
+1. Execute os comandos abaixo, que adicionarão Propriedades de configuração ao arquivo Kafka `server.properties` para anunciar endereços IP em vez do FQDN (nome de domínio totalmente qualificado).
 
     ```bash
     IP_ADDRESS=$(hostname -i)
@@ -154,18 +154,18 @@ Execute as seguintes etapas para concluir a modificação à configuração:
     ```
 
 1. Reinicie todos os agentes do Kafka.
-1. Inicie o cliente do administrador com as opções de produtor e consumidor para verificar se os produtores e consumidores estão funcionando na porta 9093.
+1. Inicie o cliente administrador com as opções produtor e consumidor para verificar se os produtores e os consumidores estão trabalhando na porta 9093.
 
 ## <a name="client-setup-with-authentication"></a>Configuração do cliente (com autenticação)
 
 > [!Note]
 > As etapas a seguir são necessárias apenas se você está configurando a criptografia SSL **e** também a autenticação. Se você estiver configurando somente a criptografia, vá para [Configuração do cliente sem autenticação](apache-kafka-ssl-encryption-authentication.md#client-setup-without-authentication)
 
-Conclua as seguintes etapas para concluir a instalação do cliente:
+Conclua as seguintes etapas para concluir a configuração do cliente:
 
-1. Entrar no computador cliente (hn1).
+1. Entre no computador cliente (hn1).
 1. Crie um repositório de chaves Java e obtenha um certificado assinado para o agente. Em seguida, copie o certificado para a VM em que a autoridade de certificação está sendo executada.
-1. Alterne para a máquina de autoridade de certificação (hn0) para assinar o certificado de cliente.
+1. Alterne para o computador da CA (hn0) para assinar o certificado do cliente.
 1. Vá para o computador cliente (hn1) e navegue até a pasta `~/ssl`. Copie o certificado autoassinado para o computador cliente.
 
 ```bash
@@ -210,7 +210,7 @@ ssl.key.password=MyClientPassword123
 
 ## <a name="client-setup-without-authentication"></a>Configuração do cliente (sem autenticação)
 
-Se você não precisar da autenticação, as etapas para configurar a criptografia de SSL apenas são:
+Se você não precisar de autenticação, as etapas para configurar somente a criptografia SSL serão:
 
 1. Entrar no computador cliente (hn1) e navegar até a pasta `~/ssl`
 1. Do computador da AC (wn0), copie o certificado autoassinado para o computador cliente.
@@ -240,6 +240,6 @@ ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
 ssl.truststore.password=MyClientPassword123
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [O que é Apache Kafka no HDInsight?](apache-kafka-introduction.md)

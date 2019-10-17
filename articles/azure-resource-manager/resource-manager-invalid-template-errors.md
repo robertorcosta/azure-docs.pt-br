@@ -1,17 +1,17 @@
 ---
 title: Erros de modelo inválido do Azure | Microsoft Docs
-description: Descreve como resolver erros de modelo inválido.
+description: Descreve como resolver erros de modelo inválido ao implantar modelos de Azure Resource Manager.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0417a975ffbbe0acd94ceac6c0f8e1de27a27aa6
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: bdf1d66ab345cc0d86206413db6617e9568b4d22
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206253"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390333"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolva erros de modelo inválido
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: ab5af0e5971b91f45cbb12b4d0583caafa5ad504
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d79cefa9adec403ebbb5105351d2909eac9d02a4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079653"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390497"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Crie uma VM a partir de um VHD usando o portal do Azure
 
@@ -34,6 +34,7 @@ Existem várias maneiras de criar uma máquina virtual (VM) no Azure:
 
 Não use um disco especializado, se você quiser criar várias VMs. Em vez disso, para implantações maiores, [criar uma imagem](capture-image-resource.md) e, em seguida [usar essa imagem para criar várias VMs](create-vm-generalized-managed.md).
 
+Recomendamos que você limite o número de implantações simultâneas a 20 VMs de um único instantâneo ou VHD. 
 
 ## <a name="copy-a-disk"></a>Copiar um disco
 
@@ -75,7 +76,8 @@ Depois de ter o VHD de disco gerenciado que você deseja usar, você pode criar 
 11. Quando terminar, selecione **Review + create**. 
 12. Se a configuração da VM passar na validação, selecione **criar** para iniciar a implantação.
 
-## <a name="next-steps"></a>Próximas etapas
+
+## <a name="next-steps"></a>Próximos passos
 
 Você também pode usar o PowerShell para [carregar um VHD no Azure e criar uma VM especializada](create-vm-specialized.md).
 

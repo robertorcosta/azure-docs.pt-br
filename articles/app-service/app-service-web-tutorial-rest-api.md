@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 137b569820ea7394b6a3beb24129c905a2efd123
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: f13b390047ea4d8280b106f3b02a8f18944a6f99
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743870"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255123"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: Hospedar uma API RESTful com CORS no Serviço de Aplicativo do Azure
 
@@ -72,7 +72,7 @@ dotnet run
 
 Navegue até `http://localhost:5000/swagger` em um navegador para trabalhar com a interface do usuário do Swagger.
 
-![API do ASP.NET Core em execução localmente](./media/app-service-web-tutorial-rest-api/local-run.png)
+![API do ASP.NET Core em execução localmente](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
 
 Navegue até `http://localhost:5000/api/todo` e veja uma lista de itens JSON de tarefas pendentes.
 
@@ -136,7 +136,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 Navegue até `http://<app_name>.azurewebsites.net/swagger` em um navegador e experimente a interface do usuário do Swagger.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-rest-api/azure-run.png)
+![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
 
 Navegue até `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` para ver o _swagger.json_ da sua API implantada.
 
@@ -160,7 +160,7 @@ dotnet run
 
 Navegue até o aplicativo de navegador em `http://localhost:5000`. Abra a janela de ferramentas de desenvolvedor no navegador (`Ctrl` + `Shift` + `i` no Chrome para Windows) e inspecione a guia **Console**. Agora, você verá a mensagem de erro `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
 
-![Erro de CORS no cliente de navegador](./media/app-service-web-tutorial-rest-api/cors-error.png)
+![Erro de CORS no cliente de navegador](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
 Devido à incompatibilidade de domínio entre o aplicativo de navegador (`http://localhost:5000`) e o recurso remoto (`http://<app_name>.azurewebsites.net`), e ao fato de sua API no Serviço de Aplicativo não estar enviando o cabeçalho `Access-Control-Allow-Origin`, seu navegador impediu que o conteúdo entre domínios fosse carregado no aplicativo de navegador.
 
@@ -183,7 +183,7 @@ Você pode definir mais de uma URL de cliente `properties.cors.allowedOrigins` (
 
 Atualize o aplicativo de navegador em `http://localhost:5000`. A mensagem de erro na janela **Console** desapareceu e você pode ver os dados da API implantada e interagir com eles. Sua API remota agora dá suporte a CORS para o aplicativo de navegador em execução localmente. 
 
-![Êxito do CORS no cliente de navegador](./media/app-service-web-tutorial-rest-api/cors-success.png)
+![Êxito do CORS no cliente de navegador](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-success.png)
 
 Parabéns, você estiver executando uma API no Serviço de Aplicativo do Azure com suporte de CORS.
 
