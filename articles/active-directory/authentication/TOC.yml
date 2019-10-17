@@ -131,6 +131,8 @@
       href: howto-password-smart-lockout.md
     - name: Sem senha
       items:
+        - name: Implantar sem senha
+          href: howto-authentication-passwordless-deployment.md
         - name: Chaves de segurança sem senha
           href: howto-authentication-passwordless-security-key.md
         - name: Entrada por telefone sem senha

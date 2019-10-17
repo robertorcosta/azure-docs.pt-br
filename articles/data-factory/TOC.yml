@@ -80,7 +80,7 @@
           items:
             - name: Ferramenta Copiar Dados
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-    - name: Transformar dados usando o Fluxo de Dados de Mapeamento
+    - name: Transformar dados usando o fluxo de dados de mapeamento
       href: tutorial-data-flow.md
     - name: Transformar dados na nuvem usando o Spark
       items:
@@ -616,7 +616,7 @@
           href: data-migration-guidance-hdfs-azure-storage.md
         - name: Migrar dados do servidor Netezza local para o Azure
           href: data-migration-guidance-netezza-azure-sqldw.md
-    - name: Transformação usando o Fluxo de Dados de Mapeamento
+    - name: Transformação usando o fluxo de dados de mapeamento
       items:
         - name: Processar arquivos de texto de largura fixa
           href: how-to-fixed-width.md
