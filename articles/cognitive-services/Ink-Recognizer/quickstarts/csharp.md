@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 0c7d3ed7e2cbaee7d30f368efa004bbb3daaafdd
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 6ef58d1444eb0ec7b2b8891f944b428a613edf3a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996877"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515619"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Início Rápido: Reconhecer tinta digital com a API REST de Reconhecimento de Tinta Digital e o C#
 
@@ -49,11 +49,11 @@ O código-fonte deste Início Rápido pode ser encontrado no [GitHub](https://go
 
 1. No Visual Studio, crie uma solução de console e adicione os pacotes a seguir. 
     
-    [!code-csharp[imports](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
+    [!code-csharp[import statements](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
 
 2. Crie variáveis para a chave de assinatura, o ponto de extremidade e o arquivo JSON de exemplo. O ponto de extremidade posteriormente será combinado com `inkRecognitionUrl` para acessar a API. 
 
-    [!code-csharp[endpoint file path and key variables](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
+    [!code-csharp[endpoint file and key variables](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>Criar uma função para enviar solicitações
 

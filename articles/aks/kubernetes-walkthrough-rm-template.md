@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.date: 04/19/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: e7cc9b63768385e4665e330b2b02a884b84c2188
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 307074618cae75ba57be219b4f975e2aec279682
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67615376"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255508"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Início Rápido: Implantar um cluster do AKS (Serviço de Kubernetes do Azure) usando um modelo do Azure Resource Manager
 
 O AKS (Serviço de Kubernetes do Azure) é um serviço de Kubernetes gerenciado que permite implantar e gerenciar clusters rapidamente. Neste início rápido, você implantará um cluster do AKS usando um modelo do Azure Resource Manager. Um aplicativo de vários contêineres que inclui um front-end da Web e uma instância do Redis é executado no cluster.
 
-![Imagem de navegação para o Voto do Azure](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Imagem de navegação para o Voto do Azure](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 Este guia de início rápido pressupõe uma compreensão básica dos conceitos do Kubernetes. Para obter mais informações, confira [Principais conceitos do Kubernetes para o AKS (Serviço de Kubernetes do Azure)][kubernetes-concepts].
 
@@ -259,7 +259,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 Para ver o aplicativo Azure Vote em ação, abra um navegador da Web no endereço IP externo do serviço.
 
-![Imagem de navegação para o Voto do Azure](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Imagem de navegação para o Voto do Azure](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 ## <a name="delete-cluster"></a>Excluir cluster
 

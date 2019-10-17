@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 99a7dec6936b86af4ab9b80d266cd886dae66d12
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 942636a6ff6dcfe74a04a66d67a4490224b4538e
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70381936"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391540"
 ---
 Para criar um projeto do Visual Studio para desenvolvimento desktop em C++, você precisa configurar as opções de desenvolvimento do Visual Studio, criar o projeto, selecionar a arquitetura de destino e instalar o SDK de Fala. 
 
@@ -77,4 +77,4 @@ Por fim, instale o [pacote NuGet do SDK de Fala](https://aka.ms/csspeech/nuget) 
 
 1. Na caixa de diálogo **Visualizar Alterações**, selecione **OK**.
 
-1. Na caixa de diálogo **Aceitação da Licença**, exiba a licença e, em seguida, selecione **Aceito**. A instalação do pacote começa e, ao ser concluída, o painel **Saída** exibe uma mensagem semelhante ao seguinte texto: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.6.0' to helloworld`. 
+1. Na caixa de diálogo **Aceitação da Licença**, exiba a licença e, em seguida, selecione **Aceito**. A instalação do pacote começa e, ao ser concluída, o painel **Saída** exibe uma mensagem semelhante ao seguinte texto: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.7.0' to helloworld`. 

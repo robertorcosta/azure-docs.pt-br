@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: mlearned
-ms.custom: mvc
-ms.openlocfilehash: 0df60cac241151b5968c5ddfc01ca9c0515a5e6b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.custom: mvc, seo-javascript-october2019
+ms.openlocfilehash: 0e09d541cb84ef7857e4d68f776b92f845488771
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996982"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329883"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Início Rápido: Implantar um cluster do AKS (Serviço de Kubernetes do Azure) usando o portal do Azure
 
 O AKS (Serviço de Kubernetes do Azure) é um serviço de Kubernetes gerenciado que permite implantar e gerenciar clusters rapidamente. Neste guia de início rápido, implante um cluster AKS usando o Portal do Azure. Um aplicativo de vários contêineres que inclui um front-end da Web e uma instância do Redis é executado no cluster. Em seguida, você verá como monitorar a integridade do cluster e dos pods que executam seu aplicativo.
 
-![Imagem de navegação para o aplicativo Azure Vote de exemplo](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Imagem de navegação para o aplicativo Azure Vote de exemplo](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 Este guia de início rápido pressupõe uma compreensão básica dos conceitos do Kubernetes. Para obter mais informações, confira [Principais conceitos do Kubernetes para o AKS (Serviço de Kubernetes do Azure)][kubernetes-concepts].
 
@@ -48,6 +48,7 @@ Para criar um cluster do AKS, conclua as seguintes etapas:
 2. Na página **Escala**, mantenha as opções padrão. Na parte inferior da tela, clique no botão **Avançar: Autenticação**.
 > [!CAUTION]
 > A criação de novas Entidades de Serviço do AAD pode levar vários minutos para ser propagada e disponibilizada, levando a erros de Entidade de Serviço não encontrada e a falhas de validação no portal do Azure. Se passar por isso, veja [aqui](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) as mitigações.
+
 3. Na página **Autenticação**, configure as seguintes opções:
    - Crie uma nova entidade de serviço deixando o campo **Entidade de Serviço** com **(novo) entidade de serviço padrão**. Ou você pode escolher *Configurar entidade de serviço* para usar uma existente. Se você usar uma existente, será necessário fornecer a ID e segredo de cliente do SPN.
    - Habilite a opção para RBAC (controle de acesso baseado em função) do Kubernetes. Isso fornecerá um controle mais refinado sobre o acesso aos recursos do Kubernetes implantados no cluster do AKS.
@@ -219,7 +220,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 Para ver o aplicativo Azure Vote em ação, abra um navegador da Web no endereço IP externo do serviço.
 
-![Imagem de navegação para o aplicativo Azure Vote de exemplo](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Imagem de navegação para o aplicativo Azure Vote de exemplo](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 ## <a name="monitor-health-and-logs"></a>Monitorar integridade e logs
 

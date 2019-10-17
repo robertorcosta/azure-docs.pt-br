@@ -4,13 +4,15 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/26/2019
 ms.author: glenga
-ms.openlocfilehash: 03ed1b28b4cabc054301e11c2b4d0f9e632abe02
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: ca576290ea511dc54b89ecebef72ca2a42e9169f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839048"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329585"
 ---
+### <a name="query-the-storage-queue"></a>Consultar a Fila de armazenamento
+
 É possível usar o comando [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) para exibir as Filas de armazenamento em sua conta, como no exemplo a seguir:
 
 ```azurecli-interactive

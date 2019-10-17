@@ -14,17 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 0208e72263991daceed52073bcce8b3e01f8e8c2
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.custom:
+- mvc
+- seo-javascript-september2019
+- seo-javascript-october2019
+- seo-python-october2019
+ms.openlocfilehash: 7732320e987e6397dde2aff0f6c4328d551d99b1
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174292"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72427941"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Início Rápido: Criar uma máquina virtual Linux com a CLI do Azure
 
-Este início rápido mostra como usar a CLI (interface de linha de comando) do Azure para implantar uma VM (máquina virtual) Linux no Azure. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Neste tutorial, vamos instalar Ubuntu o 16.04 LTS. Para mostrar a VM em ação, você se conectará a ela usando SSH e instalará o servidor Web NGINX.
+Este início rápido mostra como usar a CLI (interface de linha de comando) do Azure para implantar uma VM (máquina virtual) Linux no Azure. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts.
+
+Neste tutorial, vamos instalar Ubuntu o 16.04 LTS. Para mostrar a VM em ação, você se conectará a ela usando SSH e instalará o servidor Web NGINX.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -107,7 +113,7 @@ Quando terminar, digite `exit` para sair da sessão SSH.
 
 Use um navegador da Web de sua escolha para exibir a página inicial padrão do NGINX. Use o endereço IP público de sua VM como o endereço Web. O seguinte exemplo mostra o site padrão do NGINX:
 
-![Site padrão NGINX](./media/quick-create-cli/nginx.png)
+![Exibir a página de boas-vindas do NGINX](./media/quick-create-cli/view-the-nginx-welcome-page.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

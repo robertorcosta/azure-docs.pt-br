@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 2aae0ce7bbf5c8804dcaab90fcb60a66dfe59cf0
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: ca0dcc850b2db513c8d85d43ad76bc75053c0d04
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744416"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514013"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Início Rápido: Restaurar um banco de dados em uma Instância Gerenciada
 
@@ -40,7 +40,7 @@ Este início rápido:
 - Requer uma Conta do Armazenamento de Blobs do Azure (por exemplo, Standard_LRS V2) em **IP público** protegido com a **credencial SAS** que tem a permissão `rw`. [Atualmente, não há suporte para IPs privados para Armazenamento de Blobs protegido por firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security) e pontos de extremidade de serviço do Armazenamento de Blobs do Azure.
 
 > [!NOTE]
-> Para saber mais sobre como fazer backup e restaurar um banco de dados do SQL Server usando o Armazenamento de Blobs do Azure e uma [chave de SAS (Assinatura de Acesso Compartilhado)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), confira [Backup do SQL Server para URL](sql-database-managed-instance-get-started-restore.md).
+> Para saber mais sobre como fazer backup e restaurar um banco de dados do SQL Server usando o Armazenamento de Blobs do Azure e uma [chave de SAS (Assinatura de Acesso Compartilhado)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), confira [Backup do SQL Server para URL](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
 
 ## <a name="restore-the-database-from-a-backup-file"></a>Restaurar o banco de dados de um arquivo de backup
 
