@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: 298fd336e87d07f9e65221d5e5f539e255c94993
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: a47dc1032115f8bcae0c7bdc37c84ab3b68ec4a8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245325"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432301"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Solucionar problemas de inicialização de VM Linux devido a erros do sistema de arquivos
 
@@ -71,7 +71,7 @@ Checking all file systems.
 
 Esse problema pode ocorrer se o sistema de arquivos não tiver sido desligado corretamente ou tiver problemas relacionados ao armazenamento. Os problemas incluem erros de hardware ou software, problemas com drivers ou programas, erros de gravação, etc. É sempre importante ter um backup de dados críticos. As ferramentas que descrevem neste artigo podem ajudar a recuperar sistemas de arquivos, mas a perda de dados ainda pode ocorrer.
 
-O Linux tem vários verificadores de sistema de arquivos disponíveis. As distribuições mais comuns no Azure são: [Fsck](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)e [Xfs_repair](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
+O Linux tem vários verificadores de sistema de arquivos disponíveis. As distribuições mais comuns no Azure são: [fsck](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)e [Xfs_repair](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
 
 ## <a name="resolution"></a>Resolução
 
@@ -106,7 +106,7 @@ Para resolver esse problema, inicialize a VM no modo de emergência usando o [co
    xfs_repair /dev/sda1
    ```
 
-7. Se você receber a mensagem de erro "erro: O sistema de arquivos tem alterações valiosas de metadados em um log que precisa ser reproduzido ", criar um diretório temporário e montar o sistema de arquivos:
+7. Se você receber a mensagem de erro "erro: o sistema de arquivos tem alterações de metadados valiosas em um log que precisa ser reproduzido", crie um diretório temporário e monte o sistema de arquivos:
 
    ```
    mkdir /temp
@@ -150,7 +150,7 @@ Para resolver esse problema, inicialize a VM no modo de emergência usando o [co
    xfs_repair /dev/sdc1
    ```
 
-5. Se você receber a mensagem de erro "erro: O sistema de arquivos tem alterações valiosas de metadados em um log que precisa ser reproduzido ", criar um diretório temporário e montar o sistema de arquivos:
+5. Se você receber a mensagem de erro "erro: o sistema de arquivos tem alterações de metadados valiosas em um log que precisa ser reproduzido", crie um diretório temporário e monte o sistema de arquivos:
 
    ```
    mkdir /temp
@@ -176,7 +176,7 @@ Para resolver esse problema, inicialize a VM no modo de emergência usando o [co
 
 8. Verifique se o problema foi resolvido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Solucionar problemas de uma VM Linux anexando o disco do sistema operacional a uma VM de recuperação com o CLI do Azure 2,0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
 * [Usar o portal para anexar um disco de dados a uma VM do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)

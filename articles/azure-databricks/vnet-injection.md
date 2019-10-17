@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 07591517211d5334b9bf055d778f00b171e7056f
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 0bb3221c201e6dd4dd17cca8ef7e3ed3331de228
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263456"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432667"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network"></a>Implantar o Azure Databricks em sua rede virtual
 
@@ -74,7 +74,7 @@ Você deve ter uma rede virtual na qual implantará o espaço de trabalho Azure 
 
 1. Na portal do Azure, selecione **+ criar um recurso > Analytics > Azure Databricks** para abrir a caixa de diálogo serviço Azure Databricks.
 
-2. Siga as etapas de configuração descritas na etapa 2: Crie um espaço de trabalho Azure Databricks no guia de Introdução e selecione a opção implantar Azure Databricks espaço de trabalho em sua rede virtual.
+2. Siga as etapas de configuração descritas na etapa 2: criar um Azure Databricks espaço de trabalho no guia de Introdução e selecione a opção implantar Azure Databricks espaço de trabalho em sua rede virtual.
 
    ![Criar Azure Databricks serviço](./media/vnet-injection/create-databricks-service.png)
 
@@ -97,13 +97,13 @@ Se você quiser mais controle sobre a configuração da rede virtual – por exe
 
 Para criar uma rede virtual, grupos de segurança de rede e Azure Databricks espaço de trabalho em um, use o [modelo All-in-One para os espaços de trabalho injetados por VNet do databricks](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/).
 
-Ao usar esse modelo, você não precisa fazer nenhuma lista de permissões manual de tráfego de sub-rede.
+Ao usar esse modelo, você não precisa fazer nenhuma lista branca manual de tráfego de sub-rede.
 
 ### <a name="network-security-groups"></a>Grupos de segurança de rede
 
-Para criar grupos de segurança de rede com as regras necessárias para uma rede virtual existente, use o [modelo de grupo de segurança de rede para injeção de VNet do databricks](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection).
+Para criar grupos de segurança de rede com as regras necessárias para uma rede virtual existente, use o [modelo de grupo de segurança de rede para injeção de VNet do databricks](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/).
 
-Ao usar esse modelo, você não precisa fazer nenhuma lista de permissões manual de tráfego de sub-rede.
+Ao usar esse modelo, você não precisa fazer nenhuma lista branca manual de tráfego de sub-rede.
 
 ### <a name="virtual-network"></a>Rede virtual
 
@@ -121,7 +121,7 @@ Se você usar esse modelo sem usar também o modelo de grupos de segurança de r
 
 Se você não usar os modelos de [portal do Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) ou [Azure Resource Manager](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) para criar os grupos de segurança de rede, deverá colocar a lista de permissões manualmente no tráfego a seguir em suas sub-redes.
 
-|Direction|Protocol|Origem|Porta de origem|Destino|Porta de destino|
+|Direção|Protocolo|Origem|Porta de origem|Destino|Porta de destino|
 |---------|--------|------|-----------|-----------|----------------|
 |Entrada|\*|VirtualNetwork|\*|\*|\*|
 |Entrada|\*|IP de NAT do plano de controle|\*|\*|22|
@@ -135,32 +135,32 @@ O tráfego de sub-rede da lista de permissões usando os seguintes endereços IP
 
 |Região de Azure Databricks|Serviço|IP público|
 |-----------------------|-------|---------|
-|East US|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|Leste dos Estados Unidos|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |Leste dos EUA 2|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
-|Centro-Norte dos EUA|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|Centro-Norte dos Estados Unidos|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |EUA Central|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |Centro-Sul dos Estados Unidos|NAT do plano de controle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
-|Oeste dos EUA|NAT do plano de controle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
+|Oeste dos Estados Unidos|NAT do plano de controle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
 |Oeste dos EUA 2|NAT do plano de controle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
 |Canadá Central|NAT do plano de controle </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
 |Leste do Canadá|NAT do plano de controle </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
 |Oeste do Reino Unido|NAT do plano de controle </br></br>Webapp|51.140.203.27/32 </br></br>51.140.204.4/32|
 |Sul do Reino Unido|NAT do plano de controle </br></br>Webapp|51.140.203.27/32 </br></br>51.140.204.4/32|
-|Europa Ocidental|NAT do plano de controle </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
-|Norte da Europa|NAT do plano de controle </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
+|Oeste da Europa|NAT do plano de controle </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
+|Europa Setentrional|NAT do plano de controle </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
 |Índia Central|NAT do plano de controle </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
 |Sul da Índia|NAT do plano de controle </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
-|Índia Ocidental|NAT do plano de controle </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
-|Sudeste da Ásia|NAT do plano de controle </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
-|Ásia Oriental|NAT do plano de controle </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
-|Leste da Austrália|NAT do plano de controle </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
+|Oeste da Índia|NAT do plano de controle </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
+|Sudeste Asiático|NAT do plano de controle </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
+|Leste da Ásia|NAT do plano de controle </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
+|Austrália Oriental|NAT do plano de controle </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |Sudeste da Austrália|NAT do plano de controle </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |Austrália Central|NAT do plano de controle </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |Austrália Central 2|NAT do plano de controle </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |Leste do Japão|NAT do plano de controle </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
 |Oeste do Japão|NAT do plano de controle </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 
 ### <a name="workspace-launch-errors"></a>Erros de inicialização do espaço de trabalho
 
@@ -170,21 +170,21 @@ Esse erro é causado por uma configuração de rede que não atende aos requisit
 
 ### <a name="cluster-creation-errors"></a>Erros de criação de cluster
 
-**Instances inacessível: Os recursos não estavam acessíveis via SSH.**
+**Instâncias inacessíveis: os recursos não estavam acessíveis via SSH.**
 
 Causa possível: o tráfego do plano de controle para trabalhadores é bloqueado. Correção garantindo que as regras de segurança de entrada atendam aos requisitos. Se você estiver implantando em uma rede virtual existente conectada à sua rede local, examine a configuração usando as informações fornecidas em conectando seu espaço de trabalho do Azure Databricks à sua rede local.
 
-Falha de inicialização de @no__t 0Unexpected: Um erro inesperado foi encontrado durante a configuração do cluster. Tente novamente e contate Azure Databricks se o problema persistir. Mensagem de erro interna: Tempo limite atingido ao colocar node. **
+**Falha de inicialização inesperada: um erro inesperado foi encontrado durante a configuração do cluster. Tente novamente e contate Azure Databricks se o problema persistir. Mensagem de erro interno: tempo limite atingido ao colocar o nó.**
 
 Causa possível: o tráfego de trabalhadores para pontos de extremidade de armazenamento do Azure está bloqueado. Correção garantindo que as regras de segurança de saída atendam aos requisitos. Se você estiver usando servidores DNS personalizados, verifique também o status dos servidores DNS em sua rede virtual.
 
-Falha de inicialização do provedor **Cloud: Foi encontrado um erro de provedor de nuvem durante a configuração do cluster. Consulte o guia de Azure Databricks para obter mais informações. Código de erro do Azure: AuthorizationFailed/InvalidResourceReference.**
+**Falha ao iniciar o provedor de nuvem: um erro de provedor de nuvem foi encontrado durante a configuração do cluster. Consulte o guia de Azure Databricks para obter mais informações. Código de erro do Azure: AuthorizationFailed/InvalidResourceReference.**
 
 Possível causa: a rede virtual ou as sub-redes não existem mais. Verifique se a rede virtual e as sub-redes existem.
 
-**Cluster encerrado. Motivo: Falha na inicialização do Spark: O Spark não pôde iniciar no tempo. Esse problema pode ser causado por um mau funcionamento metastore do Hive, configurações do Spark inválidas ou scripts de inicialização com mau funcionamento. Consulte os logs de driver do Spark para solucionar esse problema e contate o databricks se o problema persistir. Mensagem de erro interna: Falha ao iniciar o Spark: O driver falhou ao iniciar no tempo.**
+**Cluster encerrado. Motivo: falha de inicialização do Spark: o Spark não pôde iniciar no tempo. Esse problema pode ser causado por um mau funcionamento metastore do Hive, configurações do Spark inválidas ou scripts de inicialização com mau funcionamento. Consulte os logs de driver do Spark para solucionar esse problema e contate o databricks se o problema persistir. Mensagem de erro interno: falha do Spark ao iniciar: o driver falhou ao iniciar no tempo.**
 
-Causa possível: O contêiner não pode se comunicar com a instância de hospedagem ou conta de armazenamento DBFS. Corrija adicionando uma rota personalizada para as sub-redes para a conta de armazenamento DBFS com o próximo salto sendo a Internet.
+Causa possível: o contêiner não pode se comunicar com a instância de hospedagem ou a conta de armazenamento DBFS. Corrija adicionando uma rota personalizada para as sub-redes para a conta de armazenamento DBFS com o próximo salto sendo a Internet.
 
 ### <a name="notebook-command-errors"></a>Erros de comando do notebook
 
@@ -196,7 +196,7 @@ Causa possível: a comunicação de trabalho para o trabalhador é bloqueada. Co
 
 Causa possível: o tráfego de trabalhadores para Azure Databricks WebApp é bloqueado. Correção, certificando-se de que as regras de segurança de saída atendam aos requisitos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Extrair, transformar e carregar dados usando o Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

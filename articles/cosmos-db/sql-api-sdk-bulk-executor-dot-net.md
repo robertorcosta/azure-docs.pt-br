@@ -1,5 +1,5 @@
 ---
-title: 'O Azure Cosmos DB: API .NET do executor em massa, recursos do SDK &'
+title: 'Azure Cosmos DB: API .NET do executor em massa, recursos de & do SDK'
 description: Saiba tudo sobre o SDK e a API BulkExecutor .NET, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK BulkExecutor .NET do Azure Cosmos DB.
 author: tknandu
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/11/2019
 ms.author: ramkris
-ms.openlocfilehash: 7d30b685d0debb0aeb0f79db8b078dcc165a8ca1
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 9da994550609b0be44362e0f0059844b288aabbd
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286659"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388074"
 ---
-# <a name="net-bulk-executor-library-download-information"></a>Biblioteca de executores em massa do .NET: Fazer o download das informações 
+# <a name="net-bulk-executor-library-download-information"></a>Biblioteca bulk executor .Net: informações sobre o download 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
@@ -35,7 +35,7 @@ ms.locfileid: "72286659"
 |---|---|
 | **Descrição**| A biblioteca de executores em massa do .net permite que aplicativos cliente executem operações em massa em contas de Azure Cosmos DB. Essa biblioteca fornece os namespaces BulkImport, BulkUpdate e BulkDelete. O módulo BulkImport pode importar em massa documentos de forma otimizada, de modo que a taxa de transferência provisionada para uma coleção seja consumida até seu limite máximo. O módulo BulkUpdate pode atualizar dados existentes em massa em contêineres Cosmos do Azure como patches. O módulo BulkDelete pode excluir documentos em massa de forma otimizada, de modo que o rendimento provisionado para uma coleção seja consumido em sua extensão máxima.|
 |**Baixe o SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
-| **Biblioteca de executor em massa no GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
+| **Biblioteca de executor em massa no GitHub**| [Github](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**Documentação da API**|[Documentação de referência de API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
 |**Introdução**|[Introdução ao SDK .NET da biblioteca bulk executor](bulk-executor-dot-net.md)|
 | **Framework atualmente com suporte**| Microsoft .NET Framework 4.5.2, 4.6.1 e o .NET Standard 2.0 |
@@ -50,15 +50,15 @@ ms.locfileid: "72286659"
 
 * Dependência do SDK alterada para > = 2.5.1
 
-### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
+### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-Preview2
 
 * Suporte adicionado para executor em massa de grafo para aceitar TTL em vértices e bordas
 
-### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
+### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-Preview2
 
 * Correção de um problema, que causou exceções durante o dimensionamento elástico de Azure Cosmos DB ao ser executado no modo de gateway. Essa correção torna funcionalmente equivalente à versão 1.4.1.
 
-### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
+### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-Preview2
 
 * Adicionado suporte BulkDelete para contas da API do SQL para aceitar chave de partição, tuplas de ID de documento a serem excluídas. Essa alteração o torna funcionalmente equivalente à versão do 1.4.0.
 
@@ -69,6 +69,10 @@ ms.locfileid: "72286659"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
 * Adicionado .NET Standard 2,0 como uma das estruturas de destino com suporte para fazer com que a biblioteca de executores em massa funcione com aplicativos .NET Core.
+
+### <a name="a-name184184"></a><a name="1.8.4"/>1.8.4
+
+* Manipulação fixa de identificadores ao chamar BulkImport com uma lista de objetos POCO com valores numéricos.
 
 ### <a name="a-name183183"></a><a name="1.8.3"/>1.8.3
 
@@ -130,7 +134,7 @@ ms.locfileid: "72286659"
 
 * Adicionado suporte para operações BulkImport e BulkUpdate para contas da API SQL do Azure Cosmos DB.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a biblioteca Java do executor em massa, consulte o seguinte artigo:
 

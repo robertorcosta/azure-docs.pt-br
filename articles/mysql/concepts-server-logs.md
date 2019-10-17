@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 4d801ada8fd8a8b35c71601d3ca274f26afb24f6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 90f3e80c92cd4409a77d4661462ae027c535eaf7
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262288"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434288"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Logs de consulta lentos no banco de dados do Azure para MySQL
 No Banco de Dados do Azure para MySQL, o log de consultas lentas está disponível para os usuários. No entanto, não há suporte para acesso ao log de transação. O log de consultas lentas pode ser usado para identificar gargalos de desempenho para solução de problemas.
@@ -38,7 +38,10 @@ Outros parâmetros que você pode ajustar incluem:
 - **long_query_time**: se uma consulta demorar mais do que long_query_time (em segundos), essa consulta será registrada. O padrão é 10 segundos.
 - **log_slow_admin_statements**: se ON inclui instruções administrativas como ALTER_TABLE e ANALYZE_TABLE nas instruções gravadas para o slow_query_log.
 - **log_queries_not_using_indexes**: determina se as consultas que não usam índices são ou não registradas para o slow_query_log
-- **log_throttle_queries_not_using_indexes**: Esse parâmetro limita o número de consultas não indexadas que podem ser gravadas no log de consulta lenta. Esse parâmetro tem efeito quando log_queries_not_using_indexes está definido como ON.
+- **log_throttle_queries_not_using_indexes**: este parâmetro limita o número de consultas que não são de índice que podem ser gravadas no log de consultas lentas. Esse parâmetro tem efeito quando log_queries_not_using_indexes está definido como ON.
+
+> [!Note]
+> Para `sql_text`, o log será truncado se exceder 2048 caracteres.
 
 Consulte a [documentação de log de consulta lenta](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) MySQL para descrições completas dos parâmetros de log de consultas lentas.
 
@@ -54,7 +57,7 @@ A tabela a seguir descreve o que está em cada log. Dependendo do método de sa�
 |---|---|
 | `TenantId` | Sua ID de locatário |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`HORÁRIO | Carimbo de data/hora quando o log foi gravado, em UTC |
+| `TimeGenerated` [UTC] | Carimbo de data/hora quando o log foi gravado, em UTC |
 | `Type` | Tipo do log. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID para a assinatura a que o servidor pertence |
 | `ResourceGroup` | Nome do grupo de recursos ao qual o servidor pertence |
@@ -65,9 +68,9 @@ A tabela a seguir descreve o que está em cada log. Dependendo do método de sa�
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nome do servidor |
-| `start_time_t`HORÁRIO | Horário em que a consulta começou |
-| `query_time_s` | Tempo total que a consulta levou para executar |
-| `lock_time_s` | Tempo total em que a consulta foi bloqueada |
+| `start_time_t` [UTC] | Horário em que a consulta começou |
+| `query_time_s` | Tempo total em segundos que a consulta levou para ser executada |
+| `lock_time_s` | Tempo total em segundos em que a consulta foi bloqueada |
 | `user_host_s` | Nome de Usuário |
 | `rows_sent_s` | Número de linhas enviadas |
 | `rows_examined_s` | Número de linhas verificadas |

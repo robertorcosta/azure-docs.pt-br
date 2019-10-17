@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 09/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ba929ab13864664a823ba969ecb472812d946a9
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5cd7ea1a20eb82d030e9bdabe76ff7d14a619d1e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989541"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373085"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-fusion-erp"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Oracle Fusion ERP
 
@@ -87,7 +87,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.login.em2.oraclecloud.com:443/oam/fed`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com [equipe de suporte do cliente do Oracle Fusion ERP](mailto:jinshu.peethambaran@oracle.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com [equipe de suporte do cliente do Oracle Fusion ERP](https://www.oracle.com/applications/erp/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 1. Na página **Configurar o Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -129,11 +129,11 @@ Nesta seção, você permite que B. Fernandes use o logon único do Azure ao con
 
 ## <a name="configure-oracle-fusion-erp-sso"></a>Configurar o SSO do Oracle Fusion ERP
 
-Para configurar o logon único no lado do **Oracle Fusion ERP**, é necessário enviar o **XML de metadados de federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Oracle Fusion ERP](mailto:jinshu.peethambaran@oracle.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Oracle Fusion ERP**, é necessário enviar o **XML de metadados de federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Oracle Fusion ERP](https://www.oracle.com/applications/erp/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-oracle-fusion-erp-test-user"></a>Criar um usuário de teste do Oracle Fusion ERP
 
-Nesta seção, você cria um usuário chamado Brenda Fernandes no Oracle Fusion ERP. Trabalhe com a [equipe de suporte do Oracle Fusion ERP](mailto:jinshu.peethambaran@oracle.com) para adicionar os usuários na plataforma do Oracle Fusion ERP. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você cria um usuário chamado Brenda Fernandes no Oracle Fusion ERP. Trabalhe com a [equipe de suporte do Oracle Fusion ERP](https://www.oracle.com/applications/erp/) para adicionar os usuários na plataforma do Oracle Fusion ERP. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar o SSO 
 

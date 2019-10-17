@@ -14,21 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 643539fb569cdefba8e04d1ac08e73055624d3ae
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d9bd698535b09ecb5c484eefcbe31228eb99e04f
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025045"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388399"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Adicionar autenticação ao seu aplicativo Xamarin Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
 > O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
+>
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Este tópico mostra como autenticar usuários de um aplicativo móvel do Serviço de Aplicativo em seu aplicativo cliente. Neste tutorial, você adiciona a autenticação ao projeto de início rápido do Xamarin.Forms usando um provedor de identidade com suporte do Serviço de Aplicativo. Depois de ser autenticado e autorizado com êxito pelo Aplicativo Móvel, o valor da ID de usuário é exibido e você poderá acessar dados da tabela restrita.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -51,7 +52,7 @@ A autenticação segura exige que você defina um novo esquema de URL para seu a
 
 4. Clique em **OK**.
 
-5. Clique em **Salvar**.
+5. Clique em **Save** (Salvar).
 
 ## <a name="restrict-permissions-to-authenticated-users"></a>Restringir permissões a usuários autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -192,11 +193,11 @@ Esta seção mostra como implementar a interface **IAuthenticate** no projeto do
     Esse código garante que o autenticador seja inicializado antes que o aplicativo seja carregado.
 8. Recompile o aplicativo, execute-o, entre com o provedor de autenticação escolhido e verifique se você consegue acessar os dados como um usuário autenticado.
 
-### <a name="troubleshooting"></a>Solução de problemas
+### <a name="troubleshooting"></a>Solução de Problemas
 
 **O aplicativo falhou com `Java.Lang.NoSuchMethodError: No static method startActivity`**
 
-Em alguns casos, conflitos nos pacotes de suporte são exibidos como apenas um aviso no Visual Studio, o aplicativo falha com esta exceção em tempo de execução. Neste caso, você precisa verificar se todos os pacotes de suporte referenciados em seu projeto têm a mesma versão. O [pacote NuGet de Aplicativos Móveis do Azure](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) depende de `Xamarin.Android.Support.CustomTabs` para a plataforma Android e, portanto, se o projeto usar pacotes de suporte mais recentes, será necessário instalar diretamente esse pacote com a versão necessária para evitar conflitos.
+Em alguns casos, conflitos nos pacotes de suporte são exibidos como apenas um aviso no Visual Studio, o aplicativo falha com esta exceção em tempo de execução. Neste caso, você precisa verificar se todos os pacotes de suporte referenciados em seu projeto têm a mesma versão. O [pacote NuGet de Aplicativos Móveis do Azure](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) depende de `Xamarin.Android.Support.CustomTabs` para a plataforma Android e, portanto, se seu projeto usar pacotes de suporte mais recentes, será necessário instalar diretamente esse pacote com a versão necessária para evitar conflitos.
 
 ## <a name="add-authentication-to-the-ios-app"></a>Adicionar autenticação ao aplicativo do iOS
 Esta seção mostra como implementar a interface **IAuthenticate** no projeto do aplicativo iOS. Ignore esta seção se não estiver dando suporte a dispositivos iOS.
@@ -344,7 +345,7 @@ Esta seção mostra como implementar a interface **IAuthenticate** nos projetos 
 
 4. Recompile o aplicativo, execute-o, entre com o provedor de autenticação escolhido e verifique se você consegue acessar os dados como um usuário autenticado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Agora que você concluiu este tutorial de autenticação básica, considere continuar com um dos seguintes tutoriais:
 
 * [Adicionar notificações por push ao aplicativo](app-service-mobile-xamarin-forms-get-started-push.md)

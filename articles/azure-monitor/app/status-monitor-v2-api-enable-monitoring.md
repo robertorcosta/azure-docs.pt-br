@@ -1,6 +1,6 @@
 ---
-title: 'Referência da API do Azure Status Monitor v2: Habilitar monitoramento | Microsoft Docs'
-description: Referência da API do Status Monitor v2. Enable-ApplicationInsightsMonitoring. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
+title: 'Referência da API do agente do insights Aplicativo Azure: habilitar monitoramento | Microsoft Docs'
+description: Referência de API do agente Application Insights. Enable-ApplicationInsightsMonitoring. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 8742316697e6d6c8178bb02c8e7288499c655b6b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 2a310a83677bffc8843fdb8979ec272f197a8a39
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033125"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389883"
 ---
-# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring"></a>API Status Monitor v2: Habilitar-ApplicationInsightsMonitoring
+# <a name="application-insights-agent-api-enable-applicationinsightsmonitoring"></a>API do agente de Application Insights: Enable-ApplicationInsightsMonitoring
 
 Este artigo descreve um cmdlet que é membro do [módulo AZ. ApplicationMonitor do PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -32,7 +32,7 @@ Ele também criará um arquivo applicationinsights. iKey. config, que define a c
 O IIS carregará o RedfieldModule na inicialização, que injetará o SDK Application Insights em aplicativos à medida que os aplicativos forem iniciados.
 Reinicie o IIS para que suas alterações entrem em vigor.
 
-Depois de habilitar o monitoramento, recomendamos que você use métricas em [tempo real](live-stream.md) para verificar rapidamente se seu aplicativo está enviando telemetria dos EUA.
+Depois de habilitar o monitoramento, recomendamos que você use [métricas em tempo real](live-stream.md) para verificar rapidamente se seu aplicativo está enviando telemetria dos EUA.
 
 
 > [!NOTE] 
@@ -53,11 +53,11 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 ### <a name="example-with-an-instrumentation-key-map"></a>Exemplo com um mapa de chave de instrumentação
 Neste exemplo:
-- `MachineFilter`corresponde ao computador atual usando o `'.*'` caractere curinga.
-- `AppFilter='WebAppExclude'`fornece uma `null` chave de instrumentação. O aplicativo especificado não será instrumentado.
-- `AppFilter='WebAppOne'`atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
-- `AppFilter='WebAppTwo'`atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
-- Por fim `AppFilter` , o também `'.*'` usa o curinga para corresponder a todos os aplicativos Web que não são compatíveis com as regras anteriores e atribuir uma chave de instrumentação padrão.
+- `MachineFilter` corresponde ao computador atual usando o curinga `'.*'`.
+- `AppFilter='WebAppExclude'` fornece uma chave de instrumentação `null`. O aplicativo especificado não será instrumentado.
+- `AppFilter='WebAppOne'` atribui a um aplicativo especificado uma chave de instrumentação exclusiva.
+- `AppFilter='WebAppTwo'` atribui a um aplicativo especificado uma chave de instrumentação exclusiva.
+- Por fim, `AppFilter` também usa o curinga `'.*'` para corresponder a todos os aplicativos Web que não são correspondentes pelas regras anteriores e atribuir uma chave de instrumentação padrão.
 - Os espaços são adicionados para facilitar a leitura.
 
 ```powershell
@@ -70,7 +70,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ```
 
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parâmetros
 
 ### <a name="-instrumentationkey"></a>-InstrumentationKey
 **Obrigatório.** Use esse parâmetro para fornecer uma chave de instrumentação única para uso por todos os aplicativos no computador de destino.
@@ -151,10 +151,10 @@ Updating app pool permissions...
 Successfully enabled Application Insights Status Monitor
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
   Exiba sua telemetria:
- - [Explore](../../azure-monitor/app/metrics-explorer.md) as métricas para monitorar o desempenho e o uso.
+ - [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorar o desempenho e o uso.
 - [Pesquise eventos e logs](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
 - [Use a análise](../../azure-monitor/app/analytics.md) para consultas mais avançadas.
 - [Crie painéis](../../azure-monitor/app/overview-dashboard.md).
@@ -164,7 +164,7 @@ Successfully enabled Application Insights Status Monitor
 - [Adicione telemetria de cliente Web](../../azure-monitor/app/javascript.md) para ver exceções do código de página da Web e para habilitar chamadas de rastreamento.
 - [Adicione o SDK do Application insights ao seu código](../../azure-monitor/app/asp-net.md) para que você possa inserir chamadas de rastreamento e log.
  
- Faça mais com Status Monitor v2:
- - Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) status monitor v2.
+ Faça mais com Application Insights agente:
+ - Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) do Application insights Agent.
  - [Obtenha a configuração](status-monitor-v2-api-get-config.md) para confirmar que as configurações foram registradas corretamente.
  - [Obtenha o status](status-monitor-v2-api-get-status.md) para inspecionar o monitoramento.

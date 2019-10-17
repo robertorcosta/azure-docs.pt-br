@@ -1,6 +1,6 @@
 ---
 title: Gerenciar recursos do Azure usando o Azure PowerShell | Microsoft Docs
-description: Use Azure PowerShell e o gerenciamento de recursos do Azure para gerenciar seus recursos.
+description: Use Azure PowerShell e Azure Resource Manager para gerenciar seus recursos. Mostra como implantar e excluir recursos.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: f61fcf7833021f23485992c7445f91d9a7b9ee45
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: aa215555fdd39e9d756d5fc925282b1eaffc9ebf
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001526"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390359"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Gerenciar recursos do Azure usando o Azure PowerShell
 
@@ -49,7 +49,7 @@ $ctx = $storageAccount.Context
 
 ### <a name="deploy-a-template"></a>Implantar um modelo
 
-O script a seguir cria uma implantação de um modelo de início rápido para criar uma conta de armazenamento. Para obter mais informações, confira [Início Rápido: Criar modelos do Azure Resource Manager usando o Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
+O script a seguir cria uma implantação de um modelo de início rápido para criar uma conta de armazenamento. Para obter mais informações, consulte [início rápido: criar modelos de Azure Resource Manager usando Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -128,7 +128,7 @@ $lockId = (Get-AzResourceLock -ResourceGroupName $resourceGroupName -ResourceNam
 Remove-AzResourceLock -LockId $lockId
 ```
 
-Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
+Para saber mais, confira [Bloquear recursos com o Azure Resource Manager](resource-group-lock-resources.md).
 
 ## <a name="tag-resources"></a>Recursos de marca
 
@@ -136,9 +136,9 @@ A marcação ajuda a organizar o grupo de recursos e os recursos logicamente. Pa
 
 ## <a name="manage-access-to-resources"></a>Gerenciar acesso aos recursos
 
-O [Controle de acesso baseado em função (RBAC)](../role-based-access-control/overview.md) é a maneira de gerenciar o acesso aos recursos no Azure. Para obter mais informações, consulte [gerenciar o acesso usando RBAC e Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+O [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) é a maneira de gerenciar o acesso aos recursos no Azure. Para obter mais informações, consulte [gerenciar o acesso usando RBAC e Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber Azure Resource Manager, consulte [Azure Resource Manager visão geral](./resource-group-overview.md).
 - Para saber mais sobre a sintaxe do modelo do Resource Manager, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](./resource-group-authoring-templates.md).

@@ -1,17 +1,17 @@
 ---
 title: Erros de recurso do Azure não encontrado | Microsoft Docs
-description: Descreve como solucionar erros que ocorrem quando um recurso não pode ser encontrado.
+description: Descreve como resolver erros quando um recurso não pode ser encontrado ao implantar com um modelo de Azure Resource Manager.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9c999a70ffdbed0c954cfc960b5febdaff06e4ae
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4db50bbb3073fe98599923843e6afdded3a8ca62
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206198"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390271"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Solucione erros que ocorrem quando recursos do Azure não são encontrados
 

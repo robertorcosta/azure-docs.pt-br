@@ -1,17 +1,17 @@
 ---
-title: Padrões de Coluna do Fluxo de Dados do Mapeamento do Azure Data Factory
+title: Padrões de coluna em fluxos de dados de mapeamento Azure Data Factory
 description: Criar padrões de transformação de dados generalizados usando Azure Data Factory padrões de coluna no mapeamento de fluxos de dados
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 535656f315f65ffb7aa241618fe9e73b8246b71f
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a95bbb726f8c391270d3f60ed769d9475004b1e4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027853"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388016"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>Mapeando padrões de coluna de fluxos de dados
 
@@ -35,16 +35,16 @@ Se optar por usar uma das funções regex do Construtor de Expressões, você po
 Um exemplo de cenário de Padrão de Coluna está usando SUM com uma série de campos de entrada. Os cálculos SUM agregados ficam na transformação de agregação. Em seguida, você pode usar SUM em cada correspondência de tipos de campo que correspondem a "Integer" e, em seguida, use $ $ para fazer referência a cada correspondência em sua expressão.
 
 ## <a name="match-columns"></a>Colunas de correspondência
-![](media/data-flow/pattern2.png "tipos") de padrões de coluna tipos padrão
+![tipos de padrões de coluna](media/data-flow/pattern2.png "Tipos de padrões")
 
 Para criar padrões com base em colunas, você pode corresponder ao nome da coluna, ao tipo, ao fluxo ou à posição e usar qualquer combinação delas com funções de expressão e expressões regulares.
 
-![](media/data-flow/position.png "posição da coluna") de posição da coluna
+![posição da coluna](media/data-flow/position.png "Posição da coluna")
 
 ## <a name="rule-based-mapping"></a>Mapeamento baseado em regras
 Ao mapear colunas na origem e selecionar transformações, você terá a opção de escolher "mapeamento fixo" ou "mapeamento baseado em regras". Quando você conhece o esquema de seus dados e espera colunas específicas do conjunto do dados de origem que sempre correspondem a nomes estáticos específicos, você pode usar o mapeamento fixo. Mas quando você estiver trabalhando com esquemas flexíveis, use o mapeamento baseado em regras. Você poderá criar uma correspondência de padrões usando as regras descritas acima.
 
-![](media/data-flow/rule2.png "mapeamento") baseado em regra de mapeamento baseado em regra
+![mapeamento baseado em regras](media/data-flow/rule2.png "Mapeamento baseado em regras")
 
 Crie suas regras usando o construtor de expressões. Suas expressões retornarão um valor booliano para corresponder colunas (true) ou excluir colunas (false).
 
@@ -56,6 +56,6 @@ Crie suas regras usando o construtor de expressões. Suas expressões retornarã
 * `stream` representa o nome associado a cada fluxo ou transformação em seu fluxo
 * `position` é a posição ordinal das colunas em seu fluxo de dados
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre a [linguagem de expressão](https://aka.ms/dataflowexpressions) de fluxo de dados de mapeamento do ADF para transformações de dados
 * Usar padrões de coluna na [transformação do coletor](data-flow-sink.md) e [selecionar a transformação](data-flow-select.md) com mapeamento baseado em regras

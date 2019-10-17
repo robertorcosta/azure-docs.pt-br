@@ -1,6 +1,6 @@
 ---
 title: Gerenciar recursos do Azure usando o portal do Azure | Microsoft Docs
-description: Use o portal do Azure e o Azure Resource Manager para gerenciar seus recursos.
+description: Use o portal do Azure e Azure Resource Manager para gerenciar seus recursos. Mostra como implantar e excluir recursos.
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
@@ -8,51 +8,51 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: a4ff94a98514041290518e72e1b13c76722b9d4f
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c52d54ca02436f7224346a65048244a5ec8d104c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205594"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390390"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Gerenciar recursos do Azure usando o portal do Azure
 
-Saiba como usar o [portal do Azure](https://portal.azure.com) com [do Azure Resource Manager](resource-group-overview.md) para gerenciar seus recursos do Azure. Para gerenciar grupos de recursos, consulte [grupos de recursos do Azure gerenciar usando o portal do Azure](./manage-resource-groups-portal.md).
+Saiba como usar o [portal do Azure](https://portal.azure.com) com [Azure Resource Manager](resource-group-overview.md) para gerenciar seus recursos do Azure. Para gerenciar grupos de recursos, consulte [gerenciar grupos de recursos do Azure usando o portal do Azure](./manage-resource-groups-portal.md).
 
 Outros artigos sobre o gerenciamento de recursos:
 
-- [Gerenciar recursos do Azure, usando a CLI do Azure](./manage-resources-cli.md)
-- [Gerenciar recursos do Azure usando o PowerShell do Azure](./manage-resources-powershell.md)
+- [Gerenciar recursos do Azure usando o CLI do Azure](./manage-resources-cli.md)
+- [Gerenciar recursos do Azure usando o Azure PowerShell](./manage-resources-powershell.md)
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="deploy-resources-to-a-resource-group"></a>Implantar recursos em um grupo de recursos
 
-Depois de criar um modelo do Resource Manager, você pode usar o portal do Azure para implantar seus recursos do Azure. Para criar um modelo, consulte [guia de início rápido: Crie e implante modelos do Azure Resource Manager usando o portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md). Para implantar um modelo usando o portal, consulte [implantar recursos com modelos do Resource Manager e o portal do Azure](resource-group-template-deploy-portal.md).
+Depois de criar um modelo do Resource Manager, você pode usar o portal do Azure para implantar os recursos do Azure. Para criar um modelo, consulte [início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md). Para implantar um modelo usando o portal, consulte [implantar recursos com modelos do Resource Manager e portal do Azure](resource-group-template-deploy-portal.md).
 
-## <a name="open-resources"></a>Recursos abertos
+## <a name="open-resources"></a>Abrir recursos
 
-Recursos do Azure são organizados por serviços do Azure e por grupos de recursos. Os procedimentos a seguir mostra como abrir uma conta de armazenamento chamada **mystorage0207**. A máquina virtual reside em um grupo de recursos chamado **mystorage0207rg**.
+Os recursos do Azure são organizados por serviços do Azure e por grupos de recursos. Os procedimentos a seguir mostram como abrir uma conta de armazenamento chamada **mystorage0207**. A máquina virtual reside em um grupo de recursos chamado **mystorage0207rg**.
 
-Para abrir um recurso, o tipo de serviço:
+Para abrir um recurso pelo tipo de serviço:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. No painel esquerdo, selecione o serviço do Azure. Nesse caso, **contas de armazenamento**.  Se você não vir o serviço listado, selecione **todos os serviços**e, em seguida, selecione o tipo de serviço.
 
-    ![Abra o recurso do azure no portal](./media/manage-resources-portal/manage-azure-resources-portal-open-service.png)
+    ![abrir recurso do Azure no portal](./media/manage-resources-portal/manage-azure-resources-portal-open-service.png)
 
 3. Selecione o recurso que você deseja abrir.
 
-    ![Abra o recurso do azure no portal](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
+    ![abrir recurso do Azure no portal](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
 
-    Uma conta de armazenamento é semelhante a:
+    Uma conta de armazenamento é semelhante A:
 
-    ![Abra o recurso do azure no portal](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
+    ![abrir recurso do Azure no portal](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
 
-Para abrir um grupo de recursos por recursos:
+Para abrir um recurso por grupo de recursos:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No painel esquerdo, selecione **grupos de recursos** para listar os recursos dentro do grupo.
+1. Entre no [portal do Azure](https://portal.azure.com).
+2. No painel esquerdo, selecione **grupos de recursos** para listar o recurso dentro do grupo.
 3. Selecione o recurso que você deseja abrir. 
 
 ## <a name="manage-resources"></a>Gerenciar recursos
@@ -65,63 +65,63 @@ A captura de tela mostra as opções de gerenciamento para uma máquina virtual 
 
 ## <a name="delete-resources"></a>Excluir recursos
 
-1. Abra o recurso no portal. Para obter as etapas, consulte [abrir recursos](#open-resources).
-2. Selecione **Excluir**. Captura de tela a seguir mostra as opções de gerenciamento para uma máquina virtual.
+1. Abra o recurso no Portal. Para as etapas, consulte [recursos abertos](#open-resources).
+2. Selecione **Excluir**. A captura de tela a seguir mostra as opções de gerenciamento para uma máquina virtual.
 
-    ![excluir recursos do azure](./media/manage-resources-portal/manage-azure-resources-portal-delete-resource.png)
+    ![excluir recurso do Azure](./media/manage-resources-portal/manage-azure-resources-portal-delete-resource.png)
 3. Digite o nome do recurso para confirmar a exclusão e, em seguida, selecione **excluir**.
 
-Para obter mais informações sobre como o Azure Resource Manager ordena a exclusão de recursos, consulte [exclusão do grupo de recursos do Azure Resource Manager](./resource-group-delete.md).
+Para obter mais informações sobre como Azure Resource Manager ordena a exclusão de recursos, consulte [Azure Resource Manager exclusão de grupo de recursos](./resource-group-delete.md).
 
 ## <a name="move-resources"></a>Mover recursos
 
-1. Abra o recurso no portal. Para obter as etapas, consulte [abrir recursos](#open-resources).
-2. Selecione **Mover**. Captura de tela a seguir mostra as opções de gerenciamento para uma conta de armazenamento.
+1. Abra o recurso no Portal. Para as etapas, consulte [recursos abertos](#open-resources).
+2. Selecione **Mover**. A captura de tela a seguir mostra as opções de gerenciamento para uma conta de armazenamento.
 
-    ![Mover recursos do azure](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
-3. Selecione **mover para outro grupo de recursos** ou **Moeve para outra assinatura** dependendo das suas necessidades.
+    ![mover recurso do Azure](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
+3. Selecione **mover para outro grupo de recursos** ou **mover para outra assinatura** , dependendo de suas necessidades.
 
 Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](resource-group-move-resources.md).
 
 ## <a name="lock-resources"></a>Bloquear recursos
 
-O bloqueio impede que outros usuários na sua organização acidentalmente excluam ou modifiquem recursos críticos, como a assinatura do Azure, grupo de recursos ou recurso. 
+O bloqueio impede que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos, como assinatura do Azure, grupo de recursos ou recurso. 
 
-1. Abra o recurso no portal. Para obter as etapas, consulte [abrir recursos](#open-resources).
-2. Selecione **bloqueia**. Captura de tela a seguir mostra as opções de gerenciamento para uma conta de armazenamento.
+1. Abra o recurso no Portal. Para as etapas, consulte [recursos abertos](#open-resources).
+2. Selecione **bloqueios**. A captura de tela a seguir mostra as opções de gerenciamento para uma conta de armazenamento.
 
-    ![recurso de bloqueio do azure](./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png)
-3. Selecione **adicionar**e, em seguida, especifique as propriedades de bloqueio.
+    ![bloquear recurso do Azure](./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png)
+3. Selecione **Adicionar**e, em seguida, especifique as propriedades do bloqueio.
 
-Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
+Para saber mais, confira [Bloquear recursos com o Azure Resource Manager](resource-group-lock-resources.md).
 
 ## <a name="tag-resources"></a>Recursos de marca
 
-Ajuda a organizar logicamente o seu grupo de recursos e recursos de marcação. 
+A marcação ajuda a organizar o grupo de recursos e os recursos logicamente. 
 
-1. Abra o recurso no portal. Para obter as etapas, consulte [abrir recursos](#open-resources).
-2. Selecionar **Marcas**. Captura de tela a seguir mostra as opções de gerenciamento para uma conta de armazenamento.
+1. Abra o recurso no Portal. Para as etapas, consulte [recursos abertos](#open-resources).
+2. Selecionar **Marcas**. A captura de tela a seguir mostra as opções de gerenciamento para uma conta de armazenamento.
 
-    ![recursos de marca do azure](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
-3. Especifique as propriedades de marca e, em seguida, selecione **salvar**.
+    ![marcar recurso do Azure](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
+3. Especifique as propriedades da marca e, em seguida, selecione **salvar**.
 
-Para obter informações, consulte [usando marcas para organizar seus recursos do Azure](./resource-group-using-tags.md#portal).
+Para obter informações, consulte [usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md#portal).
 
 ## <a name="monitor-resources"></a>Monitorar recursos
 
-Quando você abre um recurso, o portal apresenta gráficos e tabelas para esse tipo de recurso de monitoramento padrão. Captura de tela a seguir mostra os gráficos para uma máquina virtual:
+Quando você abre um recurso, o portal apresenta gráficos e tabelas padrão para monitorar esse tipo de recurso. A captura de tela a seguir mostra os grafos de uma máquina virtual:
 
-![recurso de monitor do azure](./media/manage-resources-portal/manage-azure-resources-portal-monitor-resource.png)
+![monitorar recursos do Azure](./media/manage-resources-portal/manage-azure-resources-portal-monitor-resource.png)
 
-Você pode selecionar o ícone de pino no canto superior direito dos gráficos para fixar o gráfico no painel. Para aprender a trabalhar com painéis, confira [Criar compartilhar painéis personalizados no Portal do Azure](../azure-portal/azure-portal-dashboards.md).
+Você pode selecionar o ícone de pino no canto superior direito dos grafos para fixar o grafo no painel. Para aprender a trabalhar com painéis, confira [Criar compartilhar painéis personalizados no Portal do Azure](../azure-portal/azure-portal-dashboards.md).
 
 ## <a name="manage-access-to-resources"></a>Gerenciar acesso aos recursos
 
-O [Controle de acesso baseado em função (RBAC)](../role-based-access-control/overview.md) é a maneira de gerenciar o acesso aos recursos no Azure. Para obter mais informações, confira [gerenciar o acesso usando o portal do Azure e o RBAC](../role-based-access-control/role-assignments-portal.md).
+O [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) é a maneira de gerenciar o acesso aos recursos no Azure. Para obter mais informações, confira [gerenciar o acesso usando o portal do Azure e o RBAC](../role-based-access-control/role-assignments-portal.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Para saber o Azure Resource Manager, consulte [visão geral do Azure Resource Manager](./resource-group-overview.md).
-- Para obter a sintaxe do modelo do Resource Manager, consulte [entender a estrutura e sintaxe dos modelos do Azure Resource Manager](./resource-group-authoring-templates.md).
-- Para saber como desenvolver modelos, consulte o [tutoriais passo a passo](/azure/azure-resource-manager/).
-- Para exibir os esquemas de modelo do Azure Resource Manager, consulte [referência de modelo](/azure/templates/).
+- Para saber Azure Resource Manager, consulte [Azure Resource Manager visão geral](./resource-group-overview.md).
+- Para saber mais sobre a sintaxe do modelo do Resource Manager, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](./resource-group-authoring-templates.md).
+- Para saber como desenvolver modelos, consulte os tutoriais passo a [passo](/azure/azure-resource-manager/).
+- Para exibir os esquemas de modelo de Azure Resource Manager, consulte [referência de modelo](/azure/templates/).

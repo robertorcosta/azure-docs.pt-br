@@ -14,22 +14,23 @@ ms.devlang: objective-c
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: cdfe395bca7ac73f00506da0180146310bd71d3d
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a0b73ba248ae9a12f9ee01f591ddbbedecc25f70
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027239"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388679"
 ---
-# <a name="create-an-ios-app"></a>Criar um aplicativo do iOS
+# <a name="create-an-ios-app"></a>Crie um aplicativo iOS
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 > [!NOTE]
 > O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
+>
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Este tutorial mostra como adicionar os [Aplicativos Móveis do Serviço de Aplicativo do Azure](app-service-mobile-value-prop.md), um serviço de back-end da nuvem, a um aplicativo iOS. A primeira etapa é criar um novo back-end móvel no Azure. Depois, baixe um aplicativo simples de exemplo para iOS de *Lista de tarefas pendentes* que armazena dados no Azure.
 

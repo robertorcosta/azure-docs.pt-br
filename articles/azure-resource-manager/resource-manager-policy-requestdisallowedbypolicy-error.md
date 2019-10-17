@@ -1,6 +1,6 @@
 ---
 title: Erro RequestDisallowedByPolicy com a política de recurso do Azure | Microsoft Docs
-description: Descreve a causa do erro RequestDisallowedByPolicy.
+description: Descreve a causa do erro RequestDisallowedByPolicy ao implantar recursos com Azure Resource Manager.
 services: azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e862637c688fd473b112fdfc0ee197da0444d02f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c791342bf68f84f6893e549d8528d1a861aa9040
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121244"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390293"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Erro RequestDisallowedByPolicy com a política de recurso do Azure
 
@@ -37,7 +37,7 @@ Durante a implantação, você pode receber um erro **RequestDisallowedByPolicy*
 }
 ```
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 
 Para recuperar detalhes sobre a política que bloqueou a implantação, use um dos seguintes métodos:
 
@@ -51,7 +51,7 @@ No PowerShell, forneça o identificador de política como o parâmetro `Id` para
 (Get-AzPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-### <a name="azure-cli"></a>CLI do Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Na CLI do Azure, forneça o nome da definição da política:
 
@@ -64,7 +64,7 @@ az policy definition show --name regionPolicyAssignment
 Para segurança ou conformidade, os administradores de sua assinatura podem atribuir políticas que limitam como os recursos são implantados. Por exemplo, sua assinatura pode ter uma política que impede a criação de endereços IP Públicos, Grupos de Segurança de Rede, Rodas Definidas pelo Usuário ou tabelas de rota. A mensagem de erro na seção **Sintomas** mostra o nome da política.
 Para resolver esse problema, examine as políticas de recursos e determine como implantar recursos que estão em conformidade com essas políticas.
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 
 - [O que é o Azure Policy?](../governance/policy/overview.md)
 - [Criar e gerenciar políticas para impor a conformidade](../governance/policy/tutorials/create-and-manage.md)

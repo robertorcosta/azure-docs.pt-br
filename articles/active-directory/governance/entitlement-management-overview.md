@@ -16,14 +16,14 @@ ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07a51b9f21d32fb3efdfef7c7f74cb3a1088115a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a467856550bf2deaab931b3fe2f54b7986f12f8a
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827152"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430302"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>O que é o gerenciamento de direitos do Azure AD? (Visualização)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>O que é o gerenciamento de direitos do Azure AD? Visualização
 
 > [!IMPORTANT]
 > No momento, o gerenciamento de direitos do Azure AD (Azure Active Directory) está em versão prévia pública.
@@ -92,7 +92,7 @@ Pacotes de acesso também incluem uma ou mais *políticas*. Uma política define
 
 Com um pacote de acesso e suas políticas, o Gerenciador de pacotes de acesso define:
 
-- Recursos
+- Implante
 - Funções que os usuários precisam para os recursos
 - Usuários internos e organizações parceiras de usuários externos qualificados para solicitar acesso
 - Processo de aprovação e os usuários que podem aprovar ou negar o acesso
@@ -105,34 +105,24 @@ O diagrama a seguir mostra um exemplo dos diferentes elementos no gerenciamento 
 
 ![Visão geral do gerenciamento de direitos](./media/entitlement-management-overview/elm-overview.png)
 
-## <a name="external-users"></a>Usuários externos
-
-Ao usar a experiência de convite [B2B (entre empresas) do Azure ad](../b2b/what-is-b2b.md) , você já deve conhecer os endereços de email dos usuários convidados externos que deseja colocar em seu diretório de recursos e trabalhar com o. Isso funciona muito bem quando você está trabalhando em um projeto de menor ou curto prazo e já conhece todos os participantes, mas isso é mais difícil de gerenciar se você tiver muitos usuários com os quais deseja trabalhar ou se os participantes mudarem ao longo do tempo.  Por exemplo, você pode estar trabalhando com outra organização e ter um ponto de contato com essa organização, mas com o passar do tempo, usuários adicionais dessa organização também precisarão de acesso.
-
-Com o gerenciamento de direitos, você pode definir uma política que permite aos usuários de organizações que você especifica, que também estão usando o Azure AD, para poder solicitar um pacote de acesso. Você pode especificar se a aprovação é necessária e uma data de validade para o acesso. Se a aprovação for necessária, você também poderá designar como um Aprovador um ou mais usuários da organização externa que você convidou anteriormente, já que é provável que eles saibam quais usuários externos de sua organização precisam de acesso. Depois de configurar o pacote do Access, você pode enviar um link para o pacote do Access para sua pessoa de contato na organização externa. Esse contato pode compartilhar com outros usuários na organização externa e pode usar esse link para solicitar o pacote de acesso.  Os usuários dessa organização que já foram convidados para o seu diretório também podem usar esse link.
-
-Quando uma solicitação é aprovada, o gerenciamento de direitos provisionará o usuário com o acesso necessário, que pode incluir o convite do usuário se ele ainda não estiver em seu diretório. O Azure AD criará automaticamente uma conta B2B para eles.  Observe que um administrador pode ter limitado anteriormente quais organizações têm permissão para colaboração, definindo uma [lista de permissão ou negação B2B](../b2b/allow-deny-list.md) para permitir ou bloquear convites para outras organizações.  Se o usuário não for permitido pela lista de permissões ou bloqueios, eles não serão convidados.
-
-Como você não deseja que o acesso do usuário externo seja feito por último, especifique uma data de validade na política, como 180 dias. Após 180 dias, se o acesso não for renovado, o gerenciamento de direitos removerá todo o acesso associado a esse pacote de acesso.  Se o usuário que foi convidado por meio do gerenciamento de direitos não tiver outras atribuições de pacote de acesso, quando perderem sua última atribuição, sua conta B2B será impedida de entrar por 30 dias e, subsequentemente, removida.  Isso impede a proliferação de contas desnecessárias.  
-
 ## <a name="terminology"></a>Terminologia
 
 Para entender melhor o gerenciamento de direitos e sua documentação, você deve examinar os termos a seguir.
 
 | Termo ou conceito | Descrição |
 | --- | --- |
-| gerenciamento de direitos | Um serviço que atribui, revoga e administra pacotes de acesso. |
+| Gerenciamento de direitos | Um serviço que atribui, revoga e administra pacotes de acesso. |
 | pacote de acesso | Um pacote de recursos que uma equipe ou projeto precisa e é regido por políticas. Um pacote do Access sempre está contido em um catálogo. |
 | solicitação de acesso | Uma solicitação para acessar os recursos em um pacote do Access. Normalmente, uma solicitação passa por um fluxo de trabalho. |
-| política | Um conjunto de regras que define o ciclo de vida de acesso, como como os usuários obtêm acesso, quem pode aprovar e por quanto tempo os usuários têm acesso. As políticas de exemplo incluem acesso de funcionário e acesso externo. |
-| catalog | Um contêiner de recursos relacionados e pacotes de acesso. |
+| policy | Um conjunto de regras que define o ciclo de vida de acesso, como como os usuários obtêm acesso, quem pode aprovar e por quanto tempo os usuários têm acesso. As políticas de exemplo incluem acesso de funcionário e acesso externo. |
+| catálogo | Um contêiner de recursos relacionados e pacotes de acesso. |
 | Catálogo geral | Um catálogo interno que está sempre disponível. Para adicionar recursos ao catálogo geral, o requer determinadas permissões. |
-| resource | Um ativo ou serviço (como um grupo do Office, um grupo de segurança, um aplicativo ou um site do SharePoint Online) ao qual um usuário pode receber permissões. |
-| Tipo de Recurso | O tipo de recurso, que inclui grupos, aplicativos e sites do SharePoint Online. |
+| recurso | Um ativo ou serviço (como um grupo do Office, um grupo de segurança, um aplicativo ou um site do SharePoint Online) ao qual um usuário pode receber permissões. |
+| Tipo de recurso | O tipo de recurso, que inclui grupos, aplicativos e sites do SharePoint Online. |
 | função de recurso | Uma coleção de permissões associadas a um recurso. |
 | diretório de recursos | Um diretório que tem um ou mais recursos a serem compartilhados. |
 | usuários atribuídos | Uma atribuição de um pacote de acesso a um usuário, para que o usuário tenha todas as funções de recurso desse pacote de acesso. |
-| habilitar | O processo de disponibilizar um pacote de acesso para os usuários solicitarem. |
+| enable | O processo de disponibilizar um pacote de acesso para os usuários solicitarem. |
 
 ## <a name="license-requirements"></a>Requisitos de licença
 
@@ -152,7 +142,7 @@ Como parte das licenças para usuários Membros, você também pode permitir que
 
 Para obter informações sobre como atribuir licenças a seus usuários, consulte [atribuir ou remover licenças usando o portal de Azure Active Directory](../fundamentals/license-users-groups.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Tutorial: Criar seu primeiro pacote de acesso](entitlement-management-access-package-first.md)
+- [Tutorial: criar seu primeiro pacote de acesso](entitlement-management-access-package-first.md)
 - [Cenários comuns](entitlement-management-scenarios.md)

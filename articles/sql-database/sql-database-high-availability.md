@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: jovanpop-msft
+author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 10/11/2019
-ms.openlocfilehash: 0307a905c1d3d7d9bc707fbda87fb8f3fd6d2aee
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 10/14/2019
+ms.openlocfilehash: 28b702192b41d3b4a8151e3127a4297c28712fa2
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299700"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390709"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Banco de dados SQL do Microsoft Azure e de alta disponibilidade
 
@@ -87,13 +87,20 @@ A versão com redundância de zona da arquitetura de alta disponibilidade é ilu
 
 ## <a name="accelerated-database-recovery-adr"></a>Recuperação Acelerada de Banco de Dados (ADR)
 
-A [ADR (recuperação de banco de dados acelerada)](sql-database-accelerated-database-recovery.md) é um novo recurso do mecanismo de banco de dados SQL que melhora muito a disponibilidade do banco de dados, especialmente na presença de transações de longa execução. ADR está atualmente disponível para o Azure SQL Data Warehouse, pools Elásticos e bancos de dados individuais.
+A [ADR (recuperação de banco de dados acelerada)](sql-database-accelerated-database-recovery.md) é um novo recurso do mecanismo de banco de dados SQL que melhora muito a disponibilidade do banco de dados, especialmente na presença de transações de longa execução. A ADR está atualmente disponível para bancos de dados únicos, pools elásticos e o SQL Data Warehouse do Azure.
+
+## <a name="testing-database-fault-resiliency"></a>Testando resiliência de falha de banco de dados
+
+A alta disponibilidade é uma parte fundamenental da plataforma do banco de dados SQL do Azure e funciona de forma transparente para seu aplicativo de banco de dados. No entanto, reconhecemos que talvez você queira testar como as operações de failover automático iniciadas durante os eventos planejados ou não planejados afetariam o aplicativo antes de implantá-lo para produção. Você pode chamar uma API especial para reiniciar o banco de dados ou o pool elástico, que, por sua vez, disparará o failover. No caso de banco de dados com redundância de zona ou pool elástico, a chamada à API resultaria em redirecionar as conexões de cliente para o novo primário em um AZ diferente. Assim, além de testar como o failover afeta as sessões de banco de dados existentes, você também pode verificar se ele impacta o desempenho de ponta a ponta. Como a operação de reinicialização é intrusiva e um grande número delas poderia enfatizar a plataforma, apenas uma chamada de failover é permitida a cada 30 minutos para cada banco de dados ou pool elástico. Para obter detalhes, consulte [failover de banco de dados](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) e failover de [pool elástico](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover).       
+
+> [!IMPORTANT]
+> O comando de failover não está disponível atualmente para bancos de dados Hypescale e instancses gerenciados.  
 
 ## <a name="conclusion"></a>Conclusão
 
 O banco de dados SQL do Azure apresenta uma solução interna de alta disponibilidade, que está profundamente integrada à plataforma Azure. Ele depende de Service Fabric para detecção e recuperação de falhas, no armazenamento de BLOBs do Azure para proteção de dados e em Zonas de Disponibilidade para maior tolerância a falhas. Além disso, o banco de dados SQL do Azure aproveita a tecnologia de grupo de disponibilidade Always On de SQL Server para replicação e failover. A combinação dessas tecnologias permite que os aplicativos percebam totalmente os benefícios de um modelo de armazenamento misto e ofereçam suporte aos SLAs mais exigentes.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre as [Zonas de Disponibilidade do Azure](../availability-zones/az-overview.md)
 - Saiba mais sobre o [Service Fabric](../service-fabric/service-fabric-overview.md)

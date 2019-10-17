@@ -4,18 +4,18 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: f0de7aedc3883978582da1950e95aaabac9a1695
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: b8d4c2691af8429e7b3a6c1916d12f1af609e744
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272967"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391542"
 ---
 A tabela a seguir lista os limites associados às diferentes camadas de serviço S1, S2, S3 e F1. Para obter informações sobre o custo de cada *unidade* em cada camada, consulte [preços do Hub IOT do Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Resource | S1 Standard | S2 Standard | Padrão S3 | F1 Gratuito |
+| Grupos | S1 Standard | S2 Standard | Padrão S3 | F1 Gratuito |
 | --- | --- | --- | --- | --- |
-| Mensagens/dia |400,000 |6\.000.000 |300.000.000 |8\.000 |
+| Mensagens/dia |400.000 |6\.000.000 |300.000.000 |8\.000 |
 | Máximo de unidades |200 |200 |10 |1 |
 
 > [!NOTE]
@@ -25,7 +25,7 @@ A tabela a seguir lista os limites associados às diferentes camadas de serviço
 
 A tabela a seguir lista os limites que se aplicam aos recursos do Hub IoT.
 
-| Resource | Limite |
+| Grupos | Limite |
 | --- | --- |
 | Máximo de hubs IoT por assinatura do Azure |50 |
 | Máximo de hubs IoT por assinatura do Azure |1 |
@@ -56,7 +56,7 @@ A tabela a seguir lista os limites que se aplicam aos recursos do Hub IoT.
 > Se você precisar de mais de 50 hubs IoT pagos em uma assinatura do Azure, entre em contato com Suporte da Microsoft.
 
 > [!NOTE]
-> Atualmente, o número máximo de dispositivos que você pode conectar a um único hub IoT é de 1.000.000. Se você quiser aumentar esse limite, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/support/options/).
+> Atualmente, o número total de dispositivos mais módulos que podem ser registrados em um único Hub IoT é limitado às 1 milhão. Se você quiser aumentar esse limite, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/support/options/).
 
 O Hub IoT limita as solicitações quando as seguintes cotas são excedidas.
 

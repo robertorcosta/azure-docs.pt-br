@@ -2,18 +2,18 @@
 title: 'Tutorial: fluxo estruturado do Apache Spark com Apache Kafka – Azure HDInsight'
 description: Saiba como usar o streaming do Apache Spark para transmitir dados para dentro ou fora do Apache Kafka. Neste tutorial, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
-ms.date: 05/22/2019
-ms.author: hrasheed
-ms.openlocfilehash: bcf1b967cf8eeab7aae4b720683785309689858e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.date: 10/08/2019
+ms.openlocfilehash: db2174451f01ef38dc69e4e14561175203e075c3
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204238"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264277"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Usar o fluxo estruturado do Apache Spark com o Apache Kafka no HDInsight
 
@@ -41,8 +41,8 @@ Quando você terminar as etapas neste documento, lembre-se de excluir os cluster
 
 > [!IMPORTANT]  
 > As etapas neste documento requerem um grupo de recursos do Azure que contém um Spark no HDInsight e um Kafka no cluster de HDInsight. Esses clusters são ambos localizados em uma Rede Virtual do Azure, que permite que o cluster Spark se comunique diretamente com o cluster Kafka.
-> 
-> Para sua conveniência, este documento direciona para um modelo que pode criar todos os recursos necessários do Azure. 
+>
+> Para sua conveniência, este documento direciona para um modelo que pode criar todos os recursos necessários do Azure.
 >
 > Para obter mais informações sobre como usar o HDInsight em uma rede virtual, confira o documento [Planejar uma rede virtual para o HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
@@ -94,7 +94,7 @@ Em ambos os snippets de código, os dados são lidos do Kafka e gravados no arqu
 | `write` | `writeStream` |
 | `save` | `start` |
 
-A operação de streaming também usa `awaitTermination(30000)`, que interrompe o fluxo após 30.000 ms. 
+A operação de streaming também usa `awaitTermination(30000)`, que interrompe o fluxo após 30.000 ms.
 
 Para usar o fluxo estruturado com Kafka, seu projeto deve ter uma dependência no pacote `org.apache.spark : spark-sql-kafka-0-10_2.11`. A versão deste pacote deve corresponder à versão do Spark no HDInsight. Para Spark 2.2.0 (disponível no HDInsight 3.6), você pode encontrar as informações de dependência para diferentes tipos de projeto em [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar).
 
@@ -112,7 +112,7 @@ Para o Jupyter Notebook usado com este tutorial, a seguinte célula carrega essa
 
 ## <a name="create-the-clusters"></a>Criar os clusters
 
-Apache Kafka no HDInsight não fornece acesso para Agentes de Kafka pela internet pública. Qualquer coisa que usa Kafka deve estar na mesma rede virtual do Azure. Neste tutorial, os clusters de Spark e Kafka estão localizados na mesma rede virtual do Azure. 
+Apache Kafka no HDInsight não fornece acesso para Agentes de Kafka pela internet pública. Qualquer coisa que usa Kafka deve estar na mesma rede virtual do Azure. Neste tutorial, os clusters de Spark e Kafka estão localizados na mesma rede virtual do Azure.
 
 O diagrama a seguir mostra como a comunicação flui entre o Spark e o Kafka:
 
@@ -151,12 +151,12 @@ Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters Kafka e Sp
     | Senha de logon do cluster | A senha de usuário administrador para os clusters. |
     | Nome de usuário do SSH | O usuário do SSH para criar os clusters. |
     | Senha SSH | A senha para o usuário do SSH. |
-   
+
     ![Captura de tela do modelo personalizado](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
 
-3. Leia os **Termos e Condições** e, em seguida, selecione **Eu concordo com os termos e condições declarados acima**
+3. Leia **Termos e Condições**, e depois selecione **Concordo com os termos e condições declarados acima**.
 
-4. Por fim, marque **Fixar no painel** e selecione **Comprar**. 
+4. Selecione **Comprar**.
 
 > [!NOTE]  
 > A criação de clusters pode levar até 20 minutos.
@@ -184,11 +184,11 @@ Este exemplo demonstra como usar o Streaming Estruturado do Spark com o Kafka no
 
 3. Selecione **Novo > Spark** para criar um notebook.
 
-4. Carregue os pacotes usados pelo Notebook inserindo as informações a seguir em uma célula do Notebook. Execute o comando usando **CTRL + ENTER**.
+4. O streaming do Spark tem microenvio em lote, o que significa que os dados são recebidos como lotes e os executores são executados nos lotes de dados. Se o executor tiver um tempo limite de ociosidade menor que o tempo necessário para processar o lote, os executores serão constantemente adicionados e removidos. Se o tempo limite de ociosidade dos executores for maior que a duração do lote, o executor nunca será removido. Portanto, **recomendamos que você desabilite a alocação dinâmica definindo spark.dynamicAllocation.enabled como falso ao executar aplicativos de streaming.**
 
-O streaming do Spark tem microenvio em lote, o que significa que os dados são recebidos como lotes e os executores são executados nos lotes de dados. Se o executor tiver um tempo limite de ociosidade menor que o tempo necessário para processar o lote, os executores serão constantemente adicionados e removidos. Se o tempo limite de ociosidade dos executores for maior que a duração do lote, o executor nunca será removido. Portanto, **recomendamos que você desabilite a alocação dinâmica definindo spark.dynamicAllocation.enabled como falso ao executar aplicativos de streaming.**
+    Carregue os pacotes usados pelo Notebook inserindo as informações a seguir em uma célula do Notebook. Execute o comando usando **CTRL + ENTER**.
 
-    ```
+    ```configuration
     %%configure -f
     {
         "conf": {
@@ -216,10 +216,10 @@ O streaming do Spark tem microenvio em lote, o que significa que os dados são r
     // Load the data from the New York City Taxi data REST API for 2016 Green Taxi Trip Data
     val url="https://data.cityofnewyork.us/resource/pqfs-mqru.json"
     val result = scala.io.Source.fromURL(url).mkString
-    
+
     // Create a dataframe from the JSON data
     val taxiDF = spark.read.json(Seq(result).toDS)
-    
+
     // Display the dataframe containing trip data
     taxiDF.show()
     ```
@@ -230,7 +230,7 @@ O streaming do Spark tem microenvio em lote, o que significa que os dados são r
     // The Kafka broker hosts and topic used to write to Kafka
     val kafkaBrokers="YOUR_KAFKA_BROKER_HOSTS"
     val kafkaTopic="tripdata"
-    
+
     println("Finished setting Kafka broker and topic configuration.")
     ```
 
@@ -250,7 +250,7 @@ O streaming do Spark tem microenvio em lote, o que significa que os dados são r
     import org.apache.spark.sql._
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
-    
+
     // Define a schema for the data
     val schema = (new StructType).add("dropoff_latitude", StringType).add("dropoff_longitude", StringType).add("extra", StringType).add("fare_amount", StringType).add("improvement_surcharge", StringType).add("lpep_dropoff_datetime", StringType).add("lpep_pickup_datetime", StringType).add("mta_tax", StringType).add("passenger_count", StringType).add("payment_type", StringType).add("pickup_latitude", StringType).add("pickup_longitude", StringType).add("ratecodeid", StringType).add("store_and_fwd_flag", StringType).add("tip_amount", StringType).add("tolls_amount", StringType).add("total_amount", StringType).add("trip_distance", StringType).add("trip_type", StringType).add("vendorid", StringType)
     // Reproduced here for readability
@@ -275,7 +275,7 @@ O streaming do Spark tem microenvio em lote, o que significa que os dados são r
     //   .add("trip_distance", StringType)
     //   .add("trip_type", StringType)
     //   .add("vendorid", StringType)
-    
+
     println("Schema declared")
     ```
 
@@ -284,10 +284,10 @@ O streaming do Spark tem microenvio em lote, o que significa que os dados são r
     ```scala
     // Read a batch from Kafka
     val kafkaDF = spark.read.format("kafka").option("kafka.bootstrap.servers", kafkaBrokers).option("subscribe", kafkaTopic).option("startingOffsets", "earliest").load()
-    
+
     // Select data and write to file
     val query = kafkaDF.select(from_json(col("value").cast("string"), schema) as "trip").write.format("parquet").option("path","/example/batchtripdata").option("checkpointLocation", "/batchcheckpoint").save()
-    
+
     println("Wrote data to file")
     ```
 
@@ -303,7 +303,7 @@ O streaming do Spark tem microenvio em lote, o que significa que os dados são r
     ```scala
     // Stream from Kafka
     val kafkaStreamDF = spark.readStream.format("kafka").option("kafka.bootstrap.servers", kafkaBrokers).option("subscribe", kafkaTopic).option("startingOffsets", "earliest").load()
-    
+
     // Select data from the stream and write to file
     kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip").writeStream.format("parquet").option("path","/example/streamingtripdata").option("checkpointLocation", "/streamcheckpoint").start.awaitTermination(30000)
     println("Wrote data to file")
@@ -328,7 +328,7 @@ Para remover o grupo de recursos usando o portal do Azure:
 
 > [!WARNING]  
 > A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança ocorre por minuto, portanto, sempre exclua o cluster quando ele não estiver mais sendo usado.
-> 
+>
 > Excluir um Kafka no cluster HDInsight exclui todos os dados armazenados no Kafka.
 
 ## <a name="next-steps"></a>Próximas etapas

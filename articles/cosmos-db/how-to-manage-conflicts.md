@@ -4,14 +4,14 @@ description: Saiba como gerenciar conflitos no Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/15/2019
 ms.author: mjbrown
-ms.openlocfilehash: c58828fd8ed0de73c03e9e741d14705ad88b1333
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4c62fcc81eb3b045d3b4233e1bb3770ecb9865b3
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093223"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388076"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gerenciar políticas de resolução de conflitos no Azure Cosmos DB
 
@@ -108,9 +108,9 @@ Estes exemplos mostram como configurar um contêiner com uma política de resolu
 Procedimentos de armazenados de resolução de conflitos personalizados devem ser implementados usando a assinatura de função mostrada abaixo. O nome da função não precisa corresponder ao nome usado ao registrar o procedimento armazenado com o contêiner, mas simplifica a nomenclatura. Aqui está uma descrição dos parâmetros que devem ser implementados para esse procedimento armazenado.
 
 - **incomingItem**: o item que está sendo inserido ou atualizado na confirmação que está gerando os conflitos. É nulo para operações de exclusão.
-- **existingItem**: o item comprometido no momento. Esse valor é null em uma atualização e nulo para uma inserção ou exclusão.
-- **isTombstone**: booliano que indica se o incomingItem está em conflito com um item excluído anteriormente. Quando verdadeiro, existingItem também será null.
-- **conflictingItems**: Matriz da versão confirmada de todos os itens no contêiner que estão em conflito com incomingItem na ID ou quaisquer outras propriedades de índice exclusivo.
+- **existingItem**: o item atualmente confirmado. Esse valor é null em uma atualização e nulo para uma inserção ou exclusão.
+- isdelete: booliano que indica se o incomingItem está em conflito com um item excluído anteriormente. Quando verdadeiro, existingItem também será null.
+- **conflictingItems**: matriz da versão confirmada de todos os itens no contêiner que estão em conflito com INCOMINGITEM na ID ou qualquer outra propriedade de índice exclusivo.
 
 > [!IMPORTANT]
 > Assim como com qualquer procedimento armazenado, um procedimento de resolução de conflitos personalizado pode acessar todos os dados com a mesma chave de partição e executar qualquer operação de inserir, atualizar ou excluir para resolver conflitos.
@@ -363,7 +363,7 @@ FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.co
 ### <a id="read-from-conflict-feed-dotnet-v3"></a>SDK do .NET V3
 
 ```csharp
-FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictIterator();
+FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictQueryIterator();
 while (conflictFeed.HasMoreResults)
 {
     FeedResponse<ConflictProperties> conflicts = await conflictFeed.ReadNextAsync();
@@ -422,7 +422,7 @@ while conflict:
     conflict = next(conflicts_iterator, None)
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre os conceitos do Azure Cosmos DB a seguir:
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0c7d88d76a3fea87b3cfe4032186140f38c263d3
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 755290997cb6aab328cd38ce81a21c598c737b5f
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71693398"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429016"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Windows
 
@@ -206,7 +206,7 @@ O código de exemplo C# que vem com o modelo de projeto usa a [classe ModuleClie
 
 7. Localize a propriedade **routes** das propriedades desejadas de $edgeHub. 
 
-   Uma das funções do módulo do hub do IoT Edge é rotear as mensagens entre todos os módulos em uma implantação. Examine os valores na propriedade routes. A primeira rota, **IotEdgeModule1ToIoTHub**, usa um caractere curinga ( **\*** ) para incluir qualquer mensagem recebida de qualquer fila de saída no módulo IotEdgeModule1. Essas mensagens entram em *$upstream*, que é um nome reservado que indica o Hub IoT. A segunda rota, **sensorToIotEdgeModule1**, usa mensagens provenientes do módulo SimulatedTemperatureSensor e as roteia para a fila de entrada *input1* do módulo IotEdgeModule1. 
+   Uma das funções do módulo do hub do IoT Edge é rotear mensagens entre todos os módulos em uma implantação. Examine os valores na propriedade routes. A primeira rota, **IotEdgeModule1ToIoTHub**, usa um caractere curinga ( **\*** ) para incluir qualquer mensagem recebida de qualquer fila de saída no módulo IotEdgeModule1. Essas mensagens entram em *$upstream*, que é um nome reservado que indica o Hub IoT. A segunda rota, **sensorToIotEdgeModule1**, usa mensagens provenientes do módulo SimulatedTemperatureSensor e as roteia para a fila de entrada *input1* do módulo IotEdgeModule1. 
 
    ![Examinar rotas em deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
 

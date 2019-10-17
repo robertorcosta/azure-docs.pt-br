@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 10/15/2019
 ms.author: haroldw
-ms.openlocfilehash: fccb77110eafa131733ecea70fb209b2a168436c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 66d17fb2a96bbb5b1dcb51151242f014b4116b86
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082510"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390538"
 ---
 # <a name="deploy-okd-in-azure"></a>Implantar o OKD no Azure
 
@@ -30,7 +30,7 @@ Você pode usar uma de duas maneiras para implantar o OKD (anteriormente conheci
 
 ## <a name="deploy-using-the-okd-template"></a>Implantar usando o modelo OLD
 
-Para implantar usando o modelo do Resource Manager, você usa um arquivo de parâmetros para fornecer os parâmetros de entrada. Para personalizar ainda mais a implantação, bifurque o repositório do GitHub e altere os itens apropriados.
+Para implantar usando o modelo do Resource Manager, você usa um arquivo de parâmetros para fornecer os parâmetros de entrada. Para personalizar ainda mais a implantação, crie um fork do repositório do GitHub e altere os itens apropriados.
 
 Algumas opções comuns de personalização incluem, mas não estão limitadas a:
 
@@ -161,8 +161,8 @@ Quando não for mais necessário, você pode usar o comando [az group delete](/c
 az group delete --name openshiftrg
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Tarefas de pós-implantação](./openshift-post-deployment.md)
-- [Solução de problemas de implantação do OpenShift](./openshift-troubleshooting.md)
+- [Tarefas de pós-implantação](./openshift-container-platform-3x-post-deployment.md)
+- [Solução de problemas de implantação do OpenShift](./openshift-container-platform-3x-troubleshooting.md)
 - [Introdução ao OKD](https://docs.okd.io)

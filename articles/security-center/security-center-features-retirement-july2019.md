@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 6e7263dfa0faf0bf2fd7e8b7d6e050ca6bc95e2a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c4fe185f5d203b1b0eba306c80cded14ad82bc98
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202215"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438639"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Aposentadoria dos recursos da central de segurança (julho de 2019)
 
@@ -53,7 +53,7 @@ Desativamos o painel eventos que apareceu quando você selecionou um espaço de 
 
 Incentivamos você a usar os recursos nativos do Azure Log Analytics para exibir eventos notáveis em seus espaços de trabalho.
 
-Se você criou eventos notáveis personalizados na central de segurança, eles estarão acessíveis. Em log Analytics, vá para **selecionar** > **pesquisas salvas**do espaço de trabalho. Seus dados não serão perdidos ou modificados. Os eventos notáveis nativos também estão disponíveis na mesma tela no Log Analytics.
+Se você criou eventos notáveis personalizados na central de segurança, eles estarão acessíveis. Em Log Analytics, vá para **selecionar espaço de trabalho** > **pesquisas salvas**. Seus dados não serão perdidos ou modificados. Os eventos notáveis nativos também estão disponíveis na mesma tela no Log Analytics.
 
 ![Pesquisas salvas do espaço de trabalho][3]
 
@@ -115,7 +115,7 @@ Os dados existentes permanecem disponíveis na solução de segurança Log Analy
 
 ### <a name="security-events-map---the-new-experience"></a>Mapa de eventos de segurança-a nova experiência
 
-Incentivamos você a usar a funcionalidade de mapa de alertas interna na central de segurança: **Mapa de alertas de segurança (versão prévia)** . Essa funcionalidade fornece uma experiência otimizada e funciona em todas as assinaturas e espaços de trabalho associados. Ele fornece uma exibição de alto nível em seu ambiente e não se concentra em um único espaço de trabalho.
+Incentivamos você a usar a funcionalidade de mapa de alertas criada na central **de segurança: mapa de alertas de segurança (versão prévia)** . Essa funcionalidade fornece uma experiência otimizada e funciona em todas as assinaturas e espaços de trabalho associados. Ele fornece uma exibição de alto nível em seu ambiente e não se concentra em um único espaço de trabalho.
 
 ## Regras de alerta personalizadas (versão prévia)<a name="menu_customalerts"></a>
 
@@ -169,7 +169,7 @@ Se você tiver soluções conectadas existentes, recomendamos que você passe pa
 
 A Central de Segurança do Azure monitora as configurações de segurança aplicando um conjunto de [mais de 150 regras recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para proteger o sistema operacional. Essas regras pertencem a firewalls, auditoria, políticas de senha e muito mais. Se uma configuração vulnerável é encontrada em um computador, a Central de Segurança gera uma recomendação de segurança. A [tela Editar configuração de segurança](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) permite que os clientes personalizem a configuração de segurança do sistema operacional padrão na central de segurança.
 
-Desativamos esse recurso de visualização. Para redefinir as configurações de segurança de volta para seus valores padrão após a data de desativação, faça isso por meio da API ou do PowerShell usando as [instruções a seguir](https://aka.ms/ascresetsecurityconfigurations)
+Desativamos esse recurso de visualização. Para redefinir as configurações de segurança de volta para seus valores padrão após a data de desativação, faça isso por meio da API ou do PowerShell usando as [instruções a seguir](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization)
 
 ![Editar configurações de segurança][17]
 
@@ -189,7 +189,7 @@ Aconselhamos que você alterne para a central de segurança do Azure. Ele fornec
 
 Você pode obter as consultas de Log Analytics originais que preenchem o painel segurança e auditoria no [repositório GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards) para a central de segurança.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/).
 - Saiba mais sobre o [Azure Sentinel](https://docs.microsoft.com/azure/sentinel).

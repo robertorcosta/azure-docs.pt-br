@@ -10,16 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 08/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: ea324d616928b0d517c00dc9cab3e282f1e3415e
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e7d69e2258036318b736f245f9e3aec3cf5f54de
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67876433"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389937"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentar aplicativos Web em tempo de execução com Application Insights anexação sem código
+
+> [!IMPORTANT]
+> O Status Monitor não é mais recomendado para uso. Ele foi substituído pelo agente de Application Insights de Azure Monitor (anteriormente denominado Status Monitor v2). Consulte nossa documentação para [implantações de servidor local](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) ou [máquinas virtuais do Azure e implantações do conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
 
 Você pode instrumentar um aplicativo Web ativo com o Application Insights do Azure, sem a necessidade de modificar ou reimplantar o código. É necessário ter uma assinatura do [Microsoft Azure](https://azure.com) .
 
@@ -35,24 +38,24 @@ O Status Monitor é usado para instrumentar um aplicativo .NET hospedado no IIS 
 
 Você tem duas opções de rotas para aplicar o Application Insights nos aplicativos Web .NET:
 
-* **Tempo de build:** [Adicione o SDK do Application insights][greenbrown] ao código do aplicativo Web.
-* **Tempo de execução:** Instrumente seu aplicativo Web no servidor, conforme descrito abaixo, sem recompilar e reimplantar o código.
+* **Tempo de compilação:** [adicione o SDK do Application insights][greenbrown] ao código do aplicativo Web.
+* **Tempo de execução:** instrumente seu aplicativo Web no servidor, conforme descrito abaixo, sem recompilar e reimplantar o código.
 
 > [!NOTE]
-> Se você usar a instrumentação de tempo de compilação, a instrumentação de tempo de execução não funcionará mesmo estando ativada.
+> Se você usar a instrumentação de tempo de compilação, a instrumentação de tempo de execução não funcionará mesmo se estiver ativada.
 
 Aqui está um resumo do que você tem com cada rota:
 
 |  | Tempo de compilação | Tempo de execução |
 | --- | --- | --- |
-| Solicitações e exceções |Sim |Sim |
-| [Exceções mais detalhadas](../../azure-monitor/app/asp-net-exceptions.md) | |Sim |
+| Solicitações e exceções |SIM |SIM |
+| [Exceções mais detalhadas](../../azure-monitor/app/asp-net-exceptions.md) | |SIM |
 | [Diagnóstico de dependência](../../azure-monitor/app/asp-net-dependencies.md) |No .NET 4.6+, mas menos detalhes |Sim, detalhes completos: códigos de resultado, texto do comando SQL, verbo HTTP|
-| [Contadores de desempenho do sistema](../../azure-monitor/app/performance-counters.md) |Sim |Sim |
-| [API para telemetria personalizada][api] |Sim |Não |
-| [Integração do log de rastreamento](../../azure-monitor/app/asp-net-trace-logs.md) |Sim |Não |
-| [Exibição da página e dados do usuário](../../azure-monitor/app/javascript.md) |Sim |Não |
-| É necessário recompilar o código |Sim | Não |
+| [Contadores de desempenho do sistema](../../azure-monitor/app/performance-counters.md) |SIM |SIM |
+| [API para telemetria personalizada][api] |SIM |Não |
+| [Integração do log de rastreamento](../../azure-monitor/app/asp-net-trace-logs.md) |SIM |Não |
+| [Exibição da página e dados do usuário](../../azure-monitor/app/javascript.md) |SIM |Não |
+| É necessário recompilar o código |SIM | Não |
 
 
 
@@ -150,7 +153,7 @@ Estamos acompanhando esse problema [aqui](https://github.com/Microsoft/Applicati
 * Para produzir logs detalhados, modifique o arquivo de configuração: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` e adicione `<add key="TraceLevel" value="All" />` ao `appsettings`.
 Em seguida, reinicie o monitor de status.
 
-* Como Status Monitor é um aplicativo .NET, você também pode habilitar [o rastreamento do .net adicionando o diagnóstico apropriado ao arquivo de configuração](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Por exemplo, em alguns cenários, pode ser útil ver o que está acontecendo no nível da rede configurando o [rastreamento de rede](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+* Como Status Monitor é um aplicativo .NET, você também pode habilitar [o rastreamento do .net adicionando o diagnóstico apropriado ao arquivo de configuração](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Por exemplo, em alguns cenários, pode ser útil ver o que está acontecendo no nível da rede [Configurando o rastreamento de rede](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
 
 ### <a name="insufficient-permissions"></a>Permissões insuficientes
   
@@ -178,7 +181,7 @@ Exclua qualquer um destes arquivos encontrados no diretório do aplicativo:
 
 * Consulte [solução de problemas][qna]adicional.
 
-## <a name="system-requirements"></a>Requisitos de sistema
+## <a name="system-requirements"></a>Requisitos do Sistema
 Suporte de sistema operacional para Application Insights Status Monitor no servidor:
 
 * Windows Server 2008
@@ -189,9 +192,9 @@ Suporte de sistema operacional para Application Insights Status Monitor no servi
 
 com o SP mais recente e o .NET Framework 4,5 (Status Monitor é criado nesta versão da estrutura)
 
-No lado do cliente: Windows 7, 8, 8.1 e 10, novamente com o .NET Framework 4.5
+No lado do cliente, Windows 7, 8, 8.1 e 10, novamente com o .NET Framework 4.5
 
-O suporte a IIS é: IIS 7, 7.5, 8, 8.5 (IIS é necessário)
+Suporte ao IIS: IIS 7, 7,5, 8 e 8.5 (o IIS é obrigatório)
 
 ## <a name="automation-with-powershell"></a>Automação com o PowerShell
 Você pode iniciar e interromper o monitoramento usando o PowerShell no servidor IIS.
@@ -208,9 +211,9 @@ Saiba quais aplicativos estão sendo monitorados:
 * Exibe o status de monitoramento do Application Insights para cada aplicativo Web (ou o aplicativo nomeado) nesse servidor IIS.
 * Retorna `ApplicationInsightsApplication` para cada aplicativo:
 
-  * `SdkState==EnabledAfterDeployment`: O aplicativo está sendo monitorado e foi instrumentado em tempo de execução, pela ferramenta Status Monitor ou pelo `Start-ApplicationInsightsMonitoring`.
-  * `SdkState==Disabled`: O aplicativo não é instrumentado para o Application Insights. Ele nunca foi instrumentado ou o monitoramento em tempo de execução foi desabilitado com a ferramenta Monitor de Status ou com o `Stop-ApplicationInsightsMonitoring`.
-  * `SdkState==EnabledByCodeInstrumentation`: O aplicativo foi instrumentado por meio da adição do SDK ao código-fonte. Seu SDK não pode ser atualizado ou interrompido.
+  * `SdkState==EnabledAfterDeployment`: o aplicativo está sendo monitorado e foi instrumentado em tempo de execução, pela ferramenta Monitor de Status ou pelo `Start-ApplicationInsightsMonitoring`.
+  * `SdkState==Disabled`: o aplicativo não é instrumentado para o Application Insights. Ele nunca foi instrumentado ou o monitoramento em tempo de execução foi desabilitado com a ferramenta Monitor de Status ou com o `Stop-ApplicationInsightsMonitoring`.
+  * `SdkState==EnabledByCodeInstrumentation`: o aplicativo foi instrumentado por meio da adição do SDK ao código-fonte. Seu SDK não pode ser atualizado ou interrompido.
   * `SdkVersion` mostra a versão em uso para o monitoramento do aplicativo.
   * `LatestAvailableSdkVersion`mostra a versão atualmente disponível na galeria do NuGet. Para atualizar o aplicativo para esta versão, use `Update-ApplicationInsightsMonitoring`.
 
@@ -243,8 +246,8 @@ Saiba quais aplicativos estão sendo monitorados:
 
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
-* `-Name`: O nome de um aplicativo Web no IIS.
-* `-InstrumentationKey` (Opcional.) Use isso para alterar o recurso para o qual a telemetria do aplicativo é enviada.
+* `-Name`: o nome de um aplicativo Web no IIS.
+* `-InstrumentationKey` (opcional.) Use isso para alterar o recurso para o qual a telemetria do aplicativo é enviada.
 * Este cmdlet:
   * Atualiza o aplicativo nomeado para a versão do SDK baixado mais recentemente para esta máquina. (Só funciona se `SdkState==EnabledAfterDeployment`)
   * Se você fornecer uma chave de instrumentação, o aplicativo nomeado será reconfigurado para enviar telemetria para o recurso com essa chave. (Funciona se `SdkState != Disabled`)
@@ -255,7 +258,7 @@ Saiba quais aplicativos estão sendo monitorados:
 
 ## <a name="questions"></a>Perguntas sobre o Status Monitor
 
-### <a name="what-is-status-monitor"></a>O que é o Status Monitor?
+### <a name="what-is-status-monitor"></a>O que é Status Monitor?
 
 Um aplicativo de desktop instalado no servidor web IIS. Ele ajuda você instrumentar e configurar aplicativos web. 
 
@@ -296,7 +299,7 @@ Para aplicativos que você instrumenta apenas em tempo de execução usando o St
 * Solicitações HTTP
 * Chamadas para dependências
 * Exceções
-* Contadores de desempenho
+* contadores de desempenho
 
 Para aplicativos já instrumentados em tempo de compilação:
 

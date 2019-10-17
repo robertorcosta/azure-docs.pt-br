@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 5dde098277b16c7ec5339aa6b963b04dd608c8ac
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6adeae69a4ef9e6f2d77588f8071498fd25beb3e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079661"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390602"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Criar uma VM do Windows a partir de um disco especializado usando o PowerShell
 
@@ -36,7 +36,7 @@ Você também pode usar o portal do Azure para [criar uma nova VM a partir de um
 
 Este artigo mostra como usar discos gerenciados. Se você tiver uma implantação legada que exija o uso de uma conta de armazenamento, consulte [Criar uma VM a partir de um VHD especializado em uma conta de armazenamento](sa-create-vm-specialized.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+Recomendamos que você limite o número de implantações simultâneas a 20 VMs de um único VHD ou instantâneo. 
 
 ## <a name="option-1-use-an-existing-disk"></a>Opção 1: usar um disco existente
 
@@ -74,7 +74,7 @@ Get-AzStorageAccount
 
 Para usar uma conta de armazenamento existente, vá para a seção [Upload the VHD](#upload-the-vhd-to-your-storage-account).
 
-Crie uma conta de armazenamento.
+Criar uma conta de armazenamento.
 
 1. Você precisará do nome do grupo de recursos em que a conta de armazenamento será criada. Use Get-AzResourceGroup para ver todos os grupos de recursos que estão em sua assinatura.
    
@@ -153,7 +153,7 @@ $osDisk = New-AzDisk -DiskName $osDiskName -Disk `
     -ResourceGroupName $destinationResourceGroup
 ```
 
-## <a name="option-3-copy-an-existing-azure-vm"></a>Opção 3: Copiar uma VM existente do Azure
+## <a name="option-3-copy-an-existing-azure-vm"></a>Opção 3: copiar uma VM existente do Azure
 
 Você pode criar uma cópia de uma VM que usa discos gerenciados, tirando um instantâneo da VM e usando esse instantâneo para criar um novo disco gerenciado e uma nova VM.
 
@@ -360,6 +360,6 @@ $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup
 $vmList.Name
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Logue na nova máquina virtual. Para obter mais informações, veja [Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](connect-logon.md).
 

@@ -1,18 +1,18 @@
 ---
-title: Transformação do Filtro de Fluxo de Dados de Mapeamento do Azure Data Factory
-description: Transformação do Filtro de Fluxo de Dados de Mapeamento do Azure Data Factory
+title: Transformação do filtro de fluxo de dados de mapeamento de Azure Data Factory
+description: Transformação do filtro de fluxo de dados de mapeamento de Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: dd29753ff14d16081a46eebbc2ea02d94e5985f1
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 2afe079c346a15ec212664ce022ac5e2926b12d4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029351"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387820"
 ---
 # <a name="azure-data-factory-filter-transformation"></a>Transformação de filtro de data factory do Azure
 
@@ -32,6 +32,6 @@ Filtro na coluna de ano na demonstração Filmes:
 year > 1980
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Experimente uma transformação filtragem de coluna, a [transformação selecionar](data-flow-select.md)
