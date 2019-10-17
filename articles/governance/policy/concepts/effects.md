@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: eb15aa3c6dbe0f4db62a2029a3c97b4475ab53a2
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 78a5b180d6e1531ca3ea15fbd6ec040a90d75e5c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255872"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330778"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos do Azure Policy
 
@@ -67,7 +67,7 @@ Um efeito acrescentar tem apenas uma matriz **detalhes**, que é necessária. Co
 
 ### <a name="append-examples"></a>Exemplos de acréscimo
 
-Exemplo 1: Um único par de **campo/valor** usando um [alias](definition-structure.md#aliases) não **[\*]** com um **valor** de matriz para definir regras de IP em uma conta de armazenamento. Quando o alias não **[\*]** é uma matriz, o efeito acrescenta o **valor** como a matriz inteira. Se já existir a matriz, ocorre um evento de negação como resultado do conflito.
+Exemplo 1: par de **campo/valor** único usando um [alias](definition-structure.md#aliases) não **[\*]** com um **valor** de matriz para definir regras de IP em uma conta de armazenamento. Quando o alias não **[\*]** é uma matriz, o efeito acrescenta o **valor** como a matriz inteira. Se já existir a matriz, ocorre um evento de negação como resultado do conflito.
 
 ```json
 "then": {
@@ -82,7 +82,7 @@ Exemplo 1: Um único par de **campo/valor** usando um [alias](definition-structu
 }
 ```
 
-Exemplo 2: Par **campo/valor** exclusivo usando um [alias](definition-structure.md#aliases) **[\*]** com uma matriz **value** para definir as regras de IP em uma conta de armazenamento. Ao usar o alias **[\*]** , o efeito acrescenta o **valor** a uma matriz potencialmente já existente. Se a matriz ainda não existir, ela será criada.
+Exemplo 2: par de **campo/valor** único usando um [alias](definition-structure.md#aliases) **[\*]** com um **valor** de matriz para definir regras de IP em uma conta de armazenamento. Ao usar o alias **[\*]** , o efeito acrescenta o **valor** a uma matriz potencialmente já existente. Se a matriz ainda não existir, ela será criada.
 
 ```json
 "then": {
@@ -99,8 +99,7 @@ Exemplo 2: Par **campo/valor** exclusivo usando um [alias](definition-structure.
 
 ## <a name="modify"></a>Modificar
 
-Modify é usado para adicionar, atualizar ou remover marcas em um recurso durante a criação ou atualização. Um exemplo comum é A atualização de marcas em recursos como costCenter. Uma política de modificação sempre deve ter `mode` definido como _indexado_. Os recursos não compatíveis existentes podem ser corrigidos com uma [tarefa de correção](../how-to/remediate-resources.md).
-Uma única regra de modificação pode ter qualquer quantidade de operações.
+Modify é usado para adicionar, atualizar ou remover marcas em um recurso durante a criação ou atualização. Um exemplo comum é A atualização de marcas em recursos como costCenter. Uma política de modificação deve ter sempre `mode` definida como _indexada_ , a menos que o recurso de destino seja um grupo de recursos. Os recursos não compatíveis existentes podem ser corrigidos com uma [tarefa de correção](../how-to/remediate-resources.md). Uma única regra de modificação pode ter qualquer quantidade de operações.
 
 > [!IMPORTANT]
 > No momento, Modify é usado apenas com marcas. Se você estiver gerenciando marcas, é recomendável usar modificar em vez de acrescentar como modificar fornece tipos de operação adicionais e a capacidade de corrigir recursos existentes. No entanto, o acréscimo é recomendado se você não conseguir criar uma identidade gerenciada.
@@ -161,7 +160,7 @@ A matriz de propriedades de **operações** torna possível alterar várias marc
 
 A propriedade **Operation** tem as seguintes opções:
 
-|Operação |DESCRIÇÃO |
+|Operação |Descrição |
 |-|-|
 |addOrReplace |Adiciona a marca e o valor definidos ao recurso, mesmo que a marca já exista com um valor diferente. |
 |Adicionar |Adiciona a marca e o valor definidos ao recurso. |
@@ -169,7 +168,7 @@ A propriedade **Operation** tem as seguintes opções:
 
 ### <a name="modify-examples"></a>Modificar exemplos
 
-Exemplo 1: Adicione a marca `environment` e substitua as marcas `environment` existentes por "teste":
+Exemplo 1: adicionar a marca `environment` e substituir as marcas `environment` existentes por "teste":
 
 ```json
 "then": {
@@ -229,7 +228,7 @@ O efeito deny não têm propriedades adicionais para uso na condição **then** 
 
 ### <a name="deny-example"></a>Exemplo de deny
 
-Exemplo: Usando o efeito deny.
+Exemplo: usando o efeito negar.
 
 ```json
 "then": {
@@ -251,7 +250,7 @@ O efeito audit não têm propriedades adicionais para uso na condição **then**
 
 ### <a name="audit-example"></a>Exemplo de auditoria
 
-Exemplo: Usando o efeito audit.
+Exemplo: usando o efeito auditoria.
 
 ```json
 "then": {
@@ -297,7 +296,7 @@ A propriedade **detalhes** dos efeitos AuditIfNotExists tem todas as subpropried
 
 ### <a name="auditifnotexists-example"></a>Exemplo de AuditIfNotExists
 
-Exemplo: Avalia máquinas virtuais para determinar se a extensão antimalware existe e faz auditorias quando ausente.
+Exemplo: avalia máquinas virtuais para determinar se a extensão antimalware existe e faz auditorias quando ausente.
 
 ```json
 {
@@ -381,7 +380,7 @@ A propriedade **Details** do efeito DeployIfNotExists tem todas as subpropriedad
 
 ### <a name="deployifnotexists-example"></a>Exemplo de DeployIfNotExists
 
-Exemplo: Avalia os bancos de dados do SQL Server para determinar se transparentDataEncryption está habilitado. Se não estiver, uma implantação será executada para habilitá-lo.
+Exemplo: avalia os bancos de dados do SQL Server para determinar se transparentDataEncryption está habilitado. Se não estiver, uma implantação será executada para habilitá-lo.
 
 ```json
 "if": {
@@ -457,7 +456,7 @@ A propriedade **Details** do efeito EnforceRegoPolicy tem as subpropriedades que
 
 ### <a name="enforceregopolicy-example"></a>Exemplo de EnforceRegoPolicy
 
-Exemplo: Regra de controle de admissão rego para permitir apenas as imagens de contêiner especificadas em AKS.
+Exemplo: rego regra de controle de admissão para permitir apenas as imagens de contêiner especificadas em AKS.
 
 ```json
 "if": {
@@ -513,7 +512,7 @@ Se ambas as políticas 1 e 2 tiveram o efeito negar, a situação será alterada
 
 Cada atribuição é avaliada individualmente. Assim, não existe chance de um recurso passar por uma brecha nas diferenças de escopo. O resultado de políticas em camadas ou sobreposição de políticas é considerado **cumulativo mais restritivo**. Por exemplo, se as políticas 1 e 2 tivessem efeito deny, um recurso seria bloqueado pelas políticas conflitantes e sobrepostas. Caso ainda precise que o recurso seja criado no escopo de destino, revise as exclusões em cada atribuição para validar que as políticas corretas estão afetando os escopos corretos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](definition-structure.md).

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 1aec65ab08cd1c0711e51a222a8e674ef56ef508
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
-ms.translationtype: MT
+ms.openlocfilehash: 24886d8b8a7b679f6474789748a002c8d045a746
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312191"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331287"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-search"></a>Adicionar pesquisa de texto completo aos dados de blob do Azure usando Azure Search
 
@@ -28,21 +28,28 @@ Ao executar um indexador de BLOB em um contêiner, você pode extrair texto e me
 Opcionalmente, você pode anexar o [enriquecimento de ai](search-blob-ai-integration.md) na forma de um *qualificador* para criar novas informações e estrutura de BLOBs, incluindo representações de texto de arquivos de imagem. A adição do enriquecimento de ia expande a lista tipo de conteúdo para incluir JPEG e PNG. Ele adiciona habilidades de processamento de imagens, como [OCR (reconhecimento óptico de caracteres)](cognitive-search-skill-ocr.md) e identificação de [recursos visuais](cognitive-search-skill-image-analysis.md) , que possibilitam a indexação do conteúdo Visual encontrado em cada imagem.
 
 ## <a name="search-through-your-blob-metadata"></a>Pesquisar os metadados de blob
-Um cenário comum que facilita a classificação de blobs de qualquer tipo de conteúdo é a indexação dos metadados personalizados e propriedades do sistema para cada blob. Dessa forma, as informações para todos os blobs são indexadas, independentemente do tipo de documento. Em seguida, você poderá classificar, filtrar e realizar a faceted navigation em todo o conteúdo do armazenamento de Blob.
+Um cenário comum que facilita a classificação de blobs de qualquer tipo de conteúdo é a indexação dos metadados personalizados e propriedades do sistema para cada blob. Dessa forma, as informações de todos os BLOBs são indexadas independentemente do tipo de documento, armazenados em um índice em Azure Search. Usando seu novo índice, você pode continuar a classificar, filtrar e facetar em todo o conteúdo do armazenamento de BLOBs.
 
-[Saiba que mais sobre a indexação de metadados de blob.](https://aka.ms/azsblobmetadataindexing)
+### <a name="indexing-json-blobs"></a>Indexando BLOBs JSON
+O Azure Search pode ser configurado para extrair o conteúdo estruturado encontrado nos blobs que contêm JSON. O Azure Search pode ler blobs do JSON e analisar o conteúdo estruturado nos campos apropriados de um documento do Azure Search. O Azure Search também pode levar os blobs que contêm uma matriz de objetos JSON e mapeiam cada elemento para um documento do Azure Search separado. Você pode definir um modo de análise para afetar o tipo de objeto JSON criado pelo indexador.
 
-## <a name="index-and-search-through-json-blobs"></a>Indexar e pesquisar em blobs do JSON
-O Azure Search pode ser configurado para extrair o conteúdo estruturado encontrado nos blobs que contêm JSON. O Azure Search pode ler blobs do JSON e analisar o conteúdo estruturado nos campos apropriados de um documento do Azure Search. O Azure Search também pode levar os blobs que contêm uma matriz de objetos JSON e mapeiam cada elemento para um documento do Azure Search separado.
+## <a name="how-to-get-started"></a>Como começar
 
-Atualmente a análise de JSON não é configurável por meio do Portal. [Saiba mais sobre análise de JSON no Azure Search.](https://aka.ms/azsjsonblobindexing)
-
-## <a name="quickstart"></a>Início rápido
-O Azure Search pode ser adicionado para blobs diretamente da página do portal de Armazenamento de Blobs.
+Você pode iniciar diretamente em sua página do portal da conta de armazenamento. Clique em **Adicionar Azure Search** para iniciar um fluxo onde você pode selecionar um serviço do Azure Search existente ou criar um novo serviço. Se você criar um novo serviço, você será direcionado para fora da experiência de portal da conta de Armazenamento. Você pode navegar de volta até a página do portal de Armazenamento e selecionar novamente a opção **Adicionar Azure Search**, onde você pode selecionar o serviço existente. 
 
 ![](./media/search-blob-storage-integration/blob-blade.png)
 
-Clique em **Adicionar Azure Search** para iniciar um fluxo onde você pode selecionar um serviço do Azure Search existente ou criar um novo serviço. Se você criar um novo serviço, você será direcionado para fora da experiência de portal da conta de Armazenamento. Você pode navegar de volta até a página do portal de Armazenamento e selecionar novamente a opção **Adicionar Azure Search**, onde você pode selecionar o serviço existente.
+Se você já tiver um serviço de pesquisa existente na mesma assinatura, clicar em **adicionar Azure Search** abrirá o assistente de importação de dados para que você possa percorrer imediatamente a indexação, o enriquecimento e a definição de índice.
 
-## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre o Indexador de Blobs do Azure Search na [documentação](https://aka.ms/azsblobindexer) completa.
+Você também pode [criar um serviço de Azure Search](search-create-index-portal.md) e definir indexadores de BLOB que efetuam pull de conteúdo de contêineres de BLOB.
+
+Os seguintes guias de início rápido e tutoriais usam dados de blob:
+
++ [Indexar BLOBs semiestruturados usando APIs REST](search-semi-structured-data.md)
++ [Criar um pipeline de enriquecimento de ia no portal](cognitive-search-quickstart-blob.md)
++ [Criar um pipeline de enriquecimento de ia emC#](cognitive-search-tutorial-blob-dotnet.md)
+
+## <a name="next-steps"></a>Próximos passos
+
+> [!div class="nextstepaction"]
+> [Configurar um indexador de BLOB](search-howto-indexing-azure-blob-storage.md) 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: ed231bc05d58a40c93cea74081c027e5b49f5306
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
-ms.translationtype: MT
+ms.openlocfilehash: b6de3a520150a95316371c4454fd2537f2beab5d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254495"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331137"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Recursos com suporte disponíveis na central de segurança do Azure
 
@@ -37,7 +37,7 @@ As seções a seguir mostram os recursos da central de segurança que estão dis
 
 |Servidor|Windows|||Linux|||Preços|
 |----|----|----|----|----|----|----|----|
-|**Ambiente**|**As tabelas**||**Não Azure**|**As tabelas**||**Não Azure**||
+|**Ambiente**|**Azure**||**Não Azure**|**Azure**||**Não Azure**||
 ||**Máquina Virtual**|**Conjunto de Dimensionamento de Máquinas Virtuais**||**Máquina Virtual**|**Conjunto de Dimensionamento de Máquinas Virtuais**|
 |[Integração do Microsoft defender ATP](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔ (em versões compatíveis)|✔ (em versões compatíveis)|✔|X|X|X|Standard|
 |[Alertas de detecção de ameaças de análise comportamental de máquina virtual](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas)|✔|✔|✔|✔ (em versões compatíveis)|✔ (em versões compatíveis)|✔|Recomendações (gratuito) detecção de ameaças (padrão)|
@@ -51,12 +51,12 @@ As seções a seguir mostram os recursos da central de segurança que estão dis
 |Controles de rede adaptável|✔|✔|X|✔|✔|X|Standard|
 |[Painel de conformidade regulatória & relatórios](https://docs.microsoft.com/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|Standard|
 |Recomendações e detecção de ameaças em contêineres de IaaS hospedados pelo Docker|X|X|X|✔|✔|✔|Standard|
-|Avaliação de patches do sistema operacional ausente|✔|✔|✔|✔|✔|✔|Grátis|
-|Avaliação de incorretas de segurança|✔|✔|✔|✔|✔|✔|Grátis|
-|[Avaliação do Endpoint Protection](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|Grátis|
-|Avaliação de criptografia de disco|✔|✔|X|✔|✔|X|Grátis|
-|Avaliação de vulnerabilidade de terceiros|✔|X|X|✔|X|X|Grátis|
-|[Avaliação de segurança de rede]()|✔|✔|X|✔|✔|X|Grátis|
+|Avaliação de patches do sistema operacional ausente|✔|✔|✔|✔|✔|✔|Gratuito|
+|Avaliação de incorretas de segurança|✔|✔|✔|✔|✔|✔|Gratuito|
+|[Avaliação do Endpoint Protection](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|Gratuito|
+|Avaliação de criptografia de disco|✔|✔|X|✔|✔|X|Gratuito|
+|Avaliação de vulnerabilidade de terceiros|✔|X|X|✔|X|X|Gratuito|
+|[Avaliação de segurança de rede](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)|✔|✔|X|✔|✔|X|Gratuito|
 
 ### Soluções de proteção de ponto de extremidade com suporte<a name="endpoint-supported"></a>
 
@@ -67,13 +67,13 @@ A tabela a seguir fornece uma matriz de:
 
 Para obter informações sobre quando as recomendações são geradas para cada uma dessas proteções, consulte [Endpoint Protection avaliação e recomendações](security-center-endpoint-protection.md).
 
-| Proteção do ponto de extremidade| Plataformas | Instalação da Central de Segurança | Descoberta da Central de Segurança |
+| Endpoint Protection| Plataformas | Instalação da Central de Segurança | Descoberta da Central de Segurança |
 |------|------|-----|-----|
-| Windows Defender (Microsoft Antimalware)| Windows Server 2016| Não, Integrado no SO| Sim |
-| System Center Endpoint Protection (antimalware da Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (consulte a observação abaixo) | Via extensão | Sim |
-| Trend Micro – todas as versões * | Família Windows Server  | Não | Sim |
-| Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
-| McAfee v10+ | Família Windows Server  | Não | Sim |
+| Windows Defender (Microsoft Antimalware)| Windows Server 2016| Não, Integrado no SO| SIM |
+| System Center Endpoint Protection (antimalware da Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (consulte a observação abaixo) | Via extensão | SIM |
+| Trend Micro – todas as versões * | Família Windows Server  | Não | SIM |
+| Symantec v12.1.1100+| Família Windows Server  | Não | SIM |
+| McAfee v10+ | Família Windows Server  | Não | SIM |
 | McAfee v10+ | Família de servidores Linux  | Não | Sim **\*** |
 | Sophos v9 +| Família de servidores Linux  | Não | Sim **\***  |
 
@@ -95,35 +95,35 @@ Os recursos de PaaS a seguir têm suporte na central de segurança do Azure:
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
 |CosmosDB|X| ✔|
-|Armazenamento de Blob|✔| ✔|
+|Armazenamento de blob|✔| ✔|
 |Conta de armazenamento|✔| ND|
 |serviço de aplicativo|✔| ✔|
 |Função|✔| X|
 |Serviço de Nuvem|✔| X|
 |VNET|✔| ND|
-|Subnet|✔| ND|
+|Sub-rede|✔| ND|
 |NIC|✔| ND|
 |NSG|✔| ND|
-|Assinatura|✔ **| ✔|
+|Subscription|✔ * *| ✔|
 |Conta do Batch|✔| X|
 |Conta do Service Fabric|✔| X|
 |Conta de automação|✔| X|
-|Balanceador de carga|✔| X|
-|Search|✔| X|
+|Load Balancer|✔| X|
+|Pesquisa|✔| X|
 |Namespace do Barramento de Serviço|✔| X|
 |Stream Analytics|✔| X|
 |Namespace do Hub de Eventos|✔| X|
 |Aplicativos lógicos|✔| X|
 |Redis|✔| ND|
-|Data Lake Analytics|✔| X|
-|Data Lake Store|✔| X|
-|Cofre de chaves|✔| X|
+|Análises Data Lake|✔| X|
+|Repositório Data Lake|✔| X|
+|Key Vault|✔| X|
 
 \* Esses recursos são compatíveis atualmente com a versão prévia pública.
 
 as recomendações \* @ no__t-1 Azure Active Directory (Azure AD) estão disponíveis somente para assinaturas padrão.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [a central de segurança coleta dados e o agente de log Analytics](security-center-enable-data-collection.md).
 - Saiba como a [central de segurança gerencia e protege os dados](security-center-data-security.md).

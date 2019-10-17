@@ -13,18 +13,19 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: b67e0eaabe63707455eaa6cd4b235ec828dddff3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 991f3c8939c0f9e270423ff30282b02f110eb39e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025453"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388910"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Como usar o SDK de Aplicativos Móveis do Azure para Android
 
 > [!NOTE]
 > O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
+>
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 Este guia mostra como usar o SDK de cliente Android para Aplicativos Móveis a fim de implementar cenários comuns, como:
 
@@ -164,7 +165,7 @@ O fundamental do SDK de Aplicativos Móveis do Azure é fornecer acesso aos dado
 
 Para acessar dados de tabelas do SQL Azure, defina as classes de dados do cliente que correspondem às tabelas no back-end de aplicativo móvel. Os exemplos deste tópico pressupõem a existência de uma tabela denominada **MyDataTable** com as seguintes colunas:
 
-* id
+* ID
 * text
 * concluído
 
@@ -201,15 +202,15 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Para saber como criar tabelas adicionais no seu back-end de aplicativos móveis, consulte [Como: Defina um controlador de tabela @ no__t-0 (back-end do .NET) ou [defina tabelas usando um esquema dinâmico][16] (back-end do node. js).
+Para saber como criar tabelas adicionais em seu back-end de aplicativos móveis, consulte [como definir um controlador de tabela][15] (back-end do .net) ou [definir tabelas usando um esquema dinâmico][16] (back-end do node. js).
 
 Uma tabela de back-end dos Aplicativos Móveis do Azure define cinco campos especiais, quatro deles disponíveis para clientes:
 
 * `String id`: A ID globalmente exclusiva para o registro.  Como prática recomendada, torne a ID a representação de cadeia de caracteres de um objeto [UUID][17] .
-* `DateTimeOffset updatedAt`: A data/hora da última atualização.  O campo updatedAt é definido pelo servidor e nunca deve ser definido pelo código do cliente.
-* `DateTimeOffset createdAt`: A data /hora da criação do objeto.  O campo createdAt é definido pelo servidor e nunca deve ser definido pelo código do cliente.
-* `byte[] version`: Normalmente é representado como uma cadeia de caracteres, a versão também é definida pelo servidor.
-* `boolean deleted`: Indica que o registro foi excluído, mas ainda não foi limpo.  Não use `deleted` como uma propriedade em sua classe.
+* `DateTimeOffset updatedAt`: a data/hora da última atualização.  O campo updatedAt é definido pelo servidor e nunca deve ser definido pelo código do cliente.
+* `DateTimeOffset createdAt`: a data /hora da criação do objeto.  O campo createdAt é definido pelo servidor e nunca deve ser definido pelo código do cliente.
+* `byte[] version`: normalmente é representado como uma cadeia de caracteres, a versão também é definida pelo servidor.
+* `boolean deleted`: indica que o registro foi excluído, mas ainda não foi limpo.  Não use `deleted` como uma propriedade em sua classe.
 
 O campo `id` é obrigatório.  O campo `updatedAt` e o campo `version` são usados para sincronização offline (para sincronização incremental e resolução de conflitos, respectivamente).  O campo `createdAt` é um campo de referência e não é usado pelo cliente.  Os nomes são nomes "across-the-wire" nomes das propriedades e não são ajustáveis.  No entanto, você pode criar um mapeamento entre o objeto e os nomes "através do fio" usando a biblioteca [Gson][3] .  Por exemplo:
 
@@ -328,7 +329,7 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-**mToDoTable** é a referência à tabela do serviço móvel que criamos anteriormente.
+**mToDoTable** é a referência à tabela de serviços móveis que criamos anteriormente.
 
 Defina um filtro usando a chamada ao método **where** na referência de tabela. O método **where** é seguido de um método **field** seguido de um método que especifica o predicado lógico. Os possíveis métodos de predicado incluem **eq** (igual),**ne** (diferente), **gt** (maior que), **ge** (maior que ou igual a), **lt** (menor que), **le** (menor que ou igual a). Esses métodos permitem que você compare os campos de número e cadeia de caracteres com valores específicos.
 
@@ -458,7 +459,7 @@ Uma solicitação para todos os registros usando esse método cria no mínimo du
 > [!TIP]
 > A escolha do tamanho de página certo é um equilíbrio entre o uso de memória durante a solicitação, o uso de largura de banda e atraso no recebimento completo dos dados.  O padrão (50 registros) é adequado para todos os dispositivos.  Se você operar exclusivamente em dispositivos de memória maiores, aumente até 500.  Descobrimos que aumentar o tamanho da página além dos 500 registros resulta em atrasos inaceitáveis e problemas de memória grande.
 
-### <a name="chaining"></a>Como: Concatenar métodos de consulta
+### <a name="chaining"></a>Como concatenar métodos de consulta
 
 Os métodos usados nas tabelas de back-end de consulta podem ser concatenados. O encadeamento de métodos de consulta permite a você selecionar colunas específicas ou linhas filtradas que são classificadas e paginadas. Você pode criar filtros lógicos complexos.  Cada método de consulta retorna um objeto de consulta. Para encerrar a série de métodos e realmente executar a consulta, chame o método **execute** . Por exemplo:
 
@@ -635,7 +636,7 @@ ToDoItem entity = mToDoTable
 
 A entidade retornada corresponde aos dados inseridos na tabela de back-end, inclusive a ID e outros valores (como os campos `createdAt`, `updatedAt` e `version`) definidos no back-end.
 
-As tabelas de Aplicativos Móveis exigem uma coluna de chave primária denominada **id**. Essa coluna deve ser uma cadeia de caracteres. O valor padrão da coluna de ID é um GUID.  Você pode fornecer outros valores exclusivos, como endereços de email ou nomes de usuário. Quando um valor de ID de cadeia de caracteres não é fornecido para um registro inserido, o back-end gera um novo GUID.
+As tabelas de aplicativos móveis exigem uma coluna de chave primária denominada **ID**. Essa coluna deve ser uma cadeia de caracteres. O valor padrão da coluna de ID é um GUID.  Você pode fornecer outros valores exclusivos, como endereços de email ou nomes de usuário. Quando um valor de ID de cadeia de caracteres não é fornecido para um registro inserido, o back-end gera um novo GUID.
 
 Os valores de ID de cadeia de caracteres proporcionam as seguintes vantagens:
 
@@ -684,7 +685,7 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>Como: Trabalhar com dados não tipados
+## <a name="untyped"></a>Como trabalhar com dados não tipados
 
 O modelo de programação não tipado oferece controle rígido sobre a serialização JSON.  Há alguns cenários comuns em que você pode querer usar um modelo de programação não tipado. Por exemplo, se sua tabela de back-end contém muitas colunas e você só precisa fazer referência a um subconjunto das colunas.  O modelo tipado requer que você defina todas as colunas definidas no back-end dos Aplicativos Móveis em sua classe de dados.  A maioria das chamadas API para acessar dados são semelhante às chamadas de programação tipadas. A principal diferença é que o modelo não tipado você invocar métodos no objeto **MobileServiceJsonTable**, em vez do objeto **MobileServiceTable**.
 
@@ -779,10 +780,10 @@ O mesmo conjunto de métodos de filtragem, filtragem e paginação que estão di
 
 O SDK do cliente de Aplicativos Móveis do Azure também implementa a sincronização offline de dados usando um banco de dados SQLite para armazenar localmente uma cópia dos dados do servidor.  As operações executadas em uma tabela offline não exigem conectividade móvel para funcionar.  A sincronização offline auxilia na resiliência e no desempenho às custas de uma lógica mais complexa para resolução de conflitos.  O SDK de cliente dos Aplicativos Móveis do Azure implementa os seguintes recursos:
 
-* Sincronização incremental: Somente registros novos e atualizados são baixados, economizando o consumo de largura de banda e de memória.
-* Simultaneidade otimista: As operações devem ter êxito.  A resolução de conflitos é adiada até que as atualizações sejam executadas no servidor.
-* Resolução de conflitos: O SDK detecta quando uma alteração conflitante tiver sido feita no servidor e fornece ganchos para alertar o usuário.
-* Exclusão reversível: Os registros excluídos são marcados como excluídos, permitindo que outros dispositivos atualizem seu cache offline.
+* Sincronização Incremental: somente registros novos e atualizados são baixados, economizando o consumo de largura de banda e de memória.
+* Simultaneidade Otimista: pressupõe-se que as operações terão êxito.  A resolução de conflitos é adiada até que as atualizações sejam executadas no servidor.
+* Resolução de Conflitos: o SDK detecta quando uma alteração conflitante tiver sido feita no servidor e fornece ganchos para alertar o usuário.
+* Exclusão Reversível: os registros excluídos são marcadas como excluídos, permitindo que outros dispositivos atualizem seu cache offline.
 
 ### <a name="initialize-offline-sync"></a>Inicializar a sincronização offline
 
@@ -904,7 +905,7 @@ O método **invokeApi** é chamado no cliente, que envia uma solicitação POST 
 
 Os tutoriais já descrevem detalhadamente como adicionar esses recursos.
 
-O Serviço de Aplicativo do Azure suporta a [autenticação e autorização de usuários](app-service-mobile-android-get-started-users.md) de aplicativos usando variados provedores de identidade externos: Facebook, Google, Conta Microsoft, Twitter e Azure Active Directory. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização no seu back-end.
+O Serviço de Aplicativo oferece suporte à [autenticação de usuários do aplicativo](app-service-mobile-android-get-started-users.md) usando vários provedores de identidade externos: Facebook, Google, Conta da Microsoft, Twitter e Azure Active Directory. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização no seu back-end.
 
 Dois fluxos de autenticação são suportados: um **server** flow e um **client** flow. O fluxo de servidor fornece a experiência de autenticação mais simples, pois depende da interface Web do provedor de identidade.  Nenhum SDK adicional é necessário para implementar a autenticação de fluxo de servidor. A autenticação de fluxo de servidor não oferece uma integração profunda ao dispositivo móvel e só é recomendada em cenários de prova de conceito.
 
@@ -917,7 +918,7 @@ Quatro etapas são necessárias para habilitar a autenticação no seu aplicativ
 * Restringir permissões de tabela a usuários autenticados somente no back-end do Serviço de Aplicativo.
 * Adicionar código de autenticação ao aplicativo.
 
-Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar o SID de um usuário autenticado para modificar solicitações.  Para saber mais, confira [Introdução à autenticação] e a documentação TUTORIAL do SDK do Servidor.
+Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar o SID de um usuário autenticado para modificar solicitações.  Para saber mais, confira [Comece a usar a autenticação] e a documentação TUTORIAL do SDK do Servidor.
 
 ### <a name="caching"></a>Autenticação: Fluxo de servidor
 
@@ -1000,7 +1001,7 @@ dependencies {
 }
 ```
 
-Obtenha a ID do usuário conectado de um **MobileServiceUser** usando o método **getUserId**. Para ver um exemplo de como usar Futures para chamar as APIs de logon assíncronas, veja [Introdução à autenticação].
+Obtenha a ID do usuário conectado de um **MobileServiceUser** usando o método **getUserId**. Para ver um exemplo de como usar Futures para chamar as APIs de logon assíncronas, veja [Comece a usar a autenticação].
 
 > [!WARNING]
 > O esquema de URL mencionado diferencia maiúsculas de minúsculas.  Certifique-se de que todas as ocorrências de `{url_scheme_of_you_app}` tenham as mesmas maiúsculas ou minúsculas.
@@ -1304,7 +1305,7 @@ Esse código deve ser executado antes da criação de uma referência de cliente
 [ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: https://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
-[Introdução à autenticação]: app-service-mobile-android-get-started-users.md
+[Comece a usar a autenticação]: app-service-mobile-android-get-started-users.md
 [1]: https://static.javadoc.io/com.google.code.gson/gson/2.8.5/com/google/gson/JsonObject.html
 [2]: https://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
 [3]: https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5

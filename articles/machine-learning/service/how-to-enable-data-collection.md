@@ -11,22 +11,22 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c747f25b92d9f165bfeb4468a0e263f102976f9
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 109db23976f6332b24bcfa565812bd9491062691
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350578"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330742"
 ---
 # <a name="collect-data-for-models-in-production"></a>Coletar dados para modelos em produção
 
 >[!IMPORTANT]
-> Este SDK está sendo desativado em breve e será substituído pelo monitoramento de dados simplificado [com o Application insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
+> Este SDK está sendo desativado em breve. Esse SDK ainda é apropriado para os desenvolvedores que monitoram a descompasso de dados em modelos, mas a maioria dos desenvolvedores deve usar o monitoramento de dados simplificado [com o Application insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
 
 Neste artigo, você pode aprender a coletar dados de modelo de entrada de Azure Machine Learning implantado no AKS (cluster kubernetes do Azure) em um armazenamento de BLOBs do Azure. 
 
 Depois de ativado, esses dados coletados ajudam você a:
-* [Monitorar](how-to-monitor-data-drift.md) descompassos de dados como dados de produção insira seu modelo
+* [Monitorar descompassos de dados](how-to-monitor-data-drift.md) como dados de produção insira seu modelo
 
 * Tome melhores decisões sobre quando treinar ou otimizar seu modelo
 
@@ -84,7 +84,7 @@ Para habilitá-lo, você precisa:
     prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-    *CorrelationId* é um parâmetro opcional, você não precisa configurá-lo se seu modelo não exigir isso. Ter uma correlação em vigor ajuda você a mapear com mais facilidade outros dados. (Os exemplos incluem: LoanNumber, CustomerId etc.)
+    *CorrelationId* é um parâmetro opcional, você não precisa configurá-lo se seu modelo não exigir isso. Ter uma correlação em vigor ajuda você a mapear com mais facilidade outros dados. (Exemplos incluem: LoanNumber, CustomerId, etc.)
     
     *Identificador* é usado mais tarde para construir a estrutura de pastas no seu Blob, ele pode ser usado para dividir dados "brutos" versus "processados".
 
@@ -126,7 +126,7 @@ Se você já tiver um serviço com as dependências instaladas no **arquivo de a
 
    Nesta janela, você também pode escolher "Ativar diagnósticos de Appinsights" para rastrear a integridade de seu serviço.  
 
-1. Selecione **atualização** para aplicar a alteração.
+1. Selecione **Atualizar** para aplicar a alteração.
 
 
 ## <a name="disable-data-collection"></a>Desativar coleta de dados
@@ -192,7 +192,7 @@ Para acessar rapidamente os dados do blob:
 
 1. No editor de consultas, clique na coluna "Nome" e adicione sua conta de armazenamento 1. Caminho do modelo para o filtro. Nota: se você quiser apenas examinar arquivos de um ano ou mês específico, basta expandir o caminho do filtro. Por exemplo, basta examinar dados de março: / modeldata/subscriptionid > / resourcegroupname > / workspacename > / webservicename > / modelname > / modelversion > / identificador > / ano > / 3
 
-1. Filtre os dados relevantes para você com base no **Nome**. Se você armazenou **previsões** e **entradas** você precisará criar uma consulta de cada um.
+1. Filtre os dados relevantes para você com base no **Nome**. Se você armazenou **previsões** e **entradas**, precisará criar uma consulta para cada uma.
 
 1. Clique na seta dupla à parte da coluna **Conteúdo** para combinar os arquivos. 
 
@@ -204,7 +204,7 @@ Para acessar rapidamente os dados do blob:
 
 1. Agora você pode clicar **fechar e aplicar** .
 
-1.  Se você adicionou entradas e previsões, suas tabelas serão correlacionadas automaticamente por **RequestId**.
+1.  Se você adicionou entradas e previsões, suas tabelas corresponderão automaticamente por **RequestId**.
 
 1. Comece a criar relatórios personalizados em seus dados de modelo.
 
@@ -215,7 +215,7 @@ Para acessar rapidamente os dados do blob:
 
 1. Vá para seu workspace do Databricks. 
 
-1. No seu workspace do Databricks, selecione **Upload Data**.
+1. No espaço de trabalho do databricks, selecione **carregar dados**.
 
     [![Carregamento de banco de dados](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
 

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: deab527d44713bffed1f430ec283592d0e4232ee
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.date: 10/14/2019
+ms.openlocfilehash: 198ef6889ffb7874c44f15338afbd8b3135ae3ef
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764408"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331310"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorar o desempenho com o Repositório de Consultas
 
@@ -58,6 +58,10 @@ Os cenários comuns para usar o Repositório de Consultas incluem:
 
 Para minimizar o uso de espaço, as estatísticas de execução de tempo de execução no repositório de estatísticas de tempo de execução são agregadas em uma janela de tempo fixa configurável. As informações nesses repositórios são visíveis consultando as exibições do repositório de consultas.
 
+## <a name="access-query-store-information"></a>Informações de Repositório de Consultas de acesso
+
+Os dados do Repositório de Consultas são armazenados no banco de azure_sys no servidor do Postgres. 
+
 A consulta a seguir retorna informações sobre consultas no Repositório de Consultas:
 ```sql
 SELECT * FROM query_store.qs_view; 
@@ -67,6 +71,9 @@ Ou essa consulta para estatísticas de espera:
 ```sql
 SELECT * FROM query_store.pgms_wait_sampling_view;
 ```
+
+Você também pode emitir Repositório de Consultas dados para [Azure monitor logs](../azure-monitor/log-query/log-query-overview.md) para análise e alertas, hubs de eventos para streaming e armazenamento do Azure para arquivamento. As categorias de log a serem configuradas são **QueryStoreRuntimeStatistics** e **QueryStoreWaitStatistics**. Para saber mais sobre a instalação, visite o artigo [Azure monitor configurações de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) .
+
 
 ## <a name="finding-wait-queries"></a>Localizando consultas de espera
 Os tipos de evento de espera combinam diferentes eventos de espera em buckets por semelhança. O Repositório de Consultas fornece o tipo de evento de espera, o nome do evento de espera específico e a consulta em questão. Ser capaz de correlacionar essas informações de espera com as estatísticas de tempo de execução de consulta significa que você pode obter uma compreensão mais profunda do que contribui para as características de desempenho de consulta.
@@ -86,7 +93,7 @@ As opções a seguir estão disponíveis para configurar os parâmetros do Repos
 
 | **Parâmetro** | **Descrição** | **Padrão** | **Range**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Define quais instruções são rastreadas. | nenhum | none, top, all |
+| pg_qs.query_capture_mode | Define quais instruções são rastreadas. | Nenhum | none, top, all |
 | pg_qs.max_query_text_length | Define o comprimento máximo de consulta que pode ser salvo. Consultas mais longas serão truncadas. | 6000 | 100 a 10 mil |
 | pg_qs.retention_period_in_days | Define o período de retenção. | 7 | 1 a 30 |
 | pg_qs.track_utility | Define se os comandos do utilitário são rastreados | em | on, off |
@@ -95,7 +102,7 @@ As opções a seguir se aplicam especificamente às estatísticas de espera.
 
 | **Parâmetro** | **Descrição** | **Padrão** | **Range**|
 |---|---|---|---|
-| pgms_wait_sampling.query_capture_mode | Define quais instruções são rastreadas para as estatísticas de espera. | nenhum | none, all|
+| pgms_wait_sampling.query_capture_mode | Define quais instruções são rastreadas para as estatísticas de espera. | Nenhum | none, all|
 | Pgms_wait_sampling.history_period | Define a frequência, em milissegundos, com a qual são realizadas amostras dos eventos de espera. | 100 | 1 a 600000 |
 
 > [!NOTE] 
@@ -128,7 +135,7 @@ Essa exibição retorna todos os dados no Repositório de Consultas. Há uma lin
 |max_time   |double precision   ||  Tempo máximo de execução da consulta em milissegundos|
 |mean_time  |double precision   ||  Tempo médio de execução da consulta em milissegundos|
 |stddev_time|   double precision    ||  Desvio padrão de tempo de execução da consulta em milissegundos |
-|linhas   |bigint ||  Número total de linhas recuperadas ou afetadas pela instrução|
+|rows   |bigint ||  Número total de linhas recuperadas ou afetadas pela instrução|
 |shared_blks_hit|   bigint  ||  Número total de ocorrências no cache do bloco compartilhado pela instrução|
 |shared_blks_read|  bigint  ||  Número total de blocos compartilhados lidos pela instrução|
 |shared_blks_dirtied|   bigint   || Número total de blocos compartilhados sujos pela instrução |
@@ -158,9 +165,9 @@ Essa exibição retorna os dados de eventos de espera no Repositório de Consult
 |user_id    |oid    |pg_authid.oid  |OID do usuário que executou a instrução|
 |db_id  |oid    |pg_database.oid    |OID do banco de dados no qual a instrução foi executada|
 |query_id   |bigint     ||Código hash interno, computado da árvore de análise da instrução|
-|event_type |texto       ||O tipo de evento pelo qual o back-end está esperando|
-|evento  |texto       ||O nome do evento de espera se o back-end estiver esperando no momento|
-|chamadas  |Inteiro        ||Número do mesmo evento capturado|
+|event_type |text       ||O tipo de evento pelo qual o back-end está esperando|
+|evento  |text       ||O nome do evento de espera se o back-end estiver esperando no momento|
+|chamadas  |Número inteiro        ||Número do mesmo evento capturado|
 
 
 ### <a name="functions"></a>Funções
@@ -178,6 +185,6 @@ Query_store.staging_data_reset() retorna void
 - As [réplicas de leitura](concepts-read-replicas.md) replicam dados de repositório de consultas do servidor mestre. Isso significa que a Repositório de Consultas de uma réplica de leitura não fornece estatísticas sobre as consultas executadas na réplica de leitura.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [cenários em que o Repositório de Consultas pode ser especialmente útil](concepts-query-store-scenarios.md).
 - Saiba mais sobre as [melhores práticas para usar o Repositório de Consultas](concepts-query-store-best-practices.md).

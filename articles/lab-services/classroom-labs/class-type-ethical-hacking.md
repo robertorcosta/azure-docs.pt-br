@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: df24f846f1600685803fdd485f1810d66e32ae37
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 9c11d4648635e62ebc2e68734e14dd2bdc028a7c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028682"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330660"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configurar um laboratório para ensinar a classe de Ethical Hacking 
 Este artigo mostra como configurar uma classe que se concentra no lado da perícia de Ethical Hacking. O teste de penetração, uma prática usada pela comunidade de Ethical Hacking, ocorre quando alguém tenta obter acesso ao sistema ou à rede para demonstrar as vulnerabilidades que um invasor mal-intencionado pode explorar. 
@@ -28,11 +28,11 @@ Em uma aula de Ethical Hacking, os alunos podem aprender técnicas modernas de d
 Este artigo tem duas seções principais. A primeira seção aborda como criar o laboratório de sala de aula. A segunda seção aborda como criar o computador de modelo com a virtualização aninhada habilitada e com as ferramentas e imagens necessárias. Nesse caso, uma imagem Metasploitável e uma imagem do Kali Linux em um computador com o Hyper-V habilitado para hospedar as imagens.
 
 ## <a name="lab-configuration"></a>Configuração do laboratório
-Para configurar este laboratório, você precisa de uma assinatura do Azure para começar. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Depois de obter uma assinatura do Azure, você pode criar uma nova conta de laboratório no Azure Lab Services ou usar uma conta existente. Consulte o tutorial a seguir para criar uma nova conta de laboratório: [Tutorial para configurar uma conta de laboratório](tutorial-setup-lab-account.md).
+Para configurar este laboratório, você precisa de uma assinatura do Azure para começar. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Depois de obter uma assinatura do Azure, você pode criar uma nova conta de laboratório no Azure Lab Services ou usar uma conta existente. Consulte o tutorial a seguir para criar uma nova conta de laboratório: [tutorial para configurar uma conta de laboratório](tutorial-setup-lab-account.md).
 
 Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laboratório e, em seguida, aplicar as seguintes configurações:
 
-| Tamanho da máquina virtual | Image |
+| Tamanho da máquina virtual | Imagem |
 | -------------------- | ----- | 
 | Médio (virtualização aninhada) | Windows Server 2019 datacenter |
 
@@ -137,11 +137,11 @@ Para obter mais informações sobre preços, consulte [preços de Azure Lab Serv
 ## <a name="conclusion"></a>Conclusão
 Este artigo descreveu as etapas para criar um laboratório para a aula de Ethical Hacking. Ele inclui etapas para configurar a virtualização aninhada para criar duas máquinas virtuais dentro da máquina virtual do host para fazer testes de penetração.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 As próximas etapas são comuns à configuração de qualquer laboratório:
 
 - [Adicionar usuários](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Definir cota](tutorial-setup-classroom-lab.md#set-quotas-for-users)
+- [Definir cota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Definir um agendamento](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Links de registro de email para alunos](tutorial-setup-classroom-lab.md#send-an-email-with-the-registration-link). 
+- [Links de registro de email para alunos](how-to-configure-student-usage.md#send-invitations-to-users). 
 

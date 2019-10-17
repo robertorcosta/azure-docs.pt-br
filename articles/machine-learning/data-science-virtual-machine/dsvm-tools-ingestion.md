@@ -9,13 +9,13 @@ ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: conceptual
-ms.date: 10/3/2019
-ms.openlocfilehash: 47a701cce348e86359947376b3d6a9915dfb2264
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 10/11/2019
+ms.openlocfilehash: 72a881a2ab508caa2274f3b9299157921cb8ceff
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950167"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330688"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Ferramentas de ingestão de dados de Máquina Virtual de Ciência de Dados
 
@@ -34,7 +34,7 @@ Aqui estão algumas ferramentas de movimentação de dados que estão disponíve
 | Links para exemplos      | [Como usar AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Ferramentas relacionadas no DSVM      | AzCopy, CLI do Azure     |
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-cli"></a>Azure CLI
 
 |    |           |
 | ------------- | ------------- |
@@ -62,12 +62,22 @@ Aqui estão algumas ferramentas de movimentação de dados que estão disponíve
 
 |    |           |
 | ------------- | ------------- |
-| O que é?   | Ferramenta para importar dados de várias fontes para Azure Cosmos DB. Essas fontes incluem arquivos JSON, arquivos CSV, SQL, MongoDB, armazenamento de tabelas do Azure, Amazon DynamoDB e coleções de API do SQL Azure Cosmos DB.      |
+| O que é?   | Ferramenta para importar dados de várias fontes para Azure Cosmos DB, um banco de dado NoSQL na nuvem. Essas fontes incluem arquivos JSON, arquivos CSV, SQL, MongoDB, armazenamento de tabelas do Azure, Amazon DynamoDB e coleções de API do SQL Azure Cosmos DB.      |
 | Versões do DSVM com suporte      | Windows      |
 | Usos típicos      | Importando arquivos de uma VM para o CosmosDB, importando dados do armazenamento de tabelas do Azure para CosmosDB e importando dados de um banco de dado Microsoft SQL Server para o CosmosDB.     |
 |  Como usar/executar?    |   Para usar a versão de linha de comando, abra um prompt de comando e digite `dt`. Para usar a ferramenta GUI, abra um prompt de comando e digite `dtui`.    |
 | Links para exemplos      | [CosmosDB importar dados](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | Ferramentas relacionadas no DSVM      | AzCopy, AdlCopy      |
+
+## <a name="azure-storage-explorer"></a>Gerenciador de Armazenamento do Azure
+
+|    |           |
+| ------------- | ------------- |
+| O que é?   | Interface gráfica do usuário para interagir com arquivos armazenados na nuvem do Azure. |
+| Versões do DSVM com suporte      | Windows      |
+| Usos típicos      | Importando e exportando dados do DSVM.    |
+|  Como usar/executar?    | Pesquise por "Gerenciador de Armazenamento do Azure" no menu iniciar. |
+| Links para exemplos      | [Gerenciador de Armazenamento do Azure](vm-do-ten-things.md#access-azure-data-and-analytics-services)      |
 
 
 ## <a name="bcp"></a>bcp
@@ -90,4 +100,4 @@ Aqui estão algumas ferramentas de movimentação de dados que estão disponíve
 | Usos típicos      | Leitura e gravação em BLOBs em um contêiner.      |
 |  Como usá-lo e executá-lo?    |   Execute _blobfuse_ em um terminal.    |
 | Links para exemplos      | [blobfuse no GitHub](https://github.com/Azure/azure-storage-fuse)      |
-| Ferramentas relacionadas no DSVM      | CLI do Azure      |
+| Ferramentas relacionadas no DSVM      | Azure CLI      |

@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9a73b4664e363e80c514ba4c01f754de3a2eed24
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 31b005bd76591d8098f119c7aa9b87a68841658c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719876"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331266"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administração do serviço do Azure Search no portal do Azure
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
-> * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
@@ -34,8 +34,7 @@ O Azure Search é um serviço de pesquisa baseado em nuvem, totalmente gerenciad
 
 Observe que *atualização* não está listado como uma tarefa administrativa. Já que os recursos são alocados quando o serviço for fornecido, a mudança para uma camada diferente exige um novo serviço. Veja [Criar um serviço do Azure Search](search-create-service-portal.md) para obter detalhes.
 
-> [!Tip]
-> Procurando ajuda sobre como analisar o desempenho de tráfego ou consulta de pesquisa? Você pode monitorar o volume de consultas, quais termos as pessoas pesquisam e como os resultados da pesquisa são bem-sucedidos na orientação de clientes para documentos específicos em seu índice. Para obter mais informações, consulte [Pesquisar análise de tráfego para a pesquisa do Azure](search-traffic-analytics.md), [Monitorar as métricas de uso e consulta](search-monitor-usage.md) e [Desempenho e otimização](search-performance-optimization.md).
+Você pode monitorar o volume de consulta e outras métricas e usar essas informações para ajustar seu serviço para tempos de resposta mais rápidos. Para obter mais informações, confira [Monitorar as métricas de uso e consulta](search-monitor-usage.md) e [Desempenho e otimização](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -55,7 +54,7 @@ Em termos de informações gerais sobre o serviço, você pode obter informaçõ
 
 * No portal, no painel de serviço, por meio de notificações, propriedades e mensagens de status.
 * Usando o [PowerShell](search-manage-powershell.md) ou a [API REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/) para [obter propriedades do serviço](https://docs.microsoft.com/rest/api/searchmanagement/services), ou status no uso de recursos do índice.
-* Por meio de [análise de tráfego de pesquisa](search-traffic-analytics.md), conforme observado anteriormente.
+
 
 <a id="sub-5"></a>
 
@@ -85,7 +84,7 @@ Caso contrário, o código do aplicativo usado para criar e popular um índice �
 
 <a id="scale"></a>
 
-## <a name="scale-up-or-down"></a>Expandir ou reduzir
+## <a name="scale-up-or-down"></a>Escalar ou reduzir verticalmente
 Todo serviço de pesquisa começa com um mínimo de uma réplica e uma partição. Se você se inscreveu um [camada que fornece recursos dedicados](search-limits-quotas-capacity.md), clique no bloco **ESCALA** no painel de serviço para ajustar o uso de recursos.
 
 Quando você adiciona capacidade por meio de qualquer recurso, o serviço as utiliza automaticamente. Não será necessária nenhuma outra medida de sua parte, mas haverá um breve atraso antes que ocorra o impacto do novo serviço. Pode levar 15 minutos ou mais para provisionar recursos adicionais.
@@ -125,7 +124,7 @@ Este vídeo de 30 minutos examina as práticas recomendadas para cenários de im
 
 <a id="next-steps"></a>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Depois de compreender os conceitos por trás de administração do serviço, considere o uso do [PowerShell](search-manage-powershell.md) para automatizar tarefas.
 
 Também é recomendável examinar o [artigo de desempenho e otimização](search-performance-optimization.md).

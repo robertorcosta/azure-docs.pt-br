@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 054289de296488036dd0855d228d272fdea18baf
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: be9919950f24dbee7fb8a3f901767c298105bf53
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219413"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72325461"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs"></a>Usar o Java para enviar eventos ou receber eventos dos hubs de eventos do Azure
 
@@ -32,7 +32,7 @@ Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
 - Uma conta ativa do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 - Um ambiente de desenvolvimento Java. Este tutorial usa o [Eclipse](https://www.eclipse.org/).
-- **Crie um namespace de hubs de eventos e um hub de eventos**. A primeira etapa é usar o [portal do Azure](https://portal.azure.com) para criar um namespace do tipo Hubs de eventos e obter as credenciais de gerenciamento das quais que seu aplicativo precisa para se comunicar com o hub de eventos. Para criar um namespace e um hub de eventos, siga o procedimento [nesse artigo](event-hubs-create.md). Em seguida, obtenha o valor da chave de acesso para o Hub de eventos seguindo as instruções do artigo: [Obter a cadeia de conexão](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). A chave de acesso será usada no código que você escreverá posteriormente no tutorial. O nome da chave padrão é: **RootManageSharedAccessKey**.
+- **Crie um namespace de hubs de eventos e um hub de eventos**. A primeira etapa é usar o [portal do Azure](https://portal.azure.com) para criar um namespace do tipo Hubs de eventos e obter as credenciais de gerenciamento das quais que seu aplicativo precisa para se comunicar com o hub de eventos. Para criar um namespace e um hub de eventos, siga o procedimento [nesse artigo](event-hubs-create.md). Em seguida, obtenha o valor da chave de acesso para o Hub de eventos seguindo as instruções do artigo: [obter a cadeia de conexão](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). A chave de acesso será usada no código que você escreverá posteriormente no tutorial. O nome da chave padrão é: **RootManageSharedAccessKey**.
 
 ## <a name="send-events"></a>Enviar eventos 
 Esta seção mostra como criar um aplicativo Java para enviar eventos para um hub de eventos. 
@@ -140,7 +140,7 @@ Compile e execute o programa e certifique-se de que não existam erros.
 
 Parabéns! Agora você enviou mensagens para um hub de eventos.
 
-### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>Apêndice: Como as mensagens são roteadas para as partições de Hub de Eventos
+### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>Apêndice: como as mensagens são roteadas para as partições do Hub de Eventos
 
 Antes que as mensagens sejam recuperadas pelos consumidores, elas precisam primeiro ser publicadas nas partições pelos editores. Quando as mensagens são publicadas para o Hub de Eventos de modo síncrono usando o método sendSync() no objeto com.microsoft.azure.eventhubs.EventHubClient, a mensagem foi enviada para uma partição específica ou distribuída a todas as partições disponíveis de forma round robin, dependendo de a chave de partição ser especificada ou não.
 
@@ -174,7 +174,7 @@ O código neste tutorial se baseia no [código de EventProcessorSample no GitHub
 
 **EventProcessorHost** é uma classe Java que simplifica o recebimento de eventos dos Hubs de Eventos gerenciando pontos de verificação persistentes e recebimentos paralelos desses Hubs de Eventos. Usando o EventProcessorHost, você pode dividir eventos entre vários destinatários, mesmo quando hospedados em nós diferentes. Este exemplo mostra como usar o EventProcessorHost para um único destinatário.
 
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+### <a name="create-a-storage-account"></a>Crie uma conta de armazenamento
 
 Para usar o EventProcessorHost, você deve ter uma [conta de armazenamento do Azure] [conta de armazenamento do Azure]:
 
@@ -206,7 +206,7 @@ A biblioteca de cliente Java para os Hubs de Eventos está disponível para uso 
 </dependency>
 ```
 
-Para diferentes tipos de ambientes de compilação, você pode obter explicitamente os arquivos JAR liberados mais recentemente do [repositório central do https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22 Maven] [].  
+Para diferentes tipos de ambiente de build, é possível obter explicitamente os arquivos JAR liberados mais recentemente no [Repositório Central do Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22).
 
 1. Para o exemplo a seguir, primeiro crie um novo projeto do Maven para um aplicativo de console/shell em seu ambiente de desenvolvimento Java favorito. A classe é chamada `ErrorNotificationHandler`.     
    
@@ -421,7 +421,7 @@ Você pode usar qualquer armazenamento de dados que estiver disponível em seu a
 A classe com.microsoft.azure.eventprocessorhost.EventProcessorHos fornece dois construtores que permitem que você substitua o gerenciador de ponto de verificação do EventProcessorHost.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Leia os seguintes artigos: 
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)

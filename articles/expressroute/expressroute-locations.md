@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 29b4c702d39140696a049e17133ad509b25fa7e9
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: a52325a85c763d122414baa312f786f25dd80616
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72325427"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434749"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros do ExpressRoute
 
@@ -125,7 +125,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** |Com suporte |Com suporte |Amsterdã, RAE de Hong Kong, Londres, Los Angeles, Osaka, Cingapura, Sydney, Tóquio, Washington, D.c. |
 | **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |Com suporte |Com suporte |Tóquio |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |Com suporte |Com suporte |Osaka |
-| **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link)** |Com suporte |Com suporte |Melbourne, Sydney |
+| **[Optus](https://www.optus.com.au/enterprise/)** |Com suporte |Com suporte |Melbourne, Sydney |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Com suporte |Com suporte |Amsterdã, Frankfurt, Hong Kong SAR, Joanesburgo, Londres, Paris, são Paulo, vale do silício, Cingapura, Sydney, Tóquio, Washington, D.c. |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Com suporte | Com suporte | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |Com suporte |Com suporte |Chicago, Vale do Silício, Washington D.C. |

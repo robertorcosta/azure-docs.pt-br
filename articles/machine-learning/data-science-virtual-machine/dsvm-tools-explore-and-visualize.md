@@ -6,16 +6,16 @@ keywords: ferramentas de ciência de dados, máquina virtual de ciência de dado
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 03/16/2018
-ms.openlocfilehash: 14c34a13440d50fcf42c2207f9933dc1de014a14
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.date: 10/11/2019
+ms.openlocfilehash: a18c374df0cad7994af855089f1096d52fe30ce2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191970"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330696"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-azure-data-science-virtual-machine"></a>Ferramentas de exploração e visualização de dados no Máquina Virtual de Ciência de Dados do Azure
 
@@ -31,6 +31,30 @@ Na ciência de dados, a chave é entender os dados. Ferramentas de visualizaçã
 | Como usá-lo e executá-lo      | Atalho da área de trabalho  <br/> [Introdução a Análise em 10 minutos](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Ferramentas relacionadas no DSVM      |   Rattle, Weka, SQL Server Management Studio      |
 
+## <a name="power-bi-desktop"></a>Power BI Desktop 
+|    |           |
+| ------------- | ------------- |
+| O que é?   | Ferramenta de BI e visualização de dados interativa    |
+| Versões do DSVM com suporte      | Windows  |
+| Usos típicos      |  Visualização de dados e criação de painéis   |
+| Como usá-lo e executá-lo      | Atalho da área de trabalho (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`) ou simplesmente execute no menu **Iniciar** .      |
+| Ferramentas relacionadas no DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
+
+> [!NOTE]
+> É necessária uma conta do Microsoft Office 365 para acessar o Power BI.
+
+
+## <a name="rattle"></a>Rattle
+|    |           |
+| ------------- | ------------- |
+| O que é?   |   Uma GUI (interface gráfica do usuário) para Data Mining usando R   |
+| Edições do DSVM com suporte     | Windows, Linux     |
+| Usos típicos      | Ferramenta de Mineração de Dados da Interface do Usuário Geral para R    |
+| Como usá-lo e executá-lo      | Ferramenta da interface do usuário. No Windows, abra um prompt de comando, execute R e, dentro do R, execute `rattle()`. No Linux, conecte-se com o X2Go, inicie um terminal, execute R e, em R, execute `rattle()`. |
+| Links para exemplos      | [Rattle](https://togaware.com/onepager/) |
+| Ferramentas relacionadas no DSVM      |LightGBM, Weka, Xgboost   |
+
+
 ## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
@@ -41,22 +65,6 @@ Na ciência de dados, a chave é entender os dados. Ferramentas de visualizaçã
 | Links para exemplos      | [Exemplos de Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Ferramentas relacionadas no DSVM      |LightGBM, Rattle, Xgboost   |
 
-## <a name="rattle"></a>Rattle
-|    |           |
-| ------------- | ------------- |
-| O que é?   |   Uma GUI (interface gráfica do usuário) para Data Mining usando R   |
-| Edições do DSVM com suporte     | Windows, Linux     |
-| Usos típicos      | Ferramenta de Mineração de Dados da Interface do Usuário Geral para R    |
-| Como usá-lo e executá-lo      | Ferramenta da interface do usuário. No Windows, abra um prompt de comando, execute R e, dentro do R, `rattle()`execute. No Linux, conecte-se com o X2Go, inicie um terminal, execute R e, em R `rattle()`, execute. |
-| Links para exemplos      | [Rattle](https://togaware.com/onepager/) |
-| Ferramentas relacionadas no DSVM      |LightGBM, Weka, Xgboost   |
 
-## <a name="power-bi-desktop"></a>Power BI Desktop 
-|    |           |
-| ------------- | ------------- |
-| O que é?   | Ferramenta de BI e visualização de dados interativa    |
-| Versões do DSVM com suporte      | Windows  |
-| Usos típicos      |  Visualização de dados e criação de painéis   |
-| Como usá-lo e executá-lo      | Atalho da área`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`de trabalho ()      |
-| Ferramentas relacionadas no DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
+
 
