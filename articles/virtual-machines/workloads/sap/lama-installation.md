@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 1b8297a797f83935f16365a15d100ce88cadca30
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6521c139463bb0de1e24783bbbdd6a2d3996be6f
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099549"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430097"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector SAP LaMa para o Azure
 
@@ -38,7 +38,7 @@ ms.locfileid: "70099549"
 [hana-ops-guide]:hana-vm-operations.md
 
 > [!NOTE]
-> Instrução de suporte geral: sempre abra um incidente com o SAP no componente BC-VCM-LVM-Hyper-v se você precisar de suporte para o SAP LaMa ou para o conector do Azure.
+> Instrução de Suporte Geral: Sempre abra um incidente com o SAP no componente BC-VCM-LVM-Hyper-v se você precisar de suporte para o SAP LaMa ou o conector do Azure.
 
 O SAP LaMa é usado por muitos clientes para operar e monitorar seu cenário SAP. Desde SP05 de 3.0 de LaMa SAP, ele é fornecido com um conector para o Azure por padrão. Você pode usar esse conector para desalocar e iniciar as máquinas virtuais, copiar e realocar discos gerenciados e excluir discos gerenciados. Com essas operações básicas, você pode realocar, copiar, clonar e atualizar os sistemas SAP usando o SAP LaMa.
 
@@ -47,11 +47,11 @@ Este guia descreve como configurar o conector do Azure para SAP LaMa, criar máq
 > [!NOTE]
 > O conector só está disponível na edição Enterprise SAP LaMa
 
-## <a name="resources"></a>Recursos
+## <a name="resources"></a>Implante
 
 As seguintes Notas do SAP estão relacionadas ao tópico do SAP no Azure:
 
-| Número da observação | Título |
+| Número da observação | Title |
 | --- | --- |
 | [2343511] |Conector do Microsoft Azure para gerenciamento de paisagem do SAP (LaMa) |
 | [2350235] |SAP Landscape Management 3.0 - Edição Enterprise |
@@ -77,7 +77,7 @@ O conector do Azure é fornecido a partir do SAP LaMa 3.0 SP05. É recomendável
 1. Abra a folha Azure Active Directory
 1. Clique em Registros do Aplicativo
 1. Clique em Adicionar
-1. Insira um nome, selecione tipo de aplicativo "aplicativo Web/API", insira uma URL de logon (por exemplo, http\/:/localhost) e clique em criar
+1. Insira um nome, selecione tipo de aplicativo "aplicativo Web/API", insira uma URL de logon (por exemplo, http: \//localhost) e clique em criar
 1. A URL de logon não é usada e pode ser qualquer URL válida
 1. Selecione o novo Aplicativo e clique em Chaves na guia Configurações
 1. Insira uma descrição para uma nova chave, selecione "Nunca expira" e clique em Salvar
@@ -98,19 +98,19 @@ A Entidade de Serviço não tem permissões para acessar os recursos do Azure po
 
 Abra o site de LaMa SAP e navegue até a infraestrutura. Vá para a guia Gerenciadores de Nuvem e clique em Adicionar. Selecione o Adaptador de Nuvem do Microsoft Azure e clique em Avançar. Insira as seguintes informações:
 
-* Rótulo: escolha um nome para a instância do conector
-* Nome de usuário: ID do aplicativo da entidade de serviço
-* Senha: senha/chave da entidade de serviço
-* URL: mantenha o padrão https://management.azure.com/
-* Intervalo de monitoramento (segundos): deve ser pelo menos 300
-* ID de assinatura: ID da assinatura do Azure
-* ID do Locatário do Azure Active Directory: a ID do locatário do Active Directory
-* Host de proxy: nome do host do proxy se o SAP LaMa precisar de um proxy para se conectar à Internet
-* Porta do proxy: a porta TCP do proxy
+* Rótulo: Escolha um nome para a instância do conector
+* Nome de usuário: ID do Aplicativo da Entidade de Serviço
+* Senha: Senha da chave Entidade de Serviço
+* URL: Manter o padrão https://management.azure.com/
+* Monitoramento de Intervalo (Segundos): Deve ser pelo menos 300
+* ID da assinatura: ID da assinatura do Azure
+* ID do locatário do Microsoft Azure Active Directory: ID do locatário do Microsoft Azure Active Directory
+* Host de proxy: nome do host do proxy se SAP LaMa precisar de um proxy para conectar à internet
+* Porta do proxy: porta TCP do proxy
 
 Clique em Configuração de Teste para validar a sua entrada. Você deverá ver
 
-Conexão bem-sucedida: conexão bem-sucedida à nuvem da Microsoft. 7 grupos de recurso encontrado (apenas 10 grupos solicitados)
+Conexão bem-sucedida: Conexão bem-sucedida à nuvem da Microsoft. 7 grupos de recurso encontrado (apenas 10 grupos solicitados)
 
 na parte inferior do site.
 
@@ -182,45 +182,45 @@ Os componentes são necessários para implantar o modelo. A maneira mais fácil 
 
 Os modelos têm os seguintes parâmetros:
 
-* sapSystemId: a ID do sistema SAP. Isso é usado para criar o layout de disco (por exemplo /usr/sap/\<sapsid>).
+* sapSystemId: ID do sistema SAP. Isso é usado para criar o layout de disco (por exemplo /usr/sap/\<sapsid>).
 
-* computerName: o nome do computador da nova máquina virtual. Esse parâmetro também é usado pelo SAP LaMa. Quando você usa esse modelo para provisionar uma nova máquina virtual como parte de uma cópia do sistema, o SAP LaMa aguarda até que o host com este nome de computador possa ser alcançado.
+* computerName: O nome do computador da nova máquina virtual. Esse parâmetro também é usado pelo SAP LaMa. Quando você usa esse modelo para provisionar uma nova máquina virtual como parte de uma cópia do sistema, o SAP LaMa aguarda até que o host com este nome de computador possa ser alcançado.
 
-* osType: o tipo do sistema operacional que você deseja implantar.
+* osType: O tipo do sistema operacional que você deseja implantar.
 
-* dbtype: o tipo do objeto de banco de dados. Esse parâmetro é usado para determinar quantas configurações de IP adicionais precisam ser adicionadas e como o layout deve parecer.
+* dbtype: O tipo do objeto de banco de dados. Esse parâmetro é usado para determinar quantas configurações de IP adicionais precisam ser adicionadas e como o layout deve parecer.
 
-* sapSystemSize: o tamanho do sistema SAP que você deseja implantar. É usado para determinar o tipo de instância de máquina virtual e o tamanho.
+* sapSystemSize: O tamanho do sistema SAP que você deseja implantar. É usado para determinar o tipo de instância de máquina virtual e o tamanho.
 
 * adminUsername: nome de usuário para a máquina virtual.
 
-* adminPassword: senha para a máquina virtual. Você também pode fornecer uma chave pública para o SSH.
+* adminPassword: Senha para a máquina virtual. Você também pode fornecer uma chave pública para o SSH.
 
 * sshKeyData: chave pública SSH para as máquinas virtuais. Apenas sistemas operacionais Linux com suporte.
 
-* subnetId: a ID da sub-rede que você deseja usar.
+* subnetId: A ID da sub-rede que você deseja usar.
 
-* deployEmptyTarget: você pode implantar um destino vazio se quiser usar a máquina virtual como um destino para realocação de uma instância ou ação semelhante. Nesse caso, não há discos adicionais ou configurações de IP anexadas.
+* deployEmptyTarget: você pode implantar um destino vazio se você quiser usar a máquina virtual como um destino para realocar uma instância ou semelhantes. Nesse caso, não há discos adicionais ou configurações de IP anexadas.
 
-* sapcarLocation: o local para o aplicativo sapcar que corresponde ao sistema operacional que você implantar. SAPCAR é usado para extrair os arquivos fornecidos nos outros parâmetros.
+* sapcarLocation: O local para o aplicativo sapcar que corresponde ao sistema operacional que você implantar. SAPCAR é usado para extrair os arquivos fornecidos nos outros parâmetros.
 
-* sapHostAgentArchiveLocation: o local do arquivo do Agente de Host do SAP. O Agente de Host do SAP é implantado como parte dessa implantação de modelo.
+* sapHostAgentArchiveLocation: O local do arquivo do Agente de Host do SAP. O Agente de Host do SAP é implantado como parte dessa implantação de modelo.
 
-* sapacExtLocation: o local das Extensões Adaptativas do SAP. Nota SAP [2343511] lista o nível de patch mínimo necessário para o Azure.
+* sapacExtLocation: O local das Extensões Adaptativas do SAP. Nota SAP [2343511] lista o nível de patch mínimo necessário para o Azure.
 
-* vcRedistLocation: o local do tempo de execução de VC que é necessário para instalar as extensões adaptativas de SAP. Esse parâmetro só é necessário para Windows.
+* vcRedistLocation: O local do tempo de execução VC que é necessário para instalar as extensões de SAP adaptativo. Esse parâmetro só é necessário para Windows.
 
-* odbcDriverLocation: o local do driver ODBC que você deseja instalar. Apenas Driver ODBC Microsoft para SQL Server é compatível.
+* odbcDriverLocation: O local do driver ODBC que você deseja instalar. Apenas Driver ODBC Microsoft para SQL Server é compatível.
 
-* sapadmPassword: a senha do usuário sapadm.
+* sapadmPassword: A senha do usuário sapadm.
 
-* sapadmId: a ID de usuário do Linux para o usuário sapadm. Não é necessário para Windows.
+* sapadmId: A ID de usuário do Linux do usuário sapadm. Não é necessário para Windows.
 
-* sapsysGid: a ID do grupo do Linux para o grupo sapsys. Não é necessário para Windows.
+* sapsysGid: ID do grupo do Linux do grupo sapsys. Não é necessário para Windows.
 
-* _artifactsLocation: o URI base no qual se encontram os artefatos exigidos por esse modelo. Quando o modelo for implantado usando os scripts que acompanham este artigo, será usado um local privado na assinatura e esse valor será gerado automaticamente. Necessário somente se você não implanta o modelo do GitHub.
+* _artifactslocation: o URI de base, onde se encontram os artefatos exigidos por esse modelo. Quando o modelo for implantado usando os scripts que acompanham este artigo, será usado um local privado na assinatura e esse valor será gerado automaticamente. Necessário somente se você não implanta o modelo do GitHub.
 
-* _artifactsLocationSasToken: o sasToken necessário para acessar _artifactsLocation. Quando o modelo é implantado usando os scripts que acompanham este artigo, um sasToken será gerado automaticamente. Necessário somente se você não implanta o modelo do GitHub.
+* _artifactslocationsastoken: o sasToken necessário para acessar _artifactsLocation. Quando o modelo é implantado usando os scripts que acompanham este artigo, um sasToken será gerado automaticamente. Necessário somente se você não implanta o modelo do GitHub.
 
 ### <a name="sap-hana"></a>SAP HANA
 
@@ -289,7 +289,7 @@ Na conta do NetApp, o pool de capacidade especifica o tamanho e o tipo de discos
 
 ![Pool de capacidade do SAP LaMa NetApp criado ](media/lama/sap-lama-capacitypool-list.png)
 
-Os volumes de NFS agora podem ser definidos. Como haverá volumes para vários sistemas em um pool, um esquema de nomenclatura autoexplicado deverá ser escolhido. Adicionar o SID ajuda a agrupar volumes relacionados juntos. Para o ASCS e a instância as, as seguintes montagens são necessárias:/sapmnt/\<SID\>,/usr/SAP/\<SID\> e/Home/\<SID\>ADM. /Usr/SAP/trans opcional para o diretório de transporte central que é pelo menos usado por todos os sistemas de um cenário.
+Os volumes de NFS agora podem ser definidos. Como haverá volumes para vários sistemas em um pool, um esquema de nomenclatura autoexplicado deverá ser escolhido. Adicionar o SID ajuda a agrupar volumes relacionados juntos. Para o ASCS e a instância do as, as seguintes montagens são necessárias: */sapmnt/\<SID @ no__t-2*, */usr/SAP/\<SID @ no__t-5*e */Home/\<sid @ no__t-8adm*. Opcionalmente, */usr/SAP/trans* é necessário para o diretório de transporte central, que é pelo menos usado por todos os sistemas de um cenário.
 
 > [!NOTE]
 > Durante a fase BETA, o nome dos volumes deve ser exclusivo na assinatura.
@@ -336,7 +336,7 @@ Após a instalação bem-sucedida, o sistema deve ser descoberto no SAP LaMa.
 
 Os pontos de montagem devem ser assim para o ASCS e a instância do as:
 
-![Pontos de montagem do SAP lama ](media/lama/sap-lama-ascs.png) no lama (este é um exemplo. Os endereços IP e o caminho de exportação são diferentes dos usados antes)
+pontos de montagem de @no__t 0SAP LaMa no LaMa ](media/lama/sap-lama-ascs.png) (este é um exemplo. Os endereços IP e o caminho de exportação são diferentes dos usados antes)
 
 
 #### <a name="install-sap-hana"></a>Instalar SAP HANA
@@ -432,7 +432,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 
 Use *as1-di-0* para o *nome do Host de Instância PAS* na caixa de diálogo *Instância Primária do Servidor de Aplicativo*.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 
 ### <a name="errors-and-warnings-during-discover"></a>Erros e avisos durante a descoberta
 
@@ -447,7 +447,7 @@ Use *as1-di-0* para o *nome do Host de Instância PAS* na caixa de diálogo *Ins
 
 * Uma exceção foi gerada na validação de userstore HDB  
   * consulte o Visualizador de Log  
-    com.sap.nw.lm.aci.monitor.api.validation.RuntimeValidationException: exceção no validador com ID 'RuntimeHDBConnectionValidator' (validação: 'VALIDATION_HDB_USERSTORE'): não foi possível recuperar o hdbuserstore  
+    com.sap.nw.lm.aci.monitor.api.validation.RuntimeValidationException: Exceção no validador com a ID 'RuntimeHDBConnectionValidator' (Validation: 'VALIDATION_HDB_USERSTORE'): Não foi possível recuperar o hdbuserstore  
     O userstore HANA não está no local correto
   * Solução  
     Certifique-se de que /usr/sap/AH1/hdbclient/install/installation.ini está correto
@@ -467,12 +467,12 @@ Use *as1-di-0* para o *nome do Host de Instância PAS* na caixa de diálogo *Ins
 ### <a name="errors-and-warnings-during-a-system-clone"></a>Erros e avisos durante um Clone do Sistema
 
 * Erro ao tentar registrar o agente de instância na etapa *Registro Forçado e Iniciar Agente de Instância* do servidor de aplicativos ou ASCS
-  * Erro ao tentar registrar o agente de instância. (RemoteException: 'Falha ao carregar dados da instância do perfil '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0':  Não foi possível acessar o perfil '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0': Nenhum arquivo ou diretório.')
+  * Erro ao tentar registrar o agente de instância. (RemoteException: 'Falha ao carregar dados da instância do perfil'\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0': não é possível acessar o perfil '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0': arquivo ou diretório não existe.')
   * Solução  
    Certifique-se de que o compartilhamento de sapmnt no ASCS/SCS tenha acesso completo para SAP_AS1_GlobalAdmin
 
 * Erro na etapa *Habilitar a proteção de inicialização para o Clone*
-  * Falha ao abrir o arquivo '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' Causa: Arquivo ou diretório não existe
+  * Falha ao abrir o arquivo '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' Causa: arquivo ou diretório inexistente
   * Solução  
     A conta de computador do servidor de aplicativos precisa de acesso de gravação ao perfil
 
@@ -496,36 +496,38 @@ Use *as1-di-0* para o *nome do Host de Instância PAS* na caixa de diálogo *Ins
     Adicione as exportações do ASCS para o perfil de agente de host do ASCS. Veja a Nota do SAP [2628497]
 
 * Função não implementada ao realocar ASCS
-  * Saída do comando: exportfs: host:/usr/sap/AX1: Função não implementada
+  * Saída do Comando: exportfs: host: / usr/sap/AX1: Função não implementada
   * Solução  
     Certifique-se de que o serviço do servidor NFS está habilitado na máquina virtual de destino de realocação
 
 ### <a name="errors-and-warnings-during-application-server-installation"></a>Erros e Avisos durante a Instalação do Servidor de Aplicativo
 
 * Erro ao executar a etapa de SAPinst: getProfileDir
-  * ERRO: (Último erro relatado pela etapa: ESAPinstException capturado no módulo de chamada: Validador de etapa '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir' relatou um erro: Nó \\\as1-ascs\sapmnt\AS1\SYS\profile não existe. Iniciar SAPinst no modo interativo para resolver esse problema)
+  * ERRO: (último erro relatado pela etapa: ESAPinstException capturado na chamada de módulo: validador de etapa
+'|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir' relatou um erro: Nó \\\as1-ascs\sapmnt\AS1\SYS\perfil não existe. Iniciar SAPinst no modo interativo para resolver esse problema)
   * Solução  
     Certifique-se de que o SWPM está em execução com um usuário que tenha acesso ao perfil. Este usuário pode ser configurado no assistente de Instalação do Servidor de Aplicativo
 
 * Erro ao executar a etapa de SAPinst: askUnicode
-  * ERRO: (Último erro relatado pela etapa: ESAPinstException capturado no módulo de chamada: Validador de etapa '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode' relatou um erro: Iniciar SAPinst no modo interativo para resolver esse problema)
+  * ERRO: (último erro relatado pela etapa: ESAPinstException capturado na chamada de módulo: validador de etapa
+'|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode' reported an error: Start SAPinst em modo interativo para resolver este problema)
   * Solução  
     Se você usar um kernel do SAP recente, o SWPM não pode determinar se o sistema é um sistema unicode usando o servidor de mensagens do ASCS. Consulte a Nota SAP [2445033] para obter mais detalhes.  
     Esse problema será corrigido em um novo pacote de suporte/patch do SAP LaMa.  
     Defina o parâmetro de perfil OS_UNICODE=uc no perfil padrão do seu sistema SAP para contornar esse problema.
 
 * Erro ao executar a etapa de SAPinst: dCheckGivenServer
-  * Erro ao executar a etapa de SAPinst: dCheckGivenServer" versão="1.0" ERRO: (Último erro relatado pela etapa: \<p > A instalação foi cancelada pelo usuário. \</p>
+  * Erro ao executar a etapa de SAPinst: dCheckGivenServer "versão ="1.0" ERRO: (Último erro relatado pela etapa: \<p > Instalação foi cancelada pelo usuário. \</p>
   * Solução  
     Certifique-se de que o SWPM está em execução com um usuário que tenha acesso ao perfil. Este usuário pode ser configurado no assistente de Instalação do Servidor de Aplicativo
 
 * Erro ao executar a etapa SAPinst: checkClient
-  * Erro ao executar a etapa de SAPinst: checkClient" versão="1.0" ERRO: (Último erro relatado pela etapa: \<p > A instalação foi cancelada pelo usuário. \</p>)
+  * Erro ao executar a etapa SAPinst: checkClient" versão="1.0" ERROR: (Último erro relatado pela etapa: \<p> Instalação cancelada pelo usuário. \</p>)
   * Solução  
     Certifique-se de que o Microsoft ODBC driver para SQL Server está instalado na máquina virtual na qual você deseja instalar o servidor de aplicativos
 
 * Erro ao executar a etapa de SAPinst: copyScripts
-  * Último erro relatado pela etapa: Falha na chamada do sistema. DETALHES: Erro 13 (0x0000000d) (permissão negada) na execução de chamada do sistema ‘fopenU’ com parâmetro (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), linha (494) no arquivo (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), rastreamento de pilha:  
+  * Último erro relatado pela etapa: Falha na chamada do sistema. DETALHES: Erro 13 (0x0000000d) (permissão negada) na execução de chamada do sistema ‘fopenU’ com parâmetro (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), line (494) in file (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), rastreamento de pilha:  
   CThrThread.cpp: 85: CThrThread::threadFunction()  
   CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
   CSiStepExecute.cpp: 913: CSiStepExecute::execute()  
@@ -543,7 +545,7 @@ Use *as1-di-0* para o *nome do Host de Instância PAS* na caixa de diálogo *Ins
     Certifique-se de que o SWPM está em execução com um usuário que tenha acesso ao perfil. Este usuário pode ser configurado no assistente de Instalação do Servidor de Aplicativo
 
 * Erro ao executar a etapa de SAPinst: askPasswords
-  * Último erro relatado pela etapa: Falha na chamada do sistema. DETALHES: Erro 5 (0x00000005) (Acesso negado.) na execução de chamada do sistema 'NetValidatePasswordPolicy' com o parâmetro (...), linha (359) no arquivo (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), rastreamento de pilha:  
+  * Último erro relatado pela etapa: Falha na chamada do sistema. DETALHES: Erro 5 (0x00000005) (Acesso negado.) na execução de chamada do sistema 'NetValidatePasswordPolicy' com o parâmetro (...), linha (359) no arquivo (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp),rastreamento de pilha:  
   CThrThread.cpp: 85: CThrThread::threadFunction()  
   CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
   CSiStepExecute.cpp: 913: CSiStepExecute::execute()  
@@ -561,7 +563,7 @@ Use *as1-di-0* para o *nome do Host de Instância PAS* na caixa de diálogo *Ins
   * Solução  
     Make sure to add a Host rule in step *Isolation* to allow communication from the VM to the domain controller
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [SAP HANA no guia de operações do Azure][hana-ops-guide]
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 612d2e3a9a5a324f7d6d8e1b63b6b7e297047239
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 108d86e35422e1dc1d10aeb6b2c9488f5067232e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063833"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389677"
 ---
 # <a name="select-a-page-layout-in-azure-active-directory-b2c-using-custom-policies"></a>Selecionar um layout de página em Azure Active Directory B2C usando políticas personalizadas
 
@@ -68,6 +68,17 @@ Para configurar um layout de página, use a tabela a seguir para localizar os va
 
 Os pacotes de layout de página são atualizados periodicamente para incluir correções e aprimoramentos em seus elementos de página. O log de alterações a seguir especifica as alterações introduzidas em cada versão.
 
+### <a name="120"></a>1.2.0 
+- Todas as páginas
+  - Correções de acessibilidade
+  - Agora você pode adicionar o atributo `data-preload="true"` em suas marcas HTML para controlar a ordem de carregamento para CSS e JavaScript. Os cenários incluem:
+      - Use isso em seu link do CSS para carregar o CSS ao mesmo tempo que o HTML para que ele não fique piscando entre o carregamento dos arquivos
+      - Esse atributo permite que você controle a ordem na qual as marcas de script são buscadas e executadas antes do carregamento da página
+  - O campo de email agora é `type=email` e teclados móveis fornecerão as sugestões corretas
+  - Suporte para tradução do Chrome
+- Página unificada e autodeclarada
+  - Os campos nome de usuário/email e senha agora usam o elemento HTML do formulário.  Agora, isso permitirá que o Edge e o IE salvem essas informações corretamente
+  
 ### <a name="110"></a>1.1.0
 
 - Página de exceção (globalexception)
@@ -94,6 +105,6 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
 
 - Versão inicial
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Encontre mais informações sobre como personalizar a interface do usuário dos seus aplicativos em [Personalizar a interface do usuário do aplicativo usando uma política personalizada no Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).

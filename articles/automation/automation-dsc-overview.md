@@ -10,16 +10,16 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a3a52fbda91d19905bd6add631f536010197c4dd
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: b0b5e02009ddbb72bb062d341e7d233acfb0ceb3
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061395"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429395"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Visão geral da Configuração de Estado da Automação do Azure
 
-A Configuração do Estado de Automação do Azure é um serviço do Azure que permite gravar, gerenciar e compilar [configurações](/powershell/dsc/configurations) de DSC (Desired State Configuration) do PowerShell, importar [recursos de DSC](/powershell/dsc/resources) e atribuir configurações a nós de destino, tudo na nuvem.
+A Configuração do Estado de Automação do Azure é um serviço do Azure que permite gravar, gerenciar e compilar [configurações](/powershell/scripting/dsc/configurations/configurations) de DSC (Desired State Configuration) do PowerShell, importar [recursos de DSC](/powershell/scripting/dsc/resources/resources) e atribuir configurações a nós de destino, tudo na nuvem.
 
 ## <a name="why-use-azure-automation-state-configuration"></a>Por que usar a Configuração de Estado da Automação do Azure?
 
@@ -27,11 +27,11 @@ A Configuração do Estado de Automação do Azure oferece várias vantagens a u
 
 ### <a name="built-in-pull-server"></a>Servidor de pull interno
 
-A Configuração do Estado Automação do Azure fornece um servidor de recepção DSC semelhante ao [Serviço de DSC do Recurso do Windows](/powershell/dsc/pullserver) para que os nós de destino recebam automaticamente configurações, estejam em conformidade com o estado desejado e relatem sua conformidade. O servidor de pull interno na Automação do Azure elimina a necessidade de configurar e manter seu próprio servidor de pull. A Automação do Azure pode destinar computadores Windows ou Linux físicos ou virtuais, na nuvem ou localmente.
+A Configuração do Estado Automação do Azure fornece um servidor de recepção DSC semelhante ao [Serviço de DSC do Recurso do Windows](/powershell/scripting/dsc/pull-server/pullserver) para que os nós de destino recebam automaticamente configurações, estejam em conformidade com o estado desejado e relatem sua conformidade. O servidor de pull interno na Automação do Azure elimina a necessidade de configurar e manter seu próprio servidor de pull. A Automação do Azure pode destinar computadores Windows ou Linux físicos ou virtuais, na nuvem ou localmente.
 
 ### <a name="management-of-all-your-dsc-artifacts"></a>Gerenciamento de todos os seus artefatos de DSC
 
-A Configuração do Estado de Automação do Azure oferece a mesma camada de gerenciamento para a [Desired State Configuration do PowerShell](/powershell/dsc/overview) que a Automação do Azure oferece para scripts do PowerShell.
+A Configuração do Estado de Automação do Azure oferece a mesma camada de gerenciamento para a [Desired State Configuration do PowerShell](/powershell/scripting/dsc/overview/overview) que a Automação do Azure oferece para scripts do PowerShell.
 
 No portal do Azure ou do PowerShell, você pode gerenciar todas as suas configurações, recursos e nós de destino da DSC.
 
@@ -62,7 +62,7 @@ O SKU do produto autônomo do [Microsoft Hyper-V Server](/windows-server/virtual
 
 Para nós que executam o Linux, há suporte para as seguintes distribuições/versões:
 
-A extensão do Linux do DSC dá suporte a todas as distribuições do Linux listadas em distribuições do [Linux com suporte](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
+A extensão do Linux do DSC dá suporte a todas as distribuições do Linux listadas em [distribuições do Linux com suporte](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
 
 ### <a name="dsc-requirements"></a>Requisitos de DSC
 
@@ -74,7 +74,7 @@ Para todos os nós do Linux em execução no Azure, o [PowerShell DSC para Linux
 
 Se os nós estiverem localizados em uma rede privada, a porta e as URLs a seguir serão necessárias para que a DSC (configuração de estado) se comunique com a automação:
 
-* Porta: Somente a TCP 443 é necessária para acesso à Internet de saída.
+* Porta: Somente a TCP 443 é necessária para acesso de Internet de saída.
 * URL global: *.azure-automation.net
 * URL global do EUA Gov Virgínia: *.azure automation.us
 * Serviço de agente: https://\<workspaceId\>.agentsvc.azure-automation.net
@@ -86,7 +86,7 @@ Consulte a documentação para cada recurso de DSC para entender esses requisito
 #### <a name="proxy-support"></a>Suporte a proxy
 
 O suporte de proxy para o agente DSC está disponível no Windows versão 1809 e posterior.
-Para configurar essa opção, defina o valor de **ProxyURL** e **ProxyCredential** no [script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) de metaconfiguração usado para registrar nós.
+Para configurar essa opção, defina o valor de **ProxyURL** e **ProxyCredential** no [script de metaconfiguração](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) usado para registrar nós.
 O proxy não está disponível no DSC para versões anteriores do Windows.
 
 Para nós do Linux, o agente de DSC oferece suporte a proxy e utilizará a variável http_proxy para determinar a URL.
@@ -99,19 +99,19 @@ Se você tiver uma conta de Automação do Azure definida para uma região espec
 
 | **Região** | **Registro DNS** |
 | --- | --- |
-| Centro-oeste dos EUA | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
-| Centro-Sul dos EUA |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
-| East US   | eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
+| Centro-Oeste dos EUA | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
+| Centro-Sul dos Estados Unidos |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| Leste dos Estados Unidos   | eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
 | Leste dos EUA 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | Canadá Central |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
-| Europa Ocidental |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
+| Oeste da Europa |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
 | Europa Setentrional |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
 | Sudeste Asiático |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
 | Índia Central |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
 | Leste do Japão |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | Sudeste da Austrália |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | Sul do Reino Unido | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| US Gov - Virgínia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+| Governo dos EUA de Virgínia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 Para obter uma lista de endereços IP da região em vez de nomes da região, faça o download do arquivo XML do [Endereço IP do Centro de Dados do Azure](https://www.microsoft.com/download/details.aspx?id=41653) do Centro de Download da Microsoft.
 
@@ -122,7 +122,7 @@ Para obter uma lista de endereços IP da região em vez de nomes da região, fa�
 >
 > É uma boa ideia fazer o download do novo arquivo XML toda semana. Em seguida, atualize seu site para identificar corretamente os serviços em execução no Azure. Os usuários do Azure ExpressRoute devem observar que esse arquivo é usado para atualizar o anúncio BGP (Border Gateway Protocol) do espaço do Azure na primeira semana de cada mês.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar, consulte [Introdução à Configuração de Estado da Automação do Azure](automation-dsc-getting-started.md)
 - Para saber mai sobre nós de integração, veja [Máquinas de integração para o gerenciamento pela Configuração do Estado de Automação do Azure](automation-dsc-onboarding.md)

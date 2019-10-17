@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d89c0784c2125f5a7810ff134686645e8314a6
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 3e1024b529bd099c70b870fe8b059d4982f04e40
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960218"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389568"
 ---
-# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planejar a sua implementação do ingresso do Azure Active Directory híbrido
+# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planejar sua implementação de junção de Azure Active Directory híbrida
 
 De maneira semelhante a um usuário, um dispositivo é outra identidade principal que você deseja proteger e usá-la para proteger seus recursos a qualquer hora e em qualquer local. É possível atingir essa meta colocando e gerenciando identidades de dispositivo no Azure AD usando um dos métodos a seguir:
 
@@ -43,11 +43,11 @@ Para planejar sua implementação híbrida do AD do Azure, você deve se familia
 
 |   |   |
 | --- | --- |
-| ![Verificar][1] | Dispositivos com suporte de revisão |
-| ![Verificar][1] | Você deve saber de coisas de revisão |
-| ![Verificar][1] | Examinar a validação controlada do ingresso no Azure AD híbrido |
-| ![Verificar][1] | Selecione seu cenário com base na sua infraestrutura de identidade |
-| ![Verificar][1] | Examine o suporte de UPN do AD local para ingressar no Azure AD híbrido |
+| ![Verificação][1] | Dispositivos com suporte de revisão |
+| ![Verificação][1] | Você deve saber de coisas de revisão |
+| ![Verificação][1] | Examinar a validação controlada do ingresso no Azure AD híbrido |
+| ![Verificação][1] | Selecione seu cenário com base na sua infraestrutura de identidade |
+| ![Verificação][1] | Examine o suporte de UPN do AD local para ingressar no Azure AD híbrido |
 
 ## <a name="review-supported-devices"></a>Dispositivos com suporte de revisão
 
@@ -97,7 +97,7 @@ Se seus dispositivos ingressados no domínio do Windows 10 forem [registrados no
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Examinar a validação controlada do ingresso no Azure AD híbrido
 
-Quando todos os pré-requisitos estiverem em vigor, os dispositivos Windows serão automaticamente registrados como dispositivos no seu locatário do Azure AD. O estado dessas identidades de dispositivo no Azure AD é chamado de junção híbrida do Azure AD. Mais informações sobre os conceitos abordados neste artigo podem ser encontradas nos artigos [introdução ao gerenciamento de identidade do dispositivo em Azure Active Directory](overview.md) e [planejar sua implementação de junção de Azure Active Directory híbrida](hybrid-azuread-join-plan.md).
+Quando todos os pré-requisitos estiverem em vigor, os dispositivos Windows serão automaticamente registrados como dispositivos no seu locatário do Azure AD. O estado dessas identidades de dispositivo no Azure AD é chamado de junção híbrida do Azure AD. Mais informações sobre os conceitos abordados neste artigo podem ser encontradas no artigo [introdução ao gerenciamento de identidade do dispositivo no Azure Active Directory](overview.md).
 
 As organizações podem querer fazer uma validação controlada do ingresso no Azure AD híbrido antes de habilitá-lo em toda a organização de uma só vez. Examine o artigo [validação controlada do ingresso no Azure ad híbrido](hybrid-azuread-join-control.md) para entender como realizá-lo.
 
@@ -115,8 +115,8 @@ Esses cenários não exigem que você configure um servidor de federação para 
 
 Um ambiente federado deve ter um provedor de identidade que dá suporte aos requisitos a seguir. Se você tem um ambiente federado usando o AD FS (Serviços de Federação do Active Directory), os requisitos abaixo já são compatíveis.
 
-- **Declaração WIAORMULTIAUTHN:** Essa declaração é necessária para fazer o ingresso de dispositivos de nível inferior do Windows no Azure AD híbrido.
-- **Protocolo WS-Trust:** Esse protocolo é um requisito para autenticar os dispositivos atuais do Windows ingressados no Azure AD híbrido com o Azure AD. Quando você estiver usando o AD FS, será necessário habilitar os seguintes pontos de extremidade WS-Trust: `/adfs/services/trust/2005/windowstransport`  
+- **Declaração de WIAORMULTIAUTHN:** Essa declaração é necessária para fazer uma junção híbrida do Azure AD para dispositivos de nível inferior do Windows.
+- **Protocolo WS-Trust:** Esse protocolo é necessário para autenticar dispositivos adicionados ao Azure AD híbridos atuais do Windows com o Azure AD. Quando você estiver usando o AD FS, será necessário habilitar os seguintes pontos de extremidade WS-Trust: `/adfs/services/trust/2005/windowstransport`  
 `/adfs/services/trust/13/windowstransport`  
   `/adfs/services/trust/2005/usernamemixed` 
   `/adfs/services/trust/13/usernamemixed`
@@ -140,7 +140,7 @@ Com base no cenário que corresponde à sua infraestrutura de identidade, consul
 
 Às vezes, seus UPNs do AD local podem ser diferentes dos UPNs do Azure AD. Nesses casos, o ingresso no Azure AD Híbrido do Windows 10 dá suporte limitado aos UPNs do AD local com base no [método de autenticação](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), no tipo de domínio e na versão do Windows 10. Há dois tipos de UPNs do AD local que podem existir em seu ambiente:
 
-- UPN roteável: um nome UPN roteável tem um domínio verificado válido, que é registrado em um registrador de domínios. Por exemplo, se contoso.com é o domínio primário do Azure AD, contoso.org é o domínio primário no AD local pertencente à Contoso e [verificado no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+- UPN roteável: um UPN roteável tem um domínio verificado válido, que é registrado com um registrador de domínios. Por exemplo, se contoso.com é o domínio primário do Azure AD, contoso.org é o domínio primário no AD local pertencente à Contoso e [verificado no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
 - UPN não roteável: um UPN não roteável não tem um domínio verificado. É aplicável somente dentro da rede privada da sua organização. Por exemplo, se contoso.com é o domínio primário no Azure AD, contoso.local é o domínio primário no AD local, mas não é um domínio verificável na Internet e é usado apenas na rede da Contoso.
 
 A tabela a seguir fornece detalhes sobre o suporte a esses UPNs do AD local no ingresso no Azure AD Híbrido do Windows 10
@@ -152,7 +152,7 @@ A tabela a seguir fornece detalhes sobre o suporte a esses UPNs do AD local no i
 | Roteável | Gerenciado | Da versão 1803 | Em geral, não há suporte para o SSPR do Azure AD na tela de bloqueio do Windows |
 | Não roteável | Gerenciado | Sem suporte | |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Configurar a junção de Azure Active Directory híbrida para o ambiente federado](hybrid-azuread-join-federated-domains.md)

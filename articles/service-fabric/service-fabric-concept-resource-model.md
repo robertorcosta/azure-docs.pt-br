@@ -7,19 +7,19 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: atsenthi
-ms.openlocfilehash: 36c0f02202c738ac96d26b748b741cd8eee27380
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: dcffc1ba783b49343bf3380b62c3d4085f5aa347
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241817"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390090"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>O que é o modelo de recurso de aplicativo Service Fabric?
 É recomendável que Service Fabric aplicativos sejam implantados no Cluster Service Fabric por meio do Azure Resource Manager. Esse método possibilita descrever aplicativos e serviços em JSON e implantá-los no mesmo modelo do Resource Manager que o cluster. Em oposição à implantação e ao gerenciamento de aplicativos por meio do PowerShell ou CLI do Azure, não há necessidade de esperar que o cluster esteja pronto. Todo o processo de registro, provisionamento e implantação de aplicativo pode acontecer em uma etapa. Essa é a melhor prática para gerenciar o ciclo de vida do aplicativo no cluster. Para obter mais informações, consulte [as práticas recomendadas](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
 
 Quando aplicável, gerencie seus aplicativos, como recursos do Resource Manager para melhorar:
-* Trilha de auditoria: O Resource Manager audita cada operação e mantém um *log de atividades* detalhado que pode ajudá-lo a rastrear todas as alterações feitas nesses aplicativos e no cluster.
-* Controle de acesso baseado em função: O gerenciamento de acesso a clusters, bem como aplicativos implantados no cluster, pode ser feito por meio do mesmo modelo do Resource Manager.
+* A trilha de auditoria: o Resource Manager audita toda operação e mantém um *Log de atividades* que pode ajudar a rastrear alterações feitas nesses aplicativos e no seu cluster.
+* Controle de acesso baseado em função: o gerenciamento de acesso a clusters, bem como aplicativos implantados no cluster, pode ser feito por meio do mesmo modelo do Resource Manager.
 * Azure Resource Manager (por meio do portal do Azure) se torna uma loja única para gerenciar o cluster e implantações de aplicativos críticos.
 
 ## <a name="service-fabric-application-life-cycle-with-azure-resource-manager"></a>Service Fabric ciclo de vida do aplicativo com Azure Resource Manager 
@@ -35,13 +35,13 @@ Para implantar um aplicativo e seus serviços usando o modelo de recurso de apli
           
 Em seguida, crie um modelo de Azure Resource Manager, atualize o arquivo de parâmetros com os detalhes do aplicativo e implante-o no Cluster Service Fabric. Consulte os exemplos [aqui](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM).
 
-### <a name="create-a-storage-account"></a>Criar uma conta de Armazenamento 
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 A implantação de um aplicativo de um modelo do Resource Manager requer uma conta de armazenamento para preparar a imagem do aplicativo. Você pode usar novamente uma conta de armazenamento existente ou criar uma nova conta de armazenamento para preparar seus aplicativos. Se você quiser usar uma conta de armazenamento existente, poderá ignorar esta etapa. 
 
-![Criar uma conta de armazenamento][CreateStorageAccount]
+![Crie uma conta de armazenamento][CreateStorageAccount]
 
 ### <a name="configure-storage-account"></a>Configurar conta de armazenamento 
-Depois que a conta de armazenamento tiver sido criada, você precisará criar um contêiner de BLOBs onde os aplicativos podem ser preparados. Na portal do Azure, navegue até a conta de armazenamento para a qual você deseja armazenar seus aplicativos. Selecione a folha BLOBs e clique no botão **Adicionar contêiner** . Adicione um novo contêiner com o nível de acesso público do blob.
+Depois que a conta de armazenamento tiver sido criada, você precisará criar um contêiner de BLOBs onde os aplicativos podem ser preparados. Na portal do Azure, navegue até a conta de armazenamento para a qual você deseja armazenar seus aplicativos. Selecione a folha **BLOBs** e clique no botão **Adicionar contêiner** . Adicione um novo contêiner com o nível de acesso público do blob.
    
 ![Criar blob][CreateBlob]
 
@@ -51,10 +51,10 @@ Antes que o aplicativo possa ser implantado, ele deve ser preparado no armazenam
 1. No Visual Studio, clique com o botão direito do mouse no projeto de votação e selecione pacote.   
 ![Aplicativo de pacote][PackageApplication]  
 2. Abra o diretório **.\Service-Fabric-dotnet-quickstart\Voting\pkg\Debug** que acabou de criar e compacte o conteúdo em um arquivo chamado **votação. zip** , de modo que o ApplicationManifest. xml esteja na raiz do arquivo zip.  
-![Aplicativo zip][ZipApplication]  
+Aplicativo ![Zip @ no__t-1  
 3. Renomeie a extensão do arquivo de. zip para **. sfpkg**.
 4. No portal do Azure, no contêiner **aplicativos** da sua conta de armazenamento, clique em **carregar** e carregar **votação. sfpkg**.  
-![Carregar pacote do aplicativo][UploadAppPkg]
+Pacote de aplicativo ![Upload @ no__t-1
 
 O aplicativo agora é preparado. Agora estamos prontos para criar o modelo de Azure Resource Manager para implantar o aplicativo.      
    
@@ -66,12 +66,12 @@ O aplicativo de exemplo contém [modelos de Azure Resource Manager](https://gith
 >
 >
 
-| Parâmetro              | Descrição                                 | Exemplo                                                      | Comentários                                                     |
+| .              | Descrição                                 | Exemplo                                                      | Comentários                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | O nome do cluster no qual você está implantando | It-cluster123                                                |                                                              |
 | aplicativo            | O nome do aplicativo                 | Dica                                                       |
 | applicationTypeName    | O nome do tipo do aplicativo           | VotingType                                                   | Deve corresponder ao que está em ApplicationManifest. xml                 |
-| applicationTypeVersion | A versão do tipo de aplicativo         | 1.0.0                                                        | Deve corresponder ao que está em ApplicationManifest. xml                 |
+| ApplicationTypeVersion | A versão do tipo de aplicativo         | 1.0.0                                                        | Deve corresponder ao que está em ApplicationManifest. xml                 |
 | serviceName            | O nome do serviço que o serviço         | Votação ~ VotingWeb                                             | Deve estar no formato ApplicationName ~ ServiceType            |
 | serviceTypeName        | O nome do tipo do serviço                | VotingWeb                                                    | Deve corresponder ao que está no manifesto. xml                 |
 | appPackageUrl          | A URL de armazenamento de BLOBs do aplicativo     | https://servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | A URL do pacote de aplicativos no armazenamento de BLOBs (o procedimento para definir isso é descrito abaixo) |
@@ -149,15 +149,15 @@ Os aplicativos implantados usando o modelo de recurso de aplicativo no Azure Res
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Obter informações sobre o modelo de recurso de aplicativo:
 
 * [Modelar um aplicativo na Malha do Serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model)
 * [Service Fabric manifestos de aplicativo e serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-and-service-manifests)
 
 ## <a name="see-also"></a>Consulte também
-* [Práticas recomendadas](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
-* [Gerenciar aplicativos e serviços como recursos do Azure](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
+* [melhores práticas](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
+* [Gerenciar aplicativos e serviços como recursos do Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
 
 <!--Image references-->
 [CreateStorageAccount]: ./media/service-fabric-application-model/create-storage-account.png

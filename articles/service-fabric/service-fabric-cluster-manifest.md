@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: ae7fbef864634e47866de13384871a98b8ce4675
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca04539049766e1f053d74b3a8536f154c3fd830
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209714"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383579"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Definições de configuração para um cluster autônomo no Windows
 Este artigo descreve as definições de configuração de um cluster autônomo do Service Fabric do Azure que pode ser definido no arquivo *ClusterConfig.json*. Este arquivo será utilizado para especificar informações sobre os nós do cluster, as configurações de segurança, assim como a topologia de rede em termos de domínio de atualização e falha.  Depois de alterar ou adicionar definições de configuração, você pode [Criar um cluster autônomo](service-fabric-cluster-creation-for-windows-server.md) ou [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -122,7 +122,7 @@ A seção security é necessária para um cluster autônomo seguro do Service Fa
 }
 ```
 
-Os metadados são uma descrição de seu cluster seguro e podem ser definidos de acordo com sua configuração. O ClusterCredentialType e o ServerCredentialType determinam o tipo de segurança que o cluster e os nós implementam. Eles podem ser definidos como *X509* para segurança baseada em certificado ou *Windows* para segurança baseada no Active Directory. O restante da seção segurança se baseia no tipo de segurança. Para saber como preencher o restante da seção de segurança, confira [Segurança baseada em certificados em um cluster autônomo](service-fabric-windows-cluster-x509-security.md) ou [Segurança do Windows em um cluster autônomo](service-fabric-windows-cluster-windows-security.md).
+Os metadados são uma descrição de seu cluster seguro e podem ser definidos de acordo com sua configuração. O ClusterCredentialType e o ServerCredentialType determinam o tipo de segurança que o cluster e os nós implementam. Eles podem ser definidos como *X509* para uma segurança baseada em certificado ou *Windows* para segurança baseada em Active Directory. O restante da seção segurança se baseia no tipo de segurança. Para saber como preencher o restante da seção de segurança, confira [Segurança baseada em certificados em um cluster autônomo](service-fabric-windows-cluster-x509-security.md) ou [Segurança do Windows em um cluster autônomo](service-fabric-windows-cluster-windows-security.md).
 
 ### <a name="node-types"></a>Tipos de nó
 A seção nodeTypes descreve o tipo de nó que seu cluster tem. Pelo menos um tipo de nó deve ser especificado para um cluster, como mostrado no seguinte snippet de código: 
@@ -202,11 +202,12 @@ Para configurar recursos de complemento, configure a apiVersion de abril de 2017
     ]
 }
 ```
+Todos os recursos complementares disponíveis podem ser vistos na [referência da API REST do Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures).
 
 ### <a name="container-support"></a>Suporte a contêiner
 Para habilitar o suporte de contêiner para os contêineres do Windows Server e os contêineres do Hyper-V para clusters autônomos, o recurso de complemento DnsService precisa ser habilitado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Depois de ter um arquivo *ClusterConfig.json* completo configurado de acordo com sua configuração de cluster independente, você poderá implementar seu cluster. Siga as etapas em [Criar um cluster do Service Fabric autônomo](service-fabric-cluster-creation-for-windows-server.md). 
 
 Se você tiver um cluster autônomo implantado, você também pode [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md). 

@@ -1,6 +1,6 @@
 ---
-title: Máscara de dados dinâmicos do Banco de Dados SQL do Azure | Microsoft Docs
-description: A Máscara de dados dinâmicos do Banco de Dados SQL limita a exposição de dados confidenciais através do mascaramento dos dados para usuários sem privilégios
+title: Mascaramento de dados dinâmicos para o Azure SQL Database e o data warehouse | Microsoft docs
+description: A máscara de dados dinâmicos limita a exposição de dados confidenciais mascarando-os para usuários sem privilégios para o banco de dados SQL e data warehouse
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,14 +11,14 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 ms.date: 03/04/2019
-ms.openlocfilehash: 366b9437aab134985c73611fa8b46c6fbd3d309c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e36e91330232a90ff51cf92ce8dc920b51e2d914
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568759"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430108"
 ---
-# <a name="sql-database-dynamic-data-masking"></a>Máscara de dados dinâmicos do Banco de Dados SQL
+# <a name="dynamic-data-masking-for-azure-sql-database-and-data-warehouse"></a>Mascaramento de dados dinâmicos para o Azure SQL Database e data warehouse
 
 A máscara de dados dinâmicos do Banco de Dados SQL limita a exposição de dados confidenciais através do mascaramento dos dados para usuários sem privilégios. 
 
@@ -26,7 +26,7 @@ A Máscara de dados dinâmica ajuda a impedir o acesso não autorizado a dados c
 
 Por exemplo, um representante de serviço em um centro de chamada pode identificar os chamadores por vários dígitos do seu número de cartão de crédito, mas os itens de dados não devem ser totalmente expostos para o representante de serviço. Uma regra de mascaramento pode ser definida para mascarar tudo menos os quatro últimos dígitos de qualquer número de cartão de crédito no conjunto de resultados de qualquer consulta. Como outro exemplo, uma máscara de dados apropriada pode ser definida para proteger os dados de informações de identificação pessoal (PII), de forma que um desenvolvedor possa consultar os ambientes de produção para fins de solução de problemas sem violar os regulamentos de conformidade.
 
-## <a name="sql-database-dynamic-data-masking-basics"></a>Noções básicas sobre a máscara de dados dinâmicos do Banco de Dados SQL
+## <a name="dynamic-data-masking-basics"></a>Noções básicas de mascaramento de dados dinâmicos
 
 É possível configurar uma política de máscara de dados dinâmicos no Portal do Azure selecionando a operação máscara de dados dinâmicos na folha de configuração do Banco de Dados SQL ou na folha de configurações.
 
@@ -42,7 +42,7 @@ A Máscara de Dados Dinâmicos pode ser configurada por meio do administrador do
 
 | Função de mascaramento | Lógica de mascaramento |
 | --- | --- |
-| **Padrão** |**Mascaramento completo de acordo com os tipos de dados dos campos designados**<br/><br/>• Use XXXX ou menos Xs se o tamanho do campo tiver menos de quatro caracteres para os tipos de dados da cadeia de caracteres (nchar, ntext, nvarchar).<br/>• Use um valor zero para tipos de dados numéricos (bigint, bit, decimal, int, money, numérico, smallint, smallmoney, tinyint, float, real).<br/>• Use 01-01-1900 para os tipos de dados de data/hora (data, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Para SQL variant, o valor padrão do tipo atual é usado.<br/>• For XML, o \<documento mascarado/> será usado.<br/>• Use um valor vazio para tipos de dados especiais (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types). |
+| **Padrão** |**Mascaramento completo de acordo com os tipos de dados dos campos designados**<br/><br/>• Use XXXX ou menos Xs se o tamanho do campo tiver menos de quatro caracteres para os tipos de dados da cadeia de caracteres (nchar, ntext, nvarchar).<br/>• Use um valor zero para tipos de dados numéricos (bigint, bit, decimal, int, money, numérico, smallint, smallmoney, tinyint, float, real).<br/>• Use 01-01-1900 para os tipos de dados de data/hora (data, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Para SQL variant, o valor padrão do tipo atual é usado.<br/>• For XML, o documento \<masked/> será usado.<br/>• Use um valor vazio para tipos de dados especiais (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types). |
 | **Cartão de crédito** |**Método de mascaramento que expõe os últimos quatro dígitos dos campos designados** e adiciona uma cadeia de caracteres constante como um prefixo na forma de um cartão de crédito.<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **Email** |**Método de mascaramento que expõe a primeira letra e substitui o domínio por XXX.com** usando um prefixo da cadeia de caracteres constante na forma de um endereço de email.<br/><br/>aXX@XXXX.com |
 | **Número aleatório** |**Método de mascaramento que gera um número aleatório** de acordo com os limites selecionados e os tipos de dados reais. Se os limites designados forem iguais, a função de mascaramento será um número constante.<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |

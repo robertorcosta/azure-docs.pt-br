@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: akjosh
-ms.openlocfilehash: 95b630342ac2b4bc9cf51f3aa3d8563c4962ce11
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 75f659f9559703cedccef0d8e726b5c8c5bb49be
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168940"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435833"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual Azure Monitor para Linux
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Os logs de Azure Monitor fornecem recursos de monitoramento, alertas e correção de alertas em ativos locais e na nuvem. A extensão da máquina virtual do agente do Log Analytics para Linux é publicada e recebe suporte da Microsoft. A extensão instala o agente do Log Analytics em máquinas virtuais do Azure e registra máquinas virtuais em um espaço de trabalho do Log Analytics existente. Este documento detalha as plataformas, configurações e opções de implantação com suporte para a extensão da máquina virtual Azure Monitor para Linux.
 
@@ -103,10 +103,10 @@ O JSON a seguir mostra o esquema para a extensão do Agente do Log Analytics. A 
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/Exemplo |
+| name | Valor/Exemplo |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
-| publisher | Microsoft.EnterpriseCloud.Monitoring |
+| publicador | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
 | typeHandlerVersion | 1.7 |
 | workspaceId (por exemplo) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
@@ -171,7 +171,7 @@ Ao inserir o JSON da extensão na raiz do modelo, o nome do recurso inclui uma r
 
 ## <a name="azure-cli-deployment"></a>Implantação da CLI do Azure
 
-A CLI do Azure pode ser usado para implantar a extensão da VM do Agente do Log Analytics para uma máquina virtual existente. Substitua *espaço de trabalhoId* e *espaço de trabalhoKey* pelos de seu espaço de trabalho do Log Analytics. 
+A CLI do Azure pode ser usado para implantar a extensão da VM do Agente do Log Analytics para uma máquina virtual existente. Substitua o valor *myworkspacekey pela* abaixo pela sua chave do espaço de trabalho e pelo valor *myworkspaceid* pela sua ID do espaço de trabalho. Esses valores podem ser encontrados em seu espaço de trabalho do Log Analytics no portal do Azure em *Configurações avançadas*. 
 
 ```azurecli
 az vm extension set \
@@ -179,8 +179,8 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.10.1 --protected-settings '{"workspaceKey":"omskey"}' \
-  --settings '{"workspaceId":"omsid"}'
+  --version 1.10.1 --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
+  --settings '{"workspaceId":"myWorkspaceId"}'
 ```
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
@@ -201,7 +201,7 @@ A saída de execução da extensão é registrada no seguinte arquivo:
 
 ### <a name="error-codes-and-their-meanings"></a>Códigos de erro e seus significados
 
-| Código de Erro | Significado | Ação possível |
+| Código do Erro | Significado | Ação possível |
 | :---: | --- | --- |
 | 9 | Habilitar chamado prematuramente | [Atualize o Agente Linux do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para a versão mais recente disponível. |
 | 10 | A VM já está conectada a um espaço de trabalho do Log Analytics | Para conectar a VM ao workspace especificado no esquema de extensão, defina stopOnMultipleConnections como falso nas configurações públicas ou remova esta propriedade. Essa VM é cobrada uma vez para cada workspace ao qual está conectada. |

@@ -1,6 +1,6 @@
 ---
-title: Monitorar um novo cluster do serviço de Kubernetes do Azure (AKS) | Microsoft Docs
-description: Saiba como habilitar o monitoramento para um novo cluster do serviço de Kubernetes do Azure (AKS) com o Azure Monitor para a assinatura de contêineres.
+title: Monitorar um novo cluster do AKS (serviço kubernetes do Azure) | Microsoft Docs
+description: Saiba como habilitar o monitoramento para um novo cluster do AKS (serviço kubernetes do Azure) com Azure Monitor para assinatura de contêineres.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
-ms.openlocfilehash: d73ab2d5cca4f20f954a0b0e972111d3f395c3c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cff0286e944414d70cffd801620159ffef3db1a5
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65077524"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389821"
 ---
-# <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Habilitar o monitoramento de um novo cluster do serviço de Kubernetes do Azure (AKS)
+# <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Habilitar o monitoramento de um novo cluster do AKS (serviço kubernetes do Azure)
 
-Este artigo descreve como configurar o Azure Monitor para contêineres para monitorar o cluster de Kubernetes gerenciado hospedado no [serviço Kubernetes do Azure](https://docs.microsoft.com/azure/aks/) que você esteja preparando para implantar em sua assinatura.
+Este artigo descreve como configurar Azure Monitor para contêineres para monitorar o cluster kubernetes gerenciado hospedado no [serviço kubernetes do Azure](https://docs.microsoft.com/azure/aks/) que você está preparando para implantar em sua assinatura.
 
 Você pode habilitar o monitoramento de um cluster AKS usando um dos métodos com suporte:
 
-* CLI do Azure
+* Azure CLI
 * Terraform
 
 ## <a name="enable-using-azure-cli"></a>Habilitar usando a CLI do Azure
@@ -34,8 +34,7 @@ Você pode habilitar o monitoramento de um cluster AKS usando um dos métodos co
 Para habilitar o monitoramento de um novo cluster do AKS criado com a CLI do Azure, siga a etapa no artigo de início rápido na seção [Criar cluster do AKS](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando a CLI do Azure versão 2.0.59 ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
->
+>Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.74 ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Se você tiver instalado a extensão da CLI AKs-preview 0.4.12 ou superior, remova as alterações feitas para habilitar uma extensão de visualização, pois ela pode substituir o comportamento de CLI do Azure padrão, pois os recursos de visualização de AKS não estão disponíveis no Azure US governamental Cloud.
 
 ## <a name="enable-using-terraform"></a>Habilitar usando Terraform
 
@@ -123,7 +122,7 @@ Após alguns minutos, o comando concluirá e retornará informações no formato
   }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Se enfrentar problemas ao tentar carregar a solução, examine o [guia de solução de problemas](container-insights-troubleshoot.md)
 

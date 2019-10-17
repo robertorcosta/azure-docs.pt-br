@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89cdab09e3ae03ddea6259eda657908f900f982e
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 6d44a4265c3729bff3d983395a37a6cb64a463d4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169870"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389128"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management-preview"></a>Delegação e funções no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -70,18 +70,18 @@ O diagrama a seguir mostra os catálogos com recursos para os departamentos de m
 
 Após a delegação, o departamento de marketing pode ter funções semelhantes à tabela a seguir.
 
-| User | Função do trabalho | Função do Azure AD | Função de gerenciamento de direitos |
+| Usuário | Função do trabalho | Função do Azure AD | Função de gerenciamento de direitos |
 | --- | --- | --- | --- |
 | Hana | Administrador de ti | Administrador global ou administrador de usuário |  |
-| Mamta | Gerente de marketing | User | Criador do catálogo e proprietário do catálogo |
-| Roberto | Líder de marketing | User | Proprietário do catálogo |
-| Jessica | Gerente de projeto de marketing | User | Gerenciador de pacotes de acesso |
+| Mamta | Gerente de marketing | Usuário | Criador do catálogo e proprietário do catálogo |
+| Roberto | Líder de marketing | Usuário | Proprietário do catálogo |
+| Jessica | Gerente de projeto de marketing | Usuário | Gerenciador de pacotes de acesso |
 
 ## <a name="entitlement-management-roles"></a>Funções de gerenciamento de direitos
 
 O gerenciamento de direitos tem as seguintes funções que são específicas para o gerenciamento de direitos.
 
-| Função de gerenciamento de direitos | DESCRIÇÃO |
+| Função de gerenciamento de direitos | Descrição |
 | --- | --- |
 | Criador do catálogo | Criar e gerenciar catálogos. Normalmente, um administrador de ti que não é um administrador global ou um proprietário de recurso para uma coleção de recursos. A pessoa que cria um catálogo torna-se automaticamente o primeiro proprietário do catálogo do catálogo e pode adicionar proprietários de catálogos adicionais. Um criador de catálogo não pode gerenciar ou Ver os catálogos que não possuem e não pode adicionar recursos que não possuem a um catálogo. Se o criador do catálogo precisar gerenciar outro catálogo ou adicionar recursos que eles não possuem, eles poderão solicitar que sejam um coproprietário desse catálogo ou recurso. |
 | Proprietário do catálogo | Edite e gerencie catálogos existentes. Normalmente, um administrador de ti ou proprietários de recursos ou um usuário que o proprietário do catálogo designou. |
@@ -89,7 +89,7 @@ O gerenciamento de direitos tem as seguintes funções que são específicas par
 
 Além disso, um Aprovador designado e um solicitante de um pacote de acesso também têm direitos, embora não sejam funções.
 
-| Right | DESCRIÇÃO |
+| Right | Descrição |
 | --- | --- |
 | Aprovador | Autorizado por uma política para aprovar ou negar solicitações para acessar pacotes, embora eles não possam alterar as definições de pacote de acesso. |
 | Solicitante | Autorizado por uma política de um pacote de acesso para solicitar esse pacote de acesso. |
@@ -107,15 +107,15 @@ A tabela a seguir lista as tarefas que as funções de gerenciamento de direitos
 | [Delegar a um Gerenciador de pacotes do Access](entitlement-management-delegate-managers.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | [Remover um Gerenciador de pacotes de acesso](entitlement-management-delegate-managers.md#remove-an-access-package-manager) | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | [Criar um novo pacote do Access em um catálogo](entitlement-management-access-package-create.md) | :heavy_check_mark: |  | :heavy_check_mark:  | :heavy_check_mark:  |
-| [Gerenciar funções de recurso em um pacote de acesso](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Criar e editar políticas](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Atribuir diretamente um usuário a um pacote do Access](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Exibir quem tem uma atribuição para um pacote de acesso](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Exibir solicitações de um pacote de acesso](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Exibir os erros de entrega de uma solicitação](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Cancelar uma solicitação pendente](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Alterar funções de recurso em um pacote de acesso](entitlement-management-access-package-resources.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Criar e editar políticas](entitlement-management-access-package-request-policy.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Atribuir diretamente um usuário a um pacote do Access](entitlement-management-access-package-assignments.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Exibir quem tem uma atribuição para um pacote de acesso](entitlement-management-access-package-assignments.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Exibir solicitações de um pacote de acesso](entitlement-management-access-package-requests.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Exibir os erros de entrega de uma solicitação](entitlement-management-access-package-requests.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Cancelar uma solicitação pendente](entitlement-management-access-package-requests.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [Ocultar um pacote de acesso](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Excluir um pacote de acesso](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Excluir um pacote de acesso](entitlement-management-access-package-edit.md#delete-an-access-package) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Funções necessárias para adicionar recursos a um catálogo
 
@@ -125,19 +125,19 @@ Para um usuário que não seja um administrador global ou um administrador de us
 
 | Função do diretório do Azure Active Directory | Função de gerenciamento de direitos | Pode adicionar grupo de segurança | Pode adicionar o grupo do Office 365 | Pode adicionar aplicativo | Pode adicionar site do SharePoint Online |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| [Administrador global](../users-groups-roles/directory-assign-admin-roles.md) | n/d |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Administrador do usuário](../users-groups-roles/directory-assign-admin-roles.md) | n/d |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Administrador global](../users-groups-roles/directory-assign-admin-roles.md) | N/D |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Administrador do usuário](../users-groups-roles/directory-assign-admin-roles.md) | N/D |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Administrador do Intune](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Administrador do Exchange](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  | :heavy_check_mark: |  |  |
 | [Administrador de serviços de equipes](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  | :heavy_check_mark: |  |  |
 | [Administrador do SharePoint](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  | :heavy_check_mark: |  | :heavy_check_mark: |
 | [Administrador de aplicativo](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  |  | :heavy_check_mark: |  |
 | [Administrador de aplicativos de nuvem](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  |  | :heavy_check_mark: |  |
-| User | Proprietário do catálogo | Somente se o proprietário do grupo | Somente se o proprietário do grupo | Somente se o proprietário do aplicativo |  |
+| Usuário | Proprietário do catálogo | Somente se o proprietário do grupo | Somente se o proprietário do grupo | Somente se o proprietário do aplicativo |  |
 
 Para determinar a função com privilégios mínimos para uma tarefa, você também pode referenciar [funções de administrador por tarefa de administrador no Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Delegar governança de acesso para criadores de catálogo](entitlement-management-delegate-catalog.md)
 - [Criar e gerenciar um catálogo de recursos](entitlement-management-catalog-create.md)

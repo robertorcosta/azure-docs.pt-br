@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c19b874e79e70349437c5d44a6eb946aeeefb5
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7149b9d871c43af083774ffb799255e0d1144113
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835051"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429952"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Diferenças entre a MSAL para JS e a ADAL para JS
 
@@ -65,7 +65,7 @@ Na v2.0, ao usar a autoridade `https://login.microsoftonline.com/common`, você 
 
     Você pode solicitar escopos para qualquer recurso de API, usando o URI da API neste formato: appidURI/scope Por exemplo: https:\//mytenant.onmicrosoft.com/myapi/api.read
 
-    Apenas para a API do MS Graph, um valor de escopo `user.read` é mapeado para https://graph.microsoft.com/User.Read e pode ser usado de maneira intercambiável.
+    Somente para o MS API do Graph, um valor de escopo `user.read` é mapeado para https: \//Graph. Microsoft. com/user. Read e pode ser usado de forma intercambiável.
 
     ```javascript
     var request = {
@@ -99,5 +99,5 @@ Na v2.0, ao usar a autoridade `https://login.microsoftonline.com/common`, você 
     acquireTokenPopup(request);
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações, confira a [comparação entre a v1.0 e a v2.0](active-directory-v2-compare.md).

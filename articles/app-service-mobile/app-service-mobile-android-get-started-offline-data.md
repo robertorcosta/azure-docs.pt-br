@@ -13,21 +13,22 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 0180e100432ac34b876af04ad99c9a5d189455c3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 9c845c09c6b05436017f98323dfa78185cd58aa6
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025467"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388991"
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>Habilitar sincronização offline para seu aplicativo móvel Android
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
 > O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
+>
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Este tutorial aborda o recurso de sincronização offline de Aplicativos móveis do Azure para Android. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel, &mdash;exibindo, adicionando ou modificando dados&mdash;, mesmo quando não há conexão de rede. As alterações são armazenadas em um banco de dados local. Quando o dispositivo estiver online novamente, essas alterações serão sincronizadas com o back-end remoto.
 
 Se essa for sua primeira experiência com os Aplicativos Móveis do Azure, você deve primeiro concluir o tutorial [Criar um aplicativo do iOS]. Se você não usar o projeto baixado do início rápido do servidor, deve adicionar os pacotes de extensão de acesso de dados autenticação ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
@@ -90,14 +91,14 @@ Quando você pressiona o botão, inicia uma nova tarefa em segundo plano. Primei
 2. Adicione alguns itens *ToDo* ou marque alguns itens como concluídos. Feche o dispositivo ou simulador (ou feche forçadamente o aplicativo) e reinicie. Por ainda estarem vigentes no armazenamento do SQL Lite local, as alterações ficam mantidas no dispositivo.
 3. Exiba os conteúdos da tabela *TodoItem* do Azure com uma ferramenta SQL, como o *SQL Server Management Studio*, ou então com um cliente REST, como o *Fiddler* ou o *Postman*. Confirme que os novos itens *não* foram sincronizados com o servidor
    
-       + Para um back-end Node.js, vá para o [Portal do Azure](https://portal.azure.com/) e no back-end do aplicativo móvel clique em **Tabelas Fáceis** > **TodoItem** para exibir o conteúdo da tabela `TodoItem`.
+       + Para um back-end Node.js, vá para o [portal do Azure](https://portal.azure.com/) e no back-end do aplicativo móvel clique em **Tabelas Fáceis** > **TodoItem** para exibir o conteúdo da tabela `TodoItem`.
        + Para um back-end do .NET, exiba o conteúdo da tabela com uma ferramenta SQL como o *SQL Server Management Studio*, ou então com um cliente REST, como o *Fiddler* ou o *Postman*.
 4. Ative o WiFi no simulador ou dispositivo. Em seguida, pressione o botão **Atualizar** .
 5. Exiba os dados de TodoItem novamente no portal do Azure. Os TodoItems novos e modificados agora devem aparecer.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Sincronização de Dados Offline em Aplicativos Móveis do Azure]
-* [Cobertura em nuvem: sincronização offline nos Serviços Móveis do Azure] \(observação: o vídeo é sobre os Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure\)
+* [Cloud Cover: sincronização offline em serviços móveis do Azure] \(observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure\)
 
 <!-- URLs. -->
 
@@ -105,6 +106,6 @@ Quando você pressiona o botão, inicia uma nova tarefa em segundo plano. Primei
 
 [Criar um aplicativo do iOS]: app-service-mobile-android-get-started.md
 
-[Cobertura em nuvem: Sincronização offline nos Serviços Móveis do Azure]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover: sincronização offline em serviços móveis do Azure]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 

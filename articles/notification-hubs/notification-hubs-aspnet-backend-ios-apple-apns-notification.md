@@ -1,6 +1,6 @@
 ---
-title: Notificações por push para usuários específicos usando Hubs de Notificação do Azure | Microsoft Docs
-description: Saiba como enviar notificações por push para usuários específicos usando os Hubs de Notificação do Azure.
+title: Enviar notificações por push para usuários específicos usando hubs de notificação do Azure | Microsoft Docs
+description: Saiba como enviar notificações por push para usuários específicos usando o Hubs de Notificação do Azure.
 documentationcenter: ios
 author: sethm
 manager: femila
@@ -16,18 +16,18 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 85461f72d4385805e2aa13691a574a2161036ca5
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 48135ea614bbab4ca6649a83895ae5f632918c61
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212226"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387470"
 ---
-# <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: notificações por push para usuários específicos usando os Hubs de Notificação do Azure
+# <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: enviar notificações por push para usuários específicos usando os hubs de notificação do Azure
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um usuário específico do aplicativo em um dispositivo específico. Um back-end da API Web ASP.NET é usado para autenticar clientes e gerar notificações, conforme mostrado no tópico de diretrizes [Registrando-se por meio do back-end do aplicativo](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
+Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um usuário de um aplicativo específico em um dispositivo específico. Um back-end da API Web ASP.NET é usada para autenticar clientes e gerar notificações, como mostrado no tópico de instrução [Registrando-se por meio do back-end do aplicativo](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
 
 Neste tutorial, você deve executar as seguintes etapas:
 
@@ -36,7 +36,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 > * Autenticar clientes para o back-end da WebAPI
 > * Registrar para receber notificações usando o back-end da WebAPI
 > * Enviar notificações do back-end da WebAPI
-> * Publicar o novo back-end da API Web
+> * Publicar o novo back-end da WebAPI
 > * Modificar seu aplicativo iOS
 > * Testar o aplicativo
 
@@ -58,12 +58,12 @@ Se desejar usar os Aplicativos Móveis como seu serviço de back-end, veja [Mobi
 
     ![Editar storyboard no Xcode Interface Builder][1]
 
-   * **Nome de usuário**: um UITextField com texto de espaço reservado, *Inserir nome de usuário*, imediatamente abaixo de enviar o rótulo de resultados e restrito às margens esquerda e direita e abaixo do rótulo de resultados de envio.
+   * **Nome de usuário**: um UITextField com texto de espaço reservado, *Inserir nome de usuário*, imediatamente abaixo de enviar rótulo de resultados e restrito às margens esquerda e direita e abaixo do rótulo de resultados de envio.
    * **Senha**: um UITextField com texto de espaço reservado, *Digite a senha*, imediatamente abaixo do campo de texto Nome de usuário e restrito às margens esquerda e direita e abaixo do campo de texto Nome de usuário. Verifique a opção **Entrada de texto seguro** no Inspetor de atributo, em *Retornar chave*.
-   * **Log in**: um UIButton rotulado imediatamente abaixo do campo de texto de senha, e desmarque a opção **Habilitado** no Inspetor de atributos, em *Control-Content*
-   * **WNS**: rótulo e comutador para habilitar o envio da notificação do Serviço de Notificação do Windows, se ele tiver sido configurado no hub. Confira o tutorial [Introdução ao Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
-   * **GCM**: rótulo e comutador para habilitar o envio da notificação para o Google Cloud Messaging, se ele tiver sido configurado no hub. Consulte o tutorial [Introdução ao Android](notification-hubs-android-push-notification-google-gcm-get-started.md) .
-   * **APNS**: rótulo e comutador para habilitar o envio da notificação ao Apple Platform Notification Service.
+   * **Fazer logon**: um UIButton chamado imediatamente abaixo do campo de texto de senha e desmarque a opção **Habilitado** no Inspetor de atributos, em *Conteúdo de controle*
+   * **WNS**: o rótulo e o comutador para habilitar o envio da notificação do Serviço de Notificação do Windows, se ele tiver sido configurado no hub. Confira o tutorial [Introdução ao Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
+   * **GCM**: o rótulo e a opção para habilitar o envio da notificação para o Google Cloud Messaging, se ele tiver sido configurado no hub. Consulte o tutorial [Introdução ao Android](notification-hubs-android-push-notification-google-gcm-get-started.md) .
+   * **APNS**: o rótulo e a opção para habilitar o envio da notificação ao Apple Platform Notification Service.
    * **Nome do Usuário do Destinatário**: um UITextField com texto de espaço reservado *marca de nome de usuário do destinatário*, imediatamente abaixo do rótulo GCM e restrita às margens esquerda e direita e abaixo do rótulo do GCM.
 
      Alguns componentes foram adicionados ao tutorial [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) .
@@ -88,7 +88,7 @@ Se desejar usar os Aplicativos Móveis como seu serviço de back-end, veja [Mobi
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. No `ViewController.h`, adicione o seguinte `#define` após as instruções de importação. Substitua o espaço reservado `<Enter Your Backend Endpoint>` pela URL de destino que você usou para implantar o back-end do aplicativo na seção anterior. Por exemplo: `http://your_backend.azurewebsites.net`.
+4. No `ViewController.h`, adicione o seguinte `#define` após as instruções de importação. Substitua o espaço reservado `<Enter Your Backend Endpoint>` pela URL de destino que você usou para implantar o back-end do aplicativo na seção anterior. Por exemplo, `http://your_backend.azurewebsites.net`.
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
@@ -494,7 +494,7 @@ Se desejar usar os Aplicativos Móveis como seu serviço de back-end, veja [Mobi
 
     ![Notificação marcada de teste do iOS][4]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você aprendeu como enviar notificações por push para usuários específicos que têm tags associadas seus registros. Para saber como enviar notificações por push, vá para o tutorial a seguir: 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 56bb5a1ac3c4003eca6ebe8392fc5b97f36a3317
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 24d601dc2116b7daf315bb3c6f20c4dc0b6f6ce5
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311141"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72382052"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de BLOBs
 
@@ -36,8 +36,8 @@ Este artigo organiza as práticas comprovadas de desempenho em uma lista de veri
 | &nbsp; |Rede |[Os dispositivos do lado do cliente têm um link de rede de alta qualidade?](#link-quality) |
 | &nbsp; |Rede |[O aplicativo cliente está na mesma região que a conta de armazenamento?](#location) |
 | &nbsp; |Acesso direto do cliente |[Você está usando SAS (assinaturas de acesso compartilhado) e CORS (compartilhamento de recursos entre origens) para habilitar o acesso direto ao armazenamento do Azure?](#sas-and-cors) |
-| &nbsp; |Cache |[O aplicativo armazena em cache os dados que são frequentemente acessados e raramente alterados?](#reading-data) |
-| &nbsp; |Cache |[O aplicativo faz atualizações em lote armazenando-as no cliente e, em seguida, carregando-as em conjuntos maiores?](#uploading-data-in-batches) |
+| &nbsp; |Caching |[O aplicativo armazena em cache os dados que são frequentemente acessados e raramente alterados?](#reading-data) |
+| &nbsp; |Caching |[O aplicativo faz atualizações em lote armazenando-as no cliente e, em seguida, carregando-as em conjuntos maiores?](#uploading-data-in-batches) |
 | &nbsp; |Configuração do .NET |[Você está usando o .NET Core 2,1 ou posterior para obter um desempenho ideal?](#use-net-core) |
 | &nbsp; |Configuração do .NET |[Você configurou seu cliente para usar uma quantidade suficiente de conexões simultâneas?](#increase-default-connection-limit) |
 | &nbsp; |Configuração do .NET |[Para aplicativos .NET, você configurou o .NET para usar um número suficiente de threads?](#increase-minimum-number-of-threads) |
@@ -66,13 +66,13 @@ Se você estiver se aproximando do número máximo de contas de armazenamento pe
 
 - Você está usando contas de armazenamento para armazenar discos não gerenciados e adicionar esses discos às suas VMs (máquinas virtuais)? Para este cenário, a Microsoft recomenda o uso de discos gerenciados. O Managed disks é dimensionado para você automaticamente e sem a necessidade de criar e gerenciar contas de armazenamento individuais. Para obter mais informações, consulte [introdução aos Managed disks do Azure](../../virtual-machines/windows/managed-disks-overview.md)
 - Você está usando uma conta de armazenamento por cliente, para fins de isolamento de dados? Para este cenário, a Microsoft recomenda usar um contêiner de BLOB para cada cliente, em vez de uma conta de armazenamento inteira. O armazenamento do Azure agora permite que você atribua funções RBAC (controle de acesso baseado em função) em uma base por contêiner. Para obter mais informações, consulte [conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](../common/storage-auth-aad-rbac-portal.md).
-- Você está usando várias contas de armazenamento para fragmentar para aumentar a entrada, a saída, as operações de e/s por segundo (IOPS) ou a capacidade? Nesse cenário, a Microsoft recomenda que você aproveite os limites maiores de contas de armazenamento padrão para reduzir o número de contas de armazenamento necessárias para sua carga de trabalho, se possível. Contate o [suporte do Azure](https://azure.microsoft.com/support/options/) para solicitar limites maiores para sua conta de armazenamento. Para obter mais informações, consulte [anunciando contas de armazenamento maiores e de maior escala](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
+- Você está usando várias contas de armazenamento para fragmentar para aumentar a entrada, a saída, as operações de e/s por segundo (IOPS) ou a capacidade? Nesse cenário, a Microsoft recomenda que você aproveite os limites maiores de contas de armazenamento para reduzir o número de contas de armazenamento necessárias para sua carga de trabalho, se possível. Contate o [suporte do Azure](https://azure.microsoft.com/support/options/) para solicitar limites maiores para sua conta de armazenamento. Para obter mais informações, consulte [anunciando contas de armazenamento maiores e de maior escala](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 ### <a name="capacity-and-transaction-targets"></a>Metas de capacidade e de transação
 
 Se seu aplicativo estiver lidando com metas de escalabilidade de uma única conta de armazenamento, você pode adotar uma destas abordagens:  
 
-- Se o seu aplicativo atingir o destino da transação, considere o uso de contas de armazenamento de blobs de blocos, que são otimizadas para altas taxas de transação e latência baixa e consistente. Para saber mais, confira [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
+- Se o seu aplicativo atingir o destino da transação, considere o uso de contas de armazenamento de blobs de blocos, que são otimizadas para altas taxas de transação e latência baixa e consistente. Para obter mais informações, consulte [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
 - Repensar a carga de trabalho que faz com que o aplicativo se aproxime da meta de escalabilidade ou a ultrapasse. Você pode alterar o aplicativo para que ele use menos largura de banda, menos capacidade ou menos transações?
 - Se seu aplicativo deve exceder um dos destinos de escalabilidade, crie várias contas de armazenamento e Particione os dados do aplicativo entre essas várias contas de armazenamento. Se você usar esse padrão, crie o aplicativo de forma que seja possível adicionar mais contas de armazenamento posteriormente, para balancear a carga. As próprias contas de armazenamento não têm nenhum custo além do uso em termos de dados armazenados, transações feitas ou dados transferidos.
 - Se seu aplicativo estiver se aproximando das metas de largura de banda, considere compactar dados no lado do cliente para reduzir a largura de banda necessária para enviar os dados para o armazenamento do Azure.
@@ -113,7 +113,7 @@ Você pode seguir algumas práticas recomendadas para reduzir a frequência de t
 
     Por exemplo, se você tiver operações diárias que usam um blob com um carimbo de data/hora como *aaaammdd*, todo o tráfego dessa operação diária será direcionado para um único BLOB, que é servido por um único servidor de partição. Considere se os limites por blob e os limites por partição atendem às suas necessidades e considere dividir essa operação em vários BLOBs, se necessário. Da mesma forma, se você armazenar dados de série temporal em suas tabelas, todo o tráfego poderá ser direcionado para a última parte do namespace de chave. Se você estiver usando IDs numéricas, Prefixe a ID com um hash de três dígitos. Se você estiver usando carimbos de hora, Prefixe o carimbo de data/hora com o valor de segundos, por exemplo, *ssaaaammdd*. Se seu aplicativo executa rotineiramente as operações de listagem e consulta, escolha uma função de hash que limitará o número de consultas. Em alguns casos, um prefixo aleatório pode ser suficiente.
   
-- Para obter mais informações sobre o esquema de particionamento usado no armazenamento do Azure, consulte armazenamento de [Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
+- Para obter mais informações sobre o esquema de particionamento usado no armazenamento do Azure, consulte [armazenamento do Azure: um serviço de armazenamento em nuvem altamente disponível com consistência forte](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ## <a name="networking"></a>Rede
 
@@ -123,7 +123,7 @@ As restrições de rede física do aplicativo podem ter um impacto significativo
 
 A largura de banda e a qualidade do link de rede desempenham funções importantes no desempenho do aplicativo, conforme descrito nas seções a seguir.
 
-#### <a name="throughput"></a>Taxa de transferência
+#### <a name="throughput"></a>Produtividade
 
 No caso da largura de banda, muitas vezes o problema está relacionado às funcionalidades do cliente. As instâncias maiores do Azure têm NICs com mais capacidade. Por isso, você deve usar uma instância maior ou mais VMs se precisar de limites de rede mais altos em um único computador. Se você estiver acessando o armazenamento do Azure de um aplicativo local, a mesma regra se aplicará: compreenda os recursos de rede do dispositivo cliente e a conectividade de rede com o local de armazenamento do Azure e melhore-os conforme necessário ou crie seu aplicativo para trabalhar em seus recursos.
 
@@ -151,7 +151,7 @@ Por exemplo, suponha que um aplicativo Web em execução no Azure faça uma soli
   
 SAS e CORS podem ajudá-lo a evitar a carga desnecessária em seu aplicativo Web.  
 
-## <a name="caching"></a>Cache
+## <a name="caching"></a>Caching
 
 O Caching desempenha um papel importante no desempenho. As seções a seguir abordam as práticas recomendadas de cache.
 
@@ -194,7 +194,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 Para outras linguagens de programação, consulte a documentação para determinar como definir o limite de conexão.  
 
-Para saber mais, confira a postagem no blog [Serviços Web: conexões simultâneas](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Para obter mais informações, consulte a postagem no blog [Serviços Web: conexões simultâneas](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentar o número mínimo de threads
 
@@ -283,9 +283,7 @@ Os blobs de acréscimo são semelhantes aos blobs de blocos, pois são compostos
 
 Os blobs de páginas são apropriados se o aplicativo precisar executar gravações aleatórias nos dados. Por exemplo, os discos de máquina virtual do Azure são armazenados como BLOBs de página. Para obter mais informações, consulte [noções básicas sobre blobs de blocos, blobs de acréscimo e blobs de páginas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Escalabilidade do Armazenamento do Microsoft Azure e metas de desempenho para contas de armazenamento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [Lista de verificação de desempenho e escalabilidade para armazenamento de filas](../queues/storage-performance-checklist.md)
-- [Lista de verificação de desempenho e escalabilidade para o armazenamento de tabelas](../tables/storage-performance-checklist.md)
 - [Status e códigos de erro](/rest/api/storageservices/Status-and-Error-Codes2)

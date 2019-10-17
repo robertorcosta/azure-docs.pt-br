@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.openlocfilehash: f08dea90e7700082b6eeb708b576451060f81255
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 168d977b9dc0ea6117796cf98a8562f168258d28
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140936"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387448"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Noções básicas de preços do Data Factory por meio de exemplos
 
@@ -46,7 +46,7 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 | Obter pipeline | 1 entidade de leitura/gravação |
 | Executar pipeline | 2 Execuções de atividade (1 para execução do gatilho, 1 para execução da atividade) |
 | Suposição ao copiar dados: tempo de execução = 10 min | 10 \* 4 Azure Integration Runtime(configuração DIU padrão = 4) Para obter mais informações sobre unidades de integração de dados e otimização de desempenho de cópia, consulte [este artigo](copy-activity-performance.md) |
-| Suposição ao monitorar o pipeline: ocorreu apenas 1 execução | 2 registros de execução de monitoramento repetidos (1 para execução de pipeline, 1 para execução de atividade) |
+| Suposição de monitoramento do pipeline: ocorreu apenas 1 execução | 2 registros de execução de monitoramento repetidos (1 para execução de pipeline, 1 para execução de atividade) |
 
 **Total de preços do cenário: US$ 0,16811**
 
@@ -77,7 +77,7 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 | Obter pipeline | 1 entidade de leitura/gravação |
 | Executar pipeline | 3 Execuções de atividade (1 para execução do gatilho, 2 para execução da atividade) |
 | Suposição ao copiar dados: tempo de execução = 10 min | 10 \* 4 Azure Integration Runtime(configuração DIU padrão = 4) Para obter mais informações sobre unidades de integração de dados e otimização de desempenho de cópia, consulte [este artigo](copy-activity-performance.md) |
-| Suposição ao monitorar o pipeline: ocorreu apenas 1 execução | 3 registros de execução de monitoramento repetidos (1 para execução de pipeline, 2 para execução de atividade) |
+| Suposição de monitoramento do pipeline: ocorreu apenas 1 execução | 3 registros de execução de monitoramento repetidos (1 para execução de pipeline, 2 para execução de atividade) |
 | Suposição da atividade Executar Databricks: tempo de execução = 10 min | 10 minutos de execução de atividade do pipeline externo |
 
 **Total de preços do cenário: US$ 0,16916**
@@ -111,7 +111,7 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 | Obter pipeline | 1 entidade de leitura/gravação |
 | Executar pipeline | 4 Execuções de atividade (1 para execução do gatilho, 3 para execução da atividade) |
 | Suposição ao copiar dados: tempo de execução = 10 min | 10 \* 4 Azure Integration Runtime(configuração DIU padrão = 4) Para obter mais informações sobre unidades de integração de dados e otimização de desempenho de cópia, consulte [este artigo](copy-activity-performance.md) |
-| Suposição ao monitorar o pipeline: ocorreu apenas 1 execução | 4 registros de execução de monitoramento repetidos (1 para execução de pipeline, 3 para execução de atividade) |
+| Suposição de monitoramento do pipeline: ocorreu apenas 1 execução | 4 registros de execução de monitoramento repetidos (1 para execução de pipeline, 3 para execução de atividade) |
 | Suposição da atividade de pesquisa: tempo de execução = 1 min | 1 minuto de execução da atividade do pipeline |
 | Suposição da atividade Executar Databricks: tempo de execução = 10 min | 10 minutos de execução de atividade do pipeline externo |
 
@@ -154,18 +154,18 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 | Obter pipeline | 1 entidade de leitura/gravação |
 | Executar pipeline | 2 Execuções de atividade (1 para execução do gatilho, 1 para execução da atividade) |
 | Pressuposições de fluxo de dados: tempo de execução = 10 min + 10 min TTL | 10 \* 8 núcleos de computação geral com TTL de 10 |
-| Suposição ao monitorar o pipeline: ocorreu apenas 1 execução | 2 registros de execução de monitoramento repetidos (1 para execução de pipeline, 1 para execução de atividade) |
+| Suposição de monitoramento do pipeline: ocorreu apenas 1 execução | 2 registros de execução de monitoramento repetidos (1 para execução de pipeline, 1 para execução de atividade) |
 
 **Preço do cenário total: $0.3011**
 
 - Operações do Data Factory = **US$ 0,0001**
   - Leitura/gravação = 10\*00001 = US$ 0,0001 [1 L/G = US$ 0,50/50000 = 0,00001]
   - Monitoramento = 2\*000005 = US$ 0,00001 [1 monitoramento = US$ 0,25/50000 = 0,000005]
-- &amp; Execução de orquestração de pipeline = **$0.301**
+- Orquestração de pipeline &amp; execução = **$0.301**
   - Execuções de atividade = 001\*2 = 0,002 [1 execução = US$ 1/1000 = 0,001]
   - Atividades de fluxo de dados = $0.299 rateado por 20 minutos (tempo de execução de 10 min + 10 minutos TTL). $0.112/hora em Azure Integration Runtime com 8 núcleos de computação geral
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você entendeu o preço do Azure Data Factory, pode começar a usá-lo!
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 59f1a678b7a2edc64a2079eff0e819e206c2e509
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 06df85c73b6060bf166df37679457715522f80d8
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811694"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72385780"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gerenciar Microsoft Azure Cosmos usando a CLI do Azure
 
@@ -19,7 +19,7 @@ O guia a seguir descreve os comandos comuns para automatizar o gerenciamento de 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 
@@ -156,9 +156,10 @@ Obter chaves somente leitura para uma conta do cosmos.
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 
-az cosmosdb list-read-only-keys \
-   -n $accountName \
-   -g $resourceGroupName
+az cosmosdb keys list \
+    -n $accountName \
+    -g $resourceGroupName \
+    --type read-only-keys
 ```
 
 ## <a name="list-connection-strings"></a>Cadeias de caracteres de conexão de lista
@@ -170,9 +171,10 @@ Obtenha as cadeias de conexão para uma conta do cosmos.
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 
-az cosmosdb list-connection-strings \
+az cosmosdb keys list \
     -n $accountName \
-    -g $resourceGroupName
+    -g $resourceGroupName \
+    --type connection-strings
 ```
 
 ## <a name="regenerate-account-key"></a>Regenerar a chave de conta
@@ -182,7 +184,7 @@ Regenerar uma nova chave para uma conta do cosmos.
 ```azurecli-interactive
 # Regenerate secondary account keys
 # key-kind values: primary, primaryReadonly, secondary, secondaryReadonly
-az cosmosdb regenerate-key \
+az cosmosdb keys regenerate \
     -n $accountName \
     -g $resourceGroupName \
     --key-kind secondary
@@ -358,7 +360,7 @@ az cosmosdb sql container throughput update \
     --throughput $newRU
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a CLI do Azure, consulte:
 

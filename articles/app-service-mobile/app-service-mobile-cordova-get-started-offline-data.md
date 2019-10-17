@@ -14,21 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: dc1183e1557d634ab1880376a1347f43f33b329f
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c5fcc98bf3da79d1978da6e67535a5a93a8fe321
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027513"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388845"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Habilitar a sincronização offline para seu aplicativo móvel Cordova
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
 > O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
+>
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Este tutorial apresenta o recurso de sincronização offline dos Aplicativos Móveis do Azure para o Cordova. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel, &mdash;exibindo, adicionando ou modificando dados&mdash;, mesmo quando não há conexão de rede. As alterações são armazenadas em um banco de dados local.  Quando o dispositivo estiver online novamente, essas alterações serão sincronizadas com o serviço remoto.
 
 Este tutorial se baseia na solução de início rápido do Cordova para os Aplicativos Móveis criados quando você conclui o tutorial [Início rápido do Apache Cordova]. Neste tutorial, você atualizará a solução de início rápido para adicionar recursos offline dos Aplicativos Móveis do Azure.  Também destacamos o código especificamente offline no aplicativo.
@@ -71,7 +72,7 @@ O código da sincronização offline deve ser adicionado ao aplicativo. A sincro
         // Get the sync context from the client
         syncContext = client.getSyncContext();
 
-    As adições de código anteriores inicializam o armazenamento local e definem uma tabela local que corresponde aos valores da coluna usados no back-end do Azure. (Você não precisa incluir todos os valores da coluna nesse código.)  O campo `version` é mantido pelo back-end móvel e é usado para resolução de conflitos.
+    As adições de código anteriores inicializam o armazenamento local e definem uma tabela local que corresponde aos valores da coluna usados no back-end do Azure. (Você não precisa incluir todos os valores de coluna neste código.)  O campo `version` é mantido pelo back-end móvel e é usado para resolução de conflitos.
 
     Você obtém uma referência para o contexto de sincronização chamando **getSyncContext**. O contexto de sincronização ajuda a preservar relações da tabela controlando e enviando por push as alterações em todas as tabelas que um aplicativo cliente tenha modificado quando o `.push()` é chamado.
 
@@ -178,7 +179,7 @@ Nesta seção, você modificará o projeto do cliente para simular um cenário o
 
 5. (Opcional) Use o Visual Studio para exibir a tabela de Banco de Dados SQL do Azure para ver se os dados no banco de dados do back-end não foram alterados.
 
-    No Visual Studio, abra **Gerenciador de Servidores**. Navegue até o banco de dados em **Azure**->**Bancos de dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione **Abrir no Pesquisador de Objetos do SQL Server**. Agora você pode navegar até sua tabela de banco de dados SQL e seu conteúdo.
+    No Visual Studio, abra **Gerenciador de Servidores**. Navegue até o banco de dados em **Azure**->**Bancos de dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**. Agora você pode navegar até sua tabela de banco de dados SQL e seu conteúdo.
 
 ## <a name="optional-test-the-reconnection-to-your-mobile-backend"></a>(Opcional) Testar a reconexão com seu back-end móvel
 
@@ -195,7 +196,7 @@ Nesta seção, reconecte o aplicativo ao back-end móvel, que simula o aplicativ
 * [Sincronização de Dados Offline em Aplicativos Móveis do Azure]
 * [Ferramentas do Visual Studio para Apache Cordova]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Analise os recursos mais avançados de sincronização offline, como a resolução de conflitos no [exemplo de sincronização offline]
 * Analise a referência da API de sincronização offline na [Documentação de API](https://azure.github.io/azure-mobile-apps-js-client).
 

@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ac210a03f8b1a0a5f7fff07cbc68b4cd6bc98632
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 40fb44857126c3562e01585c3131afec87f01e42
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016339"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430066"
 ---
-# <a name="using-azure-powershell-with-azure-storage"></a>Usando o PowerShell do Azure com o Armazenamento do Azure
+# <a name="using-azure-powershell-with-azure-storage"></a>Usando o Azure PowerShell com o Armazenamento do Azure
 
 O Azure PowerShell é usado para criar e gerenciar recursos da linha de comando do PowerShell ou em scripts. No Armazenamento do Azure, esses cmdlets se enquadram em duas categorias: o plano de controle e o plano de dados. Os cmdlets do plano de controle são usados para gerenciar a conta de armazenamento, a fim de criá-las, definir propriedades, excluí-las, girar as chaves de acesso e assim por diante. Os cmdlets do plano de dados são usados para gerenciar os dados armazenados *na* conta de armazenamento. Por exemplo, carregar blobs, criar compartilhamentos de arquivos e adicionar mensagens a uma fila.
 
@@ -24,7 +24,7 @@ Este artigo de instruções abrange operações que usam os cmdlets do plano de 
 > [!div class="checklist"]
 > * Listar contas de armazenamento
 > * Obter uma referência para uma conta de armazenamento existente
-> * Criar uma conta de armazenamento
+> * Crie uma conta de armazenamento
 > * Definir as propriedades da conta de armazenamento
 > * Recuperar e regenerar as chaves de acesso
 > * Proteger o acesso à sua conta de armazenamento
@@ -76,7 +76,7 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
 
 Agora, você tem $storageAccount, que aponta para uma conta de armazenamento existente.
 
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+### <a name="create-a-storage-account"></a>Crie uma conta de armazenamento
 
 O script a seguir mostra como criar uma conta de armazenamento de uso geral usando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Depois de criar a conta, recupere seu contexto, que pode ser usado em comandos subsequentes em vez de especificar a autenticação com cada chamada.
 
@@ -131,7 +131,7 @@ Para alterar as configurações de uma conta de armazenamento, use [Set-AzStorag
 
 * A **marca** atribuída à conta de armazenamento. Geralmente, as marcas são usadas para categorizar recursos para fins de cobrança.
 
-* A **SKU** é a configuração de replicação da conta de armazenamento, como LRS para armazenamento com redundância local. Por exemplo, é possível alterar o \_LRS Padrão\_ para o \_GRS Padrão ou RAGRS Padrão. Observe que você não pode alterar\_as ZRS padrão\_, GZRS padrão\_, Standard RAGZRS ou\_Premium LRS para outras SKUs ou alterar outras SKUs para elas.
+* A **SKU** é a configuração de replicação da conta de armazenamento, como LRS para armazenamento com redundância local. Por exemplo, é possível alterar o \_LRS Padrão\_ para o \_GRS Padrão ou RAGRS Padrão. Observe que você não pode alterar o padrão @ no__t-0ZRS, Standard @ no__t-1GZRS, Standard @ no__t-2RAGZRS ou Premium @ no__t-3LRS para outras SKUs, ou então alterar outros SKUs para eles.
 
 * A **camada de acesso** das contas de armazenamento de Blobs. O valor da camada de acesso está definido como **ativa** ou **moderada**, e permite reduzir custos selecionando a camada de acesso que se alinha com o uso que você faz da conta de armazenamento. Para saber mais, consulte [Camada de acesso aos arquivos ativa e moderada](../blobs/storage-blob-storage-tiers.md).
 
@@ -199,7 +199,7 @@ O **Registro em Log da Análise de Armazenamento** ocorre no lado do servidor e 
 > É possível habilitar a análise de minuto usando o PowerShell. Essa funcionalidade não está disponível no portal.
 >
 
-* Para saber como habilitar e exibir dados de métricas de armazenamento usando o PowerShell, consulte métricas de [análise de armazenamento](storage-analytics-metrics.md).
+* Para saber como habilitar e exibir dados de métricas de armazenamento usando o PowerShell, consulte [métricas de análise de armazenamento](storage-analytics-metrics.md).
 
 * Para saber como habilitar e recuperar dados de log de armazenamento usando o PowerShell, confira [How to enable Storage Logging using PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data) (Como habilitar o log de armazenamento usando o PowerShell) e [Finding your Storage Logging log data](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data) (Localizando os dados do log de armazenamento).
 
@@ -220,11 +220,11 @@ A API de Tabela do Azure Cosmos DB fornece recursos premium para o armazenamento
 
 ## <a name="independent-cloud-deployments-of-azure"></a>Implantações de nuvem independentes do Azure
 
-A maioria das pessoas usa a Nuvem Pública do Azure em suas implantações globais do Azure. Há também algumas implantações independentes do Microsoft Azure por motivos de soberania e assim por diante. Essas implantações independentes são chamadas de “ambientes”. Estes são os ambientes disponíveis:
+A maioria das pessoas usa a nuvem pública do Azure em suas implantações globais do Azure. Há também algumas implantações independentes do Microsoft Azure por motivos de soberania e assim por diante. Essas implantações independentes são chamadas de “ambientes”. Estes são os ambientes disponíveis:
 
 * [Nuvem do Azure Governamental](https://azure.microsoft.com/features/gov/)
 * [Nuvem do Azure China 21Vianet operada pela 21Vianet na China](http://www.windowsazure.cn/)
-* [Nuvem Alemã do Azure](../../germany/germany-welcome.md)
+* [Nuvem alemã do Azure](../../germany/germany-welcome.md)
 
 Para saber mais sobre como acessar essas nuvens e seu armazenamento com o PowerShell, veja [Gerenciamento de Armazenamento nas nuvens independentes do Azure usando o PowerShell](storage-powershell-independent-clouds.md).
 
@@ -235,14 +235,14 @@ Se tiver criado um novo grupo de recursos e uma conta de armazenamento para este
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
 ```
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo de instruções abrange operações que usam os cmdlets do plano de gerenciamento para gerenciar contas de armazenamento. Você aprendeu como:
 
 > [!div class="checklist"]
 > * Listar contas de armazenamento
 > * Obter uma referência para uma conta de armazenamento existente
-> * Criar uma conta de armazenamento
+> * Crie uma conta de armazenamento
 > * Definir as propriedades da conta de armazenamento
 > * Recuperar e regenerar as chaves de acesso
 > * Proteger o acesso à sua conta de armazenamento
@@ -252,4 +252,4 @@ Este artigo fornece também referências a vários outros artigos, relacionados 
 
 * [Cmdlets do PowerShell do plano de controle do Armazenamento do Azure](/powershell/module/az.storage/)
 * [Cmdlets do PowerShell do plano de dados do Armazenamento do Azure](/powershell/module/azure.storage/)
-* [Referência do Windows PowerShell](https://msdn.microsoft.com/library/ms714469.aspx)
+* [Referência do Windows PowerShell](/powershell/scripting/developer/windows-powershell)

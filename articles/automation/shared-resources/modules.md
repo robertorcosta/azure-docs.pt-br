@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cbc6932c3bbe11f0c4def17097c1791cbb1687bf
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 82f02f0ac11c80161f709b3b493306bc8aafc8bd
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515895"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435459"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gerenciar módulos na automação do Azure
 
@@ -24,7 +24,7 @@ A automação do Azure fornece a capacidade de importar módulos do PowerShell p
 Há várias maneiras pelas quais você pode importar um módulo para sua conta de automação. As seções a seguir mostram as diferentes maneiras de importar um módulo.
 
 > [!NOTE]
-> O caminho máximo de um arquivo em um módulo a ser usado na automação do Azure é de 140 caracteres. Qualquer caminho acima de 140 caracteres não será capaz de ser importado para a sessão `Import-Module`do PowerShell com.
+> O caminho máximo de um arquivo em um módulo a ser usado na automação do Azure é de 140 caracteres. Qualquer caminho acima de 140 caracteres não será capaz de ser importado para a sessão do PowerShell com `Import-Module`.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -42,7 +42,7 @@ Na portal do Azure, navegue até sua conta de automação e selecione **módulos
 
 Os módulos da galeria do PowerShell podem ser importados do [Galeria do PowerShell](https://www.powershellgallery.com) diretamente ou da sua conta de automação.
 
-Para importar um módulo do Galeria do PowerShell, vá para https://www.powershellgallery.com e procure o módulo que você deseja importar. Clique em **implantar na automação do Azure** na guia **automação do Azure** em **Opções de instalação**. Essa ação abre o portal do Azure. Na página **importar** , selecione sua conta de automação e clique em **OK**.
+Para importar um módulo do Galeria do PowerShell, acesse https://www.powershellgallery.com e procure o módulo que deseja importar. Clique em **implantar na automação do Azure** na guia **automação do Azure** em **Opções de instalação**. Essa ação abre o portal do Azure. Na página **importar** , selecione sua conta de automação e clique em **OK**.
 
 ![Módulo de importação de Galeria do PowerShell](../media/modules/powershell-gallery.png)
 
@@ -70,7 +70,7 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 
 Veja a seguir uma lista de cmdlets no módulo interno `Orchestrator.AssetManagement.Cmdlets` que é importado para cada conta de automação. Esses cmdlets podem ser acessados em seus runbooks e configurações DSC e permitem que você interaja com seus ativos na sua conta de automação. Além disso, os cmdlets internos permitem que você recupere segredos de valores de **variáveis** criptografados, **credenciais**e campos de **conexão** criptografados. Os cmdlets Azure PowerShell não podem recuperar esses segredos. Esses cmdlets não exigem que você se conecte implicitamente ao Azure ao usá-los, como usar uma conta Executar como para autenticar no Azure.
 
-|Nome|Descrição|
+|name|Descrição|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |
@@ -86,7 +86,7 @@ Você pode fornecer um [tipo de conexão](../automation-connections.md) personal
 
 ![Usar uma conexão personalizada no portal do Azure](../media/modules/connection-create-new.png)
 
-Para adicionar um tipo de conexão de automação do Azure, seu módulo deve conter um arquivo `<ModuleName>-Automation.json` com o nome que especifica as propriedades do tipo de conexão. O arquivo JSON é colocado dentro da pasta do módulo do arquivo. zip compactado. Esse arquivo contém os campos de uma conexão que é necessária para se conectar ao sistema ou serviço que o módulo representa. A configuração acaba criando um tipo de conexão na automação do Azure. Usando esse arquivo, você pode definir os nomes de campo, tipos e se os campos devem ser criptografados ou opcionais, para o tipo de conexão do módulo. O exemplo a seguir é um modelo no formato de arquivo JSON que define uma propriedade de nome de usuário e senha:
+Para adicionar um tipo de conexão de automação do Azure, seu módulo deve conter um arquivo com o nome `<ModuleName>-Automation.json` que especifica as propriedades do tipo de conexão. O arquivo JSON é colocado dentro da pasta do módulo do arquivo. zip compactado. Esse arquivo contém os campos de uma conexão que é necessária para se conectar ao sistema ou serviço que o módulo representa. A configuração acaba criando um tipo de conexão na automação do Azure. Usando esse arquivo, você pode definir os nomes de campo, tipos e se os campos devem ser criptografados ou opcionais, para o tipo de conexão do módulo. O exemplo a seguir é um modelo no formato de arquivo JSON que define uma propriedade de nome de usuário e senha:
 
 ```json
 {
@@ -172,7 +172,7 @@ myModule
 
 * Se o módulo se conectar a um serviço externo, ele deverá conter um [tipo de conexão](#add-a-connection-type-to-your-module). Cada cmdlet no módulo deve ser capaz de receber um objeto de conexão (uma instância desse tipo de conexão) como um parâmetro. Os usuários mapeiam parâmetros do ativo de conexão para os parâmetros correspondentes do cmdlet cada vez que chamam um cmdlet. Com base no exemplo de runbook acima, ele usa um ativo de conexão contoso de exemplo chamado ContosoConnection para acessar os recursos da Contoso e retornar dados do serviço externo.
 
-  No exemplo a seguir, os campos são mapeados para as propriedades username e password de `PSCredential` um objeto e, em seguida, passados para o cmdlet.
+  No exemplo a seguir, os campos são mapeados para as propriedades UserName e password de um objeto `PSCredential` e, em seguida, passado para o cmdlet.
 
   ```powershell
   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
@@ -191,11 +191,11 @@ myModule
   }
   ```
 
-  Você pode habilitar um comportamento como o do exemplo anterior para seus cmdlets, permitindo que eles aceitem um objeto de conexão diretamente como um parâmetro, em vez de apenas campos de conexão para parâmetros. Normalmente, convém ter um conjunto de parâmetros para cada um, para que um usuário que não esteja usando a Automação do Azure possa chamar seus cmdlets sem construir uma tabela de hash para agir como o objeto de conexão. O conjunto `UserAccount`de parâmetros, é usado para passar as propriedades do campo de conexão. `ConnectionObject`permite que você passe a conexão diretamente.
+  Você pode habilitar um comportamento como o do exemplo anterior para seus cmdlets, permitindo que eles aceitem um objeto de conexão diretamente como um parâmetro, em vez de apenas campos de conexão para parâmetros. Normalmente, convém ter um conjunto de parâmetros para cada um, para que um usuário que não esteja usando a Automação do Azure possa chamar seus cmdlets sem construir uma tabela de hash para agir como o objeto de conexão. O conjunto de parâmetros `UserAccount`, é usado para passar as propriedades do campo de conexão. `ConnectionObject` permite que você passe a conexão diretamente.
 
 * Defina o tipo de saída para todos os cmdlets no módulo. A definição de um tipo de saída para um cmdlet permite o IntelliSense no tempo de criação para ajudar você a determinar as propriedades de saída do cmdlet, para uso durante a criação. Isso é especialmente útil durante a criação gráfica do runbook da Automação, quando o conhecimento do tempo de design é fundamental para uma experiência de usuário facilitada com o seu módulo.
 
-Adicionar `[OutputType([<MyOutputType>])]` onde myoutputtype é um tipo válido. Para saber mais sobre OutputType, consulte [sobre o Functions OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). O código a seguir é um exemplo de `OutputType` adição a um cmdlet:
+Adicione `[OutputType([<MyOutputType>])]` em que myoutputtype é um tipo válido. Para saber mais sobre OutputType, consulte [sobre o Functions OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). O código a seguir é um exemplo de adição de `OutputType` a um cmdlet:
 
   ```powershell
   function Get-ContosoUser {
@@ -252,21 +252,21 @@ A tabela a seguir lista os módulos que são importados por padrão quando uma c
 | AzureRM.Sql | 1.0.3 |
 | AzureRM.Storage | 1.0.3 |
 | ComputerManagementDsc | 5.0.0.0 |
-| GPRegistryPolicyParser | 0.2 |
-| Microsoft.PowerShell.Core | 0 |
-| Microsoft.PowerShell.Diagnostics |  |
-| Microsoft.PowerShell.Management |  |
-| Microsoft.PowerShell.Security |  |
-| Microsoft.PowerShell.Utility |  |
-| Microsoft.WSMan.Management |  |
-| Orchestrator.AssetManagement.Cmdlets | 1 |
+| GPRegistryPolicyParser | 0,2 |
+| Microsoft. PowerShell. Core | 0 |
+| Microsoft. PowerShell. Diagnostics |  |
+| Microsoft. PowerShell. Management |  |
+| Microsoft. PowerShell. Security |  |
+| Microsoft. PowerShell. Utility |  |
+| Microsoft. WSMan. Management |  |
+| Orchestrator. AssetManagement. cmdlets | 1 |
 | PSDscResources | 2.9.0.0 |
 | SecurityPolicyDsc | 2.1.0.0 |
 | StateConfigCompositeResources | 1 |
-| xDSCDomainjoin | 1.1 |
+| xDSCDomainjoin | 1,1 |
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* Para saber mais sobre como criar os Módulos do PowerShell, consulte [Escrevendo um Módulo do Windows PowerShell](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
+* Para saber mais sobre como criar os Módulos do PowerShell, consulte [Escrevendo um Módulo do Windows PowerShell](/powershell/scripting/developer/windows-powershell)

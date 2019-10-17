@@ -14,21 +14,22 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 3cf18e6da56b25e453d52dc58020961f672da27d
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 25bff77da6c2bd89916fe40ebb153ff9631e62eb
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027440"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388800"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Como usar a biblioteca de cliente do Apache Cordova para os Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
 > O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
+>
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Este guia ensina a executar cenários comuns usando o mais recente [Plug-in do Apache Cordova para os Aplicativos Móveis do Azure]. Se você for novo nos Aplicativos Móveis do Azure, primeiro conclua o [Início Rápido dos Aplicativos Móveis do Azure] para criar um back-end, criar uma tabela e baixar um projeto Apache Cordova pré-criado. Neste guia, abordaremos o Plug-in do Apache Cordova do lado do cliente.
 
 ## <a name="supported-platforms"></a>Plataformas com suporte
@@ -76,8 +77,8 @@ O plug-in Cordova para Aplicativos Móveis do Azure dá suporte a aplicativos Io
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>Como: Autenticar usuários
-O Serviço de Aplicativo do Azure dão suporte para autenticação e autorização de usuários de aplicativos usando variados provedores de identidade externos: Facebook, Google, conta da Microsoft e Twitter. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização em scripts do servidor. Para obter mais informações, consulte o tutorial [Introdução à autenticação] .
+## <a name="auth"></a>Como autenticar usuários
+O Serviço de Aplicativo do Azure oferece suporte à autenticação e autorização de usuários de aplicativos usando vários provedores de identidade externos: Facebook, Google, Conta da Microsoft e Twitter. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização em scripts do servidor. Para obter mais informações, consulte o tutorial [Comece a usar a autenticação] .
 
 Ao usar a autenticação em um aplicativo Apache Cordova, os seguintes plugins Cordova devem estar disponíveis:
 
@@ -88,7 +89,7 @@ Dois fluxos de autenticação são suportados: um server flow e um client flow. 
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Como: Configurar o Serviço de Aplicativo Móvel para URLs de redirecionamento externo.
+### <a name="configure-external-redirect-urls"></a>Como configurar o Serviço de Aplicativo Móvel para URLs de redirecionamento externo.
 Vários tipos de aplicativos do Apache Cordova usam uma funcionalidade de loopback para manipular fluxos de Interface do usuário do OAuth.  Fluxos de interface do usuário OAuth causam problemas, pois o serviço de autenticação só sabe utilizar seu serviço por padrão.  Exemplos de fluxos de interface do usuário OAuth problemáticos incluem:
 
 * O emulador Ripple.
@@ -98,7 +99,7 @@ Vários tipos de aplicativos do Apache Cordova usam uma funcionalidade de loopba
 
 Siga estas instruções para adicionar as definições locais à configuração:
 
-1. Faça logon no [Portal do Azure]
+1. Faça logon no [Azure portal]
 2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Aplicativo Móvel.
 3. Clique em **Ferramentas**
 4. Clique em **Gerenciador de Recursos** no menu OBSERVAR e clique em **Ir**.  Uma nova janela ou guia é aberta.
@@ -118,7 +119,7 @@ Siga estas instruções para adicionar as definições locais à configuração:
 As configurações são salvas neste momento.  Não feche a janela do navegador até que as configurações sejam salvas.
 Além disso, adicione essas URLs de loopback às configurações de CORS para o Serviço de Aplicativo:
 
-1. Faça logon no [Portal do Azure]
+1. Faça logon no [Azure portal]
 2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Aplicativo Móvel.
 3. A folha Configurações abre automaticamente.  Se não for, clique em **Todas as Configurações**.
 4. Clique em **CORS** no menu de API.
@@ -128,7 +129,7 @@ Além disso, adicione essas URLs de loopback às configurações de CORS para o 
 
 É necessário cerca de 10 a 15 segundos para que as novas configurações tenham efeito.
 
-## <a name="register-for-push"></a>Como: Registrar notificações por push
+## <a name="register-for-push"></a>Como registrar notificações por push
 Instale o [phonegap-plugin-push] para manipular notificações por push.  Esse plug-in pode ser facilmente adicionado usando o comando `cordova plugin add` na linha de comando ou por meio do instalador de plug-ins do Git no Visual Studio.  O código a seguir em seu aplicativo Apache Cordova registra seu dispositivo para notificações por push:
 
 ```javascript
@@ -175,9 +176,9 @@ Use o SDK dos Hubs de Notificação para enviar notificações por push do servi
 Você pode encontrar detalhes de API detalhadas em nossa [Documentação da API](https://azure.github.io/azure-mobile-apps-js-client/).
 
 <!-- URLs. -->
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Início Rápido dos Aplicativos Móveis do Azure]: app-service-mobile-cordova-get-started.md
-[Introdução à autenticação]: app-service-mobile-cordova-get-started-users.md
+[Comece a usar a autenticação]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Plug-in do Apache Cordova para os Aplicativos Móveis do Azure]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps

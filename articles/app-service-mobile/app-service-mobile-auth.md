@@ -12,18 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: 3c7329638bd8a5d9e466864d780b7784304fa874
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 6017d9bc8b9a791e46fd1562660c9049ca0f72e5
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027480"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388901"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Autenticação e autorização no Serviço de Aplicativo do Azure para aplicativos móveis
 
 > [!NOTE]
 > O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
+>
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 Este artigo descreve como a autenticação e a autorização funcionam ao desenvolver aplicativos móveis nativos com um back-end do Serviço de Aplicativo. O Serviço de Aplicativo fornece autenticação e autorização integradas para que os aplicativos móveis possam conectar usuários sem alterar nenhum código no Serviço de Aplicativo. Ele fornece uma maneira fácil de proteger o aplicativo e trabalhar com dados por usuário. 
 
@@ -65,7 +66,7 @@ Os tutoriais a seguir mostram como adicionar autenticação aos clientes móveis
 * [Adicionar autenticação ao seu aplicativo do Windows][Windows]
 * [Adicionar autenticação ao aplicativo Xamarin.iOS][Xamarin.iOS]
 * [Adicione autenticação ao aplicativo Xamarin.Android][Xamarin.Android]
-* [Adicionar autenticação ao aplicativo xamarin. Forms][Xamarin.Forms]
+* [Adicionar autenticação ao aplicativo Xamarin. Forms][Xamarin.Forms]
 * [Adicionar autenticação ao seu aplicativo Cordova][Cordova]
 
 Use os recursos a seguir se quiser usar o [fluxo direcionado ao cliente](../app-service/overview-authentication-authorization.md#authentication-flow) para o Azure Active Directory:
