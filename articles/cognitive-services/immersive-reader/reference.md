@@ -10,14 +10,14 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: b25a002cb1e2563ab97a2081c6b6a05362b66779
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 1908ed916d61c7a65b1f0061c0fe8d8a08b5e41c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338524"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388103"
 ---
-# <a name="immersive-reader-sdk-reference"></a>Referência do SDK do leitor de imersão
+# <a name="immersive-reader-sdk-reference-guide"></a>Guia de referência do SDK do leitor de imersão
 
 O SDK do leitor de imersão é uma biblioteca JavaScript que permite integrar o leitor de imersão ao seu aplicativo Web.
 
@@ -39,16 +39,16 @@ Inicia o leitor de imersão dentro de um `iframe` em seu aplicativo Web.
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Nome | Tipo | Descrição |
+| name | Type | Descrição |
 | ---- | ---- |------------ |
-| `token` | cadeia de caracteres | O token de autenticação do Azure AD. Consulte o [How-to de autenticação do Azure ad](./azure-active-directory-authentication.md). |
-| `subdomain` | cadeia de caracteres | O subdomínio personalizado do seu recurso de leitor de imersão no Azure. Consulte o [How-to de autenticação do Azure ad](./azure-active-directory-authentication.md). |
+| `token` | string | O token de autenticação do Azure AD. Consulte o [How-to de autenticação do Azure ad](./azure-active-directory-authentication.md). |
+| `subdomain` | string | O subdomínio personalizado do seu recurso de leitor de imersão no Azure. Consulte o [How-to de autenticação do Azure ad](./azure-active-directory-authentication.md). |
 | `content` | [Conteúdo](#content) | Um objeto que contém o conteúdo a ser mostrado no leitor de imersão. |
 | `options` | [Opções](#options) | Opções para configurar determinados comportamentos do leitor de imersão. Opcional. |
 
-### <a name="returns"></a>Retorna
+### <a name="returns"></a>Retornos
 
 Retorna um `Promise<HTMLDivElement>`, que resolve quando o leitor de imersão é carregado. O `Promise` é resolvido para um elemento `div` cujo único filho é um elemento `iframe` que contém a página do leitor de imersão.
 
@@ -78,9 +78,9 @@ Consulte [atributos opcionais](#optional-attributes) para obter mais opções de
 renderButtons(options?: RenderButtonsOptions): void;
 ```
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Nome | type | Descrição |
+| name | Type | Descrição |
 | ---- | ---- |------------ |
 | `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Opções para configurar determinados comportamentos da função renderButtons. Opcional. |
 
@@ -166,12 +166,12 @@ Contém informações sobre o erro.
 }
 ```
 
-#### <a name="error-codes"></a>Códigos do Erro
+#### <a name="error-codes"></a>Códigos de erro
 
-| Código | Descrição |
+| Codificar | Descrição |
 | ---- | ----------- |
 | BadArgument | O argumento fornecido é inválido, consulte `message` para obter detalhes. |
-| Tempo Limite | Falha ao carregar o leitor de imersão no tempo limite especificado. |
+| Tempo limite | Falha ao carregar o leitor de imersão no tempo limite especificado. |
 | TokenExpired | O token fornecido expirou. |
 | Limitado | O limite de taxa de chamada foi excedido. |
 
@@ -189,7 +189,7 @@ Use os atributos a seguir para configurar a aparência do botão.
 
 | Atributo | Descrição |
 | --------- | ----------- |
-| `data-button-style` | Define o estilo do botão. Pode ser `icon`, `text` ou `iconAndText`. Assume o padrão de `icon`. |
+| `data-button-style` | Define o estilo do botão. Pode ser `icon`, `text` ou `iconAndText`. Usa `icon` como padrão. |
 | `data-locale` | Define a localidade. Por exemplo, `en-US` ou `fr-FR`. O padrão é o inglês `en`. |
 | `data-icon-px-size` | Define o tamanho do ícone em pixels. O padrão é 20px. |
 
@@ -203,7 +203,7 @@ Use as versões mais recentes dos seguintes navegadores para obter a melhor expe
 * Mozilla Firefox
 * Apple Safari
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Explorar o [SDK da Leitura Avançada no GitHub](https://github.com/microsoft/immersive-reader-sdk)
-* [Início Rápido: Criar um aplicativo Web que inicia o leitor de imersãoC#() ](./quickstart.md)
+* [Início rápido: criar um aplicativo Web que inicia o leitor deC#imersão ()](./quickstart.md)
