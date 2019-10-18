@@ -13,24 +13,21 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08708c23f9c8f4c4a8fc9f2f0aa5cd20d8333a42
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 9d384ea4749e2d0bc7edf8df7ac0508566f2f76b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146360"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517097"
 ---
 # <a name="bulk-remove-group-members-preview-in-azure-active-directory"></a>Remover membros do grupo em massa (visualização) no Azure Active Directory
 
 Usando o portal do Azure Active Directory (AD do Azure), você pode remover um grande número de membros de um grupo usando um arquivo CSV (valores separados por vírgula) para remover em massa membros do grupo.
 
-> [!NOTE]
-> As operações em massa do Azure AD são um recurso de visualização pública do Azure AD e estão disponíveis com qualquer plano de licença pago do Azure AD. Para obter mais informações sobre os termos de uso de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="to-bulk-remove-group-members"></a>Para remover em massa membros do grupo
 
 1. Entre no [portal do Azure](https://portal.azure.com) com uma conta de administrador de usuário na organização. Os proprietários do grupo também podem remover em massa os membros dos grupos que eles possuem.
-1. No Azure AD, selecione **grupos** > **todos os grupos**.
+1. No Azure AD, selecione **grupos**  > **todos os grupos**.
 1. Abra o grupo do qual você está removendo membros e, em seguida, selecione **Membros**.
 1. Na página **Membros** , selecione **remover membros**.
 1. Na página **remover membros do grupo em massa (versão prévia)** , selecione **baixar** para obter o modelo de arquivo CSV com as propriedades necessárias do membro do grupo.
@@ -58,7 +55,7 @@ Para obter detalhes sobre cada item de linha na operação em massa, selecione o
 
 Cada atividade em massa para remover uma lista de membros do grupo de pode ser executada por até uma hora. Isso permite a remoção de uma lista de pelo menos 40.000 membros.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Membros do grupo de importação em massa](groups-bulk-import-members.md)
 - [Baixar membros de um grupo](groups-bulk-download-members.md)

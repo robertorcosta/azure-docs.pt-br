@@ -49,6 +49,8 @@
       href: manage-stale-devices.md
     - name: Habilitar o Enterprise State Roaming
       href: enterprise-state-roaming-enable.md
+    - name: Infraestrutura de área de trabalho virtual
+      href: howto-device-identity-virtual-desktop-infrastructure.md
     - name: Implantar estações de trabalho gerenciadas pelo Azure
       href: howto-azure-managed-workstation.md
     - name: Solucionar problemas de identidades de dispositivos

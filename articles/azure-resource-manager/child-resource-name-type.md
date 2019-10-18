@@ -1,17 +1,17 @@
 ---
-title: Nome e tipo de recursos filho em modelos de Azure Resource Manager
+title: Recursos filho-modelos de Azure Resource Manager
 description: Descreve como definir o nome e o tipo de recursos filho em um modelo de Azure Resource Manager.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: bd1c38547866c34eb5c4808ed5b185b50fa44a01
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 3a90b2155b11d4c12bc1f571af3f15fdbceb12b9
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035573"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532292"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Definir nome e tipo para recursos filho
 
@@ -133,7 +133,7 @@ O exemplo a seguir mostra uma rede virtual e uma sub-rede que são definidas no 
 ]
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](resource-group-authoring-templates.md). 
 

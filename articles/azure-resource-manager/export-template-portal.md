@@ -1,17 +1,17 @@
 ---
-title: Exportar o modelo de Azure Resource Manager usando o portal do Azure
+title: Exportar modelo do Resource Manager-portal do Azure
 description: Use portal do Azure para exportar um modelo de Azure Resource Manager de recursos em sua assinatura.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6b37b61bea63ec626bfd709a40f177f43d1dfe03
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 0605e24590fa2d702a1385429a7808a7e1226809
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300425"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532350"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportação única e de vários recursos para um modelo no portal do Azure
 
@@ -87,7 +87,7 @@ Para exportar um recurso:
 
 1. Depois de passar na validação, mas antes de iniciar a implantação, selecione **baixar um modelo para automação**.
 
-   ![Baixar o modelo](./media/export-template-portal/download-before-deployment.png)
+   ![Baixar modelo](./media/export-template-portal/download-before-deployment.png)
 
 1. O modelo é exibido e está disponível para download e implantação.
 
@@ -110,7 +110,7 @@ Você pode exportar o modelo que foi usado para implantar recursos existentes. O
 
    ![Selecionar modelo](./media/export-template-portal/show-template-from-history.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como exportar modelos com [CLI do Azure](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates)ou [API REST](/rest/api/resources/resourcegroups/exporttemplate).
 - Para saber mais sobre a sintaxe do modelo do Resource Manager, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](./resource-group-authoring-templates.md).

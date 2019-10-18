@@ -1,6 +1,6 @@
 ---
-title: Indexar blobs JSON no indexador de Blobs do Azure para pesquisa de texto completo – Azure Search
-description: Rastrear o conteúdo de texto em blobs JSON do Azure usando o indexador de Blobs do Azure Search. Os indexadores automatizam a ingestão de dados para fontes de dados selecionadas, como o armazenamento de blobs do Azure.
+title: Indexar BLOBs JSON do indexador de blob do Azure para pesquisa de texto completo-Azure Search
+description: Rastreie BLOBs JSON do Azure para conteúdo de texto usando o indexador de blob Azure Search. Indexadores automatizam a ingestão de dados para fontes de dados selecionadas, como o armazenamento de BLOBs do Azure.
 ms.date: 05/02/2019
 author: HeidiSteen
 manager: nitinme
@@ -10,102 +10,98 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d266f5edb85dd732cc39cfe98a64bee8019cdbd1
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 147a2b690139aff546d82fc89a2fbcdefed03e01
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656671"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533758"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Como indexar BLOBs JSON usando Azure Search indexador de BLOB
 Este artigo mostra como configurar um [indexador](search-indexer-overview.md) de blob Azure Search para extrair conteúdo estruturado de documentos JSON no armazenamento de BLOBs do Azure e torná-lo pesquisável no Azure Search. Este fluxo de trabalho cria um índice de Azure Search e o carrega com o texto existente extraído de BLOBs JSON. 
 
-Você pode usar o [portal](#json-indexer-portal), [APIs REST](#json-indexer-rest), ou [SDK do .NET](#json-indexer-dotnet) para indexar o conteúdo JSON. Comum a todas as abordagens é que os documentos JSON estão localizados em um contêiner de BLOB em uma conta de armazenamento do Azure. Para obter orientação sobre como enviar documentos JSON por push de outras plataformas não Azure, consulte [Importação de dados no Azure Search](search-what-is-data-import.md).
+Você pode usar o [portal](#json-indexer-portal), as [APIs REST](#json-indexer-rest)ou o [SDK do .net](#json-indexer-dotnet) para indexar conteúdo JSON. Comum a todas as abordagens é que os documentos JSON estão localizados em um contêiner de BLOB em uma conta de armazenamento do Azure. Para obter diretrizes sobre o envio de documentos JSON de outras plataformas que não são do Azure, consulte [importação de dados em Azure Search](search-what-is-data-import.md).
 
-Os BLOBs JSON no armazenamento de BLOBs do Azure normalmente são um único documento JSON ou uma coleção de entidades JSON. Para coleções JSON, o blob poderia ter uma **matriz** de elementos JSON bem formados. Os BLOBs também podem ser compostos por várias entidades JSON individuais separadas por uma nova linha. O indexador de blob no Azure Search pode analisar qualquer construção desse tipo, dependendo de como você define o parâmetro **parsingMode** na solicitação.
-
-Todos os modos de análise JSON`json`( `jsonArray`, `jsonLines`,) agora estão disponíveis para o público geral. 
+Os BLOBs JSON no armazenamento de BLOBs do Azure normalmente são um único documento JSON (o modo de análise é `json`) ou uma coleção de entidades JSON. Para coleções, o blob poderia ter uma **matriz** de elementos JSON bem formados (o modo de análise é `jsonArray`). Os BLOBs também podem ser compostos por várias entidades JSON individuais separadas por uma nova linha (o modo de análise é `jsonLines`). O parâmetro **parsingMode** na solicitação determina as estruturas de saída.
 
 > [!NOTE]
-> Siga as recomendações de configuração do indexador em [indexação de um para muitos](search-howto-index-one-to-many-blobs.md) para produzir vários documentos de pesquisa de um blob do Azure.
+> Para obter mais informações sobre como indexar vários documentos de pesquisa de um único BLOB, consulte [indexação de um para muitos](search-howto-index-one-to-many-blobs.md).
 
 <a name="json-indexer-portal"></a>
 
 ## <a name="use-the-portal"></a>Usar o portal
 
-O método mais fácil para indexação de documentos JSON é usar um assistente no [portal do Microsoft Azure](https://portal.azure.com/). Ao analisar metadados no contêiner de blob do Azure, o assistente [ **Importar dados** ](search-import-data-portal.md) pode criar um índice padrão, mapear os campos de origem para campos de índice de destino e carregar o índice em uma única operação. Dependendo do tamanho e complexidade da fonte de dados, é possível ter um índice de pesquisa de texto completo operando em minutos.
+O método mais fácil para indexar documentos JSON é usar um assistente no [portal do Azure](https://portal.azure.com/). Ao analisar os metadados no contêiner de blob do Azure, o assistente de [**importação de dados**](search-import-data-portal.md) pode criar um índice padrão, mapear campos de origem para campos de índice de destino e carregar o índice em uma única operação. Dependendo do tamanho e da complexidade dos dados de origem, você pode ter um índice operacional de pesquisa de texto completo em minutos.
 
 É recomendável usar a mesma assinatura do Azure para o Azure Search e o armazenamento do Azure, preferencialmente na mesma região.
 
-### <a name="1---prepare-source-data"></a>1- Preparar dados de origem
+### <a name="1---prepare-source-data"></a>1-preparar dados de origem
 
-1. [Entre no Portal do Azure](https://portal.azure.com/).
-
-1. [Crie um contêiner de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) para conter seus dados. O nível de acesso público pode ser definido como qualquer um de seus valores válidos.
+[Entre no portal do Azure](https://portal.azure.com/) e [crie um contêiner de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) para conter seus dados. O nível de acesso público pode ser definido como qualquer um de seus valores válidos.
 
 Você precisará do nome da conta de armazenamento, do nome do contêiner e de uma chave de acesso para recuperar seus dados no assistente de **importação de dados** .
 
-### <a name="2---start-import-data-wizard"></a>2 - Iniciar o Assistente para Importação de Dados 
+### <a name="2---start-import-data-wizard"></a>2-iniciar o assistente de importação de dados
 
-Na página Visão geral do seu serviço de Azure Search, você pode [iniciar o assistente](search-import-data-portal.md) na barra de comandos ou clicando em **Adicionar Azure Search** na seção **serviço blob** do painel de navegação esquerdo da sua conta de armazenamento.
+Na página Visão geral do seu serviço de Azure Search, você pode [iniciar o assistente](search-import-data-portal.md) na barra de comandos.
 
-   ![Comando Importação de dados no portal](./media/search-import-data-portal/import-data-cmd2.png "Iniciar o Assistente de Importação de Dados")
+   ![Comando importar dados no portal](./media/search-import-data-portal/import-data-cmd2.png "Iniciar o assistente de importação de dados")
 
-### <a name="3---set-the-data-source"></a>3 - Configurar a fonte de dados
+### <a name="3---set-the-data-source"></a>3-definir a fonte de dados
 
-Na página **fonte de dados**, a fonte deve ser **Armazenamento de blobs do Azure** com as seguintes especificações:
+Na página **fonte de dados** , a origem deve ser o **armazenamento de BLOBs do Azure**, com as seguintes especificações:
 
-+ Os **Dados para extração** devem ser *Conteúdo e Metadados*. Esta opção permite que ao assistente inferir um esquema de índice e mapear os campos para importação.
++ **Os dados a serem extraídos** devem ser *conteúdo e metadados*. A escolha dessa opção permite que o assistente inferir um esquema de índice e mapear os campos para importação.
    
 + O **modo de análise** deve ser definido como *JSON*, *matriz JSON* ou *linhas JSON*. 
 
-  O *JSON* articula cada blob como um documento de pesquisa única, aparecendo como um item independente nos resultados da pesquisa. 
+  O *JSON* articula cada blob como um único documento de pesquisa, mostrando como um item independente nos resultados da pesquisa. 
 
-  A *matriz JSON* é para BLOBs que contêm dados JSON bem formados – o JSON bem formado corresponde a uma matriz de objetos ou tem uma propriedade que é uma matriz de objetos e você deseja que cada elemento seja articulado como um documento de pesquisa independente e autônomo. Se os blobs são complexos e você não escolher *matriz JSON*, o blob inteiro será ingerido como um único documento.
+  A *matriz JSON* é para BLOBs que contêm dados JSON bem formados – o JSON bem formado corresponde a uma matriz de objetos ou tem uma propriedade que é uma matriz de objetos e você deseja que cada elemento seja articulado como um documento de pesquisa independente e autônomo. Se os BLOBs forem complexos e você não escolher a *matriz JSON* , todo o blob será ingerido como um único documento.
 
   *As linhas JSON* são para BLOBs compostos por várias entidades JSON separadas por uma nova linha, em que você deseja que cada entidade seja articulada como um documento de pesquisa independente autônomo. Se os BLOBs forem complexos e você não escolher o modo de análise de *linhas JSON* , todo o blob será ingerido como um único documento.
    
-+ O **Contêiner de armazenamento** deve especificar sua conta de armazenamento e contêiner ou uma cadeia de caracteres de conexão que apontam para o contêiner. Obtenhas as cadeias de caracteres de conexão na página de portal de serviço Blob.
++ O **contêiner de armazenamento** deve especificar sua conta de armazenamento e o contêiner ou uma cadeia de conexão que resolve para o contêiner. Você pode obter cadeias de conexão na página do portal do serviço BLOB.
 
-   ![Definição de fonte de dados de Blob](media/search-howto-index-json/import-wizard-json-data-source.png)
+   ![Definição da fonte de dados do blob](media/search-howto-index-json/import-wizard-json-data-source.png)
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4 - Pular a página de "Adicionar a pesquisa cognitiva" no assistente
+### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4-ignorar a página "Adicionar pesquisa cognitiva" no assistente
 
-Adicionar habilidades cognitivas não é necessário para a importação de documentos JSON. A menos que haja uma necessidade específica de [incluir a API de Serviços Cognitivos e transformações](cognitive-search-concept-intro.md) ao seu pipeline de indexação, ignore esta etapa.
+Adicionar habilidades cognitivas não é necessário para a importação de documento JSON. A menos que você tenha uma necessidade específica de [incluir API de serviços cognitivos e transformações](cognitive-search-concept-intro.md) em seu pipeline de indexação, ignore esta etapa.
 
 Para ignorar a etapa, primeiro vá para a próxima página.
 
-   ![Botão Próxima página da pesquisa cognitiva](media/search-get-started-portal/next-button-add-cog-search.png)
+   ![Botão próxima página para pesquisa cognitiva](media/search-get-started-portal/next-button-add-cog-search.png)
 
 Nessa página, você pode pular para a personalização do índice.
 
-   ![Ignorar etapa de habilidades cognitivas](media/search-get-started-portal/skip-cog-skill-step.png)
+   ![Ignorar etapa de habilidade cognitiva](media/search-get-started-portal/skip-cog-skill-step.png)
 
-### <a name="5---set-index-attributes"></a>5- Definir atributos de índice
+### <a name="5---set-index-attributes"></a>5-definir atributos de índice
 
-Na página **índice**, deve haver uma lista de campos com um tipo de dados e uma série de caixas de seleção para definir os atributos de índice. O assistente pode gerar uma lista de campos com base em metadados e por amostragem dos dados de origem. 
+Na página **índice** , você verá uma lista de campos com um tipo de dados e uma série de caixas de seleção para definir atributos de índice. O assistente pode gerar uma lista de campos com base em metadados e por amostragem dos dados de origem. 
 
 Você pode selecionar atributos em massa clicando na caixa de seleção na parte superior de uma coluna de atributo. Escolha **recuperável** e **pesquisável** para cada campo que deve ser retornado a um aplicativo cliente e sujeito ao processamento de pesquisa de texto completo. Você observará que inteiros não são de texto completo ou de pesquisa difusa (os números são avaliados de forma idêntica e geralmente são úteis em filtros).
 
 Examine a descrição de [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) e [analisadores de idioma](https://docs.microsoft.com/rest/api/searchservice/language-support) para obter mais informações. 
 
-Reserve um tempo para revisar suas seleções. Depois de executar o assistente, estruturas de dados físicos são criadas e você não poderá editar esses campos sem descartar e recriar todos os objetos.
+Reserve um tempo para examinar suas seleções. Depois de executar o assistente, as estruturas de dados físicos são criadas e você não poderá editar esses campos sem descartar e recriar todos os objetos.
 
-   ![Definição do índice de blob](media/search-howto-index-json/import-wizard-json-index.png)
+   ![Definição de índice de BLOB](media/search-howto-index-json/import-wizard-json-index.png)
 
-### <a name="6---create-indexer"></a>6 - Criar indexador
+### <a name="6---create-indexer"></a>6-criar indexador
 
-Totalmente especificado, o assistente cria três objetos diferentes em seu serviço de pesquisa. Um objeto de fonte de dados e um objeto de índice são salvos como recursos nomeados do serviço Azure Search. A última etapa cria um objeto do indexador. Dar um nome ao indexador permite que ele exista como um recurso autônomo, que pode ser agendado e gerenciado independentemente do objeto de fonte de dados e índice criado na mesma sequência do assistente.
+Totalmente especificado, o assistente cria três objetos distintos em seu serviço de pesquisa. Um objeto de fonte de dados e um objeto de índice são salvos como recursos nomeados em seu serviço de Azure Search. A última etapa cria um objeto de indexador. Nomear o indexador permite que ele exista como um recurso autônomo, que você pode agendar e gerenciar independentemente do índice e do objeto de fonte de dados, criado na mesma sequência do assistente.
 
-Se você não estiver familiarizado com indexadores, um *indexador* é um recurso no Azure Search que rastreia uma fonte de dados externa para o conteúdo pesquisável. A saída do assistente para **Importar dados** é um indexador que rastreia sua fonte de dados JSON, extrai o conteúdo pesquisável e importa-o para um índice no Azure Search.
+Se você não estiver familiarizado com indexadores, um *indexador* é um recurso em Azure Search que rastreia uma fonte de dados externa para conteúdo pesquisável. A saída do assistente de **importação de dados** é um indexador que rastreia sua fonte de dados JSON, extrai conteúdo pesquisável e importa-o para um índice em Azure Search.
 
-   ![Definição de indexador de blob](media/search-howto-index-json/import-wizard-json-indexer.png)
+   ![Definição do indexador de BLOB](media/search-howto-index-json/import-wizard-json-indexer.png)
 
-Clique em **Ok** para executar o assistente e criar todos os objetos. A indexação começa imediatamente.
+Clique em **OK** para executar o assistente e criar todos os objetos. A indexação começa imediatamente.
 
-Pode-se monitorar a importação de dados nas páginas do portal. As notificações de progresso indicam o status da indexação e quantos documentos são carregados. 
+Você pode monitorar a importação de dados nas páginas do Portal. As notificações de progresso indicam o status de indexação e quantos documentos são carregados. 
 
-Quando a indexação estiver concluída, você pode usar o [Search explorer](search-explorer.md) para consultar seu índice.
+Quando a indexação estiver concluída, você poderá usar o [Search Explorer](search-explorer.md) para consultar o índice.
 
 > [!NOTE]
 > Se você não vir os dados esperados, talvez seja necessário definir mais atributos em mais campos. Exclua o índice e o indexador que você acabou de criar e percorra o assistente novamente, modificando suas seleções de atributos de índice na etapa 5. 
@@ -122,17 +118,17 @@ Para a indexação JSON baseada em código, use o [postmaster](search-get-starte
 
 + [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [fonte de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
-+ [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 A ordem das operações requer que você crie e chame objetos nesta ordem. Em contraste com o fluxo de trabalho do portal, uma abordagem de código requer um índice disponível para aceitar os documentos JSON enviados por meio da solicitação **criar indexador** .
 
-Os BLOBs JSON no armazenamento de BLOBs do Azure normalmente são um único documento JSON ou uma "matriz" JSON. O indexador de blob no Azure Search pode analisar a construção, dependendo de como você definir o parâmetro **parsingMode** na solicitação.
+Os BLOBs JSON no armazenamento de BLOBs do Azure normalmente são um único documento JSON ou uma "matriz" JSON. O indexador de blob no Azure Search pode analisar qualquer construção, dependendo de como você define o parâmetro **parsingMode** na solicitação.
 
 | Documento JSON | parsingMode | Descrição | Disponibilidade |
 |--------------|-------------|--------------|--------------|
-| Um por blob | `json` | Analisa blobs JSON como um único bloco de texto. Cada blob JSON torna-se um único documento do Azure Search. | Geralmente disponível na API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e no SDK do [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) . |
-| Múltiplos por blob | `jsonArray` | Analisa uma matriz JSON no blob, onde cada elemento da matriz se torna um documento do Azure Search separado.  | Geralmente disponível na API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e no SDK do [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) . |
-| Múltiplos por blob | `jsonLines` | Analisa um blob que contém várias entidades JSON (uma "matriz") separadas por uma nova linha, em que cada entidade se torna um documento Azure Search separado. | Geralmente disponível na API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e no SDK do [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) . |
+| Um por blob | `json` | Analisa os BLOBs JSON como uma única parte do texto. Cada blob JSON se torna um único documento Azure Search. | Geralmente disponível na API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e no SDK do [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) . |
+| Vários por blob | `jsonArray` | Analisa uma matriz JSON no BLOB, em que cada elemento da matriz se torna um documento Azure Search separado.  | Geralmente disponível na API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e no SDK do [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) . |
+| Vários por blob | `jsonLines` | Analisa um blob que contém várias entidades JSON (uma "matriz") separadas por uma nova linha, em que cada entidade se torna um documento Azure Search separado. | Geralmente disponível na API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e no SDK do [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) . |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-montar entradas para a solicitação
 
@@ -155,7 +151,7 @@ Você pode encontrar esses valores no Portal:
 
 ### <a name="2---create-a-data-source"></a>2-criar uma fonte de dados
 
-Esta etapa fornece informações de conexão de fonte de dados usadas pelo indexador. A fonte de dados é um objeto nomeado no Azure Search que persiste as informações de conexão. O tipo de fonte de `azureblob`dados,, determina quais comportamentos de extração de dados são invocados pelo indexador. 
+Esta etapa fornece informações de conexão de fonte de dados usadas pelo indexador. A fonte de dados é um objeto nomeado no Azure Search que persiste as informações de conexão. O tipo de fonte de dados, `azureblob`, determina quais comportamentos de extração de dados são invocados pelo indexador. 
 
 Substitua os valores válidos para o nome do serviço, a chave de administração, a conta de armazenamento e os espaços reservados da chave de conta.
 
@@ -172,11 +168,11 @@ Substitua os valores válidos para o nome do serviço, a chave de administraçã
 
 ### <a name="3---create-a-target-search-index"></a>3-criar um índice de pesquisa de destino 
 
-Indexadores são emparelhados com um esquema de índice. Se você estiver usando a API (em vez do portal), prepare um índice com antecedência para que você pode especificá-lo na operação do indexador.
+Os indexadores são emparelhados com um esquema de índice. Se você estiver usando a API (em vez do Portal), prepare um índice antecipadamente para que você possa especificá-lo na operação do indexador.
 
-O índice armazena o conteúdo pesquisável no Azure Search. Para criar um índice, forneça um esquema que especifique os campos em um documento, atributos e outras construções que modelam a experiência de pesquisa. Se você criar um índice que tem os mesmos nomes de campo e tipos de dados que a origem, o indexador corresponderá os campos de origem e destino, economizando o trabalho de precisar mapear explicitamente os campos.
+O índice armazena conteúdo pesquisável em Azure Search. Para criar um índice, forneça um esquema que especifique os campos em um documento, atributos e outras construções que modelam a experiência de pesquisa. Se você criar um índice que tenha os mesmos nomes de campo e tipos de dados que a origem, o indexador corresponderá aos campos de origem e de destino, poupando-lhe o trabalho de ter que mapear explicitamente os campos.
 
-O exemplo a seguir mostra uma solicitação de [Criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index). O índice possuirá um campo `content` pesquisável para armazenar o texto extraído dos blobs:   
+O exemplo a seguir mostra uma solicitação [CREATE INDEX](https://docs.microsoft.com/rest/api/searchservice/create-index) . O índice terá um campo de `content` pesquisável para armazenar o texto extraído dos BLOBs:   
 
     POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
@@ -209,7 +205,7 @@ Assim como ocorre com um índice e uma fonte de dados, e o indexador também é 
 
 A configuração do indexador está no corpo da solicitação. Ele requer uma fonte de dados e um índice de destino vazio que já exista no Azure Search. 
 
-Agendamento e parâmetros são opcionais. Se você omiti-los, o indexador será executado imediatamente `json` , usando como o modo de análise.
+Agendamento e parâmetros são opcionais. Se você omiti-los, o indexador será executado imediatamente, usando `json` como o modo de análise.
 
 Esse indexador específico não inclui mapeamentos de campo. Dentro da definição do indexador, você pode deixar os **mapeamentos de campo** se as propriedades do documento JSON de origem corresponderem aos campos do índice de pesquisa de destino. 
 
@@ -279,12 +275,12 @@ Criar o indexador em Azure Search aciona a importação de dados. Ele é executa
 
 ## <a name="use-net-sdk"></a>Usar o SDK do .NET
 
-O SDK do .NET tem paridade total com a API REST. É recomendável examinar a seção anterior da API REST para aprender os conceitos, fluxo de trabalho e requisitos. Consulte a seguinte documentação de referência de API do .NET para implementar um indexador JSON em código gerenciado.
+O SDK do .NET tem paridade total com a API REST. Recomendamos que você examine a seção anterior da API REST para saber os conceitos, o fluxo de trabalho e os requisitos. Em seguida, você pode consultar a seguinte documentação de referência da API .NET para implementar um indexador JSON em código gerenciado.
 
-+ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [Microsoft. Azure. Search. Models. DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [Microsoft. Azure. Search. Models. DataSourceType](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [Microsoft. Azure. Search. Models. index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [Microsoft. Azure. Search. Models. indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 <a name="parsing-modes"></a>
 
@@ -298,19 +294,19 @@ Os BLOBs JSON podem assumir vários formulários. O parâmetro **parsingMode** n
 | `jsonArray` | Escolha esse modo se os BLOBs consistirem em matrizes JSON e você precisar que cada elemento da matriz se torne um documento separado em Azure Search. |
 |`jsonLines` | Escolha esse modo se seus BLOBs consistirem em várias entidades JSON, que são separadas por uma nova linha, e você precisa que cada entidade se torne um documento separado em Azure Search. |
 
-Você pode pensar em um documento como um único item nos resultados da pesquisa. Se você quiser que cada elemento na matriz apareça nos resultados da pesquisa como um item independente, use a `jsonArray` opção ou `jsonLines` conforme apropriado.
+Você pode considerar um documento como um único item nos resultados da pesquisa. Se você quiser que cada elemento na matriz apareça nos resultados da pesquisa como um item independente, use a opção `jsonArray` ou `jsonLines`, conforme apropriado.
 
-Dentro da definição de indexador, use opcionalmente [mapeamentos de campo](search-indexer-field-mappings.md) para selecionar as propriedades do documento JSON de origem usado para preencher o índice de pesquisa de destino. Para `jsonArray` o modo de análise, se a matriz existir como uma propriedade de nível inferior, você poderá definir uma raiz do documento indicando onde a matriz é colocada no BLOB.
+Na definição do indexador, opcionalmente, você pode usar [mapeamentos de campo](search-indexer-field-mappings.md) para escolher quais propriedades do documento JSON de origem serão usadas para preencher o índice de pesquisa de destino. Para `jsonArray` modo de análise, se a matriz existir como uma propriedade de nível inferior, você poderá definir uma raiz do documento indicando onde a matriz é colocada dentro do blob.
 
 > [!IMPORTANT]
-> Quando você usa `json`o `jsonArray` , `jsonLines` ou o modo de análise, Azure Search pressupõe que todos os BLOBs em sua fonte de dados contêm JSON. Se você precisar dar suporte a uma combinação de blobs JSON e não JSON na mesma fonte de dados, informe-nos em nosso [site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Quando você usa o modo de análise `json`, `jsonArray` ou `jsonLines`, o Azure Search pressupõe que todos os BLOBs em sua fonte de dados contêm JSON. Se você precisar dar suporte a uma combinação de BLOBs JSON e não JSON na mesma fonte de dados, informe-nos em [nosso site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 
 <a name="parsing-single-blobs"></a>
 
 ## <a name="parse-single-json-blobs"></a>Analisar BLOBs JSON únicos
 
-Por padrão, o [indexador de blobs do Azure Search](search-howto-indexing-azure-blob-storage.md) analisa blobs JSON como um único bloco de texto. Muitas vezes, você deseja preservar a estrutura dos seus documentos JSON. Por exemplo, suponha que você tem o seguinte documento JSON no armazenamento de BLOBs do Azure:
+Por padrão, o [indexador de blobs do Azure Search](search-howto-indexing-azure-blob-storage.md) analisa blobs JSON como um único bloco de texto. Geralmente, você deseja preservar a estrutura de seus documentos JSON. Por exemplo, suponha que você tenha o seguinte documento JSON no armazenamento de BLOBs do Azure:
 
     {
         "article" : {
@@ -320,15 +316,15 @@ Por padrão, o [indexador de blobs do Azure Search](search-howto-indexing-azure-
         }
     }
 
-O indexador de blobs analisa o documento JSON em um único documento do Azure Search. O indexador carrega um índice por correspondência de "texto", "data de publicação" e "marcas" da origem em relação a campos de destino de forma idêntica nomeados e digitados.
+O indexador de blob analisa o documento JSON em um único documento Azure Search. O indexador carrega um índice por correspondência de "texto", "datePublished" e "marcações" da origem em relação aos campos de índice de destino nomeados e digitados de forma idêntica.
 
-Conforme observado, os mapeamentos de campo não são necessários. Dado um índice com os campos "texto", "data de publicação e "marcas", o indexador blob pode inferir o mapeamento correto sem um campo de mapeamento presente na solicitação.
+Como observado, os mapeamentos de campo não são necessários. Dado um índice com os campos "text", "datePublished" e "tags", o indexador de blob pode inferir o mapeamento correto sem um mapeamento de campo presente na solicitação.
 
 <a name="parsing-arrays"></a>
 
 ## <a name="parse-json-arrays"></a>Analisar matrizes JSON
 
-Como alternativa, você pode usar a opção de matriz JSON. Essa opção é útil quando os BLOBs contêm uma *matriz de objetos JSON bem formados*e você deseja que cada elemento se torne um documento Azure Search separado. Por exemplo, dado o blob JSON a seguir, você pode popular o índice do Azure Search com três documentos separados, cada um com os campos "id" e "text".  
+Como alternativa, você pode usar a opção de matriz JSON. Essa opção é útil quando os BLOBs contêm uma *matriz de objetos JSON bem formados*e você deseja que cada elemento se torne um documento Azure Search separado. Por exemplo, dado o blob JSON a seguir, você pode preencher o índice de Azure Search com três documentos separados, cada um com os campos "ID" e "texto".  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -336,7 +332,7 @@ Como alternativa, você pode usar a opção de matriz JSON. Essa opção é úti
         { "id" : "3", "text" : "example 3" }
     ]
 
-Para uma matriz JSON, a definição do indexador deve ser semelhante ao exemplo a seguir. Observe que o parâmetro parsingMode especifica o `jsonArray` analisador. Especificar o analisador correto e ter a entrada de dados correta são os únicos dois requisitos específicos de matriz para indexação de BLOBs JSON.
+Para uma matriz JSON, a definição do indexador deve ser semelhante ao exemplo a seguir. Observe que o parâmetro parsingMode especifica o analisador de `jsonArray`. Especificar o analisador correto e ter a entrada de dados correta são os únicos dois requisitos específicos de matriz para indexação de BLOBs JSON.
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -350,12 +346,12 @@ Para uma matriz JSON, a definição do indexador deve ser semelhante ao exemplo 
       "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
     }
 
-Novamente, os mapeamentos de campo não são necessários. Dado um índice com nomes idênticos nos campos "texto", "data de publicação e "marcas", o indexador blob pode inferir o mapeamento correto sem uma lista campo de mapeamento explícita.
+Novamente, observe que os mapeamentos de campo podem ser omitidos. Supondo um índice com nomes de campos "ID" e "texto" idênticos, o indexador de blob pode inferir o mapeamento correto sem uma lista explícita de mapeamento de campos.
 
 <a name="nested-json-arrays"></a>
 
 ## <a name="parse-nested-arrays"></a>Analisar matrizes aninhadas
-Para matrizes JSON com elementos aninhados, você pode `documentRoot` especificar um para indicar uma estrutura de vários níveis. Por exemplo, se o seu blob tiver esta aparência:
+Para matrizes JSON com elementos aninhados, você pode especificar um `documentRoot` para indicar uma estrutura de vários níveis. Por exemplo, se seus BLOBs tiverem esta aparência:
 
     {
         "level1" : {
@@ -367,7 +363,7 @@ Para matrizes JSON com elementos aninhados, você pode `documentRoot` especifica
         }
     }
 
-Use esta configuração para indexar a matriz contida na propriedade `level2`:
+Use essa configuração para indexar a matriz contida na propriedade `level2`:
 
     {
         "name" : "my-json-array-indexer",
@@ -383,7 +379,7 @@ Se o blob contiver várias entidades JSON separadas por uma nova linha e você d
     { "id" : "2", "text" : "example 2" }
     { "id" : "3", "text" : "example 3" }
 
-Para linhas JSON, a definição do indexador deve ser semelhante ao exemplo a seguir. Observe que o parâmetro parsingMode especifica o `jsonLines` analisador. 
+Para linhas JSON, a definição do indexador deve ser semelhante ao exemplo a seguir. Observe que o parâmetro parsingMode especifica o analisador de `jsonLines`. 
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -397,15 +393,15 @@ Para linhas JSON, a definição do indexador deve ser semelhante ao exemplo a se
       "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
     }
 
-Novamente, observe que os mapeamentos de campo podem ser omitidos, `jsonArray` semelhante ao modo de análise.
+Novamente, observe que os mapeamentos de campo podem ser omitidos, semelhante ao modo de análise de `jsonArray`.
 
 ## <a name="add-field-mappings"></a>Adicionar mapeamentos de campo
 
-Quando os campos de origem e destino não estiverem devidamente alinhados, você pode definir uma seção de mapeamento de campo no corpo da solicitação de associações de campo para campo explícitas.
+Quando os campos de origem e de destino não estiverem perfeitamente alinhados, você poderá definir uma seção de mapeamento de campo no corpo da solicitação para associações explícitas de campo para campo.
 
-Atualmente, Azure Search não pode indexar documentos JSON arbitrários diretamente porque ele dá suporte apenas a tipos de dados primitivos, matrizes de cadeia de caracteres e pontos geojson. No entanto, você pode usar **mapeamentos de campo** para separar partes do documento JSON e "elevá-los" para campos de nível superior do documento de pesquisa. Para saber mais sobre conceitos básicos de mapeamentos de campo, consulte [campo mapeamentos de indexadores do Azure Search](search-indexer-field-mappings.md).
+Atualmente, Azure Search não pode indexar documentos JSON arbitrários diretamente porque ele dá suporte apenas a tipos de dados primitivos, matrizes de cadeia de caracteres e pontos geojson. No entanto, você pode usar **mapeamentos de campo** para separar partes do documento JSON e "elevá-los" para campos de nível superior do documento de pesquisa. Para saber mais sobre os mapeamentos de campo básicos, consulte [mapeamentos de campo em indexadores de Azure Search](search-indexer-field-mappings.md).
 
-Voltando ao nosso documento JSON de exemplo:
+Revisitando nosso documento JSON de exemplo:
 
     {
         "article" : {
@@ -415,7 +411,7 @@ Voltando ao nosso documento JSON de exemplo:
         }
     }
 
-Digamos que você tenha um índice de pesquisa com os seguintes campos: `text` do tipo `Edm.String`, `date` do tipo `Edm.DateTimeOffset` e `tags` do tipo `Collection(Edm.String)`. Observe a discrepância entre "data de publicação" na fonte e campo `date` no índice. Para mapear seu JSON para a forma desejada, use os seguintes mapeamentos de campo:
+Suponha um índice de pesquisa com os seguintes campos: `text` do tipo `Edm.String`, `date` do tipo `Edm.DateTimeOffset` e `tags` do tipo `Collection(Edm.String)`. Observe a discrepância entre "datePublished" no campo de origem e `date` no índice. Para mapear seu JSON para a forma desejada, use os seguintes mapeamentos de campo:
 
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
@@ -423,20 +419,20 @@ Digamos que você tenha um índice de pesquisa com os seguintes campos: `text` d
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
       ]
 
-Os nomes dos campos de origem nos mapeamentos são especificados usando a notação [JSON Pointer](https://tools.ietf.org/html/rfc6901) . Comece com uma barra invertida para referir-se à raiz do documento JSON, então selecione a propriedade desejada (em nível arbitrário de aninhamento) usando um caminho separado por barra invertida.
+Os nomes dos campos de origem nos mapeamentos são especificados usando a notação [JSON Pointer](https://tools.ietf.org/html/rfc6901) . Você começa com uma barra invertida para fazer referência à raiz do seu documento JSON e escolhe a propriedade desejada (em nível arbitrário de aninhamento) usando o caminho separado por barra invertida.
 
-Você também pode se referir a elementos individuais da matriz usando um índice com base em zero. Por exemplo, para selecionar o primeiro elemento da matriz "tags" do exemplo anterior, use um mapeamento de campo como este:
+Você também pode se referir a elementos individuais da matriz usando um índice com base em zero. Por exemplo, para escolher o primeiro elemento da matriz "tags" do exemplo acima, use um mapeamento de campo como este:
 
     { "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
 
 > [!NOTE]
-> Se o nome de um campo de origem em um caminho de mapeamento de campo se referir a uma propriedade que não existe em JSON, esse mapeamento será ignorado sem erro. Isso é feito para que possamos dar suporte a documentos com um esquema diferente (o que é um caso de uso comum). Como não há nenhuma validação, você precisa tomar cuidado para evitar erros de digitação na especificação do mapeamento do campo.
+> Se um nome de campo de origem em um caminho de mapeamento de campo se referir a uma propriedade que não existe em JSON, esse mapeamento será ignorado sem erro. Isso é feito para que possamos dar suporte a documentos com um esquema diferente (que é um caso de uso comum). Como não há nenhuma validação, você precisa tomar cuidado para evitar erros de digitação em sua especificação de mapeamento de campo.
 >
 >
 
 ## <a name="see-also"></a>Consulte também
 
 + [Indexadores no Azure Search](search-indexer-overview.md)
-+ [Indexação do Armazenamento de Blobs do Azure com o Azure Search](search-howto-index-json-blobs.md)
-+ [Indexando blobs CSV com o indexador de blobs do Azure Search](search-howto-index-csv-blobs.md)
-+ [Tutorial: Pesquisar dados semiestruturados no Armazenamento de Blobs do Azure](search-semi-structured-data.md)
++ [Indexando o armazenamento de BLOBs do Azure com o Azure Search](search-howto-index-json-blobs.md)
++ [Indexando BLOBs CSV com o indexador de blob Azure Search](search-howto-index-csv-blobs.md)
++ [Tutorial: pesquisar dados semiestruturados do armazenamento de BLOBs do Azure](search-semi-structured-data.md)

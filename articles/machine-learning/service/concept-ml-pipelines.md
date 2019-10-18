@@ -1,7 +1,7 @@
 ---
 title: O que são pipelines de ML
 titleSuffix: Azure Machine Learning
-description: Neste artigo, Aprenda as vantagens dos pipelines do Machine Learning que você pode criar com o SDK do Azure Machine Learning para Python. Pipelines de ML (aprendizado de máquina) são usados por cientistas de dados para criar, otimizar e gerenciar seus fluxos de trabalho de aprendizado de máquina.
+description: Neste artigo, Aprenda as vantagens dos pipelines do Machine Learning que você pode criar com o SDK do Azure Machine Learning para Python. Os pipelines do ML (Machine Learning) são usados por cientistas de dados para criar, otimizar e gerenciar seus fluxos de trabalho de aprendizado de máquina.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 09/14/2019
-ms.openlocfilehash: d53f422a38c21163fccb1f60eb957b014b54ad74
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 0465dcba5130f3b2dc5c615c884bfa0d3b138eb7
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273961"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514940"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são pipelines Azure Machine Learning?
 
@@ -40,7 +40,7 @@ Saiba como [criar seu primeiro pipeline](how-to-create-your-first-pipeline.md).
 
 A nuvem do Azure fornece vários outros pipelines, cada um com uma finalidade diferente. A tabela a seguir lista os pipelines diferentes e para que eles são usados:
 
-| Pipeline | O que faz | Pipe canônico |
+| Tubula | O que ele faz | Pipe canônico |
 | ---- | ---- | ---- |
 | Pipelines de Azure Machine Learning | Define fluxos de trabalho de aprendizado de máquina reutilizáveis que podem ser usados como um modelo para seus cenários de aprendizado de máquina. | Modelo de > de dados |
 | [Pipelines do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Agrupa as atividades de movimentação de dados, transformação e controle necessárias para executar uma tarefa.  | Dados > dados |
@@ -57,7 +57,7 @@ Um pipeline de Azure Machine Learning é um fluxo de trabalho executável indepe
 
 As etapas independentes permitem que vários cientistas de dados funcionem no mesmo pipeline ao mesmo tempo sem sobrecarregar recursos de computação. Etapas separadas também facilitam o uso de diferentes tipos/tamanhos de computação para cada etapa.
 
-Depois que o pipeline é criado, muitas vezes, há mais ajustes finos no loop de treinamento do pipeline. Quando você executa novamente um pipeline, a execução salta para as etapas que precisam ser executadas novamente, como um script de treinamento atualizado. As etapas que não precisam ser executadas novamente são ignoradas. A mesma análise se aplica a scripts inalterados usados para a realização da etapa. Essa funcionalidade de reutilização ajuda a evitar a execução de etapas dispendiosas e demoradas, como a ingestão de dados e a transformação se os dados subjacentes não forem alterados.
+Depois que o pipeline é criado, geralmente há um ajuste mais fino em relação ao loop de treinamento do pipeline. Quando você executa novamente um pipeline, a execução salta para as etapas que precisam ser executadas novamente, como um script de treinamento atualizado. As etapas que não precisam ser executadas novamente são ignoradas. A mesma análise se aplica a scripts inalterados usados para a realização da etapa. Essa funcionalidade de reutilização ajuda a evitar a execução de etapas dispendiosas e demoradas, como a ingestão de dados e a transformação se os dados subjacentes não forem alterados.
 
 Com o Azure Machine Learning, você pode usar vários kits de instruções e estruturas, como PyTorch ou TensorFlow, para cada etapa em seu pipeline. O Azure coordena os vários [destinos de computação](concept-azure-machine-learning-architecture.md) que você usa, para que seus dados intermediários possam ser compartilhados com os destinos de computação downstream.
 
@@ -85,7 +85,7 @@ Os pipelines resolvem esse problema. Azure Machine Learning orquestra automatica
 
 Além disso, a saída de uma etapa pode, se você escolher, ser reutilizada. Se você especificar reutilização como uma possibilidade e não houver nenhuma dependência upstream disparando o recálculo, o serviço de pipeline usará uma versão armazenada em cache dos resultados da etapa. Essa reutilização pode diminuir drasticamente o tempo de desenvolvimento. Se você tiver uma tarefa de preparação de dados complexa, provavelmente será executada novamente com mais frequência do que é estritamente necessário. Os pipelines aliviam isso de preocupação: se necessário, a etapa será executada, caso contrário, não será.
 
-Toda essa análise de dependência, orquestração e ativação são manipuladas por Azure Machine Learning ao instanciar um objeto de [pipeline](https://docs.microsoft.com/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)?view=azure-ml-py) , passá-lo para um `Experiment` e chamar `submit()`. 
+Toda essa análise de dependência, orquestração e ativação são manipuladas por Azure Machine Learning ao instanciar um objeto de [pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)) , passá-lo para um `Experiment` e chamar `submit()`. 
 
 ### <a name="coordinating-the-steps-involved"></a>Coordenando as etapas envolvidas
 
@@ -99,7 +99,7 @@ Quando você cria e executa um objeto `Pipeline`, ocorrem as seguintes etapas de
 + O serviço determina as dependências entre etapas, resultando em um grafo de execução dinâmica
 + Quando cada nó no grafo de execução é executado:
     + O serviço configura o ambiente de hardware e software necessário (talvez reutilizando os recursos existentes)
-    + A etapa é executada, fornecendo informações de registro em log e monitoramento para seu objeto que o contém `Experiment`
+    + A etapa é executada, fornecendo informações de registro em log e monitoramento para o objeto que os contém `Experiment`
     + Quando a etapa for concluída, suas saídas serão preparadas como entradas para a próxima etapa e/ou gravadas no armazenamento
     + Os recursos que não são mais necessários são finalizados e desanexados
 
@@ -107,7 +107,7 @@ Quando você cria e executa um objeto `Pipeline`, ocorrem as seguintes etapas de
 
 ## <a name="how-do-i-build-azure-ml-pipelines-using-the-python-sdk"></a>Como fazer criar pipelines do Azure ML usando o SDK do Python?
 
-No [SDK do Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), um pipeline é um objeto Python definido no módulo `azureml.pipeline.core`. Um objeto de [pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) contém uma sequência ordenada de um ou mais objetos [PipelineStep](https://docs.microsoft.com/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py) . A classe `PipelineStep` é abstrata e as etapas reais serão de subclasses, como [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?view=azure-ml-py), [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?view=azure-ml-py)ou [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). A classe [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?view=azure-ml-py) mantém uma sequência reutilizável de etapas que podem ser compartilhadas entre pipelines. Um `Pipeline` é executado como parte de um `Experiment`.
+No [SDK do Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), um pipeline é um objeto Python definido no módulo `azureml.pipeline.core`. Um objeto de [pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)) contém uma sequência ordenada de um ou mais objetos [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep) . A classe `PipelineStep` é abstrata e as etapas reais serão de subclasses, como [EstimatorStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep), [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep)ou [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep). A classe [ModuleStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep) mantém uma sequência reutilizável de etapas que podem ser compartilhadas entre pipelines. Um `Pipeline` é executado como parte de um `Experiment`.
 
 Um pipeline do Azure ML está associado a um espaço de trabalho Azure Machine Learning e uma etapa de pipeline está associada a um destino de computação disponível nesse espaço de trabalho. Para obter mais informações, consulte [criar e gerenciar espaços de trabalho do Azure Machine Learning no portal do Azure](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) ou [quais são os destinos de computação no Azure Machine Learning?](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
 
@@ -117,14 +117,14 @@ No Azure Machine Learning, um destino de computação é o ambiente no qual ocor
 
 As etapas em um pipeline podem ter dependências de outras etapas. O serviço de pipeline do Azure ML faz o trabalho de analisar e orquestrar essas dependências. Os nós no "grafo de execução" resultante são etapas de processamento. Cada etapa pode envolver a criação ou reutilização de uma combinação específica de hardware e software, reutilização de resultados em cache e assim por diante. A orquestração e a otimização do serviço desse grafo de execução podem acelerar significativamente uma fase de ML e reduzir os custos. 
 
-Como as etapas são executadas de forma independente, os objetos para manter os dados de entrada e saída que fluem entre as etapas devem ser definidos externamente. Essa é a função de [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)e classes associadas. Esses objetos de dados são associados a um objeto [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py) que encapsula sua configuração de armazenamento. A classe base `PipelineStep` é sempre criada com uma cadeia de caracteres `name`, uma lista de `inputs` e uma lista de `outputs`. Normalmente, ele também tem uma lista de `arguments` e, muitas vezes, terá uma lista de `resource_inputs`. Em geral, as subclasses também terão argumentos adicionais (por exemplo, `PythonScriptStep` exigirá o nome do arquivo e o caminho do script a ser executado). 
+Como as etapas são executadas de forma independente, os objetos para manter os dados de entrada e saída que fluem entre as etapas devem ser definidos externamente. Essa é a função de [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)e classes associadas. Esses objetos de dados são associados a um objeto [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py) que encapsula sua configuração de armazenamento. A classe base de `PipelineStep` é sempre criada com uma cadeia de caracteres de `name`, uma lista de `inputs` e uma lista de `outputs`. Normalmente, ele também tem uma lista de `arguments` e, muitas vezes, terá uma lista de `resource_inputs`. Em geral, as subclasses também terão argumentos adicionais (por exemplo, `PythonScriptStep` exigirá o nome do arquivo e o caminho do script a ser executado). 
 
 O grafo de execução é acíclico, mas os pipelines podem ser executados em um agendamento recorrente e podem executar scripts Python que podem gravar informações de estado no sistema de arquivos, tornando possível criar perfis complexos. Se você projetar seu pipeline para que determinadas etapas possam ser executadas em paralelo ou assincronamente, Azure Machine Learning tratar de forma transparente a análise de dependência e a coordenação do fan-out e do Fan-in. Normalmente, você não precisa se preocupar com os detalhes do grafo de execução, mas está disponível por meio do atributo [pipeline. Graph](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py#attributes) . 
 
 
 ### <a name="a-simple-python-pipeline"></a>Um pipeline Python simples
 
-Este trecho de código mostra os objetos e as chamadas necessárias para criar e executar um @no__t básico-0:
+Este trecho de código mostra os objetos e as chamadas necessárias para criar e executar um `Pipeline` básico:
 
 ```python
 ws = Workspace.from_config() 
@@ -157,7 +157,7 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-O trecho de código começa com objetos Azure Machine Learning comuns, um `Workspace`, um `Datastore`, um [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py)e um `Experiment`. Em seguida, o código cria os objetos para manter `input_data` e `output_data`. A matriz `steps` mantém um único elemento, um `PythonScriptStep` que usará os objetos de dados e será executado no `compute_target`. Em seguida, o código instancia o objeto `Pipeline` em si, passando o espaço de trabalho e a matriz de etapas. A chamada para `experiment.submit(pipeline)` inicia a execução do pipeline do Azure ML. A chamada para `wait_for_completion()` é bloqueada até que o pipeline seja concluído. 
+O trecho de código começa com objetos Azure Machine Learning comuns, um `Workspace`, um `Datastore`, um [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py)e um `Experiment`. Em seguida, o código cria os objetos para manter `input_data` e `output_data`. A matriz `steps` mantém um único elemento, uma `PythonScriptStep` que usará os objetos de dados e será executada no `compute_target`. Em seguida, o código instancia o próprio objeto `Pipeline`, passando o espaço de trabalho e a matriz de etapas. A chamada para `experiment.submit(pipeline)` começa a execução do pipeline do Azure ML. A chamada para `wait_for_completion()` blocos até que o pipeline seja concluído. 
 
 ## <a name="best-practices-when-choosing-to-use-azure-ml-pipelines"></a>Práticas recomendadas ao optar por usar pipelines do Azure ML?
 
@@ -177,7 +177,7 @@ Algumas situações que sugerem o uso de um pipeline:
 
 * Acoplamento pesado entre as etapas do pipeline. Se a refatoração de uma etapa dependente frequentemente exigir a modificação das saídas de uma etapa anterior, é provável que etapas separadas sejam atualmente mais de um custo do que um benefício. Outra pista de que as etapas são muito ligadas é argumentos para uma etapa que não são dados, mas sinalizadores para controlar o processamento. 
 
-* Otimização prematura dos recursos de computação. Por exemplo, geralmente há vários estágios para a preparação de dados e, com frequência, é possível ver "Ah, aqui está um lugar onde eu poderia usar um `MpiStep` para a programação paralela, mas aqui está um lugar onde eu poderia usar um `PythonScriptStep` com um destino de computação menos potente" e assim por diante. E talvez, a longo prazo, a criação de etapas refinadas como essa pode ser válida, especialmente se houver a possibilidade de usar resultados em cache em vez de sempre recalcular. Mas pipelines não se destinam a ser um substituto para o módulo `multiprocessing`. 
+* Otimização prematura dos recursos de computação. Por exemplo, muitas vezes há vários estágios para a preparação de dados e, muitas vezes, pode ver "Ah, aqui está um lugar onde eu poderia usar um `MpiStep` para a programação paralela, mas aqui está um lugar onde eu poderia usar um `PythonScriptStep` com um destino de computação menos potente , "e assim por diante. E talvez, a longo prazo, a criação de etapas refinadas como essa pode ser válida, especialmente se houver a possibilidade de usar resultados em cache em vez de sempre recalcular. Mas pipelines não se destinam a ser um substituto para o módulo `multiprocessing`. 
 
 Até que um projeto fique grande ou próximo da implantação, seus pipelines devem ser mais esparsos em vez de refinados. Se você considerar seu projeto ML como envolvendo _estágios_ e um pipeline como fornecer um fluxo de trabalho completo para movê-lo por um estágio específico, você está no caminho certo. 
 
@@ -185,18 +185,18 @@ Até que um projeto fique grande ou próximo da implantação, seus pipelines de
 
 As principais vantagens de usar pipelines para seus fluxos de trabalho de aprendizado de máquina são:
 
-|Principal vantagem|DESCRIÇÃO|
+|Vantagem principal|Descrição|
 |:-------:|-----------|
-|**Execuções&nbsp;autônomas**|Agende as etapas para execução em paralelo ou em sequência de maneira confiável e autônoma. A preparação e a modelagem de dados podem durar dias ou semanas, e os pipelines permitem que você se concentre em outras tarefas enquanto o processo está em execução. |
+|**@No__t_1runs autônomo**|Agende as etapas para execução em paralelo ou em sequência de maneira confiável e autônoma. A preparação e a modelagem de dados podem durar dias ou semanas, e os pipelines permitem que você se concentre em outras tarefas enquanto o processo está em execução. |
 |**Computação heterogênea**|Use vários pipelines que são coordenados de forma confiável entre os recursos de computação heterogêneos e escalonáveis e os locais de armazenamento. Faça uso eficiente dos recursos de computação disponíveis executando etapas de pipeline individuais em diferentes destinos de computação, como o HDInsight, VMs de ciência de dados de GPU e databricks.|
-|**Capacidade de reutilização**|Crie modelos de pipeline para cenários específicos, como retreinamento e pontuação de lote. Disparar pipelines publicados de sistemas externos por meio de chamadas REST simples.|
-|**Acompanhamento e controle de versão**|Em vez de acompanhar manualmente os caminhos de dados e resultados durante a iteração, use o SDK de pipelines para fornecer explicitamente o nome e a versão de fontes de dados, entradas e saídas. Você também pode gerenciar os scripts e os dados separadamente para aumentar a produtividade.|
+|**Reutilização**|Crie modelos de pipeline para cenários específicos, como retreinamento e pontuação de lote. Disparar pipelines publicados de sistemas externos por meio de chamadas REST simples.|
+|**Acompanhamento e controle de versão**|Em vez de controlar manualmente os dados e os caminhos de resultados à medida que você itera, use o SDK de pipelines para nomear e controlar explicitamente suas fontes de dados, entradas e saídas. Você também pode gerenciar scripts e dados separadamente para aumentar a produtividade.|
 | **Modularidade** | Separar áreas de preocupações e isolar alterações permite que o software evolua a uma taxa mais rápida com maior qualidade. | 
 |**Colaboração**|Os pipelines permitem que os cientistas de dados colaborem em todas as áreas do processo de design do Machine Learning, ao mesmo tempo em que podem trabalhar simultaneamente em etapas de pipeline.|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Os pipelines do Azure ML são um recurso poderoso que começa a fornecer valor nos primeiros estágios de desenvolvimento. O valor aumenta conforme a equipe e o projeto crescem. Este artigo explicou como pipelines são especificados com o SDK Azure Machine Learning Python e orquestrados no Azure. Você viu algum código-fonte básico e foi introduzido em algumas das classes `PipelineStep` disponíveis. Você deve ter uma noção de quando usar pipelines do Azure ML e como o Azure os executa. 
+Os pipelines do Azure ML são um recurso poderoso que começa a fornecer valor nos primeiros estágios de desenvolvimento. O valor aumenta conforme a equipe e o projeto crescem. Este artigo explicou como pipelines são especificados com o SDK Azure Machine Learning Python e orquestrados no Azure. Você viu algum código-fonte básico e foi apresentado a algumas das `PipelineStep` classes disponíveis. Você deve ter uma noção de quando usar pipelines do Azure ML e como o Azure os executa. 
 
 
 + Saiba como [criar seu primeiro pipeline](how-to-create-your-first-pipeline.md).

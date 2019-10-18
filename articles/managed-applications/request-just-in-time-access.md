@@ -1,17 +1,17 @@
 ---
-title: Habilitar e solicitar o acesso just-in-time para aplicativos gerenciados do Azure
+title: Solicitar acesso just-in-time-aplicativos gerenciados do Azure
 description: Descreve como os editores de aplicativos gerenciados do Azure solicitam acesso just-in-time a um aplicativo gerenciado.
 author: MSEvanhi
 ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
-ms.openlocfilehash: 0d595d4c96e9f87f1c8eece5d47bf4c8cdd58d7c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: fdd1dcf5ab6b58a91534a465a8c92c10de0d2097
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574992"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528959"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Habilitar e solicitar o acesso just-in-time para aplicativos gerenciados do Azure
 
@@ -77,7 +77,7 @@ Ao definir sua oferta no Marketplace, certifique-se de habilitar o acesso JIT.
 
 1. Forneça valores para publicar seu aplicativo gerenciado no Marketplace. Selecione **Sim** para **habilitar o acesso JIT?**
 
-   ![Habilitar acesso Just-In-Time](./media/request-just-in-time-access/marketplace-enable.png)
+   ![Habilitar o acesso just-in-time](./media/request-just-in-time-access/marketplace-enable.png)
 
 Você adicionou uma etapa de configuração JIT à sua interface do usuário e habilitou o acesso JIT na oferta do Marketplace. Quando os consumidores implantam seu aplicativo gerenciado, eles podem [ativar o acesso JIT para sua instância](approve-just-in-time-access.md#enable-during-deployment).
 
@@ -111,6 +111,6 @@ Para enviar uma solicitação de acesso JIT:
 
 A ID da entidade de segurança da conta que solicita acesso JIT deve ser incluída explicitamente na definição do aplicativo gerenciado. A conta não pode ser incluída apenas por meio de um grupo especificado no pacote. Essa limitação será corrigida em uma versão futura.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a aprovação de solicitações de acesso JIT, consulte [aprovar o acesso just-in-time em aplicativos gerenciados do Azure](approve-just-in-time-access.md).

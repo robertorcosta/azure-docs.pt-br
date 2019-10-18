@@ -35,20 +35,6 @@
       href: policy-samples.md
 - name: Conceitos
   items:
-    - name: Gateway da NAT
-      items:
-        - name: Visão geral
-          items:
-            - name: Sobre o gateway da NAT
-              href: nat-service-overview.md
-        - name: Guia de início rápido
-          items:
-            - name: Criar um Gateway da NAT – CLI do Azure
-              href: quickstart-create-nat-gateway-cli.md
-        - name: Tutoriais
-          items:
-            - name: Criar e validar o Gateway da NAT – CLI do Azure
-              href: tutorial-create-validate-nat-gateway-cli.md
     - name: Grupos de segurança
       href: security-overview.md
     - name: Roteamento
@@ -75,6 +61,8 @@
       href: public-ip-address-prefix.md
     - name: IPv6 para a VNet do Azure
       href: ipv6-overview.md
+    - name: Prefixo de endereço IPv6 público
+      href: ipv6-public-ip-address-prefix.md
     - name: Proteção contra DDOS
       href: ddos-protection-overview.md
     - name: Interoperabilidade da Conectividade de Back-end
@@ -248,6 +236,8 @@
           items:
             - name: Sub-redes
               href: virtual-network-manage-subnet.md
+            - name: Delegação de sub-rede
+              href: manage-subnet-delegation.md
             - name: Emparelhamentos
               href: virtual-network-manage-peering.md
             - name: Proteção contra DDOS
@@ -271,6 +261,8 @@
           href: virtual-network-public-ip-address.md
         - name: Prefixo de IP público
           href: manage-public-ip-address-prefix.md
+        - name: Prefixo de endereço IPv6 público
+          href: ipv6-reserve-public-ip-address-prefix.md
     - name: Mover entre regiões
       items:
         - name: Grupos de segurança de rede – Portal

@@ -8,18 +8,18 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f1b18601629db12d4f9e75f180488e91b6a6857a
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 736957ec68f592da74fc6903acade1150d253467
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274861"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527040"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferir dados com o armazenamento de BLOBs e AzCopy
 
 AzCopy é um utilitário de linha de comando que você pode usar para copiar dados para, de ou entre as contas de armazenamento. Este artigo contém comandos de exemplo que funcionam com o armazenamento de BLOBs.
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Comece agora
 
 Consulte o artigo [introdução ao AzCopy](storage-use-azcopy-v10.md) para baixar o AzCopy e saiba mais sobre as maneiras como você pode fornecer credenciais de autorização para o serviço de armazenamento.
 
@@ -102,7 +102,7 @@ Você pode carregar o conteúdo de um diretório sem copiar o próprio diretóri
 | **Exemplo** (namespace hierárquico) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory'` |
 
 > [!NOTE]
-> Acrescente o sinalizador `--recursive` para carregar arquivos em todos os subdiretórios.
+> Acrescente o sinalizador de `--recursive` para carregar arquivos em todos os subdiretórios.
 
 ### <a name="upload-specific-files"></a>Carregar arquivos específicos
 
@@ -135,7 +135,7 @@ Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a opção `--include
 
 Você também pode excluir arquivos usando a opção `--exclude-pattern`. Para saber mais, consulte [azcopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
-As opções `--include-pattern` e `--exclude-pattern` se aplicam somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a opção `–recursive` para obter a árvore de diretórios inteira e use o `–include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
+As opções `--include-pattern` e `--exclude-pattern` se aplicam somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a opção `–recursive` para obter a árvore de diretórios inteira e, em seguida, use a `–include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
 
 ## <a name="download-files"></a>Baixar arquivos
 
@@ -185,7 +185,7 @@ Você pode baixar o conteúdo de um diretório sem copiar o próprio diretório 
 | **Exemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/*' 'C:\myDirectory'` |
 
 > [!NOTE]
-> Acrescente o sinalizador `--recursive` para baixar arquivos em todos os subdiretórios.
+> Acrescente o sinalizador de `--recursive` para baixar arquivos em todos os subdiretórios.
 
 ### <a name="download-specific-files"></a>Baixar arquivos específicos
 
@@ -217,7 +217,7 @@ Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a opção `--include
 
 Você também pode excluir arquivos usando a opção `--exclude-pattern`. Para saber mais, consulte [azcopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
-As opções `--include-pattern` e `--exclude-pattern` se aplicam somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a opção `–recursive` para obter a árvore de diretórios inteira e use o `–include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
+As opções `--include-pattern` e `--exclude-pattern` se aplicam somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a opção `–recursive` para obter a árvore de diretórios inteira e, em seguida, use a `–include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
 
 ## <a name="copy-blobs-between-storage-accounts"></a>Copiar BLOBs entre contas de armazenamento
 
@@ -272,14 +272,14 @@ Para obter documentos de referência detalhados, consulte [cópia azcopy](storag
 
 ## <a name="synchronize-files"></a>Sincronizar arquivos
 
-Você pode sincronizar o conteúdo de um sistema de arquivos local com um contêiner de BLOB. A sincronização é unidirecional. Em outras palavras, você escolhe quais desses dois pontos de extremidade são a origem e qual deles é o destino. A sincronização também usa APIs de servidor para servidor.
+Você pode sincronizar o conteúdo de um sistema de arquivos local com um contêiner de BLOB. Você também pode sincronizar contêineres e diretórios virtuais entre si. A sincronização é unidirecional. Em outras palavras, você escolhe quais desses dois pontos de extremidade são a origem e qual deles é o destino. A sincronização também usa APIs de servidor para servidor.
 
 > [!NOTE]
-> Atualmente, esse cenário tem suporte apenas para contas que não têm um namespace hierárquico. A versão atual do AzCopy não é sincronizada entre outras origens e destinos (por exemplo: Armazenamento de arquivos ou buckets de Amazon Web Services (AWS) S3).
+> Atualmente, esse cenário tem suporte apenas para contas que não têm um namespace hierárquico. A versão atual do AzCopy não sincroniza entre outras origens e destinos (por exemplo: armazenamento de arquivos Amazon Web Services ou AWS) S3 buckets).
 
-O comando [Sync](storage-ref-azcopy-sync.md) compara os nomes de arquivo e os últimos carimbos de data/hora. Defina o sinalizador opcional `--delete-destination` como um valor de `true` ou `prompt` para excluir arquivos no diretório de destino se esses arquivos não existirem mais no diretório de origem.
+O comando [Sync](storage-ref-azcopy-sync.md) compara os nomes de arquivo e os últimos carimbos de data/hora. Defina o `--delete-destination` sinalizador opcional como um valor de `true` ou `prompt` para excluir arquivos no diretório de destino se esses arquivos não existirem mais no diretório de origem.
 
-Se você definir o sinalizador `--delete-destination` como `true` AzCopy excluirá arquivos sem fornecer um prompt. Se você quiser que um prompt apareça antes de AzCopy excluir um arquivo, defina o sinalizador `--delete-destination` como `prompt`.
+Se você definir o sinalizador `--delete-destination` como `true` AzCopy excluirá os arquivos sem fornecer um prompt. Se você quiser que um prompt apareça antes de AzCopy excluir um arquivo, defina o sinalizador `--delete-destination` como `prompt`.
 
 > [!NOTE]
 > Para evitar exclusões acidentais, certifique-se de habilitar o recurso de [exclusão reversível](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) antes de usar o sinalizador `--delete-destination=prompt|true`.
@@ -305,16 +305,34 @@ Nesse caso, o sistema de arquivos local é o destino e o contêiner é a origem.
 | **Exemplo** | `azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myDirectory' --recursive` |
 |
 
-## <a name="next-steps"></a>Próximas etapas
+### <a name="update-a-container-with-changes-in-another-container"></a>Atualizar um contêiner com alterações em outro contêiner
+
+O primeiro contêiner que aparece nesse comando é a origem. O segundo é o destino.
+
+|    |     |
+|--------|-----------|
+| **Sintaxe** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
+| **Exemplo** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
+
+### <a name="update-a-directory-with-changes-to-a-directory-in-another-file-share"></a>Atualizar um diretório com alterações em um diretório em outro compartilhamento de arquivos
+
+O primeiro diretório que aparece nesse comando é a origem. O segundo é o destino.
+
+|    |     |
+|--------|-----------|
+| **Sintaxe** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive` |
+| **Exemplo** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive` |
+
+## <a name="next-steps"></a>Próximos passos
 
 Encontre mais exemplos em qualquer um destes artigos:
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 
-- [Tutorial: Migre dados locais para o armazenamento em nuvem usando AzCopy @ no__t-0
+- [Tutorial: migrar dados locais para o armazenamento em nuvem usando o AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 
-- [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
+- [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
 
-- [Transferir dados com o AzCopy e os buckets do Amazon S3](storage-use-azcopy-s3.md)
+- [Transferir dados com os buckets AzCopy e Amazon S3](storage-use-azcopy-s3.md)
 
 - [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
