@@ -4,20 +4,20 @@ description: Este artigo fornece informações de referência para o comando azc
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0cc366ab2cdad9c7258dca905d8f4a06472119fe
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: fc23afb9a407fc2e6689c5c8766cb4beba868269
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195900"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513434"
 ---
 # <a name="azcopy-remove"></a>azcopy remover
 
-Exclui entidades de Azure Storage Blob, arquivo e Azure Data Lake Storage Gen2.
+Exclua BLOBs ou arquivos de uma conta de armazenamento do Azure.
 
 ## <a name="synopsis"></a>Resumo
 
@@ -57,13 +57,24 @@ Remova um diretório virtual inteiro, mas exclua determinados BLOBs do escopo (p
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --exclude="foo*;*bar"
 ```
 
-Remover um único arquivo de Data Lake Storage Gen2 (incluir e excluir sem suporte):
+Remova BLOBs específicos e diretórios virtuais colocando seus caminhos relativos (não codificados em URL) em um arquivo:
+
+```azcopy
+azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/dir]" --recursive=true --list-of-files=/usr/bar/list.txt
+file content:
+  dir1/dir2
+  blob1
+  blob2
+
+```
+
+Remova um único arquivo de uma conta de armazenamento de BLOBs que tenha um namespace hierárquico (include/Exclude sem suporte).
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/file]?[SAS]"
 ```
 
-Remover um único diretório de Data Lake Storage Gen2 (incluir e excluir sem suporte):
+Remover um único diretório de uma conta de armazenamento de BLOBs que tem um namespace hierárquico (include/Exclude sem suporte):
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory]?[SAS]"
@@ -71,13 +82,21 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options"></a>Opções
 
-|Opção|Descrição|
-|--|--|
-|--excluir cadeia de caracteres|Exclua os arquivos onde o nome corresponde à lista padrão. Por exemplo: *. jpg;* . PDF; exatoname|
-|-h, --help|Mostrar o conteúdo da ajuda para o comando remover.|
-|--incluir Cadeia de caracteres|Inclua apenas os arquivos em que o nome corresponde à lista padrão. Por exemplo: *. jpg;* . PDF; exatoname|
-|--Cadeia de caracteres de nível de log|Defina o detalhamento de log para o arquivo de log. Os níveis disponíveis incluem: INFORMAÇÕES (todas as solicitações/respostas), aviso (respostas lentas), erro (somente solicitações com falha) e nenhum (nenhum log de saída). (padrão "INFO")|
-|--recursivo|Examine os subdiretórios recursivamente ao sincronizar entre diretórios.|
+**--Exclude-cadeia de caracteres de caminho**      Exclua esses caminhos ao remover. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo do caminho relativo. Por exemplo: MyFolder; MyFolder/subDirName/File. pdf.
+
+**--Exclude-Pattern** cadeia de caracteres excluir arquivos onde o nome corresponde à lista padrão. Por exemplo: *. jpg;* . PDF; exatoname
+
+**-h,-** ajuda ajuda para remover
+
+--a cadeia de caracteres **include-path** inclui apenas esses caminhos ao remover. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo do caminho relativo. Por exemplo: MyFolder; MyFolder/subDirName/File. pdf
+
+**--include-** a cadeia de caracteres de padrão inclui apenas arquivos em que o nome corresponde à lista de padrões. Por exemplo: *. jpg;* . PDF; exatoname
+
+**--a cadeia de caracteres de lista de arquivos** define o local de um arquivo que contém a lista de arquivos e diretórios a serem excluídos. Os caminhos relativos devem ser delimitados por quebras de linha e os caminhos não devem ser codificados em URL.
+
+**--** cadeia de caracteres de nível de log defina o detalhamento de log para o arquivo de log. Os níveis disponíveis incluem: informações (todas as solicitações/respostas), aviso (respostas lentas), erro (somente solicitações com falha) e nenhum (nenhum log de saída). (padrão ' INFO ') (padrão "INFO")
+
+**--recursivo**                Examine os subdiretórios recursivamente ao sincronizar entre diretórios.
 
 ## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
 

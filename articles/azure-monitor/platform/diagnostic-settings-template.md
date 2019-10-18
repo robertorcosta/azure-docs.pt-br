@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: f65e3c4f9582fcc5c28412d44e513fa6bcb9e870
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/17/2019
 ms.locfileid: "71262330"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Criar configuração de diagnóstico no Azure usando um modelo do Resource Manager
@@ -22,7 +22,7 @@ ms.locfileid: "71262330"
 ## <a name="resource-manager-template"></a>Modelo do Resource Manager
 Há duas seções do modelo do Resource Manager que você precisa editar para criar configurações de diagnóstico. Essas seções são descritas nas seções a seguir.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>parameters
 Dependendo dos [destinos](diagnostic-settings.md#destinations) da configuração de diagnóstico, adicione parâmetros ao blob de parâmetros para o nome da conta de armazenamento, ID da regra de autorização do hub de eventos e log Analytics ID do espaço de trabalho.
    
 ```json
@@ -58,8 +58,8 @@ Dependendo dos [destinos](diagnostic-settings.md#destinations) da configuração
 }
 ```
 
-### <a name="resources"></a>Recursos
-Na matriz de recursos do recurso para o qual você deseja criar a configuração de diagnóstico, adicione um recurso do tipo `[resource namespace]/providers/diagnosticSettings`. A seção Propriedades segue o formato descrito em [configurações de diagnóstico – criar ou atualizar](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Adicione a `metrics` propriedade para coletar métricas de recurso para os mesmos destinos se o [recurso der suporte a métricas](metrics-supported.md).
+### <a name="resources"></a>Implante
+Na matriz de recursos do recurso para o qual você deseja criar a configuração de diagnóstico, adicione um recurso do tipo `[resource namespace]/providers/diagnosticSettings`. A seção Propriedades segue o formato descrito em [configurações de diagnóstico – criar ou atualizar](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Adicione a propriedade `metrics` para coletar métricas de recurso para os mesmos destinos se o [recurso der suporte a métricas](metrics-supported.md).
    
 ```json
 "resources": [
@@ -237,6 +237,6 @@ Veja a seguir um exemplo completo que cria um aplicativo lógico e cria uma conf
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Leia mais sobre [os logs de plataforma no Azure](platform-logs-overview.md).
 * Saiba mais sobre [as configurações de diagnóstico](diagnostic-settings.md).

@@ -4,16 +4,16 @@ description: Este artigo fornece informações de referência para o comando azc
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d1f57ae40b47c1d910ba20ae8a8f19cdc6908d6b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: b11d831be847716d4edfac4f9a0725e07a60c52a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70196030"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513859"
 ---
 # <a name="azcopy-doc"></a>azcopy doc
 
@@ -33,7 +33,7 @@ azcopy doc [flags]
 
 |Opção|Descrição|
 |--|--|
-|-h, --help|Mostra o conteúdo da ajuda para o comando doc.|
+|-h,--ajuda|Mostra o conteúdo da ajuda para o comando doc.|
 
 ## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
 

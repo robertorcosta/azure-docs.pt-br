@@ -11,20 +11,20 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 10/16/2019
 ms.author: lahugh
-ms.openlocfilehash: 3c6a054229ab7a16fb48dff5ec2e8681c3c5345e
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
-ms.translationtype: MT
+ms.openlocfilehash: 6f787760c1224172982e0818d8592ce0d36b5e2c
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299501"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527296"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Suporte para VMs de geração 2 (versão prévia) no Azure
 
 > [!IMPORTANT]
 > O suporte do Azure para VMs de geração 2 está atualmente em visualização.
-> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter recursos restritos.
 > Para obter mais informações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O suporte para VMs (máquinas virtuais) de geração 2 agora está disponível em versão prévia no Azure. Você não pode alterar a geração de uma máquina virtual depois de criá-la, portanto, examine as considerações nesta página antes de escolher uma geração.
@@ -51,6 +51,10 @@ As VMs de geração 1 têm suporte de todos os tamanhos de VM no Azure. O Azure 
 * [Série ND](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
 * [Série NVv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
 
+
+>[!NOTE]
+>O uso de imagens de VM de geração 2 para Mv2 está disponível em geral, já que a série Mv2 funciona com imagens de VM de geração 2 exclusivamente. As imagens de VM de geração 1 não estão funcionando com a série Mv2. 
+
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Imagens de VM de geração 2 no Azure Marketplace
 
 As VMs de geração 2 dão suporte às seguintes imagens do Marketplace:
@@ -62,17 +66,17 @@ As VMs de geração 2 dão suporte às seguintes imagens do Marketplace:
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 
-## <a name="on-premises-vs-azure-generation-2-vms"></a>Local vs. VMs do Azure geração 2
+## <a name="on-premises-vs-azure-generation-2-vms"></a>VMs locais vs. Azure geração 2
 
 Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local dá suporte para VMs de geração 2.
 
 | Recurso de geração 2                | Hyper-V local | Azure |
 |-------------------------------------|---------------------|-------|
-| Inicialização segura                         | :heavy_check_mark:  | :x:   |
-| VM blindada                         | :heavy_check_mark:  | :x:   |
-| vTPM                                | :heavy_check_mark:  | :x:   |
-| Segurança baseada em virtualização (VBS) | :heavy_check_mark:  | :x:   |
-| Formato VHDX                         | :heavy_check_mark:  | :x:   |
+| Inicialização segura                         | :heavy_check_mark:  | w.x.y.   |
+| VM blindada                         | :heavy_check_mark:  | w.x.y.   |
+| vTPM                                | :heavy_check_mark:  | w.x.y.   |
+| Segurança baseada em virtualização (VBS) | :heavy_check_mark:  | w.x.y.   |
+| Formato VHDX                         | :heavy_check_mark:  | w.x.y.   |
 
 ## <a name="features-and-capabilities"></a>Recursos e funcionalidades
 
@@ -86,15 +90,15 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Recursos de geração 1 versus geração 2
 
-| Funcionalidade | Geração 1 | Geração 2 |
+| Capacidade | Geração 1 | Geração 2 |
 |------------|--------------|--------------|
-| Disco do sistema operacional > 2 TB                    | :x:                | :heavy_check_mark: |
+| Disco do sistema operacional > 2 TB                    | w.x.y.                | :heavy_check_mark: |
 | Disco personalizado/imagem/sistema operacional de permuta         | :heavy_check_mark: | :heavy_check_mark: |
 | Suporte ao conjunto de dimensionamento de máquinas virtuais | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Site Recovery               | :heavy_check_mark: | :x:                |
+| Recuperação de Site do Azure               | :heavy_check_mark: | w.x.y.                |
 | Backup/restauração                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galeria de imagens compartilhadas              | :heavy_check_mark: | :heavy_check_mark: |
-| Criptografia de disco do Azure             | :heavy_check_mark: | :x:                |
+| Criptografia de disco do Azure             | :heavy_check_mark: | w.x.y.                |
 
 ## <a name="creating-a-generation-2-vm"></a>Criando uma VM de geração 2
 
@@ -121,7 +125,7 @@ Quando você seleciona uma SKU do Windows Server como a oferta, na guia **avanç
 
 Você também pode usar o PowerShell para criar uma VM referenciando diretamente a SKU de geração 1 ou geração 2.
 
-Por exemplo, use o seguinte cmdlet do PowerShell para obter uma lista das SKUs na oferta `WindowsServer`.
+Por exemplo, use o seguinte cmdlet do PowerShell para obter uma lista das SKUs na oferta de `WindowsServer`.
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
@@ -150,9 +154,9 @@ Você também pode criar VMs de geração 2 usando conjuntos de dimensionamento 
     Sim. Mas nem todos os [tamanhos de VM de geração 2](#generation-2-vm-sizes) estão disponíveis em todas as regiões. A disponibilidade da VM de geração 2 depende da disponibilidade do tamanho da VM.
 
 * **Há uma diferença de preço entre as VMs de geração 1 e de geração 2?**  
-    Nº
+    Não.
 
-* **I tem um arquivo. vhd da minha VM de geração 2 local. Posso usar esse arquivo. VHD para criar uma VM de geração 2 no Azure?**
+* **Tenho um arquivo. vhd da minha VM de geração 2 local. Posso usar esse arquivo. VHD para criar uma VM de geração 2 no Azure?**
   Sim, você pode colocar seu arquivo. VHD de geração 2 no Azure e usá-lo para criar uma VM de geração 2. Use as seguintes etapas para fazer isso:
     1. Carregue o. VHD em uma conta de armazenamento na mesma região em que você gostaria de criar sua VM.
     1. Crie um disco gerenciado com base no arquivo. vhd. Defina a propriedade de geração do Hyper-V como v2. Os comandos do PowerShell a seguir definem a propriedade de geração do Hyper-V ao criar um disco gerenciado.
@@ -192,6 +196,6 @@ Você também pode criar VMs de geração 2 usando conjuntos de dimensionamento 
 * **Posso migrar uma VM da geração 1 para a geração 2?**  
     Não, você não pode alterar a geração de uma VM depois de criá-la. Se você precisar alternar entre gerações de VM, crie uma nova VM de uma geração diferente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre as [máquinas virtuais de geração 2 no Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

@@ -1,95 +1,95 @@
 ---
-title: Bibliotecas de cliente necessárias para conectar-se ao Azure Analysis Services | Microsoft Docs
-description: Descreve as bibliotecas de cliente necessárias às ferramentas e ao aplicativos cliente para conectar o Azure Analysis Services
+title: Bibliotecas de cliente necessárias para se conectar ao Azure Analysis Services | Microsoft Docs
+description: Descreve as bibliotecas de cliente necessárias para que os aplicativos cliente e as ferramentas se conectem Azure Analysis Services
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1ea14f141ed4fa698a21da8030878b04a81f1d08
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 89f8ffc58458ce75d1acd897f224f61bab9158b4
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298669"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512779"
 ---
-# <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para conectar-se ao Azure Analysis Services
+# <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para conexão com o Azure Analysis Services
 
-Bibliotecas de cliente são necessárias para que ferramentas e aplicativos cliente se conectem aos servidores do Analysis Services. Aplicativos cliente da Microsoft como Power BI Desktop, Excel, SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) instalam todas as três bibliotecas de cliente e as atualizam juntamente com atualizações de aplicativos regulares. Em alguns casos, talvez seja necessário instalar versões mais recentes das bibliotecas de cliente. Aplicativos cliente personalizados também exigem que bibliotecas de cliente sejam instaladas.
+As bibliotecas de cliente são necessárias para que aplicativos cliente e ferramentas se conectem a servidores Analysis Services. Aplicativos cliente da Microsoft como Power BI Desktop, Excel, SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) instalam todas as três bibliotecas de cliente e as atualizam juntamente com atualizações de aplicativos regulares. Em alguns casos, talvez seja necessário instalar versões mais recentes das bibliotecas de cliente. Aplicativos cliente personalizados também exigem que bibliotecas de cliente sejam instaladas.
 
-## <a name="download-the-latest-client-libraries-windows-installer"></a>Baixar as bibliotecas de clientes mais recentes (Windows Installer)  
+## <a name="download-the-latest-client-libraries-windows-installer"></a>Baixar as bibliotecas de cliente mais recentes (Windows Installer)  
 
-|Download  |Versão do produto  | 
+|Baixar  |Versão do produto  | 
 |---------|---------|
 |[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.5.15    |
 |[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.5.15       |
 |[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.0.9.0    |
 |[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.0.9.0     |
 
-## <a name="amo-and-adomd-nuget-packages"></a>AMO e ADOMD (pacotes do NuGet)
+## <a name="amo-and-adomd-nuget-packages"></a>AMO e ADOMD (pacotes NuGet)
 
-O AMO (Objetos de Gerenciamento de Serviços de Análise) e as bibliotecas de cliente ADOMD estão disponíveis como pacotes instaláveis a partir do [NuGet.org](https://www.nuget.org/). É recomendável migrar para referências de NuGet em vez de usar o Windows Installer. 
+Os ADOMD (objetos de gerenciamento do Analysis Services) e as bibliotecas de cliente do [amNuGet.org](https://www.nuget.org/)estão disponíveis como pacotes instaláveis do do. É recomendável migrar para referências do NuGet em vez de usar Windows Installer. 
 
 |Pacote  | Versão do produto  | 
 |---------|---------|
 |[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.0.9     |
 |[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.0.9      |
 
-Os assemblies de pacotes NuGet AssemblyVersion seguem a versão semântica: MAJOR.MINOR.PATCH. As referências de NuGet carregam a versão esperada, mesmo que haja uma versão diferente no GAC (resultante da instalação do MSI). PATCH é incrementado para cada versão. As versões AMO e ADOMD são mantidas em sincronia.
+Os assemblies do pacote NuGet AssemblyVersion seguem o controle de versão semântico: MAJOR. Secundária. Distribuído. As referências do NuGet carregam a versão esperada mesmo se houver uma versão diferente no GAC (resultante da instalação do MSI). O PATCH é incrementado para cada versão. As versões AMO e ADOMD são mantidas em sincronia.
 
-## <a name="understanding-client-libraries"></a>Noções básicas sobre bibliotecas de clientes
+## <a name="understanding-client-libraries"></a>Noções básicas sobre bibliotecas de cliente
 
-O Analysis Services utiliza três bibliotecas de clientes, também conhecidas como provedores de dados. O ADOMD.NET e o AMO (Objetos de Gerenciamento do Analysis Services) são bibliotecas de clientes gerenciadas. O Provedor Analysis Services OLE DB (MSOLAP DLL) é uma biblioteca de clientes nativa. Normalmente, as três bibliotecas são instaladas ao mesmo tempo. **O Azure Analysis Services exige as versões mais recentes das três bibliotecas**. 
+Analysis Services utilizam três bibliotecas de cliente, também conhecidas como provedores de dados. O AMO (ADOMD.NET and Analysis Services Management Objects) são bibliotecas de cliente gerenciadas. O Provedor Analysis Services OLE DB (MSOLAP DLL) é uma biblioteca de cliente nativa. Normalmente, todos os três são instalados ao mesmo tempo. **Azure Analysis Services requer as versões mais recentes de todas as três bibliotecas**. 
 
-Os aplicativos clientes da Microsoft, como o Power BI Desktop e o Excel, instalam todas as três bibliotecas de clientes e as atualizam quando novas versões estão disponíveis. Dependendo da versão ou da frequência de atualizações, algumas bibliotecas de clientes podem não ser as versões mais recentes exigidas pelo Azure Analysis Services. O mesmo se aplica a aplicativos personalizados ou outras interfaces, como AsCmd, TOM, ADOMD.NET. Esses aplicativos exigem a instalação manual ou programática das bibliotecas. As bibliotecas de cliente para instalação manual estão incluídas nos pacotes de recursos do SQL Server como pacotes distribuíveis. No entanto, essas bibliotecas de cliente estão vinculadas à versão do SQL Server e talvez não sejam as mais recentes.  
+Aplicativos cliente da Microsoft como Power BI Desktop e Excel instalam todas as três bibliotecas de cliente e as atualizam quando novas versões estão disponíveis. Dependendo da versão ou da frequência das atualizações, algumas bibliotecas de cliente podem não ser as versões mais recentes exigidas pelo Azure Analysis Services. O mesmo se aplica a aplicativos personalizados ou a outras interfaces, como AsCmd, TOM, ADOMD.NET. Esses aplicativos exigem a instalação manual ou programática das bibliotecas. As bibliotecas de cliente para instalação manual estão incluídas no SQL Server Feature packs como pacotes distribuíveis. No entanto, essas bibliotecas de cliente estão vinculadas à versão SQL Server e podem não ser as mais recentes.  
 
-As bibliotecas de cliente para conexões de cliente são diferentes dos provedores de dados necessários para se conectar de um servidor Azure Analysis Services a uma fonte de dados. Para saber mais sobre conexões de fonte de dados, confira [Conexões de fonte de dados](analysis-services-datasource.md).
+As bibliotecas de cliente para conexões de cliente são diferentes dos provedores de dados necessários para se conectar de um servidor de Azure Analysis Services a uma fonte de dados. Para saber mais sobre conexões de fonte de dados, consulte [conexões de fonte de dados](analysis-services-datasource.md).
 
-## <a name="client-library-types"></a>Tipos de biblioteca de clientes
+## <a name="client-library-types"></a>Tipos de biblioteca de cliente
 
-### <a name="analysis-services-ole-db-provider-msolap"></a>MSOLAP (Provedor Analysis Services OLE DB) 
+### <a name="analysis-services-ole-db-provider-msolap"></a>Provedor Analysis Services OLE DB (MSOLAP) 
 
- O MSOLAP (Provedor Analysis Services OLE DB) é a biblioteca de clientes nativa para conexões de banco de dados do Analysis Services. Ele é usado indiretamente pelo ADOMD.NET e pelo AMO, delegando solicitações de conexão ao provedor de dados. Você também pode chamar o provedor OLE DB diretamente do código do aplicativo.  
+ O Provedor Analysis Services OLE DB (MSOLAP) é a biblioteca de cliente nativa para conexões de banco de dados Analysis Services. Ele é usado indiretamente por ADOMD.NET e AMO, delegando solicitações de conexão ao provedor de dados. Você também pode chamar o provedor de OLE DB diretamente do código do aplicativo.  
   
- O Provedor Analysis Services OLE DB é instalado automaticamente pela maioria das ferramentas e dos aplicativos clientes usados para acessar bancos de dados do Analysis Services. Ele deve ser instalado nos computadores usados para acessar dados do Analysis Services.  
+ O Provedor Analysis Services OLE DB é instalado automaticamente pela maioria das ferramentas e aplicativos cliente usados para acessar bancos de dados do Analysis Services. Ele deve ser instalado em computadores usados para acessar Analysis Services dados.  
   
- Os provedores OLE DB costumam ser especificados em cadeias de conexão. Uma cadeia de conexão do Analysis Services usa uma nomenclatura diferente para referenciar o provedor OLE DB: MSOLAP.\<version>.dll.
+ Os provedores de OLE DB geralmente são especificados em cadeias de conexão. Uma cadeia de conexão Analysis Services usa um nomenclatura diferente para fazer referência ao provedor de OLE DB: MSOLAP. \<version >. dll.
 
 ### <a name="amo"></a>AMO  
 
- O AMO é uma biblioteca de clientes gerenciada usada para administração de servidor e definição de dados. Ele é instalado e usado por aplicativos clientes e ferramentas. Por exemplo, o SSMS (SQL Server Management Studio) usa o AMO para se conectar ao Analysis Services. Uma conexão usando o AMO geralmente é mínima, consistindo em `"data source=\<servername>"`. Depois que uma conexão é estabelecida, você usa a API para trabalhar com coleções de banco de dados e grandes objetos. Tanto o SSDT quanto o SSMS usam o AMO para se conectar a uma instância do Analysis Services.  
+ O AMO é uma biblioteca de cliente gerenciada usada para administração de servidor e definição de dados. Ele é instalado e usado por ferramentas e aplicativos cliente. Por exemplo, SQL Server Management Studio (SSMS) usa o AMO para se conectar ao Analysis Services. Uma conexão usando o AMO normalmente é mínima, consistindo em `"data source=\<servername>"`. Depois que uma conexão é estabelecida, você usa a API para trabalhar com coleções de banco de dados e objetos principais. Tanto o SSDT quanto o SSMS usam o AMO para se conectar a uma instância de Analysis Services.  
 
   
 ### <a name="adomd"></a>ADOMD
 
- O ADOMD.NET é uma biblioteca de clientes de dados gerenciada usada para consultar dados do Analysis Services. Ele é instalado e usado por aplicativos clientes e ferramentas. 
+ ADOMD.NET é uma biblioteca de cliente de dados gerenciado usada para consultar dados de Analysis Services. Ele é instalado e usado por ferramentas e aplicativos cliente. 
   
- Ao se conectar a um banco de dados, as propriedades de cadeia de conexão das três bibliotecas são semelhantes. Quase todas as cadeias de conexão que você define para o ADOMD.NET usando [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString) também funcionam para o AMO e o MSOLAP (Provedor Analysis Services OLE DB). Para saber mais, confira [Propriedades de cadeia de Conexão & #40;Analysis Services& #41;](https://docs.microsoft.com/analysis-services/instances/connection-string-properties-analysis-services).  
+ Ao se conectar a um banco de dados, as propriedades da cadeia de conexão para todas as três bibliotecas são semelhantes. Quase todas as cadeias de conexão que você define para ADOMD.NET usando [Microsoft. AnalysisServices. AdomdClient. AdomdConnection. ConnectionString](/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString) também funcionam para amo e o provedor Analysis Services OLE DB (MSOLAP). Para saber mais, confira [Propriedades &#40;da cadeia&#41;de conexão Analysis Services](https://docs.microsoft.com/analysis-services/instances/connection-string-properties-analysis-services).  
 
   
-##  <a name="bkmk_LibUpdate"></a>Como determinar a versão da biblioteca de clientes   
+##  <a name="bkmk_LibUpdate"></a>Como determinar a versão da biblioteca do cliente   
   
 ### <a name="oleddb-msolap"></a>OLEDDB (MSOLAP)  
   
 1.  Vá para `C:\Program Files\Microsoft Analysis Services\AS OLEDB\`. Se você tiver mais de uma pasta, escolha o número mais alto.
   
-2.  Clique com botão direito do mouse em **msolap.dll** > **Propriedades** > **Detalhes**. Se o nome do arquivo for msolap140.dll, é mais antigo que a versão mais recente e deverá ser atualizado.
+2.  Clique com o botão direito do mouse em **MSOLAP. dll**  > **Propriedades**  > **detalhes**. Se o nome do arquivo for msolap140. dll, ele será mais antigo que a versão mais recente e deverá ser atualizado.
     
-    ![Detalhes da biblioteca de clientes](media/analysis-services-data-providers/aas-msolap-details.png)
+    ![Detalhes da biblioteca de cliente](media/analysis-services-data-providers/aas-msolap-details.png)
     
   
 ### <a name="amo"></a>AMO
 
 1. Vá para `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`. Se você tiver mais de uma pasta, escolha o número mais alto.
-2. Clique com botão direito do mouse em **AnalysisServices** > **Propriedades** > **Detalhes**.  
+2. Clique com o botão direito do mouse em **Microsoft. AnalysisServices**  > **Propriedades**  > **detalhes**.  
 
 ### <a name="adomd"></a>ADOMD
 
 1. Vá para `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\`. Se você tiver mais de uma pasta, escolha o número mais alto.
-2. Clique com botão direito do mouse em **Microsoft.AnalysisServices.AdomdClient** > **Propriedades** > **Detalhes**.  
+2. Clique com o botão direito do mouse em **Microsoft. AnalysisServices. AdomdClient**  > **Propriedades**  > **detalhes**.  
 
 
-## <a name="next-steps"></a>Próximas etapas
-[Conectar com Excel](analysis-services-connect-excel.md)    
-[Conectar com o Power BI](analysis-services-connect-pbi.md)
+## <a name="next-steps"></a>Próximos passos
+[Conectar-se ao Excel](analysis-services-connect-excel.md)     
+[Conectar-se com Power BI](analysis-services-connect-pbi.md)

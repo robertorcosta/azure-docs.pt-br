@@ -16,19 +16,19 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcf4a0272e21a1fba3cf9adbd9158492e4318578
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 419970985b9531ffab348491730aaf6c00e143b1
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72452985"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527106"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>Controlar o acesso para usuários externos no gerenciamento de direitos do Azure AD (versão prévia)
 
 > [!IMPORTANT]
-> No momento, o gerenciamento de direitos do Azure AD (Azure Active Directory) está em versão prévia pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
+> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter recursos restritos.
+> Para obter mais informações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O gerenciamento de direitos do Azure AD utiliza o [B2B (Business-to-Business) do Azure ad](../b2b/what-is-b2b.md) para colaborar com pessoas de fora da sua organização em outro diretório. Com o Azure AD B2B, os usuários externos se autenticam em seu diretório base, mas têm uma representação em seu diretório. A representação em seu diretório permite que o usuário receba acesso aos seus recursos.
 
@@ -78,7 +78,7 @@ Você pode selecionar o que acontece quando um usuário externo, que foi convida
 
 **Função de pré-requisito:** Administrador global ou administrador de usuários
 
-1. No portal do Azure, clique em **Azure Active Directory** e, em seguida, em **Governança de Identidade**.
+1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
 
 1. No menu à esquerda, na seção **Gerenciamento de direitos** , clique em **configurações**.
 
@@ -90,14 +90,17 @@ Você pode selecionar o que acontece quando um usuário externo, que foi convida
 
 1. Depois que um usuário externo perder sua última atribuição para qualquer pacote de acesso, se você quiser bloqueá-las de entrar nesse diretório, defina o **bloco usuário externo de entrar nesse diretório** como **Sim**.
 
-1. Depois que um usuário externo perder sua última atribuição para qualquer pacote de acesso, se você quiser remover sua conta de usuário convidado em seu diretório, defina **remover usuário externo** como **Sim**.
+    > [!NOTE]
+    > Se um usuário estiver impedido de entrar nesse diretório, o usuário não poderá solicitar novamente o pacote de acesso ou solicitar acesso adicional nesse diretório. Não configure o bloqueio da entrada se eles posteriormente precisarem solicitar acesso a outros pacotes de acesso.
+
+1. Depois que um usuário externo perder sua última atribuição para qualquer pacote de acesso, se você quiser remover sua conta de usuário convidado nesse diretório, defina **remover usuário externo** como **Sim**.
 
     > [!NOTE]
-    > O gerenciamento de direitos remove apenas as contas que foram convidadas por meio do gerenciamento de direitos. Além disso, observe que um usuário será impedido de entrar e removido do seu diretório, mesmo que esse usuário tenha sido adicionado aos recursos no diretório que não tenham as atribuições de pacote. Se o convidado estava presente no seu diretório antes de receber atribuições de pacote de acesso, ele permanecerá. No entanto, se o convidado foi convidado por meio de uma atribuição de pacote de acesso e, depois de ser convidado também foi atribuído a um site do OneDrive for Business ou do SharePoint Online, ele ainda será removido.
+    > O gerenciamento de direitos remove apenas as contas que foram convidadas por meio do gerenciamento de direitos. Além disso, observe que um usuário será impedido de entrar e remover esse diretório, mesmo que esse usuário tenha sido adicionado aos recursos nesse diretório que não tenham acesso às atribuições de pacote. Se o convidado estava presente nesse diretório antes de receber atribuições de pacote de acesso, ele permanecerá. No entanto, se o convidado foi convidado por meio de uma atribuição de pacote de acesso e, depois de ser convidado também foi atribuído a um site do OneDrive for Business ou do SharePoint Online, ele ainda será removido.
 
-1. Se você quiser remover a conta de usuário convidado em seu diretório, poderá definir o número de dias antes que ele seja removido. Se você quiser remover a conta de usuário convidado assim que perder sua última atribuição para qualquer pacote de acesso, defina o **número de dias antes de remover o usuário externo desse diretório** para **0**.
+1. Se você quiser remover a conta de usuário convidado nesse diretório, poderá definir o número de dias antes que ele seja removido. Se você quiser remover a conta de usuário convidado assim que perder sua última atribuição para qualquer pacote de acesso, defina o **número de dias antes de remover o usuário externo desse diretório** para **0**.
 
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 ## <a name="enable-a-catalog-for-external-users"></a>Habilitar um catálogo para usuários externos
 
@@ -113,6 +116,6 @@ Você também pode alterar essa configuração depois de criar o catálogo.
 
 ## <a name="next-steps"></a>Próximos passos
 
-- [Para usuários que não estão em seu diretório](entitlement-management-access-package-create.md#for-users-not-in-your-directory)
+- [Para usuários que não estão em seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [Criar e gerenciar um catálogo de recursos](entitlement-management-catalog-create.md)
 - [Delegação e funções](entitlement-management-delegate.md)

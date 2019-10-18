@@ -4,16 +4,16 @@ description: Este artigo fornece informações de referência para o comando de 
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: ff10a1e4544f80d618d6989ab251096e6cb77baf
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: a37735fcfec7909e37177140116ebcf7de8a298e
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195978"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513674"
 ---
 # <a name="azcopy-jobs-list"></a>lista de trabalhos do azcopy
 
@@ -29,7 +29,7 @@ azcopy jobs list [flags]
 
 |Opção|Descrição|
 |--|--|
-|-h, --help|Mostra o conteúdo da ajuda para o comando de lista.|
+|-h,--ajuda|Mostra o conteúdo da ajuda para o comando de lista.|
 
 ## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
 
