@@ -1,7 +1,7 @@
 ---
 title: Transcrição do Call Center – serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Um cenário comum para a conversão de fala em texto é a transcrição de grandes volumes de dados de telefonia que podem ser recebidos de vários sistemas, como o IVR (resposta interativa de voz). O áudio pode ser estéreo ou mono e bruto com pouco ou nenhum pós-processamento feito no sinal. Usando os Serviços de Fala e o Modelo de fala unificado, uma empresa pode obter transcrições de alta qualidade, com muitos sistemas de captura de áudio.
+description: Um cenário comum de conversão de fala em texto é transcrever grandes volumes de dados de telefonia que podem vir de vários sistemas, como o IVR (resposta interativa de voz). O áudio pode ser estéreo ou mono e bruto com processamento pequeno para sem post executado no sinal. Usando os serviços de fala e o modelo de fala unificado, uma empresa pode obter transcrições de alta qualidade, com muitos sistemas de captura de áudio.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,136 +10,136 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: b7c7bfffb5ddf947dc9bd25e6828e2816a7325cd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4f5163ba448e4cc7e18b0e794a44003ce5ab1dce
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559739"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516773"
 ---
-# <a name="speech-services-for-telephony-data"></a>Serviços de Fala para dados de telefonia
+# <a name="speech-services-for-telephony-data"></a>Serviços de fala para dados de telefonia
 
-Normalmente, os dados de telefonia gerados por meio de telefones fixos, celulares e rádios são de baixa qualidade e de banda estreita no intervalo de 8 KHz, o que cria desafios durante a conversão de fala em texto. Os modelos de reconhecimento de fala mais recentes dos Serviços de Fala do Azure se destacam na transcrição desses dados de telefonia, mesmo nos casos em que os dados são difíceis de serem entendidos por humanos. Esses modelos são treinados com grandes volumes de dados de telefonia e têm a melhor precisão de reconhecimento do mercado, mesmo em ambientes com ruídos.
+Os dados de telefonia gerados por meio de telefones fixos, celulares e rádios normalmente são de baixa qualidade e a banda estreita no intervalo de 8 KHz, o que cria desafios ao converter a conversão de fala em texto. Os modelos de reconhecimento de fala mais recentes dos serviços de fala do Azure são o Excel para transcrever esses dados de telefonia, mesmo em casos em que os dados são difíceis de entender. Esses modelos são treinados com grandes volumes de dados de telefonia e têm a melhor precisão de reconhecimento de mercado, mesmo em ambientes com ruídos.
 
-Um cenário comum para a conversão de fala em texto é a transcrição de grandes volumes de dados de telefonia que podem ser recebidos de vários sistemas, como o IVR (resposta interativa de voz). O áudio que desses sistemas fornecem pode ser estéreo ou mono e bruto com pouco ou nenhum pós-processamento feito no sinal. Usando os Serviços de Fala e o Modelo de fala unificado, uma empresa pode obter transcrições de alta qualidade, sejam quais forem os sistemas usados para a captura de áudio.
+Um cenário comum de conversão de fala em texto é transcrever grandes volumes de dados de telefonia que podem vir de vários sistemas, como o IVR (resposta interativa de voz). O áudio que esses sistemas fornecem pode ser estéreo ou mono e brutos com processamento pequeno para sem post feito no sinal. Usando os serviços de fala e o modelo de fala unificado, uma empresa pode obter transcrições de alta qualidade, independentemente dos sistemas usados para capturar áudio.
 
-Os dados de telefonia podem ser usados para compreender melhor as necessidades de seus clientes, identificar novas oportunidades de marketing ou avaliar o desempenho dos agentes de call center. Depois que os dados são transcritos, uma empresa pode usar a saída para telemetria aprimorada, identificar as frases-chave ou analisar o sentimento do cliente.
+Os dados de telefonia podem ser usados para entender melhor as necessidades de seus clientes, identificar novas oportunidades de marketing ou avaliar o desempenho de agentes de Call Center. Depois que os dados são transcritas, uma empresa pode usar a saída para uma telemetria aprimorada, identificar frases-chave ou analisar os sentimentos do cliente.
 
-As tecnologias descritas nesta página são usadas pela Microsoft internamente para vários serviços de processamento de chamadas de suporte, em tempo real e no modo de lote.
+As tecnologias descritas nesta página são da Microsoft internamente para vários serviços de processamento de chamadas de suporte, tanto em modo em tempo real quanto em lote.
 
-Vamos analisar alguns dos recursos de tecnologia e relacionados que são oferecidos pelos Serviços de Fala do Azure.
+Vamos examinar algumas das tecnologias e recursos relacionados oferecidos pela oferta dos serviços de fala do Azure.
 
 > [!IMPORTANT]
-> O modelo Unificado dos Serviços de Fala é treinado usando dados diversificados e oferece uma solução de modelo único para vários cenários, que vão de Ditado à análise de Telefonia.
+> O modelo unificado de serviços de fala é treinado com diversos dados e oferece uma única solução de modelo a vários cenários, desde o ditado até a análise de telefonia.
 
 ## <a name="azure-technology-for-call-centers"></a>Tecnologia do Azure para call centers
 
-Além disso, o aspecto funcional dos Serviços de Fala e sua finalidade principal – quando aplicada ao call center – é melhorar a experiência do cliente. Há três domínios bem definidos a este respeito:
+Além do aspecto funcional dos serviços de fala, sua principal finalidade – quando aplicado ao Call Center, é melhorar a experiência do cliente. Existem três domínios claros em relação a isso:
 
-* Análise pós-chamada, ou seja, processamento em lotes de gravações de chamada
-* Processamento de análise em tempo real do sinal de áudio para extração de vários insights durante a chamada (com o sentimento sendo um caso de uso proeminente) e
-* Assistentes Virtuais (bots) conduzindo o diálogo entre o cliente e o bot em uma tentativa de resolver o problema do cliente sem a participação de nenhum agente ou sendo o aplicativo de protocolos de IA para auxiliar o agente.
+* Análise de pós-chamada, ou seja, processamento em lote de gravações de chamada
+* Processamento de análise em tempo real do sinal de áudio para extrair várias informações à medida que a chamada está ocorrendo (com sentimentos sendo um caso de uso proeminente) e
+* Bots (assistentes virtuais), orientando a caixa de diálogo entre o cliente e o bot em uma tentativa de resolver o problema do cliente sem participação no agente ou ser a aplicação de protocolos de ia para auxiliar o agente.
 
-Um diagrama da arquitetura típica da implementação de um cenário de lote é descrito na imagem abaixo ![Arquitetura de transcrição de call center](media/scenarios/call-center-transcription-architecture.png)
+Um diagrama de arquitetura típico da implementação de um cenário de lote é descrito na figura abaixo ![Call arquitetura de transcrição do centro ](media/scenarios/call-center-transcription-architecture.png)
 
-## <a name="speech-analytics-technology-components"></a>Componentes da tecnologia de análise de fala
+## <a name="speech-analytics-technology-components"></a>Componentes de tecnologia de análise de fala
 
-Independentemente de o domínio ser pós-chamada ou em tempo real, o Azure oferece um conjunto aperfeiçoado e emergente de tecnologias para melhorar a experiência do cliente.
+Quer o domínio seja pós-atualização ou em tempo real, o Azure oferece um conjunto de tecnologias maduras e emergentes para melhorar a experiência do cliente.
 
-### <a name="speech-to-text-stt"></a>STT (conversão de fala em texto)
+### <a name="speech-to-text-stt"></a>Conversão de fala em texto (STT)
 
-A [conversão de fala em texto](speech-to-text.md) é o recurso mais procurado em qualquer solução de call center. Como muitos dos processos de análise downstream dependem do texto transcrito, a WER (taxa de erros de palavras) é de extrema importância. Um dos principais desafios na transcrição de call center é o ruído predominante no call center (por exemplo: outros agentes falando em segundo plano), a grande variedade de localidades de idioma e dialetos, bem como a baixa qualidade do sinal de telefone real. A WER está altamente correlacionada à qualidade de treinamento dos modelos acústicos e de linguagem para determinada localidade e, assim, é importante ter a capacidade de personalizar o modelo para a sua localidade. Nossos modelos Unificados mais recentes da versão 4.x são a solução para a precisão e a latência de transcrição. Treinados com dezenas de milhares de horas de dados acústicos e bilhões de informações lexicais, os modelos Unificados são os modelos mais precisos do mercado para a transcrição de dados de call center.
+A [conversão de fala em texto](speech-to-text.md) é o recurso mais procurado depois de qualquer solução de Call Center. Como muitos dos processos de análise downstream dependem de texto transcrita, a palavra de erro do Word (WER) é de extrema importância. Um dos principais desafios da transcrição do Call Center é o ruído que é predominante no Call Center (por exemplo, outros agentes falando em segundo plano), a rica variedade de localidades de idioma e dialetos, bem como a baixa qualidade do sinal de telefone real. O WER está altamente correlacionado com o quão bem os modelos acústicos e de linguagem são treinados para uma determinada localidade, portanto, ser capaz de personalizar o modelo para sua localidade é importante. Nossos modelos mais recentes da versão 4. x unificados são a solução para a precisão e a latência da transcrição. Treinado com dezenas de milhares de horas de dados acústicos e bilhões de modelos unificados de informações lexicais são os modelos mais precisos do mercado para transcrever os dados do Call Center.
 
 ### <a name="sentiment"></a>Sentimento
-Avaliar se o cliente teve uma boa experiência é uma das áreas mais importantes da Análise de fala quando aplicado no espaço do call center. Nossa [API de Transcrição em Lote](batch-transcription.md) oferece a análise de sentimento por enunciado. Você pode agregar o conjunto de valores obtidos como parte de uma transcrição de chamada para determinar o sentimento da chamada para os agentes e o cliente.
+Medir se o cliente teve uma boa experiência é uma das áreas mais importantes da análise de fala quando aplicada ao espaço do Call Center. Nossa [API de transcrição do lote](batch-transcription.md) oferece análise de sentimentos por expressão. Você pode agregar o conjunto de valores obtidos como parte de uma transcrição de chamada para determinar a opinião da chamada para os agentes e o cliente.
 
-### <a name="silence-non-talk"></a>Silêncio (sem conversa)
-Não é incomum que 35% de uma chamada de suporte consista no que chamamos de tempo sem conversa. Alguns cenários em que não há conversa são: agentes pesquisando o histórico de casos com um cliente, agentes usando ferramentas que permitem acessar a área de trabalho do cliente e executar funções, clientes esperando uma transferência e assim por diante. É extremamente importante poder avaliar quando o silêncio está ocorrendo em uma chamada, pois há diversos fatores importantes de sensibilidade do cliente que ocorrem nesses tipos de cenários e quando eles ocorrem na chamada.
+### <a name="silence-non-talk"></a>Silêncio (não-fala)
+Não é incomum que 35 por cento de uma chamada de suporte seja o que chamamos de tempo sem conversa. Alguns cenários em que a não-fala ocorre são: os agentes que procuram o histórico de casos anteriores com um cliente, agentes usando ferramentas que permitem acessar a área de trabalho do cliente e executar funções, clientes que estão em espera aguardando uma transferência e assim por diante. É extremamente importante medir quando o silêncio está ocorrendo em uma chamada, já que há um número de diferenciação de clientes importantes que ocorrem em oposição a esses tipos de cenários e onde eles ocorrem na chamada.
 
-### <a name="translation"></a>Conversão
-Algumas empresas estão experimentando fornecer transcrições traduzidas de chamadas de suporte de idiomas estrangeiros, de modo que os gerentes de entrega possam entender a experiência mundial de seus clientes. Nossas funcionalidades de [tradução](translation.md) são incomparáveis. Podemos converter áudio em áudio ou áudio em texto em uma grande variedade de localidades.
+### <a name="translation"></a>Tradução
+Algumas empresas estão experimentando o fornecimento de transcrições traduzidas de chamadas de suporte a idiomas estrangeiros para que os gerentes de entrega possam entender a experiência mundial de seus clientes. Nossos recursos de [tradução](translation.md) são insuperáveis. Podemos converter áudio em áudio ou áudio em texto de um grande número de localidades.
 
 ### <a name="text-to-speech"></a>Conversão de Texto em Fala
-A [conversão de texto em fala](text-to-speech.md) é outra área importante na implementação de bots que interagem com os clientes. O caminho típico é o que o cliente fala, sua voz é transcrita em texto, o texto é analisado quanto às intenções, uma resposta é sintetizada com base na intenção reconhecida e, em seguida, um ativo é exposto ao cliente ou uma resposta de voz sintetizada é gerada. Evidentemente, tudo isso deve ocorrer com rapidez – portanto, a latência é um componente importante no sucesso desses sistemas.
+[Conversão de texto em fala](text-to-speech.md) é outra área importante na implementação de bots que interagem com os clientes. O caminho típico é que o cliente fala, sua voz é transcrita para texto, o texto é analisado para tentativas, uma resposta é sintetizada com base na intenção reconhecida e, em seguida, um ativo é exibido para o cliente ou uma resposta de voz sintetizada é criado. É claro que tudo isso deve ocorrer rapidamente – a latência é um componente importante no sucesso desses sistemas.
 
-Nossa latência de ponta a ponta é muito baixa, considerando as diversas tecnologias envolvidas, como [Conversão de Fala em Texto](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/) e [Conversão de Texto em Fala](text-to-speech.md).
+Nossa latência de ponta a ponta está muito baixa considerando as várias tecnologias envolvidas, como [conversão de fala em texto](speech-to-text.md), [Luis](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [bot Framework](https://dev.botframework.com/), conversão de [texto em fala](text-to-speech.md).
 
-Nossas novas vozes também são praticamente idênticas às vozes humanas. É possível usar vozes para dar ao seu bot uma personalidade única.
+Nossas novas vozes também são indistinguíveis de vozes humanas. Você pode usar vozes para dar a seu bot sua personalidade exclusiva.
 
-### <a name="search"></a>Pesquisar
-Outro ponto importante da análise é identificar as interações em que uma experiência ou um evento específico tenha ocorrido. Isso normalmente é feito com uma das duas abordagens: uma pesquisa ad-hoc, em que o usuário apenas digita uma frase e o sistema responde, ou uma consulta mais estruturada, em que um analista pode criar um conjunto de instruções lógicas que identifiquem um cenário em uma chamada e, em seguida, cada chamada possa ser indexada em relação a esses conjunto de consultas. Um bom exemplo de pesquisa é a instrução de conformidade ubíqua “esta chamada será gravada para fins de qualidade... ”, pois muitas empresas desejam garantir que seus agentes forneçam esse aviso de isenção de responsabilidade aos clientes antes que a chamada seja, de fato, gravada. A maioria dos sistemas de análise tem a capacidade de analisar a tendência dos comportamentos encontrados pelos algoritmos de consulta/pesquisa, uma vez que esse relatório de tendências é, em última análise, uma das funções mais importantes de um sistema de análise. Por meio do [diretório de Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/directory/search/), sua solução de ponta a ponta pode ser consideravelmente aprimorada com funcionalidades de indexação e pesquisa.
+### <a name="search"></a>Pesquisa
+Outro grampo da análise é identificar as interações em que ocorreu um evento ou experiência específica. Isso normalmente é feito com uma das duas abordagens, uma pesquisa ad hoc em que o usuário simplesmente digita uma frase e o sistema responde, ou uma consulta mais estruturada, em que um analista pode criar um conjunto de instruções lógicas que identificam um cenário em uma chamada e cada chamada pode ser indexada em relação a esse conjunto de consultas. Um bom exemplo de pesquisa é a declaração de conformidade onipresente "esta chamada deve ser registrada para fins de qualidade... "– como muitas empresas desejam ter certeza de que seus agentes estão fornecendo esse aviso aos clientes antes que a chamada seja realmente registrada. A maioria dos sistemas de análise tem a capacidade de analisar os comportamentos encontrados por algoritmos de/Search de consulta – pois esse relatório de tendências é, em última instância, uma das funções mais importantes de um sistema de análise. Por meio do [diretório de serviços cognitivas](https://azure.microsoft.com/services/cognitive-services/directory/search/) , sua solução de ponta a ponta pode ser significativamente aprimorada com recursos de indexação e pesquisa.
 
-### <a name="key-phrase-extraction"></a>Extração de Frases-chave
-Essa área é uma das aplicações de análise que mais gera desafios e que vem se beneficiando da aplicação de IA e ML. O cenário principal aqui é inferir a intenção do cliente. Por que o cliente está ligando? Qual é o problema do cliente? Por que o cliente teve uma experiência negativa? Nosso [serviço de Análise de Texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/) fornece um conjunto de análise pronto para uso para atualização rápida de sua solução de ponta a ponta, visando extrair essas palavras-chave ou frases importantes.
+### <a name="key-phrase-extraction"></a>Extração de frases-chave
+Essa área é um dos aplicativos mais desafiadores de análise e uma que se beneficia da aplicação de ia e ML. O principal cenário aqui é inferir a intenção do cliente. Por que o cliente está chamando? Qual é o problema do cliente? Por que o cliente tem uma experiência negativa? Nosso [serviço de análise de texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/) fornece um conjunto de análise pronto para atualizar rapidamente sua solução de ponta a ponta para extrair essas palavras-chave ou frases importantes.
 
-Agora vamos dar uma olhada no processamento em lotes e nos pipelines em tempo real do reconhecimento de fala um pouco mais detalhadamente.
+Agora, vamos dar uma olhada no processamento em lotes e nos pipelines em tempo real para o reconhecimento de fala em um pouco mais de detalhes.
 
-## <a name="batch-transcription-of-call-center-data"></a>Transcrição em lote de dados do call center
+## <a name="batch-transcription-of-call-center-data"></a>Transcrição em lote de dados do Call Center
 
-Para a transcrição em massa de áudio, desenvolvemos a [API de Transcrição em Lote](batch-transcription.md). A API de Transcrição em Lote foi desenvolvida para transcrever grandes quantidades de dados de áudio de forma assíncrona. Com relação à transcrição de dados do call center, nossa solução se baseia nestes pilares:
+Para transcrever a massa de áudio, desenvolvemos a [API de transcrição do lote](batch-transcription.md). A API de transcrição do lote foi desenvolvida para transcrever grandes quantidades de dados de áudio de forma assíncrona. Com relação à desativação de dados do Call Center, nossa solução é baseada nesses pilares:
 
-* **Precisão**: com os modelos Unificados da quarta geração, oferecemos qualidade de transcrição insuperável.
-* **Latência**: entendemos que, ao realizar transcrições em massa, há uma necessidade urgente das transcrições. Os trabalhos de transcrição iniciados por meio da [API de Transcrição em Lote](batch-transcription.md) serão colocados na fila imediatamente e, depois que o trabalho for executado, a transcrição será realizada mais rapidamente do que a transcrição em tempo real.
-* **Segurança**: Entendemos que as chamadas podem conter dados confidenciais. Tenha certeza de que a segurança é uma das nossas maiores prioridades. Nosso serviço obteve as certificações ISO, SOC, HIPAA e PCI.
+* **Precisão**: com modelos unificados de quarta geração, oferecemos qualidade de transcrição insuperável.
+* **Latência**: entendemos que, ao fazer transcrições em massa, as transcrições são necessárias rapidamente. Os trabalhos de transcrição iniciados por meio da [API de transcrição do lote](batch-transcription.md) serão colocados em fila imediatamente e, depois que o trabalho começar a ser executado, ele será executado mais rapidamente do que a transcrição em tempo real.
+* **Segurança**: entendemos que as chamadas podem conter dados confidenciais. Tenha certeza de que a segurança é uma de nossas prioridades mais altas. Nosso serviço obteve as certificações ISO, SOC, HIPAA e PCI.
 
-Os call centers geram grandes volumes de dados de áudio diariamente. Caso sua empresa armazene dados de telefonia em um local central, como o Armazenamento do Azure, você poderá usar a [API de Transcrição em Lote](batch-transcription.md) para solicitar e receber transcrições de forma assíncrona.
+Os centros de chamadas geram grandes volumes de dados de áudio diariamente. Se sua empresa armazena dados de telefonia em um local central, como o armazenamento do Azure, você pode usar a [API de transcrição do lote](batch-transcription.md) para solicitar e receber transcrições de forma assíncrona.
 
-Uma solução típica usa estes serviços:
+Uma solução típica usa esses serviços:
 
-* Os Serviços de Fala do Azure são usados para a transcrição de fala em texto. Uma assinatura Standard (SO) dos Serviços de Fala é necessária para uso da API de Transcrição em Lote. Assinaturas gratuitas (F0) não funcionarão.
-* O [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) é usado para armazenar dados de telefonia e as transcrições retornadas pela API de Transcrição em Lote. Essa conta de armazenamento deve usar notificações, especificamente para quando novos arquivos são adicionados. Essas notificações são usadas para disparar o processo de transcrição.
-* O [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) é usado para criar o URI de SAS (Assinatura de Acesso Compartilhado) para cada gravação e disparar a solicitação HTTP POST a fim de iniciar uma transcrição. Além disso, o Azure Functions é usado para criar solicitações a fim de recuperar e excluir transcrições usando a API de Transcrição em Lote.
-* Os [WebHooks](webhooks.md) são usados para receber notificações quando as transcrições são concluídas.
+* Os serviços de fala do Azure são usados para transcrever a conversão de fala em texto. Uma assinatura padrão (portanto) para os serviços de fala é necessária para usar a API de transcrição do lote. As assinaturas gratuitas (F0) não funcionarão.
+* O [armazenamento do Azure](https://azure.microsoft.com/services/storage/) é usado para armazenar dados de telefonia e as transcrições retornadas pela API de transcrição do lote. Essa conta de armazenamento deve usar notificações, especificamente para quando novos arquivos forem adicionados. Essas notificações são usadas para disparar o processo de transcrição.
+* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) é usado para criar o URI de SAS (assinaturas de acesso compartilhado) para cada gravação e disparar a solicitação HTTP post para iniciar uma transcrição. Além disso, Azure Functions é usado para criar solicitações para recuperar e excluir transcrições usando a API de transcrição do lote.
+* [WebHooks](webhooks.md) são usados para obter notificações quando as transcrições são concluídas.
 
-Internamente, estamos usando as tecnologias acima para dar suporte às chamadas de cliente da Microsoft no modo de lote.
-![Arquitetura de lote](media/scenarios/call-center-batch-pipeline.png)
+Internamente, estamos usando as tecnologias acima para dar suporte a chamadas de clientes da Microsoft no modo de lote.
+Arquitetura de ![Batch ](media/scenarios/call-center-batch-pipeline.png)
 
-## <a name="real-time-transcription-for-call-center-data"></a>Transcrição em tempo real para dados do call center
+## <a name="real-time-transcription-for-call-center-data"></a>Transcrição em tempo real para dados do Call Center
 
-Para algumas empresas, a transcrição das conversas em tempo real é obrigatória. A transcrição em tempo real pode ser usada para identificar palavras-chave e disparar pesquisas de conteúdo e de recursos relevantes para a conversa, monitorar o sentimento, melhorar a acessibilidade ou fornecer traduções para os clientes e agentes que não são falantes nativos.
+Algumas empresas são obrigadas a transcrever conversas em tempo real. A transcrição em tempo real pode ser usada para identificar palavras-chave e disparar pesquisas de conteúdo e recursos relevantes para a conversa, para o monitoramento de sentimentos, para melhorar a acessibilidade ou para fornecer traduções para clientes e agentes que não são nativos falantes.
 
-Para cenários que exigem a transcrição em tempo real, recomendamos o uso do [SDK de Fala](speech-sdk.md). Atualmente, a conversão de fala em texto está disponível em [mais de 20 idiomas](language-support.md), e o SDK está disponível em C++, C#, Java, Python, Node.js, Objective-C e JavaScript. Amostras estão disponíveis em cada idioma no [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). Para obter as notícias e as atualizações mais recentes, confira [Notas sobre a versão](releasenotes.md).
+Para cenários que exigem transcrição em tempo real, é recomendável usar o [SDK de fala](speech-sdk.md). Atualmente, a conversão de fala em texto está disponível em [mais de 20 idiomas](language-support.md), e o SDK está disponível C++em C#,, Java, Python, Node. js, Objective-C e JavaScript. Os exemplos estão disponíveis em cada idioma no [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). Para obter as últimas notícias e atualizações, consulte [notas de versão](releasenotes.md).
 
-Internamente, estamos usando as tecnologias acima para analisar em tempo real as chamadas de cliente da Microsoft.
+Internamente, estamos usando as tecnologias acima para analisar as chamadas de clientes da Microsoft em tempo real à medida que elas acontecem.
 
-![Arquitetura de lote](media/scenarios/call-center-reatime-pipeline.png)
+![Arquitetura do lote](media/scenarios/call-center-reatime-pipeline.png)
 
-## <a name="a-word-on-ivrs"></a>Explicação sobre IVRs
+## <a name="a-word-on-ivrs"></a>Uma palavra no IVRs
 
-Os Serviços de Fala podem ser integrados com facilidade a qualquer solução usando o [SDK de Fala](speech-sdk.md) ou a [API REST](rest-apis.md). No entanto, a transcrição de call center pode exigir outras tecnologias. Normalmente, é necessária uma conexão entre um sistema IVR e o Azure. Embora não ofereçamos esses componentes, queremos descrever o que envolve uma conexão com um IVR.
+Os serviços de fala podem ser facilmente integrados em qualquer solução usando o [SDK de fala](speech-sdk.md) ou a [API REST](rest-apis.md). No entanto, a transcrição do Call Center pode exigir tecnologias adicionais. Normalmente, uma conexão entre um sistema de IVR e o Azure é necessária. Embora não ofereçamos esses componentes, gostaríamos de descrever o que uma conexão com um IVR envolve.
 
-Vários produtos de serviço de telefonia ou de IVR (como o Genesys ou o AudioCodes) oferecem funcionalidades de integração que podem ser aproveitadas para habilitar a passagem de áudio de entrada e saída em um serviço do Azure. Basicamente, um serviço personalizado do Azure pode fornecer uma interface específica para definir sessões de chamada telefônica (como Início da Chamada ou Encerramento da Chamada) e expor uma API de WebSocket para receber o áudio do fluxo de entrada que é usado com os Serviços de Fala. As respostas de saída, como transcrição de conversas ou conexões com o Bot Framework, podem ser sintetizadas com o serviço de conversão de texto em fala da Microsoft e retornadas ao IVR para reprodução.
+Vários produtos de serviço IVR ou de telefonia (como Genesys ou AudioCodes) oferecem recursos de integração que podem ser utilizados para habilitar a passagem de áudio de entrada e saída para um serviço do Azure. Basicamente, um serviço do Azure personalizado pode fornecer uma interface específica para definir sessões de chamada telefônica (como início da chamada ou término da chamada) e expor uma API WebSocket para receber áudio de fluxo de entrada que é usado com os serviços de fala. As respostas de saída, como a transcrição de conversa ou conexões com o bot Framework, podem ser sintetizadas com o serviço de conversão de texto em fala da Microsoft e retornadas ao IVR para reprodução.
 
-Outro cenário é a integração de SIP Direto. Um serviço do Azure se conecta a um Servidor SIP, obtendo, portanto, um fluxo de entrada e um fluxo de saída, que é usado para as fases de conversão de fala em texto e de texto em fala. Para se conectar a um Servidor SIP, há ofertas de software comercial, como o SDK do Ozeki ou [a API de chamadas e reuniões do Teams](https://docs.microsoft.com/graph/api/resources/calls-api-overview?view=graph-rest-beta) (atualmente em beta), que foram projetadas para dar suporte a esse tipo de cenário para chamadas de áudio.
+Outro cenário é a integração direta de SIP. Um serviço do Azure se conecta a um servidor SIP, obtendo, assim, um fluxo de entrada e um fluxo de saída, que é usado para as fases de conversão de texto em texto e Text-to-Speech. Para se conectar a um servidor SIP, há ofertas de software comercial, como o Ozeki SDK, ou [as equipes que chamam e API de reuniões](/graph/api/resources/communications-api-overview) (atualmente em versão beta), que foram projetadas para dar suporte a esse tipo de cenário para chamadas de áudio.
 
-## <a name="customize-existing-experiences"></a>Personalizar as experiências existentes
+## <a name="customize-existing-experiences"></a>Personalizar experiências existentes
 
-O Serviço de Fala do Azure funciona bem com modelos internos, no entanto, talvez você queira personalizar e ajustar ainda mais a experiência para seu ambiente ou produto. As opções de personalização vão do ajuste do modelo acústico a fontes de voz exclusivas para sua marca. Depois de criar um modelo personalizado, você poderá usá-lo com um dos Serviços de Fala do Azure em tempo real ou no modo de lote.
+Os serviços de fala do Azure funcionam bem com modelos internos, no entanto, talvez você queira personalizar e ajustar a experiência para seu produto ou ambiente. As opções de personalização variam desde o ajuste do modelo acústico até fontes de voz exclusivas para sua marca. Depois de criar um modelo personalizado, você pode usá-lo com qualquer um dos serviços de fala do Azure em tempo real ou em modo de lote.
 
-| Serviço de Fala | Modelo | Descrição |
+| Serviço de fala | Modelo | Descrição |
 |----------------|-------|-------------|
-| Conversão de fala em texto | [Modelo acústico](how-to-customize-acoustic-models.md) | Crie um modelo acústico personalizado para aplicativos, ferramentas ou dispositivos usados em ambientes particulares, como um carro ou um chão de fábrica, cada um deles com condições específicas de gravação. Exemplos incluem fala com sotaque, ruídos de fundo específicos ou uso de um microfone específico para gravação. |
-| | [Modelo de linguagem](how-to-customize-language-model.md) | Crie um modelo de linguagem personalizado para melhorar a transcrição do vocabulário e da gramática específicos de um setor, por exemplo, terminologia médica ou jargão de TI. |
-| | [Modelo de pronúncia](how-to-customize-pronunciation.md) | Usando um modelo de pronúncia personalizado, você pode definir a forma fonética e a exibição de uma palavra ou termo. É útil para lidar com termos personalizados, como nomes de produtos ou acrônimos. Tudo o que você precisa para começar é de um arquivo de pronúncia (um arquivo .txt simples). |
-| Conversão de texto em fala | [Fonte de voz](how-to-customize-voice-font.md) | Fontes de voz personalizadas permitem que você crie uma voz reconhecível exclusiva para sua marca. É necessária apenas uma pequena quantidade de dados para começar a usar. Quanto mais dados que você fornecer, mais natural e humana sua fonte de voz soará. |
+| Conversão de fala em texto | [Modelo acústico](how-to-customize-acoustic-models.md) | Crie um modelo acústico personalizado para aplicativos, ferramentas ou dispositivos que são usados em ambientes específicos, como em um carro ou em um piso de fábrica, cada um com condições de gravação específicas. Os exemplos incluem fala acentuada, ruídos de fundo específicos ou uso de um microfone específico para gravação. |
+| | [Modelo de linguagem](how-to-customize-language-model.md) | Crie um modelo de linguagem personalizado para melhorar a transcrição do vocabulário e da gramática específicos do setor, como terminologia médica ou jargão de ti. |
+| | [Modelo de pronúncia](how-to-customize-pronunciation.md) | Com um modelo de pronúncia personalizada, você pode definir o formulário fonético e a exibição de uma palavra ou termo. É útil para lidar com termos personalizados, como nomes de produtos ou acrônimos. Tudo o que você precisa para começar é um arquivo de pronúncia, um arquivo. txt simples. |
+| Conversão de texto em fala | [Fonte de voz](how-to-customize-voice-font.md) | Fontes de voz personalizadas permitem que você crie uma voz de um tipo reconhecível para sua marca. Ele só leva uma pequena quantidade de dados para começar. Quanto mais dados você fornecer, mais natural e humana, como a fonte de voz soará. |
 
 ## <a name="sample-code"></a>Código de exemplo
 
-Há um código de exemplo disponível no GitHub para cada um dos Serviços de Fala do Azure. Esses exemplos abordam cenários comuns, como ler áudio de um arquivo ou fluxo, reconhecimento contínuo e único e trabalho com modelos personalizados. Use estes links para exibir exemplos de SDK e REST:
+O código de exemplo está disponível no GitHub para cada um dos serviços de fala do Azure. Esses exemplos abrangem cenários comuns, como a leitura de áudio de um arquivo ou fluxo, um reconhecimento contínuo e de captura única e o trabalho com modelos personalizados. Use estes links para exibir exemplos de SDK e REST:
 
-* [Exemplos de conversão de fala em texto e tradução de fala (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [Exemplos de transcrição em lote (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+* [Exemplos de conversão de fala em texto e de fala (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Amostras de transcrição em lote (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 * [Exemplos de conversão de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
-## <a name="reference-docs"></a>Documentos de Referência
+## <a name="reference-docs"></a>Documentos de referência
 
-* [SDK da fala](speech-sdk-reference.md)
-* [SDK de Dispositivos de Fala](speech-devices-sdk.md)
+* [SDK de fala](speech-sdk-reference.md)
+* [SDK de dispositivos de fala](speech-devices-sdk.md)
 * [API REST: conversão de fala em texto](rest-speech-to-text.md)
 * [API REST: conversão de texto em fala](rest-text-to-speech.md)
-* [API REST: transcrição e personalização em lote](https://westus.cris.ai/swagger/ui/index)
+* [API REST: transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Obter gratuitamente uma chave de assinatura do Serviço de Fala](get-started.md)
+> [Obtenha uma chave de assinatura de serviços de fala gratuitamente](get-started.md)

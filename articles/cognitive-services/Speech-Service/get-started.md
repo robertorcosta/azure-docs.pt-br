@@ -1,7 +1,7 @@
 ---
 title: Experimente o Speech Service gratuitamente
 titleSuffix: Azure Cognitive Services
-description: A introdução ao serviço de fala é fácil e acessível. Uma avaliação gratuita de 30 dias permite que você descubra o que o serviço pode fazer e decida se ele é o ideal para as necessidades do seu aplicativo.
+description: A introdução ao serviço de fala é fácil e acessível. Uma avaliação gratuita de 30 dias permite que você descubra o que o serviço pode fazer e decida se ele é adequado para as necessidades do seu aplicativo.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,118 +10,118 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 41d12013ec7eaa4e2aae59e1b366cc511a41f749
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.custom: seodec18, seo-javascript-october2019
+ms.openlocfilehash: eb4478a435fbfc899055a60e13b318be771652f7
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535098"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527628"
 ---
-# <a name="try-speech-services-for-free"></a>Experimente os Serviços de Fala gratuitamente
+# <a name="try-speech-services-for-free"></a>Experimente os serviços de fala gratuitamente
 
-É fácil e barato começar a usar os Serviços de Fala. Uma avaliação gratuita de 30 dias permite que você descubra o que o serviço pode fazer e decida se ele é o ideal para as necessidades do seu aplicativo.
+A introdução aos serviços de fala é fácil e acessível. Uma avaliação gratuita de 30 dias permite que você descubra o que o serviço pode fazer e decida se ele é adequado para as necessidades do seu aplicativo.
 
-Se você precisar de mais tempo, inscreva-se em uma conta do Microsoft Azure, ela vem com US$ 200 em crédito de serviço que você pode aplicar para em uma assinatura paga dos Serviços de Fala por até 30 dias.
+Se você precisar de mais tempo, Inscreva-se em uma conta de Microsoft Azure — ele vem com $200 de crédito de serviço que você pode aplicar a uma assinatura de serviços de fala paga por até 30 dias.
 
-Por fim, os Serviços de Fala oferecem uma camada gratuita, de baixo volume e adequada para o desenvolvimento de aplicativos. Você pode manter essa assinatura gratuita, mesmo depois que o crédito do serviço expirar.
+Por fim, os serviços de fala oferecem uma camada gratuita de baixo volume que é adequada para o desenvolvimento de aplicativos. Você pode manter essa assinatura gratuita mesmo depois que seu crédito de serviço expirar.
 
-## <a name="free-trial"></a>Avaliação gratuita
+## <a name="free-trial"></a>Avaliação Gratuita
 
-A avaliação gratuita de 30 dias fornece acesso ao tipo de preço padrão por tempo limitado.
+A avaliação gratuita de 30 dias fornece acesso ao tipo de preço Standard por um período limitado.
 
-Para se inscrever em uma avaliação gratuita de 30 dias:
+Para se inscrever para uma avaliação gratuita de 30 dias:
 
-1. Acesse [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/).
+1. Vá para [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/).
 
-1. Selecione a guia **APIs de Fala**.
+1. Selecione a guia **APIs de fala** .
 
-   ![Guia Serviços de Fala](media/index/try-speech-api-free-trial1.png)
+   ![Guia Speech API-serviços de fala](media/index/cognitive-services-speech-api-tab.png)
 
 1. Em **serviços de fala**, selecione **obter chave de API**.
 
-   ![Chave de API](media/index/try-speech-api-free-trial2.png)
+   ![Speech API-obter chave de API](media/index/speech-api-get-api-key.png)
 
-1. Aceite os termos e selecione sua localidade no menu suspenso.
+1. Concorde com os termos e selecione sua localidade no menu suspenso.
 
-   ![Concordar com os termos](media/index/try-speech-api-free-trial3.png)
+   ![Speech API-concordar com os termos](media/index/speech-api-agree-to-terms.png)
 
-1. Entre usando sua conta Microsoft, do Facebook, do LinkedIn ou do GitHub.
+1. Entre usando sua conta Microsoft, Facebook, LinkedIn ou GitHub.
 
-    Inscreva-se em uma conta gratuita Microsoft no [portal de conta Microsoft](https://account.microsoft.com/account). Para começar, selecione **entrar com a conta da Microsoft** e, quando solicitado a entrar, selecione **criar um.** Siga as etapas para criar e confirmar sua nova conta Microsoft.
+    Você pode se inscrever para obter uma conta Microsoft gratuita no [portal conta Microsoft](https://account.microsoft.com/account). Para começar, selecione **entrar com a conta da Microsoft** e, quando solicitado a entrar, selecione **criar um.** Siga as etapas para criar e verificar o novo conta Microsoft.
 
-Depois de entrar em Experimentar os Serviços Cognitivos, sua avaliação gratuita será iniciada. A página da Web exibida lista todos os Serviços Cognitivos do Azure para os quais você tem uma assinatura de avaliação. Duas chaves de assinatura estão listadas ao lado de **Serviços de Fala**. Use uma das chaves em seus aplicativos.
+Depois de entrar para experimentar os serviços cognitivas, sua avaliação gratuita começa. A página da Web exibida lista todos os serviços de serviços cognitivas do Azure para os quais você atualmente tem assinaturas de avaliação. Duas chaves de assinatura são listadas ao lado de **serviços de fala**. Você pode usar qualquer chave em seus aplicativos.
 
 > [!NOTE]
-> Todas as assinaturas de avaliação gratuita estão na região Oeste dos EUA. Ao fazer solicitações, use o ponto de extremidade `westus`.
+> Todas as assinaturas de avaliação gratuita estão na região oeste dos EUA. Ao fazer solicitações, certifique-se de usar o ponto de extremidade `westus`.
 
 ## <a name="new-azure-account"></a>Nova conta do Azure
 
-As novas contas do Azure recebem um crédito de serviço de US$ 200 que fica disponível por até 30 dias. Use esse crédito para explorar ainda mais os Serviços de Fala ou para iniciar o desenvolvimento de aplicativos.
+Novas contas do Azure recebem um crédito de serviço $200 que está disponível por até 30 dias. Você pode usar esse crédito para explorar ainda mais os serviços de fala ou para iniciar o desenvolvimento de aplicativos.
 
 Para se inscrever em uma nova conta do Azure, vá para a [página de inscrição do Azure](https://azure.microsoft.com/free/ai/), selecione **Iniciar gratuitamente** e crie uma nova conta do Azure usando seu conta Microsoft.
 
-Inscreva-se em uma conta gratuita Microsoft no [portal de conta Microsoft](https://account.microsoft.com/account). Para começar, selecione **entrar com a conta da Microsoft** e, quando solicitado a entrar, selecione **criar um.** Siga as etapas para criar e confirmar sua nova conta Microsoft.
+Você pode se inscrever para obter uma conta Microsoft gratuita no [portal conta Microsoft](https://account.microsoft.com/account). Para começar, selecione **entrar com a conta da Microsoft** e, quando solicitado a entrar, selecione **criar um.** Siga as etapas para criar e verificar o novo conta Microsoft.
 
-Depois de criar sua conta do Azure, siga as etapas na próxima seção para iniciar uma assinatura dos Serviços de Fala.
+Depois de criar sua conta do Azure, siga as etapas na próxima seção para iniciar uma assinatura para os serviços de fala.
 
-## <a name="create-a-speech-resource-in-azure"></a>Criar um recurso de Fala no Azure
+## <a name="create-a-speech-resource-in-azure"></a>Criar um recurso de fala no Azure
 
-Para adicionar um recurso de Serviços de Fala (camada gratuita ou paga) à sua conta do Azure:
+Para adicionar um recurso de serviços de fala (camada gratuita ou paga) à sua conta do Azure:
 
-1. Entre no [portal do Azure](https://portal.azure.com/) usando sua conta Microsoft.
+1. Entrar no [portal do Azure](https://portal.azure.com/) usando sua conta da Microsoft.
 
-1. Selecione **Criar um recurso** na parte superior esquerda do portal.
+1. Selecione **criar um recurso** na parte superior esquerda do Portal.
 
-    ![Criar um recurso](media/index/try-speech-api-create-speech1.png)
+    ![Speech API-criar um recurso](media/index/speech-api-create-resource.png)
 
-1. Na janela **Nova**, pesquise **fala**.
+1. Na **nova** janela, procure por **fala**.
 
-1. Nos resultados da pesquisa, selecione **Fala**.
+1. Nos resultados da pesquisa, selecione **fala**.
 
-    ![Selecionar Fala](media/index/try-speech-api-create-speech2.png)
+    ![Speech API-selecionar fala](media/index/speech-api-select-speech.png)
 
-1. Em **Fala**, selecione o botão **Criar**.
+1. Em **fala**, selecione o botão **criar** .
 
-    ![Selecionar o botão Criar](media/index/try-speech-api-create-speech3.png)
+    ![Botão Speech API-criar](media/index/speech-api-create-button.png)
 
-1. Em **Criar**, insira:
+1. Em **criar**, digite:
 
-   * Um nome para o novo recurso. O nome ajuda a distinguir entre várias assinaturas do mesmo serviço.
-   * Escolha a assinatura do Azure a qual o novo recurso está associado para determinar como os valores serão cobrados.
+   * Um nome para o novo recurso. O nome ajuda você a distinguir entre várias assinaturas no mesmo serviço.
+   * Escolha a assinatura do Azure à qual o novo recurso está associado para determinar como as tarifas são cobradas.
    * Escolha a [região](regions.md) em que o recurso será usado.
    * Escolha um tipo de preço gratuito ou pago. Selecione **Exibir detalhes de preços completos** para obter informações completas sobre cotas de preço e uso para cada camada.
-   * Crie um grupo de recursos para esta assinatura de Fala ou atribua a assinatura a um grupo de recursos existente. Os grupos de recurso ajudam você a manter suas diversas assinaturas do Azure organizadas.
-   * Para ter acesso conveniente à sua assinatura futuramente, marque a caixa de seleção **Fixar no painel**.
-   * Selecione **Criar.**
+   * Crie um novo grupo de recursos para esta assinatura de fala ou atribua a assinatura a um grupo de recursos existente. Os grupos de recursos ajudam a manter suas várias assinaturas do Azure organizadas.
+   * Para ter acesso conveniente à sua assinatura no futuro, marque a caixa de seleção **fixar no painel** .
+   * Selecione **criar.**
 
-     ![Selecionar o botão Criar](media/index/try-speech-api-create-speech4.png)
+     ![Speech API-selecione criar](media/index/speech-api-select-create.png)
 
-     São necessários alguns instantes para criar e implantar o novo recurso de Fala. Selecione **Início Rápido** para ver informações sobre o novo recurso.
+     Leva um tempo para criar e implantar seu novo recurso de fala. Selecione **início rápido** para ver informações sobre o novo recurso.
 
-     ![Painel Início Rápido](media/index/try-speech-api-create-speech5.png)
+     ![Speech API-implantar o recurso](media/index/speech-api-deploy-resource.png)
 
-1. Em **início rápido**, selecione o link **chaves** na etapa 1 para exibir as chaves de assinatura. Cada assinatura tem duas chaves; você pode usar uma das chaves em seu aplicativo. Selecione o botão ao lado de cada chave para copiá-la para a área de transferência e colá-la no código.
+1. Em **início rápido**, selecione o link **chaves** na etapa 1 para exibir as chaves de assinatura. Cada assinatura tem duas chaves; Você pode usar qualquer chave em seu aplicativo. Selecione o botão ao lado de cada chave para copiá-lo para a área de transferência para colar em seu código.
 
 > [!NOTE]
-> Você pode criar um número ilimitado de assinaturas da camada Standard em uma ou várias regiões. No entanto, você só pode criar uma assinatura da camada gratuita. As implantações de modelo na camada gratuita que permanecerem inutilizadas por 7 dias serão desativadas automaticamente.
+> Você pode criar um número ilimitado de assinaturas de camada Standard em uma ou várias regiões. No entanto, você pode criar apenas uma assinatura de camada gratuita. Implantações de modelo na camada gratuita que permanecem sem uso por 7 dias serão desativados automaticamente.
 
 ## <a name="switch-to-a-new-subscription"></a>Alternar para uma nova assinatura
 
-Para alternar de uma assinatura para outra, por exemplo, quando a avaliação gratuita expirar ou quando você publicar seu aplicativo, substitua a região e a chave de assinatura no código pela região e pela chave de assinatura do novo recurso do Azure.
+Para alternar de uma assinatura para outra, por exemplo, quando sua avaliação gratuita expirar ou quando você publicar seu aplicativo, substitua a região e a chave de assinatura em seu código pela chave de assinatura e região do novo recurso do Azure.
 
 > [!NOTE]
-> As chaves de avaliação gratuita são criadas na região Oeste dos EUA (`westus`). Uma assinatura criada por meio do painel do Azure pode estar em alguma outra região, se você assim escolher.
+> As chaves de avaliação gratuitas são criadas na região oeste dos EUA (`westus`). Uma assinatura criada por meio do painel do Azure pode estar em alguma outra região, se você preferir.
 
-* Se o aplicativo usar um [SDK de Fala](speech-sdk.md), forneça o código da região, como `westus`, ao criar uma configuração de fala.
-* Se o aplicativo usar uma das [APIs REST](rest-apis.md) dos Serviços de Fala, a região fará parte do URI do ponto de extremidade usado ao fazer solicitações.
+* Se seu aplicativo usar um [SDK de fala](speech-sdk.md), você fornecerá o código de região, como `westus`, ao criar uma configuração de fala.
+* Se seu aplicativo usa uma das [APIs REST](rest-apis.md)dos serviços de fala, a região faz parte do URI do ponto de extremidade que você usa ao fazer solicitações.
 
-As chaves criadas para uma região são válidas somente nessa região. A tentativa de usá-las com outras regiões resultará em erros de autenticação.
+As chaves criadas para uma região são válidas somente nessa região. A tentativa de usá-los com outras regiões resultará em erros de autenticação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Conclua um de nossos inícios rápidos de 10 minutos ou confira nossas amostras de SDK:
+Conclua um dos nossos guias de início rápido de 10 minutos ou Confira nossos exemplos de SDK:
 
 > [!div class="nextstepaction"]
-> [Início Rápido: reconhecer a fala em C#](quickstart-csharp-dotnet-windows.md)
-> [Amostras de SDK de Fala](speech-sdk.md#get-the-samples)
+> [Início rápido: reconhecer a C# fala em exemplos do SDK do](quickstart-csharp-dotnet-windows.md) 
+> [Speech](speech-sdk.md#get-the-samples)
