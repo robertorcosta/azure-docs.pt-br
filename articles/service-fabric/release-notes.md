@@ -59,7 +59,7 @@ Para obter mais detalhes, consulte as [notas de versão do Service Fabric 6,5](h
 
 ### <a name="service-fabric-65-releases"></a>Versões do Service Fabric 6,5
 
-| Data do lançamento | Lançamento | Mais informações |
+| Data de lançamento | Lançamento | Mais informações |
 |---|---|---|
 | 11 de junho de 2019 | [Service Fabric do Azure 6,5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/06/11/azure-service-fabric-6-5-release/)  | [Notas de versão](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)|
 | 2 de julho de 2019 | [Versão de atualização do Azure Service Fabric 6,5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/07/04/azure-service-fabric-6-5-refresh-release/)  | [Notas de versão](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU1.pdf)  |
@@ -72,7 +72,7 @@ Para obter mais detalhes, consulte as [notas de versão do Service Fabric 6,5](h
 
 ### <a name="service-fabric-64-releases"></a>Versões do Service Fabric 6,4
 
-| Data do lançamento | Lançamento | Mais informações |
+| Data de lançamento | Lançamento | Mais informações |
 |---|---|---|
 | 30 de novembro de 2018 | [Service Fabric do Azure 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [Notas de versão](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
 | 12 de dezembro de 2018 | [Versão de atualização do Azure Service Fabric 6,4 para clusters do Windows](https://blogs.msdn.microsoft.com/azureservicefabric/2018/12/12/azure-service-fabric-6-4-refresh-for-windows-clusters/)  | [Notas de versão](https://msdnshared.blob.core.windows.net/media/2018/12/Links.pdf)  |
