@@ -1,160 +1,182 @@
 ---
-title: Perguntas frequentes sobre o serviço de Conversão de Fala em Texto no Azure
+title: Perguntas frequentes sobre o serviço de fala para texto no Azure
 titleSuffix: Azure Cognitive Services
-description: Obtenha respostas para as perguntas mais populares sobre o serviço de Fala em Texto.
+description: Obtenha respostas para as perguntas mais populares sobre o serviço de fala para texto.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: bde68a70ac047433e86b7e06bc5f4a56bdd28595
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1f934bc5627331cc92ad3f497f1f7e4e0e5526cd
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028502"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595336"
 ---
-# <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
+# <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre fala para texto
 
-Se você não encontrar respostas para suas perguntas nas perguntas frequentes, verifique[outras opções de suporte](support.md).
+Se você não encontrar respostas para suas perguntas nestas perguntas frequentes, confira [outras opções de suporte](support.md).
 
 ## <a name="general"></a>Geral
 
-**P: Qual é a diferença entre um modelo de linha de base e um modelo personalizado de conversão de fala em texto?**
+**P: Qual é a diferença entre um modelo de linha de base e uma fala personalizada para o modelo de texto?**
 
-**R**: Um modelo de linha de base foi treinado usando dados de propriedade da Microsoft e já está implantado na nuvem.  Você pode usar um modelo personalizado a fim de adaptar um modelo para se adequar melhor a um ambiente específico que tenha determinado ruído ambiente ou linguagem. Chãos de fábrica, carros, ruas barulhentas exigiriam um modelo acústico adaptado. Tópicos como biologia, física, radiologia, nomes de produtos e acrônimos personalizados exigiriam um modelo de linguagem adaptado.
+**R**: um modelo de linha de base foi treinado com o uso de dados de propriedade da Microsoft e já está implantado na nuvem.  Você pode usar um modelo personalizado para adaptar um modelo para se adequar melhor a um ambiente específico que tenha um ruído ou linguagem de ambiente específico. Os andares de fábrica, carros ou ruas ruidosas exigirão um modelo acústico adaptado. Tópicos como biologia, física, Radiologia, nomes de produtos e acrônimos personalizados exigirão um modelo de idioma adaptado.
 
-**P: Por onde começar se eu quiser usar um modelo de linha de base?**
+**P: onde devo iniciar se quiser usar um modelo de linha de base?**
 
-**R**: Primeiro, obtenha uma [chave de assinatura](get-started.md). Se você quiser fazer chamadas REST para os modelos de linha de base pré-empregados, confira as [APIs REST](rest-apis.md). Se você quiser usar WebSockets, [baixe o SDK](speech-sdk.md).
+**R**: primeiro, obtenha uma [chave de assinatura](get-started.md). Se você quiser fazer chamadas REST para os modelos de linha de base preimplantados, consulte as [APIs REST](rest-apis.md). Se você quiser usar Websockets, [Baixe o SDK](speech-sdk.md).
 
-**P: Preciso sempre criar um modelo de fala personalizada?**
+**P: sempre preciso criar um modelo de fala personalizado?**
 
-**R**: Nº Se o aplicativo usa linguagem genérica diária, você não precisa personalizar um modelo. Se o aplicativo é usado em um ambiente em que há pouco ou nenhum ruído de fundo, você não precisa personalizar um modelo.
+**R**: não. Se seu aplicativo usar o idioma genérico, do dia a dia, você não precisará personalizar um modelo. Se seu aplicativo for usado em um ambiente em que há pouco ou nenhum ruído de fundo, você não precisará personalizar um modelo.
 
-Você pode implantar modelos personalizados e de linha de base no portal e, em seguida, executar testes de precisão neles. Você pode usar esse recurso para medir a precisão de um modelo de linha de base em comparação com um modelo personalizado.
+Você pode implantar a linha de base e os modelos personalizados no portal e, em seguida, executar testes de precisão em relação a eles. Você pode usar esse recurso para medir a precisão de um modelo de linha de base versus um modelo personalizado.
 
-**P: Como saberei quando o processamento de meu conjunto de dados ou modelo estará completo?**
+**P: como saber quando o processamento do meu conjunto de um ou meu modelo está concluído?**
 
-**R**: Atualmente, o status do modelo ou do conjunto de dados na tabela é a única maneira de saber. Quando o processamento for concluído, o status será **Bem-sucedido**.
+**R**: atualmente, o status do modelo ou do conjunto de uma tabela é a única maneira de saber. Quando o processamento for concluído, o status será com **êxito**.
 
-**P: Posso criar mais de um modelo?**
+**P: posso criar mais de um modelo?**
 
-**R**: Não há limite para o número de modelos que você pode ter em sua coleção.
+**R**: não há limite para o número de modelos que você pode ter em sua coleção.
 
-**P: Percebi que cometi um erro. Como faço para cancelar a importação de dados ou modelo de criação em andamento?**
+**P: percebi que fiz um erro. Como fazer cancelar minha importação de dados ou criação de modelo em andamento?**
 
-**R**: Atualmente, não é possível reverter um processo de adaptação acústica ou de linguagem. Você pode excluir modelos e dados importados quando estão em um estado terminal.
+**R**: no momento, não é possível reverter um processo acústico ou de adaptação de linguagem. Você pode excluir os dados e modelos importados quando estiverem em um estado terminal.
 
-**P: Qual é a diferença entre o modelo de Pesquisa e Ditado e o modelo de Conversação?**
+**P: Qual é a diferença entre o modelo de pesquisa e de ditado e o modelo de conversação?**
 
-**R**: Você pode escolher mais de um modelo de linha de base no serviço de Fala. O modelo de Conversa é útil para reconhecimento de fala em um estilo conversacional. Esse modelo é ideal para transcrever chamadas telefônicas. O modelo de Pesquisa e Ditado é ideal para aplicativos ativados por voz. O modelo Universal é um novo modelo que visa abordar ambos os cenários. Atualmente, o modelo Universal está no nível de qualidade ou acima do modelo de Conversação na maioria das localidades.
+**R**: você pode escolher entre mais de um modelo de linha de base no serviço de fala. O modelo de conversação é útil para reconhecer a fala que é falada em um estilo de conversação. Esse modelo é ideal para transcrever chamadas telefônicas. O modelo de pesquisa e de ditado é ideal para aplicativos disparados por voz. O modelo Universal é um novo modelo que visa lidar com ambos os cenários. O modelo Universal está no momento ou acima do nível de qualidade do modelo de conversação na maioria das localidades.
 
-**P: Posso atualizar meu modelo existente (empilhamento de modelo)?**
+**P: posso atualizar meu modelo existente (pilha de modelos)?**
 
-**R**: Não é possível atualizar um modelo existente. Como solução, combine o conjunto de dados antigo ao novo conjunto de dados e readapte-os.
+**R**: não é possível atualizar um modelo existente. Como solução, combine o conjunto de antigos com o novo conjunto de e readaptação.
 
-O conjunto de dados antigo e o novo devem ser combinados em um único arquivo .zip (para dados acústicos) ou em um arquivo .txt (para dados de linguagem). Quando a adaptação for concluída, o novo modelo atualizado precisará ser reimplantado para a obtenção de um novo ponto de extremidade
+O DataSet antigo e o novo conjunto de dados devem ser combinados em um único arquivo. zip (para dados acústicos) ou em um arquivo. txt (para dados de idioma). Quando a adaptação é concluída, o novo modelo atualizado precisa ser reimplantado para obter um novo ponto de extremidade
 
-**P: Quando uma nova versão de uma linha de base está disponível, minha implantação é atualizada automaticamente?**
+**P: quando uma nova versão de uma linha de base está disponível, minha implantação é atualizada automaticamente?**
 
-**R**: As implantações NÃO serão atualizadas automaticamente.
+**R**: as implantações não serão atualizadas automaticamente.
 
-Se você tiver adaptado e implantado um modelo com a linha de base V1.0, essa implantação permanecerá como está. Os clientes podem desativar o modelo implantado, adaptar-se novamente usando a versão mais recente da linha de base e reimplantar.
+Se você tiver adaptado e implantado um modelo com a linha de base V 1.0, essa implantação permanecerá como está. Os clientes podem desativar o modelo implantado, adaptar-se novamente usando a versão mais recente da linha de base e reimplantar.
 
-**P: E se eu precisar de maior simultaneidade para o modelo implantado do que o oferecido no portal?**
+**P: e se eu precisar de uma simultaneidade maior para meu modelo implantado do que o que é oferecido no portal?**
 
-**R**: Você pode aumentar o modelo em incrementos de 20 solicitações simultâneas.
+**R**: você pode escalar verticalmente seu modelo em incrementos de 20 solicitações simultâneas.
 
 Contate o [suporte de fala](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) se você precisar de uma escala mais alta.
 
-**P: Posso baixar meu modelo e executá-lo localmente?**
+Para aumentar a simultaneidade para um modelo personalizado, precisamos das seguintes informações:
 
-**R**: Os modelos não podem ser baixados e executados localmente.
+- A região em que o modelo é implantado.
+- A ID do ponto de extremidade do modelo implantado.
 
-**P: Minhas solicitações são registradas em log?**
+Para aumentar a simultaneidade para modelos de base, precisamos das seguintes informações:
 
-**R**: Ao criar uma implantação, você tem uma opção para desativar o rastreamento. Nesse ponto, o áudio ou as transcrições não serão registrados. Caso contrário, as solicitações normalmente são registradas no Azure no armazenamento seguro.
+- A região do seu serviço,
 
-**P: Minhas solicitações são limitadas?**
+e qualquer um
 
-**R**: A API REST limita as solicitações a 25 a cada 5 segundos. Detalhes podem ser encontrados em nossas páginas de [Conversão de fala em texto](speech-to-text.md).
+- um token de acesso para você subrscription (veja [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
 
-**P: Como sou cobrado por áudio de canal duplo?**
+ou
 
-**R**: Se você enviar cada canal separadamente (cada canal em seu próprio arquivo), você será cobrado de acordo com a duração de cada arquivo. Se você enviar um único arquivo com cada canal multiplexado, você será cobrado pela duração do único arquivo.
+- a ID de recurso para sua assinatura:
+  - Vá para https://portal.azure.com,
+  - Selecione `Cognitive Services` na caixa de pesquisa,
+  - nos serviços exibidos, escolha o serviço de fala para o qual você deseja aumentar a simultaneidade,
+  - exibir as propriedades deste serviço,
+  - Copie o `Resource ID` completo.
+
+**P: posso baixar meu modelo e executá-lo localmente?**
+
+**R**: os modelos não podem ser baixados e executados localmente.
+
+**P: minhas solicitações estão registradas?**
+
+**R**: você tem uma opção ao criar uma implantação para desativar o rastreamento. Nesse ponto, nenhum áudio ou transcrição será registrado. Caso contrário, as solicitações normalmente são registradas no Azure no armazenamento seguro.
+
+**P: minhas solicitações estão limitadas?**
+
+**R**: a API REST limita as solicitações a 25 por 5 segundos. Os detalhes podem ser encontrados em nossas páginas de [fala para texto](speech-to-text.md).
+
+**P: como sou cobrado por áudio de canal duplo?**
+
+**R**: se você enviar cada canal separadamente (cada canal em seu próprio arquivo), você será cobrado de acordo com a duração de cada arquivo. Se você enviar um único arquivo com cada canal multiplexado, você será cobrado pela duração do único arquivo.
 
 > [!IMPORTANT]
-> Se você tiver mais problemas de privacidade que o impeçam de usar o serviço de voz personalizada, entre em contato com um dos canais de suporte.
+> Se você tiver outras preocupações de privacidade que proíbam de usar o serviço de fala personalizado, entre em contato com um dos canais de suporte.
 
-## <a name="importing-data"></a>Importação de dados
+## <a name="importing-data"></a>Importando dados
 
-**P: Qual é o limite de tamanho de um conjunto de dados e por que esse é o limite?**
+**P: Qual é o limite do tamanho de um conjunto de um DataSet e por que ele é o limite?**
 
-**R**: O limite atual de um conjunto de dados é de 2 GB. O limite é devido à restrição quanto ao tamanho de um arquivo para upload HTTP. 
+**R**: o limite atual para um conjunto de um DataSet é 2 GB. O limite é devido à restrição do tamanho de um arquivo para carregamento HTTP.
 
-**P: Posso compactar meus arquivos de texto para carregar um arquivo de texto maior?** 
+**P: posso compactar meus arquivos de texto para que eu possa carregar um arquivo de texto maior?** 
 
-**R**: Nº No momento são permitidos apenas os arquivos de texto não compactados.
+**R**: não. Atualmente, somente arquivos de texto não compactados são permitidos.
 
-**P: O relatório de dados indica que houve enunciados com falha. Qual é o problema?**
+**P: o relatório de dados diz que houve falha em declarações. Qual é o problema?**
 
-**R**: A falha ao carregar 100% dos enunciados em um arquivo não é um problema. Se a maioria das declarações em um conjunto de dados acústicos ou de linguagem (por exemplo, mais de 95 por cento) é importada com êxito, o conjunto de dados pode ser usado. No entanto, é recomendável que você tente entender por que as expressões falharam e corrigir os problemas. Os problemas mais comuns, como a formatação de erros, são difíceis de resolver. 
+**R**: falha ao carregar 100 por cento do declarações em um arquivo não é um problema. Se a grande maioria dos declarações em um conjunto de informações acústico ou de linguagem (por exemplo, mais de 95 por cento) for importada com êxito, o conjunto de informações poderá ser usado. No entanto, recomendamos que você tente entender por que a declarações falhou e corrigiu os problemas. Os problemas mais comuns, como erros de formatação, são fáceis de corrigir. 
 
-## <a name="creating-an-acoustic-model"></a>Criar um modelo acústico
+## <a name="creating-an-acoustic-model"></a>Criando um modelo acústico
 
-**P: Quantos dados acústicos são necessários?**
+**P: a quantidade de dados acústicos necessários?**
 
-**R**: Recomendamos iniciar com um intervalo de 30 minutos a uma hora de dados acústicos.
+**R**: é recomendável começar com entre 30 minutos e uma hora de dados acústicos.
 
-**P: Quais dados devem ser coletados?**
+**P: quais dados devo coletar?**
 
-**R**: Colete dados que sejam os mais próximos possíveis do cenário do aplicativo e do caso de uso. A coleta de dados deve corresponder ao aplicativo de destino e aos usuários em termos de dispositivo ou dispositivos, ambientes e tipos de alto-falantes. Em geral, você deve coletar dados de uma variedade de falantes o mais ampla possível. 
+**R**: colete dados que estejam mais próximos do cenário de aplicativo e use o caso de uso possível. A coleta de dados deve corresponder ao aplicativo de destino e aos usuários em termos de dispositivos, ambientes e tipos de alto-falantes. Em geral, você deve coletar dados do maior número possível de alto-falantes. 
 
-**P: Como devo coletar dados acústicos?**
+**P: como devo coletar dados acústicos?**
 
-**R**: Você pode criar um aplicativo autônomo de coleta de dados ou usar um software de gravação de áudio pronto para uso. Você também pode criar uma versão do seu aplicativo que registre os dados de áudio e usá-los. 
+**R**: você pode criar um aplicativo de coleta de dados autônomo ou usar o software de gravação de áudio fora do mercado. Você também pode criar uma versão do seu aplicativo que registra os dados de áudio e, em seguida, usa os dados. 
 
-**P: Preciso transcrever os dados de adaptação?**
+**P: preciso transcrever dados de adaptação?**
 
-**R**:  Sim! Você pode transcrever você mesmo ou usar um serviço profissional de transcrição. Alguns usuários preferem transcritores profissionais, e outros usam crowdsourcing ou eles mesmos fazem as transcrições.
+**R**: Sim! Você mesmo pode transcrever ou usar um serviço de transcrição profissional. Alguns usuários preferem que os assinantes profissionais e outros usam crowdsourcing ou fazem as transcrições em si.
 
 ## <a name="accuracy-testing"></a>Teste de precisão
 
-**P: Posso realizar o teste offline do meu modelo acústico personalizado usando um modelo de linguagem personalizado?**
+**P: posso executar testes offline do meu modelo acústico personalizado usando um modelo de linguagem personalizado?**
 
-**R**: Sim, basta selecionar o modelo de linguagem personalizado no menu suspenso ao configurar o teste offline.
+**R**: Sim, basta selecionar o modelo de idioma personalizado no menu suspenso ao configurar o teste offline.
 
-**P: Posso realizar o teste offline do meu modelo de linguagem personalizado usando um modelo acústico personalizado?**
+**P: posso executar testes offline do meu modelo de linguagem personalizado usando um modelo acústico personalizado?**
 
 **R**: Sim, basta selecionar o modelo acústico personalizado no menu suspenso ao configurar o teste offline.
 
-**P: O que é o WER (Relatório de Erros do Windows) e como ele é calculado?**
+**P: o que é a taxa de erros do Word (WER) e como ela é computada?**
 
-**R**: O WER é a métrica de avaliação para o reconhecimento de fala. O WER é contado como o número total de erros, o que inclui inserções, exclusões e substituições, dividido pelo número total de palavras na transcrição de referência. Confira mais informações em [Relatório de Erros do Windows](https://en.wikipedia.org/wiki/Word_error_rate).
+**R**: o wer é a métrica de avaliação para o reconhecimento de fala. O WER é contado como o número total de erros, que inclui inserções, exclusões e substituições, dividida pelo número total de palavras na transcrição de referência. Para obter mais informações, consulte [taxa de erros do Word](https://en.wikipedia.org/wiki/Word_error_rate).
 
-**P: Como fazer para determinar se os resultados de um teste de precisão são adequados?**
+**P: Como fazer determinar se os resultados de um teste de precisão são bons?**
 
-**R**: Os resultados mostram uma comparação entre o modelo de linha de base e o modelo personalizado. Você deve tentar atingir o modelo de referência para que a personalização seja útil.
+**R**: os resultados mostram uma comparação entre o modelo de linha de base e o modelo que você personalizou. Você deve visar superar o modelo de linha de base para tornar a personalização válida.
 
-**P: Como fazer para determinar o WER de um modelo base para ver se houve uma melhoria?** 
+**P: Como fazer determinar o WER de um modelo base para que eu possa ver se houve um aperfeiçoamento?** 
 
-**R**: Os resultados do teste offline mostram a precisão da linha de base do modelo personalizado e a melhoria em relação à linha de base.
+**R**: os resultados do teste offline mostram a precisão da linha de base do modelo personalizado e a melhoria em relação à linha de base.
 
-## <a name="creating-a-language-model"></a>Criar um modelo de linguagem
+## <a name="creating-a-language-model"></a>Criando um modelo de linguagem
 
-**P: Qual é a quantidade de dados de texto que preciso carregar?**
+**P: a quantidade de dados de texto que preciso carregar?**
 
-**R**: Isso depende da diferença entre as frases e o vocabulário usados no aplicativo e os modelos de linguagem iniciais. Para todas as palavras novas, é útil fornecer o maior número possível de exemplos do uso dessas palavras. Para frases comuns que são usadas em seu aplicativo, incluir frases nos dados da linguagem também é útil porque instrui o sistema a escutar esses termos também. É comum ter pelo menos 100 e, normalmente, várias centenas ou mais de declarações no conjunto de dados de linguagem. Além disso, se alguns tipos de consultas são mais comuns do que outras, você pode inserir várias cópias das consultas comuns no conjunto de dados.
+**R**: depende de quão diferentes o vocabulário e as frases usadas em seu aplicativo são dos modelos de linguagem iniciais. Para todas as novas palavras, é útil fornecer o máximo possível de exemplos do uso dessas palavras. Para frases comuns que são usadas em seu aplicativo, incluindo frases nos dados de linguagem também é útil porque diz ao sistema para também escutar esses termos. É comum ter pelo menos 100, e normalmente várias centenas ou mais declarações no conjunto de informações de linguagem. Além disso, se espera-se que alguns tipos de consultas sejam mais comuns do que outros, você pode inserir várias cópias das consultas comuns no conjunto de informações.
 
-**P: Posso carregar apenas uma lista de palavras?**
+**P: posso simplesmente carregar uma lista de palavras?**
 
-**R**: O upload de uma lista de palavras adicionará as palavras ao vocabulário, mas não ensinará ao sistema como as palavras normalmente são usadas. Fornecendo expressões completas ou parciais (orações ou frases de itens que os usuários provavelmente dirão), o modelo de linguagem pode aprender as novas palavras e como elas são usadas. O modelo de linguagem personalizado é bom não apenas para incluir novas palavras no sistema, mas também para ajustar a probabilidade de palavras conhecidas para sua aplicação. Fornecer utterances completas ajuda o sistema Saiba mais. 
+**R**: carregar uma lista de palavras adicionará as palavras ao vocabulário, mas não ensinará ao sistema como as palavras normalmente são usadas. Ao fornecer declarações totais ou parciais (frases ou frases de coisas que os usuários têm probabilidade de dizer), o modelo de linguagem pode aprender as novas palavras e como elas são usadas. O modelo de linguagem personalizado é bom não apenas para adicionar novas palavras ao sistema, mas também para ajustar a probabilidade de palavras conhecidas para seu aplicativo. Fornecer declarações completo ajuda o sistema a aprender melhor. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Solução de problemas](troubleshooting.md)
 * [Notas de versão](releasenotes.md)

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: d50b0858ac7c4c0e5e0263bd157e044d0fec4489
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 8ca994b0b4abb27eef284eedf5a76571fe19699d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972676"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595312"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Criar um recurso de serviços cognitivas usando a CLI (interface de linha de comando) do Azure
 
@@ -32,7 +32,7 @@ Neste guia de início rápido, você aprenderá a se inscrever nos serviços cog
 
 ## <a name="install-the-azure-cli-and-sign-in"></a>Instalar o CLI do Azure e entrar 
 
-Instale a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Para entrar na instalação local da CLI, execute o comando [AZ login](https://docs.microsoft.com/cli/azure/reference-index#az-login) :
+Instale o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Para entrar na instalação local da CLI, execute o comando [AZ login](https://docs.microsoft.com/cli/azure/reference-index#az-login) :
 
 ```console
 az login
@@ -68,29 +68,36 @@ az group create \
     --location westus2
 ```
 
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
+## <a name="create-a-cognitive-services-resource"></a>Criar um recurso de serviços cognitivas
 
 ### <a name="choose-a-cognitive-service-and-pricing-tier"></a>Escolha um serviço cognitiva e um tipo de preço
 
 Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja usar, juntamente com o tipo de [preço](https://azure.microsoft.com/pricing/details/cognitive-services/) (ou SKU) desejado. Você usará essa e outras informações como parâmetros ao criar o recurso.
 
+### <a name="multi-service"></a>Vários serviços
+
+| Serviço                    | quase                      |
+|----------------------------|---------------------------|
+| Vários serviços. Consulte a página de [preços](https://azure.microsoft.com/pricing/details/cognitive-services/) para obter mais detalhes.            | `CognitiveServices`     |
+
+
 > [!NOTE]
-> Muitos serviços cognitivas têm uma camada gratuita que você pode usar para experimentar o serviço. Para usar a camada gratuita, use `F0` como a SKU para seu recurso.
+> Muitos dos serviços cognitivas abaixo têm uma camada gratuita que você pode usar para experimentar o serviço. Para usar a camada gratuita, use `F0` como a SKU para seu recurso.
 
 ### <a name="vision"></a>Visão
 
-| Serviço                    | Tipo                      |
+| Serviço                    | quase                      |
 |----------------------------|---------------------------|
-| Visual Computacional            | `ComputerVision`          |
+| Visual computacional            | `ComputerVision`          |
 | Visão Personalizada-previsão | `CustomVision.Prediction` |
 | Visão Personalizada-treinamento   | `CustomVision.Training`   |
-| API de Detecção Facial                   | `Face`                    |
+| Face API                   | `Face`                    |
 | Reconhecimento de Formulários            | `FormRecognizer`          |
 | Reconhecimento de Tinta Digital             | `InkRecognizer`           |
 
 ### <a name="search"></a>Pesquisa
 
-| Serviço            | Tipo                  |
+| Serviço            | quase                  |
 |--------------------|-----------------------|
 | Sugestão Automática do Bing   | `Bing.Autosuggest.v7` |
 | Pesquisa Personalizada do Bing | `Bing.CustomSearch`   |
@@ -100,24 +107,24 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 
 ### <a name="speech"></a>Fala
 
-| Serviço            | Tipo                 |
+| Serviço            | quase                 |
 |--------------------|----------------------|
 | Serviços de Fala    | `SpeechServices`     |
-| Reconhecimento de fala | `SpeakerRecognition` |
+| Reconhecimento de Fala | `SpeakerRecognition` |
 
-### <a name="language"></a>Idioma
+### <a name="language"></a>Linguagem
 
-| Serviço            | Tipo                |
+| Serviço            | quase                |
 |--------------------|---------------------|
 | Compreensão do formulário | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
 | QnA Maker          | `QnAMaker`          |
-| Análise de texto     | `TextAnalytics`     |
-| Tradução de texto   | `TextTranslation`   |
+| Análises de texto     | `TextAnalytics`     |
+| Tradução de Texto   | `TextTranslation`   |
 
 ### <a name="decision"></a>Decisão
 
-| Serviço           | Tipo               |
+| Serviço           | quase               |
 |-------------------|--------------------|
 | Detector de Anomalias  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |
@@ -193,7 +200,7 @@ az group delete --name storage-resource-group
 
 ## <a name="see-also"></a>Consulte também
 
-* [Autenticar solicitações para os Serviços Cognitivos do Azure](authentication.md)
+* [Autenticar solicitações para serviços cognitivas do Azure](authentication.md)
 * [O que são os serviços cognitivas do Azure?](Welcome.md)
 * [Suporte a idioma natural](language-support.md)
 * [Suporte a contêiner do Docker](cognitive-services-container-support.md)
