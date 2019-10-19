@@ -1,24 +1,18 @@
 ---
 title: Configurar Azure Monitor para coleta de dados de agente de contêineres | Microsoft Docs
 description: Este artigo descreve como você pode configurar o Azure Monitor para agente de contêineres para controlar stdout/stderr e a coleção de logs de variáveis de ambiente.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/08/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: dfa823955cccba4ac7ec6859894a4562f0810d76
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.date: 10/08/2019
+ms.openlocfilehash: 2b72252c5c85679c1c65fa2dcf9c5acc6c54003c
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248747"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554211"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurar a coleta de dados do agente para Azure Monitor para contêineres
 
@@ -41,15 +35,15 @@ Um arquivo de modelo ConfigMap é fornecido para que você possa editá-lo facil
 
 A seguir estão as configurações que podem ser definidas para controlar a coleta de dados.
 
-|Chave |Tipo de dados |Valor |DESCRIÇÃO |
+|Chave |Tipo de dados |Valor |Descrição |
 |----|----------|------|------------|
 |`schema-version` |Cadeia de caracteres (diferencia maiúsculas de minúsculas) |v1 |Esta é a versão do esquema usada pelo agente ao analisar este ConfigMap. A versão de esquema com suporte atualmente é v1. Não há suporte para a modificação desse valor e ele será rejeitado quando ConfigMap for avaliado.|
 |`config-version` |Cadeia de caracteres | | Dá suporte à capacidade de controlar a versão deste arquivo de configuração no sistema/repositório do controle do código-fonte. Os caracteres máximos permitidos são 10 e todos os outros caracteres são truncados. |
-|`[log_collection_settings.stdout] enabled =` |Boolean | true ou false | Isso controla se a coleta de log de contêiner stdout está habilitada. Quando definido como `true` e nenhum namespace é excluído para a coleta de log de stdout (configuração de `log_collection_settings.stdout.exclude_namespaces` abaixo), os logs de stdout serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps, o valor padrão será `enabled = true`. |
+|`[log_collection_settings.stdout] enabled =` |Boolean | verdadeiro ou falso | Isso controla se a coleta de log de contêiner stdout está habilitada. Quando definido como `true` e nenhum namespace for excluído para a coleta de log de stdout (`log_collection_settings.stdout.exclude_namespaces` configuração abaixo), os logs de stdout serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps, o valor padrão será `enabled = true`. |
 |`[log_collection_settings.stdout] exclude_namespaces =`|Cadeia de caracteres | Matriz separada por vírgulas |Matriz de namespaces kubernetes para os quais os logs de stdout não serão coletados. Essa configuração só será eficaz se `log_collection_settings.stdout.enabled` estiver definida como `true`. Se não for especificado em ConfigMap, o valor padrão será `exclude_namespaces = ["kube-system"]`.|
-|`[log_collection_settings.stderr] enabled =` |Boolean | true ou false |Isso controla se a coleta de log de contêiner stderr está habilitada. Quando definido como `true` e nenhum namespace é excluído para a coleta de log de stdout (configuração `log_collection_settings.stderr.exclude_namespaces`), os logs de stderr serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps, o valor padrão será `enabled = true`. |
+|`[log_collection_settings.stderr] enabled =` |Boolean | verdadeiro ou falso |Isso controla se a coleta de log de contêiner stderr está habilitada. Quando definido como `true` e nenhum namespace for excluído para a coleta de log de stdout (configuração de `log_collection_settings.stderr.exclude_namespaces`), os logs de stderr serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps, o valor padrão será `enabled = true`. |
 |`[log_collection_settings.stderr] exclude_namespaces =` |Cadeia de caracteres |Matriz separada por vírgulas |Matriz de namespaces kubernetes para os quais os logs de stderr não serão coletados. Essa configuração só será eficaz se `log_collection_settings.stdout.enabled` estiver definida como `true`. Se não for especificado em ConfigMap, o valor padrão será `exclude_namespaces = ["kube-system"]`. |
-| `[log_collection_settings.env_var] enabled =` |Boolean | true ou false | Essa configuração controla a coleção de variáveis de ambiente em todos os pods/nós no cluster e usa como padrão `enabled = true` quando não especificado em ConfigMaps. Se a coleção de variáveis de ambiente for habilitada globalmente, você poderá desabilitá-la para um contêiner específico definindo a variável de ambiente `AZMON_COLLECT_ENV` como **false** com uma configuração Dockerfile ou no [arquivo de configuração para o Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) sob a  **env:** seção. Se a coleção de variáveis de ambiente for desabilitada globalmente, você não poderá habilitar a coleta para um contêiner específico (ou seja, a única substituição que pode ser aplicada no nível de contêiner será desabilitar a coleta quando ela já estiver habilitada globalmente.). |
+| `[log_collection_settings.env_var] enabled =` |Boolean | verdadeiro ou falso | Essa configuração controla a coleção de variáveis de ambiente em todos os pods/nós no cluster e usa como padrão `enabled = true` quando não especificado em ConfigMaps. Se a coleção de variáveis de ambiente for habilitada globalmente, você poderá desabilitá-la para um contêiner específico definindo a variável de ambiente `AZMON_COLLECT_ENV` como **false** com uma configuração Dockerfile ou no [arquivo de configuração para o Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) sob a  **env:** seção. Se a coleção de variáveis de ambiente for desabilitada globalmente, você não poderá habilitar a coleta para um contêiner específico (ou seja, a única substituição que pode ser aplicada no nível de contêiner será desabilitar a coleta quando ela já estiver habilitada globalmente.). |
 
 ### <a name="prometheus-scraping-settings"></a>Configurações de recorte de Prometheus
 
@@ -70,13 +64,13 @@ A recorte ativa de métricas de Prometheus é executada de uma das duas perspect
 
 Quando uma URL é especificada, Azure Monitor para contêineres apenas captura o ponto de extremidade. Quando o serviço kubernetes é especificado, o nome do serviço é resolvido com o servidor DNS do cluster para obter o endereço IP e, em seguida, o serviço resolvido é recapturado.
 
-|Escopo | Chave | Tipo de dados | Valor | DESCRIÇÃO |
+|Escopo | Chave | Tipo de dados | Valor | Descrição |
 |------|-----|-----------|-------|-------------|
 | Em todo o cluster | | | | Especifique qualquer um dos três métodos a seguir para recorte de pontos de extremidade para métricas. |
 | | `urls` | Cadeia de caracteres | Matriz separada por vírgulas | Ponto de extremidade HTTP (endereço IP ou caminho de URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE _IP é um Azure Monitor específico para o parâmetro containers e pode ser usado em vez do endereço IP do nó. Deve estar tudo em maiúsculas.) |
 | | `kubernetes_services` | Cadeia de caracteres | Matriz separada por vírgulas | Uma matriz de serviços Kubernetess para recorte de métricas de métricas de Kube-State. Por exemplo, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Boolean | true ou false | Quando definido como `true` nas configurações de todo o cluster, Azure Monitor para o agente de contêineres irá recriar os pods de kubernetes em todo o cluster para as seguintes anotações Prometheus:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Boolean | true ou false | Habilita a recorte do pod. `monitor_kubernetes_pods` deve ser definido como `true`. |
+| | `monitor_kubernetes_pods` | Boolean | verdadeiro ou falso | Quando definido como `true` nas configurações de todo o cluster, Azure Monitor para o agente de contêineres irá recriar o pods kubernetes em todo o cluster para as seguintes anotações Prometheus:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `prometheus.io/scrape` | Boolean | verdadeiro ou falso | Habilita a recorte do pod. `monitor_kubernetes_pods` deve ser definido como `true`. |
 | | `prometheus.io/scheme` | Cadeia de caracteres | http ou https | O padrão é a sucateação sobre HTTP. Se necessário, defina como `https`. | 
 | | `prometheus.io/path` | Cadeia de caracteres | Matriz separada por vírgulas | O caminho do recurso HTTP para o qual buscar métricas. Se o caminho de métrica não for `/metrics`, defina-o com esta anotação. |
 | | `prometheus.io/port` | Cadeia de caracteres | 9102 | Especifique uma porta da qual a sucata será recortada. Se a porta não estiver definida, o padrão será 9102. |
@@ -96,7 +90,7 @@ Execute as etapas a seguir para configurar e implantar o arquivo de configuraç�
 
     - Para excluir namespaces específicos para coleta de log de stdout, configure a chave/valor usando o exemplo a seguir: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
     
-    - Para desabilitar a coleção de variáveis de ambiente para um contêiner específico, defina a chave/valor `[log_collection_settings.env_var] enabled = true` para habilitar a coleção de variáveis globalmente e siga as etapas [aqui](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) para concluir a configuração para o contêiner específico.
+    - Para desabilitar a coleção de variáveis de ambiente para um contêiner específico, defina a `[log_collection_settings.env_var] enabled = true` de chave/valor para habilitar a coleção de variáveis globalmente e siga as etapas [aqui](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) para concluir a configuração para o contêiner específico.
     
     - Para desabilitar a coleção de logs stderr em todo o cluster, configure a chave/valor usando o seguinte exemplo: `[log_collection_settings.stderr] enabled = false`.
     
@@ -173,7 +167,7 @@ Para verificar se a configuração foi aplicada com êxito, use o seguinte coman
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
-Os erros relacionados à aplicação de alterações de configuração para Prometheus também estão disponíveis para revisão.  Seja dos logs de um pod de agente usando o mesmo comando `kubectl logs` ou de logs dinâmicos. Os logs ao vivo mostram erros semelhantes ao seguinte:
+Os erros relacionados à aplicação de alterações de configuração para Prometheus também estão disponíveis para revisão.  Seja dos logs de um pod de agente usando o mesmo comando de `kubectl logs` ou de logs ao vivo. Os logs ao vivo mostram erros semelhantes ao seguinte:
 
 ```
 2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host
@@ -208,7 +202,7 @@ A saída será exibida de forma semelhante à seguinte com a anotação Schema-V
 
 ## <a name="query-prometheus-metrics-data"></a>Consultar dados de métricas do Prometheus
 
-Para exibir as métricas de Prometheus recortadas por Azure Monitor, especifique "Prometheus" como o namespace. Aqui está uma consulta de exemplo para exibir as métricas de Prometheus do namespace `default` kubernetes.
+Para exibir as métricas de Prometheus recortadas por Azure Monitor, especifique "Prometheus" como o namespace. Aqui está uma consulta de exemplo para exibir as métricas de Prometheus do namespace do `default` kubernetes.
 
 ```
 InsightsMetrics 
@@ -258,10 +252,10 @@ A saída mostrará resultados semelhantes ao seguinte:
 
 Mais informações sobre como monitorar o uso de dados e analisar o custo estão disponíveis em [gerenciar o uso e os custos com os logs de Azure monitor](../platform/manage-cost-storage.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Azure Monitor para contêineres não inclui um conjunto predefinido de alertas. Examine [criar alertas de desempenho com Azure monitor para contêineres](container-insights-alerts.md) para saber como criar alertas recomendados para alta utilização de CPU e memória para dar suporte aos processos e procedimentos operacionais ou DevOps.
 
-- Para continuar aprendendo a usar o Azure Monitor e monitorar outros aspectos do cluster do AKS, confira [Exibir integridade do Serviço de Kubernetes do Azure](container-insights-analyze.md).
+- Para continuar aprendendo a usar Azure Monitor e monitorar outros aspectos do cluster AKS, consulte Exibir a [integridade do serviço kubernetes do Azure](container-insights-analyze.md).
 
 - Exiba [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para avaliar ou personalizar para alertar, Visualizar ou analisar seus clusters.

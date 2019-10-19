@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 10/15/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62ea1761cef48ab7808a352789963ab55129d2f8
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 7504d14d522a440572aa25491270c0afc73325a9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162383"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554397"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planejando uma implantação da autenticação multifator do Azure baseada em nuvem
 
@@ -44,7 +44,7 @@ Seu plano de distribuição do MFA deve incluir uma implantação piloto seguida
 
 É essencial informar os usuários, em comunicações planejadas, sobre alterações futuras, requisitos de registro do Azure MFA e quaisquer ações de usuário necessárias. Recomendamos que as comunicações sejam desenvolvidas em conjunto com os representantes de dentro de sua organização, como um departamento de comunicações, gerenciamento de alterações ou recursos humanos.
 
-A Microsoft fornece [modelos de comunicação](https://aka.ms/mfatemplates) e documentação do [usuário final](../user-help/security-info-setup-signin.md) para ajudar a rascunhar suas comunicações. Você pode enviar os usuários [https://myprofile.microsoft.com](https://myprofile.microsoft.com) para o para se registrar diretamente selecionando os links de **informações de segurança** na página.
+A Microsoft fornece [modelos de comunicação](https://aka.ms/mfatemplates) e documentação do [usuário final](../user-help/security-info-setup-signin.md) para ajudar a rascunhar suas comunicações. Você pode enviar usuários para [https://myprofile.microsoft.com](https://myprofile.microsoft.com) registrar-se diretamente, selecionando os links de **informações de segurança** nessa página.
 
 ## <a name="deployment-considerations"></a>Considerações de implantação
 
@@ -58,12 +58,12 @@ A autenticação multifator do Azure é implantada pela imposição de política
 * Aplicativos cliente
 * Risco de entrada (requer a proteção de identidade)
 * Dispositivo em conformidade
-* Dispositivo adicionado ao Azure AD híbrido
+* Dispositivo ingressado no Azure AD híbrido
 * Aplicativo cliente aprovado
 
-Use os cartazes personalizáveis e modelos de email em [materiais de distribuição da autenticação](https://www.microsoft.com/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all) multifator para distribuir a autenticação multifator para sua organização.
+Use os cartazes personalizáveis e modelos de email em [materiais de distribuição da autenticação multifator](https://www.microsoft.com/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all) para distribuir a autenticação multifator para sua organização.
 
-## <a name="enable-multi-factor-authentication-with-conditional-access"></a>Habilitar Autenticação Multifator com acesso condicional
+## <a name="enable-multi-factor-authentication-with-conditional-access"></a>Habilitar a autenticação multifator com acesso condicional
 
 As políticas de acesso condicional impõem o registro, exigindo que usuários não registrados concluam o registro na primeira entrada, uma consideração de segurança importante.
 
@@ -71,7 +71,7 @@ As políticas de acesso condicional impõem o registro, exigindo que usuários n
 
 * Credenciais vazadas
 * Entradas de endereços IP anônimos
-* Viagem impossível a localizações atípicas
+* Viagem impossível a locais atípicos
 * Entradas de locais desconhecidos
 * Entradas de dispositivos infectados
 * Entradas de endereços IP com atividades suspeitas
@@ -91,7 +91,7 @@ Recomendamos que as organizações usem o acesso condicional para definir sua re
 5. No campo **nome** , forneça um nome significativo
 6. Selecione se você está definindo o local usando intervalos de IP ou países/regiões
    1. Se estiver usando intervalos de IP
-      1. Decida se deseja marcar o local como confiável. Conectar de um local confiável diminui o risco de entrada do usuário. Marque esta localização como confiável se você souber que os intervalos de IP inseridos são estabelecidos e confiáveis em sua organização.
+      1. Decida se deseja marcar o local como confiável. Entrar de um local confiável reduz o risco de entrada de um usuário. Marque esta localização como confiável se você souber que os intervalos de IP inseridos são estabelecidos e confiáveis em sua organização.
       2. Especificar os intervalos de IP
    2. Se estiver usando países/regiões
       1. Expanda o menu suspenso e selecione os países ou regiões que você deseja definir para esse local nomeado.
@@ -102,20 +102,20 @@ Recomendamos que as organizações usem o acesso condicional para definir sua re
 
 Os administradores podem escolher os [métodos de autenticação](../authentication/concept-authentication-methods.md) que desejam disponibilizar para os usuários. É importante permitir mais do que um único método de autenticação para que os usuários tenham um método de backup disponível caso o método principal não esteja disponível. Os seguintes métodos estão disponíveis para que os administradores habilitem:
 
-### <a name="notification-through-mobile-app"></a>Notificação pelo aplicativo móvel
+### <a name="notification-through-mobile-app"></a>Notificação por meio do aplicativo móvel
 
 Uma notificação por push é enviada para o aplicativo Microsoft Authenticator em seu dispositivo móvel. O usuário exibe a notificação e seleciona **aprovar** para concluir a verificação. As notificações por Push por meio de um aplicativo móvel fornecem a opção menos invasiva para os usuários. Eles também são a opção mais confiável e segura porque usam uma conexão de dados em vez de telefonia.
 
 > [!NOTE]
 > Se sua organização tiver funcionários trabalhando ou viajando para a China, a **notificação por meio** do método de aplicativo móvel em **dispositivos Android** não funcionará nesse país. Os métodos alternativos devem ser disponibilizados para esses usuários.
 
-### <a name="verification-code-from-mobile-app"></a>Código de verificação do aplicativo móvel
+### <a name="verification-code-from-mobile-app"></a>Código de verificação de aplicativo móvel
 
-Um aplicativo móvel como o Microsoft Authenticator aplicativo gera um novo código de verificação OATH a cada 30 segundos. O usuário digita o código de verificação na interface de entrada. A opção aplicativo móvel pode ser usada independentemente de o telefone ter ou não um sinal de celular ou de dados.
+Um aplicativo móvel como o Microsoft Authenticator aplicativo gera um novo código de verificação OATH a cada 30 segundos. O usuário insere o código de verificação na interface de entrada. A opção aplicativo móvel pode ser usada independentemente de o telefone ter ou não um sinal de celular ou de dados.
 
-### <a name="call-to-phone"></a>Ligar para o telefone
+### <a name="call-to-phone"></a>Ligue para o telefone
 
-Uma chamada de voz automática é colocada para o usuário. O usuário responde à chamada e pressiona **#** o teclado do telefone para aprovar sua autenticação. A chamada para Phone é um excelente método de backup para notificação ou código de verificação de um aplicativo móvel.
+Uma chamada de voz automática é colocada para o usuário. O usuário responde à chamada e pressiona **#** no teclado do telefone para aprovar sua autenticação. A chamada para Phone é um excelente método de backup para notificação ou código de verificação de um aplicativo móvel.
 
 ### <a name="text-message-to-phone"></a>Mensagem de texto para telefone
 
@@ -123,17 +123,17 @@ Uma mensagem de texto que contém um código de verificação é enviada ao usu�
 
 ### <a name="choose-verification-options"></a>Escolher opções de verificação
 
-1. Navegue até **do Azure Active Directory**, **Usuários**, **Autenticação Multifator**.
+1. Navegue até **Azure Active Directory**, **usuários**, **autenticação multifator**.
 
-   ![Acessando o portal de Autenticação Multifator na folha de usuários do Azure Active Directory no portal do Azure](media/howto-mfa-getstarted/users-mfa.png)
+   ![Acessando o portal de autenticação multifator da folha usuários do Azure AD no portal do Azure](media/howto-mfa-getstarted/users-mfa.png)
 
-1. Na nova guia que é aberta, navegue até **configurações do serviço**.
-1. Em **opções de verificação**, verifique todas as caixas para os métodos disponíveis aos usuários.
+1. Na nova guia que é aberta, navegue até **configurações de serviço**.
+1. Em **Opções de verificação**, marque todas as caixas para os métodos disponíveis para os usuários.
 
-   ![Configurar métodos de verificação na guia configurações do serviço de Autenticação Multifator](media/howto-mfa-getstarted/mfa-servicesettings-verificationoptions.png)
+   ![Configurando métodos de verificação na guia Configurações do serviço de autenticação multifator](media/howto-mfa-getstarted/mfa-servicesettings-verificationoptions.png)
 
 1. Clique em **Save**.
-1. Feche a guia **configurações de serviço**.
+1. Feche a guia **configurações de serviço** .
 
 ## <a name="plan-registration-policy"></a>Política de registro de plano
 
@@ -176,32 +176,6 @@ Se os usuários tiverem sido habilitados usando a autenticação multifator habi
 Execute este PowerShell em uma janela do ISE ou salve como um. Arquivo PS1 a ser executado localmente.
 
 ```PowerShell
-# Disable MFA for all users, keeping their MFA methods intact
-Get-MsolUser -All | Disable-MFA -KeepMethods
-
-# Wrapper to disable MFA with the option to keep the MFA methods (to avoid having to proof-up again later)
-function Disable-MFA {
-
-    [CmdletBinding()]
-    param(
-        [Parameter(ValueFromPipeline=$True)]
-        $User,
-        [switch] $KeepMethods
-    )
-
-    Process {
-
-        Write-Verbose ("Disabling MFA for user '{0}'" -f $User.UserPrincipalName)
-        $User | Set-MfaState -State Disabled
-
-        if ($KeepMethods) {
-            # Restore the MFA methods which got cleared when disabling MFA
-            Set-MsolUser -ObjectId $User.ObjectId `
-                         -StrongAuthenticationMethods $User.StrongAuthenticationMethods
-        }
-    }
-}
-
 # Sets the MFA requirement state
 function Set-MfaState {
 
@@ -231,6 +205,8 @@ function Set-MfaState {
     }
 }
 
+# Disable MFA for all users
+Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 ## <a name="plan-conditional-access-policies"></a>Planejar políticas de acesso condicional
@@ -242,24 +218,24 @@ Para planejar sua estratégia de política de acesso condicional, que determinar
 ### <a name="create-conditional-access-policy"></a>Criar política de acesso condicional
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta de administrador global.
-1. Navegue até **Azure Active Directory**, **Acesso Condicional**.
-1. Selecione **Nova política**.
-1. .Forneça um nome significativo para a política.
+1. Navegue até **Azure Active Directory**, **acesso condicional**.
+1. Selecione **nova política**.
+1. Forneça um nome significativo para sua política.
 1. Em **usuários e grupos**:
-   * Na guia **Incluir**, selecione o botão de opção **Todos os usuários**
+   * Na guia **incluir** , selecione o botão de opção **todos os usuários**
    * Na guia **excluir** , marque a caixa de **usuários e grupos** e escolha suas contas de acesso de emergência.
    * Clique em **Concluído**.
-1. Em **Aplicativos na nuvem**, selecione o botão de opção **Todos os aplicativos na nuvem**.
-   * OPCIONALMENTE: Na guia **Excluir**, escolha os aplicativos na nuvem para os quais sua organização não exige o MFA.
+1. Em **aplicativos de nuvem**, selecione o botão de opção **todos os aplicativos de nuvem** .
+   * OPCIONALmente: na guia **excluir** , escolha aplicativos de nuvem para os quais sua organização não requer MFA.
    * Clique em **Concluído**.
-1. Na seção **Condições**:
-   * OPCIONALMENTE: Se você tiver habilitado o Azure Identity Protection, poderá optar por avaliar o risco de conexão como parte da política.
-   * OPCIONALMENTE: Se você tiver configurado localizações confiáveis ou nomeadas, poderá especificar para incluir ou excluir essas localizações da política.
-1. Em **Concessão**, verifique se o botão de opção **Conceder acesso** está selecionado.
-    * Marque a caixa para **Exigir autenticação multifator**.
+1. Na seção **condições** :
+   * OPCIONALmente: se você tiver habilitado a proteção de identidade do Azure, poderá optar por avaliar o risco de entrada como parte da política.
+   * OPCIONALmente: se você tiver configurado locais confiáveis ou locais nomeados, poderá especificar para incluir ou excluir esses locais da política.
+1. Em **conceder**, verifique se o botão de opção **conceder acesso** está selecionado.
+    * Marque a caixa para **exigir autenticação multifator**.
     * Clique em **Selecionar**.
-1. Ignore a seção **Sessão**.
-1. Defina a alternância **Habilitar política** para **Ativado**.
+1. Ignore a seção de **sessão** .
+1. Defina ativar/desativar **política** como **ativado**.
 1. Clique em **Criar**.
 
 ![Criar uma política de acesso condicional para habilitar a MFA para usuários portal do Azure no grupo piloto](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
@@ -284,7 +260,7 @@ Da mesma forma, se a autenticação multifator do Azure for imposta para todas a
 
 ### <a name="integrating-azure-multi-factor-authentication-with-network-policy-server"></a>Integrando a autenticação multifator do Azure com o servidor de políticas de rede
 
-A extensão do Servidor de Políticas de Rede (NPS) para o Azure MFA adiciona recursos MFA baseados em nuvem à sua infraestrutura de autenticação usando os seus servidores existentes. Com a extensão do NPS, você pode adicionar a verificação de chamada telefônica, mensagem de texto ou aplicativo de telefone ao seu fluxo de autenticação existente. Essa integração tem as seguintes limitações:
+A extensão do NPS (servidor de políticas de rede) para o Azure MFA adiciona recursos de MFA baseados em nuvem à sua infraestrutura de autenticação usando seus servidores existentes. Com a extensão do NPS, você pode adicionar a verificação de chamada telefônica, mensagem de texto ou aplicativo de telefone ao seu fluxo de autenticação existente. Essa integração tem as seguintes limitações:
 
 * Com o protocolo CHAPv2, somente as notificações por push do aplicativo autenticador e a chamada de voz têm suporte.
 * As políticas de acesso condicional não podem ser aplicadas.
@@ -297,20 +273,20 @@ Se você já tiver uma instância do NPS implantada e em uso, [a referência int
 
 #### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>Preparar o NPS para usuários que não estão registrados para MFA
 
-Escolha o que acontece quando os usuários que não estão registrados com o MFA tentam se autenticar. Use a configuração `REQUIRE_USER_MATCH` do registro no caminho `HKLM\Software\Microsoft\AzureMFA` do registro para controlar o comportamento do recurso. Essa configuração tem uma única opção de configuração.
+Escolha o que acontece quando os usuários que não estão registrados com o MFA tentam se autenticar. Use a configuração do registro `REQUIRE_USER_MATCH` no caminho do registro `HKLM\Software\Microsoft\AzureMFA` para controlar o comportamento do recurso. Essa configuração tem uma única opção de configuração.
 
-| Chave | Valor | Padrão |
+| Chave | Valor | Os |
 | --- | --- | --- |
-| `REQUIRE_USER_MATCH` | TRUE/FALSE | Não definido (equivalente a TRUE) |
+| `REQUIRE_USER_MATCH` | VERDADEIRO/FALSO | Não definido (equivalente a TRUE) |
 
-A finalidade dessa configuração é determinar o que fazer quando um usuário não estiver inscrito na MFA. Os efeitos da alteração dessa configuração são listados na tabela a seguir.
+A finalidade dessa configuração é determinar o que fazer quando um usuário não está registrado para MFA. Os efeitos da alteração dessa configuração são listados na tabela a seguir.
 
 | Configurações | Status de MFA do usuário | Effect |
 | --- | --- | --- |
 | A chave não existe | Não registrado | O desafio de MFA não foi bem-sucedido |
-| Valor definido como True/not set | Não registrado | O desafio de MFA não foi bem-sucedido |
-| Chave definida como False | Não registrado | Autenticação sem MFA |
-| Chave definida como Falsa ou True | Registrados | Deve autenticar com MFA |
+| Valor definido como true/not set | Não registrado | O desafio de MFA não foi bem-sucedido |
+| Chave definida como false | Não registrado | Autenticação sem MFA |
+| Chave definida como falsa ou verdadeira | Registrados | Deve autenticar com MFA |
 
 ### <a name="integrate-with-active-directory-federation-services"></a>Integrar com o Serviços de Federação do Active Directory (AD FS)
 
@@ -339,7 +315,7 @@ Em cada servidor de AD FS, no computador local meu repositório, haverá um cert
 
 Se o período de validade de seus certificados estiver se aproximando da expiração, [gere e verifique um novo certificado MFA em cada servidor de AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
-As diretrizes a seguir detalham como gerenciar os certificados do Azure MFA em seus servidores de AD FS. Quando você configura AD FS com o Azure MFA, os certificados gerados por `New-AdfsAzureMfaTenantCertificate` meio do cmdlet do PowerShell são válidos por 2 anos. Renove e instale os certificados renovados antes da expiração para Ovoid interrupções no serviço MFA.
+As diretrizes a seguir detalham como gerenciar os certificados do Azure MFA em seus servidores de AD FS. Quando você configura AD FS com o Azure MFA, os certificados gerados por meio do cmdlet `New-AdfsAzureMfaTenantCertificate` do PowerShell são válidos por 2 anos. Renove e instale os certificados renovados antes da expiração para Ovoid interrupções no serviço MFA.
 
 ## <a name="implement-your-plan"></a>Implementar seu plano
 
@@ -357,11 +333,11 @@ Agora que você planejou sua solução, poderá implementar o seguindo as etapas
 1. Configurar sua política de registro de MFA
    1. [MFA e SSPR combinadas](howto-registration-mfa-sspr-combined.md)
    1. Com a [proteção de identidade](../identity-protection/howto-mfa-policy.md)
-1. Enviar comunicações do usuário e fazer com que os usuários se registrem em[https://aka.ms/mfasetup](https://aka.ms/mfasetup)
+1. Enviar comunicações do usuário e fazer com que os usuários se registrem em [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Controlar quem está registrado](#identify-non-registered-users)
 
 > [!TIP]
-> Os usuários de nuvem governamental podem se registrar em[https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
+> Os usuários de nuvem governamental podem se registrar em [https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
 
 ## <a name="manage-your-solution"></a>Gerenciar sua solução
 
@@ -369,16 +345,16 @@ Relatórios para o Azure MFA
 
 A autenticação multifator do Azure fornece relatórios por meio do portal do Azure:
 
-| Relatório | Location | Descrição |
+| Relate | Local | Descrição |
 | --- | --- | --- |
-| Alertas de fraudes e uso | Microsoft Azure AD > Entradas | Fornece informações sobre o uso geral, resumo do usuário e detalhes do usuário, assim como um histórico de alertas de fraude enviados durante o intervalo de datas especificado. |
+| Alertas de uso e fraude | Entradas de > do Azure AD | Fornece informações sobre o uso geral, Resumo do usuário e detalhes do usuário; bem como um histórico de alertas de fraude enviados durante o intervalo de datas especificado. |
 
 ## <a name="troubleshoot-mfa-issues"></a>Solucionar problemas de MFA
 
 Encontre soluções para problemas comuns com o Azure MFA no [artigo solução de problemas da autenticação multifator do Azure](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) no centro de suporte da Microsoft.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* [Quais são os métodos de autenticação?](concept-authentication-methods.md)
-* [Habilitar registro convergido para a Autenticação Multifator do Microsoft Azure Active Directory e a redefinição de senha por autoatendimento do Microsoft Azure AD](concept-registration-mfa-sspr-converged.md)
-* Por que foi um usuário solicitado ou não é solicitado a executar a MFA? Consulte a seção [relatório de entradas do Azure AD nos relatórios do documento de autenticação multifator do Azure](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+* [O que são métodos de autenticação?](concept-authentication-methods.md)
+* [Habilitar o registro convergido para a autenticação multifator do Azure e a redefinição de senha de autoatendimento do Azure AD](concept-registration-mfa-sspr-converged.md)
+* Por que um usuário foi solicitado ou não solicitado a executar MFA? Consulte a seção [relatório de entradas do Azure AD no documento relatórios no Azure autenticação multifator](howto-mfa-reporting.md#azure-ad-sign-ins-report).

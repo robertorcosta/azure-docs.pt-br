@@ -1,21 +1,18 @@
 ---
 title: Perguntas frequentes sobre Azure Monitor para VMs (GA) | Microsoft Docs
-description: O Azure Monitor para VMs é uma solução do Azure que combina integridade e monitoramento de desempenho do sistema operacional da VM do Azure, bem como a descoberta automática dos componentes de aplicativo e dependências com outros recursos e mapeia a comunicação entre eles. Este artigo responde a perguntas comuns sobre a versão GA.
-services: azure-monitor
-author: mgoedtel
-manager: carmonm
-editor: ''
+description: Azure Monitor para VMs é uma solução no Azure que combina o monitoramento de integridade e desempenho do sistema operacional da VM do Azure, bem como a descoberta automática de componentes e dependências de aplicativos com outros recursos e mapeia a comunicação entre -los. Este artigo responde a perguntas comuns sobre a versão GA.
 ms.service: azure-monitor
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 10/07/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: cb21d3bed1efc8f6ee7e16a0976ce46d03404983
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.date: 10/07/2019
+ms.openlocfilehash: 523fb2d3a3b148afc9219e666c2fbe7fa40d58ad
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275959"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553807"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Perguntas frequentes de Azure Monitor para VMs disponíveis (GA)
 
@@ -25,7 +22,7 @@ Anunciamos recentemente no blog [do Azure Update](https://azure.microsoft.com/bl
 
 Estamos lançando uma nova versão do Azure Monitor para VMs em novembro. Os clientes que habilitam os monitores do Azure para VMs após essa versão recebem automaticamente a nova versão, mas os clientes existentes que já estão usando Azure Monitor para VMs são solicitados a fazer a atualização.  Estas perguntas frequentes e nossa documentação oferecem orientação para executar uma atualização em massa se você tiver grandes implantações em vários espaços de trabalho.
 
-Com essa atualização, os conjuntos de dados de desempenho Azure Monitor para VMs agora são armazenados na mesma tabela `InsightsMetrics` como [Azure monitor para contêineres](container-insights-overview.md)e facilitam a consulta dos dois conjuntos de dados. Além disso, você pode armazenar conjuntos de dados mais diversificados que não pudemos armazenar na tabela usada anteriormente.  Nossas exibições de desempenho também serão atualizadas para usar essa nova tabela.
+Com essa atualização, os conjuntos de dados de desempenho Azure Monitor para VMs agora são armazenados na mesma tabela `InsightsMetrics` que [Azure monitor para contêineres](container-insights-overview.md)e facilitam a consulta dos dois conjuntos de dados. Além disso, você pode armazenar conjuntos de dados mais diversificados que não pudemos armazenar na tabela usada anteriormente.  Nossas exibições de desempenho também serão atualizadas para usar essa nova tabela.
 
 Estamos migrando para novos tipos de dados para nossos conjuntos de dados de conexão. Os dados armazenados em `ServiceMapComputer_CL` e `ServiceMapProcess_CL`, que estão usando tabelas de log personalizadas, serão movidos para os tipos de dados dedicados chamados `VMComputer` e `VMProcess`.  Ao migrar para tipos de dados dedicados, podemos fornecer essas prioridades para a ingestão de dados e o esquema de tabela será padronizado entre todos os clientes.
 
@@ -39,7 +36,7 @@ Nosso processo atual de usar contadores de desempenho no espaço de trabalho env
 
 ## <a name="what-should-i-do-about-the-performance-counters-on-my-workspace-if-i-install-the-vminsights-solution"></a>O que devo fazer sobre os contadores de desempenho no meu espaço de trabalho se eu instalar a solução VMInsights?
 
-O método atual de habilitar Azure Monitor para VMs usa contadores de desempenho em seu espaço de trabalho. O novo método armazena esses dados em uma nova tabela, denominada `InsightsMetrics`.
+O método atual de habilitar Azure Monitor para VMs usa contadores de desempenho em seu espaço de trabalho. O novo método armazena esses dados em uma nova tabela, chamada `InsightsMetrics`.
 
 Depois de atualizarmos nossa interface do usuário para usar os dados no InsightsMetrics, atualizaremos nossa documentação e comunicaremos esse anúncio por meio de vários canais, incluindo a exibição de uma faixa no portal do Azure. Nesse ponto, você pode optar por desabilitar esses [contadores de desempenho](vminsights-enable-overview.md#performance-counters-enabled) em seu espaço de trabalho se não quiser mais usá-los. 
 
@@ -50,7 +47,7 @@ Se decidir manter os contadores de desempenho habilitados, você será cobrado p
 
 ## <a name="how-will-this-change-affect-my-alert-rules"></a>Como essa alteração afetará minhas regras de alerta?
 
-Se você tiver criado [alertas de log](../platform/alerts-unified-log.md) que consultam a tabela `Perf` que direciona os contadores de desempenho que foram habilitados no espaço de trabalho, você deve atualizar essas regras para fazer referência à tabela `InsightsMetrics` em vez disso. Essa orientação também se aplica a qualquer regra de pesquisa de log usando `ServiceMapComputer_CL` e `ServiceMapProcess_CL`, pois esses conjuntos de dados estão mudando para tabelas `VMComputer` e `VMProcess`.
+Se você tiver criado [alertas de log](../platform/alerts-unified-log.md) que consultam a tabela de `Perf` que direciona os contadores de desempenho que foram habilitados no espaço de trabalho, atualize essas regras para fazer referência à tabela `InsightsMetrics` em vez disso. Essa orientação também se aplica a qualquer regra de pesquisa de log usando `ServiceMapComputer_CL` e `ServiceMapProcess_CL`, porque esses conjuntos de dados estão sendo movidos para as tabelas `VMComputer` e `VMProcess`.
 
 Atualizaremos essas perguntas frequentes e nossa documentação para incluir regras de alerta de pesquisa de log de exemplo para os conjuntos de dados que coletamos.
 
@@ -64,7 +61,7 @@ Os dados de desempenho no nível da máquina que coletamos são os mesmos, é de
 
 Tudo bem.  Você verá prompts na portal do Azure ao exibir Azure Monitor para VMs sobre a próxima atualização. Depois de liberado, você receberá uma solicitação solicitando que você atualize para a nova versão. Se preferir usar apenas o recurso [Maps](vminsights-maps.md) , você poderá optar por não atualizar e continuar a usar o recurso Maps Azure monitor para VMs e a solução mapa do serviço acessada do seu espaço de trabalho ou bloco do Dashboard.
 
-Se você optar por habilitar manualmente os contadores de desempenho em seu espaço de trabalho, poderá ver os dados em alguns dos nossos gráficos de desempenho exibidos em Azure Monitor. Depois que a nova solução for lançada, atualizaremos nossos gráficos de desempenho para consultar os dados armazenados na tabela `InsightsMetrics`. Se você quiser ver os dados dessa tabela nesses gráficos, será necessário atualizar para a nova versão do Azure Monitor para VMs.
+Se você optar por habilitar manualmente os contadores de desempenho em seu espaço de trabalho, poderá ver os dados em alguns dos nossos gráficos de desempenho exibidos em Azure Monitor. Depois que a nova solução for lançada, atualizaremos nossos gráficos de desempenho para consultar os dados armazenados na tabela de `InsightsMetrics`. Se você quiser ver os dados dessa tabela nesses gráficos, será necessário atualizar para a nova versão do Azure Monitor para VMs.
 
 As alterações para mover dados de `ServiceMapComputer_CL` e `ServiceMapProcess_CL` afetarão Mapa do Serviço e Azure Monitor para VMs, para que você ainda precise planejar essa atualização.
 
@@ -106,7 +103,7 @@ Algumas das áreas com as quais iremos nos concentrar:
 
 Os clientes existentes que estão usando o recurso de integridade continuarão a ter acesso a ele, mas não serão oferecidos a novos clientes.  
 
-Para acessar o recurso, você pode adicionar o sinalizador de recurso a seguir `feature.vmhealth=true` à URL do portal [https://portal.azure.com](https://portal.azure.com). Exemplo `https://portal.azure.com/?feature.vmhealth=true`.
+Para acessar o recurso, você pode adicionar o seguinte sinalizador de recurso `feature.vmhealth=true` à URL do portal [https://portal.azure.com](https://portal.azure.com). Exemplo `https://portal.azure.com/?feature.vmhealth=true`.
 
 Você também pode usar essa URL curta, que define o sinalizador de recurso automaticamente: [https://aka.ms/vmhealthpreview](https://aka.ms/vmhealthpreview).
 
@@ -116,6 +113,6 @@ Como um cliente existente, você pode continuar a usar o recurso de integridade 
 
 Se você for um cliente existente que está usando o recurso de integridade e deseja usá-lo para uma nova distribuição, entre em contato conosco em vminsights@microsoft.com para solicitar instruções.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Para entender os requisitos e os métodos que ajudam você a monitorar suas máquinas virtuais, examine [Implantar o Azure Monitor para VMs](vminsights-enable-overview.md).
+Para entender os requisitos e métodos que ajudam a monitorar suas máquinas virtuais, examine [implantar Azure monitor para VMs](vminsights-enable-overview.md).

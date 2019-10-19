@@ -1,53 +1,47 @@
 ---
-title: Como interromper o monitoramento do cluster do Serviço de Kubernetes do Azure | Microsoft Docs
-description: Este artigo descreve como você pode interromper o monitoramento do seu cluster do Azure AKS com o Azure Monitor para contêineres.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
+title: Como parar de monitorar o cluster do serviço kubernetes do Azure | Microsoft Docs
+description: Este artigo descreve como você pode descontinuar o monitoramento do seu cluster AKS do Azure com Azure Monitor para contêineres.
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/19/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 376259686d1668d62cc79f340e2161ef11be5e12
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.date: 08/19/2019
+ms.openlocfilehash: 508bfa9cf7bff0084e7f0644ee5e053e683cb9cf
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624361"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554106"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Como interromper o monitoramento do Azure Monitor do Serviço de Kubernetes do Azure (AKS) para contêineres
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Como parar de monitorar o AKS (serviço kubernetes do Azure) com Azure Monitor para contêineres
 
-Após habilitar o monitoramento do cluster do AKS você poderá parar o monitoramento do cluster, caso decida não continuar monitorando-o. Este artigo mostra como fazer isso usando a CLI do Azure ou com os modelos do Azure Resource Manager fornecidos.  
+Depois de habilitar o monitoramento do cluster AKS, você poderá parar de monitorar o cluster se decidir que não deseja mais monitorá-lo. Este artigo mostra como fazer isso usando o CLI do Azure ou com os modelos de Azure Resource Manager fornecidos.  
 
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-cli"></a>Azure CLI
 
-Use o comando [az aks disable-complementos](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) para desabilitar o Azure Monitor para contêineres. O comando Remove o agente dos nós de cluster, ele não remove a solução ou os dados já coletados e armazenados em seu recurso de Azure Monitor.  
+Use o comando [AZ AKs Disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) para desabilitar Azure monitor para contêineres. O comando Remove o agente dos nós de cluster, ele não remove a solução ou os dados já coletados e armazenados em seu recurso de Azure Monitor.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
-Para habilitar novamente o monitoramento para seu cluster, consulte [Habilitar o monitoramento usando a CLI do Azure](container-insights-enable-new-cluster.md#enable-using-azure-cli).
+Para reabilitar o monitoramento do cluster, consulte [habilitar o monitoramento usando CLI do Azure](container-insights-enable-new-cluster.md#enable-using-azure-cli).
 
-## <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
+## <a name="azure-resource-manager-template"></a>Modelo de Azure Resource Manager
 
-São fornecido dois modelos do Azure Resource Manager para dar suporte para remover os recursos de solução de forma consistente e repetida no seu grupo de recursos. Um é um modelo JSON especificando a configuração para parar o monitoramento e o outro contém valores de parâmetros que você configura para especificar a ID do recurso de cluster do AKS e o grupo de recursos no qual o cluster está implementado. 
+São fornecidas duas Azure Resource Manager modelo para dar suporte à remoção de recursos da solução de forma consistente e repetida em seu grupo de recursos. Um é um modelo JSON que especifica a configuração para interromper o monitoramento e o outro contém valores de parâmetro que você configura para especificar a ID de recurso de cluster AKS e o grupo de recursos no qual o cluster é implantado. 
 
-Se você não estiver familiarizado com o conceito de implantação de recursos usando um modelo, veja:
+Se você não estiver familiarizado com o conceito de implantação de recursos usando um modelo, consulte:
 * [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Implantar recursos com modelos do Resource Manager e o CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 >[!NOTE]
->O modelo precisa ser implantado no mesmo grupo de recursos do cluster. Se você omitir quaisquer outras propriedades ou complementos ao usar esse modelo, isso poderá resultar na remoção do cluster. Por exemplo, *enableRBAC* para políticas RBAC implementadas em seu cluster ou *aksResourceTagValues* se as marcas forem especificadas para o cluster AKs.  
+>O modelo precisa ser implantado no mesmo grupo de recursos do cluster. Se você omitir quaisquer outras propriedades ou Complementos ao usar esse modelo, isso poderá resultar na remoção do cluster. Por exemplo, *enableRBAC* para políticas RBAC implementadas em seu cluster ou *aksResourceTagValues* se as marcas forem especificadas para o cluster AKs.  
 >
 
-Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando a CLI do Azure versão 2.0.27 ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Se você optar por usar o CLI do Azure, primeiro será necessário instalar e usar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.27 ou posterior. Para identificar sua versão, execute `az --version`. Se você precisar instalar ou atualizar o CLI do Azure, consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ### <a name="create-template"></a>Criar modelo
 
@@ -99,7 +93,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
     }
     ```
 
-2. Salve esse arquivo como **OptOutTemplate.json** em uma pasta local.
+2. Salve esse arquivo como **OptOutTemplate. JSON** em uma pasta local.
 
 3. Cole a seguinte sintaxe JSON em seu arquivo:
 
@@ -125,21 +119,21 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
     }
     ```
 
-4. Edite o valor para **aksResourceId** e **aksResourceLocation** com usando os valores do cluster do AKS, que você pode encontrar na página **Propriedades** para o cluster selecionado.
+4. Edite os valores de **aksResourceId** e **aksResourceLocation** usando os valores do cluster AKs, que podem ser encontrados na página de **Propriedades** do cluster selecionado.
 
-    ![Página de propriedades do contêiner](media/container-insights-optout/container-properties-page.png)
+    ![Página Propriedades do contêiner](media/container-insights-optout/container-properties-page.png)
 
-    Enquanto você estiver na página **Propriedades**, copie também a **ID do Recurso de Workspace**. Esse valor será necessário se você decidir que deseja excluir o espaço de trabalho do Log Analytics posteriormente. A exclusão do espaço de trabalho do Log Analytics não é executada como parte desse processo. 
+    Enquanto você estiver na página **Propriedades** , copie também a **ID de recurso do espaço de trabalho**. Esse valor será necessário se você decidir que deseja excluir o espaço de trabalho Log Analytics mais tarde. Excluir o espaço de trabalho Log Analytics não é executado como parte desse processo. 
 
     Edite os valores de **aksResourceTagValues** para corresponder aos valores de marca existentes especificados para o cluster AKs.
 
-5. Salve esse arquivo como **OptOutParam.json** em uma pasta local.
+5. Salve esse arquivo como **OptOutParam. JSON** em uma pasta local.
 
-6. Você está pronto para implantar o modelo. 
+6. Você está pronto para implantar este modelo. 
 
-### <a name="remove-the-solution-using-azure-cli"></a>Remover a solução usando a CLI do Azure
+### <a name="remove-the-solution-using-azure-cli"></a>Remover a solução usando CLI do Azure
 
-Execute o comando a seguir com a CLI do Azure no Linux para remover a solução e limpar a configuração no cluster do AKS.
+Execute o comando a seguir com CLI do Azure no Linux para remover a solução e limpar a configuração no cluster AKS.
 
 ```azurecli
 az login   
@@ -147,7 +141,7 @@ az account set --subscription "Subscription Name"
 az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
-A alteração da configuração pode levar alguns minutos para ser concluída. Quando estiver concluído, uma mensagem semelhante à seguinte, incluindo o resultado, será retornada:
+A alteração de configuração pode levar alguns minutos para ser concluída. Quando for concluída, uma mensagem semelhante à seguinte que inclui o resultado será retornada:
 
 ```azurecli
 ProvisioningState       : Succeeded
@@ -157,7 +151,7 @@ ProvisioningState       : Succeeded
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Execute os seguintes comandos do PowerShell na pasta que contém o modelo para remover a solução e limpar a configuração do cluster do AKS.    
+Execute os seguintes comandos do PowerShell na pasta que contém o modelo para remover a solução e limpar a configuração do cluster AKS.    
 
 ```powershell
 Connect-AzAccount
@@ -165,11 +159,11 @@ Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
 ```
 
-A alteração da configuração pode levar alguns minutos para ser concluída. Quando estiver concluído, uma mensagem semelhante à seguinte, incluindo o resultado, será retornada:
+A alteração de configuração pode levar alguns minutos para ser concluída. Quando for concluída, uma mensagem semelhante à seguinte que inclui o resultado será retornada:
 
 ```powershell
 ProvisioningState       : Succeeded
 ```
 
-Se o workspace foi criado apenas para dar suporte ao monitoramento do cluster e não for mais necessário, você terá que excluí-lo manualmente. Se você não souber como excluir um espaço de trabalho, confira [Excluir um espaço de trabalho do Azure Log Analytics com o portal do Azure](../../log-analytics/log-analytics-manage-del-workspace.md). Não se esqueça da **ID do Recurso de Workspace** copiada anteriormente na etapa 4; você precisará dela. 
+Se o espaço de trabalho tiver sido criado apenas para dar suporte ao monitoramento do cluster e ele não for mais necessário, você precisará excluí-lo manualmente. Se você não estiver familiarizado com como excluir um espaço de trabalho, consulte [excluir um espaço de trabalho do Azure log Analytics com o portal do Azure](../../log-analytics/log-analytics-manage-del-workspace.md). Não se esqueça da **ID de recurso do espaço de trabalho** que copiamos anteriormente na etapa 4, você precisará dela. 
 

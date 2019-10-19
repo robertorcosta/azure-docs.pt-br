@@ -1,41 +1,35 @@
 ---
-title: Exibições em soluções de gerenciamento | Microsoft Docs
-description: 'As soluções de gerenciamento normalmente incluem uma ou mais exibições para visualizar dados.  Este artigo descreve como exportar uma exibição criada pelo Designer de Exibição e incluí-la em uma solução de gerenciamento. '
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: jwhit
-editor: tysonn
-ms.assetid: 570b278c-2d47-4e5a-9828-7f01f31ddf8c
+title: Modos de exibição em soluções de gerenciamento | Microsoft Docs
+description: 'Normalmente, as soluções de gerenciamento incluirão uma ou mais exibições para visualizar os dados.  Este artigo descreve como exportar uma exibição criada pelo Designer de Exibição e incluí-la em uma solução de gerenciamento. '
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/16/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: cefb83d5336bb99fd09001b5ea369a0b8fc4b942
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/16/2018
+ms.openlocfilehash: 473d10bbec6ca056554f7223800a32e9ca93578e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596642"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553909"
 ---
 # <a name="views-in-management-solutions-preview"></a>Exibições em soluções de gerenciamento (versão prévia)
 > [!NOTE]
-> Esta é uma documentação preliminar para criar soluções de gerenciamento que estão atualmente em versão prévia. Os esquemas descritos a seguir estão sujeitos a alterações.    
+> Esta é uma documentação preliminar para criar soluções de gerenciamento que estão atualmente em versão prévia. Qualquer esquema descrito abaixo está sujeito a alterações.    
 
 
-As [Soluções de gerenciamento](solutions.md) normalmente incluem uma ou mais exibições para visualizar dados.  Este artigo descreve como exportar uma exibição criada pelo [Designer de Exibição](../../azure-monitor/platform/view-designer.md) e incluí-la em uma solução de gerenciamento.  
+Normalmente, as [soluções de gerenciamento](solutions.md) incluirão uma ou mais exibições para visualizar os dados.  Este artigo descreve como exportar uma exibição criada pelo [Designer de Exibição](../../azure-monitor/platform/view-designer.md) e incluí-la em uma solução de gerenciamento.  
 
 > [!NOTE]
-> Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns a soluções de gerenciamento e descritos em [Projetar e compilar uma solução de gerenciamento no Azure](solutions-creating.md)
+> Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns para soluções de gerenciamento e são descritos em [projetar e criar uma solução de gerenciamento no Azure](solutions-creating.md)
 >
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você já esteja familiarizado com o modo para [criar uma solução de gerenciamento](solutions-creating.md) e com a estrutura de um arquivo de solução.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Para incluir uma exibição em uma solução de gerenciamento, crie um **recurso** no [arquivo de solução](solutions-creating.md).  O JSON que descreve a configuração detalhada da exibição geralmente é complexo e não algo que um autor típico de solução seria capaz de criar manualmente.  O método mais comum é criar a exibição usando o [Designer de Exibição](../../azure-monitor/platform/view-designer.md), exportá-la e, em seguida, adicionar sua configuração detalhada na solução.
 
 As etapas básicas para adicionar uma exibição a uma solução são da seguinte maneira.  Cada etapa é descrita mais detalhadamente nas seções a seguir.
@@ -47,7 +41,7 @@ As etapas básicas para adicionar uma exibição a uma solução são da seguint
 ## <a name="export-the-view-to-a-file"></a>Exportar a exibição para um arquivo
 Siga as instruções em [Log Analytics View Designer](../../azure-monitor/platform/view-designer.md) (Designer de exibição do Log Analytics) para exportar uma exibição para um arquivo.  O arquivo exportado será no formato JSON com os mesmos [elementos do arquivo de solução](solutions-solution-file.md).  
 
-O elemento **resources** do arquivo de exibição terá um recurso com um tipo de **Microsoft.OperationalInsights/workspaces**, que representa o espaço de trabalho do Log Analytics.  Esse elemento terá um subelemento com um tipo de **views**, que representa a exibição e contém a configuração detalhada.  Você copiará os detalhes desse elemento e, em seguida, vai copiá-lo em sua solução.
+O elemento **Resources** do arquivo de exibição terá um recurso com um tipo de **Microsoft. OperationalInsights/Workspaces** que representa o espaço de trabalho log Analytics.  Esse elemento terá um subelemento com um tipo de **views**, que representa a exibição e contém a configuração detalhada.  Você copiará os detalhes desse elemento e, em seguida, vai copiá-lo em sua solução.
 
 ## <a name="create-the-view-resource-in-the-solution"></a>Criar o recurso de exibição na solução
 Adicione o seguinte recurso de exibição ao elemento **resources** do seu arquivo de solução.  Ele usa as variáveis descritas abaixo, que você também deverá adicionar.  Observe que as propriedades **Dashboard** e **OverviewTile** são espaços reservados que serão substituídos pelas propriedades correspondentes do arquivo de exibição exportado.
@@ -88,16 +82,16 @@ Observe que você poderá copiar todo o recurso de exibição do arquivo de exib
 * Os nomes dos parâmetros devem ser alterados para coincidirem com o conjunto de parâmetros exigido.
 * As variáveis devem ser definidas na solução e usadas nas propriedades adequadas.
 
-### <a name="log-analytics-api-version"></a>Versão da API do Log Analytics
-Todos os recursos do Log Analytics definidos em um modelo do Resource Manager têm uma propriedade **apiVersion** que define a versão da API que o recurso deve usar.  Essa versão é diferente para os modos de exibição com filas que usam o [formato herdado e a linguagem de consulta atualizados](../../azure-monitor/log-query/log-query-overview.md).  
+### <a name="log-analytics-api-version"></a>Versão da API Log Analytics
+Todos os Log Analytics recursos definidos em um modelo do Resource Manager têm uma propriedade **apiVersion** que define a versão da API que o recurso deve usar.  Esta versão é diferente para exibições com consultas que usam a [linguagem de consulta herdada e atualizada](../../azure-monitor/log-query/log-query-overview.md).  
 
- A tabela a seguir especifica as versões de API de Log Analytics para modos de exibição em workspaces herdados e atualizados: 
+ A tabela a seguir especifica as versões de API Log Analytics para exibições em espaços de trabalho herdados e atualizados: 
 
-| Versão do workspace | Versão da API | Consulta |
+| Versão do espaço de trabalho | Versão da API | Consulta |
 |:---|:---|:---|
-| v1 (herdado)   | 2015-11-01-preview | Formato herdado.<br> Exemplo: Type=Event EventLevelName = Error  |
-| v2 (atualizado) | 2015-11-01-preview | Formato herdado.  Convertido para o formato atualizado na instalação.<br> Exemplo: Type=Event EventLevelName = Error<br>Convertido para: Event &#124; where EventLevelName == "Error"  |
-| v2 (atualizado) | 2017-03-03-versão prévia | Formato de atualização. <br>Exemplo: Event &#124; where EventLevelName == "Error"  |
+| V1 (Herdado)   | 2015-11-01-visualização | Formato herdado.<br> Exemplo: tipo = evento EventLevelName = erro  |
+| v2 (atualizado) | 2015-11-01-visualização | Formato herdado.  Convertido em formato atualizado na instalação.<br> Exemplo: tipo = evento EventLevelName = erro<br>Convertido em: evento &#124; em que EventLevelName = = "Error"  |
+| v2 (atualizado) | 2017-03-03-visualização | Formato de atualização. <br>Exemplo: evento &#124; em que EventLevelName = = "Error"  |
 
 
 ## <a name="add-the-view-details"></a>Adicionar os detalhes de exibição
@@ -186,6 +180,6 @@ Por exemplo, a amostra a seguir apresenta um arquivo de solução simples com um
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Conheça os detalhes completos de criação das [soluções de gerenciamento](solutions-creating.md).
 * Incluir os [runbooks de automação na solução de gerenciamento](solutions-resources-automation.md).

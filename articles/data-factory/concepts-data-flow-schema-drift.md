@@ -1,36 +1,36 @@
 ---
 title: Descompasso de esquema no fluxo de dados de mapeamento | Azure Data Factory
-description: Construa fluxos de dados resistentes no Azure Data Factory com descompasso de esquema
+description: Criar fluxos de dados resilientes em Azure Data Factory com descompasso de esquema
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 1d6560613294584c77f002e2380065d64ea143f7
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 8c2764535515d0aeb1eb65a1621148fa58317cac
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387962"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553705"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Descompasso de esquema no fluxo de dados de mapeamento
-
-
 
 A descompasso de esquema é o caso em que suas fontes geralmente alteram metadados. Campos, colunas e tipos podem ser adicionados, removidos ou alterados em tempo real. Sem lidar com descompasso de esquema, seu fluxo de dados se torna vulnerável a alterações de fonte de dados upstream. Padrões de ETL típicos falham quando colunas e campos de entrada são alterados porque tendem a ser vinculados a esses nomes de origem.
 
 Para se proteger contra descompasso de esquema, é importante ter as instalações em uma ferramenta de fluxo de dados para permitir que você, como engenheiro de dados,:
 
 * Definir fontes com nomes de campo mutáveis, tipos de dados, valores e tamanhos
-* Defina parâmetros de transformação que funcionam com padrões de dados ao invés de campos e valores codificados
-* Defina expressões que compreendam padrões para corresponder aos campos recebidos, ao invés de usar campos nomeados
+* Definir parâmetros de transformação que podem funcionar com padrões de dados em vez de valores e campos embutidos em código
+* Definir expressões que entendem padrões para corresponder campos de entrada, em vez de usar campos nomeados
 
 Azure Data Factory nativamente dá suporte a esquemas flexíveis que mudam da execução para a execução para que você possa criar uma lógica de transformação de dados genérica sem a necessidade de recompilar os fluxos de dados.
 
-Você precisa tomar uma decisão sobre a arquitetura de seu fluxo de dados para aceitar o descompasso de esquema em todo o fluxo. Ao fazer isso, você pode proteger contra alterações de esquema das fontes. No entanto, você perderá a ligação antecipada de suas colunas e tipos em todo o fluxo de dados. Azure Data Factory trata os fluxos de descompasso de esquema como fluxos de ligação tardia, portanto, quando você cria suas transformações, os nomes de coluna desfeitos não estarão disponíveis para você nas exibições de esquema em todo o fluxo.
+Você precisa tomar uma decisão arquitetônica em seu fluxo de dados para aceitar descompasso de esquema em todo o fluxo. Ao fazer isso, você pode proteger contra alterações de esquema das fontes. No entanto, você perderá a ligação antecipada de suas colunas e tipos em todo o fluxo de dados. Azure Data Factory trata os fluxos de descompasso de esquema como fluxos de ligação tardia, portanto, quando você cria suas transformações, os nomes de coluna desfeitos não estarão disponíveis para você nas exibições de esquema em todo o fluxo.
 
 ## <a name="schema-drift-in-source"></a>Descompasso de esquema na origem
+
+As colunas que entram em seu fluxo de dados da definição de origem são definidas como "descompassos" quando não estão presentes na projeção de origem. Você pode exibir a projeção de origem na guia projeção na transformação origem. Quando você seleciona um conjunto de um DataSet para sua origem, o ADF pegará automaticamente o esquema do conjunto de e criará um projeto a partir dessa definição de esquema de conjunto de banco de forma.
 
 Em uma transformação de origem, a descompasso de esquema é definida como uma leitura de colunas que não definem seu esquema de conjunto de linhas. Para habilitar a descompasso de esquema, marque **permitir descompasso de esquema** em sua transformação de origem.
 

@@ -1,6 +1,6 @@
 ---
-title: Versão prévia da implantação do Docker Compose no Azure Service Fabric
-description: O Azure Service Fabric aceita o formato do Docker Compose para facilitar a orquestração dos contêineres existentes usando o Service Fabric. No momento, esse suporte está na versão prévia.
+title: Versão prévia da implantação do Azure Service Fabric Docker Compose
+description: O Azure Service Fabric aceita Docker Compose formato para facilitar a orquestração de contêineres existentes usando Service Fabric. No momento, esse suporte está em versão prévia.
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -14,63 +14,63 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: 726d04cdfbc21c21a52945f11d3b5097978c5d1d
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d9d135136efea72017399b5888bc6591582ffe67
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168825"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553567"
 ---
-# <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Suporte à implantação do Docker Compose no Azure Service Fabric (Versão prévia)
+# <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Suporte à implantação do Docker Compose no Azure Service Fabric (versão prévia)
 
-O docker usa o arquivo [docker-compose.yml](https://docs.docker.com/compose) para definir aplicativos de vários contêineres. A fim de facilitar para os clientes familiarizados com o Docker orquestrarem aplicativos de contêiner existentes no Azure Service Fabric, incluímos o suporte da versão prévia para a implantação do Docker Compose nativamente na plataforma. O Service Fabric pode aceitar a versão 3 e posteriores de arquivos `docker-compose.yml`. 
+O Docker usa o arquivo [Docker-Compose. yml](https://docs.docker.com/compose) para definir aplicativos de vários contêineres. Para facilitar para os clientes familiarizados com o Docker para orquestrar os aplicativos de contêiner existentes no Azure Service Fabric, incluímos o suporte de visualização para Docker Compose implantação nativamente na plataforma. Service Fabric pode aceitar a versão 3 e posterior de arquivos `docker-compose.yml`. 
 
-Como esse suporte está na versão prévia, há suporte para apenas um subconjunto de diretivas do Compose. Por exemplo, não há suporte para atualizações de aplicativo. No entanto, você sempre pode remover e implantar aplicativos em vez de atualizá-los.
+Como esse suporte está em visualização, há suporte para apenas um subconjunto de diretivas de composição.
 
-Para usar essa versão prévia, crie o cluster com a versão 5.7 ou superior do tempo de execução do Service Fabric por meio do portal do Azure junto com o SDK correspondente. 
+Para usar essa visualização, crie seu cluster com a versão 5,7 ou superior do tempo de execução Service Fabric por meio do portal do Azure junto com o SDK correspondente. 
 
 > [!NOTE]
-> Esse recurso está na versão prévia e não tem suporte.
-> Os exemplos abaixo baseiam-se no tempo de execução versão 6.0 e no SDK versão 2.8.
+> Este recurso está em visualização e não tem suporte na produção.
+> Os exemplos a seguir são baseados na versão de tempo de execução 6,0 e na versão 2,8 do SDK.
 
-## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Implantar um arquivo do Docker Compose no Service Fabric
+## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Implantar um arquivo de Docker Compose no Service Fabric
 
-Os seguintes comandos criam um aplicativo do Service Fabric (nomeado `fabric:/TestContainerApp`), que você poderá monitorar e gerenciar, como qualquer outro aplicativo do Service Fabric. Você pode usar o nome do aplicativo especificado para consultas de integridade.
-O Service Fabric reconhece "DeploymentName" como o identificador da implantação do Compose.
+Os comandos a seguir criam um aplicativo Service Fabric (chamado `fabric:/TestContainerApp`), que você pode monitorar e gerenciar como qualquer outro aplicativo Service Fabric. Você pode usar o nome do aplicativo especificado para consultas de integridade.
+Service Fabric reconhece "Deploymentname" como o identificador da implantação de Compose.
 
-### <a name="use-powershell"></a>Usar o PowerShell
+### <a name="use-powershell"></a>Use o PowerShell
 
-Criar uma implantação do Compose do Service Fabric a partir de um arquivo docker-compose.yml executando o seguinte comando no PowerShell:
+Crie uma implantação de redação de Service Fabric de um arquivo Docker-Compose. yml executando o seguinte comando no PowerShell:
 
 ```powershell
 New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName` e `RegistryPassword` se referem ao nome de usuário e senha de registro de contêiner. Após concluir a implantação, você poderá verificar o status utilizando o seguinte comando:
+`RegistryUserName` e `RegistryPassword` consulte o nome de usuário e a senha do registro de contêiner. Depois de concluir a implantação, você pode verificar seu status usando o seguinte comando:
 
 ```powershell
 Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp
 ```
 
-Para excluir a implantação do Compose através de PowerShell, utilize o seguinte comando:
+Para excluir a implantação de Compose por meio do PowerShell, use o seguinte comando:
 
 ```powershell
 Remove-ServiceFabricComposeDeployment  -DeploymentName TestContainerApp
 ```
 
-Para iniciar uma atualização da implantação do Compose por meio do PowerShell, utilize o seguinte comando:
+Para iniciar uma atualização de implantação do Compose por meio do PowerShell, use o seguinte comando:
 
 ```powershell
 Start-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp -Compose docker-compose-v2.yml -Monitored -FailureAction Rollback
 ```
 
-Para reverter uma atualização da implantação do Compose por meio do PowerShell, utilize o seguinte comando:
+Para reverter a atualização da implantação do Compose por meio do PowerShell, use o seguinte comando:
 
 ```powershell
 Start-ServiceFabricComposeDeploymentRollback -DeploymentName TestContainerApp
 ```
 
-Depois que a atualização é aceita, o andamento da atualização pode ser controlado usando o seguinte comando:
+Após a atualização ser aceita, o andamento da atualização pode ser rastreado usando o seguinte comando:
 
 ```powershell
 Get-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp
@@ -78,90 +78,90 @@ Get-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp
 
 ### <a name="use-azure-service-fabric-cli-sfctl"></a>Usar a CLI do Azure Service Fabric (sfctl)
 
-Como alternativa, você pode usar o seguinte comando da CLI do Service Fabric:
+Como alternativa, você pode usar o seguinte comando da CLI Service Fabric:
 
 ```azurecli
 sfctl compose create --deployment-name TestContainerApp --file-path docker-compose.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [ --timeout ]
 ```
 
-Após ter criado a implantação, será possível verificar seu status usando o comando a seguir:
+Depois de criar a implantação, você pode verificar seu status usando o seguinte comando:
 
 ```azurecli
 sfctl compose status --deployment-name TestContainerApp [ --timeout ]
 ```
 
-Para excluir a implantação do Compose, use o comando a seguir:
+Para excluir a implantação de Compose, use o seguinte comando:
 
 ```azurecli
 sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
 ```
 
-Para iniciar uma atualização de implantação do Compose, use o seguinte comando:
+Para iniciar uma atualização da implantação do Compose, use o seguinte comando:
 
 ```azurecli
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
 ```
 
-Para reverter uma atualização da implantação do Compose, utilize o seguinte comando:
+Para reverter a atualização da implantação do Compose, use o seguinte comando:
 
 ```azurecli
 sfctl compose upgrade-rollback --deployment-name TestContainerApp [ --timeout ]
 ```
 
-Depois que a atualização é aceita, o andamento da atualização pode ser controlado usando o seguinte comando:
+Após a atualização ser aceita, o andamento da atualização pode ser rastreado usando o seguinte comando:
 
 ```azurecli
 sfctl compose upgrade-status --deployment-name TestContainerApp
 ```
 
-## <a name="supported-compose-directives"></a>Diretivas do Compose com suporte
+## <a name="supported-compose-directives"></a>Diretivas de Compose suportadas
 
-Esta versão prévia dá suporte a um subconjunto das opções de configuração do formato da versão 3 do Compose, incluindo os primitivos a seguir:
+Essa visualização dá suporte a um subconjunto das opções de configuração do formato da versão 3 do Compose, incluindo os primitivos a seguir:
 
-* Serviços > Implantar > Réplicas
-* Serviços > Implantar > Posicionamento > Restrições
-* Serviços > Implantar > Recursos > Limites
-    * -cpu-shares
-    * -memory
-    * -memory-swap
-* Serviços > Comandos
-* Serviços > Ambiente
-* Serviços > Portas
-* Serviços > Imagem
-* Serviços > Isolamento (somente para Windows)
-* Serviços > Registro em log > Driver
-* Serviços > Registro em log > Driver > Opções
-* Volume e Implantar > Volume
+* Serviços > implantar > réplicas
+* Serviços > implantar restrições de > de posicionamento de >
+* Os serviços > implantar > recursos > limites
+    * -CPU-compartilhamentos
+    * -memória
+    * -troca de memória
+* Comandos de > de serviços
+* Ambiente de > de serviços
+* Portas de > de serviços
+* Imagem de > de serviços
+* Isolamento de > de serviços (somente para Windows)
+* Driver de > de log de > de serviços
+* Opções de > do driver de > de serviços de log >
+* Volume & implantar > volume
 
-Configure o cluster para impor limites de recursos, conforme descrito na [Governança de recursos do Service Fabric](service-fabric-resource-governance.md). Todas as outras diretivas do Docker Compose não têm suporte nessa versão prévia.
+Configure o cluster para impor limites de recursos, conforme descrito em [Service Fabric governança de recursos](service-fabric-resource-governance.md). Todas as outras diretivas de Docker Compose não têm suporte para essa versão prévia.
 
-### <a name="ports-section"></a>Seção Portas
+### <a name="ports-section"></a>Seção de portas
 
-Especifique o protocolo http ou https na seção Portas que será usada pelo ouvinte de serviço do Service Fabric. Isso garantirá que o protocolo de ponto de extremidade seja publicado corretamente com o serviço de nomenclatura para permitir que o proxy inverso encaminhe as solicitações:
-* Para rotear para serviços do Service Fabric Compose não seguros, especifique **/http**. Por exemplo, – **“80:80/http”** .
-* Para rotear para serviços do Service Fabric Compose seguros, especifique **/https**. Por exemplo, – **“443:443/https”** .
+Especifique o protocolo http ou HTTPS na seção portas que será usada pelo ouvinte de serviço Service Fabric. Isso garantirá que o protocolo de ponto de extremidade seja publicado corretamente com o serviço de cadastramento para permitir que o proxy reverso encaminhe as solicitações:
+* Para rotear para serviços de composição de Service Fabric não seguros, especifique **/http**. Por exemplo,- **"80:80/http"** .
+* Para rotear para os serviços de composição de Service Fabric seguros, especifique **/https**. Por exemplo,- **"443:443/https"** .
 
 > [!NOTE]
-> A sintaxe de seção das Portas /http e /https é específica para o Service Fabric registrar a URL correta do ouvinte do Service Fabric.  Se a sintaxe do arquivo do Docker Compose for validada programaticamente, poderá provocar um erro de validação.
+> A sintaxe da seção de portas/http e/HTTPS é específica para Service Fabric registrar a URL de ouvinte de Service Fabric correta.  Se a sintaxe do arquivo Docker Compose for validada programaticamente, isso poderá causar um erro de validação.
 
-## <a name="servicednsname-computation"></a>Computação de ServiceDnsName
+## <a name="servicednsname-computation"></a>Computação ServiceDnsName
 
-Se o nome do serviço que você especifica em um arquivo do Compose é um nome de domínio totalmente qualificado (isto é, contem um ponto, [.]), o nome DNS registrado pelo Service Fabric será `<ServiceName>` (incluindo o ponto). Caso contrário, cada segmento de caminho no nome de aplicativo se tornará um rótulo de domínio no nome DNS do serviço com o primeiro segmento de caminho se tornando o rótulo de domínio primário.
+Se o nome do serviço que você especificar em um arquivo de composição for um nome de domínio totalmente qualificado (ou seja, ele contiver um ponto [.]), o nome DNS registrado por Service Fabric será `<ServiceName>` (incluindo o ponto). Se não, cada segmento de caminho no nome do aplicativo se tornará um rótulo de domínio no nome DNS do serviço, com o primeiro segmento de caminho se tornando o rótulo de domínio de nível superior.
 
-Por exemplo, se o nome especificado do aplicativo for `fabric:/SampleApp/MyComposeApp`, `<ServiceName>.MyComposeApp.SampleApp` seria o nome DNS registrado.
+Por exemplo, se o nome do aplicativo especificado for `fabric:/SampleApp/MyComposeApp`, `<ServiceName>.MyComposeApp.SampleApp` será o nome DNS registrado.
 
-## <a name="compose-deployment-instance-definition-versus-service-fabric-app-model-type-definition"></a>Implantação do Compose (definição da instância) versus modelo de aplicativo do Service Fabric (definição do tipo)
+## <a name="compose-deployment-instance-definition-versus-service-fabric-app-model-type-definition"></a>Composição de implantação (definição de instância) versus modelo de aplicativo de Service Fabric (definição de tipo)
 
-Um arquivo docker-compose.yml descreve um conjunto de contêineres implantável, incluindo suas propriedades e configurações.
-Por exemplo, o arquivo pode conter variáveis de ambiente e portas. Você também pode especificar parâmetros de implantação, como restrições de posicionamento, limites de recursos e nomes DNS, no arquivo docker-compose.yml.
+Um arquivo Docker-Compose. yml descreve um conjunto implantável de contêineres, incluindo suas propriedades e configurações.
+Por exemplo, o arquivo pode conter variáveis de ambiente e portas. Você também pode especificar parâmetros de implantação, como restrições de posicionamento, limites de recursos e nomes DNS, no arquivo Docker-Compose. yml.
 
-O [modelo de aplicativo do Service Fabric](service-fabric-application-model.md) usa tipos de serviço e tipos de aplicativo, em que é possível ter várias instâncias de aplicativo do mesmo tipo. Por exemplo, você pode ter uma instância de aplicativo por cliente. Esse modelo baseado em tipo dá suporte a várias versões do mesmo tipo de aplicativo que é registrado com o tempo de execução.
+O [modelo de aplicativo Service Fabric](service-fabric-application-model.md) usa tipos de serviço e tipos de aplicativo, onde você pode ter muitas instâncias de aplicativo do mesmo tipo. Por exemplo, você pode ter uma instância de aplicativo por cliente. Esse modelo baseado em tipo dá suporte a várias versões do mesmo tipo de aplicativo registradas com o tempo de execução.
 
-Por exemplo, o cliente A pode ter um aplicativo instanciado com tipo 1.0 do AppTypeA e o cliente B pode ter outro aplicativo instanciado com o mesmo tipo e versão. Você define os tipos de aplicativos nos manifestos do aplicativo e especifica os parâmetros de nome e implantação do aplicativo ao criar o aplicativo.
+Por exemplo, o cliente A pode ter um aplicativo instanciado com o tipo 1,0 de AppTypeA, e o cliente B pode ter outro aplicativo instanciado com o mesmo tipo e versão. Você define os tipos de aplicativo nos manifestos do aplicativo e especifica o nome do aplicativo e os parâmetros de implantação ao criar o aplicativo.
 
-Embora esse modelo ofereça flexibilidade, também estamos planejando dar suporte a um modelo de implantação baseado em instâncias mais simples em que os tipos são implícitos no arquivo de manifesto. Nesse modelo, cada aplicativo obtém seu próprio manifesto independente. Estamos fazendo a versão prévia desse esforço adicionando suporte para o docker-compose.yml, que é um formato de implantação baseado em instância.
+Embora esse modelo ofereça flexibilidade, também estamos planejando oferecer suporte a um modelo de implantação baseado em instância mais simples, em que os tipos são implícitos no arquivo de manifesto. Nesse modelo, cada aplicativo obtém seu próprio manifesto independente. Estamos visualizando esse esforço adicionando suporte para Docker-Compose. yml, que é um formato de implantação baseado em instância.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* Leia sobre o [modelo de aplicativo do Service Fabric](service-fabric-application-model.md)
+* Leia sobre o [modelo de aplicativo Service Fabric](service-fabric-application-model.md)
 * [Introdução à CLI do Service Fabric](service-fabric-cli.md)

@@ -1,24 +1,18 @@
 ---
 title: Monitorar um novo cluster do AKS (serviço kubernetes do Azure) | Microsoft Docs
 description: Saiba como habilitar o monitoramento para um novo cluster do AKS (serviço kubernetes do Azure) com Azure Monitor para assinatura de contêineres.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/25/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: cff0286e944414d70cffd801620159ffef3db1a5
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 04/25/2019
+ms.openlocfilehash: 06f4fd56ba5d0152b7e5d3fbfaa31dc4d6c4482d
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389821"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554129"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Habilitar o monitoramento de um novo cluster do AKS (serviço kubernetes do Azure)
 
@@ -29,42 +23,42 @@ Você pode habilitar o monitoramento de um cluster AKS usando um dos métodos co
 * Azure CLI
 * Terraform
 
-## <a name="enable-using-azure-cli"></a>Habilitar usando a CLI do Azure
+## <a name="enable-using-azure-cli"></a>Habilitar usando CLI do Azure
 
-Para habilitar o monitoramento de um novo cluster do AKS criado com a CLI do Azure, siga a etapa no artigo de início rápido na seção [Criar cluster do AKS](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
+Para habilitar o monitoramento de um novo cluster AKS criado com CLI do Azure, siga a etapa no artigo de início rápido na seção [criar cluster AKs](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.74 ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Se você tiver instalado a extensão da CLI AKs-preview 0.4.12 ou superior, remova as alterações feitas para habilitar uma extensão de visualização, pois ela pode substituir o comportamento de CLI do Azure padrão, pois os recursos de visualização de AKS não estão disponíveis no Azure US governamental Cloud.
+>Se você optar por usar o CLI do Azure, primeiro será necessário instalar e usar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.74 ou posterior. Para identificar sua versão, execute `az --version`. Se você precisar instalar ou atualizar o CLI do Azure, consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Se você tiver instalado a extensão da CLI AKs-preview 0.4.12 ou superior, remova as alterações feitas para habilitar uma extensão de visualização, pois ela pode substituir o comportamento de CLI do Azure padrão, pois os recursos de visualização de AKS não estão disponíveis no Azure US governamental Cloud.
 
 ## <a name="enable-using-terraform"></a>Habilitar usando Terraform
 
-Se estiver [implantando um novo cluster do AKS usando o Terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), especifique os argumentos necessários no perfil [para criar um espaço de trabalho do Log Analytics](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) se não optar por especificar um existente. 
+Se você estiver [implantando um novo cluster AKs usando o Terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), especifique os argumentos necessários no perfil [para criar um log Analytics espaço de trabalho](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) se você não optar por especificar um existente. 
 
 >[!NOTE]
->Se optar por usar o Terraform, você deverá estar executando o Provedor de RM do Terraform do Azure versão 1.17.0 ou superior.
+>Se você optar por usar o Terraform, deverá estar executando o provedor do Terraform Azure RM versão 1.17.0 ou superior.
 
-Para adicionar o Azure Monitor para contêineres ao workspace, consulte [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) e preencha o perfil incluindo o [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) e especifique **oms_agent**. 
+Para adicionar Azure Monitor para contêineres ao espaço de trabalho, consulte [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) e conclua o perfil, incluindo o [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) e especifique **oms_agent**. 
 
-Depois de habilitar o monitoramento e todas as tarefas de configuração terem sido concluídas com sucesso, você poderá monitorar o desempenho do cluster de uma destas duas maneiras:
+Depois de habilitar o monitoramento e todas as tarefas de configuração serem concluídas com êxito, você poderá monitorar o desempenho do cluster de uma das duas maneiras:
 
-* Diretamente no cluster do AKS selecionando **Integridade** no painel esquerdo.
-* Ao selecionar o bloco **Monitorar insights do contêiner** na página de cluster do AKS do cluster selecionado. No Azure Monitor, no painel esquerdo, selecione **Integridade**. 
+* Diretamente no cluster AKS selecionando **integridade** no painel esquerdo.
+* Selecionando o bloco de **informações do contêiner do monitor** na página do cluster AKs para o cluster selecionado. Em Azure Monitor, no painel esquerdo, selecione **integridade**. 
 
-  ![Opções para selecionar o Azure Monitor para contêineres no AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
+  ![Opções para selecionar Azure Monitor para contêineres no AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
 
-Depois de habilitar o monitoramento, poderão ser necessários cerca de 15 minutos antes de exibir as métricas de integridade para o cluster. 
+Depois de habilitar o monitoramento, pode levar cerca de 15 minutos para que você possa exibir as métricas de integridade do cluster. 
 
-## <a name="verify-agent-and-solution-deployment"></a>Verificar a implantação do agente e solução
-Com a versão do agente *06072018* ou posterior, você pode verificar se tanto o agente quanto a solução foram implantados com êxito. Com versões anteriores do agente, você pode verificar somente a implantação do agente.
+## <a name="verify-agent-and-solution-deployment"></a>Verificar a implantação do agente e da solução
+Com o Agent versão *06072018* ou posterior, você pode verificar se o agente e a solução foram implantados com êxito. Com versões anteriores do agente, você pode verificar apenas a implantação do agente.
 
-### <a name="agent-version-06072018-or-later"></a>Agente versão 06072018 ou posterior
-Execute o seguinte comando para verificar se o agente foi implantado com êxito. 
+### <a name="agent-version-06072018-or-later"></a>Versão do agente 06072018 ou posterior
+Execute o comando a seguir para verificar se o agente foi implantado com êxito. 
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-A saída deve ser semelhante à seguinte, que indica que ela foi implantada corretamente:
+A saída deve se parecer com o seguinte, que indica que foi implantada corretamente:
 
 ```
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
@@ -78,7 +72,7 @@ Para verificar a implantação da solução, execute o seguinte comando:
 kubectl get deployment omsagent-rs -n=kube-system
 ```
 
-A saída deve ser semelhante à seguinte, que indica que ela foi implantada corretamente:
+A saída deve se parecer com o seguinte, que indica que foi implantada corretamente:
 
 ```
 User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
@@ -88,13 +82,13 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>Versão do agente anterior a 06072018
 
-Para verificar se a versão do agente do Log Analytics liberada antes de *06072018* está implementada corretamente, execute o seguinte comando:  
+Para verificar se a versão do agente de Log Analytics liberada antes de *06072018* é implantada corretamente, execute o seguinte comando:  
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-A saída deve ser semelhante à seguinte, que indica que ela foi implantada corretamente:  
+A saída deve se parecer com o seguinte, que indica que foi implantada corretamente:  
 
 ```
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
@@ -102,14 +96,14 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
 
-## <a name="view-configuration-with-cli"></a>Exibir configuração com CLI
-Use o comando `aks show` para obter detalhes, como se a solução estivesse habilitada ou não, o que é o resourceID do espaço de trabalho do Log Analytics e detalhes de resumo sobre o cluster.  
+## <a name="view-configuration-with-cli"></a>Exibir a configuração com a CLI
+Use o comando `aks show` para obter detalhes, como a solução está habilitada ou não, qual é a ResourceId do espaço de trabalho Log Analytics e detalhes resumidos sobre o cluster.  
 
 ```azurecli
 az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 ```
 
-Após alguns minutos, o comando concluirá e retornará informações no formato JSON sobre a solução.  Os resultados do comando deverão mostrar o perfil do complemento de monitoramento e serem semelhantes à seguinte saída de exemplo:
+Após alguns minutos, o comando é concluído e retorna informações formatadas em JSON sobre a solução.  Os resultados do comando devem mostrar o perfil do complemento de monitoramento e se assemelham ao seguinte exemplo de saída:
 
 ```
 "addonProfiles": {
@@ -124,6 +118,6 @@ Após alguns minutos, o comando concluirá e retornará informações no formato
 
 ## <a name="next-steps"></a>Próximos passos
 
-* Se enfrentar problemas ao tentar carregar a solução, examine o [guia de solução de problemas](container-insights-troubleshoot.md)
+* Se você tiver problemas ao tentar carregar a solução, examine o [Guia de solução de problemas](container-insights-troubleshoot.md)
 
-* Com o monitoramento habilitado para capturar métricas de integridade para os nós de cluster do AKS e pods, essas métricas de integridade estão disponíveis no portal do Azure. Para saber como usar o Azure Monitor para contêineres, veja [Exibir integridade do Serviço de Kubernetes do Azure](container-insights-analyze.md).
+* Com o monitoramento habilitado para capturar métricas de integridade para os nós de cluster AKS e pods, essas métricas de integridade estão disponíveis no portal do Azure. Para saber como usar Azure Monitor para contêineres, consulte [exibir a integridade do serviço kubernetes do Azure](container-insights-analyze.md).

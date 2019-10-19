@@ -1,24 +1,18 @@
 ---
 title: Monitorar os serviços de armazenamento do Azure com o Azure Monitor para armazenamento (visualização) | Microsoft Docs
 description: Este artigo descreve o Azure Monitor para o recurso de armazenamento que fornece aos administradores de armazenamento uma compreensão rápida dos problemas de desempenho e utilização com suas contas de armazenamento do Azure.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/15/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 1ab49d17ebf10a1ae0277768ddbd1878195d835d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.date: 08/15/2019
+ms.openlocfilehash: e5738b9f7cca03898d3bb5c593004bb316aa0b23
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212771"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553890"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitorando seu serviço de armazenamento com o Azure Monitor para armazenamento (versão prévia)
 
@@ -53,7 +47,7 @@ Em Azure Monitor, você pode exibir detalhes de transação, latência e capacid
 
 Para exibir a utilização e a disponibilidade de suas contas de armazenamento em todas as suas assinaturas, execute as etapas a seguir.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **Monitor** no painel esquerdo na portal do Azure e, na seção **insights** , selecione **contas de armazenamento (versão prévia)** .
 
@@ -233,7 +227,7 @@ Neste exemplo, estamos trabalhando com a pasta de trabalho de capacidade da cont
 
 7. Selecione **salvar como** na barra de comandos para salvar uma cópia da pasta de trabalho com suas personalizações e clique em **edição concluída** para retornar ao modo de leitura.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Esta seção o ajudará com o diagnóstico e a solução de problemas de alguns dos problemas comuns que você pode encontrar ao usar o Azure Monitor para armazenamento (versão prévia). Use a lista abaixo para localizar as informações relevantes para o seu problema específico.
 
@@ -241,7 +235,7 @@ Esta seção o ajudará com o diagnóstico e a solução de problemas de alguns 
 
 Para ajudar a solucionar problemas relacionados ao armazenamento que você identifica com Azure Monitor para armazenamento (versão prévia), consulte as [diretrizes de solução de problemas](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)do armazenamento do Azure.  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications.md) para configurar alertas automatizados para auxiliar na detecção de problemas.
 

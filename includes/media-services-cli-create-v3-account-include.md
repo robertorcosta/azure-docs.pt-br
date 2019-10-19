@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: media-services
 author: Juliako
 ms.service: media-services
@@ -8,36 +8,36 @@ ms.topic: include
 ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: feec6a695ad867d26d32904d020648b029f9da35
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: da27f818bf368108568287f1ed1bbdae4c3902d4
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67172012"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72560224"
 ---
 ## <a name="create-a-media-services-account"></a>Criar uma conta de Serviços de Mídia
 
-Primeiro, você precisa criar uma conta dos Serviços de Mídia. Esta seção mostra o que é necessário para criar a conta usando a CLI do Azure.
+Primeiro, você precisa criar uma conta dos serviços de mídia. Esta seção mostra o que você precisa para a criação da conta usando o CLI do Azure.
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos usando o comando a seguir. Um grupo de recursos do Azure é um contêiner lógico em que recursos, como contas dos Serviços de Mídia do Azure e contas de armazenamento associadas, são implantados e gerenciados.
+Crie um grupo de recursos usando o comando a seguir. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos, como contas dos serviços de mídia do Azure, e as contas de armazenamento associadas são implantados e gerenciados.
 
-Você pode substituir `amsResourceGroup` com seu valor.
+Você pode substituir `amsResourceGroup` pelo valor.
 
 ```azurecli
 az group create --name amsResourceGroup --location westus2
 ```
 
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+### <a name="create-a-storage-account"></a>Crie uma conta de armazenamento
 
-Ao criar uma conta dos Serviços de Mídia, você precisa fornecer o nome de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está conectada à sua conta de Serviços de Mídia. Para saber mais sobre como as contas de armazenamento são usadas nos Serviços de Mídia, confira [Contas de armazenamento](../articles/media-services/latest/storage-account-concept.md).
+Ao criar uma conta de serviços de mídia, você precisa fornecer o nome de um recurso de conta de armazenamento do Azure. A conta de armazenamento especificada é anexada à sua conta de serviços de mídia. Para obter mais informações sobre como as contas de armazenamento são usadas nos serviços de mídia, consulte [contas de armazenamento](../articles/media-services/latest/storage-account-concept.md).
 
-Você deve ter uma conta de armazenamento **Primária**, e pode ter quantas contas de armazenamento **Secundárias** você quiser associadas à sua conta dos Serviços de Mídia. Os Serviços de Mídia oferecem suporte a contas **v2 para fins gerais** (GPv2) ou contas **v1 para fins gerais** (GPv1). As contas somente blob não são permitidas como **Primárias**. Se quiser saber mais sobre as contas de armazenamento, confira [Opções de conta de Armazenamento do Azure](../articles/storage/common/storage-account-options.md). 
+Você deve ter uma conta de armazenamento **principal** e pode ter qualquer número de contas de armazenamento **secundárias** associadas à sua conta de serviços de mídia. Os serviços de mídia oferecem suporte a contas de **uso geral v2** (GPv2) ou GPv1 ( **uso geral v1** ). Contas somente BLOB não são permitidas como **primárias**. Se você quiser saber mais sobre contas de armazenamento, consulte [Opções de conta de armazenamento do Azure](../articles/storage/common/storage-account-options.md). 
 
-Neste exemplo, criamos uma conta de uso geral v2, LRS Padrão. Caso deseje fazer experimentos com contas de armazenamento, use `--sku Standard_LRS`. No entanto, ao escolher um SKU para produção, você deverá considerar `--sku Standard_RAGRS`, que fornece replicação geográfica para a continuidade dos negócios. Para obter mais informações, confira [Contas de armazenamento](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
+Neste exemplo, criamos uma conta Uso Geral v2, Standard LRS. Se você quiser experimentar as contas de armazenamento, use `--sku Standard_LRS`. No entanto, ao escolher uma SKU para produção, você deve considerar, `--sku Standard_RAGRS`, que fornece replicação geográfica para continuidade dos negócios. Para obter mais informações, consulte [contas de armazenamento](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
  
-O comando a seguir cria uma conta de armazenamento que será associada à conta dos Serviços de Mídia. No script a seguir, você pode substituir `storageaccountforams` pelo seu valor. `amsResourceGroup` deve corresponder ao valor que você forneceu para o grupo de recursos na etapa anterior. O nome da conta de armazenamento deve ter comprimento menor que 24.
+O comando a seguir cria uma conta de armazenamento que será associada à conta dos serviços de mídia. No script abaixo, você pode substituir `storageaccountforams` pelo valor. `amsResourceGroup` deve corresponder ao valor que você deu para o grupo de recursos na etapa anterior. O nome da conta de armazenamento deve ter comprimento menor que 24.
 
 ```azurecli
 az storage account create --name storageaccountforams \  
@@ -49,10 +49,10 @@ az storage account create --name storageaccountforams \
 
 ### <a name="create-a-media-services-account"></a>Criar uma conta de Serviços de Mídia
 
-O comando da CLI do Azure a seguir cria uma nova conta dos Serviços de Mídia. Você pode substituir os seguintes valores: `amsaccount` `storageaccountforams` (deve corresponder ao valor fornecido de conta de armazenamento) e `amsResourceGroup` (deve corresponder ao valor fornecido de grupo de recursos).
+O comando a seguir CLI do Azure cria uma nova conta dos serviços de mídia. Você pode substituir os seguintes valores: `amsaccount` `storageaccountforams` (deve corresponder ao valor que você forneceu para sua conta de armazenamento) e `amsResourceGroup` (deve corresponder ao valor que você deu para o grupo de recursos).
 
 ```azurecli
 az ams account create --name amsaccount \
-  -l westus2 \
-  -g amsResourceGroup --storage-account storageaccountforams
+   -g amsResourceGroup --storage-account storageaccountforams \
+   -l westus2 
 ```

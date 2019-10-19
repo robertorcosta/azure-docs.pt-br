@@ -1,57 +1,52 @@
 ---
-title: Visão geral do Insights no Azure Monitor | Microsoft Docs
-description: Insights fornecem uma experiência de monitoramento personalizada no Azure Monitor para serviços e aplicativos específicos. Este artigo fornece uma breve descrição de cada uma das informações que estão disponíveis no momento.
-services: azure-monitor
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
+title: Visão geral das informações no Azure Monitor | Microsoft Docs
+description: As informações fornecem uma experiência de monitoramento Personalizada em Azure Monitor para aplicativos e serviços específicos. Este artigo fornece uma breve descrição de cada uma das informações disponíveis no momento.
 ms.service: azure-monitor
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: ''
 ms.topic: conceptual
-ms.date: 05/22/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 8cb39a174c570b7019e872d731f49252a9505406
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/22/2019
+ms.openlocfilehash: 3abf3d562b9ca4d6fc9907c065dbaf9a52d58c5f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247223"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555351"
 ---
-# <a name="overview-of-insights-in-azure-monitor"></a>Visão geral do Insights no Azure Monitor
-Insights fornecem uma experiência de monitoramento personalizada para determinados aplicativos e serviços. Eles armazenam dados na [plataforma de dados do Azure Monitor](../platform/data-platform.md) e aproveitar outros recursos do Azure Monitor para análise e alertas, mas pode coletar dados adicionais e fornecer uma experiência de usuário exclusiva no portal do Azure. Acessar informações sobre o **Insights** seção do menu do Azure Monitor no portal do Azure.
+# <a name="overview-of-insights-in-azure-monitor"></a>Visão geral das informações no Azure Monitor
+As informações fornecem uma experiência de monitoramento Personalizada para aplicativos e serviços específicos. Eles armazenam dados na [plataforma de dados Azure monitor](../platform/data-platform.md) e aproveitam outros recursos de Azure monitor para análise e alertas, mas podem coletar dados adicionais e fornecer uma experiência de usuário exclusiva no portal do Azure. Acesse informações da seção **insights** do menu Azure Monitor na portal do Azure.
 
-As seções a seguir fornecem uma breve descrição das informações que estão atualmente disponíveis no Azure Monitor. Consulte a documentação detalhada para obter detalhes sobre cada um.
+As seções a seguir fornecem uma breve descrição das informações que estão disponíveis no momento no Azure Monitor. Consulte a documentação detalhada para obter detalhes sobre cada um.
 
-## <a name="application-insights"></a>Application Insights
-O Application Insights é um serviço de gerenciamento de desempenho de aplicativo (APM) extensível para desenvolvedores da Web em várias plataformas. Use-o para monitorar seu aplicativo Web online. Ele funciona para aplicativos em uma ampla variedade de plataformas, incluindo .NET, Node. js e Java EE, hospedado no local, híbrido ou qualquer nuvem pública. Ele também se integra ao seu processo DevOps e tem pontos de conexão para uma variedade de ferramentas de desenvolvimento.
+## <a name="application-insights"></a>Percepções sobre o Aplicativo
+O Application Insights é um serviço de gerenciamento de desempenho de aplicativos (APM) extensível para desenvolvedores da Web em várias plataformas. Use-o para monitorar seu aplicativo Web em tempo real. Ele funciona para aplicativos em uma ampla variedade de plataformas, incluindo .NET, Node. js e Java EE, hospedado local, híbrido ou qualquer nuvem pública. Ele também se integra ao seu processo de DevOps e tem pontos de conexão para uma variedade de ferramentas de desenvolvimento.
 
-Ver [o que é o Application Insights?](../app/app-insights-overview.md).
+Veja [o que é Application insights?](../app/app-insights-overview.md).
 
-![Application Insights](media/insights-overview/app-insights.png)
+![Percepções sobre o Aplicativo](media/insights-overview/app-insights.png)
 
-## <a name="azure-monitor-for-containers"></a>O Azure Monitor para contêineres
-O Azure Monitor para contêineres monitora o desempenho das cargas de trabalho de contêineres implantadas nas Instâncias de Contêiner do Azure ou nos clusters Kubernetes gerenciados hospedados no AKS (Serviço de Kubernetes do Azure). Monitorar os contêineres é fundamental, principalmente ao executar um cluster de produção em grande escala e com vários aplicativos.
+## <a name="azure-monitor-for-containers"></a>Azure Monitor para contêineres
+Azure Monitor para contêineres monitora o desempenho de cargas de trabalho de contêiner implantadas em instâncias de contêiner do Azure ou clusters kubernetes gerenciados hospedados no AKS (serviço kubernetes do Azure). O monitoramento de seus contêineres é essencial, especialmente quando você está executando um cluster de produção, em escala, com vários aplicativos.
 
-Ver [Azure Monitor para a visão geral dos contêineres](../insights/container-insights-overview.md).
+Consulte [a visão geral de Azure monitor para contêineres](../insights/container-insights-overview.md).
 
-![O Azure Monitor para contêineres](media/insights-overview/container-insights.png)
+![Azure Monitor para contêineres](media/insights-overview/container-insights.png)
 
-## <a name="azure-monitor-for-resource-groups-preview"></a>O Azure Monitor para grupos de recursos (visualização)
-O Azure Monitor para grupos de recursos ajuda a triagem e diagnosticar quaisquer problemas que encontram os recursos individuais, além de oferecer o contexto sobre a integridade e o desempenho do grupo de recursos como um todo.
+## <a name="azure-monitor-for-resource-groups-preview"></a>Azure Monitor para grupos de recursos (visualização)
+Azure Monitor para grupos de recursos ajuda a fazer a triagem e diagnosticar quaisquer problemas encontrados por seus recursos individuais, ao mesmo tempo em que oferece contexto para a integridade e o desempenho do grupo de recursos como um todo.
 
-Ver [monitorar grupos de recursos com o Azure Monitor (versão prévia)](../insights/resource-group-insights.md).
+Consulte [monitorar grupos de recursos com Azure monitor (versão prévia)](../insights/resource-group-insights.md).
 
-![O Azure Monitor para grupos de recursos](media/insights-overview/resource-group-insights.png)
+![Azure Monitor para grupos de recursos](media/insights-overview/resource-group-insights.png)
 
-## <a name="azure-monitor-for-vms-preview"></a>O Azure Monitor para máquinas virtuais (versão prévia)
-O Azure Monitor para VMs monitora as VMs (máquinas virtuais) e os conjuntos de dimensionamento de máquinas virtuais do Azure em escala. Ele analisa o desempenho e a integridade das VMs do Windows e do Linux e monitora os processos e as dependências de outros recursos e processos externos.
+## <a name="azure-monitor-for-vms-preview"></a>Azure Monitor para VMs (versão prévia)
+O Azure Monitor para VMs monitora as máquinas virtuais (VM) do Azure e os conjuntos de dimensionamento de máquinas virtuais em escala. Ele analisa o desempenho e a integridade de suas VMs Windows e Linux e monitora seus processos e dependências em outros recursos e processos externos.
 
-Consulte [o que é o Azure Monitor para VMs?](vminsights-overview.md)
+Veja [o que é Azure monitor para VMs?](vminsights-overview.md)
 
 ![Azure Monitor para VMs](media/insights-overview/vm-insights.png)
 
-## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre o [plataforma de dados do Azure Monitor](../platform/data-platform.md) aproveitado por insights.
-* Saiba mais sobre os diferentes [fontes de dados usadas pelo Azure Monitor](../platform/data-sources.md) e os diferentes tipos de dados coletados por cada uma das informações.
+## <a name="next-steps"></a>Próximos passos
+* Saiba mais sobre a [plataforma de dados Azure monitor](../platform/data-platform.md) aproveitada pelo insights.
+* Saiba mais sobre as diferentes [fontes de dados usadas pelo Azure monitor](../platform/data-sources.md) e os diferentes tipos de dados coletados por cada uma das informações.

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 4e2cd3b66385d37815d0fc51a70ca31aba25db29
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
-ms.translationtype: HT
+ms.openlocfilehash: aab5d9a4cb7527e8a2085f826febc64bbd74854c
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528616"
+ms.locfileid: "72551972"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas com suporte com Azure Monitor
 
@@ -1437,68 +1437,78 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Medidas|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|As|
 |---|---|---|---|---|---|
-|cpu_percent|Percentual de CPU|Porcentagem|Cerca|Percentual de CPU|Sem dimensões|
-|physical_data_read_percent|Porcentagem de e/s de dados|Porcentagem|Cerca|Porcentagem de e/s de dados|Sem dimensões|
-|log_write_percent|Percentual de e/s de log|Porcentagem|Cerca|Percentual de e/s de log. Não aplicável a data warehouses.|Sem dimensões|
-|dtu_consumption_percent|Porcentagem de DTU|Porcentagem|Cerca|Porcentagem de DTU. Aplica-se a bancos de dados baseados em DTU.|Sem dimensões|
-|temporário|Espaço de dados usado|Bytes|Máximo|Tamanho total do banco de dados. Não aplicável a data warehouses.|Sem dimensões|
-|connection_successful|Conexões com êxito|Contagem|Total|Conexões com êxito|Sem dimensões|
-|connection_failed|Conexões com falha|Contagem|Total|Conexões com falha|Sem dimensões|
-|blocked_by_firewall|Bloqueado pelo firewall|Contagem|Total|Bloqueado pelo firewall|Sem dimensões|
-|Bloqueado|Deadlocks|Contagem|Total|Deadlocks. Não aplicável a data warehouses.|Sem dimensões|
-|storage_percent|Porcentagem de espaço de dados usada|Porcentagem|Máximo|Porcentagem de tamanho do banco de dados. Não aplicável a data warehouses ou a bancos de dados de hiperescala.|Sem dimensões|
-|xtp_storage_percent|Porcentagem de armazenamento OLTP na memória|Porcentagem|Cerca|Porcentagem de armazenamento OLTP na memória. Não aplicável a data warehouses.|Sem dimensões|
-|workers_percent|Porcentagem de trabalhadores|Porcentagem|Cerca|Porcentagem de trabalhadores. Não aplicável a data warehouses.|Sem dimensões|
-|sessions_percent|Porcentagem de sessões|Porcentagem|Cerca|Porcentagem de sessões. Não aplicável a data warehouses.|Sem dimensões|
-|dtu_limit|Limite de DTU|Contagem|Cerca|Limite de DTU. Aplica-se a bancos de dados baseados em DTU.|Sem dimensões|
-|dtu_used|DTU usado|Contagem|Cerca|DTU usado. Aplica-se a bancos de dados baseados em DTU.|Sem dimensões|
-|cpu_limit|Limite de CPU|Contagem|Cerca|Limite de CPU. Aplica-se a bancos de dados baseados em vCore.|Sem dimensões|
-|cpu_used|CPU usada|Contagem|Cerca|CPU usada. Aplica-se a bancos de dados baseados em vCore.|Sem dimensões|
-|dwu_limit|Limite de DWU|Contagem|Máximo|Limite de DWU. Aplica-se somente a data warehouses.|Sem dimensões|
-|dwu_consumption_percent|Porcentagem de DWU|Porcentagem|Máximo|Porcentagem de DWU. Aplica-se somente a data warehouses.|Sem dimensões|
-|dwu_used|DWU usado|Contagem|Máximo|DWU usado. Aplica-se somente a data warehouses.|Sem dimensões|
-|dw_cpu_percent|Percentual de CPU no nível de nó DW|Porcentagem|Cerca|Percentual de CPU no nível de nó DW|DwLogicalNodeId|
-|dw_physical_data_read_percent|Porcentagem de e/s de dados de nível de nó DW|Porcentagem|Cerca|Porcentagem de e/s de dados de nível de nó DW|DwLogicalNodeId|
-|cache_hit_percent|Porcentagem de acesso ao cache|Porcentagem|Máximo|Porcentagem de acesso ao cache. Aplica-se somente a data warehouses.|Sem dimensões|
-|cache_used_percent|Percentual de cache usado|Porcentagem|Máximo|Percentual de cache usado. Aplica-se somente a data warehouses.|Sem dimensões|
-|local_tempdb_usage_percent|Porcentagem de tempdb local|Porcentagem|Cerca|Porcentagem de tempdb local. Aplica-se somente a data warehouses.|Sem dimensões|
+|allocated_data_storage|Espaço de dados alocado|Bytes|Cerca|Espaço de dados alocado. Não aplicável a data warehouses.|Sem dimensões|
 |app_cpu_billed|CPU do aplicativo cobrada|Contagem|Total|CPU do aplicativo cobrada. Aplica-se a bancos de dados sem servidor.|Sem dimensões|
 |app_cpu_percent|Porcentagem de CPU do aplicativo|Porcentagem|Cerca|Porcentagem de CPU do aplicativo. Aplica-se a bancos de dados sem servidor.|Sem dimensões|
 |app_memory_percent|Porcentagem de memória usada do aplicativo|Porcentagem|Cerca|Porcentagem de memória usada do aplicativo. Aplica-se a bancos de dados sem servidor.|Sem dimensões|
-|allocated_data_storage|Espaço de dados alocado|Bytes|Cerca|Espaço de dados alocado. Não aplicável a data warehouses.|Sem dimensões|
+|blocked_by_firewall|Bloqueado pelo firewall|Contagem|Total|Bloqueado pelo firewall|Sem dimensões|
+|cache_hit_percent|Porcentagem de acesso ao cache|Porcentagem|Máximo|Porcentagem de acesso ao cache. Aplica-se somente a data warehouses.|Sem dimensões|
+|cache_used_percent|Percentual de cache usado|Porcentagem|Máximo|Percentual de cache usado. Aplica-se somente a data warehouses.|Sem dimensões|
+|connection_failed|Conexões com falha|Contagem|Total|Conexões com falha|Sem dimensões|
+|connection_successful|Conexões com êxito|Contagem|Total|Conexões com êxito|Sem dimensões|
+|cpu_percent|Percentual de CPU|Porcentagem|Cerca|Percentual de CPU|Sem dimensões|
+|cpu_limit|Limite de CPU|Contagem|Cerca|Limite de CPU. Aplica-se a bancos de dados baseados em vCore.|Sem dimensões|
+|cpu_used|CPU usada|Contagem|Cerca|CPU usada. Aplica-se a bancos de dados baseados em vCore.|Sem dimensões|
+|Bloqueado|Deadlocks|Contagem|Total|Deadlocks. Não aplicável a data warehouses.|Sem dimensões|
+|dtu_limit|Limite de DTU|Contagem|Cerca|Limite de DTU. Aplica-se a bancos de dados baseados em DTU.|Sem dimensões|
+|dtu_consumption_percent|Porcentagem de DTU|Porcentagem|Cerca|Porcentagem de DTU. Aplica-se a bancos de dados baseados em DTU.|Sem dimensões|
+|dtu_used|DTU usado|Contagem|Cerca|DTU usado. Aplica-se a bancos de dados baseados em DTU.|Sem dimensões|
+|dw_cpu_percent|Percentual de CPU no nível de nó DW|Porcentagem|Cerca|Percentual de CPU no nível de nó DW|DwLogicalNodeId|
+|dw_physical_data_read_percent|Porcentagem de e/s de dados de nível de nó DW|Porcentagem|Cerca|Porcentagem de e/s de dados de nível de nó DW|DwLogicalNodeId|
+|dwu_consumption_percent|Porcentagem de DWU|Porcentagem|Máximo|Porcentagem de DWU. Aplica-se somente a data warehouses.|Sem dimensões|
+|dwu_limit|Limite de DWU|Contagem|Máximo|Limite de DWU. Aplica-se somente a data warehouses.|Sem dimensões|
+|dwu_used|DWU usado|Contagem|Máximo|DWU usado. Aplica-se somente a data warehouses.|Sem dimensões|
+|local_tempdb_usage_percent|Porcentagem de tempdb local|Porcentagem|Cerca|Porcentagem de tempdb local. Aplica-se somente a data warehouses.|Sem dimensões|
+|log_write_percent|Percentual de e/s de log|Porcentagem|Cerca|Percentual de e/s de log. Não aplicável a data warehouses.|Sem dimensões|
+|physical_data_read_percent|Porcentagem de e/s de dados|Porcentagem|Cerca|Porcentagem de e/s de dados|Sem dimensões|
+|sessions_percent|Porcentagem de sessões|Porcentagem|Cerca|Porcentagem de sessões. Não aplicável a data warehouses.|Sem dimensões|
+|sqlserver_process_core_percent|Porcentagem de núcleo do processo de SQL Server|Porcentagem|Máximo|Essa métrica é um espaço reservado e não é preenchida neste momento.|Sem dimensões|
+|sqlserver_process_memory_percent|Porcentagem de memória de processo SQL Server|Porcentagem|Máximo|Essa métrica é um espaço reservado e não é preenchida neste momento.|Sem dimensões|
+|temporário|Espaço de dados usado|Bytes|Máximo|Tamanho total do banco de dados. Não aplicável a data warehouses.|Sem dimensões|
+|storage_percent|Porcentagem de espaço de dados usada|Porcentagem|Máximo|Porcentagem de tamanho do banco de dados. Não aplicável a data warehouses ou a bancos de dados de hiperescala.|Sem dimensões|
+|tempdb_data_size|Tamanho do arquivo de dados tempdb em kilobytes|Contagem|Máximo|Tamanho do arquivo de dados tempdb em kilobytes. Não aplicável a data warehouses. Essa métrica estará disponível para bancos de dados usando o modelo de compra vCore ou 100 DTU e superior para modelos de compra baseados em DTU.|Sem dimensões|
+|tempdb_log_size|Tamanho do arquivo de log de tempdb em kilobytes|Contagem|Máximo|Tamanho do arquivo de log de tempdb em kilobytes. Não aplicável a data warehouses. Essa métrica estará disponível para bancos de dados usando o modelo de compra vCore ou 100 DTU e superior para modelos de compra baseados em DTU.|Sem dimensões|
+|tempdb_log_used_percent|Log de porcentagem de tempdb usado|Porcentagem|Máximo|Log de porcentagem de tempdb usado. Não aplicável a data warehouses. Essa métrica estará disponível para bancos de dados usando o modelo de compra vCore ou 100 DTU e superior para modelos de compra baseados em DTU.|Sem dimensões|
+|workers_percent|Porcentagem de trabalhadores|Porcentagem|Cerca|Porcentagem de trabalhadores. Não aplicável a data warehouses.|Sem dimensões|
+|xtp_storage_percent|Porcentagem de armazenamento OLTP na memória|Porcentagem|Cerca|Porcentagem de armazenamento OLTP na memória. Não aplicável a data warehouses.|Sem dimensões|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft. SQL/Servers/elasticPools
 
 |Medidas|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|As|
 |---|---|---|---|---|---|
-|cpu_percent|Percentual de CPU|Porcentagem|Cerca|Percentual de CPU|Sem dimensões|
-|physical_data_read_percent|Porcentagem de e/s de dados|Porcentagem|Cerca|Porcentagem de e/s de dados|Sem dimensões|
-|log_write_percent|Percentual de e/s de log|Porcentagem|Cerca|Percentual de e/s de log|Sem dimensões|
-|dtu_consumption_percent|Porcentagem de DTU|Porcentagem|Cerca|Porcentagem de DTU. Aplica-se a pools elásticos baseados em DTU.|Sem dimensões|
-|storage_percent|Porcentagem de espaço de dados usada||Porcentagem|Cerca|Porcentagem de armazenamento|Sem dimensões|
-|workers_percent|Porcentagem de trabalhadores|Porcentagem|Cerca|Porcentagem de trabalhadores|Sem dimensões|
-|sessions_percent|Porcentagem de sessões|Porcentagem|Cerca|Porcentagem de sessões|Sem dimensões|
-|eDTU_limit|Limite de eDTU|Contagem|Cerca|limite de eDTU. Aplica-se a pools elásticos baseados em DTU.|Sem dimensões|
-|storage_limit|Tamanho máximo de dados|Bytes|Cerca|Limite de armazenamento|Sem dimensões|
-|eDTU_used|eDTU usado|Contagem|Cerca|eDTU usado. Aplica-se a pools elásticos baseados em DTU.|Sem dimensões|
-|storage_used|Espaço de dados usado|Bytes|Cerca|Armazenamento usado|Sem dimensões|
-|xtp_storage_percent|Porcentagem de armazenamento OLTP na memória|Porcentagem|Cerca|Porcentagem de armazenamento OLTP na memória|Sem dimensões|
-|cpu_limit|Limite de CPU|Contagem|Cerca|Limite de CPU. Aplica-se a pools elásticos baseados em vCore.|Sem dimensões|
-|cpu_used|CPU usada|Contagem|Cerca|CPU usada. Aplica-se a pools elásticos baseados em vCore.|Sem dimensões|
 |allocated_data_storage|Espaço de dados alocado|Bytes|Cerca|Espaço de dados alocado|Sem dimensões|
 |allocated_data_storage_percent|Porcentagem alocada de espaço de dados|Porcentagem|Máximo|Porcentagem alocada de espaço de dados|Sem dimensões|
+|cpu_limit|Limite de CPU|Contagem|Cerca|Limite de CPU. Aplica-se a pools elásticos baseados em vCore.|Sem dimensões|
+|cpu_percent|Percentual de CPU|Porcentagem|Cerca|Percentual de CPU|Sem dimensões|
+|cpu_used|CPU usada|Contagem|Cerca|CPU usada. Aplica-se a pools elásticos baseados em vCore.|Sem dimensões|
+|dtu_consumption_percent|Porcentagem de DTU|Porcentagem|Cerca|Porcentagem de DTU. Aplica-se a pools elásticos baseados em DTU.|Sem dimensões|
+|eDTU_limit|Limite de eDTU|Contagem|Cerca|limite de eDTU. Aplica-se a pools elásticos baseados em DTU.|Sem dimensões|
+|eDTU_used|eDTU usado|Contagem|Cerca|eDTU usado. Aplica-se a pools elásticos baseados em DTU.|Sem dimensões|
+|log_write_percent|Percentual de e/s de log|Porcentagem|Cerca|Percentual de e/s de log|Sem dimensões|
+|physical_data_read_percent|Porcentagem de e/s de dados|Porcentagem|Cerca|Porcentagem de e/s de dados|Sem dimensões|
+|sessions_percent|Porcentagem de sessões|Porcentagem|Cerca|Porcentagem de sessões|Sem dimensões|
+|storage_limit|Tamanho máximo de dados|Bytes|Cerca|Limite de armazenamento|Sem dimensões|
+|storage_percent|Porcentagem de espaço de dados usada||Porcentagem|Cerca|Porcentagem de armazenamento|Sem dimensões|
+|storage_used|Espaço de dados usado|Bytes|Cerca|Armazenamento usado|Sem dimensões|
+|sqlserver_process_core_percent|Porcentagem de núcleo do processo de SQL Server|Porcentagem|Máximo|Essa métrica é um espaço reservado e não é preenchida neste momento.|Sem dimensões|
+|sqlserver_process_memory_percent|Porcentagem de memória de processo SQL Server|Porcentagem|Máximo|Essa métrica é um espaço reservado e não é preenchida neste momento.|Sem dimensões|
+|tempdb_data_size|Tamanho do arquivo de dados tempdb em kilobytes|Contagem|Máximo|Tamanho do arquivo de dados tempdb em kilobytes. Não aplicável a data warehouses. Essa métrica estará disponível para bancos de dados usando o modelo de compra vCore ou 100 DTU e superior para modelos de compra baseados em DTU.|Sem dimensões|
+|tempdb_log_size|Tamanho do arquivo de log de tempdb em kilobytes|Contagem|Máximo|Tamanho do arquivo de log de tempdb em kilobytes. Não aplicável a data warehouses. Essa métrica estará disponível para bancos de dados usando o modelo de compra vCore ou 100 DTU e superior para modelos de compra baseados em DTU.|Sem dimensões|
+|tempdb_log_used_percent|Log de porcentagem de tempdb usado|Porcentagem|Máximo|Log de porcentagem de tempdb usado. Não aplicável a data warehouses. Essa métrica estará disponível para bancos de dados usando o modelo de compra vCore ou 100 DTU e superior para modelos de compra baseados em DTU.|Sem dimensões|
+|workers_percent|Porcentagem de trabalhadores|Porcentagem|Cerca|Porcentagem de trabalhadores|Sem dimensões|
+|xtp_storage_percent|Porcentagem de armazenamento OLTP na memória|Porcentagem|Cerca|Porcentagem de armazenamento OLTP na memória|Sem dimensões|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft. SQL/managedInstances
 
 |Medidas|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|As|
 |---|---|---|---|---|---|
-|virtual_core_count|Contagem de núcleos virtuais|Contagem|Cerca|Contagem de núcleos virtuais|Sem dimensões|
 |avg_cpu_percent|Percentual médio de CPU|Porcentagem|Cerca|Percentual médio de CPU|Sem dimensões|
+|io_bytes_read|Bytes de e/s lidos|Bytes|Cerca|Bytes de e/s lidos|Sem dimensões|
+|io_requests|Contagem de solicitações de e/s|Contagem|Cerca|Contagem de solicitações de e/s|Sem dimensões|
+|io_bytes_written|Bytes de e/s gravados|Bytes|Cerca|Bytes de e/s gravados|Sem dimensões|
 |reserved_storage_mb|Espaço de armazenamento reservado|Contagem|Cerca|Espaço de armazenamento reservado|Sem dimensões|
 |storage_space_used_mb|Espaço de armazenamento usado|Contagem|Cerca|Espaço de armazenamento usado|Sem dimensões|
-|io_requests|Contagem de solicitações de e/s|Contagem|Cerca|Contagem de solicitações de e/s|Sem dimensões|
-|io_bytes_read|Bytes de e/s lidos|Bytes|Cerca|Bytes de e/s lidos|Sem dimensões|
-|io_bytes_written|Bytes de e/s gravados|Bytes|Cerca|Bytes de e/s gravados|Sem dimensões|
+|virtual_core_count|Contagem de núcleos virtuais|Contagem|Cerca|Contagem de núcleos virtuais|Sem dimensões|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 

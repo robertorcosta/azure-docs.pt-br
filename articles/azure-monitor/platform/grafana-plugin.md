@@ -1,132 +1,130 @@
 ---
-title: Monitorar os serviços e aplicativos do Azure usando Grafana
-description: Encaminhe dados do Azure Monitor e do Application Insights para que você possa exibi-los no Grafana.
-services: azure-monitor
-keywords: ''
+title: Monitorar serviços e aplicativos do Azure usando o Grafana
+description: Azure Monitor de rota e dados de Application Insights para que você possa exibi-los em Grafana.
+ms.service: azure-monitor
+ms.subservice: ''
+ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 11/06/2017
-ms.topic: conceptual
-ms.service: azure-monitor
-ms.subservice: ''
-ms.openlocfilehash: b9a9d0a16a31d06d0d4edc1b6f0617a5771b179e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f5464710d5c7908eeec5dd917bfeff4756ff4e80
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872837"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552105"
 ---
-# <a name="monitor-your-azure-services-in-grafana"></a>Monitorar os serviços do Azure no Grafana
-Agora você pode monitorar os serviços e aplicativos do Azure do [Grafana](https://grafana.com/) usando o [plug-in da fonte de dados do Monitor do Azure](https://grafana.com/plugins/grafana-azure-monitor-datasource). O plug-in reúne os dados de desempenho do aplicativo coletados pelo Azure Monitor, incluindo vários logs e métricas. Em seguida, exiba esses dados no painel do Grafana.
+# <a name="monitor-your-azure-services-in-grafana"></a>Monitorar seus serviços do Azure no Grafana
+Agora você pode monitorar os serviços e aplicativos do Azure do [Grafana](https://grafana.com/) usando o [plug-in Azure monitor Data Source](https://grafana.com/plugins/grafana-azure-monitor-datasource). O plug-in coleta dados de desempenho do aplicativo coletados por Azure Monitor, incluindo vários logs e métricas. Você pode exibir esses dados em seu painel do Grafana.
 
-Use as etapas a seguir para configurar um servidor Grafana e criar painéis para métricas e logs do Monitor do Azure.
+Use as etapas a seguir para configurar um servidor Grafana e criar painéis para métricas e logs de Azure Monitor.
 
-## <a name="set-up-a-grafana-server"></a>Configurar um servidor do Grafana
+## <a name="set-up-a-grafana-server"></a>Configurar um servidor Grafana
 
 ### <a name="set-up-grafana-locally"></a>Configurar o Grafana localmente
-Para configurar um servidor Grafana local, [baixe e instale o Grafana em seu ambiente local](https://grafana.com/grafana/download). Para usar a integração de Azure Monitor do plug-in, instale o Grafana versão 5,3 ou superior.
+Para configurar um servidor Grafana local, [Baixe e instale o Grafana em seu ambiente local](https://grafana.com/grafana/download). Para usar a integração de Azure Monitor do plug-in, instale o Grafana versão 5,3 ou superior.
 
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>Configurar o Grafana no Azure por meio do Azure Marketplace
-1. Acesse o Azure Marketplace e escolha Grafana da Grafana Labs.
+1. Acesse o Azure Marketplace e escolha Grafana by Grafana Labs.
 
-2. Preencha os nomes e os detalhes. Crie um novo grupo de recursos. Acompanhe os valores escolhidos para o nome de usuário da VM, senha da VM e senha do administrador do servidor do Grafana.  
+2. Preencha os nomes e os detalhes. Criar um novo grupo de recursos. Acompanhe os valores escolhidos para o nome de usuário da VM, a senha da VM e a senha de administrador do servidor Grafana.  
 
-3. Escolha um tamanho de VM e uma conta de armazenamento.
+3. Escolha o tamanho da VM e uma conta de armazenamento.
 
-4. Configure as definições de configuração de rede.
+4. Defina as definições de configuração de rede.
 
-5. Exiba o resumo e selecione **Criar** depois de aceitar os termos de uso.
+5. Exiba o resumo e selecione **criar** depois de aceitar os termos de uso.
 
-6. Após a conclusão da implantação, selecione **Ir para o Grupo de Recursos**. Você verá uma lista de recursos recém-criados.
+6. Após a conclusão da implantação, selecione **ir para o grupo de recursos**. Você verá uma lista de recursos recém-criados.
 
-    ![Objetos do grupo de recursos do Grafana](media/grafana-plugin/grafana1.png)
+    ![Objetos do grupo de recursos Grafana](media/grafana-plugin/grafana1.png)
 
-    Se você selecionar o grupo de segurança de rede (*grafana-nsg*, nesse caso), poderá ver que a porta 3000 é usada para acessar o servidor do Grafana.
+    Se você selecionar o grupo de segurança de rede (*grafana-NSG* , nesse caso), poderá ver que a porta 3000 é usada para acessar o grafana Server.
 
-7. Obtenha o endereço IP público do seu servidor Grafana - volte à lista de recursos e selecione **Endereço IP público**.
+7. Obtenha o endereço IP público do seu servidor Grafana-volte para a lista de recursos e selecione **endereço IP público**.
 
 ## <a name="sign-in-to-grafana"></a>Entrar no Grafana
 
-1. Usando o endereço IP do seu servidor, abra a página de Login em *http://\<endereço IP\>: 3000* ou o *\<DNSName>\: 3000* no seu navegador. Enquanto 3000 é a porta padrão, note que você pode ter selecionado uma porta diferente durante a configuração. Você deve ver uma página de login para o servidor Grafana que você construiu.
+1. Usando o endereço IP do seu servidor, abra a página de logon em *http://\<IP endereço \>:3000* ou *\<DNSName > \:3000* em seu navegador. Embora 3000 seja a porta padrão, observe que você pode ter selecionado uma porta diferente durante a instalação. Você deve ver uma página de logon para o servidor Grafana que criou.
 
     ![Tela de logon do Grafana](./media/grafana-plugin/grafana-login-screen.png)
 
-2. Entre com o *administrador* de nome de usuário e a senha de administrador do servidor Grafana que você criou anteriormente. Se você estiver usando uma configuração local, a senha padrão será *admin* e você deverá alterá-la no primeiro login.
+2. Entre com o *administrador* de nome de usuário e a senha de administrador do servidor Grafana que você criou anteriormente. Se você estiver usando uma instalação local, a senha padrão será *admin*, e você deverá ser solicitado a alterá-la em seu primeiro logon.
 
-## <a name="configure-data-source-plugin"></a>Configurar o plug-in de fonte de dados
+## <a name="configure-data-source-plugin"></a>Configurar plug-in de fonte de dados
 
-Depois de fazer logon com êxito, você deverá ver que o plug-in de fonte de dados do Azure Monitor já está incluído.
+Uma vez conectado com êxito, você verá que o plug-in de fonte de dados Azure Monitor já está incluído.
 
-![Grafana inclui o plug-in do Azure Monitor](./media/grafana-plugin/grafana-includes-azure-monitor-plugin-dark.png)
+![Grafana inclui plug-in Azure Monitor](./media/grafana-plugin/grafana-includes-azure-monitor-plugin-dark.png)
 
-1. Selecione **Adicionar origem de dados** para adicionar e configurar a fonte de dados do Monitor do Azure.
+1. Selecione **Adicionar fonte de dados** para adicionar e configurar a fonte de dados de Azure monitor.
 
-2. Escolha um nome para a fonte de dados e selecione **Monitor do Azure** como o tipo na lista suspensa.
+2. Escolha um nome para a fonte de dados e selecione **Azure monitor** como o tipo no menu suspenso.
 
-3. Crie uma entidade de serviço - o Grafana usa uma entidade de serviço do Azure Active Directory para se conectar às APIs do Monitor do Azure e coletar dados. Você deve criar ou usar uma entidade de serviço existente para gerenciar o acesso aos seus recursos do Azure.
-    * Consulte [estas instruções](../../azure-resource-manager/resource-group-create-service-principal-portal.md) para criar uma entidade de serviço. Copie e salve seu ID de locatário (ID do diretório), ID do cliente (ID do aplicativo) e segredo do cliente (valor da chave do aplicativo).
-    * Consulte [Atribuir aplicativo à função](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) para atribuir a função Leitor ao aplicativo Azure Active Directory na assinatura, grupo de recursos ou recurso que você deseja monitorar. 
-    A API do Log Analytics requer a função [ Log Analytics Reader ](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), que inclui as permissões da função Leitor e adiciona a ela.
+3. Criar uma entidade de serviço-Grafana usa uma entidade de serviço Azure Active Directory para se conectar a Azure Monitor APIs e coletar dados. Você deve criar ou usar uma entidade de serviço existente para gerenciar o acesso aos recursos do Azure.
+    * Consulte [estas instruções](../../azure-resource-manager/resource-group-create-service-principal-portal.md) para criar uma entidade de serviço. Copie e salve sua ID de locatário (ID do diretório), ID do cliente (ID do aplicativo) e segredo do cliente (valor da chave do aplicativo).
+    * Consulte [atribuir aplicativo à função](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) para atribuir a função leitor ao aplicativo Azure Active Directory na assinatura, grupo de recursos ou recurso que você deseja monitorar. 
+    A API de Log Analytics requer a [função leitor de log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), que inclui as permissões da função leitor e adiciona a ela.
 
-4. Forneça os detalhes da conexão para as APIs que você deseja usar. Você pode se conectar a todos ou alguns deles. 
+4. Forneça os detalhes de conexão para as APIs que você gostaria de usar. Você pode se conectar a todos ou a alguns deles. 
     * Se você se conectar a métricas e logs em Azure Monitor, poderá reutilizar as mesmas credenciais selecionando os **mesmos detalhes que Azure monitor API**.
-    * Ao configurar o plug-in, você pode indicar qual nuvem do Azure você gostaria que o plug-in monitorasse (público, governo dos EUA do Azure, Alemanha do Azure ou China do Azure).
-    * Se você usar o Application Insights, também poderá incluir a API do Application Insights e a ID do aplicativo para coletar métricas baseadas no Application Insights. Para obter mais informações, consulte [Obtendo sua chave de API e a ID do Aplicativo](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
+    * Ao configurar o plug-in, você pode indicar qual nuvem do Azure você deseja que o plug-in monitore (público, governo dos EUA do Azure, Azure Alemanha ou Azure China).
+    * Se você usar Application Insights, também poderá incluir sua API de Application Insights e a ID do aplicativo para coletar métricas baseadas em Application Insights. Para obter mais informações, consulte [obtendo sua chave de API e a ID do aplicativo](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
         > [!NOTE]
-        > Alguns campos da fonte de dados são nomeados Diferentemente de suas configurações do Azure correlacionadas:
-        > * ID do locatário é o ID de diretório do Azure
-        > * ID do cliente é o ID do aplicativo do Azure Active Directory
-        > * Segredo do cliente é o valor da chave de aplicativo do Azure Active Directory
+        > Alguns campos de fonte de dados são nomeados de forma diferente das configurações correlacionadas do Azure:
+        > * A ID do locatário é a ID do diretório do Azure
+        > * A ID do cliente é a ID do aplicativo Azure Active Directory
+        > * O segredo do cliente é o valor da chave do aplicativo Azure Active Directory
 
-5. Se você usar o Application Insights, também poderá incluir a API do Application Insights e a ID do aplicativo para coletar métricas baseadas no Application Insights. Para obter mais informações, consulte [Obtendo sua chave de API e a ID do Aplicativo](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
+5. Se você usar Application Insights, também poderá incluir sua API de Application Insights e a ID do aplicativo para coletar métricas baseadas em Application Insights. Para obter mais informações, consulte [obtendo sua chave de API e a ID do aplicativo](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
-6. Selecione **salvar**, e o Grafana testará as credenciais para cada API. Você deverá ver uma mensagem semelhante à mostrada a seguir.  
-    ![Configuração aprovada da fonte de dados do Grafana](./media/grafana-plugin/grafana-data-source-config-approved-dark.png)
+6. Selecione **salvar**e o Grafana testará as credenciais para cada API. Você deverá ver uma mensagem semelhante à seguinte.  
+    ![Grafana ](./media/grafana-plugin/grafana-data-source-config-approved-dark.png) de configuração de fonte de dados aprovada
 
 ## <a name="build-a-grafana-dashboard"></a>Criar um painel do Grafana
 
 1. Vá para a página inicial do Grafana e selecione **novo painel**.
 
-2. No novo painel, selecione o **Gráfico**. Você pode tentar outras opções de gráficos, mas este artigo usa *Gráfico* como exemplo.
+2. No novo painel, selecione o **grafo**. Você pode experimentar outras opções de gráfico, mas este artigo usa o *grafo* como exemplo.
 
-3. Um gráfico em branco é mostrado no painel. Clique no título do painel e selecione **Editar** para inserir os detalhes dos dados que você deseja plotar nesse gráfico.
-    ![Novo gráfico do Grafana](./media/grafana-plugin/grafana-new-graph-dark.png)
+3. Um gráfico em branco é exibido no seu painel. Clique no título do painel e selecione **Editar** para inserir os detalhes dos dados que você deseja plotar neste gráfico de gráfico.
+    ![Grafana novo grafo ](./media/grafana-plugin/grafana-new-graph-dark.png)
 
-4. Selecione a fonte de dados do Azure Monitor que você configurou.
-   * Coletando métricas do Monitor do Azure - selecione **Azure Monitor** na lista suspensa de serviços. Uma lista de seletores é exibida, onde você pode selecionar os recursos e a métrica a serem monitorados neste gráfico. Para coletar métricas de uma VM, use o namespace **Microsoft.Compute / VirtualMachines**. Depois de selecionar VMs e métricas, você pode começar a visualizar os dados no painel.
-     ![Configuração de gráfico do Grafana para o Monitor do Azure](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-   * Coletando dados de log de Azure Monitor-selecione **log Analytics do Azure** na lista suspensa serviço. Selecione o workspace que você deseja consultar e defina o texto da consulta. Você pode copiar aqui qualquer consulta de log que já tenha ou criar uma nova. À medida que você digita sua consulta, o IntelliSense aparecerá e sugerirá opções de preenchimento automático. Selecione o tipo de visualização **Série temporal** **Tabela** e execute a consulta.
+4. Selecione a fonte de dados Azure Monitor que você configurou.
+   * Coletando métricas de Azure Monitor-selecione **Azure monitor** na lista suspensa serviço. Uma lista de seletores é mostrada, onde você pode selecionar os recursos e a métrica a serem monitorados neste gráfico. Para coletar métricas de uma VM, use o namespace **Microsoft. Compute/VirtualMachines**. Depois de selecionar as VMs e as métricas, você pode começar a exibir seus dados no painel.
+     ![Grafana configuração de grafo para Azure Monitor ](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
+   * Coletando dados de log de Azure Monitor-selecione **log Analytics do Azure** na lista suspensa serviço. Selecione o espaço de trabalho que você gostaria de consultar e definiu o texto da consulta. Você pode copiar aqui qualquer consulta de log que já tenha ou criar uma nova. Conforme você digita em sua consulta, o IntelliSense aparecerá e sugerirá opções de preenchimento automático. Selecione o tipo de visualização, **tabela**de **série temporal** e execute a consulta.
     
      > [!NOTE]
      >
-     > A consulta padrão fornecida com o plug-in usa duas macros: "$ __ timeFilter () e $ __ interval. 
-     > Essas macros permitem que o Grafana calcule dinamicamente o intervalo de tempo e o tempo, quando você aumenta o zoom em parte de um gráfico. Você pode remover essas macros e usar um filtro de hora padrão, como *TimeGenerated> ago (1h)* , mas isso significa que o gráfico não suportaria o recurso de zoom in.
+     > A consulta padrão fornecida com o plug-in usa duas macros: "$ __timeFilter () e $ __interval. 
+     > Essas macros permitem que o Grafana Calcule dinamicamente o intervalo de tempo e o detalhamento de tempo, ao ampliar parte de um gráfico. Você pode remover essas macros e usar um filtro de tempo padrão, como *TimeGenerated > atrás (1h)* , mas isso significa que o grafo não ofereceria suporte ao recurso de zoom.
     
-     ![Configuração do Grafana graph para o Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
+     ![Configuração do grafo Grafana para o Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
-5. Veja a seguir um painel simples com dois gráficos. O gráfico à esquerda mostra o percentual de CPU de duas VMs. O gráfico à direita mostra as transações em uma conta de Armazenamento do Azure discriminadas pelo tipo de API de Transação.
-    ![Exemplo de gráficos do Grafana dois](media/grafana-plugin/grafana6.png)
+5. Veja a seguir um painel simples com dois gráficos. Aquele à esquerda mostra o percentual de CPU de duas VMs. O gráfico à direita mostra as transações em uma conta de armazenamento do Azure dividida pelo tipo de API de transação.
+    ![Grafana exemplo de dois gráficos ](media/grafana-plugin/grafana6.png)
 
 
-## <a name="optional-monitor-your-custom-metrics-in-the-same-grafana-server"></a>Opcional: Monitorar as métricas personalizadas no mesmo servidor do Grafana
+## <a name="optional-monitor-your-custom-metrics-in-the-same-grafana-server"></a>Opcional: monitorar suas métricas personalizadas no mesmo servidor Grafana
 
-Você também pode instalar o Telegraf e o InfluxDB para coletar e plotar tanto métricas customizadas quanto baseadas em agentes na mesma instância do Grafana. Há muitos plug-ins de fonte de dados que você pode usar para reunir essas métricas em um painel.
+Você também pode instalar o Telegraf e o InfluxDB para coletar e plotar as métricas personalizadas e baseadas em agente mesma instância de Grafana. Há muitos plug-ins de fonte de dados que você pode usar para trazer essas métricas juntas em um painel.
 
-Também reutilize essa configuração para incluir métricas do servidor do Prometheus. Use o plug-in de fonte de dados do Prometheus na galeria de plug-ins do Grafana.
+Você também pode reutilizar essa configuração para incluir métricas do seu servidor Prometheus. Use o plug-in de fonte de dados Prometheus na Galeria de plug-ins do Grafana.
 
-Estes são bons artigos de referência sobre como usar o Telegraf, InfluxDB, Prometheus e Docker
- - [Como monitorar as métricas do sistema com a Pilha TICK no Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
+Aqui estão bons artigos de referência sobre como usar Telegraf, InfluxDB, Prometheus e Docker
+ - [Como monitorar as métricas do sistema com a pilha de TIQUEs no Ubuntu 16, 4](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
 
- - [Uma solução de monitoramento para hosts, contêineres e serviços em contêineres do Docker](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
+ - [Uma solução de monitoramento para hosts do Docker, contêineres e serviços em contêineres](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
-Esta é uma imagem de um painel completo do Grafana que contém métricas do Azure Monitor e do Application Insights.
-![Métricas de exemplo do Grafana](media/grafana-plugin/grafana8.png)
+Aqui está uma imagem de um painel Grafana completo que tem métricas de Azure Monitor e Application Insights.
+![Grafana métricas de exemplo ](media/grafana-plugin/grafana8.png)
 
 ## <a name="advanced-grafana-features"></a>Recursos avançados do Grafana
 
 ### <a name="variables"></a>Variáveis
-Alguns valores de consulta podem ser selecionados por meio de menus suspensos da interface do usuário e atualizados na consulta. Considere a seguinte consulta como um exemplo:
+Alguns valores de consulta podem ser selecionados por meio de listas suspensas da interface do usuário e atualizados na consulta. Considere a seguinte consulta como exemplo:
 ```
 Usage 
 | where $__timeFilter(TimeGenerated) 
@@ -134,12 +132,12 @@ Usage
 | sort by TimeGenerated
 ```
 
-Você pode configurar uma variável que listará todos os valores **Solution** disponíveis e, em seguida, atualizará sua consulta para usá-la.
-Para criar uma nova variável, clique no botão Configurações do painel na área superior direita, selecione **Variáveis** e, em seguida, **Nova**.
-Na página da variável, defina a origem de dados e a consulta a serem executadas para obter a lista de valores.
-![Configurar o Grafana variável](./media/grafana-plugin/grafana-configure-variable-dark.png)
+Você pode configurar uma variável que listará todos os valores de **solução** disponíveis e, em seguida, atualizar sua consulta para usá-lo.
+Para criar uma nova variável, clique no botão Configurações do painel na área superior direita, selecione **variáveis**e, em seguida, **novo**.
+Na página variável, defina a fonte de dados e a consulta a serem executadas para obter a lista de valores.
+![Grafana configurar ](./media/grafana-plugin/grafana-configure-variable-dark.png) variável
 
-Uma vez criada, ajuste a consulta para usar o (s) valor (es) selecionado (s) e seus gráficos responderão de acordo:
+Depois de criada, ajuste a consulta para usar os valores selecionados e seus gráficos responderão de forma adequada:
 ```
 Usage 
 | where $__timeFilter(TimeGenerated) and Solution in ($Solutions)
@@ -147,21 +145,21 @@ Usage
 | sort by TimeGenerated
 ```
     
-![Usar variáveis do Grafana](./media/grafana-plugin/grafana-use-variables-dark.png)
+![Grafana usar variáveis](./media/grafana-plugin/grafana-use-variables-dark.png)
 
-### <a name="create-dashboard-playlists"></a>Criar playlists do painel
+### <a name="create-dashboard-playlists"></a>Criar listas de reprodução de Dashboard
 
-Um dos muitos recursos úteis do Grafana é a playlist do painel. Você pode criar vários painéis e adicioná-los à playlist configurando um intervalo a ser mostrado para cada painel. Selecione **Reproduzir** para ver os painéis serem percorridos. Você pode querer exibi-los em um monitor de parede grande para fornecer uma placa de status para o seu grupo.
+Um dos muitos recursos úteis do Grafana é a lista de reprodução do painel. Você pode criar vários painéis e adicioná-los a uma lista de reprodução Configurando um intervalo para cada painel a ser mostrado. Selecione **reproduzir** para ver os painéis passarem pelo ciclo. Talvez você queira exibi-los em um monitor de parede grande para fornecer um quadro de status para seu grupo.
 
-![Exemplo de playlist do Grafana](./media/grafana-plugin/grafana7.png)
+![Exemplo de playlist Grafana](./media/grafana-plugin/grafana7.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você configurou um ambiente do Grafana no Azure, você será cobrado quando as VMs são executadas, independentemente de você está usando ou não. Para evitar incorrer em encargos adicionais, limpe o grupo de recursos criado neste artigo.
+Se você configurou um ambiente Grafana no Azure, você será cobrado quando as VMs estiverem sendo executadas se você as estiver usando ou não. Para evitar incorrer em encargos adicionais, limpe o grupo de recursos criado neste artigo.
 
-1. No menu à esquerda no portal do Azure, clique em **Grupos de recursos** e, em seguida, em **Grafana**.
-2. Na página do grupo de recursos, clique em **Excluir**, digite **Grafana** na caixa de texto e, em seguida, clique em **Excluir**.
+1. No menu à esquerda no portal do Azure, clique em grupos de **recursos** e, em seguida, clique em **Grafana**.
+2. Na página do grupo de recursos, clique em **excluir**, digite **Grafana** na caixa de texto e clique em **excluir**.
 
-## <a name="next-steps"></a>Próximas etapas
-* [Visão geral das métricas do Azure Monitor](data-platform.md)
+## <a name="next-steps"></a>Próximos passos
+* [Visão geral de métricas de Azure Monitor](data-platform.md)
 
