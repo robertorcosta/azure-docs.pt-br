@@ -1,19 +1,18 @@
 ---
 title: Regras de ação para alertas de Azure Monitor
 description: Noções básicas sobre as regras de ação no Azure Monitor são e como configurá-las e gerenciá-las.
-author: anantr
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 04/25/2019
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 19f17aff4f915f8a16ccf9d69b12a845d9493e96
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 04/25/2019
+ms.openlocfilehash: a858388a11cfdf36bacb1e5840f00fc6ef097867
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299292"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555709"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (visualização)
 
@@ -67,13 +66,13 @@ Além disso, você pode definir filtros para limitá-los a um subconjunto espec�
 
 Os filtros disponíveis são: 
 
-* **Gravidade**: A opção para selecionar uma ou mais severidades de alerta. **Severity = Sev1** significa que a regra de ação é aplicável a todos os alertas definidos como Sev1.
-* **Monitorar serviço**: Um filtro baseado no serviço de monitoramento de origem. Esse filtro também é de seleção múltipla. Por exemplo, **Monitor Service = "Application insights"** significa que a regra de ação é aplicável a todos os alertas baseados em Application insights.
-* **Tipo de recurso**:  Um filtro com base em um tipo de recurso específico. Esse filtro também é de seleção múltipla. Por exemplo, **tipo de recurso = "máquinas virtuais"** significa que a regra de ação é aplicável para todas as máquinas virtuais.
-* **ID da regra de alerta**: Uma opção para filtrar regras de alerta específicas usando a ID do Gerenciador de recursos da regra de alerta.
-* **Condição do monitor**:  Um filtro para instâncias de alerta com disparado ou **resolvido** como a condição do monitor.
-* **Descrição**: Uma correspondência Regex (expressão regular) que define uma correspondência de cadeia de caracteres com a descrição, definida como parte da regra de alerta. Por exemplo, a **Descrição contém ' prod '** corresponderá a todos os alertas que contêm a cadeia de caracteres "Prod" em suas descrições.
-* **Contexto do alerta (carga)** : Uma correspondência Regex que define uma correspondência de cadeia de caracteres em relação aos campos de contexto de alerta da carga de um alerta. Por exemplo, o **contexto de alerta (carga) contém ' computador-01 '** que corresponderá a todos os alertas cujas cargas contenham a cadeia de caracteres "computador-01".
+* **Severidade**: a opção para selecionar uma ou mais severidades de alerta. **Severity = Sev1** significa que a regra de ação é aplicável a todos os alertas definidos como Sev1.
+* **Monitorar serviço**: um filtro baseado no serviço de monitoramento de origem. Esse filtro também é de seleção múltipla. Por exemplo, **Monitor Service = "Application insights"** significa que a regra de ação é aplicável a todos os alertas baseados em Application insights.
+* **Tipo de recurso**: um filtro com base em um tipo de recurso específico. Esse filtro também é de seleção múltipla. Por exemplo, **tipo de recurso = "máquinas virtuais"** significa que a regra de ação é aplicável para todas as máquinas virtuais.
+* **ID da regra de alerta**: uma opção para filtrar regras de alerta específicas usando a ID do Gerenciador de recursos da regra de alerta.
+* **Condição do monitor**: um filtro para instâncias de alerta com disparado ou **resolvido** como a condição do monitor.
+* **Descrição**: uma correspondência de Regex (expressão regular) que define uma correspondência de cadeia de caracteres com a descrição, definida como parte da regra de alerta. Por exemplo, a **Descrição contém ' prod '** corresponderá a todos os alertas que contêm a cadeia de caracteres "Prod" em suas descrições.
+* **Contexto de alerta (carga)** : uma correspondência Regex que define uma correspondência de cadeia de caracteres em relação aos campos de contexto de alerta da carga de um alerta. Por exemplo, o **contexto de alerta (carga) contém ' computador-01 '** que corresponderá a todos os alertas cujas cargas contenham a cadeia de caracteres "computador-01".
 
 Esses filtros são aplicados em conjunto um com o outro. Por exemplo, se você definir o **tipo de recurso ' = máquinas virtuais** e **severidade ' = Sev0**, você filtrou para todos os alertas do **Sev0** somente em suas VMs. 
 
@@ -86,13 +85,13 @@ Em seguida, configure a regra de ação para o suporte de supressão de alerta o
 #### <a name="suppression"></a>Supressão
 
 Se você selecionar **supressão**, configure a duração da supressão de ações e notificações. Escolha uma das seguintes opções:
-* **De agora (sempre)** : Suprime todas as notificações indefinidamente.
-* **Em um horário agendado**: Suprime notificações dentro de uma duração limitada.
-* **Com uma recorrência**: Suprime notificações em uma agenda recorrente diária, semanal ou mensal.
+* **De agora (sempre)** : suprime todas as notificações indefinidamente.
+* **Em um horário agendado**: suprime notificações dentro de uma duração limitada.
+* **Com uma recorrência**: suprime notificações em uma agenda recorrente diária, semanal ou mensal.
 
 ![Supressão da regra de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow-suppression.png)
 
-#### <a name="action-group"></a>Grupo de ações
+#### <a name="action-group"></a>Grupo de ação
 
 Se você selecionar **grupo de ações** na alternância, adicione um grupo de ações existente ou crie um novo. 
 
@@ -104,13 +103,13 @@ Se você selecionar **grupo de ações** na alternância, adicione um grupo de a
 ### <a name="action-rule-details"></a>Detalhes da regra de ação
 
 Por fim, configure os seguintes detalhes para a regra de ação:
-* NOME
+* NaME
 * Grupo de recursos no qual ele foi salvo
-* DESCRIÇÃO 
+* Descrição 
 
 ## <a name="example-scenarios"></a>Cenários de exemplo
 
-### <a name="scenario-1-suppression-of-alerts-based-on-severity"></a>Cenário 1: Supressão de alertas com base na severidade
+### <a name="scenario-1-suppression-of-alerts-based-on-severity"></a>Cenário 1: supressão de alertas com base na severidade
 
 A contoso deseja suprimir notificações para todos os alertas do Sev4 em todas as VMs na assinatura **ContosoSub** todos os finais de semana.
 
@@ -121,7 +120,7 @@ A contoso deseja suprimir notificações para todos os alertas do Sev4 em todas 
     * Tipo de recurso = **máquinas virtuais**
 * Supressão com recorrência definida como semanal e **sábado** e **domingo** verificados
 
-### <a name="scenario-2-suppression-of-alerts-based-on-alert-context-payload"></a>Cenário 2: Supressão de alertas com base no contexto de alerta (carga)
+### <a name="scenario-2-suppression-of-alerts-based-on-alert-context-payload"></a>Cenário 2: supressão de alertas com base no contexto de alerta (carga)
 
 A contoso deseja suprimir as notificações de todos os alertas de log gerados para o **computador-01** no **ContosoSub** indefinidamente, pois ele passa por manutenção.
 
@@ -132,7 +131,7 @@ A contoso deseja suprimir as notificações de todos os alertas de log gerados p
     * O contexto do alerta (carga) contém o **computador-01**
 * Supressão definida como **de Now (Always)**
 
-### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Cenário 3: Grupo de ação definido em um grupo de recursos
+### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Cenário 3: grupo de ações definido em um grupo de recursos
 
 A contoso definiu [um alerta de métrica em um nível de assinatura](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Mas ele deseja definir as ações que disparam especificamente para alertas gerados a partir do grupo de recursos **ContosoRG**.
 
@@ -162,16 +161,16 @@ Para usar melhor os alertas de log com regras de ação, crie alertas de log com
 
 ![Regras de ação e alertas de log (número de resultados)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>FAQ
 
 ### <a name="while-im-configuring-an-action-rule-id-like-to-see-all-the-possible-overlapping-action-rules-so-that-i-avoid-duplicate-notifications-is-it-possible-to-do-that"></a>Enquanto estou Configurando uma regra de ação, gostaria de ver todas as regras de ação sobrepostas possíveis, para evitar notificações duplicadas. É possível fazer isso?
 
 Depois de definir um escopo ao configurar uma regra de ação, você poderá ver uma lista de regras de ação que se sobrepõem no mesmo escopo (se houver). Essa sobreposição pode ser uma das seguintes opções:
 
-* Uma correspondência exata: Por exemplo, a regra de ação que você está definindo e a regra de ação sobreposta estão na mesma assinatura.
-* Um subconjunto: Por exemplo, a regra de ação que você está definindo está em uma assinatura e a regra de ação sobreposta está em um grupo de recursos dentro da assinatura.
-* Um superconjunto: Por exemplo, a regra de ação que você está definindo está em um grupo de recursos e a regra de ação sobreposta está na assinatura que contém o grupo de recursos.
-* Uma interseção: Por exemplo, a regra de ação que você está definindo está em **VM1** e **VM2**, e a regra de ação sobreposta está em **VM2** e **VM3**.
+* Uma correspondência exata: por exemplo, a regra de ação que você está definindo e a regra de ação sobreposta estão na mesma assinatura.
+* Um subconjunto: por exemplo, a regra de ação que você está definindo está em uma assinatura e a regra de ação sobreposta está em um grupo de recursos dentro da assinatura.
+* Um superconjunto: por exemplo, a regra de ação que você está definindo está em um grupo de recursos e a regra de ação sobreposta está na assinatura que contém o grupo de recursos.
+* Uma interseção: por exemplo, a regra de ação que você está definindo está em **VM1** e **VM2**, e a regra de ação sobreposta está em **VM2** e **VM3**.
 
 ![Regras de ação sobrepostas](media/alerts-action-rules/action-rules-overlapping.png)
 
@@ -179,10 +178,10 @@ Depois de definir um escopo ao configurar uma regra de ação, você poderá ver
 
 Depois de definir o recurso de destino para sua regra de alerta, você pode ver a lista de regras de ação que agem no mesmo escopo (se houver) selecionando **Exibir ações configuradas** na seção **ações** . Essa lista é preenchida com base nos seguintes cenários para o escopo:
 
-* Uma correspondência exata: Por exemplo, a regra de alerta que você está definindo e a regra de ação estão na mesma assinatura.
-* Um subconjunto: Por exemplo, a regra de alerta que você está definindo está em uma assinatura e a regra de ação está em um grupo de recursos dentro da assinatura.
-* Um superconjunto: Por exemplo, a regra de alerta que você está definindo está em um grupo de recursos e a regra de ação está na assinatura que contém o grupo de recursos.
-* Uma interseção: Por exemplo, a regra de alerta que você está definindo está em **VM1** e **VM2**, e a regra de ação está em **VM2** e **VM3**.
+* Uma correspondência exata: por exemplo, a regra de alerta que você está definindo e a regra de ação estão na mesma assinatura.
+* Um subconjunto: por exemplo, a regra de alerta que você está definindo está em uma assinatura e a regra de ação está em um grupo de recursos dentro da assinatura.
+* Um superconjunto: por exemplo, a regra de alerta que você está definindo está em um grupo de recursos e a regra de ação está na assinatura que contém o grupo de recursos.
+* Uma interseção: por exemplo, a regra de alerta que você está definindo está em **VM1** e **VM2**, e a regra de ação está em **VM2** e **VM3**.
     
 ![Regras de ação sobrepostas](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
 
@@ -217,6 +216,6 @@ Para cada alerta no VM1, o grupo de ações AG1 seria disparado uma vez. As aç�
  
 Para cada alerta no VM1, o grupo de ações AG1 seria disparado uma vez. Sempre que a regra de alerta "rule1" for disparada, ela também disparará o AG2 adicionalmente. Grupos de ação definidos em regras de ação e regras de alerta operam de forma independente, sem eliminação de duplicação. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba mais sobre alertas no Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)

@@ -1,25 +1,24 @@
 ---
 title: Como integrar o esquema de alerta comum com aplicativos lógicos
 description: Saiba como criar um aplicativo lógico que aproveita o esquema de alerta comum para lidar com todos os seus alertas.
-author: ananthradhakrishnan
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 05/27/2019
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 569b97ecc24306741c3323ce5bc526f88645c1dd
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: ananthradhakrishnan
+ms.author: robb
+ms.date: 05/27/2019
+ms.openlocfilehash: 50a6067d271ad824f17df1ece36c3dd919c7b55b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702945"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555657"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Como integrar o esquema de alerta comum com aplicativos lógicos
 
 Este artigo mostra como criar um aplicativo lógico que aproveita o esquema de alerta comum para lidar com todos os seus alertas.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 O [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs) fornece um esquema JSON padronizado e extensível em todos os tipos de alerta diferentes. O esquema de alerta comum é mais útil quando aproveitado programaticamente – por meio de WebHooks, runbooks e aplicativos lógicos. Neste artigo, demonstramos como um único aplicativo lógico pode ser criado para lidar com todos os seus alertas. Os mesmos princípios podem ser aplicados a outros métodos programáticos. O aplicativo lógico descrito neste artigo cria variáveis bem definidas para os [campos ' essenciais '](alerts-common-schema-definitions.md#essentials)e também descreve como você pode manipular a lógica específica do [tipo de alerta](alerts-common-schema-definitions.md#alert-context) .
 
@@ -35,13 +34,13 @@ Este artigo pressupõe que o leitor esteja familiarizado com
 
 1. Siga as [etapas descritas para criar seu aplicativo lógico](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app). 
 
-1.  Selecionar o gatilho: **Quando uma solicitação HTTP for recebida**.
+1.  Selecione o gatilho: **quando uma solicitação HTTP é recebida**.
 
-    ![Gatilhos do Aplicativo Lógico](media/action-groups-logic-app/logic-app-triggers.png "Gatilhos do Aplicativo Lógico")
+    ![Gatilhos de aplicativo lógico](media/action-groups-logic-app/logic-app-triggers.png "Gatilhos de aplicativo lógico")
 
 1.  Selecione **Editar** para alterar o gatilho de solicitação HTTP.
 
-    ![HTTP solicita gatilhos](media/action-groups-logic-app/http-request-trigger-shape.png "HTTP solicita gastilhos")
+    ![Gatilhos de solicitação HTTP](media/action-groups-logic-app/http-request-trigger-shape.png "Gatilhos de solicitação HTTP")
 
 
 1.  Copie e cole o esquema a seguir:
@@ -113,9 +112,9 @@ Este artigo pressupõe que o leitor esteja familiarizado com
         }
     ```
 
-1. Selecione **+** **Nova Etapa** e, em seguida, **Adicione uma ação**.
+1. Selecione **+** **nova etapa** e, em seguida, escolha **Adicionar uma ação**.
 
-    ![Adicione uma ação](media/action-groups-logic-app/add-action.png "Adicione uma ação")
+    ![Adicionar uma ação](media/action-groups-logic-app/add-action.png "Adicionar uma ação")
 
 1. Neste estágio, você pode adicionar uma variedade de conectores (Microsoft Teams, margem de atraso, Salesforce, etc.) com base em seus requisitos específicos de negócios. Você pode usar os ' campos essenciais ' prontos para uso. 
 
@@ -139,7 +138,7 @@ Este artigo pressupõe que o leitor esteja familiarizado com
     
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais sobre grupos de ações](../../azure-monitor/platform/action-groups.md).
 * [Saiba mais sobre o esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs).

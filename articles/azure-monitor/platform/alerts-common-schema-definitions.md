@@ -1,27 +1,26 @@
 ---
 title: Definições comuns de esquema de alerta para Azure Monitor
 description: Compreendendo as definições comuns de esquema de alerta para Azure Monitor
-author: anantr
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 03/14/2019
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 9e2c3849cca392539b96f47d8d7c32815851cf78
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 03/14/2019
+ms.openlocfilehash: d1d822a5e7dadffd6be841e51ac407995adba2ea
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702875"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552561"
 ---
-# <a name="common-alert-schema-definitions"></a>Definições comuns do esquema de alertas
+# <a name="common-alert-schema-definitions"></a>Definições comuns de esquema de alerta
 
 Este artigo descreve as [definições comuns de esquema de alerta](https://aka.ms/commonAlertSchemaDocs) para Azure monitor, incluindo aquelas para WebHooks, aplicativos lógicos do azure, Azure Functions e Runbooks de automação do Azure. 
 
 Qualquer instância de alerta descreve o recurso que foi afetado e a causa do alerta. Essas instâncias são descritas no esquema comum nas seguintes seções:
-* **Conceitos básicos**: Um conjunto de campos padronizados, comum em todos os tipos de alertas, que descrevem em qual recurso o alerta está, junto com os metadados de alerta comuns adicionais (por exemplo, severidade ou descrição). 
-* **Contexto do alerta**: Um conjunto de campos que descreve a causa do alerta, com campos que variam de acordo com o tipo de alerta. Por exemplo, um alerta de métrica inclui campos como o nome da métrica e o valor da métrica no contexto do alerta, enquanto um alerta do log de atividades tem informações sobre o evento que gerou o alerta. 
+* **Essentials**: um conjunto de campos padronizados, comuns em todos os tipos de alertas, que descrevem em qual recurso o alerta está, junto com os metadados de alerta comuns adicionais (por exemplo, severidade ou descrição). 
+* **Contexto de alerta**: um conjunto de campos que descreve a causa do alerta, com campos que variam de acordo com o tipo de alerta. Por exemplo, um alerta de métrica inclui campos como o nome da métrica e o valor da métrica no contexto do alerta, enquanto um alerta do log de atividades tem informações sobre o evento que gerou o alerta. 
 
 **Conteúdo de alerta de exemplo**
 ```json
@@ -74,21 +73,21 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 
 ## <a name="essentials"></a>Essentials
 
-| Campo | Descrição|
+| campo | Descrição|
 |:---|:---|
 | alertId | O GUID que identifica exclusivamente a instância de alerta. |
 | alertRule | O nome da regra de alerta que gerou a instância de alerta. |
-| severity | A severidade do alerta. Valores possíveis: Sev0, Sev1, Sev2, Sev3 ou Sev4. |
-| sinaltype | Identifica o sinal no qual a regra de alerta foi definida. Valores possíveis: Métrica, log ou log de atividades. |
+| Gravidade | A severidade do alerta. Valores possíveis: Sev0, Sev1, Sev2, Sev3 ou Sev4. |
+| sinaltype | Identifica o sinal no qual a regra de alerta foi definida. Valores possíveis: métrica, log ou log de atividades. |
 | monitorCondition | Quando um alerta é **disparado, a condição**do monitor do alerta é definida como disparada. Quando a condição subjacente que fez com que o alerta fosse limpo, a condição do monitor é definida como **resolvida**.   |
 | monitoringService | O serviço de monitoramento ou a solução que gerou o alerta. Os campos para o contexto de alerta são determinados pelo serviço de monitoramento. |
 | alertTargetIds | A lista das IDs de Azure Resource Manager que são afetadas os destinos de um alerta. Para um alerta de log definido em um espaço de trabalho Log Analytics ou Application Insights instância, ele é o respectivo espaço de trabalho ou aplicativo. |
 | originAlertId | A ID da instância de alerta, conforme gerado pelo serviço de monitoramento que a gera. |
 | firedDateTime | A data e a hora em que a instância de alerta foi acionada no UTC (tempo Universal Coordenado). |
 | resolvedDateTime | A data e a hora em que a condição do monitor para a instância de alerta está definida como **resolvida** em UTC. Atualmente aplicável somente a alertas de métricas.|
-| description | A descrição, conforme definido na regra de alerta. |
+| Description | A descrição, conforme definido na regra de alerta. |
 |essentialsVersion| O número de versão da seção Essentials.|
-|alertContextVersion | O número `alertContext` de versão da seção. |
+|alertContextVersion | O número de versão para a seção `alertContext`. |
 
 **Valores de exemplo**
 ```json
@@ -149,7 +148,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 }
 ```
 
-### <a name="log-alerts"></a>Alertas de registro
+### <a name="log-alerts"></a>Alertas de log
 
 > [!NOTE]
 > Para alertas de log que têm uma carga JSON personalizada definida, habilitar o esquema comum reverte o esquema de carga para o descrito da seguinte maneira. Os alertas com o esquema comum habilitado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não serão inseridos na carga de alertas de log se fizerem com que o tamanho do alerta cruze esse limite. Você pode determinar isso verificando o sinalizador `IncludedSearchResults`. Quando os resultados da pesquisa não são incluídos, você deve usar a consulta de pesquisa em conjunto com a [API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
@@ -482,7 +481,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs).
 - Saiba [como criar um aplicativo lógico que usa o esquema de alerta comum para lidar com todos os seus alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations). 

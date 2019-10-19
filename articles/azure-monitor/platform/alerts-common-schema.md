@@ -1,21 +1,20 @@
 ---
 title: Esquema de alerta comum para alertas do Azure monitor
 description: Compreendendo o esquema de alerta comum, por que você deve usá-lo e como habilitá-lo
-author: anantr
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 03/14/2019
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 9b142e00543d425b73c4102914bba2dd92c75b8b
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 03/14/2019
+ms.openlocfilehash: ff5c0d96bd4bc87f36a69ca7e8014e118ac7b7bf
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702902"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552462"
 ---
-# <a name="common-alert-schema"></a>Esquema comum de alertas
+# <a name="common-alert-schema"></a>Esquema de alerta comum
 
 Este artigo descreve o que é o esquema de alerta comum, os benefícios de usá-lo e como habilitá-lo.
 
@@ -24,8 +23,8 @@ Este artigo descreve o que é o esquema de alerta comum, os benefícios de usá-
 O esquema de alerta comum padroniza a experiência de consumo para notificações de alerta no Azure hoje. Historicamente, os três tipos de alertas no Azure hoje (métrica, log e log de atividades) tiveram seus próprios modelos de email, esquemas de webhook, etc. Com o esquema de alerta comum, agora você pode receber notificações de alerta com um esquema consistente.
 
 Qualquer instância de alerta descreve **o recurso que foi afetado** e **a causa do alerta**, e essas instâncias são descritas no esquema comum nas seções a seguir:
-* **Conceitos básicos**: Um conjunto de **campos padronizados**, comum em todos os tipos de alertas, que descrevem em **qual recurso** o alerta está junto com os metadados de alerta comuns adicionais (por exemplo, severidade ou descrição). 
-* **Contexto do alerta**: Um conjunto de campos que descrevem a **causa do alerta**, com campos que variam de acordo **com o tipo de alerta**. Por exemplo, um alerta de métrica teria campos como o nome da métrica e o valor da métrica no contexto do alerta, enquanto um alerta do log de atividades teria informações sobre o evento que gerou o alerta. 
+* **Essentials**: um conjunto de **campos padronizados**, comuns em todos os tipos de alertas, que descrevem em **qual recurso** o alerta está junto com os metadados de alerta comuns adicionais (por exemplo, severidade ou descrição). 
+* **Contexto de alerta**: um conjunto de campos que descrevem a **causa do alerta**, com campos que variam de acordo **com o tipo de alerta**. Por exemplo, um alerta de métrica teria campos como o nome da métrica e o valor da métrica no contexto do alerta, enquanto um alerta do log de atividades teria informações sobre o evento que gerou o alerta. 
 
 Os cenários de integração típicos que ouvimos dos clientes envolvem o roteamento da instância de alerta para a equipe preocupada com base em alguma tabela dinâmica (por exemplo, grupo de recursos), após a qual a equipe responsável começa a trabalhar nela. Com o esquema de alerta comum, você pode ter uma lógica de roteamento padronizada em tipos de alertas aproveitando os campos essenciais, deixando os campos de contexto como estão para as equipes interessadas investigarem ainda mais.
 
@@ -122,7 +121,7 @@ Por exemplo, o corpo da solicitação a seguir feita para [criar ou atualizar](h
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Definições comuns de esquema de alerta para WebHooks/aplicativos lógicos/Azure Functions/Runbooks de automação.](https://aka.ms/commonAlertSchemaDefinitions)
 - [Saiba como criar um aplicativo lógico que aproveita o esquema de alerta comum para lidar com todos os seus alertas.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
