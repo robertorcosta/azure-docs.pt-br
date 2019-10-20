@@ -13,48 +13,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
-ms.openlocfilehash: 329c7191482787f25cfddfd8c4d70074df9a7c1f
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 2b8553c4c4b27e70eb5e4aeff447da9526c4ed1e
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719975"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598288"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Migrar do indexador de mídia e do indexador de mídia 2 para Video Indexer
 
 O processador de mídia [Azure Media indexer](media-services-index-content.md) será desativado em 1º de outubro de 2020. Os processadores de mídia da versão [prévia do Azure Media indexer 2](media-services-process-content-with-indexer2.md) serão desativados em 1º de janeiro de 2020.  Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui esses processadores de mídia herdados.
 
-Os serviços de mídia do Azure Video Indexer se baseiam em Análise de Mídia do Azure, Azure Search, serviços cognitivas (como o API de Detecção Facial, o Microsoft Translator, o API da Pesquisa Visual Computacional e o serviço Fala Personalizada). Ele permite que você extraia os insights de seus vídeos usando os modelos de áudio e vídeo do Video Indexer. Para ver quais cenários Video Indexer podem ser usados no, quais recursos ele oferece e como começar, consulte [Video indexer modelos de vídeo e áudio](../video-indexer/video-indexer-overview.md). 
+Os serviços de mídia do Azure Video Indexer se baseiam em Análise de Mídia do Azure, Azure Search, serviços cognitivas (como o API de Detecção Facial, o Microsoft Translator, o API da Pesquisa Visual Computacional e o serviço Fala Personalizada). Ele permite que você extraia as informações de seus vídeos usando modelos de áudio e vídeo Video Indexer. Para ver quais cenários Video Indexer podem ser usados no, quais recursos ele oferece e como começar, consulte [Video indexer modelos de vídeo e áudio](../video-indexer/video-indexer-overview.md). 
 
 Você pode extrair informações de seus arquivos de vídeo e áudio usando as [predefinições do analisador dos serviços de mídia do Azure v3](../latest/analyzing-video-audio-files-concept.md) ou diretamente usando as [APIs de video indexer](https://api-portal.videoindexer.ai/). Atualmente, há uma sobreposição entre os recursos oferecidos pelas APIs de Video Indexer e as APIs dos serviços de mídia v3.
 
 > [!NOTE]
-> Para entender quando você desejaria usar o Video Indexer vs. as predefinições de análise dos Serviços de Mídia, confira o [documento de comparação](../video-indexer/compare-video-indexer-with-media-services-presets.md). 
+> Para entender quando você desejaria usar as predefinições do Video Indexer vs. Media Services Analyzer, confira o [documento de comparação](../video-indexer/compare-video-indexer-with-media-services-presets.md). 
 
 Este artigo discute as etapas para migrar do Azure Media Indexer e Azure Media Indexer 2 para os serviços de mídia do Azure Video Indexer.  
 
 ## <a name="migration-options"></a>Opções de migração 
 
-|Se você precisar  |e, em seguida, |
+|Se você precisar  |Clique |
 |---|---|
 |uma solução que fornece uma transcrição de conversão de fala em texto para qualquer formato de arquivo de mídia em formatos de arquivo de legenda codificada: VTT, SRT ou TTML<br/>Além de informações adicionais sobre áudio, como: palavras-chave, tópico inferência, eventos acústicos, diarization do palestrante, extração e tradução de entidades| atualize seus aplicativos para usar os recursos de Video Indexer do Azure por meio da API REST do Video Indexer v2 ou da predefinição do analisador de áudio do Azure Media Services V3.|
 |recursos de conversão de fala em texto| Use os serviços cognitivas Speech API diretamente.|  
 
 ## <a name="getting-started-with-video-indexer"></a>Introdução ao Video Indexer
 
-A seção a seguir indica os links relevantes: [Como posso começar a usar o Video Indexer?](https://docs.microsoft.com/azure/media-services/video-indexer/video-indexer-overview#how-can-i-get-started-with-video-indexer) 
+A seção a seguir indica os links relevantes: [como posso começar a usar o video indexer?](https://docs.microsoft.com/azure/media-services/video-indexer/video-indexer-overview#how-can-i-get-started-with-video-indexer) 
 
 ## <a name="getting-started-with-media-services-v3-apis"></a>Introdução às APIs dos serviços de mídia v3
 
 A API dos serviços de mídia do Azure v3 permite que você extraia informações de seus arquivos de vídeo e áudio por meio das [predefinições do analisador dos serviços de mídia do Azure v3](../latest/analyzing-video-audio-files-concept.md). 
 
-**AudioAnalyzerPreset** permite a extração de várias informações de áudio de um arquivo de áudio ou vídeo. A saída inclui um arquivo VTT ou TTML para a transcrição de áudio e um arquivo JSON (com todas as informações de áudio adicionais). As informações de áudio incluem palavras-chave, indexação de orador e análise de sentimentos de fala. O AudioAnalyzerPreset também dá suporte à detecção de idioma para idiomas específicos. Para obter informações detalhadas, consulte [transformações](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset).
+O **AudioAnalyzerPreset** permite que você extraia várias informações de áudio de um arquivo de áudio ou de vídeo. A saída inclui um arquivo VTT ou TTML para a transcrição de áudio e um arquivo JSON (com todas as informações de áudio adicionais). As informações de áudio incluem palavras-chave, indexação de orador e análise de sentimentos de fala. O AudioAnalyzerPreset também dá suporte à detecção de idioma para idiomas específicos. Para obter informações detalhadas, consulte [transformações](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset).
 
-### <a name="get-started"></a>Introdução
+### <a name="get-started"></a>Comece agora
 
 Para começar, consulte:
 
-* [Tutorial](../latest/analyze-videos-tutorial-with-api.md)
+* [Destina](../latest/analyze-videos-tutorial-with-api.md)
 * Exemplos de AudioAnalyzerPreset: SDK do [Java](https://github.com/Azure-Samples/media-services-v3-java/tree/master/AudioAnalytics/AudioAnalyzer) ou [SDK do .net](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/AudioAnalytics/AudioAnalyzer)
 * Exemplos de VideoAnalyzerPreset: SDK do [Java](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoAnalytics/VideoAnalyzer) ou [SDK do .net](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/VideoAnalytics/VideoAnalyzer)
 
@@ -77,11 +77,11 @@ Algumas diferenças conhecidas incluem:
 * Os arquivos de blob de indexação de áudio (AIB) não terão mais suporte. Esse recurso era específico para a tecnologia do indexador 1 e não é mais oferecido.  
 * Serviços de fala de serviços cognitivas não dão suporte à extração de palavras-chave. No entanto, Video Indexer e os serviços de mídia v3 AudioAnalyzerPreset oferecem um conjunto mais robusto de palavras-chave no formato de arquivo JSON. 
 
-## <a name="contact-us"></a>Contate-nos 
+## <a name="need-help"></a>Precisa de ajuda?
 
-Se você tiver dúvidas sobre a substituição de Azure Media Indexer 1 e Azure Media Indexer 2 ou sobre a migração para qualquer um dos outros serviços, entre em contato conosco viaamshelp@microsoft.com 
+Você pode abrir um tíquete de suporte navegando até [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Componentes herdados](legacy-components.md)
 * [Página de preços](https://azure.microsoft.com/pricing/details/media-services/#encoding)

@@ -4,15 +4,15 @@ description: AzCopy é um utilitário de linha de comando que você pode usar pa
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: f4523b2aa580d0fd237c15e23b06b44593cbf055
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: d26535d18233533d1d72c02ad997008cba536fce
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274650"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595161"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -74,7 +74,7 @@ Use esta tabela como um guia:
 |**Armazenamento de BLOBs (namespace de hierarquia)** | SAS do Azure AD & |
 |**Armazenamento de arquivos** | Somente SAS |
 
-### <a name="option-1-use-azure-active-directory"></a>Opção 1: Use o Azure Active Directory Domain Services
+### <a name="option-1-use-azure-active-directory"></a>Opção 1: usar Azure Active Directory
 
 Usando Azure Active Directory, você pode fornecer credenciais uma vez, em vez de ter que acrescentar um token SAS a cada comando.  
 
@@ -89,15 +89,15 @@ Se você apenas deseja baixar arquivos, verifique se o leitor de [dados de blob 
 
 Se você quiser carregar arquivos, verifique se uma dessas funções foi atribuída à sua entidade de segurança:
 
-- [Colaborador de dados de blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
-- [Proprietário de Dados do Blob de Armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
+- [Colaborador de dados do blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Proprietário de dados do blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 Essas funções podem ser atribuídas à entidade de segurança em qualquer um desses escopos:
 
 - Contêiner (sistema de arquivos)
 - Conta de armazenamento
 - Grupo de recursos
-- Assinatura
+- Scriçõe
 
 Para saber como verificar e atribuir funções, consulte [conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -124,11 +124,11 @@ azcopy login --tenant-id=<tenant-id>
 
 Substitua o espaço reservado `<tenant-id>` pela ID de locatário da organização à qual a conta de armazenamento pertence. Para localizar a ID de locatário, selecione **Azure Active Directory Propriedades de > > ID de diretório** no portal do Azure.
 
-Esse comando retorna um código de autenticação e a URL de um site. Abra o site, forneça o código e, em seguida, escolha o botão **Avançar**.
+Esse comando retorna um código de autenticação e a URL de um site. Abra o site, forneça o código e, em seguida, escolha o botão **Avançar** .
 
 ![Criar um contêiner](media/storage-use-azcopy-v10/azcopy-login.png)
 
-Uma janela de entrada será exibida. Nessa janela, entre em sua conta do Azure usando suas credenciais de conta do Azure. Depois de entrar com êxito, feche a janela do navegador e comece a usar o AzCopy.
+Uma janela de entrada será exibida. Nessa janela, entre em sua conta do Azure usando suas credenciais de conta do Azure. Depois de entrar com êxito, você pode fechar a janela do navegador e começar a usar o AzCopy.
 
 <a id="service-principal" />
 
@@ -140,7 +140,7 @@ Antes de executar um script, você precisa entrar interativamente pelo menos uma
 
 Você pode entrar em sua conta usando um segredo do cliente ou usando a senha de um certificado associado ao registro do aplicativo da sua entidade de serviço.
 
-Para saber mais sobre como criar a entidade de serviço, consulte [How para: Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Para saber mais sobre como criar a entidade de serviço, consulte [como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
 Para saber mais sobre as entidades de serviço em geral, consulte [objetos de aplicativo e entidade de serviço no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
 
@@ -174,7 +174,7 @@ Se preferir usar suas próprias credenciais para autorização, você poderá ca
 
 Além de carregar seu certificado para o registro do aplicativo, você também precisará ter uma cópia do certificado salvo no computador ou na VM em que o AzCopy será executado. Esta cópia do certificado deve estar no. PFX ou. O formato PEM e deve incluir a chave privada. A chave privada deve ser protegida por senha. Se você estiver usando o Windows e seu certificado existir somente em um repositório de certificados, certifique-se de exportar esse certificado para um arquivo PFX (incluindo a chave privada). Para obter diretrizes, consulte [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
 
-Em seguida, defina a variável de ambiente `AZCOPY_SPA_CERT_PASSWORD` para a senha do certificado.
+Em seguida, defina a variável de ambiente `AZCOPY_SPA_CERT_PASSWORD` como a senha do certificado.
 
 > [!NOTE]
 > Certifique-se de definir esse valor no prompt de comando e não nas configurações de variável de ambiente do seu sistema operacional. Dessa forma, o valor estará disponível somente para a sessão atual.
@@ -240,7 +240,7 @@ azcopy login --identity --identity-resource-id "<resource-id>"
 
 Substitua o espaço reservado `<resource-id>` pela ID de recurso da identidade gerenciada atribuída pelo usuário.
 
-### <a name="option-2-use-a-sas-token"></a>Opção 2: Usar um token SAS
+### <a name="option-2-use-a-sas-token"></a>Opção 2: usar um token SAS
 
 Você pode acrescentar um token SAS a cada URL de origem ou de destino que usa em seus comandos AzCopy.
 
@@ -258,11 +258,11 @@ Depois de autenticar sua identidade ou obter um token SAS, você pode começar a
 
 Para encontrar comandos de exemplo, consulte qualquer um desses artigos.
 
-- [Transferir dados com o AzCopy e o Armazenamento de Blobs](storage-use-azcopy-blobs.md)
+- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
 
-- [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
+- [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
 
-- [Transferir dados com o AzCopy e os buckets do Amazon S3](storage-use-azcopy-s3.md)
+- [Transferir dados com os buckets AzCopy e Amazon S3](storage-use-azcopy-s3.md)
 
 - [Transferir dados com AzCopy e armazenamento de Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
 
@@ -293,13 +293,13 @@ A URL aparece na saída deste comando. O script pode então baixar o AzCopy usan
 
 ### <a name="escape-special-characters-in-sas-tokens"></a>Caracteres especiais de escape em tokens SAS
 
-Em arquivos em lotes que têm a extensão `.cmd`, você terá que escapar os caracteres `%` que aparecem em tokens SAS. Você pode fazer isso adicionando um caractere `%` de adição ao lado dos caracteres `%` existentes na cadeia de caracteres do token SAS.
+Em arquivos em lotes que têm a extensão `.cmd`, você terá que escapar os caracteres de `%` que aparecem em tokens SAS. Você pode fazer isso adicionando um caractere de `%` de adição ao lado dos caracteres `%` existentes na cadeia de caracteres do token SAS.
 
 ## <a name="use-azcopy-in-storage-explorer"></a>Usar AzCopy no Gerenciador de Armazenamento
 
 Se você quiser aproveitar as vantagens de desempenho do AzCopy, mas preferir usar Gerenciador de Armazenamento em vez da linha de comando para interagir com seus arquivos, habilite AzCopy no Gerenciador de Armazenamento.
 
-Em Gerenciador de Armazenamento, escolha **visualização**->**use AzCopy para upload e download de blob aprimorados**.
+Em Gerenciador de Armazenamento, escolha **visualização** ->**usar AzCopy para upload e download de blob aprimorados**.
 
 ![Habilitar o AzCopy como um mecanismo de transferência no Gerenciador de Armazenamento do Azure](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
@@ -322,6 +322,6 @@ Se você precisar usar a versão anterior do AzCopy (AzCopy v 8.1), consulte um 
 
 Consulte [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você tiver dúvidas, problemas ou comentários gerais, envie-os [na página do GitHub](https://github.com/Azure/azure-storage-azcopy) .

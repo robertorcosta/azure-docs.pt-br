@@ -4,16 +4,16 @@ description: Configurar, otimizar e solucionar problemas do AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 42d2dae148b83687ff06d4ed321a881bcb9e7ae0
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 2b3fcba755c9ddb28e37400c5cba790ed0df41b9
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273931"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595139"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 
@@ -22,9 +22,9 @@ AzCopy é um utilitário de linha de comando que você pode usar para copiar BLO
 > [!NOTE]
 > Se você estiver procurando conteúdo para ajudá-lo a começar a usar o AzCopy, consulte qualquer um dos seguintes artigos:
 > - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-> - [Transferir dados com o AzCopy e o Armazenamento de Blobs](storage-use-azcopy-blobs.md)
-> - [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
-> - [Transferir dados com o AzCopy e os buckets do Amazon S3](storage-use-azcopy-s3.md)
+> - [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
+> - [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
+> - [Transferir dados com os buckets AzCopy e Amazon S3](storage-use-azcopy-s3.md)
 
 ## <a name="configure-proxy-settings"></a>Definir configurações de proxy
 
@@ -60,9 +60,9 @@ Esse comando executa um parâmetro de comparação de desempenho carregando dado
 
 Para exibir as diretrizes de ajuda detalhadas para este comando, digite `azcopy bench -h` e pressione a tecla ENTER.
 
-### <a name="optimize-throughput"></a>Otimizar a taxa de transferência
+### <a name="optimize-throughput"></a>Otimizar taxa de transferência
 
-Você pode usar o sinalizador `cap-mbps` para inserir um teto na taxa de dados de produtividade. Por exemplo, o comando a seguir Caps taxa de transferência para `10` megabits (MB) por segundo.
+Você pode usar o sinalizador `cap-mbps` para inserir um teto na taxa de dados da taxa de transferência. Por exemplo, o comando a seguir Caps taxa de transferência para `10` megabits (MB) por segundo.
 
 ```azcopy
 azcopy cap-mbps 10
@@ -95,18 +95,18 @@ Expresse esse valor em gigabytes (GB).
 
 ## <a name="troubleshoot-issues"></a>Solucionar problemas
 
-O AzCopy cria arquivos de log e de plano para cada trabalho. Você pode usar os logs para investigar e solucionar problemas potenciais. 
+O AzCopy cria arquivos de log e de plano para cada trabalho. Você pode usar os logs para investigar e solucionar problemas em potencial. 
 
 Os logs conterão o status de falha (`UPLOADFAILED`, `COPYFAILED` e `DOWNLOADFAILED`), o caminho completo e o motivo da falha.
 
 Por padrão, os arquivos de log e de plano estão localizados no diretório `%USERPROFILE$\.azcopy` no Windows ou no diretório `$HOME$\.azcopy` no Mac e no Linux, mas você pode alterar esse local, se desejar.
 
 > [!IMPORTANT]
-> Ao enviar uma solicitação para Suporte da Microsoft (ou solucionar o problema que envolve terceiros), compartilhe a versão redação do comando que você deseja executar. Isso garante que a SAS não seja compartilhada acidentalmente com ninguém. Você pode encontrar a versão editada no início do arquivo de log.
+> Ao enviar uma solicitação para Suporte da Microsoft (ou solucionar o problema que envolve terceiros), compartilhe a versão redação do comando que você deseja executar. Isso garante que a SAS não seja compartilhada acidentalmente com ninguém. Você pode encontrar a versão redação no início do arquivo de log.
 
 ### <a name="review-the-logs-for-errors"></a>Examinar os logs em busca de erros
 
-O comando a seguir obterá todos os erros com o status `UPLOADFAILED` do log `04dc9ca9-158f-7945-5933-564021086c79`:
+O comando a seguir obterá todos os erros com `UPLOADFAILED` status do log de `04dc9ca9-158f-7945-5933-564021086c79`:
 
 **Windows (PowerShell)**
 
@@ -179,7 +179,7 @@ Use o `azcopy env` para verificar o valor atual dessa variável. Se o valor esti
 
 ## <a name="change-the-default-log-level"></a>Alterar o nível de log padrão
 
-Por padrão, o nível de log AzCopy é definido como `INFO`. Se você quiser reduzir o detalhamento de log para economizar espaço em disco, substitua essa configuração usando a opção ``--log-level``. 
+Por padrão, o nível de log AzCopy é definido como `INFO`. Se você quiser reduzir o detalhamento do log para economizar espaço em disco, substitua essa configuração usando a opção ``--log-level``. 
 
 Os níveis de log disponíveis são: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` e `FATAL`.
 
@@ -187,6 +187,6 @@ Os níveis de log disponíveis são: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`
 
 Se você quiser remover todos os arquivos de plano e de log do computador local para economizar espaço em disco, use o comando `azcopy jobs clean`.
 
-Para remover o plano e os arquivos de log associados a apenas um trabalho, use `azcopy jobs rm <job-id>`. Substitua o espaço reservado `<job-id>` neste exemplo pela ID do trabalho.
+Para remover o plano e os arquivos de log associados a apenas um trabalho, use `azcopy jobs rm <job-id>`. Substitua o espaço reservado `<job-id>` neste exemplo pela ID do trabalho do trabalho.
 
 

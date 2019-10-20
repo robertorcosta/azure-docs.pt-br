@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: aef9eaebc2da12e322ab6eda97385aa9cf14998a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c7d18ab6e9018511915e9b77ea02ac60b1277c12
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387756"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596490"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformação de origem para mapeamento de fluxo de dados 
 
@@ -53,6 +53,8 @@ Depois de adicionar uma fonte, configure por meio da guia **configurações de o
 
 **Amostragem:** Habilite a amostragem para limitar o número de linhas de sua origem. Use essa configuração quando você testar ou criar amostras de dados de sua fonte para fins de depuração.
 
+**Linhas multilinha:** Selecione linhas multilinha se o arquivo de texto de origem contiver valores de cadeia de caracteres que abranjam várias linhas, ou seja, linhas novas dentro de um valor.
+
 Para validar se a fonte está configurada corretamente, ative o modo de depuração e busque uma visualização de dados. Para obter mais informações, consulte [modo de depuração](concepts-data-flow-debug-mode.md).
 
 > [!NOTE]
@@ -77,7 +79,7 @@ Exemplos de curinga:
 
 * ```/data/sales/**/*.csv``` obtém todos os arquivos CSV em/data/Sales
 * ```/data/sales/20??/**``` obtém todos os arquivos no século 20
-* ```/data/sales/2004/*/12/[XY]1?.csv``` obtém todos os arquivos CSV em 2004 em dezembro, começando com X ou Y prefixados por um número de dois dígitos
+* ```/data/sales/2004/*/12/[XY]1?.csv``` Obtém todos os arquivos CSV em 2004 em dezembro, começando com X ou Y prefixados por um número de dois dígitos
 
 **Caminho raiz da partição:** Se você tiver pastas particionadas em sua fonte de arquivo com um formato ```key=value``` (por exemplo, Year = 2019), poderá atribuir o nível superior dessa árvore de pastas de partição a um nome de coluna no fluxo de dados do fluxo de dados.
 
@@ -120,7 +122,7 @@ Nesse caso, todos os arquivos que foram originados em/data/Sales são movidos pa
 
 Todas as configurações de origem podem ser especificadas como expressões usando a [linguagem de expressão de transformação mapear fluxo de dados](data-flow-expression-functions.md). Para adicionar conteúdo dinâmico, clique ou focalize dentro dos campos no painel configurações. Clique no hiperlink para **adicionar conteúdo dinâmico**. Isso iniciará o construtor de expressões, no qual você pode definir valores dinamicamente usando expressões, valores literais estáticos ou parâmetros.
 
-![Parâmetros](media/data-flow/params6.png "parâmetros")
+![Parâmetro](media/data-flow/params6.png "parameters")
 
 ## <a name="sql-source-options"></a>Opções de origem do SQL
 
@@ -155,7 +157,7 @@ Você pode modificar os tipos de dados de coluna em uma transformação de colun
 
 Na guia **otimizar** da transformação origem, você poderá ver um tipo de partição de **origem** . Essa opção só está disponível quando sua origem é o banco de dados SQL do Azure. Isso ocorre porque Data Factory tenta fazer conexões paralelas para executar consultas grandes em sua origem do banco de dados SQL.
 
-![Configurações de partição de origem](media/data-flow/sourcepart3.png "particionamento")
+![Configurações de partição de origem](media/data-flow/sourcepart3.png "Particionamento")
 
 Você não precisa Particionar dados em sua origem do banco do dados SQL, mas as partições são úteis para consultas grandes. Você pode basear sua partição em uma coluna ou em uma consulta.
 

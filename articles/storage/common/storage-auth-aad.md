@@ -9,18 +9,18 @@ ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: caf72d4af390956391fdab133cf0897abbee4633
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: aed61e5cf32ed0148e8b9eee6edf44daa03acd17
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673152"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598101"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autorizar o acesso a BLOBs e filas do Azure usando o Azure Active Directory
 
 O armazenamento do Azure dá suporte ao uso de Azure Active Directory (AD) para autorizar solicitações de armazenamento de BLOBs e filas. Com o Azure AD, você pode usar o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário, grupo ou entidade de serviço de aplicativo. A entidade de segurança é autenticada pelo AD do Azure para retornar um token 2,0 do OAuth. O token pode ser usado para autorizar uma solicitação para acessar um recurso no armazenamento de BLOBs ou de filas.
 
-A autorização de usuários ou aplicativos que usam um token 2,0 do OAuth retornado pelo AD do Azure fornece segurança superior e facilidade de uso sobre autorização de chave compartilhada e SAS (assinaturas de acesso compartilhado). Com o Azure AD, não é necessário armazenar a chave de acesso da conta com seu código e arriscar as vulnerabilidades de segurança potenciais. Enquanto você pode continuar a usar a autorização de chave compartilhada com seus aplicativos, usando o AD do Azure evita a necessidade de armazenar sua chave de acesso da conta com o seu código. Também é possível continuar a usar assinaturas de acesso compartilhado (SAS) para conceder acesso refinado a recursos em sua conta de armazenamento, mas o Azure AD oferece recursos semelhantes sem a necessidade de gerenciar tokens SAS ou se preocupar sobre revogar uma SAS comprometida. A Microsoft recomenda usar a autorização do Azure AD com seus aplicativos de armazenamento do Azure quando possível.
+A autorização de usuários ou aplicativos que usam um token 2,0 do OAuth retornado pelo AD do Azure fornece segurança superior e facilidade de uso sobre autorização de chave compartilhada e SAS (assinaturas de acesso compartilhado). Com o Azure AD, não é necessário armazenar a chave de acesso da conta com seu código e arriscar as vulnerabilidades de segurança potenciais. Embora você possa continuar a usar a autorização de chave compartilhada com seus aplicativos, usar o Azure AD evita a necessidade de armazenar a chave de acesso da conta com seu código. Você também pode continuar a usar SAS (assinaturas de acesso compartilhado) para conceder acesso refinado aos recursos em sua conta de armazenamento, mas o Azure AD oferece recursos semelhantes sem a necessidade de gerenciar tokens SAS ou se preocupar com a revogação de uma SAS comprometida. A Microsoft recomenda usar a autorização do Azure AD com seus aplicativos de armazenamento do Azure quando possível.
 
 A autorização com o Azure AD está disponível para todas as contas de armazenamento de BLOBs e de uso geral em todas as regiões públicas e nuvens nacionais. Somente contas de armazenamento criadas com o modelo de implantação Azure Resource Manager dão suporte à autorização do Azure AD. Não há suporte para a autorização com o Azure AD no armazenamento de tabelas do Azure.
 
@@ -34,11 +34,11 @@ A etapa de autorização requer que uma ou mais funções RBAC sejam atribuídas
 
 Aplicativos nativos e aplicativos Web que fazem solicitações para o blob do Azure ou serviço Fila também podem autorizar o acesso com o Azure AD. Para saber como solicitar um token de acesso e usá-lo para autorizar solicitações de BLOB ou dados de fila, consulte [autorizar o acesso ao armazenamento do Azure com o Azure AD de um aplicativo de armazenamento do Azure](storage-auth-aad-app.md).
 
-## <a name="assigning-rbac-roles-for-access-rights"></a>Atribuindo funções RBAC para direitos de acesso
+## <a name="assign-rbac-roles-for-access-rights"></a>Atribuir funções RBAC para direitos de acesso
 
-Azure Active Directory (Azure AD) autoriza os direitos de acesso aos recursos protegidos por meio do [controle de acesso baseado em função (RBAC)](../../role-based-access-control/overview.md). O armazenamento do Azure define um conjunto de funções RBAC internas que abrangem conjuntos comuns de permissões usadas para acessar dados de BLOB e de fila. Você também pode definir funções personalizadas para acesso a dados de BLOB e de fila.
+O Azure Active Directory (AD do Azure) autoriza os direitos de acesso a recursos protegidos por meio [do RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md). O armazenamento do Azure define um conjunto de funções RBAC internas que abrangem conjuntos comuns de permissões usadas para acessar dados de BLOB e de fila. Você também pode definir funções personalizadas para acesso a dados de BLOB e de fila.
 
-Quando uma função RBAC é atribuída a uma entidade de segurança do Azure AD, o Azure concede acesso a esses recursos para essa entidade de segurança. O escopo do acesso pode ser definido para o nível de assinatura, o grupo de recursos, a conta de armazenamento ou um contêiner ou fila individual. Uma entidade de segurança do Azure AD pode ser um usuário, um grupo, uma entidade de serviço de aplicativo ou uma [identidade gerenciada para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Quando uma função RBAC é atribuída a uma entidade de segurança do Azure AD, o Azure concede acesso a esses recursos para essa entidade de segurança. O acesso pode ser definido para o nível da assinatura, o grupo de recursos, a conta de armazenamento ou um contêiner ou fila individual. Uma entidade de segurança do Azure AD pode ser um usuário, um grupo, uma entidade de serviço de aplicativo ou uma [identidade gerenciada para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ### <a name="built-in-rbac-roles-for-blobs-and-queues"></a>Funções RBAC internas para BLOBs e filas
 
@@ -46,11 +46,11 @@ Quando uma função RBAC é atribuída a uma entidade de segurança do Azure AD,
 
 Para saber como atribuir uma função de RBAC interna a uma entidade de segurança, consulte um dos seguintes artigos:
 
-- [Conceder acesso a dados de blob e fila do Azure com RBAC no portal do Azure](storage-auth-aad-rbac-portal.md)
-- [Conceder acesso a dados de blob e fila do Azure com o RBAC usando a CLI do Azure](storage-auth-aad-rbac-cli.md)
-- [Conceder acesso a dados de blob e fila do Azure com RBAC usando PowerShell](storage-auth-aad-rbac-powershell.md)
+- [Conceder acesso a dados de BLOB e de fila do Azure com RBAC no portal do Azure](storage-auth-aad-rbac-portal.md)
+- [Conceder acesso ao blob do Azure e a dados da fila com o RBAC usando CLI do Azure](storage-auth-aad-rbac-cli.md)
+- [Conceder acesso ao blob do Azure e a dados da fila com o RBAC usando o PowerShell](storage-auth-aad-rbac-powershell.md)
 
-Para obter mais informações sobre como as funções internas são definidas para o Armazenamento do Microsoft Azure, consulte [Compreender as definições de função](../../role-based-access-control/role-definitions.md#management-and-data-operations). Para obter informações sobre como criar funções RBAC personalizadas, consulte [criar funções personalizadas para o controle de acesso baseado em função do Azure](../../role-based-access-control/custom-roles.md).
+Para obter mais informações sobre como as funções internas são definidas para o armazenamento do Azure, consulte [entender as definições de função](../../role-based-access-control/role-definitions.md#management-and-data-operations). Para obter informações sobre como criar funções RBAC personalizadas, consulte [criar funções personalizadas para o controle de acesso baseado em função do Azure](../../role-based-access-control/custom-roles.md).
 
 ### <a name="access-permissions-for-data-operations"></a>Permissões de acesso para operações de dados
 
@@ -82,7 +82,7 @@ O CLI do Azure e o PowerShell dão suporte à entrada com as credenciais do Azur
 
 Os arquivos do Azure dão suporte à autorização com o Azure AD sobre SMB somente para VMs ingressadas no domínio (versão prévia). Para saber mais sobre como usar o Azure AD sobre SMB para arquivos do Azure, consulte [visão geral da autorização de Azure Active Directory sobre SMB para arquivos do Azure (versão prévia)](../files/storage-files-active-directory-overview.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Autorizar o acesso a BLOBs e filas com Azure Active Directory e identidades gerenciadas para recursos do Azure](storage-auth-aad-msi.md)
 - [Autorizar com Azure Active Directory de um aplicativo para acesso a BLOBs e filas](storage-auth-aad-app.md)

@@ -1,6 +1,6 @@
 ---
-title: Perfil e ID de usuário para uso com Azure Notebooks
-description: Como criar e gerenciar seu perfil do usuário e a ID de usuário com Azure Notebooks.
+title: Perfil de usuário e ID para uso com Azure Notebooks
+description: Como criar e gerenciar seu perfil de usuário e a ID de usuário com Azure Notebooks, que se torna parte da URL de blocos de anotações compartilhados.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -12,60 +12,60 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 1fddefeb2a54ae775a9016799ffff1963eab247e
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 3985e3d5fbe6e24014694665557f13bcc9a35a25
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970157"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598204"
 ---
-# <a name="your-profile-and-user-id-for-azure-notebooks"></a>Perfil e ID de usuário do Azure Notebooks
+# <a name="your-profile-and-user-id-for-azure-notebooks"></a>Seu perfil e ID de usuário para Azure Notebooks
 
-No espaço de colaboração avançado do Azure Notebooks, o perfil do usuário apresenta a imagem pública para outras pessoas:
+No espaço eficiente e colaborativo de Azure Notebooks, seu perfil de usuário apresenta sua imagem pública para outras pessoas:
 
-[![Uma página de perfil do Azure Notebooks](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
+[página de perfil do ![An Azure Notebooks](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
-A ID de usuário faz parte das URLs que você usa para compartilhar projetos e notebooks. A lista a seguir descreve os diferentes padrões de URL:
+Sua ID de usuário faz parte das URLs que você usa para compartilhar projetos e notebooks. A lista a seguir descreve os diferentes padrões de URL:
 
-- `https://notebooks.azure.com/<user_id>`: Sua página de perfil.
-- `https://notebooks.azure.com/<user_id>/projects`: Seus projetos. Você vê todos os projetos, mas os outros usuários veem apenas seus projetos públicos.
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Aquivos de projeto.
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Clones de um projeto específico.
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: A visualização HTML de um arquivo ou um notebook específico.
+- `https://notebooks.azure.com/<user_id>`: sua página de perfil.
+- `https://notebooks.azure.com/<user_id>/projects`: seus projetos. Você vê todos os projetos; outros usuários veem apenas seus projetos públicos.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Arquivos de projeto.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: clones de projetos específicos.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: a visualização em HTML de um arquivo ou bloco de anotações específico.
 
 ## <a name="your-user-id"></a>Sua ID de usuário
 
-Ao entrar no Azure Notebooks pela primeira vez, sua conta receberá automaticamente uma ID de usuário temporária como "anon-idr3ca". Enquanto você tiver uma ID de usuário que comece com "anon-", sempre que você entrar no Azure Notebooks a alteração da senha será solicitada:
+Ao entrar Azure Notebooks pela primeira vez, sua conta recebe automaticamente uma ID de usuário temporária, como "Anon-idr3ca". Contanto que você tenha uma ID de usuário que comece com "Anon-", Azure Notebooks solicita que você a altere sempre que entrar:
 
 ![Solicitar a criação de uma ID de usuário ao fazer logon no Azure Notebooks](media/accounts/create-user-id.png)
 
 Um comando **Configurar ID de usuário** também aparece ao lado do nome de usuário temporário:
 
-![Comando Configurar ID de Usuário que é exibido quando você está usando uma ID temporária](media/accounts/configure-user-id-command.png)
+![Configurar o comando de ID de usuário que aparece quando você está usando uma ID temporária](media/accounts/configure-user-id-command.png)
 
-Você também pode alterar a ID de usuário a qualquer momento na sua página de perfil.
+Você também pode alterar sua ID de usuário a qualquer momento em sua página de perfil.
 
-Uma ID de usuário deve ser composta entre quatro e dezesseis letras, números e hifens. Nenhum outro caractere é permitido, e a ID de usuário não poderá começar ou terminar com um hífen ou usar vários hífens em uma linha. Como as IDs de usuário são exclusivas em todas as contas de Azure Notebooks, você pode ver a mensagem "a ID de usuário já está em uso". (A mensagem também será exibida se você tentar usar uma marca registrada da Microsoft como uma ID de usuário.) Nesses casos, escolha uma ID de usuário diferente.
+Uma ID de usuário deve ser composta entre quatro e dezesseis letras, números e hifens. Nenhum outro caractere é permitido e a ID de usuário não pode começar ou terminar com um hífen ou usar vários hifens em uma linha. Como as IDs de usuário são exclusivas em todas as contas de Azure Notebooks, você pode ver a mensagem "a ID de usuário já está em uso". (A mensagem também será exibida se você tentar usar uma marca registrada da Microsoft como uma ID de usuário.) Nesses casos, escolha uma ID de usuário diferente.
 
 > [!Important]
-> Alterar sua ID invalidará todas as URLs que você possa ter compartilhado usando a ID anterior. É possível alterar sua ID de volta para a ID anterior para revalidar os links. No entanto, é possível que outro usuário reivindique a ID não utilizada nesse meio tempo.
+> Alterar sua ID invalida as URLs que você pode ter compartilhado usando sua ID anterior. Você pode alterar sua ID de volta para a ID anterior para revalidar os links. No entanto, é possível que outro usuário solicite uma ID não usada enquanto isso.
 
 ## <a name="your-profile"></a>Seu perfil
 
-Seu perfil é composto de informações visíveis publicamente na URL, `https://notebooks.azure.com/<user_id>`. Sua página de perfil também mostra seus projetos usados recentemente e quaisquer projetos estrelados.
+Seu perfil é composto por informações publicamente visíveis na URL, `https://notebooks.azure.com/<user_id>`. Sua página de perfil também mostra seus projetos usados recentemente e todos os projetos estrelado.
 
-Para editar seu perfil, use o comando **Editar Informações de Perfil** na sua página de perfil. As seções do seu perfil são as seguintes:
+Para editar seu perfil, use o comando **Editar informações de perfil** em sua página de perfil. As seções do seu perfil são as seguintes:
 
-| `Section` | Conteúdo |
+| Section | Conteúdo |
 | --- | --- |
-| Foto de perfil | Uma imagem que é mostrada na sua página de perfil. |
-| Informações da Conta | Seu nome de exibição, ID de usuário e conta de email pública. Aqui, a conta de email fornece aos outros usuários uma maneira de como contatá-lo e essa conta pode ser diferente da [conta](azure-notebooks-user-account.md) que você usa para entrar no Azure Notebooks. |
-| Informações do perfil | Sua localização, empresa, cargo, site e uma breve descrição sobre você. |
-| Perfis sociais | As IDs do Facebook, Twitter e GItHub, se você quiser compartilhá-las. |
-| Configurações de privacidade | Fornece dois comandos:<ul><li>**Exportar Meu Perfil**: cria e baixa um arquivo *.zip* contendo todas as informações que o Azure Notebooks salva no seu perfil, incluindo fotos, informações de perfil e logs de segurança.</li><li>**Excluir Minha Conta**: Exclui permanentemente todas as suas informações pessoais armazenadas no Azure Notebooks.</li></ul> |
-| Ativar Recursos do Site | Permite controlar aspectos do comportamento do Azure Notebooks:<ul><li>**Front-end unificado para notebooks**: permite inicialização mais rápida do notebook e melhor persistência.</li><li>**Executar em JupyterLab por padrão**: Por padrão, o Azure Notebooks oferece uma interface do usuário simples adequada para a maioria dos usuários. O JupyterLab fornece uma interface mais avançada, porém mais complexa para usuários experientes.</li><li>**Site VNext**: permite o layout da Web modernizado mostrado nesta documentação.</li></ul> |
+| Foto do perfil | Uma imagem que é mostrada em sua página de perfil. |
+| Informações da conta | Seu nome de exibição, ID de usuário e conta de email pública. A conta de email aqui fornece a outros usuários uma média para contatá-lo e pode ser diferente da [conta](azure-notebooks-user-account.md) usada para entrar Azure notebooks si mesmo. |
+| Informações de perfil | Seu local, empresa, cargo, site e uma breve descrição de você mesmo. |
+| Perfis sociais | Suas IDs do GItHub, do Twitter e do Facebook, se você quiser compartilhá-las. |
+| Configurações de privacidade | Fornece dois comandos:<ul><li>**Exportar meu perfil**: cria e baixa um arquivo *. zip* contendo todas as informações que Azure notebooks salva em seu perfil, incluindo sua fotografia, informações de perfil e logs de segurança.</li><li>**Excluir minha conta**: exclui permanentemente todas as suas informações pessoais armazenadas no Azure notebooks.</li></ul> |
+| Habilitar recursos do site | Permite que você controle aspectos do comportamento do Azure Notebooks:<ul><li>**Front-end unificado para blocos de anotações**: permite uma inicialização mais rápida do notebook e melhor persistência.</li><li>**Executar no JupyterLab por padrão**: por padrão, o Azure notebooks fornece uma interface de usuário simples que é adequada para a maioria dos usuários. O JupyterLab fornece uma interface mais sofisticada, mas mais complicada para usuários experientes.</li><li>**Site VNext**: habilita o layout da Web modernizado mostrado nesta documentação.</li></ul> |
 
-## <a name="next-steps"></a>Próximas etapas  
+## <a name="next-steps"></a>Próximos passos  
 
 > [!div class="nextstepaction"]
-> [Tutorial: criar e executar um Jupyter Notebook para fazer uma regressão linear](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: criar uma execução de um bloco de anotações Jupyter para fazer a regressão linear](tutorial-create-run-jupyter-notebook.md)
