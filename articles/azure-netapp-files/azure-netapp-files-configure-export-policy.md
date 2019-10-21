@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: b-juche
-ms.openlocfilehash: d73ac199df03f4d789db0634be1e926afc77e623
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d323bd0b9684cfe4930d8c779a6728fcfd3836fb
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597540"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674921"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Configurar a política de exportação para um volume do NFS
 
@@ -27,7 +27,7 @@ Opcionalmente, você pode configurar a política de exportação para controlar 
 
 ## <a name="steps"></a>Etapas 
 
-1.  Clique na folha **criar política de exportação** da folha gerenciar volume. 
+1.  Clique em **Exportar política** no painel de navegação Azure NetApp files. 
 
 2.  Especifique as informações para os seguintes campos para criar uma regra de política de exportação:   
     *  @No__t_1 de **índice**  

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: d26535d18233533d1d72c02ad997008cba536fce
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 37d8c483a1ef49a87205dcc848aae974f5b0e47e
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595161"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675856"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -294,6 +294,14 @@ A URL aparece na saída deste comando. O script pode então baixar o AzCopy usan
 ### <a name="escape-special-characters-in-sas-tokens"></a>Caracteres especiais de escape em tokens SAS
 
 Em arquivos em lotes que têm a extensão `.cmd`, você terá que escapar os caracteres de `%` que aparecem em tokens SAS. Você pode fazer isso adicionando um caractere de `%` de adição ao lado dos caracteres `%` existentes na cadeia de caracteres do token SAS.
+
+### <a name="run-scripts-by-using-jenkins"></a>Executar scripts usando Jenkins
+
+Se você planeja usar o [Jenkins](https://jenkins.io/) para executar scripts, certifique-se de colocar o comando a seguir no início do script.
+
+```
+/usr/bin/keyctl new_session
+```
 
 ## <a name="use-azcopy-in-storage-explorer"></a>Usar AzCopy no Gerenciador de Armazenamento
 
