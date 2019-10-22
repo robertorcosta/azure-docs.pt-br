@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: de581362371e28523c99f961dfdb5c2009901343
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 85905f97500848be0e17da7d8a65209878713fc2
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446121"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516548"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Início Rápido: Comunicar-se com um aplicativo de dispositivo em C# por meio de fluxos de dispositivos do Hub IoT (versão prévia)
 
@@ -34,7 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
   * Centro dos EUA
   * EUA Central EUAP
 
-* Os dois aplicativos de exemplo executados neste início rápido foram escritos com o C#. É necessário ter o SDK do .NET Core 2.1.0 ou posterior no computador de desenvolvimento.
+* Os dois aplicativos de exemplo executados neste início rápido foram escritos em C#. É necessário ter o SDK do .NET Core 2.1.0 ou posterior no computador de desenvolvimento.
   * Baixe o [SDK do .NET Core para várias plataformas do .NET](https://www.microsoft.com/net/download/all).
   * Verifique a versão atual do C# no computador de desenvolvimento usando o seguinte comando:
 
@@ -62,10 +62,10 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Nesta 
 
    > [!NOTE]
    > * Substitua o espaço reservado *YourIoTHubName* com o nome escolhido para o hub IoT.
-   > * Use *MyDevice*, conforme mostrado. Esse é o nome fornecido para o dispositivo registrado. Se você escolher um nome diferente para seu dispositivo, use esse nome ao longo deste artigo e atualize o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
+   > * Para o nome do dispositivo que você está registrando, é recomendável usar *MyDevice* conforme mostrado. Se você escolher um nome diferente para seu dispositivo, use esse nome ao longo deste artigo e atualize o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. Para obter a *cadeia de conexão de dispositivo* referente ao dispositivo que você acabou de registrar, execute o seguinte comando no Cloud Shell:
@@ -74,10 +74,10 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Nesta 
    > Substitua o espaço reservado *YourIoTHubName* com o nome escolhido para o hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    Anote a cadeia de conexão de dispositivo para uso posterior neste início rápido. Ela se parece com o seguinte exemplo:
+    Anote a cadeia de conexão de dispositivo retornada para uso posterior neste início rápido. Ela se parece com o seguinte exemplo:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -87,10 +87,10 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Nesta 
    > Substitua o espaço reservado *YourIoTHubName* com o nome escolhido para o hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    Anote o valor retornado para uso posterior neste início rápido. Ela se parece com o seguinte exemplo:
+    Anote a cadeia de conexão de serviço retornada para uso posterior neste início rápido. Ela se parece com o seguinte exemplo:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -100,14 +100,14 @@ Nesta seção, você executará o aplicativo do lado do dispositivo e o aplicati
 
 ### <a name="run-the-service-side-application"></a>Executar o aplicativo do lado do serviço
 
-Acesse o diretório *iot-hub/Quickstarts/device-streams-echo/service* na pasta do projeto descompactada. Mantenha as seguintes informações acessíveis:
+Em uma janela do terminal local, navegue até o diretório `iot-hub/Quickstarts/device-streams-echo/service` na pasta descompactada do projeto. Mantenha as seguintes informações acessíveis:
 
 | Nome do parâmetro | Valor de parâmetro |
 |----------------|-----------------|
-| `ServiceConnectionString` | Forneça a cadeia de conexão de serviço do hub IoT. |
-| `DeviceId` | Forneça a ID do dispositivo criada anteriormente (por exemplo, *MyDevice*). |
+| `ServiceConnectionString` | A cadeia de conexão de serviço do seu hub IoT. |
+| `MyDevice` | O identificador do dispositivo que você criou anteriormente. |
 
-Compile e execute o código conforme segue:
+Compile e execute o código com os seguintes comandos:
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-echo/service/
@@ -117,24 +117,25 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run "<ServiceConnectionString>" "<MyDevice>"
+dotnet run "{ServiceConnectionString}" "MyDevice"
 
 # In Windows
-dotnet run <ServiceConnectionString> <MyDevice>
+dotnet run {ServiceConnectionString} MyDevice
 ```
+O aplicativo aguardará até que o aplicativo do dispositivo fique disponível.
 
 > [!NOTE]
 > Um tempo limite ocorre se o aplicativo do lado do dispositivo não responde a tempo.
 
 ### <a name="run-the-device-side-application"></a>Executar o aplicativo do lado do dispositivo
 
-Acesse o diretório *iot-hub/Quickstarts/device-streams-echo/device* na pasta do projeto descompactada. Mantenha as seguintes informações acessíveis:
+Em outra janela de terminal local, navegue até o diretório `iot-hub/Quickstarts/device-streams-echo/device` na pasta descompactada do projeto. Mantenha as seguintes informações acessíveis:
 
 | Nome do parâmetro | Valor de parâmetro |
 |----------------|-----------------|
-| `DeviceConnectionString` | Forneça a cadeia de conexão do dispositivo do seu Hub IoT. |
+| `DeviceConnectionString` | A cadeia de conexão do dispositivo de seu Hub IoT. |
 
-Compile e execute o código conforme segue:
+Compile e execute o código com os seguintes comandos:
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-echo/device/
@@ -144,10 +145,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run "<DeviceConnectionString>"
+dotnet run "{DeviceConnectionString}"
 
 # In Windows
-dotnet run <DeviceConnectionString>
+dotnet run {DeviceConnectionString}
 ```
 
 No final da última etapa, o aplicativo do lado do serviço inicia um fluxo para o dispositivo. Depois que o fluxo é estabelecido, o aplicativo envia um buffer de cadeia de caracteres ao serviço pelo fluxo. Nesta amostra, o aplicativo no lado do serviço apenas ecoa os mesmos dados para o dispositivo, o que demonstra uma comunicação bidirecional bem-sucedida entre os dois aplicativos.

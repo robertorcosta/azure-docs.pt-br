@@ -11,12 +11,12 @@ ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.devlang: powershell
-ms.openlocfilehash: cb175191cb080cffb6feb52b724c29568fd549a5
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c9de4cec417625bb8451457652dacb61550c31b0
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706528"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248326"
 ---
 # <a name="create-your-first-powershell-function-in-azure-preview"></a>Criar sua primeira função do PowerShell no Azure (versão prévia)
 
@@ -96,7 +96,7 @@ O Azure Functions Core Tools é integrado ao Visual Studio Code para permitir qu
 
     Você também pode executar a solicitação GET em um navegador.
 
-    Quando você chama o ponto de extremidade do HttpTrigger sem passar um parâmetro `name` como um parâmetro de consulta ou no corpo, a função retorna um erro 500. Quando você examinar o código em run.ps1, verá que esse erro ocorre por design.
+    Quando você chama o ponto de extremidade do HttpTrigger sem passar um parâmetro `name` como um parâmetro de consulta ou no corpo, a função retorna um erro [HttpStatusCode]::BadRequest. Quando você examinar o código em run.ps1, verá que esse erro ocorre por design.
 
 1. Para interromper a depuração, pressione Shift + F5.
 

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: a6fc9f1a5c32fc9ffa1e1e6ebe525b72030fe803
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 66a972e66c35cdd5b8dedceefbe3dbd008380da9
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155652"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327150"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Recursos do Apache Cassandra compatíveis com a API do Cassandra do Azure Cosmos DB 
 
@@ -94,9 +94,9 @@ A API do Cassandra do Azure Cosmos DB é compatível com as seguintes funções 
   
 
 
-## <a name="cassandra-query-language-limits"></a>Limites da Linguagem de Consulta do Cassandra
+## <a name="cassandra-api-limits"></a>Limites de API do Cassandra
 
-A API do Cassandra do Azure Cosmos DB não tem limites para o tamanho dos dados armazenados em uma tabela. Centenas de terabytes ou petabytes de dados podem ser armazenados, com a garantia de que os limites de chave de partição sejam respeitados. Da mesma forma, cada entidade ou linha equivalente não tem nenhum limite para o número de colunas. No entanto, o tamanho total da entidade não deve exceder 2 MB.
+A API do Cassandra do Azure Cosmos DB não tem limites para o tamanho dos dados armazenados em uma tabela. Centenas de terabytes ou petabytes de dados podem ser armazenados, com a garantia de que os limites de chave de partição sejam respeitados. Da mesma forma, cada entidade ou linha equivalente não tem nenhum limite para o número de colunas. No entanto, o tamanho total da entidade não deve exceder 2 MB. Os dados por chave de partição não podem exceder 10 GB, assim como em todas as outras APIs.
 
 ## <a name="tools"></a>Ferramentas 
 
@@ -130,7 +130,7 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 
 O Azure Cosmos DB dá suporte aos seguintes comandos de banco de dados em contas da API do Cassandra.
 
-* CREATE KEYSPACE 
+* CREATE KEYSPACE (as configurações de replicação para este comando são ignoradas)
 * CREATE TABLE 
 * ALTER TABLE 
 * USE 
@@ -140,7 +140,7 @@ O Azure Cosmos DB dá suporte aos seguintes comandos de banco de dados em contas
 * BATCH – Somente comandos não registrados são compatíveis 
 * EXCLUIR
 
-Todas as operações CRUD, quando executadas por meio de um SDK compatível com CQLV4, retornarão informações adicionais sobre erros, unidades de solicitação consumidas e ID da atividade. Os comandos delete e update precisam ser tratados considerando-se a governança de recursos, para evitar o uso de recursos provisionados. 
+Todas as operações CRUD, quando executadas por meio de um SDK compatível com CQLV4, retornarão informações adicionais sobre erros, unidades de solicitação consumidas. Os comandos delete e update precisam ser tratados considerando-se a governança de recursos, para evitar o uso da taxa de transferência provisionada. 
 * Observação O valor de gc_grace_seconds deverá ser zero se for especificado.
 
 ```csharp
@@ -157,18 +157,32 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>Mapeamento de consistência 
 
-A API do Cassandra do Azure Cosmos DB fornece a opção de consistência para operações de leitura.  O mapeamento de consistência está detalhado [aqui[(https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping).
+A API do Cassandra do Azure Cosmos DB fornece a opção de consistência para operações de leitura.  O mapeamento de consistência está detalhado [aqui](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping).
 
 ## <a name="permission-and-role-management"></a>Gerenciamento de funções e de permissões
 
-O Azure Cosmos DB dá suporte ao controle de acesso baseado em função (RBAC) para provisionamento, revezamento de chaves, visualização de métricas e senhas/chaves de leitura/gravação e somente leitura que podem ser obtidas por meio do [portal do Azure](https://portal.azure.com). O Azure Cosmos DB ainda não oferece suporte a usuários e funções para atividades CRUD. 
+O Azure Cosmos DB dá suporte ao controle de acesso baseado em função (RBAC) para provisionamento, revezamento de chaves, visualização de métricas e senhas/chaves de leitura/gravação e somente leitura que podem ser obtidas por meio do [portal do Azure](https://portal.azure.com). O Azure Cosmos DB não dá suporte a funções para atividades CRUD.
 
-## <a name="planned-support"></a>Suporte planejado 
-* O nome da região no comando create keyspace é ignorado no momento. A distribuição de dados é implementada na plataforma subjacente do Cosmos DB e exposta por meio do portal ou do PowerShell para a conta. 
+## <a name="keyspace-and-table-options"></a>Opções de tabela e de keyspace
+
+As opções para nome da região, classe, replication_factor e datacenter no comando "CREATE KEYSPACE" são ignoradas atualmente. O sistema usa o método de replicação de [distribuição global](https://docs.microsoft.com/en-us/azure/cosmos-db/global-dist-under-the-hood) subjacente do Azure Cosmos DB para adicionar as regiões. Se você precisar da presença de dados entre regiões, poderá habilitá-la no nível da conta com o PowerShell, a CLI ou o portal. Para saber mais, confira o artigo [como adicionar regiões](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Durable_writes não podem ser desabilitadas porque o Azure Cosmos DB garante que cada gravação seja durável. Em todas as regiões, o Azure Cosmos DB replica os dados no conjunto de réplicas composto por quatro réplicas e essa [configuração](global-dist-under-the-hood.md) de conjunto de réplicas não pode ser modificada.
+ 
+Todas as opções são ignoradas ao criar a tabela com a exceção de gc_grace_seconds, que deve ser definida como zero.
+O keyspace e a tabela têm uma opção extra chamada "cosmosdb_provisioned_throughput", com um valor mínimo de 400 RU/s. A taxa de transferência do keyspace permite o compartilhamento de taxa de transferência em várias tabelas e é útil para cenários em que todas as tabelas não estão utilizando a taxa de transferência provisionada. O comando ALTER TABLE permite alterar a taxa de transferência provisionada entre as regiões. 
+
+```
+CREATE  KEYSPACE  sampleks WITH REPLICATION = {  'class' : 'SimpleStrategy'}   AND cosmosdb_provisioned_throughput=2000;  
+
+CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_provisioned_throughput=2000; 
+
+ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
+
+```
 
 
+## <a name="usage-of-cassandra-retry-connection-policy"></a>Uso da política de nova tentativa de conexão do Cassandra
 
-
+O Azure Cosmos DB é um sistema controlado por recursos. Isso significa que você pode fazer um determinado número de operações em um determinado segundo com base nas unidades de solicitação consumidas pelas operações. Se um aplicativo exceder esse limite em um determinado segundo, as solicitações serão limitadas por taxa e exceções serão geradas. A API do Cassandra do Azure Cosmos DB converte essas exceções em erros de sobrecarga no protocolo nativo do Cassandra. Para garantir que seu aplicativo possa interceptar e repetir solicitações na limitação da taxa de caso, as extensões [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) e [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) são fornecidas. Se você usar outros SDKs para acessar API do Cassandra no Azure Cosmos DB, crie uma política de conexão para tentar novamente ao encontrar essas exceções.
 
 ## <a name="next-steps"></a>Próximas etapas
 

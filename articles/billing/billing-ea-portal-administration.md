@@ -4,16 +4,16 @@ description: Este artigo explica as tarefas comuns que um administrador realiza 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 21e9d4af783ed5d9eb3ace1c8b5189163b89f8b0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f344436b1e1f1a97b981c1ead469d965b06a12ce
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035214"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329348"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Portal do EA do Azure
 
@@ -62,7 +62,7 @@ Tenha os pontos a seguir em mente ao transferir uma conta empresarial para um no
 
 A data de início de vigência da transferência pode ser uma data ou posterior à data de início do registro para o qual você deseja transferir. O registro para o qual você está transferindo é o _registro de destino_. Após a transferência da conta, todas as informações de uso na conta antes da data de início de vigência da transferência permanecem no registro do qual você está transferindo. O registro do qual você está transferindo é o _registro de origem_.  O uso do registro de origem é cobrado em relação ao compromisso monetário ou como excedente. O uso que ocorre após a data de início de vigência da transferência é transferido para o novo registro e cobrado de acordo.
 
-Você pode definir a data de uma transferência de conta retroativamente até a data de início do registro de destino. Ou pode fazê-lo até a data de início efetiva do registro de origem.
+Defina uma data retroativa para uma transferência de registro até a data de início do registro de destino. Ou pode fazê-lo até a data de início efetiva do registro de origem.
 
 ### <a name="monetary-commitment"></a>Compromisso monetário
 
@@ -212,12 +212,11 @@ Se uma notificação não tiver sido recebida por um usuário, verifique se as c
 ![Exemplo mostrando a caixa Adicionar Contato ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## <a name="azure-sponsorship-offer"></a>Oferta do Azure Sponsorship
+
 A oferta do Azure Sponsorship é uma conta limitada patrocinada do Microsoft Azure. Ela está disponível via convite por email, somente para clientes limitados selecionados pela Microsoft. Se estiver qualificado para a oferta do Microsoft Azure Sponsorship, você receberá um convite por email para aceitar a oferta para sua ID de conta.
+
 Para obter mais informações, consulte:
 
-- Visão geral da oferta do Sponsorship – https://azure.microsoft.com/en-us/offers/ms-azr-0143p/
-- Portal de saldo de patrocínio – https://www.microsoftazuresponsorships.com/balance  
-- Perguntas frequentes externas sobre patrocínio – https://azuresponsorships-staging.azurewebsites.net/faq
 - Solicitação de suporte para a ativação do patrocínio – http://aka.ms/azrsponsorship
 
 ## <a name="next-steps"></a>Próximas etapas

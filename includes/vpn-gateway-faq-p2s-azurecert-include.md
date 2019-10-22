@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 93f6bc8533218af7f0e6dcd1c5f7be6fe8c00e29
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69520810"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -23,13 +23,13 @@ Sim. Anteriormente, somente os certificados raiz autoassinados podiam ser usados
 
 ### <a name="can-i-use-certificates-from-azure-key-vault"></a>Posso usar certificados de Azure Key Vault?
 
-Nº
+Não.
 
 ### <a name="what-tools-can-i-use-to-create-certificates"></a>Quais ferramentas posso usar para criar certificados?
 
-Você pode usar sua solução de Enterprise PKI (sua PKI interna), Azure PowerShell, MakeCert e OpenSSL.
+Você pode usar sua solução de PKI corporativa (sua PKI interna), Azure PowerShell, MakeCert e OpenSSL.
 
-### <a name="certsettings"></a>Há instruções para configurações e parâmetros de certificado?
+### <a name="certsettings"></a>Há instruções para parâmetros e configurações de certificado?
 
 * **Solução interna PKI/PKI corporativa:** Consulte as etapas para [gerar certificados](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
 
@@ -37,11 +37,11 @@ Você pode usar sua solução de Enterprise PKI (sua PKI interna), Azure PowerSh
 
 * **MakeCert:** Consulte o artigo [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) para obter as etapas.
 
-* **OpenSSL:** 
+* **OpenSSL** 
 
-    * Ao exportar certificados, verifique se converteu o certificado raiz em Base64.
+    * Ao exportar certificados, certifique-se de converter o certificado raiz em base64.
 
     * Para o certificado do cliente:
 
-      * Ao criar a chave privada, especifique o período como 4096.
-      * Ao criar o certificado, para o parâmetro *-extensions*, especifique *usr_cert*.
+      * Ao criar a chave privada, especifique o comprimento como 4096.
+      * Ao criar o certificado, para o parâmetro *-Extensions* , especifique *usr_cert*.

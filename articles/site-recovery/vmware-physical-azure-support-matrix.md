@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 7d46773ce45cb3ef8b70d3c6074b9f1c771e9e24
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 179676ae2a7d68bc0263f897ffededcf8b7a01f4
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554629"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693380"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -276,7 +276,6 @@ Disco Premium P20 ou p30 ou P40 ou P50 | 16 KB ou mais |20 MB/s | 1684 GB por di
 
 **Rotatividade de dados de origem** | **Limite máximo**
 ---|---
-Variação média de dados por VM| 25 MB/s
 Variação de dados de pico em todos os discos em uma VM | 54 MB/s
 Rotatividade máxima de dados por dia com suporte de um servidor de processo | 2 TB
 

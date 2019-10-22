@@ -14,13 +14,13 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: yegu
-ms.custom: mvc, seo-javascript-september2019
-ms.openlocfilehash: f46a4771f1db5e4040cb23b1a9236c91699b6ad5
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: bd31cf066b7844eeae02c24cb39ece686630b5ff
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057874"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329838"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Início Rápido: Usar o Cache do Azure para Redis com Node.js
 
@@ -113,7 +113,7 @@ node redistest.js
 
 No exemplo abaixo, você pode ver que a chave `Message` já tinha um valor armazenado em cache, que foi definido por meio do Console do Redis no portal do Azure. O aplicativo atualizou esse valor armazenado em cache. O aplicativo também executou os comandos `PING` e `CLIENT LIST`.
 
-![Aplicativo de cache concluído](./media/cache-nodejs-get-started/cache-app-complete.png)
+![Aplicativo do Cache Redis concluído](./media/cache-nodejs-get-started/redis-cache-app-complete.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -129,7 +129,7 @@ Entre no [portal do Azure](https://portal.azure.com) e selecione **Grupos de rec
 
 Na caixa de texto **Filtrar por nome**, digite o nome do seu grupo de recursos. As instruções deste artigo usaram um grupo de recursos chamado *TestResources*. Em seu grupo de recursos, na lista de resultados, selecione **...** e então **Excluir grupo de recursos**.
 
-![Excluir](./media/cache-nodejs-get-started/cache-delete-resource-group.png)
+![Excluir um grupo de recursos do Azure](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 
 Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Insira o nome do grupo de recursos para confirmar e selecione **Excluir**.
 

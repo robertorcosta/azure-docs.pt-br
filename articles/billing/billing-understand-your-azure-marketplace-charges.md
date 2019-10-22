@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43986ce57b8d320beeae748d3b848cf9ef38744d
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 2803f8d659726ac95bcefa6191a816ed2b2dcb2d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718717"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375403"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Entender os encargos de serviços externos do Azure
 Os serviços externos são publicados por fornecedores de software de terceiros no Azure Marketplace. Por exemplo, o SendGrid é um serviço externo que pode ser comprado no Azure, mas não é publicado pela Microsoft. Alguns produtos da Microsoft também são vendidos por meio do Azure Marketplace.
 
 ## <a name="how-external-services-are-billed"></a>Como os serviços externos são cobrados
 
-- Caso você tenha um [Contrato de Cliente da Microsoft](#check-access), seus serviços de terceiros serão faturados com o restante dos serviços do Azure.
-- Caso você não tenha um Contrato de Cliente da Microsoft, seus serviços externos serão faturados separadamente dos serviços do Azure.
+- Caso você tenha um MCA (Contrato de Cliente da Microsoft) ou um MPA (Contrato de Parceiro da Microsoft), seus serviços de terceiros serão cobrados com o restante dos serviços do Azure. [Verifique o tipo de sua conta de cobrança](#check-billing-account-type) para ver se você tem acesso a um MCA ou um MPA.
+- Caso você não tenha um MCA ou um MPA, os serviços externos serão cobrados separadamente dos serviços do Azure.
 - Cada serviço externo tem um modelo de cobrança diferente. Alguns serviços são faturados de acordo com o pagamento conforme o uso, enquanto outros têm encargos mensais fixos.
 - Não é possível usar créditos gratuitos mensais para serviços externos. Se você estiver usando uma assinatura do Azure que inclua [créditos gratuitos](https://azure.microsoft.com/pricing/spending-limits/), eles não poderão ser aplicados a encargos de serviços externos. Quando você provisiona um novo recurso ou serviço externo, um aviso é exibido:
 
@@ -48,11 +48,11 @@ You can view a list of the external services that are on each subscription withi
 
     ![View external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png) -->
 
-## <a name="view-and-download-invoices"></a>Exibir e baixar faturas
+## <a name="view-and-download-invoices-for-external-services"></a>Exibir e baixar faturas para serviços externos
 
-Caso você tenha um [Contrato de Cliente da Microsoft](#check-access), seus encargos de terceiros estarão na mesma fatura dos encargos do Azure. Saiba como [exibir e baixar sua fatura do Azure](billing-download-azure-invoice.md) no portal do Azure para ver os encargos de terceiros.
+Caso você tenha um MCA (Contrato de Cliente da Microsoft) ou um MPA (Contrato de Parceiro da Microsoft), seus serviços de terceiros serão cobrados com o restante dos serviços do Azure. [Verifique o tipo de sua conta de cobrança](#check-billing-account-type) para ver se você tem acesso a um MCA ou um MPA. Se você fizer isso, confira [Exibir e baixar faturas no portal do Azure](billing-download-azure-invoice.md) para ver os encargos de terceiros.
 
-Caso você não tenha um Contrato de Cliente da Microsoft, terá faturas separadas para encargos de terceiros. Exiba e baixe suas faturas do Azure Marketplace no portal do Azure seguindo estas etapas:
+Caso não tenha um MCA ou um MPA, você terá faturas separadas para encargos de terceiros. Exiba e baixe suas faturas do Azure Marketplace no portal do Azure seguindo estas etapas:
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 1. Pesquise **Gerenciamento de Custos + Cobrança**.
@@ -108,8 +108,8 @@ Se você deseja cancelar seu pedido de serviço externo, exclua o recurso no [po
     ![Excluir Recurso](./media/billing-understand-your-azure-marketplace-charges/delete-resource.PNG)
 1. Clique em **Excluir**.
 
-## <a name="check-access"></a>Verificar acesso
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+## <a name="check-billing-account-type"></a>Verificar o tipo de conta de cobrança
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 

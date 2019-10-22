@@ -1,5 +1,5 @@
 ---
-title: Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming
+title: Licenciamento do Microsoft® Smooth Streaming Client Porting kit
 description: Saiba mais sobre como licenciar o Kit de Portabilidade de Cliente do Microsoft® Smooth Streaming.
 services: media-services
 documentationcenter: ''
@@ -12,155 +12,157 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 505def9cde7cddf2ddcc23408fa3159de886167a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e7742e7035f3c4f4827a2edae1ad5a705aa221f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472679"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693421"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming 
-## <a name="overview"></a>Visão geral
-O Kit de Portabilidade de Cliente do Microsoft Smooth Streaming (**SSPK** ) é uma implementação de cliente do Smooth Streaming otimizada para ajudar fabricantes de dispositivos inseridos, operadoras de serviços móveis e a cabo, fornecedores de serviços de conteúdo, fabricantes de celulares, fornecedores de software independentes (ISVs) e fornecedores de soluções a criar produtos e serviços para transmitir conteúdo de streaming adaptativo no formato Smooth Streaming. O SSPK é uma implementação independente de dispositivo e de plataforma do cliente do Smooth Streaming que pode ser movida pelo licenciado para qualquer dispositivo e plataforma. 
+# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenciamento do Microsoft® Smooth Streaming Client Porting kit 
+## <a name="overview"></a>Visão Geral
+O Microsoft Smooth Streaming Client Porting Kit (**SSPK** para curto) é uma implementação de cliente Smooth streaming que é otimizada para ajudar os fabricantes de dispositivos incorporados, cabos e operadores móveis, provedores de serviços de conteúdo, fabricantes de telefones, ISVs (fornecedores independentes de software) e provedores de soluções para criar produtos e serviços para streaming de conteúdo adaptável no formato Smooth Streaming. SSPK é uma implementação de dispositivo e de plataforma independente de Smooth Streaming cliente que pode ser transportada pelo licenciado para qualquer dispositivo e plataforma. 
 
-A seguir, uma arquitetura de alto nível e a caixa do Kit de Portabilidade do IIS Smooth Streaming é a implementação do Cliente do Smooth Streaming fornecida pela Microsoft e inclui toda a lógica básica para a reprodução de conteúdo do Smooth Streaming. Em seguida, o conteúdo será transferido por parceiros para um dispositivo ou plataforma específicos, implementando interfaces apropriadas. 
+A seguir está uma arquitetura de alto nível e a caixa do kit de portabilidade do IIS Smooth Streaming é a implementação do cliente Smooth Streaming fornecida pela Microsoft e inclui toda a lógica principal para reprodução de conteúdo de Smooth Streaming. Esse conteúdo é então portado por parceiros para um dispositivo ou plataforma específica implementando interfaces apropriadas. 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>DESCRIÇÃO
+## <a name="description"></a>Descrição
 O SSPK é licenciado em termos que oferecem excelente valor comercial. A licença do SSPK fornece ao setor:
 
-* a fonte do Kit de Portabilidade de Smooth Streaming em C++ 
-  * implementa a funcionalidade de Cliente do Smooth Streaming
-  * adiciona a análise de formato, heurística, lógica de buffer etc.
-* APIs do aplicativo Player 
+* Origem do kit de portabilidade de Smooth Streaming noC++ 
+  * implementa Smooth Streaming funcionalidade de cliente
+  * Adiciona análise de formato, heurística, lógica de buffer, etc.
+* APIs de aplicativo de Player 
   * interfaces de programação para interação com um aplicativo de player de mídia
-* Interface da Camada de Abstração de Plataforma (PAL) 
-  * interfaces de programação para interação com o sistema operacional (threads, sockets)
-* Interface da Camada de Abstração de Hardware (HAL) 
-  * interfaces de programação para interação com decodificadores A/V de hardware (decodificação, renderização)
-* Interface de Gerenciamento de Direitos Digitais (DRM) 
-  * interfaces de programação para tratamento de DRM por meio da Camada de Abstração de DRM (DAL)
-  * O Kit de Portabilidade do Microsoft PlayReady é fornecido separadamente, mas se integra por meio dessa interface. Para saber mais sobre o licenciamento do Dispositivo Microsoft PlayReady, clique [aqui](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
-* Amostras de implementação 
-  * implementação de amostra de PAL para Linux
-  * implementação de amostra de HAL para GStreamer
+* Interface de camada de abstração de plataforma (PAL) 
+  * interfaces de programação para interação com o sistema operacional (threads, soquetes)
+* Interface HAL (hardware Abstraction Layer) 
+  * interfaces de programação para interação com decodificadores de hardware A/V (decodificação, renderização)
+* Interface de Rights Management digital (DRM) 
+  * interfaces de programação para tratamento de DRM por meio da DAL (camada de abstração de DRM)
+  * O Microsoft PlayReady Porting kit é fornecido separadamente, mas integra-se por meio dessa interface. Para saber mais sobre o licenciamento do Dispositivo Microsoft PlayReady, clique [aqui](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
+* Exemplos de implementação 
+  * exemplo de implementação de PAL para Linux
+  * implementação de exemplo de HAL para GStreamer
 
 ## <a name="licensing-options"></a>Opções de Licenciamento
-O Kit de Portabilidade do cliente do Microsoft Smooth Streaming é disponibilizado para licenciados em dois contratos de licença distintas: um para o desenvolvimento de produtos provisórios de cliente de Smooth Streaming e outro para a distribuição de produtos finais de cliente de Smooth Streaming aos usuários finais.
+O Microsoft Smooth Streaming Client Porting kit é disponibilizado para licenciados sob dois contratos de licença distintos: um para desenvolver Smooth Streaming produtos provisórios do cliente e outro para distribuir Smooth Streaming produtos finais do cliente aos usuários finais.
 
 * Para fabricantes de chipset, integradores de sistema ou fornecedores independentes de software (ISVs) que exijam um kit de portabilidade de código fonte para desenvolver produtos provisórios, uma **Licença do Produto Provisório** do Kit de Portabilidade de Cliente do Microsoft Smooth Streaming deve ser executada.
 * Os fabricantes de dispositivos ou ISVs que exigem direitos de distribuição para Produtos Finais de Cliente de Smooth Streaming para usuários finais, a **Licença do Produto Final** do Kit de Portabilidade de Cliente do Microsoft Smooth Streaming deve ser executada.
 
-### <a name="microsoft-smooth-streaming-client-porting-kit-interim-product-license"></a>Licença de Produto Provisório do Kit de Portabilidade de Cliente do Microsoft Smooth Streaming
-Com esta licença, a Microsoft oferece um Kit de Portabilidade de Cliente do Smooth Streaming e os direitos de propriedade intelectual necessários para desenvolver e distribuir Produtos Provisórios de Cliente do Smooth Streaming para outros licenciados de dispositivos do Kit de Portabilidade de Cliente do Smooth Streaming que distribuem Produtos Finais de Cliente do Smooth Streaming.
+### <a name="microsoft-smooth-streaming-client-porting-kit-interim-product-license"></a>Licença de produto provisório do Microsoft Smooth Streaming Client Porting kit
+Sob essa licença, a Microsoft oferece um kit de portabilidade de cliente Smooth Streaming e os direitos de propriedade intelectual necessários para desenvolver e distribuir Smooth Streaming produtos provisórios do cliente a outros Smooth Streaming licenciados do dispositivo do kit de portabilidade do cliente que Distribua Smooth Streaming produtos finais do cliente.
 
-#### <a name="fee-structure"></a>Estrutura de taxa
-Uma taxa de licença única de US$ 50.000 fornece acesso ao Kit de Portabilidade de Cliente do Smooth Streaming. 
+#### <a name="fee-structure"></a>Estrutura de taxas
+Uma taxa de licença de uso único dos EUA $50000 fornece acesso ao kit de portabilidade de cliente Smooth Streaming. 
 
-### <a name="microsoft-smooth-streaming-client-porting-kit-final-product-license"></a>Licença de Produto Final do Kit de Portabilidade de Cliente do Microsoft Smooth Streaming
-Nesta licença, a Microsoft oferece todos os direitos de propriedade intelectual necessários para receber Produtos Provisórios de Cliente do Smooth Streaming de outros licenciados de dispositivos do Kit de Portabilidade de Cliente do Smooth Streaming e para distribuir Produtos Finais de Cliente do Smooth Streaming com a marca da empresa a usuários finais.
+### <a name="microsoft-smooth-streaming-client-porting-kit-final-product-license"></a>Licença de produto final do Microsoft Smooth Streaming Client Porting kit
+Sob essa licença, a Microsoft oferece todos os direitos de propriedade intelectual necessários para receber Smooth Streaming produtos provisórios de cliente de outros licenciados do kit de porta de cliente Smooth Streaming e para distribuir a marca da empresa Smooth Streaming cliente final Produtos para usuários finais.
 
-#### <a name="fee-structure"></a>Estrutura de taxa
-O Produto Final de Cliente do Smooth Streaming é oferecido em um modelo de royalty, como:
+#### <a name="fee-structure"></a>Estrutura de taxas
+O produto cliente Smooth Streaming final é oferecido sob um modelo de royalty como em:
 
-* US$ 0,10 por implementação de dispositivo fornecida
-* O royalty é limitado a US$ 50.000 por ano
-* Nenhum royalty para as primeiras 10.000 implementações de dispositivo por ano 
+* $0.10 a implementação por dispositivo foi enviada
+* O Royalty está limitado às $50000 por ano
+* Nenhum Royalty para as primeiras implementações de dispositivo 10.000 a cada ano 
 
-## <a name="licensing-procedure-and-sspk-access"></a>Procedimento de licenciamento e acesso do SSPK
-Caso tenha alguma dúvida sobre licenciamento, envie um email para [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) .
+## <a name="licensing-procedure-and-sspk-access"></a>Procedimento de licenciamento e acesso SSPK
+[@No__t_1](mailto:sspkinfo@microsoft.com) de email para todas as consultas de licenciamento.
 
 O [Portal de distribuição do SSPK](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) pode ser acessado por licenciados provisórios registrados.
 
 Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
 
-## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Licenciados do Contrato do Produto provisório do cliente do Microsoft Smooth Streaming
+## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Licenciados do contrato de produto provisório do Microsoft Smooth Streaming Client
+
 * Adroit Business Solutions, Inc
-* Advanced Digital Broadcast SA
-* AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
-* Albis Technologies Ltd.
+* SA de difusão digital avançada
+* Saties Kablosuz Iletism Sanayive Dis Ticaret A.S.
+* Albis Technologies Ltda.
 * Alticast Corporation
-* Amazon Digital Services, Inc.
+* Amazon digital Services, Inc.
 * Arion Technology, Inc.
-* AVC Multimedia Software Co., Ltd.
+* Software de multimídia AVC co., Ltd.
 * Cavium, Inc.
-* EchoStar Purchasing Corporation
+* EchoStar de compra corporativa
 * Enseo, Inc.
 * Fluendo S.A.
-* HANDAN BroadInfoCom Co., Ltd.
+* HANDAN BroadInfoCom co., Ltd.
 * Infomir GMBH
 * Irdeto USA Inc.
 * iWEDIA S.A. 
-* Liberty Global Services BV
+* Serviços globais do Liberty BV
 * MediaTek Inc.
-* MStar Co, Ltd
-* Nintendo Co., Ltd.
+* MStar co, Ltd
+* Nintendo co., Ltd.
 * OpenTV, Inc.
 * Saffron Digital Limited
 * Sichuan Changhong Electric Co., Ltd
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
-* TCL Technology Electronics (Huizhou) Co., Ltd.
-* Top Victory Investments, Ltd.
+* Co., Ltd. da Huizhou (eletrônica de tecnologia TCL)
+* Principais investimentos em vitória, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret A.S.
-* VisualOn, Inc.
+* Visualização, Inc.
 * ZTE Corporation
 
-## <a name="microsoft-smooth-streaming-client-final-product-agreement-licensees"></a>Licenciados do Contrato do Produto final do cliente do Microsoft Smooth Streaming
-* Advanced Digital Broadcast SA
-* AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
-* Albis Technologies Ltd.
-* Amazon Digital Services, Inc.
+## <a name="microsoft-smooth-streaming-client-final-product-agreement-licensees"></a>Licenciados do contrato de produto final do Microsoft Smooth Streaming Client
+* SA de difusão digital avançada
+* Saties Kablosuz Iletism Sanayive Dis Ticaret A.S.
+* Albis Technologies Ltda.
+* Amazon digital Services, Inc.
 * AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
 * Arion Technology, Inc.
-* ATMACA ELEKTRONİK SAN. VE TİC. A.Ş
-* British Sky Broadcasting Limited
+* ATMACA ELEKTRONIK SAN. VE JOGO. A. Ş
+* Transmissão limitada do céu britânico
 * CastPal Technology Inc., Shenzhen
-* Compal eletrônicos, Inc.
-* Dongguan Digital AV Technology Corp., Ltd.
-* EchoStar Purchasing Corporation
+* O Compal Electronics, Inc.
+* Dongguan digital AV Technology Corp., Ltd.
+* EchoStar de compra corporativa
 * Enseo, Inc.
-* FilmFlex Movies Limited
+* Filmes FilmFlex limitados
 * Fluendo S.A.
-* FUNAI ELECTRIC CO., LTD
-* Gibson Innovations Limited
-* Haier Information Applicantion S.R.L
-* HANDAN BroadInfoCom Co., Ltd.
+* FUNAI ELÉTRICO CO., LTD
+* Inovações Gibson limitadas
+* Haier de informação S. R. L
+* HANDAN BroadInfoCom co., Ltd.
 * Hisense International Co., Ltd. 
-* Homecast Co., Ltd
-* Hon Hai Precision Industry Co., Ltd.
+* Homecast co., Ltd
+* Está Hai Precision Industry Co., Ltd.
 * Infomir GMBH
-* Kaonmedia Co., Ltd.
+* Kaonmedia co., Ltd.
 * KDDI Corporation
-* Nintendo Co., Ltd.
+* Nintendo co., Ltd.
 * Orange SA
 * Saffron Digital Limited
-* Sagemcom Broadband SAS
-* Shenzhen Coship Electronics CO., LTD
+* SAS de banda larga Sagemcom
+* Shenzhen Chuangwei-RGB Electronics Co., Ltd.
+* CO., LTD. da Shenzhen de eletrônicos de envio
 * Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.
-* Sky Deutschland Fernsehen GmbH & Co. KG
+* Céu Deutschland Fernsehen GmbH & Co. KG
 * SmarDTV S.A.
 * SoftAtHome
 * Sony Corporation
-* TCL Overseas Marketing (Macao Commercial Offshore) Limited
-* Technicolor Delivery Technologies, SAS
-* Tongfang Global Ltd.
-* Top Victory Investments, Ltd.
-* Toshiba Lifestyle Products & Services Corporation
-* Universal Media Corporation /Slovakia/ s.r.o.
+* Limitada por marketing no exterior (RAE de Macau comercial)
+* Tecnologias de entrega Technicolor, SAS
+* Tongfang global Ltd.
+* Principais investimentos em vitória, Ltd.
+* Produtos de estilo de vida da Toshiba & Services Corporation
+* Universal Media Corporation/Slovakia/s.r.o.
 * VIZIO, Inc.
 * Wistron Corporation
 * ZTE Corporation
 
-## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
+## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos serviços de mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários

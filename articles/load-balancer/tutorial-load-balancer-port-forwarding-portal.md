@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: ee4ed818364d04f03caedc8b876ea29c41cb59b7
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: aa4837ec1fd8ef19eb6d0c77f946ef358becd542
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273441"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428232"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: configurar o encaminhamento de porta no Azure Load Balancer usando o portal
 
@@ -235,6 +235,7 @@ Crie uma regra NAT (conversão de endereços de rede) de entrada do balanceador 
    - **Nome**: digite *MyNATRuleVM1*.
    - **Porta**: digite *4221*.
    - **Máquina virtual de destino**: selecione **MyVM1** na lista suspensa.
+   - **Configuração de IP de rede**: Selecione **ipconfig1** na lista suspensa.
    - **Mapeamento de porta**: selecione **Personalizado**.
    - **Porta de destino**: digite *3389*.
    

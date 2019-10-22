@@ -8,18 +8,16 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 6ef6f4ae86f0f732164603bd8b38dc1bbef95dd9
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 383401c1486bcbebc39b64d5794f8bdc660d2778
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600143"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329628"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Conectar funções ao Armazenamento do Azure usando o Visual Studio
 
-O Azure Functions permite conectar funções aos serviços do Azure e a outros recursos sem precisar escrever seu próprio código de integração. Essas conexões predefinidas são chamadas de *associações*. As associações permitem que uma função use os serviços do Azure e outros recursos como entrada e saída para uma função.
-
-A execução da função é iniciada por um único *gatilho*. Um gatilho é um tipo especial de associação de entrada. Embora uma função tenha apenas um gatilho, ela pode ter várias associações de entrada e de saída. Para saber mais, confira [Conceitos de gatilhos e de associações do Azure Functions](functions-triggers-bindings.md).
+[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
 Este artigo mostra como usar Visual Studio para conectar a função criada no [artigo de Início Rápido anterior] do Armazenamento do Azure. A associação de saída que você adiciona a essa função escreve dados da solicitação HTTP em uma mensagem na fila. 
 
@@ -31,7 +29,7 @@ Antes de iniciar este artigo, você deve:
 
  - Concluir a [parte 1 do Início Rápido do Visual Studio][./functions-create-first-function-vs-code.md]. 
 
-- Entrar na assinatura do Azure do Visual Studio
+- Entrar em sua assinatura do Azure por meio do Visual Studio.
 
 ## <a name="download-the-function-app-settings"></a>Baixar as configurações do aplicativo de funções
 

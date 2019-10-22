@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937fca5698378a8c877b4a981557f87d06170e9a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5100af99046a03345230ed0468071766aae1c77b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879375"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389619"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Início Rápido: Configure um aplicativo cliente para acessar APIs Web
 
@@ -80,8 +80,9 @@ Para adicionar um URI de redirecionamento ao seu aplicativo:
 
 1. Para escolher os URIs de redirecionamento sugeridos para clientes públicos (móvel, área de trabalho), siga estas etapas:
     1. Encontre a seção **URIs de redirecionamento sugeridos para clientes públicos (móvel, área de trabalho)** sugerida.
-    1. Selecione os URIs de redirecionamento apropriados para seu aplicativo usando as caixas de seleção.
+    1. Selecione os URIs de redirecionamento apropriados para seu aplicativo usando as caixas de seleção. Você também pode inserir um URI de redirecionamento personalizado. Se você não tiver certeza do que usar, confira a documentação da biblioteca.
 
+Há várias restrições que se aplicam a URIs de redirecionamento. Saiba mais sobre as [restrições e limitações do URI de redirecionamento](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
 > [!NOTE]
 > Experimente a nova experiência de configurações de **Autenticação**, na qual você pode definir configurações para seu aplicativo com base na plataforma ou no dispositivo que você deseja ter como destino.
 >

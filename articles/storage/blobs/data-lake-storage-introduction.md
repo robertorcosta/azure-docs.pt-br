@@ -4,16 +4,16 @@ description: Fornece uma visão geral do Azure Data Lake Storage Gen2
 author: normesta
 ms.service: storage
 ms.topic: overview
-ms.date: 12/06/2018
+ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: de2dc5068dc454925744688a43f49a855aac42f3
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: d843e288297db656cca6e2a07f2e1f3322ebfa89
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991841"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299658"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
 
@@ -64,7 +64,7 @@ A seguir estão as entidades equivalentes, conforme descrito pelos diferentes co
 | Conceito                                | Organização de nível superior | Organização de nível inferior                                            | Contêiner de dados |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Blobs – Armazenamento de objetos de uso geral | Contêiner              | Diretório virtual (SDK somente – não fornece a manipulação atômica) | Blob           |
-| ADLS Gen2 – Armazenamento de Análise          | Contêiner            | Diretório                                                           | Arquivo           |
+| Azure Data Lake Storage Gen2 – Armazenamento de Análise          | Contêiner            | Diretório                                                           | Arquivo           |
 
 ## <a name="supported-open-source-platforms"></a>Plataformas de software livre com suporte
 
@@ -81,10 +81,15 @@ Várias plataformas de software livre suportam o Data Lake Storage Gen2. Essas p
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Versão do Databricks Runtime](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
 |[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [Configurar o acesso de dados de nuvem](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
+## <a name="supported-azure-services"></a>Serviços do Azure compatíveis
+
+O Data Lake Storage Gen2 é compatível com vários serviços do Azure que você pode usar para ingerir dados, executar análises e criar representações visuais. Para obter uma lista de serviços do Azure compatíveis, confira [Integrar o Azure Data Lake Storage aos serviços do Azure](data-lake-store-integrate-with-azure-services.md).
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Os artigos a seguir descrevem alguns dos principais conceitos do Data Lake Storage Gen2 e detalham como armazenar, acessar, gerenciar e obter insights de seus dados:
 
--   [Namespace hierárquico](data-lake-storage-namespace.md)
--   [Criar uma conta de armazenamento](data-lake-storage-quickstart-create-account.md)
--   [Usar uma conta do Azure Data Lake Storage Gen2 no Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md)
+- [Namespace hierárquico](data-lake-storage-namespace.md)
+- [Criar uma conta de armazenamento](data-lake-storage-quickstart-create-account.md)
+- [Acesso de vários protocolos no Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
+- [Integrar o Azure Data Lake Storage aos serviços do Azure](data-lake-store-integrate-with-azure-services.md);

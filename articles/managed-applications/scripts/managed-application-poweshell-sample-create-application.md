@@ -1,6 +1,6 @@
 ---
 title: Exemplo de script do Azure PowerShell – Implantar um aplicativo gerenciado | Microsoft Docs
-description: Exemplo de script do Azure PowerShell – Implantar uma definição de aplicativo gerenciado
+description: Fornece um script de exemplo do Azure PowerShell que implanta uma definição de aplicativo gerenciado na assinatura.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 03b453e441b92d21f29e7e1f401bebae0b8589da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d450c2292f5d2982b7c8b266cc6780a72d426321
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171463"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332567"
 ---
 # <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>Implantar um aplicativo gerenciado no catálogo de serviços com o PowerShell
 

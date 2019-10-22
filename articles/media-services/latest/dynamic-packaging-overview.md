@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/10/2019
+ms.date: 10/03/2019
 ms.author: juliako
-ms.openlocfilehash: 152a767ad1aa2494579f15dd8051c6bc1f718a92
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: af6542757e75d7d6226c2470adf3c2b51d60875a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910289"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383527"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
@@ -236,11 +236,30 @@ O player pode usar o elemento `Label` a ser exibido em sua interface do usuário
 
 ### <a name="signaling-audio-description-tracks"></a>Sinalizar faixas de descrição de áudio
 
-Um cliente pode anotar uma faixa de áudio como descrição de áudio no manifesto. Para fazer isso, seria preciso adicionar os parâmetros "accessibility" e "role" ao arquivo .ism. Os Serviços de Mídia reconhecerão a descrição de áudio se uma faixa de áudio tiver o parâmetro “accessibility” com o valor “description” e o parâmetro “role” com o valor “alternate”. Se os Serviços de Mídia detectarem a descrição de áudio no arquivo .ism, as informações da descrição de áudio serão passadas para o manifesto do cliente como atributos `Accessibility="description"` e `Role="alternate"` no elemento `StreamIndex`.
+Você pode adicionar uma faixa de narração ao seu vídeo para ajudar clientes com deficiência visual a seguir a gravação do vídeo ouvindo a narração. Você precisa anotar uma faixa de áudio como descrição de áudio no manifesto. Para fazer isso, adicione os parâmetros “accessibility” e “role” ao arquivo .ism. É sua responsabilidade definir esses parâmetros corretamente para sinalizar uma faixa de áudio como descrição de áudio. Por exemplo, adicione `<param name="accessibility" value="description" />` e `<param name="role" value="alternate"` ao arquivo.ism para uma faixa de áudio específica. 
 
-Se a combinação de “accessibility” = “description” e “role” = “alternate” estiver definida no arquivo .ism, o manifesto DASH e o manifesto Smooth carregarão valores, conforme definido nos parâmetros “accessibility” e “role”. É responsabilidade do cliente definir esses dois valores corretamente e marcar uma faixa de áudio como descrição de áudio. De acordo com a especificação do DASH, “accessibility” = “description” e “role” = “alternate” juntos significa que uma faixa de áudio é a descrição de áudio.
+Para obter mais informações, confira o exemplo [Como sinalizar uma faixa de áudio descritiva](signal-descriptive-audio-howto.md).
 
-Para o HLS v7 e superior (`format=m3u8-cmaf`), sua lista de reprodução carregará `CHARACTERISTICS="public.accessibility.describes-video"` somente quando a combinação de “accessibility” = “description” e “role” = “alternate” estiver definida no arquivo .ism. 
+#### <a name="smooth-streaming-manifest"></a>Manifesto Smooth Streaming
+
+Se você estivesse executando um fluxo de Smooth Streaming, o manifesto transportaria valores nos atributos `Accessibility` e `Role` para essa faixa de áudio. Por exemplo, `Role="alternate" Accessibility="description"` seria adicionado no elemento `StreamIndex` para indicar que é uma descrição de áudio.
+
+#### <a name="dash-manifest"></a>Manifesto DASH
+
+Para o manifesto DASH, os dois elementos a seguir seriam adicionados para sinalizar a descrição de áudio:
+
+```xml
+<Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="description"/>
+<Role schemeIdUri="urn:mpeg:dash:role:2011" value="alternate"/>
+```
+
+#### <a name="hls-playlist"></a>Playlist HLS
+
+Para HLS v7 e superior `(format=m3u8-cmaf)`, sua playlist transportaria `AUTOSELECT=YES,CHARACTERISTICS="public.accessibility.describes-video"` quando a faixa de descrição de áudio fosse sinalizada.
+
+#### <a name="example"></a>Exemplo
+
+Para obter mais informações, confira [Como sinalizar faixas de descrição de áudio](signal-descriptive-audio-howto.md).
 
 ## <a name="dynamic-manifest"></a>Manifesto dinâmico
 

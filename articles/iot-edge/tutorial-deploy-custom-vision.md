@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/25/2019
+ms.date: 10/15/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 55203c4b555b54514425b484b367f8b735e98e40
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b84ab9691064e7040e586ad82835f27fa5555920
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003907"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434652"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Realizar a classificação de imagem na borda com o Serviço de Visão Personalizada
 
@@ -76,7 +76,7 @@ Depois que seu classificador de imagem for criado e treinado, você poderá expo
    | ----- | ----- |
    | NOME | Forneça um nome para o projeto, como **EdgeTreeClassifier**. |
    | DESCRIÇÃO | Descrição do projeto opcional. |
-   | Grupo de recursos | Selecione um dos seus grupos de recursos do Azure que inclua um Recurso de Serviço de Visão Personalizada, ou **crie um novo** se você ainda não tiver adicionado um. |
+   | Recurso | Selecione um de seus grupos de recursos do Azure que inclua um recurso do Serviço de Visão Personalizada ou **crie um novo** se você ainda não tiver adicionado um. |
    | Tipos de projeto | **Classificação** |
    | Tipos de classificação | **Multiclasses (uma marca por imagem)** |
    | Domínios | **Geral (compacto)** |
@@ -142,8 +142,6 @@ Agora você tem os arquivos de uma versão de contêiner de seu classificador de
 
 Uma solução é uma maneira lógica de desenvolver e organizar vários módulos para uma mesma implantação do IoT Edge. Uma solução contém código para um ou mais módulos, bem como o manifesto de implantação que declara como configurá-los em um dispositivo do IoT Edge. 
 
-1. No Visual Studio Code, selecione **Exibir** > **Terminal** para abrir o terminal integrado do Visual Studio Code.
-
 1. Selecione **Exibir** > **Paleta de comandos** para abrir a paleta de comandos do VS Code. 
 
 1. Na paleta de comandos, digite e execute o comando **Azure IoT Edge: nova solução do IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução: 
@@ -154,7 +152,7 @@ Uma solução é uma maneira lógica de desenvolver e organizar vários módulos
    | Fornecer um nome para a solução | Insira um nome descritivo para a solução, como **CustomVisionSolution**, ou aceite o padrão. |
    | Selecionar modelo do módulo | Escolha **Módulo de Python**. |
    | Fornecer um nome de módulo | Nomeie seu módulo **classifier**.<br><br>É importante que esse nome de módulo esteja em letras minúsculas. O IoT Edge diferencia maiúsculas de minúsculas ao fazer referência a módulos, e essa solução usa uma biblioteca que formata todas as solicitações em letras minúsculas. |
-   | Fornecer o repositório de imagem do Docker para o módulo | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner foi preenchida automaticamente na última etapa. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. Você pode recuperar o servidor de logon da página Visão Geral do seu registro de contêiner no portal do Azure. A cadeia de caracteres final se parece com \<nome do registro\>.azurecr.io/classifier. |
+   | Fornecer o repositório de imagem do Docker para o módulo | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner foi preenchida automaticamente na última etapa. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. Você pode recuperar o servidor de logon da página Visão Geral do seu registro de contêiner no portal do Azure.<br><br>A cadeia de caracteres final se parece com **\<nome do Registro\>.azurecr.io/classifier**. |
  
    ![Fornecer o repositório de imagem do Docker](./media/tutorial-deploy-custom-vision/repository.png)
 
@@ -219,7 +217,7 @@ Nesta seção, você adiciona um novo módulo ao mesmo CustomVisionSolution e fo
    | Selecionar arquivo de modelo de implantação | Selecione o arquivo deployment.template.json na pasta CustomVisionSolution. |
    | Selecionar modelo do módulo | Selecione **Módulo de Python** |
    | Fornecer um nome de módulo | Nomeie seu módulo **cameraCapture** |
-   | Fornecer o repositório de imagem do Docker para o módulo | Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. A cadeia de caracteres final se parece com **\<nomedoregistro\>.azurecr.io/cameracapture**. |
+   | Fornecer o repositório de imagem do Docker para o módulo | Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure.<br><br>A cadeia de caracteres final se parece com **\<nomedoregistro\>.azurecr.io/cameracapture**. |
 
    A janela do VS Code carrega seu novo módulo no workspace da solução e atualiza o arquivo deployment.template.json. Agora você verá duas pastas de módulo: classifier e cameraCapture. 
 

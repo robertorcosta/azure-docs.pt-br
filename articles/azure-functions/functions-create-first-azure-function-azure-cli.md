@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 82fbaa35d8d06cdb1999a76a36fb4a1dade017e9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 1d0c6edf250e49fe966388253617181ed2b3dff1
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883878"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329650"
 ---
-# <a name="create-your-first-function-from-the-command-line"></a>Criar sua primeira função na linha de comando
+# <a name="quickstart-create-your-first-function-from-the-command-line-using-azure-cli"></a>Início Rápido: Criar sua primeira função por meio da linha de comando usando a CLI do Azure
 
 Este tópico de início rápido explica como criar sua primeira função na linha de comando ou no terminal. É possível usar a CLI do Azure para criar um aplicativo de funções, que é a infraestrutura [sem servidor](https://azure.microsoft.com/solutions/serverless/) que hospeda sua função. O projeto de código de função é gerado de um modelo usando o [Azure Functions Core Tools](functions-run-local.md), que também é usado para implantar o projeto de aplicativo de funções no Azure.
 
@@ -28,7 +28,7 @@ Antes de executar este exemplo, você deve ter o seguinte:
 
 + Instale o [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.6.666 ou posterior.
 
-+ Instale a [CLI do Azure]( /cli/azure/install-azure-cli). Este artigo requer a CLI do Azure versão 2.0 ou posterior. Execute `az --version` descobrir a versão que você tem. Você também pode usar o [Azure Cloud Shell](https://shell.azure.com/bash).
++ Instale a [CLI do Azure](/cli/azure/install-azure-cli). Este artigo exige a CLI do Azure versão 2.0 ou posterior. Execute `az --version` descobrir a versão que você tem. Você também pode usar o [Azure Cloud Shell](https://shell.azure.com/bash).
 
 + Uma assinatura ativa do Azure.
 

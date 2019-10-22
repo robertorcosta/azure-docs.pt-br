@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Kanbanize | Microsoft Docs'
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Kanbanize | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Kanbanize.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/07/2019
+ms.date: 10/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69103ea0e6088b4a823df34ebd982c67e2502cb3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 7c5a3a096c5a44f681d23587837ae31fd1af33b2
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879456"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373222"
 ---
-# <a name="tutorial-integrate-kanbanize-with-azure-active-directory"></a>Tutorial: Integrar o Kanbanize ao Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Kanbanize
 
 Neste tutorial, você aprenderá a integrar o Kanbanize ao Azure AD (Azure Active Directory). Ao integrar o Kanbanize ao Azure AD, você poderá:
 
@@ -58,32 +58,32 @@ Para configurar a integração do Kanbanize com o Azure AD, você precisará adi
 1. Na seção **Adicionar por meio da galeria**, digite **Kanbanize** na caixa de pesquisa.
 1. Selecione **Kanbanize** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on-for-kanbanize"></a>Configurar e testar logon único do Azure AD para o Kanbanize
 
 Configure e teste o SSO do Azure AD com o Kanbanize usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Kanbanize.
 
 Para configurar e testar o SSO do Azure AD com o Kanbanize, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-2. **[Configurar o SSO do Kanbanize](#configure-kanbanize-sso)** – para definir as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
-5. **[Criar usuário de teste do Kanbanize](#create-kanbanize-test-user)** – para ter um equivalente de B.Fernandes no Kanbanize que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
+    1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+1. **[Configurar o SSO do Kanbanize](#configure-kanbanize-sso)** – para definir as configurações de logon único no lado do aplicativo.
+    1. **[Criar usuário de teste do Kanbanize](#create-kanbanize-test-user)** – para ter um equivalente de B.Fernandes no Kanbanize que esteja vinculado à representação do usuário no Azure AD.
+1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Kanbanize**, localize a seção **Gerenciar** e selecione **Logon único**.
-1. Na página **Escolher um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
 1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, digite os valores dos seguintes campos:
 
-    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.kanbanize.com/`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.kanbanize.com/`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.kanbanize.com/saml/acs`
 
@@ -102,54 +102,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![image](common/edit-attribute.png)
 
-1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
 1. Na seção **Configurar o Kanbanize**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
-
-### <a name="configure-kanbanize-sso"></a>Configurar o SSO do Kanbanize
-
-1. Em uma janela diferente do navegador da Web, entre no Kanbanize como Administrador de Segurança.
-
-2. No lado superior direito da página, clique no logotipo de **Configurações**.
-
-    ![Configurações do Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-set.png)
-
-3. Na página do painel de Administração do lado esquerdo do menu, clique em **Integrações** e, em seguida, habilite o **Logon Único**.
-
-    ![Integrações do Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
-
-4. Na seção Integrações, clique em **CONFIGURAR** para abrir a página **Integração de Logon Único**.
-
-    ![Configuração do Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-config.png)
-
-5. Na página **Integração de Logon Único**, em **Configurações**, execute as seguintes etapas:
-
-    ![Integrações do Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
-
-    a. Na caixa de texto **ID da Entidade de IdP**, cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure.
-
-    b. Na caixa de texto **Ponto de Extremidade de Logon de IDP**, cole o valor da **URL de Logon** copiado do portal do Azure.
-
-    c. Na caixa de texto **Ponto de Extremidade de Logoff de IDP**, cole o valor da **URL de Logoff** copiado do portal do Azure.
-
-    d. Na caixa de texto **Nome de atributo de Email**, insira este valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
-
-    e. Na caixa de texto **Nome de atributo de Primeiro Nome**, insira este valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
-
-    f. Na caixa de texto **Nome de atributo de Sobrenome**, insira este valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
-
-    > [!Note]
-    > Você pode obter esses valores combinando os valores de namespace e nome do respectivo atributo da seção de Atributos de usuário do portal do Azure.
-
-    g. No Bloco de notas, abra o certificado codificado em Base 64 baixado no portal do Azure, copie o conteúdo (sem os marcadores de início e fim) e cole-o na caixa **Certificado X.509**.
-
-    h. Marque **Habilitar logon com SSO e Kanbanize**.
-
-    i. Clique em **Salvar Configurações**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -181,11 +140,60 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
+## <a name="configure-kanbanize-sso"></a>Configurar o SSO do Kanbanize
+
+1. Para automatizar a configuração no Kanbanize, é necessário instalar a **extensão do navegador Entrada Segura dos Meus Aplicativos** clicando em **Instalar a extensão**.
+
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
+
+2. Após a adição da extensão ao navegador, um clique em **Configurar o Kanbanize** direcionará você ao aplicativo Kanbanize. Nele, forneça as credenciais de administrador para entrar no Kanbanize. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 7.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+3. Caso deseje configurar o Kanbanize manualmente, abra uma nova janela do navegador da Web, entre em seu site de empresa do Kanbanize como administrador e execute as seguintes etapas:
+
+4. No lado superior direito da página, clique no logotipo de **Configurações**.
+
+    ![Configurações do Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-set.png)
+
+5. Na página do painel de Administração do lado esquerdo do menu, clique em **Integrações** e, em seguida, habilite o **Logon Único**.
+
+    ![Integrações do Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+
+6. Na seção Integrações, clique em **CONFIGURAR** para abrir a página **Integração de Logon Único**.
+
+    ![Configuração do Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-config.png)
+
+7. Na página **Integração de Logon Único**, em **Configurações**, execute as seguintes etapas:
+
+    ![Integrações do Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
+
+    a. Na caixa de texto **ID da Entidade de IdP**, cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure.
+
+    b. Na caixa de texto **Ponto de Extremidade de Logon de IDP**, cole o valor da **URL de Logon** copiado do portal do Azure.
+
+    c. Na caixa de texto **Ponto de Extremidade de Logoff de IDP**, cole o valor da **URL de Logoff** copiado do portal do Azure.
+
+    d. Na caixa de texto **Nome de atributo de Email**, insira este valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+
+    e. Na caixa de texto **Nome de atributo de Primeiro Nome**, insira este valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+
+    f. Na caixa de texto **Nome de atributo de Sobrenome**, insira este valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+
+    > [!Note]
+    > Você pode obter esses valores combinando os valores de namespace e nome do respectivo atributo da seção de Atributos de usuário do portal do Azure.
+
+    g. No Bloco de notas, abra o certificado codificado em Base 64 baixado no portal do Azure, copie o conteúdo (sem os marcadores de início e fim) e cole-o na caixa **Certificado X.509**.
+
+    h. Marque **Habilitar logon com SSO e Kanbanize**.
+
+    i. Clique em **Salvar Configurações**.
+
 ### <a name="create-kanbanize-test-user"></a>Criar usuário de teste do Kanbanize
 
-Nesta seção, um usuário chamado Brenda Fernandes será criado no Kanbanize. O Kanbanize é compatível com o provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Kanbanize, um novo será criado após a autenticação. Se precisar criar um usuário manualmente, contate a [Equipe de suporte ao cliente do Kanbanize](mailto:support@ms.kanbanize.com).
+Nesta seção, um usuário chamado B.Fernandes será criado no Kanbanize. O Kanbanize é compatível com o provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Kanbanize, um novo será criado após a autenticação. Se precisar criar um usuário manualmente, contate a [Equipe de suporte ao cliente do Kanbanize](mailto:support@ms.kanbanize.com).
 
-### <a name="test-sso"></a>Testar o SSO
+## <a name="test-sso"></a>Testar o SSO 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
@@ -198,4 +206,6 @@ Ao clicar no bloco do Kanbanize no Painel de Acesso, você deverá ser conectado
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimentar o Kanbanize com o Azure AD](https://aad.portal.azure.com/)
 

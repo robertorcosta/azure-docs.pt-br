@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: 09970468a277dcaf3f28b4f5065572568089a12e
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: d4edc634ad41042642b1d73f28ec61cb6dc15ac4
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038485"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433328"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -30,7 +30,7 @@ O Azure Spring Cloud aprimora a experiência de diagnóstico de aplicativos para
 
 ### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Quais planos de serviço o Azure Spring Cloud oferece?
 
-O Azure Spring Cloud é gratuito durante o período de versão prévia.
+O Azure Spring Cloud oferece um plano de serviço durante o período de versão prévia.
 
 Recurso | Amount
 ------- | -------

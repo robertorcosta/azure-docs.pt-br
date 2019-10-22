@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b3210b97fe6fb0cd16499d5c33538c8e2babe612
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5e9b94f0c67b4b4630d554f4dde22502c90e777c
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173670"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376367"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Tutorial: Criar um aplicativo com um serviço front-end de API do Java e um serviço back-end com estado no Azure Service Fabric
 
@@ -228,7 +228,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>Adicionar o arquivo HTTPCommunicationListener.java
 
-O ouvinte de comunicação HTTP atua como um controlador que configura o servidor HTTP e expõe as APIs que definem ações de votação. Clique com o botão direito do mouse no pacote *statelessservice* na pasta *src/VotingWeb/statelessservice* e selecione **Novo****Arquivo**.  Dê ao arquivo o nome *HttpCommunicationListener.java* e selecione **Concluir**.
+O ouvinte de comunicação HTTP atua como um controlador que configura o servidor HTTP e expõe as APIs que definem ações de votação. Clique com o botão direito do mouse no pacote *statelessservice* na pasta *VotingWeb/src/statelessservice* e, em seguida, selecione **Novo** > **Arquivo**.  Dê ao arquivo o nome *HttpCommunicationListener.java* e selecione **Concluir**.
 
 Substitua o conteúdo do arquivo pelo seguinte, depois salve as alterações.  Posteriormente, em Atualizar o arquivo HttpCommunicationListener.java, esse arquivo será modificado para renderizar, ler e gravar dados de votação do serviço back-end.  Por enquanto, o ouvinte simplesmente retorna o HTML estático para o aplicativo de votação.
 

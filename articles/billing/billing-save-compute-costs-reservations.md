@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: bb90a9dec161746356b8c13df448718c53626684
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b2c3fd9b59b371330e37dceb52b2e89b3db6c48e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806350"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390154"
 ---
 # <a name="what-are-azure-reservations"></a>O que são Reservas do Azure?
 
@@ -40,11 +40,11 @@ Para as máquinas virtuais do Windows e banco de Dados SQL, você pode cobrir os
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Quem é elegível para comprar uma reserva?
 
-Para comprar um plano, você deve ter uma função de proprietário de assinatura em uma assinatura Enterprise (MS-AZR-0017P ou MS-AZR-0148P) ou de Pagamento Conforme o Uso (MS-AZR-0003P ou MS-AZR-0023P). Os provedores de solução na nuvem podem usar o portal do Azure ou o  [Partner Center](/partner-center/azure-reservations)  para comprar Reservas do Azure.
+Para comprar um plano, você deve ter uma função de proprietário de assinatura em uma assinatura Enterprise (MS-AZR-0017P ou MS-AZR-0148P) ou de Pagamento Conforme o Uso (MS-AZR-0003P ou MS-AZR-0023P) ou de Contrato de Cliente da Microsoft. Os provedores de solução na nuvem podem usar o portal do Azure ou o  [Partner Center](/partner-center/azure-reservations)  para comprar Reservas do Azure.
 
 Clientes com EA (Contrato Enterprise) podem limitar as compras aos administradores de EA desabilitando a opção **Adicionar Instâncias Reservadas** no Portal do EA. Os administradores de EA precisam ser proprietários de pelo menos uma assinatura de EA para comprar uma reserva. A opção é útil para empresas que desejam que uma equipe centralizada compre reservas para diferentes centros de custo. Após a compra, as equipes centralizadas podem adicionar proprietários de centro de custo às reservas. Os proprietários podem, então, definir o escopo da reserva para suas assinaturas. A equipe central não precisa ter acesso de proprietário da assinatura no local em que a reserva é comprada.
 
-Um desconto de reserva aplica-se somente aos recursos associados a assinaturas adquiridas por meio do Enterprise, do CSP (Provedor de Soluções de Nuvem) e planos individuais com tarifas pagas conforme o uso.
+Um desconto de reserva aplica-se somente aos recursos associados a assinaturas adquiridas por meio do Enterprise, do CSP (Provedor de Soluções de Nuvem), Contrato de Cliente da Microsoft e planos individuais com tarifas pagas conforme o uso.
 
 ## <a name="scope-reservations"></a>Escopo das reservas
 
@@ -56,7 +56,7 @@ Com o escopo do grupo de recursos, você tem três opções para definir o escop
 
 - **Escopo de grupo de recursos único** — aplica o desconto de reserva apenas aos recursos correspondentes no grupo de recursos selecionado.
 - **Escopo de assinatura única** — aplica o desconto de reserva apenas aos recursos correspondentes na assinatura selecionada.
-- **Escopo compartilhado** — aplica o desconto de reserva aos recursos correspondentes em assinaturas qualificadas que estão no contexto de cobrança. Para clientes do Contrato Enterprise, o contexto de cobrança é o registro. Para assinaturas individuais com tarifas pagas conforme o uso, o escopo do orçamento são todas as assinaturas qualificadas criadas pelo administrador da conta.
+- **Escopo compartilhado** — aplica o desconto de reserva aos recursos correspondentes em assinaturas qualificadas que estão no contexto de cobrança. Para clientes do Contrato Enterprise, o contexto de cobrança é o registro. Para clientes do Contrato de Cliente da Microsoft, o escopo do orçamento é o perfil de cobrança. Para assinaturas individuais com tarifas pagas conforme o uso, o escopo do orçamento são todas as assinaturas qualificadas criadas pelo administrador da conta.
 
 Ao aplicar descontos de reserva ao seu uso, o Azure processa a reserva na seguinte ordem:
 
@@ -84,7 +84,7 @@ Você sempre pode atualizar o escopo depois de comprar uma reserva. Para fazer i
 
 Você pode monitorar o uso da reserva de várias maneiras – no portal do Azure, usando APIs ou por meio dos dados de uso. Para ver todas as reservas a que tem acesso, vá até **Reservas** no portal do Azure. A grade de reservas mostra o percentual de utilização gravado pela última vez para a reserva. Clique na reserva para ver sua utilização de longo prazo.
 
-Você também poderá obter a utilização da reserva usando [APIs](billing-reservation-apis.md#see-reservation-usage) e seus [dados de uso](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) se for um cliente com Contrato Enterprise.
+Você também poderá obter utilização de reserva usando [APIs](billing-reservation-apis.md#see-reservation-usage) e dos seus [dados de uso](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) se for um contrato Enterprise ou um cliente do Contrato de Cliente da Microsoft.
 
 Se observar que a utilização da reserva com escopo do grupo de recursos está baixa, você poderá atualizar o escopo da reserva para uma assinatura única ou compartilhá-la no contexto da cobrança. Você também pode dividir a reserva e aplicar as reservas resultantes a grupos de recursos diferentes.
 
@@ -99,6 +99,7 @@ O escopo de uma reserva não será atualizado automaticamente se você mover o g
 Os descontos na reserva aplicam-se às seguintes assinaturas e tipos de oferta elegíveis.
 
 - Enterprise Agreement (números da oferta: MS-AZR-0017P ou MS-AZR-0148P)
+- Assinaturas do Contrato de Cliente da Microsoft.
 - Planos individuais com tarifas de pagamento conforme o uso (números da oferta: MS-AZR-0003P ou MS-AZR-0023P)
 - Assinaturas de CSP
 
@@ -106,7 +107,7 @@ Os recursos executados em uma assinatura com outros tipos de oferta não recebem
 
 ## <a name="how-is-a-reservation-billed"></a>Como uma reserva é cobrada?
 
-A reserva é cobrada no método de pagamento associado à assinatura. Se você tiver uma assinatura do Enterprise, o custo de reserva será deduzido do seu saldo de investimento. Quando o saldo do compromisso monetário não cobrir o custo da reserva, você será cobrado pelo excedente. Se você tiver uma assinatura de um plano individual com tarifas pagas conforme o uso, o cartão de crédito que você tem em sua conta será cobrado imediatamente para as compras antecipadas. Os pagamentos mensais aparecem em sua fatura e seu cartão de crédito é cobrado mensalmente. Quando for cobrado por fatura, você verá os encargos na sua próxima fatura.
+A reserva é cobrada no método de pagamento associado à assinatura. O custo de reserva é deduzido do saldo do seu compromisso monetário, se disponível. Quando o saldo do compromisso monetário não cobrir o custo da reserva, você será cobrado pelo excedente. Se você tiver uma assinatura de um plano individual com tarifas pagas conforme o uso, o cartão de crédito que você tem em sua conta será cobrado imediatamente para as compras antecipadas. Os pagamentos mensais aparecem em sua fatura e seu cartão de crédito é cobrado mensalmente. Quando for cobrado por fatura, você verá os encargos na sua próxima fatura.
 
 ## <a name="how-reservation-discount-is-applied"></a>Como o desconto de reserva é aplicado
 
@@ -120,7 +121,7 @@ Por exemplo, você pode criar um recurso posteriormente e ter uma reserva corres
 
 Se as máquinas virtuais são executadas em diferentes assinaturas em sua conta ou registro, então, selecione o escopo como compartilhado. O escopo compartilhado permite que o desconto de reserva seja aplicado entre assinaturas. Você pode alterar o escopo depois de comprar uma reserva. Para obter mais informações, consulte [Gerenciar Reservas do Azure](billing-manage-reserved-vm-instance.md).
 
-Um desconto de reserva aplica-se apenas aos recursos associados aos tipos de assinatura Enterprise, CSP ou assinaturas com tarifas pagas conforme o uso. Os recursos executados em uma assinatura com outros tipos de oferta não recebem o desconto de reserva.
+Um desconto de reserva aplica-se apenas aos recursos associados aos tipos de assinatura Enterprise, Contrato de Cliente da Microsoft, CSP ou assinaturas com tarifas pagas conforme o uso. Os recursos executados em uma assinatura com outros tipos de oferta não recebem o desconto de reserva.
 
 ## <a name="when-the-reservation-term-expires"></a>Quando o prazo da reserva expira
 

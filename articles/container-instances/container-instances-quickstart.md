@@ -1,5 +1,5 @@
 ---
-title: Início Rápido – implantar um contêiner do Docker em Instâncias de Contêiner do Azure – CLI
+title: 'Início Rápido: implantar um contêiner do Docker em Instâncias de Contêiner do Azure – CLI do Azure'
 description: Neste início rápido, você usa a CLI do Azure para implantar rapidamente um aplicativo Web em contêineres que é executado em uma instância de contêiner do Azure isolada
 services: container-instances
 author: dlepow
@@ -8,13 +8,16 @@ ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
-ms.custom: seodec18, mvc
-ms.openlocfilehash: b344e5fefdef6cd25dcafc0577b9fbbd7f0e398d
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.custom:
+- seo-python-october2019
+- seodec18
+- mvc
+ms.openlocfilehash: 65c067792499017a7e00fdbb6199e591981683f8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050633"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429213"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Início Rápido: Implantar uma instância de contêiner no Azure usando a CLI do Azure
 
@@ -22,7 +25,7 @@ Use as Instâncias de Contêiner do Azure para executar contêineres do Docker s
 
 Neste início rápido, você usará a CLI do Azure para implantar um contêiner do Docker isolado e disponibilizar o respectivo aplicativo com um FQDN (nome de domínio totalmente qualificado). Alguns segundos depois de executar um comando único de implantação, é possível navegar para o aplicativo em execução no contêiner:
 
-![Aplicativos implantados nas Instâncias de Contêiner do Azure exibidos no navegador][aci-app-browser]
+![Exibir um aplicativo implantado nas Instâncias de Contêiner do Azure no navegador][aci-app-browser]
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][azure-account] antes de começar.
 
@@ -69,7 +72,7 @@ aci-demo.eastus.azurecontainer.io  Succeeded
 
 Se o `ProvisioningState` do contêiner for **Êxito**, vá até o FQDN dele no seu navegador. Se você encontrar uma página da Web semelhante à seguinte, parabéns! Você implantou com êxito um aplicativo em execução em um contêiner do Docker no Azure.
 
-![Captura de tela de navegador mostrando aplicativo em execução em uma instância de contêiner do Azure][aci-app-browser]
+![Exibir um aplicativo implantado nas Instâncias de Contêiner do Azure no navegador][aci-app-browser]
 
 Se o aplicativo não for exibido inicialmente, poderá ser necessário aguardar alguns segundos enquanto o DNS é propagado e, em seguida, tente atualizar seu navegador.
 
@@ -155,7 +158,7 @@ Neste início rápido, você criou uma instância de contêiner do Azure usando 
 Para experimentar as opções para contêineres em execução em um sistema de orquestração no Azure, veja os inícios rápidos do [AKS (Serviço de Kubernetes do Azure)][container-service].
 
 <!-- IMAGES -->
-[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+[aci-app-browser]: ./media/container-instances-quickstart/view-an-application-running-in-an-azure-container-instance.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

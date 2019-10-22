@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b6d1de1ee24ce9ca67d3bd8fa514ec9ea7a5c771
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ca0f83628edeef9e55ebc81798d0229791b80a7a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709550"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375496"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Concluir as tarefas do Contrato Enterprise em sua conta de cobrança para um Contrato de Cliente da Microsoft
 
@@ -27,7 +27,7 @@ Caso sua organização tenha assinado um Contrato de Cliente da Microsoft para r
 
 O diagrama a seguir descreve como a cobrança é organizada em sua nova conta de cobrança.
 
-![Imagem da hierarquia do EA-MCA pós-transição](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
+![Imagem da hierarquia do EA-MCA pós-transição](./media/mca-setup-account/mca-post-transition-hierarchy.png)
 
 | Contrato Enterprise   | Contrato de Cliente da Microsoft    |
 |------------------------|--------------------------------------------------------|
@@ -72,9 +72,9 @@ Para exibir o custo agregado de assinaturas que pertenciam a uma conta, é neces
 
 Uma fatura mensal é gerada para cada perfil de cobrança em sua conta de cobrança. Para cada fatura, você pode baixar o arquivo CSV de uso e encargos do Azure, a planilha de preços e o documento de imposto (se aplicável). Você também pode baixar o arquivo CSV de uso e encargos do Azure para os encargos do mês atual.
 
-Para saber como baixar o arquivo CSV de uso e encargos do Azure, confira [Baixar o uso de seu Contrato de Cliente da Microsoft](billing-download-azure-daily-usage.md#download-usage-for-your-microsoft-customer-agreement).
+Para saber como baixar o arquivo CSV de uso e encargos do Azure, confira [Baixar o uso de seu Contrato de Cliente da Microsoft](billing-download-azure-daily-usage.md).
 
-Para saber como baixar a planilha de preços, confira [Baixar os preços de seu Contrato de Cliente da Microsoft](billing-ea-pricing.md#microsoft-customer-agreement-pricing).
+Para saber como baixar a planilha de preços, confira [Baixar os preços de seu Contrato de Cliente da Microsoft](billing-ea-pricing.md).
 
 Para saber como baixar os documentos de imposto confira [Exibir os documentos de imposto de seu Contrato de Cliente da Microsoft](billing-mca-download-tax-document.md#view-and-download-tax-documents).
 
@@ -90,7 +90,7 @@ Crie uma seção da fatura para organizar os custos conforme suas necessidades, 
 
 ### <a name="create-a-new-account"></a>Criar uma nova conta
 
-Atribua aos usuários a função de criador de assinatura do Azure nas seções da fatura para conceder a eles a permissão para criar uma assinatura do Azure, como as contas criadas no registro do Contrato Enterprise. Para obter mais informações, confira [Conceder a outros usuários a permissão para criar assinaturas do Azure](billing-mca-create-subscription.md#give-others-permission).
+Atribua aos usuários a função de criador de assinatura do Azure nas seções da fatura para conceder a eles a permissão para criar uma assinatura do Azure, como as contas criadas no registro do Contrato Enterprise. Para obter mais informações sobre como atribuir funções, confira [Gerenciar funções de cobrança no portal do Azure](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ## <a name="changes-for-department-administrators"></a>Alterações para administradores do departamento
 
@@ -116,7 +116,7 @@ Para saber como fornecer acesso à seção da fatura, confira [Gerenciar funçõ
 
 ### <a name="create-a-new-account-in-your-department"></a>Criar uma conta em seu departamento
 
-Atribua usuários à função de criador de assinatura do Azure na seção da fatura criada para seu departamento. Para obter mais informações, confira [Conceder a outros usuários a permissão para criar assinaturas do Azure](billing-mca-create-subscription.md#give-others-permission).
+Atribua usuários à função de criador de assinatura do Azure na seção da fatura criada para seu departamento. Para obter mais informações sobre como atribuir funções, confira [Gerenciar funções de cobrança no portal do Azure](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ### <a name="view-charges-for-accounts-in-your-departments"></a>Exibir encargos para contas em seus departamentos
 

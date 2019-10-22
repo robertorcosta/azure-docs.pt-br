@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Executar um trabalho do Spark no Azure Databricks usando o modelo do Resource Manager '
+title: Criar um workspace do Azure Databricks com o Azure Resource Manager
 description: O início rápido mostra como usar o modelo do Azure Resource Manager para criar um workspace do Azure Databricks, depois um cluster do Apache Spark e executar um trabalho do Spark.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 8d4cfb2be687f258255379d93fd60028dcd2eb2c
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 5f22c9e7b7f040a0e6b957cbc184720918ce9222
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "68932605"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274151"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Início Rápido: Executar um trabalho do Spark no Azure Databricks usando o modelo do Azure Resource Manager
 

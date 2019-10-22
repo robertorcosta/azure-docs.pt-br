@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-ms.openlocfilehash: 82c56a01d7f14f1eeae26dfa784f3545552bf6b9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 43d39039d01b22e7d918755e9557d6a1030ef7a8
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981380"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302867"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Criar e gerenciar políticas para impor a conformidade
 
@@ -390,7 +390,7 @@ Com uma definição de iniciativa, você pode agrupar várias definições de po
 
 1. Selecione **Conformidade** no lado esquerdo da página do Azure Policy.
 
-1. Localize a iniciativa **Obter Origem**. É provável que ainda esteja no _Estado de conformidade_ de **Não iniciado**.
+1. Localize a iniciativa **Ficar Seguro**. É provável que ainda esteja no _Estado de conformidade_ de **Não iniciado**.
    Clique na iniciativa para obter todos os detalhes sobre o progresso da atribuição.
 
    ![Página de conformidade da iniciativa – avaliações não iniciadas](../media/create-and-manage/compliance-status-not-started.png)

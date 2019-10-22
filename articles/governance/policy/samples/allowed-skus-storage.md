@@ -1,17 +1,17 @@
 ---
-title: Exemplo – SKUs permitidas para contas de armazenamento e máquinas virtuais
+title: Exemplo – SKUs de VM e de conta de armazenamento permitidas
 description: Esta definição de política de exemplo exige que as contas de armazenamento e as máquinas virtuais usem SKUs aprovados.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: e84462a930ffad202def1da1e2c923371dde9d58
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: bfa6fd7bf812da352e074c0ed4df855043a27971
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980600"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255865"
 ---
 # <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Exemplo – SKUs permitidas para contas de armazenamento e máquinas virtuais
 

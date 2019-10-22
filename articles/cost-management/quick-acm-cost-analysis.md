@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/11/2019
+ms.date: 10/14/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 2ca0c0741ea543b30695303d473389979f2e1045
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f2e1d19f69b426cee870d2ede489b7c458404704
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855042"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374765"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início Rápido: Explorar e analisar os custos com a análise de custo
 
@@ -34,16 +34,7 @@ Neste guia de início rápido, você aprende a:
 
 A análise de custo dá suporte a diferentes tipos de conta do Azure. Para exibir a lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Para exibir os dados de custo, você precisará de, pelo menos, acesso de leitura em sua conta do Azure.
 
-Para clientes do [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/), é necessário ter, pelo menos, acesso de leitura a um ou mais dos escopos a seguir para exibir os dados de custo.
-
-- Conta de cobrança
-- department
-- Conta de registro
-- Grupo de gerenciamento
-- Subscription
-- Resource group
-
-Para saber mais sobre como atribuir acesso aos dados de Gerenciamento de Custos do Azure, confira [Atribuir acesso aos dados](assign-access-acm-data.md).
+Para obter informações sobre como atribuir o acesso aos dados do Gerenciamento de Custos do Azure, confira [Atribuir acesso aos dados](assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -116,7 +107,7 @@ Aqui está uma exibição dos custos de serviço do Azure para o mês atual.
 
 ![Exibição acumulada diária agrupada, mostrando exemplos de custos de serviço do Azure do último mês](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-Por padrão, a análise de custo mostra todos os custos de uso e compra conforme eles são acumulados e serão exibidos na sua fatura, também conhecido como **Custo real**. A exibição do custo real é ideal para reconciliar sua fatura. No entanto, picos de compra no custo podem ser alarmantes quando você está atento a anomalias de gastos e outras alterações no custo. Para nivelar os picos causados pelos custos de compra de reserva, mude para **Custo amortizado**. 
+Por padrão, a análise de custo mostra todos os custos de uso e compra conforme eles são acumulados e serão exibidos na sua fatura, também conhecido como **Custo real**. A exibição do custo real é ideal para reconciliar sua fatura. No entanto, picos de compra no custo podem ser alarmantes quando você está atento a anomalias de gastos e outras alterações no custo. Para nivelar os picos causados pelos custos de compra de reserva, mude para **Custo amortizado**.
 
 ![Alterne entre custo amortizado e real para ver a distribuição de compras de reserva entre o termo e alocadas aos recursos que usaram a reserva](./media/quick-acm-cost-analysis/metric-picker.png)
 
@@ -169,11 +160,11 @@ Para obter mais informações sobre termos, confira [Compreender os termos usado
 
 ## <a name="saving-and-sharing-customized-views"></a>Como salvar e compartilhar exibições personalizadas
 
-Salve e compartilhe exibições personalizadas com outras pessoas fixando a análise de custo ao painel do portal do Azure ou copiando um link para análise de custo. 
+Salve e compartilhe exibições personalizadas com outras pessoas fixando a análise de custo ao painel do portal do Azure ou copiando um link para análise de custo.
 
 Para fixar a análise de custo, selecione o ícone de alfinete no canto superior direito. Fixar a análise de custo salvará apenas a exibição principal de gráfico ou a tabela. Compartilhe o painel para dar a outras pessoas acesso ao bloco. Observe que isso compartilha apenas a configuração do painel e não concede acesso a outras pessoas aos dados subjacentes. Se você não tiver acesso aos custos, mas tiver acesso a um painel compartilhado, verá a mensagem "acesso negado".
 
-Para compartilhar um link para a análise de custo, selecione **Compartilhar** na parte superior da folha. Uma URL personalizada será mostrada, abrindo a exibição específica para esse escopo específico. Se você não tiver acesso aos custos e receber essa URL, verá a mensagem de "acesso negado". 
+Para compartilhar um link para a análise de custo, selecione **Compartilhar** na parte superior da folha. Uma URL personalizada será mostrada, abrindo a exibição específica para esse escopo específico. Se você não tiver acesso aos custos e receber essa URL, verá a mensagem de "acesso negado".
 
 Para saber mais sobre como conceder acesso aos custos para cada escopo com suporte, examine [Entender e trabalhar com escopos](understand-work-scopes.md).
 
@@ -183,14 +174,14 @@ Para saber mais sobre como conceder acesso aos custos para cada escopo com supor
 
 Se você precisar do conjunto de dados completo não agregado, baixe-o da conta de cobrança. Em seguida, na lista de serviços no painel de navegação esquerdo do portal, acesse **Gerenciamento de Custos + Cobrança**. Selecione a conta de cobrança, se aplicável. Acesse **Uso + encargos** e selecione o ícone **Baixar** do período de cobrança desejado.
 
-Adote uma abordagem semelhante para automatizar o recebimento de dados de custos. Use a [API de Consulta](/rest/api/cost-management/query) para uma análise mais avançada com filtragem dinâmica, agrupamento e agregação ou use a [API UsageDetails](/rest/api/consumption/usageDetails) para obter o conjunto de dados completo não agregado. A versão de GA (disponibilidade geral) dessas APIs é 2019-01-01. Use a **2019-04-01-preview** para obter acesso à versão prévia de reserva e compras no Marketplace dentro dessas APIs. 
+Adote uma abordagem semelhante para automatizar o recebimento de dados de custos. Use a [API de Consulta](/rest/api/cost-management/query) para uma análise mais avançada com filtragem dinâmica, agrupamento e agregação ou use a [API UsageDetails](/rest/api/consumption/usageDetails) para obter o conjunto de dados completo não agregado. A versão de GA (disponibilidade geral) dessas APIs é 2019-01-01. Use a **2019-04-01-preview** para obter acesso à versão prévia de reserva e compras no Marketplace dentro dessas APIs.
 
 Por exemplo, vamos obter uma exibição agregada de custos amortizados detalhados por tipo de preço (uso, compra ou reembolso), tipo de publicador (Azure ou Marketplace), grupo de recursos (vazio para compras) e reserva (vazio se não aplicável).
 
 ```
 POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/query?api-version=2019-04-01-preview
 Content-Type: application/json
- 
+
 {
   "type": "AmortizedCost",
   "timeframe": "Custom",
@@ -221,7 +212,7 @@ GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDe
 ```
 
 Se você precisar que os custos reais mostrem as compras conforme são acumuladas, altere **tipo**/**métrica** para **ActualCost**. Para obter mais informações sobre essas APIs, confira a documentação de API de [Query](/rest/api/cost-management/query) e [UsageDetails](/rest/api/consumption/usageDetails). Observe que os documentos publicados são para a versão GA. Mas ambos funcionam da mesma forma para a versão da API *2019-04-01-preview* fora do novo atributo de tipo/métrica e com os nomes de propriedades alterados. (Mais informações sobre os nomes de propriedades a seguir.)
- 
+
 As APIs de Gerenciamento de Custos trabalham em todos os escopos acima dos recursos: grupo de recursos, assinaturas e grupo de gerenciamento por meio do acesso de RBAC do Azure, contas de cobrança de EA (registros), departamentos e contas de registro por meio de acesso ao Portal do EA. Saiba mais sobre escopos, incluindo como determinar a ID do escopo ou gerenciar o acesso, em [Entender e trabalhar com escopos](understand-work-scopes.md).
 
 ## <a name="next-steps"></a>Próximas etapas

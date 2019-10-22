@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: aafec48f86ee032b112e9bb1100f82fbb3b363ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6368a36eaa2e6832f22a13f20bc35d66c4425b4b
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66170510"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311571"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Criar e usar uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure
 Ao criar um conjunto de dimensionamento, você especifica uma imagem a ser usada quando as instâncias de VM forem implantadas. Para reduzir a quantidade de tarefas depois que as instâncias de VM forem implantadas, é possível usar uma imagem de VM personalizada. Esta imagem de VM personalizada inclui todas as instalações ou configurações de aplicativo necessárias. Todas as instâncias de VM criadas no conjunto de dimensionamento usam a imagem de VM personalizada e estão prontas para atender ao tráfego do aplicativo. Neste tutorial, você aprenderá a:
@@ -98,6 +98,8 @@ az vm generalize --resource-group myResourceGroup --name myVM
 Pode levar alguns minutos para desalocar e generalizar a VM.
 
 Agora crie uma imagem da VM com [az image create](/cli//azure/image). O exemplo abaixo cria uma imagem chamada *myImage* da sua VM:
+
+> [OBSERVAÇÃO] Se o grupo de recursos e a localização da máquina virtual forem diferentes, você poderá adicionar o parâmetro `--location` aos comandos abaixo para especificar a localização da VM de origem usada para criar a imagem. 
 
 ```azurecli-interactive
 az image create \

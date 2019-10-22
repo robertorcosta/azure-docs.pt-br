@@ -5,15 +5,15 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.date: 05/31/2019
+ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 17e27fcbd0e31c8602869be3d884888fe4fe7db0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b381c4be5d0c56e14ccd01657542ef3bff2f8894
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095823"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285676"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Usar a verificação de integridade no Gerenciador de Implantação do Azure (versão prévia pública)
 
@@ -38,8 +38,8 @@ Este tutorial cobre as seguintes tarefas:
 
 Recursos adicionais:
 
-- A [referência à API REST do Gerenciador de Implantação do Azure](https://docs.microsoft.com/rest/api/deploymentmanager/).
-- [Um exemplo do Gerenciador de Implantação do Azure](https://github.com/Azure-Samples/adm-quickstart).
+* A [referência à API REST do Gerenciador de Implantação do Azure](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Um exemplo do Gerenciador de Implantação do Azure](https://github.com/Azure-Samples/adm-quickstart).
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -48,7 +48,16 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 Para concluir este artigo, você precisa do seguinte:
 
 * Conclua [Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
-* Baixe [os modelos e os artefatos](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) usados por este tutorial.
+
+## <a name="install-the-artifacts"></a>Instalar os artefatos
+
+Baixe [os modelos e os artefatos](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) e descompacte-os localmente, se ainda não tiver feito isso. Em seguida, execute o script do PowerShell encontrado em [Preparar os artefatos](./deployment-manager-tutorial.md#prepare-the-artifacts). O script cria um grupo de recursos, cria um contêiner de armazenamento, cria um contêiner de blobs, faz upload dos arquivos baixados e, em seguida, cria um token SAS.
+
+Faça uma cópia da URL com o token SAS. Essa URL é necessária para preencher um campo em dois arquivos de parâmetro, arquivo de parâmetros da topologia e arquivo de parâmetros de distribuição.
+
+Abra CreateADMServiceTopology.Parameters.json e atualize os valores de **projectName** e **artifactSourceSASLocation**.
+
+Abra CreateADMRollout.Parameters.json e atualize os valores de **projectName** e **artifactSourceSASLocation**.
 
 ## <a name="create-a-health-check-service-simulator"></a>Criar um simulador de serviço de verificação de integridade
 
@@ -56,22 +65,13 @@ Em produção, normalmente, são usados um ou mais provedores de monitoramento. 
 
 Os dois seguintes arquivos são usados para implantar a Função do Azure. Você não precisa baixar esses arquivos para acompanhar o tutorial.
 
-* Um modelo do Resource Manager localizado em [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Você implantará esse modelo para criar uma Função do Azure.
-* Um arquivo zip do código-fonte da Função do Azure, [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). Esse zip chamado é chamado pelo modelo do Resource Manager.
+* Um modelo do Resource Manager localizado em [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json). Você implantará esse modelo para criar uma Função do Azure.
+* Um arquivo zip do código-fonte da Função do Azure, [https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip). Esse zip chamado é chamado pelo modelo do Resource Manager.
 
 Para implantar a função do Azure, selecione **Experimentar** para abrir o Azure Cloud Shell e, em seguida, cole o script a seguir na janela do shell.  Para colar o código, clique com o botão direito do mouse na janela do shell e, em seguida, selecione **Colar**.
 
-> [!IMPORTANT]
-> **projectName** no script do PowerShell é usado para gerar nomes para os serviços do Azure que são implantados neste tutorial. Diferentes serviços do Azure têm diferentes requisitos nos nomes. Para garantir que a implantação seja bem-sucedida, escolha um nome que tenha menos de 12 caracteres com apenas letras minúsculas e números.
-> Salve uma cópia do nome do projeto. Você usará o mesmo projectName em todo o tutorial.
-
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$resourceGroupName = "${projectName}rg"
-
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json" -projectName $projectName
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json" -projectName $projectName
 ```
 
 Para verificar e testar a função do Azure:
@@ -107,9 +107,9 @@ Para verificar e testar a função do Azure:
 
 ## <a name="revise-the-rollout-template"></a>Revisar o modelo de distribuição
 
-O objetivo desta seção é mostrar como incluir uma etapa de verificação de integridade no modelo de distribuição. Você não precisa criar seu próprio arquivo CreateADMRollout.json para concluir este tutorial. O modelo de distribuição revisado é compartilhado em uma conta de armazenamento que é usada nas seções seguintes.
+O objetivo desta seção é mostrar como incluir uma etapa de verificação de integridade no modelo de distribuição.
 
-1. Abra **CreateADMRollout.json**. Esse arquivo JSON é uma parte do download.  Consulte [Pré-requisitos](#prerequisites).
+1. Abra **CreateADMRollout.json** que você criou em [Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md). Esse arquivo JSON é uma parte do download.  Consulte [Pré-requisitos](#prerequisites).
 1. Adicione mais dois parâmetros:
 
     ```json
@@ -233,26 +233,14 @@ O objetivo desta seção é mostrar como incluir uma etapa de verificação de i
 
 ## <a name="deploy-the-topology"></a>Implantar a topologia
 
-Para simplificar o tutorial, o modelo de topologia e os artefatos são compartilhados nas localizações a seguir, de modo que você não precise preparar sua própria cópia. Caso deseje usar sua própria cópia, siga as instruções do [Tutorial: Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
+Execute o seguinte script do PowerShell para implantar a topologia. Você precisa dos mesmos **CreateADMServiceTopology.json** e **CreateADMServiceTopology.Parameters.json** que você usou em [Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
 
-* Modelo de topologia: https:\//armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
-* Repositório de artefatos: https:\//armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
-
-Para implantar a topologia, selecione **Experimentar** para abrir o Cloud Shell e, em seguida, cole o script do PowerShell.
-
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$resourceGroupName = "${projectName}rg"
-$artifactLocation = "https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore?st=2019-05-06T03%3A57%3A31Z&se=2020-05-07T03%3A57%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=gOh%2Bkhi693rmdxiZFQ9xbKZMU1kbLJDqXw7EP4TaGlI%3D" | ConvertTo-SecureString -AsPlainText -Force
-
+```azurepowershell
 # Create the service topology
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMServiceTopology.json" `
-    -namePrefix $projectName `
-    -azureResourceLocation $location `
-    -artifactSourceSASLocation $artifactLocation
+    -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
+    -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
 ```
 
 Verifique se a topologia de serviço e os recursos de sublinhado foram criados com êxito usando o portal do Azure:
@@ -263,32 +251,18 @@ Verifique se a topologia de serviço e os recursos de sublinhado foram criados c
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Implantar a distribuição com o status não íntegro
 
-Para simplificar o tutorial, o modelo de distribuição revisado é compartilhado nas localizações a seguir, de modo que você não precise preparar sua própria cópia. Caso deseje usar sua própria cópia, siga as instruções do [Tutorial: Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
-
-* Modelo de topologia: https:\//armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
-* Repositório de artefatos: https:\//armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
-
-Use a URL de status não íntegro que você criou em [Criar um simulador de serviço de verificação de integridade](#create-a-health-check-service-simulator). Para **managedIdentityID**, confira [Criar a identidade gerenciada atribuída ao usuário](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity).
+Use a URL de status não íntegro que você criou em [Criar um simulador de serviço de verificação de integridade](#create-a-health-check-service-simulator). Você precisa do **CreateADMServiceTopology.json** revisado e do mesmo **CreateADMServiceTopology.Parameters.json** que você usou em [Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
 
 ```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$managedIdentityID = Read-Host -Prompt "Enter a user-assigned managed identity"
 $healthCheckUrl = Read-Host -Prompt "Enter the health check Azure function URL"
 $healthCheckAuthAPIKey = $healthCheckUrl.Substring($healthCheckUrl.IndexOf("?code=")+6, $healthCheckUrl.Length-$healthCheckUrl.IndexOf("?code=")-6)
 $healthCheckUrl = $healthCheckUrl.Substring(0, $healthCheckUrl.IndexOf("?"))
 
-$resourceGroupName = "${projectName}rg"
-$artifactLocation = "https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore?st=2019-05-06T03%3A57%3A31Z&se=2020-05-07T03%3A57%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=gOh%2Bkhi693rmdxiZFQ9xbKZMU1kbLJDqXw7EP4TaGlI%3D" | ConvertTo-SecureString -AsPlainText -Force
-
 # Create the rollout
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json" `
-    -namePrefix $projectName `
-    -azureResourceLocation $location `
-    -artifactSourceSASLocation $artifactLocation `
-    -managedIdentityID $managedIdentityID `
+    -TemplateFile "$filePath\ADMTemplates\CreateADMRollout.json" `
+    -TemplateParameterFile "$filePath\ADMTemplates\CreateADMRollout.Parameters.json" `
     -healthCheckUrl $healthCheckUrl `
     -healthCheckAuthAPIKey $healthCheckAuthAPIKey
 ```
@@ -388,9 +362,9 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 1. No portal do Azure, escolha **Grupos de recursos** do menu à esquerda.
 2. Use o campo **Filtrar por nome** para restringir os grupos de recursos criados neste tutorial. Deve haver 3 a 4:
 
-    * **&lt;namePrefix>rg**: contém os recursos do Gerenciador de Implantação.
-    * **&lt;namePrefix>ServiceWUSrg**: contém os recursos definidos pelo ServiceWUS.
-    * **&lt;namePrefix>ServiceEUSrg**: contém os recursos definidos pelo ServiceEUS.
+    * **&lt;projectName>rg**: contém os recursos do Gerenciador de Implantação.
+    * **&lt;projectName>ServiceWUSrg**: contém os recursos definidos pelo ServiceWUS.
+    * **&lt;projectName>ServiceEUSrg**: contém os recursos definidos pelo ServiceEUS.
     * O grupo de recursos para a identidade gerenciada definida pelo usuário.
 3. Selecione o nome do grupo de recursos.
 4. Escolha **Excluir grupo de recursos** no menu superior.

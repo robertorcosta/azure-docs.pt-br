@@ -3,8 +3,8 @@ title: Início Rápido da Configuração de Aplicativo do Azure com o .NET Frame
 description: Um Início Rápido para o uso da Configuração de Aplicativo do Azure com aplicativos .NET Framework
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
-manager: balans
+author: lisaguthrie
+manager: maiye
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,14 +12,14 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
-ms.date: 02/24/2019
-ms.author: yegu
-ms.openlocfilehash: 8aa8c8132220965d55097c4fed8ba1b2e9501301
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 10/09/2019
+ms.author: lcozzens
+ms.openlocfilehash: 17b2e7272d499ce99d40d2ee52de1c7a5a1d0d04
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326521"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329807"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Início Rápido: Criar um aplicativo .NET Framework com a Configuração de Aplicativo do Azure
 
@@ -29,7 +29,7 @@ Neste guia de início rápido, você incorpora a Configuração de Aplicativos d
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.NET Framework 4.7.1](https://dotnet.microsoft.com/download)
+- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Criar um repositório de configurações de aplicativo
 
@@ -47,7 +47,9 @@ Neste guia de início rápido, você incorpora a Configuração de Aplicativos d
 
 1. Inicie o Visual Studio e selecione **Arquivo** > **Novo** > **Projeto**.
 
-2. Em **Novo Projeto**, selecione **Instalado** > **Visual C#**  > **Windows Desktop**. Selecione **Aplicativo do Console (.NET Framework)** e insira um nome para o projeto. Selecione **.NET Framework 4.7.1** ou acima e selecione**OK**.
+1. Em **Criar um projeto**, filtre o tipo de projeto **Console** e clique em **Aplicativo de Console (.NET Framework)** . Clique em **Próximo**.
+
+1. Em **Configurar seu novo projeto**, insira um nome de projeto. Em **Framework**, selecione **.NET Framework 4.7.1** ou superior. Clique em **Criar**.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conectar um repositório de configurações de aplicativo
 
@@ -56,9 +58,10 @@ Neste guia de início rápido, você incorpora a Configuração de Aplicativos d
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
+    System.Configuration.ConfigurationManager version 4.6.0 or later
     ```
 
-2. Atualize o arquivo *App.config* do projeto, conforme a seguir:
+1. Atualize o arquivo *App.config* do projeto, conforme a seguir:
 
     ```xml
     <configSections>
@@ -80,12 +83,12 @@ Neste guia de início rápido, você incorpora a Configuração de Aplicativos d
 
    A cadeia de conexão do repositório de configurações de aplicativo é lida a partir da variável de ambiente `ConnectionString`. Adicione o `Environment` construtor de configuração antes de `MyConfigStore` na propriedade `configBuilders` da seção `appSettings`.
 
-3. Abra *Program.cs* e atualize o método `Main` para usar a Configuração de Aplicativo, chamando `ConfigurationManager`.
+1. Abra *Program.cs* e atualize o método `Main` para usar a Configuração de Aplicativo, chamando `ConfigurationManager`.
 
     ```csharp
     static void Main(string[] args)
     {
-        string message = ConfigurationManager.AppSettings["TestApp:Settings:Message"];
+        string message = System.Configuration.ConfigurationManager.AppSettings["TestApp:Settings:Message"];
 
         Console.WriteLine(message);
     }
@@ -101,7 +104,7 @@ Neste guia de início rápido, você incorpora a Configuração de Aplicativos d
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-2. Reinicie o Visual Studio para permitir que a alteração tenha efeito. Pressione Ctrl + F5 para criar e executar o aplicativo do console.
+1. Reinicie o Visual Studio para permitir que a alteração tenha efeito. Pressione Ctrl + F5 para criar e executar o aplicativo do console.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

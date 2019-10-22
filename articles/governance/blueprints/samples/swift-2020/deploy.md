@@ -1,17 +1,17 @@
 ---
 title: Amostra – Blueprint SWIFT CSP-CSCF v2020 – etapas de implantação
-description: Etapas de implantação da amostra de blueprint SWIFT CSP-CSCF v2020.
+description: Etapas de implantação do modelo de blueprint da SWIFT CSP-CSCF v2020, incluindo detalhes do parâmetro do artefato de blueprint.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/24/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 7584653fb83b561f9dd19b11c6a080c038ab6586
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 27ef4c6db6ebeb6f0180d6b4bbec2f228f70393b
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243799"
+ms.locfileid: "72248987"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>Implantar a amostra de blueprint SWIFT CSP-CSCF v2020
 

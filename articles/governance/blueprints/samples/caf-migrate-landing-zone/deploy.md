@@ -1,22 +1,22 @@
 ---
-title: Amostra – Blueprint da zona de aterrissagem das migrações para CAF – etapas de implantação
-description: Etapas de implantação da amostra de blueprint da zona de aterrissagem das migrações para CAF.
+title: Modelo de blueprint da zona de aterrissagem de Migração do CAF – Etapas de implantação
+description: Etapas de implantação do modelo de blueprint da zona de aterrissagem de Migração do CAF, incluindo detalhes do parâmetro de artefato de blueprint.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: cec8d224e52de25fe026a17d57144da3cd53fc5b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: cb41d363b208400598c8afb06dfdb4acaeb02d2b
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981674"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298010"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Implantar o Microsoft Cloud Adoption Framework para a amostra de blueprint da zona de aterrissagem das Migrações para Azure
 
-Para implantar a amostra de blueprint da zona de aterrissagem das migrações para CAF do Azure Blueprints, é necessário executar as seguintes etapas:
+Para implantar o modelo de blueprint da zona de aterrissagem de Migração do CAF do Azure Blueprints, é necessário executar as seguintes etapas:
 
 > [!div class="checklist1"]
 > - Recomendada a implantação da amostra de blueprint do [CAF Foundation](../caf-foundation/index.md)
@@ -36,7 +36,7 @@ Primeiro, implemente a amostra de blueprint criando um blueprint no ambiente usa
 
 1. Na página **Introdução** à esquerda, selecione o botão **Criar** em _Criar um blueprint_.
 
-1. Encontre a amostra de blueprint da **zona de aterrissagem das migrações para CAF** em _Outras Amostras_ e selecione **Usar esta amostra**.
+1. Encontre o modelo de blueprint da **zona de aterrissagem da Migração do CAF** em _Outras Amostras_ e selecione **Usar esta amostra**.
 
 1. Insira as informações _Básicas_ do exemplo de blueprint:
    - **Nome do blueprint** Forneça um nome para a cópia da amostra de blueprint da zona de aterrissagem das migrações para CAF.
@@ -118,7 +118,7 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 Agora que você examinou as etapas para implantar a amostra de blueprint da zona de aterrissagem das migrações para CAF, leia os seguintes artigos para saber mais sobre a arquitetura:
 
 > [!div class="nextstepaction"]
-> [Blueprint da zona de aterrissagem das migrações para CAF – Visão geral](./index.md)
+> [Blueprint da zona de aterrissagem de Migração do CAF – Visão Geral](./index.md)
 
 Outros artigos sobre blueprints e como usá-los:
 

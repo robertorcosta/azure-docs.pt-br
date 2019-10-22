@@ -1,5 +1,5 @@
 ---
-title: Implantar no Azure Kubernetes Service (AKS) usando o Jenkins e o padrão de implantação azul / verde
+title: Implantar no Serviço de Kubernetes do Azure usando o Jenkins e o padrão de implantação azul/verde
 description: Saiba como implantar no Azure Kubernetes Service (AKS) usando o Jenkins e o padrão de implantação azul/verde.
 ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, implantação azul verde, entrega contínua, cd
@@ -7,13 +7,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/11/2018
-ms.openlocfilehash: 93f2ac284931ba664e0965e537e515c824e6f7a6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 10/09/2019
+ms.openlocfilehash: de9088333f69a22246fe5873d6e09ddb7ba3044a
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092286"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249401"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Implantar no Azure Kubernetes Service (AKS) usando o Jenkins e o padrão de implantação azul / verde
 
@@ -147,7 +147,7 @@ Você pode configurar uma implantação azul / verde no AKS manualmente ou com u
     kubectl apply -f  test-endpoint-green.yml
     ```
 
-1. Atualize o nome DNS para o público e os pontos de extremidade do teste. Ao criar um cluster do Kubernetes, você também cria um [grupo de recursos adicionais](https://github.com/Azure/AKS/issues/3), com o padrão de nomeação de **MC_&lt; nome do seu grupo de recursos>_&lt;your-kubernetes -cluster-name>_&lt;sua localização>**.
+1. Atualize o nome DNS para o público e os pontos de extremidade do teste. Ao criar um cluster do Kubernetes, você também cria um [grupo de recursos adicionais](https://github.com/Azure/AKS/issues/3), com o padrão de nomeação de **MC_&lt; nome do seu grupo de recursos> _&lt;your-kubernetes -cluster-name>_ &lt;sua localização>** .
 
     Localize os IPs públicos no grupo de recursos.
 

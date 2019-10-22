@@ -11,10 +11,10 @@ ms.workload: big-compute
 ms.date: 07/19/2019
 ms.author: lahugh
 ms.openlocfilehash: 6ccf530fe2164b3d9b1936648ffe9057c334efd6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70094215"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Análise de custo e orçamentos para o lote do Azure
@@ -35,10 +35,10 @@ Serviços que não incluem VMs e armazenamento podem considerar o custo da sua c
 
 Outros serviços comumente usados com o lote podem incluir:
 
-- Application Insights
+- Percepções sobre o Aplicativo
 - Data Factory
 - Azure Monitor
-- Rede Virtual
+- Rede virtual
 - VMs com aplicativos gráficos
 
 Dependendo de quais serviços você usa com sua solução do lote, você pode incorrer em taxas adicionais. Consulte a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para determinar o custo de cada serviço adicional.
@@ -50,9 +50,9 @@ Por meio do portal do Azure, você pode criar orçamentos e gastar alertas para 
 1. Na portal do Azure, selecione **Gerenciamento de custos + cobrança** na barra de navegação à esquerda.
 1. Selecione sua assinatura na seção **minhas assinaturas**
 1. Vá para **análise de custo** na seção **Gerenciamento de custos** da barra de navegação à esquerda, que mostrará um modo de exibição como este:
-1. Selecione **Adicionar filtro**. Na primeira lista suspensa, selecione **recurso** ![selecionar o filtro de recursos](./media/batch-budget/resource-filter.png)
+1. Selecione **Adicionar filtro**. Na primeira lista suspensa, selecione **recurso** ![Select filtro de recursos ](./media/batch-budget/resource-filter.png)
 1. Na segunda lista suspensa, selecione o pool do lote. Quando o pool for selecionado, a análise de custo será semelhante à análise a seguir.
-    ![Análise de custo de um pool](./media/batch-budget/pool-cost-analysis.png)
+    ![Cost análise de um pool ](./media/batch-budget/pool-cost-analysis.png)
 
 A análise de custo resultante mostra o custo do pool, bem como os recursos que contribuem com esse custo. Neste exemplo, as VMs usadas no pool são o recurso mais dispendioso.
 
@@ -61,7 +61,7 @@ Para criar um orçamento para o pool, selecione **orçamento: nenhum**e, em segu
 Para obter mais informações sobre como configurar um orçamento, consulte [criar e gerenciar orçamentos do Azure](../cost-management/tutorial-acm-create-budgets.md).
 
 > [!NOTE]
-> O Lote do Azure baseia-se na tecnologia de Serviços de Nuvem do Azure e Máquinas Virtuais do Azure. Quando você escolhe **configuração de serviços de nuvem**, você é cobrado com base na estrutura de preços dos serviços de nuvem. Ao escolher a **configuração de máquina virtual**, você será cobrado com base na estrutura de preços de máquinas virtuais. O exemplo nesta página usa a **configuração de máquina virtual**.
+> O lote do Azure foi criado nos serviços de nuvem do Azure e na tecnologia de máquinas virtuais do Azure. Quando você escolhe **configuração de serviços de nuvem**, você é cobrado com base na estrutura de preços dos serviços de nuvem. Ao escolher a **configuração de máquina virtual**, você será cobrado com base na estrutura de preços de máquinas virtuais. O exemplo nesta página usa a **configuração de máquina virtual**.
 
 ## <a name="minimize-cost"></a>Minimizar o custo
 
@@ -75,7 +75,7 @@ Saiba mais sobre como configurar VMs de baixa prioridade para sua carga de traba
 
 ### <a name="virtual-machine-os-disk-type"></a>Tipo de disco do so da máquina virtual
 
-Há vários [tipos de disco de sistema operacional de VM](../virtual-machines/windows/disks-types.md). A maioria das séries de VM tem tamanhos que dão suporte ao armazenamento Premium e Standard. Quando um ' tamanho da VM ' é selecionado para um pool, o lote configura OS discos do sistema operacional SSD Premium. Quando o tamanho da VM ' não s' é selecionado, o tipo de disco HDD padrão mais barato é usado. Por exemplo, os discos do sistema operacional SSD Premium `Standard_D2s_v3` são usados para o e os discos do `Standard_D2_v3`sistema operacional HDD padrão são usados para o.
+Há vários [tipos de disco de sistema operacional de VM](../virtual-machines/windows/disks-types.md). A maioria das séries de VM tem tamanhos que dão suporte ao armazenamento Premium e Standard. Quando um ' tamanho da VM ' é selecionado para um pool, o lote configura OS discos do sistema operacional SSD Premium. Quando o tamanho da VM ' não s' é selecionado, o tipo de disco HDD padrão mais barato é usado. Por exemplo, OS discos do sistema operacional SSD Premium são usados para `Standard_D2s_v3` e discos do sistema operacional HDD padrão são usados para `Standard_D2_v3`.
 
 SSD Premium discos do sistema operacional são mais caros, mas têm maior desempenho e VMs com discos Premium podem começar um pouco mais rapidamente do que as VMs com discos do sistema operacional HDD padrão. Com o lote, o disco do sistema operacional geralmente não é usado, pois os aplicativos e os arquivos de tarefa estão localizados no disco SSD temporário de VMs. Portanto, em muitos casos, não há necessidade de pagar o aumento do custo para o SSD Premium que é provisionado quando um "tamanho de VM" é especificado.
 
@@ -89,7 +89,7 @@ O [dimensionamento automático](batch-automatic-scaling.md) dimensiona dinamicam
 
 Para obter mais informações sobre o dimensionamento automático, consulte [dimensionar automaticamente nós de computação em um pool do lote do Azure](batch-automatic-scaling.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre as [APIs e ferramentas do lote](batch-apis-tools.md) disponíveis para criar e monitorar soluções de lote.  
 

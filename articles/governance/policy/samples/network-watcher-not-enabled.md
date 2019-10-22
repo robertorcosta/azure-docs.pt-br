@@ -1,17 +1,17 @@
 ---
-title: Exemplo – Auditar se o Observador de Rede não estiver habilitado para a Região
+title: Exemplo – Auditoria de regiões sem o Observador de Rede
 description: Esta definição de política de exemplo audita se o Observador de Rede não está habilitado em uma região especificada
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 94d4bbd70c21713fa366907b3fe8cec8543350eb
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 3c93fb72be82c1a89ea4420f4b8d34bb98785376
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981364"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254780"
 ---
 # <a name="sample---audit-if-network-watcher-is-not-enabled-for-region"></a>Exemplo – Auditar se o Observador de Rede não estiver habilitado para a Região
 

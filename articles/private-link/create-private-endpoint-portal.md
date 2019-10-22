@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 95dbe2b9ccfdc0a900ba53668869e3872b6e51d5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d8d7c0232110d3d5b040debc3a24941988d4ee29
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030315"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372236"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Criar um ponto de extremidade privado usando portal do Azure
 
-Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste guia de início rápido, você aprenderá a criar uma VM em uma rede virtual do Azure, um servidor do banco de dados SQL com um ponto de extremidade privado do Azure usando o Azure PowerShell. Em seguida, você pode acessar com segurança o servidor do banco de dados SQL da VM.
+Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste Início Rápido, você aprenderá a criar uma VM em uma Rede Virtual do Azure, um servidor do banco de dados SQL com um ponto de extremidade privado do Azure usando o portal do Azure. Em seguida, você pode acessar com segurança o servidor do banco de dados SQL na VM.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -115,8 +115,8 @@ Nesta seção, você criará um servidor do banco de dados SQL no Azure.
     | **DETALHES DA INSTÂNCIA** |  |
     | Nome do banco de dados  | Insira *mydatabase*. Se esse nome já estiver sendo usado, crie um nome exclusivo. |
     |||
-5. Em  **Servidor**, selecione **Criar novo**. 
-6. Em  **Novo servidor**, insira ou selecione estas informações:
+5. Em **Servidor**, selecione **Criar**. 
+6. Em **Novo servidor**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
@@ -125,9 +125,9 @@ Nesta seção, você criará um servidor do banco de dados SQL no Azure.
     | Senha | Insira uma senha de sua escolha. A senha deve ter no mínimo 8 caracteres e atender a requisitos complexidade definidos. |
     | Location | Selecione uma região do Azure na qual deseja que o SQL Server resida. |
     
-7. Selecione  **OK**. 
-8. Selecione  **Analisar + criar**. Você é levado até a página  **Analisar + criar** , na qual o Azure valida sua configuração. 
-9. Quando vir a mensagem Validação aprovada, selecione  **Criar**. 
+7. Selecione **OK**. 
+8. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração. 
+9. Quando a mensagem Validação aprovada for exibida, selecione **Criar**. 
 10. Quando vir a mensagem Validação aprovada, selecione Criar. 
 
 ## <a name="create-a-private-endpoint"></a>Criar um ponto de extremidade privado
@@ -147,18 +147,18 @@ Nesta seção, você criará um SQL Server e adicionará um ponto de extremidade
     | NOME | Insira * myPrivateEndpoint*. Se esse nome já estiver sendo usado, crie um nome exclusivo. |
     |Região|Selecione **WestCentralUS**.|
     |||
-5. Selecione  **Avançar: Recurso**.
-6. Em  **Criar um ponto de extremidade privado – recurso**, insira ou selecione estas informações:
+5. Selecione **Avançar: Recurso**.
+6. Em **Criar um ponto de extremidade privado – Recurso**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
     |Método de conexão  | Selecione conectar-se a um recurso do Azure em meu diretório.|
     | Subscription| Selecione sua assinatura. |
-    | Tipo de recurso | Selecione  **Microsoft.Sql/servers**. |
+    | Tipo de recurso | Selecione **Microsoft.Sql/servers**. |
     | Recurso |Selecione *myServer*|
     |Sub-recurso de destino |Selecione *sqlServer*|
     |||
-7. Selecione  **Avançar: configuração**.
+7. Selecione **Avançar: configuração**.
 8. Em **Criar um ponto de extremidade privado (versão prévia) – configuração**, insira ou selecione estas informações:
 
     | Configuração | Valor |
@@ -167,17 +167,17 @@ Nesta seção, você criará um SQL Server e adicionará um ponto de extremidade
     | Rede virtual| Selecione *MyVirtualNetwork*. |
     | Sub-rede | Selecione  *mySubnet*. |
     |**INTEGRAÇÃO DE DNS PRIVADO**||
-    |Integrar com a zona DNS privado |Selecione  **Sim**. |
+    |Integrar com a zona DNS privado |Selecione **Sim**. |
     |Zona DNS privado |Selecione *(New)privatelink.database.windows.net* |
     |||
 
-1. Selecione  **Analisar + criar**. Você é levado até a página  **Analisar + criar** , na qual o Azure valida sua configuração. 
-2. Quando você vir a mensagem  **validação aprovada** , selecione  **Criar**. 
+1. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração. 
+2. Quando vir a mensagem **Validação aprovada**, selecione **Criar**. 
  
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Conectar-se a uma VM usando a RDP (Área de Trabalho Remota)
 
 
-Depois de criar **myVm*, conecte-se a ele pela Internet da seguinte maneira: 
+Depois de criar **myVm*, conecte-se a ela pela Internet da seguinte maneira: 
 
 1. Na barra de pesquisa do portal, insira *myVm*.
 
@@ -217,26 +217,26 @@ Depois de criar **myVm*, conecte-se a ele pela Internet da seguinte maneira:
     ```
 3. Instale o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
-4. Em  **Conectar-se ao servidor**, insira ou selecione estas informações:
+4. Em **Conectar-se ao servidor**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
     | Tipo de servidor| Selecione **Mecanismo de Banco de Dados**.|
     | Nome do servidor| Selecione *myserver.database.windows.net* |
-    | Nome de usuário | Insira uma senha fornecida durante a criação do SQL Server. |
+    | Nome de usuário | Insira o nome de usuário como username@servername, que é fornecido durante a criação do SQL Server. |
     |Senha |Insira uma senha fornecida durante a criação do SQL Server. |
     |Lembrar senha|Selecione **Sim**.|
     |||
-1. Selecione **Conectar**.
+1. Selecione **Conectar**.
 2. Procurar bancos de dados no menu à esquerda.
 3. (Opcionalmente) Crie ou consulte informações no mydatabase.
 4. Feche a Conexão de Área de Trabalho Remota para  *myVm*. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 Quando terminar de usar o ponto de extremidade privado, o SQL Server e a VM, exclua o grupo de recursos e todos os recursos que ele contém: 
-1. Insira  *myResourceGroup* na caixa **Pesquisar** na parte superior do portal e selecione *myResourceGroup* nos resultados da pesquisa. 
-2. Selecione **Excluir grupo de recursos**. 
-3. Insira myResourceGroup para **DIGITE O NOME DO GRUPO DE RECURSOS** e selecione **Excluir**.
+1. Insira *myResourceGroup* na caixa **Pesquisar** na parte superior do portal e selecione *myResourceGroup* nos resultados da pesquisa. 
+2. Selecione **Excluir grupo de recursos**. 
+3. Insira myResourceGroup em **DIGITAR O NOME DO GRUPO DE RECURSOS** e selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

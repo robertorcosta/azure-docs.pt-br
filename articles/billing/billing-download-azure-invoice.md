@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 862ec629504da4d8ee7eadd8f9b925984d96614c
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 80ec40a7411a370460d663084f9f7034b28e1a2e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718884"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375751"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Exibir e baixar sua fatura do Microsoft Azure
 
@@ -25,14 +25,16 @@ Para a maioria das assinaturas, você pode fazer o download da sua fatura no [po
 
 Apenas determinadas funções têm permissão para exibir faturas. Por exemplo, o administrador da conta ou o administrador corporativo. Para obter mais informações sobre como obter acesso às informações de cobrança, confira [Gerenciar acesso à cobrança do Azure usando funções](billing-manage-access.md).
 
-Se você tiver um [Contrato de Cliente da Microsoft](#check-your-access-to-a-microsoft-customer-agreement), deverá ter uma das seguintes funções para receber suas faturas:
+Caso você tenha um MCA (Contrato de Cliente da Microsoft), precisará ter uma das seguintes funções para receber suas faturas:
 
 - Proprietário do perfil de cobrança
 - Colaborador
 - Leitor
 - Gerenciador de faturas
 
-Para saber mais sobre funções de cobrança de Contratos de Cliente da Microsoft, confira [Funções e tarefas do perfil de cobrança](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Caso você tenha um MPA (Contrato de Parceiro da Microsoft), precisará ser o Administrador Global ou o Agente Administrativo na organização parceira para exibir e baixar faturas do Azure. [Verifique o tipo de conta de cobrança](#check-your-billing-account-type) para descobrir quais permissões são necessárias. 
+
+<!-- For more information about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks). -->
 
 ## <a name="noinvoice"></a> Por que você não pode receber uma fatura
 
@@ -42,52 +44,25 @@ Pode haver vários motivos pelos quais você não vê uma fatura:
 
 - O Azure cobra você no final do período de faturamento. Portanto, uma fatura ainda pode não ter sido gerada. Aguarde até o final do período de cobrança.
 
-- Você não tem permissão para exibir faturas. Se tiver um Contrato de Cliente da Microsoft, você deverá ter um perfil de cobrança Proprietário, Colaborador, Leitor ou Gerenciador de faturas. Para outras assinaturas, talvez você não veja faturas antigas se não for o Administrador da Conta. Para saber mais sobre como obter acesso a informações de cobrança, consulte [Gerenciar o acesso à cobrança do Azure usando funções](billing-manage-access.md).
+- Você não tem permissão para exibir faturas. Caso tenha um MCA ou um MPA, você precisará ser o proprietário, o colaborador, o leitor ou o gerenciador de faturas do perfil de cobrança. Para outras assinaturas, talvez você não veja faturas antigas se não for o Administrador da Conta. Para saber mais sobre como obter acesso a informações de cobrança, consulte [Gerenciar o acesso à cobrança do Azure usando funções](billing-manage-access.md).
 
-- Se você tiver uma Avaliação Gratuita ou uma quantidade de crédito mensal com sua assinatura, você só receberá uma fatura quando exceder a quantidade de crédito mensal. Se você tiver um Contrato de Cliente da Microsoft, sempre receberá uma fatura.
+- Se você tiver uma Avaliação Gratuita ou uma quantidade de crédito mensal com sua assinatura, você só receberá uma fatura quando exceder a quantidade de crédito mensal. Caso tenha um Contrato de Cliente da Microsoft ou um Contrato de Parceiro da Microsoft, você sempre receberá uma fatura. 
 
-## <a name="download-your-azure-invoices-pdf"></a>Baixe suas faturas do Azure (.pdf)
-
-Para a maioria das assinaturas, você pode baixar sua fatura do portal do Azure. Se você tiver um Contrato de Cliente da Microsoft, confira [Baixar faturas para um Contrato de Cliente da Microsoft](#download-invoices-for-a-microsoft-customer-agreement).
-
-### <a name="download-invoices-for-an-individual-subscription"></a>Baixar faturas para uma assinatura individual
-
-1. Selecione sua assinatura na [página Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure como [um usuário com acesso a faturas](billing-manage-access.md).
-
-2. Selecione **Faturas**.
-
-    ![Captura de tela que mostra a opção de Cobrança e Uso](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
-
-3. Clique em **Baixar Fatura** para exibir uma cópia da sua fatura em PDF. Se o resultado for **Não disponível**, veja [Por que não encontro uma fatura do último período de cobrança?](#noinvoice)
-
-    ![Captura de tela que mostra os períodos de cobrança, a opção de download e as cobranças totais para cada período de cobrança](./media/billing-download-azure-invoice-daily-usage-date/billing4.png)
-
-4. Você também pode exibir seu uso diário clicando no período de cobrança.
-
-Para saber mais sobre a fatura, confira [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md). Para obter ajuda com o gerenciamento de custos, confira [Evitar custos inesperados com o gerenciamento de custos e a cobrança do Azure](billing-getting-started.md).
-
-### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Baixar faturas para um Contrato de Cliente da Microsoft
-
-As faturas são geradas para cada [perfil de cobrança](billing-mca-overview.md#billing-profiles) no Contrato de Cliente da Microsoft. É necessário ter um perfil de cobrança Proprietário, Colaborador, Leitor ou Gerenciador de faturas para baixar faturas do portal do Azure.
+## <a name="download-invoices-in-the-azure-portal"></a>Baixar as faturas no portal do Azure
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 1. Pesquise *Gerenciamento de Custos + Cobrança*.
-1. Selecione um perfil de cobrança. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança primeiro.
-1. Selecione **Faturas**.
+1. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança ou um perfil de cobrança.
+1. No menu esquerdo, selecione **Faturas** em **Cobrança**.
 1. Na grade da fatura, encontre a linha da fatura que você deseja baixar.
-1. Clique nas reticências (`...`) no final da linha.
-    ![Captura de tela que mostra as reticências no fim da linha](./media/billing-download-azure-invoice/billingprofile-invoicegrid.png)
-1. No menu de contexto do download, selecione **Fatura**.
+1. Clique no ícone de download ou nas reticências (`...`) no final da linha.
+1. No menu de download, selecione **Fatura**.
 
-    ![Captura de tela que mostra o menu de contexto](./media/billing-download-azure-invoice/contextmenu.png)
+Para saber mais sobre a fatura, confira [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md). Para obter ajuda com o gerenciamento de custos, confira [Evitar custos inesperados com o gerenciamento de custos e a cobrança do Azure](billing-getting-started.md).
 
-Se você não vir uma fatura para o último período de cobrança, confira [Por que eu não vejo uma fatura para o último período de cobrança?](#noinvoice)
+## <a name="get-your-subscriptions-invoices-in-email"></a>Receber as faturas de sua assinatura no email
 
-## <a name="get-your-invoice-in-email-pdf"></a>Obter sua fatura por email (.pdf)
-
-Você pode aceitar e configurar destinatários adicionais para receber sua fatura do Azure em um email. Esse recurso pode não estar disponível para determinadas assinaturas, como ofertas de suporte, Enterprise Agreements ou Azure via Open. Se você tiver um Contrato de Cliente da Microsoft, confira a próxima seção, [Receber suas faturas de perfil de cobrança no email](#get-your-subscriptions-invoices-in-email).
-
-### <a name="get-your-subscriptions-invoices-in-email"></a>Receber as faturas de sua assinatura no email
+Você pode aceitar e configurar destinatários adicionais para receber sua fatura do Azure em um email. Esse recurso pode não estar disponível para determinadas assinaturas, como ofertas de suporte, Enterprise Agreements ou Azure via Open.
 
 1. Selecione sua assinatura na [página Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Aceitar para cada assinatura que você possui. Clique em **Faturas** e em **Enviar minha fatura por email**.
 
@@ -103,13 +78,14 @@ Você pode aceitar e configurar destinatários adicionais para receber sua fatur
 
 Se você não receber um email depois de seguir as etapas, verifique se seu endereço de email está correto nas [opções de comunicação de seu perfil](https://account.windowsazure.com/profile).
 
-### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>Cancelar o recebimento das faturas de sua assinatura no email
+## <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>Cancelar o recebimento das faturas de sua assinatura no email
 
 Para cancelar o recebimento de sua fatura por email, siga as etapas anteriores e clique em **Recusar faturas enviadas por email**. Essa opção remove todos os endereços de e-mail configurados para receber faturas por e-mail. Você poderá reconfigurar os destinatários se aceitar receber novamente.
 
  ![Captura de tela que mostra o fluxo para recusar](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
-### <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Receber as faturas do Contrato de Cliente da Microsoft no email
+<!-- Does following section apply to MPA too? -->
+## <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Receber as faturas do Contrato de Cliente da Microsoft no email
 
 Se você tiver um Contrato de Cliente da Microsoft, poderá aceitar receber sua fatura em um email. Todos os perfis de cobrança Proprietários, Colaboradores, Leitores e Gerenciadores de faturas receberão a fatura por email. Os leitores não podem atualizar a preferência de fatura por email.
 
@@ -124,14 +100,12 @@ Se você tiver um Contrato de Cliente da Microsoft, poderá aceitar receber sua 
 1. Selecione **Aceitar**.
 1. Clique em **Atualizar**.
 
-### <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Cancelar o recebimento de suas faturas de Contrato de Cliente da Microsoft no email
+## <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Cancelar o recebimento de suas faturas de Contrato de Cliente da Microsoft no email
 
 Para cancelar o recebimento de sua fatura por email, siga as etapas anteriores e clique em **Recusar**. Todos os Proprietários, Colaboradores, Leitores e Gerenciadores de faturas também não recebem mais a fatura por email. Se você for Leitor, não poderá alterar a preferência de fatura por email.
 
-
-
-## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Verificar acesso ao Contrato de Cliente da Microsoft
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+## <a name="check-your-billing-account-type"></a>Verificar o tipo de conta de cobrança
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-account-type.md)]
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 

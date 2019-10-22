@@ -18,24 +18,24 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70983493"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
 
-A arquitetura de relatórios no Azure AD (Azure Active Directory) consiste nos seguintes componentes:
+A arquitetura de relatórios no Azure Active Directory (Azure AD) consiste nos seguintes componentes:
 
-- **Atividade** 
-    - **Entradas** – Informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
-    - **Logs de Auditoria** - [Logs de Auditoria](concept-audit-logs.md) fornecer informações de atividades do sistema sobre usuários e gerenciamento de grupos, aplicativos gerenciados e atividades de diretório.
+- **Actividade** 
+    - **Entradas** – informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
+    - Os **logs de auditoria**  -  logs de[auditoria](concept-audit-logs.md) fornecem informações de atividade do sistema sobre gerenciamento de usuários e de grupos, aplicativos gerenciados e atividades de diretório.
     - **Logs de provisionamento** – forneça a atividade do sistema sobre usuário, grupos e funções que são provisionadas pelo serviço de provisionamento do Azure AD. 
 
 - **Segurança** 
-    - **Entradas arriscadas** - Uma [entrada arriscada](concept-risky-sign-ins.md) é um indicador para uma tentativa de entrada que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário.
-    - **Usuários sinalizados para risco** - Um [usuário arriscado](concept-user-at-risk.md) é um indicador de uma conta de usuário que pode ter sido comprometida.
+    - **Entradas arriscadas** -uma [entrada arriscada](concept-risky-sign-ins.md) é um indicador de uma tentativa de entrada que pode ter sido executada por alguém que não seja o proprietário legítimo de uma conta de usuário.
+    - **Usuários sinalizados para risco** – um [usuário arriscado](concept-user-at-risk.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
 
 Este tópico fornece uma visão geral do relatório de provisionamento.
 
@@ -48,9 +48,9 @@ Este tópico fornece uma visão geral do relatório de provisionamento.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-provisioning-activities"></a>Qual licença do Azure AD você precisa para acessar as atividades de provisionamento?
 
-Seu locatário deve ter uma licença de Azure AD Premium associada a ele para ver o relatório de atividade de provisionamento. Consulte [Introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para fazer upgrade da edição do Azure Active Directory. 
+Seu locatário deve ter uma licença de Azure AD Premium associada a ele para ver o relatório de atividade de provisionamento. Consulte [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar sua edição do Azure Active Directory. 
 
-## <a name="provisioning-logs"></a>Provisionando logs
+## <a name="provisioning-logs"></a>Logs de provisionamento
 
 Os logs de provisionamento fornecem respostas para as seguintes perguntas:
 
@@ -75,11 +75,11 @@ Um log de provisionamento tem uma exibição de lista padrão que mostra:
 
 ![Colunas padrão](./media/concept-provisioning-logs/default-columns.png "Colunas padrão")
 
-Você pode personalizar o modo de exibição de lista clicando em **Colunas** na barra de ferramentas.
+Você pode personalizar o modo de exibição de lista clicando em **colunas** na barra de ferramentas.
 
 ![Seletor de coluna](./media/concept-provisioning-logs/column-chooser.png "Seletor de coluna")
 
-Isso permite a você exibir campos adicionais ou remover campos que já estão exibidos.
+Isso permite que você exiba campos adicionais ou remova os campos que já estão exibidos.
 
 ![Colunas disponíveis](./media/concept-provisioning-logs/available-columns.png "Colunas disponíveis")
 
@@ -97,10 +97,10 @@ Para restringir os dados relatados a um nível que funciona para você, você po
 - Sistema de origem
 - Sistema de destino
 - Status
-- Date
+- Data
 
 
-![Filtrar](./media/concept-provisioning-logs/filter.png "Filtrar")
+![Filter](./media/concept-provisioning-logs/filter.png "Filtrar")
 
 O filtro de **identidade** permite que você especifique o nome ou a identidade sobre a qual você se preocupa. Essa identidade pode ser um usuário, grupo, função ou outro objeto. Você pode Pesquisar pelo nome ou ID do objeto. A ID varia de acordo com o cenário. Por exemplo, ao provisionar um objeto do Azure AD para o SalesForce, a ID de origem é a ID de objeto do usuário no Azure AD, enquanto a TargetId é a ID do usuário no Salesforce. Ao provisionar do WORKDAY para Active Directory, a ID de origem é a ID de funcionário do workday Worker. Observe que o nome do usuário talvez nem sempre esteja presente na coluna de identidade. Sempre haverá uma ID. 
 
@@ -108,22 +108,22 @@ O filtro do **sistema de origem** permite que você especifique onde a identidad
 
 O filtro do **sistema de destino** permite especificar para onde a identidade está sendo provisionada. Por exemplo, ao provisionar um objeto do Azure AD para o ServiceNow, o sistema de destino é ServiceNow. 
 
-O filtro **Status** permite que você selecione:
+O filtro de **status** permite que você selecione:
 
-- Todas
+- Todos
 - Êxito
-- Falha
+- Failure
 - Ignorado
 
 O filtro de **ação** permite filtrar o:
 
-- Criar 
-- Atualização
+- Create 
+- Atualizar
 - Excluir
 - Desabilitar
 - Outros
 
-O filtro **Data** permite definir um período de tempo para os dados retornados.  
+O filtro de **Data** permite que você defina um período de tempo para os dados retornados.  
 Os valores possíveis são:
 
 - 1 mês
@@ -161,7 +161,7 @@ Os detalhes são agrupados com base nas seguintes categorias:
 - Resumo
 
 
-![Filtrar](./media/concept-provisioning-logs/provisioning-tabs.png "Guias")
+![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Temas")
 
 
 
@@ -176,7 +176,7 @@ A guia **etapas** descreve as etapas executadas para provisionar um objeto. O pr
 
 
 
-![Filtrar](./media/concept-provisioning-logs/steps.png "Filtrar")
+![Filter](./media/concept-provisioning-logs/steps.png "Filtrar")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Solução de problemas e recomendações
@@ -206,7 +206,7 @@ A guia **Resumo** fornece uma visão geral do que aconteceu e identificadores pa
 
 - Quando você acessa os logs de provisionamento do contexto de um aplicativo, ele não filtra automaticamente os eventos para o aplicativo específico, como faz os logs de auditoria.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Verificar o status do provisionamento do usuário](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)
 * [Problema ao configurar o provisionamento de usuário para um aplicativo da galeria do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)

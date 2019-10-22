@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,13 +9,13 @@ ms.date: 07/27/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0d5c3b55d20be19d4aeb92b82d6e44d417259a7b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "67171748"
 ---
-1. Abra um prompt de comando com privilégios elevados clicando duas vezes em **Prompt de Comando** e selecionando **Executar como administrador**.
+1. Abra um prompt de comando com privilégios elevados clicando com o botão direito do mouse no **prompt de comando** e selecionando **Executar como administrador**.
 2. Execute os seguintes comandos no prompt de comando:
 
    ```
@@ -33,5 +33,5 @@ ms.locfileid: "67171748"
 5. Conecte-se à VPN.
 
 > [!NOTE]
-> Você precisará definir a chave de registro acima, se você estiver executando uma versão mais antiga do Windows 10 (10240).
+> Você precisará definir a chave do registro acima se estiver executando uma versão mais antiga do Windows 10 (10240).
 >

@@ -1,18 +1,18 @@
 ---
-title: Experiências de gerenciamento entre locatários com o Azure Lighthouse
+title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 09/25/2019
+ms.date: 10/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 17a32d50e2e0330218ff51b849cb4f3aeadb3d13
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 0c6fed9cd83f18df0fe0a77d57a76c60cd570c21
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309647"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300993"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -58,6 +58,7 @@ No momento, a experiência de gerenciamento entre locatários dá suporte aos se
 - Exiba alertas para assinaturas delegadas no portal do Azure ou programaticamente por meio de chamadas à API REST com a capacidade de exibir alertas em todas as assinaturas
 - Exibir detalhes do log de atividades para assinaturas delegadas
 - Análise de logs: consulte dados de workspaces de cliente remotos em vários locatários
+- Crie alertas em locatários do cliente que disparam a automação, tais como os runbooks de Automação do Azure ou o Azure Functions, no locatário do provedor de serviços por meio de webhooks
 
 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/):
 
@@ -65,7 +66,7 @@ No momento, a experiência de gerenciamento entre locatários dá suporte aos se
 - Crie e edite definições de política dentro de uma assinatura delegada
 - Atribua definições de política definida pelo cliente dentro da assinatura delegada
 - Os clientes veem políticas criadas pelo provedor de serviços junto com políticas que eles mesmos criaram
-- Poderão corrigir as atribuições deployIfNotExists nos locatários do cliente se ele tiver configurado a identidade gerenciada e *roleDefinitionIds* para essa atribuição de política
+- É possível [corrigir deployIfNotExists ou modificar atribuições no locatário do cliente](../how-to/deploy-policy-remediation.md)
 
 [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
 

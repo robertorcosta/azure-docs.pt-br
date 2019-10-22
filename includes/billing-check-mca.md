@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
-ms.openlocfilehash: d163c88469ec767c8e0d18f5978ecb61f7997c8b
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: ea7add9277dde79d0dd2bf960d287f3aba0c3df9
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490321"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375407"
 ---
 Verifique o tipo de contrato para determinar se você tem acesso a uma conta de cobrança para um Contrato de Cliente da Microsoft.
  
@@ -23,7 +23,7 @@ Verifique o tipo de contrato para determinar se você tem acesso a uma conta de 
  
     ![Captura de tela que mostra o Contrato de Cliente da Microsoft na página de propriedades](./media/billing-check-mca/billing-mca-property.png)
  
-4. Caso você tenha acesso a vários escopos do orçamento, verifique o tipo na coluna da conta de cobrança. Você tem acesso a uma conta de cobrança para um Contrato de Cliente da Microsoft se o tipo de conta de cobrança para um dos escopos é **Contrato de Cliente da Microsoft**.
+4. Caso tenha acesso a vários escopos do orçamento, verifique o tipo na coluna da conta de cobrança. Você tem acesso a uma conta de cobrança para um Contrato de Cliente da Microsoft se o tipo de conta de cobrança para um dos escopos é **Contrato de Cliente da Microsoft**.
  
     ![Captura de tela que mostra o Contrato de Cliente da Microsoft na página de lista de contas de cobrança](./media/billing-check-mca/billing-mca-in-the-list.png)
  

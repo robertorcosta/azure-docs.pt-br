@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 monikerRange: vsts
-ms.openlocfilehash: 9fc276626d2a863f7f2e53cd7312ab8b3be513dd
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 11edeb35119e2c598fd83fd89c65ba4dc4679650
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815778"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256121"
 ---
 #  <a name="quickstart-create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-projects"></a>Início Rápido: Criar um pipeline de CI/CD no Azure Pipelines para Node.js com o Azure DevOps Projects
 
@@ -37,7 +37,7 @@ O DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível cri
 
 1. No painel esquerdo, selecione **Criar um recurso**, depois procure o **DevOps Projects**. 
 
-    ![Iniciando a configuração de Entrega Contínua](_img/azure-devops-project-nodejs/fullbrowser.png)
+    ![Criar recurso de configuração de entrega contínua](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selecionar um aplicativo de exemplo e o serviço do Azure
 
@@ -60,7 +60,7 @@ O DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível cri
      
 3. Selecione **Procurar** para exibir o aplicativo em execução.
 
-    ![Exibição Painel](_img/azure-devops-project-nodejs/dashboardnopreview.png) 
+    ![Exibição do painel do pipeline de CI/CD](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
     
 O DevOps Projects configura automaticamente um build de CI e gatilho de liberação.  Agora você está pronto para colaborar com uma equipe em um aplicativo Node.js com um processo de CI/CD que implanta automaticamente o trabalho mais recente em seu site da Web.
 

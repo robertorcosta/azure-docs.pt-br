@@ -7,10 +7,10 @@ ms.author: makromer
 ms.service: data-factory
 ms.date: 10/07/2019
 ms.openlocfilehash: 24b0deb60f1047228dc3ff6000d423e7cb6939ca
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72387315"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeando o guia de desempenho e ajuste do fluxo de dados
@@ -72,7 +72,7 @@ Em **Opções de origem** na transformação origem, as configurações a seguir
 
 Para evitar o processamento de linha por linha de seus fluxos de dados, defina o **tamanho do lote** na guia Configurações para o BD SQL do Azure e coletores do Azure SQL DW. Se o tamanho do lote for definido, o ADF processará gravações de banco de dados em lotes com base no tamanho fornecido.
 
-![Coletor](media/data-flow/sink4.png "Coletor")
+![Coletar](media/data-flow/sink4.png "Coletar")
 
 ### <a name="partitioning-on-sink"></a>Particionamento no coletor
 

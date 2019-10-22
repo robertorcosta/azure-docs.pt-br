@@ -1,5 +1,5 @@
 ---
-title: Gerenciar atualizações e patches para VMs do Microsoft Azure
+title: Gerenciar atualizações e patches para as VMs do Azure
 description: Este artigo fornece uma visão geral de como usar o Gerenciamento de Atualizações da Automação do Azure para gerenciar atualizações e patches das VMs Windows do Azure.
 services: automation
 author: zjalexander
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: fbca620fca1aeb53acc9bd70561e783b49ff1a60
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a2d13833b60076caa371a7fa8a696ab5964a28e3
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822337"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376076"
 ---
-# <a name="manage-windows-updates-by-using-azure-automation"></a>Gerenciar atualizações do Windows com a Automação do Azure
+# <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerenciar atualizações e patches para as VMs do Azure
 
 Você pode usar a solução Gerenciamento de Atualizações para gerenciar atualizações e patches de suas máquinas virtuais. Neste tutorial, você aprende a avaliar rapidamente o status das atualizações disponíveis, a agendar a instalação das atualizações necessárias e revisar os resultados da implantação e criar um alerta para verificar se as atualizações foram aplicadas com sucesso.
 
@@ -95,9 +95,9 @@ Clique em **Adicionar condição** para selecionar o sinal adequado para sua imp
 |Nome do sinal|Dimensões|DESCRIÇÃO|
 |---|---|---|
 |**Total de execuções da implantação de atualização**|– Nome da implantação de atualização</br>– Status|Esse sinal é usado para alertar quanto ao status geral de uma implantação de atualização.|
-|**Total de execuções de computador da implantação de atualização**|– Nome da implantação de atualização</br>– Status</br>– Computador de destino</br>– ID de execução da implantação de atualização|Esse sinal é usado para alertar quanto ao status de uma implantação de atualização voltada para computadores específicos.|
+|**Total de execuções de computador da implantação de atualização**|– Nome da implantação de atualização</br>– Status</br>– Computador de destino</br>– ID de execução da implantação de atualizações|Esse sinal é usado para alertar quanto ao status de uma implantação de atualização voltada para computadores específicos.|
 
-Para os valores de dimensão, selecione um valor válido na lista. Se o valor que você está procurando não estiver na lista, clique no sinal **\+** ao lado da dimensão e digite o nome personalizado. Em seguida, você pode selecionar o valor desejado a ser procurado. Se quiser selecionar todos os valores de uma dimensão, clique no botão **Selecionar \***. Se você não escolher um valor para uma dimensão, essa dimensão será ignorada durante a avaliação.
+Para os valores de dimensão, selecione um valor válido na lista. Se o valor que você está procurando não estiver na lista, clique no sinal **\+** ao lado da dimensão e digite o nome personalizado. Em seguida, você pode selecionar o valor desejado a ser procurado. Se quiser selecionar todos os valores de uma dimensão, clique no botão **Selecionar \*** . Se você não escolher um valor para uma dimensão, essa dimensão será ignorada durante a avaliação.
 
 ![Configurar sinal lógico](./media/automation-tutorial-update-management/signal-logic.png)
 
@@ -135,7 +135,7 @@ Em **Nova implantação de atualização**, especifique as seguintes informaçõ
 
 * **Sistema operacional**: selecione o sistema operacional de destino para a implantação de atualização.
 
-* **Grupos para atualizar (versão prévia)**: Defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e tags para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. Para obter mais informações, consulte [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)
+* **Grupos para atualizar (versão prévia)** : Defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e tags para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. Para obter mais informações, consulte [grupos dinâmicos](automation-update-management-groups.md)
 
 * **Computadores para atualizar**: Selecione uma pesquisa salva, um grupo importado ou selecione a máquina na lista suspensa e selecione máquinas individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, veja [Grupos de computadores nos logs do Azure Monitor](../azure-monitor/platform/computer-groups.md)
 
@@ -145,25 +145,40 @@ Em **Nova implantação de atualização**, especifique as seguintes informaçõ
 
    |SO  |Type  |
    |---------|---------|
-   | Windows     | Atualizações críticas</br>Atualizações de segurança</br>Pacotes cumulativos de atualização</br>Feature packs</br>Service packs</br>Atualizações de definição</br>Ferramentas</br>Atualizações        |
+   |Windows     | Atualizações críticas</br>Atualizações de segurança</br>Pacotes cumulativos de atualização</br>Feature packs</br>Service packs</br>Atualizações de definição</br>Ferramentas</br>Atualizações        |
    |Linux     | Atualizações críticas ou de segurança</br>Outras atualizações       |
 
-   Para obter uma descrição dos tipos de classificação, consulte [classificações de atualização](automation-update-management.md#update-classifications).
+   Para obter uma descrição dos tipos de classificação, consulte [classificações de atualização](automation-view-update-assessments.md#update-classifications).
 
-* **Atualizações a serem incluídas/excluídas** – Isso abre a página **Incluir/Excluir**. As atualizações a serem incluídas ou excluídas estão em guias separadas. Para mais informações sobre como a inclusão é tratada, consulte o [comportamento de inclusão](automation-update-management.md#inclusion-behavior)
+* **Atualizações a serem incluídas/excluídas** – Isso abre a página **Incluir/Excluir**. As atualizações a serem incluídas ou excluídas estão em guias separadas.
+
+> [!NOTE]
+> É importante saber que as exclusões substituem as inclusões. Por exemplo, se você definir uma regra de exclusão de `*`, nenhuma correção ou pacote será instalado, pois todos serão excluídos. Correções excluídas ainda são mostradas como ausentes do computador. Para computadores Linux, se um pacote estiver incluído, mas tiver um pacote dependente excluído, o pacote não será instalado.
 
 * **Configurações da agenda**: O painel **Configurações da agenda** é aberto. A hora de início padrão é 30 minutos após a hora atual. Você pode definir a hora de início para qualquer momento a partir de 10 minutos.
 
    Você também pode especificar se a implantação ocorre uma única vez ou configurar um agendamento recorrente. Em **Recorrência**, selecione **Uma vez**. Deixe o padrão como 1 dia e selecione **OK**. Isso configura um agendamento recorrente.
 
 * **Pré-scripts + pós-scripts**: Selecione os scripts a serem executados antes e depois de sua implantação. Para saber mais, consulte [Gerenciar pré e pós-scripts](pre-post-scripts.md).
-* **Janela de manutenção (minutos)**: Mantenha o valor padrão. Você pode definir o período de tempo no qual deseja que a implantação de atualização ocorra. Essa configuração ajuda a garantir que as alterações sejam executadas dentro das janelas de serviço definidas.
+
+* **Janela de manutenção (minutos)** : Mantenha o valor padrão. As janelas de manutenção controlam o tempo permitido para a instalação das atualizações. Considere os detalhes a seguir ao especificar uma janela de manutenção.
+
+  * As janelas de manutenção controlam o número de tentativas de instalação das atualizações.
+  * O Gerenciamento de Atualizações não interrompe a instalação de novas atualizações se o fim de uma janela de manutenção está se aproximando.
+  * O Gerenciamento de Atualizações não encerra as atualizações em andamento se a janela de manutenção é excedida.
+  * Se a janela de manutenção é excedida no Windows, isso geralmente ocorre devido a uma longa instalação de atualização do service pack.
+
+  > [!NOTE]
+  > Informações relacionadas não críticas a uma tarefa Para evitar atualizações aplicadas fora de uma janela de manutenção no Ubuntu, reconfigure o pacote Unattended-Upgrade para desabilitar as atualizações automáticas. Para saber mais sobre como configurar o pacote, veja [o tópico Atualizações automáticas no Guia do servidor Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 * **Opções de reinicialização**: essa configuração determina como reinicializações devem ser tratadas. As opções disponíveis são:
   * Reinicialização, se necessário (Padrão)
   * Sempre reinicializar
   * Nunca reinicializar
   * Somente reinicialização - não instalará as atualizações
+
+> [!NOTE]
+> As chaves do Registro listadas em [Chaves do Registro usadas para gerenciar a reinicialização](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) poderão causar um evento de reinicialização se a opção **Controle de Reinicialização** estiver definida como **Nunca Reinicializar**.
 
 Quando terminar de configurar a agenda, selecione **Criar**.
 
@@ -172,7 +187,9 @@ Quando terminar de configurar a agenda, selecione **Criar**.
 Você é retornado ao painel de status. Selecione **Implantações de atualização agendadas** para mostrar a agenda de implantação que você criou.
 
 > [!NOTE]
-> O Gerenciamento de Atualizações dá suporte à implantação de atualizações próprias e patches baixados previamente. Isso requer alterações nos sistemas em correção, confira [suporte próprio e de pré-download](automation-update-management.md#firstparty-predownload) para saber como definir essas configurações em seus sistemas.
+> O Gerenciamento de Atualizações dá suporte à implantação de atualizações próprias e patches baixados previamente. Isso requer alterações nos sistemas em correção, confira [suporte próprio e de pré-download](automation-configure-windows-update.md) para saber como definir essas configurações em seus sistemas.
+
+As **Implantações de Atualizações** também podem ser criadas de forma programática. Para saber como criar uma **Implantação de Atualizações** com a API REST, confira [Configurações de atualização de software – Criar](/rest/api/automation/softwareupdateconfigurations/create). Há também um runbook de exemplo que pode ser usado para criar uma **Implantação de Atualizações** semanal. Para saber mais sobre este runbook, consulte [Criar uma implantação de atualização semanal para uma ou mais VMs em um grupo de recursos](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 ## <a name="view-results-of-an-update-deployment"></a>Exibir resultados de uma implantação de atualização
 

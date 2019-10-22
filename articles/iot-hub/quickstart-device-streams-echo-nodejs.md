@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: e85f2ea849aca9deeb92da7d7b2381d6c2b1b725
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: c7257ec35f9a53f84edebd5e15b7144c49daf682
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802449"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514946"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Início Rápido: comunicar-se com um aplicativo de dispositivo no Node.js por meio de fluxos de dispositivos do Hub IoT (versão prévia)
 
@@ -58,7 +58,7 @@ Você pode verificar a versão atual do Node.js no computador de desenvolvimento
 node --version
 ```
 
-Execute o comando a seguir para adicionar a Extensão do Microsoft Azure IoT para a CLI do Azure à instância do Cloud Shell. A Extensão de IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos) no IoT à CLI do Azure.
+Execute o comando a seguir para adicionar a Extensão do Microsoft Azure IoT para a CLI do Azure à instância do Cloud Shell. A Extensão de IoT adiciona comandos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos) IoT à CLI do Azure.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -82,10 +82,10 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
    **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
-   **MyDevice**: Esse é o nome fornecido para o dispositivo registrado. Use MyDevice, conforme mostrado. Se você escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo e atualizar o nome de dispositivo nos aplicativos de exemplo antes de executá-los.
+   **MyDevice**: esse é o nome do dispositivo que está sendo registrado. É recomendável usar **MyDevice** conforme mostrado. Se escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo, bem como atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 2. Você também precisa de uma *cadeia de conexão de serviço* para permitir que aplicativos de back-end se conectem ao seu hub IoT e recuperem mensagens. O comando abaixo recupera a cadeia de conexão de serviço para o hub IoT:
@@ -93,10 +93,10 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
     **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    Anote o valor retornado, que tem esta aparência:
+    Anote a cadeia de conexão de serviço retornada para uso posterior neste início rápido. Ela se parece com o seguinte exemplo:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -106,7 +106,7 @@ Nesta seção, você executará o aplicativo do lado do dispositivo e o aplicati
 
 ### <a name="run-the-device-side-application"></a>Executar o aplicativo do lado do dispositivo
 
-Como mencionado anteriormente, o SDK do Node.js do Hub IoT dá suporte somente a fluxos de dispositivos no lado do serviço. Para o aplicativo no lado do dispositivo, use o programa de dispositivo que acompanha disponível em um destes inícios rápidos:
+Como mencionado anteriormente, o SDK do Node.js do Hub IoT dá suporte somente a fluxos de dispositivos no lado do serviço. Para um aplicativo do lado do dispositivo, use os programas de dispositivo complementares disponíveis nestes inícios rápidos:
 
    * [Comunicação com aplicativos de dispositivo no C por meio de fluxos de dispositivos do Hub IoT](./quickstart-device-streams-echo-c.md)
 
@@ -116,21 +116,21 @@ Certifique-se de que o aplicativo do lado do dispositivo está em execução ant
 
 ### <a name="run-the-service-side-application"></a>Executar o aplicativo do lado do serviço
 
-Supondo que o aplicativo do lado do dispositivo está em execução, siga as etapas abaixo para executar o aplicativo do lado do serviço em Node.js:
+Supondo que o aplicativo do lado do dispositivo está em execução, siga as etapas abaixo em uma janela de terminal local para executar o aplicativo do lado do serviço em Node.js:
 
 * Forneça suas credenciais de serviço e a identificação do dispositivo como variáveis de ambiente.
  
    ```cmd/sh
    # In Linux
-   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
+   export IOTHUB_CONNECTION_STRING="{ServiceConnectionString}"
    export STREAMING_TARGET_DEVICE="MyDevice"
 
    # In Windows
-   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
+   SET IOTHUB_CONNECTION_STRING={ServiceConnectionString}
    SET STREAMING_TARGET_DEVICE=MyDevice
    ```
   
-   Altere `MyDevice` para a identificação do dispositivo que você escolheu para seu dispositivo.
+   Altere o espaço reservado de ServiceConnectionString para corresponder à cadeia de conexão de serviço, bem como **MyDevice** para corresponder à ID do dispositivo se você tiver atribuído a ele um nome diferente.
 
 * Navegue até `Quickstarts/device-streams-service` na pasta de projeto descompactada e execute o exemplo usando o nó.
 

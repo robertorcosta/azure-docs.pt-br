@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: arquivo de inclusão
+description: arquivo de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,16 +9,16 @@ ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c0ce4e882f270f5e0c789a608aaada5c6c9cba92
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "67171781"
 ---
-Se houver problemas para se conectar, verifique os seguintes itens:
+Se você tiver problemas para se conectar, verifique os seguintes itens:
 
-- Se você tiver exportado um certificado do cliente com o **Assistente para Exportação de Certificados**, verifique se o exportou como um arquivo .pfx e selecionou **Incluir todos os certificados no caminho de certificação se possível**. Quando você exporta usando esse valor, as informações do certificado raiz também são exportadas. Após instalar o certificado no computador cliente, o certificado raiz no arquivo .pfx também será instalado. Para verificar se o certificado raiz está instalado, abra **Gerenciar certificados do usuário** e selecione **Autoridades de Certificação Confiáveis\Certificados**. Verifique se o certificado raiz está listado para que a autenticação funcione.
+- Se você exportou um certificado de cliente com o **Assistente para exportação de certificados**, certifique-se de que você o exportou como um arquivo. pfx e selecionado **incluir todos os certificados no caminho de certificação, se possível**. Quando você o exporta com esse valor, as informações do certificado raiz também são exportadas. Depois de instalar o certificado no computador cliente, o certificado raiz no arquivo. pfx também é instalado. Para verificar se o certificado raiz está instalado, abra **gerenciar certificados de usuário** e selecione **Authorities\Certificates de certificação de raiz confiável**. Verifique se o certificado raiz está listado, que deve estar presente para que a autenticação funcione.
 
-- Se você usou um certificado emitido com uma solução de AC corporativa e estiver com problemas na autenticação, verifique a ordem de autenticação no certificado do cliente. Verifique a ordem da lista de autenticação ao clicar duas vezes no certificado do cliente e selecionar a guia **Detalhes** e **Uso Avançado de Chave**. Verifique se a lista mostra *Autenticação de cliente* como o primeiro item. Caso contrário, é necessário emitir um certificado de cliente com base no modelo do usuário que tem a *Autenticação de Cliente* como o primeiro item na lista.
+- Se você usou um certificado que foi emitido por uma solução de AC corporativa e não puder autenticar, verifique a ordem de autenticação no certificado do cliente. Verifique a ordem da lista de autenticação clicando duas vezes no certificado do cliente, selecionando a guia **detalhes** e, em seguida, selecionando **uso avançado de chave**. Verifique se a *autenticação do cliente* é o primeiro item da lista. Se não estiver, emita um certificado de cliente com base no modelo de usuário que tem a *autenticação de cliente* como o primeiro item na lista.
 
-- Para saber mais sobre solução de problemas de P2S, confira [Solucionar problemas de conexões P2S](../articles/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+- Para obter informações adicionais de solução de problemas do P2S, consulte [solucionar problemas de conexões do P2S](../articles/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

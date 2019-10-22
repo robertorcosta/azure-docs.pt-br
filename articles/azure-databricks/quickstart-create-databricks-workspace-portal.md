@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: executar um trabalho de Spark no Azure Databricks usando o portal do Azure'
+title: executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 description: O início rápido mostra como usar o Portal do Azure para criar um workspace do Azure Databricks, um cluster do Apache Spark e executar um trabalho do Spark.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 3570325880b4c8d8eb311f00477262126a2b18ad
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 21a3e8541441e6139c1c84138870b3ffaf3cacc1
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932575"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515796"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início Rápido: Executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 
@@ -31,7 +31,7 @@ Entre no [Portal do Azure](https://portal.azure.com).
 
 > [!Note]
 > Este tutorial não pode ser realizado usando a **Assinatura de avaliação gratuita do Azure**.
-> Se você tiver uma conta gratuita, acesse seu perfil e altere para uma assinatura **pré-paga**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/). Em seguida, [remova o limite de gastos](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center) e [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para as vCPUs da sua região. Quando você cria seu workspace do Azure Databricks, pode selecionar o tipo de preço **Versão de avaliação (Premium - DBUs gratuitas por 14 dias)** para conceder ao workspace acesso gratuito aos DBUs do Premium Azure Databricks por 14 dias.
+> Se você tiver uma conta gratuita, acesse seu perfil e altere para uma assinatura **pré-paga**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/). Em seguida, [remova o limite de gastos](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center) e [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para as vCPUs da sua região. Quando você cria seu espaço de trabalho do Azure Databricks, pode selecionar o tipo de preço **Versão de avaliação (Premium - DBUs gratuitas por 14 dias)** para conceder ao espaço de trabalho acesso gratuito aos DBUs do Premium Azure Databricks por 14 dias.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar um workspace do Azure Databricks
 
@@ -43,7 +43,7 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 
 2. Em **Serviço do Azure Databricks**, forneça os valores para criar um workspace do Databricks.
 
-    ![Criar um workspace do Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Criar um workspace do Azure Databricks")
+    ![Crie um workspace do Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Criar um workspace do Azure Databricks")
 
     Forneça os seguintes valores:
     
@@ -54,8 +54,9 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
     |**Grupo de recursos**     | Especifique se deseja criar um novo grupo de recursos ou usar um existente. Um grupo de recursos é um contêiner que mantém os recursos relacionados a uma solução do Azure. Para obter mais informações, consulte [Visão geral do Grupo de Recursos do Azure](../azure-resource-manager/resource-group-overview.md). |
     |**Localidade**     | Selecione **Oeste dos EUA 2**. Para outras regiões disponíveis, consulte [serviços do Azure por região](https://azure.microsoft.com/regions/services/).        |
     |**Tipo de preço**     |  Escolha entre o cluster **Standard**, **Premium** ou **Avaliação**. Para saber mais sobre essas camadas, confira [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Rede Virtual**     |  Escolha implantar um workspace do Azure Databricks na sua VNet (Rede Virtual). Para obter mais informações, consulte [Implantar o Azure Databricks em sua Rede Virtual do Azure (Injeção de VNet)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).        |
 
-    Selecione **Fixar no painel** e clique em **Criar**.
+    Selecione **Criar**.
 
 4. A criação do workspace leva alguns minutos. Durante a criação do workspace, você pode exibir o status da implantação em **Notificações**.
 
@@ -74,12 +75,12 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 
 3. Na página **Novo cluster**, forneça os valores para criar um cluster.
 
-    ![Criar cluster do Databricks Spark no Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Criar cluster do Databricks Spark no Azure")
+    ![Criar um cluster Spark do Databricks no Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Criar um cluster Spark do Databricks no Azure")
 
     Aceite todos os outros valores padrão que não sejam o seguinte:
 
    * Insira um nome para o cluster.
-   * Neste artigo, crie um cluster com o tempo de execução **5.2**.
+   * Para este artigo, crie um cluster com o runtime **5.3**.
    * Verifique se você marcou a caixa de seleção **Terminar depois de \_\_ minutos de inatividade**. Forneça uma duração (em minutos) para encerrar o cluster caso ele não esteja sendo usado.
     
      Selecione **Criar cluster**. Quando o cluster está em execução, você pode anexar blocos de notas a ele e executar trabalhos do Spark.
@@ -92,11 +93,11 @@ Execute as seguintes tarefas para criar um notebook em Databricks, configurar o 
 
 1. No painel esquerdo, escolha **Azure Databricks**. Nas **Tarefas Comuns**, escolha **Novo Notebook**.
 
-    ![Criar bloco de notas em Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Criar bloco de notas em Databricks")
+    ![Criar notebook no Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Criar notebook no Databricks")
 
 2. Na caixa de diálogo **Criar Notebook**, insira um nome, escolha **Python** como a linguagem e escolha o cluster Spark criado anteriormente.
 
-    ![Criar bloco de notas em Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Criar bloco de notas em Databricks")
+    ![Criar notebook no Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Criar notebook no Databricks")
 
     Selecione **Criar**.
 
@@ -136,7 +137,7 @@ Execute as seguintes tarefas para criar um notebook em Databricks, configurar o 
 
 5. Você verá uma saída tabular como mostrado na seguinte captura de tela (somente algumas colunas são mostradas):
 
-    ![Dados de exemplo](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Dados JSON de exemplo")
+    ![Dados de amostra](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Dados JSON de exemplo")
 
 6. Agora, crie uma representação visual desses dados para mostrar quantos eventos de segurança são relatados usando o aplicativo Citizens Connect e o City Worker App em vez de outras fontes. Na parte inferior da saída tabular, escolha o ícone de **Gráfico de barras** e clique em **Opções de plotagem**.
 
@@ -144,7 +145,7 @@ Execute as seguintes tarefas para criar um notebook em Databricks, configurar o 
 
 8. Em **Personalizar plotagem**, arraste e solte valores conforme mostrado na captura de tela.
 
-    ![Personalizar o gráfico de pizza](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Personalizar o gráfico de barras")
+    ![Personalizar gráfico de pizza](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Personalizar gráfico de barras")
 
    * Defina **Chaves** como **origem**.
    * Defina **Valores** como **<\id>** .
@@ -157,7 +158,7 @@ Execute as seguintes tarefas para criar um notebook em Databricks, configurar o 
 
 Depois de terminar o artigo, você poderá encerrar o cluster. Para isso, no workspace do Azure Databricks, no painel esquerdo, selecione **Clusters**. No cluster que deseja encerrar, mova o cursor sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**.
 
-![Parar um cluster do Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Parar um cluster do Databricks")
+![Interromper um cluster Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Interromper um cluster Databricks")
 
 Se você não encerrar o cluster manualmente, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **Terminar depois de \_\_ minutos de inatividade** ao criar o cluster. Nesse caso, o cluster é interrompido automaticamente se ficar inativo durante o tempo especificado.
 

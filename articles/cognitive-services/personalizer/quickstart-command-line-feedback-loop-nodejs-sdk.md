@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: b7ea28f98340d3c3547b0ed66771b3982a03143d
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: ee647668e8b5826706e8d9bb8a82acaf53fd3d8c
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345255"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515211"
 ---
-# <a name="quickstart-personalize-client-library-for-nodejs"></a>Início Rápido: Biblioteca de clientes do Personalizador para Node.js
+# <a name="quickstart-personalizer-client-library-for-nodejs"></a>Início Rápido: Biblioteca de clientes do Personalizador para Node.js
 
 Exiba um conteúdo personalizado neste início rápido do Node.js com o serviço Personalizador.
 
