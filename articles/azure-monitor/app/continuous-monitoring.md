@@ -1,22 +1,20 @@
 ---
 title: Monitoramento contínuo de seu pipeline de versão do DevOps com o Azure Pipelines e o Aplicativo Azure insights | Microsoft Docs
 description: Fornece instruções para configurar rapidamente o monitoramento contínuo com o Application Insights
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/16/2019
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: c39a2f75fe74b61463af464078b4446bba07dec0
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c891cc7564a60dfd665d84d569e266332d255fa9
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277691"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677528"
 ---
-# <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicionar monitoramento contínuo ao seu pipeline de versão
+# <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicionar monitoramento contínuo ao seu pipeline de lançamento
 
 O Azure Pipelines integra-se com o Aplicativo Azure insights para permitir o monitoramento contínuo de seu pipeline de versão do DevOps em todo o ciclo de vida do desenvolvimento de software. 
 
@@ -26,7 +24,7 @@ Com o monitoramento contínuo, os pipelines de versão podem incorporar dados de
 
 1. No [Azure DevOps](https://dev.azure.com), selecione uma organização e um projeto.
    
-1. No menu à esquerda da página do projeto, selecione  > **lançamentos**de pipelines. 
+1. No menu à esquerda da página do projeto, selecione **pipelines**  > **versões**. 
    
 1. Solte a seta ao lado de **novo** e selecione **novo pipeline de liberação**. Ou, se você ainda não tiver um pipeline, selecione **novo pipeline** na página que aparece.
    
@@ -40,20 +38,20 @@ Com o monitoramento contínuo, os pipelines de versão podem incorporar dados de
 
 1. No painel configuração do **estágio 1** , preencha os seguintes campos: 
 
-    | Parâmetro        | Valor |
+    | .        | Valor |
    | ------------- |:-----|
    | **Nome do estágio**      | Forneça um nome de estágio ou deixe-o no **estágio 1**. |
    | **Assinatura do Azure** | Clique na lista suspensa e selecione a assinatura do Azure vinculada que você deseja usar.|
    | **Tipo de aplicativo** | Clique no menu suspenso e selecione seu tipo de aplicativo. |
-   | **Nome do Serviço de Aplicativo** | Insira o nome do seu serviço de Azure App. |
+   | **Nome do serviço de aplicativo** | Insira o nome do seu serviço de Azure App. |
    | **Nome do grupo de recursos para Application Insights**    | Clique no menu suspenso e selecione o grupo de recursos que deseja usar. |
-   | **Nome do recurso do Application Insights** | Selecione o recurso de Application Insights para o grupo de recursos que você selecionou.
+   | **Nome do recurso de Application Insights** | Selecione o recurso de Application Insights para o grupo de recursos que você selecionou.
 
 1. Para salvar o pipeline com as configurações de regra de alerta padrão, selecione **salvar** no canto superior direito na janela DevOps do Azure. Insira um comentário descritivo e, em seguida, selecione **OK**.
 
-## <a name="modify-alert-rules"></a>Modificar as regras de alerta
+## <a name="modify-alert-rules"></a>Modificar regras de alerta
 
-Pronto para uso, a **implantação do serviço de Azure app com** o modelo de monitoramento contínuo tem quatro regras de alerta: **Disponibilidade**, **solicitações com falha**, **tempo de resposta do servidor**e **exceções de servidor**. Você pode adicionar mais regras ou alterar as configurações de regra para atender às suas necessidades de nível de serviço. 
+Pronto para uso, a **implantação do serviço de Azure app com** o modelo de monitoramento contínuo tem quatro regras de alerta: **disponibilidade**, **solicitações com falha**, **tempo de resposta do servidor**e **exceções de servidor**. Você pode adicionar mais regras ou alterar as configurações de regra para atender às suas necessidades de nível de serviço. 
 
 Para modificar as configurações da regra de alerta:
 
@@ -103,6 +101,6 @@ Você pode ver o comportamento do portão de implantação e outras etapas de ve
    
    ![Exibir logs de liberação](media/continuous-monitoring/006.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre Azure Pipelines, consulte a [documentação do Azure pipelines](https://docs.microsoft.com/azure/devops/pipelines).

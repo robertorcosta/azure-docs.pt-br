@@ -1,27 +1,22 @@
 ---
-title: Criar um novo recurso do Azure Application Insights | Microsoft Docs
-description: Configure manualmente o monitoramento do Application Insights para um novo aplicativo em tempo real.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Criar um novo recurso do insights Aplicativo Azure | Microsoft Docs
+description: Configurar manualmente o monitoramento de Application Insights para um novo aplicativo ao vivo.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/16/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: ae9c885b342664baf90f9c2b5702a092c9d838df
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.date: 08/16/2019
+ms.openlocfilehash: be68c70a105737f232741f02994da87c0c628bd7
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562845"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677497"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
-O Azure Application Insights exibe dados sobre o seu aplicativo em um *recurso* do Microsoft Azure. A criação de um novo recurso, portanto, faz parte da [configuração de Application insights para monitorar um novo aplicativo][start]. Depois de criar o novo recurso, você pode obter sua chave de instrumentação e usá-la para configurar o SDK do Application Insights. A chave de instrumentação vincula sua telemetria ao recurso.
+Aplicativo Azure insights exibe dados sobre seu aplicativo em um *recurso*de Microsoft Azure. A criação de um novo recurso, portanto, faz parte da [configuração de Application insights para monitorar um novo aplicativo][start]. Depois de criar o novo recurso, você pode obter sua chave de instrumentação e usá-la para configurar o SDK do Application Insights. A chave de instrumentação vincula sua telemetria ao recurso.
 
 ## <a name="sign-in-to-microsoft-azure"></a>Entrar no Microsoft Azure
 
@@ -35,11 +30,11 @@ Entre no [portal do Azure](https://portal.azure.com)e crie um recurso de Applica
 
    | Configurações        |  Valor           | Descrição  |
    | ------------- |:-------------|:-----|
-   | **Nome**      | Valor Globalmente Exclusivo | Nome que identifica o aplicativo que você está monitorando. |
+   | **Nome**      | Valor global exclusivo | Nome que identifica o aplicativo que você está monitorando. |
    | **Grupo de recursos**     | myResourceGroup      | Nome do grupo de recursos novo ou existente para hospedar dados do App insights. |
-   | **Localidade** | East US | Escolha um local perto de você ou próximo do local em que seu aplicativo está hospedado. |
+   | **Localidade** | Leste dos EUA | Escolha um local perto de você ou próximo do local em que seu aplicativo está hospedado. |
 
-Insira os valores apropriados nos campos obrigatórios e, em seguida, selecione revisar **+ criar**.
+Insira os valores apropriados nos campos obrigatórios e, em seguida, selecione **revisar + criar**.
 
 ![Insira valores em campos obrigatórios e, em seguida, selecione "revisar + criar".](./media/create-new-resource/review-create.png)
 
@@ -53,7 +48,7 @@ A chave de instrumentação identifica o recurso ao qual você deseja associar o
 
 ## <a name="install-the-sdk-in-your-app"></a>Instalar o SDK em seu aplicativo
 
-Instale o SDK do Application Insights SDK no aplicativo. Esta etapa depende muito do tipo do seu aplicativo.
+Instale o SDK do Application Insights em seu aplicativo. Esta etapa depende muito do tipo do seu aplicativo.
 
 Use a chave de instrumentação para configurar [o SDK que você instala em seu aplicativo][start].
 
@@ -108,7 +103,7 @@ Para acessar a visualização Application Insights CLI do Azure comandos que voc
  az extension add -n application-insights
 ```
 
-Se você não executar o `az extension add` comando, verá uma mensagem de erro que diz:`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+Se você não executar o comando `az extension add`, verá uma mensagem de erro que diz: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Agora você pode executar o seguinte para criar o recurso de Application Insights:
 
@@ -157,7 +152,7 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 
 Para obter a documentação completa de CLI do Azure para esse comando e saber como recuperar a chave de instrumentação, consulte a [documentação do CLI do Azure](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Pesquisa de Diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Explorar métricas](../../azure-monitor/app/metrics-explorer.md)
 * [Escrever consultas do Analytics](../../azure-monitor/app/analytics.md)

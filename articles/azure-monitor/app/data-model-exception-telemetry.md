@@ -1,37 +1,33 @@
 ---
-title: Modelo de dados do Azure Application Insights Telemetry – telemetria de exceções | Microsoft Docs
-description: Modelo de dados do Application Insights para telemetria de exceções
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+title: Modelo de dados de telemetria do Aplicativo Azure insights – telemetria de exceção | Microsoft Docs
+description: Modelo de dados Application Insights para telemetria de exceção
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: efd7ad43ee9a2206f474621612eca7dfe5079f99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ba1c94ee8dc78b937d650cff32e1518a7ca5a12
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60908048"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677412"
 ---
-# <a name="exception-telemetry-application-insights-data-model"></a>Telemetria de exceção: Modelo de dados do Application Insights
+# <a name="exception-telemetry-application-insights-data-model"></a>Telemetria de exceção: modelo de dados de Application Insights
 
-Um [Application Insights](../../azure-monitor/app/app-insights-overview.md), uma instância da exceção representa uma exceção tratada ou sem tratamento que ocorreu durante a execução do aplicativo monitorado.
+No [Application insights](../../azure-monitor/app/app-insights-overview.md), uma instância de exceção representa uma exceção manipulada ou sem tratamento que ocorreu durante a execução do aplicativo monitorado.
 
-## <a name="problem-id"></a>ID do Problema
+## <a name="problem-id"></a>ID do problema
 
-Identificador do local em que a exceção foi lançada no código. Usada para agrupamento de exceções. Normalmente, é uma combinação do tipo de exceção e uma função da pilha de chamadas.
+Identificador de onde a exceção foi lançada no código. Usado para Agrupamento de exceções. Normalmente, uma combinação de tipo de exceção e uma função da pilha de chamadas.
 
-Tamanho máx.: 1024 caracteres
+Comprimento máximo: 1024 caracteres
 
-## <a name="severity-level"></a>Nível de severidade
+## <a name="severity-level"></a>Nível de gravidade
 
-Nível de severidade de rastreamento. O valor pode ser `Verbose`, `Information`, `Warning`, `Error` ou `Critical`.
+Nível de severidade do rastreamento. O valor pode ser `Verbose`, `Information`, `Warning`, `Error` `Critical`.
 
 ## <a name="exception-details"></a>Detalhes da exceção
 
@@ -45,8 +41,8 @@ Nível de severidade de rastreamento. O valor pode ser `Verbose`, `Information`,
 
 [!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Consulte [modelo de dados](data-model.md) para modelo de dados e tipos do Application Insights.
-- Aprenda a [diagnosticar exceções em seus aplicativos Web com o Application Insights](../../azure-monitor/app/asp-net-exceptions.md).
-- Confira as [plataformas](../../azure-monitor/app/platforms.md) com suporte do Application Insights.
+- Consulte [modelo de dados](data-model.md) para tipos de Application insights e modelo de dados.
+- Saiba como [diagnosticar exceções em seus aplicativos Web com Application insights](../../azure-monitor/app/asp-net-exceptions.md).
+- Confira as [plataformas](../../azure-monitor/app/platforms.md) com suporte pelo Application insights.

@@ -1,6 +1,6 @@
 ---
-title: Cenário de log de erros e tratamento de exceção – Aplicativos Lógicos do Azure | Microsoft Docs
-description: Aqui está um caso de uso real sobre o log de erros e o tratamento de exceção avançados nos Aplicativos Lógicos do Azure
+title: Tratamento de exceção & cenário de log de erros-aplicativos lógicos do Azure
+description: Cenário e caso de uso real para tratamento de exceção avançada e log de erros em aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,52 +10,52 @@ ms.reviewer: LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: ec01f738ee4943659de1b49ab8d52218e6a8fb79
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 7930d487d367ee19b869becae5017f80ea1df8cb
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385468"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680169"
 ---
-# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Tratamento de exceção e log de erros para aplicativos lógicos
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: tratamento de exceção e log de erros para aplicativos lógicos
 
-Este cenário descreve como é possível estender um aplicativo lógico para dar melhor suporte ao tratamento de exceção. Usamos um caso de uso real para responder à pergunta: "Os Aplicativos Lógicos do Azure dão suporte ao tratamento de erro e exceção?"
+Este cenário descreve como você pode estender um aplicativo lógico para dar melhor suporte ao tratamento de exceção. Usamos um caso de uso real para responder à pergunta: "os aplicativos lógicos do Azure dão suporte ao tratamento de exceções e erros?"
 
 > [!NOTE]
-> O esquema atual dos Aplicativos Lógicos do Azure fornece um modelo padrão para respostas de ação. Esse modelo inclui a validação interna e as respostas de erro retornadas de um aplicativo de API.
+> O esquema atual de aplicativos lógicos do Azure fornece um modelo padrão para respostas de ação. Esse modelo inclui validação interna e respostas de erro retornadas de um aplicativo de API.
 
 ## <a name="scenario-and-use-case-overview"></a>Visão geral do cenário e do caso de uso
 
-Esta é a história do caso de uso para este cenário: 
+Esta é a história como o caso de uso para este cenário: 
 
-Uma organização de saúde conhecida nos pediu para desenvolver uma solução do Azure que criasse um portal de paciente usando o Microsoft Dynamics CRM Online. Ela precisava enviar registros de consultas entre o portal de pacientes do Dynamics CRM Online e o Salesforce. Foi solicitado que usássemos o padrão [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) para todos os registros de pacientes.
+Uma organização de saúde conhecida nos contratou para desenvolver uma solução do Azure que criaria um portal de pacientes usando o Microsoft Dynamics CRM Online. Eles precisavam enviar registros de compromissos entre o portal do paciente do Dynamics CRM Online e o Salesforce. Foi solicitado que usássemos o padrão [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) para todos os registros de pacientes.
 
 O projeto tinha dois requisitos principais:  
 
 * Um método para registrar em log os registros enviados do portal do Dynamics CRM Online
-* Uma maneira de exibir os erros ocorridos no fluxo de trabalho
+* Uma maneira de exibir os erros que ocorreram no fluxo de trabalho
 
 > [!TIP]
-> Para assistir a um vídeo de alto nível sobre esse projeto, consulte [Grupo de usuários de integração](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Grupo de usuários de integração").
+> Para obter um vídeo de alto nível sobre este projeto, consulte [Integration User Group](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Grupo de usuários de integração").
 
 ## <a name="how-we-solved-the-problem"></a>Como solucionamos o problema
 
-Escolhemos o [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") como um repositório dos registros de log e erros (o Cosmos DB refere-se aos registros como documentos). Como os Aplicativos Lógicos do Azure têm um modelo padrão para todas as respostas, não será necessário criar um esquema personalizado. Nós poderíamos criar um aplicativo de API para **Inserir** e **Consultar** registros de erro e de log. Também poderíamos definir um esquema para cada um deles no aplicativo de API.  
+Escolhemos [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "BD Cosmos do Azure") como um repositório para os registros de log e de erro (Cosmos DB se refere a registros como documentos). Como os aplicativos lógicos do Azure têm um modelo padrão para todas as respostas, não precisamos criar um esquema personalizado. Nós poderíamos criar um aplicativo de API para **Inserir** e **Consultar** registros de erro e de log. Também poderíamos definir um esquema para cada um deles no aplicativo de API.  
 
-Outro requisito era eliminar registros após determinada data. O Cosmos DB tem uma propriedade chamada [TTL](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (vida útil), que nos permitiu definir um valor de **TTL** para cada registro ou coleção. Essa funcionalidade eliminou a necessidade de excluir manualmente os registros do Cosmos DB.
+Outro requisito era limpar os registros após uma determinada data. Cosmos DB tem uma [propriedade chamada TTL (vida útil](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Vida útil") ), que nos permitiu definir um valor de **vida útil** para cada registro ou coleção. Esse recurso eliminou a necessidade de excluir manualmente os registros em Cosmos DB.
 
 > [!IMPORTANT]
-> Para concluir este tutorial, você precisa criar um banco de dados do Cosmos DB e duas coleções (Log e Erros).
+> Para concluir este tutorial, você precisa criar um banco de dados Cosmos DB e duas coleções (log e erros).
 
 ## <a name="create-the-logic-app"></a>Criar o aplicativo lógico
 
-A primeira etapa é criar o aplicativo lógico e abri-lo no Designer de Aplicativos Lógicos. Neste exemplo, estamos usando aplicativos lógicos pai-filho. Vamos supor que nós criamos o pai e vamos criar um aplicativo lógico filho.
+A primeira etapa é criar o aplicativo lógico e abrir o aplicativo no designer de aplicativo lógico. Neste exemplo, estamos usando aplicativos lógicos pai-filho. Vamos supor que já criamos o pai e vamos criar um aplicativo lógico filho.
 
-Já que vamos registrar o registro obtido do Dynamics CRM Online, começaremos no início. Devemos usar um gatilho **Solicitação**, pois o aplicativo lógico pai dispara esse filho.
+Como vamos registrar o registro que sai do Dynamics CRM Online, vamos começar na parte superior. Devemos usar um gatilho de **solicitação** porque o aplicativo lógico pai dispara esse filho.
 
 ### <a name="logic-app-trigger"></a>Gatilho de aplicativo lógico
 
-Estamos usando um gatilho **Solicitação**, conforme mostrado no seguinte exemplo:
+Estamos usando um gatilho de **solicitação** , conforme mostrado no exemplo a seguir:
 
 ``` json
 "triggers": {
@@ -95,14 +95,14 @@ Estamos usando um gatilho **Solicitação**, conforme mostrado no seguinte exemp
 
 ## <a name="steps"></a>Etapas
 
-Devemos registrar a origem (solicitação) do registro do paciente do portal do Dynamics CRM Online.
+Devemos registrar a origem (solicitação) do registro de pacientes no portal do Dynamics CRM Online.
 
 1. É necessário obter um novo registro de compromisso do Dynamics CRM Online.
 
    O gatilho proveniente do CRM fornece a **CRM PatentId**, o **tipo de registro**, o **Registro Novo ou Atualizado** (valor booliano novo ou atualizado) e a **SalesforceId**. O **SalesforceId** pode ser nulo porque é usado somente para uma atualização.
    Obtemos o registro do CRM usando a **PatientID** do CRM e o **Tipo de Registro**.
 
-2. Em seguida, precisamos adicionar a operação **InsertLogEntry** do nosso aplicativo de API do SQL do Azure Cosmos DB, conforme mostrado aqui no Designer de Aplicativo Lógico.
+2. Em seguida, precisamos adicionar nossa Azure Cosmos DB operação **InsertLogEntry** do aplicativo de API do SQL, como mostrado aqui no designer de aplicativo lógico.
 
    **Inserir entrada de log**
 
@@ -112,22 +112,22 @@ Devemos registrar a origem (solicitação) do registro do paciente do portal do 
 
    ![Inserir Entrada de Log](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
-   **Verificar falha na criação de registro**
+   **Verificar se há falha de criação de registro**
 
    ![Condição](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>Código-fonte do aplicativo lógico
 
 > [!NOTE]
-> Os exemplos a seguir são apenas amostras. Como este tutorial se baseia em uma implementação atualmente em produção, o valor de um **Nó de Origem** pode não exibir as propriedades relacionadas ao agendamento de um compromisso.> 
+> Os exemplos a seguir são apenas exemplos. Como este tutorial se baseia em uma implementação agora em produção, o valor de um **nó de origem** pode não exibir propriedades relacionadas ao agendamento de um compromisso. > 
 
-### <a name="logging"></a>Registrando em log
+### <a name="logging"></a>Registro em log
 
-O exemplo de código de aplicativo lógico a seguir mostra como lidar com registros em log.
+O exemplo de código do aplicativo lógico a seguir mostra como manipular o registro em log.
 
 #### <a name="log-entry"></a>Entrada de log
 
-Este é o código-fonte do aplicativo lógico para a inserção de uma entrada de log.
+Aqui está o código-fonte do aplicativo lógico para inserir uma entrada de log.
 
 ``` json
 "InsertLogEntry": {
@@ -155,7 +155,7 @@ Este é o código-fonte do aplicativo lógico para a inserção de uma entrada d
 
 #### <a name="log-request"></a>Solicitação de log
 
-Esta é a mensagem de solicitação de log postada no aplicativo de API.
+Aqui está a mensagem de solicitação de log postada para o aplicativo de API.
 
 ``` json
     {
@@ -175,7 +175,7 @@ Esta é a mensagem de solicitação de log postada no aplicativo de API.
 
 #### <a name="log-response"></a>Resposta de log
 
-Esta é a mensagem de resposta de log do aplicativo de API.
+Aqui está a mensagem de resposta de log do aplicativo de API.
 
 ``` json
 {
@@ -209,15 +209,15 @@ Esta é a mensagem de resposta de log do aplicativo de API.
 
 ```
 
-Agora vejamos as etapas de tratamento de erros.
+Agora, vamos examinar as etapas de tratamento de erro.
 
-### <a name="error-handling"></a>Tratamento de erros
+### <a name="error-handling"></a>Tratamento de erro
 
-O exemplo de código de aplicativo lógico a seguir mostra como é possível implementar o tratamento de erro.
+O exemplo de código do aplicativo lógico a seguir mostra como você pode implementar o tratamento de erros.
 
 #### <a name="create-error-record"></a>Criar registro de erro
 
-Este é o código-fonte do aplicativo lógico para criar um registro de erro.
+Aqui está o código-fonte do aplicativo lógico para criar um registro de erro.
 
 ``` json
 "actions": {
@@ -252,7 +252,7 @@ Este é o código-fonte do aplicativo lógico para criar um registro de erro.
 }             
 ```
 
-#### <a name="insert-error-into-cosmos-db--request"></a>Inserir erro na solicitação do Cosmos DB
+#### <a name="insert-error-into-cosmos-db--request"></a>Inserir erro em Cosmos DB--solicitação
 
 ``` json
 
@@ -275,7 +275,7 @@ Este é o código-fonte do aplicativo lógico para criar um registro de erro.
 }
 ```
 
-#### <a name="insert-error-into-cosmos-db--response"></a>Inserir erro na resposta do Cosmos DB
+#### <a name="insert-error-into-cosmos-db--response"></a>Inserir erro em Cosmos DB--resposta
 
 ``` json
 {
@@ -343,11 +343,11 @@ Este é o código-fonte do aplicativo lógico para criar um registro de erro.
 
 ```
 
-### <a name="return-the-response-back-to-parent-logic-app"></a>Retornar a resposta ao aplicativo lógico pai
+### <a name="return-the-response-back-to-parent-logic-app"></a>Retornar a resposta de volta para o aplicativo lógico pai
 
-Assim que você obtiver a resposta, poderá passá-la para o aplicativo lógico pai.
+Depois de obter a resposta, você pode passar a resposta de volta para o aplicativo lógico pai.
 
-#### <a name="return-success-response-to-parent-logic-app"></a>Retornar resposta de êxito para aplicativo lógico pai
+#### <a name="return-success-response-to-parent-logic-app"></a>Retornar resposta de êxito ao aplicativo lógico pai
 
 ``` json
 "SuccessResponse": {
@@ -369,7 +369,7 @@ Assim que você obtiver a resposta, poderá passá-la para o aplicativo lógico 
 }
 ```
 
-#### <a name="return-error-response-to-parent-logic-app"></a>Retornar resposta de erro para aplicativo lógico pai
+#### <a name="return-error-response-to-parent-logic-app"></a>Retornar resposta de erro para o aplicativo lógico pai
 
 ``` json
 "ErrorResponse": {
@@ -393,48 +393,48 @@ Assim que você obtiver a resposta, poderá passá-la para o aplicativo lógico 
 ```
 
 
-## <a name="cosmos-db-repository-and-portal"></a>Repositório e portal do Cosmos DB
+## <a name="cosmos-db-repository-and-portal"></a>Repositório de Cosmos DB e portal
 
-Nossa solução adicionou funcionalidades ao [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
+Nossa solução acrescentou recursos com [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
 
 ### <a name="error-management-portal"></a>Portal de gerenciamento de erros
 
-Para exibir os erros, crie um aplicativo Web do MVC para exibir os registros de erro do Cosmos DB. As operações **Listar**, **Detalhes**, **Editar** e **Excluir** foram incluídas na versão atual.
+Para exibir os erros, você pode criar um aplicativo Web MVC para exibir os registros de erro de Cosmos DB. As operações **listar**, **detalhes**, **Editar**e **excluir** estão incluídas na versão atual.
 
 > [!NOTE]
-> Operação Editar: O Cosmos DB substitui o documento inteiro. Os registros mostrados nos modos de exibição de **Lista** e de **Detalhe** são apenas exemplos. Eles não são registros reais de consultas de pacientes.
+> Operação de edição: Cosmos DB substitui todo o documento. Os registros mostrados nos modos de exibição de **Lista** e de **Detalhe** são apenas exemplos. Eles não são registros reais de consultas de pacientes.
 
-Estes são exemplos de detalhes de nosso aplicativo MVC criados com a abordagem descrita anteriormente.
+Aqui estão exemplos de nossos detalhes do aplicativo MVC criados com a abordagem descrita anteriormente.
 
 #### <a name="error-management-list"></a>Lista de gerenciamento de erros
 ![Lista de Erros](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
 
-#### <a name="error-management-detail-view"></a>Modo de exibição de detalhes do gerenciamento de erros
+#### <a name="error-management-detail-view"></a>Exibição de detalhes de gerenciamento de erros
 ![Detalhes do Erro](media/logic-apps-scenario-error-and-exception-handling/errordetails.png)
 
-### <a name="log-management-portal"></a>Portal de gerenciamento de logs
+### <a name="log-management-portal"></a>Portal de gerenciamento de log
 
-Para exibir os logs, também criamos um aplicativo Web do MVC. Estes são exemplos de detalhes de nosso aplicativo MVC criados com a abordagem descrita anteriormente.
+Para exibir os logs, também criamos um aplicativo Web do MVC. Aqui estão exemplos de nossos detalhes do aplicativo MVC criados com a abordagem descrita anteriormente.
 
-#### <a name="sample-log-detail-view"></a>Modo de exibição de detalhes de log de exemplo
-![Modo de Exibição de Detalhes de Log](media/logic-apps-scenario-error-and-exception-handling/samplelogdetail.png)
+#### <a name="sample-log-detail-view"></a>Exibição de detalhes do log de exemplo
+![Exibição de detalhes do log](media/logic-apps-scenario-error-and-exception-handling/samplelogdetail.png)
 
 ### <a name="api-app-details"></a>Detalhes do aplicativo de API
 
-#### <a name="logic-apps-exception-management-api"></a>API de gerenciamento de exceções de Aplicativos Lógicos
+#### <a name="logic-apps-exception-management-api"></a>API de gerenciamento de exceções de aplicativos lógicos
 
-Nosso aplicativo de API de gerenciamento de exceções dos Aplicativos Lógicos do Azure de software livre fornece a funcionalidade conforme descrito a seguir - existem dois controladores:
+Nosso aplicativo de API de gerenciamento de exceções de aplicativos lógicos do Azure de software livre fornece funcionalidade conforme descrito aqui – há dois controladores:
 
-* **ErrorController** insere um registro de erro (documento) em uma coleção do Azure Cosmos DB.
-* **LogController** insere um registro de log (documento) em uma coleção do Azure Cosmos DB.
+* **ErrorController** insere um registro de erro (documento) em uma coleção de Azure Cosmos DB.
+* **LogController** Insere um registro de log (documento) em uma coleção de Azure Cosmos DB.
 
 > [!TIP]
-> Ambos os controladores usam operações `async Task<dynamic>`, permitindo que as operações sejam resolvidas em tempo de execução, para que possamos criar o esquema do Azure Cosmos DB no corpo da operação. 
+> Ambos os controladores usam operações de `async Task<dynamic>`, permitindo que as operações sejam resolvidas em tempo de execução, para que possamos criar o esquema de Azure Cosmos DB no corpo da operação. 
 > 
 
-Todos os documentos do Azure Cosmos DB devem ter uma ID exclusiva. Estamos usando o `PatientId` e adicionando um carimbo de data/hora convertido em um valor de carimbo de data/hora do Unix (double). Truncamos o valor para remover o valor fracionário.
+Cada documento no Azure Cosmos DB deve ter uma ID exclusiva. Estamos usando o `PatientId` e adicionando um carimbo de data/hora convertido em um valor de carimbo de data/hora do Unix (double). Truncamos o valor para remover o valor fracionário.
 
-Você pode exibir o código-fonte da nossa API de controlador erro no [GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs).
+Você pode exibir o código-fonte da nossa API do controlador de erros do [GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs).
 
 Chamamos a API de um aplicativo lógico usando a seguinte sintaxe:
 
@@ -469,19 +469,19 @@ Chamamos a API de um aplicativo lógico usando a seguinte sintaxe:
  }
 ```
 
-A expressão no exemplo de código anterior verifica o status de *Create_NewPatientRecord*, que é **Com Falha**.
+A expressão no exemplo de código anterior verifica o status *Create_NewPatientRecord* de **Failed**.
 
 ## <a name="summary"></a>Resumo
 
-* Você pode implementar facilmente o tratamento de logs e de erros em um aplicativo lógico.
-* Você pode usar o Azure Cosmos DB como o repositório de registros de log e de erros (documentos).
-* Você pode usar o MVC para criar um portal para exibir os registros de log e de erros.
+* Você pode implementar facilmente o registro em log e o tratamento de erros em um aplicativo lógico.
+* Você pode usar Azure Cosmos DB como o repositório para registros de log e de erro (documentos).
+* Você pode usar o MVC para criar um portal para exibir registros de erro e log.
 
 ### <a name="source-code"></a>Código-fonte
 
-O código-fonte para o aplicativo de API de gerenciamento de exceções de Aplicativos Lógicos está disponível neste [repositório GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API de Gerenciamento de Exceções de Aplicativos Lógicos").
+O código-fonte para o aplicativo de API de gerenciamento de exceções de aplicativos lógicos está disponível neste [repositório GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API de gerenciamento de exceções do aplicativo lógico").
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Exibir mais exemplos e cenários de aplicativos lógicos](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Saiba mais sobre como monitorar aplicativos lógicos](../logic-apps/logic-apps-monitor-your-logic-apps.md)

@@ -1,63 +1,59 @@
 ---
-title: Modelo de dados do Azure Application Insights Telemetry – telemetria de métricas | Microsoft Docs
-description: Modelo de dados do Application Insights para telemetria de métricas
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+title: Modelo de dados de telemetria do insights Aplicativo Azure-telemetria de métrica | Microsoft Docs
+description: Modelo de dados Application Insights para telemetria de métrica
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: 0973c86d055ff4ebbe7e5a3c4a2ca4e3dcabc6a0
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 816fa37ea052b18dab80bcc0d5c1528cd3d9a014
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60900453"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678138"
 ---
-# <a name="metric-telemetry-application-insights-data-model"></a>Telemetria de métrica: Modelo de dados do Application Insights
+# <a name="metric-telemetry-application-insights-data-model"></a>Telemetria de métrica: modelo de dados de Application Insights
 
-Há dois tipos de telemetria de métricas com suporte do [Application Insights](../../azure-monitor/app/app-insights-overview.md): medida única e métrica agregada previamente. A medida única é apenas um nome e valor. A métrica agregada previamente especifica os valores mínimo e máximo da métrica no intervalo de agregação e o desvio padrão desses valores.
+Há dois tipos de telemetria de métricas com suporte pelo [Application insights](../../azure-monitor/app/app-insights-overview.md): medição única e métrica de agregação. A medida única é apenas um nome e valor. A métrica previamente agregada especifica o valor mínimo e máximo da métrica no intervalo de agregação e o desvio padrão dela.
 
-A telemetria de métrica agregada previamente supõe que esse período de agregação foi de um minuto.
+A telemetria de métricas previamente agregadas pressupõe que o período de agregação foi de um minuto.
 
-Há vários nomes de métrica conhecidos com suporte do Application Insights. Essas métricas são colocadas em tabela performanceCounters.
+Há vários nomes de métrica conhecidos com suporte pelo Application Insights. Essas métricas são colocadas na tabela performanceCounters.
 
-Métrica representando os contadores de processo e de sistema:
+Métrica que representa os contadores do sistema e do processo:
 
-| **Nome do .NET**             | **Nome independente de plataforma** | **Nome da API REST** | **Descrição**
+| **Nome do .NET**             | **Nome independente da plataforma** | **Nome da API REST** | **Ndescrição**
 | ------------------------- | -------------------------- | ----------------- | ---------------- 
-| `\Processor(_Total)\% Processor Time` | Trabalho em andamento... | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | total de CPU do computador
-| `\Memory\Available Bytes`                 | Trabalho em andamento... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | Mostra a quantidade de memória física, em bytes, disponível para processos em execução no computador. É calculado, somando a quantidade de espaço nas listas de memória em espera, livre e zero. A memória livre está pronta para uso; a memória zero é constituída por páginas de memória preenchidas com zeros para impedir que processos posteriores vejam dados usados por um processo anterior; a memória em espera é a memória que foi removida do conjunto de trabalho de um processo (a memória física) em rota para o disco, mas ainda está disponível para ser recuperado. Consulte [Objeto de Memória](https://msdn.microsoft.com/library/ms804008.aspx)
+| `\Processor(_Total)\% Processor Time` | Trabalho em andamento... | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | CPU total do computador
+| `\Memory\Available Bytes`                 | Trabalho em andamento... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | Mostra a quantidade de memória física, em bytes, disponível para processos em execução no computador. Ele é calculado somando-se a quantidade de espaço nas listas de memória zero, livre e em espera. A memória livre está pronta para uso; a memória zero consiste em páginas de memória preenchidas com zeros para evitar que processos posteriores vejam os dados usados por um processo anterior; a memória em espera é a memória que foi removida do conjunto de trabalho de um processo (sua memória física) para a rota para o disco, mas ainda está disponível para ser rechamada. Consulte o [objeto de memória](https://msdn.microsoft.com/library/ms804008.aspx)
 | `\Process(??APP_WIN32_PROC??)\% Processor Time` | Trabalho em andamento... | [processCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessCpuPercentage) | CPU do processo que hospeda o aplicativo
 | `\Process(??APP_WIN32_PROC??)\Private Bytes`      | Trabalho em andamento... | [processPrivateBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessPrivateBytes) | memória usada pelo processo que hospeda o aplicativo
-| `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | Trabalho em andamento... | [processIOBytesPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessIOBytesPerSecond) | taxa de execuções de operações de E/S pelo processo que hospeda o aplicativo
-| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec`             | Trabalho em andamento... | [requestsPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsPerSecond) | taxa de solicitações processadas por aplicativo 
-| `\.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec`    | Trabalho em andamento... | [exceptionsPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FexceptionsPerSecond) | taxa de exceções geradas por aplicativo
+| `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | Trabalho em andamento... | [processIOBytesPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessIOBytesPerSecond) | taxa de operações de e/s executadas pelo processo que hospeda o aplicativo
+| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec`             | Trabalho em andamento... | [requestsPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsPerSecond) | taxa de solicitações processadas pelo aplicativo 
+| `\.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec`    | Trabalho em andamento... | [exceptionsPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FexceptionsPerSecond) | taxa de exceções geradas pelo aplicativo
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Trabalho em andamento... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | tempo médio de execução de solicitações
-| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Trabalho em andamento... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | número de solicitações aguardando processamento em uma fila
+| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Trabalho em andamento... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | número de solicitações aguardando o processamento em uma fila
 
-## <a name="name"></a>Nome
+## <a name="name"></a>NaME
 
-Nome da métrica que você gostaria de ver na interface do usuário e no portal do Application Insights. 
+Nome da métrica que você gostaria de ver no Portal Application Insights e na interface do usuário. 
 
 ## <a name="value"></a>Valor
 
-Valor único para medida. Soma de medidas individuais para a agregação.
+Valor único para medição. Soma de medidas individuais para a agregação.
 
-## <a name="count"></a>Count
+## <a name="count"></a>Contagem
 
-Peso da métrica agregada. Não deve ser definido para uma medida.
+Peso da métrica da métrica agregada. Não deve ser definido para uma medida.
 
 ## <a name="min"></a>Min
 
 Valor mínimo da métrica agregada. Não deve ser definido para uma medida.
 
-## <a name="max"></a>max
+## <a name="max"></a>Máx.
 
 Valor máximo da métrica agregada. Não deve ser definido para uma medida.
 
@@ -67,12 +63,12 @@ Desvio padrão da métrica agregada. Não deve ser definido para uma medida.
 
 ## <a name="custom-properties"></a>Propriedades personalizadas
 
-Métrica com a propriedade personalizada `CustomPerfCounter` definida para `true` indicar que a métrica representa o contador de desempenho do Windows. Essas métricas são colocadas em tabela performanceCounters. Não estão em customMetrics. Além disso, o nome dessa métrica é analisado para extrair os nomes de instância, contador e categoria.
+A métrica com a propriedade personalizada `CustomPerfCounter` definida como `true` indicar que a métrica representa o contador de desempenho do Windows. Essas métricas são colocadas na tabela performanceCounters. Não está em customMetrics. Além disso, o nome dessa métrica é analisado para extrair os nomes de categoria, contador e instância.
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Saiba como usar a [API do Application Insights para métricas e eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
-- Consulte [modelo de dados](data-model.md) para modelo de dados e tipos do Application Insights.
-- Confira as [plataformas](../../azure-monitor/app/platforms.md) com suporte do Application Insights.
+- Saiba como usar a [API Application insights para métricas e eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
+- Consulte [modelo de dados](data-model.md) para tipos de Application insights e modelo de dados.
+- Confira as [plataformas](../../azure-monitor/app/platforms.md) com suporte pelo Application insights.

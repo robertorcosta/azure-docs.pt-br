@@ -1,46 +1,42 @@
 ---
-title: Modelo de dados do Azure Application Insights Telemetry – telemetria de rastreamento | Microsoft Docs
-description: Modelo de dados do Application Insights para telemetria de rastreamento
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+title: Modelo de dados de telemetria do Aplicativo Azure insights – telemetria de rastreamento | Microsoft Docs
+description: Modelo de dados Application Insights para a telemetria de rastreamento
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: df85aafc81b199610c02f0faecb06e804fda24bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 855a93d8a6350c625fe0820fae83644aec3459ed
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60899275"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678111"
 ---
-# <a name="trace-telemetry-application-insights-data-model"></a>Telemetria de rastreamento: Modelo de dados do Application Insights
+# <a name="trace-telemetry-application-insights-data-model"></a>Telemetria de rastreamento: modelo de dados de Application Insights
 
-A telemetria de rastreamento (em [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representa instruções de rastreamento de estilo `printf` pesquisadas por texto. `Log4Net`, `NLog` e outras entradas do arquivo de log baseadas em texto são convertidas em instâncias desse tipo. O rastreamento não tem medidas como uma extensibilidade.
+A telemetria de rastreamento (em [Application insights](../../azure-monitor/app/app-insights-overview.md)) representa `printf` instruções de rastreamento de estilo que são pesquisadas em texto. `Log4Net`, `NLog` e outras entradas de arquivo de log baseadas em texto são traduzidas em instâncias desse tipo. O rastreamento não tem medidas como uma extensibilidade.
 
-## <a name="message"></a>Message
+## <a name="message"></a>Mensagem
 
 Mensagem de rastreamento.
 
-Tamanho máx. 32768 caracteres
+Comprimento máximo: 32768 caracteres
 
-## <a name="severity-level"></a>Nível de severidade
+## <a name="severity-level"></a>Nível de gravidade
 
-Nível de severidade de rastreamento. O valor pode ser `Verbose`, `Information`, `Warning`, `Error` ou `Critical`.
+Nível de severidade do rastreamento. O valor pode ser `Verbose`, `Information`, `Warning`, `Error` `Critical`.
 
 ## <a name="custom-properties"></a>Propriedades personalizadas
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Explore os logs de rastreamento do .NET no Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
-- [Explore os logs de rastreamento de Java no Application Insights](../../azure-monitor/app/java-trace-logs.md).
-- Consulte [modelo de dados](data-model.md) para modelo de dados e tipos do Application Insights.
-- [Escrever telemetria personalizada de rastreamento](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)
-- Confira as [plataformas](../../azure-monitor/app/platforms.md) com suporte do Application Insights.
+- [Explore os logs de rastreamento do .net em Application insights](../../azure-monitor/app/asp-net-trace-logs.md).
+- [Explore os logs de rastreamento do Java em Application insights](../../azure-monitor/app/java-trace-logs.md).
+- Consulte [modelo de dados](data-model.md) para tipos de Application insights e modelo de dados.
+- [Gravar telemetria de rastreamento personalizada](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)
+- Confira as [plataformas](../../azure-monitor/app/platforms.md) com suporte pelo Application insights.
