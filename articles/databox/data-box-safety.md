@@ -1,6 +1,6 @@
 ---
-title: Segurança para o Azure Data Box | Microsoft Docs
-description: Descreve as convenções de segurança, diretrizes e considerações, e explica como instalar e operar com segurança seu Azure Data Box.
+title: Segurança para seu Azure Data Box | Microsoft Docs
+description: Descreve as convenções de segurança, as diretrizes e as considerações e explica como instalar e operar seu Azure Data Box com segurança.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,122 +9,122 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: db6e2eadbf19d78a203a4d4ba6111ad88430b192
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68985941"
 ---
-# <a name="safely-install-and-operate-your-azure-data-box"></a>Instalar e operar o Azure Data Box com segurança
+# <a name="safely-install-and-operate-your-azure-data-box"></a>Instalar e operar seu Azure Data Box com segurança
 ![Ícone de aviso](./media/data-box-safety/warning_icon.png)
 ![Leia o ícone de aviso de segurança](./media/data-box-safety/read_safety_and_health_information_icon.png) **LEIA AS INFORMAÇÕES DE SEGURANÇA E INTEGRIDADE**
 
-Leia todas as informações de segurança neste artigo antes de usar o Azure Data Box. A falha em seguir essas instruções poderá resultar em lesões, choques elétricos, incêndios ou danos materiais.
+Leia todas as informações de segurança neste artigo antes de usar Azure Data Box. A falha em seguir as instruções pode resultar em incêndio, choque elétrico ou outros ferimentos ou danos às suas propriedades.
 
 ## <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
-Estes são os ícones que você encontrará ao ler as precauções de segurança observadas ao configurar e executar seu Data Box.
+Aqui estão os ícones que você encontrará ao revisar as precauções de segurança a serem observadas ao configurar e executar o Data Box.
 
-| Ícone | Descrição |
+| Cone | Descrição |
 |:--- |:--- |
-| ![Ícone de perigo](./media/data-box-safety/warning_icon.png) **PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra limitas-e às situações mais graves. |
-| ![Ícone de aviso](./media/data-box-safety/warning_icon.png) **AVISO!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
-| ![Ícone de aviso](./media/data-box-safety/warning_icon.png) **CUIDADO!** |Indica uma situação perigosa que, se não for evitada, pode em uma lesão pequena ou moderada. |
-| ![Ícone de observação](./media/data-box-safety/notice_icon.png) **OBSERVAÇÃO:** |Indica informações consideradas importantes, mas não são relacionadas a riscos. |
-| ![Ícone de choque elétrico](./media/data-box-safety/electrical_shock_hazard_icon.png) **Risco de choque elétrico** |Alta tensão. |
+| ![Ícone de perigo](./media/data-box-safety/warning_icon.png) **PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou ferimentos sério. Esta palavra de sinal é limitada às situações mais extremas. |
+| ![Ícone de aviso](./media/data-box-safety/warning_icon.png) **AVISO!** |Indica uma situação perigosa que, se não for evitada, pode resultar em morte ou ferimentos grave. |
+| ![Ícone de aviso](./media/data-box-safety/warning_icon.png) **CUIDADO!** |Indica uma situação perigosa que, se não for evitada, pode resultar em ferimentos secundário ou moderado. |
+| ![Ícone de observação](./media/data-box-safety/notice_icon.png) **OBSERVAÇÃO:** |Indica informações consideradas importantes, mas não relacionadas a riscos. |
+| ![Ícone de choque elétrico](./media/data-box-safety/electrical_shock_hazard_icon.png) **Risco de choque elétrico** |Alta voltagem. |
 | ![Ícone de peso pesado](./media/data-box-safety/heavy_weight_hazard_icon.png) **Peso pesado** | |
-| ![Ícone de nenhuma peça operada pelo usuário](./media/data-box-safety/no_user_serviceable_parts_icon.png) **Nenhuma peça é operada pelo usuário** |Não acesse a menos que seja devidamente treinado. |
-| ![Leia o Ícone do Aviso de Segurança](./media/data-box-safety/read_safety_and_health_information_icon.png) **Leia Todas as Instruções Primeiro** | |
+| ![Ícone de nenhuma peça operada pelo usuário](./media/data-box-safety/no_user_serviceable_parts_icon.png) **Nenhuma peça é operada pelo usuário** |Não acesse, a menos que seja devidamente treinado. |
+| Ícone de aviso de segurança ![Read ](./media/data-box-safety/read_safety_and_health_information_icon.png) **ler todas as instruções primeiro** | |
 | ![Ícone de risco de tombamento](./media/data-box-safety/tip_hazard_icon.png) **Risco de tombamento** | |
 
-## <a name="handling-precautions"></a>Precauções de manuseio
+## <a name="handling-precautions"></a>Precauções de manipulação
 
-![Ícone de Aviso](./media/data-box-safety/warning_icon.png) ![Ícone de Choque Elétrico](./media/data-box-safety/electrical_shock_hazard_icon.png)![Ícone de Nenhuma Peça Operada pelo Usuário](./media/data-box-safety/no_user_serviceable_parts_icon.png) **CUIDADO** 
+Ícone de ![Warning ](./media/data-box-safety/warning_icon.png) ![Electrical ícone de choque ](./media/data-box-safety/electrical_shock_hazard_icon.png)![No ícone de partes de serviço de usuário ](./media/data-box-safety/no_user_serviceable_parts_icon.png) **cuidado** 
 
-* Inspecione o dispositivo *da forma como foi recebido* para ver se há danos. Se o compartimento do dispositivo estiver danificado, [entre em contato com suporte da Microsoft](data-box-disk-contact-microsoft-support.md) para obter uma substituição. Não tente operar o dispositivo. 
-* O dispositivo está equipado com parafusos à prova de adulteração. Se você suspeitar de que o dispositivo está com problemas de funcionamento, [entre em contato com suporte da Microsoft](data-box-disk-contact-microsoft-support.md) para obter uma substituição. Não tente reparar o dispositivo. 
-* O dispositivo não contém peças operadas pelo usuário. Níveis de tensão, corrente e energia de risco no aparelho. Não abra. Devolva o dispositivo para a Microsoft para manutenção.
+* Inspecione o dispositivo *como recebido* para danos. Se o compartimento do dispositivo estiver danificado, [entre em contato com suporte da Microsoft](data-box-disk-contact-microsoft-support.md) para obter uma substituição. Não tente operar o dispositivo. 
+* O dispositivo está equipado com parafusos à prova de adulteração. Se você suspeitar de que o dispositivo está com problemas de funcionamento, [entre em contato com suporte da Microsoft](data-box-disk-contact-microsoft-support.md) para obter uma substituição. Não tente atender ao dispositivo. 
+* O dispositivo não contém nenhuma parte que seja atendida pelo usuário. A tensão perigosa, os níveis atuais e de energia estão presentes no. Não abra. Retorne o dispositivo para a Microsoft para manutenção.
 
 ![Ícone de aviso](./media/data-box-safety/warning_icon.png) ![Ícone de peso pesado](./media/data-box-safety/heavy_weight_hazard_icon.png) **AVISO!** 
 
-* Um compartimento completamente configurado pode pesar até 22,7 kg; não tente erguê-lo por conta própria.
-* Antes de mover o compartimento, certifique-se sempre de que duas pessoas estejam disponíveis para dar suporte ao peso. Esteja ciente que uma pessoa que tente erguer esse peso sozinha pode sofrer lesões.
+* Um compartimento totalmente configurado pode pesar até 22,7 kg (50 lbs); Não tente fazê-lo por conta própria.
+* Antes de mover o compartimento, sempre verifique se duas pessoas estão disponíveis para lidar com o peso. Lembre-se de que uma pessoa que está tentando levantar esse peso pode sustentar ferimentos.
 
 
 ![Ícone de aviso](./media/data-box-safety/warning_icon.png) ![Ícone de risco de tombamento](./media/data-box-safety/tip_hazard_icon.png) **AVISO!**
-* Coloque o dispositivo em uma superfície plana, estável e rígida para evitar o risco de inclinação.
-* Não use equipamentos montados em rack, como prateleiras ou espaços de trabalho. Não coloque o Data Box em cima de equipamentos montados em rack. Adicionar qualquer tipo de carga a uma unidade montada em rack estendida pode gerar o risco de inclinação, podendo causar lesões, morte ou danos ao produto.
+* Coloque o dispositivo em uma superfície plana, sólida e estável para evitar um possível risco de gorjeta.
+* Equipamento montado em rack não deve ser usado como prateleiras ou espaços de trabalho. Não coloque o Data Box sobre equipamentos montados em rack. Adicionar qualquer tipo de carga a uma unidade montada em rack estendido pode criar um possível risco de gorjeta que poderia levar a danos, morte ou dano ao produto.
 
 ![Ícone de aviso](./media/data-box-safety/warning_icon.png) **AVISO!**
 
-* Configure o dispositivo em uma área de trabalho, permitindo uma circulação de ar adequada em torno dele.
-* Instale o dispositivo em uma área interna com temperatura controlada e sem contaminantes condutivos, e permita uma circulação de ar adequada em torno dele.
-* Mantenha o dispositivo longe de líquidos e ambientes excessivamente úmidos.
+* Configure o dispositivo em uma área de trabalho que permita a circulação de ar adequada em todo o dispositivo.
+* Instale o dispositivo em uma área de interno controlada por temperatura sem contaminants de conduta e permita a circulação de ar adequada em todo o dispositivo.
+* Mantenha o dispositivo longe de fontes de ambientes líquidos e Humid excessivamente.
 
 
-## <a name="electrical-precautions"></a>Cuidados elétricos
+## <a name="electrical-precautions"></a>Precauções elétricas
 
 ![Warning Icon](./media/data-box-safety/warning_icon.png) ![Electrical Shock Icon](./media/data-box-safety/electrical_shock_hazard_icon.png) **AVISO!**
 
-* Forneça uma conexão de aterramento elétrico segura para os cabos de alimentação. O cabo CA tem um plugue de aterramento com três fios (um plugue com um pino de aterramento). Esse plugue se encaixa apenas em uma tomada CA com aterramento. Não ignore o objetivo do pino de aterramento.
-* Considerando que o plugue no cabo de alimentação é o dispositivo de desconexão principal, verifique se as saídas de soquete estão localizadas perto do dispositivo e são de fácil acesso.
-* Desconecte o cabo de alimentação (puxando o plugue, não o cabo) e desconecte todos os cabos caso ocorra alguma destas condições:
+* Forneça uma conexão de terra elétrica segura para o cabo da fonte de alimentação. O cabo AC tem um plugue de aterramento de três fios (um plug que tem um pino de aterramento). Esse plugue se ajusta apenas a uma tomada de AC em aterramento. Não derrotar a finalidade do pino de aterramento.
+* Considerando que o plug-in do cabo da fonte de energia é o dispositivo de desconexão principal, verifique se as saídas do soquete estão localizadas perto do dispositivo e estão facilmente acessíveis.
+* Desconecte o cabo de alimentação (puxando o plug-in, não o cabo) e desconecte todos os cabos se alguma das seguintes condições existir:
 
-    - O cabo de alimentação ou o plugue ficou desgastado ou está danificado.
-    - Você despejou algo no invólucro do dispositivo.
-    - O dispositivo foi exposto a chuva ou umidade em excesso.
-    - O dispositivo caiu e o invólucro está danificado.
-    - Você acha que o dispositivo precisa de reparos.
-* Desconecte permanentemente a unidade antes de movê-la ou se achar que ela foi danificada de alguma forma.
-* Forneça uma fonte de alimentação adequada com proteção contra sobrecarga elétrica para atender às seguintes especificações de energia:
+    - O cabo de alimentação ou o plugue se torna desgastado ou danificado de outra forma.
+    - Você despeja algo na embalagem do dispositivo.
+    - O dispositivo é exposto à umidade Rain ou excedente.
+    - O dispositivo foi descartado e a capitalização do dispositivo está danificada.
+    - Você suspeita que o dispositivo precisa de reparo ou serviço.
+* Desconecte permanentemente a unidade antes de movê-la ou se você acreditar que ela se tornou danificada de alguma forma.
+* Forneça uma fonte de energia adequada com proteção contra sobrecarga elétrica para atender às seguintes especificações de energia:
 
-    - Volta 100 v AC a 240 V AC
-    - Atualizados 6 A, máximo
+    - Voltagem: 100 V AC a 240 V AC
+    - Atual: 6 A, máximo
     - Frequência: 50 Hz a 60 Hz
 
-![Ícone de Aviso](./media/data-box-safety/warning_icon.png) **CUIDADO:**
+Ícone de ![Warning ](./media/data-box-safety/warning_icon.png) **cuidado:**
 
-* este dispositivo contém baterias em forma de moeda. Não tente reparar o dispositivo. As baterias no dispositivo não são peças operadas pelo usuário. 
-* **Somente para a equipe de serviço**: Risco de explosão se a bateria for substituída por um tipo incorreto. Descarte as baterias usadas de acordo com as instruções.
+* Este dispositivo contém baterias de células de moeda. Não tente atender ao dispositivo. As baterias neste dispositivo não são atendidas pelo usuário. 
+* **Somente para a equipe de serviço**: risco de explosão se a bateria for substituída por um tipo incorreto. Descarte as baterias usadas de acordo com as instruções.
 
 ![Ícone de observação](./media/data-box-safety/notice_icon.png) **OBSERVAÇÃO:**
 
-Para a operação adequada do dispositivo e para evitar danos ao produto:
+Para a operação adequada do seu dispositivo e para evitar danos ao produto:
 
-* Verifique se as portas dianteira e traseira estão totalmente abertas enquanto o dispositivo está em execução.
+* Verifique se as portas frontal e traseira estão totalmente abertas enquanto o dispositivo está em execução.
 
-## <a name="regulatory-information"></a>Informações normativas
+## <a name="regulatory-information"></a>Informações regulatórias
 
-Esta seção contém informações normativas para o Azure Data Box, número do modelo DB010.
+Esta seção contém informações regulatórias para Azure Data Box, o número do modelo normativo DB010.
 
 Este dispositivo é:
 
-- Avaliado como ITE (Equipamento de Tecnologia da Informação), projetado para funcionar em um ambiente de sala de dados típico. A adequação do produto a outros ambientes pode exigir avaliação.
-- Projetado para uso com equipamentos de Tecnologia da Informação NRTL listado (UL, CSA, ETL etc.) e em conformidade com IEC/EN 60950-1 ou IEC/EN 62368 1 (marcação CE).
-- Projetado para funcionar no ambiente abaixo. 
+- Avaliado como equipamento de tecnologia da informação (ITE), projetado para operar em um ambiente de sala de dados típico. A adequação deste produto para outros ambientes pode exigir mais avaliação.
+- Projetado para uso com NRTL listados (UL, CSA, ETL, etc.) e IEC/EN 60950-1 ou IEC/EN 62368-1 em conformidade com o equipamento de tecnologia da informação (CE marcado).
+- Projetado para operar no ambiente a seguir. 
     - Temperatura operacional: 50 ° a 95 ° F (10 ° a 35 ° C)
-    - Temperatura de armazenamento: -20 °C a 50 °C
+    - Temperatura de armazenamento:-4 ° a 122 ° F (-20 ° a 50 ° C)
     - Umidade relativa: 15% a 85% (sem condensação) 
-    - Altitude de operação: Testado até 6500 pés (0 metros a 2000 metros)
+    - Altitude operacional: testada até 6500 pés (0 metros a 2000 metros)
 
-Para as classificações de energia elétrica, consulte o rótulo de classificação do dispositivo fornecido com a unidade. 
-
-![Ícone de observação](./media/data-box-safety/notice_icon.png) **OBSERVAÇÃO:** 
-
-As alterações ou as modificações feitas no dispositivo não expressamente aprovadas pela Microsoft poderão anular a autorização do usuário para operar o dispositivo.
-
-**CANADÁ e EUA:**
+Para as classificações de fornecimento elétrico, consulte o rótulo de classificação do dispositivo fornecido com a unidade. 
 
 ![Ícone de observação](./media/data-box-safety/notice_icon.png) **OBSERVAÇÃO:** 
 
-Este equipamento foi testado e considerado em conformidade com os limites de um dispositivo digital Classe A, de acordo com a parte 15 das Regras da FCC. Esses limites são projetados para fornecer uma proteção razoável contra interferência prejudicial quando o equipamento é operado em um ambiente comercial. O equipamento gera, usa e pode irradiar energia de radiofrequência. Se não for instalado e usado de acordo com o manual de instruções, poderá causar interferências prejudiciais às comunicações de rádio. A operação deste equipamento em uma área residencial provavelmente causará interferência prejudicial, caso em que o usuário será solicitado a corrigir a interferência por sua própria despesa.
+Alterações ou modificações feitas no dispositivo não expressamente aprovadas pela Microsoft podem anular a autoridade do usuário para operar o dispositivo.
 
-O dispositivo está em conformidade com a parte 15 das Regras da FCC e normas RSS isentas de licença do Canadá. A operação está sujeita às duas condições a seguir: (1) este dispositivo pode não causar interferência prejudicial e (2) este dispositivo deve aceitar qualquer interferência recebida, incluindo interferência que pode causar a operação indesejada do dispositivo.
+**Canadá e EUA:**
+
+![Ícone de observação](./media/data-box-safety/notice_icon.png) **OBSERVAÇÃO:** 
+
+Este equipamento foi testado e foi considerado compatível com os limites de um dispositivo digital de classe a, de acordo com a parte 15 das regras de FCC. Esses limites foram projetados para fornecer proteção razoável contra interferência prejudicial quando o equipamento é operado em um ambiente comercial. Este equipamento gera, usa e pode radiar a energia da frequência de rádio e, se não estiver instalado e usado de acordo com o manual de instruções, poderá causar interferência prejudicial às comunicações de rádio. A operação deste equipamento em uma área residencial provavelmente causará interferência prejudicial, caso em que o usuário será solicitado a corrigir a interferência por sua própria despesa.
+
+Este dispositivo está em conformidade com a parte 15 das regras de FCC e padrões RSS isentos de licenças do setor (s). A operação está sujeita às duas condições a seguir: (1) este dispositivo pode não causar interferência prejudicial e (2) este dispositivo deve aceitar qualquer interferência recebida, incluindo a interferência que pode causar a operação indesejada do dispositivo.
 
 ![Canadá](./media/data-box-safety/canada.png)
 
-CAN ICES-3(A)/NMB-3(A)
+PODE ICES-3 (A)/NMB-3 (A)
 
-Microsoft Corporation, One Microsoft Way Redmond, WA 98052 USA.
+Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, EUA.
 
 Estados Unidos: (800) 426-9400
 
@@ -134,23 +134,23 @@ Canadá: (800) 933-4750
 
 [Solicite uma cópia da declaração de conformidade da UE](mailto:CSI_Compliance@microsoft.com).
 
-![Ícone de Aviso](./media/data-box-safety/warning_icon.png) **AVISO:** 
+Ícone de ![Warning ](./media/data-box-safety/warning_icon.png) **AVISO:** 
 
-É um produto classe A. Em um ambiente doméstico, o produto pode causar interferências de rádio. Nesse caso, o usuário talvez tenha que tomar as devidas medidas.
+Este é um produto de classe A. Em um ambiente doméstico, esse produto pode causar interferência de rádio, caso o usuário possa ser solicitado a tomar medidas adequadas.
 
-**Descarte de baterias e equipamentos eletroeletrônicos:**
+**Eliminação de baterias de resíduos e equipamentos eletrônicos e elétricos:**
 
-![Ícone de descarte da bateria](./media/data-box-safety/battery_disposal_icon.png)
+![Ícone de disposição da bateria](./media/data-box-safety/battery_disposal_icon.png)
 
-Este símbolo no produto, nas baterias ou embalagem significa que o produto e as baterias contidas não devem ser descartadas no lixo comum. É sua responsabilidade levá-los a um ponto de coleta para reciclagem de baterias e equipamentos eletroeletrônicos. Essa coleta e reciclagem separadas ajudarão a conservar os recursos naturais e impedir possíveis consequências negativas para a saúde humana e o meio ambiente devido à possível existência de substâncias perigosas nas baterias e equipamentos eletroeletrônicos, que podem ser causadas pelo descarte inadequado. Para obter mais informações sobre onde entregar suas baterias e equipamentos eletroeletrônicos, entre em contato com a Prefeitura, com o serviço de coleta seletiva ou a loja que vendeu o produto. Entre em contato com *erecycle\@Microsoft.com* para obter informações adicionais sobre a WEEE.
+Esse símbolo no produto ou em suas baterias ou em seu empacotamento significa que este produto e todas as baterias que ele contém não devem ser descartados com seu desperdício doméstico. Em vez disso, é sua responsabilidade entregar isso a um ponto de coleta aplicável para a reciclagem de baterias e equipamentos eletrônicos e elétricos. Essa coleta e reciclagem separadas ajudarão a conservar recursos naturais e a evitar possíveis conseqüências negativas para a saúde humana e o ambiente devido à possível presença de substâncias perigosas em baterias e elétricas e eletrônicas equipamento, que pode ser causado por descarte inadequado. Para obter mais informações sobre onde soltar suas baterias e resíduos elétricos e eletrônicos, entre em contato com seu escritório Municipal/município local, seu serviço de descarte de resíduos domésticos ou a loja em que você comprou este produto. Contate a *erecycle \@microsoft. com* para obter informações adicionais sobre a WEEE.
 
-Este produto contém baterias em forma de moeda.
+Este produto contém bateria de célula de moeda (s).
 
 Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
 
-Número de telefone: +353 1 295 3826
+Número de telefone: + 353 1 295 3826
 
-Número de fax: +353 1 706 4110 
+Número de fax: + 353 1 706 4110 
 
 **Japão**
 
@@ -168,10 +168,10 @@ Número de fax: +353 1 706 4110
 
 ![Taiwan](./media/data-box-safety/taiwan.png)-->
 
-Depois de ler esses avisos de segurança, você pode configurar e cabear o dispositivo.
+Depois de revisar esses avisos de segurança, você pode configurar e conectar seu dispositivo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* [Cabear e conectar o Data Box](data-box-deploy-set-up.md)
+* [Cabo e conecte seu Data Box](data-box-deploy-set-up.md)
 
 

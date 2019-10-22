@@ -1,6 +1,6 @@
 ---
-title: Blueprint de segurança e conformidade do Azure - aplicativo Web de IaaS para UK NHS
-description: Blueprint de segurança e conformidade do Azure - aplicativo Web de IaaS para UK NHS
+title: Aplicativo Web Blueprint de Segurança e Conformidade do Azure-IaaS para o Reino Unido NHS
+description: Aplicativo Web Blueprint de Segurança e Conformidade do Azure-IaaS para o Reino Unido NHS
 services: security
 author: jomolesk
 ms.assetid: 6081bab2-315a-4af4-92a1-7c773f449d66
@@ -9,57 +9,57 @@ ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
 ms.openlocfilehash: 9b0478b3e72a759186d7d18ce6f7a885a1098d4b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71259516"
 ---
-# <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-uk-nhs"></a>Blueprint de Segurança e Conformidade do Azure: Aplicativo Web IaaS para o NHS do Reino Unido
+# <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-uk-nhs"></a>Blueprint de Segurança e Conformidade do Azure: aplicativo Web IaaS para o Reino Unido NHS
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
-Este Blueprint de Segurança e Conformidade do Azure fornece uma arquitetura de referência e diretrizes para um aplicativo Web de IaaS (infraestrutura como serviço) adequado para a coleta, o armazenamento e a recuperação de dados de saúde. Essa solução demonstra maneiras em que os clientes podem estar em conformidade com as diretrizes fornecidas no [Guia de Boas Práticas de Segurança na Nuvem](https://digital.nhs.uk/data-and-information/looking-after-information/data-security-and-information-governance/nhs-and-social-care-data-off-shoring-and-the-use-of-public-cloud-services/health-and-social-care-cloud-security-good-practice-guide) publicado pela [NHS Digital](https://digital.nhs.uk/), um parceiro do Ministério da Saúde e Assistência Social (DHSC) do Reino Unido (RU). A Guia de Boas Práticas de Segurança na Nuvem se baseia nos 14 [Princípios de Segurança na Nuvem](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) publicados Pelo Centro de Segurança Cibernética Nacional do RU (NCSC).
+Este Blueprint de Segurança e Conformidade do Azure fornece uma arquitetura de referência e diretrizes para um aplicativo Web de IaaS (infraestrutura como serviço) adequado para a coleta, o armazenamento e a recuperação de dados de saúde. Esta solução demonstra maneiras em que os clientes podem obedecer às diretrizes fornecidas no guia de práticas recomendadas de [segurança na nuvem](https://digital.nhs.uk/data-and-information/looking-after-information/data-security-and-information-governance/nhs-and-social-care-data-off-shoring-and-the-use-of-public-cloud-services/health-and-social-care-cloud-security-good-practice-guide) publicadas pelo [NHS digital](https://digital.nhs.uk/), um parceiro do departamento de saúde e do DHSC (setor de ti) do Reino Unido. O guia de práticas recomendadas de segurança na nuvem baseia-se nos 14 [princípios de segurança de nuvem](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) publicados pelo ncsc (National Cyber Cloud Security Centre) do Reino Unido.
 
-Essa arquitetura de referência, o guia de implementação e os modelos de ameaça são destinados a servir como uma base que os clientes podem ajustar a seus requisitos específicos e não devem ser usados no estado em que se encontra em um ambiente de produção sem configuração adicional. Os clientes são responsáveis por realizar as devidas avaliações de segurança e conformidade de qualquer solução criada usando essa arquitetura, uma vez que os requisitos podem variar com base nas particularidades da implementação de cada cliente.
+Essa arquitetura de referência, guia de implementação e modelo de risco são destinados a servir como base para os clientes se ajustarem aos requisitos específicos e não devem ser usados no estado em que se encontram em um ambiente de produção sem configuração adicional. Os clientes são responsáveis por realizar avaliações apropriadas de segurança e conformidade de qualquer solução criada usando essa arquitetura, já que os requisitos podem variar com base nas especificidades da implementação de cada cliente.
 
 ## <a name="architecture-diagram-and-components"></a>Diagrama e componentes da arquitetura
 
-A solução implanta uma arquitetura de referência para um aplicativo Web de IaaS com um back-end do SQL Server. A arquitetura inclui uma camada da Web, uma camada de dados, a infraestrutura do Active Directory, o Gateway de Aplicativo e o Load Balancer. As máquinas virtuais implantadas nas camadas da Web e de dados são configuradas em um conjunto de disponibilidade, e as instâncias do SQL Server são configuradas em um grupo de disponibilidade AlwaysOn para alta disponibilidade. As máquinas virtuais são associadas ao domínio e as políticas de grupo do Active Directory são usadas para aplicar configurações de conformidade e segurança no nível do sistema operacional.
+Esta solução implanta uma arquitetura de referência para um aplicativo Web IaaS com um back-end SQL Server. A arquitetura inclui uma camada da Web, camada de dados, Active Directory infraestrutura, gateway de aplicativo e Load Balancer. As máquinas virtuais implantadas na Web e nas camadas de dados são configuradas em um conjunto de disponibilidade e SQL Server instâncias são configuradas em um grupo de disponibilidade Always On para alta disponibilidade. As máquinas virtuais são ingressadas no domínio e Active Directory políticas de grupo são usadas para impor as configurações de segurança e conformidade no nível do sistema operacional.
 
-A solução usa contas de Armazenamento do Azure, que os clientes podem configurar para usar a Criptografia do Serviço de Armazenamento para manter a confidencialidade dos dados em repouso. O Azure armazena três cópias dos dados dentro de um datacenter da escolha do cliente para garantir a resiliência. O armazenamento com redundância geográfica garante que os dados sejam replicados para um datacenter secundário centenas de quilômetros de distância e armazenados novamente como três cópias nesse datacenter, impedindo que um evento prejudicial no datacenter primário do cliente resulte em perda de dados.
+A solução usa contas de armazenamento do Azure, que os clientes podem configurar para usar o Criptografia do Serviço de Armazenamento para manter a confidencialidade dos dados em repouso. O Azure armazena três cópias de dados dentro do datacenter escolhido de um cliente para fins de resiliência. O armazenamento com redundância geográfica garante que os dados serão replicados em um datacenter secundário a centenas de quilômetros de distância e, novamente, armazenados como três cópias dentro desse datacenter, impedindo que um evento adverso na data center primária do cliente resulte em uma perda de dado.
 
-Para maior segurança, todos os recursos nessa solução são gerenciados como um grupo de recursos por meio do Azure Resource Manager. O controle de acesso baseado em função do Azure Active Directory é usado para controlar o acesso aos recursos implantados, incluindo as chaves no Azure Key Vault. A integridade do sistema é monitorada por meio da Central de Segurança do Azure e do Azure Monitor. Os clientes configuram os dois serviços de monitoramento para capturar logs e exibir a integridade do sistema em um único painel facilmente navegável. O Gateway de Aplicativo Azure é configurado como um firewall no modo de prevenção e não permite tráfego que não seja TLSv1.2.
+Para aumentar a segurança, todos os recursos nesta solução são gerenciados como um grupo de recursos por meio de Azure Resource Manager. Azure Active Directory controle de acesso baseado em função é usado para controlar o acesso a recursos implantados, incluindo suas chaves no Azure Key Vault. A integridade do sistema é monitorada por meio da central de segurança do Azure e Azure Monitor. Os clientes configuram ambos os serviços de monitoramento para capturar logs e exibir a integridade do sistema em um único painel fácil e navegável. Aplicativo Azure Gateway está configurado como um firewall no modo de prevenção e não permite o tráfego que não seja o TLSv 1.2.
 
-Um bastião de gerenciamento fornece conexão segura para os administradores acessarem recursos implantados. **A Microsoft recomenda configurar uma conexão VPN ou do ExpressRoute para gerenciamento e importação de dados para a sub-rede na arquitetura de referência.**
+Um host de bastiões de gerenciamento fornece uma conexão segura para os administradores acessarem recursos implantados. **A Microsoft recomenda configurar uma conexão VPN ou ExpressRoute para gerenciamento e importação de dados na sub-rede da arquitetura de referência.**
 
-![Diagrama da arquitetura de referência de aplicativo Web de IaaS para o UK NHS](images/uknhs-iaaswa-architecture.png?raw=true "Diagrama da arquitetura de referência de aplicativo Web de IaaS para o UK NHS")
+![Diagrama de arquitetura de referência do aplicativo Web IaaS para o Reino Unido NHS](images/uknhs-iaaswa-architecture.png?raw=true "Diagrama de arquitetura de referência do aplicativo Web IaaS para o Reino Unido NHS")
 
-A solução usa os serviços do Azure a seguir. Os detalhes da arquitetura de implantação estão localizados na seção [Arquitetura de implantação](#deployment-architecture).
+Essa solução usa os seguintes serviços do Azure. Os detalhes da arquitetura de implantação estão localizados na seção [arquitetura de implantação](#deployment-architecture) .
 
 - Máquinas Virtuais do Azure
-    - (1) gerenciamento/bastião (Windows Server 2016 Datacenter)
-    - (2) controlador de domínio do Active Directory (Windows Server 2016 Datacenter)
-    - (2) nó de cluster do SQL Server (SQL Server 2017 no Windows Server 2016)
+    - (1) gerenciamento/bastiões (Windows Server 2016 Datacenter)
+    - (2) Active Directory controlador de domínio (Windows Server 2016 Datacenter)
+    - (2) SQL Server nó de cluster (SQL Server 2017 no Windows Server 2016)
     - (2) Web/IIS (Windows Server 2016 Datacenter)
 - Conjuntos de Disponibilidade
-    - (1) controladores de domínio do Active Directory
+    - (1) Active Directory controladores de domínio
     - (1) nós de cluster do SQL
     - (1) Web/IIS
 - Rede Virtual do Azure
-    - (1) /16 rede
-    - (5) /24 Redes
-    - (5) Grupo de segurança de rede
+    - (1)/16 rede
+    - (5)/24 redes
+    - (5) grupo de segurança de rede
     - Cofre dos Serviços de Recuperação
-- Gateway de Aplicativo do Azure
+- Application Gateway do Azure
     - (1) Firewall do aplicativo Web
         - Modo de firewall: prevenção
-        - Conjunto de regras: OWASP 3.0
-        - Porta ouvinte: 443
-- Active Directory do Azure
+        - Conjunto de regras: OWASP 3,0
+        - Porta do ouvinte: 443
+- Azure Active Directory
 - Testemunha de nuvem do Azure
 - Azure Key Vault
-- Azure Load Balancer
+- Balanceador de carga do Azure
 - Azure Monitor
 - Azure Resource Manager
 - Central de Segurança do Azure
@@ -69,155 +69,155 @@ A solução usa os serviços do Azure a seguir. Os detalhes da arquitetura de im
 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 
-A seção a seguir fornece detalhes sobre os elementos de implantação e implementação.
+A seção a seguir detalha os elementos de implantação e implementação.
 
-**Host bastião**: O host bastião é o único ponto de entrada que permite que os usuários acessem os recursos implantados nesse ambiente. O host bastião fornece uma conexão segura com os recursos implantados, permitindo apenas tráfego remoto de endereços IP públicos em uma lista de segurança. Para permitir o tráfego RDP (área de trabalho remota), a origem do tráfego precisa ser definida no grupo de segurança de rede.
+**Host de bastiões**: o host de bastiões é o ponto único de entrada que permite aos usuários acessar os recursos implantados nesse ambiente. O host de bastiões fornece uma conexão segura com os recursos implantados permitindo apenas o tráfego remoto de endereços IP públicos em uma lista segura. Para permitir o tráfego da área de trabalho remota (RDP), a origem do tráfego precisa ser definida no grupo de segurança de rede.
 
-Essa solução cria uma máquina virtual como um host bastião ingressado em domínio com as seguintes configurações:
+Essa solução cria uma máquina virtual como um host de bastiões ingressado no domínio com as seguintes configurações:
 -   [Extensão de antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 -   [Extensão de Diagnóstico do Azure](../../virtual-machines/windows/extensions-diagnostics-template.md)
--   [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) usando o Azure Key Vault
--   Uma [política de desligamento automático](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) para reduzir o consumo de recursos de máquina virtual quando eles não estiverem em uso
--   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) habilitado, para que as credenciais e outras informações secretas sejam executadas em um ambiente protegido isolado do sistema operacional em execução
+-   [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) usando Azure Key Vault
+-   Uma [política de desligamento automático](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) para reduzir o consumo de recursos de máquina virtual quando não estiver em uso
+-   O [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) habilitado para que as credenciais e outros segredos sejam executados em um ambiente protegido isolado do sistema operacional em execução
 
-### <a name="virtual-network"></a>Rede virtual
+### <a name="virtual-network"></a>rede virtual
 
 A arquitetura define uma rede virtual privada com um espaço de endereço de 10.200.0.0/16.
 
-**Grupos de segurança de rede**: Esta solução implanta recursos em uma arquitetura com uma sub-rede separada e Web, sub-rede do banco de dados, sub-rede do Active Directory e sub-rede de gerenciamento em uma rede virtual. Sub-redes são separadas logicamente pelas regras do grupo de segurança de rede aplicadas a sub-redes individuais para restringir o tráfego entre as sub-redes para somente o que é necessário para a funcionalidade de gerenciamento e de sistema.
+**Grupos de segurança de rede**: essa solução implanta recursos em uma arquitetura com uma sub-rede da Web separada, sub-rede de banco de dados, Active Directory sub-rede e sub-rede de gerenciamento dentro de uma rede virtual. As sub-redes são separadas logicamente pelas regras do grupo de segurança de rede aplicadas às sub-redes individuais para restringir o tráfego entre sub-redes apenas para isso necessário para a funcionalidade de gerenciamento e do sistema.
 
-Consulte a configuração dos [grupos de segurança de rede](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) implantada com esta solução. As organizações podem configurar grupo de segurança de rede editando o arquivo acima usando [esta documentação](../../virtual-network/virtual-network-vnet-plan-design-arm.md) como guia.
+Consulte a configuração de [grupos de segurança de rede](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) implantados com esta solução. As organizações podem configurar grupos de segurança de rede editando o arquivo acima usando [esta documentação](../../virtual-network/virtual-network-vnet-plan-design-arm.md) como guia.
 
-Cada uma das sub-redes tem um Grupo de Segurança de Rede dedicado:
-- 1 grupo de segurança de rede para o Gateway de Aplicativo (LBNSG)
-- 1 grupo de segurança de rede para o host bastião (MGTNSG)
-- 1 grupo de segurança de rede para os controladores de domínio primário e de backup (ADNSG)
-- 1 grupo de segurança de rede para SQL Servers e a Testemunha de Nuvem (SQLNSG)
+Cada uma das sub-redes tem um grupo de segurança de rede dedicado:
+- 1 grupo de segurança de rede para o gateway de aplicativo (LBNSG)
+- 1 grupo de segurança de rede para host bastião (MGTNSG)
+- 1 grupo de segurança de rede para controladores de domínio primários e de backup (ADNSG)
+- 1 grupo de segurança de rede para servidores SQL e testemunha de nuvem (SQLNSG)
 - 1 grupo de segurança de rede para a camada da Web (WEBNSG)
 
 ### <a name="data-in-transit"></a>Dados em trânsito
-O Azure criptografa todas as comunicações entre datacenters do Azure por padrão. Além disso, todas as transações para o Armazenamento do Azure por meio do portal do Azure ocorrem por HTTPS.
+Por padrão, o Azure criptografa todas as comunicações entre os data centers do Azure. Além disso, todas as transações para o armazenamento do Azure por meio do portal do Azure ocorrem via HTTPS.
 
 ### <a name="data-at-rest"></a>Dados em repouso
 
-A arquitetura protege dados em repouso usando criptografia, auditoria de banco de dados e outras medidas.
+A arquitetura protege os dados em repouso por meio de criptografia, auditoria de banco e outras medidas.
 
-**Armazenamento do Azure**: Para atender aos requisitos de criptografia de dados em repouso, o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) usa [Criptografia do Serviço de Armazenamento](../../storage/common/storage-service-encryption.md). Isso ajuda a proteger e defender os dados para dar suporte aos compromissos de segurança organizacional e aos requisitos de conformidade definidos pelo NHS Digital.
+**Armazenamento do Azure**: para atender aos requisitos de dados criptografados em repouso, todo o [armazenamento do Azure](https://azure.microsoft.com/services/storage/) usa [criptografia do serviço de armazenamento](../../storage/common/storage-service-encryption.md). Isso ajuda a proteger e proteger os dados em suporte aos compromissos de segurança organizacional e aos requisitos de conformidade definidos pelo NHS digital.
 
-**Azure Disk Encryption**: O [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) utiliza o recurso BitLocker do Windows para fornecer criptografia de volume para discos de dados. A solução é integrada ao Azure Key Vault para ajudar a controlar e gerenciar as chaves de criptografia de disco.
+**Azure Disk Encryption**: [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) aproveita o recurso BitLocker do Windows para fornecer criptografia de volume para discos de dados. A solução se integra com Azure Key Vault para ajudar a controlar e gerenciar as chaves de criptografia de disco.
 
-**Banco de Dados SQL do Azure**: A instância do Banco de Dados SQL do Azure usa as seguintes medidas de segurança de banco de dados:
+**Banco de dados SQL do Azure**: a instância do banco de dados SQL do Azure usa as seguintes medidas de segurança:
 
-- A [autenticação e a autorização do Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permitem o gerenciamento de identidade dos usuários de banco de dados e de outros serviços da Microsoft em uma única localização central.
-- A [auditoria do banco de dados SQL](../../sql-database/sql-database-auditing.md) controla os eventos de banco de dados e grava-os em um log de auditoria em uma conta de armazenamento do Azure.
-- O Banco de Dados SQL do Azure está configurado para usar a [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), que executa criptografia e descriptografia em tempo real do banco de dados, dos backups associados e dos arquivos de log de transações para proteger as informações em repouso. A Transparent Data Encryption oferece a garantia de que os dados armazenados não fiquem sujeitos a acesso não autorizado.
-- [Regras de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) impedem o acesso aos servidores do banco de dados até que as permissões apropriadas sejam concedidas. O firewall concede acesso aos bancos de dados com base no endereço IP de origem de cada solicitação.
-- A [Detecção de Ameaças SQL](../../sql-database/sql-database-threat-detection.md) permite detectar e responder a possíveis ameaças conforme elas ocorrem, fornecendo alertas de segurança sobre atividades suspeitas no banco de dados, vulnerabilidades potenciais, ataques de injeção de SQL e padrões anormais de acesso ao banco de dados.
-- As [Colunas Criptografadas](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) garantem que os dados confidenciais nunca sejam exibidos como texto não criptografado no sistema do banco de dados. Após a habilitação da criptografia de dados, somente aplicativos cliente ou servidores de aplicativo com acesso às chaves poderão acessar dados de texto não criptografado.
-- A [Máscara de Dados Dinâmicos do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limita a exposição de dados confidenciais mascarando os dados para usuários ou aplicativos não privilegiados. A Máscara de Dados Dinâmicos pode descobrir automaticamente dados potencialmente confidenciais e sugerir as máscaras apropriadas a serem aplicadas. Isso ajuda a identificar e reduzir o acesso aos dados, para que eles não saiam do banco de dados por meio de acesso não autorizado. Os clientes são responsáveis por ajustar as configurações da máscara de dados dinâmicos para seguir seu esquema de banco de dados.
+- [Active Directory autenticação e autorização](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permitem o gerenciamento de identidades de usuários de banco de dados e outros serviços da Microsoft em um local central.
+- A [auditoria do banco de dados SQL](../../sql-database/sql-database-auditing.md) rastreia eventos de banco de dados e os grava em um log de auditoria em uma conta de armazenamento do Azure.
+- O banco de dados SQL do Azure está configurado para usar a [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), que executa criptografia e descriptografia em tempo real do banco dados, backups associados e arquivos de log de transações para proteger informações em repouso. A Transparent Data Encryption fornece garantia de que os dados armazenados não estão sujeitos a acesso não autorizado.
+- [As regras de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) impedem todo o acesso a servidores de banco de dados até que sejam concedidas permissões adequadas O firewall concede acesso a bancos de dados com base no endereço IP de origem de cada solicitação.
+- A [detecção de ameaças do SQL](../../sql-database/sql-database-threat-detection.md) permite a detecção e a resposta a ameaças potenciais à medida que elas ocorrem, fornecendo alertas de segurança para atividades suspeitas de banco de dados, vulnerabilidades potenciais, ataques de injeção de SQL e padrões de acesso de banco de dados anormais
+- As [colunas criptografadas](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) garantem que os dados confidenciais nunca apareçam como texto sem formatação no sistema de banco de dados. Depois de habilitar a criptografia de dados, somente aplicativos cliente ou servidores de aplicativos com acesso às chaves podem acessar dados de texto sem formatação.
+- O [mascaramento de dados dinâmicos do SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limita a exposição de dados confidenciais mascarando os dados para usuários ou aplicativos sem privilégios. A máscara de dados dinâmicos pode descobrir dados potencialmente confidenciais automaticamente e sugerir que as máscaras apropriadas sejam aplicadas. Isso ajuda a identificar e reduzir o acesso a dados de modo que ele não saia do banco por acesso não autorizado. Os clientes são responsáveis por ajustar as configurações de mascaramento de dados dinâmicos para aderir ao seu esquema de banco de dado.
 
-### <a name="identity-management"></a>Gerenciamento de identidades
+### <a name="identity-management"></a>Gerenciamento de identidade
 
-As seguintes tecnologias oferecem funcionalidades para gerenciar o acesso a dados no ambiente do Azure:
+As tecnologias a seguir fornecem recursos para gerenciar o acesso aos dados no ambiente do Azure:
 
-- O [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) é o serviço de gerenciamento de identidade e diretório multilocatário baseado em nuvem da Microsoft. Todos os usuários dessa solução são criados no Azure Active Directory, incluindo os usuários que acessam o Banco de Dados SQL do Azure.
-- A autenticação no aplicativo é executada usando o Azure Active Directory. Para obter mais informações, confira [Integrando aplicativos com o Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Além disso, a criptografia da coluna do banco de dados utiliza o Azure Active Directory para autenticar o aplicativo no Banco de Dados SQL do Azure. Para obter mais informações, veja como [proteger dados confidenciais no Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
-- O [controle de acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md) permite que os administradores definam permissões de acesso refinadas para conceder apenas a quantidade de acesso de que os usuários precisam para realizar seus trabalhos. Em vez de conceder permissão irrestrita aos recursos do Azure a todos os usuários, os administradores podem permitir apenas determinadas ações para acessar os dados. O acesso à assinatura é limitado ao administrador da assinatura.
-- O [Azure Active Directory Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md) permite que os clientes minimizem o número de usuários que tenham acesso a determinadas informações. Os administradores podem usar o Azure Active Directory Privileged Identity Management para descobrir, restringir e monitorar identidades privilegiadas e seu acesso aos recursos. Essa funcionalidade também pode ser usada para impor o acesso administrativo sob demanda Just-In-Time quando necessário.
-- O [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) detecta possíveis vulnerabilidades que afetam as identidades de uma organização, configura respostas automatizadas para detectar ações suspeitas relacionadas a essas identidades e investiga incidentes suspeitos para tomar medidas apropriadas para resolvê-los.
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) é o&#39;serviço de gerenciamento de identidade e diretório multilocatário baseado em nuvem da Microsoft. Todos os usuários desta solução são criados no Azure Active Directory, incluindo usuários que acessam o banco de dados SQL do Azure.
+- A autenticação para o aplicativo é executada usando Azure Active Directory. Para obter mais informações, consulte [integrando aplicativos com Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Além disso, a criptografia de coluna de banco de dados usa Azure Active Directory para autenticar o aplicativo no banco de dados SQL do Azure. Para obter mais informações, Confira como [proteger dados confidenciais no Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+- O [controle de acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md) permite que os administradores definam permissões de acesso refinadas para conceder apenas a quantidade de acesso que os usuários precisam para executar seus trabalhos. Em vez de fornecer a cada usuário permissão irrestrita para recursos do Azure, os administradores podem permitir apenas determinadas ações para acessar dados. O acesso à assinatura é limitado ao administrador da assinatura.
+- [Azure Active Directory Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md) permite que os clientes minimizem o número de usuários que têm acesso a determinadas informações. Os administradores podem usar Azure Active Directory Privileged Identity Management para descobrir, restringir e monitorar identidades com privilégios e seu acesso aos recursos. Essa funcionalidade também pode ser usada para impor acesso administrativo sob demanda e Just-in-time quando necessário.
+- [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) detecta possíveis vulnerabilidades que afetam as&#39;identidades de uma organização, configura as respostas automatizadas para detectar ações suspeitas&#39;relacionadas a identidades de uma organização e investiga incidentes suspeitos para tomar as medidas apropriadas para resolvê-los.
 
 
 ### <a name="security"></a>Segurança
 
-**Gerenciamento de segredos**: A solução usa o [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para o gerenciamento de chaves e segredos. O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. As seguintes funcionalidades do Azure Key Vault ajudam os clientes a proteger os dados e o acesso a eles:
+**Gerenciamento de segredos**: a solução usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para o gerenciamento de chaves e segredos. O Cofre de Chaves do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Os recursos de Azure Key Vault a seguir ajudam os clientes a proteger e acessar esses dados:
 
-- Políticas de acesso avançadas são configuradas com base na necessidade.
-- As políticas de acesso do Key Vault são definidas com o mínimo de permissões necessárias para chaves e segredos.
-- Todas as chaves e segredos no Key Vault têm datas de validade.
-- Todas as chaves no Key Vault são protegidas por módulos de segurança de hardware especializados. O tipo de chave é uma Chave RSA de 2048 bits protegida para módulo de segurança de hardware.
-- Todos os usuários e identidades recebem permissões mínimas necessárias usando o controle de acesso baseado em função.
-- Os Logs de diagnóstico para Key Vault são habilitados com um período de retenção de pelo menos 365 dias.
-- As operações criptográficas permitidas para chaves são restritas às necessárias.
-- A solução é integrada ao Azure Key Vault para gerenciar as chaves de criptografia de disco e segredos da máquina virtual IaaS.
+- As políticas de acesso avançadas são configuradas de acordo com a necessidade.
+- Key Vault políticas de acesso são definidas com as permissões mínimas necessárias para chaves e segredos.
+- Todas as chaves e segredos em Key Vault têm datas de expiração.
+- Todas as chaves em Key Vault são protegidas por módulos de segurança de hardware especializados. O tipo de chave é um módulo de segurança de hardware protegido chave RSA de 2048 bits.
+- Todos os usuários e identidades recebem as permissões mínimas necessárias usando o controle de acesso baseado em função.
+- Os logs de diagnóstico para Key Vault estão habilitados com um período de retenção de pelo menos 365 dias.
+- As operações de criptografia permitidas para chaves são restritas às necessárias.
+- A solução é integrada com Azure Key Vault para gerenciar chaves e segredos de criptografia de disco de máquina virtual IaaS.
 
-**Gerenciamento de patches**: Máquinas Virtuais do Windows implantadas como parte dessa arquitetura de referência são configuradas por padrão para receber atualizações automáticas do serviço Windows Update. Essa solução também inclui o serviço [Automação do Azure](https://docs.microsoft.com/azure/automation/automation-intro) por meio do qual as implantações atualizadas podem ser criadas para aplicar patch em máquinas virtuais quando necessário.
+**Gerenciamento de patches**: máquinas virtuais do Windows implantadas como parte dessa arquitetura de referência são configuradas por padrão para receber atualizações automáticas do serviço Windows Update. Essa solução também inclui o serviço de [automação do Azure](https://docs.microsoft.com/azure/automation/automation-intro) por meio do qual implantações atualizadas podem ser criadas para aplicar patch às máquinas virtuais quando necessário.
 
-**Proteção contra malware**: O [antimalware da Microsoft](https://docs.microsoft.com/azure/security/fundamentals/antimalware) para Máquinas Virtuais oferece uma funcionalidade de proteção em tempo real que ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados, com alertas configuráveis quando se sabe que software mal-intencionado ou indesejado tenta se instalar ou executar em máquinas virtuais protegidas.
+**Proteção contra malware**: [o Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) para máquinas virtuais fornece recursos de proteção em tempo real que ajudam a identificar e remover vírus, spyware e outros softwares mal-intencionados, com alertas configuráveis quando conhecidos ou mal-intencionados o software indesejado tenta instalar ou executar em máquinas virtuais protegidas.
 
-**Central de Segurança do Azure**: Com a [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro), os clientes podem aplicar e gerenciar políticas de segurança em cargas de trabalho, limitar a exposição a ameaças e detectar e responder a ataques de forma centralizada. Além disso, a Central de Segurança do Azure acessa as configurações existentes de serviços do Azure para fornecer recomendações de serviço e configuração, a fim de ajudar a melhorar a postura de segurança e proteger os dados.
+**Central de segurança do Azure**: com a [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro), os clientes podem aplicar e gerenciar centralmente políticas de segurança entre cargas de trabalho, limitar a exposição a ameaças e detectar e responder a ataques. Além disso, a central de segurança do Azure acessa as configurações existentes dos serviços do Azure para fornecer recomendações de configuração e de serviço para ajudar a melhorar a postura de segurança e proteger os dados.
 
-A Central de Segurança do Azure usa uma variedade de funcionalidades de detecção para alertar os clientes de ataques potenciais direcionados a seus ambientes. Esses alertas contêm informações valiosas sobre o que disparou o alerta, os recursos de destino e a origem do ataque. A Central de Segurança do Azure tem um conjunto de [alertas de segurança predefinidos](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), que são disparados em caso de ameaça ou atividade suspeita. As [regras de alerta personalizadas](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) na Central de Segurança do Azure permitem que os clientes definam novos alertas de segurança com base nos dados já coletados do ambiente.
+A central de segurança do Azure usa uma variedade de recursos de detecção para alertar os clientes sobre possíveis ataques visando seus ambientes. Esses alertas contêm informações valiosas sobre o que disparou o alerta, os recursos direcionados e a origem do ataque. A central de segurança do Azure tem um conjunto de [alertas de segurança predefinidos](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), que são disparados quando ocorre uma ameaça ou atividade suspeita. [As regras de alerta personalizadas](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) na central de segurança do Azure permitem que os clientes definam novos alertas de segurança com base nos dados que já foram coletados de seu ambiente.
 
-A Central de Segurança do Azure fornece alertas de segurança e incidentes priorizados, simplificando a descoberta e a resolução por parte dos clientes de possíveis problemas de segurança. Um [relatório de inteligência contra ameaças](https://docs.microsoft.com/azure/security-center/security-center-threat-report) é gerado para cada ameaça detectada, a fim de ajudar as equipes de resposta a incidentes a investigar e corrigir as ameaças.
+A central de segurança do Azure fornece alertas e incidentes de segurança priorizados, tornando mais simples para os clientes descobrir e resolver problemas potenciais de segurança. Um [relatório de inteligência contra ameaças](https://docs.microsoft.com/azure/security-center/security-center-threat-report) é gerado para cada ameaça detectada para ajudar as equipes de resposta a incidentes na investigação e na correção de ameaças.
 
-Além disso, essa arquitetura de referência usa a [avaliação de vulnerabilidade](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations) na Central de Segurança do Azure. Depois de configurado, um agente parceiro (por ex. Qualys) reporta dados de vulnerabilidade para a plataforma de gerenciamento do parceiro. Por sua vez, a plataforma de gerenciamento do parceiro fornece dados de monitoramento de vulnerabilidade e integridade para a Central de Segurança do Azure, permitindo que os clientes identifiquem rapidamente as máquinas de virtuais vulneráveis.
+Além disso, essa arquitetura de referência utiliza a [avaliação de vulnerabilidade](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations) na central de segurança do Azure. Uma vez configurado, um agente de parceiro (por exemplo, Qualys) relata dados de vulnerabilidade para a plataforma de gerenciamento do parceiro. Por sua vez, a plataforma de gerenciamento do parceiro fornece dados de monitoramento de vulnerabilidade e integridade de volta para a central de segurança do Azure, permitindo que os clientes identifiquem rapidamente as máquinas virtuais vulneráveis.
 
-**Gateway de Aplicativo do Azure**: A arquitetura reduz o risco de vulnerabilidades de segurança usando um Gateway de Aplicativo do Azure com um firewall de aplicativo Web configurado e o conjunto de regras OWASP habilitado. Dentre outros recursos estão:
+**Gateway de aplicativo Azure**: a arquitetura reduz o risco de vulnerabilidades de segurança usando um Gateway de aplicativo Azure com um firewall de aplicativo Web configurado e o conjunto de regras OWASP habilitado. Os recursos adicionais incluem:
 
 - [SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
-- Habilitar [Descarregamento SSL](../../application-gateway/create-ssl-portal.md)
-- Desabilitar [TLS versões 1.0 e 1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- Habilitar [descarregamento SSL](../../application-gateway/create-ssl-portal.md)
+- Desabilitar [TLS v 1.0 e v 1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Firewall do aplicativo Web](../../application-gateway/waf-overview.md) (modo de prevenção)
-- [Modo de prevenção](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) com conjunto de regras OWASP 3.0
-- [Habilitar o registro em log de diagnóstico](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
+- [Modo de prevenção](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) com conjunto de regras OWASP 3,0
+- Habilitar [log de diagnóstico](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
 - [Investigações de integridade personalizadas](../../application-gateway/quick-create-portal.md)
-- A [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center) e o [Assistente do Azure](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) fornecer proteção e notificações adicionais. A Central de Segurança do Azure também fornece um sistema de reputação.
+- A [central de segurança do Azure](https://azure.microsoft.com/services/security-center) e o [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) fornecem proteção e notificações adicionais. A central de segurança do Azure também fornece um sistema de reputação.
 
 ### <a name="business-continuity"></a>Continuidade dos negócios
 
-**Alta disponibilidade**: a solução implanta todas máquinas virtuais em um [Conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Os conjuntos de disponibilidade fazem com que as máquinas virtuais sejam distribuídas entre vários clusters de hardware isolados para melhorar a disponibilidade. Pelo menos uma máquina virtual fica disponível durante um evento de manutenção planejada ou não planejada, atendendo ao SLA do Azure de 99,95%.
+**Alta disponibilidade**: a solução implanta todas as máquinas virtuais em um [conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Os conjuntos de disponibilidade garantem que as máquinas virtuais sejam distribuídas entre vários clusters de hardware isolados para melhorar a disponibilidade. Pelo menos uma máquina virtual está disponível durante um evento de manutenção planejada ou não planejada, atendendo ao SLA de 99,95% do Azure.
 
-**Cofre dos Serviços de Recuperação**: o [Cofre dos Serviços de Recuperação](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) armazena dados de backup e protege todas as configurações das Máquinas Virtuais do Azure nesta arquitetura. Com um Cofre dos Serviços de Recuperação, os clientes podem restaurar arquivos e pastas de uma máquina virtual de IaaS sem restaurar a máquina virtual inteira, acelerando o tempo de restauração.
+**Cofre dos serviços de recuperação**: o [cofre dos serviços de recuperação](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) hospeda dados de backup e protege todas as configurações de máquinas virtuais do Azure nessa arquitetura. Com um cofre dos serviços de recuperação, os clientes podem restaurar arquivos e pastas de uma máquina virtual IaaS sem restaurar toda a máquina virtual, permitindo tempos de restauração mais rápidos.
 
-**Testemunha de Nuvem**: a [Testemunha de Nuvem](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) é um tipo de testemunha de quorum do cluster de failover no Windows Server 2016 que aproveita o Azure como o ponto de arbitragem. A Testemunha de Nuvem, como qualquer outra testemunha de quorum, obtém um voto e pode participar dos cálculos de quorum, mas usa o Armazenamento de Blobs do Azure padrão, disponível ao público. Isso elimina a sobrecarga extra de manutenção de máquinas virtuais hospedadas em uma nuvem pública.
+**Testemunha de nuvem**: a [testemunha em nuvem](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) é um tipo de testemunha de quorum de cluster de Failover no Windows Server 2016 que aproveita o Azure como ponto de arbitragem. A testemunha de nuvem, como qualquer outra testemunha de quorum, obtém um voto e pode participar dos cálculos de quorum, mas usa o armazenamento de BLOBs do Azure disponível publicamente. Isso elimina a sobrecarga de manutenção extra das máquinas virtuais hospedadas em uma nuvem pública.
 
 ### <a name="logging-and-auditing"></a>Registro em log e auditoria
 
-Os serviços do Azure registram em log de forma extensiva as atividades do sistema e do usuário, bem como a integridade do sistema:
-- **Logs de atividades**: Os [logs de atividades](../../azure-monitor/platform/activity-logs-overview.md) fornecem insights sobre as operações executadas em recursos em uma assinatura. Os logs de atividade podem ajudar a determinar o iniciador, o horário da ocorrência e o status de uma operação.
-- **Logs de diagnóstico**: Os [Logs de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) incluem todos os registros emitidos por todos os recursos. Esses logs são logs do sistema de eventos do Windows, logs de Armazenamento do Azure, logs de auditoria do Key Vault e logs de acesso e firewall do Gateway de Aplicativo. Todos os logs de diagnóstico são gravados em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. A retenção é configurável pelo usuário, de até 730 dias, para atender aos requisitos de retenção específicos da organização.
+Os serviços do Azure registram extensivamente a atividade do sistema e do usuário, bem como a integridade do sistema:
+- **Logs de atividade**: [os logs de atividade](../../azure-monitor/platform/activity-logs-overview.md) fornecem informações sobre as operações executadas nos recursos em uma assinatura. Os logs de atividades podem ajudar a determinar o iniciador de uma operação, a hora de ocorrência e o status.
+- **Logs de diagnóstico**: os [logs de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) incluem todos os logs emitidos por cada recurso. Esses logs incluem logs do sistema de eventos do Windows, logs de armazenamento do Azure, Key Vault logs de auditoria e acesso do gateway de aplicativo e logs de firewall. Todos os logs de diagnóstico gravam em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. A retenção é configurável pelo usuário, até 730 dias, para atender aos requisitos de retenção específicos da organização.
 
-**Logs do Azure Monitor**: Esses logs são consolidados em [logs de Azure monitor](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e relatórios de Dashboard. Depois de coletados, os dados são organizados em tabelas separadas para cada tipo de dados, o que permite que todos os dados sejam analisados em conjunto, independentemente de sua fonte. Além disso, a central de segurança do Azure integra-se aos logs de Azure Monitor, permitindo que os clientes usem consultas Kusto para acessar seus dados de eventos de segurança e combiná-los com dados de outros serviços.
+**Logs de Azure monitor**: esses logs são consolidados em [logs de Azure monitor](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e relatórios de Dashboard. Depois de coletados, os dados são organizados em tabelas separadas para cada tipo de dados, o que permite que todos os dados sejam analisados juntos, independentemente de sua fonte original. Além disso, a central de segurança do Azure integra-se aos logs de Azure Monitor, permitindo que os clientes usem consultas Kusto para acessar seus dados de eventos de segurança e combiná-los com dados de outros serviços.
 
 As seguintes [soluções de monitoramento](../../monitoring/monitoring-solutions.md) do Azure estão incluídas como parte dessa arquitetura:
--   [Avaliação do Active Directory](../../azure-monitor/insights/ad-assessment.md): A solução de Verificação de Integridade do Active Directory avalia o risco e a integridade dos ambientes de servidor em intervalos regulares e fornece uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
-- [Avaliação do SQL](../../azure-monitor/insights/sql-assessment.md): A solução de Verificação de Integridade do SQL avalia o risco e a integridade dos ambientes do servidor em intervalos regulares e fornece aos clientes uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
-- [Integridade do Agente](../../monitoring/monitoring-solution-agenthealth.md): A solução de Integridade do Agente informa quantos agentes são implantados e sua distribuição geográfica, além de quantos agentes sem resposta e o número de agentes que estão enviando dados operacionais.
--   [Análise do Log de Atividades](../../azure-monitor/platform/collect-activity-logs.md): A solução de Análise do Log de Atividades auxilia na análise dos logs de atividades do Azure em todas as assinaturas do Azure para um cliente.
+-   [Avaliação do Active Directory](../../azure-monitor/insights/ad-assessment.md): a solução de verificação de integridade Active Directory avalia o risco e a integridade dos ambientes de servidor em um intervalo regular e fornece uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
+- [Avaliação do SQL](../../azure-monitor/insights/sql-assessment.md): a solução de verificação da integridade do SQL avalia o risco e a integridade de ambientes de servidor em um intervalo regular e fornece aos clientes uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
+- [Integridade do agente](../../monitoring/monitoring-solution-agenthealth.md): a solução integridade do agente relata Quantos agentes são implantados e sua distribuição geográfica, bem como Quantos agentes que não respondem e o número de agentes que estão enviando dados operacionais.
+-   [Análise do log de atividades](../../azure-monitor/platform/collect-activity-logs.md): a solução de análise do log de atividades auxilia na análise dos logs de atividades do Azure em todas as assinaturas do Azure para um cliente.
 
-**Automação do Azure**: A [Automação do Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) armazena, executa e gerencia runbooks. Nessa solução, os runbooks ajudam a coletar logs do Banco de Dados SQL do Azure. A solução [Controle de Alterações](../../automation/change-tracking.md) da Automação permite que os clientes identifiquem com facilidade as alterações no ambiente.
+**Automação do Azure**: a [automação do Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) armazena, executa e gerencia runbooks. Nesta solução, os runbooks ajudam a coletar logs do banco de dados SQL do Azure. A solução de [controle de alterações](../../automation/change-tracking.md) de automação permite que os clientes identifiquem facilmente as alterações no ambiente.
 
-**Azure Monitor**: O [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os usuários a acompanhar o desempenho, manter a segurança e identificar tendências, permitindo que as organizações façam auditoria, criem alertas e arquivem dados, incluindo o rastreamento de chamadas à API nos recursos do Azure.
+**Azure monitor**: [Azure monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os usuários a controlar o desempenho, manter a segurança e identificar tendências, permitindo que as organizações façam auditoria, criem alertas e arquivem dados, incluindo o acompanhamento de chamadas à API em seus recursos do Azure.
 
 ## <a name="threat-model"></a>Modelo de ameaça
 
-O diagrama de fluxo de dados dessa arquitetura de referência está disponível para [download](https://aka.ms/uknhs-iaaswa-tm) ou pode ser encontrado abaixo. Esse modelo pode ajudar os clientes a entenderem os pontos de risco em potencial na infraestrutura do sistema ao fazer modificações.
+O diagrama de fluxo de dados para esta arquitetura de referência está disponível para [Download](https://aka.ms/uknhs-iaaswa-tm) ou pode ser encontrado abaixo. Esse modelo pode ajudar os clientes a entender os pontos de risco potencial na infraestrutura do sistema ao fazer modificações.
 
-![Modelo de ameaça de aplicativo Web de IaaS para o UK NHS](images/uknhs-iaaswa-threat-model.png?raw=true "Modelo de ameaça de aplicativo Web de IaaS para o UK NHS")
+![Aplicativo Web IaaS para o modelo de ameaça do Reino Unido NHS](images/uknhs-iaaswa-threat-model.png?raw=true "Aplicativo Web IaaS para o modelo de ameaça do Reino Unido NHS")
 
 ## <a name="compliance-documentation"></a>Documentação de conformidade
 
-O [Blueprint de segurança e conformidade do Azure – matriz de responsabilidades do cliente do UK NHS](https://aka.ms/uknhs-crm) lista todos requisitos do UK NHS. Essa matriz detalha se a implementação de cada princípio é de responsabilidade da Microsoft, do cliente ou é compartilhada pelos dois.
+A [matriz de responsabilidade do cliente do Blueprint de segurança E conformidade do Azure NHS – Reino Unido](https://aka.ms/uknhs-crm) lista todos os requisitos do NHS do Reino Unido. Essa matriz detalha se a implementação de cada princípio é a responsabilidade da Microsoft, do cliente ou do compartilhamento entre os dois.
 
-O [Blueprint de segurança e conformidade do Azure – matriz de implementação do aplicativo Web de IaaS do UK NHS](https://aka.ms/uknhs-iaaswa-cim) fornece informações sobre quais requisitos do UK NHS são atendidos pela arquitetura do aplicativo Web de IaaS, incluindo descrições detalhadas de como a implementação atende aos requisitos de cada princípio abordado.
+A [matriz Blueprint de segurança e conformidade do Azure de implementação de aplicativo Web IaaS NHS – Reino Unido](https://aka.ms/uknhs-iaaswa-cim) fornece informações sobre quais requisitos de NHS do Reino Unido são tratados pela arquitetura do aplicativo Web IaaS, incluindo descrições detalhadas de como o a implementação atende aos requisitos de cada princípio coberto.
 
 ## <a name="guidance-and-recommendations"></a>Diretrizes e recomendações
 
 ### <a name="vpn-and-expressroute"></a>VPN e ExpressRoute
 
-Um túnel de VPN seguro ou [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) precisa ser configurado para estabelecer uma conexão segura com os recursos implantados como parte dessa arquitetura de referência de aplicativo Web de IaaS. Configurando adequadamente o ExpressRoute ou uma VPN, os clientes podem adicionar uma camada de proteção para os dados em trânsito.
+Um túnel VPN seguro ou o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) precisa ser configurado para estabelecer com segurança uma conexão com os recursos implantados como parte dessa arquitetura de referência do aplicativo Web IaaS. Ao configurar adequadamente uma VPN ou ExpressRoute, os clientes podem adicionar uma camada de proteção para os dados em trânsito.
 
-Implementando um túnel de VPN seguro com o Azure, é possível criar uma conexão privada virtual entre uma rede local e uma rede virtual do Azure. Essa conexão ocorre na Internet e permite que os clientes enviem informações por &quot;túnel&quot; com segurança usando um link criptografado entre a rede do cliente e o Azure. A VPN site a site é uma tecnologia segura e madura implantada por empresas de todos os portes há décadas. O [modo de túnel IPsec](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) é usado nessa opção como um mecanismo de criptografia.
+Ao implementar um túnel VPN seguro com o Azure, uma conexão privada virtual entre uma rede local e uma rede virtual do Azure pode ser criada. Essa conexão ocorre pela Internet e permite que os clientes &quot;tunnelm com segurança &quot; informações dentro de um link criptografado entre&#39;a rede do cliente e o Azure. A VPN site a site é uma tecnologia segura e madura, que foi implantada por empresas de todos os tamanhos por décadas. O [modo de encapsulamento IPSec](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) é usado nessa opção como um mecanismo de criptografia.
 
-Como o tráfego do túnel de VPN passa pela Internet com uma VPN site a site, a Microsoft oferece outra opção de conexão ainda mais segura. O Azure ExpressRoute é um link de WAN dedicado entre o Azure e a instalação local ou um provedor de hospedagem do Exchange. Como as conexões do ExpressRoute não ocorrem pela Internet, elas oferecem mais confiabilidade, mais velocidade, latências mais baixas e maior segurança que as conexões típicas pela Internet. Além disso, como essa é uma conexão direta do provedor de telecomunicações do cliente, os dados não passam pela Internet e, portanto, não são expostos a ela.
+Como o tráfego dentro do túnel VPN atravessa a Internet com uma VPN site a site, a Microsoft oferece outra opção de conexão ainda mais segura. O Azure ExpressRoute é um link WAN dedicado entre o Azure e um local ou um provedor de hospedagem do Exchange. Como as conexões do ExpressRoute não passam pela Internet, essas conexões oferecem mais confiabilidade, velocidades mais rápidas, latências menores e mais segurança do que as conexões típicas pela Internet. Além disso, como essa é uma conexão direta do&#39;provedor de telecomunicação do cliente, os dados não viajam pela Internet e, portanto, não são expostos a ele.
 
-Estão [disponíveis](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid) práticas recomendadas para a implementação de uma rede híbrida segura que estende uma rede local para o Azure.
+As práticas recomendadas para implementar uma rede híbrida segura que estende uma rede local para o Azure estão [disponíveis](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
 
-## <a name="disclaimer"></a>Isenção de responsabilidade
+## <a name="disclaimer"></a>Aviso de isenção de responsabilidade
 
-- Este documento serve apenas para fins informativos. A MICROSOFT NÃO FORNECE NENHUMA GARANTIA, EXPRESSA, IMPLÍCITA OU REGULAMENTAR, QUANTO ÀS INFORMAÇÕES PRESENTES NESTE DOCUMENTO. Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Os clientes que estão lendo este documento arcarão com o risco de usá-lo.
-- Este documento não fornece aos clientes nenhum direito legal a qualquer propriedade intelectual de qualquer produto ou solução da Microsoft.
-- Os clientes podem copiar e usar este documento para fins de consulta interna.
-- Determinadas recomendações neste documento podem resultar em maior uso de recursos de computação, rede ou dados no Azure e podem aumentar os custos de licença ou assinatura do cliente.
-- Essa arquitetura é destinada a servir como base para os clientes se ajustarem a seus requisitos específicos e não deve ser usada no estado em que se encontra em um ambiente de produção.
-- Este documento foi desenvolvido como uma referência e não deve ser usado para definir todos os meios pelos quais um cliente pode atender aos regulamentos e requisitos de conformidade específicos. Os clientes devem procurar suporte jurídico de suas organizações em implementações do cliente aprovadas.
+- Este documento é apenas para fins informativos. A MICROSOFT NÃO OFERECE NENHUMA GARANTIA, EXPRESSA, IMPLÍCITA OU ESTATUTÁRIA, QUANTO ÀS INFORMAÇÕES CONTIDAS NESTE DOCUMENTO. Este documento é fornecido "no estado em que se encontra". As informações e as exibições expressas neste documento, incluindo URLs e outras referências de site da Internet, podem ser alteradas sem aviso prévio. Os clientes que lêem este documento trazem o risco de usá-lo.
+- Este documento não fornece aos clientes nenhum direito legal sobre qualquer propriedade intelectual em qualquer produto ou solução da Microsoft.
+- Os clientes podem copiar e usar este documento para fins de referência interna.
+- Determinadas recomendações neste documento podem resultar em maior uso de recursos de computação, rede ou dados no Azure, e podem aumentar os custos de assinatura ou de licença do Azure do cliente.
+- Essa arquitetura destina-se a servir como base para os clientes se ajustarem aos requisitos específicos e não devem ser usados no estado em que se encontram em um ambiente de produção.
+- Este documento é desenvolvido como uma referência e não deve ser usado para definir todos os meios pelos quais um cliente pode atender a requisitos e regulamentos específicos de conformidade. Os clientes devem buscar o suporte legal de sua organização em implementações aprovadas do cliente.

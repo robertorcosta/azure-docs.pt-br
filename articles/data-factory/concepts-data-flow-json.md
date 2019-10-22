@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: fe412e9e682fb55f1664c546e6b6c5a347527adb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72387355"
 ---
 # <a name="mapping-data-flow-json-handling"></a>Mapeando manipulação de JSON de fluxo de dados
@@ -88,7 +88,7 @@ O uso de um conjunto de dados JSON como uma origem em seu Flow permite definir c
 
 ![Configurações de JSON](media/data-flow/json-settings.png "Configurações de JSON")
 
-### <a name="default"></a>Padrão
+### <a name="default"></a>Os
 
 Por padrão, os dados JSON são lidos no formato a seguir.
 
@@ -170,7 +170,7 @@ filter([1, 2, 3, 4], #item > 2) => [3, 4]
 filter(['a', 'b', 'c', 'd'], #item == 'a' || #item == 'b') => ['a', 'b']
 ```
 
-### <a name="map"></a>map
+### <a name="map"></a>mapeada
 Mapeia cada elemento da matriz para um novo elemento usando a expressão fornecida. O mapa espera uma referência a um elemento na função de expressão como #item.
 
 #### <a name="examples"></a>Exemplos
@@ -189,7 +189,7 @@ reduce(['1', '2', '3', '4'], '0', #acc + #item, #result) => '01234'
 reduce([1, 2, 3, 4], 0, #acc + #item, #result + 15) => 25
 ```
 
-### <a name="sort"></a>sort
+### <a name="sort"></a>Organizar
 Classifica a matriz usando a função de predicado fornecida. Sort espera uma referência a dois elementos consecutivos na função Expression como #item1 e #item2.
 
 #### <a name="examples"></a>Exemplos
@@ -201,7 +201,7 @@ sort(['a3', 'b2', 'c1'],
         iif(#item1 >= #item2, 1, -1)) => ['a3', 'b2', 'c1']
 ```
 
-### <a name="contains"></a>contains
+### <a name="contains"></a>terá
 Retornará true se qualquer elemento na matriz fornecida for avaliado como true no predicado fornecido. Contains espera uma referência a um elemento na função de predicado como #item.
 
 #### <a name="examples"></a>Exemplos

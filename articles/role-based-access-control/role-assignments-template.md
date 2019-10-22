@@ -1,6 +1,6 @@
 ---
-title: Gerenciar o acesso a recursos do Azure usando modelos do Azure Resource Manager e RBAC | Microsoft Docs
-description: Saiba como gerenciar o acesso a recursos do Azure para usuários, grupos e aplicativos usando RBAC (controle de acesso baseado em função) e modelo do Azure Resource Manager.
+title: Gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager | Microsoft Docs
+description: Saiba como gerenciar o acesso aos recursos do Azure para usuários, grupos e aplicativos usando o controle de acesso baseado em função (RBAC) e modelos de Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 09/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b4eebf7dac4d388411f570b1546c96e3b82b2a98
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 5f57ea658df0569c4e69e476513863abe6940471
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950056"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692897"
 ---
-# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Gerenciar o acesso a recursos do Azure usando modelos do Azure Resource Manager e RBAC
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager
 
-O [RBAC (controle de acesso baseado em função)](overview.md) serve para gerenciar o acesso aos recursos do Azure. Além de usar Azure PowerShell ou o CLI do Azure, você pode gerenciar o acesso aos recursos do Azure usando [modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Os modelos poderão ser úteis se você precisar implantar recursos de maneira consistente e repetida. Este artigo descreve como gerenciar o acesso usando modelos e RBAC.
+O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira como você gerencia o acesso aos recursos do Azure. Além de usar Azure PowerShell ou o CLI do Azure, você pode gerenciar o acesso aos recursos do Azure usando [modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Os modelos podem ser úteis se você precisar implantar recursos de forma consistente e repetida. Este artigo descreve como você pode gerenciar o acesso usando RBAC e modelos.
 
 ## <a name="create-a-role-assignment-at-a-resource-group-scope-without-parameters"></a>Criar uma atribuição de função em um escopo de grupo de recursos (sem parâmetros)
 
@@ -72,12 +72,12 @@ Veja a seguir um exemplo de atribuição de função de leitor para um usuário 
 O modelo anterior não é muito flexível. O modelo a seguir usa parâmetros e pode ser usado em escopos diferentes. O modelo a seguir demonstra:
 
 - Como atribuir uma função a um usuário, grupo ou aplicativo em um grupo de recursos ou escopo de assinatura
-- Como especificar as funções de Proprietário, Colaborador e Leitor como um parâmetro
+- Como especificar as funções de proprietário, colaborador e leitor como um parâmetro
 
 Para usar o modelo, você deve especificar as seguintes entradas:
 
-- O identificador exclusivo de um usuário, grupo ou aplicativo para o qual atribuir a função
-- A função a atribuir
+- O identificador exclusivo de um usuário, grupo ou aplicativo ao qual atribuir a função
+- A função a ser atribuída
 - Um identificador exclusivo que será usado para a atribuição de função ou você poderá usar o identificador padrão
 
 ```json
@@ -160,7 +160,7 @@ az deployment create --location centralus --template-file rbac-test.json --param
 ```
 
 > [!NOTE]
-> Esse modelo não é idempotente, a menos que o mesmo valor `roleNameGuid` seja fornecido como um parâmetro para cada implantação do modelo. Se nenhum `roleNameGuid` for fornecido, por padrão, um novo GUID será gerado em cada implantação e implantações subsequentes falharão com um erro de `Conflict: RoleAssignmentExists`.
+> Esse modelo não é idempotente, a menos que o mesmo valor de `roleNameGuid` seja fornecido como um parâmetro para cada implantação do modelo. Se nenhum `roleNameGuid` for fornecido, por padrão, um novo GUID será gerado em cada implantação e implantações subsequentes falharão com um erro de `Conflict: RoleAssignmentExists`.
 
 ## <a name="create-a-role-assignment-at-a-resource-scope"></a>Criar uma atribuição de função em um escopo de recurso
 
@@ -177,12 +177,12 @@ O modelo a seguir demonstra:
 
 - Como criar uma nova conta de armazenamento
 - Como atribuir uma função a um usuário, grupo ou aplicativo no escopo da conta de armazenamento
-- Como especificar as funções de Proprietário, Colaborador e Leitor como um parâmetro
+- Como especificar as funções de proprietário, colaborador e leitor como um parâmetro
 
 Para usar o modelo, você deve especificar as seguintes entradas:
 
-- O identificador exclusivo de um usuário, grupo ou aplicativo para o qual atribuir a função
-- A função a atribuir
+- O identificador exclusivo de um usuário, grupo ou aplicativo ao qual atribuir a função
+- A função a ser atribuída
 
 ```json
 {
@@ -232,7 +232,7 @@ Para usar o modelo, você deve especificar as seguintes entradas:
         {
             "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
             "apiVersion": "2018-09-01-preview",
-            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(parameters('storageName'))))]",
+            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(variables('storageName'))))]",
             "dependsOn": [
                 "[variables('storageName')]"
             ],
@@ -327,9 +327,9 @@ Veja a seguir um exemplo da atribuição de função de colaborador para uma nov
 
 ![Atribuição de função para uma nova entidade de serviço de identidade gerenciada](./media/role-assignments-template/role-assignment-template-msi.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Início Rápido: Criar e implantar modelos do Azure Resource Manager usando o portal do Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
-- [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+- [Início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
+- [Entender a estrutura e a sintaxe de modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 - [Criar grupos de recursos e recursos no nível da assinatura](../azure-resource-manager/deploy-to-subscription.md)
-- [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?term=rbac)
+- [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

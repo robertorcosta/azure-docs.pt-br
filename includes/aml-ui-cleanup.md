@@ -7,17 +7,16 @@ ms.custom: include file
 ms.topic: include
 author: sgilley
 ms.author: sgilley
-ms.date: 05/06/2019
-ms.openlocfilehash: 623e993dfbe6bbb3297fa6470865ab1a04f55b37
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 10/16/2019
+ms.openlocfilehash: 0071b0df2c2e173eced1722372f88b1de2708afa
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67172339"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692239"
 ---
 >[!IMPORTANT]
 >Os recursos que você criou podem ser usados como pré-requisitos em outros tutoriais e artigos de instruções do Serviço do Azure Machine Learning.
-
 
 ### <a name="delete-everything"></a>Excluir tudo
 
@@ -49,6 +48,6 @@ O destino de computação que você criou aqui é *dimensionado automaticamente*
 
 ### <a name="delete-individual-assets"></a>Excluir recursos individuais
 
-Na interface visual em que você criou seu experimento, exclua ativos individuais selecionando-os e, em seguida, selecionando o botão **Excluir**.
+Na interface visual em que você criou seu experimento, exclua ativos individuais selecionando-os e, em seguida, selecionando o botão **Excluir**. Os conjuntos de dados podem ter o registro cancelado do seu workspace. Para isso, selecione cada conjunto de dados e, em seguida, selecione **Cancelar registro**.
 
-![Excluir experimentos](./media/aml-ui-cleanup/delete-experiment.png)
+![Excluir ativos](./media/aml-ui-cleanup/delete-asset.png)
