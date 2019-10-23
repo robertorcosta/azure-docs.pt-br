@@ -3,15 +3,15 @@ title: Executar a primeira consulta usando o Azure Resource Graph Explorer
 description: Este artigo percorre as etapas necessárias para executar sua primeira consulta no portal do Azure usando o Azure Resource Graph Explorer.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: 755556b9ba049da7542494ee580215d29c1eb5f4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: abee722e725b55933d7ff1acdcd1e9a2e701502b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387616"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752143"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Início Rápido: Executar a primeira consulta do Resource Graph usando o Azure Resource Graph Explorer
 
@@ -45,7 +45,10 @@ Quando a consulta final for executada várias vezes, supondo que nada em seu amb
 
 ### <a name="schema-browser"></a>Navegador de esquema
 
-O navegador de esquema está localizado no painel esquerdo do Resource Graph Explorer. Esta lista de recursos mostra todos os _tipos de recursos_ dos recursos do Azure com suporte do Azure Resource Graph e que existem em um locatário ao qual você tem acesso. Expandir um tipo de recurso ou suas subpropriedades mostra propriedades filho que podem ser usadas para criar uma consulta do Resource Graph. Selecionar o tipo de recurso coloca `where type =="<resource type>"` na caixa de consulta. Selecionar uma das propriedades filho adicionada `where <propertyName> == "INSERT_VALUE_HERE"` à caixa de consulta. O navegador de esquema é uma ótima maneira de descobrir propriedades para uso em consultas. Certifique-se de substituir _INSERT\_VALUE\_HERE_ pelo seu próprio valor e de ajustar a consulta com as condições, os operadores e as funções para chegar aos resultados pretendidos.
+O navegador de esquema está localizado no painel esquerdo do Resource Graph Explorer. Esta lista de recursos mostra todos os _tipos de recursos_ dos recursos do Azure com suporte do Azure Resource Graph e que existem em um locatário ao qual você tem acesso. Expandir um tipo de recurso ou suas subpropriedades mostra propriedades filho que podem ser usadas para criar uma consulta do Resource Graph.
+
+Selecionar o tipo de recurso coloca `where type =="<resource type>"` na caixa de consulta. Selecionar uma das propriedades filho adicionada `where <propertyName> == "INSERT_VALUE_HERE"` à caixa de consulta.
+O navegador de esquema é uma ótima maneira de descobrir propriedades para uso em consultas. Certifique-se de substituir _INSERT\_VALUE\_HERE_ pelo seu próprio valor e de ajustar a consulta com as condições, os operadores e as funções para chegar aos resultados pretendidos.
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Criar um gráfico baseado na consulta do Resource Graph
 

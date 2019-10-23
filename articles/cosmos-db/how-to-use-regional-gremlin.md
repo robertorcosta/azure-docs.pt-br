@@ -1,18 +1,18 @@
 ---
 title: Pontos de extremidade regionais para o banco de dados de grafo do Azure Cosmos DB
 description: Saiba como se conectar ao ponto de extremidade do banco de dados de grafo mais próximo para seu aplicativo
-author: olignat
+author: luisbosquez
+ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/09/2019
-ms.author: olignat
-ms.openlocfilehash: a7db86c120fd633dd70fbb5733383c98a25e2cde
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 6bce69889910296f5ff28090e62cfe27c0640d95
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886845"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755025"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Pontos de extremidade regionais para a conta de grafo do Azure Cosmos DB
 O banco de dados de grafo do Azure Cosmos DB é [distribuído globalmente](distribute-data-globally.md) para que os aplicativos possam usar vários pontos de extremidade de leitura. Aplicativos que precisam de acesso de gravação em vários locais devem habilitar a funcionalidade de [vários mestres](how-to-multi-master.md).

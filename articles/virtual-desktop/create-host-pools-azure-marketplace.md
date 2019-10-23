@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: c0b93529872de774e1a6e915ef8254c5c0e0a1a9
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: f5b40e59a4ed2393e3b9912f8e4caa06ee267428
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676703"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757515"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Criar um pool de host usando o Azure Marketplace
 
@@ -73,7 +73,7 @@ Para a folha **Configurar máquinas virtuais**:
 Para a folha de **configurações da máquina virtual**:
 
 >[!NOTE]
-> Se você estiver unindo suas VMs em um ambiente do Azure Active Directory Domain Services (Azure AD DS), verifique se o usuário de ingresso no domínio também é um membro do [grupo de Administradores do AAD DC](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
+> Se você estiver unindo suas VMs em um ambiente do Azure Active Directory Domain Services (Azure AD DS), verifique se o usuário de ingresso no domínio também é um membro do [grupo de Administradores do AAD DC](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
 1. Para **Origem da imagem**, selecione a origem e insira as informações apropriadas para saber como encontrá-las e como armazená-las. Se você optar por não usar discos gerenciados, selecione a conta de armazenamento que contém o arquivo .vhd.
 2. Insira o nome UPN e a senha para a conta de domínio que ingressará as VMs ao domínio do Azure Directory. Esse mesmo nome de usuário e senha será criado nas máquinas virtuais como uma conta local. É possível redefinir essas contas locais mais tarde.

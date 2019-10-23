@@ -1,18 +1,18 @@
 ---
 title: Criar um aplicativo de console usando a API para MongoDB do Azure Cosmos DB e o SDK do Golang
 description: Apresenta um exemplo de código do Golang que você pode usar para se conectar à API para MongoDB do Azure Cosmos DB e consultá-la.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.author: rimman
-ms.openlocfilehash: 5b60ac28cd8f65d464e659f328872524be59b3ed
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: e16b9b7e591fcc089d74794c98ddfc951cbdced9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586865"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755123"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>Início Rápido: Criar um aplicativo de console usando a API para MongoDB do Azure Cosmos DB e o SDK do Golang
 
@@ -216,7 +216,7 @@ if err != nil {
 
 1. No Golang, verifique se seu GOPATH (disponível em **Arquivo**, **Configurações**, **Go**, **GOPATH**) inclui a localização em que o gopkg foi instalado, que é PERFILDOUSUÁRIO/go por padrão. 
 2. Comente as linhas que excluem o documento, linhas 103 a 107, para que você possa ver o documento depois de executar o aplicativo.
-3. No Golang, clique em **Executar** e em **Executar 'Compilar main.go e executar'**.
+3. No Golang, clique em **Executar** e em **Executar 'Compilar main.go e executar'** .
 
     O aplicativo termina e exibe a descrição do documento criado em [Criar um documento](#create-document).
     

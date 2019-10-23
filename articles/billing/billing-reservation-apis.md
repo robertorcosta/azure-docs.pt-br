@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 50de654fb9222951a7380a322160496421006e7a
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 57e38888249de448f5286baa1b5ebb0e2c01bda9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719678"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757409"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>APIs para a automação de reserva do Azure
 
@@ -26,7 +26,7 @@ Use as APIs do Azure para obter programaticamente informações para sua organiz
 
 Use a API de recomendação de Reserva para obter recomendações sobre quais reservas você planeja comprar com base no uso da sua organização. Para obter mais informações, confira [Obter recomendações de reserva](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 
-Você também pode analisar o uso de recursos usando os Detalhes de Uso de API de Consumo. Para obter mais informações, confira [Detalhes de uso – lista para período de cobrança por conta de cobrança](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod). Os recursos do Azure que você usa consistentemente geralmente são os melhores candidatos para uma reserva.
+Você também pode analisar o uso de recursos usando os Detalhes de Uso de API de Consumo. Para obter mais informações, confira [Detalhes de uso – lista para período de cobrança por conta de cobrança](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod-legacy). Os recursos do Azure que você usa consistentemente geralmente são os melhores candidatos para uma reserva.
 
 ## <a name="buy-a-reservation"></a>Comprar uma reserva
 

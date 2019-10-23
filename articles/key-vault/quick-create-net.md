@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 3ccc5c7c0def7ec1d8d2f8927dc8f8e5d3678a52
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 4faf889755b6f3e5f8fc6ef08cb69b4265fec355
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718978"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755803"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>Início Rápido: Biblioteca de clientes do Azure Key Vault para .NET
 
@@ -25,7 +25,7 @@ O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usa
 - Simplificar e automatizar tarefas para certificados SSL/TLS.
 - Usar HSMs validados para os padrões FIPS 140-2 Nível 2.
 
-[Documentação de referência da API](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/KeyVault) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
+[Documentação de referência da API](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
