@@ -98,13 +98,13 @@
     - name: Diagnosticar e solucionar problemas
       items:
         - name: Solucionar problemas do servidor do Redis
-          href: cache-how-to-troubleshoot-server.md
+          href: cache-troubleshoot-server.md
         - name: Solucionar problemas do cliente do Redis
-          href: cache-how-to-troubleshoot-client.md
+          href: cache-troubleshoot-client.md
         - name: Solucionar problemas de tempo limite
-          href: cache-how-to-troubleshoot-timeouts.md
+          href: cache-troubleshoot-timeouts.md
         - name: Solucionar problemas de perda de dados
-          href: cache-how-to-troubleshoot-data-loss.md
+          href: cache-troubleshoot-data-loss.md
     - name: Escala
       items:
         - name: Atualizar para um tamanho e uma camada diferentes
