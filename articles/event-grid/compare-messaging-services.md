@@ -1,20 +1,20 @@
 ---
-title: Comparação de mensagens do Azure – Grade de Eventos, Hubs de Eventos, Barramento de Serviço
+title: Comparar os serviços de mensagens do Azure
 description: Descreve os três serviços de mensagens do Azure – Grade de Eventos do Azure, Hubs de Eventos e Barramento de Serviço. Recomenda que serviço usar para cenários diferentes.
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 01/30/2019
+ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: d2daa23a22fae6ba420a146599c0c0ba659a94f2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b68bd69c6d00ac177466f8fdaabd89649c910287
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540798"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790301"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre os três serviços de mensagens do Azure – Grade de Eventos, Hubs de Eventos e Barramento de Serviço
 
