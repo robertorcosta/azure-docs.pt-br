@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 6a43b721b70858d82083538638853c5bbdf1531d
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
-ms.translationtype: MT
+ms.openlocfilehash: 59bf62f73d8ba9732cd89209d2b239fd15a6d844
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004134"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754463"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o hub IoT usando o protocolo MQTT
 
@@ -42,7 +42,7 @@ Quando um dispositivo está conectado a um Hub IoT, os SDKs do dispositivo forne
 
 A tabela a seguir contém links para exemplos de código de cada linguagem compatível e especifica o parâmetro a ser usado para estabelecer uma conexão com o Hub IoT usando o protocolo MQTT.
 
-| Linguagem | Parâmetro do protocolo |
+| Idioma | Parâmetro do protocolo |
 | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |azure-iot-device-mqtt |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
@@ -189,7 +189,7 @@ client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
                        device_id + "/?api-version=2018-06-30", password=sas_token)
 
 client.tls_set(ca_certs=path_to_root_cert, certfile=None, keyfile=None,
-               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1_2, ciphers=None)
 client.tls_insecure_set(False)
 
 client.connect(iot_hub_name+".azure-devices.net", port=8883)
@@ -216,7 +216,7 @@ client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
 cert_file = "<local path to your certificate file>"
 key_file = "<local path to your device key file>"
 client.tls_set(ca_certs=path_to_root_cert, certfile=cert_file, keyfile=key_file,
-               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1_2, ciphers=None)
 
 # Connect as before
 client.connect(iot_hub_name+".azure-devices.net", port=8883)
@@ -231,7 +231,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 ```
 
 > [!NOTE]
-> Esse `{property_bag}` elemento usa a mesma codificação que as cadeias de caracteres de consulta no protocolo HTTPS.
+> Esse elemento de `{property_bag}` usa a mesma codificação que as cadeias de caracteres de consulta no protocolo HTTPS.
 
 Veja a seguir uma lista dos comportamentos específicos à implementação do Hub IoT:
 
@@ -310,7 +310,7 @@ Os códigos de status possíveis são:
 
 |Status | Descrição |
 | ----- | ----------- |
-| 200 | Êxito |
+| 200 | Sucesso |
 | 400 | Solicitação inválida. JSON malformado |
 | 429 | Muitas solicitações (limitadas), de acordo com a [limitação do Hub IOT](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Erros do servidor |
@@ -364,7 +364,7 @@ Para obter mais informações, consulte [Guia do desenvolvedor do método direto
 
 Como uma consideração final, se você precisar personalizar o comportamento do protocolo MQTT no lado da nuvem, examine o gateway do [protocolo IOT do Azure](iot-hub-protocol-gateway.md). Esse software permite que você implante um gateway de protocolo personalizado de alto desempenho que faz interface diretamente com o Hub IoT. O gateway do protocolo IoT do Azure permite que você personalize o protocolo de dispositivo para acomodar as implantações de MQTT de nível industrial ou outros protocolos personalizados. Essa abordagem exige, no entanto, que você execute e opere um gateway de protocolo personalizado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o protocolo MQTT, consulte a [documentação do MQTT](https://mqtt.org/documentation).
 
@@ -378,4 +378,4 @@ Para saber mais sobre como planejar sua implantação do Hub IoT, consulte:
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 * [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
-* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implantar IA em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: bb7b9a41523ab1b1addbf37cb7b463f12a72a814
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: afb48c18f9690e77a5478956e1147acf850290ab
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263666"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756609"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Como administrar o Cache Redis do Azure
 Este tópico descreve como executar tarefas administrativas, como [reinicializar](#reboot) e [agendar atualizações](#schedule-updates) para as instâncias do Cache Redis do Azure.
@@ -71,7 +71,7 @@ Se você reinicializar os nós **mestre** e **subordinado** , todos os dados no 
 Se você reinicializar apenas um dos nós, normalmente os dados não serão perdidos, mas isso ainda poderá ocorrer. Por exemplo, se o nó mestre for reinicializado e uma gravação de cache estiver em andamento, os dados da gravação do cache serão perdidos. Outro cenário de perda de dados ocorre se você reinicializa um nó e o outro nó ocorre fica inoperante devido a uma falha ao mesmo tempo. Para saber mais sobre as possíveis causas da perda de dados, confira [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) (O que aconteceu com meus dados no Redis?)
 
 ### <a name="can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools"></a>Posso reinicializar o cache usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?
-Sim, para ver as instruções do PowerShell, consulte [Para reinicializar um Cache Redis do Azure](cache-howto-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
+Sim, para ver as instruções do PowerShell, consulte [Para reinicializar um Cache Redis do Azure](cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
 
 ## <a name="schedule-updates"></a>Agende atualizações
 A folha **agendar atualizações** permite designar uma janela de manutenção para sua instância de cache. Quando a janela de manutenção é especificada, as atualizações do servidor Redis são feitas durante essa janela. 
@@ -105,6 +105,6 @@ Sim, você pode gerenciar as atualizações agendadas usando os cmdlets do Power
 * [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry)
 * [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Explore mais recursos da [camada premium do Cache Redis do Azure](cache-premium-tier-intro.md).
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e14025a5a7a3e81404498638d6f6f9c5ff18ed58
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1dc4065540256c8af0856b0e156053f7c2097c1f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650755"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755843"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implantação contínua no Azure IoT Edge
 
@@ -48,9 +48,9 @@ Nesta seção, você criará um novo pipeline de build. Configure o pipeline par
 >1. No Azure DevOps, selecione o ícone do seu perfil e a **Versão prévia do recurso**.
 >2. Desative **Nova experiência de criação de pipeline YAML**. 
 >
->Para saber mais, confira [Criar um pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
+>Para saber mais, confira [Criar um pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline).
 
-1. Entre em sua organização do Azure DevOps (**https\/:/dev.Azure.com/{Your Organization}/** ) e abra o projeto que contém seu repositório de solução de IOT Edge.
+1. Entre em sua organização do Azure DevOps (**https: \//dev.Azure.com/{Your Organization}/** ) e abra o projeto que contém o repositório da solução IOT Edge.
 
    Neste artigo, criamos um repositório chamado **IoTEdgeRepo**. Esse repositório contém **IoTEdgeSolution**, que tem o código para um módulo denominado **filtermodule**. 
 
@@ -80,7 +80,7 @@ Nesta seção, você criará um novo pipeline de build. Configure o pipeline par
     
      ![Configurar o pool de agentes de build](./media/how-to-ci-cd/configure-env.png)
 
-5. O pipeline vem pré-configurado com um trabalho chamado **Trabalho do agente 1**. Clique no sinal de adição ( **+** ) para adicionar três tarefas ao trabalho: **Azure IOT Edge** duas vezes, **Copie os arquivos** uma vez e publique os artefatos de **compilação** uma vez. Passe o mouse sobre o nome de cada tarefa para ver o botão **Adicionar**.
+5. O pipeline vem pré-configurado com um trabalho chamado **Trabalho do agente 1**. Selecione o sinal de adição ( **+** ) para adicionar três tarefas ao trabalho: **Azure IOT Edge** duas vezes, **Copie os arquivos** uma vez e **publique os artefatos de compilação** uma vez. Passe o mouse sobre o nome de cada tarefa para ver o botão **Adicionar**.
 
    ![Adicionar tarefa do Azure IoT Edge](./media/how-to-ci-cd/add-iot-edge-task.png)
 
@@ -90,34 +90,34 @@ Nesta seção, você criará um novo pipeline de build. Configure o pipeline par
 
 6. Selecione a primeira tarefa **Azure IoT Edge** para editá-la. Essa tarefa compila todos os módulos na solução com a plataforma de destino que você especificar.
 
-   * **Nome de exibição**: aceite o padrão **Azure IoT Edge – Compilar imagens de módulo**.
-   * **Ação**: aceite o padrão **Compilar imagens de módulo**. 
-   * **Arquivo .template.json**: selecione as reticências ( **...** ) e navegue até o arquivo **deployment.template.json** no repositório que contém sua solução do IoT Edge. 
-   * **Plataforma padrão**: selecione a plataforma adequada para os módulos com base no dispositivo do IoT Edge de destino. 
-   * **Variáveis de saída**: as variáveis de saída incluem um nome de referência que você pode usar para configurar o caminho de arquivo onde o arquivo deployment.json será gerado. Defina um nome de referência fácil de lembrar, como **edge**. 
+   * **Nome de exibição**: aceite as **imagens padrão do módulo de Azure IOT Edge compilação**.
+   * **Ação**: aceite as imagens padrão do **módulo de compilação**. 
+   * **arquivo. Template. JSON**: selecione as reticências ( **...** ) e navegue até o arquivo **Deployment. Template. JSON** no repositório que contém sua solução de IOT Edge. 
+   * **Plataforma padrão**: selecione a plataforma apropriada para seus módulos com base em seu dispositivo de IOT Edge de destino. 
+   * **Variáveis de saída**: as variáveis de saída incluem um nome de referência que você pode usar para configurar o caminho do arquivo no qual o arquivo Deployment. JSON será gerado. Defina um nome de referência fácil de lembrar, como **edge**. 
 
 7. Selecione a segunda tarefa **Azure IoT Edge** para editá-la. Essa tarefa efetua push de todas as imagens de módulo para o registro de contêiner selecionado.
 
    * **Nome de exibição**: o nome de exibição é atualizado automaticamente quando o campo de ação é alterado. 
-   * **Ação**: use a lista suspensa para selecionar **Efetuar push de imagens de módulo**. 
-   * **Tipo de registro de contêiner**: selecione o tipo de registro de contêiner usado para armazenar as imagens de módulo. Dependendo do tipo de registro escolhido, o formulário é alterado. Se você escolher **Registro de Contêiner do Azure**, use as listas suspensas para selecionar a assinatura do Azure e o nome do registro de contêiner. Se você escolher **Registro de Contêiner Genérico**, selecione **Novo** para criar uma conexão de serviço de registro. 
-   * **Arquivo .template.json**: selecione as reticências ( **...** ) e navegue até o arquivo **deployment.template.json** no repositório que contém sua solução do IoT Edge. 
-   * **Plataforma padrão**: selecione a mesma plataforma em que estão as imagens dos módulos compilados.
+   * **Ação**: Use a lista suspensa para selecionar **imagens de módulo Push**. 
+   * **Tipo de registro de contêiner**: selecione o tipo de registro de contêiner que você usa para armazenar suas imagens de módulo. Dependendo do tipo de registro escolhido, o formulário é alterado. Se você escolher **Registro de Contêiner do Azure**, use as listas suspensas para selecionar a assinatura do Azure e o nome do registro de contêiner. Se você escolher **Registro de Contêiner Genérico**, selecione **Novo** para criar uma conexão de serviço de registro. 
+   * **arquivo. Template. JSON**: selecione as reticências ( **...** ) e navegue até o arquivo **Deployment. Template. JSON** no repositório que contém sua solução de IOT Edge. 
+   * **Plataforma padrão**: selecione a mesma plataforma que as imagens de módulo criadas.
 
    Se você tiver vários registros de contêiner para hospedar suas imagens de módulo, você precisará duplicar essa tarefa, selecione o registro de contêiner diferente e usar **Ignorar módulos** nas configurações avançadas para ignorar as imagens que não são para esse registro específico.
 
 8. Selecione a tarefa **copiar arquivos** para editá-la. Use essa tarefa para copiar arquivos para o diretório de preparo do artefato.
 
-   * **Nome de exibição**: Copiar arquivos para: Pasta de destino.
-   * **Conteúdo**: Coloque duas linhas nesta seção `deployment.template.json` e. `**/module.json` Esses dois tipos de arquivos são as entradas para gerar IoT Edge manifesto de implantação. Precisa ser copiado para a pasta de preparo do artefato e publicado para o pipeline de liberação.
+   * **Nome de exibição**: copiar arquivos para: remover pasta.
+   * **Conteúdo**: Coloque duas linhas nesta seção, `deployment.template.json` e `**/module.json`. Esses dois tipos de arquivos são as entradas para gerar IoT Edge manifesto de implantação. Precisa ser copiado para a pasta de preparo do artefato e publicado para o pipeline de liberação.
    * **Pasta de destino**: Coloque a variável `$(Build.ArtifactStagingDirectory)`. Consulte [criar variáveis](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) para saber mais sobre a descrição.
 
 9. Selecione a tarefa **Publicar artefatos de build** para editá-la. Forneça o caminho do diretório de preparo do artefato para a tarefa para que o caminho possa ser publicado no pipeline de liberação.
    
-   * **Nome de exibição**: Publicar artefato: soltar.
-   * **Caminho para publicar**: Coloque a variável `$(Build.ArtifactStagingDirectory)`. Consulte [criar variáveis](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) para saber mais sobre a descrição.
+   * **Nome de exibição**: publicar artefato: soltar.
+   * **Caminho para publicação**: Coloque a variável `$(Build.ArtifactStagingDirectory)`. Consulte [criar variáveis](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) para saber mais sobre a descrição.
    * **Nome do artefato**: Drop.
-   * **Local de publicação do artefato**: Azure Pipelines.
+   * **Local de publicação do artefato**: Azure pipelines.
 
 
 10. Abra a guia **Gatilhos** e marque a caixa **Ativar integração contínua**. Verifique se o branch que contém seu código está incluído.
@@ -141,7 +141,7 @@ Criar um novo pipeline e adicionar um novo estágio
 
     ![Começar um trabalho vazio](./media/how-to-ci-cd/start-with-empty-job.png)
 
-3. O novo pipeline de lançamento é iniciado com um estágio, chamado **Estágio 1**. Renomeie o estágio 1 para **desenvolver** e tratá-lo como um ambiente de teste. Normalmente, os pipelines de implantação contínua têm vários estágios, incluindo **desenvolvimento**, **preparo** e **produção**. Você pode criar mais com base em sua prática no DevOps. Feche a janela de detalhes do estágio depois de renomeá-lo. 
+3. O novo pipeline de lançamento é iniciado com um estágio, chamado **Estágio 1**. Renomeie o estágio 1 para **desenvolver** e tratá-lo como um ambiente de teste. Normalmente, os pipelines de implantação contínua têm vários estágios, incluindo **desenvolvimento**, **preparo** e **produção**. Você pode criar mais com base em sua prática DevOps. Feche a janela de detalhes do estágio depois de renomeá-lo. 
 
 4. Vincule a versão aos artefatos de build publicados pelo pipeline de build. Clique em **Adicionar** na área de artefatos.
 
@@ -161,7 +161,7 @@ Criar um novo pipeline e adicionar um novo estágio
 
 8. No estágio de **desenvolvimento** , você deve ver um **trabalho de agente**padrão. É possível configurar detalhes sobre o trabalho do agente, mas a tarefa de implantação não diferencia a plataforma, de modo que você pode escolher **VS2017 hospedado** ou **Ubuntu 1604 hospedado** no **Pool de agente** (ou qualquer outro agente gerenciado por você). 
 
-9. Selecione o sinal de adição **+** () para adicionar duas tarefas. Pesquise e adicione **Azure IOT Edge** duas vezes.
+9. Selecione o sinal de adição ( **+** ) para adicionar duas tarefas. Pesquise e adicione **Azure IOT Edge** duas vezes.
 
     ![Adicionar tarefas para desenvolvimento](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -169,17 +169,17 @@ Criar um novo pipeline e adicionar um novo estágio
 
     * **Nome de exibição**: o nome de exibição é atualizado automaticamente quando o campo de ação é alterado. 
     * **Ação**: Use a lista suspensa para selecionar **gerar manifesto de implantação**. A alteração do valor de ação também atualiza o nome de exibição da tarefa para haver correspondência.
-    * **Arquivo .template.json**: Coloque o caminho `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json`. O caminho é publicado a partir do pipeline de compilação.
-    * **Plataforma padrão**: Escolha o mesmo valor ao criar as imagens de módulo.
+    * **arquivo. Template. JSON**: Coloque o caminho `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json`. O caminho é publicado a partir do pipeline de compilação.
+    * **Plataforma padrão**: escolha o mesmo valor ao criar as imagens de módulo.
     * **Caminho de saída**: Coloque o caminho `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json`. Esse caminho é o arquivo de manifesto de implantação IoT Edge final.
 
-    Essas configurações ajudam a substituir as URLs de imagem de `deployment.template.json` módulo no arquivo. O **manifesto de implantação de geração** também ajuda a substituir as variáveis pelo valor exato que você `deployment.template.json` definiu no arquivo. No vs/vs Code, você está especificando o valor real em um `.env` arquivo. Em Azure Pipelines, defina o valor na guia variáveis de pipeline de liberação. Mova para a guia variáveis e configure o nome e o valor da seguinte maneira.
+    Essas configurações ajudam a substituir as URLs de imagem de módulo no arquivo `deployment.template.json`. O **manifesto de implantação de geração** também ajuda a substituir as variáveis pelo valor exato que você definiu no arquivo de `deployment.template.json`. No VS/VS Code, você está especificando o valor real em um arquivo de `.env`. Em Azure Pipelines, defina o valor na guia variáveis de pipeline de liberação. vá para a guia variáveis e configure o nome e o valor da seguinte maneira.
 
-    * **ACR_ADDRESS**: Seu endereço de registro de contêiner do Azure. 
-    * **ACR_PASSWORD**: Sua senha do registro de contêiner do Azure.
-    * **ACR_USER**: Seu nome de usuário do registro de contêiner do Azure.
+    * **ACR_ADDRESS**: seu endereço de registro de contêiner do Azure. 
+    * **ACR_PASSWORD**: sua senha de registro de contêiner do Azure.
+    * **ACR_USER**: seu nome de usuário do registro de contêiner do Azure.
 
-    Se você tiver outras variáveis em seu projeto, poderá especificar o nome e o valor nessa guia. O **manifesto de implantação de geração** só pode reconhecer as variáveis `${VARIABLE}` em tipo, verifique se você está usando isso em `*.template.json` seus arquivos.
+    Se você tiver outras variáveis em seu projeto, poderá especificar o nome e o valor nessa guia. O **manifesto de implantação de geração** só pode reconhecer as variáveis em `${VARIABLE}` tipo, verifique se você está usando isso em seus arquivos de `*.template.json`.
 
     ![Configurar variáveis para o pipeline de liberação](./media/how-to-ci-cd/configure-variables.png)
 
@@ -187,12 +187,12 @@ Criar um novo pipeline e adicionar um novo estágio
 
     * **Nome de exibição**: o nome de exibição é atualizado automaticamente quando o campo de ação é alterado. 
     * **Ação**: Use a lista suspensa para selecionar **implantar em dispositivos IOT Edge**. A alteração do valor de ação também atualiza o nome de exibição da tarefa para haver correspondência.
-    * **Assinatura do Azure**: selecione a assinatura que contém seu Hub IoT.
-    * **Nome do Hub IoT**: Selecione seu Hub IoT. 
-    * **Escolher um/vários dispositivos**: escolha se o pipeline de lançamento deve ser implantado em um ou vários dispositivos. 
+    * **Assinatura do Azure**: selecione a assinatura que contém o Hub IOT.
+    * **Nome do Hub IOT**: selecione o Hub IOT. 
+    * **Escolher dispositivo único/múltiplo**: escolha se deseja que o pipeline de liberação seja implantado em um dispositivo ou em vários dispositivos. 
       * Se quiser implantar em um único dispositivo, insira a **ID do dispositivo do IoT Edge**. 
       * Se estiver implantando em vários dispositivos, especifique a **condição de destino** do dispositivo. A condição de destino é um filtro para corresponder a um conjunto de dispositivos IoT Edge no Hub IoT. Se você quiser usar Marcas de Dispositivo como a condição, será necessário atualizar as Marcas de dispositivos correspondentes com o dispositivo gêmeo do Hub IoT. Atualize a **ID de implantação do IoT Edge** e a **prioridade de implantação do IoT Edge** nas configurações avançadas. Para saber mais sobre como criar uma implantação em vários dispositivos, confira [Entender as implantações automáticas do IoT Edge](module-deployment-monitoring.md).
-    * Expanda Configurações avançadas, selecione **IOT Edge ID da implantação**, coloque `$(System.TeamProject)-$(Release.EnvironmentName)`a variável. Isso mapeia o projeto e o nome da versão com sua ID de implantação IoT Edge.
+    * Expanda Configurações avançadas, selecione **IOT Edge ID da implantação**, coloque a variável `$(System.TeamProject)-$(Release.EnvironmentName)`. Isso mapeia o projeto e o nome da versão com sua ID de implantação IoT Edge.
 
 11. Selecione **Salvar** para salvar as alterações no novo pipeline de lançamento. Retorne para o modo de exibição do pipeline selecionando **Pipeline** no menu. 
     
@@ -208,7 +208,7 @@ Para disparar um trabalho de build, você pode efetuar push da confirmação do 
 
 3. Selecione-o para acompanhar seu progresso. Se o pipeline de compilação for concluído com êxito, ele disparará uma liberação para o estágio de **desenvolvimento** . 
 
-    ![Logs do build](./media/how-to-ci-cd/build-logs.png)
+    ![Logs de build](./media/how-to-ci-cd/build-logs.png)
 
 4. A versão de **desenvolvimento** bem-sucedida cria IOT Edge implantação para dispositivos de IOT Edge de destino.
 
@@ -220,7 +220,7 @@ Para disparar um trabalho de build, você pode efetuar push da confirmação do 
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * IoT Edge exemplo de práticas recomendadas do DevOps no [projeto DevOps do Azure para IOT Edge](how-to-devops-project.md)
 * Entenda a implantação do IoT Edge em [Noções básicas sobre implantações do IoT Edge para dispositivos únicos ou em escala](module-deployment-monitoring.md)
 * Siga as etapas para criar, atualizar ou excluir uma implantação em [Implantar e monitorar os módulos do IoT Edge em larga escala](how-to-deploy-monitor.md).

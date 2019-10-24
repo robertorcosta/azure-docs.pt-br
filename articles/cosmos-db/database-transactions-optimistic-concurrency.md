@@ -1,18 +1,18 @@
 ---
 title: Controle de transações e simultaneidade otimista do banco de dados no Azure Cosmos DB
 description: Este artigo descreve o controle de transações e simultaneidade otimista do banco de dados no Azure Cosmos DB
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: b58255aa471fe78c84b5f6a7432c0f3d402f0875
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 4c263b32b7ededb9e5169e80a29806f322a3c849
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467915"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755164"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Controle de transações e simultaneidade otimista
 
@@ -33,11 +33,11 @@ O mecanismo de banco de dados no Azure Cosmos DB dá suporte completo a transaç
 | Executar procedimento armazenado | Gravar e ler | Transação de vários itens |
 | O sistema iniciou a execução de um procedimento de mesclagem | Gravar | Transação de vários itens |
 | O sistema iniciou a execução da exclusão de itens com base na expiração (vida útil) de um item | Gravar | Transação de vários itens |
-| Ler | Ler | Transação de item único |
-| Feed de alterações | Ler | Transação de vários itens |
-| Leitura paginada | Ler | Transação de vários itens |
-| Consulta paginada | Ler | Transação de vários itens |
-| Executar UDF como parte da consulta paginada | Ler | Transação de vários itens |
+| Leitura | Leitura | Transação de item único |
+| Feed de alterações | Leitura | Transação de vários itens |
+| Leitura paginada | Leitura | Transação de vários itens |
+| Consulta paginada | Leitura | Transação de vários itens |
+| Executar UDF como parte da consulta paginada | Leitura | Transação de vários itens |
 
 ## <a name="multi-item-transactions"></a>Transações de vários itens
 
@@ -53,11 +53,11 @@ O controle de simultaneidade otimista permite que você evite a perda de atualiz
 
 As atualizações simultâneas de um item estão sujeitas ao OCC pela camada de protocolo de comunicação do Azure Cosmos DB. O banco de dados do Azure Cosmos garante que a versão do lado do cliente do item que você está atualizando (ou excluindo) é a mesma que a versão do item no contêiner do Azure Cosmos. Isso garante que suas gravações sejam protegidas contra substituições acidentais realizadas pelas gravações de outras pessoas e vice-versa. Em um ambiente multiusuário, o controle de simultaneidade otimista protege você contra a exclusão ou a atualização acidental da versão incorreta de um item. Como tal, os itens são protegidos contra problemas infames de "atualização perdida" ou "exclusão perdida".
 
-Cada item armazenado em um contêiner do Azure Cosmos tem uma propriedade `_etag` definida por sistema. O valor do `_etag` é gerado e atualizado automaticamente pelo servidor toda vez que o item é atualizado. `_etag`pode ser usado com o cabeçalho de `if-match` solicitação fornecido pelo cliente para permitir que o servidor decida se um item pode ser atualizado condicionalmente. O valor do `if-match` cabeçalho corresponde ao valor `_etag` de no servidor, o item é atualizado. Se o valor do cabeçalho `if-match` de solicitação não for mais atual, o servidor rejeitará a operação com uma mensagem de resposta "falha na pré-condição http 412". Em seguida, o cliente pode buscar novamente o item para adquirir a versão atual do item no servidor ou substituir a versão do item no servidor pelo seu próprio `_etag` valor para o item. Além disso, `_etag` o pode ser usado com `if-none-match` o cabeçalho para determinar se uma rebusca de um recurso é necessária. 
+Cada item armazenado em um contêiner do Azure Cosmos tem uma propriedade `_etag` definida por sistema. O valor do `_etag` é gerado e atualizado automaticamente pelo servidor toda vez que o item é atualizado. `_etag` pode ser usado com o cabeçalho de solicitação `if-match` fornecido pelo cliente para permitir que o servidor decida se um item pode ser atualizado condicionalmente. O valor do cabeçalho de `if-match` corresponde ao valor do `_etag` no servidor, o item é então atualizado. Se o valor do cabeçalho de solicitação `if-match` não for mais atual, o servidor rejeitará a operação com uma mensagem de resposta "falha na pré-condição HTTP 412". Em seguida, o cliente pode buscar novamente o item para adquirir a versão atual do item no servidor ou substituir a versão do item no servidor pelo seu próprio valor `_etag` para o item. Além disso, `_etag` pode ser usado com o cabeçalho `if-none-match` para determinar se uma rebusca de um recurso é necessária. 
 
-O valor do `_etag` item é alterado toda vez que o item é atualizado. Para operações de substituição de `if-match` item, deve ser expresso explicitamente como parte das opções de solicitação. Para obter um exemplo, confira o código de exemplo no [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). `_etag`os valores são verificados implicitamente para todos os itens gravados tocadas pelo procedimento armazenado. Se qualquer conflito for detectado, o procedimento armazenado reverterá a transação e lançará uma exceção. Com esse método, toda ou nenhuma gravação dentro do procedimento armazenado é aplicada de maneira atômica. Isso é um sinal para o aplicativo reaplicar atualizações e repetir a solicitação original do cliente.
+O valor `_etag` do item é alterado toda vez que o item é atualizado. Para operações de substituição de item, `if-match` deve ser expressa explicitamente como parte das opções de solicitação. Para obter um exemplo, confira o código de exemplo no [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). `_etag` valores são verificados implicitamente para todos os itens gravados tocadas pelo procedimento armazenado. Se qualquer conflito for detectado, o procedimento armazenado reverterá a transação e lançará uma exceção. Com esse método, toda ou nenhuma gravação dentro do procedimento armazenado é aplicada de maneira atômica. Isso é um sinal para o aplicativo reaplicar atualizações e repetir a solicitação original do cliente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre controle de transações e simultaneidade otimista do banco de dados nos seguintes artigos:
 

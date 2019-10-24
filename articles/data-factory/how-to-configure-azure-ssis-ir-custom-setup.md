@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 4962070d69af98d0c7b10dc6f931612766529dce
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f7b09dcbd474debc08b79599e9e2dfaaca52285a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515713"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754697"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizar configuração do tempo de execução de integração do Azure-SSIS
 
@@ -64,6 +64,8 @@ Para personalizar o IR do Azure-SSIS, você precisa do seguinte:
 
    1.  Você deve ter um arquivo de script chamado `main.cmd`, que é o ponto de entrada de sua instalação personalizada.
 
+   1.  Você precisa verificar se o script pode ser executado silenciosamente, é recomendável testar o script no computador local primeiro.
+
    1.  Se você quiser logs adicionais gerados por outras ferramentas (por exemplo, `msiexec.exe`) para ser carregado em seu contêiner, especifique a variável de ambiente predefinida, `CUSTOM_SETUP_SCRIPT_LOG_DIR` como a pasta de log em seus scripts (por exemplo, `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
 
 1. Baixe, instale e execute o [Azure Storage Explorer](https://storageexplorer.com/).
@@ -84,7 +86,7 @@ Para personalizar o IR do Azure-SSIS, você precisa do seguinte:
 
       ![Criar um contêiner de blob](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   1. Selecione o novo contêiner e carregue o script de instalação personalizado e seus arquivos associados. Carregue o `main.cmd` no nível superior de seu contêiner e não em qualquer pasta. Verifique também se em seu contêiner há somente os arquivos de instalação personalizados necessários; pois assim, baixá-los em seu IR do Azure-SSIS mais tarde não levará muito tempo. O período máximo para a instalação personalizada está definido atualmente em 45 minutos antes de expirar e isso inclui o tempo para baixar todos os arquivos do seu contêiner e instalá-los no IR do Azure-SSIS. Se um período mais longo for necessário, gere um tíquete de suporte.
+   1. Selecione o novo contêiner e carregue o script de instalação personalizado e seus arquivos associados. Carregue o `main.cmd` no nível superior de seu contêiner e não em qualquer pasta. Verifique também se em seu contêiner há somente os arquivos de instalação personalizados necessários; pois assim, baixá-los em seu IR do Azure-SSIS mais tarde não levará muito tempo. O período máximo para a instalação personalizada está definido atualmente em 45 minutos antes de expirar e isso inclui o tempo para baixar todos os arquivos do contêiner e instalá-los em Azure-SSIS IR. Se um período mais longo for necessário, gere um tíquete de suporte.
 
       ![Carregar arquivos no contêiner de blobs](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -166,7 +168,7 @@ Para personalizar o IR do Azure-SSIS, você precisa do seguinte:
 
    e. Para testar esses exemplos de instalação personalizada, copie e cole o conteúdo da pasta selecionada em seu contêiner. Quando você provisionar ou reconfigurar o IR do Azure-SSIS com o PowerShell, execute o cmdlet `Set-AzDataFactoryV2IntegrationRuntime` com o URI de SAS do seu contêiner como o valor para o novo parâmetro `SetupScriptContainerSasUri`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 -   [Enterprise Edition do Tempo de Execução de Integração do Azure-SSIS](how-to-configure-azure-ssis-ir-enterprise-edition.md)
 

@@ -3,23 +3,23 @@ title: Moderação de vídeo com revisão humana – Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Usar a moderação vídeo assistido por computador e ferramentas de análise humana para moderar conteúdo inadequado
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.author: sajagtap
-ms.openlocfilehash: 69075f6b36a0be7cd4d0dd4453ea9cdfc08d77dc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: a4e7b079367a4b4dec1d2b3d6c0afde1d8276766
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561166"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754167"
 ---
 # <a name="video-moderation-with-human-review"></a>Moderação de vídeo com revisão humana
 
-Use a [ferramenta de análise humana](Review-Tool-User-Guide/human-in-the-loop.md) e moderação de [vídeo](video-moderation-api.md) assistida por computador Content moderator para vídeos moderados e transcrições para conteúdo adulto (explícito) e erótico (Sugestor) para obter os melhores resultados para seus negócios.
+Use a [ferramenta de análise humana](Review-Tool-User-Guide/human-in-the-loop.md) e [moderação de vídeo](video-moderation-api.md) assistida por computador Content moderator para vídeos moderados e transcrições para conteúdo adulto (explícito) e erótico (Sugestor) para obter os melhores resultados para seus negócios.
 
 ## <a name="video-trained-classifier-preview"></a>Classificador treinado para vídeo (versão prévia)
 
@@ -94,13 +94,13 @@ Uma análise de vídeo detalhada para análise quadro-a-quadro é possibilitada 
 
 ![exibição de quadros da ferramenta de análise de vídeo](images/video-review-frames-view-apply-tags.PNG)
 
-## <a name="transcript-moderation"></a>Moderação da transcrição
+## <a name="transcript-moderation"></a>Moderação de transcrição
 
 Os vídeos normalmente têm narração que também precisa de moderação para fala ofensiva. Você pode usar o serviço do Azure Media Indexer para converter fala em texto e usar a API de análise do Content Moderator para enviar a transcrição de moderação de texto dentro da ferramenta de análise.
 
 ![exibição de transcrição da ferramenta de análise de vídeo](images/video-review-transcript-view.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Introdução com o [Início rápido de moderação de vídeo](video-moderation-api.md).
 - Saiba como gerar [análises de vídeos](video-reviews-quickstart-dotnet.md) para seus revisores humanos do seu resultado moderado.

@@ -3,19 +3,19 @@ title: Definir fluxos de trabalho de moderação com o console da API REST-Conte
 titleSuffix: Azure Cognitive Services
 description: Você pode usar as APIs de revisão de Content Moderator do Azure para definir fluxos de trabalho e limites personalizados com base em suas políticas de conteúdo.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: sajagtap
-ms.openlocfilehash: cb93cf1b7a5338058c6f2d93b4bb27f60286882e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: pafarley
+ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881199"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754178"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>Definir e usar os fluxos de trabalho de moderação (REST)
 
@@ -35,15 +35,15 @@ Para criar ou atualizar um fluxo de trabalho, vá para a página **[fluxo de tra
 
 Insira valores para **Team**, **workflowname**e **OCP-APIM-Subscription-Key**:
 
-- **team**: A ID da equipe que você criou quando configurou sua conta de [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) (encontrada no campo **ID** na tela de credenciais da ferramenta de revisão).
-- **workflowname**: O nome de um novo fluxo de trabalho a ser adicionado (ou um nome existente, se você quiser atualizar um fluxo de trabalho existente).
-- **Ocp-Apim-Subscription-Key**: Sua chave de Content Moderator. Você pode encontrá-lo na guia **configurações** da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com).
+- **equipe**: a ID da equipe que você criou quando configurou sua conta de [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) (encontrada no campo **ID** na tela de credenciais da ferramenta de revisão).
+- **workflowname**: o nome de um novo fluxo de trabalho a ser adicionado (ou um nome existente, se você quiser atualizar um fluxo de trabalho existente).
+- **OCP-APIM-Subscription-Key**: sua chave de Content Moderator. Você pode encontrá-lo na guia **configurações** da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com).
 
 ![Cabeçalhos e parâmetros de consulta do console Fluxo de trabalho - Criar ou atualizar](images/workflow-console-parameters.PNG)
 
 ### <a name="enter-a-workflow-definition"></a>Inserir uma definição de fluxo de trabalho
 
-1. Edite a caixa **corpo da solicitação** para inserir a solicitação JSON com detalhes para **Descrição** e **tipo** ( `Text` `Image` ou).
+1. Edite a caixa **corpo da solicitação** para inserir a solicitação JSON com detalhes para **Descrição** e **tipo** (seja `Image` ou `Text`).
 2. Para **expressão**, copie a expressão JSON do fluxo de trabalho padrão. A cadeia de caracteres JSON final deve ter a seguinte aparência:
 
 ```json
@@ -84,7 +84,7 @@ Selecione **Enviar**. Se a operação for bem sucedida, o**Status da resposta** 
 
 ### <a name="examine-the-new-workflow"></a>Examinar o novo fluxo de trabalho
 
-Na [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/), selecione **configurações** > **fluxos de trabalho**. Seu novo fluxo de trabalho deve aparecer na lista.
+Na [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/), selecione **configurações**  > **fluxos de trabalho**. Seu novo fluxo de trabalho deve aparecer na lista.
 
 ![Revisar lista de ferramentas de fluxos de trabalho](images/workflow-console-new-workflow.PNG)
 
@@ -98,11 +98,11 @@ Para recuperar detalhes sobre um fluxo de trabalho existente, vá para a página
 
 ![Seleção de região de Fluxo de trabalho - Get](images/test-drive-region.png)
 
-Insira os parâmetros de chamada REST como na seção acima. Certifique-se de que, desta vez, workflowname seja o nome de um fluxo de trabalho existente.
+Insira os parâmetros de chamada REST como na seção acima. Certifique-se de que, desta vez, **workflowname** seja o nome de um fluxo de trabalho existente.
 
 ![Obter cabeçalhos e parâmetros de consulta](images/workflow-get-default.PNG)
 
-Selecione **Enviar**. Se a operação for concluída com sucesso, o status `200 OK`da **resposta** será e a caixa **conteúdo da resposta** exibirá o fluxo de trabalho no formato JSON, como o seguinte:
+Selecione **Enviar**. Se a operação for concluída com sucesso, o **status da resposta** será `200 OK` e a caixa **conteúdo da resposta** exibirá o fluxo de trabalho no formato JSON, como o seguinte:
 
 ```json
 {
@@ -137,6 +137,6 @@ Selecione **Enviar**. Se a operação for concluída com sucesso, o status `200 
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como usar fluxos de trabalho com [trabalhos moderação de conteúdo](try-review-api-job.md).

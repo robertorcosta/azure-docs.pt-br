@@ -1,21 +1,21 @@
 ---
 title: Moderação de texto – Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Use a moderação de texto para possíveis textos indesejados, PII e listas de termos personalizada.
+description: Use a moderação de texto para possíveis textos indesejados, dados pessoais e listas personalizadas de termos.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: e1d5224d8dc86c82624613b0d2a984ceef3ae5bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: c5127d0f16a12840cda735d1682cb578266441fe
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564378"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757245"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprender os conceitos de moderação de texto
 
@@ -32,7 +32,7 @@ A resposta de serviço inclui as informações a seguir:
 - Texto original
 - Idioma
 
-## <a name="profanity"></a>Conteúdo ofensivo
+## <a name="profanity"></a>Linguagem obscena
 
 Se a API detectar termos ofensivos em qualquer um dos [idiomas com suporte](Text-Moderation-API-Languages.md), esses termos serão incluídos na resposta. A resposta também contém a localização (`Index`) no texto original. O `ListId` no JSON de exemplo a seguir refere-se aos termos encontrados nas [listas de termos personalizadas](try-terms-list-api.md), se disponíveis.
 
@@ -45,13 +45,13 @@ Se a API detectar termos ofensivos em qualquer um dos [idiomas com suporte](Text
     }
 
 > [!NOTE]
-> Para o parâmetro **language**, atribua `eng` ou deixe-o vazio para ver a resposta de **classificação** assistida por computador (versão prévia do recurso). **Esse recurso dá suporte ao inglês apenas**.
+> Para o parâmetro **language**, atribua `eng` ou deixe-o vazio para ver a resposta de **classificação** assistida por máquina (recurso de visualização). **Esse recurso dá suporte ao inglês apenas**.
 >
 > Para a detecção de **termos obscenos**, use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe vazio.
 
 ## <a name="classification"></a>Classificação
 
-O **recurso de classificação de texto** assistido por computador do Content Moderator dá suporte **somente em inglês** e ajuda a detectar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser avaliado como inadequado, dependendo do contexto. Ele transmite a probabilidade de cada categoria e pode recomendar uma análise humana. O recurso utiliza um modelo treinado para identificar uma possível linguagem abusiva, depreciativa ou discriminatória. Isso inclui gírias, palavras abreviadas, palavras ofensivas e intencionalmente incorretas para análise. 
+O **recurso de classificação de texto** assistido por computador do Content Moderator dá suporte **somente em inglês** e ajuda a detectar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser avaliado como inadequado, dependendo do contexto. Ele transmite a probabilidade de cada categoria e pode recomendar uma análise humana. O recurso utiliza um modelo treinado para identificar uma possível linguagem abusiva, depreciativa ou discriminatória. Isso inclui gírias, palavras abreviadas, palavras ofensivas e intencionalmente incorretas para a análise. 
 
 A extração a seguir na extração JSON mostra uma saída de exemplo:
 
@@ -78,7 +78,7 @@ A extração a seguir na extração JSON mostra uma saída de exemplo:
 
 ## <a name="personal-data"></a>Dados pessoais
 
-O recurso PII detecta a presença potencial dessa informação:
+O recurso de dados pessoais detecta a presença potencial dessas informações:
 
 - Endereço de email
 - Endereço para correspondência
@@ -89,51 +89,68 @@ O recurso PII detecta a presença potencial dessa informação:
 
 O exemplo a seguir mostra uma resposta de exemplo:
 
-    "PII": {
-        "Email": [{
-            "Detected": "abcdef@abcd.com",
-            "SubType": "Regular",
-            "Text": "abcdef@abcd.com",
-            "Index": 32
-            }],
-        "IPA": [{
-            "SubType": "IPV4",
-            "Text": "255.255.255.255",
-            "Index": 72
-            }],
-        "Phone": [{
-            "CountryCode": "US",
-            "Text": "6657789887",
-            "Index": 56
-            }, {
-            "CountryCode": "US",
-            "Text": "870 608 4000",
-            "Index": 212
-            }, {
-            "CountryCode": "UK",
-            "Text": "+44 870 608 4000",
-            "Index": 208
-            }, {
-            "CountryCode": "UK",
-            "Text": "0344 800 2400",
-            "Index": 228
-            }, {
-            "CountryCode": "UK",
-            "Text": "0800 820 3300",
-            "Index": 245
-            }],
-        "Address": [{
-            "Text": "1 Microsoft Way, Redmond, WA 98052",
-            "Index": 89
-            }],
-        "SSN": [{
-            "Text": "999999999",
-            "Index": 56
-            }, {
-            "Text": "999-99-9999",
-            "Index": 267
-            }]
-        }
+```json
+"PII":{ 
+  "Email":[ 
+    { 
+      "Detected":"abcdef@abcd.com",
+      "SubType":"Regular",
+      "Text":"abcdef@abcd.com",
+      "Index":32
+    }
+  ],
+  "IPA":[ 
+    { 
+      "SubType":"IPV4",
+      "Text":"255.255.255.255",
+      "Index":72
+    }
+  ],
+  "Phone":[ 
+    { 
+      "CountryCode":"US",
+      "Text":"6657789887",
+      "Index":56
+    },
+    { 
+      "CountryCode":"US",
+      "Text":"870 608 4000",
+      "Index":212
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"+44 870 608 4000",
+      "Index":208
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"0344 800 2400",
+      "Index":228
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"0800 820 3300",
+      "Index":245
+    }
+  ],
+  "Address":[ 
+    { 
+      "Text":"1 Microsoft Way, Redmond, WA 98052",
+      "Index":89
+    }
+  ],
+  "SSN":[ 
+    { 
+      "Text":"999999999",
+      "Index":56
+    },
+    { 
+      "Text":"999-99-9999",
+      "Index":267
+    }
+  ]
+}
+```
 
 ## <a name="auto-correction"></a>Correção automática
 
@@ -165,6 +182,6 @@ O exemplo a seguir mostra a ID da lista correspondente:
 
 O Content Moderator fornece uma [API de Lista de Termos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) com operações para gerenciar listas de termos personalizadas. Inicie com o [Console de API de Listas de Termos](try-terms-list-api.md) e use os exemplos de código de API REST. Consulte também o [Início rápido do .NET das Listas de Termos](term-lists-quickstart-dotnet.md), se você estiver familiarizado com Visual Studio e C#.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Faça test drive do [Console de API de moderação de texto](try-text-api.md) e use os exemplos de código de API REST. Consulte também o [Início rápido do .NET de moderação de texto](text-moderation-quickstart-dotnet.md), se você estiver familiarizado com Visual Studio e C#.

@@ -3,19 +3,19 @@ title: Criar revisões usando o .NET – Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Como criar revisões usando o SDK do Azure Content Moderator para .NET.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.author: sajagtap
-ms.openlocfilehash: e3b36eae4f6dc4343828a38fa4ffe3920a83f589
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: 540d9872d41ba3ffc73f5e42f098fe51437789c6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242860"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755306"
 ---
 # <a name="create-human-reviews-net"></a>Criar análises humanas (.NET)
 
@@ -36,7 +36,7 @@ Se você planeja usar a chave de API fornecida pelo Azure em seu exemplo do SDK,
 
 Se você usar a chave de avaliação gratuita gerada pela ferramenta de revisão, sua conta da ferramenta de revisão já reconhecerá chave e, portanto, não será necessária nenhuma etapa adicional.
 
-## <a name="create-your-visual-studio-project"></a>Criar seu projeto do Visual Studio
+## <a name="create-your-visual-studio-project"></a>Criar um projeto do Visual Studio
 
 1. Adicione um novo projeto de **Aplicativo do console (.NET Framework)** à solução.
 
@@ -52,7 +52,7 @@ Instale os seguintes pacotes NuGet:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Atualizar as instruções de uso do programa
+### <a name="update-the-programs-using-statements"></a>Atualize o programa usando as instruções
 
 Modifique as instruções de uso do programa.
 
@@ -430,7 +430,7 @@ Entre na ferramenta de análise do Content Moderator para ver a análise de imag
 
 Use o botão **Avançar** para enviar.
 
-![Análise de imagem para moderadores humanos](images/moderation-reviews-quickstart-dotnet.PNG)
+![Revisão de imagem para moderadores humanos](images/moderation-reviews-quickstart-dotnet.PNG)
 
 Em seguida, pressione qualquer tecla para continuar.
 
@@ -533,6 +533,6 @@ Você visualiza uma resposta como o exemplo a seguir:
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Obtenha o [SDK do .net content moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e baixe a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros Content moderator inícios rápidos para .net e comece a usar sua integração.

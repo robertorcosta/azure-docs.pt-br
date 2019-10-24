@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 6bf42406c97ccb67251a14a7a963d3da2e01dbb4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6bc4b69122df7d29a611571a750229f47337015c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60554295"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756808"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o Cache do Azure para Redis
 Este tópico descreve as configurações disponíveis para suas instâncias de Cache do Azure para Redis. Este tópico também aborda a configuração padrão do servidor Redis para instâncias do Cache do Azure para Redis.
@@ -70,11 +70,11 @@ Você pode exibir e definir as seguintes configurações usando o **Menu recurso
     * [Nova solicitação de suporte](#new-support-request)
 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 **A visão geral** fornece informações básicas sobre o cache como: nome, portas, tipo de preço e métricas de cache selecionadas.
 
-### <a name="activity-log"></a>Log de atividades
+### <a name="activity-log"></a>Logs de atividades
 
 Clique em **Log de auditoria** para exibir as ações executadas em seu cache. Você também pode usar a filtragem para expandir essa exibição a fim de incluir outros recursos. Para obter mais informações sobre como trabalhar com logs de auditoria, confira [Operações de auditoria com o Resource Manager](../azure-resource-manager/resource-group-audit.md). Para saber mais sobre como monitorar eventos do Cache do Azure para Redis, confira [Operações e alertas](cache-how-to-monitor.md#operations-and-alerts).
 
@@ -82,7 +82,7 @@ Clique em **Log de auditoria** para exibir as ações executadas em seu cache. V
 
 A seção **(IAM) do controle de acesso** fornece suporte para controle de acesso baseado em função (RBAC) no Portal do Azure. Essas configurações ajudam as organizações a atenderem seus requisitos de gerenciamento de acesso de maneira simples e precisa. Para saber mais, confira [Role-based access control in the Azure portal](../role-based-access-control/role-assignments-portal.md)(Controle de acesso baseado em função no portal do Azure).
 
-### <a name="tags"></a>tags
+### <a name="tags"></a>Marcas
 
 A seção **Marcas** o ajuda a organizar seus recursos. Para obter mais informações, veja [Usando marcas para organizar os recursos do Azure](../azure-resource-manager/resource-group-using-tags.md).
 
@@ -226,7 +226,7 @@ Para alterar o tamanho do cluster, use o controle deslizante ou digite um númer
 > 
 
 
-### <a name="redis-data-persistence"></a>Persistência de dados do Redis
+### <a name="redis-data-persistence"></a>Persistência de dados Redis
 Clique em **Persistência de dados do Redis** para habilitar, desabilitar ou configurar a persistência de dados para o cache premium. O Cache do Azure para Redis oferece persistência Redis usando [persistência RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) ou [persistência AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 Para saber mais, confira [Como configurar a persistência para um Cache do Azure para Redis Premium](cache-how-to-premium-persistence.md).
@@ -263,7 +263,7 @@ A folha **Replicação geográfica** fornece um mecanismo para vincular duas ins
 > 
 > 
 
-### <a name="virtual-network"></a>Rede Virtual
+### <a name="virtual-network"></a>Rede virtual
 A seção **Rede Virtual** permite que você defina as configurações de rede virtual para o cache. Para saber mais sobre como criar um cache premium com suporte de rede virtual e atualizar suas configurações, confira [Como configurar o suporte de Rede Virtual para um Cache do Azure para Redis Premium](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
@@ -292,7 +292,7 @@ Clique em **Propriedades** para exibir informações sobre o cache, incluindo o 
 ![Propriedades do Cache do Azure para Redis](./media/cache-configure/redis-cache-properties.png)
 
 ### <a name="locks"></a>Bloqueios
-A seção **Bloqueios** permite bloquear uma assinatura, um recurso ou um grupo de recursos para impedir que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos. Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-lock-resources.md).
+A seção **Bloqueios** permite bloquear uma assinatura, um recurso ou um grupo de recursos para impedir que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos. Para saber mais, confira [Bloquear recursos com o Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
 
 ### <a name="automation-script"></a>Script de automação
 
@@ -308,7 +308,7 @@ As configurações na seção **Administração** permitem que você execute as 
 * [Reboot](#reboot)
 
 
-### <a name="importexport"></a>Importar/exportar
+### <a name="importexport"></a>Importar/Exportar
 A Importação/Exportação é uma operação de gerenciamento de dados do Cache do Azure para Redis que permite importar e exportar dados para o cache importando e exportando um instantâneo do RDB (Banco de Dados do Cache Redis) de um cache premium para um blob de páginas em uma Conta de Armazenamento do Azure. A Importação/Exportação permite migrar entre diferentes instâncias do Cache do Azure para Redis ou preencher o cache com dados antes do uso.
 
 A importação pode ser usada para trazer arquivos RDB compatíveis com o Redis de qualquer servidor Redis em execução em qualquer nuvem ou ambiente, incluindo o Redis em execução no Linux, Windows ou qualquer provedor de nuvem como Amazon Web Services e similares. Importar os dados é uma maneira fácil de criar um cache com dados previamente populados. Durante o processo de importação, o Cache do Azure para Redis carrega os arquivos RDB do armazenamento do Azure na memória e insere as chaves no cache.
@@ -359,7 +359,7 @@ Clique em **Regras de alerta** para configurar alertas com base na métrica do C
 Por padrão, as métricas de cache no Azure Monitor são [armazenadas durante 30 dias](../azure-monitor/platform/data-platform-metrics.md) e, em seguida, excluídas. Para manter suas métricas de cache por mais de 30 dias, clique em **Diagnóstico** para [configurar a conta de armazenamento](cache-how-to-monitor.md#export-cache-metrics) usada para armazenar o diagnóstico de cache.
 
 >[!NOTE]
->Além de arquivar suas métricas de cache para o armazenamento, você também pode [transmiti-los para um hub de eventos ou enviá-los para os logs do Azure Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+>Além de arquivar suas métricas de cache no armazenamento, você também pode [transmiti-las para um hub de eventos ou enviá-las para Azure monitor logs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 >
 >
 
@@ -371,7 +371,7 @@ As configurações na seção **Suporte + solução de problemas** fornecem opç
 * [Integridade de recursos](#resource-health)
 * [Nova solicitação de suporte](#new-support-request)
 
-### <a name="resource-health"></a>Integridade de recursos
+### <a name="resource-health"></a>Resource Health
 **Resource Health** observa seu recurso e informa se ele está sendo executado conforme o esperado. Para saber mais sobre o serviço Azure Resource Health, confira [Visão geral do Azure Resource Health](../resource-health/resource-health-overview.md).
 
 > [!NOTE]
@@ -398,7 +398,7 @@ Novas instâncias de Cache do Azure para Redis são configuradas com os seguinte
 > 
 > 
 
-| Configuração | Valor padrão | DESCRIÇÃO |
+| Configuração | Valor padrão | Descrição |
 | --- | --- | --- |
 | `databases` |16 |O número de bancos de dados padrão é 16, mas você pode configurar um número diferente com base no tipo de preço.<sup>1</sup> O banco de dados padrão é o DB 0; você poderá selecionar um diferente por conexão usando `connection.GetDatabase(dbid)`, em que `dbid` é um número entre `0` e `databases - 1`. |
 | `maxclients` |Depende do tipo de preço<sup>2</sup> |Esse valor é o número máximo de clientes conectados permitidos ao mesmo tempo. Quando o limite é atingido o Redis fecha todas as novas conexões, retornando um erro de 'número máximo de clientes atingido'. |
@@ -429,7 +429,7 @@ Novas instâncias de Cache do Azure para Redis são configuradas com os seguinte
 Para saber mais sobre bancos de dados, veja [O que são bancos de dados Redis?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> As configurações `databases` pode ser definida somente durante a criação do cache e apenas usando PowerShell, CLI ou outros clientes de gerenciamento. Para obter um exemplo de configuração `databases` durante a criação de cache usando o PowerShell, confira [New-AzRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
+> As configurações `databases` pode ser definida somente durante a criação do cache e apenas usando PowerShell, CLI ou outros clientes de gerenciamento. Para obter um exemplo de configuração `databases` durante a criação de cache usando o PowerShell, confira [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
 > 
 > 
 
@@ -516,6 +516,6 @@ Você pode mover o cache para uma nova assinatura clicando em **Mover**.
 
 Para saber mais sobre como mover os recursos de um grupo de recursos para outro, e de uma assinatura para outra, confira [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../azure-resource-manager/resource-group-move-resources.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Para obter mais informações sobre como trabalhar com os comandos do Redis, consulte [Como posso executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands)
 

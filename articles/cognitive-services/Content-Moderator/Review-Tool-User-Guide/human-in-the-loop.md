@@ -3,19 +3,19 @@ title: Conheça os conceitos da ferramenta de análise – Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre a ferramenta de análise de Content Moderator, um site que coordena um esforço combinado de moderação de reavaliação de ia e análise humana.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: mikemcca
 ms.date: 03/15/2019
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.author: sajagtap
-ms.openlocfilehash: 7f20b9c824045ac2f8c13df3ed8f776195de611a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 465f24c3d9b7f53c0b494f387cc5d21aa6bd83b5
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564512"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754239"
 ---
 # <a name="content-moderator-review-tool"></a>Ferramenta de revisão de Content Moderator
 
@@ -23,7 +23,7 @@ O Azure Content Moderator fornece serviços para combinar a moderação do conte
 
 ![O painel de ferramentas de revisão em um navegador](./images/0-dashboard.png)
 
-## <a name="what-it-does"></a>O que faz
+## <a name="what-it-does"></a>O que ele faz
 
 A [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com), quando usada em conjunto com as APIs de moderação assistida por computador, permite que você realize as seguintes tarefas no processo de moderação de conteúdo:
 
@@ -43,10 +43,10 @@ Na guia **painel** , você pode ver as principais métricas para revisões de co
 
 ## <a name="review-tool-credentials"></a>Examinar as credenciais da ferramenta
 
-Ao se inscrever com a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com), você será solicitado a selecionar uma região do Azure para sua conta. Isso ocorre porque a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com) gera uma chave de avaliação gratuita para os serviços de Content moderator do Azure; Você precisará dessa chave para acessar qualquer um dos serviços de uma chamada REST ou do SDK do cliente. Você pode exibir a URL de ponto de extremidade da API e de chave selecionando **configurações** > **credenciais**.
+Ao se inscrever com a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com), você será solicitado a selecionar uma região do Azure para sua conta. Isso ocorre porque a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com) gera uma chave de avaliação gratuita para os serviços de Content moderator do Azure; Você precisará dessa chave para acessar qualquer um dos serviços de uma chamada REST ou do SDK do cliente. Você pode exibir a URL de ponto de extremidade da API e de chave selecionando **configurações**  > **credenciais**.
 
 ![Credenciais do Content Moderator](images/settings-6-credentials.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte [Configurar a ferramenta de revisão](./configure.md) para saber como acessar os recursos da ferramenta de análise e alterar as configurações.

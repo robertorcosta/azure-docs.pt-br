@@ -1,22 +1,22 @@
 ---
 title: Conectar um aplicativo do MongoDB ao Azure Cosmos DB
 description: Saiba como conectar seu aplicativo MongoDB ao Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: dabce19d60a380b47d3583dedb5c11303f416ce7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30b37b86bbe0e91887932423fa1884d8bd49333c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978716"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757003"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Conectar um aplicativo do MongoDB ao Azure Cosmos DB
-Saiba como conectar seu aplicativo do MongoDB a um Azure Cosmos DB usando uma cadeia de conexão do MongoDB. Em seguida, você pode usar um banco de dados Cosmos do Azure como os dados de repositório para seu aplicativo MongoDB. 
+Saiba como conectar seu aplicativo do MongoDB a um Azure Cosmos DB usando uma cadeia de conexão do MongoDB. Em seguida, você pode usar um banco de dados Cosmos do Azure como o armazenamento de dado para seu aplicativo MongoDB. 
 
 Este tutorial fornece duas maneiras de recuperar informações da cadeia de conexão:
 
@@ -51,15 +51,15 @@ Este tutorial fornece duas maneiras de recuperar informações da cadeia de cone
 >
 >
 
-O Azure Cosmos DB oferece suporte ao formato de URI de cadeia de conexão padrão do MongoDB, com alguns requisitos específicos: As contas do Azure Cosmos DB exigem autenticação e comunicação segura por SSL. Sendo assim, o formato da cadeia de conexão é:
+O Azure Cosmos DB dá suporte ao formato de URI da cadeia de conexão padrão do MongoDB padrão, com alguns requisitos específicos: as contas do Azure Cosmos DB exigem autenticação e comunicação segura por SSL. Sendo assim, o formato da cadeia de conexão é:
 
     mongodb://username:password@host:port/[database]?ssl=true
 
 Os valores dessa cadeia de caracteres estão disponíveis na folha **Cadeia de conexão** mostrada acima:
 
-* Nome de usuário (obrigatório): Nome da conta do Cosmos.
-* Senha (obrigatória): Senha da conta do Cosmos.
-* Host (obrigatório): FQDN da conta do Cosmos.
+* Nome de usuário (obrigatório): Cosmos nome da conta.
+* Senha (obrigatório): senha da conta do cosmos.
+* Host (obrigatório): FQDN da conta Cosmos.
 * Porta (obrigatória): 10255.
 * Banco de dados (opcional): o banco de dados que a conexão usa. Se nenhum banco de dados for fornecido, o banco de dados padrão é "teste".
 * ssl=true (obrigatório)
@@ -68,7 +68,7 @@ Por exemplo, considere a conta mostrada na folha **Cadeia de conexão**. Uma cad
 
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [usar o Studio 3T](mongodb-mongochef.md) com a API do Azure Cosmos DB para MongoDB.
 - Saiba como [usar o Robo 3T](mongodb-robomongo.md) com a API do Azure Cosmos DB para MongoDB.

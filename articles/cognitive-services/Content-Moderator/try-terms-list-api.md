@@ -3,19 +3,19 @@ title: Modere textos com listas de termos personalizados – Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Use a API de Gerenciamento de Lista para criar listas de termos personalizadas para usar com a API de Moderação de Texto.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 0a4e9b7925c2309a9682156934e9d94fa83c0d4b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 828e8ae68286d7c208462d77a31a764427c79637
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564400"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755278"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderar com as listas de termos personalizadas no console de API
 
@@ -38,7 +38,7 @@ Você pode usar a API de Gerenciamento de Lista para realizar as seguintes taref
 
 ## <a name="use-the-api-console"></a>Usar o console de API
 
-Antes de você testar a API no console on-line, você precisa da chave de assinatura. Esta chave está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para mais informações, confira [Visão Geral](overview.md).
+Antes de você pode testar a API no console on-line, você precisa da chave de assinatura. Esta chave está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [Visão Geral](overview.md).
 
 ## <a name="refresh-search-index"></a>Atualizar o índice de pesquisa
 
@@ -125,7 +125,7 @@ Excluir um termo ou uma lista é simples. Você pode usar a API para realizar as
 
 - Excluir um termo. (**Termo - Excluir**)
 - Excluir todos os termos em uma lista sem excluir a lista. (**Termo - Excluir todos os termos**)
-- Excluir uma lista e todo seu conteúdo. (**Listas de termos - Excluir**)
+- Exclua uma lista e todo seu conteúdo. (**Listas de termos - Excluir**)
 
 Este exemplo exclui um único termo.
 
@@ -170,6 +170,6 @@ Você pode editar o nome e a descrição de uma lista e adicionar itens de metad
    ![Edições do Corpo de solicitação do console Lista de Termos - Atualizar detalhes](images/try-terms-list-change-1.png)
  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Use a API REST em seu código ou inicie com o [Início rápido do .NET de Lista de Termos](term-lists-quickstart-dotnet.md) para integrar o aplicativo.

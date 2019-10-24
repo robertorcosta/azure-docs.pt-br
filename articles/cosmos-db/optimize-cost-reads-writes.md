@@ -1,17 +1,17 @@
 ---
 title: Otimizar o custo de leituras e gravações no Azure Cosmos DB
 description: Este artigo explica como reduzir os custos do Azure Cosmos DB ao executar a leitura e gravar operações nos dados.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
-ms.openlocfilehash: 13ce5ee8b0e2a5d9cc84ea1a408ebba152b46050
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 934853b80c6e6377923df4c2b5cce7b7d7d57d7c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967410"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754922"
 ---
 # <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Otimizar o custo das leituras e gravações no Azure Cosmos DB
 
@@ -46,13 +46,13 @@ Se você estiver executando outras cargas de trabalho simultaneamente, por exemp
 
 Você também pode inserir dados em massa para o Azure Cosmos DB ou copiar dados de qualquer armazenamento de dados de origem com suporte para o Azure Cosmos DB usando o [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). O Azure Data Factory integra-se nativamente com a API do Azure Cosmos DB em massa para fornecer o melhor desempenho ao gravar dados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 A seguir, você poderá saber mais sobre a otimização de custos no Azure Cosmos DB nos seguintes artigos:
 
-* Saiba mais sobre [Otimizando para desenvolvimento e teste](optimize-dev-test.md)
-* Saiba mais sobre [Entendendo sua cobrança do Azure Cosmos DB](understand-your-bill.md)
-* Saiba mais sobre [Otimizando o custo da taxa de transferência](optimize-cost-throughput.md)
-* Saiba mais em [Otimizar o custo do armazenamento](optimize-cost-storage.md)
-* Saiba mais em [Otimizar o custo de consultas](optimize-cost-queries.md)
+* Saiba mais em [Otimizar para desenvolvimento e teste](optimize-dev-test.md)
+* Saiba mais sobre [Entender sua cobrança do Azure Cosmos DB](understand-your-bill.md)
+* Saiba mais em [Otimizar o custo da taxa de transferência](optimize-cost-throughput.md)
+* Saiba mais sobre [Otimizando o custo de armazenamento](optimize-cost-storage.md)
+* Saiba mais sobre [Otimizando o custo de consultas](optimize-cost-queries.md)
 * Saiba mais sobre [Otimizando o custo de contas do Azure Cosmos em várias regiões](optimize-cost-regions.md)

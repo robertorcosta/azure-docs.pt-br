@@ -1,18 +1,18 @@
 ---
 title: Criptografia em repouso do Azure Cosmos DB
 description: Saiba como o Azure Cosmos DB fornece criptografia de dados em repouso e como ela é implementada.
-author: rimman
+author: markjbrown
+ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f406f008e2c377b39deb8d151855ce7315616701
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: a9e89336973b0b13544c5bc0bccec41652c6952e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616865"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755102"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Criptografia de dados do Azure Cosmos DB 
 
@@ -36,8 +36,8 @@ O fluxo básico de uma solicitação de usuário é o seguinte:
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>P: Quanto custa a mais o Armazenamento do Azure se a Criptografia do Serviço de Armazenamento for habilitada?
-R: Não há nenhum custo adicional.
+### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>P: Qual é o custo adicional do armazenamento do Azure se a Criptografia do Serviço de Armazenamento é habilitada?
+R: Não há qualquer custo adicional.
 
 ### <a name="q-who-manages-the-encryption-keys"></a>P: Quem gerencia as chaves de criptografia?
 R: As chaves são gerenciadas pela Microsoft.
@@ -57,7 +57,7 @@ R: Não há nenhum impacto ou alteração nos SLAs de desempenho agora que a cri
 ### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>P: O emulador local dá suporte à criptografia em repouso?
 R: O emulador é uma ferramenta de desenvolvimento/teste independente e não usa os serviços de gerenciamento de chaves utilizados pelo serviço gerenciado do Cosmos DB. Nossa recomendação é habilitar o BitLocker em unidades em que você está armazenando dados confidenciais de teste do emulador. O [emulador dá suporte à alteração do diretório de dados padrão](local-emulator.md), bem como ao uso de um local conhecido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma visão geral da segurança de Cosmos DB e os aprimoramentos mais recentes, consulte [segurança do banco de dados Cosmos do Azure](database-security.md).
 Para obter mais informações sobre as certificações da Microsoft, confira a [Central de Confiabilidade do Azure](https://azure.microsoft.com/support/trust-center/).

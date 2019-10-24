@@ -8,44 +8,50 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 4fd213a6550d045fe4bea280449ed228ba9eda35
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c764460fb65287dab0031b27291d2f332cec3b3d
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550280"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756543"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usar o controle de mapeamento do Azure Maps
 
-O Controle de Mapeamento biblioteca JavaScript do lado do cliente permite renderizar mapas e a funcionalidade do Azure Maps incorporada em seu aplicativo Web ou móvel.
+A biblioteca Javascript do lado do cliente do Controle de Mapeamento permite renderizar mapas e funcionalidade inserida nos Mapas do Azure em seu aplicativo Web ou móvel.
 
-## <a name="create-a-new-map-in-a-web-page"></a>Criar um novo mapa em uma página da Web
+## <a name="create-a-new-map-in-a-web-page"></a>Criar um novo mapa em uma página da web
 
-Você pode inserir um mapa em uma página da Web usando o Controle de Mapeamento biblioteca JavaScript do lado do cliente.
+Você pode inserir um mapa em uma página da Web usando a biblioteca Javascript do lado do cliente do Controle de Mapeamento.
 
-1. Crie um novo arquivo HTML.
+1. Criar um novo arquivo HTML.
 
-2. Carregue no SDK da Web do Azure Maps. Isso pode ser feito usando uma das duas opções;
+2. Carregar no SDK Web do Azure Mapas. Isso pode ser feito usando uma de duas opções:
 
-    a. Use a versão CDN hospedada globalmente do SDK da Web do Azure Maps adicionando os pontos de extremidade de URL à folha de estilo e às referências de script no elemento `<head>` do arquivo:
+    a. Use a versão do CDN hospedada globalmente do SDK Web do Azure Mapas adicionando os pontos de extremidade da URL à folha de estilos e às referências de script no elemento `<head>` do arquivo:
 
     ```HTML
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
-    b. Como alternativa, carregue o código-fonte do SDK da Web do Azure Maps localmente usando o pacote [Azure-Maps-Control](https://www.npmjs.com/package/azure-maps-control) NPM e hospede-o com seu aplicativo. Esse pacote também inclui definições de TypeScript.
+    b. Como alternativa, carregue o código-fonte do SDK Web do Azure Mapas localmente usando o pacote NPM [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) e hospede-o com seu aplicativo. Esse pacote também inclui definições de TypeScript.
 
-    > NPM instalar Azure-Maps-Control
+    > npm install azure-maps-control
 
-    Em seguida, adicione referências à folha de estilos do Azure Maps e às referências de origem do script para o elemento `<head>` do arquivo:
+    Em seguida, adicione as referências à folha de estilos do Azure Mapas e referências de origem de script ao elemento `<head>` do arquivo:
 
     ```HTML
     <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
     <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
     ```
 
-3. Para renderizar o mapa para que ele preencha o corpo completo da página, adicione o seguinte elemento `<style>` ao elemento `<head>`.
+    >[!Note]
+    > As definições do typescript podem ser importadas para seu aplicativo adicionando:
+    > ```Javascript
+    > import * as atlas from 'azure-maps-control';
+    > ```
+
+3. Para renderizar o mapa de modo que ele preencha a página inteira, adicione o seguinte elemento `<style>` ao elemento `<head>`.
 
     ```HTML
     <style>
@@ -68,7 +74,7 @@ Você pode inserir um mapa em uma página da Web usando o Controle de Mapeamento
     </body>
     ```
 
-5. Para inicializar o controle de mapa, defina uma nova seção no corpo do HTML e crie um script. Passe o `id` do `<div>` de mapa ou um `HTMLElement` (por exemplo, `document.getElementById('myMap')`) como o primeiro parâmetro ao criar uma instância da classe `Map`. Use suas próprias credenciais de chave de conta do Azure Maps ou Azure Active Directory (AAD) para autenticar o mapa usando [as opções de autenticação](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Se você precisar criar uma conta ou encontrar sua chave, consulte [como gerenciar sua conta e chaves do Azure Maps](how-to-manage-account-keys.md). A opção **Language** especifica o idioma a ser usado para os rótulos e controles de mapa. Para obter mais informações sobre os idiomas com suporte, consulte [idiomas com suporte](supported-languages.md). Se estiver usando uma chave de assinatura para autenticação.
+5. Para inicializar o Controle de Mapeamento, defina uma nova seção no corpo html e crie um script. Passe o `id` do `<div>` de mapa ou um `HTMLElement` (por exemplo, `document.getElementById('myMap')`) como o primeiro parâmetro ao criar uma instância da classe `Map`. Use sua própria chave de conta do Azure Mapas ou as credenciais do AAD (Azure Active Directory) para autenticar o mapa usando as [opções de autenticação](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Se você precisar criar uma conta ou encontrar sua chave, consulte [Como gerenciar sua conta e chaves do Azure Maps](how-to-manage-account-keys.md). A opção **linguagem** especifica a linguagem a ser usada nos rótulos e nos controles de mapa. Para obter mais informações sobre linguagens com suporte, confira [Linguagens com suporte](supported-languages.md). Se estiver usando uma chave de assinatura para autenticação.
 
     ```HTML
     <script type="text/javascript">
@@ -84,7 +90,7 @@ Você pode inserir um mapa em uma página da Web usando o Controle de Mapeamento
     </script>
     ```
 
-    Se estiver usando Azure Active Directory (AAD) para autenticação:
+    Se estiver usando o AAD (Azure Active Directory) para autenticação:
 
     ```HTML
     <script type="text/javascript">
@@ -102,9 +108,11 @@ Você pode inserir um mapa em uma página da Web usando o Controle de Mapeamento
     </script>
     ```
 
+    Uma lista de exemplos que mostram como integrar Azure Active Directory (AAD) com mapas do Azure pode ser encontrada [aqui](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples). 
+    
     Para obter mais informações, consulte o documento [autenticação com o Azure Maps](azure-maps-authentication.md) .
 
-6. Opcionalmente, você pode achar interessante adicionar os seguintes elementos meta tag ao início da sua página:
+6. Como opção, você poderá considerar útil adicionar os seguintes elementos de marcação meta ao cabeçalho da sua página:
 
     ```HTML
     <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
@@ -164,9 +172,9 @@ Você pode inserir um mapa em uma página da Web usando o Controle de Mapeamento
     </html>
     ```
 
-8. Abra o arquivo no navegador da Web e exiba o mapa renderizado. Ele deve ser semelhante ao seguinte código:
+8. Abra o arquivo no seu navegador da Web e exiba o mapa renderizado. Ele deve ser semelhante ao seguinte código:
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="Como usar o controle de mapa" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Consulte a caneta <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>como usar o controle de mapa</a> pelo mapas do Azure (<a href='https://codepen.io/azuremaps'> @azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+    <iframe height="700" style="width: 100%;" scrolling="no" title="Como usar o controle de mapeamento" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Consulte a caneta <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>como usar o controle de mapa</a> pelo mapas do Azure (<a href='https://codepen.io/azuremaps'> @azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
     </iframe>
 
 ## <a name="localizing-the-map"></a>Localizando o mapa
@@ -210,7 +218,7 @@ Saiba como criar e interagir com um mapa:
 > [!div class="nextstepaction"]
 > [Criar um mapa](map-create.md)
 
-Saiba como estilizar um mapa:
+Saiba como definir o estilo de um mapa:
 
 > [!div class="nextstepaction"]
 > [Escolher um estilo de mapa](choose-map-style.md)
@@ -222,3 +230,8 @@ Para adicionar mais dados ao seu mapa:
 
 > [!div class="nextstepaction"]
 > [Exemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+
+Para obter uma lista de exemplos que mostram como integrar o Azure Active Directory (AAD) com o Azure Maps, consulte:
+
+> [!div class="nextstepaction"]
+> [Exemplos de autenticação do AAD](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

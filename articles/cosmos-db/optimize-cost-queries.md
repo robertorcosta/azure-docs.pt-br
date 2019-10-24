@@ -1,17 +1,17 @@
 ---
 title: Otimizar unidades de solicitação e custo para executar consultas no Azure Cosmos DB
 description: Saiba como avaliar os encargos de unidade de solicitação para uma consulta e otimizar a consulta em termos de desempenho e custo.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: rimman
-ms.openlocfilehash: bdf223e60015c4e5d96416f95c410854a057c02c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 376c1a32a70951448b35a4c02022719229a3aad2
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717014"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753297"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Otimizar o custo de consulta no Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Consultas que leem dados de uma ou mais partições incorrem em latência mais a
 
 Depois que você tiver alguns dados armazenados em seus contêineres do Azure Cosmos, poderá usar o Data Explorer no portal do Azure para construir e executar suas consultas. Você também pode obter o custo das consultas usando o Data Explorer. Esse método lhe dará uma ideia dos encargos reais envolvidos nas consultas e as operações típicas às quais seu sistema dá suporte.
 
-Você também pode obter o custo de consultas programaticamente usando os SDKs. Para medir a sobrecarga de operações como criar, atualizar ou excluir, inspecione o cabeçalho `x-ms-request-charge` ao usar a API REST. Se você estiver usando o .net ou o SDK do Java, `RequestCharge` a propriedade será a propriedade equivalente para obter o encargo da solicitação e essa propriedade estará presente dentro de ResourceResponse ou FeedResponse.
+Você também pode obter o custo de consultas programaticamente usando os SDKs. Para medir a sobrecarga de operações como criar, atualizar ou excluir, inspecione o cabeçalho `x-ms-request-charge` ao usar a API REST. Se você estiver usando o .NET ou o SDK do Java, a propriedade `RequestCharge` será a propriedade equivalente para obter o encargo da solicitação e essa propriedade estará presente dentro de ResourceResponse ou FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -99,14 +99,14 @@ Considere as seguintes melhores práticas ao otimizar consultas pelo custo:
 
    A carga de solicitação retornada no cabeçalho da solicitação indica o custo de uma determinada consulta. Por exemplo, se uma consulta retorna 1.000 itens de 1 KB, o custo da operação é 1.000. Assim, em um segundo, o servidor mantém apenas duas dessas solicitações antes de limitar as solicitações subsequentes. Para saber mais, consulte o artigo [Unidades de solicitação](request-units.md) e a calculadora de unidades de solicitação. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 A seguir, você poderá saber mais sobre a otimização de custos no Azure Cosmos DB nos seguintes artigos:
 
 * Saiba mais sobre [Como funcionam os preços do Azure Cosmos](how-pricing-works.md)
-* Saiba mais sobre [Otimizando para desenvolvimento e teste](optimize-dev-test.md)
-* Saiba mais sobre [Entendendo sua cobrança do Azure Cosmos DB](understand-your-bill.md)
-* Saiba mais sobre [Otimizando o custo da taxa de transferência](optimize-cost-throughput.md)
+* Saiba mais em [Otimizar para desenvolvimento e teste](optimize-dev-test.md)
+* Saiba mais sobre [Entender sua cobrança do Azure Cosmos DB](understand-your-bill.md)
+* Saiba mais em [Otimizar o custo da taxa de transferência](optimize-cost-throughput.md)
 * Saiba mais sobre [Otimizando o custo de armazenamento](optimize-cost-storage.md)
 * Saiba mais sobre [Otimizando o custo de leituras e gravações](optimize-cost-reads-writes.md)
 * Saiba mais sobre [Otimizando o custo de contas do Azure Cosmos em várias regiões](optimize-cost-regions.md)
