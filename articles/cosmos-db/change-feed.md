@@ -1,23 +1,23 @@
 ---
 title: Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB
 description: Use o suporte ao feed de alterações do Azure Cosmos DB para controlar as alterações nos documentos e executar o processamento baseado em eventos como gatilhos e manter os caches e sistemas de análise atualizados.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f50f1b3e2ee7f98d14d29f1e2205a97d76eaacc8
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 8e6bd3dadd636127f212db0ea0c0755a6b52a087
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219897"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757017"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Feed de alterações no Azure Cosmos DB – visão geral
 
-O suporte ao feed de alterações no Azure Cosmos DB funciona ouvindo um contêiner Cosmos do Azure para qualquer alteração. Ele gera a lista classificada de documentos que foram alterados na ordem em que eles foram modificados. As alterações são mantidas, podem ser processadas de maneira assíncrona e incremental e a saída pode ser distribuída em um ou mais consumidores para processamento paralelo. 
+O suporte ao feed de alterações no Azure Cosmos DB funciona ouvindo um contêiner Cosmos do Azure para qualquer alteração. Ele gera a lista classificada de documentos que foram alterados na ordem em que eles foram modificados. As alterações são mantidas e podem ser processadas de maneira assíncrona e incremental, enquanto a saída pode ser distribuída em um ou mais consumidores para processamento paralelo. 
 
 O Azure Cosmos DB é adequado para IoT, jogos, varejo e aplicativos de log operacional. Um padrão de design comum nesses aplicativos é usar as alterações nos dados para disparar ações adicionais. Os exemplos de ações adicionais incluem:
 
@@ -35,10 +35,10 @@ No momento, o recurso é compatível com os seguintes SDKs do cliente e APIs do 
 
 | **Drivers do cliente** | **CLI do Azure** | **API do SQL** | **API do Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin**|**API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | N/A | Sim | Não | Não | Sim | Não |
-|Java|N/A|Sim|Não|Não|Sim|Não|
-|Python|N/A|Sim|Não|Não|Sim|Não|
-|Nó/JS|N/A|Sim|Não|Não|Sim|Não|
+| .NET | ND | SIM | Não | Não | SIM | Não |
+|Java|ND|SIM|Não|Não|SIM|Não|
+|Python|ND|SIM|Não|Não|SIM|Não|
+|Nó/JS|ND|SIM|Não|Não|SIM|Não|
 
 ## <a name="change-feed-and-different-operations"></a>Feed de alterações e operações diferentes
 
@@ -64,7 +64,7 @@ O formato de _etag é interno e você não deve assumir uma dependência dele, p
 
 O feed de alterações permite o processamento eficiente de grandes conjuntos de dados com um alto volume de gravações. O feed de alterações também oferece uma alternativa para consultar todo um conjunto de dados para identificar o que foi alterado.
 
-### <a name="use-cases"></a>Casos de uso
+### <a name="use-cases"></a>Use casos
 
 Por exemplo, com o feed de alterações, é possível executar as seguintes tarefas com eficiência:
 
@@ -93,7 +93,7 @@ Veja a seguir alguns dos cenários que você pode implementar com o feed de alte
 
 É possível trabalhar com o feed de alterações usando as seguintes opções:
 
-* [Usando feed de alterações com o Azure Functions](change-feed-functions.md)
+* [Usando o feed de alterações com o Azure Functions](change-feed-functions.md)
 * [Usando o feed de alterações com o processador do feed de alterações](change-feed-processor.md) 
 
 O feed de alterações está disponível para cada chave de partição lógica dentro do contêiner e pode ser distribuído entre um ou mais clientes para processamento paralelo, conforme mostrado na imagem abaixo.
@@ -120,10 +120,10 @@ O feed de alterações está disponível para cada chave de partição lógica d
 
 * Os aplicativos podem solicitar vários feeds de alteração no mesmo contêiner simultaneamente. ChangeFeedOptions.StartTime pode ser usado para fornecer um ponto de partida. Por exemplo, para localizar o token de continuação correspondente a uma determinada hora. O ContinuationToken, se especificado, supera os valores de StartTime e StartFromBeginning. A precisão de ChangeFeedOptions.StartTime é de aproximadamente 5 segundos. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Agora, você pode prosseguir para saber mais sobre o feed de alterações nos seguintes artigos:
+Agora, continue sabendo mais sobre o feed de alterações conferindo os seguintes artigos:
 
 * [Opções de ler o feed de alterações](read-change-feed.md)
-* [Usando feed de alterações com o Azure Functions](change-feed-functions.md)
+* [Usando o feed de alterações com o Azure Functions](change-feed-functions.md)
 * [Usando o processador de feed de alterações](change-feed-processor.md)

@@ -3,27 +3,27 @@ title: Modere textos usando a API de Moderação de Texto – Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Moderação de texto baseada em teste usando a API de Moderação de Texto no console online.
 services: cognitive-services
-author: sanjeev3
-ms.author: sajagtap
+author: PatrickFarley
+ms.author: pafarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 49047c21f86530aac6ed3e0138a643fd08c35af8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf3f08436fb4bac56907b342c991709947f4c24d
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561179"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754196"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderar texto no console da API
 
-Use a [API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) de moderação de texto no Content moderator do Azure para verificar seu conteúdo de texto em busca de profanação e compará-lo em listas personalizadas e compartilhadas.
+Use a [API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) no Content moderator do Azure para verificar seu conteúdo de texto em busca de profanação e compará-lo em listas personalizadas e compartilhadas.
 
 ## <a name="get-your-api-key"></a>Obter sua chave de API
 
-Antes de testar a API no console online, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [Visão Geral](overview.md).
+Antes de você pode testar a API no console on-line, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [Visão Geral](overview.md).
 
 ## <a name="navigate-to-the-api-reference"></a>Navegar até a referência da API
 
@@ -41,12 +41,12 @@ Para **Abrir o console de teste da API**, selecione a região que melhor descrev
 
 ## <a name="select-the-inputs"></a>Selecionar entradas
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 Selecione os parâmetros de consulta que você deseja usar em sua tela de texto. Para este exemplo, use o valor padrão para **idioma**. Você também pode deixar em branco porque a operação detectará automaticamente o idioma provável como parte de sua execução.
 
 > [!NOTE]
-> Para o parâmetro **language**, atribua `eng` ou deixe vazio para ver a resposta de **classificação** assistida por computador (recurso de visualização). **Esse recurso dá suporte ao inglês apenas**.
+> Para o parâmetro **language**, atribua `eng` ou deixe-o vazio para ver a resposta de **classificação** assistida por máquina (recurso de visualização). **Esse recurso dá suporte ao inglês apenas**.
 >
 > Para a detecção de **termos obscenos**, use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe vazio.
 
@@ -172,8 +172,8 @@ A resposta a seguir mostra as várias informações da API. Ele contém possíve
 }
 ```
 
-Para obter uma explicação detalhada de todas as seções na resposta JSON, consulte o guia conceitual de moderação de [texto](text-moderation-api.md) .
+Para obter uma explicação detalhada de todas as seções na resposta JSON, consulte o guia conceitual de [moderação de texto](text-moderation-api.md) .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Use a API REST em seu código ou comece com o guia de [início rápido do .net](text-moderation-quickstart-dotnet.md) de moderação de texto para integrar com seu aplicativo.
+Use a API REST em seu código ou comece com o guia de [início rápido do .net de moderação de texto](text-moderation-quickstart-dotnet.md) para integrar com seu aplicativo.

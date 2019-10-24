@@ -2,18 +2,17 @@
 title: Modelando dados no Azure Cosmos DB
 titleSuffix: Azure Cosmos DB
 description: Saiba mais sobre a modelagem de dados em bancos de dados NoSQL, diferenças entre a modelagem de dados em um banco de dados relacional e um banco de dados de documentos.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
-ms.custom: rimman
-ms.openlocfilehash: da119b2858c6b6c7bbc99b40d340f79964e0fae3
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 523049ea3286445117f41147f3dd12a2c911d1ae
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467891"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755011"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelagem de dados no Azure Cosmos DB
 
@@ -69,7 +68,7 @@ Agora vamos dar uma olhada em como modelar os mesmos dados como uma entidade aut
         ]
     }
 
-Usando a abordagem acima, desnormalizamos o registro Person, inserindo **todas as** informações relacionadas a essa pessoa, como seus detalhes de contato e endereços, em um único documento *JSON* .
+Usando a abordagem acima, **desnormalizamos** o registro Person **, inserindo todas as** informações relacionadas a essa pessoa, como seus detalhes de contato e endereços, em um único documento *JSON* .
 Além disso, como não estamos restritos a um esquema fixo, nós temos a flexibilidade de, por exemplo, ter detalhes de contato com formas totalmente diferentes.
 
 A recuperação de um registro de pessoa completo do banco de dados agora é uma **única operação de leitura** em um único contêiner e para um único item. A atualização de um registro de pessoa, com seus detalhes e endereços de contato, também é uma **única operação de gravação** em um único item.
@@ -374,7 +373,7 @@ Considere o JSON a seguir.
 
 Aqui, seguimos (principalmente) o modelo inserido, em que dados de outras entidades são inseridos no documento de nível superior, mas outros dados são referenciados.
 
-Olhando o documento do livro, vemos alguns campos interessantes na matriz de autores. Há um `id` campo que é o campo que usamos para fazer referência a um documento de autor, uma prática padrão em um modelo normalizado, mas `name` também temos e `thumbnailUrl`. Poderíamos ter paralisado `id` e deixado o aplicativo para obter informações adicionais necessárias do respectivo documento autor usando o "link", mas como nosso aplicativo exibe o nome do autor e uma imagem em miniatura com cada livro exibida, podemos salvar uma viagem de ida e volta ao servidor por livro em uma lista desnormalizando **alguns** dados do autor.
+Olhando o documento do livro, vemos alguns campos interessantes na matriz de autores. Há um campo `id` que é o campo que usamos para fazer referência a um documento de autor, uma prática padrão em um modelo normalizado, mas também temos `name` e `thumbnailUrl`. Poderíamos ter preso `id` e deixar o aplicativo para obter informações adicionais necessárias do respectivo documento autor usando o "link", mas como nosso aplicativo exibe o nome do autor e uma imagem em miniatura com cada livro exibido pode salvar uma viagem de ida e volta ao servidor por livro em uma lista desnormalizando **alguns** dados do autor.
 
 Com certeza, se o nome do autor for alterado ou quisessem atualizar sua foto, precisaremos atualizar todos os livros que já publicaram, mas para nosso aplicativo, com base na suposição de que os autores não alteram seus nomes com frequência, essa é uma decisão de design aceitável.  
 
@@ -384,7 +383,7 @@ A capacidade de ter um modelo com campos pré-calculados é possibilitada porque
 
 ## <a name="distinguishing-between-different-document-types"></a>Diferenciando entre diferentes tipos de documento
 
-Em alguns cenários, talvez você queira misturar tipos de documentos diferentes na mesma coleção; Normalmente, esse é o caso em que você deseja que vários documentos relacionados sejam posicionados na mesma [partição](partitioning-overview.md). Por exemplo, você pode colocar livros e revisões de livro na mesma coleção e particioná-los `bookId`. Nessa situação, você geralmente deseja adicionar aos seus documentos com um campo que identifica seu tipo para diferenciá-los.
+Em alguns cenários, talvez você queira misturar tipos de documentos diferentes na mesma coleção; Normalmente, esse é o caso em que você deseja que vários documentos relacionados sejam posicionados na mesma [partição](partitioning-overview.md). Por exemplo, você pode colocar livros e revisões de livro na mesma coleção e particioná-los por `bookId`. Nessa situação, você geralmente deseja adicionar aos seus documentos com um campo que identifica seu tipo para diferenciá-los.
 
     Book documents:
     {
@@ -408,7 +407,7 @@ Em alguns cenários, talvez você queira misturar tipos de documentos diferentes
         "type": "review"
     }
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 O principal aspecto deste artigo é entender que modelar dados em um ambiente sem esquemas é tão importante como sempre foi.
 

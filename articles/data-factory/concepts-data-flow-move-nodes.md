@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 2031820843342fb7e6b115865297e08cbee28a0a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 631a103491b70ca016b94af01995aeeb3f29c77a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387342"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754678"
 ---
 # <a name="mapping-data-flow-move-nodes"></a>Mapeando nós de movimentação de fluxo de dados
 
@@ -25,7 +25,7 @@ Portanto, sem um paradigma do tipo "arrastar e soltar", o modo de "mover" um nó
 
 ## <a name="streams-of-data-inside-of-data-flow"></a>Fluxos de dados dentro do fluxo de dados
 
-No Fluxo de Dados do Azure Data Factory, os fluxos declaram o fluxo de dados. No painel de configurações de transformação, você verá um campo de "Fluxo de entrada". Isso informa qual fluxo de dados de entrada está alimentando a transformação. Você pode alterar a localização física do seu nó de transformação no gráfico clicando no nome do fluxo de entrada e selecionando outro fluxo de dados. A transformação atual, juntamente com todas as transformações subsequentes no fluxo, será movida para a nova localização.
+No Fluxo de Dados do Azure Data Factory, os fluxos declaram o fluxo de dados. No painel configurações de transformação, você verá um campo "fluxo de entrada". Isso informa qual fluxo de dados de entrada está alimentando a transformação. Você pode alterar a localização física do seu nó de transformação no gráfico clicando no nome do fluxo de entrada e selecionando outro fluxo de dados. A transformação atual, juntamente com todas as transformações subsequentes no fluxo, será movida para a nova localização.
 
 Se você estiver movendo uma transformação com uma ou mais transformações depois dela, a nova localização no fluxo de dados será adicionado por meio de um novo branch.
 

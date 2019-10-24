@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/05/2019
+ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c6c8bcfec9a8bdf6948190c5f132c2e1763b9973
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 574b1591669cc32ce30677cad5158e13b944486f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025642"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750198"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desenvolvendo com APIs dos serviços de mídia v3
 
@@ -75,7 +75,7 @@ Nomes de recursos do Serviços de Mídia do Azure v3 (por exemplo, ativos, traba
 
 Nomes de recurso dos Serviços de Mídia não podem incluir: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', o caractere de aspas simples ou quaisquer caracteres de controle. Todos os outros caracteres são permitidos. O comprimento máximo de um nome de recurso é de 260 caracteres. 
 
-Para obter mais informações sobre a atribuição de nome do Azure Resource Manager, confira: [Requisitos de nomenclatura](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) e [Convenções de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+Para obter mais informações sobre a nomenclatura do Azure Resource Manager, consulte: [Requisitos de nomenclatura](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) e [Convenções de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>Nomes de Arquivos/blobs em um ativo
 
@@ -108,6 +108,8 @@ Os serviços de mídia têm as seguintes operações de execução longa:
 
 Após o envio bem-sucedido de uma operação longa, você receberá um ' 202 aceito ' e deverá sondar a conclusão da operação usando a ID da operação retornada.
 
+O artigo [rastrear operações assíncronas do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) explica em detalhes como acompanhar o status das operações assíncronas do Azure por meio de valores retornados na resposta.
+
 Somente uma operação de execução longa tem suporte para um determinado evento ao vivo ou qualquer uma de suas saídas dinâmicas associadas. Depois de iniciada, uma operação de execução longa deve ser concluída antes de iniciar uma operação de execução longa subsequente no mesmo LiveEvent ou em qualquer saída ao vivo associada. Para eventos ao vivo com várias saídas ao vivo, você deve aguardar a conclusão de uma operação de execução longa em uma saída dinâmica antes de disparar uma operação de execução longa em outra saída ao vivo. 
 
 ## <a name="sdks"></a>SDKs
@@ -124,12 +126,12 @@ Somente uma operação de execução longa tem suporte para um determinado event
 |[SDK do Go](https://aka.ms/ams-v3-go-sdk) |[Referência do Go](https://aka.ms/ams-v3-go-ref)|
 |[SDK do Ruby](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>Consulte também
+### <a name="see-also"></a>Consulte
 
 - [SDK do .NET EventGrid que inclui eventos de serviço de mídia](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definições de eventos de Serviços de Mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
 
-## <a name="azure-media-services-explorer"></a>Gerenciador dos Serviços de Mídia do Azure
+## <a name="azure-media-services-explorer"></a>Azure Media Services Explorer
 
 O [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) (Gerenciador dos Serviços de Mídia do Azure) é uma ferramenta disponível para clientes do Windows que desejam saber mais sobre os Serviços de Mídia. O AMSE é um aplicativo do WinForms/C# que carrega, baixa, codifica e transmite VoD e conteúdo ao vivo com os Serviços de Mídia. A ferramenta AMSE destina-se aos clientes que desejam testar os Serviços de Mídia sem escrever nenhum código. O código AMSE é fornecido como um recurso para clientes que desejam desenvolver com os Serviços de Mídia.
 
@@ -143,11 +145,11 @@ Consulte [filtragem, ordenação, paginação de entidades dos serviços de míd
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Conectar-se aos serviços de mídia com Java](configure-connect-java-howto.md)
 * [Conectar-se aos serviços de mídia com o .NET](configure-connect-dotnet-howto.md)

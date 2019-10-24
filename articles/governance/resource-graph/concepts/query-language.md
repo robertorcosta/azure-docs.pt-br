@@ -3,15 +3,15 @@ title: Noções básicas da linguagem de consulta
 description: Descreve as tabelas de gráfico de recursos e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o grafo de recursos do Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 6189920cb03a6cf388f0b5d232c6ce97ae4f3f82
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 80b33212afa7fed3f87b241d5cf69b43be66574d
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389774"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755908"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do Azure Resource Graph
 
@@ -30,7 +30,7 @@ O grafo de recursos fornece várias tabelas para os dados que ele armazena sobre
 |Tabelas do grafo de recursos |Descrição |
 |---|---|
 |Implante |A tabela padrão se nenhuma for definida na consulta. A maioria dos tipos de recursos e propriedades do Resource Manager estão aqui. |
-|ResourceContainers |Inclui os dados e tipos de recurso de assinatura (`Microsoft.Resources/subscriptions`) e grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
+|ResourceContainers |Inclui a assinatura (em visualização `Microsoft.Resources/subscriptions`) e os tipos de recurso e os dados do grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AlertsManagementResources |Inclui recursos _relacionados_ a `Microsoft.AlertsManagement`. |
 |SecurityResources |Inclui recursos _relacionados_ a `Microsoft.Security`. |
 
@@ -47,12 +47,12 @@ Resources
 | limit 1
 ```
 
-A consulta a seguir mostra um uso mais complexo de `join`. A consulta limita a tabela unida aos recursos de assinaturas e com `project` para incluir apenas o campo original _SubscriptionId_ e o campo de _nome_ renomeado como _subnomear_. A renomeação do campo evita `join` adicioná-lo como _Nome1_ , pois o campo já existe nos _recursos_. A tabela original é filtrada com `where` e o seguinte `project` inclui colunas de ambas as tabelas. O resultado da consulta é um único cofre de chaves que exibe o tipo, o nome do cofre de chaves e o nome da assinatura em que ele está.
+A consulta a seguir mostra um uso mais complexo de `join`. A consulta limita a tabela ingressada aos recursos de assinaturas e com `project` para incluir apenas o campo original _subscriptionId_ e o campo _name_ renomeado para _SubName_. A renomeação do campo evita `join` adicioná-lo como _Nome1_ , pois o campo já existe nos _recursos_. A tabela original é filtrada com `where` e o `project` a seguir inclui colunas das duas tabelas. O resultado da consulta é um cofre de chaves único exibindo o tipo, o nome do cofre de chaves e o nome da assinatura em que ele está.
 
 ```kusto
 Resources
-| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
 | where type == 'microsoft.keyvault/vaults'
+| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
 | project type, name, SubName
 | limit 1
 ```
@@ -73,7 +73,7 @@ Aqui está a lista de operadores de tabela KQL com suporte do grafo de recursos 
 |[count](/azure/kusto/query/countoperator) |[Contar cofres de chaves](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[Mostrar valores distintos para um alias específico](../samples/starter.md#distinct-alias-values) | |
 |[extend](/azure/kusto/query/extendoperator) |[Contagem de máquinas virtuais por tipo de sistema operacional](../samples/starter.md#count-os) | |
-|[join](/azure/kusto/query/joinoperator) |[Key Vault com o nome da assinatura](../samples/advanced.md#join) |Tipos de junção com suporte: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [Inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de 3 `join` em uma única consulta. Estratégias de junção personalizadas, como junção de difusão, não são permitidas. Pode ser usado em uma única tabela ou entre as tabelas de _recursos_ e _ResourceContainers_ . |
+|[join](/azure/kusto/query/joinoperator) |[Cofre de chaves com o nome da assinatura](../samples/advanced.md#join) |Tipos de junção com suporte: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [Inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de 3 `join` em uma única consulta. Estratégias de junção personalizadas, como junção de difusão, não são permitidas. Pode ser usado em uma única tabela ou entre as tabelas de _recursos_ e _ResourceContainers_ . |
 |[limit](/azure/kusto/query/limitoperator) |[Listar todos os endereços de IP](../samples/starter.md#list-publicip) |Sinônimo de `take` |
 |[MV-expandir](/azure/kusto/query/mvexpandoperator) |[Listar Cosmos DB com locais de gravação específicos](../samples/advanced.md#mvexpand-cosmosdb) |_Limite_ máximo de 400 |
 |[Ordene](/azure/kusto/query/orderoperator) |[Listar recursos classificados por nome](../samples/starter.md#list-resources) |Sinônimo de `sort` |
@@ -83,14 +83,14 @@ Aqui está a lista de operadores de tabela KQL com suporte do grafo de recursos 
 |[summarize](/azure/kusto/query/summarizeoperator) |[Recursos do Count Azure](../samples/starter.md#count-resources) |Somente primeira página simplificada |
 |[take](/azure/kusto/query/takeoperator) |[Listar todos os endereços de IP](../samples/starter.md#list-publicip) |Sinônimo de `limit` |
 |[início](/azure/kusto/query/topoperator) |[Mostrar as primeiras cinco máquinas virtuais por nome e tipo do sistema operacional](../samples/starter.md#show-sorted) | |
-|[union](/azure/kusto/query/unionoperator) |[Combinar resultados de duas consultas em um único resultado](../samples/advanced.md#unionresults) |Uma única tabela permitida: _T_ `| union` \[ @ no__t-3 `inner` @ no__t-5 @ no__t-6 @ no__t-7 \[ @ no__t- _@no__t 9-_ 11 _._ Limite de 3 `union` pernas em uma única consulta. A resolução difusa de tabelas de trechos `union` não é permitida. Pode ser usado em uma única tabela ou entre as tabelas de _recursos_ e _ResourceContainers_ . |
+|[union](/azure/kusto/query/unionoperator) |[Combinar resultados de duas consultas em um único resultado](../samples/advanced.md#unionresults) |Única tabela permitida: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _tabela_. Limite de 3 `union` pernas em uma única consulta. A resolução difusa de tabelas de trechos `union` não é permitida. Pode ser usado em uma única tabela ou entre as tabelas de _recursos_ e _ResourceContainers_ . |
 |[where](/azure/kusto/query/whereoperator) |[Mostrar recursos que contêm o armazenamento](../samples/starter.md#show-storage) | |
 
 ## <a name="escape-characters"></a>Caracteres de escape
 
 Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser encapsulados ou ter escape na consulta ou o nome da propriedade é interpretado incorretamente e não fornece os resultados esperados.
 
-- `.`-encapsular o nome da propriedade como tal: `['propertyname.withaperiod']`
+- `.` encapsular o nome da propriedade como tal: `['propertyname.withaperiod']`
   
   Exemplo de consulta que encapsula a propriedade _OData. Type_:
 
@@ -100,7 +100,7 @@ Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser e
 
 - `$`-escapar do caractere no nome da propriedade. O caractere de escape usado depende do grafo de recursos do Shell em execução.
 
-  - **bash** -  @ no__t-2
+  - `\` **bash** - 
 
     Exemplo de consulta que escapa a propriedade _\$type_ no bash:
 

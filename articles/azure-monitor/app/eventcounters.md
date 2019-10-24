@@ -8,10 +8,10 @@ author: cithomas
 ms.author: cithomas
 ms.date: 09/20/2019
 ms.openlocfilehash: 0762819239e8fd71a015f317776a94280806db53
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 10/22/2019
 ms.locfileid: "72677161"
 ---
 # <a name="eventcounters-introduction"></a>Introdução ao EventCounters
@@ -28,7 +28,7 @@ Application Insights oferece suporte à coleta de `EventCounters` com seu `Event
 
 Para aplicativos em execução no .NET Core 3,0, os contadores a seguir são coletados automaticamente pelo SDK. O nome dos contadores estará no formato "categoria | Counter ".
 
-|Categoria | Neutraliza|
+|Categoria | Contador|
 |---------------|-------|
 |`System.Runtime` | `cpu-usage` |
 |`System.Runtime` | `working-set` |
@@ -128,7 +128,7 @@ performanceCounters
 Como outras telemetrias, o **performanceCounters** também tem uma coluna `cloud_RoleInstance` que indica a identidade da instância do servidor host no qual seu aplicativo está sendo executado. A consulta acima mostra o valor do contador por instância e pode ser usada para comparar o desempenho de diferentes instâncias de servidor.
 
 ## <a name="alerts"></a>Alertas
-Assim como outras métricas, você pode [definir um alerta](../../azure-monitor/app/alerts.md) para avisá-lo se um contador de eventos ficar fora de um limite especificado. Abra o painel alertas e clique em adicionar alerta.
+Assim como outras métricas, você pode [definir um alerta](../../azure-monitor/app/alerts.md) para avisá-lo se um contador de eventos ficar fora de um limite especificado. Abra o painel Alertas e clique em Adicionar Alerta.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 

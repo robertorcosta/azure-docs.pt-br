@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Implantar Proxy de Aplicativo do AD do Azure | Microsoft Docs'
+title: Implantar Proxy de Aplicativo do AD do Azure para Azure AD Domain Services | Microsoft Docs
 description: Usar o Proxy de Aplicativo do Azure AD nos domínios gerenciados do Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 21693926bae681cf15d31dca06344dfa5d865e3b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 80c3b2120a617e5c4c0f8de252b9436753fea011
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613000"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754397"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Implantar o Proxy de Aplicativo do Azure AD em um domínio gerenciado do Azure AD Domain Services
 O Proxy de Aplicativo do Active Directory (AD) do Azure o ajuda a dar suporte a funcionários remotos publicando aplicativos locais para serem acessados via Internet. Com o Azure AD Domain Services, agora você pode usar modelo lift-and-shift em aplicativos herdados executados localmente para os Serviços de Infraestrutura do Azure. Depois, publique esses aplicativos usando o Proxy de Aplicativo do Azure AD, a fim de fornecer acesso remoto seguro aos usuários em sua organização.
 
-Se você for um novo usuário do Proxy de Aplicativo do Azure AD, saiba mais sobre esse recurso com o artigo a seguir: [Como fornecer acesso remoto seguro para aplicativos locais](../active-directory/manage-apps/application-proxy.md).
+Se você for um novo usuário do Proxy de Aplicativo do Azure AD, aprenda mais sobre este recurso com o artigo: [Como fornecer acesso remoto seguro a aplicativos locais](../active-directory/manage-apps/application-proxy.md).
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -93,9 +93,9 @@ Antes, você provisionou uma máquina virtual com Windows Server e ingressou no 
 ## <a name="next-steps"></a>Próximas etapas
 Você configurou o Proxy de Aplicativo do Azure AD e o integrou a seu domínio gerenciado do Azure AD Domain Services.
 
-* **Migrar seus aplicativos para máquinas virtuais do Azure:** Use lift-and-shift para migrar os aplicativos de servidores locais para máquinas virtuais do Azure ingressadas em seu domínio gerenciado. Isso ajuda você a se livrar dos custos com infraestrutura gerados pela execução de servidores localmente.
+* **Migrar seus aplicativos para máquinas virtuais do Azure:** use o modelo lift-and-shift para migrar seus aplicativos de servidores locais para máquinas virtuais do Azure ingressadas em seu domínio gerenciado. Isso ajuda você a se livrar dos custos com infraestrutura gerados pela execução de servidores localmente.
 
-* **Publicar aplicativos usando o Proxy de Aplicativo do Azure AD:** Publique aplicativos em execução nas máquinas virtuais do Azure usando o Proxy de Aplicativo do Azure AD. Para saber mais, confira [publicar aplicativos usando o Proxy de Aplicativo do Azure AD](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
+* **Publicar aplicativos usando o Proxy de Aplicativo do Azure AD:** publique aplicativos em execução em suas máquinas virtuais do Azure usando o Proxy de Aplicativo do Azure AD. Para saber mais, confira [publicar aplicativos usando o Proxy de Aplicativo do Azure AD](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>Nota sobre a implantação: publique aplicativos IWA (Autenticação Integrada do Windows) usando o Proxy de Aplicativo do Azure AD
@@ -126,6 +126,6 @@ Se você tiver implantado vários conectores de Proxy de Aplicativo em seu domí
 
 
 ## <a name="related-content"></a>Conteúdo relacionado
-* [Serviços de Domínio do Azure AD - guia de Introdução](tutorial-create-instance.md)
+* [Serviços de Domínio do Azure AD - Guia de Introdução](tutorial-create-instance.md)
 * [Configurar a Delegação Restrita de Kerberos em um domínio gerenciado](deploy-kcd.md)
 * [Visão geral da Delegação Restrita de Kerberos](https://technet.microsoft.com/library/jj553400.aspx)

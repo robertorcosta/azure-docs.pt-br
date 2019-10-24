@@ -1,17 +1,17 @@
 ---
 title: Otimizar o custo para implantações de várias regiões no Azure Cosmos DB
 description: Este artigo explica como gerenciar os custos de implantações de várias regiões no Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: rimman
-ms.openlocfilehash: 233eab1fc49d7ce4cbb1e5b98b67eda9a64aa195
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: e0a24b52c12bce6a8e016a926dfa64a1e36a7cc6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667589"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753316"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Otimizar o custo de várias regiões no Azure Cosmos DB
 
@@ -25,7 +25,7 @@ A taxa de transferência provisionada com região de gravação única custa US$
 
 ## <a name="costs-for-multiple-write-regions"></a>Custos de várias regiões de gravação
 
-Em um sistema de vários mestres, as RUs disponíveis para operações de gravação aumentam `N` vezes em que `N` é o número de regiões de gravação. Ao contrário de gravações de região única, cada região agora é gravável e deve dar suporte à resolução de conflitos. A quantidade de carga de trabalho para gravadores aumentou. Do ponto de vista do planejamento de custos, para `M` executar ru/s de gravações em todo o mundo, você precisará `RUs` provisionar M em um nível de contêiner ou banco de dados. Em seguida, você pode adicionar quantas regiões desejar e usá-las para gravações para executar `M` RU de gravações em todo o mundo. 
+Em um sistema de vários mestres, as RUs disponíveis para operações de gravação aumentam `N` vezes em que `N` é o número de regiões de gravação. Ao contrário de gravações de região única, cada região agora é gravável e deve dar suporte à resolução de conflitos. A quantidade de carga de trabalho para gravadores aumentou. Do ponto de vista do planejamento de custos, para realizar `M` RU/s de gravações em todo o mundo, você precisará provisionar M `RUs` em um nível de contêiner ou banco de dados. Em seguida, você pode adicionar quantas regiões desejar e usá-las para gravações para executar `M` RU de gravações em todo o mundo. 
 
 ### <a name="example"></a>Exemplo
 
@@ -49,14 +49,14 @@ Se você tiver uma utilização ineficaz, por exemplo, uma ou mais regiões subu
 
 3. Monitore a atividade em suas regiões e você pode adicionar e remover regiões sob demanda para dimensionar sua taxa de transferência de leitura e gravação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 A seguir, você poderá saber mais sobre a otimização de custos no Azure Cosmos DB nos seguintes artigos:
 
-* Saiba mais sobre [Otimizando para desenvolvimento e teste](optimize-dev-test.md)
-* Saiba mais sobre [Entendendo sua cobrança do Azure Cosmos DB](understand-your-bill.md)
-* Saiba mais sobre [Otimizando o custo da taxa de transferência](optimize-cost-throughput.md)
+* Saiba mais em [Otimizar para desenvolvimento e teste](optimize-dev-test.md)
+* Saiba mais sobre [Entender sua cobrança do Azure Cosmos DB](understand-your-bill.md)
+* Saiba mais em [Otimizar o custo da taxa de transferência](optimize-cost-throughput.md)
 * Saiba mais sobre [Otimizando o custo de armazenamento](optimize-cost-storage.md)
 * Saiba mais sobre [Otimizando o custo de leituras e gravações](optimize-cost-reads-writes.md)
-* Saiba mais em [Otimizar o custo de consultas](optimize-cost-queries.md)
+* Saiba mais sobre [Otimizando o custo de consultas](optimize-cost-queries.md)
 

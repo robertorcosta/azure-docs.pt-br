@@ -3,19 +3,19 @@ title: Imagem de moderação – Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Use a moderação de imagem assistida por computador do Content Moderator e a ferramenta de revisão de humanos no circuito para moderar imagens para conteúdo adulto.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 8b3449edb539ab56fcf206a367f9b81e43290733
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 3bc5bc99984367b44b38a65266d2915c47ca6fd0
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564913"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757347"
 ---
 # <a name="learn-image-moderation-concepts"></a>Aprender os conceitos de moderação de imagem
 
@@ -38,14 +38,14 @@ A operação **Avaliar** retorna uma pontuação de confiança entre 0 e 1. Ela 
 > 
 > - `isImageAdultClassified` representa a presença potencial de imagens que podem ser consideradas sexualmente explícitas ou de conteúdo para adulto em determinadas situações.
 > - `isImageRacyClassified` representa a presença potencial de imagens que podem ser consideradas sexualmente sugestivas ou de conteúdo para adulto em determinadas situações.
-> - As pontuações estão entre 0 e 1. Quanto maior a pontuação, maior o modelo estará prevendo que a categoria pode ser aplicável. Essa visualização se baseia em um modelo estatístico, em vez dos resultados codificados manualmente. É recomendável testar com o seu próprio conteúdo para determinar como cada categoria se alinha aos seus requisitos.
-> - Os valores boolianos são true ou false dependendo dos limites da pontuação interna. Os clientes devem avaliar se desejam usar esse valor ou escolher limites personalizados com base nas políticas de conteúdo.
+> - As pontuações estão entre 0 e 1. Quanto maior a pontuação, mais o modelo irá prever que a categoria pode ser aplicável. Essa visualização se baseia em um modelo estatístico, em vez dos resultados codificados manualmente. É recomendável testar com seu próprio conteúdo para determinar como cada categoria se alinha com seus requisitos.
+> - Os valores boolianos são true ou false dependendo dos limites da pontuação interna. Os clientes devem avaliar se é para usar esse valor ou escolher limites personalizados com base nas políticas de conteúdo.
 
 ## <a name="detecting-text-with-optical-character-recognition-ocr"></a>Detectando texto com OCR (Reconhecimento Óptico de Caracteres)
 
 A operação **OCR (Reconhecimento Óptico de Caracteres)** prevê a presença de conteúdo de texto em uma imagem e o extrai de moderação de texto, entre outros usos. Você pode especificar o idioma. Se você não especificar um idioma, a detecção usará inglês como padrão.
 
-A resposta de serviço inclui as informações a seguir:
+A resposta inclui as informações a seguir:
 - O texto original.
 - Os elementos de texto detectados com suas pontuações de confiança.
 
@@ -106,7 +106,7 @@ Em muitas comunidades online, depois que os usuários fazem upload de imagens ou
 Em vez de moderar a mesma imagem várias vezes, você pode adicionar imagens ofensivas à sua lista personalizada de conteúdo bloqueado. Dessa forma, o sistema de moderação de conteúdo comparará as imagens de entrada com as listas personalizadas e interromperá qualquer processamento adicional.
 
 > [!NOTE]
-> Há um limite máximo de **cinco listas de imagens** e cada lista **não deve exceder dez mil imagens**.
+> Há um limite máximo de **5 listas de imagens** com cada lista para **não exceder 10.000 imagens**.
 >
 
 O Content Moderator fornece uma [API de Gerenciamento de Lista de Imagens](try-image-list-api.md) completa com operações para gerenciar listas de imagens personalizadas. Comece com o [Console de API de Listas de Imagens](try-image-list-api.md) e use os exemplos de código da API REST. Confira também o [Início rápido do .NET de Listas de Imagens](image-lists-quickstart-dotnet.md) se você estiver familiarizado com Visual Studio e C#.
@@ -145,6 +145,6 @@ Para casos com mais nuances, use a [ferramenta de análise](Review-Tool-User-Gui
 
 ![Revisão de imagem para moderadores humanos](images/moderation-reviews-quickstart-dotnet.PNG)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Faça test drive do [console da API de Moderação de Imagem](try-image-api.md) e use os exemplos de código da API REST. Confira também o [Início rápido do .NET de moderação de imagem](image-moderation-quickstart-dotnet.md) se estiver familiarizado com Visual Studio e C#.

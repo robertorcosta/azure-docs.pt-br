@@ -1,19 +1,19 @@
 ---
 title: Trabalhando com contas do Azure Cosmos DB
 description: Este artigo descreve como criar e usar contas do banco de dados do Azure Cosmo
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 833d8533ff3289693e1744db2d77d4bed6a9ea69
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 57b2cffbf8085e6d393765190a6dfc2dead51625
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617006"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757084"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Como trabalhar com a conta do Azure Cosmos
 
@@ -31,7 +31,7 @@ Atualmente, você pode criar no máximo 100 contas do Azure Cosmos sob uma assin
 
 ![Hierarquia de uma conta do Azure Cosmos](./media/account-overview/hierarchy.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como gerenciar sua conta do Azure Cosmos e outros conceitos:
 

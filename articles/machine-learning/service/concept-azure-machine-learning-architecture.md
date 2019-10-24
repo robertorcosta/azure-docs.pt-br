@@ -10,20 +10,20 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c886289f098eb41f4b215b4abc2e206db93a27f9
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 706f76c00022c5f5661ea261a5bb35eedc13d5ba
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710134"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756044"
 ---
-# <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como Azure Machine Learning funciona: Arquitetura e conceitos
+# <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona a Azure Machine Learning: arquitetura e conceitos
 
 Saiba mais sobre a arquitetura, os conceitos e o fluxo de trabalho para Azure Machine Learning. Os principais componentes do serviço e o fluxo de trabalho geral ao usar o serviço que são mostrados no diagrama:
 
 ![Arquitetura e fluxo de trabalho de Azure Machine Learning](./media/concept-azure-machine-learning-architecture/workflow.png)
 
-## <a name="workflow"></a>Fluxo de Trabalho
+## <a name="workflow"></a>Fluxo de trabalho
 
 O fluxo de trabalho do modelo de aprendizado de máquina geralmente segue esta sequência:
 
@@ -34,11 +34,11 @@ O fluxo de trabalho do modelo de aprendizado de máquina geralmente segue esta s
 
 1. **Pacote** -após uma execução satisfatória ser encontrada, registre o modelo persistente no registro de **modelo**.
 
-1. Validar - **consulta o experimento** de métricas registradas das execuções atuais e anteriores. Se as métricas não indicarem um resultado desejado, volte para a etapa 1 e itere em seus scripts.
+1. **Validar**  - **consultar o experimento** quanto a métricas registradas das execuções atuais e anteriores. Se as métricas não indicarem um resultado desejado, volte para a etapa 1 e itere em seus scripts.
 
 1. **Implantar** – desenvolver um script de pontuação que usa o modelo e **implantar o modelo** como um **serviço Web** no Azure ou em um **dispositivo IOT Edge**.
 
-1. **Monitore** -monitor para descompasso de **dados** entre o conjunto de dados de treinamento e de inferência de um modelo implantado. Quando necessário, execute o loop novamente para a etapa 1 para treinar novamente o modelo com os novos dados de treinamento.
+1. **Monitore** -monitor para **descompasso de dados** entre o conjunto de dados de treinamento e de inferência de um modelo implantado. Quando necessário, execute o loop novamente para a etapa 1 para treinar novamente o modelo com os novos dados de treinamento.
 
 ## <a name="tools-for-azure-machine-learning"></a>Ferramentas para Azure Machine Learning
 
@@ -89,9 +89,9 @@ Saiba mais sobre os [destinos de computação disponíveis para treinamento e im
 
 ### <a name="datasets-and-datastores"></a>Conjuntos de e armazenamentos de
 
-**Conjuntos de Azure Machine Learning** (versão prévia) facilite o acesso e o trabalho com seus dados. DataSets gerenciam dados em vários cenários, como treinamento de modelo e criação de pipeline. Usando o SDK do Azure Machine Learning, você pode acessar o armazenamento subjacente, explorar dados e gerenciar o ciclo de vida de diferentes definições do conjunto de dados.
+Os conjuntos de dados **Azure Machine Learning** (versão prévia) facilitam o acesso e o trabalho com eles. DataSets gerenciam dados em vários cenários, como treinamento de modelo e criação de pipeline. Usando o SDK do Azure Machine Learning, você pode acessar o armazenamento subjacente, explorar dados e gerenciar o ciclo de vida de diferentes definições do conjunto de dados.
 
-DataSets fornecem métodos para trabalhar com dados em formatos populares, como usar `from_delimited_files()` o ou `to_pandas_dataframe()`o.
+DataSets fornecem métodos para trabalhar com dados em formatos populares, como usar `from_delimited_files()` ou `to_pandas_dataframe()`.
 
 Para obter mais informações, consulte [criar e registrar conjuntos de dados Azure Machine Learning](how-to-create-register-datasets.md).  Para obter mais exemplos usando conjuntos de informações, consulte os [blocos de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets).
 
@@ -133,26 +133,27 @@ Para facilitar o treinamento de modelo com estruturas populares, a classe Estima
 
 Para as tarefas PyTorch, TensorFlow e Chainer, Azure Machine Learning também fornece os respectivos estimadores [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)e [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) para simplificar o uso dessas estruturas.
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 
 * [Treinar modelos ml com estimações](how-to-train-ml-models.md).
 * [Treine os modelos de aprendizado profundo do Pytorch em escala com Azure Machine Learning](how-to-train-pytorch.md).
 * [Treine e registre os modelos de TensorFlow em escala com Azure Machine Learning](how-to-train-tensorflow.md).
 * [Treine e registre modelos de encadeamento em escala com Azure Machine Learning](how-to-train-chainer.md).
 
-### <a name="experiments"></a>Experimentos
+### <a name="experiments"></a>Testes
 
 Um experimento é um agrupamento de diversas execuções de um determinado script. Ele sempre pertence a um workspace. Quando você envia uma execução, você pode fornecer um nome de experimento. As informações para a execução são armazenadas nesse experimento. Se você enviar uma execução e especificar um nome de experimento que não existe, um novo experimento com esse nome recém-especificado é criado automaticamente.
 
-Para obter um exemplo de como usar um experimento [, consulte o tutorial: Treine seu primeiro modelo](tutorial-1st-experiment-sdk-train.md).
+Para obter um exemplo de como usar um experimento, consulte [tutorial: treinar seu primeiro modelo](tutorial-1st-experiment-sdk-train.md).
 
 
 ### <a name="github-tracking-and-integration"></a>Acompanhamento e integração do GitHub
 
-Quando você inicia uma execução de treinamento onde o diretório de origem é um repositório git local, as informações sobre o repositório são armazenadas no histórico de execuções. Por exemplo, a ID de confirmação atual para o repositório é registrada como parte do histórico. Isso funciona com execuções enviadas usando um estimador, pipeline de ML ou execução de script. Ele também funciona para execuções enviadas do SDK ou da CLI do Machine Learning.
+Quando você inicia uma execução de treinamento onde o diretório de origem é um repositório git local, as informações sobre o repositório são armazenadas no histórico de execuções. Isso funciona com execuções enviadas usando um estimador, pipeline de ML ou execução de script. Ele também funciona para execuções enviadas do SDK ou da CLI do Machine Learning.
 
+Para obter mais informações, consulte [integração do git para Azure Machine Learning](concept-train-model-git-integration.md).
 
-### <a name="logging"></a>Registrando em log
+### <a name="logging"></a>Registro em log
 
 Ao desenvolver sua solução, use o SDK do Python do Azure Machine Learning em seu script de Python para registrar métricas arbitrárias. Após a execução, consulte as métricas para determinar se a execução produziu o modelo que você deseja implantar.
 
@@ -172,7 +173,7 @@ Um modelo é produzido por uma execução no Azure Machine Learning. Você tamb�
 
 O Azure Machine Learning é independente do framework. Ao criar um modelo, você pode usar qualquer estrutura de aprendizado de máquina popular, como Scikit-learn, XGBoost, PyTorch, TensorFlow e Chainer.
 
-Para obter um exemplo de treinamento de um modelo usando Scikit-Learn e um estimador, consulte [o tutorial: Treine um modelo de classificação de imagem](tutorial-train-models-with-aml.md)com Azure Machine Learning.
+Para obter um exemplo de treinamento de um modelo usando Scikit-Learn e um estimador, consulte [tutorial: treinar um modelo de classificação de imagem com Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 O **registro de modelo** mantém o controle de todos os modelos em seu espaço de trabalho Azure Machine Learning.
 
@@ -217,17 +218,17 @@ Ao enviar uma execução, o Azure Machine Learning compacta o diretório que con
 
 Para treinar um modelo, você deve especificar o diretório que contém o script de treinamento e os arquivos associados. Você também pode especificar um nome de experimento, que é usado para armazenar as informações obtidas durante o treinamento. Durante o treinamento, o diretório inteiro é copiado para o ambiente de treinamento (destino de computação) e o script especificado pela configuração de execução é iniciado. Um instantâneo do diretório também é armazenado no experimento no workspace.
 
-Por exemplo, confira [Tutorial: Treine um modelo de classificação de imagem](tutorial-train-models-with-aml.md)com Azure Machine Learning.
+Para obter um exemplo, consulte [tutorial: treinar um modelo de classificação de imagem com Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ### <a name="workspaces"></a>Workspaces
 
 [O espaço de trabalho](concept-workspace.md) é o recurso de nível superior para Azure Machine Learning. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar ao usar o Azure Machine Learning. Você pode compartilhar um espaço de trabalho com outras pessoas. Para obter uma descrição detalhada dos espaços de trabalho, consulte [o que é um espaço de trabalho Azure Machine Learning?](concept-workspace.md).
 
 
-### <a name="next-steps"></a>Próximas etapas
+### <a name="next-steps"></a>Próximos passos
 
 Para começar a usar o Azure Machine Learning, consulte:
 
 * [O que é Azure Machine Learning?](overview-what-is-azure-ml.md)
 * [Criar um workspace de Azure Machine Learning](how-to-manage-workspace.md)
-* [Tutorial (parte 1): Treinar um modelo](tutorial-train-models-with-aml.md)
+* [Tutorial (parte 1): treinar um modelo](tutorial-train-models-with-aml.md)

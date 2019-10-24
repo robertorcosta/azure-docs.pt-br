@@ -3,26 +3,26 @@ title: Moderar imagens com listas personalizadas e o console de API – Content 
 titleSuffix: Azure Content Moderator
 description: Você pode usar a API de Gerenciamento da Lista no Content Moderator do Azure para criar listas personalizadas de imagens.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 2b2ab138945d32ca874dc20576d412c862965dc9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 27d9b12d9e1a0237050243c2b5f07edaa8d8857a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564366"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757185"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Moderar com as listas de imagem personalizada no console de API
 
 Você pode usar a [API de Gerenciamento da Lista](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) no Content Moderator do Azure para criar listas personalizadas de imagens. Use as listas personalizadas de imagens com a API de Moderação de Imagem. A operação de moderação de imagem avalia sua imagem. Se você criar listas personalizadas, a operação também compara as imagens em suas listas personalizadas. Você pode usar listas personalizadas para bloquear ou permitir a imagem.
 
 > [!NOTE]
-> Há um limite máximo de **cinco listas de imagens**, e cada lista **não deve exceder 10 mil imagens**.
+> Há um limite máximo de **5 listas de imagens** com cada lista para **não exceder 10.000 imagens**.
 >
 
 Você pode usar a API de Gerenciamento de Lista para fazer as seguintes tarefas:
@@ -36,7 +36,7 @@ Você pode usar a API de Gerenciamento de Lista para fazer as seguintes tarefas:
 - Atualizar o índice para que as alterações da lista sejam incluídas em uma nova verificação.
 
 ## <a name="use-the-api-console"></a>Usar o console de API
-Antes de você pode testar a API no console on-line, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para mais informações, confira [Visão Geral](overview.md).
+Antes de você pode testar a API no console on-line, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [Visão Geral](overview.md).
 
 ## <a name="refresh-search-index"></a>Atualizar o índice de pesquisa
 
@@ -164,6 +164,6 @@ Você pode editar o nome e a descrição de uma lista e adicionar itens de metad
    ![Edições do Corpo de solicitação do console Lista de imagens - Atualizar detalhes](images/try-terms-list-change-1.png)
  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Use a API REST em seu código ou inicie com o [Início rápido do .NET de Lista de Imagens](image-lists-quickstart-dotnet.md) para integrar o aplicativo.

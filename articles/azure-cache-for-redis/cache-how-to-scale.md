@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
-ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 21c93cac8b4126a46e4c3dc396db9857f6b62de9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132956"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755441"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Como dimensionar o Cache Redis do Azure
 O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache. Se os requisitos de seu aplicativo se alterarem depois que um cache for criado, você poderá dimensionar o tamanho e o tipo de preço desse cache. Este artigo mostra como dimensionar seu cache no Portal do Azure usando ferramentas como o Azure PowerShell e a CLI do Azure.
@@ -43,7 +43,7 @@ Para dimensionar o cache, [navegue até ele](cache-configure.md#configure-azure-
 
 Selecione o tipo de preço desejado na folha **Selecionar tipo de preço** e clique em **Selecionar**.
 
-![Tipo de preço][redis-cache-pricing-tier-blade]
+![tipo de preço][redis-cache-pricing-tier-blade]
 
 
 Você pode dimensionar para um tipo de preço diferente com as restrições a seguir:
@@ -76,7 +76,7 @@ Além de dimensionar as instâncias do cache no Portal do Azure, você pode dime
 
     Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
-Para saber mais sobre o dimensionamento com o PowerShell, consulte [Para dimensionar um Cache Redis do Azure usando Powershell](cache-howto-manage-redis-cache-powershell.md#scale).
+Para saber mais sobre o dimensionamento com o PowerShell, consulte [Para dimensionar um Cache Redis do Azure usando Powershell](cache-how-to-manage-redis-cache-powershell.md#scale).
 
 ### <a name="scale-using-azure-cli"></a>Dimensionar usando a CLI do Azure
 Para dimensionar instâncias do Cache Redis do Azure usando a CLI do Azure, chame o comando `azure rediscache set` e transmita as mudanças de configuração desejadas, que incluem novo tamanho, SKU ou tamanho de cluster, de acordo com a operação de dimensionamento desejada.
@@ -126,7 +126,7 @@ A lista a seguir contém respostas para perguntas frequentes sobre o dimensionam
 * Você não pode dimensionar de um cache **Básico** diretamente para um cache **Premium**. Você deve dimensionar do **Básico** para o **Standard** em uma única operação de dimensionamento e do **Standard** para o **Premium** em uma operação de dimensionamento subsequente.
 * Se você habilitou o clustering quando criou o cache **Premium** , será possível [alterar o tamanho do cluster](cache-how-to-premium-clustering.md#cluster-size). Se o cache foi criado sem clustering habilitado, é possível configurar o clustering em um momento posterior.
   
-  Para saber mais, consulte [Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md).
+  Para saber mais, confira [Como configurar o clustering para um Cache do Azure para Redis Premium](cache-how-to-premium-clustering.md).
 
 ### <a name="after-scaling-do-i-have-to-change-my-cache-name-or-access-keys"></a>Depois do dimensionamento, é necessário alterar minhas chaves de acesso ou o nome do cache?
 Não, o nome do cache e as chaves permanecem inalterados durante uma operação de dimensionamento.

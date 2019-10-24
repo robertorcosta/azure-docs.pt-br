@@ -1,17 +1,17 @@
 ---
 title: Otimizar o custo de armazenamento no Azure Cosmos DB
 description: Este artigo explica como gerenciar os custos de armazenamento para os dados armazenados no Azure Cosmos DB
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
-ms.openlocfilehash: 2955df266bcf164ce4a155acc5209679eff0ce8a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1508adda761fcba7ba70df3bb212d3eb4e32f242
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615013"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754953"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Otimizar o custo de armazenamento no Azure Cosmos DB
 
@@ -50,14 +50,14 @@ ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentC
 Console.WriteLine("Item size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 A seguir, você poderá saber mais sobre a otimização de custos no Azure Cosmos DB nos seguintes artigos:
 
-* Saiba mais sobre [Otimizando para desenvolvimento e teste](optimize-dev-test.md)
-* Saiba mais sobre [Entendendo sua cobrança do Azure Cosmos DB](understand-your-bill.md)
+* Saiba mais em [Otimizar para desenvolvimento e teste](optimize-dev-test.md)
+* Saiba mais sobre [Entender sua cobrança do Azure Cosmos DB](understand-your-bill.md)
 * Saiba mais em [Otimizar o custo da taxa de transferência](optimize-cost-throughput.md)
-* Saiba mais em [Otimizar o custo de leituras e gravações](optimize-cost-reads-writes.md)
+* Saiba mais sobre [Otimizando o custo de leituras e gravações](optimize-cost-reads-writes.md)
 * Saiba mais sobre [Otimizando o custo de consultas](optimize-cost-queries.md)
 * Saiba mais sobre [Otimizando o custo de contas do Azure Cosmos em várias regiões](optimize-cost-regions.md)
 

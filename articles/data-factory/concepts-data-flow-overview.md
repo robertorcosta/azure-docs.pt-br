@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/7/2019
-ms.openlocfilehash: 94bde7b2e2a6f3902d83de90b06638035fd34397
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 7f6c131737ca63d120e111b3ef4504a36dbd7fc1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679130"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754705"
 ---
 # <a name="what-are-mapping-data-flows"></a>O que são os fluxos de dados de mapeamento?
 
@@ -40,6 +40,38 @@ O grafo exibe o fluxo de transformação. Ele mostra a linhagem dos dados de ori
 
 ![Canvas](media/data-flow/canvas2.png "Tela")
 
+### <a name="azure-integration-runtime-data-flow-properties"></a>Propriedades de fluxo de dados do Azure Integration Runtime
+
+![Botão de depuração](media/data-flow/debugbutton.png "Botão de depuração")
+
+Ao começar a trabalhar com fluxos de dados no ADF, você desejará ativar a opção de "depuração" para fluxos de dados na parte superior da interface do usuário do navegador. Isso fará com que um cluster de Azure Databricks seja girado para uso para depuração interativa, visualizações de dados e execuções de depuração de pipeline. Você pode definir o tamanho do cluster que está sendo utilizado escolhendo um [Azure Integration Runtime](concepts-integration-runtime.md)personalizado. A sessão de depuração permanecerá ativa por até 60 minutos após a última visualização de dados ou a última execução do pipeline de depuração.
+
+Quando você colocar seus pipelines em operação com atividades de fluxo de dados, o ADF usará o Azure Integration Runtime associado à [atividade](control-flow-execute-data-flow-activity.md) na propriedade "executar em".
+
+O Azure Integration Runtime padrão é um cluster de nó de trabalho único de 4 núcleos, destinado a permitir a visualização de dados e a execução rápida de pipelines de depuração com custos mínimos. Defina uma configuração de Azure IR maior se você estiver executando operações em grandes conjuntos de altos.
+
+Você pode instruir o ADF a manter um pool de recursos de cluster (VMs) definindo um TTL na Azure IR Propriedades de fluxo de dados. Isso resultará em uma execução de trabalho mais rápida nas atividades subsequentes.
+
+#### <a name="azure-integration-runtime-and-data-flow-strategies"></a>Tempo de execução de integração do Azure e estratégias de fluxo de dados
+
+##### <a name="execute-data-flows-in-parallel"></a>Executar fluxos de dados em paralelo
+
+Se você executar fluxos de dados em um pipeline em paralelo, o ADF girará Azure Databricks clusters separados para cada execução de atividade com base nas configurações de sua Azure Integration Runtime anexadas a cada atividade. Para criar execuções paralelas em pipelines do ADF, adicione suas atividades de fluxo de dados sem restrições de precedência na interface do usuário.
+
+Dessas três opções, essa opção provavelmente será executada no menor período de tempo. No entanto, cada fluxo de dados paralelo será executado ao mesmo tempo em clusters separados, de modo que a ordem dos eventos é não determinística.
+
+##### <a name="overload-single-data-flow"></a>Sobrecarga de fluxo de dados único
+
+Se você colocar toda a lógica dentro de um único fluxo de dados, o ADF será executado no mesmo contexto de execução de trabalho em uma única instância de cluster do Spark.
+
+Essa opção pode ser mais difícil de seguir e solucionar problemas, pois suas regras de negócios e a lógica de negócios serão amontoadodas juntas. Essa opção também não fornece muita reutilização.
+
+##### <a name="execute-data-flows-serially"></a>Executar fluxos de dados em série
+
+Se você executar suas atividades de fluxo de dados em série no pipeline e tiver definido um TTL na configuração de Azure IR, o ADF reutilizará os recursos de computação (VMs) resultando em tempos de execução subsequentes mais rápidos. Você ainda receberá um novo contexto do Spark para cada execução.
+
+Dessas três opções, provavelmente levará o tempo mais longo para ser executado de ponta a ponta. Mas ele fornece uma separação limpa das operações lógicas em cada etapa do fluxo de dados.
+
 ### <a name="configuration-panel"></a>Painel de configuração
 
 O painel de configuração mostra as configurações específicas para a transformação selecionada no momento. Se nenhuma transformação for selecionada, ela mostrará o fluxo de dados. Na configuração geral do fluxo de dados, você pode editar o nome e a descrição na guia **geral** ou adicionar parâmetros por meio da guia **parâmetros** . Para obter mais informações, consulte [mapeando parâmetros de fluxo de dados](parameters-data-flow.md).
@@ -56,7 +88,7 @@ A primeira guia em cada painel de configuração de transformação contém as c
 
 A guia **otimizar** contém configurações para configurar esquemas de particionamento.
 
-![Formato](media/data-flow/optimize1.png "Otimize")
+![Otimizar](media/data-flow/optimize1.png "Otimize")
 
 A configuração padrão é **usar particionamento atual**, o que instrui Azure data Factory a usar o esquema de particionamento nativo para fluxos de dados em execução no Spark. Na maioria dos cenários, recomendamos essa configuração.
 
@@ -72,23 +104,23 @@ As seguintes opções de particionamento estão disponíveis.
 
 ##### <a name="round-robin"></a>Round Robin 
 
-Round Robin é uma partição simples que distribui automaticamente os dados igualmente entre as partições. Use round robin quando você não tiver bons candidatos importantes para implementar uma estratégia sólida de particionamento inteligente. Você pode definir o número de partições físicas.
+Round Robin é uma partição simples que distribui automaticamente os dados igualmente entre as partições. Use round robin quando você não tiver bons candidatos importantes para implementar uma estratégia sólida de particionamento inteligente. É possível definir o número de partições físicas.
 
 ##### <a name="hash"></a>Hash
 
-Azure Data Factory produzirá um hash de colunas para produzir partições uniformes, de modo que as linhas com valores semelhantes se enquadrarão na mesma partição. Ao usar a opção de hash, teste a possível distorção de partição. Você pode definir o número de partições físicas.
+O Azure Data Factory produzirá um hash de colunas para produzir partições uniformes e, desse modo, as linhas com valores semelhantes ficarão na mesma partição. Ao usar a opção de hash, teste a possível distorção de partição. É possível definir o número de partições físicas.
 
 ##### <a name="dynamic-range"></a>Intervalo dinâmico
 
-O intervalo dinâmico usará intervalos dinâmicos do Spark com base nas colunas ou expressões que você fornecer. Você pode definir o número de partições físicas. 
+O intervalo dinâmico usará intervalos dinâmicos do Spark com base nas colunas ou expressões que você fornecer. É possível definir o número de partições físicas. 
 
 ##### <a name="fixed-range"></a>Intervalo fixo
 
-Crie uma expressão que forneça um intervalo fixo para valores em suas colunas de dados particionados. Para evitar a distorção de partição, você deve ter uma boa compreensão dos seus dados antes de usar essa opção. Os valores inseridos para a expressão serão usados como parte de uma função de partição. Você pode definir o número de partições físicas.
+Crie uma expressão que forneça um intervalo fixo para valores em suas colunas de dados particionados. Para evitar a distorção de partição, você deve ter uma boa compreensão dos seus dados antes de usar essa opção. Os valores inseridos para a expressão serão usados como parte de uma função de partição. É possível definir o número de partições físicas.
 
 ##### <a name="key"></a>Chave
 
-Se você tiver uma boa compreensão da cardinalidade de seus dados, o particionamento de chave poderá ser uma boa estratégia. O particionamento de chave criará partições para cada valor exclusivo em sua coluna. Você não pode definir o número de partições porque o número será baseado em valores exclusivos nos dados.
+Se você tiver uma boa compreensão da cardinalidade de seus dados, o particionamento de chave poderá ser uma boa estratégia. O particionamento de chaves criará partições para cada valor exclusivo na sua coluna. Você não pode definir o número de partições porque o número será baseado em valores exclusivos nos dados.
 
 #### <a name="inspect"></a>Quanto
 

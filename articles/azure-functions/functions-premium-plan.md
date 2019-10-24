@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 2cc6493d01508d439d8dcef2d12ca1ea40632d81
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ce83d521d5bc986be7bb24ef874f1f0e1051e3ae
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096238"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755409"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions plano Premium (versão prévia)
 
@@ -31,7 +31,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-Neste exemplo, substitua `<RESOURCE_GROUP>` pelo seu grupo de recursos e `<PLAN_NAME>` por um nome para seu plano que seja exclusivo no grupo de recursos. Especifique um [suporte `<REGION>` ](#regions). Para criar um plano Premium que ofereça suporte ao Linux, `--is-linux` inclua a opção.
+Neste exemplo, substitua `<RESOURCE_GROUP>` pelo seu grupo de recursos e `<PLAN_NAME>` com um nome para seu plano que seja exclusivo no grupo de recursos. Especifique um [`<REGION>`com suporte ](#regions). Para criar um plano Premium que ofereça suporte ao Linux, inclua a opção `--is-linux`.
 
 Com o plano criado, você pode usar [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) para criar seu aplicativo de funções. No portal, o plano e o aplicativo são criados ao mesmo tempo. 
 
@@ -100,38 +100,46 @@ Ao criar ou dimensionar seu plano, você pode escolher entre três tamanhos de i
 |EP2|2|7 GB|250 GB|
 |EP3|4|14 GB|250 GB|
 
-## <a name="regions"></a>Regions
+## <a name="regions"></a>Regiões
 
 Abaixo estão as regiões com suporte no momento para a visualização pública para cada sistema operacional.
 
 |Região| Windows | Linux |
 |--| -- | -- |
-|Leste da Austrália| ✔ | |
+|Austrália Central| ✔ * | |
+|Austrália Central 2| ✔ * | |
+|Austrália Oriental| ✔ | |
 |Sudeste da Austrália | ✔ | ✔ |
+|Sul do Brasil| ✔ * * |  |
 |Canadá Central| ✔ |  |
 |EUA Central| ✔ |  |
 |Ásia Oriental| ✔ |  |
-|East US | | ✔ |
+|Leste dos EUA | ✔ | ✔ |
 |Leste dos EUA 2| ✔ |  |
-|Centro da França| ✔ |  |
-|Leste do Japão|  | ✔ |
+|França Central| ✔ |  |
+|Leste do Japão| ✔ | ✔ |
 |Oeste do Japão| ✔ | |
 |Coreia Central| ✔ |  |
 |Centro-Norte dos EUA| ✔ |  |
 |Europa Setentrional| ✔ | ✔ |
 |Centro-Sul dos EUA| ✔ |  |
 |Sul da Índia | ✔ | |
-|Sudeste da Ásia| ✔ | ✔ |
+|Sudeste Asiático| ✔ | ✔ |
+|Sul do Reino Unido| ✔ | |
 |Oeste do Reino Unido| ✔ |  |
-|Europa Ocidental| ✔ | ✔ |
+|Oeste da Europa| ✔ | ✔ |
 |Índia Ocidental| ✔ |  |
 |Oeste dos EUA| ✔ | ✔ |
 
-## <a name="known-issues"></a>Problemas Conhecidos
+\* redução máxima limitada a 20 instâncias
+
+\** expansão máxima limitada a 60 instâncias
+
+## <a name="known-issues"></a>Problemas conhecidos
 
 Você pode acompanhar o status de problemas conhecidos da [Visualização pública no GitHub](https://github.com/Azure/Azure-Functions/wiki/Premium-plan-known-issues).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Entender Azure Functions escala e opções de hospedagem](functions-scale.md)

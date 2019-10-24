@@ -1,18 +1,18 @@
 ---
 title: Como usar o feed de alterações do Azure Cosmos DB com o Azure Functions
 description: Usar o feed de alterações do Azure Cosmos DB com o Azure Functions
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 2ec38659b0bafa8836ac787ac36b662970141843
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 95fec1ef57c1d70ea484de9ad49b3410ed8594a4
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249103"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757062"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquiteturas baseadas em eventos sem servidor com Azure Cosmos DB e Azure Functions
 
@@ -29,8 +29,8 @@ Com o [gatilho de Azure Functions para Cosmos DB](../azure-functions/functions-b
 
 Para implementar um fluxo baseado em eventos sem servidor, você precisa:
 
-* **O contêiner monitorado**: O contêiner monitorado é o contêiner Cosmos do Azure que está sendo monitorado e armazena os dados dos quais o feed de alterações é gerado. Quaisquer inserções, atualizações para o contêiner monitorado são refletidas no feed de alterações do contêiner.
-* **O contêiner de concessão**: O contêiner de concessão mantém o estado entre várias e dinâmicas instâncias de função do Azure sem servidor e habilita o dimensionamento dinâmico. Esse contêiner de concessão pode ser criado manualmente ou automaticamente pelo gatilho de Azure Functions para Cosmos DB. Para criar automaticamente o contêiner de concessão, defina o sinalizador *CreateLeaseCollectionIfNotExists* na [configuração](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Os contêineres de concessão particionados precisam ter uma definição de chave de partição `/id`.
+* **O contêiner monitorado**: o contêiner monitorado é o contêiner Cosmos do Azure que está sendo monitorado e armazena os dados dos quais o feed de alterações é gerado. Quaisquer inserções, atualizações para o contêiner monitorado são refletidas no feed de alterações do contêiner.
+* **O contêiner de concessão**: o contêiner de concessão mantém o estado entre várias e dinâmicas instâncias de função do Azure sem servidor e habilita o dimensionamento dinâmico. Esse contêiner de concessão pode ser criado manualmente ou automaticamente pelo gatilho de Azure Functions para Cosmos DB. Para criar automaticamente o contêiner de concessão, defina o sinalizador *CreateLeaseCollectionIfNotExists* na [configuração](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Os contêineres de concessão particionados precisam ter uma definição de chave de partição `/id`.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Criar seu gatilho de Azure Functions para Cosmos DB
 
@@ -46,12 +46,12 @@ Você pode executar a [função do Azure localmente](../azure-functions/function
 
 Se você quiser testar cenários ao vivo na nuvem, poderá [tentar Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem qualquer cartão de crédito ou assinatura do Azure necessária.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora você pode continuar a saber mais sobre o feed de alterações nos seguintes artigos:
 
 * [Visão geral do feed de alterações](change-feed.md)
 * [Maneiras de ler o feed de alterações](read-change-feed.md)
-* [Usando a biblioteca do processador do feed de alterações](change-feed-processor.md)
+* [Biblioteca do processador do feed usando a alteração](change-feed-processor.md)
 * [Como trabalhar com a biblioteca do processador de feed de alterações](change-feed-processor.md)
 * [Computação de banco de dados sem servidor usando o Azure Cosmos DB e o Azure Functions](serverless-computing-database.md)
