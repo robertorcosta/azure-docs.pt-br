@@ -3,19 +3,19 @@ title: Analisar conteúdo de vídeo para material censurável em C# – Content 
 titleSuffix: Azure Cognitive Services
 description: Como analisar o conteúdo de vídeo de vários materiais questionáveis usando o SDK do Content Moderator for .NET
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 1742db702a899d47110177532f5e85e74a59d91c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 71858755fe31823d4d7ef8623b915db851530116
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564317"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755232"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analise o conteúdo de vídeo para material censurável em C#
 
@@ -62,7 +62,7 @@ O Azure Media Services Explorer é um frontend fácil de usar para o AMS. Use-o 
 
 ## <a name="add-video-moderation-code"></a>Adicionar código de moderação de vídeo
 
-Em seguida, você copiará e colará o código deste guia em seu projeto para implementar um cenário básico de moderação de conteúdo.
+Em seguida, você vai copiar e colar o código deste guia em seu projeto para implementar um cenário básico de moderação de conteúdo.
 
 ### <a name="update-the-programs-using-statements"></a>Atualize o programa usando as instruções
 
@@ -359,7 +359,7 @@ static void StateChanged(object sender, JobStateChangedEventArgs e)
 }
 ```
 
-### <a name="run-the-program-and-review-the-output"></a>Execute o programa e examine a saída
+### <a name="run-the-program-and-review-the-output"></a>Executar o programa e analisar a saída
 
 Depois que o trabalho de Moderação de Conteúdo estiver concluído, analise a resposta JSON. Consiste nestes elementos:
 
@@ -371,7 +371,7 @@ Depois que o trabalho de Moderação de Conteúdo estiver concluído, analise a 
 > [!NOTE]
 > - `adultScore` representa a presença em potencial e a pontuação de previsão do conteúdo que pode ser considerado sexualmente explícito ou adulto em determinadas situações.
 > - `racyScore` representa a presença em potencial e a pontuação de previsão do conteúdo que pode ser considerado sexualmente sugestivo ou maduro em determinadas situações.
-> - `adultScore` e `racyScore` estão entre 0 e 1. Quanto maior a pontuação, maior o modelo estará prevendo que a categoria pode ser aplicável. Essa visualização se baseia em um modelo estatístico, em vez dos resultados codificados manualmente. É recomendável testar com seu próprio conteúdo para determinar como cada categoria se alinha com seus requisitos.
+> - `adultScore` e `racyScore` estão entre 0 e 1. Quanto maior a pontuação, mais o modelo irá prever que a categoria pode ser aplicável. Essa visualização se baseia em um modelo estatístico, em vez dos resultados codificados manualmente. É recomendável testar com seu próprio conteúdo para determinar como cada categoria se alinha com seus requisitos.
 > - `reviewRecommended` é verdadeiro ou falso, dependendo dos limites internos da pontuação. Os clientes devem avaliar se é para usar esse valor ou escolher limites personalizados com base nas políticas de conteúdo.
 
 ```json
@@ -426,7 +426,7 @@ Depois que o trabalho de Moderação de Conteúdo estiver concluído, analise a 
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como gerar [análises de vídeo](video-reviews-quickstart-dotnet.md) usando sua saída de moderação.
 

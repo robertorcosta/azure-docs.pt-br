@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1555eb4e48a0cf43a38aa811e20ffbbed8ee87a9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311654"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755809"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adicionar um repositório Git para armazenar os artefatos personalizados e modelos do Resource Manager
 
@@ -30,7 +30,7 @@ Nós oferecemos um [repositório GitHub de artefatos](https://github.com/Azure/a
 Quando você cria uma VM, você pode salvar o modelo do Resource Manager, personalizá-lo, caso queira, e usá-lo posteriormente para criar mais VMs. Você deve criar seu próprio repositório particular para armazenar seus modelos personalizados do Resource Manager.  
 
 * Para saber como criar um repositório no GitHub, confira o [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* Para saber como criar um projeto de serviços de DevOps do Azure que tem um repositório Git, consulte [conectar-se aos serviços do Azure DevOps](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Para saber como criar um projeto Azure DevOps Services que tenha um repositório git, consulte [conectar-se ao Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 A figura a seguir mostra um exemplo da aparência de um repositório que tem artefatos no GitHub:  
 
@@ -65,13 +65,13 @@ Para adicionar um repositório de artefatos ao laboratório, você deve primeiro
    1. Insira uma **Descrição** para o token.
    2. Na lista **Expira em**, selecione **180 dias**.
    3. Na lista **Contas**, selecione **Todas as contas acessíveis**.
-   4. Selecione a opção **Todos os escopos**.
+   4. Selecione a opção **somente leitura** .
    5. Selecione **Criar Token**.
 9. O novo token será exibido na lista de **Tokens de Acesso Pessoal**. Selecione **Copiar Token**e salve o valor do token para uso posterior.
 10. Continue para a seção [Conectar seu laboratório ao repositório](#connect-your-lab-to-the-repository).
 
 ## <a name="connect-your-lab-to-the-repository"></a>Conecte seu laboratório ao repositório
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Mais Serviços** e, em seguida, selecione **DevTest Labs** na lista de serviços.
 3. Na lista de laboratórios, selecione o laboratório. 
 4. Selecione **Configuração e políticas** > **Repositórios** >  **+Adicionar**.
@@ -93,7 +93,7 @@ Para adicionar um repositório de artefatos ao laboratório, você deve primeiro
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Depois que você criou seu repositório Git, você pode fazer um ou ambos estes procedimentos, dependendo das suas necessidades:
 * Armazene seus [artefatos personalizados](devtest-lab-artifact-author.md). Você pode usá-los posteriormente para criar novas VMs.
 * [Crie ambientes de várias VMs e recursos de PaaS usando modelos do Resource Manager](devtest-lab-create-environment-from-arm.md). Em seguida, você pode armazenar os modelos em seu repositório privado.

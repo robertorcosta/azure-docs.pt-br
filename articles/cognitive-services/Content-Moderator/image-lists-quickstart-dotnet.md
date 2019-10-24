@@ -3,19 +3,19 @@ title: Verificar as imagens em relação a listas personalizadas em C# – Conte
 titleSuffix: Azure Cognitive Services
 description: Como moderar imagens com as listas de imagens personalizadas do SDK do Content Moderator para C#.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
-ms.author: sajagtap
-ms.openlocfilehash: 63eb2285563bf83ac56beb03ff008a2bfa5daab6
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: 63dd3b782d868994c46e71b55201e65f91678d86
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242897"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755334"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>Moderar com as listas de imagem personalizada no C#
 
@@ -36,11 +36,11 @@ O aplicativo de console para este guia simula algumas das tarefas que você pode
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se nos serviços do Content Moderator
+## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se para serviços do Content Moderator
 
 Uma chave de assinatura de API será necessária antes de usar os serviços do Content Moderator através da API REST ou do SDK. Assine o serviço de Content Moderator no [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) para obtê-lo.
 
-## <a name="create-your-visual-studio-project"></a>Criar seu projeto do Visual Studio
+## <a name="create-your-visual-studio-project"></a>Criar um projeto do Visual Studio
 
 1. Adicione um novo projeto de **Aplicativo do console (.NET Framework)** à solução.
 
@@ -122,7 +122,7 @@ public static class Clients
 ```
 
 
-### <a name="initialize-application-specific-settings"></a>Inicialize as configurações específicas do aplicativo
+### <a name="initialize-application-specific-settings"></a>Inicializar configurações específicas do aplicativo
 
 Adicione as seguintes classes e campos estáticos à classe **Programa** em Program.cs.
 
@@ -667,7 +667,7 @@ Console.WriteLine("Press any key to exit...");
 Console.ReadKey();
 ```
 
-## <a name="run-the-program-and-review-the-output"></a>Execute o programa e analise a saída
+## <a name="run-the-program-and-review-the-output"></a>Executar o programa e analisar a saída
 
 A ID da lista e a imagem do conteúdo de que IDs são diferentes cada vez que você executar o aplicativo.
 O arquivo de log gravado pelo programa tem a seguinte saída:
@@ -1088,6 +1088,6 @@ Response:
 []
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Obtenha o [SDK do .NET do Content Moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar em seu processo de integração.

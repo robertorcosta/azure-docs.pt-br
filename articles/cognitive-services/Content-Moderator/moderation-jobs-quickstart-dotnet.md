@@ -3,19 +3,19 @@ title: Usar trabalhos de moderação usando o .NET-Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Use o SDK do .NET Content Moderator para iniciar trabalhos de moderação de conteúdo de ponta a ponta para conteúdo de imagem ou texto na Content Moderator do Azure.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: sajagtap
-ms.openlocfilehash: bc20af10e2e5b2ceb26c1cc891a8f69eb44e5740
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: c6925b979e5a93a2d73c2d6e8ac48f62714a5cd0
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242880"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757336"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>Definir e usar trabalhos de moderação (.NET)
 
@@ -61,7 +61,7 @@ Instale os seguintes pacotes NuGet:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Atualizar as instruções de uso do programa
+### <a name="update-the-programs-using-statements"></a>Atualize o programa usando as instruções
 
 Modifique as instruções de uso do programa.
 
@@ -126,7 +126,7 @@ public static class Clients
 }
 ```
 
-### <a name="initialize-application-specific-settings"></a>Inicialize as configurações específicas do aplicativo
+### <a name="initialize-application-specific-settings"></a>Inicializar configurações específicas do aplicativo
 
 Adicione as seguintes constantes e campos estáticos à classe **Programa** em Program.cs.
 
@@ -257,7 +257,7 @@ Entre na ferramenta de análise do Content Moderator para ver a análise de imag
 
 Use o botão **Avançar** para enviar.
 
-![Análise de imagem para moderadores humanos](images/ocr-sample-image.PNG)
+![Revisão de imagem para moderadores humanos](images/ocr-sample-image.PNG)
 
 ## <a name="see-the-sample-output-in-the-log-file"></a>Consulte a saída de exemplo no arquivo de log
 
@@ -321,6 +321,6 @@ Você visualiza uma resposta como o exemplo a seguir:
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Obtenha o [SDK do .NET do Content Moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar em seu processo de integração.

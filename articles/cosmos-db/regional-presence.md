@@ -1,18 +1,18 @@
 ---
 title: Presença regional com Azure Cosmos DB
 description: Este artigo explica sobre a presença regional do Azure Cosmos DB e diferentes ambientes de nuvem.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.custom: seodec18
-ms.openlocfilehash: 775ca8c57a9a444df2f7d0a4df4224b7eba9d677
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 95b9a9804fe1a9473d226912f178284f701a1547
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384031"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753221"
 ---
 # <a name="regional-presence-with-azure-cosmos-db"></a>Presença regional com Azure Cosmos DB
 
@@ -38,7 +38,7 @@ Todas as APIs expostas por Azure Cosmos DB (incluindo SQL, MongoDB, Cassandra, G
 
 Azure Cosmos DB é um serviço de banco de dados [distribuído globalmente](distribute-data-globally.md) . Você pode associar qualquer número de regiões do Azure à sua conta do Azure Cosmos e seus dados serão replicados de maneira automática e transparente. Você pode adicionar ou remover uma região da sua conta do Azure Cosmos a qualquer momento. Com o recurso de distribuição global turnkey e o protocolo de replicação multi-masterizado, o Azure Cosmos DB oferece latências de leitura e gravação inferiores a 10 ms no 99º percentil, 99,999 leitura e disponibilidade de gravação e capacidade de dimensionar de forma elástica o throughput provisionado para leituras e gravações em todos os regiões associadas à sua conta do Azure Cosmos. O Azure Cosmos DB também oferece cinco modelos de consistência bem definidos e você pode optar por aplicar um modelo de consistência específico aos seus dados. Por fim, Azure Cosmos DB é o único serviço de banco de dados do setor que fornece um [SLA (contrato de nível de serviço)](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/) abrangente que abrange a taxa de transferência provisionada, latência no 99 º percentil, alta disponibilidade e consistência. Os recursos acima estão disponíveis em todas as nuvens do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora você pode aprender sobre os principais conceitos do Azure Cosmos DB com os seguintes artigos:
 

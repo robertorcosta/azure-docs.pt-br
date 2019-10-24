@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: 1d7a18f3f46cec73d70389b82eed5a85e440d340
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b4756635ae0ab0d282975a6376e60da5f148917
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119071"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755415"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Como criar e gerenciar o Azure Cache para Redis usando a CLI clássica do Azure
 > [!div class="op_single_selector"]
-> * [PowerShell](cache-howto-manage-redis-cache-powershell.md)
+> * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
 > * [CLI clássica do Azure](cache-manage-cli.md)
 >
 
@@ -44,9 +44,9 @@ Para criar e gerenciar instâncias do Azure Cache para Redis usando a CLI cláss
 ## <a name="azure-cache-for-redis-properties"></a>Propriedades do Cache Redis do Azure
 As propriedades a seguir são usadas durante a criação e a atualização de instâncias do Azure Cache para Redis.
 
-| Propriedade | Alternar | DESCRIÇÃO |
+| Propriedade | Switch | Descrição |
 | --- | --- | --- |
-| name |-n, --name |Nome do Azure Cache para Redis. |
+| Nome |-n, --name |Nome do Azure Cache para Redis. |
 | grupo de recursos |-g, --resource-group |Nome do Grupo de Recursos. |
 | location |-l, --location |Local para criar o cache. |
 | tamanho |-z, --size |Tamanho do Azure Cache para Redis. Valores válidos: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
@@ -55,12 +55,12 @@ As propriedades a seguir são usadas durante a criação e a atualização de in
 | Configuração do Redis |-c, --redis-configuration |Configuração do Redis. Insira uma cadeia de caracteres JSON formatada de valores e chaves de configuração aqui. Format:"{"":"","":""}" |
 | Configuração do Redis |-f, --redis-configuration-file |Configuração do Redis. Insira o caminho de um arquivo que contenha os valores e as chaves de configuração aqui. Formato da entrada do arquivo: {"":"","":""} |
 | Contagem de Fragmento |-r, --shard-count |Número de Fragmentos para criar um cache de Cluster Premium com clustering. |
-| Rede Virtual |-v, --virtual-network |Ao hospedar o cache em uma VNET, especifica a ID de recurso ARM exata da rede virtual para implantar o Azure Cache para Redis. Exemplo de formato: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Rede virtual |-v, --virtual-network |Ao hospedar o cache em uma VNET, especifica a ID de recurso ARM exata da rede virtual para implantar o Azure Cache para Redis. Exemplo de formato: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | tipo de chave |-t, --key-type |Tipo de chave a ser renovada. Valores válidos: [Primary, Secondary] |
-| StaticIP |-p, --static-ip \<static-ip\> |Ao hospedar o cache em uma VNET, especifica um endereço IP exclusivo na sub-rede do cache. Se ele não for fornecido, um será escolhido para você na sub-rede. |
-| Sub-rede |t, --subnet \<subnet\> |Ao hospedar o cache em uma VNET, especifica o nome da sub-rede na qual implantar o cache. |
-| VirtualNetwork |-v, --virtual-network \<virtual-network\> |Ao hospedar o cache em uma VNET, especifica a ID de recurso ARM exata da rede virtual para implantar o Azure Cache para Redis. Exemplo de formato: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
-| Assinatura |-s, --subscription |O identificador da assinatura. |
+| StaticIP |-p,--static-IP \<static-IP \> |Ao hospedar o cache em uma VNET, especifica um endereço IP exclusivo na sub-rede do cache. Se ele não for fornecido, um será escolhido para você na sub-rede. |
+| Sub-rede |t,--\<subnet de sub-rede \> |Ao hospedar o cache em uma VNET, especifica o nome da sub-rede na qual implantar o cache. |
+| VirtualNetwork |-v,--Virtual-Network \<virtual-Network \> |Ao hospedar o cache em uma VNET, especifica a ID de recurso ARM exata da rede virtual para implantar o Azure Cache para Redis. Exemplo de formato: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Subscription |-s, --subscription |O identificador da assinatura. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>Consulte todos os comandos do Azure Cache para Redis
 Para ver todos os comandos do Azure Cache para Redis e seus parâmetros, use o comando `azure rediscache -h`.
@@ -99,7 +99,7 @@ Para criar um Azure Cache para Redis, use o seguinte comando:
 
     azure rediscache create [--name <name> --resource-group <resource-group> --location <location> [options]]
 
-Para saber mais sobre esse comando, execute o comando `azure rediscache create -h` .
+Para saber mais sobre esse comando, execute o comando `azure rediscache create -h`.
 
     C:\>azure rediscache create -h
     help:    Create an Azure Cache for Redis
@@ -132,7 +132,7 @@ Para excluir um Azure Cache para Redis, use o seguinte comando:
 
     azure rediscache delete [--name <name> --resource-group <resource-group> ]
 
-Para saber mais sobre esse comando, execute o comando `azure rediscache delete -h` .
+Para saber mais sobre esse comando, execute o comando `azure rediscache delete -h`.
 
     C:\>azure rediscache delete -h
     help:    Delete an existing Azure Cache for Redis
@@ -155,7 +155,7 @@ Para listar todos os Azure Cache para Redis na Assinatura ou Grupo de Recursos, 
 
     azure rediscache list [options]
 
-Para saber mais sobre esse comando, execute o comando `azure rediscache list -h` .
+Para saber mais sobre esse comando, execute o comando `azure rediscache list -h`.
 
     C:\>azure rediscache list -h
     help:    List all Azure Cache for Redis within your Subscription or Resource Group
@@ -177,7 +177,7 @@ Para mostrar as propriedades de um Azure Cache para Redis existente, use o segui
 
     azure rediscache show [--name <name> --resource-group <resource-group>]
 
-Para saber mais sobre esse comando, execute o comando `azure rediscache show -h` .
+Para saber mais sobre esse comando, execute o comando `azure rediscache show -h`.
 
     C:\>azure rediscache show -h
     help:    Show properties of an existing Azure Cache for Redis
@@ -202,7 +202,7 @@ Para alterar as configurações de um Azure Cache para Redis, use o seguinte com
 
     azure rediscache set [--name <name> --resource-group <resource-group> --redis-configuration <redis-configuration>/--redis-configuration-file <redisConfigurationFile>]
 
-Para saber mais sobre esse comando, execute o comando `azure rediscache set -h` .
+Para saber mais sobre esse comando, execute o comando `azure rediscache set -h`.
 
     C:\>azure rediscache set -h
     help:    Change settings of an existing Azure Cache for Redis
@@ -229,7 +229,7 @@ Para renovar a chave de autenticação para um Azure Cache para Redis existente,
 
 Especifique `Primary` ou `Secondary` como `key-type`.
 
-Para saber mais sobre esse comando, execute o comando `azure rediscache renew-key -h` .
+Para saber mais sobre esse comando, execute o comando `azure rediscache renew-key -h`.
 
     C:\>azure rediscache renew-key -h
     help:    Renew the authentication key for an existing Azure Cache for Redis
@@ -253,7 +253,7 @@ Para listar as chaves Primárias e Secundárias de um Azure Cache para Redis, us
 
     azure rediscache list-keys [--name <name> --resource-group <resource-group>]
 
-Para saber mais sobre esse comando, execute o comando `azure rediscache list-keys -h` .
+Para saber mais sobre esse comando, execute o comando `azure rediscache list-keys -h`.
 
     C:\>azure rediscache list-keys -h
     help:    Lists Primary and Secondary key of an existing Azure Cache for Redis
