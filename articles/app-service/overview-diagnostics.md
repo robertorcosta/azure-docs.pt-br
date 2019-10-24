@@ -1,7 +1,7 @@
 ---
-title: Visão geral do diagnóstico do serviço de Azure App | Microsoft Docs
+title: Visão geral de diagnóstico do Serviço de Aplicativo do Azure | Microsoft Docs
 description: Saiba como você pode solucionar problemas com seu aplicativo com o diagnóstico do serviço de aplicativo.
-keywords: serviço de aplicativo, serviço de aplicativo do Azure, diagnóstico, suporte, aplicativo Web, solução de problemas, autoajuda
+keywords: serviço de aplicativo, serviço de aplicativo do azure, diagnósticos, suporte, aplicativo web, solução de problemas, autoajuda
 services: app-service
 documentationcenter: ''
 author: jen7714
@@ -14,30 +14,30 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 5631b34fee64c6ad0917b95ec68fcd586717a1b0
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 2919c7a2fa3a8912de0272af5131583988184704
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675195"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755526"
 ---
-# <a name="azure-app-service-diagnostics-overview"></a>Visão geral do diagnóstico do serviço Azure App
+# <a name="azure-app-service-diagnostics-overview"></a>Visão geral de diagnóstico do Serviço de Aplicativo do Azure
 
-Quando você estiver executando um aplicativo Web, você deseja estar preparado para qualquer problema que possa surgir, de 500 erros aos seus usuários informando que seu site está inativo. O diagnóstico do serviço de aplicativo é uma experiência inteligente e interativa para ajudá-lo a solucionar problemas de seu aplicativo sem nenhuma configuração necessária. Quando você tiver problemas com seu aplicativo, o diagnóstico do serviço de aplicativo indicará o que há de errado para orientá-lo sobre as informações corretas para solucionar problemas e resolver o problema com mais facilidade e rapidez.
+Quando você estiver executando um aplicativo Web, você deseja estar preparado para os problemas que podem surgir, desde os erros 500 até os usuários informando que seu site está inoperante. O diagnóstico do serviço de aplicativo é uma experiência inteligente e interativa para ajudá-lo a solucionar problemas de seu aplicativo sem nenhuma configuração necessária. Quando você tiver problemas com seu aplicativo, o diagnóstico do serviço de aplicativo indicará o que há de errado para orientá-lo sobre as informações corretas para solucionar problemas e resolver o problema com mais facilidade e rapidez.
 
 Embora essa experiência seja mais útil quando você estiver tendo problemas com seu aplicativo nas últimas 24 horas, todos os gráficos de diagnóstico estarão sempre disponíveis para você analisar.
 
-O diagnóstico do serviço de aplicativo funciona para não apenas seu aplicativo no Windows, mas também aplicativos em [Linux/contêineres](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [ambiente do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/environment/intro)e [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+O diagnóstico do Serviço de Aplicativo funciona não para apenas o aplicativo no Windows, mas também aplicativos em [Linux/contêineres](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [Ambiente do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/environment/intro) e [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
 
-## <a name="open-app-service-diagnostics"></a>Abrir o diagnóstico do serviço de aplicativo
+## <a name="open-app-service-diagnostics"></a>Abra o diagnóstico do Serviço de Aplicativo
 
-Para acessar o diagnóstico do serviço de aplicativo, navegue até o aplicativo Web do serviço de aplicativo ou Ambiente do Serviço de Aplicativo na [portal do Azure](https://portal.azure.com). No painel de navegação esquerdo, clique em **diagnosticar e resolver problemas**.
+Para acessar o diagnóstico do serviço de aplicativo, navegue até o aplicativo Web do serviço de aplicativo ou Ambiente do Serviço de Aplicativo na [portal do Azure](https://portal.azure.com). No painel de navegação esquerdo, clique em **Diagnosticar e resolver problemas**.
 
 Para Azure Functions, navegue até seu aplicativo de funções e, na barra de navegação superior, clique em **recursos da plataforma**e selecione **diagnosticar e resolver problemas** na seção **Gerenciamento de recursos** .
 
 Na home page do diagnóstico do serviço de aplicativo, você pode escolher a categoria que melhor descreve o problema com seu aplicativo usando as palavras-chave em cada bloco de página inicial. Além disso, essa página é onde você pode encontrar **ferramentas de diagnóstico** para aplicativos do Windows. Consulte [ferramentas de diagnóstico (somente para o aplicativo do Windows)](#diagnostic-tools-only-for-windows-app).
 
-![Principal](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+![Home page](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
 ## <a name="interactive-interface"></a>Interface interativa
 
@@ -59,7 +59,7 @@ Depois de optar por investigar o problema mais tarde clicando em um tópico, voc
 
 ## <a name="health-checkup"></a>Verificação de integridade
 
-Se você não sabe o que há de errado com seu aplicativo ou não sabe por onde começar a solucionar seus problemas, a verificação de integridade é um bom lugar para começar. A verificação de integridade analisa seus aplicativos para fornecer uma visão geral rápida e interativa que indica o que está íntegro e o que está errado, informando a você onde procurar investigar o problema. Sua interface inteligente e interativa fornece orientações sobre o processo de solução de problemas. A verificação de integridade é integrada ao relatório de diagnóstico da experiência gênio para aplicativos do Windows e aplicativo Web inoperante para aplicativos Linux.
+Se você não sabe o que há de errado com seu aplicativo ou não sabe por onde começar a solucionar seus problemas, a verificação de integridade é um bom lugar para começar. A verificação de integridade analisa seus aplicativos para fornecer uma visão geral rápida e interativa que indica o que está íntegro e o que está errado, informando a você onde procurar investigar o problema. Sua interface inteligente e interativa fornece orientações durante o processo de solução de problemas. A verificação de integridade é integrada ao relatório de diagnóstico da experiência gênio para aplicativos do Windows e aplicativo Web inoperante para aplicativos Linux.
 
 ### <a name="health-checkup-graphs"></a>Grafos da verificação de integridade
 
@@ -74,7 +74,7 @@ Há quatro grafos diferentes na verificação de integridade.
 
 ### <a name="investigate-application-code-issues-only-for-windows-app"></a>Investigar problemas de código do aplicativo (somente para o aplicativo do Windows)
 
-Como muitos problemas de aplicativo estão relacionados a problemas no código do aplicativo, o diagnóstico do serviço de aplicativo integra-se com [Application insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) para realçar exceções e problemas de dependência para correlacionar com o tempo de inatividade selecionado. O Application Insights precisa ser habilitado separadamente.
+Como muitos problemas de aplicativo estão relacionados a problemas no código do aplicativo, o diagnóstico do Serviço de Aplicativo integra-se ao [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) para realçar exceções e problemas de dependência para correlacionar com o tempo de inatividade selecionado. O Application Insights precisa ser habilitado separadamente.
 
 ![Percepções sobre o Aplicativo](./media/app-service-diagnostics/application-insights-7.png)
 
@@ -92,7 +92,7 @@ As ferramentas de diagnóstico incluem ferramentas de diagnóstico mais avançad
 
 ### <a name="proactive-cpu-monitoring"></a>Monitoramento proativo de CPU
 
-O monitoramento proativo de CPU fornece uma maneira fácil e proativa de tomar uma ação quando seu aplicativo ou processo filho para seu aplicativo está consumindo altos recursos de CPU. Você pode definir suas próprias regras de limite de CPU para atenuar temporariamente um problema de alta utilização da CPU até que a causa real do problema inesperado seja encontrada. Para obter mais informações, consulte [atenuar os problemas de CPU antes que eles ocorram](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html). O monitoramento proativo de CPU fornece uma maneira fácil e proativa de tomar uma ação quando seu aplicativo ou processo filho para seu aplicativo está consumindo altos recursos de CPU. Você pode definir suas próprias regras de limite de CPU para atenuar temporariamente um problema de alta utilização da CPU até que a causa real do problema inesperado seja encontrada.
+O monitoramento proativo de CPU fornece uma maneira fácil e proativa de tomar uma ação quando seu aplicativo ou processo filho para seu aplicativo está consumindo altos recursos de CPU. Você pode definir suas próprias regras de limite de CPU para atenuar temporariamente um problema de alta utilização da CPU até que a causa real do problema inesperado seja encontrada. Para obter mais informações, consulte [atenuar os problemas de CPU antes que eles ocorram](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html).
 
 ![Monitoramento proativo de CPU](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 

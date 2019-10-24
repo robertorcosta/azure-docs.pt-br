@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: af20c9e3a50c0c60135b1e447e7e1cba1fc36526
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: fe4a2082647ef1325d03ce4eec428ed1579704c5
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815718"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755980"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar pipelines do Machine Learning com o SDK do Azure Machine Learning
 
@@ -122,7 +122,7 @@ Abaixo estão exemplos de como criar e anexar destinos de computação para:
 
 * Computação do Azure Machine Learning
 * Azure Databricks 
-* Azure Data Lake Analytics
+* Análise Azure Data Lake
 
 ### <a name="azure-machine-learning-compute"></a>Computação do Azure Machine Learning
 
@@ -163,9 +163,9 @@ Crie um workspace do Azure Databricks antes de usá-lo. Para criar um recurso de
 
 Para anexar o Azure Databricks como um destino de computação, forneça as seguintes informações:
 
-* __Nome de computação do Databricks__: O nome que você quer atribuir a esse recurso de computação.
-* __Nome do Workspace do Databricks__: O nome do workspace do Azure Databricks.
-* __Token de acesso do Databricks__: O token de acesso usado para autenticar no Azure Databricks. Para gerar um token de acesso, consulte o documento [Autenticação](https://docs.azuredatabricks.net/api/latest/authentication.html).
+* __Nome de computação do databricks__: o nome que você deseja atribuir a esse recurso de computação.
+* __Nome do espaço de trabalho do databricks__: o nome do espaço de trabalho Azure Databricks.
+* __Token de acesso do databricks__: o token de acesso usado para autenticar para Azure Databricks. Para gerar um token de acesso, consulte o documento [Autenticação](https://docs.azuredatabricks.net/api/latest/authentication.html).
 
 O código a seguir demonstra como anexar o Azure Databricks como um destino de computação com o SDK do Azure Machine Learning:
 
@@ -216,9 +216,9 @@ Crie uma conta do Azure Data Lake Analytics antes de usá-lo. Para criar este re
 
 Para anexar o Data Lake Analytics como um destino de computação, você deve usar o SDK do Aprendizado de Máquina do Azure e fornecer as seguintes informações:
 
-* __Nome de computação__: O nome que você quer atribuir a esse recurso de computação.
-* __Grupo de recursos__: O grupo de recursos que contém a conta do Data Lake Analytics.
-* __Nome da conta__: O nome de conta do Data Lake Analytics.
+* __Nome da computa__: o nome que você deseja atribuir a este recurso de computação.
+* __Grupo de recursos__: o grupo de recursos que contém a conta de data Lake Analytics.
+* __Nome da conta__: o nome da conta de data Lake Analytics.
 
 O código a seguir demonstra como anexar o Data Lake Analytics como um destino de computação:
 
@@ -278,7 +278,7 @@ trainStep = PythonScriptStep(
 )
 ```
 
-A reutilização de resultados`allow_reuse`anteriores () é fundamental ao usar pipelines em um ambiente de colaboração, pois eliminar a reversão desnecessária oferece agilidade. Reutilização é o comportamento padrão quando o script_name, as entradas e os parâmetros de uma etapa permanecem os mesmos. Quando a saída da etapa é reutilizada, o trabalho não é enviado para a computação, em vez disso, os resultados da execução anterior ficam imediatamente disponíveis para a execução da próxima etapa. Se `allow_reuse` for definido como false, uma nova execução sempre será gerada para essa etapa durante a execução do pipeline. 
+A reutilização de resultados anteriores (`allow_reuse`) é fundamental ao usar pipelines em um ambiente de colaboração, pois eliminar a reversão desnecessária oferece agilidade. Reutilização é o comportamento padrão quando o script_name, as entradas e os parâmetros de uma etapa permanecem os mesmos. Quando a saída da etapa é reutilizada, o trabalho não é enviado para a computação, em vez disso, os resultados da execução anterior ficam imediatamente disponíveis para a execução da próxima etapa. Se `allow_reuse` for definido como false, uma nova execução sempre será gerada para essa etapa durante a execução do pipeline. 
 
 Depois de definir suas etapas, você pode criar o pipeline usando algumas ou todas essas etapas.
 
@@ -325,7 +325,7 @@ Para obter mais informações, consulte o [pacote Azure-pipeline-Steps](https://
 Quando você envia o pipeline, Azure Machine Learning verifica as dependências de cada etapa e carrega um instantâneo do diretório de origem especificado. Se nenhum diretório de origem for especificado, o diretório local atual será carregado. O instantâneo também é armazenado como parte do experimento em seu espaço de trabalho.
 
 > [!IMPORTANT]
-> Para impedir que arquivos sejam incluídos no instantâneo, crie um arquivo [. gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` no diretório e adicione os arquivos a ele. O `.amlignore` arquivo usa a mesma sintaxe e padrões que o arquivo [. gitignore](https://git-scm.com/docs/gitignore) . Se ambos os arquivos existirem `.amlignore` , o arquivo terá precedência.
+> Para impedir que arquivos sejam incluídos no instantâneo, crie um arquivo [. gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` no diretório e adicione os arquivos a ele. O arquivo de `.amlignore` usa a mesma sintaxe e padrões que o arquivo [. gitignore](https://git-scm.com/docs/gitignore) . Se ambos os arquivos existirem, o arquivo de `.amlignore` terá precedência.
 >
 > Para obter mais informações, veja [cópias de sombra](concept-azure-machine-learning-architecture.md#snapshots).
 
@@ -342,7 +342,7 @@ Quando você executar um pipeline pela primeira vez, o Azure Machine Learning:
 * Baixa o instantâneo do projeto para o destino de computação do armazenamento de Blobs associado ao workspace.
 * Cria uma imagem do Docker correspondente a cada etapa no pipeline.
 * Baixa a imagem do Docker para cada etapa do destino de computação do registro de contêiner.
-* Monta o repositório de armazenamento se um `DataReference` objeto for especificado em uma etapa. Se não houver suporte para montagem, os dados serão copiados para o destino de computação.
+* Monta o repositório de armazenamento se um objeto `DataReference` for especificado em uma etapa. Se não houver suporte para montagem, os dados serão copiados para o destino de computação.
 * Executa a etapa no destino de computação especificado na definição da etapa. 
 * Cria artefatos como logs, stdout e stderr, métricas e saída especificados pela etapa. Esses artefatos então são carregados e mantidos no armazenamento de dados padrão do usuário.
 
@@ -354,7 +354,7 @@ Para obter mais informações, consulte a referência de [classe experimento](ht
 
 ## <a name="github-tracking-and-integration"></a>Acompanhamento e integração do GitHub
 
-Quando você inicia uma execução de treinamento onde o diretório de origem é um repositório git local, as informações sobre o repositório são armazenadas no histórico de execuções. Por exemplo, a ID de confirmação atual para o repositório é registrada como parte do histórico.
+Quando você inicia uma execução de treinamento onde o diretório de origem é um repositório git local, as informações sobre o repositório são armazenadas no histórico de execuções. Para obter mais informações, consulte [integração do git para Azure Machine Learning](concept-train-model-git-integration.md).
 
 ## <a name="publish-a-pipeline"></a>Publicar um pipeline
 
@@ -410,7 +410,7 @@ response = requests.post(published_pipeline1.endpoint,
 ### <a name="view-results-of-a-published-pipeline"></a>Exibir os resultados de um pipeline publicado
 
 Consulte a lista de todos os seus pipelines publicados e seus detalhes de execução:
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. [Exiba seu workspace](how-to-manage-workspace.md#view) para encontrar a lista de pipelines.
  ![lista de pipelines do aprendizado de máquina](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
@@ -429,7 +429,7 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-Você pode habilitá-lo `p.enable()`novamente com. Para obter mais informações, consulte referência de [classe PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) .
+Você pode habilitá-lo novamente com `p.enable()`. Para obter mais informações, consulte referência de [classe PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) .
 
 
 ## <a name="caching--reuse"></a>Cache & reutilização  
@@ -437,9 +437,9 @@ Você pode habilitá-lo `p.enable()`novamente com. Para obter mais informações
 Para otimizar e personalizar o comportamento de seus pipelines, você pode fazer algumas coisas em cache e reutilização. Por exemplo, você pode optar por:
 + **Desative a reutilização padrão da saída de execução de etapa** definindo `allow_reuse=False` durante a [definição da etapa](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). A reutilização é a chave ao usar pipelines em um ambiente de colaboração, já que a eliminação de execuções desnecessárias oferece agilidade. No entanto, você pode recusar a reutilização.
 + **Estenda o hash além do script**, para incluir também um caminho absoluto ou caminhos relativos para o pasta_de_origem para outros arquivos e diretórios usando o `hash_paths=['<file or directory']` 
-+ **Forçar a regeneração de saída para todas as etapas em uma execução** com`pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
++ **Forçar a regeneração de saída para todas as etapas em uma execução** com `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-Por padrão, `allow_reuse` as etapas são habilitadas e somente o arquivo de script principal é definido como hash. Portanto, se o script de uma determinada etapa permanecer igual (`script_name`, entradas e parâmetros), a saída de uma execução de etapa anterior será reutilizada, o trabalho não será enviado para a computação e os resultados da execução anterior estarão imediatamente disponíveis para a próxima etapa em vez disso .  
+Por padrão, `allow_reuse` para etapas está habilitada e somente o arquivo de script principal é definido como hash. Portanto, se o script de uma determinada etapa permanecer o mesmo (`script_name`, entradas e os parâmetros), a saída de uma execução de etapa anterior será reutilizada, o trabalho não será enviado para a computação e os resultados da execução anterior estarão imediatamente disponíveis para a próxima etapa.  
 
 ```python
 step = PythonScriptStep(name="Hello World",
@@ -450,7 +450,7 @@ step = PythonScriptStep(name="Hello World",
                         hash_paths=['hello_world.ipynb'])
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Use [esses Jupyter Notebooks no GitHub](https://aka.ms/aml-pipeline-readme) para explorar ainda mais pipelines de machine learning.
 - Consulte a ajuda de referência do SDK para o pacote [azureml-pipelines-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) e o pacote [azureml-pipelines-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) .

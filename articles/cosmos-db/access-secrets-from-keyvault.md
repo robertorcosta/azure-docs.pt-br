@@ -1,20 +1,20 @@
 ---
 title: Use o Key Vault para armazenar e acessar chaves do Azure Cosmos DB
 description: Use o Azure Key Vault para armazenar e acessar a cadeia de conexão, chaves e pontos de extremidade do Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 157ccd284c25cb5c7275aa942823ade2a40795cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55e6bbc338c1ac6f9ef935b4a3a05c32f2b5e9f5
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239862"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755220"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteger chaves do Azure Cosmos usando o Azure Key Vault 
 
@@ -33,8 +33,8 @@ As etapas a seguir são necessárias para armazenar e ler as chaves de acesso do
 1. Entre no [portal do Azure](https://portal.azure.com/).  
 2. Selecione **Criar um recurso > Segurança > Key Vault**.  
 3. A seção **Criar cofre de chaves** fornece as seguintes informações:  
-   * **Nome:** Forneça um nome exclusivo para seu Key Vault.  
-   * **Assinatura:** Escolha a assinatura que você usará.  
+   * **Nome:** forneça um nome exclusivo para seu Key Vault.  
+   * **Assinatura:** escolha a assinatura que você usará.  
    * Em **Grupo de Recursos**, escolha **Criar novo** e digite um nome para o grupo de recursos.  
    * No menu suspenso Local, escolha um local.  
    * Deixe as outras opções com os padrões.  
@@ -89,7 +89,7 @@ Agora, ao executar o aplicativo, você poderá ler o segredo do Key Vault.
  
 Da mesma forma, você pode adicionar um usuário para acessar o Key Vault. Você precisa adicionar você mesmo ao Key Vault selecionando **Políticas de Acesso**. Em seguida, conceda todas as permissões que você precisa para executar o aplicativo usando o Visual Studio. Quando esse aplicativo estiver em execução na área de trabalho, ele usará sua identidade.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para configurar um firewall para o Azure Cosmos DB, consulte o artigo [Suporte de firewall](firewall-support.md).
 * Para configurar o ponto de extremidade de serviço de rede virtual, confira o artigo [Proteger o acesso usando o ponto de extremidade de serviço da VNET](vnet-service-endpoint.md).

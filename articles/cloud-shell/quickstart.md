@@ -1,25 +1,21 @@
 ---
-title: Guia de início rápido do Azure Cloud Shell | Microsoft Docs
-description: Início rápido para Azure Cloud Shell
-services: ''
-documentationcenter: ''
+title: Guia de início rápido Azure Cloud Shell-bash
+description: Saiba como usar a linha de comando do bash em seu navegador com Azure Cloud Shell.
 author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 8151013f263c6cf2f90e89fa1c3b0b3025f2ea38
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 574841b3a89385a3b8bf048d5ed36f40fac99a83
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741978"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757392"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guia de início rápido para o Back no Azure Cloud Shell
 
@@ -56,13 +52,13 @@ az account set --subscription 'my-subscription-name'
 > [!TIP]
 > Sua assinatura será lembrada em sessões futuras com o uso de `/home/<user>/.azure/azureProfile.json`.
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+### <a name="create-a-resource-group"></a>Criar um grupos de recursos
 Crie um novo grupo de recursos no Oeste dos EUA chamado "MyRG".
 ```azurecli-interactive
 az group create --location westus --name MyRG
 ```
 
-### <a name="create-a-linux-vm"></a>Criar uma VM do Linux
+### <a name="create-a-linux-vm"></a>Criar uma VM Linux
 Crie uma VM do Ubuntu em seu novo grupo de recursos. A CLI do Azure criará chaves SSH e configurará a VM com elas. <br>
 
 ```azurecli-interactive
@@ -98,7 +94,7 @@ Após estabelecer a conexão SSH, você deverá ver o prompt de boas-vindas do U
    az group delete -n MyRG
    ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Saiba mais sobre como manter arquivos para Bash no Cloud Shell](persisting-shell-storage.md) <br>
 [Saiba mais sobre a CLI do Azure](https://docs.microsoft.com/cli/azure/) <br>
 [Saiba mais sobre o armazenamento de Arquivos do Azure](../storage/files/storage-files-introduction.md) <br>

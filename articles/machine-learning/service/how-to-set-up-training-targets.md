@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: bce04a14a13d5b3615963f298f35af0d2fc480bb
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 95ded3c184836ac58a0f97d1bf30dd2e3c123ccb
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244429"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755962"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e usar destinos de computação para treinamento de modelo 
 
@@ -68,7 +68,7 @@ Os pipelines ML são construídos a partir de várias **etapas**, que são unida
 > [!TIP]
 > Os pipelines ML podem usar a configuração de execução ou os estimadores ao treinar modelos.
 
-Embora os pipelines ML possam treinar modelos, eles também podem preparar dados antes de treinar e implantar modelos após o treinamento. Um dos principais casos de uso para pipelines é a pontuação em lote. Para obter mais informações, consulte [Pipelines: Otimize os fluxos de trabalho do Machine Learning @ no__t-0.
+Embora os pipelines ML possam treinar modelos, eles também podem preparar dados antes de treinar e implantar modelos após o treinamento. Um dos principais casos de uso para pipelines é a pontuação em lote. Para obter mais informações, consulte [pipelines: otimizar fluxos de trabalho do Machine Learning](concept-ml-pipelines.md).
 
 ## <a name="set-up-in-python"></a>Configurar no Python
 
@@ -82,9 +82,9 @@ Use as seções a seguir para configurar estes destinos de computação:
 
 ### <a id="local"></a>Computador local
 
-1. **Criar e anexar**: Não é necessário criar nem anexar um destino de computação para usar seu computador local como o ambiente de treinamento.  
+1. **Criar e anexar**: não é necessário criar ou anexar um destino de computação para usar o computador local como o ambiente de treinamento.  
 
-1. **Configurar**:  Quando você usa seu computador local como um destino de computação, o código de treinamento é executado em seu [ambiente de desenvolvimento](how-to-configure-environment.md).  Se esse ambiente já tiver os pacotes do Python de que você precisa, use o ambiente gerenciado pelo usuário.
+1. **Configurar**: quando você usa seu computador local como um destino de computação, o código de treinamento é executado em seu [ambiente de desenvolvimento](how-to-configure-environment.md).  Se esse ambiente já tiver os pacotes do Python de que você precisa, use o ambiente gerenciado pelo usuário.
 
  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=run_local)]
 
@@ -106,12 +106,12 @@ A Computação do Machine Learning do Azure tem limites padrão como o número d
 É possível criar a Computação do Azure Machine Learning como um destino de computação em tempo de execução. A computação é criada automaticamente para a sua execução. A computação é excluída automaticamente depois de a execução ser concluída. 
 
 > [!NOTE]
-> Para especificar o número máximo de nós a serem usados, normalmente você definirá `node_count` como o número de nós. Atualmente, há (04/04/2019) um bug que impede que isso funcione. Como alternativa, use a propriedade `amlcompute._cluster_max_node_count` da configuração de execução. Por exemplo: `run_config.amlcompute._cluster_max_node_count = 5`.
+> Para especificar o número máximo de nós a serem usados, normalmente você definirá `node_count` como o número de nós. Atualmente, há (04/04/2019) um bug que impede que isso funcione. Como alternativa, use a propriedade `amlcompute._cluster_max_node_count` da configuração de execução. Por exemplo, `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > A criação baseada em execução da computação do Azure Machine Learning atualmente está em Versão Prévia. Não use a criação baseada em execução se você estiver usando o ajuste de hiperparâmetro ou o aprendizado de máquina automatizado. Para usar o ajuste de hiperparâmetro ou aprendizado de máquina automatizados, crie um destino de [computação persistente](#persistent) em vez disso.
 
-1.  **Criar, anexar e configurar**: a criação com base em execução gera todas as etapas necessárias para criar, anexar e configurar o destino de computação com a configuração de execução.  
+1.  **Criar, anexar e configurar**: a criação baseada em execução executa todas as etapas necessárias para criar, anexar e configurar o destino de computação com a configuração de execução.  
 
   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=run_temp_compute)]
 
@@ -122,10 +122,10 @@ Agora que você anexou um computador e configurou sua execução, a próxima eta
 
 Uma Computação do Azure Machine Learning pode ser reutilizada em trabalhos. Ele pode ser compartilhado com outros usuários no workspace e é mantido entre trabalhos.
 
-1. **Criar e anexar**: Para criar um recurso persistente de Computação do Azure Machine Learning em Python, especifique as propriedades **vm_size** e **max_nodes**. O Azure Machine Learning usará padrões inteligentes para o restante das propriedades. A computação é reduzida automaticamente até zero nó quando não é usada.   VMs dedicadas são criadas para executar seus trabalhos conforme necessário.
+1. **Criar e anexar**: para criar um recurso de computação persistente Azure Machine Learning em Python, especifique as propriedades **vm_size** e **max_nodes** . O Azure Machine Learning usará padrões inteligentes para o restante das propriedades. A computação é reduzida automaticamente até zero nó quando não é usada.   VMs dedicadas são criadas para executar seus trabalhos conforme necessário.
     
-    * **vm_size**: A família de VMs dos nós criados pela Computação do Machine Learning do Azure.
-    * **max_nodes**: O número máximo de nós a serem dimensionados automaticamente durante a execução de um trabalho na Computação do Azure Machine Learning.
+    * **vm_size**: a família de VMs dos nós criados por Azure Machine Learning computação.
+    * **max_nodes**: o número máximo de nós para fazer o dimensionamento automático para quando você executa um trabalho em Azure Machine Learning computação.
     
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
@@ -149,12 +149,12 @@ Você pode usar um ambiente do Conda interno do sistema, um ambiente do Python j
 
 Use a DSVM (Máquina Virtual de Ciência de Dados) do Azure como a VM do Azure de escolha para esse cenário. Essa VM é uma ciência de dados pré-configuradas e o ambiente de desenvolvimento de inteligência artificial do Azure. A VM oferece uma opção selecionada de ferramentas e estruturas para desenvolvimento do aprendizado de máquina de todo o ciclo de vida. Para saber mais sobre como usar a DSVM com o Azure Machine Learning, consulte [Configurar um ambiente de desenvolvimentopara o Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
 
-1. **Criar**: Crie uma DSVM antes de usá-la para treinar seu modelo. Para criar esse recurso, veja [Provisionar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+1. **Criar**: Crie um DSVM antes de usá-lo para treinar seu modelo. Para criar esse recurso, veja [Provisionar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
 
     > [!WARNING]
     > O Azure Machine Learning dá suporte apenas a máquinas virtuais que executam o Ubuntu. Para criar uma VM ou escolher uma VM existente, selecione uma VM que usa o Ubuntu.
 
-1. **Anexar**: Para anexar uma máquina virtual existente como um destino de computação, você precisa fornecer o nome de domínio totalmente qualificado (FQDN), o nome de logon e a senha da máquina virtual. No exemplo, substitua \<fqdn> com o FQDN público do VM ou o endereço IP público. Substitua \<nome de usuário> e \<senha > por um novo nome de usuário do SSH e senha.
+1. **Anexar**: para anexar uma máquina virtual existente como um destino de computação, você deve fornecer o nome de domínio totalmente qualificado (FQDN), o nome de usuário e a senha para a máquina virtual. No exemplo, substitua \<fqdn> com o FQDN público do VM ou o endereço IP público. Substitua \<nome de usuário> e \<senha > por um novo nome de usuário do SSH e senha.
 
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
@@ -181,7 +181,7 @@ Use a DSVM (Máquina Virtual de Ciência de Dados) do Azure como a VM do Azure d
 
    Outra opção é anexar a DSVM ao seu workspace [usando o portal do Azure](#portal-reuse).
 
-1. **Configurar**: Crie uma configuração de execução para o destino de computação da DSVM. O Docker e o conda são usados para criar e configurar o ambiente de treinamento na DSVM.
+1. **Configurar**: Crie uma configuração de execução para o destino de computação DSVM. O Docker e o conda são usados para criar e configurar o ambiente de treinamento na DSVM.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
@@ -192,13 +192,13 @@ Agora que você anexou um computador e configurou sua execução, a próxima eta
 
 O Azure HDInsight é uma plataforma popular para análise de dados. A plataforma fornece o Apache Spark, que pode ser usado para o treinamento do seu modelo.
 
-1. **Criar**:  Crie o cluster HDInsight antes de usá-lo para o treinamento do seu modelo. Para criar um Spark no cluster HDInsight, consulte [Criar um Cluster Spark no HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
+1. **Criar**: Crie o cluster HDInsight antes de usá-lo para treinar seu modelo. Para criar um Spark no cluster HDInsight, consulte [Criar um Cluster Spark no HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
 
     Ao criar o cluster, especifique um nome de usuário SSH e senha. Observe esses valores, conforme necessário, ao usar o HDInsight como um destino de computação.
     
     Depois que o cluster é criado, conecte-o com o nome do host \<clustername >-ssh.azurehdinsight.net, em que \<clustername> é o nome que você forneceu para o cluster. 
 
-1. **Anexar**: Para anexar a um cluster do HDInsight como um destino de computação, forneça o nome do host, o nome de usuário e a senha para o cluster HDInsight. O exemplo a seguir usa o SDK para anexar um cluster ao seu workspace. No exemplo, substitua \<clustername> pelo nome do seu cluster. Substitua \<nome de usuário> e \<senha > por um novo nome de usuário do SSH e senha do cluster.
+1. **Anexar**: para anexar um cluster do hdinsight como um destino de computação, você deve fornecer o nome do host, o nome de usuário e a senha para o cluster HDInsight. O exemplo a seguir usa o SDK para anexar um cluster ao seu workspace. No exemplo, substitua \<clustername> pelo nome do seu cluster. Substitua \<nome de usuário> e \<senha > por um novo nome de usuário do SSH e senha do cluster.
 
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
@@ -222,7 +222,7 @@ O Azure HDInsight é uma plataforma popular para análise de dados. A plataforma
 
    Outra opção é anexar o cluster HDInsight ao workspace [usando o portal do Azure](#portal-reuse).
 
-1. **Configurar**: Crie uma configuração de execução para o destino de computação da HDI. 
+1. **Configurar**: Crie uma configuração de execução para o destino de computação HDI. 
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
@@ -236,9 +236,9 @@ O lote do Azure é usado para executar aplicativos de HPC (computação de alto 
 
 Para anexar o lote do Azure como um destino de computação, você deve usar o SDK do Azure Machine Learning e fornecer as seguintes informações:
 
--   **Nome de computação do lote do Azure**: Um nome amigável a ser usado para a computação no espaço de trabalho
--   **Nome da conta do lote do Azure**: O nome da conta do lote do Azure
--   **Grupo de Recursos**: O grupo de recursos que contém a conta do lote do Azure.
+-   **Nome de computação do lote do Azure**: um nome amigável a ser usado para a computação no espaço de trabalho
+-   **Nome da conta do lote do Azure**: o nome da conta do lote do Azure
+-   **Grupo de recursos**: o grupo de recursos que contém a conta do lote do Azure.
 
 O código a seguir demonstra como anexar o lote do Azure como um destino de computação:
 
@@ -295,7 +295,7 @@ Para ver os destinos de computação do seu workspace, use as seguintes etapas:
  
 1. Em __Aplicativos__, selecione __Computação__.
 
-    [Guia de computação ![View](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
+    [![View guia computação](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>Criar um destino de computação
 
@@ -314,7 +314,7 @@ Siga as etapas anteriores para exibir a lista de destinos de computação. Em se
 
 1. Preencha o formulário. Forneça valores para as propriedades necessárias, especialmente **Família de VMs**e o **máximo de nós** utilizado para acelerar a computação.  
 
-1. Selecione __Criar__.
+1. Clique em __Criar__.
 
 
 1. Exiba o status da operação de criação, selecionando o destino de computação na lista:
@@ -379,7 +379,7 @@ Depois de criar uma configuração de execução, você pode usá-la para execut
 > [!IMPORTANT]
 > Quando você envia a execução de treinamento, um instantâneo do diretório que contém seus scripts de treinamento é criado e enviado para o destino de computação. Ele também é armazenado como parte do experimento em seu espaço de trabalho. Se você alterar os arquivos e enviar a execução novamente, somente os arquivos alterados serão carregados.
 >
-> Para impedir que arquivos sejam incluídos no instantâneo, crie um arquivo [. gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` no diretório e adicione os arquivos a ele. O arquivo `.amlignore` usa a mesma sintaxe e padrões que o arquivo [. gitignore](https://git-scm.com/docs/gitignore) . Se ambos os arquivos existirem, o arquivo `.amlignore` terá precedência.
+> Para impedir que arquivos sejam incluídos no instantâneo, crie um arquivo [. gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` no diretório e adicione os arquivos a ele. O arquivo de `.amlignore` usa a mesma sintaxe e padrões que o arquivo [. gitignore](https://git-scm.com/docs/gitignore) . Se ambos os arquivos existirem, o arquivo de `.amlignore` terá precedência.
 > 
 > Para obter mais informações, veja [cópias de sombra](concept-azure-machine-learning-architecture.md#snapshots).
 
@@ -393,9 +393,9 @@ Primeiro, crie um experimento no seu workspace.
 
 Envie o experimento com um objeto `ScriptRunConfig`.  Esse objeto inclui:
 
-* **source_directory**: o diretório de origem que contém o script de treinamento
+* **pasta_de_origem**: o diretório de origem que contém o script de treinamento
 * **script**: identificar o script de treinamento
-* **run_config**: a configuração de execução que, por sua vez, define em que local ocorrerá o treinamento.
+* **run_config**: a configuração de execução, que, por sua vez, define onde o treinamento ocorrerá.
 
 Por exemplo, para usar a configuração de [destino local](#local):
 
@@ -422,7 +422,7 @@ Para obter mais informações, consulte a documentação do [ScriptRunConfig](ht
 
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Criar configuração de execução e enviar execução usando Azure Machine Learning CLI
 
-Você pode usar [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e [Machine Learning extensão da CLI](reference-azure-machine-learning-cli.md) para criar configurações de execução e enviar execuções em diferentes destinos de computação. Os exemplos a seguir pressupõem que você tenha um Workspace do Azure Machine Learning existente e que tenha feito logon no Azure usando o comando da CLI `az login`. 
+Você pode usar [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e [Machine Learning extensão da CLI](reference-azure-machine-learning-cli.md) para criar configurações de execução e enviar execuções em diferentes destinos de computação. Os exemplos a seguir pressupõem que você tenha um Workspace do Azure Machine Learning existente e que tenha feito logon no Azure usando `az login` comando da CLI. 
 
 ### <a name="create-run-configuration"></a>Criar configuração de execução
 
@@ -432,7 +432,7 @@ A maneira mais simples de criar a configuração de execução é navegar na pas
 az ml folder attach
 ```
 
-Esse comando cria uma subpasta `.azureml` que contém arquivos de configuração de execução de modelo para destinos de computação diferentes. Você pode copiar e editar esses arquivos para personalizar sua configuração, por exemplo, para adicionar pacotes do Python ou alterar as configurações do Docker.  
+Este comando cria uma subpasta `.azureml` que contém arquivos de configuração de execução de modelo para destinos de computação diferentes. Você pode copiar e editar esses arquivos para personalizar sua configuração, por exemplo, para adicionar pacotes do Python ou alterar as configurações do Docker.  
 
 ### <a name="structure-of-run-configuration-file"></a>Estrutura do arquivo de configuração de execução
 
@@ -493,13 +493,13 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 
 Observe a seção *argumentos* em runconfig e o *espaço de parâmetro* em hyperdrive config. Eles contêm os argumentos de linha de comando a serem passados para o script de treinamento. O valor em runconfig permanece o mesmo para cada iteração, enquanto o intervalo na configuração de HyperDrive é iterado. Não especifique o mesmo argumento em ambos os arquivos.
 
-Para obter mais detalhes sobre esses comandos da CLI ```az ml``` e conjunto completo de argumentos, consulte [a documentação de referência](reference-azure-machine-learning-cli.md).
+Para obter mais detalhes sobre esses ```az ml``` comandos da CLI e conjunto completo de argumentos, consulte [a documentação de referência](reference-azure-machine-learning-cli.md).
 
 <a id="gitintegration"></a>
 
 ## <a name="git-tracking-and-integration"></a>Acompanhamento e integração de git
 
-Quando você inicia uma execução de treinamento onde o diretório de origem é um repositório git local, as informações sobre o repositório são armazenadas no histórico de execuções. Por exemplo, a ID de confirmação atual para o repositório é registrada como parte do histórico.
+Quando você inicia uma execução de treinamento onde o diretório de origem é um repositório git local, as informações sobre o repositório são armazenadas no histórico de execuções. Para obter mais informações, consulte [integração do git para Azure Machine Learning](concept-train-model-git-integration.md).
 
 ## <a name="notebook-examples"></a>Exemplos de notebook
 
@@ -509,9 +509,9 @@ Veja estes notebooks para obter exemplos de treinamento com vários destinos de 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um destino de computação gerenciado para treinar um modelo.
+* [Tutorial: treinar um modelo](tutorial-train-models-with-aml.md) usa um destino de computação gerenciado para treinar um modelo.
 * Saiba como [ajustar os hiperparâmetros com eficiência](how-to-tune-hyperparameters.md) para criar modelos melhores.
 * Quando você tiver um modelo treinado, aprenda [como e em que local implantar modelos](how-to-deploy-and-where.md).
 * Exiba a referência do SKD da [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).

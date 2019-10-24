@@ -7,16 +7,16 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4f6dc068969efd3f66e6808531594ed4063347f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 0252fff84307577ab307e591948e16dc30c38f66
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530869"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750003"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Criando e configurando um cofre de chaves para Azure Disk Encryption
 
-Azure Disk Encryption usa Azure Key Vault para controlar e gerenciar chaves de criptografia de disco e segredos.  Para obter mais informações sobre cofres de chaves, consulte [introdução ao Azure Key Vault](../key-vault/key-vault-get-started.md) e [proteger o cofre de chaves](../key-vault/key-vault-secure-your-key-vault.md).
+Azure Disk Encryption usa Azure Key Vault para controlar e gerenciar chaves de criptografia de disco e segredos.  Para obter mais informações sobre cofres-chave, consulte [Introdução ao Cofre de Chaves do Azure](../key-vault/key-vault-get-started.md) e [Proteja seu cofre de chaves](../key-vault/key-vault-secure-your-key-vault.md).
 
 Criar e configurar um cofre de chaves para uso com o Azure Disk Encryption envolve três etapas:
 
@@ -31,8 +31,6 @@ Você também pode, se desejar, gerar ou importar uma chave de criptografia de c
 ## <a name="install-tools-and-connect-to-azure"></a>Instalar ferramentas e conectar-se ao Azure
 
 As etapas neste artigo podem ser concluídas com o [CLI do Azure](/cli/azure/), o [módulo Azure PowerShell Az](/powershell/azure/overview)ou o [portal do Azure](https://portal.azure.com).
-
-Embora o portal possa ser acessado por meio de seu navegador, CLI do Azure e Azure PowerShell exigem a instalação local.
 
 ### <a name="connect-to-your-azure-account"></a>Conectar-se à sua conta do Azure
 
@@ -50,6 +48,6 @@ Connect-AzAccount
  
 ## <a name="next-steps"></a>Próximos passos
 
-- [Visão geral de Azure Disk Encryption](disk-encryption-overview.md)
+- [Visão geral do Azure Disk Encryption](disk-encryption-overview.md)
 - [Criptografar conjuntos de dimensionamento de máquinas virtuais usando o CLI do Azure](disk-encryption-cli.md)
 - [Criptografar conjuntos de dimensionamento de máquinas virtuais usando o Azure PowerShell](disk-encryption-powershell.md)

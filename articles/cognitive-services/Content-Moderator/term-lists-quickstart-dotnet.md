@@ -3,19 +3,19 @@ title: Verificar o texto em relação a uma lista de termos personalizados em C#
 titleSuffix: Azure Cognitive Services
 description: Como moderar o texto com listas de termo personalizadas do SDK do Content Moderator para .NET.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
-ms.author: sajagtap
-ms.openlocfilehash: d1c2f8b06d333be23f25a2d150c23269bf84cd2e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: 272063c3fcc77c76536dbd007b1ab0132a565e61
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242838"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757261"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Verificar o texto em relação a uma lista de termos personalizados em C#
 
@@ -23,7 +23,7 @@ A lista de termos global padrão do Content Moderator do Azure é suficiente par
 
 Você pode usar o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para criar listas de termos personalizados para serem usadas com a API de Moderação de Texto.
 
-Este artigo fornece informações e exemplos de código para ajudá-lo a começar a usar o SDK do Content Moderator para .NET para:
+Este artigo fornece informações e exemplos de código para ajudá-lo a começar a usar SDK do Content Moderator para .NET para:
 - Cria uma lista.
 - Adicionar termos a uma lista.
 - Examinar termos com os termos em uma lista.
@@ -34,11 +34,11 @@ Este artigo fornece informações e exemplos de código para ajudá-lo a começa
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se nos serviços do Content Moderator
+## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se para serviços do Content Moderator
 
 Uma chave de assinatura será necessária antes de usar os serviços do Content Moderator através da API REST ou do SDK. Assine o serviço de Content Moderator no [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) para obter um.
 
-## <a name="create-your-visual-studio-project"></a>Criar seu projeto do Visual Studio
+## <a name="create-your-visual-studio-project"></a>Criar um projeto do Visual Studio
 
 1. Adicione um novo projeto de **Aplicativo do console (.NET Framework)** à solução.
 
@@ -274,7 +274,7 @@ Tela de texto usando uma lista de termos com **ContentModeratorClient.TextModera
 - Um tipo MIME, que pode ser "text/html", "texto/xml", "texto/markdown" ou "texto/simples".
 - O texto para a tela.
 - Um valor booliano. Defina este campo como **verdadeiro** para a correção automática de texto antes de colocar na tela.
-- Um valor booliano. Defina este campo como **verdadeiro** para detectar informações de identificação pessoal (PII) no texto.
+- Um valor booliano. Defina esse campo como **true** para detectar dados pessoais no texto.
 - ID de Lista de termos.
 
 Para obter mais informações, confira a [referência da API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
@@ -315,7 +315,7 @@ Excluir um termo ou uma lista é simples. Você pode usar o SDK para realizar as
 
 - Excluir um termo. (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
 - Excluir todos os termos em uma lista sem excluir a lista. (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
-- Excluir uma lista e todo seu conteúdo. (**ContentModeratorClient.ListManagementTermLists.Delete**)
+- Exclua uma lista e todo seu conteúdo. (**ContentModeratorClient.ListManagementTermLists.Delete**)
 
 ### <a name="delete-a-term"></a>Excluir um termo
 
@@ -446,6 +446,6 @@ Deleting term list with ID 252.
 Press ENTER to close the application.
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Obtenha o [SDK do .NET do Content Moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar em seu processo de integração.
