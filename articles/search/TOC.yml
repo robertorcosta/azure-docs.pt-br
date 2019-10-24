@@ -1,20 +1,24 @@
-- name: Documentação do Azure Search
+- name: Documentação da pesquisa cognitiva do Azure
   href: index.yml
 - name: Visão geral
-  items:
-    - name: O que é o Azure Search?
-      href: search-what-is-azure-search.md
-- name: Guia de início rápido
   expanded: true
+  items:
+    - name: O que é a pesquisa cognitiva do Azure?
+      href: search-what-is-azure-search.md
+    - name: Novidades
+      href: whats-new.md
+- name: Guia de início rápido
   items:
     - name: Criar um serviço
       href: search-create-service-portal.md
     - name: Portal
       items:
-        - name: Criar e usar um índice
+        - name: Criar um índice de pesquisa
           href: search-get-started-portal.md
-        - name: Aprimorar com a pesquisa cognitiva (IA)
+        - name: Criar um conjunto de habilidades cognitivas
           href: cognitive-search-quickstart-blob.md
+        - name: Criar um repositório de dados de conhecimento
+          href: knowledge-store-create-portal.md
     - name: 'C#'
       href: search-get-started-dotnet.md
     - name: Java
@@ -79,7 +83,7 @@
   items:
     - name: Pesquisa de texto completo
       href: search-lucene-query-architecture.md
-    - name: Pesquisa cognitiva
+    - name: Enriquecimento de IA
       href: cognitive-search-concept-intro.md
     - name: Conjuntos de habilidades
       href: cognitive-search-working-with-skillsets.md
@@ -87,6 +91,8 @@
       href: knowledge-store-concept-intro.md
     - name: Projeções
       href: knowledge-store-projection-overview.md
+    - name: Indexação incremental
+      href: cognitive-search-incremental-indexing-conceptual.md
 - name: Guias de instruções
   items:
     - name: Planejamento
@@ -209,6 +215,8 @@
           href: search-howto-schedule-indexers.md
         - name: Mapear campos
           href: search-indexer-field-mappings.md
+        - name: Indexação incremental
+          href: search-howto-incremental-index.md
         - name: Conectar-se à Instância Gerenciada do SQL
           href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: Conectar-se às VMs do SQL Server
@@ -247,8 +255,6 @@
           href: cognitive-search-resources-documentation.md
         - name: Repositório de conhecimento (versão prévia)
           items:
-            - name: Criar um repositório de conhecimento no portal do Azure
-              href: knowledge-store-create-portal.md
             - name: Criar usando REST e Postman
               href: knowledge-store-create-rest.md
             - name: Exibir com o Gerenciador de Armazenamento
