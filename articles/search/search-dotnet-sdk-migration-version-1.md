@@ -1,23 +1,22 @@
 ---
-title: Atualizar para o SDK do .NET do Azure Search versão 1.1 – Azure Search
+title: Atualizar para Azure Search SDK do .NET versão 1,1
+titleSuffix: Azure Cognitive Search
 description: Migre o código para o SDK do .NET do Azure Search versão 1.1 de versões de API mais antigas. Conheça as novidades e quais alterações de código são necessárias.
-author: brjohnstmsft
 manager: nitinme
-services: search
-ms.service: search
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
-ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: 8227e1b372af1eee43db59da2cfad165d67be9ae
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: 159aaa8424c3d7a711b587464b80696929f02186
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183276"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792391"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>Atualizando para o SDK do .NET do Azure Search versão 1.1
+# <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Atualizar para Azure Search SDK do .NET versão 1,1
 
 Se você estiver usando a visualização da versão 1.0.2 ou mais antiga do [SDK .NET do Azure Search](https://aka.ms/search-sdk), este artigo ajudará você a atualizar seu aplicativo para usar a versão 1.1.
 
@@ -345,7 +344,7 @@ Corrigimos o problema na versão 1.1 do SDK. Agora, se você tiver uma classe de
 
 e definir `IntValue` como 0, o valor agora corretamente serializado como 0 durante a transmissão e armazenado como 0 no índice. A viagem de ida e volta também funciona conforme o esperado.
 
-Há um problema potencial ao qual você deve prestar atenção com essa abordagem: Se você usar um tipo de modelo com uma propriedade não anulável, será necessário **assegurar** que nenhum documento no índice contenha um valor nulo para o campo correspondente. O SDK e a API REST do Azure Search não podem ajudá-lo a impor isso.
+Há um problema potencial que devemos reconhecer nessa abordagem: se você usar um tipo de modelo com uma propriedade que não permite valor nulo, precisará **garantir** que nenhum documento no índice contém um valor nulo para o campo correspondente. O SDK e a API REST do Azure Search não podem ajudá-lo a impor isso.
 
 Isso não é apenas uma preocupação hipotética: imagine um cenário em que você adiciona um novo campo a um índice existente do tipo `Edm.Int32`. Depois de atualizar a definição de índice, todos os documentos terão um valor nulo para esse novo campo (já que todos os tipos são anuláveis no Azure Search). Ao usar uma classe de modelo com uma propriedade não anulável `int` para esse campo, você obterá uma `JsonSerializationException` como esta ao tentar recuperar os documentos:
 

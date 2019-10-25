@@ -1,5 +1,5 @@
 ---
-title: 'Parceiros de rede: Rede do Azure | Microsoft Docs'
+title: 'Parceiros de rede: rede do Azure | Microsoft Docs'
 description: Este artigo fornece uma lista de parceiros de rede MSP
 services: networking
 author: skishen525
@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: bf62e62e1235c7a37c092e79df57ca518e07ff4b
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 60127a8aebaf45969ba78a65676093210ea6de78
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828197"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804208"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros MSP de rede do Azure
 
@@ -20,7 +20,7 @@ O programa de parceiro MSP (provedor de serviços gerenciados) de rede do Azure 
 
 As MSPs de rede do Azure são um conjunto especializado de provedores de serviços gerenciados que abordam as necessidades e os desafios da rede em nuvem empresarial em todos os aspectos da nuvem e da rede híbrida. Os serviços de rede gerenciados incluem um ou mais dos seguintes serviços: arquitetura de rede, planejamento, implantação, operações, manutenção e otimização.
 
-![MSP][0]
+![CONSTANTES][0]
 
 Os clientes podem comprar ofertas de serviços gerenciados por MSP no Azure Marketplace ou diretamente do MSP. O MSPs pode implantar e gerenciar recursos de rede do Azure nas assinaturas e nos grupos de recursos dos clientes usando o Azure Lighthouse.
 
@@ -38,7 +38,7 @@ Use os links nesta seção para obter mais informações sobre os serviços de r
 
 [Equinix](https://www.equinix.com/)
 
-[InterCloud](https://www.intercloud.com/partners/cloud-service-providers/get-azure-expressroute)
+[InterCloud](https://intercloud.com/partners/get-to-azure-via-expressroute/)
 
 [IIJ](https://www.iij.ad.jp/biz/cloudex/)
 

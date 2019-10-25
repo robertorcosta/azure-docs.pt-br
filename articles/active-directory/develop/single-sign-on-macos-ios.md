@@ -1,5 +1,6 @@
 ---
-title: Configurar o SSO no macOS e iOS | Plataforma de identidade da Microsoft
+title: Configurar o SSO no macOS e no iOS
+titleSuffix: Microsoft identity platform
 description: Saiba como configurar o SSO (logon único) no macOS e no iOS.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +18,14 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a407b57a380d059703383b02e37decb8761786f4
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: b43319f3a456c7ea56ee3c6d5b3f9a1a4526bbe0
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268928"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802499"
 ---
-# <a name="how-to-configure-sso-on-macos-and-ios"></a>Como: Configurar o SSO no macOS e no iOS
+# <a name="how-to-configure-sso-on-macos-and-ios"></a>Como: configurar o SSO no macOS e no iOS
 
 A MSAL (biblioteca de autenticação da Microsoft) para macOS e iOS dá suporte ao SSO (logon único) entre aplicativos e navegadores macOS/iOS. Este artigo aborda os seguintes cenários de SSO:
 
@@ -71,7 +72,7 @@ Para que a plataforma de identidade da Microsoft saiba quais aplicativos podem c
 
 A maneira como a plataforma Microsoft Identity informa aos aplicativos que usam a mesma identificação de aplicativo, é por seus **URIs de redirecionamento**. Cada aplicativo pode ter vários URIs de Redirecionamento registrados no portal de integração. Cada aplicativo em seu pacote terá um URI de redirecionamento diferente. Por exemplo:
 
-URI de redirecionamento APP1: `msauth.com.contoso.mytestapp1://auth`URI de redirecionamento App2: `msauth.com.contoso.mytestapp2://auth`URI de redirecionamento App3:`msauth.com.contoso.mytestapp3://auth`
+URI de redirecionamento APP1: `msauth.com.contoso.mytestapp1://auth` URI de redirecionamento App2: `msauth.com.contoso.mytestapp2://auth` URI de redirecionamento App3: `msauth.com.contoso.mytestapp3://auth`
 
 > [!IMPORTANT]
 > O formato dos URIs de redirecionamento deve ser compatível com o formato que o MSAL dá suporte, que está documentado em [requisitos de formato de URI de redirecionamento MSAL](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
@@ -80,7 +81,7 @@ URI de redirecionamento APP1: `msauth.com.contoso.mytestapp1://auth`URI de redir
 
 Consulte o artigo [recursos de adição](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html) da Apple para habilitar o compartilhamento de conjunto de chaves. O que é importante é que você decida o que deseja que seu conjunto de chaves seja chamado e adicione esse recurso a todos os seus aplicativos que estarão envolvidos no SSO.
 
-Quando os direitos estiverem configurados corretamente, você verá um `entitlements.plist` arquivo no diretório do projeto que contém algo como este exemplo:
+Quando os direitos estiverem configurados corretamente, você verá um arquivo de `entitlements.plist` no diretório do projeto que contém algo como este exemplo:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -96,7 +97,7 @@ Quando os direitos estiverem configurados corretamente, você verá um `entitlem
 </plist>
 ```
 
-Depois que você tiver o direito do conjunto de chaves habilitado em cada um dos seus aplicativos, e estiver pronto para usar o SSO `MSALPublicClientApplication` , configure com o grupo de acesso do conjunto de chaves como no exemplo a seguir:
+Depois que você tiver o direito do conjunto de chaves habilitado em cada um dos seus aplicativos, e estiver pronto para usar o SSO, configure `MSALPublicClientApplication` com o grupo de acesso do conjunto de chaves, como no exemplo a seguir:
 
 Objective-C:
 
@@ -108,7 +109,7 @@ configuration.cacheConfig.keychainSharingGroup = @"my.keychain.group";
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:configuration error:&error];
 ```
 
-Swift
+Swift:
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<my-client-id>")
@@ -129,7 +130,7 @@ do {
 > Isso é particularmente afetado se você tiver aplicativos que dependem de tokens para fazer trabalho em segundo plano.
 > Compartilhar um conjunto de chaves significa que você deve ser muito cuidadoso quando seu aplicativo usa operações de remoção do SDK do Microsoft Identity.
 
-É só isso! O SDK do Microsoft Identity agora compartilhará credenciais em todos os seus aplicativos. A lista de contas também será compartilhada entre instâncias do aplicativo.
+É isso! O SDK do Microsoft Identity agora compartilhará credenciais em todos os seus aplicativos. A lista de contas também será compartilhada entre instâncias do aplicativo.
 
 ## <a name="sso-through-authentication-broker-on-ios"></a>SSO por meio do agente de autenticação no iOS
 
@@ -146,7 +147,7 @@ As etapas a seguir são como habilitar o SSO usando um agente de autenticação 
     </array>
     ```
 
-1. Adicione os seguintes esquemas ao info. plist do seu aplicativo `LSApplicationQueriesSchemes`em:
+1. Adicione os seguintes esquemas ao info. plist do seu aplicativo em `LSApplicationQueriesSchemes`:
 
     ```xml
     <key>LSApplicationQueriesSchemes</key>
@@ -156,7 +157,7 @@ As etapas a seguir são como habilitar o SSO usando um agente de autenticação 
     </array>
     ```
 
-1. Adicione o seguinte ao seu `AppDelegate.m` arquivo para manipular retornos de chamada:
+1. Adicione o seguinte ao arquivo de `AppDelegate.m` para manipular retornos de chamada:
 
     Objective-C:
     
@@ -167,7 +168,7 @@ As etapas a seguir são como habilitar o SSO usando um agente de autenticação 
     }
     ```
     
-    Swift
+    Swift:
     
     ```swift
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -175,8 +176,8 @@ As etapas a seguir são como habilitar o SSO usando um agente de autenticação 
     }
     ```
     
-**Se você estiver usando o Xcode 11**, deverá posicionar o retorno de `SceneDelegate` chamada MSAL no arquivo em vez disso.
-Se você oferecer suporte a UISceneDelegate e UIApplicationDelegate para compatibilidade com o iOS mais antigo, o retorno de chamada do MSAL precisaria ser colocado em ambos os arquivos.
+**Se você estiver usando o Xcode 11**, deverá posicionar o retorno de chamada MSAL no arquivo de `SceneDelegate` em vez disso.
+Se você der suporte a UISceneDelegate e UIApplicationDelegate para compatibilidade com o iOS mais antigo, o retorno de chamada da MSAL precisará ser colocado nos dois arquivos.
 
 Objective-C:
 
@@ -191,7 +192,7 @@ Objective-C:
  }
 ```
 
-Swift
+Swift:
 
 ```swift
 func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -207,6 +208,6 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
     }
 ```
     
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre os [fluxos de autenticação e cenários de aplicativos](authentication-flows-app-scenarios.md)
+Saiba mais sobre os [Fluxos de autenticação e cenários de aplicativos](authentication-flows-app-scenarios.md)

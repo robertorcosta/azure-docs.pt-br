@@ -1,5 +1,5 @@
 ---
-title: Identidades gerenciadas para recursos do Azure com o barramento de serviço do Azure | Microsoft Docs
+title: Identidades gerenciadas para recursos do Azure com Barramento de Serviço
 description: Use identidades gerenciadas para recursos do Azure com Barramento de Serviço do Azure
 services: service-bus-messaging
 documentationcenter: na
@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2019
+ms.date: 10/22/2019
 ms.author: aschhab
-ms.openlocfilehash: 86721907352f19cc7ed69fba1f1a021dcf1ed1b7
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 57c52640262854037420c1679804f611394230ef
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299637"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793145"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos do barramento de serviço do Azure
 [Identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) é um recurso do Azure que permite criar uma identidade segura associada à implantação na qual o código do aplicativo é executado. Em seguida, você pode associar essa identidade a funções de controle de acesso que concedem permissões personalizadas para acessar os recursos do Azure específicos que seu aplicativo precisa.
 
 Com identidades gerenciadas, a plataforma do Azure gerencia essa identidade de tempo de execução. Você não precisa armazenar e proteger as chaves de acesso no código ou na configuração do aplicativo, seja para a identidade ou para os recursos que você precisa acessar. Um aplicativo cliente do Barramento de Serviço em execução dentro de um aplicativo de Serviço de Aplicativo do Azure ou em uma máquina virtual com entidades gerenciadas habilitadas para suporte de recursos do Azure não precisa lidar com regras e chaves de SAS nem com nenhum outro token de acesso. O aplicativo cliente precisa apenas do endereço do ponto de extremidade do namespace das Mensagens do Barramento de Serviço. Quando o aplicativo se conecta, o Barramento de Serviço associa o contexto de entidade gerenciada ao cliente em uma operação que será mostrada em um exemplo mais adiante neste artigo. Depois que está associado com uma identidade gerenciada, o cliente do Barramento de Serviço pode realizar todas as operações autorizadas. A autorização é concedida ao associar uma entidade gerenciada com as funções do Barramento de Serviço. 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Quando uma entidade de segurança (um usuário, grupo ou aplicativo) tenta acessar uma entidade do barramento de serviço, a solicitação deve ser autorizada. Com o Azure AD, o acesso a um recurso é um processo de duas etapas. 
 
- 1. Primeiro, a identidade da entidade de segurança é autenticada e um token OAuth 2,0 é retornado. O nome do recurso para solicitar um token `https://servicebus.azure.net`é.
+ 1. Primeiro, a identidade da entidade de segurança é autenticada e um token OAuth 2,0 é retornado. O nome do recurso para solicitar um token é `https://servicebus.azure.net`.
  1. Em seguida, o token é passado como parte de uma solicitação para o serviço do barramento de serviço para autorizar o acesso ao recurso especificado.
 
 A etapa de autenticação requer que uma solicitação de aplicativo contenha um token de acesso OAuth 2,0 em tempo de execução. Se um aplicativo estiver em execução em uma entidade do Azure, como uma VM do Azure, um conjunto de dimensionamento de máquinas virtuais ou um aplicativo de funções do Azure, ele poderá usar uma identidade gerenciada para acessar os recursos. 
@@ -46,7 +46,7 @@ Quando uma função RBAC é atribuída a uma entidade de segurança do Azure AD,
 ## <a name="built-in-rbac-roles-for-azure-service-bus"></a>Funções RBAC internas para o barramento de serviço do Azure
 Para o Barramento de Serviço do Azure, o gerenciamento de namespaces e de todos os recursos relacionados por meio do portal do Azure e da API de gerenciamento de recursos do Azure já está protegido pelo modelo *RBAC (controle de acesso baseado em função)* . O Azure fornece as funções RBAC internas abaixo para autorizar o acesso a um namespace do barramento de serviço:
 
-- [Proprietário dos dados do barramento de serviço do Azure](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): Habilita o acesso a dados para o namespace do barramento de serviço e suas entidades (filas, tópicos, assinaturas e filtros)
+- [Proprietário de dados do barramento de serviço do Azure](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): habilita o acesso a dados ao namespace do barramento de serviço e suas entidades (filas, tópicos, assinaturas e filtros)
 - [Remetente de dados do barramento de serviço do Azure](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Use essa função para fornecer acesso de envio ao namespace do barramento de serviço e suas entidades.
 - [Receptor de dados do barramento de serviço do Azure](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): Use essa função para conceder acesso de recebimento ao namespace do barramento de serviço e suas entidades. 
 
@@ -55,7 +55,7 @@ Antes de atribuir uma função de RBAC a uma entidade de segurança, determine o
 
 A lista a seguir descreve os níveis nos quais você pode fazer o escopo de acesso aos recursos do barramento de serviço, começando com o escopo mais estreito:
 
-- **Fila**, **tópico**ou **assinatura**: A atribuição de função se aplica à entidade de barramento de serviço específica. Atualmente, o portal do Azure não dá suporte à atribuição de usuários/grupos/identidades gerenciadas às funções de RBAC do barramento de serviço no nível da assinatura. Veja um exemplo de como usar o comando CLI do Azure: [AZ-role-Assignment-Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) para atribuir uma identidade a uma função de RBAC do barramento de serviço: 
+- **Fila**, **tópico**ou **assinatura**: a atribuição de função se aplica à entidade de barramento de serviço específica. Atualmente, o portal do Azure não dá suporte à atribuição de usuários/grupos/identidades gerenciadas às funções de RBAC do barramento de serviço no nível da assinatura. Veja um exemplo de como usar o comando CLI do Azure: [AZ-role-Assignment-Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) para atribuir uma identidade a uma função de RBAC do barramento de serviço: 
 
     ```azurecli
     az role assignment create \
@@ -63,9 +63,9 @@ A lista a seguir descreve os níveis nos quais você pode fazer o escopo de aces
         --assignee $assignee_id \
         --scope /subscriptions/$subscription_id/resourceGroups/$resource_group/providers/Microsoft.ServiceBus/namespaces/$service_bus_namespace/topics/$service_bus_topic/subscriptions/$service_bus_subscription
     ```
-- **Namespace do barramento de serviço**: A atribuição de função abrange toda a topologia do barramento de serviço no namespace e no grupo de consumidores associado a ela.
-- **Grupo de recursos**: A atribuição de função se aplica a todos os recursos do barramento de serviço no grupo de recursos.
-- **Assinatura**: A atribuição de função se aplica a todos os recursos do barramento de serviço em todos os grupos de recursos na assinatura.
+- **Namespace do barramento de serviço**: a atribuição de função abrange toda a topologia do barramento de serviço no namespace e no grupo de consumidores associado a ela.
+- **Grupo de recursos**: a atribuição de função se aplica a todos os recursos do barramento de serviço no grupo de recursos.
+- **Assinatura**: a atribuição de função se aplica a todos os recursos do barramento de serviço em todos os grupos de recursos na assinatura.
 
 > [!NOTE]
 > Tenha em mente que as atribuições de função do RBAC podem levar até cinco minutos para serem propagadas. 
@@ -75,8 +75,8 @@ Para obter mais informações sobre como as funções internas são definidas, c
 ## <a name="enable-managed-identities-on-a-vm"></a>Habilitar identidades gerenciadas em uma VM
 Antes de usar identidades gerenciadas para recursos do Azure para autorizar recursos de barramento de serviço de sua VM, você deve primeiro habilitar identidades gerenciadas para recursos do Azure na VM. Para saber como habilitar identidades gerenciadas para Recursos do Azure, confira um dos seguintes artigos:
 
-- [Portal do Azure](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
-- [PowerShell do Azure](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [Azure portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modelo do Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Bibliotecas de cliente Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
@@ -144,7 +144,7 @@ Para enviar ou receber mensagens, insira o nome do namespace e o nome da entidad
 > 
 > - Atualmente, as identidades gerenciadas não funcionam com slots de implantação do Serviço de Aplicativo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 

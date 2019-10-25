@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6799e604b9e5e2acc3af35e4038ea6f14271d5c8
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e07136eed9c14eb4b6eda49ef635171aaf543445
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834720"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809278"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicativos para a plataforma Microsoft Identity
 
@@ -122,9 +122,9 @@ Nesse fluxo, o aplicativo recebe um código de autorização do ponto de extremi
 
 ## <a name="daemons-and-server-side-apps"></a>Daemons e aplicativos do lado do servidor
 
-Os aplicativos com processos de longa duração ou que operem sem interação com um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs Web. Esses aplicativos podem se autenticar e obter tokens usando a identidade do aplicativo (em vez de a identidade delegada de um usuário) com o fluxo de credenciais do cliente OAuth 2.0. Você pode provar a identidade do aplicativo usando um certificado ou o segredo do cliente. Para obter mais informações, consulte [Autenticando para a plataforma Microsoft Identity em aplicativos daemon com certificados](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
+Os aplicativos com processos de longa duração ou que operem sem interação com um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs Web. Esses aplicativos podem se autenticar e obter tokens usando a identidade do aplicativo (em vez de a identidade delegada de um usuário) com o fluxo de credenciais do cliente OAuth 2.0. Você pode provar a identidade do aplicativo usando um certificado ou o segredo do cliente. Para obter mais informações, consulte [Autenticando para a plataforma Microsoft Identity em aplicativos daemon com certificados](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/).
 
-Nesse fluxo, o aplicativo interage diretamente com o `/token` ponto de extremidade para obter acesso:
+Nesse fluxo, o aplicativo interage diretamente com o ponto de extremidade `/token` para obter acesso:
 
 ![Mostra o fluxo de autenticação do aplicativo de daemon](./media/v2-app-types/convergence-scenarios-daemon.svg)
 

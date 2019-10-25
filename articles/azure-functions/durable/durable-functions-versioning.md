@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2017
+ms.date: 10/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ef64a43cbed7f033a938351506b7f78142ff044c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0bac6f9105d505bdfc1492b6966c2352771e73b0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097633"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791303"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Controle de Versão nas Funções Duráveis (Azure Functions)
 
@@ -24,11 +24,11 @@ ms.locfileid: "70097633"
 
 Há vários exemplos de alterações que causam interrupção a serem considerados. Este artigo discute os mais comuns. O tema principal por trás delas é que tanto orquestrações de função novas quando as já existentes são afetadas por alterações no código da função.
 
-### <a name="changing-activity-function-signatures"></a>Alteração nas assinaturas da função de atividade
+### <a name="changing-activity-or-entity-function-signatures"></a>Alterando assinaturas de atividade ou função de entidade
 
-Uma alteração de assinatura é uma alteração no nome, na entrada ou na saída de uma função. Se esse tipo de alteração for feita em uma função de atividade, ele poderá interromper a função de orquestrador que depende dela. Se atualizar a função de orquestrador para acomodar essa alteração, você poderá interromper instâncias existentes em curso.
+Uma alteração de assinatura é uma alteração no nome, na entrada ou na saída de uma função. Se esse tipo de alteração for feito em uma função de atividade ou entidade, ele poderá interromper qualquer função de orquestrador que dependa dela. Se atualizar a função de orquestrador para acomodar essa alteração, você poderá interromper instâncias existentes em curso.
 
-Por exemplo, suponha que você tenha a seguinte função.
+Por exemplo, suponha que tenhamos a seguinte função de orquestrador.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -85,7 +85,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-Essa alteração adiciona uma nova chamada de função a **SendNotification**, entre **Foo** e **Bar**. Não há nenhuma alteração de assinatura. O problema surge quando uma instância existente é retomada da chamada para **Bar**. Durante a reprodução, se a chamada original para **Foo** retornar `true`, a reprodução do orquestrador chamará **SendNotification**, que não está em seu histórico de execução. Como resultado, o Framework de Tarefa Durável falhará com um `NonDeterministicOrchestrationException`, porque encontrou uma chamada para **SendNotification** quando esperava encontrar uma chamada para **Bar**.
+Essa alteração adiciona uma nova chamada de função a **SendNotification**, entre **Foo** e **Bar**. Não há nenhuma alteração de assinatura. O problema surge quando uma instância existente é retomada da chamada para **Bar**. Durante a reprodução, se a chamada original para **Foo** retornar `true`, a reprodução do orquestrador chamará **SendNotification**, que não está em seu histórico de execução. Como resultado, o Framework de Tarefa Durável falhará com um `NonDeterministicOrchestrationException`, porque encontrou uma chamada para **SendNotification** quando esperava encontrar uma chamada para **Bar**. O mesmo tipo de problema pode ocorrer ao adicionar qualquer chamada a APIs "duráveis", incluindo `CreateTimer`, `WaitForExternalEvent`, etc.
 
 ## <a name="mitigation-strategies"></a>Estratégias de mitigação
 
@@ -95,7 +95,7 @@ Veja algumas das estratégias para lidar com desafios de controle de versão:
 * Parar todas as instâncias em curso
 * Implantações lado a lado
 
-### <a name="do-nothing"></a>Não agir
+### <a name="do-nothing"></a>Não fazer nada
 
 A maneira mais fácil de lidar com uma alteração que causa interrupção é deixar que as instâncias de orquestração em curso falhem. Novas instâncias executarão com êxito o código alterado.
 
@@ -112,9 +112,9 @@ Outra opção é parar todas as instâncias em curso. Isso pode ser feito limpan
 
 A maneira mais infalível de garantir que alterações que causam interrupção sejam implantadas com segurança é implantá-las lado a lado com as versões mais antigas. Isso pode ser feito usando qualquer uma das seguintes técnicas:
 
-* Implantar todas as atualizações como funções totalmente novas (novos nomes).
+* Implante todas as atualizações como funções totalmente novas, deixando as funções existentes como estão. Isso pode ser complicado porque os chamadores das novas versões de função devem ser atualizados e seguir as mesmas diretrizes.
 * Implantar todas as atualizações como um novo aplicativo de funções com uma conta de armazenamento diferente.
-* Implantar uma nova cópia do aplicativo de funções, mas com um nome `TaskHub` atualizado. Essa é a técnica recomendada.
+* Implante uma nova cópia do aplicativo de funções com a mesma conta de armazenamento, mas com um nome de `taskHub` atualizado. Essa é a técnica recomendada.
 
 ### <a name="how-to-change-task-hub-name"></a>Como alterar o nome do hub de tarefas
 
@@ -125,23 +125,33 @@ O hub de tarefas pode ser configurado no arquivo *host.json* da seguinte forma:
 ```json
 {
     "durableTask": {
-        "HubName": "MyTaskHubV2"
+        "hubName": "MyTaskHubV2"
     }
 }
 ```
 
 #### <a name="functions-2x"></a>Funções 2.x
 
-O valor padrão é `DurableFunctionsHub`.
+```json
+{
+    "extensions": {
+        "durableTask": {
+            "hubName": "MyTaskHubV2"
+        }
+    }
+}
+```
 
-Todas as entidades do Armazenamento do Azure são nomeadas com base no valor de configuração `HubName`. Fornecendo um novo nome ao hub de tarefas, você garante que filas e uma tabela de histórico diferentes sejam criadas para a nova versão de seu aplicativo.
+O valor padrão para Durable Functions v1. x é `DurableFunctionsHub`. A partir do Durable Functions v 2.0, o nome do hub de tarefas padrão é o mesmo que o nome do aplicativo de funções no Azure, ou `TestHubName` se estiver sendo executado fora do Azure.
 
-É recomendável implantar a nova versão do aplicativo de funções em um novo [Slot de implantação](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/). Os slots de implantação permitem que você execute várias cópias de seu aplicativo de funções lado a lado, com apenas uma delas como o slot de *produção* ativo. Quando você estiver pronto para expor a nova lógica de orquestração para sua infraestrutura existente, isso pode ser tão simples quanto colocar a nova versão no slot de produção.
+Todas as entidades do Armazenamento do Azure são nomeadas com base no valor de configuração `hubName`. Fornecendo um novo nome ao hub de tarefas, você garante que filas e uma tabela de histórico diferentes sejam criadas para a nova versão de seu aplicativo. O aplicativo de funções, no entanto, interromperá o processamento de eventos para orquestrações ou entidades criadas sob o nome do hub de tarefas anterior.
+
+É recomendável implantar a nova versão do aplicativo de funções em um novo [Slot de implantação](../functions-deployment-slots.md). Os slots de implantação permitem que você execute várias cópias de seu aplicativo de funções lado a lado, com apenas uma delas como o slot de *produção* ativo. Quando você estiver pronto para expor a nova lógica de orquestração para sua infraestrutura existente, isso pode ser tão simples quanto colocar a nova versão no slot de produção.
 
 > [!NOTE]
 > Essa estratégia funciona melhor quando você usa gatilhos de webhook e HTTP para funções de orquestrador. Para gatilhos não HTTP, como filas ou hubs de eventos, a definição do gatilho deve [derivar de uma configuração de aplicativo](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) que é atualizada como parte da operação de permuta.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba como lidar com problemas de desempenho e escala](durable-functions-perf-and-scale.md)

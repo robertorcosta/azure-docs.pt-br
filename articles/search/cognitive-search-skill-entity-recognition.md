@@ -1,29 +1,28 @@
 ---
-title: Habilidade de Reconhecimento de Entidade da pesquisa cognitiva – Azure Search
-description: Extraia os diferentes tipos de entidades de texto em um pipeline do Azure Search pesquisa cognitiva.
-services: search
+title: Habilidades cognitivas de reconhecimento de entidade
+titleSuffix: Azure Cognitive Search
+description: Extrair diferentes tipos de entidades de texto em um pipeline de enriquecimento no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: ad2fef96491c2d1a15ad9ff5f57d2911dfecaa36
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 08e9656e3b899cbb6d4de733696175e8f31b0e66
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265800"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792003"
 ---
-#    <a name="entity-recognition-cognitive-skill"></a>Habilidades cognitivas de reconhecimento de entidade
+#   <a name="entity-recognition-cognitive-skill"></a>Habilidades cognitivas de reconhecimento de entidade
 
 A habilidade **Entity Recognition** extrai entidades de diferentes tipos do texto. Essa habilidade usa os modelos de machine learning fornecidos pela [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) nos Serviços Cognitivos.
 
 > [!NOTE]
-> À medida que expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará [anexar um recurso de Serviços Cognitivos faturável](cognitive-search-attach-cognitive-services.md). As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem como parte do estágio de decodificação de documentos no Azure Search. Não há encargos para extração de texto em documentos.
+> À medida que expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará [anexar um recurso de Serviços Cognitivos faturável](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Pesquisa Cognitiva. Não há encargos para extração de texto em documentos.
 >
-> A execução de habilidades integradas é cobrada nos [preços pagos conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. O preço de extração de imagem é descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de habilidades integradas é cobrada nos [preços pagos conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. O preço de extração de imagem é descrito na [página de preços do Azure pesquisa cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -36,9 +35,9 @@ O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido p
 
 Os parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
 
-| Nome do parâmetro     | DESCRIÇÃO |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| categories    | Matriz de categorias que devem ser extraídas.  Os tipos possíveis de categoria: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se nenhuma categoria for fornecida, todos os tipos são retornados.|
+| Categorias    | Matriz de categorias que devem ser extraídas.  Os tipos possíveis de categoria: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se nenhuma categoria for fornecida, todos os tipos são retornados.|
 |defaultLanguageCode |  Código de idioma do texto de entrada. Há suporte para vários idiomas: `de, en, es, fr, it`|
 |minimumPrecision | Não utilizado. Reservado para uso futuro. |
 |includeTypelessEntities | Quando configurado como verdadeiro, se o texto contiver uma entidade conhecida, mas não puder ser categorizado em uma das categorias compatíveis, ela será retornada como parte do campo de saída complexa `"entities"`. 
@@ -47,20 +46,20 @@ Essas são entidades que são bem conhecidas, mas não classificadas como parte 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | DESCRIÇÃO                   |
+| Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
 | languageCode  | Opcional. O padrão é `"en"`.  |
-| texto          | O texto para analisar.          |
+| text          | O texto para analisar.          |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
 > [!NOTE]
 > Não há suporte para todas as categorias de entidade em todos os idiomas. Somente _en_, _es_ dão suporte à extração dos tipos `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`.
 
-| Nome de saída     | DESCRIÇÃO                   |
+| Nome de saída     | Descrição                   |
 |---------------|-------------------------------|
 | pessoas      | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa o nome de uma pessoa. |
-| locations  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa um local. |
+| Locais  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa um local. |
 | organizações  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa uma organização. |
 | quantidades  | Um array de strings onde cada cadeia de caracteres representa uma quantidade. |
 | dateTimes  | Uma matriz de cadeia de caracteres onde cada cadeia de caracteres representa um valor DateTime (como aparece no texto). |
@@ -192,7 +191,7 @@ Essas são entidades que são bem conhecidas, mas não classificadas como parte 
 ## <a name="error-cases"></a>Casos de erro
 Se o código do idioma do documento não for suportado, um erro será retornado e nenhuma entidade será extraída.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
-+ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)

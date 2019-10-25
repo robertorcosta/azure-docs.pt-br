@@ -1,5 +1,6 @@
 ---
-title: Migrar aplicativos Xamarin iOS que usam Microsoft Authenticator de ADAL.NET para MSAL.NET | Azure
+title: Migrar aplicativos Xamarin iOS que usam Microsoft Authenticator de ADAL.NET para MSAL.NET
+titleSuffix: Microsoft identity platform
 description: Saiba como migrar aplicativos do Xamarin iOS que usam Microsoft Authenticator da biblioteca de autenticação do AD do Azure para .NET (ADAL.NET) para a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdfb2d7d33111f1adf998cd75446576d2010a365
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b05c93d5c13b0f0a462d566dc69b4238adfd34c2
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257772"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802797"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrar aplicativos iOS que usam Microsoft Authenticator de ADAL.NET para MSAL.NET
 
@@ -32,7 +33,7 @@ Onde você deve começar? Este artigo ajuda você a migrar seu aplicativo Xamari
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você já tenha um aplicativo Xamarin iOS integrado ao agente do iOS. Se você não fizer isso, mova diretamente para MSAL.NET e comece a implementação do agente. Para obter informações sobre como invocar o agente do iOS no MSAL.NET com um novo aplicativo, consulte [esta documentação](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS#why-use-brokers-on-xamarinios-and-xamarinandroid-applications).
 
-## <a name="background"></a>Informações preliminares
+## <a name="background"></a>Segundo plano
 
 ### <a name="what-are-brokers"></a>O que são agentes?
 
@@ -46,21 +47,21 @@ Eles permitem:
 
 ## <a name="migrate-from-adal-to-msal"></a>Migrar do ADAL para o MSAL
 
-### <a name="step-1-enable-the-broker"></a>Etapa 1: Habilitar o agente
+### <a name="step-1-enable-the-broker"></a>Etapa 1: habilitar o agente
 
 <table>
 <tr><td>Código de ADAL atual:</td><td>Equivalente de MSAL:</td></tr>
 <tr><td>
 No ADAL.NET, o suporte do Broker foi habilitado em uma base de contexto por autenticação. Isso está desabilitado por padrão. Você precisava definir um 
 
-`useBroker`Sinalizar como verdadeiro no `PlatformParameters` Construtor para chamar o agente:
+`useBroker` sinalizador como true no Construtor `PlatformParameters` para chamar o Broker:
 
 ```CSharp
 public PlatformParameters(
         UIViewController callerViewController, 
         bool useBroker)
 ```
-Além disso, no código específico da plataforma, neste exemplo, no renderizador de página para iOS, defina o`useBroker` 
+Além disso, no código específico da plataforma, neste exemplo, no renderizador de página para iOS, defina o `useBroker` 
 sinalizar para verdadeiro:
 ```CSharp
 page.BrokerParameters = new PlatformParameters(
@@ -84,7 +85,7 @@ Em seguida, inclua os parâmetros na chamada de token de aquisição:
 </td><td>
 No MSAL.NET, o suporte do Broker é habilitado em uma base por PublicClientApplication. Isso está desabilitado por padrão. Para habilitá-lo, use o 
 
-`WithBroker()`(definido como true por padrão) para chamar o agente:
+`WithBroker()` parâmetro (definido como true por padrão) para chamar o agente:
 
 ```CSharp
 var app = PublicClientApplicationBuilder
@@ -101,14 +102,14 @@ result = await app.AcquireTokenInteractive(scopes)
 ```
 </table>
 
-### <a name="step-2-set-a-uiviewcontroller"></a>Etapa 2: Definir um UIViewController ()
+### <a name="step-2-set-a-uiviewcontroller"></a>Etapa 2: definir um UIViewController ()
 No ADAL.NET, você passou em um UIViewController como parte do `PlatformParameters`. (Consulte o exemplo na etapa 1.) No MSAL.NET, para dar aos desenvolvedores mais flexibilidade, uma janela de objeto é usada, mas não é necessária no uso normal do iOS. Para usar o agente, defina a janela de objeto para enviar e receber respostas do agente. 
 <table>
 <tr><td>Código de ADAL atual:</td><td>Equivalente de MSAL:</td></tr>
 <tr><td>
 Um UIViewController é passado para 
 
-`PlatformParameters`na plataforma específica do iOS.
+`PlatformParameters` na plataforma específica do iOS.
 
 ```CSharp
 page.BrokerParameters = new PlatformParameters(
@@ -119,8 +120,8 @@ page.BrokerParameters = new PlatformParameters(
 </td><td>
 No MSAL.NET, você faz duas coisas para definir a janela de objeto para iOS:
 
-1. Em `AppDelegate.cs`, defina `App.RootViewController` para um novo `UIViewController()`. Essa atribuição garante que há um UIViewController com a chamada para o agente. Se não estiver definido corretamente, você poderá receber esse erro:`"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
-1. Na chamada AcquireTokenInteractive, use `.WithParentActivityOrWindow(App.RootViewController)`e passe a referência à janela de objeto que você usará.
+1. Em `AppDelegate.cs`, defina `App.RootViewController` como um novo `UIViewController()`. Essa atribuição garante que há um UIViewController com a chamada para o agente. Se não estiver definido corretamente, você poderá receber esse erro: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
+1. Na chamada AcquireTokenInteractive, use `.WithParentActivityOrWindow(App.RootViewController)`e passe a referência para a janela de objeto que você usará.
 
 **Por exemplo:**
 
@@ -142,13 +143,13 @@ result = await app.AcquireTokenInteractive(scopes)
 
 </table>
 
-### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>Etapa 3: Atualizar AppDelegate para manipular o retorno de chamada
-A Adal e a MSAL chamam o agente, e o agente, por sua vez, chama de volta `OpenUrl` para seu aplicativo `AppDelegate` por meio do método da classe. Para obter mais informações, veja [esta documentação](msal-net-use-brokers-with-xamarin-apps.md#step-2-update-appdelegate-to-handle-the-callback).
+### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>Etapa 3: atualizar AppDelegate para manipular o retorno de chamada
+A ADAL e a MSAL chamam o agente, e o agente, por sua vez, chama de volta para seu aplicativo por meio do método `OpenUrl` da classe `AppDelegate`. Para obter mais informações, veja [esta documentação](msal-net-use-brokers-with-xamarin-apps.md#step-2-update-appdelegate-to-handle-the-callback).
 
 Não há nenhuma alteração aqui entre ADAL.NET e MSAL.NET.
 
-### <a name="step-4-register-a-url-scheme"></a>Etapa 4: Registrar um esquema de URL
-ADAL.NET e MSAL.NET usam URLs para invocar o agente e retornar a resposta do agente de volta para o aplicativo. Registre o esquema de URL no `Info.plist` arquivo para seu aplicativo da seguinte maneira:
+### <a name="step-4-register-a-url-scheme"></a>Etapa 4: registrar um esquema de URL
+ADAL.NET e MSAL.NET usam URLs para invocar o agente e retornar a resposta do agente de volta para o aplicativo. Registre o esquema de URL no arquivo de `Info.plist` para seu aplicativo da seguinte maneira:
 
 <table>
 <tr><td>Código de ADAL atual:</td><td>Equivalente de MSAL:</td></tr>
@@ -157,11 +158,11 @@ O esquema de URL é exclusivo para seu aplicativo.
 </td><td>
 O 
 
-`CFBundleURLSchemes`o nome deve incluir 
+o nome do `CFBundleURLSchemes` deve incluir 
 
 `msauth.`
 
-como um prefixo, seguido pelo seu`CFBundleURLName`
+como um prefixo, seguido pelo seu `CFBundleURLName`
 
 Por exemplo: `$"msauth.(BundleId")`
 
@@ -188,7 +189,7 @@ Por exemplo: `$"msauth.(BundleId")`
 
 ### <a name="step-5-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>Etapa 5: Adicionar o identificador do agente à seção LSApplicationQueriesSchemes
 
-Adal.net e MSAL.NET usam `-canOpenURL:` para verificar se o agente está instalado no dispositivo. Adicione o identificador correto para o agente do iOS à seção LSApplicationQueriesSchemes do arquivo info. plist da seguinte maneira:
+ADAL.NET e MSAL.NET usam `-canOpenURL:` para verificar se o agente está instalado no dispositivo. Adicione o identificador correto para o agente do iOS à seção LSApplicationQueriesSchemes do arquivo info. plist da seguinte maneira:
 
 <table>
 <tr><td>Código de ADAL atual:</td><td>Equivalente de MSAL:</td></tr>
@@ -218,7 +219,7 @@ Usos
 ```
 </table>
 
-### <a name="step-6-register-your-redirect-uri-in-the-portal"></a>Etapa 6: Registrar o URI de redirecionamento no portal
+### <a name="step-6-register-your-redirect-uri-in-the-portal"></a>Etapa 6: registrar seu URI de redirecionamento no portal
 
 ADAL.NET e MSAL.NET adicionam um requisito extra no URI de redirecionamento quando ele se destina ao agente. Registre o URI de redirecionamento com seu aplicativo no Portal.
 <table>
@@ -242,6 +243,6 @@ Exemplo:
 
 Para obter mais informações sobre como registrar o URI de redirecionamento no portal, consulte [aproveitar o agente em aplicativos Xamarin. Ios](msal-net-use-brokers-with-xamarin-apps.md#step-7-make-sure-the-redirect-uri-is-registered-with-your-app).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [Considerações específicas do Xamarin Ios com o MSAL.net](msal-net-xamarin-ios-considerations.md). 

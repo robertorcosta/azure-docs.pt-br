@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: eb9d803bcc9667c26acecbfd098a3022b7421478
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 6ae1792d9ef3f07ef7258451be79b587692a1694
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177660"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809451"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -64,7 +64,7 @@ Antes de criar uma conexão, é necessário adicionar a Solução Conector ITSM.
 3. Na seção **Workspace do OMS**, selecione o espaço de trabalho do Azure Log Analytics no qual deseja instalar a solução.
    >[!NOTE]
    > * Como parte da transição do Microsoft Operations Management Suite (OMS) em andamento para o Azure Monitor, os Workspaces do OMS agora são conhecidos como workspaces do Log Analytics.
-   > * O Conector ITSM só pode ser instalado em espaços de trabalho Log Analytics nas seguintes regiões: Leste dos EUA, Europa Ocidental, Sudeste Asiático, sudeste da Austrália, Oeste EUA Central, leste do Japão, sul do Reino Unido, Índia central, Canadá central.
+   > * O Conector ITSM só pode ser instalado nos espaços de trabalho do Log Analytics nas seguintes regiões: leste dos EUA, Europa Ocidental, Sudeste Asiático, sudeste da Austrália, Oeste EUA Central, leste do Japão, sul do Reino Unido, Índia central, Canadá central.
 
 4. Na seção **Configurações de Workspace do OMS**, selecione o ResourceGroup em que deseja criar o recurso de solução.
 
@@ -124,14 +124,14 @@ Use este procedimento:
 1. No portal do Azure, clique em **Monitorar**.
 2. No painel esquerdo, clique em **Grupos de ações**. A janela **Adicionar grupo de ações** é exibida.
 
-    ![Grupos de Ação](media/itsmc-overview/action-groups.png)
+    ![Grupos de ações](media/itsmc-overview/action-groups.png)
 
 3. Forneça um **nome** e um **ShortName** para o grupo de ações. Selecione o **Grupo de Recursos** e a **Assinatura** em que deseja criar seu grupo de ações.
 
     ![Detalhes dos grupos de ações](media/itsmc-overview/action-groups-details.png)
 
 4. Na lista Ações, selecione **ITSM** no menu suspenso para **Tipo de Ação**. Forneça um **Nome** para a ação e clique em **Editar detalhes**.
-5. Selecione a **Assinatura** em que o espaço de trabalho do Log Analytics está localizado. Selecione o nome da **Conexão** (o nome do Conector de Gerenciamento de Serviços de TI) seguido pelo nome do Workspace. Por exemplo, "MyITSMMConnector(MyWorkspace)."
+5. Selecione a **Assinatura** em que o espaço de trabalho do Log Analytics está localizado. Selecione o nome da **Conexão** (o nome do Conector de Gerenciamento de Serviços de TI) seguido pelo nome do Workspace. Por exemplo, "MyITSMMConnector (MyWorkspace)".
 
     ![Detalhes da ação de ITSM](media/itsmc-overview/itsm-action-details.png)
 
@@ -188,7 +188,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Estado
 - Urgência
 - Impacto
-- Priority
+- Prioridade
 - Escalonamento
 - Criado por
 - Resolvido por
@@ -196,16 +196,16 @@ ServiceDeskWorkItemType_s="Incident"
 - Origem
 - Atribuído a
 - Categoria
-- Título
-- DESCRIÇÃO
+- Title
+- Descrição
 - Data de criação
 - Data de fechamento
 - Data de resolução
 - Data da última modificação
-- Computer
+- Computador
 
 
-**Item de trabalho:** **Solicitações de Alteração**
+**Item de trabalho:** **Solicitações de alteração**
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
@@ -216,14 +216,14 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Fechado por
 - Origem
 - Atribuído a
-- Título
-- type
+- Title
+- Type
 - Categoria
 - Estado
 - Escalonamento
 - Status do conflito
 - Urgência
-- Priority
+- Prioridade
 - Risco
 - Impacto
 - Atribuído a
@@ -235,18 +235,18 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Data de término prevista
 - Data de início do trabalho
 - Data de término do trabalho
-- DESCRIÇÃO
-- Computer
+- Descrição
+- Computador
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída de um incidente do ServiceNow
 
 | Campo Log Analytics | Campo do ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Number |
+| ServiceDeskId_s| NUMBER |
 | IncidentState_s | Estado |
 | Urgency_s |Urgência |
 | Impact_s |Impacto|
-| Priority_s | Priority |
+| Priority_s | Prioridade |
 | CreatedBy_s | Aberto por |
 | ResolvedBy_s | Resolvido por|
 | ClosedBy_s  | Fechado por |
@@ -254,26 +254,26 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | Atribuído a  |
 | Category_s | Categoria |
 | Title_s|  Descrição breve |
-| Description_s|  Observações |
+| Description_s|  Notas |
 | CreatedDate_t|  Aberto |
 | ClosedDate_t| closed|
 | ResolvedDate_t|Resolvido|
-| Computer  | Item de configuração |
+| Computador  | Item de configuração |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Dados de saída para uma solicitação de alteração do ServiceNow
 
 | Log Analytics | Campo do ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Number |
+| ServiceDeskId_s| NUMBER |
 | CreatedBy_s | Solicitado por |
 | ClosedBy_s | Fechado por |
 | AssignedTo_s | Atribuído a  |
 | Title_s|  Descrição breve |
-| Type_s|  type |
+| Type_s|  Type |
 | Category_s|  Categoria |
 | CRState_s|  Estado|
 | Urgency_s|  Urgência |
-| Priority_s| Priority|
+| Priority_s| Prioridade|
 | Risk_s| Risco|
 | Impact_s| Impacto|
 | RequestedDate_t  | Solicitado por data |
@@ -282,8 +282,8 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data de término planejada |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de término real|
-| Description_s | DESCRIÇÃO |
-| Computer  | Item de Configuração |
+| Description_s | Descrição |
+| Computador  | Item de Configuração |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Solução de problemas de conexões de ITSM
@@ -296,7 +296,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 2. Se os dados do ServiceNow não estiverem sendo sincronizados com o Log Analytics, verifique se a instância do ServiceNow não está em suspensão. As instâncias de desenvolvimento do ServiceNow, às vezes, entram em suspensão quando ficam ociosas por um longo período. Caso contrário, relate o problema.
 3. Se os alertas do Log Analytics são disparados mas os itens de trabalho não são criados no produto de ITSM ou se os itens de configuração não são criados/vinculados aos itens de trabalho ou para obter qualquer outra informação genérica, procure nos seguintes locais:
-   -  ITSMC: A solução mostra um resumo de conexões/itens de trabalho/computadores, etc. Clique no bloco que mostra o **Status do Conector**, que o levará à **Pesquisa de Logs** com a consulta relevante. Examine os registros de log com LogType_S como ERROR para obter mais informações.
+   -  ITSMC: a solução mostra um resumo de conexões/itens de trabalho/computadores, etc. Clique no bloco mostrando o **status do conector**, que o leva para a pesquisa de **log** com a consulta relevante. Examine os registros de log com LogType_S como ERROR para obter mais informações.
    - Página **Pesquisa de Log**: exiba os erros ou as informações relacionadas diretamente usando a consulta `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Solucionar problemas de implantação do aplicativo Web do Service Manager
@@ -305,9 +305,9 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 3.  Se você não conseguir criar o namespace de retransmissão do barramento de serviço, certifique-se de que o provedor de recursos necessário está registrado na assinatura. Se ele não estiver registrado, crie manualmente o namespace de retransmissão do barramento de serviço usando o Portal do Azure. Você também pode criá-lo ao [criar a conexão híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) do Portal do Azure.
 
 
-## <a name="contact-us"></a>Fale conosco
+## <a name="contact-us"></a>Contate-nos
 
 Em caso de dúvidas ou comentários sobre o Conector de Gerenciamento de Serviço de TI, entre em contato conosco pelo email [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Adicionar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviço de TI](../../azure-monitor/platform/itsmc-connections.md).

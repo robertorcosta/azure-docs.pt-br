@@ -1,5 +1,6 @@
 ---
-title: Credenciais de certificado no Azure AD | Microsoft Docs
+title: Credenciais de certificado no Azure AD
+titleSuffix: Microsoft identity platform
 description: Este artigo aborda o registro e uso de credenciais de certificado para autenticação do aplicativo
 services: active-directory
 documentationcenter: .net
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aa63a8f06b71455b7f00d2ce5842f0da851789b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1184d210f5b7ea25b9f73cbd70b5f960402126a1
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835462"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803529"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciais de certificado para autenticação do aplicativo
 
@@ -36,7 +37,7 @@ Para calcular a asserção, você pode usar uma das muitas bibliotecas [JSON Web
 
 ### <a name="header"></a>Cabeçalho
 
-| Parâmetro |  Comentário |
+| . |  Comentário |
 | --- | --- |
 | `alg` | Deve ser **RS256** |
 | `typ` | Deve ser **JWT** |
@@ -44,16 +45,16 @@ Para calcular a asserção, você pode usar uma das muitas bibliotecas [JSON Web
 
 ### <a name="claims-payload"></a>Declarações (carga)
 
-| Parâmetro |  Comentários |
+| . |  Comentários |
 | --- | --- |
-| `aud` | Audience: Deve ser **https://login.microsoftonline.com/*tenant_Id* /oauth2/token** |
+| `aud` | Público-alvo: Deve ser **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Data de expiração: a data de expiração do token. A hora é representada como o número de segundos de 1º de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até a hora em que a validade do token expira.|
 | `iss` | Emissor: deve ser a client_id (ID do aplicativo de serviço do cliente) |
 | `jti` | GUID: a ID de JWT |
 | `nbf` | Não Antes de: a data anterior à qual o token não pode ser usado. A hora é representada como o número de segundos de 1º de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até a hora em que o token foi emitido. |
-| `sub` | Assunto: Quanto a `iss`, deve ser a client_id (ID do aplicativo de serviço do cliente) |
+| `sub` | Assunto: para `iss`, deve ser a client_id (ID do aplicativo de serviço do cliente) |
 
-### <a name="signature"></a>Assinatura
+### <a name="signature"></a>Signature
 
 A assinatura é calculada aplicando o certificado conforme descrito na [especificação Token Web JSON RFC7519](https://tools.ietf.org/html/rfc7519)
 
@@ -100,7 +101,7 @@ Você pode associar a credencial de certificado com o aplicativo cliente no Micr
 No registro do aplicativo do Azure para o aplicativo cliente:
 1. Selecione **Certificados e segredos**. 
 2. Clique em **carregar certificado** e selecione o arquivo de certificado a ser carregado.
-3. Clique em **Adicionar** .
+3. Clique em **Adicionar**.
   Depois que o certificado for carregado, os valores de impressão digital, data de início e expiração serão exibidos. 
 
 ### <a name="updating-the-application-manifest"></a>Atualizando o manifesto do aplicativo

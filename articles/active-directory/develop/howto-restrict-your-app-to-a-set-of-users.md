@@ -1,5 +1,6 @@
 ---
-title: Como restringir seu aplicativo registrado pelo Azure Active Directory a um conjunto de usuários
+title: Restringir seu aplicativo registrado Azure Active Directory a um conjunto de usuários
+titleSuffix: Microsoft identity platform
 description: Aprenda a restringir o acesso a aplicativos registrados no Azure AD a um conjunto selecionado de usuários.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +18,14 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a51c49633e68fdc5f9afd4bf0205adaa625940ff
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: c768730a00d424333e735bb4f6a385d294f38513
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812964"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803958"
 ---
-# <a name="how-to-restrict-your-app-to-a-set-of-users"></a>Como: Restringir o aplicativo a um conjunto de usuários
+# <a name="how-to-restrict-your-app-to-a-set-of-users"></a>Como: restringir o aplicativo a um conjunto de usuários
 
 Aplicativos registrados em um locatário do Azure Active Directory (Azure AD) estão, por padrão, disponíveis para todos os usuários do locatário que se autenticar com êxito.
 

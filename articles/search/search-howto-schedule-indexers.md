@@ -1,31 +1,31 @@
 ---
-title: Como agendar indexadores-Azure Search
-description: Agende Azure Search indexadores para indexar conteúdo periodicamente ou em horários específicos.
-ms.date: 05/31/2019
+title: Como agendar indexadores
+titleSuffix: Azure Cognitive Search
+description: Agende indexadores do Azure Pesquisa Cognitiva para indexar conteúdo periodicamente ou em horários específicos.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
-services: search
-ms.service: search
-ms.devlang: ''
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.openlocfilehash: d30c4532c43c5df568cf32a1025b796b3be9ee8e
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: e9d4f49bd0aec1a04b4839b2084a81fb538f7890
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72533614"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793690"
 ---
-# <a name="how-to-schedule-indexers-for-azure-search"></a>Como agendar indexadores para Azure Search
+# <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Como agendar indexadores no Azure Pesquisa Cognitiva
+
 Um indexador normalmente é executado uma vez, imediatamente após sua criação. Você pode executá-lo novamente sob demanda usando o portal, a API REST ou o SDK do .NET. Você também pode configurar um indexador para ser executado periodicamente em um agendamento.
 
 Algumas situações em que o agendamento do indexador é útil:
 
-* Os dados de origem serão alterados ao longo do tempo e você deseja que os indexadores de Azure Search processem automaticamente os dados alterados.
+* Os dados de origem serão alterados ao longo do tempo e você deseja que os indexadores Pesquisa Cognitiva do Azure processem automaticamente os dados alterados.
 * O índice será preenchido de várias fontes de dados e você deseja garantir que os indexadores sejam executados em momentos diferentes para reduzir os conflitos.
-* Os dados de origem são muito grandes e você deseja espalhar o processamento do indexador ao longo do tempo. Para obter mais informações sobre como indexar grandes volumes de dados, consulte [como indexar grandes conjuntos de dados no Azure Search](search-howto-large-index.md).
+* Os dados de origem são muito grandes e você deseja espalhar o processamento do indexador ao longo do tempo. Para obter mais informações sobre como indexar grandes volumes de dados, consulte [como indexar grandes conjuntos de dados no Azure pesquisa cognitiva](search-howto-large-index.md).
 
-O Agendador é um recurso interno do Azure Search. Você não pode usar um Agendador externo para controlar indexadores de pesquisa.
+O Agendador é um recurso interno do Azure Pesquisa Cognitiva. Você não pode usar um Agendador externo para controlar indexadores de pesquisa.
 
 ## <a name="define-schedule-properties"></a>Definir propriedades da agenda
 
@@ -35,7 +35,7 @@ Uma agenda do indexador tem duas propriedades:
 
 Você pode especificar um agendamento ao criar o indexador pela primeira vez ou atualizando as propriedades do indexador posteriormente. Os agendamentos do indexador podem ser definidos usando o [portal](#portal), a [API REST](#restApi)ou o [SDK do .net](#dotNetSdk).
 
-Somente uma execução de um indexador pode ser executada por vez. Se um indexador já estiver em execução quando a próxima execução for agendada, essa execução será adiada até a próxima hora agendada.
+Só é possível ocorrer uma execução de um indexador por vez. Se um indexador já estiver em execução quando a próxima execução for agendada, essa execução será adiada até a próxima hora agendada.
 
 Vamos considerar um exemplo para tornar isso mais concreto. Suponha que configuramos uma agenda do indexador com um **intervalo** de hora em horário e uma **hora de início** de 1º de junho de 2019 às 8:00:00 am UTC. Veja o que poderia acontecer quando uma execução de indexador demorar mais do que uma hora:
 
@@ -78,7 +78,7 @@ Você pode definir o agendamento de um indexador usando a API REST. Para fazer i
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
-O parâmetro **interval** é necessário. O intervalo refere-se ao tempo entre o início de duas execuções de indexador consecutivas. O menor intervalo permitido é de 5 minutos; o mais longo é um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
+O parâmetro **interval** é necessário. O intervalo refere-se ao tempo entre o início de duas execuções consecutivas do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
 
 O **StartTime** opcional indica quando as execuções agendadas devem começar. Se for omitido, a hora UTC atual será usada. Esse tempo pode estar no passado, caso em que a primeira execução é agendada como se o indexador fosse executado continuamente desde o **iníciotime**original.
 
@@ -88,7 +88,7 @@ Você também pode executar um indexador sob demanda a qualquer momento usando a
 
 ## <a name="schedule-using-the-net-sdk"></a>Agendar usando o SDK do .NET
 
-Você pode definir a agenda para um indexador usando o SDK do .NET Azure Search. Para fazer isso, inclua a propriedade **Schedule** ao criar ou atualizar um indexador.
+Você pode definir o agendamento de um indexador usando o SDK do .NET Pesquisa Cognitiva do Azure. Para fazer isso, inclua a propriedade **Schedule** ao criar ou atualizar um indexador.
 
 O exemplo C# a seguir cria um indexador, usando uma fonte de dados predefinida e um índice, e define sua agenda para ser executada uma vez a cada dia, começando em 30 minutos a partir de agora:
 

@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c31867f4de0e49e2c82733dc859f17ba060bdaa
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9fcac058a510b8b7fed5b3967bbbf439dd4c0f71
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561352"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786744"
 ---
-# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha self-service do Azure AD
+# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento do Azure AD
 
 Como funciona a SSPR (redefinição de senha por autoatendimento)? O que essa opção significa na interface? Continue lendo para saber mais sobre a SSPR do Azure AD (Azure Active Directory).
 
@@ -56,7 +56,7 @@ Leia as etapas abaixo para saber mais sobre a lógica por trás da página de re
 
 Se a SSPR estiver habilitada, você deve selecionar pelo menos uma das seguintes opções para os métodos de autenticação. Às vezes, essas opções referidas como "portões." É altamente recomendável que você **escolha dois ou mais métodos de autenticação** para que seus usuários tenham mais flexibilidade caso não consigam acessar um quando precisarem. Detalhes adicionais sobre os métodos listados abaixo podem ser encontrados no artigo [o que são métodos de autenticação?](concept-authentication-methods.md).
 
-* Notificação do aplicativo móvel
+* Notificação de aplicativo móvel
 * Código do aplicativo móvel
 * Email
 * Telefone celular
@@ -88,20 +88,26 @@ Ao usar um aplicativo móvel, como o aplicativo Microsoft Authenticator, como um
 * Quando os administradores exigem que um método seja usado para redefinir uma senha, o código de verificação é a única opção disponível.
 * Quando os administradores exigem dois métodos a ser usado para redefinir uma senha, os usuários são capazes de usar **um** notificação **ou** habilitado de código de verificação além de quaisquer outros métodos.
 
-| Número de métodos necessários para a redefinição | Um | Dois |
+| Número de métodos necessários para redefinir | Um | Dois |
 | :---: | :---: | :---: |
-| Recursos de aplicativos para dispositivos móveis disponíveis | Código | Código ou notificação |
+| Recursos de aplicativos para dispositivos móveis disponíveis | Codificar | Código ou notificação |
 
 Usuários não têm a opção de registrar seu aplicativo móvel ao se registrar para redefinição de senha de autoatendimento do [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Os usuários podem registrar seu aplicativo móvel em [https://aka.ms/mfasetup](https://aka.ms/mfasetup) ou na nova visualização do registro de informações de segurança em[https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 > [!WARNING]
 > Você deve habilitar o [Registro convergente para a redefinição de senha de autoatendimento e Autenticação Multifator do Azure (visualização pública)](concept-registration-mfa-sspr-converged.md) antes de os usuários poderem acessar a nova experiência em [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
+> [!IMPORTANT]
+> O aplicativo autenticador não pode ser selecionado como o único método de autenticação ao configurar uma política de 1 porta. Da mesma forma, o aplicativo autenticador e apenas um método adicional não podem ser selecionados durante a configuração de uma política de 2 Gates.
+> Em seguida, ao configurar políticas de SSPR que incluem o aplicativo autenticador como um método, pelo menos um método adicional deve ser selecionado ao configurar uma política de uma porta, e pelo menos dois métodos adicionais devem ser selecionados ao configurar uma política de 2 Gates.
+> O motivo para esse requisito é porque a atual experiência de registro de SSPR não inclui a opção de registrar o aplicativo autenticador. A opção para registrar o aplicativo autenticador está incluída no novo [registro convergido para redefinição de senha de autoatendimento e autenticação multifator do Azure (visualização pública)](concept-registration-mfa-sspr-converged.md).
+> Permitir políticas que usam apenas o aplicativo autenticador (para políticas de 1 Gate) ou o aplicativo autenticador e apenas um método adicional (para políticas de 2 Gates) pode levar os usuários sendo impedidos de se registrarem para SSPR até que tenham sido configurados para usar o novo experiência de registro.
+
 ### <a name="change-authentication-methods"></a>Alterar métodos de autenticação
 
 Se você iniciar com uma política que tenha apenas um método de autenticação requerido para reiniciar ou desbloquear registrado e você alterar esse número para dois métodos, o que acontece?
 
-| Número de métodos registrados | Número de métodos necessários | Resultado |
+| Número de métodos registrados | Número de métodos necessários | Result |
 | :---: | :---: | :---: |
 | 1 ou mais | 1 | **Capaz** de redefinir ou desbloquear |
 | 1 | 2 | **Incapaz** de redefinir ou desbloquear |
@@ -114,7 +120,7 @@ Exemplo:
 2. O administrador altera a política para não usar perguntas de segurança, mas permite o uso de telefone celular e um email alternativo.
 3. Os usuários sem o telefone celular ou os campos de e-mail alternativos preenchidos não podem redefinir suas senhas.
 
-## <a name="registration"></a>Registro
+## <a name="registration"></a>Inscrição
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>Exigir que os usuários se cadastram ao entrarem
 
@@ -188,8 +194,8 @@ A redefinição de senha self-service do Azure AD executa o equivalente a uma re
 
 A reinicialização e a mudança de senha são totalmente suportadas em todas as configurações B2B (entre empresas). A reinicialização da senha do usuário B2B tem suporte nos três casos a seguir:
 
-* **Os usuários de uma organização parceira com um locatário existente do Azure AD**: Se a organização com a qual você tem uma parceria tiver um locatário do Azure AD, *respeitaremos quaisquer políticas de redefinição de senha habilitadas no locatário*. Para que a reinicialização da senha funcione, a organização parceira precisa ter certeza de que a SSPR do Azure Active Directory está habilitada. Não há nenhum custo adicional para os clientes do Office 365, e ela pode ser habilitada seguindo as etapas em nosso guia [Introdução ao gerenciamento de senha](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
-* **Usuários que se inscreveram usando** a inscrição de autoatendimento: se a organização com a qual você está fazendo parceria usou o recurso [inscrição para autoatendimento](../users-groups-roles/directory-self-service-signup.md) para entrar em um locatário, permitiremos que redefinam a senha com o email com a qual se registraram.
+* **Usuários de uma organização de parceiros com um locatário existente do Azure Active Directory**: se a organização com a qual você está fazendo uma parceria tiver um locatário existente do Azure Active Directory, *respeitaremos todas as políticas de redefinição de senha habilitadas no locatário*. Para que a reinicialização da senha funcione, a organização parceira precisa ter certeza de que a SSPR do Azure Active Directory está habilitada. Não há nenhum custo adicional para os clientes do Office 365, e ela pode ser habilitada seguindo as etapas em nosso guia [Introdução ao gerenciamento de senha](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
+* **Usuários que se inscreveram usando a inscrição de autoatendimento**: se a organização com a qual você está fazendo parceria usou o recurso [inscrição para autoatendimento](../users-groups-roles/directory-self-service-signup.md) para entrar em um locatário, permitiremos que redefinam a senha com o email com a qual se registraram.
 * **Usuários B2B**: os novos usuários B2B criados com as novas [funcionalidades do Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md) também poderão redefinir suas senhas com o email com o qual se registraram durante o processo de convite.
 
 Para testar este cenário, acesse https://passwordreset.microsoftonline.com com um desses usuários parceiros. Se eles possuem um email alternativo ou um email de autenticação definido, a redefinição de senha funcionará como esperado.
@@ -197,7 +203,7 @@ Para testar este cenário, acesse https://passwordreset.microsoftonline.com com 
 > [!NOTE]
 > Contas Microsoft que receberam acesso de convidado a seu locatário do Azure AD, como as de Hotmail.com, Outlook.com ou outros endereços de email pessoal, não podem usar a SSPR do Azure AD. É necessário que definam a senha, utilizando as informações localizadas no artigo [Quando não for possível entrar na sua conta da Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Os artigos a seguir fornecem informações adicionais sobre a redefinição de senha através do Azure Active Directory:
 
@@ -211,7 +217,7 @@ Os artigos a seguir fornecem informações adicionais sobre a redefinição de s
 * [O que é o write-back de senha e por que devo me importar com isso?](howto-sspr-writeback.md)
 * [Como faço para informar sobre a atividade no SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
-* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
+* [Acho que algo está quebrado. Como fazer solucionar problemas de SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/concept-sspr-howitworks/sspr-authentication-methods.png "Métodos de autenticação do Azure AD e quantidade necessária"

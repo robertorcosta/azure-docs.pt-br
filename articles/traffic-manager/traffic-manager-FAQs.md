@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 86376983f98abd241783f456cb9b41ab5d93ae51
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f08915c07db6759a03fc9bd0695523dead6dcb7f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511009"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784823"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Gerenciador de Tráfego
 
@@ -172,7 +172,7 @@ Você pode especificar o número máximo de pontos de extremidade a serem retorn
 
 Não é possível garantir que o mesmo conjunto de pontos de extremidade seja retornado em cada consulta. Isso também é afetado pelo fato de que alguns dos pontos de extremidade podem se tornar não íntegros, ponto no qual eles não serão incluídos na resposta
 
-## <a name="real-user-measurements"></a>Medidas Reais de Usuário
+## <a name="real-user-measurements"></a>Medições de Usuários Reais
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Quais são os benefícios do uso de Medidas Reais de Usuário?
 
@@ -416,7 +416,10 @@ Sim. É possível especificar o TCP como protocolo de monitoramento e o Gerencia
 
 ### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>Quais respostas específicas são necessárias do ponto de extremidade ao usar o monitoramento de TCP?
 
-Quando o monitoramento de TCP é usado, o Gerenciador de Tráfego inicia um handshake TCP de três vias enviando uma solicitação SYN ao ponto de extremidade na porta especificada. Em seguida, ele aguarda um período de tempo (como especificado nas configurações de tempo limite) por uma resposta do ponto de extremidade. Se o ponto de extremidade responde à solicitação de SYN com uma resposta de SYN-ACK dentro do período de tempo limite especificado nas configurações de monitoramento, então esse ponto de extremidade será considerado íntegro. Se a resposta de SYN-ACK for recebida, o Gerenciador de Tráfego redefinirá a conexão ao responder novamente com um RST.
+Quando o monitoramento de TCP é usado, o Gerenciador de Tráfego inicia um handshake TCP de três vias enviando uma solicitação SYN ao ponto de extremidade na porta especificada. Em seguida, ele aguarda uma resposta de SYN-ACK do ponto de extremidade por um período de tempo (especificado nas configurações de tempo limite).
+
+- Se uma resposta de SYN-ACK for recebida dentro do período de tempo limite especificado nas configurações de monitoramento, esse ponto de extremidade será considerado íntegro. Uma ACK de FIN ou fin é a resposta esperada do Traffic Manager quando ele termina regularmente um soquete.
+- Se uma resposta de SYN-ACK for recebida após o tempo limite especificado, o Gerenciador de tráfego responderá com um RST para redefinir a conexão.
 
 ### <a name="how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint"></a>Com qual velocidade o Gerenciador de Tráfego move meus usuários para fora de um ponto de extremidade não íntegro?
 
@@ -477,8 +480,8 @@ Há não impacto negativo sobre os preços ao usar perfis aninhados.
 
 A cobrança do Gerenciador de Tráfego tem dois componentes: verificações de integridade do ponto de extremidade e milhões de consultas DNS
 
-* Verificações de integridade do ponto de extremidade: Não há nenhum encargo para um perfil filho quando configurado como um ponto de extremidade em um perfil pai. O monitoramento dos pontos de extremidade no perfil filho é cobrado como de costume.
-* Consultas DNS: Cada consulta é contada apenas uma vez. Uma consulta em um perfil pai que retorna um ponto de extremidade de um perfil filho é contada apenas no perfil pai.
+* Verificações de integridade de ponto de extremidade: não há nenhum encargo para um perfil filho quando configurado como um ponto de extremidade em um perfil pai. O monitoramento dos pontos de extremidade no perfil filho é cobrado como de costume.
+* Consultas DNS: cada consulta é contada apenas uma vez. Uma consulta em um perfil pai que retorna um ponto de extremidade de um perfil filho é contada apenas no perfil pai.
 
 Para obter detalhes completos, consulte a [página de preços do Gerenciador de Tráfego](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
@@ -494,7 +497,7 @@ O perfil pai não executa verificações de integridade no filho diretamente. Em
 
 A tabela a seguir descreve o comportamento das verificações de integridade do Gerenciador de Tráfego de um ponto de extremidade aninhado.
 
-| Status do Monitor de perfil filho | Status do monitor de ponto de extremidade pai | Observações |
+| Status do Monitor de perfil filho | Status do monitor de ponto de extremidade pai | Notas |
 | --- | --- | --- |
 | Desabilitado. O perfil filho foi desabilitado. |Parado |O estado do ponto de extremidade pai é Parado, não Desabilitado. O estado Desabilitado é reservado para indicar que você desabilitou o ponto de extremidade no perfil pai. |
 | Degradado. Pelo menos um ponto de extremidade do perfil filho está no estado Degradado. |Online: o número de pontos de extremidade Online no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>CheckingEndpoint: o número de pontos de extremidade Online mais CheckingEndpoint no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>Degradado: caso contrário. |O tráfego é roteado para um ponto de extremidade do status CheckingEndpoint. Se MinChildEndpoints estiver definido com um valor muito alto, o ponto de extremidade estará sempre degradado. |

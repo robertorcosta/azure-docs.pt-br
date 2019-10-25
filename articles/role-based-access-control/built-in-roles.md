@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 09/25/2019
+ms.date: 10/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 65a049070806fd702497d50236e9d541de2e8b1a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 31e19034f6a2c6f5ab52cbc34d8b3f6e0a1051bc
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71842289"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803578"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 
@@ -38,16 +38,16 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 | [Proprietário](#owner) | Permite que você gerencie tudo, incluindo acesso aos recursos. |
 | [Colaborador](#contributor) | Permite que você gerencie tudo, exceto conceder acesso aos recursos. |
 | [Leitor](#reader) | Permite que você veja tudo, mas não faça alterações. |
-| [AcrDelete](#acrdelete) | excluir ACR |
+| [AcrDelete](#acrdelete) | exclusão de ACR |
 | [AcrImageSigner](#acrimagesigner) | signatário de imagem ACR |
 | [AcrPull](#acrpull) | acr pull |
 | [AcrPush](#acrpush) | acr push |
 | [AcrQuarantineReader](#acrquarantinereader) | leitor de dados de quarentena acr |
-| [AcrQuarantineWriter](#acrquarantinewriter) | gravador de dados de quarentena ACR |
+| [AcrQuarantineWriter](#acrquarantinewriter) | gravador de dados de quarentena acr |
 | [Colaborador de serviço de gerenciamento de API](#api-management-service-contributor) | Pode gerenciar o serviço e as APIs |
 | [Função do operador de serviço de gerenciamento da API](#api-management-service-operator-role) | Pode gerenciar serviços, mas não as APIs |
 | [Função do leitor do serviço de gerenciamento da API](#api-management-service-reader-role) | Acesso somente leitura ao serviço e APIs |
-| [Colaborador de componente do Application Insights](#application-insights-component-contributor) | Pode gerenciar componentes do Application Insights |
+| [Colaborador de componente do Application Insights](#application-insights-component-contributor) | Pode gerenciar os componentes do Application Insights |
 | [Depurador de Instantâneos do Application Insights](#application-insights-snapshot-debugger) | Concede permissão ao usuário para exibir e baixar os instantâneos de depuração coletados com o Depurador de Instantâneos do Application Insights. Observe que essas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Colaborador](#contributor). |
 | [Operador do Trabalho de Automação](#automation-job-operator) | Criar e gerenciar trabalhos usando runbooks de Automação. |
 | [Operador de automação](#automation-operator) | Os Operadores de Automação podem iniciar, interromper, suspender e retomar trabalhos |
@@ -95,7 +95,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 | [Leitor do Data Box](#data-box-reader) | Permite que você gerencie o serviço do Azure Data Box, exceto a ordem de criação ou edição de detalhes do pedido e fornecer acesso a outras pessoas. |
 | [Colaborador da fábrica de dados](#data-factory-contributor) | Cria e gerencia data factories, assim como os recursos filhos neles. |
 | [Desenvolvedor do Data Lake Analytics](#data-lake-analytics-developer) | Permite enviar, monitorar e gerenciar seus próprios trabalhos, mas não criar nem excluir contas do Data Lake Analytics. |
-| [Limpador de Dados](#data-purger) | Pode limpar dados de análise |
+| [Limpador de Dados](#data-purger) | Pode limpar os dados de análise |
 | [Usuário do DevTest Labs](#devtest-labs-user) | Permite conectar, iniciar, reiniciar e encerrar as máquinas virtuais no Azure DevTest Labs. |
 | [Colaborador de zona DNS](#dns-zone-contributor) | Permite gerenciar zonas DNS e conjuntos de registros no DNS do Azure, mas não permite controlar quem tem acesso a eles. |
 | [Colaborador de Conta do DocumentDB](#documentdb-account-contributor) | Pode gerenciar contas do Azure Cosmos DB. O Azure Cosmos DB era anteriormente conhecido como DocumentDB. |
@@ -126,9 +126,9 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 | [Colaborador da Política de Recursos (Versão prévia)](#resource-policy-contributor-preview) | (Versão prévia) Os usuários com aterramento da EA, com direitos para criar/modificar a política de recursos, criam um tíquete de suporte e recursos/hierarquia de leitura. |
 | [Colaborador de Coleções de Trabalho do Agendador](#scheduler-job-collections-contributor) | Permite gerenciar as coleções de trabalhos do Agendador, mas não acessá-las. |
 | [Colaborador do Serviço de Pesquisa](#search-service-contributor) | Permite gerenciar serviços de pesquisa, mas não acessá-las. |
-| [Administrador de Segurança](#security-admin) | Somente na Central de Segurança: Pode exibir políticas de segurança, exibir estados de segurança, editar políticas de segurança, exibir alertas e recomendações, ignorar alertas e recomendações |
+| [Administrador de Segurança](#security-admin) | Na Central de Segurança somente: Pode visualizar as políticas de segurança, estados de segurança, editar políticas de segurança, visualizar alertas e recomendações, ignorar alertas e recomendações |
 | [Gerenciador de Segurança (Herdado)](#security-manager-legacy) | Esta é uma função herdada. Em vez disso, use o Administrador de Segurança |
-| [Leitor de Segurança](#security-reader) | Somente na Central de Segurança: Pode exibir recomendações e alertas, exibir políticas de segurança, exibir estados de segurança, mas não pode fazer alterações |
+| [Leitor de Segurança](#security-reader) | Na Central de Segurança somente: Pode visualizar recomendações e alertas, visualizar políticas de segurança, visualizar estados de segurança, mas não pode fazer alterações |
 | [Colaborador do Site Recovery](#site-recovery-contributor) | Permite gerenciar o serviço do Azure Site Recovery, exceto a criação de cofre e atribuição de função |
 | [Operador do Site Recovery](#site-recovery-operator) | Permite failover e failback, mas não executa outras operações de gerenciamento do Azure Site Recovery |
 | [Leitor do Site Recovery](#site-recovery-reader) | Permite visualizar o status do Azure Site Recovery, mas não executar outras operações de gerenciamento |
@@ -177,7 +177,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="contributor"></a>Contribuidor
+## <a name="contributor"></a>Colaborador
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -215,10 +215,10 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | excluir ACR |
+> | **Descrição** | exclusão de ACR |
 > | **Id** | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
 > | **Ações** |  |
-> | Microsoft.ContainerRegistry/registries/artifacts/delete | Exclua o artefato em um registro de contêiner. |
+> | Microsoft. ContainerRegistry/registros/artefatos/excluir | Exclua o artefato em um registro de contêiner. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -276,10 +276,10 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | leitor de dados de quarentena ACR |
+> | **Descrição** | leitor de dados de quarentena acr |
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Ações** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Efetuar pull ou Obter imagens em quarentena do registro de contêiner |
+> | Microsoft. ContainerRegistry/registros/quarentena/leitura | Efetuar pull ou Obter imagens em quarentena do registro de contêiner |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -291,11 +291,11 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | gravador de dados de quarentena ACR |
+> | **Descrição** | gravador de dados de quarentena acr |
 > | **Id** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **Ações** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Efetuar pull ou Obter imagens em quarentena do registro de contêiner |
-> | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Gravar/Modificar o estado de quarentena das imagens em quarentena |
+> | Microsoft. ContainerRegistry/registros/quarentena/leitura | Efetuar pull ou Obter imagens em quarentena do registro de contêiner |
+> | Microsoft. ContainerRegistry/registros/quarentena/gravação | Gravar/Modificar o estado de quarentena das imagens em quarentena |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -303,7 +303,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="api-management-service-contributor"></a>Contribuidor do Serviço de Gerenciamento de API
+## <a name="api-management-service-contributor"></a>Colaborador de serviço de gerenciamento de API
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -324,7 +324,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="api-management-service-operator-role"></a>Função de Operador do Serviço de Gerenciamento de API
+## <a name="api-management-service-operator-role"></a>Função do operador de serviço de gerenciamento da API
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -353,7 +353,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="api-management-service-reader-role"></a>Função de Leitor do Serviço de Gerenciamento de API
+## <a name="api-management-service-reader-role"></a>Função de leitor do Serviço de Gerenciamento de API
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -375,11 +375,11 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="application-insights-component-contributor"></a>Contribuidor de Componente do Application Insights
+## <a name="application-insights-component-contributor"></a>Colaborador de componente do Application Insights
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Pode gerenciar componentes do Application Insights |
+> | **Descrição** | Pode gerenciar os componentes do Application Insights |
 > | **Id** | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
@@ -444,7 +444,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="automation-operator"></a>Operador de Automação
+## <a name="automation-operator"></a>Operador de automação
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -499,7 +499,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="avere-contributor"></a>Colaborador do Avere
+## <a name="avere-contributor"></a>Colaborador de avere
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -507,11 +507,11 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Id** | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Compute/*/read |  |
+> | Microsoft. Compute/*/Read |  |
 > | Microsoft.Compute/availabilitySets/* |  |
 > | Microsoft.Compute/virtualMachines/* |  |
-> | Microsoft.Compute/disks/* |  |
-> | Microsoft.Network/*/read |  |
+> | Microsoft. Compute/disks/* |  |
+> | Microsoft. Network/*/Read |  |
 > | Microsoft.Network/networkInterfaces/* |  |
 > | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
 > | Microsoft.Network/virtualNetworks/subnets/read | Obter uma definição de sub-rede da rede virtual |
@@ -521,10 +521,10 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 > | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta do Insights |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Storage/*/read |  |
+> | Microsoft. Storage/*/Read |  |
 > | Microsoft.Storage/storageAccounts/* |  |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
-> | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Obter os recursos do grupo de recursos. |
+> | Microsoft. Resources/subscriptions/resourceGroups/Resources/Read | Obter os recursos do grupo de recursos. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -534,7 +534,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="avere-operator"></a>Operador do Avere
+## <a name="avere-operator"></a>Operador avere
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -551,7 +551,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Retornar o resultado da exclusão de um contêiner |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retorna a lista de contêineres |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Retorna o resultado do contêiner de put blob |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Retorna o resultado do contêiner de blob de colocação |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -568,11 +568,11 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Descrição** | Permite acesso completo aos recursos dos hubs de eventos do Azure. |
 > | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
 > | **Ações** |  |
-> | Microsoft.EventHub/* |  |
+> | Microsoft. EventHub/* |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.EventHub/* |  |
+> | Microsoft. EventHub/* |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -583,11 +583,11 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Descrição** | Permite o acesso de recebimento aos recursos dos hubs de eventos do Azure. |
 > | **Id** | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
 > | **Ações** |  |
-> | Microsoft.EventHub/*/eventhubs/consumergroups/read |  |
+> | Microsoft. EventHub/*/Eventhubs/consumergroups/Read |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.EventHub/*/receive/action |  |
+> | Microsoft. EventHub/*/Receive/Action |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -598,11 +598,11 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Descrição** | Permite o acesso de envio aos recursos dos hubs de eventos do Azure. |
 > | **Id** | 2b629674-e913-4c01-ae53-ef4638d8f975 |
 > | **Ações** |  |
-> | Microsoft.EventHub/*/eventhubs/read |  |
+> | Microsoft. EventHub/*/Eventhubs/Read |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.EventHub/*/send/action |  |
+> | Microsoft. EventHub/*/Send/Action |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -741,11 +741,11 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Descrição** | Permite acesso completo aos recursos do barramento de serviço do Azure. |
 > | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
 > | **Ações** |  |
-> | Microsoft.ServiceBus/* |  |
+> | Microsoft. ServiceBus/* |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.ServiceBus/* |  |
+> | Microsoft. ServiceBus/* |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -756,13 +756,13 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Descrição** | Permite o acesso de recebimento aos recursos do barramento de serviço do Azure. |
 > | **Id** | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
 > | **Ações** |  |
-> | Microsoft.ServiceBus/*/queues/read |  |
-> | Microsoft.ServiceBus/*/topics/read |  |
-> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | Microsoft. ServiceBus/*/Queues/Read |  |
+> | Microsoft. ServiceBus/*/topics/Read |  |
+> | Microsoft. ServiceBus/*/topics/subscriptions/Read |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.ServiceBus/*/receive/action |  |
+> | Microsoft. ServiceBus/*/Receive/Action |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -773,13 +773,13 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Descrição** | Permite o acesso de envio aos recursos do barramento de serviço do Azure. |
 > | **Id** | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
 > | **Ações** |  |
-> | Microsoft.ServiceBus/*/queues/read |  |
-> | Microsoft.ServiceBus/*/topics/read |  |
-> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | Microsoft. ServiceBus/*/Queues/Read |  |
+> | Microsoft. ServiceBus/*/topics/Read |  |
+> | Microsoft. ServiceBus/*/topics/subscriptions/Read |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.ServiceBus/*/send/action |  |
+> | Microsoft. ServiceBus/*/Send/Action |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -812,9 +812,9 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Gerenciar os resultados da operação no gerenciamento de backup |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Criar e gerenciar contêineres de backup em malhas de backup do cofre de Serviços de Recuperação |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Atualiza a lista de contêineres |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Atualizar a lista de contêineres |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Criar e gerenciar trabalhos de backup |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar Trabalhos |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Criar e gerenciar metadados relacionados ao gerenciamento de backup |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Criar e gerenciar os Resultados das operações de gerenciamento de backup |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Criar e gerenciar políticas de backup |
@@ -827,7 +827,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/* | Criar e gerenciar informações estendidas relacionadas ao cofre |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obter os alertas para o cofre dos Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
-> | Microsoft.RecoveryServices/Vaults/read | A operação Obter Cofre obtém um objeto representando o recurso do Azure de tipo 'cofre' |
+> | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Criar e gerenciar identidades registradas |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Criar e gerenciar o uso do cofre dos Serviços de Recuperação |
 > | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
@@ -835,15 +835,15 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Storage/storageAccounts/read | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Validar Operação no Item Protegido |
-> | Microsoft.RecoveryServices/Vaults/write | A operação Criar Cofre cria um recurso do Azure do tipo 'cofre' |
+> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Validar operação no Item protegido |
+> | Microsoft.RecoveryServices/Vaults/write | A operação Criar cofre cria um recurso do Azure do tipo 'cofre' |
 > | Microsoft.RecoveryServices/Vaults/backupOperations/read | Retornar o status da operação de backup para o cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Retorna todos os servidores de gerenciamento de backup registrados com o cofre. |
+> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Retornar todos os servidores de gerenciamento de backup registrados com cofre. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Obtenha todos os contêineres que podem ser protegidos |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Obter todos os contêineres protegidos |
 > | Microsoft.RecoveryServices/locations/backupStatus/action | Verificar o status de backup para os Cofres dos Serviços de Recuperação |
 > | Microsoft.RecoveryServices/locations/backupPreValidateProtection/action |  |
-> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Validar Recursos |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Validar recursos |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Resolver o alerta. |
 > | Microsoft.RecoveryServices/operations/read | Operação retorna a lista de operações para um provedor de recursos |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o Status da operação para uma determinada operação |
@@ -865,56 +865,56 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
 > | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Retorna o status da operação |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Obtém o resultado da Operação realizada no Contêiner de Proteção. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Faz Backup de Item Protegido. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Obtém o Resultado da Operação Realizada em Itens Protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Retorna o status da Operação realizada em Itens Protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Retorna os detalhes do objeto do Item Protegido |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Retornar o status da operação |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Obter o resultado da operação executada no contêiner de proteção. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Executar um backup para um item protegido. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Obter o resultado da operação executada em itens protegidos. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Retornar o status da operação executada em itens protegidos. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Retornar detalhes do objeto do item protegido |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Provisionar recuperação de item instantânea para item protegido |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Obter Pontos de Recuperação de Itens Protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Restaurar Pontos de Recuperação de Itens Protegidos. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Obter pontos de recuperação para itens protegidos. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Restaurar pontos de recuperação para itens protegidos. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Revogar a recuperação de item instantânea para item protegido |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Criar um Item Protegido em backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Retorna todos os contêineres registrados |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Atualiza a lista de contêineres |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Criar um item protegido de backup |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Retornar todos os contêineres registrados |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Atualizar a lista de contêineres |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Criar e gerenciar trabalhos de backup |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar Trabalhos |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Criar e gerenciar os Resultados das operações de gerenciamento de backup |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obter Resultados da Operação de Política. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retorna todas as Políticas de Proteção |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obter os resultados da operação de política. |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retornar todas as políticas de proteção |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Criar e gerenciar itens para backup |
-> | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Retorna a lista de todos os Itens Protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Retorna todos os contêineres pertencentes à assinatura |
+> | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Retornar a lista de todos os itens protegidos. |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Retornar todos os contêineres pertencentes à assinatura |
 > | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Retornar resumos de itens protegidos e servidores protegidos para os Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/certificates/write | A operação Atualizar Certificado de Recurso atualiza o certificado de credencial de cofre/recurso. |
-> | Microsoft.RecoveryServices/Vaults/extendedInformation/read | A operação Obter Informações Estendidas obtém as Informações Estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
-> | Microsoft.RecoveryServices/Vaults/extendedInformation/write | A operação Obter Informações Estendidas obtém as Informações Estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
+> | Microsoft.RecoveryServices/Vaults/certificates/write | A operação Atualizar certificado do recurso atualiza o certificado de credencial de cofre/recurso. |
+> | Microsoft.RecoveryServices/Vaults/extendedInformation/read | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
+> | Microsoft.RecoveryServices/Vaults/extendedInformation/write | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obter os alertas para o cofre dos Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
-> | Microsoft.RecoveryServices/Vaults/read | A operação Obter Cofre obtém um objeto representando o recurso do Azure de tipo 'cofre' |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | A operação Obter Resultados da Operação pode ser usada para obter o status e o resultado da operação para a operação enviada de forma assíncrona |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | A operação Obter Contêineres pode ser usada para obter os contêineres registrados para um recurso. |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | A operação Registrar Contêiner de Serviço pode ser usada para registrar um contêiner com o Serviço de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Retorna detalhes de uso do Cofre de Serviços de Recuperação. |
+> | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
+> | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | A operação Obter resultados da operação pode ser usada para obter o status da operação e o resultado da operação enviada de forma assíncrona |
+> | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | A operação Obter contêineres pode ser usada para obter os contêineres registrados para um recurso. |
+> | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | A operação Registrar o contêiner de serviço pode ser usada para registrar um contêiner com o Serviço de Recuperação. |
+> | Microsoft.RecoveryServices/Vaults/usages/read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
 > | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/read | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Validar Operação no Item Protegido |
+> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Validar operação no Item protegido |
 > | Microsoft.RecoveryServices/Vaults/backupOperations/read | Retornar o status da operação de backup para o cofre dos Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | Obter o status da operação de política. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | Cria um contêiner registrado |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | Criar um contêiner registrado |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | Consultar cargas de trabalho em um contêiner |
-> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Retorna todos os servidores de gerenciamento de backup registrados com o cofre. |
+> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Retornar todos os servidores de gerenciamento de backup registrados com cofre. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Criar uma Intenção de Proteção de backup |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Obter uma Intenção de Proteção de backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Obtenha todos os contêineres que podem ser protegidos |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Obter todos os contêineres protegidos |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Obter todos os itens em um contêiner |
 > | Microsoft.RecoveryServices/locations/backupStatus/action | Verificar o status de backup para os Cofres dos Serviços de Recuperação |
 > | Microsoft.RecoveryServices/locations/backupPreValidateProtection/action |  |
-> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Validar Recursos |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Validar recursos |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Resolver o alerta. |
 > | Microsoft.RecoveryServices/operations/read | Operação retorna a lista de operações para um provedor de recursos |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o Status da operação para uma determinada operação |
@@ -936,33 +936,33 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna usada pelo serviço |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Retorna o status da operação |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Obtém o resultado da Operação realizada no Contêiner de Proteção. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Obtém o Resultado da Operação Realizada em Itens Protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Retorna o status da Operação realizada em Itens Protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Retorna os detalhes do objeto do Item Protegido |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Obter Pontos de Recuperação de Itens Protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Retorna todos os contêineres registrados |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Retorna o Resultado da Operação de Trabalho. |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/read | Retorna todos os Objetos de Trabalho |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar Trabalhos |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Retornar o status da operação |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Obter o resultado da operação executada no contêiner de proteção. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Obter o resultado da operação executada em itens protegidos. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Retornar o status da operação executada em itens protegidos. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Retornar detalhes do objeto do item protegido |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Obter pontos de recuperação para itens protegidos. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Retornar todos os contêineres registrados |
+> | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Retornar o resultado da operação do trabalho. |
+> | Microsoft.RecoveryServices/Vaults/backupJobs/read | Retornar todos os objetos de trabalho |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
-> | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Retorna o Resultado da Operação de Backup do Cofre de Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obter Resultados da Operação de Política. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retorna todas as Políticas de Proteção |
-> | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Retorna a lista de todos os Itens Protegidos. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Retorna todos os contêineres pertencentes à assinatura |
+> | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Retornar o resultado da operação de backup para o cofre dos Serviços de Recuperação. |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obter os resultados da operação de política. |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retornar todas as políticas de proteção |
+> | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Retornar a lista de todos os itens protegidos. |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Retornar todos os contêineres pertencentes à assinatura |
 > | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Retornar resumos de itens protegidos e servidores protegidos para os Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/extendedInformation/read | A operação Obter Informações Estendidas obtém as Informações Estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
+> | Microsoft.RecoveryServices/Vaults/extendedInformation/read | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obter os alertas para o cofre dos Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/read | A operação Obter Cofre obtém um objeto representando o recurso do Azure de tipo 'cofre' |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | A operação Obter Resultados da Operação pode ser usada para obter o status e o resultado da operação para a operação enviada de forma assíncrona |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | A operação Obter Contêineres pode ser usada para obter os contêineres registrados para um recurso. |
+> | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
+> | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | A operação Obter resultados da operação pode ser usada para obter o status da operação e o resultado da operação enviada de forma assíncrona |
+> | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | A operação Obter contêineres pode ser usada para obter os contêineres registrados para um recurso. |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/read | Retornar cofre de armazenamento para o cofre dos Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/backupconfig/read | Retornar a configuração para cofre dos Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/backupOperations/read | Retornar o status da operação de backup para o cofre dos Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | Obter o status da operação de política. |
-> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Retorna todos os servidores de gerenciamento de backup registrados com o cofre. |
+> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Retornar todos os servidores de gerenciamento de backup registrados com cofre. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Obter uma Intenção de Proteção de backup |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Obter todos os itens em um contêiner |
 > | Microsoft.RecoveryServices/locations/backupStatus/action | Verificar o status de backup para os Cofres dos Serviços de Recuperação |
@@ -971,7 +971,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.RecoveryServices/operations/read | Operação retorna a lista de operações para um provedor de recursos |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o Status da operação para uma determinada operação |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Listar todas as Intenções de Proteção de backup |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Retorna detalhes de uso do Cofre de Serviços de Recuperação. |
+> | Microsoft.RecoveryServices/Vaults/usages/read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -979,7 +979,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="billing-reader"></a>Leitor de Cobrança
+## <a name="billing-reader"></a>Leitor de cobrança
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1000,7 +1000,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="biztalk-contributor"></a>Contribuidor do BizTalk
+## <a name="biztalk-contributor"></a>Colaborador do BizTalk
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1028,11 +1028,11 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Descrição** | Permite o acesso a nós membro Blockchain |
 > | **Id** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
 > | **Ações** |  |
-> | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Obtém ou lista os nós de transação de membro Blockchain existentes. |
+> | Microsoft. Blockchain/blockchainMembers/transactionNodes/Read | Obtém ou lista os nós de transação de membro Blockchain existentes. |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Conecta-se a um nó de transação de membro Blockchain. |
+> | Microsoft. Blockchain/blockchainMembers/transactionNodes/Connect/Action | Conecta-se a um nó de transação de membro Blockchain. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -1074,7 +1074,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="cdn-endpoint-contributor"></a>Colaborador de Ponto de Extremidade do CDN
+## <a name="cdn-endpoint-contributor"></a>Colaborador de ponto de extremidade de CDN
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1096,7 +1096,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="cdn-endpoint-reader"></a>Leitor de Pontos de Extremidade do CDN
+## <a name="cdn-endpoint-reader"></a>Leitor de ponto de extremidade de CDN
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1118,7 +1118,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="cdn-profile-contributor"></a>Colaborador de Perfil de CDN
+## <a name="cdn-profile-contributor"></a>Colaborador de perfil de CDN
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1140,7 +1140,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="cdn-profile-reader"></a>Leitor de Perfis do CDN
+## <a name="cdn-profile-reader"></a>Leitor de perfil de CDN
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1162,7 +1162,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="classic-network-contributor"></a>Colaborador da Rede Clássica
+## <a name="classic-network-contributor"></a>Colaborador de rede clássica
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1183,7 +1183,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="classic-storage-account-contributor"></a>Colaborador da Conta de Armazenamento Clássica
+## <a name="classic-storage-account-contributor"></a>Colaborador da conta de armazenamento clássica
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1220,7 +1220,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="classic-virtual-machine-contributor"></a>Colaborador da Máquina Virtual Clássica
+## <a name="classic-virtual-machine-contributor"></a>Colaborador de Máquina Virtual Clássica
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1232,7 +1232,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.ClassicCompute/virtualMachines/* | Criar e gerenciar máquinas virtuais |
 > | Microsoft.ClassicNetwork/networkSecurityGroups/join/action |  |
 > | Microsoft.ClassicNetwork/reservedIps/link/action | Vincular um IP reservado |
-> | Microsoft.ClassicNetwork/reservedIps/read | Obtém os Ips reservados |
+> | Microsoft.ClassicNetwork/reservedIps/read | Obter os IPs reservados |
 > | Microsoft.ClassicNetwork/virtualNetworks/join/action | Ingressar na rede virtual. |
 > | Microsoft.ClassicNetwork/virtualNetworks/read | Obter a rede virtual. |
 > | Microsoft.ClassicStorage/storageAccounts/disks/read | Retornar o disco da conta de armazenamento. |
@@ -1266,7 +1266,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Insights/diagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
 > | Microsoft.Insights/logDefinitions/read | Ler definições de log |
 > | Microsoft.Insights/metricdefinitions/read | Ler definições de métrica |
-> | Microsoft.Insights/metrics/read | Ler as métricas |
+> | Microsoft.Insights/metrics/read | Ler métrica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
 > | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 > | Microsoft.Resources/deployments/operations/read | Obter ou lista operações de implantação. |
@@ -1306,11 +1306,11 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Ações** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | Microsoft.CognitiveServices/accounts/listkeys/action | Listar chaves |
-> | Microsoft.Insights/alertRules/read | Ler um alerta de métrica clássico |
+> | Microsoft.Insights/alertRules/read | Ler alerta de métrica clássico |
 > | Microsoft.Insights/diagnosticSettings/read | Ler uma configuração de diagnóstico de recurso |
 > | Microsoft.Insights/logDefinitions/read | Ler definições de log |
 > | Microsoft.Insights/metricdefinitions/read | Ler definições de métrica |
-> | Microsoft.Insights/metrics/read | Ler as métricas |
+> | Microsoft.Insights/metrics/read | Ler métrica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
 > | Microsoft.Resources/deployments/operations/read | Obter ou lista operações de implantação. |
 > | Microsoft.Resources/subscriptions/operationresults/read | Obter os resultados da operação da assinatura. |
@@ -1335,7 +1335,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.DocumentDB/*/read | Ler qualquer coleção |
 > | Microsoft.DocumentDB/databaseAccounts/readonlykeys/action | Ler as chaves somente leitura da conta do banco de dados. |
 > | Microsoft.Insights/MetricDefinitions/read | Ler definições de métrica |
-> | Microsoft.Insights/Metrics/read | Ler as métricas |
+> | Microsoft.Insights/Metrics/read | Ler métrica |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
@@ -1345,7 +1345,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="cosmos-db-operator"></a>Operador do Cosmos DB
+## <a name="cosmos-db-operator"></a>Operador de Cosmos DB
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1360,10 +1360,10 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
-> | Microsoft.DocumentDB/databaseAccounts/readonlyKeys/* |  |
-> | Microsoft.DocumentDB/databaseAccounts/regenerateKey/* |  |
-> | Microsoft.DocumentDB/databaseAccounts/listKeys/* |  |
-> | Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/* |  |
+> | Microsoft. DocumentDB/databaseAccounts/readonlyKeys/* |  |
+> | Microsoft. DocumentDB/databaseAccounts/regenerateKey/* |  |
+> | Microsoft. DocumentDB/databaseAccounts/listKeys/* |  |
+> | Microsoft. DocumentDB/databaseAccounts/listConnectionStrings/* |  |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -1463,7 +1463,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Databox/jobs/listsecrets/action |  |
 > | Microsoft.Databox/jobs/listcredentials/action | Lista as credenciais não criptografadas relacionadas ao pedido. |
 > | Microsoft.Databox/locations/availableSkus/action | Este método retorna a lista de SKUs disponíveis. |
-> | Microsoft.Databox/locations/validateAddress/action | Validará o endereço de entrega e fornecerá endereços alternativos, se houver algum. |
+> | Microsoft. Data Box/Locations/validateAddress/Action | Validará o endereço de entrega e fornecerá endereços alternativos, se houver algum. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
@@ -1473,7 +1473,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="data-factory-contributor"></a>Contribuidor do Data Factory
+## <a name="data-factory-contributor"></a>Colaborador da fábrica de dados
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1530,15 +1530,15 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="data-purger"></a>Data Purger
+## <a name="data-purger"></a>Limpador de Dados
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Pode limpar dados de análise |
+> | **Descrição** | Pode limpar os dados de análise |
 > | **Id** | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | **Ações** |  |
 > | Microsoft.Insights/components/*/read |  |
-> | Microsoft.Insights/components/purge/action | Limpando dados do Application Insights |
+> | Microsoft.Insights/components/purge/action | Limpe dados do Application Insights |
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | Excluir dados especificados do workspace |
 > | **NotActions** |  |
@@ -1565,14 +1565,14 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.DevTestLab/*/read | Ler as propriedades de um laboratório |
 > | Microsoft.DevTestLab/labs/claimAnyVm/action | Declarar uma máquina virtual aleatória declarável no laboratório. |
 > | Microsoft.DevTestLab/labs/createEnvironment/action | Criar máquinas virtuais em um laboratório. |
-> | Microsoft.DevTestLab/labs/ensureCurrentUserProfile/action | Verifique se o usuário atual tem um perfil válido no laboratório. |
+> | Microsoft. DevTestLab/Labs/ensureCurrentUserProfile/Action | Verifique se o usuário atual tem um perfil válido no laboratório. |
 > | Microsoft.DevTestLab/labs/formulas/delete | Excluir fórmulas. |
 > | Microsoft.DevTestLab/labs/formulas/read | Ler fórmulas. |
 > | Microsoft.DevTestLab/labs/formulas/write | Adicionar ou modificar fórmulas. |
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Avaliar a política de laboratório. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Assumir o controle de uma máquina virtual existente |
 > | Microsoft.DevTestLab/labs/virtualMachines/ListApplicableSchedules/action | Lista as agendas de iniciar/parar aplicáveis, se houver alguma. |
-> | Microsoft.DevTestLab/labs/virtualMachines/getRdpFileContents/action | Obtém uma cadeia de caracteres que representa o conteúdo do arquivo RDP para a máquina virtual |
+> | Microsoft. DevTestLab/Labs/virtualMachines/getRdpFileContents/Action | Obtém uma cadeia de caracteres que representa o conteúdo do arquivo RDP para a máquina virtual |
 > | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Une um pool de endereços de back-end do balanceador de carga. Não é possível alertá-lo. |
 > | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Une uma regra NAT de entrada do balanceador de carga. Não é possível alertá-lo. |
 > | Microsoft.Network/networkInterfaces/*/read | Ler as propriedades de uma interface de rede (por exemplo, todos os balanceadores de carga dos quais o adaptador de rede faz parte) |
@@ -1594,7 +1594,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="dns-zone-contributor"></a>Colaborador de Zona de DNS
+## <a name="dns-zone-contributor"></a>Colaborador de zona DNS
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1615,7 +1615,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="documentdb-account-contributor"></a>Colaborador da Conta do Banco de Dados de Documentos
+## <a name="documentdb-account-contributor"></a>Colaborador de Conta do DocumentDB
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1679,16 +1679,16 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="hdinsight-cluster-operator"></a>Operador de Cluster do HDInsight
+## <a name="hdinsight-cluster-operator"></a>Operador de cluster HDInsight
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **Descrição** | Permite que você leia e modifique as configurações do cluster HDInsight. |
 > | **Id** | 61ed4efc-fab3-44fd-b111-e24485cc132a |
 > | **Ações** |  |
-> | Microsoft.HDInsight/*/read |  |
-> | Microsoft.HDInsight/clusters/getGatewaySettings/action | Obter configurações de gateway para o cluster HDInsight |
-> | Microsoft.HDInsight/clusters/updateGatewaySettings/action | Atualizar as configurações do gateway para o cluster HDInsight |
+> | Microsoft. HDInsight/*/Read |  |
+> | Microsoft. HDInsight/clusters/getGatewaySettings/ação | Obter configurações de gateway para o cluster HDInsight |
+> | Microsoft. HDInsight/clusters/updateGatewaySettings/ação | Atualizar as configurações do gateway para o cluster HDInsight |
 > | Microsoft. HDInsight/clusters/Configurations/* |  |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Resources/deployments/operations/read | Obter ou lista operações de implantação. |
@@ -1702,7 +1702,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="hdinsight-domain-services-contributor"></a>Colaborador do HDInsight Domain Services
+## <a name="hdinsight-domain-services-contributor"></a>Colaborador dos serviços de domínio do HDInsight
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1719,7 +1719,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="intelligent-systems-account-contributor"></a>Contribuidor de Conta do Intelligent Systems
+## <a name="intelligent-systems-account-contributor"></a>Colaborador de conta do sistemas inteligentes
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1761,7 +1761,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="lab-creator"></a>Criador de Laboratório
+## <a name="lab-creator"></a>Criador de laboratório
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1827,7 +1827,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="logic-app-contributor"></a>Colaborador de Aplicativo Lógico
+## <a name="logic-app-contributor"></a>Colaborador de aplicativo lógico
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1838,6 +1838,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Listar as chaves de acesso das contas de armazenamento. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Retornar a conta de armazenamento com a conta fornecida. |
 > | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta do Insights |
+> | Microsoft. insights/metricAlerts/* |  |
 > | Microsoft.Insights/diagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
 > | Microsoft.Insights/logdefinitions/* | Essa permissão é necessária para usuários que precisam de acesso aos Logs de atividade por meio do portal. Liste as categorias de log no Log de Atividades. |
 > | Microsoft.Insights/metricDefinitions/* | Ler definições de métricas (lista de tipos de métrica disponíveis para um recurso). |
@@ -1861,7 +1862,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="logic-app-operator"></a>Operador de Aplicativo Lógico
+## <a name="logic-app-operator"></a>Operador de aplicativo lógico
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1870,6 +1871,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
 > | Microsoft.Insights/alertRules/*/read | Ler regras de alerta do Insights |
+> | Microsoft. insights/metricAlerts/*/Read |  |
 > | Microsoft.Insights/diagnosticSettings/*/read | Obter configurações de diagnóstico para Aplicativos Lógicos |
 > | Microsoft.Insights/metricDefinitions/*/read | Obter as métricas disponíveis para Aplicativos Lógicos. |
 > | Microsoft.Logic/*/read | Ler recursos de Aplicativos Lógicos. |
@@ -1891,7 +1893,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="managed-application-operator-role"></a>Função de operador de aplicativos gerenciados
+## <a name="managed-application-operator-role"></a>Função do Operador de Aplicativos Gerenciado
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1900,7 +1902,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Ações** |  |
 > | */leitura | Ler recursos de todos os tipos, exceto segredos. |
 > | Microsoft.Solutions/applications/read | Recuperar uma lista de aplicativos. |
-> | Microsoft.Solutions/*/action |  |
+> | Microsoft. Solutions/*/Action |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -1908,7 +1910,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="managed-applications-reader"></a>Leitor de Aplicativos Gerenciados
+## <a name="managed-applications-reader"></a>Leitor de aplicativos gerenciados
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1925,7 +1927,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="managed-identity-contributor"></a>Contribuidor de Identidade Gerenciada
+## <a name="managed-identity-contributor"></a>Colaborador de Identidade Gerenciada
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2002,7 +2004,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="monitoring-contributor"></a>Colaborador do Monitoramento
+## <a name="monitoring-contributor"></a>Colaborador de monitoramento
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2022,7 +2024,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Insights/metricalerts/* |  |
 > | Microsoft.Insights/MetricDefinitions/* | Ler definições de métricas (lista de tipos de métrica disponíveis para um recurso). |
 > | Microsoft.Insights/Metrics/* | Ler as métricas para um recurso. |
-> | Microsoft.Insights/Register/Action | Registre o provedor do Microsoft Insights |
+> | Microsoft.Insights/Register/Action | Registrar o provedor do Microsoft Insights |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Leia/grave/exclua testes da Web do Application Insights. |
 > | Microsoft. insights/pastas de trabalho/* |  |
@@ -2042,14 +2044,14 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="monitoring-metrics-publisher"></a>Publicador de Métricas do Monitoramento
+## <a name="monitoring-metrics-publisher"></a>Publicador de Métricas de Monitoramento
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **Descrição** | Habilita a publicação de métricas com base nos recursos do Azure |
 > | **Id** | 3913510d-42f4-4e42-8a64-420c390055eb |
 > | **Ações** |  |
-> | Microsoft.Insights/Register/Action | Registre o provedor do Microsoft Insights |
+> | Microsoft.Insights/Register/Action | Registrar o provedor do Microsoft Insights |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | **NotActions** |  |
@@ -2059,7 +2061,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="monitoring-reader"></a>Leitor do Monitoramento
+## <a name="monitoring-reader"></a>Leitor de monitoramento
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2076,7 +2078,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="network-contributor"></a>Colaborador de Rede
+## <a name="network-contributor"></a>Colaborador de rede
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2097,7 +2099,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="new-relic-apm-account-contributor"></a>Colaborador da Conta do New Relic APM
+## <a name="new-relic-apm-account-contributor"></a>Colaborador de Conta APM do New Relic
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2126,7 +2128,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Id** | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | **Ações** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Retornar as chaves de acesso da conta de armazenamento especificada. |
-> | Microsoft.Storage/storageAccounts/ListAccountSas/action | Retornar o token SAS da conta para a conta de armazenamento especificada. |
+> | Microsoft. Storage/storageAccounts/ListAccountSas/Action | Retornar o token SAS da conta para a conta de armazenamento especificada. |
 > | Microsoft.Storage/storageAccounts/read | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -2135,7 +2137,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="redis-cache-contributor"></a>Contribuidor do Cache Redis
+## <a name="redis-cache-contributor"></a>Colaborador do Cache Redis
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2176,7 +2178,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="scheduler-job-collections-contributor"></a>Contribuidor de Coleções do Trabalho do Agendador
+## <a name="scheduler-job-collections-contributor"></a>Colaborador de Coleções de Trabalho do Agendador
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2197,7 +2199,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="search-service-contributor"></a>Contribuidor do Serviço de Pesquisa
+## <a name="search-service-contributor"></a>Colaborador do Serviço de Pesquisa
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2218,11 +2220,11 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="security-admin"></a>Admin de Segurança
+## <a name="security-admin"></a>Administrador de Segurança
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Somente na Central de Segurança: Pode exibir políticas de segurança, exibir estados de segurança, editar políticas de segurança, exibir alertas e recomendações, ignorar alertas e recomendações |
+> | **Descrição** | Na Central de Segurança somente: Pode visualizar as políticas de segurança, estados de segurança, editar políticas de segurança, visualizar alertas e recomendações, ignorar alertas e recomendações |
 > | **Id** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
@@ -2267,11 +2269,11 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="security-reader"></a>Leitor de Segurança
+## <a name="security-reader"></a>Leitor de segurança
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Somente na Central de Segurança: Pode exibir recomendações e alertas, exibir políticas de segurança, exibir estados de segurança, mas não pode fazer alterações |
+> | **Descrição** | Na Central de Segurança somente: Pode visualizar recomendações e alertas, visualizar políticas de segurança, visualizar estados de segurança, mas não pode fazer alterações |
 > | **Id** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
@@ -2301,9 +2303,9 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna usada pelo serviço |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp é uma operação interna usada pelo serviço |
-> | Microsoft.RecoveryServices/Vaults/certificates/write | A operação Atualizar Certificado de Recurso atualiza o certificado de credencial de cofre/recurso. |
+> | Microsoft.RecoveryServices/Vaults/certificates/write | A operação Atualizar certificado do recurso atualiza o certificado de credencial de cofre/recurso. |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/* | Criar e gerenciar informações estendidas relacionadas ao cofre |
-> | Microsoft.RecoveryServices/Vaults/read | A operação Obter Cofre obtém um objeto representando o recurso do Azure de tipo 'cofre' |
+> | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
 > | Microsoft.RecoveryServices/Vaults/refreshContainers/read |  |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Criar e gerenciar identidades registradas |
 > | Microsoft.RecoveryServices/vaults/replicationAlertSettings/* | Criar ou atualizar as configurações de alerta de replicação |
@@ -2314,8 +2316,8 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/* | Criar e gerenciar planos de recuperação |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* | Criar e gerenciar a configuração de armazenamento do cofre de Serviços de Recuperação |
 > | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Retorna detalhes de uso do Cofre de Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação do Token do Cofre pode ser usada para obter o Token do Cofre para operações de back-end do nível do cofre. |
+> | Microsoft.RecoveryServices/Vaults/usages/read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
+> | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação de token do cofre pode ser usada a fim de obter o token do cofre para operações de back-end no nível do cofre. |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Obter os alertas para o cofre dos Serviços de Recuperação |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
@@ -2342,54 +2344,54 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna usada pelo serviço |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp é uma operação interna usada pelo serviço |
-> | Microsoft.RecoveryServices/Vaults/extendedInformation/read | A operação Obter Informações Estendidas obtém as Informações Estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
-> | Microsoft.RecoveryServices/Vaults/read | A operação Obter Cofre obtém um objeto representando o recurso do Azure de tipo 'cofre' |
+> | Microsoft.RecoveryServices/Vaults/extendedInformation/read | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
+> | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
 > | Microsoft.RecoveryServices/Vaults/refreshContainers/read |  |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | A operação Obter Resultados da Operação pode ser usada para obter o status e o resultado da operação para a operação enviada de forma assíncrona |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | A operação Obter Contêineres pode ser usada para obter os contêineres registrados para um recurso. |
+> | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | A operação Obter resultados da operação pode ser usada para obter o status da operação e o resultado da operação enviada de forma assíncrona |
+> | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | A operação Obter contêineres pode ser usada para obter os contêineres registrados para um recurso. |
 > | Microsoft.RecoveryServices/vaults/replicationAlertSettings/read | Ler configurações de alertas |
 > | Microsoft.RecoveryServices/vaults/replicationEvents/read | Ler quaisquer eventos |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Verifica a Consistência da Malha |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Verificar consistência da malha |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Ler quaisquer malhas |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/reassociateGateway/action | Reassociar Gateway |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Renovar o Certificado Para a Malha |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/reassociateGateway/action | Reassociar gateway |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Renovar Certificado para malha do Microsoft Azure |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Ler quaisquer redes |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/read | Ler quaisquer mapeamentos de rede |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/read | Ler quaisquer contêineres de proteção |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read | Ler quaisquer itens que podem ser protegidos |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Aplicar Ponto de Recuperação |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Confirmação de Failover |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Failover Planejado |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Aplicar ponto de recuperação |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Confirmação de failover |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Failover planejado |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Ler quaisquer itens protegidos |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Ler quaisquer pontos de recuperação de replicação |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | Reparar Replicação |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | Proteger Novamente Item Protegido |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | Trocar Contêiner de Proteção |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | Reparar replicação |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | Proteger item protegido novamente |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | Alterar contêiner de proteção |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Failover de Teste |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Limpeza do Failover de Teste |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Limpeza do Failover de teste |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Failover |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Atualizar Serviço de Mobilidade |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Ler quaisquer mapeamentos de contêiner de proteção |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Atualizar serviço de mobilidade |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Ler quaisqur mapeamentos de contêiner de proteção |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Ler qualquer provedores de Serviços de Recuperação do Microsoft Azure |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/action | Atualizar Provedor |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/action | Atualizar provedor |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Ler quaisquer classificações de armazenamento |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read | Ler quaisquer mapeamentos de classificação de armazenamento |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Ler quaisquer vCenters |
 > | Microsoft.RecoveryServices/vaults/replicationJobs/* | Criar e gerenciar trabalhos de replicação |
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Ler quaisquer políticas |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/failoverCommit/action | Plano de Recuperação de Confirmação de Failover |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/plannedFailover/action | Plano de Recuperação de Failover Planejado |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/failoverCommit/action | Plano de recuperação de confirmação de failover |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/plannedFailover/action | Plano de recuperação de failover planejado |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Ler quaisquer planos de recuperação |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/reProtect/action | Plano de Recuperação de Nova Proteção |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailover/action | Plano de Recuperação de Failover de Teste |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailoverCleanup/action | Plano de Recuperação de Limpeza do Failover de Teste |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/unplannedFailover/action | Plano de Recuperação de Failover |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/reProtect/action | Proteja plano de recuperação novamente |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailover/action | Testar plano de recuperação de failover |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailoverCleanup/action | Testar plano de recuperação de limpeza do failover |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/unplannedFailover/action | Plano de recuperação de failover |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Obter os alertas para o cofre dos Serviços de Recuperação |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
 > | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Retorna detalhes de uso do Cofre de Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação do Token do Cofre pode ser usada para obter o Token do Cofre para operações de back-end do nível do cofre. |
+> | Microsoft.RecoveryServices/Vaults/usages/read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
+> | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação de token do cofre pode ser usada a fim de obter o token do cofre para operações de back-end no nível do cofre. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
 > | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
@@ -2411,13 +2413,13 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna usada pelo serviço |
-> | Microsoft.RecoveryServices/Vaults/extendedInformation/read | A operação Obter Informações Estendidas obtém as Informações Estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
+> | Microsoft.RecoveryServices/Vaults/extendedInformation/read | A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault? |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obter os alertas para o cofre dos Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
-> | Microsoft.RecoveryServices/Vaults/read | A operação Obter Cofre obtém um objeto representando o recurso do Azure de tipo 'cofre' |
+> | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
 > | Microsoft.RecoveryServices/Vaults/refreshContainers/read |  |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | A operação Obter Resultados da Operação pode ser usada para obter o status e o resultado da operação para a operação enviada de forma assíncrona |
-> | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | A operação Obter Contêineres pode ser usada para obter os contêineres registrados para um recurso. |
+> | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | A operação Obter resultados da operação pode ser usada para obter o status da operação e o resultado da operação enviada de forma assíncrona |
+> | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | A operação Obter contêineres pode ser usada para obter os contêineres registrados para um recurso. |
 > | Microsoft.RecoveryServices/vaults/replicationAlertSettings/read | Ler configurações de alertas |
 > | Microsoft.RecoveryServices/vaults/replicationEvents/read | Ler quaisquer eventos |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Ler quaisquer malhas |
@@ -2427,7 +2429,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read | Ler quaisquer itens que podem ser protegidos |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Ler quaisquer itens protegidos |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Ler quaisquer pontos de recuperação de replicação |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Ler quaisquer mapeamentos de contêiner de proteção |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Ler quaisqur mapeamentos de contêiner de proteção |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Ler qualquer provedores de Serviços de Recuperação do Microsoft Azure |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Ler quaisquer classificações de armazenamento |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read | Ler quaisquer mapeamentos de classificação de armazenamento |
@@ -2437,8 +2439,8 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Ler quaisquer planos de recuperação |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
 > | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Retorna detalhes de uso do Cofre de Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação do Token do Cofre pode ser usada para obter o Token do Cofre para operações de back-end do nível do cofre. |
+> | Microsoft.RecoveryServices/Vaults/usages/read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
+> | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação de token do cofre pode ser usada a fim de obter o token do cofre para operações de back-end no nível do cofre. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -2447,7 +2449,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="spatial-anchors-account-contributor"></a>Colaborador da Conta de Âncoras Espaciais
+## <a name="spatial-anchors-account-contributor"></a>Colaborador da conta de âncoras espaciais
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2458,16 +2460,16 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Criar âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Descobrir âncoras espaciais próximas |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obter propriedades de âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Localizar âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Enviar dados de diagnóstico para ajudar a melhorar a qualidade do serviço âncoras espaciais do Azure |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Atualizar propriedades de âncoras espaciais |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/criar/ação | Criar âncoras espaciais |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/descoberta/leitura | Descobrir âncoras espaciais próximas |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/Properties/Read | Obter propriedades de âncoras espaciais |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/consulta/leitura | Localizar âncoras espaciais |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/submitdiag/Read | Enviar dados de diagnóstico para ajudar a melhorar a qualidade do serviço âncoras espaciais do Azure |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/Write | Atualizar propriedades de âncoras espaciais |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="spatial-anchors-account-owner"></a>Proprietário da Conta de Âncoras Espaciais
+## <a name="spatial-anchors-account-owner"></a>Proprietário da conta das âncoras espaciais
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2478,17 +2480,17 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Criar âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Excluir âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Descobrir âncoras espaciais próximas |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obter propriedades de âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Localizar âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Enviar dados de diagnóstico para ajudar a melhorar a qualidade do serviço âncoras espaciais do Azure |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Atualizar propriedades de âncoras espaciais |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/criar/ação | Criar âncoras espaciais |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/Delete | Excluir âncoras espaciais |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/descoberta/leitura | Descobrir âncoras espaciais próximas |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/Properties/Read | Obter propriedades de âncoras espaciais |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/consulta/leitura | Localizar âncoras espaciais |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/submitdiag/Read | Enviar dados de diagnóstico para ajudar a melhorar a qualidade do serviço âncoras espaciais do Azure |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/Write | Atualizar propriedades de âncoras espaciais |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="spatial-anchors-account-reader"></a>Leitor da Conta de Âncoras Espaciais
+## <a name="spatial-anchors-account-reader"></a>Leitor de conta de âncoras espaciais
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2499,14 +2501,14 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Descobrir âncoras espaciais próximas |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obter propriedades de âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Localizar âncoras espaciais |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Enviar dados de diagnóstico para ajudar a melhorar a qualidade do serviço âncoras espaciais do Azure |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/descoberta/leitura | Descobrir âncoras espaciais próximas |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/Properties/Read | Obter propriedades de âncoras espaciais |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/consulta/leitura | Localizar âncoras espaciais |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/submitdiag/Read | Enviar dados de diagnóstico para ajudar a melhorar a qualidade do serviço âncoras espaciais do Azure |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="sql-db-contributor"></a>Contribuidor do DB SQL
+## <a name="sql-db-contributor"></a>Colaborador do banco de dados SQL
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2522,25 +2524,25 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Sql/servers/databases/* | Criar e gerenciar bancos de dados SQL |
 > | Microsoft.Sql/servers/read | Retornar a lista de servidores ou obter as propriedades para o servidor especificado. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
-> | Microsoft.Insights/metrics/read | Ler as métricas |
+> | Microsoft.Insights/metrics/read | Ler métrica |
 > | Microsoft.Insights/metricDefinitions/read | Ler definições de métrica |
 > | **NotActions** |  |
-> | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/* |  |
-> | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
+> | Microsoft. SQL/managedInstances/bancos de dados/currentSensitivityLabels/* |  |
+> | Microsoft. SQL/managedInstances/bancos de dados/recommendedSensitivityLabels/* |  |
+> | Microsoft. SQL/managedInstances/bancos de dados/esquemas/tabelas/colunas/sensitivityLabels/* |  |
+> | Microsoft. SQL/managedInstances/bancos de dados/securityAlertPolicies/* |  |
+> | Microsoft. SQL/managedInstances/bancos de dados/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
+> | Microsoft. SQL/managedInstances/securityAlertPolicies/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Editar políticas de auditoria |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Editar configurações de auditoria |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Recuperar os registros de auditoria do blob do banco de dados |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | Editar políticas de conexão |
-> | Microsoft.Sql/servers/databases/currentSensitivityLabels/* |  |
+> | Microsoft. SQL/servidores/bancos de dados/currentSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Editar políticas de mascaramento dos dados |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
-> | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/* |  |
+> | Microsoft. SQL/servidores/bancos de dados/recommendedSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Editar políticas de alerta de segurança |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | Editar métricas de segurança |
@@ -2554,7 +2556,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="sql-managed-instance-contributor"></a>Colaborador da Instância Gerenciada do SQL
+## <a name="sql-managed-instance-contributor"></a>Colaborador do SQL Instância Gerenciada
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2564,16 +2566,16 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
 > | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Network/networkSecurityGroups/* |  |
-> | Microsoft.Network/routeTables/* |  |
+> | Microsoft. Network/networkSecurityGroups/* |  |
+> | Microsoft. Network/routeTables/* |  |
 > | Microsoft.Sql/locations/*/read |  |
-> | Microsoft.Sql/managedInstances/* |  |
+> | Microsoft. SQL/managedInstances/* |  |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
-> | Microsoft.Network/virtualNetworks/subnets/* |  |
-> | Microsoft.Network/virtualNetworks/* |  |
+> | Microsoft. Network/virtualNetworks/sub-redes/* |  |
+> | Microsoft. Network/virtualNetworks/* |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
 > | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta do Insights |
-> | Microsoft.Insights/metrics/read | Ler as métricas |
+> | Microsoft.Insights/metrics/read | Ler métrica |
 > | Microsoft.Insights/metricDefinitions/read | Ler definições de métrica |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -2582,7 +2584,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="sql-security-manager"></a>Gerenciador de Segurança de SQL
+## <a name="sql-security-manager"></a>Gerenciador de Segurança do SQL
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2595,13 +2597,13 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
 > | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
-> | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/* |  |
-> | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
+> | Microsoft. SQL/managedInstances/bancos de dados/currentSensitivityLabels/* |  |
+> | Microsoft. SQL/managedInstances/bancos de dados/recommendedSensitivityLabels/* |  |
+> | Microsoft. SQL/managedInstances/bancos de dados/esquemas/tabelas/colunas/sensitivityLabels/* |  |
+> | Microsoft. SQL/managedInstances/bancos de dados/securityAlertPolicies/* |  |
+> | Microsoft. SQL/managedInstances/bancos de dados/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
+> | Microsoft. SQL/managedInstances/securityAlertPolicies/* |  |
 > | Microsoft. SQL/managedInstances/bancos de dados/transparentDataEncryption/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Criar e gerenciar políticas de auditoria do servidor SQL |
@@ -2611,11 +2613,11 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Criar e gerenciar configurações de auditoria de banco de dados do servidor SQL |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Ler registros de auditoria |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | Criar e gerenciar políticas de conexão de banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/currentSensitivityLabels/* |  |
+> | Microsoft. SQL/servidores/bancos de dados/currentSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Criar e gerenciar políticas de mascaramento de dados do banco de dados do servidor SQL |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/read | Recuperar detalhes da política de auditoria de blob estendida configurada em um determinado banco de dados |
 > | Microsoft.Sql/servers/databases/read | Retornar a lista de bancos de dados ou obter as propriedades para o banco de dados especificado. |
-> | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/* |  |
+> | Microsoft. SQL/servidores/bancos de dados/recommendedSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/schemas/read | Obtenha um esquema de banco de dados. |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Obter uma coluna de banco de dados. |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
@@ -2639,7 +2641,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="sql-server-contributor"></a>Contribuidor do SQL Server
+## <a name="sql-server-contributor"></a>Colaborador do SQL Server
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2654,16 +2656,16 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Sql/locations/*/read |  |
 > | Microsoft.Sql/servers/* | Criar e gerenciar servidores SQL |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
-> | Microsoft.Insights/metrics/read | Ler as métricas |
+> | Microsoft.Insights/metrics/read | Ler métrica |
 > | Microsoft.Insights/metricDefinitions/read | Ler definições de métrica |
 > | **NotActions** |  |
-> | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/* |  |
-> | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
+> | Microsoft. SQL/managedInstances/bancos de dados/currentSensitivityLabels/* |  |
+> | Microsoft. SQL/managedInstances/bancos de dados/recommendedSensitivityLabels/* |  |
+> | Microsoft. SQL/managedInstances/bancos de dados/esquemas/tabelas/colunas/sensitivityLabels/* |  |
+> | Microsoft. SQL/managedInstances/bancos de dados/securityAlertPolicies/* |  |
+> | Microsoft. SQL/managedInstances/bancos de dados/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
+> | Microsoft. SQL/managedInstances/securityAlertPolicies/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Editar políticas de auditoria do servidor SQL |
 > | Microsoft.Sql/servers/auditingSettings/* | Editar configurações de auditoria do servidor SQL |
@@ -2671,10 +2673,10 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Editar configurações de auditoria de banco de dados do servidor SQL |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Ler registros de auditoria |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | Editar políticas de conexão de banco de dados do servidor SQL |
-> | Microsoft.Sql/servers/databases/currentSensitivityLabels/* |  |
+> | Microsoft. SQL/servidores/bancos de dados/currentSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Editar políticas de mascaramento de banco de dados do servidor SQL |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
-> | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/* |  |
+> | Microsoft. SQL/servidores/bancos de dados/recommendedSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Editar políticas de alerta de segurança de banco de dados do servidor SQL |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | Editar métricas de segurança de banco de dados do servidor SQL |
@@ -2729,7 +2731,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="storage-blob-data-contributor"></a>Colaborador de Dados do Storage Blob
+## <a name="storage-blob-data-contributor"></a>Colaborador de dados do blob de armazenamento
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2749,7 +2751,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="storage-blob-data-owner"></a>Proprietário de Dados do Storage Blob
+## <a name="storage-blob-data-owner"></a>Proprietário de dados do blob de armazenamento
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2765,7 +2767,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="storage-blob-data-reader"></a>Leitor de Dados do Storage Blob
+## <a name="storage-blob-data-reader"></a>Leitor de dados de blob de armazenamento
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2807,9 +2809,9 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Retorna um arquivo/pasta ou uma lista de arquivos/pastas. |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Retorna o resultado da gravação de um arquivo ou da criação de uma pasta. |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete | Retorna o resultado da exclusão de um arquivo/pasta. |
+> | Microsoft. Storage/storageAccounts/fileservices/compartilhamentos/arquivos/leitura | Retorna um arquivo/pasta ou uma lista de arquivos/pastas. |
+> | Microsoft. Storage/storageAccounts/fileservices/compartilhamentos/arquivos/gravação | Retorna o resultado da gravação de um arquivo ou da criação de uma pasta. |
+> | Microsoft. Storage/storageAccounts/fileservices/arquivos/compartilhamento/exclusão | Retorna o resultado da exclusão de um arquivo/pasta. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -2824,10 +2826,10 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Retorna um arquivo/pasta ou uma lista de arquivos/pastas. |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Retorna o resultado da gravação de um arquivo ou da criação de uma pasta. |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete | Retorna o resultado da exclusão de um arquivo/pasta. |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Retorna o resultado da permissão de modificação em um arquivo/pasta. |
+> | Microsoft. Storage/storageAccounts/fileservices/compartilhamentos/arquivos/leitura | Retorna um arquivo/pasta ou uma lista de arquivos/pastas. |
+> | Microsoft. Storage/storageAccounts/fileservices/compartilhamentos/arquivos/gravação | Retorna o resultado da gravação de um arquivo ou da criação de uma pasta. |
+> | Microsoft. Storage/storageAccounts/fileservices/arquivos/compartilhamento/exclusão | Retorna o resultado da exclusão de um arquivo/pasta. |
+> | Microsoft. Storage/storageAccounts/fileservices/arquivo compartilhado/arquivos/modifypermissions/Action | Retorna o resultado da permissão de modificação em um arquivo/pasta. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -2842,11 +2844,11 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Retorna um arquivo/pasta ou uma lista de arquivos/pastas. |
+> | Microsoft. Storage/storageAccounts/fileservices/compartilhamentos/arquivos/leitura | Retorna um arquivo/pasta ou uma lista de arquivos/pastas. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="storage-queue-data-contributor"></a>Colaborador de Dados da Fila de Armazenamento
+## <a name="storage-queue-data-contributor"></a>Colaborador de dados da fila de armazenamento
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2865,7 +2867,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="storage-queue-data-message-processor"></a>Processador de Mensagens de Dados da Fila de Armazenamento
+## <a name="storage-queue-data-message-processor"></a>Processador de mensagens de dados da fila de armazenamento
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2881,7 +2883,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="storage-queue-data-message-sender"></a>Remetente da Mensagem de Dados da Fila de Armazenamento
+## <a name="storage-queue-data-message-sender"></a>Remetente da mensagem de dados da fila de armazenamento
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2896,7 +2898,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="storage-queue-data-reader"></a>Leitor de Dados da Fila de Armazenamento
+## <a name="storage-queue-data-reader"></a>Leitor de dados da fila de armazenamento
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2911,7 +2913,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="support-request-contributor"></a>Colaborador de Solicitação de Suporte
+## <a name="support-request-contributor"></a>Colaborador de solicitação de suporte
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2966,7 +2968,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="virtual-machine-administrator-login"></a>Logon de Administrador da Máquina Virtual
+## <a name="virtual-machine-administrator-login"></a>Logon de administrador da Máquina Virtual
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2986,7 +2988,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="virtual-machine-contributor"></a>Colaborador da Máquina Virtual
+## <a name="virtual-machine-contributor"></a>Colaborador de Máquina Virtual
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -3017,13 +3019,13 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Criar uma Intenção de Proteção de backup |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Retorna os detalhes do objeto do Item Protegido |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Criar um Item Protegido em backup |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retorna todas as Políticas de Proteção |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Cria uma Política de Proteção |
-> | Microsoft.RecoveryServices/Vaults/read | A operação Obter Cofre obtém um objeto representando o recurso do Azure de tipo 'cofre' |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Retorna detalhes de uso do Cofre de Serviços de Recuperação. |
-> | Microsoft.RecoveryServices/Vaults/write | A operação Criar Cofre cria um recurso do Azure do tipo 'cofre' |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Retornar detalhes do objeto do item protegido |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Criar um item protegido de backup |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retornar todas as políticas de proteção |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Criar uma política de proteção |
+> | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
+> | Microsoft.RecoveryServices/Vaults/usages/read | Retornar os detalhes de uso para um cofre dos Serviços de Recuperação. |
+> | Microsoft.RecoveryServices/Vaults/write | A operação Criar cofre cria um recurso do Azure do tipo 'cofre' |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
 > | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
@@ -3038,7 +3040,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="virtual-machine-user-login"></a>Logon de Usuário da Máquina Virtual
+## <a name="virtual-machine-user-login"></a>Logon de usuário da Máquina Virtual
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -3057,7 +3059,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="web-plan-contributor"></a>Contribuidor do Plano da Web
+## <a name="web-plan-contributor"></a>Colaborador do Plano de Web
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -3071,7 +3073,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | Microsoft.Web/serverFarms/* | Criar e gerenciar farms de servidores |
-> | Microsoft.Web/hostingEnvironments/Join/Action | Une um Ambiente do Serviço de Aplicativo |
+> | Microsoft. Web/hostingEnvironments/junção/ação | Une um Ambiente do Serviço de Aplicativo |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3079,7 +3081,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="website-contributor"></a>Contribuidor do Site
+## <a name="website-contributor"></a>Colaborador do Site
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -3105,7 +3107,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Funções personalizadas para recursos do Azure](custom-roles.md)
 - [Gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure](role-assignments-portal.md)

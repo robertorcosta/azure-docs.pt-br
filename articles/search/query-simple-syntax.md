@@ -1,13 +1,13 @@
 ---
-title: Sintaxe de consulta simples - Azure Search
-description: A referência para a sintaxe de consulta simples usada para consultas de pesquisa de texto completo no Azure Search.
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
+title: Sintaxe de consulta simples
+titleSuffix: Azure Cognitive Search
+description: Referência para a sintaxe de consulta simples usada para consultas de pesquisa de texto completo no Azure Pesquisa Cognitiva.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,18 +19,19 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e6c5ea86534001e0e5de2b02c4151af70631e4ef
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: fb98be9975de38ec9f65e723e078a1db8755b4ed
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650023"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792546"
 ---
-# <a name="simple-query-syntax-in-azure-search"></a>Sintaxe de consulta simples no Azure Search
-O Azure Search implementa duas linguagens de consulta com base em Lucene: [Analisador de consulta simples](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) e o [Analisador de Consulta do Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). No Azure Search, a sintaxe de consulta simples exclui as opções difusa/inclinada.  
+# <a name="simple-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta simples no Azure Pesquisa Cognitiva
+
+O Azure Pesquisa Cognitiva implementa duas linguagens de consulta baseadas em Lucene: [analisador de consulta simples](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) e o [analisador de consulta Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). No Azure Pesquisa Cognitiva, a sintaxe de consulta simples exclui as opções difusas/inclinada.  
 
 > [!NOTE]  
->  O Azure Search fornece como alternativa a [sintaxe de consulta Lucene](query-lucene-syntax.md) para consultas mais complexas. Para saber mais sobre a arquitetura de análise de consultas e os benefícios de cada sintaxe, consulte [Como funciona a pesquisa de texto completo no Azure Search](search-lucene-query-architecture.md).
+>  O Azure Pesquisa Cognitiva fornece uma [sintaxe de consulta Lucene](query-lucene-syntax.md) alternativa para consultas mais complexas. Para saber mais sobre a arquitetura de análise de consulta e os benefícios de cada sintaxe, consulte [como a pesquisa de texto completo funciona no Azure pesquisa cognitiva](search-lucene-query-architecture.md).
 
 ## <a name="how-to-invoke-simple-parsing"></a>Como invocar a análise de consulta simples
 
@@ -38,9 +39,9 @@ A sintaxe simples é o padrão. A invocação só será necessária se você red
 
 ## <a name="query-behavior-anomalies"></a>Anomalias de comportamento de consulta
 
-Qualquer texto com um ou mais termos é considerado um ponto de partida válido para a execução da consulta. O Azure Search corresponderá a documentos que contenham um ou todos os termos, incluindo qualquer variação encontrada durante a análise do texto. 
+Qualquer texto com um ou mais termos é considerado um ponto de partida válido para a execução da consulta. O Azure Pesquisa Cognitiva corresponderá a documentos que contêm qualquer ou todos os termos, incluindo quaisquer variações encontradas durante a análise do texto. 
 
-Por mais simples que pareça, há um aspecto da execução da consulta no Azure Search que *talvez* produza resultados inesperados, aumentando em vez de diminuir a pesquisa de resultados conforme mais termos e operadores são adicionados à cadeia de caracteres de entrada. Se essa expansão realmente ocorre depende da inclusão de um operador NOT, combinado a uma configuração de parâmetro `searchMode` que determina como NOT é interpretado em termos dos comportamentos de AND ou OR. Se você mantiver o padrão, `searchMode=Any`, e usar um operador NOT, a operação será computada como uma ação OR, de modo que `"New York" NOT Seattle` retornará todas as cidades que não sejam Seattle.  
+Tão simples quanto esse som, há um aspecto da execução da consulta no Azure Pesquisa Cognitiva que *pode* produzir resultados inesperados, aumentando em vez de reduzir os resultados da pesquisa conforme mais termos e operadores são adicionados à cadeia de caracteres de entrada. Se essa expansão realmente ocorre depende da inclusão de um operador NOT, combinado a uma configuração de parâmetro `searchMode` que determina como NOT é interpretado em termos dos comportamentos de AND ou OR. Se você mantiver o padrão, `searchMode=Any`, e usar um operador NOT, a operação será computada como uma ação OR, de modo que `"New York" NOT Seattle` retornará todas as cidades que não sejam Seattle.  
 
 O normal é que você veja mais desses comportamentos em padrões de interação do usuário com aplicativos que pesquisam conteúdo, em que os usuários têm maior probabilidade de incluir um operador em uma consulta, em vez de sites de comércio eletrônico, que têm mais estruturas internas de navegação. Para obter mais informações, confira [Operador NOT](#not-operator). 
 
@@ -67,15 +68,15 @@ O operador NOT é um sinal de subtração. Por exemplo, `wifi –luxury` irá pr
 
 ## <a name="suffix-operator"></a>Operador de sufixo
 
-O operador de sufixo é um `*`asterisco. Por exemplo, `lux*` procura documentos que tenham um termo que começa com `lux`, ignorando maiúsculas e minúsculas.  
+O operador de sufixo é um asterisco `*`. Por exemplo, `lux*` procura documentos que tenham um termo que começa com `lux`, ignorando maiúsculas e minúsculas.  
 
 ## <a name="phrase-search-operator"></a>Operador de pesquisa de frases
 
-O operador de frase fecha uma frase entre aspas `" "`. Por exemplo, embora `Roach Motel` (sem aspas) procuraria documentos que contenham `Roach` e/ou `Motel` em qualquer lugar e em qualquer ordem, `"Roach Motel"` (com aspas) faz a correspondência apenas com documentos que contenham essa frase inteira, junta e naquela ordem (a análise de texto ainda se aplica).
+O operador de frase inclui uma frase entre aspas `" "`. Por exemplo, embora `Roach Motel` (sem aspas) procuraria documentos que contenham `Roach` e/ou `Motel` em qualquer lugar e em qualquer ordem, `"Roach Motel"` (com aspas) faz a correspondência apenas com documentos que contenham essa frase inteira, junta e naquela ordem (a análise de texto ainda se aplica).
 
 ## <a name="precedence-operator"></a>Operador de precedência
 
-O operador de precedência inclui a cadeia de caracteres entre `( )`parênteses. Por exemplo, `motel+(wifi | luxury)` o `wifi` pesquisará documentos que contenham o termo Motel `luxury` e ou (ou ambos).  
+O operador de precedência inclui a cadeia de caracteres entre parênteses `( )`. Por exemplo, `motel+(wifi | luxury)` irá procurar documentos que contenham o termo motel e `wifi` ou `luxury` (ou ambos).  
 
 ## <a name="escaping-search-operators"></a>Operadores de escape de pesquisa  
 
@@ -85,10 +86,10 @@ O operador de precedência inclui a cadeia de caracteres entre `( )`parênteses.
 - O operador de sufixo `*` só precisa ser ignorado se for o último caractere após o espaço em branco, não se ele estiver no meio de um termo. Por exemplo, `wi*fi` é tratado como um único token.
 
 > [!NOTE]  
->  Embora o escape mantenha os tokens juntos, a análise de texto pode dividi-los, dependendo do modo de análise. Confira [Suporte de linguagem da &#40;API REST do Serviço do Azure Search&#41;](index-add-language-analyzers.md) para saber mais.  
+>  Embora o escape mantenha os tokens juntos, a análise de texto pode dividi-los, dependendo do modo de análise. Consulte [suporte ao &#40;idioma Azure pesquisa cognitiva API&#41; REST](index-add-language-analyzers.md) para obter detalhes.  
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Consulte  
 
-+ [Pesquisar documentos &#40;API REST do Serviço do Azure Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
++ [Pesquisar documentos &#40;do Azure pesquisa cognitiva API REST&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
 + [Sintaxe de consulta Lucene](query-lucene-syntax.md)
 + [Sintaxe de expressão do OData](query-odata-filter-orderby-syntax.md) 

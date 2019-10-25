@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/03/2019
-ms.openlocfilehash: 88a66506b5102a4efaeefe1c7033b337dff9889a
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 10/22/2019
+ms.openlocfilehash: 97bcb4e6fad9c766f2ad059469e75ffd5ab8ec8c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949237"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800224"
 ---
 # <a name="public-preview-service-limits"></a>Limites do serviço de visualização pública
 
@@ -70,8 +70,9 @@ Os limites a seguir definem o número total de todas as chamadas de função def
 
 Os limites a seguir limitam o número total de todas as mensagens que seus dispositivos podem enviar para sua instância dos Gêmeos Digitais do Azure:
 
-- 100 mensagens por segundo
+- 100 mensagens por segundo em todos os dispositivos
+-   25 mensagens por segundo por dispositivo
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para testar um exemplo de Gêmeos Digitais do Azure,vá para [Início Rápido para encontrar salas disponíveis](./quickstart-view-occupancy-dotnet.md).

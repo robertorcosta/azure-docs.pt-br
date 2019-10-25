@@ -1,18 +1,18 @@
 ---
-title: Mensagens mortas e nova tentativa de políticas para as assinaturas da Grade de Eventos do Azure
+title: Mensagens mortas e políticas de repetição – grade de eventos do Azure
 description: Descreve como personalizar opções de entrega de eventos para a Grade de Eventos. Definir um destino de inatividade e especificar o tempo de entrega novamente.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/06/2019
+ms.date: 10/22/2019
 ms.author: spelluru
-ms.openlocfilehash: 63bae62ed89bd0bbc167a88274002d1fa1e9b86d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: caed3c077b4df5da5fd8541b2f7e85ef119604b0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933368"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794030"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Mensagens mortas e tentar novas políticas
 
@@ -29,7 +29,7 @@ Para definir um local de mensagens mortas, é necessário ter uma conta de armaz
 > - O serviço de grade de eventos cria BLOBs neste contêiner. Os nomes dos BLOBs terão o nome da assinatura da grade de eventos com todas as letras em maiúsculas. Por exemplo, se o nome da assinatura for meu-blob-Subscription, os nomes dos BLOBs de mensagens mortas terão meu-BLOB-SUBSCRIPTION (myblobcontainer/meu-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111 -111111111111. JSON). Esse comportamento é para proteger contra diferenças na manipulação de casos entre os serviços do Azure.
 
 
-### <a name="azure-cli"></a>CLI do Azure
+### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli-interactive
 containername=testcontainer
@@ -75,7 +75,7 @@ Ao criar uma assinatura de Grade de Eventos, você pode definir valores de por q
 
 Não é possível configurar um [plano de tentativas](delivery-and-retry.md#retry-schedule-and-duration).
 
-### <a name="azure-cli"></a>CLI do Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Para definir o evento de vida útil para um valor diferente de 1440 minutos, use:
 
@@ -129,7 +129,7 @@ New-AzEventGridSubscription `
 
 Se você definir ambos `EventTtl` e `MaxDeliveryAttempt`, a Grade de Eventos usa o primeiro para expirar, a fim de determinar quando parar a entrega de eventos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para um aplicativo de exemplo que usa um aplicativo de função do Azure para processar eventos de mensagens mortas, consulte [Exemplos de Mensagens Mortas de Grade de Eventos do Azure para .NET](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/).
 * Para obter informações sobre a entrega de eventos e repetições, [Entrega e repetição de mensagens da Grade de Eventos](delivery-and-retry.md).

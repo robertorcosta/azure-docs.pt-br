@@ -1,5 +1,5 @@
 ---
-title: Comparações e contrastes entre filas do Armazenamento do Azure e filas do Barramento de Serviço | Microsoft Docs
+title: Comparar filas do armazenamento do Azure e filas do barramento de serviço
 description: Analisa diferenças e semelhanças entre dois tipos de fila oferecidos pelo Azure.
 services: service-bus-messaging
 documentationcenter: na
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: df9a7325d3ffc2362ff14b9a618ca0db7928b337
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: a1e75416db34514425436bc3ceae9f27b156b557
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376327"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792698"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas do Armazenamento e filas do Barramento de Serviço — comparações e contrastes
-Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas oferecidos pelo Microsoft Azure atualmente: filas de Armazenamento e filas de Barramento de Serviço. Usando essas informações, é possível comparar e contrastar as respectivas tecnologias e tomar uma decisão mais informada sobre qual solução atende melhor às suas necessidades.
+Este artigo analisa as diferenças e semelhanças entre os dois tipos de fila oferecidos pelo Microsoft Azure atualmente: filas do Armazenamento e filas do Barramento de Serviço. Ao utilizar essas informações, você pode comparar e contrastar as respectivas tecnologias e ser capaz de tomar uma decisão melhor informada sobre qual solução é mais adequada às suas necessidades.
 
 ## <a name="introduction"></a>Introdução
-O Azure oferece suporte a dois tipos de mecanismos de fila: **filas de Armazenamento** e **filas de Barramento de Serviço**.
+O Azure dá suporte a dois tipos de mecanismo de fila: **filas do Armazenamento** e **filas do Barramento de Serviço**.
 
 As **filas do Armazenamento**, que fazem parte da infraestrutura do [armazenamento do Azure](https://azure.microsoft.com/services/storage/), apresentam uma interface GET/PUT/PEEK baseada em REST, oferecendo um sistema de mensagens confiável e persistente em e entre serviços.
 
@@ -52,7 +52,7 @@ Como arquiteto/desenvolvedor de soluções, **você deve considerar o uso das fi
 * Você desejar que seu aplicativo processe mensagens como fluxos paralelos de longa execução (mensagens associadas a um fluxo usando a propriedade [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) na mensagem). Nesse modelo, cada nó no aplicativo de consumo compete por fluxos, em oposição às mensagens. Quando um fluxo é fornecido a um nó de consumo, o nó pode examinar o estado do fluxo do aplicativo usando transações.
 * Sua solução exigir comportamento transacional e atomicidade ao enviar ou receber várias mensagens de uma fila.
 * Seu aplicativo tratar mensagens que podem exceder 64 KB, mas provavelmente não se aproximarão do limite de 256 KB.
-* Você tiver que lidar com a necessidade de fornecer um modelo de acesso baseado em função às filas e diferentes direitos/permissões para remetentes e destinatários. Para obter mais informações, confira os seguintes artigos:
+* Você tiver que lidar com a necessidade de fornecer um modelo de acesso baseado em função às filas e diferentes direitos/permissões para remetentes e destinatários. Para obter mais informações, consulte os seguintes artigos:
     - [Autenticar com identidades gerenciadas](service-bus-managed-service-identity.md)
     - [Autenticar de um aplicativo](authenticate-application.md)
 * O tamanho da fila não for exceder 80 GB.
@@ -70,10 +70,10 @@ Esta seção compara alguns dos recursos básicos de enfileiramento fornecidos p
 | Critérios de comparação | Filas de armazenamento | Filas do Barramento de Serviço |
 | --- | --- | --- |
 | Garantia de ordenação |**Não** <br/><br>Para obter mais informações, confira a primeira observação na seção “Informações adicionais”.</br> |**Sim - Primeiro a Entrar, Primeiro a Sair (PEPS)**<br/><br>(por meio do uso de sessões de mensagens) |
-| Garantia de entrega |**Pelo menos uma vez** |**Pelo menos uma vez** (usando o modo de recebimento PeekLock-esse é o padrão) <br/><br/>**No máximo uma vez** (usando o modo de recebimento ReceiveAndDelete) <br/> <br/> Saiba mais sobre vários [modos de recebimento](service-bus-queues-topics-subscriptions.md#receive-modes)  |
-| Suporte à operação atômica |**No** |**Sim**<br/><br/> |
+| Garantia de entrega |**Pelo menos uma vez** |**Pelo menos uma vez** (usando o modo de recebimento Peeklock-esse é o padrão) <br/><br/>**No máximo uma vez** (usando o modo de recebimento ReceiveAndDelete) <br/> <br/> Saiba mais sobre vários [modos de recebimento](service-bus-queues-topics-subscriptions.md#receive-modes)  |
+| Suporte à operação atômica |**Não** |**Sim**<br/><br/> |
 | Comportamento de recebimento |**Sem bloqueio**<br/><br/>(conclusão imediata se nenhuma mensagem nova for encontrada) |**Bloqueio com/sem tempo limite**<br/><br/>(oferece sondagem longa ou ["Técnica Comet"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Sem bloqueio**<br/><br/>(somente por meio do uso de API gerenciada .NET) |
-| API de estilo push |**No** |**Sim**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) e sessões **OnMessage** API .NET. |
+| API de estilo push |**Não** |**Sim**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) e sessões **OnMessage** API .NET. |
 | Modo de recebimento |**Inspecionar e Conceder** |**Inspecionar e bloquear**<br/><br/>**Receber e excluir** |
 | Modo de acesso exclusivo |**Com base em concessão** |**Com base em bloqueio** |
 | Duração da concessão/do bloqueio |**30 segundos (padrão)**<br/><br/>**7 dias (máximo)** (Você pode renovar ou liberar uma concessão de mensagem usando a API [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage).) |**60 segundos (padrão)**<br/><br/>Você pode renovar um bloqueio de mensagem usando a API [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock). |
@@ -102,20 +102,20 @@ Esta seção compara recursos avançados fornecidos pelas filas do Armazenamento
 | Critérios de comparação | Filas de armazenamento | Filas do Barramento de Serviço |
 | --- | --- | --- |
 | Entrega agendada |**Sim** |**Sim** |
-| Mensagens mortas automáticas |**No** |**Sim** |
+| Mensagens mortas automáticas |**Não** |**Sim** |
 | Aumentando o valor da vida útil da fila |**Sim**<br/><br/>(por meio da atualização in-loco do tempo limite de visibilidade) |**Sim**<br/><br/>(fornecido por uma função de API dedicada) |
 | Suporte a mensagens suspeitas |**Sim** |**Sim** |
 | Atualização in-loco |**Sim** |**Sim** |
-| Log de transações do servidor |**Sim** |**No** |
+| Log de transações do servidor |**Sim** |**Não** |
 | Métricas de armazenamento |**Sim**<br/><br/>**Métricas de Minuto**: fornecem métricas em tempo real para disponibilidade, TPS, contagens de chamada de API, contagens de erros e muito mais, tudo em tempo real (agregados por minuto e relatados poucos minutos após o que acabou de acontecer em produção). Para obter mais informações, confira [Sobre as Métricas de Analítica de Armazenamento](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Sim**<br/><br/>(consultas em massa chamando [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)) |
-| Gerenciamento de estado |**No** |**Sim**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
-| Encaminhamento automático de mensagem |**No** |**Sim** |
-| Função Limpar fila |**Sim** |**No** |
-| Grupos de mensagens |**No** |**Sim**<br/><br/>(por meio do uso de sessões de mensagens) |
-| Estado do aplicativo por grupo de mensagens |**No** |**Sim** |
-| Detecção de duplicidade |**No** |**Sim**<br/><br/>(configurável no lado do remetente) |
-| Procurando grupos de mensagens |**No** |**Sim** |
-| Buscando sessões de mensagem por ID |**No** |**Sim** |
+| Gerenciamento de estado |**Não** |**Sim**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
+| Encaminhamento automático de mensagem |**Não** |**Sim** |
+| Função Limpar fila |**Sim** |**Não** |
+| Grupos de mensagens |**Não** |**Sim**<br/><br/>(por meio do uso de sessões de mensagens) |
+| Estado do aplicativo por grupo de mensagens |**Não** |**Sim** |
+| Detecção de duplicidade |**Não** |**Sim**<br/><br/>(configurável no lado do remetente) |
+| Procurando grupos de mensagens |**Não** |**Sim** |
+| Buscando sessões de mensagem por ID |**Não** |**Sim** |
 
 ### <a name="additional-information"></a>Informações adicionais
 * Ambas as tecnologias de enfileiramento permitem que uma mensagem seja agendada para entrega em um momento posterior.
@@ -154,11 +154,11 @@ Esta seção compara os recursos de gerenciamento fornecidos pelas filas do Arma
 | Protocolo de gerenciamento |**REST sobre HTTP/HTTPS** |**REST sobre HTTPS** |
 | Protocolo de tempo de execução |**REST sobre HTTP/HTTPS** |**REST sobre HTTPS**<br/><br/>**AMQP 1.0 Standard (TCP com TLS)** |
 | API do .NET |**Sim**<br/><br/>(API do Cliente de Armazenamento .NET) |**Sim**<br/><br/>(API do Barramento de serviço do .NET) |
-| C++ Nativo |**Sim** |**Sim** |
+| C++ nativo |**Sim** |**Sim** |
 | API Java |**Sim** |**Sim** |
 | API PHP |**Sim** |**Sim** |
 | API Node.js |**Sim** |**Sim** |
-| Suporte a metadados arbitrários |**Sim** |**No** |
+| Suporte a metadados arbitrários |**Sim** |**Não** |
 | Regras de nomenclatura da fila |**Até 63 caracteres**<br/><br/>(As letras em um nome de fila devem estar em minúsculas.) |**Até 260 caracteres**<br/><br/>(Nomes e caminhos de fila não diferenciam maiúsculas de minúsculas.) |
 | Função Obter tamanho da fila |**Sim**<br/><br/>(Valor aproximado se as mensagens expirarem depois da TTL sem que sejam excluídas.) |**Sim**<br/><br/>(Valor exato, pontual.) |
 | Função Inspecionar |**Sim** |**Sim** |
@@ -175,9 +175,9 @@ Esta seção aborda os recursos de autenticação e autorização com suporte na
 
 | Critérios de comparação | Filas de armazenamento | Filas do Barramento de Serviço |
 | --- | --- | --- |
-| Autenticação |**Chave simétrica** |**Chave simétrica** |
+| Authentication |**Chave simétrica** |**Chave simétrica** |
 | Modelo de segurança |Acesso delegado via tokens de SAS. |SAS |
-| Federação do provedor de identidade |**No** |**Sim** |
+| Federação do provedor de identidade |**Não** |**Sim** |
 
 ### <a name="additional-information"></a>Informações adicionais
 * Cada solicitação de ambas as tecnologias de enfileiramento deve ser autenticada. Não há suporte para filas públicas com acesso anônimo. Usando [SAS](service-bus-sas.md), você pode tratar esse cenário publicando uma SAS somente gravação, SAS somente leitura ou até mesmo uma SAS de acesso completo.
@@ -188,7 +188,7 @@ Com uma compreensão mais aprofundada das duas tecnologias, você poderá tomar 
 
 Como as filas do Barramento de Serviço fornecem vários recursos avançados, como sessões, transações, detecção de duplicidade, mensagens mortas automáticas e recursos de publicação/assinatura duráveis, elas podem ser uma opção melhor se você estiver criando um aplicativo híbrido ou se seu aplicativo de alguma forma exigir esses recursos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Os artigos a seguir fornecem mais orientação e informações sobre como usar as filas do Armazenamento ou as filas do Barramento de Serviço.
 
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)

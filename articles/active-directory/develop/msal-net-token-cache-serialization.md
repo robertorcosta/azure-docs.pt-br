@@ -1,5 +1,6 @@
 ---
-title: Serialização do cache de token na Biblioteca de Autenticação da Microsoft para .NET |Azure
+title: Serialização de cache de token na biblioteca de autenticação da Microsoft para .NET
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre serialização e serialização de cliente do cache de token usando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e4a24e96b41955ca9e89f8307b693e7599b645
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 2cae1a755b9f79ce2fd5084653f7b3c177f29832
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709309"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802737"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialização do cache de token na MSAL.NET
 Depois que um [token é adquirido](msal-acquire-cache-tokens.md), ele é armazenado em cache pela Biblioteca de Autenticação da Microsoft (MSAL).  O código do aplicativo deve tentar obter um token a partir do cache antes de adquirir um token por outro método.  Este artigo aborda a serialização padrão e personalizada do cache de token na MSAL.NET.
@@ -126,7 +127,7 @@ static class TokenCacheHelper
  }
 ```
 
-Uma versão prévia de um serializador baseado em arquivo de cache de token de qualidade do produto para aplicativos cliente públicos (para aplicativos da área de trabalho em execução no Windows, Mac e Linux) está disponível na biblioteca de software livre [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal). É possível incluí-lo nos aplicativos do pacote NuGet a seguir: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
+Uma versão prévia de um serializador baseado em arquivo de cache de token de qualidade do produto para aplicativos cliente públicos (para aplicativos da área de trabalho em execução no Windows, Mac e Linux) está disponível na biblioteca de software livre [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal). Você pode incluí-lo em seus aplicativos do seguinte pacote NuGet: [Microsoft. Identity. Client. Extensions. MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
 #### <a name="dual-token-cache-serialization-msal-unified-cache-and-adal-v3"></a>Serialização do cache de token duplo (cache unificado MSAL e ADAL v3)
 
@@ -279,7 +280,7 @@ Em aplicativos Web ou APIs Web, mantenha um cache de token por conta.  Para apli
 
 Exemplos de como usar os caches de token para aplicativos Web e APIs Web estão disponíveis no [tutorial do aplicativo Web do ASP.NET Core](https://ms-identity-aspnetcore-webapp-tutorial) na fase [Cache de Token 2 de 2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). Para implementações, observe a pasta [TokenCacheProviders](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/Microsoft.Identity.Web/TokenCacheProviders) na biblioteca [Microsoft-Authentication-Extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) (na pasta [Microsoft. Identity. Client. Extensions. Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) . 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Os exemplos a seguir ilustram a serialização do cache de token.
 
 | Amostra | Plataforma | Descrição|

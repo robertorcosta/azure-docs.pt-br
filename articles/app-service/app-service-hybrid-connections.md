@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e26cf5ede2c8884719152b6d35f1b41eb092eda6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 72874e7b96e2ec8909a325b5ae598b900ebe8079
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071793"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791890"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Conexões Híbridas do Serviço de Aplicativo do Azure #
 
@@ -38,7 +38,7 @@ Por meio de duas conexões ingressadas, seu aplicativo tem um túnel TCP para um
 Quando seu aplicativo faz uma solicitação DNS que corresponde a um ponto de extremidade de Conexão Híbrida configurado, o tráfego TCP de saída será redirecionado por meio da Conexão Híbrida.  
 
 > [!NOTE]
-> Isso significa que você deve tentar sempre usar um nome DNS para sua Conexão Híbrida. Se em vez disso o ponto de extremidade usar um endereço IP, alguns softwares cliente não farão uma pesquisa de DNS.
+> Isso significa que você deve tentar sempre usar um nome DNS para sua Conexão Híbrida. Se em vez disso o ponto de extremidade usar um endereço IP, alguns softwares cliente não farão uma pesquisa de DNS. 
 >
 
 ### <a name="app-service-hybrid-connection-benefits"></a>Benefícios da Conexão Híbrida do Serviço de Aplicativo ###
@@ -62,6 +62,9 @@ Coisas que você não pode fazer com conexões híbridas incluem:
 - Acesse serviços baseados em TCP que usam portas dinâmicas, como o Modo Passivo FTP ou o Modo Passivo Estendido.
 - Suporte LDAP, porque pode exigir UDP.
 - Suporte ao Active Directory, porque você não pode ingressar no domínio de um funcionário do Serviço de Aplicativo.
+
+### <a name="prerequisites"></a>Pré-requisitos ###
+ - O serviço de aplicativo do Windows é necessário. Ele só está disponível no Windows.  
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>Adicionar e criar Conexões Híbridas em seu aplicativo ##
 
@@ -169,7 +172,7 @@ Para permitir que alguém fora da sua assinatura hospede uma instância HCM para
 
 ![Adicionar uma Conexão Híbrida manualmente][11]
 
-### <a name="upgrade"></a>Atualizar ###
+### <a name="upgrade"></a>Atualize ###
 
 Há atualizações periódicas no Gerenciador de Conexão Híbrida para corrigir problemas ou fornecer melhorias. Quando as atualizações são lançadas, um pop-up aparecerá na interface do usuário do HCM. A aplicação da atualização aplicará as mudanças e reiniciará o HCM. 
 
@@ -218,7 +221,7 @@ Para usar essa API, você precisa da chave de envio e do ID do recurso de retran
     armclient login
     armclient put /subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myapp-rg/providers/Microsoft.Web/sites/myhcdemoapp/hybridConnectionNamespaces/demo-relay/relays/relay-demo-hc?api-version=2016-08-01 @hctest.json
 
-## <a name="troubleshooting"></a>Solução de problemas ##
+## <a name="troubleshooting"></a>Solução de Problemas ##
 
 O status “Conectado” significa que pelo menos um HCM está configurado com essa Conexão Híbrida e é capaz de alcançar o Azure. Se o status da sua Conexão Híbrida não indica **Conectado**, sua Conexão Híbrida não está configurada em nenhum HCM com acesso ao Azure.
 
@@ -228,7 +231,7 @@ No serviço de aplicativo, a ferramenta de linha de comando **tcpping** pode ser
 
 Se você tiver um cliente de linha de comando para seu ponto de extremidade, poderá testar a conectividade no console do aplicativo. Por exemplo, você pode testar o acesso a pontos de extremidade do servidor Web usando a ondulação.
 
-## <a name="biztalk-hybrid-connections"></a>Conexões Híbridas do BizTalk ##
+## <a name="biztalk-hybrid-connections"></a>Conexões híbridas do BizTalk ##
 
 A forma inicial desse recurso era chamada de conexões híbridas do BizTalk. Esta capacidade entrou em Final de Vida em 31 de maio de 2018 e encerrou as operações. As conexões híbridas do BizTalk foram removidas de todos os aplicativos e não estão acessíveis por meio do portal ou da API. Se você ainda tiver essas conexões antigas configuradas no Gerenciador de conexões híbridas, verá o status Descontinuado e exibirá uma declaração de fim de vida útil na parte inferior.
 

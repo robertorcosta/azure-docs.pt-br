@@ -1,20 +1,19 @@
 ---
-title: Habilidade de Reconhecimento de Entidade Nomeada da pesquisa cognitiva – Azure Search
-description: Extrai entidades nomeadas para a pessoa, local e a organização de texto em um pipeline de pesquisa cognitivas do Azure Search.
-services: search
+title: Habilidade cognitiva de Reconhecimento de Entidade Nomeada
+titleSuffix: Azure Cognitive Search
+description: Extraia entidades nomeadas para pessoa, local e organização do texto em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: b152d5a48d49e78818602e7f66574937bebce2ac
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 127155e492b556ce1ce02b67cf0b0846b99ebcd4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265754"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791944"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Habilidade cognitiva de Reconhecimento de Entidade Nomeada
 
@@ -24,9 +23,9 @@ A habilidade do **Reconhecimento de Entidade Nomeada** extrai entidades nomeadas
 > A habilidade de reconhecimento de entidade nomeada agora foi descontinuada substituída por [Microsoft. Skills. Text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). O suporte parou em 15 de fevereiro de 2019 e a API foi removida do produto em 2 de maio de 2019. Siga as recomendações em [habilidades de pesquisa cognitiva preteridas](cognitive-search-skill-deprecated.md) para migrar para uma habilidade com suporte.
 
 > [!NOTE]
-> À medida que expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará [anexar um recurso de Serviços Cognitivos faturável](cognitive-search-attach-cognitive-services.md). As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem como parte do estágio de decodificação de documentos no Azure Search. Não há encargos para extração de texto em documentos.
+> À medida que expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará [anexar um recurso de Serviços Cognitivos faturável](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Pesquisa Cognitiva. Não há encargos para extração de texto em documentos.
 >
-> A execução de habilidades integradas é cobrada nos [preços pagos conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. O preço de extração de imagem é descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de habilidades integradas é cobrada nos [preços pagos conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. O preço de extração de imagem é descrito na [página de preços do Azure pesquisa cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -39,25 +38,25 @@ O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido p
 
 Os parâmetros diferenciam maiúsculas de minúsculas.
 
-| Nome do parâmetro     | DESCRIÇÃO |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| categories    | Matriz de categorias que devem ser extraídas.  Tipos possíveis de categoria: `"Person"`, `"Location"`, `"Organization"`. Se nenhuma categoria for fornecida, todos os tipos são retornados.|
+| Categorias    | Matriz de categorias que devem ser extraídas.  Tipos possíveis de categoria: `"Person"`, `"Location"`, `"Organization"`. Se nenhuma categoria for fornecida, todos os tipos são retornados.|
 |defaultLanguageCode |  Código de idioma do texto de entrada. Há suporte para vários idiomas: `de, en, es, fr, it`|
 | minimumPrecision  | Um número entre 0 e 1. Se a precisão for menor do que esse valor, a entidade não é retornada. O padrão é 0.|
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | DESCRIÇÃO                   |
+| Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
 | languageCode  | Opcional. O padrão é `"en"`.  |
-| texto          | O texto para analisar.          |
+| text          | O texto para analisar.          |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
-| Nome de saída     | DESCRIÇÃO                   |
+| Nome de saída     | Descrição                   |
 |---------------|-------------------------------|
 | pessoas      | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa o nome de uma pessoa. |
-| locations  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa um local. |
+| Locais  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa um local. |
 | organizações  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa uma organização. |
 | entidades | Uma matriz de tipos complexos. Cada tipo complexo inclui os seguintes campos: <ul><li>categoria (`"person"`, `"organization"`, ou `"location"`)</li> <li>valor (nome de entidade real)</li><li>deslocamento (o local onde ele foi encontrado no texto)</li><li>confiança (um valor entre 0 e 1 que representa essa confiança de que o valor é uma entidade real)</li></ul> |
 
@@ -154,8 +153,8 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 ## <a name="error-cases"></a>Casos de erro
 Se o código do idioma do documento não for suportado, um erro será retornado e nenhuma entidade será extraída.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
-+ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
 + [Habilidade de reconhecimento de entidade](cognitive-search-skill-entity-recognition.md)

@@ -1,5 +1,6 @@
 ---
-title: Personalizar declarações para um aplicativo em um locatário do Azure AD (visualização pública)
+title: Personalizar declarações para um aplicativo de locatário do Azure AD (visualização pública)
+titleSuffix: Microsoft identity platform
 description: Esta página descreve o mapeamento de declarações no Azure Active Directory.
 services: active-directory
 author: rwike77
@@ -11,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9350a30ac6258664b3a8405923467a8468a6758
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 53ef51d52e699612508a446acbc075f766565d63
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835461"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803521"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -52,7 +53,7 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 | Conjunto de declarações básicas | Inclui as declarações que são emitidas por padrão para os tokens (além do conjunto de declarações principais). Você pode omitir ou modificar as declarações básicas usando as políticas de mapeamento de declarações. |
 | Conjunto de declarações restritas | Não pode ser modificado usando a política. A fonte de dados não pode ser alterada e nenhuma transformação é aplicada ao gerar essas declarações. |
 
-### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabela 1: conjunto de declarações restritas do JWT (Token Web JSON)
+### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabela 1: Conjunto de declarações restritas do JWT (Token Web JSON)
 
 | Tipo de declaração (nome) |
 | ----- |
@@ -73,7 +74,7 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 | appctxsender |
 | appid |
 | appidacr |
-| assertion |
+| asserção |
 | at_hash |
 | aud |
 | auth_data |
@@ -89,7 +90,7 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 | cloud_graph_host_name |
 | cloud_instance_name |
 | cnf |
-| code |
+| código |
 | controls |
 | credential_keys |
 | csr |
@@ -105,9 +106,9 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 | exp |
 | expires_on |
 | grant_type |
-| graph |
+| grafo |
 | group_sids |
-| groups |
+| de recursos |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -144,7 +145,7 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 | onprem_sam_account_name |
 | onprem_sid |
 | openid2_id |
-| password |
+| Senha |
 | platf |
 | polids |
 | pop_jwk |
@@ -158,8 +159,8 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| resource |
-| role |
+| recurso |
+| função |
 | roles |
 | scope |
 | scp |
@@ -179,7 +180,7 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| username |
+| Nome de Usuário |
 | uti |
 | ver |
 | verified_primary_email |
@@ -246,7 +247,7 @@ Para controlar quais declarações são emitidas e o local em que os dados são 
 
 **Cadeia de caracteres:** IncludeBasicClaimSet
 
-**Tipo de dados:** booliano (true ou false)
+**Tipo de dados:** booliano (True ou False)
 
 **Resumo:** essa propriedade determina se o conjunto de declarações básicas está incluído nos tokens afetados por essa política.
 
@@ -262,21 +263,21 @@ Para controlar quais declarações são emitidas e o local em que os dados são 
 
 **Tipo de dados:** blob JSON com uma ou mais entradas de esquema de declaração
 
-**Resumo:** essa propriedade define quais declarações estão presentes nos tokens afetados pela política, além do conjunto de declarações básicas e do conjunto de declarações principais.
+**Resumo:** esta propriedade define quais declarações estão presentes nos tokens afetados pela política, além do conjunto de declarações básicas e do conjunto de declarações de núcleo.
 Para cada entrada de esquema de declaração definida nesta propriedade, certas informações são necessárias. Especifique o local em que os dados são originados (**Valor** ou o **par Origem/ID**) e com qual declaração eles são emitidos (**Tipo de declaração**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementos de entrada do esquema de declaração
 
 **Valor:** o elemento de valor define um valor estático como os dados a serem emitidos na declaração.
 
-**Par ID/Origem:** os elementos de Origem e ID definem de onde os dados na declaração foram originados. 
+**Par Origem/ID:** os elementos de Origem e ID definem de onde os dados na declaração foram originados. 
 
 Defina o elemento Origem para um dos seguintes valores: 
 
 - "user": os dados na declaração são uma propriedade no objeto User. 
 - "application": os dados na declaração são uma propriedade na entidade de serviço de aplicativo (cliente). 
 - "resource": os dados na declaração são uma propriedade na entidade de serviço de recurso.
-- "audience": os dados na declaração são uma propriedade da entidade de serviço que é o público-alvo do token (o cliente ou a entidade de serviço do recurso).
+- "audience": os dados na declaração são uma propriedade da entidade de serviço que é o público-alvo do token (o cliente ou o recurso de entidade de serviço).
 - "company": os dados na declaração são uma propriedade do objeto Company do locatário do recurso.
 - "transformation": os dados na declaração são de uma transformação de declarações (consulte a seção "Transformação de declarações" mais adiante neste artigo).
 
@@ -284,55 +285,55 @@ Se a fonte for uma transformação, o elemento **TransformationID** deverá ser 
 
 O elemento ID identifica qual propriedade na origem fornece o valor da declaração. A tabela a seguir lista os valores de ID válida para cada valor de Origem.
 
-#### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: valores de ID válidos por fonte
+#### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: Valores de ID válida por origem
 
 | Origem | ID | Descrição |
 |-----|-----|-----|
-| User | sobrenome | Nome da família |
-| User | givenname | Nome |
-| User | displayname | Nome para exibição |
-| User | objectid | ObjectID |
-| User | mail | Endereço de Email |
-| User | userprincipalname | Nome UPN |
-| User | department|department|
-| User | onpremisessamaccountname | Nome da conta SAM local |
-| User | netbiosname| Nome NetBios |
-| User | dnsdomainname | Nome de Domínio DNS |
-| User | onpremisesecurityidentifier | Identificador de segurança local |
-| User | companyname| Nome da Organização |
-| User | streetaddress | Endereço |
-| User | postalcode | Código postal |
-| User | preferredlanguange | Idioma preferencial |
-| User | onpremisesuserprincipalname | UPN local |
-| User | mailNickname | Apelido de email |
-| User | extensionattribute1 | Atributo de extensão 1 |
-| User | extensionattribute2 | Atributo de extensão 2 |
-| User | extensionattribute3 | Atributo de extensão 3 |
-| User | extensionattribute4 | Atributo de extensão 4 |
-| User | extensionattribute5 | Atributo de extensão 5 |
-| User | extensionattribute6 | Atributo de extensão 6 |
+| Usuário | sobrenome | Nome da família |
+| Usuário | givenname | Nome |
+| Usuário | displayname | Nome de exibição |
+| Usuário | objectid | ObjectID |
+| Usuário | mail | Endereço de Email |
+| Usuário | userprincipalname | Nome principal do usuário |
+| Usuário | department|Departamento|
+| Usuário | onpremisessamaccountname | Nome da conta SAM local |
+| Usuário | netbiosname| Nome NetBios |
+| Usuário | dnsdomainname | Nome de domínio DNS |
+| Usuário | onpremisesecurityidentifier | Identificador de segurança local |
+| Usuário | companyname| Nome da Organização |
+| Usuário | streetaddress | Endereço |
+| Usuário | postalcode | Código postal |
+| Usuário | preferredlanguange | Idioma preferencial |
+| Usuário | onpremisesuserprincipalname | UPN local |
+| Usuário | mailNickname | Apelido de email |
+| Usuário | extensionattribute1 | Atributo de extensão 1 |
+| Usuário | extensionattribute2 | Atributo de extensão 2 |
+| Usuário | extensionattribute3 | Atributo de extensão 3 |
+| Usuário | extensionattribute4 | Atributo de extensão 4 |
+| Usuário | extensionattribute5 | Atributo de extensão 5 |
+| Usuário | extensionattribute6 | Atributo de extensão 6 |
 | Usuário | extensionattribute7 | Atributo de extensão 7 |
-| User | extensionattribute8 | Atributo de extensão 8 |
-| User | extensionattribute9 | Atributo de extensão 9 |
-| User | extensionattribute10 | Atributo de extensão 10 |
-| User | extensionattribute11 | Atributo de extensão 11 |
-| User | extensionattribute12 | Atributo de extensão 12 |
-| User | extensionattribute13 | Atributo de extensão 13 |
-| User | extensionattribute14 | Atributo de extensão 14 |
-| User | extensionattribute15 | Atributo de extensão 15 |
-| User | othermail | Outro email |
-| User | country | País |
-| User | city | City |
-| User | state | Estado |
-| User | jobtitle | Cargo |
-| User | employeeid | ID do funcionário |
-| User | facsimiletelephonenumber | Número de telefone de fax |
-| aplicativo, recurso, público-alvo | displayName | Nome para exibição |
+| Usuário | extensionattribute8 | Atributo de extensão 8 |
+| Usuário | extensionattribute9 | Atributo de extensão 9 |
+| Usuário | extensionattribute10 | Atributo de extensão 10 |
+| Usuário | extensionattribute11 | Atributo de extensão 11 |
+| Usuário | extensionattribute12 | Atributo de extensão 12 |
+| Usuário | extensionattribute13 | Atributo de extensão 13 |
+| Usuário | extensionattribute14 | Atributo de extensão 14 |
+| Usuário | extensionattribute15 | Atributo de extensão 15 |
+| Usuário | othermail | Outro email |
+| Usuário | country | País/Região |
+| Usuário | city | Cidade |
+| Usuário | state | Estado |
+| Usuário | jobtitle | Cargo |
+| Usuário | employeeid | ID do funcionário |
+| Usuário | facsimiletelephonenumber | Número de telefone de fax |
+| aplicativo, recurso, público-alvo | displayname | Nome de exibição |
 | aplicativo, recurso, público-alvo | objected | ObjectID |
-| aplicativo, recurso, público-alvo | marcações | Marcação da entidade de serviço |
+| aplicativo, recurso, público-alvo | marcas | Marcação da entidade de serviço |
 | Empresa | tenantcountry | País/Região do locatário |
 
-**TransformationID:** o elemento TransformationID deverá ser fornecido apenas se o elemento Source estiver definido como "transformation".
+**TransformationID:** o elemento TransformationID deverá ser fornecido apenas se o elemento de origem estiver definido como "transformation".
 
 - Esse elemento deve corresponder ao elemento de ID da entrada de transformação na propriedade **ClaimsTransformation** que define como os dados dessa declaração são gerados.
 
@@ -352,13 +353,13 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 
 **Resumo:** use esta propriedade para aplicar transformações comuns a dados de origem para gerar os dados de saída para declarações especificadas no esquema de declarações.
 
-**ID:** use o elemento de ID para fazer referência a esta entrada de transformação na entrada de esquema de declarações TransformationID. Esse valor deve ser exclusivo para cada entrada de transformação nesta política.
+**ID:** use o elemento de ID para fazer referência a esta entrada de transformação na entrada de esquema de transformações TransformationID. Esse valor deve ser exclusivo para cada entrada de transformação nesta política.
 
 **TransformationMethod:** o elemento TransformationMethod identifica qual operação é executada para gerar os dados para a declaração.
 
 Com base no método escolhido, um conjunto de entradas e saídas é esperado. Defina as entradas e as saídas usando os elementos **InputClaims**, **InputParameters** e **OutputClaims**.
 
-#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabela 4: métodos de transformação e entradas e saídas esperadas
+#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabela 4: Métodos de transformação e entradas e saídas esperadas
 
 |TransformationMethod|Entrada esperada|Saída esperada|Descrição|
 |-----|-----|-----|-----|
@@ -375,40 +376,40 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 - **Value** é o valor constante real a ser passado.
 - O elemento **ID** é usado para fornecer um nome exclusivo a essa entrada. O nome deve corresponder a uma das entradas esperadas para o método de transformação.
 
-**OutputClaims:** use um elemento OutputClaims para reter os dados gerados por uma transformação e associá-lo a uma entrada de esquema de declaração. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
+**OutputClaims:** usam um elemento OutputClaims para armazenar os dados gerados por uma transformação e associá-lo a uma entrada de esquema de declaração. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** é unido à ID da entrada de esquema de declaração para encontrar a declaração de saída apropriada.
 - **TransformationClaimType** é usado para fornecer um nome exclusivo à saída. O nome deve corresponder a uma das saídas esperadas para o método de transformação.
 
 ### <a name="exceptions-and-restrictions"></a>Exceções e restrições
 
-**NameID e UPN SAML:** os atributos dos quais você obtém os valores de source NameID e UPN, bem como as transformações de declarações que são permitidas, são limitados. Consulte as tabelas 5 e 6 para ver os valores permitidos.
+**NameID e UPN SAML:** os atributos dos quais você obtém os valores de NameID e UPN, bem como as transformações de declarações que são permitidas, são limitados. Consulte as tabelas 5 e 6 para ver os valores permitidos.
 
-#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: atributos permitidos como fonte de dados para NameID SAML
+#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: Atributos permitidos como fonte de dados para NameID SAML
 
 |Origem|ID|Descrição|
 |-----|-----|-----|
-| User | mail|Endereço de Email|
-| User | userprincipalname|Nome UPN|
-| User | onpremisessamaccountname|Nome da conta SAM local|
-| User | employeeid|ID do funcionário|
-| User | extensionattribute1 | Atributo de extensão 1 |
-| User | extensionattribute2 | Atributo de extensão 2 |
-| User | extensionattribute3 | Atributo de extensão 3 |
-| User | extensionattribute4 | Atributo de extensão 4 |
-| User | extensionattribute5 | Atributo de extensão 5 |
-| User | extensionattribute6 | Atributo de extensão 6 |
+| Usuário | mail|Endereço de Email|
+| Usuário | userprincipalname|Nome principal do usuário|
+| Usuário | onpremisessamaccountname|Nome da conta SAM local|
+| Usuário | employeeid|ID do funcionário|
+| Usuário | extensionattribute1 | Atributo de extensão 1 |
+| Usuário | extensionattribute2 | Atributo de extensão 2 |
+| Usuário | extensionattribute3 | Atributo de extensão 3 |
+| Usuário | extensionattribute4 | Atributo de extensão 4 |
+| Usuário | extensionattribute5 | Atributo de extensão 5 |
+| Usuário | extensionattribute6 | Atributo de extensão 6 |
 | Usuário | extensionattribute7 | Atributo de extensão 7 |
-| User | extensionattribute8 | Atributo de extensão 8 |
-| User | extensionattribute9 | Atributo de extensão 9 |
-| User | extensionattribute10 | Atributo de extensão 10 |
-| User | extensionattribute11 | Atributo de extensão 11 |
-| User | extensionattribute12 | Atributo de extensão 12 |
-| User | extensionattribute13 | Atributo de extensão 13 |
-| User | extensionattribute14 | Atributo de extensão 14 |
-| User | extensionattribute15 | Atributo de extensão 15 |
+| Usuário | extensionattribute8 | Atributo de extensão 8 |
+| Usuário | extensionattribute9 | Atributo de extensão 9 |
+| Usuário | extensionattribute10 | Atributo de extensão 10 |
+| Usuário | extensionattribute11 | Atributo de extensão 11 |
+| Usuário | extensionattribute12 | Atributo de extensão 12 |
+| Usuário | extensionattribute13 | Atributo de extensão 13 |
+| Usuário | extensionattribute14 | Atributo de extensão 14 |
+| Usuário | extensionattribute15 | Atributo de extensão 15 |
 
-#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabela 6: métodos de transformação permitidos para o NameID SAML
+#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabela 6: Métodos de transformação permitidos para o NameID SAML
 
 | TransformationMethod | Restrições |
 | ----- | ----- |
@@ -417,7 +418,7 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 ### <a name="custom-signing-key"></a>Chave de assinatura personalizada
 
-Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações e protege os aplicativos contra as políticas de mapeamento de declarações criadas por atores mal-intencionados.  Os aplicativos que têm o mapeamento de declarações habilitado devem verificar um URI especial para suas chaves de assinatura `appid={client_id}` de token anexando a suas [solicitações de metadados do OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
+Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações e protege os aplicativos contra as políticas de mapeamento de declarações criadas por atores mal-intencionados.  Os aplicativos que têm o mapeamento de declarações habilitado devem verificar um URI especial para suas chaves de assinatura de token acrescentando `appid={client_id}` às suas [solicitações de metadados do OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
 
 ### <a name="cross-tenant-scenarios"></a>Cenários entre locatários
 
@@ -449,7 +450,7 @@ Para começar, execute uma destas etapas:
    Get-AzureADPolicy
    ```
 
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemplo: Criar e atribuir uma política para omitir as declarações básicas de tokens emitidos para uma entidade de serviço
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemplo: criar e atribuir uma política para omitir as declarações básicas de tokens emitidos para uma entidade de serviço
 
 Neste exemplo, você cria uma política que remove o conjunto de declarações básicas de tokens emitidos para entidades de serviço vinculadas.
 
@@ -465,7 +466,7 @@ Neste exemplo, você cria uma política que remove o conjunto de declarações b
       Get-AzureADPolicy
       ```
 1. Atribuir a política à entidade de serviço. Você também precisará da ObjectId de sua entidade de serviço.
-   1. Para ver todas as entidades de serviço de sua organização, consulte o Microsoft Graph. Ou, no Explorador do Graph do Azure AD, entre em sua conta do Azure AD.
+   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar Microsoft Graph](/graph/traverse-the-graph). Ou, no [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre em sua conta do Azure AD.
    2. Quando você tiver a ObjectId de sua entidade de serviço, execute o seguinte comando:  
      
       ``` powershell
@@ -489,7 +490,7 @@ Neste exemplo, você cria uma política que adiciona EmployeeID e TenantCountry 
       Get-AzureADPolicy
       ```
 1. Atribuir a política à entidade de serviço. Você também precisará da ObjectId de sua entidade de serviço. 
-   1. Para ver todas as entidades de serviço de sua organização, consulte o Microsoft Graph. Ou, no Explorador do Graph do Azure AD, entre em sua conta do Azure AD.
+   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar Microsoft Graph](/graph/traverse-the-graph). Ou, no [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre em sua conta do Azure AD.
    2. Quando você tiver a ObjectId de sua entidade de serviço, execute o seguinte comando:  
      
       ``` powershell
@@ -513,13 +514,13 @@ Neste exemplo, você cria uma política que emite uma declaração personalizada
       Get-AzureADPolicy
       ```
 1. Atribuir a política à entidade de serviço. Você também precisará da ObjectId de sua entidade de serviço. 
-   1. Para ver todas as entidades de serviço de sua organização, consulte o Microsoft Graph. Ou, no Explorador do Graph do Azure AD, entre em sua conta do Azure AD.
+   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar Microsoft Graph](/graph/traverse-the-graph). Ou, no [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre em sua conta do Azure AD.
    2. Quando você tiver a ObjectId de sua entidade de serviço, execute o seguinte comando: 
      
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
-Para saber como personalizar as declarações emitidas no token SAML por meio do portal do Azure, [consulte Como: Personalizar declarações emitidas no token SAML para aplicativos empresariais](active-directory-saml-claims-customization.md)
+Para saber como personalizar as declarações emitidas no token SAML por meio do portal do Azure, consulte [como: Personalizar declarações emitidas no token SAML para aplicativos empresariais](active-directory-saml-claims-customization.md)

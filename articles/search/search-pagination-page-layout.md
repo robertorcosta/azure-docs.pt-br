@@ -1,31 +1,29 @@
 ---
-title: Como trabalhar com os resultados da pesquisa – Azure Search
-description: Estruturar e classificar os resultados da pesquisa, obter uma contagem de documentos e adicionar navegação de conteúdo para resultados da pesquisa no Azure Search.
-author: HeidiSteen
+title: Como trabalhar com os resultados da pesquisa
+titleSuffix: Azure Cognitive Search
+description: Estruturar e classificar resultados da pesquisa, obter uma contagem de documentos e adicionar navegação de conteúdo aos resultados da pesquisa no Azure Pesquisa Cognitiva.
 manager: nitinme
-services: search
-ms.service: search
-ms.devlang: ''
-ms.topic: conceptual
-ms.date: 06/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 9fa2baf64dbb35d85c55635d7522075d61bfc17d
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 31af550d4f499b4b4440a27037dc210bfdf0cb6f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647699"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793460"
 ---
-# <a name="how-to-work-with-search-results-in-azure-search"></a>Como trabalhar com os resultados da pesquisa no Azure Search
-Este artigo fornece orientação sobre como implementar elementos padrão da página de resultados da pesquisa, por exemplo, contagem total, recuperação de documentos, ordens de classificação e navegação. As opções relacionadas à página que colaboram com dados ou informações para os resultados da pesquisa são especificadas por meio de solicitações de [Documento de Pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) enviadas ao Serviço de Azure Search. 
+# <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com os resultados da pesquisa no Azure Pesquisa Cognitiva
+Este artigo fornece orientação sobre como implementar elementos padrão da página de resultados da pesquisa, por exemplo, contagem total, recuperação de documentos, ordens de classificação e navegação. As opções relacionadas à página que contribuem com dados ou informações para os resultados da pesquisa são especificadas por meio das solicitações de [documento de pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) enviadas ao serviço de pesquisa cognitiva do Azure. 
 
 Na API REST, as solicitações incluem um comando GET, um caminho e os parâmetros de consulta que informam ao serviço que está sendo solicitado, e como formular a resposta. No SDK do .NET, a API equivalente é a [classe DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
 
-Vários exemplos de código incluem uma interface de front-end da Web, que podem ser encontrados aqui: [Aplicativo de demonstração de trabalhos da cidade de Nova York](https://azjobsdemo.azurewebsites.net/) e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Vários exemplos de código incluem uma interface de front-end da Web, que pode ser encontrada aqui: [Nova York City Jobs app](https://azjobsdemo.azurewebsites.net/) e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> Uma solicitação válida inclui diversos elementos, como uma URL de serviço e o caminho, o verbo HTTP, `api-version` etc. Para resumir, recortamos os exemplos para destacar apenas a sintaxe relevante para a paginação. Para obter mais informações sobre a sintaxe de solicitação, consulte [Azure Search serviço REST](https://docs.microsoft.com/rest/api/searchservice).
+> Uma solicitação válida inclui diversos elementos, como uma URL de serviço e o caminho, o verbo HTTP, `api-version` etc. Para resumir, recortamos os exemplos para destacar apenas a sintaxe relevante para a paginação. Para obter mais informações sobre a sintaxe de solicitação, consulte [APIs REST do Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice).
 >
 
 ## <a name="total-hits-and-page-counts"></a>Total de ocorrências e contagens de página
@@ -34,7 +32,7 @@ Mostrar o número total de resultados retornados por uma consulta e, em seguida,
 
 ![][1]
 
-No Azure Search, você deve usar os parâmetros `$count`, `$top` e `$skip` para retornar esses valores. O exemplo a seguir mostra uma solicitação de exemplo para total de ocorrências em um índice chamado "online-Catalog `@odata.count`", retornado como:
+No Azure Pesquisa Cognitiva, você usa os parâmetros `$count`, `$top`e `$skip` para retornar esses valores. O exemplo a seguir mostra uma solicitação de exemplo para total de ocorrências em um índice chamado "online-Catalog", retornado como `@odata.count`:
 
     GET /indexes/online-catalog/docs?$count=true
 
@@ -56,7 +54,7 @@ Talvez você queira mostrar em uma página de resultados da pesquisa uma imagem 
 
  ![][2]
 
-No Azure Search, você usaria `$select` o e uma [solicitação de API de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) para implementar essa experiência.
+No Azure Pesquisa Cognitiva, você usaria `$select` e uma [solicitação de API de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) para implementar essa experiência.
 
 Para retornar um subconjunto dos campos para um layout lado a lado:
 
@@ -74,7 +72,7 @@ Por padrão, as ordens de classificação normalmente usam a opção de relevân
 
  ![][3]
 
-No Azure Search, a classificação baseia-se na expressão `$orderby`, para todos os campos indexados como `"Sortable": true.` uma cláusula `$orderby` é uma expressão do OData. Para saber informações sobre sintaxe, confira [Sintaxe de expressão do OData para cláusulas filter e order-by](query-odata-filter-orderby-syntax.md).
+No Azure Pesquisa Cognitiva, a classificação é baseada na expressão `$orderby`, para todos os campos que são indexados como `"Sortable": true.` uma cláusula `$orderby` é uma expressão OData. Para saber informações sobre sintaxe, confira [Sintaxe de expressão do OData para cláusulas filter e order-by](query-odata-filter-orderby-syntax.md).
 
 A relevância está fortemente associada a perfis de pontuação. Você pode usar a pontuação padrão, que depende de análise de texto e estatísticas para classificar todos os resultados, com pontuações mais altas sendo atribuídas a documentos com mais correspondências, ou correspondências mais sólidas, de um termo de pesquisa.
 
@@ -92,24 +90,24 @@ Você criaria um método que aceitasse a opção de classificação selecionada 
 
 ## <a name="faceted-navigation"></a>Navegação facetada
 
-A navegação de pesquisa é comum em uma página de resultados, e normalmente fica na lateral ou na parte superior de uma página. No Azure Search, a navegação facetada proporciona uma pesquisa autodirecionada com base em filtros predefinidos. Confira [Navegação facetada no Azure Search](search-faceted-navigation.md) para mais detalhes.
+A navegação de pesquisa é comum em uma página de resultados, e normalmente fica na lateral ou na parte superior de uma página. No Pesquisa Cognitiva do Azure, a navegação facetada fornece pesquisa autodirigida com base em filtros predefinidos. Consulte [navegação facetada no Azure pesquisa cognitiva](search-faceted-navigation.md) para obter detalhes.
 
 ## <a name="filters-at-the-page-level"></a>Filtros no nível da página
 
-Se o design da solução incluísse páginas de pesquisa dedicadas para tipos específicos de conteúdo (por exemplo, um aplicativo de varejo online que tenha departamentos listados na parte superior da página), você poderá inserir uma [expressão de filtro](search-filters.md) junto com um evento OnClick para Abra uma página em um Estado previamente filtrado.
+Se o design da solução incluísse páginas de pesquisa dedicadas para tipos específicos de conteúdo (por exemplo, um aplicativo de varejo online que tenha departamentos listados na parte superior da página), você poderá inserir uma [expressão de filtro](search-filters.md) junto com um evento **onclick** para Abra uma página em um Estado previamente filtrado.
 
 Você pode enviar um filtro com ou sem uma expressão de pesquisa. Por exemplo, a seguinte solicitação filtrará o nome da marca, retornando somente os documentos que correspondem a ele.
 
     GET /indexes/online-catalog/docs?$filter=brandname eq 'Microsoft' and category eq 'Games'
 
-Confira [Pesquisar Documentos (API de Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para saber mais sobre expressões `$filter`.
+Consulte [Pesquisar documentos (API de pesquisa cognitiva do Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obter mais informações sobre `$filter` expressões.
 
 ## <a name="see-also"></a>Consulte também
 
-- [API REST do Serviço de Azure Search](https://docs.microsoft.com/rest/api/searchservice)
+- [API REST do Azure Pesquisa Cognitiva](https://docs.microsoft.com/rest/api/searchservice)
 - [Operações de índice](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 - [Operações de documento.](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-- [Navegação facetada no Azure Search](search-faceted-navigation.md)
+- [Navegação facetada no Azure Pesquisa Cognitiva](search-faceted-navigation.md)
 
 <!--Image references-->
 [1]: ./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG

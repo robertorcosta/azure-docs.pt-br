@@ -1,30 +1,29 @@
 ---
-title: Migrar da autorização do Serviço de Controle de Acesso do Azure Active Directory para Assinatura de Acesso Compartilhado | Microsoft Docs
-description: Migrar aplicativos do Serviço de Controle de Acesso para SAS
+title: Migrar do serviço de controle de acesso do AD do Azure para SAS
+description: Saiba mais sobre como migrar do serviço de controle de acesso Azure Active Directory para a autorização de assinatura de acesso compartilhado.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
-manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: 746b19062c3014caa37c6668e6c41df054a47e25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae0dd3827e17cc63b4b698eb8d88a08799c7278f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60868155"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790342"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar da autorização do Serviço de Controle de Acesso do Azure Active Directory para Assinatura de Acesso Compartilhado
 
 Anteriormente, os aplicativos do Barramento de Serviço podiam usar dois modelos de autorização diferentes: o modelo do token [SAS (Assinatura de Acesso Compartilhado)](service-bus-sas.md) fornecido diretamente pelo Barramento de Serviço, e um modelo federado no qual o gerenciamento de regras de autorização era feito internamente pelo ACS (Serviço de Controle de Acesso) do [Azure Active Directory](/azure/active-directory/), e os tokens obtidos do ACS eram passados para o Barramento de Serviço para autorização do acesso aos recursos desejados.
 
-O modelo de autorização do ACS foi substituído há tempos pela [autorização SAS](service-bus-authentication-and-authorization.md) como o modelo preferido e toda a documentação, diretrizes e exemplos usam exclusivamente SAS hoje em dia. Além disso, não é mais possível criar novos namespaces do Barramento de Serviço emparelhados com o ACS.
+O modelo de autorização do ACS foi substituído já tempos pela [autorização SAS](service-bus-authentication-and-authorization.md) como o modelo preferido, e toda a documentação, diretrizes e exemplos usam exclusivamente SAS hoje em dia. Além disso, não é mais possível criar novos namespaces do Barramento de Serviço emparelhados com o ACS.
 
 O SAS tem a vantagem de não ser imediatamente dependente de outro serviço, mas pode ser usado diretamente de um cliente sem qualquer intermediário fornecendo ao cliente o acesso ao nome da regra e à chave da regra de SAS. A SAS também pode ser facilmente integrada a uma abordagem na qual um cliente tenha que passar primeiro por uma verificação de autorização com outro serviço para, depois, ter um token emitido. A segunda abordagem é semelhante ao padrão de uso do ACS, mas permite a emissão de tokens de acesso com base nas condições específicas do aplicativo, que são difíceis de expressar no ACS.
 
@@ -60,7 +59,7 @@ Você pode fazer essa configuração nova e adicional do SAS localmente, em qual
 
 As regras de SAS não devem ser contas, mas são chaves de assinatura nomeadas associadas aos direitos. Assim, cenários nos quais o aplicativo cria várias identidades de serviço e lhes concede direitos de acesso a várias entidades ou ao namespace inteiro, ainda exigirão um intermediário de emissão de token. Você pode obter orientação com relação a esse intermediário [entrando em contato com o suporte](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a autenticação do Barramento de Serviço, confira os tópicos a seguir:
 

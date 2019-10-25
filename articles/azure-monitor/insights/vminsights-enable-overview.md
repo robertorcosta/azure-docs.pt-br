@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 09/24/2019
-ms.openlocfilehash: 9d132faf0b4d1de232e2b7e6e5ab6730978e27a8
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 83c2264cd3aa3025e911db5079747930d1ae096b
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555232"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809463"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitar a Azure Monitor para VMs (visualização) visão geral
 
@@ -22,12 +22,12 @@ Para configurar Azure Monitor para VMs:
 
 * Habilite uma única VM do Azure ou conjunto de dimensionamento de máquinas virtuais selecionando **insights (versão prévia)** diretamente do conjunto de dimensionamento de máquinas virtuais ou VM.
 * Habilite duas ou mais VMs do Azure e conjuntos de dimensionamento de máquinas virtuais usando Azure Policy. Esse método garante que, em VMs e conjuntos de dimensionamento novos e existentes, as dependências necessárias sejam instaladas e configuradas corretamente. VMs não compatíveis e conjuntos de dimensionamento são relatados, para que você possa decidir se deseja habilitá-los e corrigi-los.
-* Habilite duas ou mais VMs do Azure ou conjuntos de dimensionamento de máquinas virtuais em uma assinatura ou grupo de recursos especificado usando o PowerShell.
+* Habilite duas ou mais VMs do Azure ou conjuntos de dimensionamento de máquinas virtuais em uma assinatura ou um grupo de recursos especificado usando o PowerShell.
 * Habilite Azure Monitor para VMs para monitorar VMs ou computadores físicos hospedados em sua rede corporativa ou em outro ambiente de nuvem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, verifique se você entendeu as informações nas seções a seguir. 
+Antes de começar, verifique se você compreende as informações descritas nas seções a seguir. 
 
 >[!NOTE]
 >As informações a seguir descritas nesta seção também são aplicáveis à [solução de mapa do serviço](service-map.md).  
@@ -49,7 +49,7 @@ O Azure Monitor para VMs dá suporte a um espaço de trabalho do Log Analytics n
 - Leste da Austrália<sup>1</sup>
 - Sudeste da Austrália<sup>1</sup>
 
-<sup>1</sup> essa região atualmente não dá suporte ao recurso de integridade do Azure monitor para VMs.
+<sup>1</sup> Atualmente, essa região não dá suporte ao recurso Integridade do Azure Monitor para VMs.
 
 >[!NOTE]
 >Você pode implantar VMs do Azure de qualquer região. Essas VMs não são limitadas às regiões com suporte no espaço de trabalho Log Analytics.
@@ -66,7 +66,7 @@ Você também pode criar um espaço de trabalho enquanto estiver habilitando o m
 Para configurar um cenário em escala que usa Azure Policy, Azure PowerShell ou modelos de Azure Resource Manager, em seu espaço de trabalho do Log Analytics:
 
 * Instale as soluções ServiceMap e InfrastructureInsights. Você pode concluir esta instalação usando um modelo de Azure Resource Manager fornecido. Ou, na guia **introdução** , selecione **Configurar espaço de trabalho**.
-* Configure o espaço de trabalho Log Analytics para coletar contadores de desempenho.
+* Configure o espaço de trabalho do Log Analytics para coletar contadores de desempenho.
 
 Para configurar seu espaço de trabalho para o cenário em escala, use um dos seguintes métodos:
 
@@ -79,23 +79,23 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure
 
 |Versão do SO |Performance |Mapas |Saúde |
 |-----------|------------|-----|-------|
-|Windows Server 2019 | w.x.y. | w.x.y. | w.x.y. |
-|Windows Server 2016 1803 | w.x.y. | w.x.y. | w.x.y. |
-|Windows Server 2016 | w.x.y. | w.x.y. | w.x.y. |
-|Windows Server 2012 R2 | w.x.y. | w.x.y. | w.x.y. |
-|Windows Server 2012 | w.x.y. | w.x.y. | |
-|Windows Server 2008 R2 | w.x.y. | w.x.y.|  |
-|Windows 10 1803 | w.x.y. | w.x.y. | |
-|Windows 8.1 | w.x.y. | w.x.y. | |
-|Windows 8 | w.x.y. | w.x.y. | |
-|Windows 7 SP1 | w.x.y. | w.x.y. | |
-|Red Hat Enterprise Linux (RHEL) 6, 7| w.x.y. | w.x.y.| w.x.y. |
-|Ubuntu 18, 4, 16, 4 | w.x.y. | w.x.y. | w.x.y. |
-|CentOS Linux 7, 6 | w.x.y. | w.x.y. | w.x.y. |
-|SUSE Linux Enterprise Server (SLES) 12 | w.x.y. | w.x.y. | w.x.y. |
-|Debian 9,4, 8 | X<sup>1</sup> | | w.x.y. |
+|Windows Server 2019 | X | X | X |
+|Windows Server 2016 1803 | X | X | X |
+|Windows Server 2016 | X | X | X |
+|Windows Server 2012 R2 | X | X | X |
+|Windows Server 2012 | X | X | |
+|Windows Server 2008 R2 | X | X|  |
+|Windows 10 1803 | X | X | |
+|Windows 8.1 | X | X | |
+|Windows 8 | X | X | |
+|Windows 7 SP1 | X | X | |
+|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
+|Ubuntu 18, 4, 16, 4 | X | X | X |
+|CentOS Linux 7, 6 | X | X | X |
+|SLES (SUSE Linux Enterprise Server) 12 | X | X | X |
+|Debian 9.4, 8 | X<sup>1</sup> | | X |
 
-<sup>1</sup> o recurso de desempenho do Azure monitor para VMs está disponível apenas no Azure monitor. Ele não está disponível diretamente no painel esquerdo da VM do Azure.
+<sup>1</sup> O recurso Desempenho do Azure Monitor para VMs está disponível somente no Azure Monitor. Ele não está disponível diretamente no painel esquerdo da VM do Azure.
 
 >[!NOTE]
 >O recurso de integridade do Azure Monitor para VMs não oferece suporte à [virtualização aninhada](../../virtual-machines/windows/nested-virtualization.md) em uma VM do Azure.
@@ -103,8 +103,8 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure
 
 >[!NOTE]
 >No sistema operacional Linux:
-> - Somente as versões de kernel padrão e SMP Linux têm suporte.
-> - Versões de kernel não padrão, como a extensão de endereço físico (PAE) e Xen, não têm suporte para nenhuma distribuição do Linux. Por exemplo, não há suporte para um sistema com a cadeia de caracteres de versão de *2.6.16.21-0,8-Xen* .
+> - Somente as versões de kernel padrão e Linux SMP têm suporte.
+> - Não há suporte para nenhuma distribuição do Linux em versões de kernel não padrão, como PAE (Extensão do Endereço Físico) e Xen. Por exemplo, não há suporte para um sistema com a cadeia de caracteres de versão *2.6.16.21-0.8-xen*.
 > - Não há suporte para kernels personalizados, incluindo recompilações de kernels padrão.
 > - Há suporte para o kernel CentOSPlus.
 > - O kernel do Linux deve ser corrigido para a vulnerabilidade Spectre. Consulte seu fornecedor de distribuição do Linux para obter mais detalhes.
@@ -113,39 +113,39 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure
 
 | Versão do SO | Versão do kernel |
 |:--|:--|
-| 7,6 | 3.10.0-957 |
+| 7.6 | 3.10.0-957 |
 | 7.5 | 3.10.0-862 |
-| 7,4 | 3.10.0-693 |
+| 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
 | Versão do SO | Versão do kernel |
 |:--|:--|
-| 6,10 | 2.6.32-754 |
-| 6,9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
+| 6.9 | 2.6.32-696 |
 
 #### <a name="centosplus"></a>CentOSPlus
 
 | Versão do SO | Versão do kernel |
 |:--|:--|
-| 6,10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
-| 6,9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
+| 6.10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
+| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
 
-#### <a name="ubuntu-server"></a>Servidor Ubuntu
+#### <a name="ubuntu-server"></a>Ubuntu Server
 
 | Versão do SO | Versão do kernel |
 |:--|:--|
 | 18.04 | 5,0 (inclui kernel ajustado pelo Azure)<br>4,18 *<br>4.15* |
 | 16.04.3 | 4,15. * |
-| 16, 4 | 4,13. \*<br>4,11. \*<br>4,10. \*<br>4,8. \*<br>4,4. \* |
+| 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
 
 #### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
 | Versão do SO | Versão do kernel |
 |:--|:--|
 |12 SP4 | 4,12. * (inclui kernel ajustado para o Azure) |
-|12 SP3 | 4,4. * |
-|12 SP2 | 4,4. * |
+|12 SP3 | 4.4.* |
+|12 SP2 | 4.4.* |
 
 #### <a name="debian"></a>Debian 
 
@@ -153,37 +153,37 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure
 |:--|:--|
 | 9 | 4,9 | 
 
-### <a name="the-microsoft-dependency-agent"></a>O Microsoft Dependency Agent
+### <a name="the-microsoft-dependency-agent"></a>Microsoft Dependency Agent
 
-O recurso de mapa no Azure Monitor para VMs obtém seus dados do Microsoft Dependency Agent. O agente de dependência depende do agente de Log Analytics para sua conexão com Log Analytics. Portanto, seu sistema deve ter o agente de Log Analytics instalado e configurado com o Dependency Agent.
+O recurso de mapa no Azure Monitor para VMs obtém seus dados do Microsoft Dependency Agent. O Dependency Agent depende do agente do Log Analytics para suas conexões com o Log Analytics. Portanto, seu sistema deve ter o agente de Log Analytics instalado e configurado com o Dependency Agent.
 
-Se você habilitar Azure Monitor para VMs para uma única VM do Azure ou usar o método de implantação em escala, use a extensão do agente de dependência de VM do Azure para instalar o agente como parte da experiência.
+Se você habilitar Azure Monitor para VMs para uma única VM do Azure ou usar o método de implantação em escala, use a extensão do agente de dependência de VM do Azure para [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) ou [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) para instalar o agente como parte da experiência.
 
 >[!NOTE]
 >As informações a seguir descritas nesta seção também são aplicáveis à [solução de mapa do serviço](service-map.md).  
 
-Em um ambiente híbrido, você pode baixar e instalar o agente de dependência manualmente. Se suas VMs estiverem hospedadas fora do Azure, use um método de implantação automatizado.
+Em um ambiente híbrido, você pode baixar e instalar o agente de dependência manualmente ou usando um método automatizado.
 
-A tabela a seguir descreve as fontes conectadas que o recurso de mapa dá suporte em um ambiente híbrido.
+A tabela a seguir descreve as fontes conectadas para as quais o recurso Mapa dá suporte em um ambiente híbrido.
 
 | Fonte conectada | Com suporte | Descrição |
 |:--|:--|:--|
-| Agentes do Windows | Sim | Junto com o [agente do log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Windows precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
-| Agentes do Linux | Sim | Junto com o [agente de log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Linux precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
-| System Center Operations Manager grupo de gerenciamento | Não | |
+| Agentes do Windows | SIM | Junto com o [agente do log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Windows precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
+| Agentes do Linux | SIM | Junto com o [agente de log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Linux precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
+| Grupo de gerenciamento do System Center Operations Manager | Não | |
 
 Você pode baixar o Dependency Agent nestes locais:
 
 | Arquivo | SISTEMA OPERACIONAL | Versão | SHA-256 |
 |:--|:--|:--|:--|
-| [Installdependencyagent-Windows. exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
-| [Installdependencyagent-Linux64. bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
 
 ## <a name="role-based-access-control"></a>Controle de acesso baseado em funções
 
-Para habilitar e acessar os recursos no Azure Monitor para VMs, você deve ter a função de *colaborador de log Analytics* . Para exibir o desempenho, a integridade e os dados do mapa, você deve ter a função *leitor de monitoramento* para a VM do Azure. O espaço de trabalho Log Analytics deve ser configurado para Azure Monitor para VMs.
+Para habilitar e acessar os recursos no Azure Monitor para VMs, você deve ter a função de *colaborador de log Analytics* . Para exibir o desempenho, a integridade e os dados do mapa, você deve ter a função *leitor de monitoramento* para a VM do Azure. O espaço de trabalho do Log Analytics precisa ser configurado para o Azure Monitor para VMs.
 
-Para obter mais informações sobre como controlar o acesso a um espaço de trabalho do Log Analytics, consulte [Gerenciar espaços de trabalho](../../azure-monitor/platform/manage-access.md).
+Para obter mais informações sobre como controlar o acesso a um espaço de trabalho do Log Analytics, veja [Gerenciar espaços de trabalho](../../azure-monitor/platform/manage-access.md).
 
 ## <a name="how-to-enable-azure-monitor-for-vms-preview"></a>Como habilitar a Azure Monitor para VMs (visualização)
 
@@ -204,38 +204,38 @@ Azure Monitor para VMs configura um espaço de trabalho Log Analytics para colet
 
 |Nome do objeto |Nome do contador |
 |------------|-------------|
-|LogicalDisk |% De espaço livre |
+|LogicalDisk |% de Espaço Livre |
 |LogicalDisk |Média de disco s/leitura |
 |LogicalDisk |Média de disco s/transferência |
 |LogicalDisk |Média de disco s/gravação |
-|LogicalDisk |Bytes de disco/s |
-|LogicalDisk |Bytes de leitura de disco/s |
-|LogicalDisk |Leituras de disco/s |
-|LogicalDisk |Transferências de disco/s |
-|LogicalDisk |Bytes de gravação no disco/s |
-|LogicalDisk |Gravações de disco/s |
-|LogicalDisk |Megabytes livres |
+|LogicalDisk |Bytes de Disco/s |
+|LogicalDisk |Bytes Lidos no Disco/s |
+|LogicalDisk |Leituras de Disco/s |
+|LogicalDisk |Transferências de Disco/s |
+|LogicalDisk |Bytes Gravados no Disco/s |
+|LogicalDisk |Gravações de Disco/s |
+|LogicalDisk |Megabytes Livres |
 |Memória |MBytes Disponíveis |
 |Adaptador de rede |Bytes Recebidos/s |
 |Adaptador de rede |Bytes Enviados/s |
-|Processador |% De tempo do processador |
+|Processador |% Tempo do Processador |
 
 ### <a name="linux-performance-counters"></a>Contadores de desempenho do Linux
 
 |Nome do objeto |Nome do contador |
 |------------|-------------|
-|Disco lógico |% De espaço usado |
-|Disco lógico |Bytes de leitura de disco/s |
-|Disco lógico |Leituras de disco/s |
-|Disco lógico |Transferências de disco/s |
-|Disco lógico |Bytes de gravação no disco/s |
-|Disco lógico |Gravações de disco/s |
-|Disco lógico |Megabytes livres |
-|Disco lógico |Bytes de disco lógico/s |
-|Memória |Memória de MBytes disponíveis |
-|Rede |Total de bytes recebidos |
-|Rede |Total de bytes transmitidos |
-|Processador |% De tempo do processador |
+|Disco Lógico |% de Espaço Usado |
+|Disco Lógico |Bytes Lidos no Disco/s |
+|Disco Lógico |Leituras de Disco/s |
+|Disco Lógico |Transferências de Disco/s |
+|Disco Lógico |Bytes Gravados no Disco/s |
+|Disco Lógico |Gravações de Disco/s |
+|Disco Lógico |Megabytes Livres |
+|Disco Lógico |Bytes de Disco Lógico/s |
+|Memória |MBytes de Memória Disponíveis |
+|Rede |Total de Bytes Recebidos |
+|Rede |Total de Bytes Transmitidos |
+|Processador |% Tempo do Processador |
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
 
@@ -245,9 +245,9 @@ O pacote de gerenciamento é denominado *Microsoft. IntelligencePacks. Applicati
 
 ## <a name="diagnostic-and-usage-data"></a>Dados de uso e de diagnóstico
 
-A Microsoft coleta automaticamente dados de uso e de desempenho por meio do uso do serviço de Azure Monitor. A Microsoft usa esses dados para melhorar a qualidade, a segurança e a integridade do serviço. 
+A Microsoft coleta automaticamente dados de uso e de desempenho por meio do uso do serviço Azure Monitor. A Microsoft usa esses dados para melhorar a qualidade, a segurança e a integridade do serviço. 
 
-Para fornecer recursos de solução de problemas precisos e eficientes, o recurso de mapa inclui dados sobre a configuração do seu software. Os dados fornecem informações como o sistema operacional e a versão, o endereço IP, o nome DNS e o nome da estação de trabalho. A Microsoft não coleta nomes, endereços ou outras informações de contato.
+Para fornecer recursos de solução de problemas precisos e eficientes, o recurso de mapa inclui dados sobre a configuração do seu software. Os dados fornecem informações como o sistema operacional e a versão, o endereço IP, o nome DNS e o nome da estação de trabalho. A Microsoft não coleta nomes, endereços nem outras informações de contato.
 
 Para obter mais informações sobre a coleta e uso de dados, consulte a [Política de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
@@ -257,4 +257,4 @@ Agora que você habilitou o monitoramento para sua VM, as informações de monit
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para saber como usar o recurso de integridade, consulte [exibir Azure monitor para VMs integridade](vminsights-health.md). Para exibir dependências de aplicativo descobertas, consulte [exibir mapa de Azure monitor para VMs](vminsights-maps.md).
+Para saber como usar o recurso Integridade, confira [Exibir a Integridade do Azure Monitor para VMs](vminsights-health.md). Para exibir as dependências de aplicativos descobertas, confira [Exibir o Mapa do Azure Monitor para VMs](vminsights-maps.md).

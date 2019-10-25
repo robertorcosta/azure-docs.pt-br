@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 38a9f3a7020e866ccb000ed0c54499258f5e651a
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734667"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72801887"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Abordagem e processo de adoção do Catálogo de Dados do Azure
 
@@ -125,7 +125,7 @@ Para saber mais sobre a ferramenta de registro de fonte de dados, confira [Intro
 Como parte do projeto-piloto, a equipe de Clara também usa fontes de dados que são descritas em uma pasta de trabalho do Excel que Pedro e seus colegas mantêm. Como outras equipes da empresa também usam pastas de trabalho do Excel para descrever fontes de dados, a equipe de TI decide criar uma ferramenta para migrar a pasta de trabalho do Excel para o Catálogo de Dados. Usando a API REST do Catálogo de Dados para importar anotações existentes, a equipe de projeto-piloto pode ter um catálogo de dados completo que consiste em metadados extraídos de fontes de dados usando a ferramenta de registro de fonte de dados, com informações documentadas anteriormente por produtores e consumidores de dados, sem a necessidade de reinserção manual. À medida que o catálogo de dados corporativo cresce, a organização pode usar a ferramenta de registro de fonte de dados para fontes de dados comuns, e a API do Catálogo de Dados para fontes personalizadas e cenários incomuns.
 
 > [!NOTE]
-> Criamos uma ferramenta de exemplo que usa a API do **Catálogo de Dados do Azure** para migrar uma pasta de trabalho do Excel para o Catálogo de Dados. Para saber mais sobre a API do Catálogo de Dados e a ferramenta de exemplo, [baixe o exemplo de código da pasta de trabalho Ad Hoc](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) e conferir a documentação da [API REST de Catálogo de Dados do Azure](/rest/api/datacatalog/).
+> Criamos uma ferramenta de exemplo que usa a API do **Catálogo de Dados do Azure** para migrar uma pasta de trabalho do Excel para o Catálogo de Dados. Para saber mais sobre a API do Catálogo de Dados e a ferramenta de exemplo, [baixe o exemplo de código da pasta de trabalho Ad Hoc](https://github.com/Azure-Samples/data-catalog-dotnet-excel-register-data-assets) e conferir a documentação da [API REST de Catálogo de Dados do Azure](/rest/api/datacatalog/).
 
 Depois que o projeto-piloto estiver em vigor, será a hora de executar o plano de adoção do Catálogo de Dados.
 
@@ -163,6 +163,6 @@ Os pioneiros que participaram do piloto podem ser úteis para apregoar os benef�
 
 Este artigo foi uma introdução ao **Catálogo de Dados do Azure** em sua organização. Esperamos que você tenha conseguido iniciar um projeto-piloto do Catálogo de Dados e expandir o Catálogo de Dados por toda a organização.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Criar um catálogo de dados do Azure](data-catalog-get-started.md)

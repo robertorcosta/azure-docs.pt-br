@@ -14,18 +14,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 9ec8e2df8befa28fc023edb30889f177b60939f9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015035"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792582"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codecs e formatos de fluxo de trabalho do Media Encoder Premium
 
 > [!NOTE]
-> Para questões de Codificador Premium, email mepd@microsoft.com.
-> 
 > O processador de mídia do Fluxo de Trabalho do Media Encoder Premium analisado neste tópico não está disponível na China. 
 
 Este documento contém uma lista de formatos de arquivo de entrada e saída e codecs com suporte pela versão de demonstração pública do codificador de **Fluxo de trabalho do Media Encoder Premium** .
@@ -100,8 +98,6 @@ A seção a seguir lista os codecs e formatos de arquivo com suporte como a saí
 * Criação de miniaturas JPEG
 * HEVC (H.265; 8 e 10 bits, Main e Main 10 Profile)
 
-  O suporte a HDR 10 está disponível em determinados cenários, entre em contato com mepd@microsoft.com para obter mais informações
-
 
 ### <a name="output-audio-codecs"></a>Codecs de áudio de saída
 
@@ -141,6 +137,9 @@ Na saída, as seguintes opções estão disponíveis:
 
 Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída ainda conterá um arquivo TTML vazio. 
 
+## <a name="need-help"></a>Precisa de ajuda?
+
+Você pode abrir um tíquete de suporte navegando até [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

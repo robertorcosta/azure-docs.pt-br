@@ -1,5 +1,6 @@
 ---
-title: Declarações de cliente na biblioteca de autenticação da Microsoft para .NET | Azure
+title: Declarações de cliente na biblioteca de autenticação da Microsoft para .NET
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre as declarações de cliente assinadas com suporte para aplicativos cliente confidenciais na biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: jmprieur
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1ea75499334f3f6eb2f5d3c15526067fcef4eb8
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: fcf11ac8dc39dcb1d70b932dbe870687f5446a52
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442499"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802858"
 ---
 # <a name="confidential-client-assertions"></a>Asserções confidenciais do cliente
 Para provar sua identidade, os aplicativos cliente confidenciais trocam um segredo com o Azure AD. O segredo pode ser:
@@ -50,7 +51,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 As declarações esperadas pelo Azure AD são:
 
-Tipo de declaração | Valor | Descrição
+Tipo de declaração | Value | Descrição
 ---------- | ---------- | ----------
 aud | https://login.microsoftonline.com/{tenantId}/v2.0 | A declaração "AUD" (público) identifica os destinatários para os quais o JWT se destina (aqui Azure AD) consulte [RFC 7519, section 4.1.3]
 exp | Qui Jun 27 2019 15:04:17 GMT + 0200 (horário de Verão de romance) | A declaração "exp" (hora de expiração) identifica a hora de expiração ou a hora após ela na qual o JWT NÃO DEVE ser aceito para processamento. Consulte [RFC 7519, seção 4.1.4]
@@ -135,7 +136,7 @@ string GetAssertion()
 
 ### <a name="withclientclaims"></a>WithClientClaims
 
-`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`Por padrão, produzirá uma asserção assinada contendo as declarações esperadas pelo Azure AD mais declarações de cliente adicionais que você deseja enviar. Aqui está um trecho de código sobre como fazer isso.
+`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`, por padrão, produzirá uma asserção assinada contendo as declarações esperadas pelo Azure AD, além de declarações de cliente adicionais que você deseja enviar. Aqui está um trecho de código sobre como fazer isso.
 
 ```CSharp
 string ipAddress = "192.168.1.2";
@@ -150,4 +151,4 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Se uma das declarações no dicionário que você passa for igual a uma das declarações obrigatórias, o valor da declaração adicional será levado em conta. Ele substituirá as declarações computadas por MSAL.NET.
 
-Se você quiser fornecer suas próprias declarações, incluindo as declarações obrigatórias esperadas pelo Azure AD, passe `false` para o `mergeWithDefaultClaims` parâmetro.
+Se você quiser fornecer suas próprias declarações, incluindo as declarações obrigatórias esperadas pelo Azure AD, passe `false` para o parâmetro `mergeWithDefaultClaims`.

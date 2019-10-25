@@ -1,25 +1,20 @@
 ---
-title: Guia de início rápido do Azure Cloud Shell | Microsoft Docs
-description: Início rápido para Azure Cloud Shell
-services: Azure
-documentationcenter: ''
+title: Guia de início rápido do Azure Cloud Shell-PowerShell
+description: Saiba como usar o PowerShell em seu navegador com Azure Cloud Shell.
 author: maertendmsft
-manager: timlt
+ms.author: damaerte
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
-ms.author: damaerte
-ms.openlocfilehash: f1184f9f3a4cf827f0afef9bca8a72308c371d76
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 72261989b7cee9d2251eb18b36431ec807b0e874
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224562"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791610"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Início rápido do PowerShell no Azure Cloud Shell
 
@@ -27,8 +22,6 @@ Este documento fornece detalhes sobre como usar o PowerShell no Cloud Shell no [
 
 > [!NOTE]
 > Um início rápido do [Bash no Azure Cloud Shell](quickstart.md) também está disponível.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="start-cloud-shell"></a>Iniciar o Cloud Shell
 
@@ -297,7 +290,7 @@ Como alternativa, você pode sempre usar `Get-Command *az* -Module Az.*` para de
 
 ## <a name="install-custom-modules"></a>Instalar módulos personalizados
 
-Você pode executar `Install-Module` o para instalar os módulos do [Galeria do PowerShell][gallery].
+Você pode executar `Install-Module` para instalar os módulos do [Galeria do PowerShell][gallery].
 
 ## <a name="get-help"></a>Get-Help
 

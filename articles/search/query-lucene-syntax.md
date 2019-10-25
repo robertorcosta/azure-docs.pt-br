@@ -1,13 +1,13 @@
 ---
-title: Sintaxe de consulta Lucene - Azure Search
-description: Referência para a sintaxe completa do Lucene, conforme usado no Azure Search.
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
+title: Sintaxe de consulta Lucene
+titleSuffix: Azure Cognitive Search
+description: Referência para a sintaxe Lucene completa, conforme usado com o Azure Pesquisa Cognitiva.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,15 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: d667588cea5902700c225dd7b597d8f03d93d200
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1b94a1bbab810345ab222be9e7aba2fef0f52549
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650055"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786279"
 ---
-# <a name="lucene-query-syntax-in-azure-search"></a>Sintaxe de consulta Lucene no Azure Search
-Você pode escrever consultas no Azure Search com base na sintaxe avançada do [Analisador de Consultas do Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formulários de consulta especializados: curinga, pesquisa difusa, pesquisa de proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do Analisador de Consultas do Lucene é [implementada intacta no Azure Search](search-lucene-query-architecture.md), com exceção das *pesquisas de intervalo* que são construídas na Pesquisa do Azure por meio das expressões `$filter`. 
+# <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta Lucene no Azure Pesquisa Cognitiva
+
+Você pode escrever consultas no Azure Pesquisa Cognitiva com base na sintaxe do [analisador de consulta do Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) avançada para formulários de consulta especializados: curinga, pesquisa difusa, pesquisa por proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do analisador de consulta Lucene é [implementada intacta no azure pesquisa cognitiva](search-lucene-query-architecture.md), com exceção das *pesquisas de intervalo* que são construídas no Azure pesquisa cognitiva por meio de expressões `$filter`. 
 
 ## <a name="how-to-invoke-full-parsing"></a>Como invocar a análise completa
 
@@ -56,10 +57,10 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 }
 ```
 
-Para ver mais exemplos, confira [Exemplos de sintaxe de consulta do Lucene para criar consultas no Azure Search](search-query-lucene-examples.md). Para obter detalhes sobre a especificação do contingente completo de parâmetros de consulta, confira [Pesquisar documentos &#40;API REST do Serviço Azure Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+Para obter exemplos adicionais, consulte [exemplos de sintaxe de consulta Lucene para criar consultas no Azure pesquisa cognitiva](search-query-lucene-examples.md). Para obter detalhes sobre como especificar o contingente total dos parâmetros de consulta, consulte [Pesquisar &#40;documentos&#41;Azure pesquisa cognitiva API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 > [!NOTE]  
->  O Azure Search também oferece suporte à [Sintaxe de Consulta Simples](query-simple-syntax.md), uma linguagem de consulta simples e robusta que pode ser usada na pesquisa direta de palavras-chave.  
+>  O Azure Pesquisa Cognitiva também dá suporte à [sintaxe de consulta simples](query-simple-syntax.md), uma linguagem de consulta simples e robusta que pode ser usada para pesquisa de palavra-chave direta.  
 
 ##  <a name="bkmk_syntax"></a> Conceitos básicos da sintaxe  
  Os conceitos básicos de sintaxe a seguir se aplicam a todas as consultas que usam a sintaxe do Lucene.  
@@ -79,11 +80,11 @@ O exemplo acima usa o til (~), mas o mesmo princípio se aplica a todos os opera
  Os caracteres especiais devem ser substituídos para ser usados como parte do texto da pesquisa. Você também poderá permitir a saída deles prefixando-os com uma barra invertida (\\). Os caracteres especiais que precisam ter a saída permitida incluem o seguinte:  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- Por exemplo, para escapar um caractere curinga, use \\. \*
+ Por exemplo, para escapar de um caractere curinga, use \\\*.
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Codificação de caracteres reservados e não seguros em URLs
 
- Verifique se todos os caracteres reservados e não seguros estão codificados em uma URL. Por exemplo, '#' é um caractere que não é seguro por ser um identificador de fragmento/âncora em uma URL. O caractere deverá ser codificado como `%23` se for usado em uma URL. '&' e '=' são exemplos de caracteres reservados ao delimitarem parâmetros e especificarem valores no Azure Search. Confira [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) para obter mais detalhes.
+ Verifique se todos os caracteres reservados e não seguros estão codificados em uma URL. Por exemplo, '#' é um caractere que não é seguro por ser um identificador de fragmento/âncora em uma URL. O caractere deverá ser codificado como `%23` se for usado em uma URL. ' & ' e ' = ' são exemplos de caracteres reservados à medida que delimitam parâmetros e especificam valores na Pesquisa Cognitiva do Azure. Consulte [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) para obter mais detalhes.
 
  Os caracteres não seguros são ``" ` < > # % { } | \ ^ ~ [ ]``. Os caracteres reservados são `; / ? : @ = + &`.
 
@@ -93,7 +94,7 @@ O exemplo acima usa o til (~), mas o mesmo princípio se aplica a todos os opera
 O agrupamento de campo é semelhante, mas tem como escopo o agrupamento para um único campo. Por exemplo, `hotelAmenities:(gym+(wifi||pool))` pesquisa o campo "comodidadesDoHotel" para "academia" e "wifi" ou "academia" e "piscina".  
 
 ### <a name="searchmode-parameter-considerations"></a>Considerações sobre parâmetros de SearchMode  
- O impacto de `searchMode` nas consultas, conforme descrito na [Sintaxe de consulta simples no Azure Search](query-simple-syntax.md), aplica-se igualmente à sintaxe de consultas do Lucene. Ou seja, `searchMode` em conjunto com operadores NOT pode levar a resultados de consulta que podem parecer incomuns se você não for claro nas implicações sobre como definir o parâmetro. Se você mantiver o padrão, `searchMode=any`, e usar um operador NOT, a operação será computada como uma ação OR, de modo que "Nova Iorque" NOT "Seattle" retornará todas as cidades que não sejam Seattle.  
+ O impacto de `searchMode` em consultas, conforme descrito em [sintaxe de consulta simples no Azure pesquisa cognitiva](query-simple-syntax.md), aplica-se igualmente à sintaxe de consulta Lucene. Ou seja, `searchMode` em conjunto com operadores NOT pode levar a resultados de consulta que podem parecer incomuns se você não for claro nas implicações sobre como definir o parâmetro. Se você mantiver o padrão, `searchMode=any`, e usar um operador NOT, a operação será computada como uma ação OR, de modo que "Nova Iorque" NOT "Seattle" retornará todas as cidades que não sejam Seattle.  
 
 ##  <a name="bkmk_boolean"></a>Operadores boolianos (e, ou, não) 
  Sempre especifique operadores boolianos de texto (AND, OR, NOT) com tudo em maiúsculas.  
@@ -116,13 +117,13 @@ Usar `searchMode=any` aumenta o cancelamento de consultas, incluindo mais result
 Usar `searchMode=all` aumenta a precisão de consultas, incluindo menos resultados e, por padrão, será interpretado como "AND NOT". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` e não contêm o termo `luxury`. Isso é, indiscutivelmente, um comportamento mais intuitivo para o operador -. Portanto, considere escolher `searchMode=all` em vez de `searchMode=any` se quiser otimizar pesquisas por precisão em vez de recuperá-las, *além disso* seus usuários frequentemente usam o operador `-` nas pesquisas.
 
 ##  <a name="bkmk_querysizelimits"></a> Limitações de tamanho de consulta  
- Há um limite para o tamanho das consultas que podem ser enviadas para o Azure Search. Especificamente, você pode ter, no máximo, 1024 cláusulas (expressões separadas por AND, OR e assim por diante). Há também um limite de aproximadamente 32 KB em relação ao tamanho de qualquer termo individual em uma consulta. Se seu aplicativo gerar consultas de pesquisa por meio de programação, é recomendável criá-lo de forma que ele não gere consultas de tamanho ilimitado.  
+ Há um limite para o tamanho das consultas que você pode enviar para o Azure Pesquisa Cognitiva. Especificamente, você pode ter, no máximo, 1024 cláusulas (expressões separadas por AND, OR e assim por diante). Há também um limite de aproximadamente 32 KB em relação ao tamanho de qualquer termo individual em uma consulta. Se seu aplicativo gerar consultas de pesquisa por meio de programação, é recomendável criá-lo de forma que ele não gere consultas de tamanho ilimitado.  
 
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Classificar consultas de caractere curinga e regex
- O Azure Search usa a pontuação baseada em frequência ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) para consultas de texto. No entanto, para consultas curinga e regex em que o escopo de termos pode ser potencialmente amplo, o fator de frequência é ignorado para impedir que a classificação seja direcionada para correspondências de termos mais raros. Todas as correspondências são tratadas da mesma maneira para as pesquisas de caractere curinga e regex.
+ O Azure Pesquisa Cognitiva usa a pontuação baseada em frequência ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) para consultas de texto. No entanto, para consultas curinga e regex em que o escopo de termos pode ser potencialmente amplo, o fator de frequência é ignorado para impedir que a classificação seja direcionada para correspondências de termos mais raros. Todas as correspondências são tratadas da mesma maneira para as pesquisas de caractere curinga e regex.
 
 ##  <a name="bkmk_fields"></a>Pesquisa em campo  
-Você pode definir uma operação de pesquisa em campo com `fieldName:searchExpression` a sintaxe, em que a expressão de pesquisa pode ser uma única palavra ou frase, ou uma expressão mais complexa entre parênteses, opcionalmente com operadores boolianos. Alguns exemplos incluem o seguinte:  
+Você pode definir uma operação de pesquisa em campo com a sintaxe `fieldName:searchExpression`, em que a expressão de pesquisa pode ser uma única palavra ou frase, ou uma expressão mais complexa entre parênteses, opcionalmente com operadores boolianos. Alguns exemplos incluem o seguinte:  
 
 - gênero:jazz NÃO histórico  
 
@@ -133,7 +134,7 @@ Coloque várias cadeias de caracteres entre aspas se quiser que ambas cadeias de
 O campo especificado em `fieldName:searchExpression` deve ser um campo `searchable`.  Confira [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados em definições de campo.  
 
 > [!NOTE]
-> Ao usar expressões de pesquisa em campo, você não precisa usar o `searchFields` parâmetro porque cada expressão de pesquisa em campo tem um nome de campo especificado explicitamente. No entanto, você ainda poderá `searchFields` usar o parâmetro se quiser executar uma consulta em que algumas partes têm o escopo de um campo específico, e o restante pode se aplicar a vários campos. Por exemplo, a consulta `search=genre:jazz NOT history&searchFields=description` `jazz` corresponderia apenas ao `genre` `description` campo, enquanto ela corresponderia `NOT history` ao campo. O nome do campo fornecido `fieldName:searchExpression` em sempre tem precedência `searchFields` sobre o parâmetro, que é o motivo neste exemplo, não `searchFields` precisamos incluir `genre` no parâmetro.
+> Ao usar expressões de pesquisa em campo, você não precisa usar o parâmetro `searchFields` porque cada expressão de pesquisa em campo tem um nome de campo especificado explicitamente. No entanto, você ainda poderá usar o parâmetro `searchFields` se quiser executar uma consulta em que algumas partes têm o escopo de um campo específico e o restante pode se aplicar a vários campos. Por exemplo, o `search=genre:jazz NOT history&searchFields=description` de consulta corresponderia `jazz` apenas ao campo `genre`, enquanto ele corresponderia `NOT history` com o campo `description`. O nome do campo fornecido em `fieldName:searchExpression` sempre tem precedência sobre o parâmetro `searchFields`, que é o motivo neste exemplo, não precisamos incluir `genre` no parâmetro `searchFields`.
 
 ##  <a name="bkmk_fuzzy"></a> Pesquisa difusa  
  Uma pesquisa difusa encontra correspondências em termos com uma construção semelhante. De acordo com a [documentação do Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), as pesquisas imprecisas se baseiam na [distância de Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). A pesquisa difusa pode expandir um termo até o máximo de 50 termos que atendem aos critérios de distância. 
@@ -168,8 +169,8 @@ O exemplo a seguir ajuda a ilustrar as diferenças. Considere um perfil de pontu
 >  Não é possível usar um símbolo * ou ? como o primeiro caractere de uma pesquisa.  
 >  Nenhuma análise de texto é executada em consultas de pesquisa curinga. No momento da consulta, os termos da consulta curinga são comparados com os termos analisados no índice de pesquisa e expandidos.
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Consulte  
 
 + [Pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [Sintaxe de expressão OData para filtros e classificação](query-odata-filter-orderby-syntax.md)   
-+ [Sintaxe de consulta simples no Azure Search](query-simple-syntax.md)   
++ [Sintaxe de consulta simples no Azure Pesquisa Cognitiva](query-simple-syntax.md)   

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cb6cba02a1bdcf9f19c7f02b7e2ca4d01e0d3f
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: f50ace6d707db35dfd7cf9f14026d755093a038c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67983661"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802434"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerenciar o grupo de administradores locais nos dispositivos do Microsoft Azure Active Directory
 
@@ -24,7 +24,7 @@ Para gerenciar um dispositivo Windows, você precisa ser um membro do grupo Admi
 
 Este artigo explica como a atualização de associação funciona e como é possível personalizá-la durante um ingresso no Azure AD. O conteúdo deste artigo não aplica-se a um ingresso no Azure AD **híbrido**.
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como funciona
 
 Quando você conectar um dispositivo Windows com o Microsoft Azure AD usando uma junção do Microsoft Azure AD, o Microsoft Azure AD adiciona os seguintes princípios de segurança ao grupo Administradores local no dispositivo:
 
@@ -61,7 +61,7 @@ Para modificar a função de administrador do dispositivo, configure **Administr
 
 Administradores do dispositivo são atribuídos a todos os dispositivos ingressados do Microsoft Azure AD. Não é possível definir o escopo de administradores do dispositivo para um conjunto específico de dispositivos. Atualizar a função de administrador do dispositivo não tem necessariamente um impacto imediato sobre os usuários afetados. Para os dispositivos, um usuário já está conectado, a atualização de privilégio ocorre:
 
-- Quando um usuário sair.
+- Quando um usuário se desconecta.
 - Após 4 horas, quando um novo primário Token de atualização for emitido. 
 
 ## <a name="manage-regular-users"></a>Gerenciar usuários regulares
@@ -90,7 +90,7 @@ Administradores do dispositivo são atribuídos a todos os dispositivos ingressa
 
 Quando você remove os usuários da função de administrador do dispositivo, ele ainda tem o privilégio de administrador local em um dispositivo, desde que eles se conectem a ele. O privilégio é revogado durante o próximo logon, ou após 4 horas, quando um novo token de atualização principal é emitido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma visão geral de como gerenciar dispositivos no portal do Azure, consulte [Gerenciar dispositivos usando o portal do Azure](device-management-azure-portal.md)
 - Para saber mais sobre o acesso condicional baseado em dispositivo, confira [configurar Azure Active Directory políticas de acesso condicional com base no dispositivo](../conditional-access/require-managed-devices.md).

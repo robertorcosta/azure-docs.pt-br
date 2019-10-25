@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: c49200dba33d4a3b9ad1f582841adb04c2dd1c41
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7be0cfbe538d06da617049ac74cba60ff1b713e6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099558"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791702"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server no Azure
 
@@ -83,7 +83,7 @@ Execute os seguintes comandos em todas as **máquinas virtuais de destino iSCSI*
 
 Execute os seguintes comandos em todas as **máquinas virtuais de destino iSCSI** para criar os discos iSCSI para os clusters usados por seus sistemas SAP. No exemplo a seguir, os dispositivos SBD para vários clusters são criados. Ele mostra como você usaria um servidor de destino iSCSI para vários clusters. Os dispositivos SBD são colocados no disco do SO. Certifique-se de que você tenha espaço suficiente.
 
-**`nfs`** é usado para identificar o cluster NFS, **ascsnw1** é usado para identificar o cluster ASCS de **NW1**, **dbnw1** é usado para identificar o cluster de banco de dados de **NW1**, **NFS-0** e **NFS-1** são os nomes de host dos nós de cluster NFS,  **NW1-xscs-0** e **NW1-xscs-1** são os nomes de host dos nós de cluster NW1 ASCS e **NW1-dB-0** e **NW1-DB-1** são os nomes de host dos nós de cluster de banco de dados. Substitua-os pelos nomes do hoste do seus nós de cluster e pelo SID do sistema SAP.
+**`nfs`** é usado para identificar o cluster NFS, o **ascsnw1** é usado para identificar o cluster ASCS de **NW1**, **dbnw1** é usado para identificar o cluster de banco de dados de **NW1**, **NFS-0** e **NFS-1** são os nomes de host do Os nós de cluster NFS, **NW1-xscs-0** e **NW1-xscs-1** são os nomes de host dos nós de cluster **NW1 ASCS e** **NW1-dB-0** e **NW1-DB-1** são os nomes de host dos nós de cluster de banco de dados. Substitua-os pelos nomes do hoste do seus nós de cluster e pelo SID do sistema SAP.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -301,7 +301,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Criar o `softdog` arquivo de configuração
+   Criar o arquivo de configuração `softdog`
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -318,6 +318,11 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 1. **[A]** Atualizar o SLES
 
    <pre><code>sudo zypper update
+   </code></pre>
+
+1. **[A]** instalar o componente, necessário para recursos de cluster
+
+   <pre><code>sudo zypper in socat
    </code></pre>
 
 1. **[A]** configurar o sistema operacional
@@ -522,7 +527,7 @@ O dispositivo STONITH usa uma Entidade de Serviço para autorização no Microso
 1. Clique em Registros do Aplicativo
 1. Clique em novo registro
 1. Insira um nome, selecione "contas somente neste diretório da organização" 
-2. Selecione o tipo de aplicativo "Web", insira uma URL de logon (por exemplo,\/http:/localhost) e clique em Adicionar  
+2. Selecione o tipo de aplicativo "Web", insira uma URL de logon (por exemplo, http:\//localhost) e clique em Adicionar  
    A URL de logon não é usada e pode ser qualquer URL válida
 1. Selecione certificados e segredos e clique em novo segredo do cliente
 1. Insira uma descrição para uma nova chave, selecione "nunca expira" e clique em Adicionar
@@ -628,7 +633,7 @@ sudo crm configure property maintenance-mode=false
      Aviso: CIB-Bootstrap-Options: atributo desconhecido ' hostName_ <strong>hostname</strong>'  
    > Essas mensagens de aviso podem ser ignoradas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]

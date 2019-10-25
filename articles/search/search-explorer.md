@@ -1,26 +1,25 @@
 ---
-title: Usar a ferramenta Search Explorer para consultar dados em portal do Azure Azure Search
-description: O Search Explorer é integrado ao portal do Azure, útil para explorar o conteúdo e validar consultas no Azure Search. Insira cadeias de caracteres para pesquisa de termo ou frase ou expressões de pesquisa totalmente qualificadas com sintaxe avançada.
+title: Use a ferramenta Search Explorer para consultar dados no portal do Azure
+titleSuffix: Azure Cognitive Search
+description: O Search Explorer é integrado ao portal do Azure, útil para explorar conteúdo e validar consultas no Pesquisa Cognitiva do Azure. Insira cadeias de caracteres para pesquisa de termo ou frase ou expressões de pesquisa totalmente qualificadas com sintaxe avançada.
 manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/20/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: fe66787ea82a8f97470199e99faadb72b85c83b2
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 0bb50bd50c58b85f1d5de100c34d00d114a9ed77
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178141"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792960"
 ---
-# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-search"></a>Use o Gerenciador de pesquisa no portal do Azure para consultar documentos no Azure Search 
+# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-cognitive-search"></a>Usar o Gerenciador de pesquisa no portal do Azure para consultar documentos no Azure Pesquisa Cognitiva 
 
-Este artigo mostra como consultar um índice existente do Azure Search usando o **Search Explorer** no portal do Azure. Você pode iniciar o Search Explorer na barra de comandos para enviar expressões de consulta de Lucene simples ou completas para qualquer índice existente em seu serviço. 
+Este artigo mostra como consultar um índice de Pesquisa Cognitiva do Azure existente usando o **Search Explorer** no portal do Azure. Você pode iniciar o Search Explorer na barra de comandos para enviar expressões de consulta de Lucene simples ou completas para qualquer índice existente em seu serviço. 
 
-   ![Comando do Gerenciador de pesquisa no portal](./media/search-explorer/search-explorer-cmd2.png "Comando Gerenciador de pesquisa no portal")
+   ![Comando Search Explorer no portal](./media/search-explorer/search-explorer-cmd2.png "Comando Search Explorer no portal")
 
 ## <a name="basic-search-strings"></a>Cadeias de caracteres de pesquisa básica
 
@@ -38,11 +37,11 @@ Uma sintaxe equivalente para uma pesquisa vazia é `*` ou `search=*`.
 
    **Resultados**
    
-   ![Exemplo de consulta vazia](./media/search-explorer/search-explorer-example-empty.png "Exemplo de consulta vazia ou não qualificada")
+   ![Exemplo de consulta vazia](./media/search-explorer/search-explorer-example-empty.png "Exemplo de consulta não qualificada ou vazia")
 
 ### <a name="example-2---free-text-search"></a>Exemplo 2 – pesquisa de texto livre
 
-Consultas de forma livre, com ou sem operadores, são úteis para simular consultas definidas pelo usuário enviadas de um aplicativo personalizado para o Azure Search. Observe que, quando você fornece termos ou expressões de consulta, a classificação de pesquisa entra em cena. O exemplo a seguir ilustra uma pesquisa de texto livre.
+Consultas de forma livre, com ou sem operadores, são úteis para simular consultas definidas pelo usuário enviadas de um aplicativo personalizado para o Azure Pesquisa Cognitiva. Observe que, quando você fornece termos ou expressões de consulta, a classificação de pesquisa entra em cena. O exemplo a seguir ilustra uma pesquisa de texto livre.
 
    ```Input
    Seattle apartment "Lake Washington" miele OR thermador appliance
@@ -75,11 +74,11 @@ Adicione **$select** para limitar os resultados aos campos nomeados explicitamen
 
    **Resultados**
 
-   ![Exemplo de restrição de campos](./media/search-explorer/search-explorer-example-selectfield.png "Restringir campos nos resultados da pesquisa")
+   ![Exemplo de limitar campos](./media/search-explorer/search-explorer-example-selectfield.png "Restringir campos nos resultados da pesquisa")
 
 ### <a name="example-5---return-next-batch-of-results"></a>Exemplo 5 – retornar o próximo lote de resultados
 
-O Azure Search retorna as primeiras 50 correspondências com base na classificação da pesquisa. Para obter o próximo conjunto de documentos correspondentes, acrescente **$top=100,&$skip=50** para aumentar o conjunto de resultados para 100 documentos (o padrão é 50, o máximo é 1000), ignorando os primeiros 50 documentos. Lembre-se de que você precisa fornecer critérios de pesquisa, como um termo ou expressão de consulta, para obter os resultados classificados. Observe que as pontuações de pesquisa diminuem quanto mais você avança nos resultados da pesquisa.
+O Azure Pesquisa Cognitiva retorna as principais correspondências 50 com base na classificação de pesquisa. Para obter o próximo conjunto de documentos correspondentes, acrescente **$top=100,&$skip=50** para aumentar o conjunto de resultados para 100 documentos (o padrão é 50, o máximo é 1000), ignorando os primeiros 50 documentos. Lembre-se de que você precisa fornecer critérios de pesquisa, como um termo ou expressão de consulta, para obter os resultados classificados. Observe que as pontuações de pesquisa diminuem quanto mais você avança nos resultados da pesquisa.
 
    ```Input
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
@@ -87,7 +86,7 @@ O Azure Search retorna as primeiras 50 correspondências com base na classifica�
 
    **Resultados**
 
-   ![Resultados da pesquisa em lote](./media/search-explorer/search-explorer-example-topskip.png "Retornar próximo lote de resultados da pesquisa")
+   ![Resultados da pesquisa em lotes](./media/search-explorer/search-explorer-example-topskip.png "Retornar o próximo lote dos resultados da pesquisa")
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Expressões de filtro (maior que, menor que, igual a)
 
@@ -99,7 +98,7 @@ Use o parâmetro **$filter** quando desejar especificar critérios precisos em v
    
    **Resultados**
 
-   ![Expressão de filtro](./media/search-explorer/search-explorer-example-filter.png "Filtrar pelos critérios")
+   ![Expressão de filtro](./media/search-explorer/search-explorer-example-filter.png "Filtrar por critérios")
 
 ## <a name="order-by-expressions"></a>Expressões orderby
 
@@ -111,7 +110,7 @@ Adicione **$orderby** para classificar os resultados por outro campo além da po
    
    **Resultados**
 
-   ![Expressão orderby](./media/search-explorer/search-explorer-example-ordery.png "Alterar a ordem de classificação")
+   ![Expressão OrderBy](./media/search-explorer/search-explorer-example-ordery.png "Alterar a ordem de classificação")
 
 As expressões **$filter** e **$orderby** são construções do OData. Para saber mais, confira [Sintaxe de filtro OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
@@ -123,11 +122,11 @@ As expressões **$filter** e **$orderby** são construções do OData. Para sabe
 
 2. Na página de visão geral do serviço, clique em **Gerenciador de pesquisa**.
 
-   ![Comando do Gerenciador de pesquisa no portal](./media/search-explorer/search-explorer-cmd2.png "Comando Gerenciador de pesquisa no portal")
+   ![Comando Search Explorer no portal](./media/search-explorer/search-explorer-cmd2.png "Comando Search Explorer no portal")
 
 3. Selecione o índice a ser consultado.
 
-   ![Selecione o índice a ser consultado](./media/search-explorer/search-explorer-changeindex-se2.png "Selecione o índice")
+   ![Selecionar o índice a ser consultado](./media/search-explorer/search-explorer-changeindex-se2.png "Selecionar o índice")
 
 4. Opcionalmente, defina a versão da API. Por padrão, a versão atual disponível de forma geral da API é selecionada, mas você poderá escolher uma versão prévia ou API mais antiga, se a sintaxe que deseja usar for específica da versão.
 
@@ -143,10 +142,10 @@ Dicas para pesquisar no **Gerenciador de pesquisa**:
 
 + As consultas de forma livre, semelhantes ao que você pode digitar em um navegador da Web comercial, são úteis para testar uma experiência do usuário final. Por exemplo, supondo o índice de exemplo realestate interno, você poderia digitar "Apartamentos Seattle lago washington" e, em seguida, usar Ctrl-F para localizar termos nos resultados da pesquisa. 
 
-+ As expressões de consulta e de filtro devem ser articuladas em uma sintaxe compatível com o Azure Search. O padrão é uma [sintaxe simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), mas você pode opcionalmente usar uma [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para consultas mais poderosas. [Expressões de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) são uma sintaxe de OData.
++ Expressões de filtro e consulta devem ser articuladas em uma sintaxe com suporte pelo Pesquisa Cognitiva do Azure. O padrão é uma [sintaxe simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), mas você pode opcionalmente usar uma [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para consultas mais poderosas. [Expressões de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) são uma sintaxe de OData.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Os recursos a seguir fornecem exemplos e informações de sintaxe de consulta adicionais.
 

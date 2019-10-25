@@ -1,22 +1,21 @@
 ---
-title: Habilidade de Mesclagem de Texto da pesquisa cognitiva – Azure Search
-description: Mescle o texto de uma coleção de campos em um campo consolidado. Use essa habilidade cognitiva em um pipeline de enriquecimento do Azure Search.
-services: search
+title: Habilidade de percepção do Text Merge
+titleSuffix: Azure Cognitive Search
+description: Mescle o texto de uma coleção de campos em um campo consolidado. Use essa habilidade cognitiva em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 1e88fcc13d97d92cf9b35616ecb7d71c2d24db1f
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c44f37c37bff2ddeb0fbba83d170054bf21129a6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265268"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791832"
 ---
-#    <a name="text-merge-cognitive-skill"></a>Habilidade de percepção do Text Merge
+#   <a name="text-merge-cognitive-skill"></a>Habilidade de percepção do Text Merge
 
 A habilidade do **Text Merge** consolida o texto de uma coleção de campos em um único campo. 
 
@@ -30,7 +29,7 @@ Microsoft.Skills.Text.MergeSkill
 
 Os parâmetros diferenciam maiúsculas de minúsculas.
 
-| Nome do parâmetro     | DESCRIÇÃO |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | insertPreTag  | Cadeia de caracteres a serem incluídas antes de cada inserção. O valor padrão é `" "`. Para omitir o espaço, defina o valor como `""`.  |
 | insertPostTag | Cadeia de caracteres a ser incluída antes de cada inserção. O valor padrão é `" "`. Para omitir o espaço, defina o valor como `""`.  |
@@ -141,8 +140,8 @@ O exemplo acima presume que um campo de imagens normalizado existe. Para gerar e
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
-+ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
 + [Criar Indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

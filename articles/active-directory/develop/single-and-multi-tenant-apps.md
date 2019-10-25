@@ -1,5 +1,6 @@
 ---
 title: Aplicativos de locatário único e multilocatário no Azure Active Directory
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre os recursos e as diferenças entre os aplicativos de locatário único e multilocatário no Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9035cc629a11c125c1b6351bd4bff9f5576f7baf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6aa8f63b6e7355ae387a321acf77683fac22e028
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111080"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803655"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Locatários no Azure Active Directory
 
@@ -36,7 +37,7 @@ Quando se trata de desenvolvimento de aplicativos, os desenvolvedores podem opta
 
 No portal do Azure, você pode configurar seu aplicativo como de locatário único ou multilocatário, definindo a audiência da seguinte maneira.
 
-| Público-alvo | Locatário único/multilocatário | Quem pode entrar | 
+| Público | Locatário único/multilocatário | Quem pode entrar | 
 |----------|--------| ---------|
 | Somente contas neste diretório | Locatário único | Todas as contas de usuário e de convidado em seu diretório podem usar o aplicativo ou a API.<br>*Use essa opção se sua audiência for interna na organização.* |
 | Contas de qualquer diretório do Azure AD | Multilocatário | Todos os usuários e convidados com uma conta corporativa ou de estudante da Microsoft podem usar o aplicativo ou a API. Isso inclui as escolas e as empresas que usam o Office 365.<br>*Use essa opção se sua audiência for de clientes empresariais ou educacionais.* |
@@ -50,6 +51,6 @@ A criação de um excelente aplicativo multilocatário pode ser complicada devid
 * Siga o princípio de acesso mínimo do usuário para garantir que o aplicativo solicite apenas as permissões que ele realmente precisa. Evite solicitar permissões que exigem o consentimento do administrador porque isso pode impedir que os usuários adquiram seu aplicativo em algumas organizações. 
 * Forneça nomes e descrições apropriados para as permissões que expõe no aplicativo. Isso ajuda os usuários e os administradores a saber com o que eles estão concordando quando tentam usar as APIs do aplicativo. Para obter mais informações, confira a seção de práticas recomendadas no [guia de permissões](v1-permissions-and-consent.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Como converter um aplicativo em multilocatário](howto-convert-app-to-be-multi-tenant.md)

@@ -1,5 +1,6 @@
 ---
 title: Autenticação usando Azure Active Directory em nuvens nacionais
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre o registro do aplicativo e os pontos de extremidade de autenticação para nuvens nacionais.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: negoe
 ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca82efbd4e26ccb8a169c84332e3d24196fae95e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 70f1f80744043893dd7206bc6388b8e080c07d0f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135867"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803892"
 ---
 # <a name="national-clouds"></a>Nuvens nacionais
 
@@ -78,7 +79,7 @@ Para saber como chamar as APIs de Microsoft Graph em um ambiente de nuvem nacion
 
 Para saber como criar um aplicativo usando a plataforma de identidade da Microsoft, siga o [tutorial da MSAL (biblioteca de autenticação da Microsoft)](msal-national-cloud.md). Especificamente, esse aplicativo conectará um usuário e obterá um token de acesso para chamar a API de Microsoft Graph.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre:
 

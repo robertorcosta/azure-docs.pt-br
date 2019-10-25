@@ -1,5 +1,6 @@
 ---
-title: Solucionar problemas de MSAL para questões de Objective-C | Plataforma de identidade da Microsoft
+title: Solucionar problemas de MSAL para problemas de Objective-C
+titleSuffix: Microsoft identity platform
 description: Saiba o que fazer sobre vários problemas usando certificados SSL com o MSAL. Biblioteca Objective-C.
 services: active-directory
 documentationcenter: ''
@@ -17,22 +18,22 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76892686beec8ea18d56166519353fb5a2495124
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: fc918502cd252b4e53af8bcbd209a8387ef4d8c2
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268902"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803660"
 ---
-# <a name="how-to-troubleshoot-msal-for-ios-and-macos-ssl-issues"></a>Como: Solucionar problemas de SSL do MSAL para iOS e macOS
+# <a name="how-to-troubleshoot-msal-for-ios-and-macos-ssl-issues"></a>Como: solucionar problemas de SSL do MSAL para iOS e macOS
 
 Este artigo fornece informações para ajudá-lo a solucionar problemas que podem surgir durante o uso da [MSAL (biblioteca de autenticação da Microsoft) para IOS e MacOS](reference-v2-libraries.md)
 
 ## <a name="network-issues"></a>Problemas de rede
 
-**Erro-1200**: "Ocorreu um erro de SSL e uma conexão segura com o servidor não pode ser feita".
+**Erro-1200**: "ocorreu um erro de SSL e uma conexão segura com o servidor não pode ser feita".
 
-Esse erro significa que a conexão não é segura. Ocorre quando um certificado é inválido. Para obter mais informações, incluindo qual servidor está falhando na verificação de SSL `NSURLErrorFailingURLErrorKey` , consulte `userInfo` no dicionário do objeto Error.
+Esse erro significa que a conexão não é segura. Ocorre quando um certificado é inválido. Para obter mais informações, incluindo qual servidor está falhando na verificação de SSL, consulte `NSURLErrorFailingURLErrorKey` no dicionário de `userInfo` do objeto de erro.
 
 Esse erro é da biblioteca de rede da Apple. Uma lista completa de códigos de erro NSURL está em NSURLError. h nos SDKs macOS e iOS. Para obter mais detalhes sobre esse erro, consulte [códigos de erro do sistema de carregamento de URL](https://developer.apple.com/documentation/foundation/1508628-url_loading_system_error_codes?language=objc).
 
@@ -48,6 +49,6 @@ Os certificados que usam hashes SHA-1 têm vulnerabilidades conhecidas. Os naveg
 
 Um portal cativo apresenta uma página da Web para um usuário ao acessar pela primeira vez uma rede Wi-Fi e ainda não recebeu acesso a essa rede. Ele intercepta seu tráfego de Internet até que o usuário atenda aos requisitos do Portal. Erros de rede porque o usuário não pode se conectar aos recursos de rede é esperado até que o usuário se conecte por meio do Portal.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [portais prisioneiros](https://en.wikipedia.org/wiki/Captive_portal) e o novo recurso de [ATS (segurança de transporte de aplicativo)](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) da Apple.

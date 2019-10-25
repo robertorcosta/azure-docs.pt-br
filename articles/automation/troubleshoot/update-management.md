@@ -1,5 +1,5 @@
 ---
-title: Solucionar erros com Gerenciamento de Atualizações
+title: Solucionar erros com o Gerenciamento de Atualizações
 description: Saiba como solucionar problemas com o Gerenciamento de Atualizações.
 services: automation
 author: bobbytreed
@@ -8,14 +8,14 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 952bcb85484e885d45876de1e4cf3326db0a146a
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: 2aebcf05cbc818997943ed3bab19fb1fd8a83592
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693403"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786053"
 ---
-# <a name="troubleshooting-issues-with-update-management"></a>Solucionando problemas com Gerenciamento de Atualizações
+# <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas com o Gerenciamento de Atualizações
 
 Este artigo aborda soluções para problemas que você pode encontrar ao usar o Gerenciamento de Atualizações.
 
@@ -37,7 +37,7 @@ Você enfrenta os seguintes sintomas:
 
 * Você tem computadores que mostram como **não avaliados** em **conformidade**. No entanto, você vê dados de pulsação em logs de Azure Monitor para o Hybrid Runbook Worker, mas não para Gerenciamento de Atualizações.
 
-### <a name="cause"></a>Faz
+### <a name="cause"></a>Causa
 
 Esse problema pode ser causado por problemas de configuração local ou pela configuração de escopo configurada incorretamente.
 
@@ -82,7 +82,7 @@ Ao trabalhar com soluções em sua conta de automação, você encontrará o seg
 Error details: Unable to register Automation Resource Provider for subscriptions:
 ```
 
-### <a name="cause"></a>Faz
+### <a name="cause"></a>Causa
 
 O provedor de recursos de automação não está registrado na assinatura.
 
@@ -106,7 +106,7 @@ Você continua a ver a seguinte mensagem em uma máquina virtual 15 minutos apó
 The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
 ```
 
-### <a name="cause"></a>Faz
+### <a name="cause"></a>Causa
 
 Esse erro pode ocorrer pelos seguintes motivos:
 
@@ -117,7 +117,7 @@ Esse erro pode ocorrer pelos seguintes motivos:
 
 1. Vá para [planejamento de rede](../automation-hybrid-runbook-worker.md#network-planning) para saber mais sobre quais endereços e portas devem ser permitidos para que gerenciamento de atualizações funcionem.
 2. Se você estiver usando uma imagem clonada:
-   1. No espaço de trabalho Log Analytics, remova a VM da pesquisa salva para a configuração de escopo de `MicrosoftDefaultScopeConfig-Updates` se ela for mostrada. As pesquisas salvas podem ser encontradas em **geral** em seu espaço de trabalho.
+   1. No espaço de trabalho Log Analytics, remova a VM da pesquisa salva para a configuração de escopo de `MicrosoftDefaultScopeConfig-Updates` se ela for mostrada. As pesquisas salvas podem ser encontradas em **Geral** no workspace.
    2. Execute `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`.
    3. Execute `Restart-Service HealthService` para reiniciar o `HealthService`. Isso recria a chave e gera um novo UUID.
    4. Se essa abordagem não funcionar, execute o Sysprep na imagem primeiro e, em seguida, instale o MMA.
@@ -132,7 +132,7 @@ Você encontrará o seguinte erro ao tentar criar uma implantação de atualiza�
 The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
 ```
 
-### <a name="cause"></a>Faz
+### <a name="cause"></a>Causa
 
 Esse erro ocorre quando você cria uma implantação de atualização que tem VMs do Azure em outro locatário que está incluído em uma implantação de atualização.
 
@@ -157,13 +157,13 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 Embora você tenha definido a opção de **controle de reinicialização** para **nunca reinicializar**, as máquinas ainda são reinicializadas após a instalação das atualizações.
 
-### <a name="cause"></a>Faz
+### <a name="cause"></a>Causa
 
 Windows Update pode ser modificado por várias chaves do registro, qualquer uma das quais pode modificar o comportamento de reinicialização.
 
 ### <a name="resolution"></a>Resolução
 
-Examine as chaves do registro listadas em [Configurando atualizações automáticas editando o registro](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-rej7uijui7jgistry) e [as chaves do registro usadas para gerenciar a reinicialização](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) para garantir que seus computadores estejam configurados corretamente.
+Examine as chaves do registro listadas em [Configurando atualizações automáticas editando o registro](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) e [as chaves do registro usadas para gerenciar a reinicialização](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) para garantir que seus computadores estejam configurados corretamente.
 
 ## <a name="failed-to-start"></a>Cenário: o computador mostra "falha ao iniciar" em uma implantação de atualização
 
@@ -175,9 +175,9 @@ Um computador mostra um status de **falha ao iniciar** . Ao exibir os detalhes e
 Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
 ```
 
-### <a name="cause"></a>Faz
+### <a name="cause"></a>Causa
 
-Esse erro pode ocorrer por um dos seguintes motivos:
+Esse problema pode ocorrer por um dos seguintes motivos:
 
 * O computador não existe mais.
 * A máquina está desligada e inacessível.
@@ -204,7 +204,7 @@ Quando aplicável, use [grupos dinâmicos](../automation-update-management-group
 
 Quando você registra um computador Windows no Gerenciamento de Atualizações, você vê as atualizações instaladas sem uma implantação.
 
-### <a name="cause"></a>Faz
+### <a name="cause"></a>Causa
 
 No Windows, as atualizações são instaladas automaticamente assim que estiverem disponíveis. Esse comportamento pode causar confusão se você não agendou uma atualização para ser implantada no computador.
 
@@ -216,17 +216,17 @@ Para clientes Gerenciamento de Atualizações, é recomendável definir essa cha
 
 Para obter mais informações, consulte [Configurando atualizações automáticas](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
 
-## <a name="machine-already-registered"></a>Cenário: o computador já está registrado para uma conta diferente
+## <a name="machine-already-registered"></a>Cenário: a máquina já está registrada em uma conta diferente
 
 ### <a name="issue"></a>Problema
 
-Você receberá a seguinte mensagem de erro:
+Você vê a seguinte mensagem de erro:
 
 ```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
 ```
 
-### <a name="cause"></a>Faz
+### <a name="cause"></a>Causa
 
 O computador já foi integrado a outro espaço de trabalho para Gerenciamento de Atualizações.
 
@@ -253,7 +253,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
-### <a name="cause"></a>Faz
+### <a name="cause"></a>Causa
 
 Um proxy, gateway ou firewall pode estar bloqueando A comunicação de rede.
 
@@ -261,7 +261,7 @@ Um proxy, gateway ou firewall pode estar bloqueando A comunicação de rede.
 
 Examine sua rede e verifique se as portas e os endereços apropriados são permitidos. Consulte [requisitos de rede](../automation-hybrid-runbook-worker.md#network-planning) para obter uma lista de portas e endereços que são necessários para gerenciamento de atualizações e Hybrid runbook Workers.
 
-## <a name="unable-to-create-selfsigned-cert"></a>Cenário: não é possível criar um certificado autoassinado
+## <a name="unable-to-create-selfsigned-cert"></a>Cenário: não é possível criar certificado autoassinado
 
 ### <a name="issue"></a>Problema
 
@@ -271,7 +271,7 @@ Você recebe uma das seguintes mensagens de erro:
 Unable to Register Machine for Patch Management, Registration Failed with Exception AgentService.HybridRegistration. PowerShell.Certificates.CertificateCreationException: Failed to create a self-signed certificate. ---> System.UnauthorizedAccessException: Access is denied.
 ```
 
-### <a name="cause"></a>Faz
+### <a name="cause"></a>Causa
 
 O Hybrid Runbook Worker não pôde gerar um certificado autoassinado.
 
@@ -295,11 +295,11 @@ Para obter mais informações sobre janelas de manutenção, consulte [instalar 
 
 ### <a name="issue"></a>Problema
 
-* Você tem computadores que mostram como **não avaliados** em **conformidade**e você vê uma mensagem de exceção abaixo dele.
+* Você tem máquinas que são exibidas como **Não avaliadas** em **Conformidade** e vê uma mensagem de exceção abaixo dela.
 * Você tem computadores que mostram como não avaliados.
 * Você verá um código de erro HRESULT no Portal.
 
-### <a name="cause"></a>Faz
+### <a name="cause"></a>Causa
 
 O agente de atualização (Windows Update agente no Windows; o Gerenciador de pacotes para uma distribuição do Linux) não está configurado corretamente. Gerenciamento de Atualizações se baseia no agente de atualização da máquina para fornecer as atualizações necessárias, o status do patch e os resultados dos patches implantados. Sem essas informações, Gerenciamento de Atualizações não pode relatar corretamente os patches necessários ou instalados.
 
@@ -307,7 +307,7 @@ O agente de atualização (Windows Update agente no Windows; o Gerenciador de pa
 
 Tente executar atualizações localmente no computador. Se isso falhar, isso normalmente significa que há um erro de configuração com o agente de atualização.
 
-Esse problema é frequentemente causado por problemas de firewall e configuração de rede. Tente o seguinte:
+Esse problema é frequentemente causado por problemas de firewall e configuração de rede. Experimente o seguinte:
 
 * Para o Linux, verifique a documentação apropriada para ter certeza de que você pode acessar o ponto de extremidade de rede do seu repositório de pacotes.
 * Para o Windows, verifique a configuração do agente, conforme listado em [atualizações não está baixando do ponto de extremidade da intranet (WSUS/SCCM)](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm).
@@ -334,13 +334,13 @@ Você também pode baixar e executar a [solução de problemas Windows Update](h
 > [!NOTE]
 > A documentação da [solução de problemas Windows Update](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) indica que ele é para uso em clientes Windows, mas também funciona no Windows Server.
 
-## <a name="scenario-update-run-returns-failed-status"></a>Cenário: a execução de atualização retorna o status "falha"
+## <a name="scenario-update-run-returns-failed-status-linux"></a>Cenário: a execução de atualização retorna o status "falha" (Linux)
 
 ### <a name="issue"></a>Problema
 
 Uma execução de atualização é iniciada, mas encontra erros durante a execução.
 
-### <a name="cause"></a>Faz
+### <a name="cause"></a>Causa
 
 Possíveis causas:
 
@@ -352,7 +352,7 @@ Possíveis causas:
 
 ### <a name="resolution"></a>Resolução
 
-Se ocorrerem falhas durante uma execução de atualização depois que ela for iniciada com êxito, [Verifique a saída do trabalho](../manage-update-multi.md#view-results-of-an-update-deployment) do computador afetado na execução. Você pode encontrar mensagens de erro específicas de seus computadores nos quais você pode pesquisar e tomar medidas. Gerenciamento de Atualizações exige que o Gerenciador de pacotes esteja íntegro para implantações de atualização bem-sucedidas.
+Se ocorrerem falhas durante uma execução de atualização depois que ela for iniciada com êxito, [Verifique a saída do trabalho](../manage-update-multi.md#view-results-of-an-update-deployment) do computador afetado na execução. Você pode encontrar mensagens de erro específicas de seus computadores nos quais você pode pesquisar e tomar medidas. O Gerenciamento de Atualizações requer que o gerenciador de pacotes seja saudável para implantações de atualização bem-sucedidas.
 
 Se patches, pacotes ou atualizações específicas forem vistos imediatamente antes da falha do trabalho, você poderá tentar [exclui](../automation-tutorial-update-management.md#schedule-an-update-deployment) -los da próxima implantação de atualização. Para coletar informações de log de Windows Update, consulte [Windows Update arquivos de log](/windows/deployment/update/windows-update-logs).
 
@@ -367,7 +367,7 @@ Se você não puder resolver um problema de aplicação de patch, faça uma cóp
 ### <a name="machines-dont-install-updates"></a>Os computadores não instalam atualizações
 
 * Tente executar as atualizações diretamente no computador. Se o computador não puder aplicar as atualizações, consulte a [lista de possíveis erros no guia de solução de problemas](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
-* Se as atualizações forem executadas localmente, tente remover e reinstalar o agente no computador seguindo as orientações em [remover uma VM do gerenciamento de atualizações](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-from-update-management).
+* Se as atualizações forem executadas localmente, tente remover e reinstalar o agente no computador seguindo as orientações em [remover uma VM do gerenciamento de atualizações](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-browse#clean-up-resources).
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>Sei que as atualizações estão disponíveis, mas elas não são mostradas como disponíveis em meus computadores
 
@@ -381,11 +381,11 @@ Se você não puder resolver um problema de aplicação de patch, faça uma cóp
 
 ### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>As atualizações são exibidas como instaladas, mas não consigo encontrá-las no meu computador
 
-* As atualizações geralmente são substituídas por outras atualizações. Para obter mais informações, consulte a [atualização é substituída](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer) no guia de solução de problemas de Windows Update.
+* Normalmente, as atualizações são substituídas por outras atualizações. Para obter mais informações, consulte a [atualização é substituída](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer) no guia de solução de problemas de Windows Update.
 
 ### <a name="installing-updates-by-classification-on-linux"></a>Instalando atualizações por classificação no Linux
 
-* A implantação de atualizações no Linux por classificação ("atualizações críticas e de segurança") tem advertências importantes, especialmente para o CentOS. Essas limitações estão documentadas na [página Visão geral do gerenciamento de atualizações](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2).
+* Implantar atualizações no Linux por classificação (“Atualizações críticas e de segurança”) tem limitações importantes, especialmente no CentOS. Essas limitações estão documentadas na [página Visão geral do gerenciamento de atualizações](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2).
 
 ### <a name="kb2267602-is-consistently-missing"></a>KB2267602 está consistentemente ausente
 

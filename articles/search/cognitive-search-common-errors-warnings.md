@@ -1,26 +1,25 @@
 ---
-title: Erros comuns e avisos-Azure Search
-description: Este artigo fornece informações e soluções para erros comuns e avisos que você pode encontrar durante a enriquecimento do ia no Azure Search.
-services: search
-manager: heidist
+title: Erros e avisos comuns
+titleSuffix: Azure Cognitive Search
+description: Este artigo fornece informações e soluções para erros comuns e avisos que você pode encontrar durante o enriquecimento do ia no Azure Pesquisa Cognitiva.
+manager: nitinme
 author: amotley
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 09/18/2019
 ms.author: abmotley
-ms.openlocfilehash: a8d5fc30299dbb16373b1cfbbd89563bad471f39
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 08d15f20f69c0c42d8b4dd4bac72e7d9f367a957
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553618"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787984"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Erros comuns e avisos do pipeline de enriquecimento de ia no Azure Search
+# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Erros comuns e avisos do pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva
 
-Este artigo fornece informações e soluções para erros comuns e avisos que você pode encontrar durante a enriquecimento do ia no Azure Search.
+Este artigo fornece informações e soluções para erros comuns e avisos que você pode encontrar durante o enriquecimento do ia no Azure Pesquisa Cognitiva.
 
-## <a name="errors"></a>Los
+## <a name="errors"></a>Errors
 A indexação é interrompida quando a contagem de erros excede [' maxFailedItems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
 
 Se você quiser que os indexadores ignorem esses erros (e pulem sobre "documentos com falha"), considere atualizar o `maxFailedItems` e `maxFailedItemsPerBatch` conforme descrito [aqui](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
@@ -37,7 +36,7 @@ O indexador não pôde ler o documento a partir da fonte de dados. Isso pode aco
 | --- | --- | --- |
 | tipos de campo inconsistentes em diferentes documentos | O tipo de valor tem uma incompatibilidade com o tipo de coluna. Não foi possível armazenar `'{47.6,-122.1}'` na coluna autores.  O tipo esperado é JArray. | Verifique se o tipo de cada campo é o mesmo em documentos diferentes. Por exemplo, se o primeiro documento `'startTime'` campo for um DateTime e, no segundo documento, for uma cadeia de caracteres, esse erro será atingido. |
 | erros do serviço subjacente da fonte de dados | (de Cosmos DB) `{"Errors":["Request rate is large"]}` | Verifique sua instância de armazenamento para garantir que ela esteja íntegra. Talvez seja necessário ajustar o dimensionamento/particionamento. |
-| problemas transitórios | Ocorreu um erro no nível de transporte ao receber os resultados do servidor. (provedor: provedor TCP, erro: 0-uma conexão existente foi fechada forçosamente pelo host remoto | Ocasionalmente, há problemas de conectividade inesperados. Tente executar o documento por meio do indexador novamente mais tarde. |
+| problemas transitórios | ocorreu um erro de nível de transporte ao receber os resultados do servidor. (provedor: provedor TCP, erro: 0-uma conexão existente foi fechada forçosamente pelo host remoto | Ocasionalmente, há problemas de conectividade inesperados. Tente executar o documento por meio do indexador novamente mais tarde. |
 
 ### <a name="could-not-extract-document-content"></a>Não foi possível extrair o conteúdo do documento
 O indexador com uma fonte de dados de BLOB não pôde extrair o conteúdo do documento (por exemplo, um arquivo PDF). Isso pode acontecer devido a:
@@ -57,7 +56,7 @@ O indexador lê o documento da fonte de dados, mas houve um problema ao converte
 | A chave do documento está ausente | A chave do documento não pode estar ausente ou vazia | Garantir que todos os documentos tenham chaves de documento válidas |
 | A chave do documento é inválida | A chave do documento não pode ter mais de 1024 caracteres | Modifique a chave do documento para atender aos requisitos de validação. |
 | Não foi possível aplicar o mapeamento de campo a um campo | Não foi possível aplicar a função de mapeamento `'functionName'` ao `'fieldName'` de campo. A matriz não pode ser nula. Nome do parâmetro: bytes | Verifique os [mapeamentos de campo](search-indexer-field-mappings.md) definidos no indexador e compare com os dados do campo especificado do documento com falha. Pode ser necessário modificar os mapeamentos de campo ou os dados do documento. |
-| Não foi possível ler o valor do campo | Não foi possível ler o valor da coluna `'fieldName'` no índice `'fieldIndex'`. Ocorreu um erro no nível de transporte ao receber os resultados do servidor. (provedor: provedor TCP, erro: 0-uma conexão existente foi fechada forçosamente pelo host remoto.) | Esses erros normalmente são devido a problemas de conectividade inesperados com o serviço subjacente da fonte de dados. Tente executar o documento por meio do indexador novamente mais tarde. |
+| Não foi possível ler o valor do campo | Não foi possível ler o valor da coluna `'fieldName'` no índice `'fieldIndex'`. ocorreu um erro de nível de transporte ao receber os resultados do servidor. (provedor: provedor TCP, erro: 0-uma conexão existente foi fechada forçosamente pelo host remoto.) | Esses erros normalmente são devido a problemas de conectividade inesperados com o serviço subjacente da fonte de dados. Tente executar o documento por meio do indexador novamente mais tarde. |
 
 ### <a name="could-not-execute-skill"></a>Não foi possível executar a habilidade
 O indexador não pôde executar uma habilidade no conseqüência de habilidades.
@@ -65,7 +64,7 @@ O indexador não pôde executar uma habilidade no conseqüência de habilidades.
 | Motivo | Exemplo | Ação |
 | --- | --- | --- |
 | Problemas de conectividade transitórios | Ocorreu um erro transitório. Tente novamente mais tarde. | Ocasionalmente, há problemas de conectividade inesperados. Tente executar o documento por meio do indexador novamente mais tarde. |
-| Possível bug do produto | Ocorreu um erro inesperado. | Isso indica uma classe desconhecida de falha e pode significar que há um bug do produto. Registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para obter ajuda. |
+| Possível bug do produto | Erro inesperado. | Isso indica uma classe desconhecida de falha e pode significar que há um bug do produto. Registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para obter ajuda. |
 | Uma habilidade encontrou um erro durante a execução | (Da habilidade de mesclagem) Um ou mais valores de deslocamento eram inválidos e não puderam ser analisados. Os itens foram inseridos no final do texto | Use as informações na mensagem de erro para corrigir o problema. Esse tipo de falha exigirá ação a ser resolvida. |
 
 ### <a name="could-not-execute-skill-because-the-web-api-request-failed"></a>Não foi possível executar a habilidade porque a solicitação da API Web falhou
@@ -210,3 +209,14 @@ Se você quiser garantir que todo o texto seja analisado, considere usar a [habi
 
 ### <a name="web-api-skill-response-contains-warnings"></a>Resposta de habilidade da API Web contém avisos
 O indexador foi capaz de executar uma habilidade no configurador de habilidades, mas a resposta da solicitação da API Web indicou que havia avisos durante a execução. Examine os avisos para entender como os dados são afetados e se a ação é necessária ou não.
+
+### <a name="the-current-indexer-configuration-does-not-support-incremental-progress"></a>A configuração atual do indexador não dá suporte ao progresso incremental
+Esse aviso ocorre apenas para Cosmos DB fontes de dados.
+
+O progresso incremental durante a indexação garante que, se a execução do indexador é interrompida por falhas transitórias ou limite de tempo de execução, o indexador pode escolher onde ela parou próxima vez que ele é executado, em vez de toda a coleção de zero de índice novamente. Isso é especialmente importante durante a indexação de coleções grandes.
+
+A capacidade de retomar um trabalho de indexação não concluído é o predicado em ter documentos ordenados pela coluna `_ts`. O indexador usa o carimbo de data/hora para determinar qual documento deve ser selecionado em seguida. Se a coluna `_ts` estiver ausente ou se o indexador não puder determinar se uma consulta personalizada foi ordenada por ela, o indexador será iniciado no início e você verá esse aviso.
+
+É possível substituir esse comportamento, permitindo o progresso incremental e suprimindo esse aviso usando a propriedade de configuração `assumeOrderByHighWatermarkColumn`.
+
+[Mais informações sobre Cosmos DB progresso incremental e consultas personalizadas.](https://go.microsoft.com/fwlink/?linkid=2099593)

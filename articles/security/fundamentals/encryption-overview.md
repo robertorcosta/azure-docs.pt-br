@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 408c9fb58b428c1671794c6e4e5cc890a153813f
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003942"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804046"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da criptografia do Azure
 
@@ -55,15 +55,15 @@ Os três modelos de criptografia no servidor apresentam características diferen
 
 - **Chaves gerenciadas pelo cliente**: proporcionam controle das chaves, incluindo o suporte a BYOK (Bring Your Own Key), ou permitem a geração de novas.
 
-- **Chaves gerenciadas pelo serviço em hardware controlado pelo cliente**: permitem gerenciar as chaves no repositório proprietário, fora do controle da Microsoft. Essa característica é chamada de HYOK (Host Your Own Key). No entanto, a configuração é complexa e a maioria dos serviços do Azure não dá suporte a esse modelo.
+- **Chaves gerenciadas pelo serviço no hardware controlado pelo cliente**: permitem gerenciar as chaves no repositório proprietário, fora do controle da Microsoft. Essa característica é chamada de HYOK (Host Your Own Key). No entanto, a configuração é complexa e a maioria dos serviços do Azure não dá suporte a esse modelo.
 
 ### <a name="azure-disk-encryption"></a>Criptografia de disco do Azure
 
-Você pode proteger as máquinas virtuais do Windows e do Linux usando o [Azure Disk Encryption](/azure/security/azure-security-disk-encryption), que usa a tecnologia [BitLocker do Windows](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) e o [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para proteger os discos do sistema operacional e os discos de dados com a criptografia de volume completo.
+Você pode proteger as máquinas virtuais do Windows e do Linux usando o [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss), que usa a tecnologia [BitLocker do Windows](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) e o [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para proteger os discos do sistema operacional e os discos de dados com a criptografia de volume completo.
 
 As chaves de criptografia e os segredos são protegidos em sua [assinatura do Azure Key Vault](../../key-vault/key-vault-overview.md). Usando o serviço Backup do Azure, você pode fazer backup e restaurar VMs (máquinas virtuais) criptografadas que usam a configuração KEK (chave de criptografia de chave).
 
-### <a name="azure-storage-service-encryption"></a>Criptografia do Serviço de Armazenamento do Azure
+### <a name="azure-storage-service-encryption"></a>Criptografia de Serviço de Armazenamento do Azure
 
 Os dados em repouso no Armazenamento de Blobs do Azure e nos compartilhamentos de arquivos do Azure podem ser criptografados em cenários do servidor e do lado do cliente.
 
@@ -79,7 +79,7 @@ Para saber mais sobre a Biblioteca de Clientes do Armazenamento do Azure para pa
 
 Quando você usa a criptografia do lado do cliente com o Key Vault, os dados são criptografados usando uma CEK (chave de criptografia de conteúdo) simétrica avulsa que é gerada pelo SDK cliente do Armazenamento do Azure. A CEK é criptografada usando uma KEK (Chave de Criptografia de Chaves), que pode ser uma chave simétrica ou um par de chaves assimétricas. Você pode gerenciá-la localmente ou armazená-la no Key Vault. Em seguida, os dados criptografados são carregados no Armazenamento do Azure.
 
-Para saber mais sobre a criptografia do lado do cliente com o Key Vault e obter uma introdução com instruções, consulte [Tutorial: Criptografar e descriptografar blobs no Armazenamento do Azure usando o Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
+Para saber mais sobre a criptografia do lado do cliente com o Key Vault e obter uma introdução com instruções, confira [Tutorial: Criptografar e descriptografar blobs no Armazenamento do Azure usando o Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
 Por fim, use também a Biblioteca de Clientes do Armazenamento do Azure para Java para executar a criptografia do lado do cliente antes de fazer upload de dados no Armazenamento do Azure e para descriptografar os dados ao baixá-los no cliente. Essa biblioteca também dá suporte à integração com o [Key Vault](https://azure.microsoft.com/services/key-vault/) para o gerenciamento de chaves de contas de armazenamento.
 
@@ -181,7 +181,7 @@ Use uma conexão do Gateway de VPN site a site para conectar a rede local a uma 
 
 Configure uma conexão VPN site a site com uma rede virtual usando o portal do Azure, o PowerShell ou a CLI do Azure.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 [Criar uma conexão site a site no portal do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 
@@ -201,7 +201,7 @@ Sem a proteção e o gerenciamento de chaves adequados, a criptografia é inúti
 
 O Key Vault alivia as organizações da necessidade de configurar, aplicar patch e manter HSMs (módulos de segurança de hardware) e um software de gerenciamento de chaves. Quando você usa o Key Vault, você mantém o controle. A Microsoft nunca vê suas chaves, e os aplicativos não têm acesso direto a elas. Você também pode importar ou gerar chaves em HSMs.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral de segurança do Azure](get-started-overview.md)
 - [Visão geral da segurança de rede do Azure](network-overview.md)

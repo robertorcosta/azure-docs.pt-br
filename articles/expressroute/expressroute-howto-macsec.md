@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: eeaa709b88ca795d906fe3688301b4cd7d8c726e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 39cf6b2d0f6d8ea3e894e46a9294a671780225d0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244125"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793841"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Configurar o MACsec em portas diretas do ExpressRoute
 
@@ -38,7 +38,7 @@ Para iniciar a configuração, entre em sua conta do Azure e selecione a assinat
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
-## <a name="1-create-azure-key-vault-macsec-secrets-and-user-identity"></a>1. Criar Azure Key Vault, segredos MACsec e identidade do usuário
+## <a name="1-create-azure-key-vault-macsec-secrets-and-user-identity"></a>1. criar Azure Key Vault, segredos MACsec e identidade do usuário
 
 1. Crie uma instância de Key Vault para armazenar segredos do MACsec em um novo grupo de recursos.
 
@@ -85,7 +85,7 @@ Para iniciar a configuração, entre em sua conta do Azure e selecione a assinat
     $erIdentity = New-AzExpressRoutePortIdentity -UserAssignedIdentityId $identity.Id
     ```
  
-## <a name="2-configure-macsec-on-expressroute-direct-ports"></a>2. Configurar o MACsec em portas diretas do ExpressRoute
+## <a name="2-configure-macsec-on-expressroute-direct-ports"></a>2. configurar o MACsec nas portas diretas do ExpressRoute
 
 ### <a name="to-enable-macsec"></a>Para habilitar MACsec
 
@@ -97,10 +97,10 @@ Cada instância direta do ExpressRoute tem duas portas físicas. Você pode opta
     $erDirect = Get-AzExpressRoutePort -ResourceGroupName "your_resource_group" -Name "your_direct_port_name"
     $erDirect.Links[0]. MacSecConfig.CknSecretIdentifier = $MacSecCKNSecret.Id
     $erDirect.Links[0]. MacSecConfig.CakSecretIdentifier = $MacSecCAKSecret.Id
-    $erDirect.Links[0]. MacSecConfig.Cipher = "gcm-aes-128"
+    $erDirect.Links[0]. MacSecConfig.Cipher = "GcmAes256"
     $erDirect.Links[1]. MacSecConfig.CknSecretIdentifier = $MacSecCKNSecret.Id
     $erDirect.Links[1]. MacSecConfig.CakSecretIdentifier = $MacSecCAKSecret.Id
-    $erDirect.Links[1]. MacSecConfig.Cipher = "gcm-aes-128"
+    $erDirect.Links[1]. MacSecConfig.Cipher = "GcmAes256"
     $erDirect.identity = $erIdentity
     Set-AzExpressRoutePort -ExpressRoutePort $erDirect
     ```
@@ -134,7 +134,7 @@ Neste ponto, o MACsec está desabilitado nas portas diretas do ExpressRoute no l
 ### <a name="test-connectivity"></a>Testar a conectividade
 Depois de configurar o MACsec (incluindo a atualização de chave do MACsec) nas portas do ExpressRoute Direct, [Verifique](expressroute-troubleshooting-expressroute-overview.md) se as sessões BGP dos circuitos estão ativas e em execução. Se você ainda não tiver nenhum circuito nas portas, crie um primeiro e configure o emparelhamento privado do Azure ou o emparelhamento da Microsoft do circuito. Se MACsec estiver configurado incorretamente, incluindo incompatibilidade de chave MACsec, entre os dispositivos de rede e os dispositivos de rede da Microsoft, você não verá a resolução ARP na camada 2 e no estabelecimento de BGP na camada 3. Se tudo estiver configurado corretamente, você deverá ver as rotas BGP anunciadas corretamente em ambas as direções e o fluxo de dados do aplicativo de acordo com o ExpressRoute.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 1. [Criar um circuito do ExpressRoute no ExpressRoute Direct](expressroute-howto-erdirect.md)
 2. [Vincular um circuito do ExpressRoute a uma rede virtual do Azure](expressroute-howto-linkvnet-arm.md)
 3. [Verificar conectividade do ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)

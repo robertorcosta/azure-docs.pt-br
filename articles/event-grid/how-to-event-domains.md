@@ -1,18 +1,18 @@
 ---
-title: Gerenciar grandes conjuntos de tópicos na Grade de Eventos do Azure com domínios de eventos
+title: Publicar eventos com domínios de evento com a grade de eventos do Azure
 description: Mostra como gerenciar grandes conjuntos de tópicos na Grade de Eventos do Azure e publicar eventos para eles usando domínios de eventos.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.openlocfilehash: 9d7cef35ef6d1138b037f7c520f21bee86567aa8
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.date: 10/22/2019
+ms.openlocfilehash: 1d07227249806b7d54523af66817a170c19354ee
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842573"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786552"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gerenciar tópicos e publicar eventos usando domínios de eventos
 
@@ -212,6 +212,6 @@ Get-AzureRmEventGridDomainKey `
 
 E, em seguida, use seu método favorito de fazer um HTTP POST para publicar os eventos no domínio da Grade de Eventos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre conceitos de alto nível em domínios de eventos e por que eles são úteis, consulte [visão geral conceitual dos Domínios de Eventos](event-domains.md).

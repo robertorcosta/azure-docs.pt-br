@@ -1,5 +1,6 @@
 ---
 title: Estrutura de consentimento do Azure Active Directory
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre a estrutura de consentimento no Azure Active Directory e como ela facilita o desenvolvimento de aplicativos Web multilocatários e cliente nativos.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b9d272c8a01eeed58278a6e7f0cec147b01a10e
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: af5b60901e57392aaea504f96572801a878d707c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482928"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803851"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Estrutura de consentimento do Azure Active Directory
 
@@ -50,7 +51,7 @@ As etapas a seguir mostram como a experiência de consentimento funciona para o 
 
 1. Depois que o usuário tiver se conectado, o AD do Azure determinará se o usuário precisará ver uma página de consentimento. Essa decisão depende do fato de o usuário (ou do administrador da organização) já ter dado o consentimento de aplicativo. Se o consentimento ainda não tiver sido dado, o Azure AD solicitará o consentimento ao usuário e exibirá as permissões necessárias de que ele precisa para funcionar. O conjunto de permissões exibido na caixa de diálogo de autorização corresponde àqueles selecionados nas **Permissões delegadas** no portal do Azure.
 
-    ![Mostra um exemplo de permissões exibido na caixa de diálogo de consentimento](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Mostra um exemplo de permissões exibidas na caixa de diálogo de consentimento](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. Depois que o usuário dá consentimento, um código de autorização é retornado ao aplicativo, que é resgatado para aquisição de um token de acesso e de um token de atualização. Para saber mais sobre este fluxo, veja [Tipo de aplicativo de API Web](web-api.md).
 
@@ -58,15 +59,15 @@ As etapas a seguir mostram como a experiência de consentimento funciona para o 
 
     **Para consentir com as permissões delegadas de um aplicativo**
 
-   1. Vá para o **permissões de API** página do seu aplicativo
-   1. Clique no **conceder consentimento do administrador** botão.
+   1. Vá para a página de **permissões de API** para seu aplicativo
+   1. Clique no botão **conceder consentimento do administrador** .
 
       ![Conceda permissões para consentimento explícito de admin](./media/consent-framework/grant-consent.png)
 
    > [!IMPORTANT]
    > A concessão explícita de consentimento usando o botão **Conceder permissões** é necessária atualmente para SPAs (aplicativos de página única) que usam o ADAL.js. Caso contrário, o aplicativo falhará quando o token de acesso for solicitado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Veja [como converter um aplicativo em multilocatário](howto-convert-app-to-be-multi-tenant.md)
 * Para se aprofundar, veja [como o consentimento tem suporte na camada de protocolo OAuth 2.0 durante o fluxo de concessão de código de autorização.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)

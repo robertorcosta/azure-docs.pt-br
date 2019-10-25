@@ -1,22 +1,21 @@
 ---
-title: Habilidade de Divisão de Texto da pesquisa cognitiva – Azure Search
-description: Quebre o texto em blocos ou páginas de texto com base no comprimento em um pipeline de enriquecimento do Azure Search.
-services: search
+title: Habilidade cognitiva do Text Split
+titleSuffix: Azure Cognitive Search
+description: Quebrar o texto em partes ou páginas de texto com base no comprimento em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: a6e46970b6c0fc91c464207049d2dedaaee1afdd
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 2172ac30cd5b4251933e5012affdb41a0202a344
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265675"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784845"
 ---
-#   <a name="text-split-cognitive-skill"></a>Habilidade cognitiva do Text Split
+# <a name="text-split-cognitive-skill"></a>Habilidade cognitiva do Text Split
 
 A habilidade **Text Split** quebra o texto em partes do texto. Você pode especificar se deseja quebrar o texto em sentenças ou em páginas de um tamanho específico. Essa habilidade é especialmente útil se houver requisitos de comprimento em outras habilidades downstream em texto. 
 
@@ -30,7 +29,7 @@ Microsoft.Skills.Text.SplitSkill
 
 Os parâmetros diferenciam maiúsculas de minúsculas.
 
-| Nome do parâmetro     | DESCRIÇÃO |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | textSplitMode      | "Páginas" ou "sentenças" | 
 | maximumPageLength | Se o textSplitMode for definido como "páginas", isso se refere ao comprimento máximo da página, conforme medido pelo `String.Length`. O valor mínimo é 100.  Se o textSplitMode for definido como "pages", o algoritmo tentará dividir o texto em partes com um tamanho de, no máximo, "maximumPageLength". Nesse caso, o algoritmo fará o melhor para quebrar a frase em um limite de orações, de modo que o tamanho da parte possa ser um pouco menor que "maximumPageLength". | 
@@ -39,14 +38,14 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome do parâmetro       | DESCRIÇÃO      |
+| Nome do parâmetro       | Descrição      |
 |----------------------|------------------|
-| texto  | O texto a ser dividido em subcadeias. |
+| text  | O texto a ser dividido em subcadeias. |
 | languageCode  | (opcional) Código de idioma para o documento.  |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades 
 
-| Nome do parâmetro     | DESCRIÇÃO |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | textItems | Uma matriz de subcadeias de caracteres que foram extraídos. |
 
@@ -101,7 +100,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 }
 ```
 
-##  <a name="sample-output"></a>Saída de exemplo
+##  <a name="sample-output"></a>Saída de Exemplo
 
 ```json
 {
@@ -131,7 +130,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 ## <a name="error-cases"></a>Casos de erro
 Se não há suporte para um idioma, um aviso será gerado e o texto é dividido em limites de caractere.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
-+ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)

@@ -1,26 +1,26 @@
 ---
-title: Arquitetura do mecanismo de pesquisa de texto completo (Lucene) – Azure Search
-description: Explicação dos conceitos de recuperação de documento e processamento de consulta do Lucene para pesquisa de texto completo, relacionada ao Azure Search.
+title: Consulta de texto completo e arquitetura do mecanismo de indexação (Lucene)
+titleSuffix: Azure Cognitive Search
+description: Examina os conceitos de processamento de consulta do Lucene e recuperação de documentos para pesquisa de texto completo, conforme relacionado ao Pesquisa Cognitiva do Azure.
 manager: nitinme
 author: yahnoosh
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
 ms.author: jlembicz
-ms.openlocfilehash: d377d6180f3d2d64f183ed574add3e7307e34fc3
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186545"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793565"
 ---
-# <a name="how-full-text-search-works-in-azure-search"></a>Como funciona a pesquisa de texto completo no Azure Search
+# <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Como funciona a pesquisa de texto completo no Azure Pesquisa Cognitiva
 
-Este artigo é para desenvolvedores que precisam de uma compreensão mais profunda de como a pesquisa de texto completo do Lucene funciona no Azure Search. Para consultas de texto, o Azure Search fornecerá perfeitamente os resultados esperados na maioria dos cenários, mas, ocasionalmente, você pode obter um resultado que pode parecer "estranho". Nessas situações, ter um plano de fundo nos quatro estágios da execução da consulta do Lucene (análise léxica e análise da consulta, correspondência de documentos e pontuação) pode ajudá-lo a identificar alterações específicas para parâmetros de consulta ou a configuração de índice que proporcionará o resultado desejado. 
+Este artigo é para os desenvolvedores que precisam de uma compreensão mais profunda de como a pesquisa de texto completo do Lucene funciona no Azure Pesquisa Cognitiva. Para consultas de texto, o Pesquisa Cognitiva do Azure fornecerá diretamente os resultados esperados na maioria dos cenários, mas ocasionalmente você poderá obter um resultado que parece "fora" de alguma forma. Nessas situações, ter experiência nos quatro estágios da execução da consulta do Lucene (análise léxica, análise da consulta, correspondência de documentos e pontuação) pode ajudá-lo a identificar alterações específicas nos parâmetros de consulta ou na configuração de índice que proporcionarão o resultado desejado. 
 
 > [!Note] 
-> O Azure Search usa o Lucene para pesquisa de texto completo, mas a integração do Lucene não é completa. Vamos seletivamente expor e estender a funcionalidade do Lucene para habilitar os cenários importantes para o Azure Search. 
+> O Azure Pesquisa Cognitiva usa o Lucene para pesquisa de texto completo, mas a integração do Lucene não é exaustiva. Vamos expor seletivamente e estender a funcionalidade Lucene para habilitar os cenários importantes para o Azure Pesquisa Cognitiva. 
 
 ## <a name="architecture-overview-and-diagram"></a>Diagrama e visão geral da arquitetura
 
@@ -35,7 +35,7 @@ A execução de consulta redefinida, tem quatro fases:
 
 O diagrama a seguir ilustra os componentes usados para processar uma solicitação de pesquisa. 
 
- ![Diagrama da arquitetura de consulta do Lucene no Azure Search][1]
+ ![Diagrama de arquitetura de consulta Lucene no Azure Pesquisa Cognitiva][1]
 
 
 | Principais componentes | Descrição funcional | 
@@ -49,7 +49,7 @@ O diagrama a seguir ilustra os componentes usados para processar uma solicitaç�
 
 Uma solicitação de pesquisa é uma especificação completa do que deve ser retornado em um conjunto de resultados. Na forma mais simples, é uma consulta vazia sem critérios de nenhum tipo. Um exemplo mais realista inclui parâmetros, vários termos de consulta, talvez com escopo para determinados campos, com possivelmente uma expressão de filtro e as regras de ordenação.  
 
-O exemplo a seguir é uma solicitação de pesquisa que você pode enviar ao Azure Search usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
+O exemplo a seguir é uma solicitação de pesquisa que você pode enviar para o Azure Pesquisa Cognitiva usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2019-05-06
@@ -94,9 +94,9 @@ O analisador de consulta reestrutura as subconsultas em uma *árvore de consulta
 
  ![Booliano consulta modo de pesquisa qualquer][2]
 
-### <a name="supported-parsers-simple-and-full-lucene"></a>Analisadores compatíveis: Lucene Simples e Completo 
+### <a name="supported-parsers-simple-and-full-lucene"></a>Analisadores com suporte: simples e Lucena completa 
 
- O Azure Search apresenta duas linguagens de consulta diferentes, `simple` (padrão) e `full`. Ao definir o parâmetro `queryType` com sua solicitação de pesquisa, você informa ao analisador de consulta a linguagem de consulta que você escolheu para que ele saiba como interpretar os operadores e a sintaxe. A [linguagem de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) é intuitiva e robusta, geralmente adequada para interpretar a entrada do usuário conforme inserida, sem processamento no lado do cliente. Ela oferece suporte a operadores de consulta familiares de mecanismos de pesquisa. A [linguagem de consulta Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), que você obtém definindo `queryType=full`, estende a linguagem de consulta simples padrão, adicionando suporte para mais operadores e tipos de consulta como caractere curinga, difusa, regex e consultas com escopo de campo. Por exemplo, uma expressão regular enviada na sintaxe de consulta simples será interpretada como uma cadeia de caracteres de consulta e não é uma expressão. A solicitação de exemplo neste artigo usa a linguagem de consulta Lucene completa.
+ O Azure Pesquisa Cognitiva expõe duas linguagens de consulta diferentes, `simple` (padrão) e `full`. Ao definir o parâmetro `queryType` com sua solicitação de pesquisa, você informa ao analisador de consulta a linguagem de consulta que você escolheu para que ele saiba como interpretar os operadores e a sintaxe. A [linguagem de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) é intuitiva e robusta, geralmente adequada para interpretar a entrada do usuário conforme inserida, sem processamento no lado do cliente. Ela oferece suporte a operadores de consulta familiares de mecanismos de pesquisa. A [linguagem de consulta Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), que você obtém definindo `queryType=full`, estende a linguagem de consulta simples padrão, adicionando suporte para mais operadores e tipos de consulta como caractere curinga, difusa, regex e consultas com escopo de campo. Por exemplo, uma expressão regular enviada na sintaxe de consulta simples será interpretada como uma cadeia de caracteres de consulta e não é uma expressão. A solicitação de exemplo neste artigo usa a linguagem de consulta Lucene completa.
 
 ### <a name="impact-of-searchmode-on-the-parser"></a>Impacto do modo de pesquisa no analisador 
 
@@ -137,7 +137,7 @@ A forma mais comum de análise léxica é a *análise linguística* que transfor
 * Dividir uma palavra composta em componentes 
 * Colocando letras minúsculas em uma palavra de letras maiúsculas 
 
-Todas essas operações tendem a apagar as diferenças entre a entrada de texto fornecida pelo usuário e os termos armazenados no índice. Essas operações vão além do processamento de texto e exigem um conhecimento profundo do próprio idioma. Para adicionar essa camada de reconhecimento linguístico, o Azure Search dá suporte a uma longa lista de [analisadores de idioma](https://docs.microsoft.com/rest/api/searchservice/language-support) da Lucene e da Microsoft.
+Todas essas operações tendem a apagar as diferenças entre a entrada de texto fornecida pelo usuário e os termos armazenados no índice. Essas operações vão além do processamento de texto e exigem um conhecimento profundo do próprio idioma. Para adicionar essa camada de conscientização lingüística, o Azure Pesquisa Cognitiva dá suporte a uma longa lista de [analisadores de linguagem](https://docs.microsoft.com/rest/api/searchservice/language-support) tanto do Lucene quanto da Microsoft.
 
 > [!Note]
 > Os requisitos de análise podem variar de básicos a elaborados dependendo do seu cenário. Você pode controlar a complexidade da análise léxica selecionando um dos analisadores predefinidos ou criando seu próprio [analisador personalizado](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search). O escopo dos analisadores inclui campos pesquisáveis e são especificados como parte de uma definição do campo. Isso permite que você varie a análise léxica baseada no campo. Se não for especificado, o analisador *padrão* para Lucene é usado.
@@ -245,13 +245,13 @@ Para produzir os termos de um índice invertido, o mecanismo de pesquisa executa
 É comum, mas não obrigatório, usar os mesmo analisadores para operações de indexação para que os termos da consulta pareçam mais com os termos dentro do índice.
 
 > [!Note]
-> O Azure Search permite especificar diferentes analisadores para indexação e pesquisa através dos parâmetros de campo adicionais `indexAnalyzer` e `searchAnalyzer`. Se não forem especificados, o analisador definido com a propriedade `analyzer` é usado para indexação e pesquisa.  
+> O Pesquisa Cognitiva do Azure permite que você especifique diferentes analisadores para indexação e pesquisa por meio de parâmetros de campo de `searchAnalyzer` e `indexAnalyzer` adicionais. Se não forem especificados, o analisador definido com a propriedade `analyzer` é usado para indexação e pesquisa.  
 
 **Índice invertido para documentos de exemplo**
 
 Retornando ao nosso exemplo, para o campo **título**, o índice invertido tem esta aparência:
 
-| Termo | Lista de documentos |
+| Prazo | Lista de documentos |
 |------|---------------|
 | atman | 1 |
 | praia | 2 |
@@ -261,14 +261,14 @@ Retornando ao nosso exemplo, para o campo **título**, o índice invertido tem e
 | resort | 3 |
 | retiro | 4 |
 
-No campo de título, apenas *hotel* aparece em dois documentos: 1 e 3.
+No campo título, apenas *hotel* aparece em dois documentos: 1, 3.
 
 Para o campo **descrição**, o índice é o seguinte:
 
-| Termo | Lista de documentos |
+| Prazo | Lista de documentos |
 |------|---------------|
 | ar | 3
-| e | 4
+| e a | 4
 | praia | 1
 | condicionado | 3
 | confortável | 3
@@ -287,9 +287,9 @@ Para o campo **descrição**, o índice é o seguinte:
 | espaçoso | 1
 | o | 1, 2
 | para | 1
-| view | 1, 2, 3
+| exibir | 1, 2, 3
 | a pé | 1
-| with | 3
+| por: | 3
 
 
 **Correspondência de termos de consulta com os termos indexados**
@@ -309,7 +309,7 @@ Durante a execução de consulta, consultas individuais são executadas nos camp
 + A consulta de frase, "vista para o mar", procura os termos "mar" e "vista para o" e verifica a proximidade dos termos no documento original. Os documentos 1, 2 e 3 correspondem a essa consulta no campo descrição. Observe que o documento 4 possui o termo mar termo no título, mas não é considerado uma correspondência, pois estamos procurando a frase "vista para o mar" em vez de palavras individuais. 
 
 > [!Note]
-> Uma consulta de pesquisa é executada de forma independente em relação a todos os campos pesquisáveis no índice do Azure Search, a menos que você limite os campos definidos com o parâmetro `searchFields`, conforme ilustrado na solicitação de pesquisa de exemplo. Os documentos correspondentes em qualquer um dos campos selecionados são retornados. 
+> Uma consulta de pesquisa é executada independentemente em todos os campos pesquisáveis no índice Pesquisa Cognitiva do Azure, a menos que você limite os campos definidos com o parâmetro `searchFields`, conforme ilustrado na solicitação de pesquisa de exemplo. Os documentos correspondentes em qualquer um dos campos selecionados são retornados. 
 
 De modo geral, para a consulta em questão, os documentos que correspondem são 1, 2, 3. 
 
@@ -357,7 +357,7 @@ Um exemplo ilustra por que isso é importante. Pesquisas com caractere curinga, 
 
 ### <a name="score-tuning"></a>Ajuste da pontuação
 
-Existem duas maneiras de ajustar as pontuações de relevância no Azure Search:
+Há duas maneiras de ajustar as pontuações de relevância no Azure Pesquisa Cognitiva:
 
 1. **Perfis de pontuação** melhoram a classificação dos documentos na lista classificada de resultados com base em um conjunto de regras. Em nosso exemplo, podemos considerar a possibilidade de que os documentos correspondentes no campo de título são mais relevante do que os documentos correspondentes no campo descrição. Além disso, se o índice tiver um campo preço para cada hotel, poderíamos promover documentos com preços mais baixos. Saiba mais sobre como [adicionar perfis de pontuação a um índice de pesquisa.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 2. **Incremento de termo** (disponível apenas na sintaxe da consulta Lucene completo) fornece um operador de incremento `^` que pode ser aplicado a qualquer parte da árvore de consulta. Em nosso exemplo, em vez de pesquisar no prefixo *air-condition*\*, um usuário poderia pesquisar o termo exato *air-condition* ou o prefixo, mas os documentos que correspondem ao termo exato são classificados mais elevados aplicando incremento à consulta do termo: *air-condition^2||air-condition*\*. Saiba mais sobre [incremento do termo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
@@ -365,7 +365,7 @@ Existem duas maneiras de ajustar as pontuações de relevância no Azure Search:
 
 ### <a name="scoring-in-a-distributed-index"></a>Pontuação em um índice distribuído
 
-Todos os índices do Azure Search são automaticamente divididos em vários fragmentos, permitindo distribuir rapidamente o índice entre vários nós rapidamente ao escalar ou reduzir verticalmente o serviço. Quando uma solicitação de pesquisa é emitida, ela é emitida em relação a cada fragmento de forma independente. Os resultados de cada fragmento são então mesclados e ordenados conforme a pontuação (se nenhuma outra ordem for definida). É importante saber que a função de pontuação faz a ponderação da frequência do termo de consulta em relação a sua frequência de documento inversa em todos os documentos dentro do fragmento, não em todos os fragmentos!
+Todos os índices no Azure Pesquisa Cognitiva são divididos automaticamente em vários fragmentos, permitindo que possamos distribuir rapidamente o índice entre vários nós durante o escalonamento ou redução vertical do serviço. Quando uma solicitação de pesquisa é emitida, ela é emitida em relação a cada fragmento de forma independente. Os resultados de cada fragmento são então mesclados e ordenados conforme a pontuação (se nenhuma outra ordem for definida). É importante saber que a função de pontuação faz a ponderação da frequência do termo de consulta em relação a sua frequência de documento inversa em todos os documentos dentro do fragmento, não em todos os fragmentos!
 
 Isso significa que uma pontuação de relevância *pode* ser diferentes para documentos idênticos se estes estiverem em fragmentos diferentes. Felizmente, essas diferenças tendem a desaparecer conforme aumenta o número de documentos no índice devido a uma distribuição de termo mais uniforme. Não é possível supor em qual fragmento qualquer documento especificado será colocado. No entanto, supondo que uma chave de documento não é alterado, ela sempre será atribuída ao mesmo fragmento.
 
@@ -377,9 +377,9 @@ O sucesso dos mecanismos de pesquisa da Internet gerou expectativas para a pesqu
 
 Do ponto de vista técnico, a pesquisa de texto completo é altamente complexa, exigindo uma análise linguística sofisticada e uma abordagem sistemática para processamento de forma a extrair, expandir e transformar os termos da consulta para fornecer um resultado relevante. Devido às complexidades inerentes, há muitos fatores que podem afetar o resultado de uma consulta. Por esse motivo, investir tempo para entender os mecanismos de pesquisa de texto completo oferece benefícios tangíveis quando se tenta trabalhar com resultados inesperados.  
 
-Este artigo explorou a pesquisa de texto completo no contexto do Azure Search. Esperamos que todas essas informações sejam o suficiente para você reconhecer possíveis causas e resoluções para resolver problemas comuns de consulta. 
+Este artigo explorou a pesquisa de texto completo no contexto do Azure Pesquisa Cognitiva. Esperamos que todas essas informações sejam o suficiente para você reconhecer possíveis causas e resoluções para resolver problemas comuns de consulta. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 + Criar o índice de exemplo, experimentar consultas diferentes e examinar os resultados. Para obter instruções, consulte [Criar e consultar um índice no portal](search-get-started-portal.md#query-index).
 
@@ -391,7 +391,7 @@ Este artigo explorou a pesquisa de texto completo no contexto do Azure Search. E
 
 + [Configurar analisadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para o mínimo de processamento ou processamento especializado em campos específicos.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 [API REST para pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

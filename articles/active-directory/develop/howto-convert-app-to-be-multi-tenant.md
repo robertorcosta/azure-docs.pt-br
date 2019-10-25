@@ -1,5 +1,6 @@
 ---
 title: Como criar um aplicativo que pode conectar qualquer usuário do Azure AD
+titleSuffix: Microsoft identity platform
 description: Mostra como criar um aplicativo multilocatário que pode conectar um usuário de qualquer locatário Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -18,14 +19,14 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d53ed0c9a8ae63c2cb0ced635c6f0a8e8a3222fd
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 4f7f31e0254ad4963ce6946a108d84c97027f30b
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67482735"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803944"
 ---
-# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: Entrar em qualquer usuário do Azure Active Directory usando o padrão de aplicativo multilocatário
+# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: entrar em qualquer usuário do Azure Active Directory usando o padrão de aplicativo de vários inquilinos
 
 Se você oferecer um aplicativo de Software como Serviço (SaaS) para muitas organizações, poderá configurar seu aplicativo para aceitar logins de qualquer locatário do Azure AD (Azure Active Directory). Essa configuração é chamada de *, tornando seu aplicativo multilocatário*. Os usuários em qualquer locatário do Azure AD poderão entrar em seu aplicativo após o consentimento para usar sua conta com o aplicativo.
 
@@ -41,7 +42,7 @@ Há quatro etapas simples para converter seu aplicativo em um aplicativo multilo
 3. [Atualizar seu código para lidar com vários valores de emissor](#update-your-code-to-handle-multiple-issuer-values)
 4. [Entender o consentimento do usuário e administrador e fazer as alterações de código apropriadas](#understand-user-and-admin-consent)
 
-Vamos examinar cada etapa detalhadamente. Você também pode ir diretamente para [esta lista de exemplos de][AAD-Samples-MT]multilocatários.
+Vamos examinar cada etapa detalhadamente. Você também pode ir diretamente para [esta lista de exemplos de multilocatários][AAD-Samples-MT].
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Atualizar o registro para ser multilocatário
 
@@ -60,7 +61,7 @@ Em um aplicativo de locatário único, as solicitações de conexão são enviad
 
 Com um aplicativo multilocatário, o aplicativo não sabe com antecedência de qual locatário o usuário é, portanto, você não pode enviar solicitações para o ponto de extremidade de um locatário. Em vez disso, as solicitações são enviadas para um ponto de extremidade que multiplexa entre todos os locatários do Azure AD: `https://login.microsoftonline.com/common`
 
-Quando a plataforma de identidade da Microsoft recebe uma solicitação no ponto de extremidade/Common, ele assina o usuário em e, como consequência, descobre de qual locatário o usuário é. O ponto de extremidade/Common funciona com todos os protocolos de autenticação compatíveis com o Azure AD:  OpenID Connect, OAuth 2.0, SAML 2.0 e WS-Federation.
+Quando a plataforma de identidade da Microsoft recebe uma solicitação no ponto de extremidade/Common, ele assina o usuário em e, como consequência, descobre de qual locatário o usuário é. O ponto de extremidade/Common funciona com todos os protocolos de autenticação compatíveis com o Azure AD: OpenID Connect, OAuth 2,0, SAML 2,0 e WS-Federation.
 
 Em seguida, a resposta de conexão para o aplicativo conterá um token que representa o usuário. O valor do emissor no token diz a um aplicativo de qual locatário o usuário é. Quando uma resposta retorna do ponto de extremidade /common, o valor do emissor no token corresponde ao locatário do usuário.
 
@@ -98,7 +99,7 @@ Portanto, um aplicativo multilocatário não pode validar tokens apenas combinan
 
 Por exemplo, se um aplicativo multilocatário permite apenas a conexão em locatários específicos que se inscreveram para seu serviço, ele deve verificar o valor do emissor ou o valor da declaração `tid` no token para ter certeza de que o locatário está em sua lista de assinantes. Se um aplicativo multilocatário lida apenas com pessoas e não toma nenhuma decisão de acesso com base em locatários, ele pode ignorar o valor de emissor completamente.
 
-Nos [exemplos][AAD-Samples-MT]de multilocatários, a validação do emissor é desabilitada para habilitar qualquer locatário do Azure ad para entrar.
+Nos [exemplos de multilocatários][AAD-Samples-MT], a validação do emissor é desabilitada para habilitar qualquer locatário do Azure ad para entrar.
 
 ## <a name="understand-user-and-admin-consent"></a>Entenda o consentimento do usuário e do administrador
 
@@ -138,7 +139,7 @@ Seu aplicativo pode ter várias camadas, cada uma representada por seu próprio 
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Várias camadas em um único locatário
 
-Isso poderá ser um problema se seu aplicativo lógico consistir em dois ou mais registros de aplicativo, por exemplo, um cliente e um recurso separados. Como você obtém o recurso no locatário do cliente primeiro? O Azure AD abrange neste caso permitindo que o cliente e o recurso recebam o consentimento em uma única etapa. O usuário vê a soma total das permissões solicitadas pelo cliente e pelo recurso na página de consentimento. Para habilitar esse comportamento, o registro do aplicativo do recurso deve incluir a ID do aplicativo do cliente `knownClientApplications` como um em seu [manifesto do aplicativo][AAD-App-Manifest]. Por exemplo:
+Isso poderá ser um problema se seu aplicativo lógico consistir em dois ou mais registros de aplicativo, por exemplo, um cliente e um recurso separados. Como você obtém o recurso no locatário do cliente primeiro? O Azure AD abrange neste caso permitindo que o cliente e o recurso recebam o consentimento em uma única etapa. O usuário vê a soma total das permissões solicitadas pelo cliente e pelo recurso na página de consentimento. Para habilitar esse comportamento, o registro do aplicativo do recurso deve incluir a ID do aplicativo do cliente como um `knownClientApplications` em seu [manifesto do aplicativo][AAD-App-Manifest]. Por exemplo:
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
@@ -174,7 +175,7 @@ Se um administrador der o consentimento a um aplicativo para todos os usuários 
 
 Os aplicativos multilocatários também podem obter tokens de acesso para chamar APIs que são protegidas pelo Azure AD. Um erro comum ao usar a ADAL (Biblioteca de Autenticação do Active Directory) com um aplicativo multilocatário é solicitar inicialmente um token para um usuário usando /common, receber uma resposta e, depois, solicitar um próximo token para o mesmo usuário também usando /common. Como a resposta do Azure AD vem de um locatário, e não de /common, a ADAL armazena em cache o token como sendo do locatário. A chamada subsequente para /common para obter um token de acesso para o usuário perde a entrada de cache e o usuário é solicitado a entrar novamente. Para evitar a perda de cache, certifique-se de que as chamadas subsequentes para um usuário já conectado sejam feitas para o ponto de extremidade do locatário.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário por meio de qualquer locatário do Azure AD. Depois de habilitar o SSO (Logon Único) entre o aplicativo e o Azure AD, também é possível atualizar o aplicativo para acessar as APIs expostas por recursos da Microsoft, como o Office 365. Portanto, é possível oferecer uma experiência personalizada no aplicativo, por exemplo, mostrando informações contextuais para os usuários, como suas imagens de perfil ou seus próximos compromissos no calendário. Para saber mais sobre como fazer chamadas à API para os serviços do Azure AD e do Office 365, como o Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [Microsoft Graph API][MSFT-Graph-overview].
 

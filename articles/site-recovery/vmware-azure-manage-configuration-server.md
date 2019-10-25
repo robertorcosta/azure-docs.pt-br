@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 66022b5e4885c515bd6117f9a44b8108ff84ae5c
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 42e1e283736d8a1e3d4ece33c861185df2d72da7
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250110"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791830"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gerenciar o servidor de configuração para recuperação de desastres de VM do VMware
 
@@ -21,12 +21,16 @@ Você configura um servidor de configuração local quando você usa o [Azure Si
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+## <a name="update-windows-license"></a>Atualizar a licença do Windows
+
+A licença fornecida com o modelo OVF é uma licença de avaliação válida por 180 dias. Para uso ininterrupto, você deve ativar o Windows com uma licença adquirida. A atualização de licença pode ser feita por meio de uma chave autônoma ou chave padrão KMS. A orientação está disponível na [linha de comando do DISM do Windows para executar o sistema operacional](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Para obter chaves, consulte [configuração do cliente KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys).
+
 ## <a name="access-configuration-server"></a>Acessar servidor de configuração
 
 Você pode acessar o servidor de configuração da seguinte maneira:
 
 * Entre na VM na qual ela está implantada e inicie o **Azure Site Recovery Configuration Manager** no atalho da área de trabalho.
-* Como alternativa, você pode acessar o servidor de configuração remotamente em https://*ConfigurationServerName*/:44315/. Entre com credenciais de administrador.
+* Como alternativa, você pode acessar o servidor de configuração remotamente de https://*ConfigurationServerName*/: 44315/. Entre com credenciais de administrador.
 
 ## <a name="modify-vmware-server-settings"></a>Modifique as configurações do servidor VMware
 
@@ -58,7 +62,7 @@ Modifique as credenciais usadas para instalar automaticamente o Serviço de Mobi
 
 Também é possível modificar credenciais por meio de CSPSConfigtool.exe.
 
-1. Fazer logon no servidor de configuração e iniciar o CSPSCconfigtool.exe
+1. Faça logon no servidor de configuração e inicie o CSPSConfigtool. exe
 2. Escolha a conta que você deseja modificar e clique em **Editar**
 3. Insira as novas credenciais e clique em **Ok**.
 
@@ -73,7 +77,7 @@ Se você perdeu a adição de credenciais durante a implantação de OVF do serv
 
 Também é possível adicionar as credenciais por meio de CSPSConfigtool.exe.
 
-1. Fazer logon no servidor de configuração e iniciar o CSPSCconfigtool.exe
+1. Faça logon no servidor de configuração e inicie o CSPSConfigtool. exe
 2. Clique em **Adicionar**, insira as novas credenciais e clique em **Ok**.
 
 ## <a name="modify-proxy-settings"></a>Modificar as configurações de proxy
@@ -109,7 +113,7 @@ Você pode registrar novamente o servidor de configuração no mesmo cofre se ne
    ```
 
     >[!NOTE]
-    >Para efetuar **pull dos certificados mais recentes** do servidor de configuração para o servidor de processo de expansão, execute o comando *\<"Installation Drive\Microsoft Azure site Recovery\agent\cdpcli.exe >"--registermt*
+    >Para efetuar **pull dos certificados mais recentes** do servidor de configuração para o servidor de processo de expansão, execute o comando *"\<Installation Drive\Microsoft Azure site Recovery\agent\cdpcli.exe >"--registermt*
 
 8. Finalmente, reinicie o obengine executando o seguinte comando.
    ```
@@ -151,16 +155,16 @@ Atualize o servidor da seguinte maneira:
 
 1. No cofre, vá para **Gerenciar**  >  **Infraestrutura de Recuperação do Site**  >  **Servidores de Configuração**.
 2. Se uma atualização estiver disponível, aparecerá um link no **versão do agente** > coluna.
-    ![Atualização](./media/vmware-azure-manage-configuration-server/update2.png)
+    ![Atualizar](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Baixe o arquivo instalador da atualização no servidor de configuração.
 
-    ![Atualização](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Atualizar](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Clique duas vezes para executar o instalador.
 5. O instalador detecta a versão atual em execução no computador. Clique em **Sim** para iniciar a atualização.
 6. Quando a atualização for concluída valida a configuração do servidor.
 
-    ![Atualização](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Atualizar](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Clique em **Finish** para fechar o instalador.
 8. Para atualizar o restante dos componentes do Site Recovery, veja as nossas [diretrizes de atualização](https://aka.ms/asr_vmware_upgrades).
@@ -183,21 +187,21 @@ Execute o arquivo de instalação da seguinte maneira:
 
 ### <a name="parameters"></a>parâmetros
 
-|Nome do Parâmetro| Tipo | DESCRIÇÃO| Valores|
+|Nome do parâmetro| Type | Descrição| Valores|
 |-|-|-|-|
-| /ServerMode|Obrigatório|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
-|/InstallLocation|Obrigatório|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
-|/MySQLCredsFilePath|Obrigatório|O caminho do arquivo no qual as credenciais do servidor MySQL são armazenadas|O arquivo deve ser do formato especificado abaixo|
-|/VaultCredsFilePath|Obrigatório|O caminho do arquivo de credenciais do cofre|Caminho de arquivo válido|
-|/EnvType|Obrigatório|Tipo de ambiente que você deseja proteger |VMware<br>NonVMware|
-|/PSIP|Obrigatório|Endereço IP da NIC a ser usada para transferência de dados de replicação| Qualquer endereço IP válido|
-|/CSIP|Obrigatório|O endereço IP da NIC na qual o servidor de configuração está escutando| Qualquer endereço IP válido|
-|/PassphraseFilePath|Obrigatório|O caminho completo para o local do arquivo de senha|Caminho de arquivo válido|
+| /ServerMode|obrigatórios|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
+|/InstallLocation|obrigatórios|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
+|/MySQLCredsFilePath|obrigatórios|O caminho do arquivo no qual as credenciais do servidor MySQL são armazenadas|O arquivo deve ser do formato especificado abaixo|
+|/VaultCredsFilePath|obrigatórios|O caminho do arquivo de credenciais do cofre|Caminho de arquivo válido|
+|/EnvType|obrigatórios|Tipo de ambiente que você deseja proteger |VMware<br>NonVMware|
+|/PSIP|obrigatórios|Endereço IP da NIC a ser usada para transferência de dados de replicação| Qualquer endereço IP válido|
+|/CSIP|obrigatórios|O endereço IP da NIC na qual o servidor de configuração está escutando| Qualquer endereço IP válido|
+|/PassphraseFilePath|obrigatórios|O caminho completo para o local do arquivo de senha|Caminho de arquivo válido|
 |/BypassProxy|Opcional|Especifica se o servidor de gerenciamento se conecta ao Azure sem um proxy|Para obter esse valor de Venu|
 |/ProxySettingsFilePath|Opcional|Configurações de proxy (o proxy padrão exige autenticação ou um proxy personalizado)|O arquivo deve estar no formato especificado abaixo|
 |DataTransferSecurePort|Opcional|O número da porta no PSIP a ser usada para dados de replicação| Número da porta válido (o valor padrão é 9433)|
 |/SkipSpaceCheck|Opcional|Ignorar verificação de espaço do disco de cache| |
-|/AcceptThirdpartyEULA|Obrigatório|Sinalizar implica na aceitação do EULA de terceiros| |
+|/AcceptThirdpartyEULA|obrigatórios|Sinalizar implica na aceitação do EULA de terceiros| |
 |/ShowThirdpartyEULA|Opcional|Exibe o EULA de terceiros. Se fornecido como entrada, todos os outros parâmetros serão ignorados| |
 
 
@@ -292,16 +296,12 @@ Para implantações de servidor de configuração antes de maio de 2016, a expir
 3. No blade com detalhes do servidor de configuração escolhido, clique em **Mais** >  **Refresh Server**.
 4. Monitore o progresso do trabalho em **Cofre de Serviços de Recuperação** > **Monitorando** >  **trabalhos de Recuperação do Site**.
 
-## <a name="update-windows-license"></a>Atualizar a licença do Windows
-
-A licença fornecida com o modelo OVF é uma licença de avaliação válida por 180 dias. Para uso ininterrupto, você deve ativar o Windows com uma licença adquirida.
-
 ## <a name="failback-requirements"></a>Requisitos de failback
 
 Durante a reprotecção e o failback, o servidor de configuração local deve estar em execução e em um estado conectado. Para um failback bem-sucedido, a máquina virtual que está sendo reprovada deve existir no banco de dados do servidor de configuração.
 
 Assegure-se de fazer backups agendados regulares de seu servidor de configuração. Se ocorrer um desastre e o servidor de configuração for perdido, você deve primeiro restaurar o servidor de configuração a partir de uma cópia de backup e garantir que o servidor de configuração restaurado tenha o mesmo endereço IP com o qual foi registrado no vault. O failback não funcionará se um endereço IP diferente for usado para o servidor de configuração restaurado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Analise os tutoriais para configurar a recuperação de desastre de [VMs VMware](vmware-azure-tutorial.md) para o Azure.

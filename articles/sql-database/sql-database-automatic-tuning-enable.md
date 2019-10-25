@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 67a05d065cba8286c837487e21fc2f5be54e2c0b
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: c9339b5c7c35378fb85daeae19a6daa01d54f350
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162341"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809653"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Habilite o ajuste automático para monitorar consultas e melhorar o desempenho da carga de trabalho
 
@@ -66,7 +66,7 @@ Para habilitar o ajuste automático em um **banco de dados individual**, navegue
 
 As configurações de ajustes automático individuais podem ser definidas separadamente para cada banco de dados. Manualmente, você pode configurar uma opção de ajuste automático individual ou especificar que uma opção herde as configurações do servidor.
 
-![Banco de Dados](./media/sql-database-automatic-tuning-enable/database.png)
+![Banco de dados](./media/sql-database-automatic-tuning-enable/database.png)
 
 Observe que a opção DROP_INDEX no momento não é compatível com aplicativos que usam dicas de índice e de alternância de partição e não deve ser habilitada nesses casos.
 
@@ -104,11 +104,17 @@ Encontre mais sobre como as opções de T-SQL para configurar o ajuste automáti
 
 O ajuste automático está monitorando todas as ações que ele realiza no banco de dados e, em alguns casos, ele pode determinar que o ajuste automático não pode funcionar adequadamente no banco de dados. Nessa situação, a opção de ajuste será desabilitada pelo sistema. Na maioria dos casos, isso ocorre porque o Repositório de Consultas não está habilitado ou está em estado somente leitura em um banco de dados específico.
 
+## <a name="permissions"></a>Permissões
+
+Como o ajuste automático é o recurso do Azure, para usá-lo, será necessário usar as funções RBAC internas do Azure. Usar a autenticação do SQL somente não será suficiente para usar o recurso do portal do Azure.
+
+Para usar o ajuste automático, a permissão mínima necessária para conceder ao usuário é a função de colaborador do [BD SQL](../role-based-access-control/built-in-roles.md#sql-db-contributor) interna do Azure. Você também pode considerar o uso de funções de privilégio mais alto, SQL Server como colaborador, colaborador e proprietário.
+
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurar o ajuste automático das notificações por email
 
-Ver guia [notificações por e-mail de ajuste automático](sql-database-automatic-tuning-email-notifications.md).
+Consulte Guia de [notificações por email de ajuste automático](sql-database-automatic-tuning-email-notifications.md) .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Leia o [artigo Ajuste automático](sql-database-automatic-tuning.md) para saber mais sobre o ajuste automático e como ele pode ajudar você a melhorar o desempenho.
 * Consulte [Recomendações de desempenho](sql-database-advisor.md) para obter uma visão geral das recomendações de desempenho do Banco de Dados SQL do Azure.

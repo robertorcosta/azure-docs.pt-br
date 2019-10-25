@@ -1,26 +1,25 @@
 ---
-title: Regras e pontos de extremidade de serviço de Rede Virtual para Barramento de Serviço do Microsoft Azure | Microsoft Docs
+title: Pontos de extremidade de serviço de rede virtual-barramento de serviço do Azure
 description: Adicione um ponto de extremidade de serviço Microsoft.ServiceBus a uma rede virtual.
 services: service-bus
 documentationcenter: ''
 author: axisc
-manager: timlt
 editor: spelluru
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f32a67dc6d3b3f869afaa532403c05b218588552
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471954"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786374"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Usar pontos de extremidade de serviço de Rede Virtual com Barramento de Serviço
 
-A integração de Barramento de Serviço com [Pontos de extremidade de serviço de VNet (rede virtual)][vnet-sep] permite acesso seguro a recursos de mensagens de cargas de trabalho, como máquinas virtuais associadas a redes virtuais, com o caminho de tráfego de rede sendo protegido em ambas as extremidades.
+A integração do barramento de serviço com [pontos de extremidade de serviço de rede virtual (VNet)][vnet-sep] permite o acesso seguro a recursos de mensagens de cargas de trabalho como máquinas virtuais associadas a redes virtuais, com o caminho de tráfego de rede protegido em ambos lados.
 
 Após ser configurado para associar-se a pelo menos um ponto de extremidade de serviço de sub-rede da rede virtual, o respectivo namespace de Barramento de Serviço não aceitará mais tráfego de nenhum lugar, exceto das redes virtuais autorizadas. Da perspectiva da rede virtual, a associação de um namespace de Barramento de Serviço a um ponto de extremidade de serviço configura um túnel de rede isolado da sub-rede da rede virtual para o serviço de sistema de mensagens.
 
@@ -33,14 +32,14 @@ O resultado é um relacionamento privado e isolado entre as cargas de trabalho a
 >
 > Cenários comuns do Azure que não funcionam com Redes Virtuais (observe que a lista **NÃO** é exaustiva):
 > - Azure Monitor
-> - Stream Analytics do Azure
+> - Azure Stream Analytics
 > - Integração com a Grade de Eventos do Azure
 > - Rotas do Hub IoT do Azure
 > - Device Explorer do Azure IoT
 > - Azure Data Explorer
 >
 > Os serviços da Microsoft abaixo devem estar em uma rede virtual
-> - Serviço de aplicativo do Azure
+> - Serviço de Aplicativos do Azure
 > - Funções do Azure
 
 > [!IMPORTANT]
@@ -60,9 +59,9 @@ Isso significa que as soluções na nuvem de segurança confidencial não apenas
 
 ## <a name="binding-service-bus-to-virtual-networks"></a>Associar Barramento de Serviço a Redes Virtuais
 
-As *regras de rede virtual* são o recurso de segurança do firewall que controla se o servidor de Barramento de Serviço do Azure aceita conexões de uma sub-rede de rede virtual específica.
+As *regras da rede virtual* são o recurso de segurança do firewall que controla se o servidor de Barramento de Serviço do Azure aceita conexões de uma sub-rede de rede virtual específica.
 
-Associar um namespace de Barramento de Serviço a uma rede virtual é um processo de duas etapas. Primeiro é necessário criar um **ponto de extremidade de serviço de Rede Virtual** em uma sub-rede de Rede Virtual e habilitá-lo para "Microsoft.ServiceBus", conforme explicado na [visão geral do ponto de extremidade de serviço][vnet-sep]. Após adicionar o ponto de extremidade de serviço, você associa o namespace de Barramento de Serviço ao ponto de extremidade com uma *regra da rede virtual*.
+Associar um namespace de Barramento de Serviço a uma rede virtual é um processo de duas etapas. Primeiro, você precisa criar um **ponto de extremidade de serviço de rede virtual** em uma sub-rede de rede virtual e habilitá-la para "Microsoft. ServiceBus", conforme explicado na [visão geral do ponto de extremidade do serviço][vnet-sep]. Após adicionar o ponto de extremidade de serviço, você associa o namespace de Barramento de Serviço ao ponto de extremidade com uma *regra da rede virtual*.
 
 A regra da rede virtual é uma associação do namespace de Barramento de Serviço com uma sub-rede de rede virtual. Embora a regra exista, todas as cargas de trabalho associadas à sub-rede recebem acesso ao namespace de Barramento de Serviço. Os próprios Barramentos de Serviço nunca estabelecem conexões de saída, não precisam obter acesso e, portanto, nunca recebem acesso à sub-rede habilitando essa regra.
 
@@ -72,14 +71,14 @@ O modelo do Resource Manager a seguir permite incluir uma regra da rede virtual 
 
 Parâmetros de modelo:
 
-* **namespaceName**: Namespace do Barramento de Serviço.
+* **namespaceName**: namespace de Barramento de serviço.
 * **virtualNetworkingSubnetId**: caminho do Resource Manager totalmente qualificado para a sub-rede da rede virtual, por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
 
 > [!NOTE]
-> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , o que não restringe as conexões.
+> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , que não restringe as conexões.
 > Ao criar as regras de rede virtual ou de firewalls, devemos alterar a ***"defaultAction"***
 > 
-> de
+> Da
 > ```json
 > "defaultAction": "Allow"
 > ```
@@ -189,14 +188,14 @@ Modelo:
   }
 ```
 
-Para implantar o modelo, siga as instruções para o [Azure Resource Manager][lnk-deploy].
+Para implantar o modelo, siga as instruções para [Azure Resource Manager][lnk-deploy].
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre redes virtuais, consulte os links a seguir:
 
 - [Pontos de extremidade de serviço de rede virtual do Azure][vnet-sep]
-- [Filtragem IP do Barramento de Serviço do Azure][ip-filtering]
+- [Filtragem de IP do barramento de serviço do Azure][ip-filtering]
 
 [vnet-sep]: ../virtual-network/virtual-network-service-endpoints-overview.md
 [lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md

@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 53399fbdeba44b184ef4e76c89affefd29dbc413
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 62d65a4f004494ac4ce4ecd3df0f091460028d8f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915285"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800061"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Processar eventos dos Hubs de Eventos do Azure com o Apache Storm no HDInsight (C#)
 
 Saiba como trabalhar com Hubs de eventos do [Apache Storm](https://storm.apache.org/) no HDInsight. Este documento usa uma topologia C# Storm para ler e gravar dados de Hubs de Eventos
 
 > [!NOTE]  
-> Para uma versão Java deste projeto, consulte [Processar eventos dos Hubs de Eventos do Azure com o Apache Storm no HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
+> Para uma versão Java deste projeto, consulte [Processar eventos dos Hubs de Eventos do Azure com o Apache Storm no HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
 
 ## <a name="scpnet"></a>SCP.NET
 
@@ -51,10 +51,10 @@ A Microsoft fornece um conjunto de componentes Java que podem ser usados para co
 
 Os componentes a seguir são usados neste exemplo:
 
-* __EventHubSpout__: Ler dados dos Hubs de Eventos.
-* __EventHubBolt__: Escrever dados dos Hubs de Eventos.
-* __EventHubSpoutConfig__: Usado para configurar EventHubSpout.
-* __EventHubBoltConfig__: Usado para configurar EventHubSpout.
+* __EventHubSpout__: lê dados nos Hubs de Eventos.
+* __EventHubBolt__: grava dados nos Hubs de Eventos.
+* __EventHubSpoutConfig__: usado para configurar EventHubSpout.
+* __EventHubBoltConfig__: usado para configurar EventHubBolt.
 
 ### <a name="example-spout-usage"></a>Exemplo de uso do spout
 
@@ -135,7 +135,7 @@ Hubs de Eventos é a fonte de dados para este exemplo. Use as informações na s
 
 1. Depois de criar o hub de eventos, exiba as configurações de **EventHub** no Portal do Azure e selecione **Políticas de acesso compartilhado**. Selecione **+ Adicionar** para adicionar as políticas a seguir:
 
-   | Nome | Permissões |
+   | name | Permissões |
    | --- | --- |
    | gravador |Enviar |
    | leitor |Escutar |
@@ -152,7 +152,7 @@ Hubs de Eventos é a fonte de dados para este exemplo. Use as informações na s
 
 3. No projeto **EventHubWriter**, abra o arquivo **App.config**. Use as informações do hub de eventos que você configurou antes para preencher o valor das seguintes chaves:
 
-   | Chave | Valor |
+   | Chave | Value |
    | --- | --- |
    | EventHubPolicyName |gravador (se você usou um nome diferente para a política com a permissão *Enviar*, use-o.) |
    | EventHubPolicyKey |A chave para a política de gravador. |
@@ -168,7 +168,7 @@ Hubs de Eventos é a fonte de dados para este exemplo. Use as informações na s
 
 2. Abra o arquivo **App.config** para o **EventHubReader**. Use as informações do hub de eventos que você configurou antes para preencher o valor das seguintes chaves:
 
-   | Chave | Valor |
+   | Chave | Value |
    | --- | --- |
    | EventHubPolicyName |leitor (se você usou um nome diferente para a política com a permissão *Escutar*, use-o.) |
    | EventHubPolicyKey |A chave para a política de leitor. |
@@ -218,7 +218,7 @@ Para interromper as topologias, selecione cada topologia no **Visualizador de To
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, você aprendeu a usar o bolt e o spout dos Hub de Eventos Java de uma topologia C# para trabalhar com os dados no Hub de Eventos do Azure. Para saber mais sobre a criação de topologias C#, consulte o seguinte:
 

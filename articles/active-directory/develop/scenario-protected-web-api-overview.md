@@ -1,5 +1,6 @@
 ---
-title: API Web protegida-visão geral | Azure
+title: API Web protegida-visão geral
+titleSuffix: Microsoft identity platform
 description: Saiba como criar uma API Web protegida (visão geral).
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02bd4b84cc7542714f6db45c12c4b5b13a7fb449
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 64418138f9eff61cc94a57be4dc5e2625e5fdebb
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852590"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803677"
 ---
 # <a name="scenario-protected-web-api"></a>Cenário: API Web protegida
 
@@ -37,7 +38,7 @@ Aqui estão algumas especificações que você precisa saber para proteger as AP
 - O registro do aplicativo deve expor pelo menos um escopo. A versão do token aceita pela sua API da Web depende do público-alvo.
 - A configuração do código para a API Web deve validar o token que é usado ao chamar a API da Web.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Registro do Aplicativo](scenario-protected-web-api-app-registration.md)

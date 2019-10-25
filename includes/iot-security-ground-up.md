@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: b952763378de562f35c2e1ecaf49c56f0145c559
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 128a2e8b200f1323b88aad635f27c1b686ecbed2
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67172036"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789707"
 ---
-# <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Segurança para a Internet das Coisas (IoT) a partir do zero
-
 A Internet das Coisas (IoT) apresenta desafios específicos de segurança, privacidade e conformidade para empresas em todo o mundo. Ao contrário da tecnologia cibernética tradicional, na qual esses problemas giram em torno do software e de como ele é implementado, a IoT se preocupa com o que acontece quando os mundos físico e cibernético convergem. Proteger as soluções da IoT exige a garantia de provisionamento seguro dos dispositivos, a conectividade segura entre eles e a nuvem e a proteção garantida dos dados na nuvem durante o processamento e o armazenamento. Trabalhando contra essa funcionalidade, no entanto, estão os dispositivos com recursos limitados, a distribuição geográfica das implantações e um grande número de dispositivos em uma solução.
 
 Este artigo explora como os aceleradores da solução de IoT fornecem uma solução de nuvem de Internet das Coisas privada e segura. Os aceleradores de solução fornecem uma solução completa de ponta a ponta, com a segurança incorporada em cada estágio, desde o princípio. Na Microsoft, desenvolver softwares seguros é parte da prática de engenharia de software, enraizada na longa experiência da Microsoft no desenvolvimento de softwares seguros. Para garantir isso, o SDL (Security Development Lifecycle) é a metodologia de desenvolvimento fundamental, juntamente com uma gama de serviços de segurança em nível de infraestrutura, como a OSA (Garantia de Segurança Operacional) e a Unidade de Crimes Digitais da Microsoft, o Microsoft Security Response Center e o Centro de Proteção contra Malware da Microsoft.
@@ -33,7 +31,7 @@ Dada a segurança, a privacidade, a transparência e as questões de conformidad
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>Infraestrutura segura desde o princípio
 
-O [Microsoft Cloud](https://azure.microsoft.com) infraestrutura que dá suporte a mais de um bilhão de clientes em 127 países/regiões. Com base em décadas de experiência da Microsoft na criação de softwares empresariais e na execução de alguns dos maiores serviços online do mundo, o Microsoft Cloud fornece níveis mais altos de segurança, privacidade, conformidade e práticas de atenuação de ameaças aprimorados do que a maioria dos clientes poderia obter por conta própria.
+A infraestrutura de [Microsoft Cloud](https://azure.microsoft.com) dá suporte a mais de 1.000.000.000 clientes em 127 países/regiões. Com base em décadas de experiência da Microsoft na criação de softwares empresariais e na execução de alguns dos maiores serviços online do mundo, o Microsoft Cloud fornece níveis mais altos de segurança, privacidade, conformidade e práticas de atenuação de ameaças aprimorados do que a maioria dos clientes poderia obter por conta própria.
 
 O [SDL (Ciclo de Vida de Desenvolvimento da Segurança)](https://www.microsoft.com/sdl/) fornece um processo de desenvolvimento obrigatório em toda a empresa que incorpora os requisitos de segurança no ciclo de vida do software. Para ajudar a garantir que as atividades operacionais seguirão o mesmo nível de práticas de segurança, o SDL emprega diretrizes rígidas de segurança dispostas em processo de OSA (Garantia de Segurança Operacional) da Microsoft. A Microsoft também trabalha com empresas de auditoria terceirizadas para que haja uma verificação contínua do seu cumprimento com as obrigações de conformidade, e a Microsoft também participa em esforços amplos de segurança por meio da criação de centros de excelência, incluindo a Unidade de Crimes Digitais da Microsoft, o Microsoft Security Response Center e o Centro de Proteção contra Malware da Microsoft.
 
@@ -103,14 +101,14 @@ Os aceleradores de solução incorporam medidas de segurança por projeto, permi
 
 Cada acelerador de solução cria instâncias de serviços do Azure, como:
 
-* [**O Hub IoT**](https://azure.microsoft.com/services/iot-hub/): Seu gateway que conecta a nuvem para dispositivos. Você pode dimensionar para milhões de conexões por hub e processar grandes volumes de dados com suporte de autenticação por dispositivo, que ajuda você a proteger sua solução.
+* [**Hub IoT do Azure**](https://azure.microsoft.com/services/iot-hub/): seu gateway que conecta a nuvem aos dispositivos. Você pode dimensionar para milhões de conexões por hub e processar grandes volumes de dados com suporte de autenticação por dispositivo, que ajuda você a proteger sua solução.
 
-* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): Um serviço de banco de dados escalonável e totalmente indexado para dados semiestruturados que gerencia os metadados para os dispositivos que você provisiona, como atributos, configuração e propriedades de segurança. O Azure Cosmos DB oferece processamento de alto desempenho e alta produtividade, indexação de dados independente de esquema e uma interface de consulta SQL avançada.
+* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): um serviço de banco de dados escalonável e totalmente indexado para dados semiestruturados que gerencia os metadados para os dispositivos que você provisiona, como atributos, configuração e propriedades de segurança. O Azure Cosmos DB oferece processamento de alto desempenho e alta produtividade, indexação de dados independente de esquema e uma interface de consulta SQL avançada.
 
-* [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): Processamento na nuvem que permite que você desenvolva e implante com rapidez uma solução de análise de baixo custo para descobrir insights em tempo real de dispositivos, sensores, infraestrutura e aplicativos de fluxo em tempo real. Os dados desse serviço totalmente gerenciado podem ser dimensionados para qualquer volume enquanto ainda atingem alta taxa de transferência, baixa latência e resiliência.
+* [**Stream Analytics do Azure**](https://azure.microsoft.com/services/stream-analytics/): processamento de transmissão em tempo real na nuvem, que permite que você desenvolva e implante com rapidez uma solução de análise econômica a fim de descobrir insights em tempo real de dispositivos, sensores, infraestrutura e aplicativos. Os dados desse serviço totalmente gerenciado podem ser dimensionados para qualquer volume enquanto ainda atingem alta taxa de transferência, baixa latência e resiliência.
 
-* [**Serviços de aplicativo do Azure**](https://azure.microsoft.com/services/app-service/): Uma plataforma de nuvem para criar poderosos aplicativos web e móveis que se conectam aos dados em qualquer lugar; na nuvem ou local. Compile aplicativos móveis atraentes para iOS, Android e Windows. Integre-se com seu SaaS (software como serviço) e com aplicativos empresariais com conectividade integrada para dezenas de serviços baseados em nuvem e aplicativos empresariais. Codifique na sua linguagem e IDE favoritos (.NET, NodeJS, PHP, Python ou Java) para compilar aplicativos Web e APIs com mais rapidez do que nunca.
+* [**Serviços de Aplicativos do Azure**](https://azure.microsoft.com/services/app-service/): uma plataforma de nuvem para compilar aplicativos Web e móveis avançados que se conectam aos dados em qualquer lugar, na nuvem ou local. Crie aplicativos móveis atraentes para iOS, Android e Windows. Integre-se com seu SaaS (software como serviço) e com aplicativos empresariais com conectividade integrada para dezenas de serviços baseados em nuvem e aplicativos empresariais. Codifique na sua linguagem e IDE favoritos (.NET, NodeJS, PHP, Python ou Java) para compilar aplicativos Web e APIs com mais rapidez do que nunca.
 
-* [**Aplicativos lógicos**](https://azure.microsoft.com/services/app-service/logic/): O recurso aplicativos lógicos do serviço de aplicativo do Azure ajuda a integrar sua solução de IoT para seus sistemas de linha de negócios existentes e automatizar processos de fluxo de trabalho. Os Aplicativos Lógicos permitem que os desenvolvedores projetem fluxos de trabalho iniciados de um gatilho e, em seguida, executem uma série de etapas — regras e ações que usam conectores poderosos para integrar seus processos de negócios. Os Aplicativos Lógicos oferecem conectividade pronta para uso para um vasto ecossistema de aplicativos de SaaS, baseados em nuvem e locais.
+* [**Aplicativos lógicos**](https://azure.microsoft.com/services/app-service/logic/): o recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure ajuda a integrar sua solução de IoT para sua linha de sistemas de negócios existentes e a automatizar processos de fluxo de trabalho. Os Aplicativos Lógicos permitem que os desenvolvedores projetem fluxos de trabalho iniciados de um gatilho e, em seguida, executem uma série de etapas — regras e ações que usam conectores poderosos para integrar seus processos de negócios. Os Aplicativos Lógicos oferecem conectividade pronta para uso para um vasto ecossistema de aplicativos de SaaS, baseados em nuvem e locais.
 
-* [**O armazenamento de BLOBs do Azure**](https://azure.microsoft.com/services/storage/): Armazenamento em nuvem confiável e econômico para os dados que os dispositivos enviam para a nuvem.
+* [**Armazenamento de Blobs do Azure**](https://azure.microsoft.com/services/storage/): Armazenamento em nuvem confiável e econômico para os dados que os dispositivos enviam para a nuvem.

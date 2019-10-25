@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: d1461a1bb026d478d51a5f79cc02b34172524db6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 26dc1ebef1c627ed2b20eb0fda68b2ca2d01b82a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566418"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791753"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitorar Sincronização de Dados SQL com logs de Azure Monitor 
 
@@ -27,7 +27,7 @@ Para verificar o log de atividades da Sincronização de Dados SQL e detectar er
 Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> Atualmente, a Sincronização de Dados SQL **não** dá suporte para Instância Gerenciada do Banco de Dados SQL do Azure.
+> No momento, a Sincronização de Dados SQL do Azure **não** dá suporte à Instância Gerenciada do Banco de Dados SQL do Azure.
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Painel de Monitoramento para todos os Grupos de Sincronização 
 
@@ -67,7 +67,7 @@ Verifique se você configurou o seguinte:
 
 -   Uma conta da Automação do Azure
 
--   Workspace do Log Analytics
+-   Espaço de trabalho do Log Analytics
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>Runbook do PowerShell para obter o Log da Sincronização de Dados SQL 
 
@@ -85,7 +85,7 @@ Para obter mais informações sobre como criar um runbook, consulte [Meu primeir
 
 4.  Em **Arquivo de runbook**, use o determinado arquivo `DataSyncLogPowerShellRunbook`. Defina o **Tipo de runbook** como `PowerShell`. Forneça um nome para o runbook.
 
-5.  Selecione **Criar**. Agora você tem um runbook.
+5.  Clique em **Criar**. Agora você tem um runbook.
 
 6.  Em sua Conta da Automação do Azure, selecione a guia **Variáveis** em Recursos Compartilhados.
 
@@ -123,7 +123,7 @@ Para agendar o runbook:
 
 5.  Defina **Recorrência** como Recorrente e defina o intervalo desejado. Use o mesmo intervalo aqui, no script e em logs de Azure Monitor.
 
-6.  Selecione **Criar**.
+6.  Clique em **Criar**.
 
 ### <a name="check-the-automation"></a>Verificar a automação
 
@@ -137,7 +137,7 @@ Para criar um alerta que usa logs de Azure Monitor, faça o seguinte. Como pré-
 
 2.  Crie uma consulta para selecionar os erros e avisos por grupo de sincronização dentro do intervalo selecionado. Por exemplo:
 
-    `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
+    `DataSyncLog_CL | where TimeGenerated > ago(60m) | where LogLevel_s != "Success" | summarize count() by SyncGroupName_s`
 
 3.  Depois de executar a consulta, selecione o sino que indica **Alerta**.
 
@@ -145,11 +145,11 @@ Para criar um alerta que usa logs de Azure Monitor, faça o seguinte. Como pré-
 
     1.  Defina o Valor de Agregação como **Maior que**.
 
-    2.  Após **Maior que**, insira o limite a ser decorrido antes que você receba notificações. Erros transitórios são esperados na Sincronização de Dados. Para reduzir o ruído, defina o limite para 5.
+    2.  Após **Maior que**, insira o limite a ser decorrido antes que você receba notificações. Erros transitórios são esperados na sincronização de dados. Para reduzir o ruído, defina o limite como 5.
 
 5.  Em **Ações**, defina **Notificação por email** como “Sim." Insira os destinatários de email desejados.
 
-6.  Clique em **Salvar**. Agora, os destinatários especificados recebem notificações por email quando ocorrem erros.
+6.  Clique em **Save** (Salvar). Agora, os destinatários especificados recebem notificações por email quando ocorrem erros.
 
 ## <a name="create-an-azure-monitor-view-for-monitoring"></a>Criar uma exibição de Azure Monitor para monitoramento
 
@@ -185,9 +185,9 @@ Para configurar o Azure Monitor exibição, faça o seguinte:
 
 Na maioria dos casos, essa solução é gratuita.
 
-**Automação do Azure**: Pode haver um custo com a conta da Automação do Azure, dependendo do uso. Os primeiros 500 minutos do tempo de execução do trabalho por mês são gratuitos. Na maioria dos casos, espera-se que essa solução use menos de 500 minutos por mês. Para evitar encargos, agende o runbook para que ele seja executado em um intervalo de duas horas ou mais. Para obter mais informações, consulte [Preços da Automação](https://azure.microsoft.com/pricing/details/automation/).
+**Automação do Azure:** pode haver um custo com a conta da Automação do Azure, dependendo do uso. Os primeiros 500 minutos do tempo de execução do trabalho por mês são gratuitos. Na maioria dos casos, espera-se que essa solução use menos de 500 minutos por mês. Para evitar encargos, agende o runbook para que ele seja executado em um intervalo de duas horas ou mais. Para obter mais informações, consulte [Preços da Automação](https://azure.microsoft.com/pricing/details/automation/).
 
-**Logs de Azure Monitor:** Pode haver um custo associado a Azure Monitor logs, dependendo do seu uso. A camada gratuita inclui 500 MB de dados ingeridos por dia. Na maioria dos casos, espera-se que essa solução ingira menos de 500 MB por dia. Para diminuir o uso, use a filtragem somente falha incluída no runbook. Caso você esteja usando mais de 500 MB por dia, faça atualização para a camada paga para evitar o risco da interrupção da análise quando o limite for atingido. Para obter mais informações, consulte [preços de Azure monitor logs](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Logs de Azure monitor:** Pode haver um custo associado a Azure Monitor logs, dependendo do seu uso. A camada gratuita inclui 500 MB de dados ingeridos por dia. Na maioria dos casos, espera-se que essa solução ingira menos de 500 MB por dia. Para diminuir o uso, use a filtragem somente falha incluída no runbook. Caso você esteja usando mais de 500 MB por dia, faça atualização para a camada paga para evitar o risco da interrupção da análise quando o limite for atingido. Para obter mais informações, consulte [preços de Azure monitor logs](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Exemplos de código
 
@@ -197,12 +197,12 @@ Baixe os exemplos de código descritos neste artigo nos seguintes locais:
 
 -   [Exibição de Azure Monitor de sincronização de dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre a Sincronização de Dados SQL, veja:
 
 -   Visão geral - [Sincronize dados em vários bancos de dados locais e na nuvem com o Azure SQL Data Sync](sql-database-sync-data.md)
 -   Configurar sincronização de dados
-    - No portal - [Tutorial: Configurar sincronização de dados SQL para sincronizar dados entre o banco de dados SQL do Azure e SQL Server local](sql-database-get-started-sql-data-sync.md)
+    - No portal - [Tutorial: configure o SQL Data Sync para sincronizar dados entre o Banco de Dados SQL do Azure e o SQL Server local](sql-database-get-started-sql-data-sync.md)
     - Com o PowerShell
         -  [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)

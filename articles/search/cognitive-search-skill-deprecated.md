@@ -1,29 +1,28 @@
 ---
-title: Habilidades cognitivas preteridas – Azure Search
-description: Esta página contém uma lista de habilidades de pesquisa cognitiva que são consideradas obsoletas e não serão suportadas no futuro próximo.
-services: search
+title: Habilidades cognitivas preteridas
+titleSuffix: Azure Cognitive Search
+description: Esta página contém uma lista de habilidades cognitivas que são consideradas preteridas e que não terão suporte em um futuro próximo no Azure Pesquisa Cognitiva habilidades.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 1e78852ec8b92f1a9e37a4dbcbbcb371c0ac0f97
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 5f3587e4398be28cbaa2372be720258196bb48ff
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265431"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792030"
 ---
-# <a name="deprecated-cognitive-search-skills"></a>Habilidades de pesquisa cognitiva preteridas
+# <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Habilidades cognitivas preteridas no Azure Pesquisa Cognitiva
 
 Este documento descreve as habilidades cognitivas que são consideradas obsoletas. Use o seguinte guia para o conteúdo:
 
-* Nome da habilidade: O nome da habilidade que será preterida; mapeado para o atributo @odata.type.
-* Última versão de API disponível: A última versão da API pública do Azure Search por meio da qual os conjuntos de habilidades contendo a habilidade preterida correspondente podem ser criados/atualizados.
+* Nome da Habilidade: O nome da habilidade que será descontinuada, mapeia para o atributo @odata.type.
+* Última versão da API disponível: a última versão da API pública do Azure Pesquisa Cognitiva por meio da qual habilidades que contém as habilidades preteridas correspondentes pode ser criada/atualizada.
 * Fim do suporte: O último dia após o qual a habilidade correspondente é considerada sem suporte. Os conjuntos de habilidades criados anteriormente ainda devem continuar funcionando, mas recomenda-se que os usuários migrem de uma habilidade obsoleta.
-* Recomendações: Encaminhamento de caminho de migração para usar uma habilidade com suporte. Os usuários são aconselhados a seguir as recomendações para continuar recebendo suporte.
+* Recomendações: caminho de migração para usar uma habilidade suportada. Os usuários são aconselhados a seguir as recomendações para continuar recebendo suporte.
 
 ## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
@@ -146,8 +145,8 @@ Para migrar para a [Habilidade de Reconhecimento de Entidade](cognitive-search-s
         }
         ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
-+ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
 + [Habilidade de reconhecimento de entidade](cognitive-search-skill-entity-recognition.md)

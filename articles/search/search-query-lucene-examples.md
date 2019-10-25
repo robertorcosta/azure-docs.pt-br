@@ -1,25 +1,24 @@
 ---
-title: Usar sintaxe de consulta Lucene completa-Azure Search
-description: Sintaxe de consulta Lucene para pesquisa difusa, pesquisa por proximidade, aumento de termos, pesquisa com expressão regular e pesquisas com curinga em um serviço do Azure Search.
-author: HeidiSteen
+title: Usar sintaxe de consulta Lucene completa
+titleSuffix: Azure Cognitive Search
+description: Sintaxe de consulta Lucene para pesquisa difusa, pesquisa de proximidade, aumento de termo, pesquisa de expressão regular e pesquisas de curinga em um serviço de Pesquisa Cognitiva do Azure.
 manager: nitinme
-tags: Lucene query analyzer syntax
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/20/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: fcfc668022d0d8fc74258657bb93642aec49bd08
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+tags: Lucene query analyzer syntax
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 745be21c2a7a09a09fdbbfd57a305d09a4fac3ed
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178162"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793440"
 ---
-# <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Use a sintaxe de pesquisa "completa" do Lucene (consultas avançadas no Azure Search)
+# <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Use a sintaxe de pesquisa "completa" do Lucene (consultas avançadas no Pesquisa Cognitiva do Azure)
 
-Ao construir consultas para o Azure Search, você pode substituir o padrão [analisador de consulta simples](query-simple-syntax.md) com mais expansiva [Lucene Query Parser no Azure Search](query-lucene-syntax.md) para formular a consulta especializada e avançada definições. 
+Ao construir consultas para Pesquisa Cognitiva do Azure, você pode substituir o [analisador de consulta simples](query-simple-syntax.md) padrão pelo [analisador de consulta Lucene mais avançado no Azure pesquisa cognitiva](query-lucene-syntax.md) para formular definições de consulta especializadas e avançadas. 
 
 O analisador Lucene dá suporte a construções de consultas complexas, como consultas com escopo de campo, pesquisa de curingas difusas e de prefixo, pesquisa por proximidade, aumento de termo e pesquisa de expressão regular. A energia adicional vem com requisitos adicionais de processamento, portanto, você deve esperar um tempo de execução um pouco mais longo. Neste artigo, execute exemplos em etapas, que demonstram as operações de consulta disponíveis ao usar a sintaxe completa.
 
@@ -29,9 +28,9 @@ O analisador Lucene dá suporte a construções de consultas complexas, como con
 
 ## <a name="formulate-requests-in-postman"></a>Formular solicitações em Postman
 
-Os exemplos a seguir utilizam um índice de pesquisa de Trabalhos de Nova Iorque que consiste em trabalhos disponíveis com base em um conjunto de dados fornecido pelo [OpenData da cidade de Nova Iorque](https://opendata.cityofnewyork.us/). Esses dados não devem ser considerados atuais ou completos. O índice está em um serviço de área restrita fornecido pela Microsoft, o que significa que não é necessária uma assinatura do Azure ou Azure Search para experimentar essas consultas.
+Os exemplos a seguir utilizam um índice de pesquisa de Trabalhos de Nova Iorque que consiste em trabalhos disponíveis com base em um conjunto de dados fornecido pelo [OpenData da cidade de Nova Iorque](https://opendata.cityofnewyork.us/). Esses dados não devem ser considerados atuais ou completos. O índice está em um serviço de área restrita fornecido pela Microsoft, o que significa que você não precisa de uma assinatura do Azure ou Pesquisa Cognitiva do Azure para tentar essas consultas.
 
-O que é necessário é o Postman ou uma ferramenta equivalente para emitir solicitação HTTP em GET. Para obter mais informações, consulte [explorar com clientes REST](search-get-started-postman.md).
+O que é necessário é o Postman ou uma ferramenta equivalente para emitir solicitação HTTP em GET. Para obter mais informações, consulte [Explorar com clientes REST](search-get-started-postman.md).
 
 ### <a name="set-the-request-header"></a>Definir o cabeçalho de solicitação
 
@@ -45,13 +44,13 @@ Após especificar o cabeçalho de solicitação, você poderá reutilizá-lo par
 
 ### <a name="set-the-request-url"></a>Definir a URL da solicitação
 
-A solicitação é um comando GET emparelhado com uma URL que contém a cadeia de caracteres de pesquisa e o ponto de extremidade do Azure Search.
+A solicitação é um comando GET emparelhado com uma URL que contém o ponto de extremidade Pesquisa Cognitiva do Azure e a cadeia de caracteres de pesquisa.
 
   ![Cabeçalho da solicitação do Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 A composição de URL possui os elementos a seguir:
 
-+ **`https://azs-playground.search.windows.net/`** é um serviço de pesquisa de área restrita mantido pela equipe de desenvolvimento do Azure Search. 
++ **`https://azs-playground.search.windows.net/`** é um serviço de pesquisa de área restrita mantido pela equipe de desenvolvimento do Azure pesquisa cognitiva. 
 + **`indexes/nycjobs/`** é o índice Trabalhos de Nova Iorque na coleção de índices desse serviço. O nome do serviço e índice são obrigatórios na solicitação.
 + **`docs`** é a coleção de documentos que contém todo o conteúdo pesquisável. A chave de API de consulta fornecida no cabeçalho da solicitação somente funciona em operações de leitura direcionando a coleção de documentos.
 + **`api-version=2019-05-06`** define a versão da API, que é um parâmetro obrigatório em todas as solicitações.
@@ -69,7 +68,7 @@ Cole essa URL em um cliente REST como uma etapa de validação e exiba a estrutu
 
 A cadeia de caracteres de consulta, **`search=*`** , é uma pesquisa não especificada equivalente à pesquisa nula ou vazia. É a pesquisa mais simples que você pode fazer.
 
-Opcionalmente, é possível adicionar **`$count=true`** à URL para retornar uma contagem dos documentos que correspondem aos critérios de pesquisa. Em uma cadeia de pesquisa vazia, esses são todos os documentos no índice (cerca de 2800 no caso de NYC Jobs).
+Opcionalmente, é possível adicionar **`$count=true`** à URL para retornar uma contagem dos documentos que correspondem aos critérios de pesquisa. Em uma cadeia de caracteres de pesquisa vazia, esses são todos os documentos no índice (aproximadamente 2800 no caso de Trabalhos de Nova Iorque).
 
 ## <a name="how-to-invoke-full-lucene-parsing"></a>Como invocar a análise completa do Lucene
 
@@ -81,7 +80,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 Todos os exemplos deste artigo especificam o parâmetro de pesquisa **queryType=full**, indicando que a sintaxe completa é tratada pelo Analisador de Consulta Lucene. 
 
-## <a name="example-1-query-scoped-to-a-list-of-fields"></a>Exemplo 1: Consulta com escopo para uma lista de campos
+## <a name="example-1-query-scoped-to-a-list-of-fields"></a>Exemplo 1: consulta com escopo para uma lista de campos
 
 Este primeiro exemplo não é específico do Lucene, mas nós o conduzimos a apresentar o primeiro conceito fundamental de consulta: escopo do campo. Este exemplo abrange toda a consulta e a resposta a apenas alguns campos específicos. Saber como estruturar uma resposta JSON legível é importante quando sua ferramenta é Postman ou Search Explorer. 
 
@@ -102,7 +101,7 @@ search=*&searchFields=business_title, posting_type&$select=business_title, posti
 Os espaços após as vírgulas são opcionais.
 
 > [!Tip]
-> Ao usar a API REST do código do aplicativo, não se esqueça de parâmetros de codificação de `$select` URL `searchFields`como e.
+> Ao usar a API REST do código do aplicativo, não se esqueça de parâmetros de codificação de URL como `$select` e `searchFields`.
 
 ### <a name="full-url"></a>URL completa
 
@@ -116,7 +115,7 @@ A resposta para essa consulta deve ser semelhante à captura de tela a seguir.
 
 Você deve ter notado a pontuação de pesquisa na resposta. Pontuações uniformes de 1 ocorrem quando não há classificação, seja porque a pesquisa não foi pesquisa de texto completo ou porque nenhum critério foi aplicado. Para pesquisa nula sem critérios, as linhas retornam em ordem arbitrária. Ao incluir os critérios de pesquisa reais, você verá que as pontuações de pesquisa evoluem em valores significativos.
 
-## <a name="example-2-fielded-search"></a>Exemplo 2: Pesquisa em campo
+## <a name="example-2-fielded-search"></a>Exemplo 2: pesquisa em campo
 
 A sintaxe Lucene completa dá suporte a expressões de pesquisa individuais de escopo para um campo específico. Este exemplo pesquisa títulos de negócios com o termo sênior neles, mas não Júnior.
 
@@ -146,14 +145,14 @@ Você pode definir uma operação de pesquisa em campo com a sintaxe **FieldName
 - `state:("New York" OR "New Jersey")`
 - `business_title:(senior NOT junior) AND posting_type:external`
 
-Certifique-se de colocar várias cadeias de caracteres entre aspas se desejar que ambas as cadeias de caracteres sejam avaliadas como uma única entidade, como nesse caso procurando `state` por dois locais distintos no campo. Além disso, verifique se o operador está em maiúsculas, como você pode ver com NÃO e E.
+Certifique-se de colocar várias cadeias de caracteres entre aspas se desejar que ambas as cadeias de caracteres sejam avaliadas como uma única entidade, como nesse caso procurando por dois locais distintos no campo `state`. Além disso, verifique se o operador está em maiúsculas, como você pode ver com NÃO e E.
 
-O campo especificado em **FieldName: searchId** deve ser um campo pesquisável. Confira [Create Index (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) (Criar índice [API REST do Serviço Azure Search]) para obter detalhes sobre como os atributos de índice são usados em definições de campo.
+O campo especificado em **FieldName: searchId** deve ser um campo pesquisável. Consulte [criar índice (API REST do Azure pesquisa cognitiva)](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados em definições de campo.
 
 > [!NOTE]
-> No exemplo acima, não precisamos usar o `searchFields` parâmetro porque cada parte da consulta tem um nome de campo especificado explicitamente. No entanto, você ainda poderá `searchFields` usar o parâmetro se quiser executar uma consulta em que algumas partes têm o escopo de um campo específico, e o restante pode se aplicar a vários campos. Por exemplo, a consulta `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` `senior NOT junior` corresponderia apenas ao `business_title` campo, enquanto ele corresponderia a "external" `posting_type` com o campo. O nome do campo fornecido em **FieldName: searchexception** sempre tem precedência `searchFields` sobre o parâmetro, que é o motivo neste exemplo, não precisamos incluir `business_title` no `searchFields` parâmetro.
+> No exemplo acima, não precisamos usar o parâmetro `searchFields` porque cada parte da consulta tem um nome de campo especificado explicitamente. No entanto, você ainda poderá usar o parâmetro `searchFields` se quiser executar uma consulta em que algumas partes têm o escopo de um campo específico e o restante pode se aplicar a vários campos. Por exemplo, o `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` de consulta corresponderia `senior NOT junior` apenas ao campo `business_title`, enquanto ele corresponderia a "external" com o campo `posting_type`. O nome do campo fornecido em **FieldName: searchexception** sempre tem precedência sobre o parâmetro `searchFields`, que é o motivo neste exemplo, não precisamos incluir `business_title` no parâmetro `searchFields`.
 
-## <a name="example-3-fuzzy-search"></a>Exemplo 3: Pesquisa difusa
+## <a name="example-3-fuzzy-search"></a>Exemplo 3: pesquisa difusa
 
 A sintaxe Lucene completa também dá suporte à pesquisa difusa, combinando em termos que têm uma construção semelhante. Para fazer uma pesquisa difusa, acrescente o símbolo til `~` ao final de uma única palavra com um parâmetro opcional, um valor entre 0 e 2, que especifica a distância de edição. Por exemplo, `blue~` ou `blue~1` retornariam mar, amar e maré.
 
@@ -184,7 +183,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 > As consultas difusas não são [analisadas](search-lucene-query-architecture.md#stage-2-lexical-analysis). Tipos de consulta com termos incompletos (consulta de prefixo, consulta de curinga, consulta de regex, consulta difusa) são adicionados diretamente à árvore de consulta, ignorando o estágio de análise. A única transformação realizada em termos de consulta incompletos é colocá-los em letras minúsculas.
 >
 
-## <a name="example-4-proximity-search"></a>Exemplo 4: Pesquisa por proximidade
+## <a name="example-4-proximity-search"></a>Exemplo 4: pesquisa por proximidade
 As pesquisas de proximidade são usadas para localizar termos que estejam próximos um do outro em um documento. Insira um símbolo til "~" no final de uma frase seguida pelo número de palavras que criam o limite de proximidade. Por exemplo, "hotel aeroporto"~5 encontrará os termos hotel e aeroporto em cinco palavras uma da outra em um documento.
 
 ### <a name="partial-query-string"></a>Cadeia de caracteres de consulta parcial
@@ -208,7 +207,7 @@ Tente novamente removendo as palavras entre o termo "analista sênior". Observe 
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~0
 ```
 
-## <a name="example-5-term-boosting"></a>Exemplo 5: Aumento de termos
+## <a name="example-5-term-boosting"></a>Exemplo 5: aumento de termos
 O aumento de termos refere-se ao aumento da classificação de um documento caso ele contenha o termo aumentado, em relação aos documentos que não contêm o termo. Para aumentar um termo, use o sinal de interpolação, "^", com um fator de aumento (um número) no final do termo que você está pesquisando. 
 
 ### <a name="full-urls"></a>URLs completas
@@ -260,7 +259,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 > Consultas Regex não são [analisadas](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). A única transformação realizada em termos de consulta incompletos é colocá-los em letras minúsculas.
 >
 
-## <a name="example-7-wildcard-search"></a>Exemplo 7: Pesquisa com curinga
+## <a name="example-7-wildcard-search"></a>Exemplo 7: pesquisa com curinga
 Você pode usar a sintaxe geralmente reconhecida para pesquisas com vários caracteres curinga (\*) ou um caractere curinga (?). Observe que o analisador de consulta Lucene oferece suporte ao uso desses símbolos com um único termo e não uma frase.
 
 ### <a name="partial-query-string"></a>Cadeia de caracteres de consulta parcial
@@ -282,15 +281,15 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 > Consultas com curingas não são [analisadas](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). A única transformação realizada em termos de consulta incompletos é colocá-los em letras minúsculas.
 >
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Tente especificar o Analisador de Consulta Lucene em seu código. Os links a seguir explicam como configurar consultas de pesquisa para o .NET e para a API REST. Os links usam a sintaxe simples padrão e, portanto, será necessário aplicar o que você aprendeu neste artigo para especificar o **queryType**.
 
-* [Consultar seu índice do Azure Search usando o SDK do .NET](search-query-dotnet.md)
-* [Consultar seu índice do Azure Search usando a API REST](search-create-index-rest-api.md)
+* [Consultar seu índice usando o SDK do .NET](search-query-dotnet.md)
+* [Consultar seu índice usando a API REST](search-create-index-rest-api.md)
 
 Referência de sintaxe adicional, arquitetura de consulta e exemplos podem ser encontrados nos links a seguir:
 
 + [Exemplos de consulta de sintaxe simples](search-query-simple-examples.md)
-+ [Como funciona a pesquisa de texto completo no Azure Search](search-lucene-query-architecture.md)
++ [Como funciona a pesquisa de texto completo no Azure Pesquisa Cognitiva](search-lucene-query-architecture.md)
 + [Sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Sintaxe de consulta Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)

@@ -1,23 +1,22 @@
 ---
-title: Atualizar para o SDK do .NET do Azure Search versão 5 – Azure Search
+title: Atualizar para Azure Search SDK do .NET versão 5
+titleSuffix: Azure Cognitive Search
 description: Migre o código para o SDK do .NET do Azure Search versão 5 de versões mais antigas. Conheça as novidades e quais alterações de código são necessárias.
-author: brjohnstmsft
 manager: nitinme
-services: search
-ms.service: search
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: c64d13e4bcad11ef729f34ee71b7c7461a507fc7
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: bb0cd191ba7e5939c55d11b484ed7a2c422f8c6d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183253"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793033"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Atualizando para o SDK do .NET do Azure Search versão 5
+# <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Atualizar para Azure Search SDK do .NET versão 5
 
 Se você estiver usando a visualização da versão 4.0 ou mais antiga do [SDK .NET do Azure Search](https://aka.ms/search-sdk), este artigo ajudará você a atualizar seu aplicativo para usar a versão 5.
 
@@ -67,9 +66,9 @@ Após corrigir todos os avisos ou erros de build, você poderá fazer alteraçõ
 
 A alteração de falha mais significativa na versão 5 é que o `Microsoft.Azure.Search` assembly e seu conteúdo foram dividido em quatro assemblies separados que agora são distribuídos como quatro pacotes do NuGet separados:
 
- - `Microsoft.Azure.Search`: Esse é um metapacote que inclui todos os outros pacotes do Azure Search como dependências. Se você estiver atualizando de uma versão anterior do SDK, a atualização e recriação deste pacote devem ser suficientes para iniciar usando uma nova versão.
- - `Microsoft.Azure.Search.Data`: Use esse pacote se estiver desenvolvendo um aplicativo .NET usando o Azure Search e só precisa consultar ou atualizar documentos nos índices. Se você também precisa criar ou atualizar índices, mapas de sinônimo ou outros recursos de nível de serviço, use o `Microsoft.Azure.Search` pacote em vez disso.
- - `Microsoft.Azure.Search.Service`: Use esse pacote se estiver desenvolvendo a automação no .NET para gerenciar índices, mapas de sinônimos, indexadores, fontes de dados ou outros recursos no nível do serviço do Azure Search. Se você precisar apenas consultar ou atualizar em seus índices, use o `Microsoft.Azure.Search.Data` pacote em vez disso. Se você precisar de toda a funcionalidade do Azure Search, use o `Microsoft.Azure.Search` pacote em vez disso.
+ - `Microsoft.Azure.Search`: este é um pacote meta que inclui todos os outros pacotes de pesquisa do Azure Search, como dependências. Se você estiver atualizando de uma versão anterior do SDK, a atualização e recriação deste pacote devem ser suficientes para iniciar usando uma nova versão.
+ - `Microsoft.Azure.Search.Data`: use este pacote se você estiver desenvolvendo um aplicativo .NET usando o Azure Search e você só precisa consultar ou atualizar documentos em seus índices. Se você também precisa criar ou atualizar índices, mapas de sinônimo ou outros recursos de nível de serviço, use o `Microsoft.Azure.Search` pacote em vez disso.
+ - `Microsoft.Azure.Search.Service`: use este pacote se você estiver desenvolvendo automação no .NET para gerenciar índices do Azure Search, mapas de sinônimo, indexadores, fontes de dados ou outros recursos de nível de serviço. Se você precisar apenas consultar ou atualizar em seus índices, use o `Microsoft.Azure.Search.Data` pacote em vez disso. Se você precisar de toda a funcionalidade do Azure Search, use o `Microsoft.Azure.Search` pacote em vez disso.
  - `Microsoft.Azure.Search.Common`: Tipos comuns necessários para as bibliotecas .NET do Azure Search. Você não precisa usar esse pacote diretamente em seu aplicativo; somente é destinada a ser usado como uma dependência.
  
 Essa alteração está interrompendo tecnicamente porque muitos tipos foram movidos entre os assemblies. É por isso que recriar seu aplicativo é necessário para atualizar para a versão 5 do SDK.
@@ -99,6 +98,6 @@ Se seu aplicativo tiver uma dependência rígida desses recursos, você não pod
 ## <a name="conclusion"></a>Conclusão
 Se precisar de mais detalhes sobre como usar o SDK do .NET do Azure Search, confira o [Tutorial .NET](search-howto-dotnet-sdk.md).
 
-Apreciamos os seus comentários sobre o SDK. Se você encontrar problemas, sinta-se à vontade para nos pedir ajuda sobre [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Se encontrar um bug, você poderá apresentar um problema no [repositório GitHub sobre o SDK do .NET do Azure](https://github.com/Azure/azure-sdk-for-net/issues). Não deixe de colocar o prefixo "[Azure Search]" no título do problema.
+Apreciamos os seus comentários sobre o SDK. Se você encontrar problemas, sinta-se à vontade para nos pedir ajuda sobre [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Se encontrar um bug, você poderá apresentar um problema no [repositório GitHub sobre o SDK do .NET do Azure](https://github.com/Azure/azure-sdk-for-net/issues). Não deixe de colocar o prefixo [Azure Search]" no título do problema.
 
 Obrigado por usar o Azure Search!

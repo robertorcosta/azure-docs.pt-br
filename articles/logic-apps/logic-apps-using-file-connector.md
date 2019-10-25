@@ -1,5 +1,5 @@
 ---
-title: Conectar-se a sistemas de arquivos locais – aplicativos lógicos do Azure
+title: Conectar-se a sistemas de arquivos locais-aplicativos lógicos do Azure
 description: Automatize tarefas e fluxos de trabalho que se conectam a sistemas de arquivos locais com o conector do sistema de arquivos por meio do gateway de dados local nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: 5a6a57fb05d59e70df13f6800c8fa7bf87df91c6
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 1b5cf27c49a003042086cd9452f288c7f348d343
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295880"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72799709"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conectar a sistemas de arquivos locais com os Aplicativos Lógicos do Azure
 
@@ -24,17 +24,17 @@ Com o conector do sistema de arquivos e os Aplicativos Lógicos do Azure, você 
 - Listar arquivos em pastas ou pastas raiz.
 - Obter conteúdo e metadados do arquivo.
 
-Este artigo mostra como se conectar a um sistema de arquivos local como descrito por este cenário de exemplo: copiar um arquivo carregado no Dropbox para um compartilhamento de arquivos e depois enviar um email. Para se conectar e acessar sistemas locais com segurança, os aplicativos lógicos usam o [gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Se ainda não estiver familiarizado com aplicativos lógicos, leia [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md). Para obter informações técnicas específicas do conector, consulte a [referência de conector do sistema de arquivos](/connectors/filesystem/).
+Este artigo mostra como se conectar a um sistema de arquivos local como descrito por este cenário de exemplo: copiar um arquivo carregado no Dropbox para um compartilhamento de arquivos e depois enviar um email. Para se conectar e acessar sistemas locais com segurança, os aplicativos lógicos usam o [gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Se ainda não estiver familiarizado com aplicativos lógicos, leia [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md). Para obter informações técnicas específicas do conector, consulte a [referência do conector do sistema de arquivos](/connectors/filesystem/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Antes de poder conectar aplicativos lógicos a sistemas locais, como seu servidor do sistema de arquivos, você precisará [instalar e configurar o gateway de dados local](../logic-apps/logic-apps-gateway-install.md). Dessa forma, você pode especificar para usar sua instalação de gateway quando criar a conexão do sistema de arquivos do seu aplicativo lógico.
 
-* Um [conta do Dropbox](https://www.dropbox.com/), que você pode se inscrever gratuitamente. Suas credenciais de conta são necessárias para a criação de uma conexão entre seu aplicativo lógico e sua conta do Dropbox.
+* Uma [conta do Dropbox](https://www.dropbox.com/), que você pode assinar gratuitamente. Suas credenciais de conta são necessárias para criar uma conexão entre seu aplicativo lógico e sua conta do dropbox.
 
-* Acesso ao computador que tem o sistema de arquivos que você deseja usar. Por exemplo, se você instalar o gateway de dados no mesmo computador que o seu sistema de arquivos, você precisa das credenciais de conta para o computador.
+* Acesso ao computador que tem o sistema de arquivos que você deseja usar. Por exemplo, se você instalar o gateway de dados no mesmo computador que o sistema de arquivos, precisará das credenciais de conta para esse computador.
 
 * Uma conta de email de um provedor compatível com os Aplicativos Lógicos, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros provedores, [revise a lista de conectores aqui](https://docs.microsoft.com/connectors/). Esso aplicativo lógico usa uma conta do Outlook do Office 365. Se você usar outra conta de email, as etapas gerais são as mesmos, mas a interface do usuário pode ser ligeiramente diferente.
 
@@ -58,7 +58,7 @@ Este artigo mostra como se conectar a um sistema de arquivos local como descrito
 
 ## <a name="add-actions"></a>Adicionar ações
 
-1. No gatilho, escolha **Próxima etapa**. Na caixa de pesquisa, insira "sistema de arquivos" como filtro. Na lista de ações, selecione esta ação: **Criar arquivo**
+1. No gatilho, escolha **Próxima etapa**. Na caixa de pesquisa, insira "sistema de arquivos" como filtro. Na lista ações, selecione esta ação: **criar arquivo**
 
    ![Localizar o conector do sistema de arquivos](media/logic-apps-using-file-connector/find-file-system-action.png)
 
@@ -66,14 +66,14 @@ Este artigo mostra como se conectar a um sistema de arquivos local como descrito
 
    ![Criar conexão](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | Propriedade | Necessário | Value | DESCRIÇÃO |
+   | Propriedade | obrigatórios | Value | Descrição |
    | -------- | -------- | ----- | ----------- |
-   | **Nome da Conexão** | Sim | <*connection-name*> | O nome desejado para a conexão |
-   | **Pasta raiz** | Sim | <*root-folder-name*> | A pasta raiz do sistema de arquivos, por exemplo, se você tiver instalado seu gateway de dados local, como uma pasta local no computador em que o gateway de dados local está instalado ou a pasta de um compartilhamento de rede que o computador pode acessar. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta raiz é a pasta pai principal, que é usada para caminhos relativos de todas as ações relacionadas ao arquivo. |
+   | **Nome da Conexão** | SIM | <*connection-name*> | O nome desejado para a conexão |
+   | **Pasta raiz** | SIM | <*root-folder-name*> | A pasta raiz do sistema de arquivos, por exemplo, se você tiver instalado seu gateway de dados local, como uma pasta local no computador em que o gateway de dados local está instalado ou a pasta de um compartilhamento de rede que o computador pode acessar. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta raiz é a pasta pai principal, que é usada para caminhos relativos de todas as ações relacionadas ao arquivo. |
    | **Tipo de autenticação** | Não | <*auth-type*> | O tipo de autenticação usado pelo seu sistema de arquivos, por exemplo, **Windows** |
-   | **Nome de Usuário** | Sim | <*domain*>\\<*username*> | O nome de usuário do computador no qual você tem seu sistema de arquivos |
-   | **Senha** | Sim | <*your-password*> | A senha do computador no qual você tem seu sistema de arquivos |
-   | **gateway** | Sim | <*installed-gateway-name*> | O nome do seu gateway instalado anteriormente |
+   | **Nome de Usuário** | SIM | <*domain*>\\<*username*> | O nome de usuário do computador no qual você tem seu sistema de arquivos |
+   | **Senha** | SIM | <*your-password*> | A senha do computador no qual você tem seu sistema de arquivos |
+   | **gateway** | SIM | <*installed-gateway-name*> | O nome do seu gateway instalado anteriormente |
    |||||
 
 1. Quando terminar, escolha **Criar**.
@@ -96,7 +96,7 @@ Este artigo mostra como se conectar a um sistema de arquivos local como descrito
 
 Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explicados na descrição da OpenAPI do conector (anteriormente conhecido como Swagger), veja a [página de referência](/connectors/fileconnector/) do conector.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [se conectar a dados locais](../logic-apps/logic-apps-gateway-connection.md) 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)
