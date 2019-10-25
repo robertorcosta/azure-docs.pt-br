@@ -99,7 +99,7 @@ ms.locfileid: "72755328"
 | | Nepali | | |
 | | Norueguês (Bokmål) | | |
 | | Norueguês (Nynorsk) | | |
-| | Odia | | |
+| | Oriá | | |
 | | Pashto | | |
 | | Persa | | |
 | | Polonês | | |

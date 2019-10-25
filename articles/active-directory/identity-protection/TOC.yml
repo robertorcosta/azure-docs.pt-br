@@ -3,65 +3,49 @@
 - name: Visão geral
   items:
     - name: O que é o Azure AD Identity Protection?
-      href: overview.md
-- name: Guia de início rápido
-  items:
-    - name: Bloquear acesso quando é detectado um risco da sessão
-      href: quickstart-sign-in-risk-policy.md
+      href: overview-identity-protection.md
 - name: Conceitos
   expanded: false
   items:
-    - name: O que são vulnerabilidades?
-      href: vulnerabilities.md
-    - name: O que são notificações?
-      href: notifications.md
-    - name: Qual é sua experiência de entrada?
-      href: flows.md
+    - name: Visão geral da segurança
+      href: concept-identity-protection-security-overview.md
+    - name: O que são riscos?
+      href: concept-identity-protection-risks.md
+    - name: Políticas do Identity Protection
+      href: concept-identity-protection-policies.md
+    - name: O que é a experiência de conexão?
+      href: concept-identity-protection-user-experience.md
     - name: Usuários do Identity Protection e B2B
       href: concept-identity-protection-b2b.md
 - name: Guias de instruções
   expanded: true
   items:
-    - name: Identity Protection
+    - name: Configurar notificações
+      href: howto-identity-protection-configure-notifications.md
+    - name: Configuração de política
       items:
-        - name: Habilitar o Azure AD Identity Protection
-          href: enable.md
         - name: Configurar a política de registro de MFA
-          href: howto-mfa-policy.md
-        - name: Configurar a política de risco de entrada
-          href: howto-sign-in-risk-policy.md
-        - name: Configurar a política de risco de usuário
-          href: howto-user-risk-policy.md
-        - name: Fechar detecções de risco ativas
-          href: howto-close-active-risk-events.md
-        - name: Desbloquear usuários
-          href: howto-unblock-user.md
-        - name: Simular detecções de risco
-          href: playbook.md
-        - name: Perguntas frequentes
-          href: faqs.md
-    - name: Identity Protection (atualizada)
-      items:
-        - name: Visão geral
-          href: overview-v2.md
-        - name: Visão geral da segurança
-          href: security-overview.md
-        - name: Investigar risco
-          href: howto-investigate-risk.md
-        - name: Fornecer comentários sobre detecções de risco
-          href: howto-provide-risk-event-feedback.md
+          href: howto-identity-protection-configure-mfa-policy.md
         - name: Configurar políticas de risco
-          href: howto-configure-risk-policies.md
-        - name: Perguntas frequentes e problemas conhecidos
-          href: known-issues.md
+          href: howto-identity-protection-configure-risk-policies.md
+    - name: Simular detecções de risco
+      href: howto-identity-protection-simulate-risk.md
+    - name: Investigar e corrigir
+      items:
+        - name: Investigar risco
+          href: howto-identity-protection-investigate-risk.md
+        - name: Corrigir as detecções de risco e desbloquear
+          href: howto-identity-protection-remediate-unblock.md
+        - name: Usar a API do Microsoft Graph
+          href: howto-identity-protection-graph-api.md
+    - name: Fornecer comentários sobre detecções de risco
+      href: howto-identity-protection-risk-feedback.md
+    - name: Perguntas frequentes
+      href: troubleshooting-identity-protection-faq.md
 - name: Referência
   items:
-    - name: Usar a API do Microsoft Graph
-      href: graph-get-started.md
-    - name: Detecções de risco
-      href: risk-events-reference.md
     - name: Glossário
-      href: glossary.md
+      href: reference-identity-protection-glossary.md
 - name: Recursos
   items:
     - name: Fórum de comentários do Azure

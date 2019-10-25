@@ -145,7 +145,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Geórgia do Sul e Ilhas Sandwich do Sul | ✓ | ✓ |
 | Suriname                  | ✓ | ✓ |
 | Trinidad e Tobago       | ✓ | ✓ |
-| Ilhas Turks e Caicos  | ✓ | ✓ |
+| Ilhas Turcas e Caicos  | ✓ | ✓ |
 | Estados Unidos             | ✓ | ✓ |
 | Uruguai                   | ✓ | ✓ |
 | Venezuela                 | ✓ | ✓ |

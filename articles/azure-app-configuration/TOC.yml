@@ -25,6 +25,8 @@
       items:
         - name: ASP.NET Core
           href: quickstart-feature-flag-aspnet-core.md
+        - name: .NET Framework
+          href: quickstart-feature-flag-dotnet.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
 - name: Tutoriais
@@ -33,6 +35,8 @@
       href: enable-dynamic-configuration-aspnet-core.md
     - name: Habilitar a configuração dinâmica em um aplicativo .NET Core
       href: enable-dynamic-configuration-dotnet-core.md
+    - name: Habilitar a configuração dinâmica do .NET Framework
+      href: enable-dynamic-configuration-dotnet.md
     - name: Usar sinalizadores de recursos em um aplicativo .NET Core
       href: use-feature-flags-dotnet-core.md
     - name: Usar sinalizadores de recursos em um aplicativo Spring Boot

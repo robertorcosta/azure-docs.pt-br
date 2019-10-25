@@ -188,7 +188,7 @@ Você pode configurar uma política de filtragem geográfica para seu Front Door
 | SV | El Salvador|
 | SY | República Árabe Síria|
 | SZ | Suazilândia|
-| TC | Ilhas Turks e Caicos|
+| TC | Ilhas Turcas e Caicos|
 | TG | Togo|
 | TH | Tailândia|
 | TN | Tunísia|

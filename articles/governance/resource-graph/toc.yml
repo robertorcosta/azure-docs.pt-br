@@ -17,6 +17,11 @@
     - name: Execute sua primeira consulta – PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
       href: first-query-powershell.md
+- name: Tutoriais
+  items:
+    - name: Criar e compartilhar uma consulta no portal do Azure
+      displayName: 'query, portal'
+      href: ./tutorials/create-share-query.md
 - name: Exemplos
   items:
     - name: Consultas iniciais

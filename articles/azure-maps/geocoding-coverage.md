@@ -141,7 +141,7 @@ A capacidade de geocode em um país/região é dependente de cobertura de dados 
 | Tailândia                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Tokelau                                             |                 |                |              |      ✓     |          ✓         |
 | Tonganês                                               |                 |                |              |      ✓     |          ✓         |
-| Ilhas Turks e Caicos                            |                 |                |              |      ✓     |          ✓         |
+| Ilhas Turcas e Caicos                            |                 |                |              |      ✓     |          ✓         |
 | Tuvalu                                              |                 |                |              |      ✓     |          ✓         |
 | Vanuatu                                             |                 |                |              |      ✓     |          ✓         |
 | Vietnã                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |

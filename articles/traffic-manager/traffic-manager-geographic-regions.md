@@ -266,7 +266,7 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - SX(Sint Maarten)
 
-        - TC(Ilhas Turks e Caicos)
+        - TC(Ilhas Turcas e Caicos)
 
         - TT(Trinidad e Tobago)
 
