@@ -1,5 +1,5 @@
 ---
-title: Códigos de erro no relatório de atividade de entrada no portal do Azure Active Directory | Microsoft Docs
+title: Códigos de erro no portal de Azure Active Directory | Microsoft Docs
 description: Referência de códigos de erro no relatório de atividade de entrada.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b5aedd5c9bde7689df14c7efdf8d58692680c13
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 931f2fbe5798966c41378d9b401dcd59cafc5cca
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383167"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820881"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de login 
 
@@ -44,7 +44,7 @@ Filtre o relatório para exibir todos os logins com falha selecionando **Falha**
 
 ![Atividade de entrada](./media/reference-sign-ins-error-codes/06.png "Atividade de entrada")
 
-A seleção de um item da lista filtrada abre a folha **Detalhes da Atividade: Credenciais**. Essa visualização fornece informações adicionais sobre o evento de login com falha, incluindo o **código de erro de login** e **motivo de falha**.
+A seleção de um item da lista filtrada abre o bloco **Detalhes da atividade: Login**. Essa visualização fornece informações adicionais sobre o evento de login com falha, incluindo o **código de erro de login** e **motivo de falha**.
 
 ![Atividade de entrada](./media/reference-sign-ins-error-codes/05.png "Atividade de entrada")
 
@@ -137,7 +137,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |53002|O aplicativo usado não é um aplicativo aprovado para acesso condicional. O usuário precisa usar um dos aplicativos da lista de aplicativos aprovados para uso para obter acesso.|
 |53003|O acesso foi bloqueado devido a políticas de acesso condicional.|
 |53004|O usuário precisa concluir o processo de registro de autenticação multifator antes de acessar este conteúdo. O usuário deve se registrar para a autenticação multifator.|
-|65001|O aplicativo X não tem permissão para acessar o aplicativo Y ou a permissão foi revogada. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização interativa para esse usuário e recurso. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização ao administrador do seu locatário para atuar em nome do Aplicativo: Y para o Recurso: Z.|
+|65001|O aplicativo X não tem permissão para acessar o aplicativo Y ou a permissão foi revogada. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização interativa para esse usuário e recurso. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização ao administrador do seu locatário para atuar em nome do aplicativo: Y para o recurso: Z.|
 |65004|O usuário se recusou a consentir para acessar o aplicativo. Peça que o usuário tente entrar novamente e dê consentimento ao aplicativo|
 |65005|A lista de acesso a recursos exigida pelo aplicativo não contém aplicativos detectáveis pelo recurso ou O aplicativo cliente solicitou acesso a recursos, os quais não foram especificados na lista de acesso a recursos exigida ou O serviço Graph retornou uma solicitação inválida ou o recurso não foi encontrado. Se o aplicativo tem suporte para SAML, pode ser que você o tenha configurado com o identificador incorreto (entidade). Experimente a resolução listada para SAML usando o link abaixo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
 |70000|Concessão inválida pelos seguintes motivos:<ul><li>A asserção do SAML 2.0 solicitada tem método de confirmação de entidade inválido</li><li>Não há suporte para o fluxo de aplicativo OnBehalfOf na V2</li><li>O token de atualização primário não está assinado com a chave da sessão</li><li>Token de atualização externo inválido</li><li>A concessão do acesso foi obtida para um locatário diferente.</li></ul>|
@@ -162,7 +162,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |75011|O método de autenticação com o qual o usuário foi autenticado no serviço não corresponde ao método de autenticação solicitado. Entre em contato com o proprietário do aplicativo.|
 |75016|A solicitação de autenticação SAML2 tem o NameIdPolicy inválido. Entre em contato com o proprietário do aplicativo.|
 |80001|O Agente de Autenticação não pode se conectar ao Active Directory. Verifique se que o agente de autenticação está instalado em um computador de ingresso no domínio que tenha a linha de visão para um DC que pode atender à solicitação de logon do usuário.|
-|80002|Erro interno. A solicitação de validação de senha do atingiu o tempo limite. Não foi possível enviar a solicitação de autenticação para o serviço de identidade híbrida interno. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para obter mais detalhes sobre o erro.|
+|80002|Erro interno. A solicitação de validação de senha atingiu o tempo limite. Não foi possível enviar a solicitação de autenticação para o serviço de identidade híbrida interno. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para obter mais detalhes sobre o erro.|
 |80003|Resposta inválida recebida pelo Agente de Autenticação. Ocorreu um erro desconhecido durante a tentativa de autenticação do Active Directory local. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para obter mais detalhes sobre o erro.|
 |80005|Agente de Autenticação: um erro desconhecido ocorreu ao processar a resposta do Agente de Autenticação. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para obter mais detalhes sobre o erro.|
 |80007|O Agente de Autenticação não pode validar a senha do usuário.|
@@ -170,7 +170,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |80011|O Agente de Autenticação não consegue recuperar a chave de criptografia.|
 |80012|Os usuários tentaram fazer logon fora das horas permitidas (isso é especificado no AD).|
 |80013|A tentativa de autenticação não pôde ser concluída devido à diferença de horário entre o computador executando o agente de autenticação e o AD. Corrija os problemas de sincronização de horário|
-|80014|O Agente de Autenticação atingiu o tempo limite. [Abra um ticket de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com o código de erro, o ID de correlação e o Datetime para obter mais detalhes sobre esse erro.|
+|80014|O agente de autenticação atingiu o tempo limite. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com o código de erro, ID de correlação e data e hora para obter mais detalhes sobre esse erro.|
 |81001|O tíquete Kerberos do usuário é muito grande. Isso pode acontecer se o usuário estiver em muitos grupos e, portanto, o tíquete do Kerberos contém um número excessivo de associações de grupo. Reduza as associações de grupo do usuário e tente novamente.|
 |81005|Pacote de Autenticação Não Suportado.|
 |81007|Locatário não está habilitado para SSO contínuo.|
@@ -190,7 +190,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |7000218|O corpo da solicitação deve conter o seguinte parâmetro: ' client_assertion ' ou ' client_secret '.|
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral de relatórios de entradas](concept-sign-ins.md)
 * [Acesso programático aos relatórios do Microsoft Azure Active Directory](concept-reporting-api.md)

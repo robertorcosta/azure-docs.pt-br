@@ -15,15 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: 3ae2e49b812e7a9515cef81b328ceb87e1a7f017
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6fa2495ee580bb8e74a0d026533fa90f20743510
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69015468"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881761"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detectar a face e a emoção com o Azure Media Analytics
-## <a name="overview"></a>Visão geral
+
+> [!IMPORTANT]
+> Examine os [planos de aposentadoria](media-services-analytics-overview.md#retirement-plans) de alguns processadores de mídia.
+
+## <a name="overview"></a>Visão Geral
 O MP (processador de mídia) **Azure Media Face Detector** permite que você conte e acompanhe movimentos, e até mesmo meça a participação e a reação do público por meio de expressões faciais. Este serviço contém dois recursos: 
 
 * **Detecção facial**
@@ -43,7 +47,7 @@ No momento, o MP do **Azure Media Face Detector** está em versão de Visualiza�
 Este artigo fornece detalhes sobre o **Azure Media Face Detector** e mostra como usá-lo com o SDK dos Serviços de Mídia para .NET.
 
 ## <a name="face-detector-input-files"></a>Arquivos de entrada do Face Detector
-Arquivos de vídeo. Atualmente, há suporte para os formatos a seguir: MP4, MOV e WMV.
+Arquivos de vídeo. Atualmente, há suporte para os seguintes formatos: MP4, MOV e WMV.
 
 ## <a name="face-detector-output-files"></a>Arquivos de saída do Face Detector
 A API de detecção e acompanhamento facial fornece detecção e acompanhamento de alta precisão local de até 64 faces humanas em um vídeo. Faces frontais fornecem os melhores resultados, enquanto as faces laterais e faces pequenas (menores ou iguais a 24x24 pixels) talvez não sejam tão precisas.
@@ -78,7 +82,7 @@ Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especifi
 #### <a name="attribute-descriptions"></a>Descrições de atributos
 | Nome do atributo | Descrição |
 | --- | --- |
-| Modo |Mais rápido: maior velocidade de processamento, mas menos precisão (padrão).|
+| Mode |Mais rápido: maior velocidade de processamento, mas menos precisão (padrão).|
 
 ### <a name="json-output"></a>Saída em JSON
 O exemplo de saída JSON a seguir foi truncado.
@@ -153,7 +157,7 @@ Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especifi
 #### <a name="attribute-descriptions"></a>Descrições de atributos
 | Nome do atributo | Descrição |
 | --- | --- |
-| Modo |Faces: Somente detecção facial.<br/>PerFaceEmotion: Retorna a emoção independente para cada detecção facial.<br/>AggregateEmotion: Retorna uma média dos valores de emoção para todas as faces no quadro. |
+| Mode |Faces: somente detecção facial.<br/>PerFaceEmotion: retornar emoção independentemente de cada detecção facial.<br/>AggregateEmotion: retorna uma média dos valores de emoção para todas as faces no quadro. |
 | AggregateEmotionWindowMs |Use se o modo AggregateEmotion for selecionado. Especifica a duração do vídeo usado para produzir cada resultado da agregação, em milissegundos. |
 | AggregateEmotionIntervalMs |Use se o modo AggregateEmotion for selecionado. Especifica com que frequência deve-se produzir resultados agregados. |
 
@@ -163,7 +167,7 @@ Abaixo, temos os valores recomendados para as configurações de janela e interv
 || Padrões | Máx. | Mín. |
 |--- | --- | --- | --- |
 | AggregateEmotionWindowMs |0,5 |2 |0,25|
-| AggregateEmotionIntervalMs |0,5 |1 |0.25|
+| AggregateEmotionIntervalMs |0,5 |1 |0,25|
 
 ### <a name="json-output"></a>Saída em JSON
 Saída em JSON para agregação de emoção (truncada):

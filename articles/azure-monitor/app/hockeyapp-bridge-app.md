@@ -1,23 +1,18 @@
 ---
 title: Explorar dados do HockeyApp no Azure Application Insights | Microsoft Docs
 description: Analise o uso e o desempenho de seu aplicativo do Azure com o Application Insights.
-services: application-insights
-documentationcenter: windows
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 97783cc6-67d6-465f-9926-cb9821f4176e
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/30/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 79adfbfde25903bfe92c94507071c9d0fe303ef1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/30/2017
+ms.openlocfilehash: b14cd38a1db6804a00883ded0b38511fa46c3a52
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60898660"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819589"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Exploração de dados do HockeyApp no Application Insights
 
@@ -55,10 +50,10 @@ Observe que os dados demoram um pouco para começar a fluir.
 
 Vamos analisar rapidamente cada um desses recursos agora disponíveis para você.
 
-## <a name="analytics"></a>Análise
-Analytics é uma ferramenta poderosa para consultas ad hoc de seus dados, permitindo que você diagnostique e analisar a telemetria e descubra rapidamente as causas raiz e padrões.
+## <a name="analytics"></a>Análises
+O Analytics é uma ferramenta poderosa para consulta ad hoc de seus dados, permitindo que você diagnostique e analise sua telemetria e descubra rapidamente as causas e os padrões de raiz.
 
-![Análise](./media/hockeyapp-bridge-app/05.png)
+![Análises](./media/hockeyapp-bridge-app/05.png)
 
 * [Saiba mais sobre o Analytics](../../azure-monitor/log-query/get-started-portal.md)
 
@@ -67,6 +62,6 @@ A Exportação Contínua permite que você exporte os dados para um contêiner d
 
 [Saiba mais sobre a Exportação Contínua](export-telemetry.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Aplicar a análise aos seus dados](../../azure-monitor/log-query/get-started-portal.md)
 

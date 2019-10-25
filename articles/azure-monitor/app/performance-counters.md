@@ -1,23 +1,18 @@
 ---
 title: Contadores de desempenho no Application Insights | Microsoft Docs
 description: Monitore o sistema e contadores de desempenho .NET personalizados no Application Insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 12/13/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: fa4e45416e83d933cd21fe482bcead14bfbcae22
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.date: 12/13/2018
+ms.openlocfilehash: 229216ee873ade9418574141017aaf88235ba9e4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349932"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820702"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema no Application Insights
 
@@ -30,16 +25,16 @@ O painel Métricas mostra o conjunto padrão de contadores de desempenho.
 ![Contadores de desempenho reportados no Application Insights](./media/performance-counters/performance-counters.png)
 
 Os contadores padrão atuais que estão configurados para serem coletados para aplicativos Web ASP.NET/ASP.NET Core são:
-- % Process @ no__t-0Processor tempo
-- % Process @ no__t-0Processor tempo normalizado
-- Memória @ no__t-0Available bytes
+- % Do processo\\tempo do processador
+- % Process\\tempo do processador normalizado
+- Memória\\bytes disponíveis
 - Solicitações ASP.NET/s
 - Exceções do .NET CLR lançadas/s
 - ASP.NET ApplicationsRequest tempo de execução
-- Processar @ no__t-0Private bytes
-- Processar @ no__t-bytes de dados de 0IO/s
-- Aplicativos ASP.NET @ no__t-0Requests na fila de aplicativos
-- Processador (_ total) \\% tempo do processador
+- Processar\\bytes particulares
+- Processo\\bytes de dados de es/s
+- Aplicativos ASP.NET\\solicitações na fila de aplicativos
+- Processador (_ total)\\% tempo do processador
 
 ## <a name="add-counters"></a>Adicionar contadores
 
@@ -66,7 +61,7 @@ Se o contador de desempenho desejado não estiver incluído na lista de métrica
     ```
 
 > [!NOTE]
-> ASP.NET Core aplicativos não têm `ApplicationInsights.config` e, portanto, o método acima não é válido para aplicativos ASP.NET Core.
+> ASP.NET Core aplicativos não têm `ApplicationInsights.config`e, portanto, o método acima não é válido para aplicativos ASP.NET Core.
 
 É possível capturar os contadores padrão e os que você implementou sozinho. `\Objects\Processes` é um exemplo de um contador padrão, disponível em todos os sistemas Windows. `\Sales(photo)\# Items Sold` é um exemplo de um contador personalizado que pode ser implementado em um serviço Web.
 
@@ -98,7 +93,7 @@ Ou você pode fazer a mesma coisa com métricas personalizadas que você criou:
 
 ### <a name="collecting-performance-counters-in-code-for-aspnet-core-web-applications"></a>Coleta de contadores de desempenho no código para aplicativos ASP.NET Core Web
 
-Modifique o método `ConfigureServices` na classe `Startup.cs` como abaixo.
+Modifique `ConfigureServices` método na classe `Startup.cs` como mostrado abaixo.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
@@ -151,7 +146,7 @@ Os aplicativos ASP.NET e ASP.NET Core implantados nos aplicativos Web do Azure s
 O suporte para contadores de desempenho no ASP.NET Core é limitado:
 
 * As versões do [SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 2.4.1 e posteriores coletam contadores de desempenho se o aplicativo estiver em execução nos aplicativos Web do Azure (Windows).
-* As versões do SDK 2.7.1 e posteriores coletam contadores de desempenho se o aplicativo estiver `NETSTANDARD2.0` em execução no Windows e nos destinos ou posterior.
+* As versões do SDK 2.7.1 e posteriores coletam contadores de desempenho se o aplicativo estiver em execução no Windows e for direcionado `NETSTANDARD2.0` ou posterior.
 * Para aplicativos direcionados à .NET Framework, todas as versões do SDK dão suporte a contadores de desempenho.
 * As versões do SDK 2.8.0 e posteriores dão suporte ao contador de CPU/memória no Linux. Nenhum outro contador tem suporte no Linux. A maneira recomendada para obter contadores do sistema no Linux (e em outros ambientes não Windows) é usando [EventCounters](eventcounters.md)
 

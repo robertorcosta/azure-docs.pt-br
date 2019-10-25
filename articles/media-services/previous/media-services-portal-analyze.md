@@ -14,20 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26a951ffaf0253371ffe69c6df798120f0464082
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61131710"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881905"
 ---
-# <a name="analyze-your-media-using-the-azure-portal"></a>Analisar sua mídia usando o Portal do Azure 
-> [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
-> 
-> 
+# <a name="analyze-your-media-using-the-azure-portal"></a>Analisar sua mídia usando o portal do Azure 
 
-## <a name="overview"></a>Visão geral
+> [!IMPORTANT]
+> Examine os [planos de aposentadoria](media-services-analytics-overview.md#retirement-plans) de alguns processadores de mídia.
+
+## <a name="overview"></a>Visão Geral
 A Análise dos Serviços de Mídia do Azure é uma coleção de componentes de fala e visão (em escala empresarial, conformidade, segurança e alcance global) que facilitam para as organizações e empresas obterem ideias práticas de seus arquivos de vídeo. Para maiores detalhes da Análise de Serviços de Mídia do Azure consulte [esse](media-services-analytics-overview.md) tópico. 
 
 Este tópico aborda como processar sua mídia com processadores de mídia (MPs) da Análise de Mídia usando o Portal do Azure. Os MPs da Análise de Mídia produzem arquivos MP4 ou arquivos JSON. Se um processador de mídia produzir um arquivo MP4, você poderá baixar o arquivo progressivamente. Se um processador de mídia produzir um arquivo JSON, você poderá baixar o arquivo do Armazenamento de Blobs do Azure. 
@@ -50,7 +49,7 @@ O processador de mídia do **Azure Media Indexer** permite tornar conteúdo e ar
 
 ![Analisar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
-### <a name="language"></a>Linguagem
+### <a name="language"></a>Idioma
 O idioma natural a ser reconhecido no arquivo de multimídia. Por exemplo, inglês ou espanhol. 
 
 ### <a name="captions"></a>Legendas
@@ -136,13 +135,13 @@ Este processador ajuda a detectar possível conteúdo adulto e erótico em víde
 
 ![Moderar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
 
-### <a name="version"></a>Version 
+### <a name="version"></a>Versão 
 Use "2.0".
 
-### <a name="mode"></a>Modo
+### <a name="mode"></a>Mode
 A versão 2.0 ignora a configuração `Mode`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Exibir os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

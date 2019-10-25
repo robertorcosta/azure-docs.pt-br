@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 8/17/2018
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 14f65851e50ed25024524f6d988ba2b2f2b3aeba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e33e90d988251afde630401bed165a4d3614d2cd
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367653"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881459"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurar BFD no ExpressRoute
 
-O ExpressRoute dá suporte para BFD (Detecção de Encaminhamento Bidirecional) em emparelhamento privado. Ao habilitar BFD no ExpressRoute, é possível acelerar a detecção de falhas de vínculo entre os dispositivos de borda do Microsoft Enterprise (MSEE) e os roteadores em que terminam o circuito do ExpressRoute (PE). É possível terminar o ExpressRoute nos dispositivos de roteamento de Borda de Clientes ou dispositivos de roteamento de Borda do Parceiro (se tiver optado pelo serviço de conexão gerenciado da Camada 3). Este documento explica a necessidade de BFD e de como habilitar a BFD no ExpressRoute.
+O ExpressRoute dá suporte para BFD (Detecção de Encaminhamento Bidirecional) em emparelhamento privado. Ao habilitar o BFD no ExpressRoute, você pode acelerar a detecção de falhas de link entre os dispositivos do Microsoft Enterprise Edge (MSEE) e os roteadores nos quais você encerra o circuito do ExpressRoute (PE/CE). É possível terminar o ExpressRoute nos dispositivos de roteamento de Borda de Clientes ou dispositivos de roteamento de Borda do Parceiro (se tiver optado pelo serviço de conexão gerenciado da Camada 3). Este documento explica a necessidade de BFD e de como habilitar a BFD no ExpressRoute.
 
 ## <a name="need-for-bfd"></a>Necessidade de BFD
 
-O diagrama a seguir mostra o benefício de habilitar a BFD no circuito do ExpressRoute: [![1]][1]
+O diagrama a seguir mostra o benefício de habilitar BFD no circuito do ExpressRoute: [![1]][1]
 
 É possível habilitar o circuito do ExpressRoute por meio de conexões da Camada 2 ou por conexões gerenciadas da Camada 3. Em ambos os casos, se houver um ou mais dispositivos de Camada 2 no caminho de conexão do ExpressRoute, a responsabilidade de detectar qualquer falha de vínculo no caminho está na BGP sobreposta.
 
@@ -34,9 +34,9 @@ Nesse cenário, a BFD pode ajudar. A BFD fornece detecção de falha de vínculo
 
 ## <a name="enabling-bfd"></a>Habilitar BFD
 
-A BFD é configurada por padrão em todas as interfaces de emparelhamento privado do ExpressRoute criadas recentemente nos MSEEs. Portanto, para habilitar a BFD é necessário apenas configurar a BFD nos PEs. Configurar a BFD é um processo de duas etapas: é necessário configurar a BFD na interface e vinculá-la à sessão do BGP.
+A BFD é configurada por padrão em todas as interfaces de emparelhamento privado do ExpressRoute criadas recentemente nos MSEEs. Portanto, para habilitar o BFD, você precisa apenas configurar o BFD no PEs/CEs (ambos em seus dispositivos primários e secundários). A configuração do BFD é um processo de duas etapas: você precisa configurar o BFD na interface e, em seguida, vinculá-lo à sessão BGP.
 
-Um exemplo de configuração de PE (usando o Cisco IOS XE) é mostrado abaixo. 
+Um exemplo de configuração PE/CE (usando o Cisco IOS XE) é mostrado abaixo. 
 
     interface TenGigabitEthernet2/0/0.150
       description private peering to Azure
@@ -56,7 +56,7 @@ Um exemplo de configuração de PE (usando o Cisco IOS XE) é mostrado abaixo.
       exit-address-family
 
 >[!NOTE]
->Para habilitar a BFD em um emparelhamento privado já existente, será necessário redefinir o emparelhamento. Consulte [Redefinir emparelhamentos do ExpressRoute][ResetPeering]
+>Para habilitar a BFD em um emparelhamento privado já existente, será necessário redefinir o emparelhamento. Consulte [Redefinir emparelhamentos de ExpressRoute][ResetPeering]
 >
 
 ## <a name="bfd-timer-negotiation"></a>Negociação de temporizador de BFD

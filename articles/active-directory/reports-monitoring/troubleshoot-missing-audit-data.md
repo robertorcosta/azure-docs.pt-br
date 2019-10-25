@@ -1,5 +1,5 @@
 ---
-title: Solução de problema de Dados ausentes nos logs de atividades do Azure Active Directory | Microsoft Docs
+title: Solucionar problemas de dados ausentes em logs de atividade | Microsoft Docs
 description: Fornece uma resolução para dados ausentes nos logs de atividades do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.date: 01/15/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a04de319a17255e3b61378cbd716828a237317b3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 7aeac1180292ea5200e9eabc30ee01db05b67e75
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989509"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820859"
 ---
-# <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Solucionar problemas: dados ausentes nos logs de atividades do Azure Active Directory 
+# <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Solução de problemas: Dados ausentes nos logs de atividades do Azure Active Directory 
 
 ## <a name="i-cant-find-audit-logs-for-recent-actions-in-the-azure-portal"></a>Não consigo encontrar os logs de auditoria para ações mais recentes no portal do Azure
 
@@ -32,13 +32,13 @@ ms.locfileid: "68989509"
 
 Eu executei algumas ações no portal do Azure e esperava ver os logs de auditoria para essas ações na folha `Activity logs > Audit Logs`, mas não é possível encontrá-los.
 
- ![Relatórios](./media/troubleshoot-missing-audit-data/01.png)
+ ![Relatório](./media/troubleshoot-missing-audit-data/01.png)
  
 ### <a name="cause"></a>Causa
 
 As ações não são exibidas imediatamente nos logs de atividades. A tabela a seguir enumera nossos números de latência para os logs de atividades. 
 
-| Relatório | &nbsp; | Latência (P95) | Latência (P99) |
+| Relate | &nbsp; | Latência (P95) | Latência (P99) |
 |--------|--------|---------------|---------------|
 | Auditoria de diretório | &nbsp; | 2 minutos | 5 min |
 | Atividade de entrada | &nbsp; | 2 minutos | 5 min | 
@@ -59,7 +59,7 @@ Eu entrei recentemente no portal do Azure e esperava ver os logs de auditoria pa
 
 As ações não são exibidas imediatamente nos logs de atividades. A tabela a seguir enumera nossos números de latência para os logs de atividades. 
 
-| Relatório | &nbsp; | Latência (P95) | Latência (P99) |
+| Relate | &nbsp; | Latência (P95) | Latência (P99) |
 |--------|--------|---------------|---------------|
 | Auditoria de diretório | &nbsp; | 2 minutos | 5 min |
 | Atividade de entrada | &nbsp; | 2 minutos | 5 min | 
@@ -80,7 +80,7 @@ Não consigo exibir mais de 30 dias de dados de entrada e de auditoria no portal
 
 Dependendo da sua licença, as Ações do Azure Active Directory armazenam relatórios de atividades para as durações a seguir:
 
-| Relatório           | &nbsp; |  Azure AD Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
+| Relate           | &nbsp; |  AD do Azure Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
 | ---              | ----   |  ---           | ---                 | ---                 |
 | Auditoria de Diretório  | &nbsp; |   7 dias     | 30 dias             | 30 dias             |
 | Atividade de Entrada | &nbsp; | Não disponível. Você pode acessar sua própria atividade de entrada por 7 dias na folha de perfil do usuário individual | 30 dias | 30 dias             |
@@ -91,7 +91,7 @@ Para saber mais informações, confira [Políticas de retenção de relatório d
 
 Você tem duas opções para manter os dados por mais de 30 dias. Você pode usar as [APIs de emissão de relatórios do Azure AD](concept-reporting-api.md) para recuperar os dados por meio de programação e armazená-los em um banco de dados. Como alternativa, você pode integrar os logs de auditoria em um sistema SIEM de terceiros, como o Splunk ou SumoLogic.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [API de retenção de relatório](reference-reports-data-retention.md).
 * [Latências de relatórios do Azure Active Directory](reference-reports-latencies.md).

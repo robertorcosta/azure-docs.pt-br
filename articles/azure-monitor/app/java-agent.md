@@ -1,31 +1,26 @@
 ---
 title: Monitoramento de desempenho de aplicativos Web de Java no Azure Application Insights | Microsoft Docs
 description: Desempenho e monitoramento de uso estendidos do seu site Java com o Application Insights.
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/10/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: ff9d4bb98a79c379fda2c1a0a0ab9d5e0ec212ce
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 01/10/2019
+ms.openlocfilehash: 181a1f253157fe112d42753d6f824a327457a2fa
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338101"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819405"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções capturadas e tempos de execução de método em aplicativos Web Java
 
 
 Se você tiver [instrumentado seu aplicativo Web Java com Application insights][java], poderá usar o agente Java para obter informações mais aprofundadas, sem nenhuma alteração de código:
 
-* **Dependências:** Dados sobre chamadas de seu aplicativo a outros componentes, incluindo:
-  * As **chamadas http de saída** feitas por meio do Apache HttpClient, `java.net.HttpURLConnection` OkHttp e são capturadas.
+* **Dependências:** dados sobre chamadas de seu aplicativo a outros componentes, incluindo:
+  * As **chamadas http de saída** feitas via Apache HttpClient, OkHttp e `java.net.HttpURLConnection` são capturadas.
   * **Chamadas Redis** feitas por meio do cliente Jedis são capturadas.
   * **Consultas JDBC** – para MySQL e PostgreSQL, se a chamada demorar mais de 10 segundos, o agente relatará o plano de consulta.
 
@@ -34,9 +29,9 @@ Se você tiver [instrumentado seu aplicativo Web Java com Application insights][
   * **Log4j2**
   * **Logback**
 
-* **Melhor nomenclatura de operação:** (usado para agregação de solicitações no Portal)
-  * Baseado em `@RequestMapping`Spring.
-  * Baseado em **JAX-RS** em `@Path`. 
+* **Melhor nomenclatura de operação:** (usada para agregação de solicitações no Portal)
+  * Baseado na **mola** `@RequestMapping`.
+  * **JAX-RS** -baseado em `@Path`. 
 
 Para usar o agente Java, instale-o no servidor. Seus aplicativos Web devem ser instrumentados com o [SDK do Java Application insights][java]. 
 
@@ -93,12 +88,12 @@ Para Azure App serviços, faça o seguinte:
 * Selecione Configurações > Configurações do Aplicativo
 * Em configurações do aplicativo, adicione um novo par de chave/valor:
 
-Chave: `JAVA_OPTS`Valor`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
+Chave: `JAVA_OPTS` valor: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
-Para obter a versão mais recente do agente Java, verifique as [versões](https://github.com/Microsoft/ApplicationInsights-Java/releases
-)aqui. 
+Para obter a versão mais recente do agente Java, verifique as versões [aqui](https://github.com/Microsoft/ApplicationInsights-Java/releases
+). 
 
-O agente deve ser empacotado como um recurso em seu projeto, de modo que ele termine no diretório D:/Home/site/wwwroot/. Você pode confirmar que o agente está no diretório do serviço de aplicativo correto acessando **ferramentas** > **avançadas** > **console de depuração** e examinando o conteúdo do diretório do site.    
+O agente deve ser empacotado como um recurso em seu projeto, de modo que ele termine no diretório D:/Home/site/wwwroot/. Você pode confirmar que o agente está no diretório do serviço de aplicativo correto acessando **ferramentas de desenvolvimento** > **ferramentas avançadas** > **console de depuração** e examinando o conteúdo do diretório do site.    
 
 * Salve as configurações e reinicie o aplicativo. (Essas etapas se aplicam somente aos serviços de aplicativo em execução no Windows.)
 
@@ -132,7 +127,7 @@ Para pesquisar instâncias individuais de dependência, exceção e relatórios 
 [Diagnosticando problemas de dependência – Saiba mais](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 
 ## <a name="questions-problems"></a>Perguntas? Problemas?
-* Não há dados? [Definir exceções de firewall](../../azure-monitor/app/ip-addresses.md)
+* Nenhum dado? [Definir exceções de firewall](../../azure-monitor/app/ip-addresses.md)
 * [Solucionar problemas de Java](java-troubleshoot.md)
 
 <!--Link references-->

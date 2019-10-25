@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 71f2b111c0291bc9563b12a1cdbd88ea7e9f5b5b
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e361ba4c7275a783b9211def5047a5a755f5a8b8
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376130"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882009"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Saiba como personalizar algumas das configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de malha para o cluster do Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager. Para obter mais informações, consulte [Atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters independentes, você customiza as configurações atualizando o arquivo *ClusterConfig.json* e executando uma atualização de configuração em seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -185,6 +185,9 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |EnableRestartManagement |Bool, o padrão é false |dinâmico|Isso é para habilitar a reinicialização do servidor. |
 |EnableServiceFabricAutomaticUpdates |Bool, o padrão é false |dinâmico|Isso é para habilitar a atualização automática da malha por meio do Windows Update. |
 |EnableServiceFabricBaseUpgrade |Bool, o padrão é false |dinâmico|Isso é para habilitar a atualização de base de servidor. |
+|FailureReportingExpeditedReportingIntervalEnabled | Bool, o padrão é true | estático | Permite taxas de carregamento mais rápidas em DCA quando FabricHost está em modo de relatório de falha. |
+|FailureReportingTimeout | TimeSpan, o padrão é Common::TimeSpan::FromSeconds(60) | estático |Especifique o intervalo de tempo em segundos. Tempo limite para relatório de falha DCA no caso de FabricHost encontrar uma falha na inicialização do estágio inicial. | 
+|RunDCAOnStartupFailure | Bool, o padrão é true | estático |Determina se o DCA deve ser iniciado para carregar logs quando enfrentados problemas de inicialização no FabricHost. | 
 |StartTimeout |Tempo em segundos, o padrão é de 300 |dinâmico|Especifique o intervalo de tempo em segundos. Tempo limite para inicialização do fabricactivationmanager. |
 |StopTimeout |Tempo em segundos, o padrão é de 300 |dinâmico|Especifique o intervalo de tempo em segundos. O tempo limite para a ativação; desativação e atualização do serviço hospedado. |
 
@@ -279,7 +282,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |DiskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |TimeSpan, o padrão é Common:: TimeSpan:: FromMinutes (5)|dinâmico|Especifique o intervalo de tempo em segundos. O intervalo de tempo entre a verificação do espaço em disco para relatar o evento de integridade quando o disco está perto de ficar sem espaço. |
 |DiskSpaceHealthReportingIntervalWhenEnoughDiskSpace |TimeSpan, o padrão é Common::TimeSpan::FromMinutes(15)|dinâmico|Especifique o intervalo de tempo em segundos. O intervalo de tempo entre a verificação de espaço em disco para relatar o evento de integridade quando houver espaço suficiente no disco. |
 |EnableImageStoreHealthReporting |bool, o padrão é TRUE |estático|Configuração para determinar se o serviço de repositório de arquivos deve relatar sua integridade. |
-|FreeDiskSpaceNotificationSizeInKB|Int64, o padrão é 25 @ no__t-01024 |dinâmico|O tamanho do espaço livre em disco abaixo do qual pode ocorrer o aviso de integridade. O valor mínimo dessa configuração e do FreeDiskSpaceNotificationThresholdPercentage config são usados para determinar o envio do aviso de integridade. |
+|FreeDiskSpaceNotificationSizeInKB|Int64, o padrão é 25\*1024 |dinâmico|O tamanho do espaço livre em disco abaixo do qual pode ocorrer o aviso de integridade. O valor mínimo dessa configuração e do FreeDiskSpaceNotificationThresholdPercentage config são usados para determinar o envio do aviso de integridade. |
 |FreeDiskSpaceNotificationThresholdPercentage|duplo, o padrão é 0, 2 |dinâmico|A porcentagem de espaço livre em disco abaixo do qual pode ocorrer o aviso de integridade. O valor mínimo dessa configuração e do FreeDiskSpaceNotificationInMB config são usados para determinar o envio de aviso de integridade. |
 |GenerateV1CommonNameAccount| bool, o padrão é TRUE|estático|Especifica se deve gerar uma conta com o algoritmo de geração V1 de nome de usuário. A partir do Service Fabric versão 6.1; uma conta com a geração v2 sempre será criada. A conta V1 é necessária para atualizações de/para as versões que não dão suporte à geração V2 (antes da 6.1).|
 |MaxCopyOperationThreads | Uint, o padrão é 0 |dinâmico| O número máximo de arquivos paralelos que os secundários podem copiar do primário. '0' == número de núcleos. |
@@ -353,6 +356,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |DeploymentRetryBackoffInterval| TimeSpan, o padrão é Common::TimeSpan::FromSeconds(10)|dinâmico|Especifique o intervalo de tempo em segundos. Intervalo de retirada da falha de implantação. Em toda falha de implantação contínua o sistema fará até MaxDeploymentFailureCount novas tentativas de implantação. O intervalo de repetição é um produto da falha de implantação contínua e do intervalo de retirada de implantação. |
 |DisableContainers|bool, o padrão é FALSE|estático|Configuração para desabilitar contêineres – usada em vez de DisableContainerServiceStartOnContainerActivatorOpen que é a config preterida |
 |DisableDockerRequestRetry|bool, o padrão é FALSE |dinâmico| Por padrão, o SF comunica-se com DD (daemon do docker) com um tempo limite do 'DockerRequestTimeout' para cada solicitação http enviada a ele. Se o DD não responder dentro desse período, o SF reenviará a solicitação se a operação de nível superior ainda tiver tempo restante.  Com contêiner do Hyper-V, às vezes o DD demora muito mais tempo para abrir o contêiner ou desativá-lo. Nesses casos, a solicitação de DD atinge o tempo limite da perspectiva de SF e o SF tenta novamente a operação. Às vezes, isso parece adicionar mais pressão sobre o DD. Essa configuração permite desabilitar a repetição e aguardar a resposta do DD. |
+|DnsServerListTwoIps | Bool, o padrão é FALSE | estático | Esses sinalizadores adicionam o servidor DNS local duas vezes para ajudar a aliviar problemas de resolução intermitente. |
 |EnableActivateNoWindow| bool, o padrão é FALSE|dinâmico| O processo de ativação é criado em segundo plano sem nenhum console. |
 |EnableContainerServiceDebugMode|bool, o padrão é TRUE|estático|Habilitar/desabilitar o registro em log para contêineres do Docker.  Somente Windows.|
 |EnableDockerHealthCheckIntegration|bool, o padrão é TRUE|estático|Permite a integração de eventos de verificação de integridade do docker com o relatório de integridade do sistema do Service Fabric |

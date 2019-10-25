@@ -1,23 +1,18 @@
 ---
 title: Como... no Azure Application Insights | Microsoft Docs
 description: Perguntas Frequentes no Application Insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/04/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 9f80edf18a531d6c2850658ddef9c7007edb350f
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 04/04/2017
+ms.openlocfilehash: 28881403e4938376cc1912227bdff51aa5f069cf
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795522"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817377"
 ---
 # <a name="how-do-i--in-application-insights"></a>Como ... no Application Insights?
 ## <a name="get-an-email-when-"></a>Receber um email quando...
@@ -82,9 +77,9 @@ Considere o seguinte:
 
 ## <a name="separate-telemetry-from-different-versions"></a>Telemetria separada de versões diferentes
 
-* Várias funções em um aplicativo: Use um único recurso do Application Insights e filtre [cloud_Rolename](../../azure-monitor/app/app-map.md).
-* A separação de desenvolvimento, teste e versões de lançamento: Use os diferentes recursos do Application Insights. Pegue as chaves de instrumentação do web.config. [Saiba mais](../../azure-monitor/app/separate-resources.md)
-* Relatório de versões de compilação: Adicionar uma propriedade usando um inicializador de telemetria. [Saiba mais](../../azure-monitor/app/separate-resources.md)
+* Várias funções em um aplicativo: Use um único recurso de Application Insights e filtre em [cloud_Rolename](../../azure-monitor/app/app-map.md).
+* Separação de desenvolvimento, teste e versões de lançamento: usar recursos diferentes do Application Insights. Pegue as chaves de instrumentação em Web. config. [Saiba mais](../../azure-monitor/app/separate-resources.md)
+* Relatando versões de build: adicionar uma propriedade usando um inicializador de telemetria. [Saiba mais](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Monitorar servidores de back-end e aplicativos de desktop
 [Use o módulo do SDK do Windows Server](../../azure-monitor/app/windows-desktop.md).
@@ -103,7 +98,7 @@ Ou
 <a name="search-specific-users"></a>
 
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>Filtrar usuários anônimos ou autenticados
-Se os seus usuários se conectarem, você poderá definir a [ID de usuário autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (Isso não ocorre automaticamente.)
+Se os usuários entrarem, você poderá definir a [ID de usuário autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (Isso não acontece automaticamente.)
 
 Você pode:
 
@@ -137,7 +132,7 @@ Saiba mais sobre [preços e cotas](../../azure-monitor/app/pricing.md).
 ## <a name="disable-telemetry"></a>Desabilitar telemetria
 Para **parar e iniciar dinamicamente** a coleta e a transmissão de telemetria do servidor:
 
-### <a name="aspnet-classic-applications"></a>Aplicativos ASP.NET clássico
+### <a name="aspnet-classic-applications"></a>Aplicativos clássicos ASP.NET
 
 ```csharp
     using  Microsoft.ApplicationInsights.Extensibility;
@@ -146,16 +141,16 @@ Para **parar e iniciar dinamicamente** a coleta e a transmissão de telemetria d
 ```
 
 ### <a name="other-applications"></a>Outros aplicativos
-Não é recomendável usar `TelemetryConfiguration.Active` singleton no console ou aplicativos ASP.NET Core.
-Se você criou `TelemetryConfiguration` de instância por conta própria - definir `DisableTelemetry` para `true`.
+Não é recomendável usar `TelemetryConfiguration.Active` singleton no console ou em aplicativos ASP.NET Core.
+Se você criou `TelemetryConfiguration` instância por conta própria, defina `DisableTelemetry` como `true`.
 
-Para aplicativos ASP.NET Core, você pode acessar `TelemetryConfiguration` instância usando [injeção de dependência do ASP.NET Core](/aspnet/core/fundamentals/dependency-injection/). Veja mais detalhes no [Application Insights para aplicativos ASP.NET Core](../../azure-monitor/app/asp-net-core.md) artigo.
+Para ASP.NET Core aplicativos, você pode acessar `TelemetryConfiguration` instância usando [ASP.NET Core injeção de dependência](/aspnet/core/fundamentals/dependency-injection/). Encontre mais detalhes no artigo [ApplicationInsights for ASP.NET Core Applications](../../azure-monitor/app/asp-net-core.md) .
 
-## <a name="disable-selected-standard-collectors"></a>Desabilitar os coletores padrão selecionados
+## <a name="disable-selected-standard-collectors"></a>Desabilitar coletores padrão selecionados
 Você pode desabilitar os coletores padrão (por exemplo, contadores de desempenho, solicitações HTTP ou dependências)
 
-* **Aplicativos ASP.NET** - exclua ou comente as linhas relevantes em [applicationinsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
-* **Aplicativos ASP.NET Core** -execute as opções de configuração de módulos de telemetria no [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
+* **Aplicativos ASP.net** -exclua ou comente as linhas relevantes em [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+* **ASP.NET Core aplicativos** – siga as opções de configuração dos módulos de telemetria no [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## <a name="view-system-performance-counters"></a>Exibir contadores de desempenho do sistema
 Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto de contadores de desempenho do sistema. Há uma folha predefinida intitulada **Servidores** que exibe vários deles.

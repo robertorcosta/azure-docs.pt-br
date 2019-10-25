@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9557923fc2228e8508acaa7e15d1729ac3d29538
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d3f5ef9d2c3359dc61c32d4971100b096b004f2f
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028370"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881557"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingerir blobs no Azure Data Explorer assinando notificações da Grade de Eventos
 
@@ -43,7 +43,7 @@ Neste artigo, você aprenderá a definir uma assinatura da [grade de eventos do 
 
     **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | NOME | *test-grid-connection* | O nome da grade de eventos que você deseja criar.|
+    | name | *test-grid-connection* | O nome da grade de eventos que você deseja criar.|
     | Esquema do evento | *Esquema da Grade de Eventos* | O esquema que deve ser usado para a grade de eventos. |
     | Tipo de tópico | *Conta de armazenamento* | O tipo de tópico da grade de eventos. |
     | Recurso do Tópico | *gridteststorage* | O nome da sua conta de armazenamento. |
@@ -53,7 +53,7 @@ Neste artigo, você aprenderá a definir uma assinatura da [grade de eventos do 
     | Ponto de extremidade | *test-hub* | O hub de eventos que você criou. |
     | | |
 
-1. Selecione a guia **Recursos Adicionais** se você quiser rastrear arquivos de um contêiner específico. Defina os filtros das notificações da seguinte maneira:
+1. Selecione a guia **filtros** se desejar rastrear arquivos de um contêiner específico. Defina os filtros das notificações da seguinte maneira:
     * Campo **Assunto começa com** é o prefixo *literal* do contêiner de blobs. Como é o padrão aplicado é *startswith*, ele pode abranger vários contêineres. Não são permitidos curingas.
      Ele *precisa* ser definido da seguinte maneira: *`/blobServices/default/containers/`* [prefixo do contêiner]
     * O campo **Assunto termina com** é o sufixo *literal* do blob. Não são permitidos curingas.
@@ -94,7 +94,7 @@ Agora, conecte-se à grade de eventos do Data Explorer do Azure, para que os dad
 
     ![Ingestão de dados](media/ingest-data-event-grid/data-ingestion-create.png)
 
-1.  Selecione o tipo de conexão: **Armazenamento de Blobs**.
+1.  Selecione o tipo de conexão: **armazenamento de BLOBs**.
 
 1. Preencha o formulário com as seguintes informações e selecione **Criar**.
 
@@ -117,7 +117,7 @@ Agora, conecte-se à grade de eventos do Data Explorer do Azure, para que os dad
      **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Tabela | *TestTable* | A tabela criada na **TestDatabase**. |
-    | Formato de dados | *JSON* | Os formatos com suporte são Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opções de compactação com suporte: Zip e GZip |
+    | Formato de dados | *JSON* | Os formatos com suporte são Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opções de compactação com suporte: zip e GZip |
     | Mapeamento de coluna | *TestMapping* | O mapeamento que você criou em **TestDatabase**, que mapeia os dados de entrada JSON para tipos de dados e nomes de coluna da **TestTable**.|
     | | |
     
@@ -199,6 +199,6 @@ Se você não planeja usar sua grade de eventos novamente, limpe **test-hub-rg**
 
 1. Na nova janela, insira o nome do grupo de recursos para excluir (*test-hub-rg*) e, em seguida, selecione **Excluir**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Consultar dados no Azure Data Explorer](web-query-data.md)

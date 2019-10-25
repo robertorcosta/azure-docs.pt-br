@@ -1,23 +1,19 @@
 ---
 title: Aplicativos de produção de perfil no Azure com o Application Insights Profiler | Microsoft Docs
 description: Identifique o afunilamento em seu código de servidor da Web com um criador de perfil de baixa capacidade.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: debc30a368a0f9ef7be9b0cda0b1238f8e2bc2e3
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: fc152aab6d0e62ac5656b50834ce17278bb6676e
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338070"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820510"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Aplicativos de produção de perfil no Azure com o Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Habilitar o Application Insights Profiler para o aplicativo
@@ -26,8 +22,8 @@ O Azure Application Insights Profiler fornece rastreamentos de desempenho para a
 
 O Profiler trabalha com aplicativos .NET implantados nos serviços do Azure a seguir. Nos links abaixo, há instruções específicas para habilitar o Profiler para cada tipo de serviço.
 
-* [Serviço de Aplicativo do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Serviços de Nuvem do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de aplicativo do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços de nuvem do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas Virtuais do Azure e Conjuntos de Dimensionamento de Máquinas Virtuais](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Versão **prévia** ASP.NET Core aplicativos Web Linux do Azure](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
@@ -48,10 +44,10 @@ Selecione um exemplo para exibir uma divisão de nível de código de tempo gast
 
 O explorador de rastreamento exibe as seguintes informações:
 
-* **Mostrar Afunilamento**: Abre o nó folha maior ou, pelo menos, alguma próximo. Na maioria dos casos, esse nó está próximo de um gargalo de desempenho.
+* **Mostrar afunilamento**: abre o maior nó folha ou pelo menos algo próximo. Na maioria dos casos, esse nó está próximo de um gargalo de desempenho.
 * **Rótulo**: O nome da função ou do evento. A árvore exibe uma combinação de código e eventos que ocorreram, tais como eventos SQL e HTTP. Os principais eventos representa a duração total da solicitação.
-* **Decorrido**: Intervalo de tempo entre o início e o final da operação.
-* **Quando**: Horário em que a função ou evento estava sendo executado com relação a outras funções.
+* **Decorrido**: o intervalo de tempo entre o início e o final da operação.
+* **Quando**: o horário em que a função ou evento estava sendo executado com relação a outras funções.
 
 ## <a name="how-to-read-performance-data"></a>Como ler dados de desempenho
 
@@ -95,7 +91,7 @@ Método como **SqlCommand.Execute** indicam que o código está aguardando a con
 
 **BLOCKED_TIME** indica que o código está aguardando até que outro recurso esteja disponível. Por exemplo, ele pode estar aguardando até que um objeto de sincronização, que um thread esteja disponível ou que a solicitação seja concluída.
 
-### <a name="unmanaged-async"></a>Assíncrono Não Gerenciado
+### <a name="unmanaged-async"></a>Async não gerenciado
 
 O .NET Framework emite eventos ETW e passa IDs de atividade entre threads para que as chamadas assíncronas possam ser controladas entre threads. O código não gerenciado (código nativo) e alguns estilos mais antigos de código assíncrono estão sem esses eventos e IDs de atividade, portanto, o criador de perfil não pode informar o thread e quais funções estão em execução no thread. Isso é rotulado como ' async não gerenciado ' na pilha de chamadas. Se você baixar o arquivo ETW, talvez seja possível usar o [Perfview](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) para obter mais informações sobre o que está acontecendo.
 
@@ -125,10 +121,10 @@ Não há encargos para usar o serviço do Profiler. Para que você o use, seu ap
 
 O Profiler é executado aleatoriamente dois minutos a cada hora em cada máquina virtual que hospeda o aplicativo com o Profiler habilitado para capturar rastreamentos. Quando o Profiler está em execução, ele adiciona de 5% a 15% de sobrecarga de CPU ao servidor.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Habilite o Application Insights Profiler para seu aplicativo do Azure. Veja também:
 * [Serviços de Aplicativos](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Serviços de Nuvem do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços de nuvem do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas Virtuais do Azure e Conjuntos de Dimensionamento de Máquinas Virtuais](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 

@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 4a8a8d7f6004ac32aeb7ce2b8cbffeca9ddf0079
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f3b2a976dc6b2b9e91f046a7f69e3057a7af7d0e
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595546"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72816956"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Criar uma nova oferta do Dynamics 365 for Operations
 
@@ -26,7 +26,7 @@ Para começar a criar o Dynamics 365 para ofertas de operações, certifique-se 
 > Depois que uma oferta tiver sido publicada, edições para a oferta feita no Partner Center serão atualizadas somente no sistema e armazenará os frontais após a republicação. Certifique-se de enviar a oferta para publicação depois de fazer alterações.
 
 
-## <a name="create-a-new-offer"></a>Criar uma nova oferta
+## <a name="create-a-new-offer"></a>Criar uma oferta
 
 Selecione o botão **+ nova oferta** e, em seguida, selecione o item de menu **Dynamics 365 for Operations** . A caixa de diálogo **nova oferta** será exibida.
 
@@ -76,7 +76,7 @@ Selecione uma das seguintes opções:
 - **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : a Microsoft hospeda e mantém o serviço de Test Drive (incluindo provisionamento e implantação) para um sistema de envolvimento do cliente (vendas, serviço, serviço de projeto, serviço de campo, etc.).  
 - **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : a Microsoft hospeda e mantém o serviço de Test Drive (incluindo provisionamento e implantação) para um sistema de planejamento de recursos corporativos de finanças e operações (finanças, operações, manufatura, Cadeia de fornecedores, etc.). 
 - **[Aplicativo lógico](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : um modelo de implantação que abrange todas as arquiteturas de solução complexas. Todos os produtos personalizados devem usar esse tipo de unidade de teste.
-- **[Power bi](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : um link inserido para um painel personalizado. Os produtos que desejam demonstrar um visual interativo Power BI devem usar esse tipo de unidade de teste. Tudo o que você precisa carregar aqui é a URL de Power BI inserida.
+- **[Power bi](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : um link inserido para um painel personalizado. Os produtos que desejam demonstrar um visual interativo Power BI devem usar esse tipo de unidade de teste. Aqui, basta fazer upload da URL do Power BI Embedded.
 
 #### <a name="additional-test-drive-resources"></a>Recursos de test drive adicionais
 
@@ -92,7 +92,7 @@ Consulte [visão geral do gerenciamento de Lead](./commercial-marketplace-get-cu
 
 Lembre-se de **salvar** antes de passar para a próxima seção!
 
-## <a name="properties"></a>Propriedades
+## <a name="properties"></a>propriedades
 
 A página **Propriedades** permite que você defina as categorias e os setores usados para agrupar sua oferta no Marketplace, sua versão do aplicativo e os contratos legais que dão suporte à sua oferta. Selecione **salvar** depois de concluir esta página.
 
@@ -102,13 +102,13 @@ Selecione no mínimo um e no máximo três categorias. Eles serão usados para p
 
 ### <a name="industry"></a>Setor
 
-Opcionalmente, você pode selecionar até dois setores para ajudar a categorizar sua oferta no Marketplace. Se sua oferta não for específica a um setor, deixe esta seção em branco. Lembre-se de destacar como sua oferta dá suporte aos setores selecionados na descrição da oferta. 
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Versão do aplicativo
 
 Insira o número de versão da sua oferta. Os clientes verão essa versão listada na página de detalhes da oferta.
 
-### <a name="standard-contract"></a>Contrato padrão
+### <a name="standard-contract"></a>Contrato Standard
 
 Para simplificar o processo de aquisição para clientes e reduzir a complexidade legal para fornecedores de software, a Microsoft oferece um modelo de contrato padrão para ajudar a facilitar uma transação no Marketplace.
 
@@ -131,7 +131,7 @@ Você precisará definir detalhes do Marketplace (nome da oferta, descrição, i
 > [!NOTE]
 > A oferta de conteúdo de listagem (como descrição, documentos, capturas de tela, termos de uso etc.) não precisa estar em inglês, desde que a descrição da oferta comece com a frase ", este aplicativo está disponível apenas em [idioma diferente do inglês]". Também é aceitável fornecer uma URL de *Link útil* para oferecer conteúdo em um idioma diferente daquele usado no conteúdo de listagem da oferta.
 
-### <a name="name"></a>NaME
+### <a name="name"></a>name
 
 O nome que você digitar aqui será mostrado aos clientes como o título da sua listagem de ofertas. Esse campo é preenchido previamente com o texto inserido para o **alias de oferta** quando você criou a oferta, mas pode alterar esse valor. Esse nome pode ser marcado (e você pode incluir os símbolos de marca registrada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -145,20 +145,20 @@ Forneça uma descrição mais longa da sua oferta (até 3.000 caracteres). Essa 
 
 Algumas dicas para escrever sua descrição:  
 
-- Descreva claramente a proposta de valor da sua oferta nas primeiras frases da sua descrição. Inclua o seguinte em sua proposta de valor:
+- Descreva claramente a proposição de valor da sua oferta nas primeiras frases de sua descrição. Inclua o seguinte em sua proposta de valor:
   - Descrição do produto
   - O tipo de usuário que se beneficia do produto
   - O cliente precisa ou dificuldade de que os endereços do produto
-- Tenha em mente que as primeiras frases podem ser exibidas nos resultados do mecanismo de pesquisa.  
-- Não confie em recursos e funcionalidades para vender seu produto. Em vez disso, concentre-se no valor que você fornece.  
-- Use vocabulário específico do setor ou palavras com base no benefício o máximo possível. 
+- Tenha em mente que as primeiras frases podem ser exibidas nos resultados da pesquisa.  
+- Não dependa de recursos e em funcionalidades para vender seu produto. Em vez disso, concentre-se no valor que você oferece.  
+- Use o vocabulário específico do setor ou palavras com base no benefício tanto quanto possível. 
 - Considere o uso de marcas HTML para formatar sua descrição e torná-la mais atraente.
 
 ### <a name="search-keywords"></a>Pesquisar palavras-chave
 
 Opcionalmente, você pode inserir até três palavras-chave de pesquisa para ajudar os clientes a localizar sua oferta no Marketplace. Para obter melhores resultados, tente usar essas palavras-chave em sua descrição também.
 
-### <a name="products-your-app-works-with"></a>Produtos com os quais seu aplicativo trabalha
+### <a name="products-your-app-works-with"></a>Produtos com os quais seu aplicativo funciona
 
 Se você quiser permitir que os clientes saibam que seu aplicativo funciona com produtos específicos, insira até três nomes de produto aqui.
 
@@ -174,7 +174,7 @@ Insira a URL onde os clientes podem saber mais sobre sua oferta.
 
 Insira a URL para a política de privacidade da sua organização. Você é responsável por garantir que seu aplicativo esteja em conformidade com as leis e regulamentos de privacidade e para fornecer uma política de privacidade válida.
 
-### <a name="contacts"></a>Aos
+### <a name="contacts"></a>Contatos
 
 Nesta seção, você deve fornecer o nome, o email e o número de telefone para um **contato de suporte** e um contato de **engenharia**. Essas informações não são mostradas aos clientes, mas estarão disponíveis para a Microsoft e podem ser fornecidas aos parceiros CSP.
 
@@ -192,15 +192,15 @@ Nesta seção, você pode fornecer logotipos e imagens que serão usados ao most
 
 Você deve fornecer o logotipo de sua oferta em dois tamanhos: **pequeno (48 x 48)** e **grande (216 x 216)** .
 
-#### <a name="hero"></a>'
+#### <a name="hero"></a>Hero
 
 A imagem do Hero é opcional. Se você fornecer um, ele deve medir 815 x 290 pixels.
 
-#### <a name="screenshots"></a>Capturas
+#### <a name="screenshots"></a>Capturas de tela
 
 Adicione capturas de tela que mostram como sua oferta funciona. Pelo menos uma captura de tela é necessária e você pode adicionar até cinco. Todas as capturas de tela devem ser 1280 x 720 pixels.
 
-#### <a name="videos"></a>Vídeos
+#### <a name="videos"></a>vídeos
 
 Opcionalmente, você pode adicionar até quatro vídeos que demonstram sua oferta. Esses vídeos devem ser hospedados no YouTube e/ou no Vimeo. Para cada um, insira o nome do vídeo, sua URL e uma imagem em miniatura do vídeo (1280 x 720 pixels)
 
@@ -268,7 +268,7 @@ Um modelo de implantação que contém todos os recursos do Azure que compõem s
 
 - **Instâncias**: selecione o tipo (quente ou frio) e o número de instâncias disponíveis, que serão multiplicadas pelo número de regiões em que sua oferta está disponível.
 
-**Quente**: esse tipo de instância é implantado e aguardando acesso por região selecionada. Os clientes podem acessar instantaneamente as instâncias *quentes* de um Test Drive, em vez de ter que esperar por uma implantação. A desvantagem é que essas instâncias estão sempre em execução na sua assinatura do Azure, portanto, elas incorrerão em um custo maior de tempo de atividade. É altamente recomendável ter pelo menos uma instância de *acesso* , pois a maioria dos clientes não deseja esperar por implantações completas, resultando em uma retirada no uso do cliente, se nenhuma instância de *acesso* estiver disponível.
+**Quente**: esse tipo de instância é implantado e aguardando acesso por região selecionada. Os clientes podem acessar instantaneamente as instâncias *quentes* de um Test Drive, em vez de ter que esperar por uma implantação. A desvantagem é que tais instâncias estão sempre em execução na sua assinatura do Azure; portanto, incorrerão em um maior custo de tempo de atividade. É altamente recomendável ter pelo menos uma instância de *acesso* , pois a maioria dos clientes não deseja esperar por implantações completas, resultando em uma retirada no uso do cliente, se nenhuma instância de *acesso* estiver disponível.
 
 **Frio**: esse tipo de instância representa o número total de instâncias que podem possivelmente ser implantadas por região. As instâncias frias exigem todo o modelo do Gerenciador de recursos da unidade de teste para implantar quando um cliente solicita a test drive, portanto, as instâncias *frias* são muito mais lentas para serem carregadas do que as instâncias *quentes* . A compensação é que você só precisa pagar pela duração da test drive, *nem* sempre está em execução em sua assinatura do Azure como com uma instância de *Hot* .
 
@@ -280,13 +280,13 @@ Um modelo de implantação que contém todos os recursos do Azure que compõem s
 
 A Microsoft pode remover a complexidade de configurar um test drive hospedando e mantendo o provisionamento e a implantação de serviços usando esse tipo de test drive. A configuração para esse tipo de test drive hospedada é a mesma, independentemente de o test drive ter como alvo um centro de negócios, um compromisso com o cliente ou um público de operações.
 
-- **Máximo de unidades de teste simultâneas** (obrigatório): defina o número máximo de clientes que podem usar seu Test Drive ao mesmo tempo. Cada usuário simultâneo consumirá uma licença do Dynamics 365 enquanto o test drive estiver ativo, portanto, será necessário garantir que você tenha licenças suficientes disponíveis para dar suporte ao limite máximo definido. Valor recomendado de 3-5.
+- **Máximo de unidades de teste simultâneas** (obrigatório): defina o número máximo de clientes que podem usar seu Test Drive ao mesmo tempo. Cada usuário simultâneo consumirá uma licença do Dynamics 365 enquanto o test drive estiver ativo, portanto, será necessário garantir que você tenha licenças suficientes disponíveis para dar suporte ao limite máximo definido. O valor recomendado é de 3 a 5.
 
 - **Duração do teste de unidade** (obrigatório): Insira o período de tempo que a unidade de teste permanecerá ativa definindo o número de horas. Depois disso, a sessão será encerrada e não consumirá mais uma de suas licenças. Recomendamos um valor de 2-24 horas, dependendo da complexidade da sua oferta. Essa duração só pode ser definida por um número inteiro de horas (por exemplo, "2" horas, "1,5" não é válido).  O usuário pode solicitar uma nova sessão se ela ficar sem tempo e desejar acessar a test drive novamente.
 
 - **URL da instância** (obrigatório): a URL em que o cliente começará sua Test Drive. Normalmente, a URL da instância do Dynamics 365 que executa seu aplicativo com os dados de exemplo instalados (por exemplo,  https://testdrive.crm.dynamics.com).
 
-- **URL da API Web da instância** (necessária): recupere a URL da API da Web para sua instância do Dynamics 365 fazendo logon em sua conta do Microsoft 365 e navegando para **as configurações** \&gt; @No__t_4gt de **personalização** ; @No__t_6gt de **recursos do desenvolvedor** ; **API Web da instância (URL da raiz do serviço)** , copie a URL encontrada aqui (por exemplo,  https://testdrive.crm.dynamics.com/api/data/v9.0).
+- **URL da API Web da instância** (necessária): recupere a URL da API da Web para sua instância do Dynamics 365 fazendo logon em sua conta do Microsoft 365 e navegando até **configurações** \&gt; **Personalização** \&gt; **Recursos para desenvolvedores** \&gt; **API Web da instância (URL da raiz do serviço)** , copie a URL encontrada aqui (por exemplo, https://testdrive.crm.dynamics.com/api/data/v9.0).
 
 - **Nome da função** (obrigatório): forneça o nome da função de segurança que você definiu em seu Test Drive personalizado do Dynamics 365. Isso será atribuído ao usuário durante seu test drive (por exemplo, Test-Drive-Role).
 
@@ -353,11 +353,11 @@ Esse arquivo deve estar no formato. xls ou. xlsx. Se você tiver mais de um rela
 
 ### <a name="does-solution-include-localizations"></a>A solução inclui localizações?
 
-Selecione **Sim** se a solução permitir o uso de padrões e políticas locais (por exemplo, se ele acomoda as diferentes regras de folha de pagamento exigidas por diferentes países/regiões). Caso contrário, selecione **não**.
+Selecione **Sim** se a solução permitir o uso de padrões e políticas locais (por exemplo, se ele acomoda as diferentes regras de folha de pagamento exigidas por diferentes países/regiões). Caso contrário, selecione **Não**.
 
 ### <a name="does-solution-enable-translations"></a>A solução habilita traduções?
 
-Responda **Sim** se o texto em sua solução puder ser traduzido em outros idiomas. Caso contrário, selecione **não**.
+Responda **Sim** se o texto em sua solução puder ser traduzido em outros idiomas. Caso contrário, selecione **Não**.
 
 ## <a name="publish"></a>Publicar
 

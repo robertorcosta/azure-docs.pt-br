@@ -1,29 +1,24 @@
 ---
 title: Detecção Inteligente - anomalias de falha no Application Insights | Microsoft Docs
 description: Alerta para alterações incomuns na taxa de solicitações com falha para seu aplicativo Web e fornece a análise de diagnóstico. Nenhuma configuração é necessária.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 12/18/2018
 ms.reviewer: yossiy
-ms.author: mbullwin
-ms.openlocfilehash: 46944603fdf45a2a7a14641086959bf61b3f773e
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: f8b8318a16b36593d2fbaf08bcbc19156dc96006
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465878"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820579"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detecção Inteligente - anomalias de falha
 O [Application Insights](../../azure-monitor/app/app-insights-overview.md) enviará uma notificação a você automaticamente, quase em tempo real, se seu aplicativo Web experimentar um aumento anormal de solicitações com falha. Ele detecta um aumento excepcional na taxa de solicitações de HTTP ou chamadas de dependência são relatadas como falha. Para solicitações, solicitações com falha geralmente são aqueles com códigos de resposta de 400 ou superior. Para ajudar você com a triagem e o diagnóstico do problema, a notificação acompanha uma análise das características das falhas e a telemetria relacionada. Também há links para portal do Application Insights, onde você pode obter um diagnóstico mais detalhado. O recurso não precisa de qualquer configuração, pois usa algoritmos de aprendizado de máquina para prever a taxa normal de falhas.
 
-Esse recurso funciona para qualquer aplicativo de web, hospedado na nuvem ou em seus próprios servidores, que gere telemetria de solicitação ou de dependência - por exemplo, se você tiver uma função de trabalho que chama [trackrequest ()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) ou [trackdependency ()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+Esse recurso funciona para qualquer aplicativo Web, hospedado na nuvem ou em seus próprios servidores, que gera telemetria de solicitação ou de dependência, por exemplo, se você tiver uma função de trabalho que chame [TrackRequest ()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) ou [TrackDependency ()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 Depois de configurar o [Application Insights para seu projeto](../../azure-monitor/app/app-insights-overview.md), e desde que o aplicativo gere uma certa quantidade mínima de telemetria, a Detecção Inteligente de anomalias de falha leva 24 horas para compreender o comportamento normal do aplicativo antes que ele seja ligado e possa enviar alertas.
 
@@ -44,30 +39,30 @@ Observe o que ele diz:
 * A exceção, os rastreamentos de log e as falhas de dependência (bancos de dados ou outros componentes externos) que parecem estar associados às falhas caracterizadas.
 * Vincula diretamente às pesquisas relevantes na telemetria no Application Insights.
 
-## <a name="failure-anomalies-v2"></a>V2 de anomalias de falha
-Uma nova versão da regra de alerta de anomalias de falha agora está disponível. Essa nova versão está em execução na nova plataforma alerta do Azure e apresenta uma variedade de aperfeiçoamentos em relação à versão existente.
+## <a name="failure-anomalies-v2"></a>Anomalias de falha v2
+Uma nova versão da regra de alerta de anomalias de falha agora está disponível. Essa nova versão está em execução na nova plataforma de alerta do Azure e apresenta uma variedade de melhorias em relação à versão existente.
 
 ### <a name="whats-new-in-this-version"></a>O que há de novo nesta versão?
-- Maior rapidez na detecção de problemas
-- Um conjunto mais rico de ações – a regra de alerta é criada com um associado [grupo de ação](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) denominado "Application Insights Smart Detection" que contém ações de email e webhook e pode ser estendido para disparar ações adicionais quando o alerta é acionado.
-- Mais voltada para notificações: notificações de Email enviadas dessa regra de alerta agora são enviadas por padrão para os usuários associados a funções de leitor de monitoramento e colaborador de monitoramento da assinatura. Para obter mais informações sobre isso estão disponíveis [aqui](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
-- A configuração mais fácil por meio de modelos ARM – veja o exemplo [aqui](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config).
-- Notificações enviadas a partir dessa regra de alerta de suporte de alerta de esquema comuns – siga as [esquema de alerta comum](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
-- Unificação de modelo de email - notificações dessa regra de alerta tem uma aparência consistente e sinta-se com outros tipos de alerta de Email. Com essa alteração, a opção para obter alertas de anomalias de falha com informações detalhadas de diagnóstico não está mais disponível.
+- Detecção mais rápida de problemas
+- Um conjunto mais rico de ações-a regra de alerta é criada com um [grupo de ações](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) associado chamado "detecção inteligente de Application insights" que contém ações de email e webhook e pode ser estendido para disparar ações adicionais quando o alerta é disparado.
+- Notificações mais focadas-as notificações por email enviadas por essa regra de alerta agora são enviadas por padrão para os usuários associados às funções de colaborador de monitoramento e monitoração da assinatura. Mais informações sobre isso estão disponíveis [aqui](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
+- Configuração mais fácil por meio de modelos ARM – Veja o exemplo [aqui](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config).
+- Suporte a esquema de alerta comum-as notificações enviadas desta regra de alerta seguem o [esquema de alerta comum](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
+- Modelo de email unificado – as notificações por email dessa regra de alerta têm uma aparência consistente & se sentem com outros tipos de alertas. Com essa alteração, a opção de obter os alertas de anomalias com informações de diagnóstico detalhadas não está mais disponível.
 
-### <a name="how-do-i-get-the-new-version"></a>Como posso obter a nova versão?
-- Recursos do Application Insights recém-criado agora estão provisionados com a nova versão da regra de alerta de anomalias de falha.
-- Application Insights existente regra receberá a nova versão quando sua assinatura de hospedagem de recursos com a versão clássica de anomalias de falha de alerta é migrado para a nova plataforma alerta como parte do [processo de desativação de alertas clássicos ](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).
+### <a name="how-do-i-get-the-new-version"></a>Como fazer obter a nova versão?
+- Os recursos de Application Insights criados recentemente agora são provisionados com a nova versão da regra de alerta de anomalias de falha.
+- Os recursos existentes do Application Insights com a versão clássica da regra de alerta de anomalias receberão a nova versão depois que sua assinatura de hospedagem for migrada para a nova plataforma de alerta como parte do processo de desativação de [alertas clássicos](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).
 
 > [!NOTE]
-> A nova versão da regra de alerta de anomalias de falha permanece livre. Além disso, as ações de email e webhook disparado por associado "Detecção inteligente ao Application Insights" grupo de ações também são gratuitos.
+> A nova versão da regra de alerta de anomalias de falha permanece gratuita. Além disso, ações de email e webhook disparadas pelo grupo de ações "detecção inteligente de Application Insights" associado também são gratuitas.
 > 
 > 
 
 ## <a name="benefits-of-smart-detection"></a>Benefícios da Detecção Inteligente
 Os [alertas de métrica](../../azure-monitor/app/alerts.md) comuns mostram que pode haver um problema. Mas a Detecção Inteligente inicia o trabalho de diagnóstico para você, executando grande parte da análise que, de outra forma, você teria de fazer por conta própria. Você obtém os resultados empacotados organizadamente, o que ajuda a chegar rapidamente à raiz do problema.
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como funciona
 A Detecção Inteligente monitora a telemetria recebida de seu aplicativo, especialmente as taxas de falha. Essa regra calcula o número de solicitações para o qual o `Successful request` propriedade for false, e o número de dependência chamadas para o qual o `Successful call` propriedade é false. Para as solicitações, por padrão, `Successful request == (resultCode < 400)` (a menos que você tenha escrito o código personalizado para [filtrar](../../azure-monitor/app/api-filtering-sampling.md#filtering) ou gerar suas próprias chamadas [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)). 
 
 O desempenho do seu aplicativo tem um padrão típico de comportamento. Algumas solicitações ou chamadas de dependência serão mais propensas a falhas do que outras; a taxa geral de falha poderá aumentar à medida que a carga crescer. A Detecção Inteligente usa aprendizado de máquina para encontrar essas anomalias.
@@ -119,7 +114,7 @@ Há alguns outros indícios. Por exemplo, a taxa de falha de dependência neste 
 
 Para investigar melhor, os links em cada seção levarão você diretamente até uma [página de pesquisa](../../azure-monitor/app/diagnostic-search.md) filtrada para mostrar solicitações, exceções, dependências ou rastreamentos relevantes. Você também pode abrir o [portal do Azure](https://portal.azure.com), navegar até o recurso Application Insights de seu aplicativo e abrir a folha Falhas.
 
-Neste exemplo, clicando no link 'Exibir detalhes de falhas de dependência' abre a folha de pesquisa do Application Insights. Ele mostra a instrução SQL que tem um exemplo da causa raiz: Valores nulos foram fornecidos em campos obrigatórios e não passaram na validação durante a operação de salvamento.
+Neste exemplo, clicando no link 'Exibir detalhes de falhas de dependência' abre a folha de pesquisa do Application Insights. Ele mostra a instrução SQL que tem um exemplo da causa raiz: nulos foram fornecidos em campos obrigatórios e não passou na validação durante o salvamento operação.
 
 ![Pesquisa de diagnóstico](./media/proactive-failure-diagnostics/051.png)
 
@@ -169,7 +164,7 @@ A Detecção Inteligente de anomalias de falha complementa outros recursos disti
 
 * Nós temos a supressão de alerta em nossa lista de pendências.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu aplicativo:
 
 * [Metrics explorer](../../azure-monitor/app/metrics-explorer.md)

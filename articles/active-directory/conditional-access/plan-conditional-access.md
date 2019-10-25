@@ -1,6 +1,6 @@
 ---
 title: Planejar políticas de acesso condicional no Azure Active Directory | Microsoft Docs
-description: Neste artigo, você aprenderá a planejar políticas de acesso condicional do Azure Active Directory.
+description: Neste artigo, você aprenderá a planejar políticas de acesso condicional para Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,37 +11,37 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fca84a71e1ede572e3889f973248db158115bec
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 894530aa9624af18f2f33a061d5cde683e9f01be
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655497"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880271"
 ---
-# <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Como: Planejar a implantação de acesso condicional no Azure Active Directory
+# <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Como planejar sua implantação de acesso condicional no Azure Active Directory
 
-Planejando a implantação de acesso condicional é essencial para garantir que você atingir a estratégia de acesso necessário para aplicativos e recursos em sua organização. Passam a maior parte do seu tempo durante a fase de planejamento da implantação para as várias políticas que você precisa para conceder ou bloquear o acesso a seus usuários sob as condições que você escolha de design. Este documento explica as etapas que você deve adotar para implementar políticas de acesso condicional seguras e eficaz. Antes de começar, verifique se você entendeu como [acesso condicional](overview.md) funciona e quando usá-lo.
+Planejar sua implantação de acesso condicional é essencial para garantir que você obtenha a estratégia de acesso necessária para aplicativos e recursos em sua organização. Passe a maior parte do tempo durante a fase de planejamento de sua implantação para projetar as várias políticas necessárias para conceder ou bloquear o acesso aos usuários sob as condições escolhidas. Este documento explica as etapas que você deve seguir para implementar políticas de acesso condicional seguras e eficazes. Antes de começar, verifique se você entendeu como o [acesso condicional](overview.md) funciona e quando você deve usá-lo.
 
 ## <a name="what-you-should-know"></a>O que você deve saber
 
-Pense no acesso condicional como uma estrutura que permite que você controle o acesso aos recursos, em vez de um recurso autônomo e aplicativos da sua organização. Consequentemente, algumas configurações de acesso condicional requerem recursos adicionais a serem configurados. Por exemplo, é possível configurar uma política que responda a um [nível de risco de credenciais](../identity-protection/howto-sign-in-risk-policy.md#what-is-the-sign-in-risk-policy) específico. No entanto, uma política que se baseia em um nível de risco de credenciais exige que o [Azure Active Directory Identity Protection](../identity-protection/overview.md) seja habilitado.
+Considere o acesso condicional como uma estrutura que permite controlar o acesso aos aplicativos e recursos de sua organização, em vez de um recurso autônomo. Consequentemente, algumas configurações de acesso condicional exigem recursos adicionais a serem configurados. Por exemplo, é possível configurar uma política que responda a um [nível de risco de credenciais](../identity-protection/howto-identity-protection-configure-risk-policies.md) específico. No entanto, uma política que se baseia em um nível de risco de credenciais exige que o [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) seja habilitado.
 
-Se forem necessários recursos adicionais, talvez você também precise obter licenças relacionadas. Por exemplo, enquanto o acesso condicional é um recurso do Azure AD Premium P1, proteção de identidade requer uma licença do Azure AD Premium P2.
+Se forem necessários recursos adicionais, talvez você também precise obter licenças relacionadas. Por exemplo, embora o acesso condicional seja Azure AD Premium recurso P1, a proteção de identidade requer uma licença Azure AD Premium P2.
 
-Há dois tipos de políticas de acesso condicional: linha de base e padrão. Um [política de linha de base](baseline-protection.md) é uma política de acesso condicional predefinida. A meta dessas políticas é garantir que você tenha pelo menos o nível básico de segurança habilitado. Políticas de linha de base. As políticas de linha de base estão disponíveis em todas as edições do Azure Active Directory e fornecem apenas opções de personalização limitadas. Se um cenário exigir mais flexibilidade, desabilite a política de linha de base e implemente seus requisitos em uma política padrão personalizada.
+Há dois tipos de políticas de acesso condicional: linha de base e padrão. Uma [política de linha de base](baseline-protection.md) é uma política de acesso condicional predefinida. A meta dessas políticas é garantir que você tenha pelo menos o nível básico de segurança habilitado. Políticas de linha de base. As políticas de linha de base estão disponíveis em todas as edições do Azure Active Directory e fornecem apenas opções de personalização limitadas. Se um cenário exigir mais flexibilidade, desabilite a política de linha de base e implemente seus requisitos em uma política padrão personalizada.
 
-Em uma política de acesso condicional padrão, você pode personalizar todas as configurações para ajustar a política para seus requisitos de negócios. As políticas padrão exigem uma licença P1 do Azure AD Premium.
+Em uma política de acesso condicional padrão, você pode personalizar todas as configurações para ajustar a política aos seus requisitos de negócios. As políticas padrão exigem uma licença P1 do Azure AD Premium.
 
 ## <a name="draft-policies"></a>Rascunho de políticas
 
-Acesso condicional do Azure de Active Directory permite que você leve a proteção de seus aplicativos de nuvem para um novo nível. Nesse novo nível, o modo de acessar um aplicativo em nuvem baseia-se em uma avaliação de política dinâmica, e não em uma configuração de acesso estático. Com uma política de acesso condicional, você pode definir uma resposta (**isso**) para uma condição de acesso (**quando isso acontece,** ).
+Azure Active Directory acesso condicional permite que você traga a proteção de seus aplicativos de nuvem para um novo nível. Nesse novo nível, o modo de acessar um aplicativo em nuvem baseia-se em uma avaliação de política dinâmica, e não em uma configuração de acesso estático. Com uma política de acesso condicional, você define uma resposta (**faça isso**) para uma condição de acesso (**quando isso acontecer**).
 
 ![Motivo e resposta](./media/plan-conditional-access/10.png)
 
-Defina cada política de acesso condicional que você deseja implementar usando esse modelo de planejamento. O exercício de planejamento:
+Defina cada política de acesso condicional que você deseja implementar usando este modelo de planejamento. O exercício de planejamento:
 
 - Ajuda a descrever as respostas e condições para cada política.
-- Resultados em um catálogo de política de acesso condicional bem documentado para a sua organização. 
+- Resulta em um catálogo de política de acesso condicional bem documentado para sua organização. 
 
 Você pode usar o catálogo para avaliar se a implementação da sua política reflete os requisitos de negócios da organização. 
 
@@ -53,9 +53,9 @@ Use o modelo de exemplo a seguir para criar políticas de acesso condicional par
 |For feita uma tentativa de acesso:<br>- Em um aplicativo em nuvem *<br> - Por usuários e grupos*<br>Usando:<br>- Condição 1 (por exemplo, fora da rede corporativa)<br>- Condição 2 (por exemplo, plataformas de dispositivo)|Conceda acesso com (E):<br>- Requisito 1 (por exemplo, MFA)<br>- Requisito 2 (por exemplo, conformidade de dispositivo)|
 |For feita uma tentativa de acesso:<br>- Em um aplicativo em nuvem *<br> - Por usuários e grupos*<br>Usando:<br>- Condição 1 (por exemplo, fora da rede corporativa)<br>- Condição 2 (por exemplo, plataformas de dispositivo)|Conceda acesso com (OU):<br>- Requisito 1 (por exemplo, MFA)<br>- Requisito 2 (por exemplo, conformidade de dispositivo)|
 
-No mínimo, **quando isso ocorrer** define a entidade de segurança (**quem**) que tenta acessar um aplicativo em nuvem (**o quê**). Se necessário, você também pode incluir **como** uma tentativa de acesso é realizada. No acesso condicional, os elementos que definem quem, o que e como são conhecidos como condições. Para obter mais informações, consulte [quais são as condições no acesso condicional do Azure Active Directory?](conditions.md) 
+No mínimo, **quando isso ocorrer** define a entidade de segurança (**quem**) que tenta acessar um aplicativo em nuvem (**o quê**). Se necessário, você também pode incluir **como** uma tentativa de acesso é realizada. No acesso condicional, os elementos que definem quem, o que e como são conhecidos como condições. Para obter mais informações, consulte [o que são condições em Azure Active Directory acesso condicional?](conditions.md) 
 
-Com **faça isso**, você define a resposta da sua política a uma condição de acesso. Em sua resposta, você bloqueia ou concede acesso com requisitos adicionais, por exemplo, MFA (autenticação multifator). Para obter uma visão completa, consulte [quais são acesso controla o acesso condicional do Azure Active Directory?](controls.md)  
+Com **faça isso**, você define a resposta da sua política a uma condição de acesso. Em sua resposta, você bloqueia ou concede acesso com requisitos adicionais, por exemplo, MFA (autenticação multifator). Para obter uma visão geral completa, consulte [o que são controles de acesso no Azure Active Directory acesso condicional?](controls.md)  
 
 A combinação de condições e seus controles de acesso representa uma política de Acesso Condicional.
 
@@ -63,7 +63,7 @@ A combinação de condições e seus controles de acesso representa uma polític
 
 Para saber mais, consulte [O que é necessário para que uma política funcione](best-practices.md#whats-required-to-make-a-policy-work).
 
-Agora é um bom momento para decidir sobre um padrão de nomenclatura para as suas políticas. O padrão de nomenclatura ajuda você a localizar as políticas e a entender a finalidade delas sem precisar abri-las no portal de administração do Azure. Nomeie a política para mostrar:
+Agora é um bom momento para decidir sobre um padrão de nomenclatura para as suas políticas. O padrão de nomenclatura ajuda você a localizar as políticas e a entender a finalidade delas sem precisar abri-las no portal de administração do Azure. Nomeie sua política para mostrar:
 
 - Um número sequencial
 - O aplicativo em nuvem ao qual ela se aplica
@@ -73,7 +73,7 @@ Agora é um bom momento para decidir sobre um padrão de nomenclatura para as su
  
 ![Padrão de nomenclatura](./media/plan-conditional-access/11.png)
 
-Enquanto um nome descritivo ajuda você a manter uma visão geral da sua implementação de acesso condicional, o número de sequência é útil se você precisar fazer referência a uma política em uma conversa. Por exemplo, se você falar com um colega administrador no telefone, você pode pedir para abrir a diretiva EM063 para resolver um problema.
+Embora um nome descritivo ajude você a manter uma visão geral da sua implementação de acesso condicional, o número de sequência será útil se você precisar fazer referência a uma política em uma conversa. Por exemplo, se você falar com um colega de administrador no telefone, solicite a eles que abram o Policy EM063 para resolver um problema.
 
 Por exemplo, o seguinte nome declara que a política exige MFA para usuários de marketing em redes externas usando o aplicativo Dynamics CRP:
 
@@ -85,13 +85,13 @@ Além das suas políticas ativas, também é aconselhável implementar política
 - O nome da interrupção a qual ele deve ser aplicado.
 - Um número de sequência de ordenação para ajudar o administrador a saber em qual ordem as políticas devem ser habilitadas. 
 
-Por exemplo, o nome a seguir indica que essa política é a primeira política fora de quatro, que você deve habilitar se houver uma interrupção de MFA:
+Por exemplo, o seguinte nome indica que essa política é a primeira política de quatro que você deve habilitar se houver uma interrupção de MFA:
 
 `EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users`
 
 ## <a name="plan-policies"></a>Planejar políticas
 
-Ao planejar sua solução de política de acesso condicional, avalie se você precisa criar políticas para alcançar os seguintes resultados. 
+Ao planejar sua solução de política de acesso condicional, avalie se você precisa criar políticas para obter os resultados a seguir. 
 
 ### <a name="block-access"></a>Acesso bloqueado
 
@@ -127,15 +127,15 @@ Para saber mais, consulte [O que é o Azure Active Directory Identity Protection
 
 ### <a name="require-managed-devices"></a>Requer dispositivos gerenciados
 
-A proliferação de dispositivos com suporte para acessar os recursos de nuvem ajuda a melhorar a produtividade dos usuários. Por outro lado, não convém certos recursos em seu ambiente para ser acessado por dispositivos com um nível de proteção desconhecido. Para os recursos afetados, você deve exigir que os usuários possam acessar somente usando um dispositivo gerenciado. Para obter mais informações, consulte [como exigir que os dispositivos gerenciados para acesso de aplicativo de nuvem com acesso condicional](require-managed-devices.md). 
+A proliferação de dispositivos com suporte para acessar os recursos de nuvem ajuda a melhorar a produtividade dos usuários. Por outro lado, não convém certos recursos em seu ambiente para ser acessado por dispositivos com um nível de proteção desconhecido. Para os recursos afetados, você deve exigir que os usuários possam acessar somente usando um dispositivo gerenciado. Para obter mais informações, consulte [como exigir dispositivos gerenciados para acesso ao aplicativo de nuvem com acesso condicional](require-managed-devices.md). 
 
 ### <a name="require-approved-client-apps"></a>Requer aplicativos de cliente aprovados
 
-Uma das primeiras decisões que você precisa tomar nos cenários BYOD (traga seus próprios dispositivos) é se há necessidade de gerenciar todo o dispositivo ou apenas seus dados. Os funcionários usam dispositivos móveis para tarefas de pessoais e corporativas. Ao mesmo tempo que garante que seus funcionários sejam produtivos, você também quer impedir a perda de dados. Com acesso condicional do Azure Active Directory (Azure AD), você pode restringir o acesso aos seus aplicativos de nuvem para aplicativos cliente aprovados que podem proteger seus dados corporativos. Para obter mais informações, consulte [como exigir que aplicativos cliente aprovados para acesso de aplicativo de nuvem com acesso condicional](app-based-conditional-access.md).
+Uma das primeiras decisões que você precisa tomar nos cenários BYOD (traga seus próprios dispositivos) é se há necessidade de gerenciar todo o dispositivo ou apenas seus dados. Os funcionários usam dispositivos móveis para tarefas de pessoais e corporativas. Ao mesmo tempo que garante que seus funcionários sejam produtivos, você também quer impedir a perda de dados. Com o acesso condicional do Azure Active Directory (AD do Azure), você pode restringir o acesso aos aplicativos de nuvem a aplicativos cliente aprovados que podem proteger seus dados corporativos. Para obter mais informações, consulte [como exigir aplicativos cliente aprovados para acesso de aplicativo de nuvem com acesso condicional](app-based-conditional-access.md).
 
 ### <a name="block-legacy-authentication"></a>Bloquear a autenticação herdada
 
-O Azure AD dá suporte para vários dos protocolos de autenticação e autorização mais amplamente utilizados, incluindo a autenticação herdada. Como é possível impedir que aplicativos usando autenticação herdada acessem os recursos do locatário? A recomendação é simplesmente bloqueá-los com uma política de acesso condicional. Se necessário, você permite que apenas determinados usuários e locais de rede específicos usem aplicativos baseados em autenticação herdada. Para obter mais informações, consulte [como bloquear autenticação herdados para o Azure AD com acesso condicional](block-legacy-authentication.md).
+O Azure AD dá suporte para vários dos protocolos de autenticação e autorização mais amplamente utilizados, incluindo a autenticação herdada. Como é possível impedir que aplicativos usando autenticação herdada acessem os recursos do locatário? A recomendação é simplesmente bloqueá-los com uma política de acesso condicional. Se necessário, você permite que apenas determinados usuários e locais de rede específicos usem aplicativos baseados em autenticação herdada. Para obter mais informações, consulte [como bloquear a autenticação herdada no Azure AD com acesso condicional](block-legacy-authentication.md).
 
 ## <a name="test-your-policy"></a>Testar sua política
 
@@ -158,7 +158,7 @@ Algumas organizações têm locatários de teste para essa finalidade. No entant
 
 O plano de teste é importante para que se tenha uma comparação entre os resultados esperados e os resultados reais. Você sempre deve ter uma expectativa antes de testar algo. A tabela a seguir descreve exemplos de casos de teste. Ajuste os cenários e os resultados esperados com base na configuração de suas políticas de autoridade de certificação.
 
-|Política |Cenário |Resultado esperado | Resultado |
+|Política |Cenário |Resultado esperado | Result |
 |---|---|---|---|
 |[Exigir MFA quando não estiver no trabalho](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Usuário autorizado entra no *Aplicativo* quando está no trabalho/em um local confiável|Não é solicitado que o usuário use a MFA| |
 |[Exigir MFA quando não estiver no trabalho](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Usuário autorizado entra no *Aplicativo* quando não está no trabalho/em um local confiável|É solicitado que o usuário use a MFA para se conectar com êxito| |
@@ -170,27 +170,27 @@ O plano de teste é importante para que se tenha uma comparação entre os resul
 
 ### <a name="configure-the-policy"></a>Configurar a política
 
-Gerenciar políticas de acesso condicional é uma tarefa manual. No portal do Azure, você pode gerenciar políticas de acesso condicional em um local central, a página de acesso condicional. Um ponto de entrada para a página de acesso condicional é a **segurança** seção o **do Active Directory** painel de navegação. 
+O gerenciamento de políticas de acesso condicional é uma tarefa manual. No portal do Azure, você pode gerenciar suas políticas de acesso condicional em um local central-a página de acesso condicional. Um ponto de entrada para a página de acesso condicional é a seção **segurança** no painel de navegação **Active Directory** . 
 
-![Acesso Condicional](media/plan-conditional-access/03.png)
+![Acesso condicional](media/plan-conditional-access/03.png)
 
-Se você quiser saber mais sobre como criar políticas de acesso condicional, consulte [exigir MFA para aplicativos específicos com acesso condicional do Azure Active Directory](app-based-mfa.md). Este início rápido ajuda você a:
+Se você quiser saber mais sobre como criar políticas de acesso condicional, consulte [exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](app-based-mfa.md). Este início rápido ajuda você a:
 
 - Familiarizar-se com a interface do usuário.
-- Obtenha sua primeira impressão do funcionamento do acesso condicional. 
+- Obtenha uma primeira impressão de como o acesso condicional funciona. 
 
 ### <a name="evaluate-a-simulated-sign-in"></a>Avaliar uma entrada simulada
 
-Agora que você configurou a política de acesso condicional, provavelmente deseja saber se ela funciona conforme o esperado. Como primeira etapa, use a [ferramenta de política “What If”](what-if-tool.md) do acesso condicional para simular uma entrada de seu usuário de teste. A simulação calcula o impacto que esse logon tem em suas políticas e gera um relatório de simulação.
+Agora que você configurou a política de acesso condicional, provavelmente deseja saber se ela funciona conforme o esperado. Como primeira etapa, use a [ferramenta de política “What If”](what-if-tool.md) do acesso condicional para simular uma entrada de seu usuário de teste. A simulação calcula o impacto que essa conexão tem em suas políticas e gera um relatório de simulação.
 
 >[!NOTE]
-> Enquanto uma execução simulada lhe dá a impressão do impacto que tem uma política de acesso condicional, ele não substitui uma execução de teste real.
+> Embora uma execução simulada lhe dê a impressão do impacto de uma política de acesso condicional, ela não substitui uma execução de teste real.
 
 ### <a name="test-your-policy"></a>Testar sua política
 
 Execute casos de teste de acordo com o seu plano de teste. Nessa etapa, você passa por um teste completo de cada política para os usuários de teste a fim de garantir que cada política se comporte corretamente. Use os cenários criados acima para executar cada teste.
 
-É importante ter absoluta certeza de testar os critérios de exclusão de uma política. Por exemplo, você pode excluir um usuário ou grupo de uma política que exige MFA. Teste se for solicitados que os usuários excluídos para MFA, porque a combinação de outras políticas pode exigir MFA para os usuários.
+É importante ter absoluta certeza de testar os critérios de exclusão de uma política. Por exemplo, você pode excluir um usuário ou grupo de uma política que exige MFA. Teste se os usuários excluídos são solicitados pela MFA, porque a combinação de outras políticas pode exigir MFA para esses usuários.
 
 ### <a name="cleanup"></a>Limpeza
 
@@ -231,6 +231,6 @@ Caso você precise reverter as suas políticas recentemente implementadas, use u
 
 1. **Excluir a política**: se a política não for mais necessária, exclua-a.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte a [Documentação de Acesso Condicional do Azure Active Directory](index.yml) para obter uma visão geral das informações disponíveis.

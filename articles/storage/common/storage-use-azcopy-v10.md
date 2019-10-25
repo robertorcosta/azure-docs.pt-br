@@ -4,15 +4,15 @@ description: AzCopy é um utilitário de linha de comando que você pode usar pa
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 37d8c483a1ef49a87205dcc848aae974f5b0e47e
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 812daaf42a987e9dd63bbc39b60c517d8f0cc761
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675856"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882488"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -59,6 +59,8 @@ Para saber mais sobre um comando específico, apenas inclua o nome do comando (p
 
 ![Ajuda embutida](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
+Para encontrar a documentação de referência detalhada para cada comando e parâmetro de comando, consulte [azcopy](storage-ref-azcopy.md)
+
 > [!NOTE] 
 > Como proprietário de sua conta de armazenamento do Azure, você não recebe automaticamente permissões para acessar dados. Antes de poder fazer qualquer coisa significativa com o AzCopy, você precisa decidir como fornecerá credenciais de autorização para o serviço de armazenamento. 
 
@@ -89,15 +91,15 @@ Se você apenas deseja baixar arquivos, verifique se o leitor de [dados de blob 
 
 Se você quiser carregar arquivos, verifique se uma dessas funções foi atribuída à sua entidade de segurança:
 
-- [Colaborador de dados do blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
-- [Proprietário de dados do blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
+- [Colaborador de dados de blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Proprietário de Dados do Blob de Armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 Essas funções podem ser atribuídas à entidade de segurança em qualquer um desses escopos:
 
 - Contêiner (sistema de arquivos)
 - Conta de armazenamento
-- Grupo de recursos
-- Scriçõe
+- Resource group
+- Subscription
 
 Para saber como verificar e atribuir funções, consulte [conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -124,11 +126,11 @@ azcopy login --tenant-id=<tenant-id>
 
 Substitua o espaço reservado `<tenant-id>` pela ID de locatário da organização à qual a conta de armazenamento pertence. Para localizar a ID de locatário, selecione **Azure Active Directory Propriedades de > > ID de diretório** no portal do Azure.
 
-Esse comando retorna um código de autenticação e a URL de um site. Abra o site, forneça o código e, em seguida, escolha o botão **Avançar** .
+Esse comando retorna um código de autenticação e a URL de um site. Abra o site, forneça o código e, em seguida, escolha o botão **Avançar**.
 
 ![Criar um contêiner](media/storage-use-azcopy-v10/azcopy-login.png)
 
-Uma janela de entrada será exibida. Nessa janela, entre em sua conta do Azure usando suas credenciais de conta do Azure. Depois de entrar com êxito, você pode fechar a janela do navegador e começar a usar o AzCopy.
+Uma janela de entrada será exibida. Nessa janela, entre em sua conta do Azure usando suas credenciais de conta do Azure. Depois de entrar com êxito, feche a janela do navegador e comece a usar o AzCopy.
 
 <a id="service-principal" />
 
@@ -258,11 +260,11 @@ Depois de autenticar sua identidade ou obter um token SAS, você pode começar a
 
 Para encontrar comandos de exemplo, consulte qualquer um desses artigos.
 
-- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
+- [Transferir dados com o AzCopy e o Armazenamento de Blobs](storage-use-azcopy-blobs.md)
 
-- [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
+- [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
 
-- [Transferir dados com os buckets AzCopy e Amazon S3](storage-use-azcopy-s3.md)
+- [Transferir dados com o AzCopy e os buckets do Amazon S3](storage-use-azcopy-s3.md)
 
 - [Transferir dados com AzCopy e armazenamento de Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
 
@@ -276,7 +278,7 @@ Para evitar esses problemas, obtenha um link estático (sem alteração) para a 
 
 Para obter o link, execute este comando:
 
-| Sistema operacional  | Comando |
+| Sistema operacional  | Command |
 |--------|-----------|
 | **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
 | **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
@@ -286,7 +288,7 @@ Para obter o link, execute este comando:
 
 A URL aparece na saída deste comando. O script pode então baixar o AzCopy usando essa URL.
 
-| Sistema operacional  | Comando |
+| Sistema operacional  | Command |
 |--------|-----------|
 | **Linux** | `wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |

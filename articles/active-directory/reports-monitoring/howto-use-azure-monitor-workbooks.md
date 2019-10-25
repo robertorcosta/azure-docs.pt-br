@@ -1,5 +1,5 @@
 ---
-title: Usar pastas de trabalho Azure Monitor para relatórios Azure Active Directory | Microsoft Docs
+title: Azure Monitor pastas de trabalho para relatórios | Microsoft Docs
 description: Saiba como usar pastas de trabalho do Azure Monitor para relatórios Azure Active Directory.
 services: active-directory
 author: cawrites
@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9bea8da4f0d694be3a39a8f5dfaca8e54ce2773d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 5e498dcb39f62fc870bc7efa989b91caeac0dedc
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255651"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819726"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como usar pastas de trabalho do Azure Monitor para relatórios Azure Active Directory
 
@@ -69,7 +69,7 @@ Você deve estar em uma das seguintes funções, bem como ter acesso ao espaço 
 
 Para acessar pastas de trabalho:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. No painel de navegação esquerdo, selecione **Azure Active Directory**.
 
@@ -90,7 +90,7 @@ Esta pasta de trabalho mostra as seguintes tendências de entrada:
 
 - Todas as entradas
 
-- Êxito
+- Sucesso
 
 - Ação pendente do usuário
 
@@ -127,7 +127,7 @@ Esta pasta de trabalho mostra as seguintes tendências de entrada:
 
 - Todas as entradas
 
-- Êxito
+- Sucesso
 
 
 Você pode filtrar cada tendência pelas seguintes categorias:
@@ -188,7 +188,7 @@ Esta pasta de trabalho mostra as seguintes tendências de entrada desabilitadas:
 
 - Exigir política de privacidade
 
-- Outros
+- outro
 
 
 Você pode filtrar cada tendência pelas seguintes categorias:
@@ -224,7 +224,7 @@ Esta pasta de trabalho mostra as seguintes tendências de entrada:
 
 - Todas as entradas
 
-- Êxito
+- Sucesso
 
 - Ação pendente
 
@@ -257,6 +257,6 @@ Para ajudá-lo a solucionar problemas de entrada, Azure Monitor oferece uma divi
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Crie relatórios interativos usando monitorar pastas de trabalho](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).

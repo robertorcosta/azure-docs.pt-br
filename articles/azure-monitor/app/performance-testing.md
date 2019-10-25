@@ -1,65 +1,61 @@
 ---
-title: Desempenho e teste de carga com o Azure Application Insights | Microsoft Docs
-description: Configurar testes de carga com o Azure Application Insights e desempenho
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Teste de desempenho e carga com o Aplicativo Azure insights | Microsoft Docs
+description: Configurar testes de carga e desempenho com o Aplicativo Azure insights
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: 55d743e32f6db0828317d3764a97bcb35b104dad
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 9c86b69239bed1a15c754ce28232b97e8439942b
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67305204"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819111"
 ---
 # <a name="performance-testing"></a>Testes de desempenho
 
 > [!NOTE]
-> O serviço de teste de carga baseado em nuvem foi preterida. Para obter mais informações sobre a substituição, a disponibilidade do serviço e serviços alternativos podem ser encontradas [aqui](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
+> O serviço de teste de carga baseado em nuvem foi preterido. Para obter mais informações sobre a substituição, a disponibilidade do serviço e os serviços alternativos podem ser encontrados [aqui](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
 
-Application Insights permite que você gerar testes de carga para seus sites. Como o [testes de disponibilidade](monitor-web-app-availability.md), você pode enviar qualquer solicitações básicas ou [solicitações de várias etapas](availability-multistep.md) do Azure em todo o mundo, os agentes de teste. Testes de desempenho permitem que você simule até 20.000 usuários simultâneos para até 60 minutos.
+Application Insights permite que você gere testes de carga para seus sites. Assim como os [testes de disponibilidade](monitor-web-app-availability.md), você pode enviar solicitações básicas ou [solicitações de várias etapas](availability-multistep.md) de agentes de teste do Azure em todo o mundo. Os testes de desempenho permitem simular até 20.000 usuários simultâneos por até 60 minutos.
 
 ## <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
-Para criar um teste de desempenho, você precisa primeiro criar um recurso do Application Insights. Se você já tiver criado um recurso de prosseguir para a próxima seção.
+Para criar um teste de desempenho, primeiro você precisa criar um recurso de Application Insights. Se você já tiver criado um recurso, prossiga para a próxima seção.
 
-No portal do Azure, selecione **criar um recurso** > **ferramentas de desenvolvedor** > **Application Insights** e criar um Application Insights recurso.
+Na portal do Azure, selecione **criar um recurso** > **ferramentas para desenvolvedores** > **Application insights** e crie um recurso de Application insights.
 
 ## <a name="configure-performance-testing"></a>Configurar testes de desempenho
 
-Se essa for a primeira vez em que a criação de select do teste de desempenho **organização definido** e escolher uma organização de DevOps do Azure para ser a origem para os testes de desempenho.
+Se esta for a primeira vez que você cria o teste de desempenho, selecione **definir organização** e escolha uma organização de DevOps do Azure para ser a origem para seus testes de desempenho.
 
-Sob **configurar**, acesse **teste de desempenho** e clique em **New** para criar um teste.
+Em **Configurar**, vá para **teste de desempenho** e clique em **novo** para criar um teste.
 
 ![Preencha pelo menos o URL do seu site](./media/performance-testing/new-performance-test.png)
 
-Para criar um teste de desempenho básico, selecione um tipo de teste do **teste Manual** e preencha as configurações desejadas para seu teste.
+Para criar um teste de desempenho básico, selecione um tipo de teste de **teste manual** e preencha as configurações desejadas para seu teste.
 
 |Configuração| Valor máximo
 |----------|------------|
 | Carga de usuário | 20.000 |
 | Duração (minutos)  | 60 |  
 
-Depois que o teste é criado, clique em **executar teste**.
+Depois que o teste for criado, clique em **Executar teste**.
 
-Quando o teste for concluído, você verá resultados semelhantes aos resultados abaixo:
+Depois que o teste for concluído, você verá resultados semelhantes aos resultados abaixo:
 
-![Resultados de teste](./media/performance-testing/test-results.png)
+![Resultados de Teste](./media/performance-testing/test-results.png)
 
-## <a name="configure-visual-studio-web-test"></a>Configurar o teste da web do Visual Studio
+## <a name="configure-visual-studio-web-test"></a>Configurar o teste na Web do Visual Studio
 
-Projetos de teste do Application Insights funcionalidades de teste de desempenho avançado são criadas sobre a carga e desempenho do Visual Studio.
+Application Insights recursos de teste de desempenho avançado são criados sobre projetos de desempenho e teste de carga do Visual Studio.
 
 ![Visual Studio ](./media/performance-testing/visual-studio-test.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* [Testes da web de várias etapas](availability-multistep.md)
+* [Testes na Web de várias etapas](availability-multistep.md)
 * [Testes de ping de URL](monitor-web-app-availability.md)

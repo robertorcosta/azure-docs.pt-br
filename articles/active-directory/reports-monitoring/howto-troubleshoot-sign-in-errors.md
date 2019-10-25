@@ -1,5 +1,5 @@
 ---
-title: Como solucionar erros de entrada usando relatórios do Active Directory Domain Services do Azure | Microsoft Docs
+title: Como solucionar problemas de relatórios de erros de entrada | Microsoft Docs
 description: Aprenda a solucionar erros de login usando relatórios do Azure Active Directory Domain Services no portal do Azure
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c901395436c8ed660c50b7342a804143d57db3c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 692fd2034fb70feffe02320eea5cdb9a3d163475
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988176"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819701"
 ---
-# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: Solucionar problemas de erros de logon usando relatórios do Azure Active Directory Domain Services
+# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como solucionar problemas de erros de logon usando relatórios do Azure Active Directory Domain Services
 
 O [relatório de logins](concept-sign-ins.md) no Azure AD (Azure Active Directory Domain Services) permite que você encontre respostas a perguntas sobre como gerenciar o acesso aos aplicativos em sua organização, incluindo:
 
@@ -36,7 +36,7 @@ Além disso, o relatório de logins também pode ajudar você a solucionar falha
 
 Você precisa de:
 
-* Um locatário do Microsoft Azure Active Directory com uma licença premium (P1/P2). Consulte [Introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para fazer upgrade da edição do Azure Active Directory.
+* Um locatário do Microsoft Azure Active Directory com uma licença premium (P1/P2). Consulte [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar sua edição do Azure Active Directory.
 * Um usuário, que está na função **administrador global**, **administrador de segurança**, **leitor de segurança**ou **leitor de relatório** para o locatário. Além disso, qualquer usuário pode acessar suas próprias entradas. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Solucionar problemas de erros de entrada usando o relatório de entradas
@@ -45,7 +45,7 @@ Você precisa de:
 2. Selecione **Azure Active Directory** e selecione **Entradas** na seção **Monitoramento**. 
 3. Use os filtros fornecidos para restringir a falha, seja pelo nome de usuário ou identificador de objeto, nome do aplicativo ou data. Além disso, selecione **falha** na lista suspensa **status** para exibir somente as entradas com falha. 
 
-    ![Filtrar resultados](./media/howto-troubleshoot-sign-in-errors/filters.png)
+    ![Resultados do filtro](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
 4. Identifique a entrada com falha que você deseja investigar. Selecione-o para abrir a janela detalhes adicionais com mais informações sobre a entrada com falha. Anote o **código de erro de login** e **motivo de falha**. 
 
@@ -61,7 +61,7 @@ Você precisa de:
 
 8. Se tudo mais falhar ou se o problema persistir apesar de ter tomado as medidas recomendadas, [abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) seguindo as etapas na guia **Solução de problemas e suporte**. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Códigos de erro de entradas de referência](reference-sign-ins-error-codes.md)
 * [Visão geral do relatório de entradas](concept-sign-ins.md)

@@ -1,23 +1,18 @@
 ---
 title: Painel de Visão geral do Azure Application Insights | Microsfoft Docs
 description: Monitore aplicativos com a funcionalidade do Azure Application Insights e do Painel de Visão Geral.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 06/03/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/03/2019
+ms.openlocfilehash: 218ae158512326bcad8efd6c598f68d296fe9370
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497162"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819162"
 ---
 # <a name="application-insights-overview-dashboard"></a>Painel de visão geral do Application Insights
 
@@ -60,11 +55,11 @@ Para navegar de volta para a experiência de visão geral basta selecionar:
 
 ![Botão Visão geral](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 
-Se você selecionar **definir as configurações de bloco** e defina um intervalo de tempo personalizado que excede seu painel não exibirá mais de 31 dias de dados, mesmo com a retenção de dados padrão de 90 dias de 31 dias. Atualmente, não há nenhuma solução alternativa para esse comportamento.
+Se você selecionar **definir configurações de bloco** e definir um intervalo de tempo personalizado acima de 31 dias, seu painel não será exibido além de 31 dias de dados, mesmo com a retenção de dados padrão de 90 dias. Atualmente, não há nenhuma solução alternativa para esse comportamento.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Funis](../../azure-monitor/app/usage-funnels.md)
 - [Retenção](../../azure-monitor/app/usage-retention.md)

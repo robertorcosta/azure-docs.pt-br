@@ -1,23 +1,18 @@
 ---
 title: Script do PowerShell para criar um recurso do Application Insights | Microsoft Docs
 description: Automatize a criação de recursos do Application Insights.
-services: application-insights
-documentationcenter: windows
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 11/19/2016
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 8a7b19dd6e5bc08c0c7e278b514ecaa9dc13a00e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/19/2016
+ms.openlocfilehash: 11245d0f9d6e6b86a5d0249df65b33f851bee9d7
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254492"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820693"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>Script do PowerShell para criar um recurso do Application Insights
 
@@ -110,7 +105,7 @@ Há duas maneiras de disponibilizar o iKey para o SDK:
   * `Microsoft.ApplicationInsights.Extensibility.
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 * [Criar recursos de teste da Web e do Application Insights por meio de modelos](powershell.md)
 * [Configurar o monitoramento do diagnóstico do Azure com o PowerShell](powershell-azure-diagnostics.md) 
 * [Definir alertas usando o PowerShell](powershell-alerts.md)

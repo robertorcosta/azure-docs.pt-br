@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 1fb57a7c6cc694c56667d589eae39442ee9e82ac
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: acda549ffc03679de43b4e5956e65ccada766c15
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984375"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819958"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>Usando chaves de recurso de criação e tempo de execução
 
@@ -28,7 +28,7 @@ Os recursos de criação e tempo de execução fornecem autenticação para seu 
 Ao entrar no portal do LUIS, você pode optar por continuar com:
 
 * uma [chave de avaliação](#trial-key) gratuita-fornecendo criação e algumas consultas de ponto de extremidade de previsão.
-* um novo recurso de criação do Azure LUIS – crie um novo recurso. Isso não é o mesmo que um recurso de ponto de extremidade de previsão. 
+* um recurso de [criação de Luis](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) do Azure. 
 
 
 <a name="starter-key"></a>
@@ -52,20 +52,17 @@ Quando você estiver pronto para publicar seu ponto de extremidade de previsão,
 
 ## <a name="create-resources-in-the-azure-portal"></a>Criar recursos no portal do Azure
 
-1. Entre no [Portal do Azure](https://azure.microsoft.com/free/). 
-1. Selecione **+ Criar um recurso**.
-1. Na caixa de pesquisa, insira `Language understanding`.
-1. Selecione **Criar** para iniciar o processo de criação. 
+1. Use [este link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) para abrir o portal do Azure em para a criação de recursos.
 1. Selecione **ambos** para criar uma chave de tempo de execução de criação de ponto de extremidade de previsão. 
 1. Insira as informações necessárias para criar o recurso e, em seguida, selecione **criar** para concluir o processo.
 
     ![Criar o recurso de reconhecimento de idioma](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
-    |Nome|Finalidade|
+    |name|Finalidade|
     |--|--|
     |Nome do recurso| Um nome personalizado que você escolhe, usado como parte da URL para suas consultas de ponto de extremidade de criação e previsão.|
-    |Nome de assinatura| a assinatura que será cobrada para o recurso.|
-    |Grupo de recursos| Um nome de grupo de recursos personalizado que você escolhe ou cria. Os grupos de recursos permitem que você agrupe recursos do Azure para acesso e gerenciamento na mesma região.|
+    |Nome da assinatura| a assinatura que será cobrada para o recurso.|
+    |Resource group| Um nome de grupo de recursos personalizado que você escolhe ou cria. Os grupos de recursos permitem que você agrupe recursos do Azure para acesso e gerenciamento na mesma região.|
     |Local de criação|A região associada ao seu modelo.|
     |Tipo de preço de criação|O tipo de preço determina a transação máxima por segundo e mês.|
     |Local do tempo de execução|A região associada ao tempo de execução do ponto de extremidade de previsão publicado.|
@@ -77,10 +74,10 @@ Quando você estiver pronto para publicar seu ponto de extremidade de previsão,
 
 Use o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para criar cada recurso individualmente. 
 
-Recurso `kind`:
+`kind`de recursos:
 
-* Criação`LUIS.Authoring`
-* Previsão`LUIS` 
+* Criação: `LUIS.Authoring`
+* Previsão: `LUIS` 
 
 1. Entre no CLI do Azure:
 
@@ -90,13 +87,13 @@ Recurso `kind`:
 
     Isso abre um navegador para permitir que você selecione a conta correta e forneça a autenticação.
 
-1. Crie um **recurso de criação de Luis**, de `LUIS.Authoring`tipo, `my-luis-authoring-resource` nomeado no grupo de recursos existente `my-resource-group` chamado para `westus` a região. 
+1. Crie um **recurso de criação de Luis**, do tipo `LUIS.Authoring`, chamado `my-luis-authoring-resource` no grupo de recursos _existente_ chamado `my-resource-group` para a região de `westus`. 
 
     ```console
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Crie um **recurso de ponto de extremidade de previsão Luis** `LUIS`, de `my-luis-prediction-resource` tipo, nomeado no grupo de `my-resource-group` recursos existente `westus` denominado para a região. Se você quiser uma taxa de transferência mais alta do que a `F0` camada `S0`gratuita, altere para. Saiba mais sobre os [tipos de preço e a taxa de transferência](luis-boundaries.md#key-limits).
+1. Crie um **recurso de ponto de extremidade de previsão Luis**, do tipo `LUIS`, chamado `my-luis-prediction-resource` no grupo de recursos _existente_ chamado `my-resource-group` para a região de `westus`. Se você quiser uma taxa de transferência mais alta do que a camada gratuita, altere `F0` para `S0`. Saiba mais sobre os [tipos de preço e a taxa de transferência](luis-boundaries.md#key-limits).
 
     ```console
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
@@ -137,7 +134,7 @@ Para fins de automação, como um pipeline de CI/CD, talvez você queira automat
 
     Essa API POST requer as seguintes configurações:
 
-    |Cabeçalho|Valor|
+    |Cabeçalho|Value|
     |--|--|
     |`Authorization`|O valor de `Authorization` é `Bearer {token}`. Observe que o valor do token deve ser precedido pela palavra `Bearer` e um espaço.| 
     |`Ocp-Apim-Subscription-Key`|Sua chave de criação.|
@@ -148,13 +145,13 @@ Para fins de automação, como um pipeline de CI/CD, talvez você queira automat
 
     Essa API POST requer as seguintes configurações:
 
-    |Tipo|Configuração|Valor|
+    |Type|Configuração|Value|
     |--|--|--|
     |Cabeçalho|`Authorization`|O valor de `Authorization` é `Bearer {token}`. Observe que o valor do token deve ser precedido pela palavra `Bearer` e um espaço.|
     |Cabeçalho|`Ocp-Apim-Subscription-Key`|Sua chave de criação.|
     |Cabeçalho|`Content-type`|`application/json`|
     |Querystring|`appid`|A ID do aplicativo de LUIS. 
-    |Body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
+    |Corpo||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
     Quando essa API for bem-sucedida, ela retornará um status 201 – criado. 
 
@@ -176,11 +173,11 @@ Quando você cancelar a atribuição de um recurso, ele não será excluído do 
 
 Gere novamente as chaves do Azure no portal do Azure, na página **chaves** .
 
-## <a name="delete-account"></a>Excluir conta
+## <a name="delete-account"></a>Exclui a conta
 
 Consulte [Armazenamento e remoção de dados](luis-concept-data-storage.md#accounts) para obter informações sobre quais dados são excluídos quando você exclui sua conta.
 
-## <a name="change-pricing-tier"></a>Alterar camada de preços
+## <a name="change-pricing-tier"></a>Alterar tipo de preço
 
 1.  No [Azure](https://portal.azure.com), localize sua assinatura do LUIS. Selecione a assinatura do LUIS.
     ![Localize sua assinatura do LUIS](./media/luis-usage-tiers/find.png)
@@ -215,7 +212,7 @@ Se você quiser saber quando atingiu um determinado limite transação, por exem
 
 Adicionar um alerta de métrica para a métrica **total de chamadas** para um determinado período de tempo. Adicione endereços de email de todas as pessoas que devem receber o alerta. Adicione webhooks para todos os sistemas que devem receber o alerta. Você também poderá executar um aplicativo lógico quando o alerta for disparado. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba [como usar versões](luis-how-to-manage-versions.md) para controlar o ciclo de vida do aplicativo.
 * Entenda os conceitos, incluindo o [recurso de criação](luis-concept-keys.md#authoring-key) e os [colaboradores](luis-concept-keys.md#contributions-from-other-authors) nesse recurso.

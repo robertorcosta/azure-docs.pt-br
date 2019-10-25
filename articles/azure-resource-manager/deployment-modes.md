@@ -4,14 +4,14 @@ description: Descreve como especificar se um modo de implantação completo ou i
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: c82d8b90d9da44ab8f4b8ea0aa0e063ea70350e2
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 10a9917d8ed763b133fbd33aedd16da399a224b2
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258971"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881650"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implantação do Azure Resource Manager
 
@@ -21,9 +21,11 @@ Para ambos os modos, o Resource Manager tenta criar todos os recursos especifica
 
 ## <a name="complete-mode"></a>Modo completo
 
-No modo completo, o Gerenciador de recursos **exclui** recursos existentes no grupo de recursos, mas que não são especificados no modelo. Os recursos que estão especificados no modelo, mas que não foram implantados porque uma [condição](conditional-resource-deployment.md) foi avaliada como falsa, não são excluídos.
+No modo completo, o Gerenciador de recursos **exclui** recursos existentes no grupo de recursos, mas que não são especificados no modelo.
 
-Tenha cuidado ao usar o modo completo com loops de [cópia](resource-group-create-multiple.md). Todos os recursos que não são especificados no modelo após a resolução do loop de cópia são excluídos.
+Se o seu modelo inclui um recurso que não está implantado porque a [condição](conditional-resource-deployment.md) é avaliada como false, o resultado depende de qual versão da API REST você usa para implantar o modelo. Se você usar uma versão anterior à 2019-05-10, o recurso **não será excluído**. Com o 2019-05-10 ou posterior, o recurso **é excluído**. As versões mais recentes do Azure PowerShell e CLI do Azure excluir o recurso.
+
+Tenha cuidado ao usar o modo completo com [loops de cópia](resource-group-create-multiple.md). Todos os recursos que não são especificados no modelo após a resolução do loop de cópia são excluídos.
 
 Há algumas diferenças em como os tipos de recursos lidam com exclusões de modo completo. Os recursos pai serão excluídos automaticamente quando não estiverem em um modelo que é implantado no modo completo. Alguns recursos filho não são excluídos automaticamente quando não estão no modelo. No entanto, esses recursos filho serão excluídos se o recurso pai for excluído. 
 
@@ -36,7 +38,7 @@ Se o grupo de recursos estiver [bloqueado](resource-group-lock-resources.md), o 
 > [!NOTE]
 > Somente modelos de nível raiz suporte ao modo de implantação completa. Para ver os [modelos vinculados ou aninhados](resource-group-linked-templates.md), você deve usar o modo incremental. 
 >
-> Implantações de [nível de assinatura](deploy-to-subscription.md) não dão suporte ao modo completo.
+> [Implantações de nível de assinatura](deploy-to-subscription.md) não dão suporte ao modo completo.
 >
 > Atualmente, o portal não dá suporte ao modo completo.
 >
@@ -45,7 +47,7 @@ Se o grupo de recursos estiver [bloqueado](resource-group-lock-resources.md), o 
 
 No modo incremental, o Gerenciador de recursos **deixa inalterados** recursos existentes no grupo de recursos, mas que não são especificados no modelo.
 
-No entanto, ao reimplantar um recurso existente no modo incremental, o resultado é diferente. Especifique todas as propriedades para o recurso, não apenas aquelas que você está atualizando. Um mal-entendido comum é considerar que as propriedades que não são especificadas são deixadas inalteradas. Se você não especificar certas propriedades, o Resource Manager interpretará que a atualização está substituindo esses valores.
+No entanto, ao reimplantar um recurso existente no modo incremental, o resultado é diferente. Especifique todas as propriedades para o recurso, não apenas aquelas que você está atualizando. Um mal-entendido comum é imaginar que as propriedades que não são especificadas sejam deixadas inalteradas. Se você não especificar certas propriedades, o Resource Manager interpretará que a atualização está substituindo esses valores.
 
 ## <a name="example-result"></a>Resultados de exemplo
 
@@ -115,7 +117,7 @@ O exemplo a seguir mostra um conjunto de modelos vinculados para o modo de impla
 ]
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 * Para saber mais sobre como implantar recursos, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).

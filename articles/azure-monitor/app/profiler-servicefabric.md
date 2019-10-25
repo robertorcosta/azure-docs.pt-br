@@ -1,28 +1,24 @@
 ---
 title: Criar perfil de aplicativos ativos do Azure Service Fabric com o Application Insights | Microsoft Docs
 description: Habilitar o Profiler para um aplicativo do Service Fabric
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 5c01c2721a29bf142ee0ba53c9bc29ec66a7278f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: a7a64be3c73ea82c6bf3d905772f3278f9bda5df
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727918"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72818471"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Criar perfil de aplicativos ativos do Azure Service Fabric com o Application Insights
 
 Você também pode implantar o Application Insights Profiler nesses serviços:
-* [Serviço de Aplicativo do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de aplicativo do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Serviços de nuvem do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas Virtuais do Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
@@ -32,7 +28,7 @@ O Application Insights Profiler está incluído com o Diagnóstico do Azure. Voc
 
 Para configurar seu ambiente, faça o seguinte:
 
-1. Profiler dá suporte ao .NET Framework e.Net Core. Se você estiver usando o .NET Framework, verifique se você estiver usando [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou posterior. É suficiente confirmar que o sistema operacional implantado é `Windows Server 2012 R2` ou posterior. Profiler oferece suporte a .NET Core 2.1 e aplicativos mais recentes.
+1. O criador de perfil dá suporte a .NET Framework e .Net Core. Se você estiver usando .NET Framework, verifique se está usando [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou posterior. É suficiente confirmar que o sistema operacional implantado é `Windows Server 2012 R2` ou posterior. O criador de perfil dá suporte ao .NET Core 2,1 e a aplicativos mais recentes.
 
 1. Pesquise a extensão [Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) no arquivo de modelo de implantação.
 
@@ -55,12 +51,12 @@ Para configurar seu ambiente, faça o seguinte:
   Se as configurações estiverem corretas, o Application Insights Profiler será instalado e habilitado quando a extensão do Diagnóstico do Azure for instalada. 
 
 1. Adicione o Application Insights ao seu aplicativo do Service Fabric.  
-  Para o Profiler coletar os perfis para suas solicitações, seu aplicativo deve controlar operações com o Application Insights. Para APIs sem monitoração de estado, você pode consultar as instruções para [Controlando solicitações para criação de perfil](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json). Para obter mais informações sobre como acompanhar operações personalizadas em outros tipos de aplicativos, consulte [acompanhar operações personalizadas com o SDK do .NET do Application Insights](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json).
+  Para que o profiler colete perfis para suas solicitações, seu aplicativo deve estar controlando operações com Application Insights. Para APIs sem monitoração de estado, você pode consultar as instruções para [controlar as solicitações de criação de perfil](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json). Para obter mais informações sobre como controlar operações personalizadas em outros tipos de aplicativos, consulte [rastrear operações personalizadas com o SDK do .net Application insights](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json).
 
 1. Reimplante o aplicativo.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Gere tráfego para seu aplicativo (por exemplo, inicie um [teste de disponibilidade](monitor-web-app-availability.md)). Em seguida, espere de 10 a 15 minutos para que os rastreamentos comecem a ser enviados à instância do Application Insights.
 * Consulte [Rastreamentos do criador de perfil](profiler-overview.md?toc=/azure/azure-monitor/toc.json) no portal do Azure.

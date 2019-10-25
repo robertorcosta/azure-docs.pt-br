@@ -1,26 +1,21 @@
 ---
 title: Explorando métricas no Azure Application Insights | Microsoft Docs
 description: Como interpretar os gráficos no gerenciador de métricas e como personalizar as folhas do gerenciador de métricas.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/22/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 5c659ca2f40d47450227d16963499a6b27c9e313
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/22/2019
+ms.openlocfilehash: b0831ff500ba4cbe71dae6251fd960f6c96c0fe5
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60700565"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820797"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Explorar métricas no Application Insights
-Métricas no [Application Insights][start] são contagens e valores medidos de eventos enviados em telemetria do seu aplicativo. Eles ajudam você a detectar problemas de desempenho e observar as tendências referentes a como seu aplicativo está sendo usado. Há uma grande variedade de métricas padrão, e você também pode criar suas próprias métricas e eventos personalizados.
+As métricas em [Application insights][start] são valores medidos e contagens de eventos que são enviados na telemetria do seu aplicativo. Eles ajudam você a detectar problemas de desempenho e observar as tendências referentes a como seu aplicativo está sendo usado. Há uma grande variedade de métricas padrão, e você também pode criar suas próprias métricas e eventos personalizados.
 
 > [!NOTE]
 > Este artigo descreve a experiência do Metrics Explorer clássico que, atualmente, foi preterido e será desativado no futuro. É recomendável verificar a nova experiência descrita [neste artigo](../platform/metrics-charts.md).
@@ -89,7 +84,7 @@ Selecione um gráfico ou uma grade, ative o agrupamento e escolha uma propriedad
 >
 >
 
-Se você tiver codificado [métricas personalizadas][track] em seu aplicativo e elas incluírem valores de propriedade, você poderá selecionar a propriedade na lista.
+Se você tiver codificado [métricas personalizadas][track] em seu aplicativo e eles incluírem valores de propriedade, você poderá selecionar a propriedade na lista.
 
 O gráfico é muito pequeno para dados segmentados? Ajuste sua altura:
 
@@ -178,18 +173,18 @@ Para ser notificado por email sobre valores incomuns de qualquer métrica, adici
 [Saiba mais sobre alertas][alerts].
 
 
-## <a name="continuous-export"></a>Exportação Contínua
+## <a name="continuous-export"></a>Exportação contínua
 Se desejar que os dados sejam exportados de forma contínua para que você possa processá-los externamente, considere usar a [Exportação contínua](../../azure-monitor/app/export-telemetry.md).
 
 ### <a name="power-bi"></a>Power BI
 Se desejar obter exibições ainda mais avançadas dos seus dados, você poderá [exportar para o Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
-## <a name="analytics"></a>Análise
+## <a name="analytics"></a>Análises
 [Análise](../../azure-monitor/app/analytics.md) é uma maneira mais versátil de analisar a telemetria usando uma linguagem de consulta eficiente. Use-a se quiser combinar ou calcular resultados de métricas ou executar uma exploração detalhada do desempenho recente de seu aplicativo. 
 
 Em um gráfico de métricas, clique no ícone do Analytics para ir diretamente à consulta do Analytics equivalente.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 *Não vejo dados no gráfico.*
 
 * Os filtros se aplicam a todos os gráficos da folha. Verifique se, ao se concentrar em um gráfico, não definiu um filtro que excluía todos os dados em outro.
@@ -202,7 +197,7 @@ Em um gráfico de métricas, clique no ícone do Analytics para ir diretamente �
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Monitorando o uso com o Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Usando a Pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 

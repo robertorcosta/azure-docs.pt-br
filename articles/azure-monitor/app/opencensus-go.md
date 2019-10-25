@@ -1,20 +1,18 @@
 ---
 title: Rastreamento Go do OpenCensus com Azure Application Insights | Microsoft Docs
 description: Fornece instruções para integrar o rastreamento Go do OpenCensus com o encaminhador local e o Application Insights
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/15/2018
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 56e66f17e9ce1d2482463f619e82dfd29d48f191
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 99f26bb2b89ef9642a36aa2be2037d04aafcdcd4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67990295"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819273"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Coletar rastreamentos distribuídos do Go (versão prévia)
 
@@ -30,7 +28,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-application-insights-resource"></a>Criar recurso do Application Insights
 
@@ -41,15 +39,15 @@ Primeiro, você precisa criar um recurso do Application Insights que vai gerar u
    ![Adicionando um Recurso do Application Insights](./media/opencensus-Go/0001-create-resource.png)
 
  > [!NOTE]
-   >Se esta for a primeira vez que você cria um recurso de Application Insights, você pode aprender mais visitando o artigo [criar um recurso de Application insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
+   >Se esta for a primeira vez que você cria um recurso do Application Insights, poderá aprender mais no artigo [Criar um recurso do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
    Uma caixa de configuração é exibida. Use a tabela a seguir para preencher os campos de entrada.
 
-    | Configurações        | Valor           | DESCRIÇÃO  |
+    | Configurações        | Value           | Descrição  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor Globalmente Exclusivo | Nome que identifica o aplicativo que você está monitorando |
    | **Grupo de recursos**     | myResourceGroup      | Nome para o novo grupo de recursos no qual hospedar dados do Application Insights |
-   | **Localidade** | East US | Escolher uma localização perto de você ou perto onde seu aplicativo está hospedado |
+   | **Localidade** | Leste dos EUA | Escolher uma localização perto de você ou perto onde seu aplicativo está hospedado |
 
 2. Clique em **Criar**.
 
@@ -210,7 +208,7 @@ Primeiro, você precisa criar um recurso do Application Insights que vai gerar u
 
     Uma vez que o objetivo era apenas rastrear uma chamada de método, nosso mapa do aplicativo não é tão interessante. Porém, o mapa do aplicativo pode ser dimensionado para visualizar aplicativos muito mais distribuídos:
 
-   ![Mapa de aplicativo](media/opencensus-go/application-map.png)
+   ![Mapa de Aplicativos](media/opencensus-go/application-map.png)
 
 4. Selecione **Investigar Desempenho** para executar uma análise de desempenho detalhada e determinar a causa raiz da lentidão no desempenho.
 
@@ -224,7 +222,7 @@ Primeiro, você precisa criar um recurso do Application Insights que vai gerar u
 
 Abordamos apenas as noções básicas da integração do OpenCensus ao Go com o encaminhador local e o Application Insights. A [diretriz de uso oficial do OpenCensus Go](https://godoc.org/go.opencensus.io) cobre tópicos mais avançados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Mapa do aplicativo](./../../azure-monitor/app/app-map.md)
 * [Monitoramento de desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)

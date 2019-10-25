@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 225164fe00f70839446f8b74155cd3959f745a49
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 222c893f06d9adf77f8a8124af18bc03c5d20bdf
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478006"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821434"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Exibir o status de trabalhos de Importação/Exportação do Azure
 
 Este artigo fornece informações sobre como exibir o status da unidade e do trabalho para trabalhos de Importação/Exportação do Azure. O serviço de importação/exportação do Azure é usado para transferir grandes quantidades de dados com segurança para Blobs do Azure e Arquivos do Azure. O serviço também é usado para exportar dados de armazenamento de Blobs do Azure.  
 
 ## <a name="view-job-and-drive-status"></a>Exibir o status do trabalho e da unidade
-Você pode acompanhar o status dos seus trabalhos de importação ou exportação no Portal do Azure. Clique na guia **Importação/Exportação**. Uma lista dos seus trabalhos será exibida na página.
+Você pode acompanhar o status dos seus trabalhos de importação ou exportação no Portal do Azure. Clique na guia **importar/exportar** . Uma lista de seus trabalhos é exibida na página.
 
 ![Exibir o estado do trabalho](./media/storage-import-export-service/jobstate.png)
 
@@ -28,7 +28,7 @@ Você pode acompanhar o status dos seus trabalhos de importação ou exportaçã
 
 Você verá um dos seguintes status de trabalho, dependendo de onde a unidade está no processo.
 
-| Status do Trabalho | DESCRIÇÃO |
+| Status do Trabalho | Descrição |
 |:--- |:--- |
 | Criando | Após a criação de um trabalho, seu estado será definido como **Criando**. Enquanto o trabalho está no estado **Criando**, o serviço de Importação/Exportação considera que as unidades não foram enviadas para o datacenter. Um trabalho pode permanecer neste estado por até duas semanas, depois disso é excluído automaticamente pelo serviço. |
 | Remessa | Depois que você enviar seu pacote, atualize as informações de rastreamento no Portal do Azure.  Isso ativa o trabalho no estado **Enviando**. O trabalho permanece no estado **Enviando** por até duas semanas. 
@@ -44,7 +44,7 @@ A tabela a seguir descreve o ciclo de vida de uma unidade individual conforme el
 
 A tabela a seguir descreve cada estado pelo qual cada unidade em um trabalho pode passar.
 
-| Estado da unidade | DESCRIÇÃO |
+| Estado da unidade | Descrição |
 |:--- |:--- |
 | Especificado | Para um trabalho de importação, quando o trabalho é criado no Portal do Azure, o estado inicial de uma unidade é **Especificado**. Para um trabalho de exportação, como nenhuma unidade é especificada quando o trabalho é criado, o estado inicial da unidade é **Recebido**. |
 | Recebido | A unidade passa para o estado **Recebido** quando o serviço de Importação/Exportação tiver processado as unidades que foram recebidas da empresa transportadora para um trabalho de importação. Para um trabalho de exportação, o estado inicial da unidade é o estado **Recebido**. |
@@ -76,8 +76,8 @@ A quantidade de tempo que leva para processar um trabalho de importação/export
 O serviço de Importação/Exportação não tem um SLA, mas o serviço se esforçará para concluir a cópia no prazo de 7 a 10 dias após o recebimento dos discos. Além do status postado no Portal do Azure, as APIs REST podem ser usadas para acompanhar o progresso do trabalho. O parâmetro de porcentagem concluída na chamada à API da operação [Listar Trabalhos](/previous-versions/azure/dn529083(v=azure.100)) fornece o percentual de progresso da cópia.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar a ferramenta WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
-* [Exemplo de API REST de importação e exportação do Azure](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+* [Exemplo de API REST de importação e exportação do Azure](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
