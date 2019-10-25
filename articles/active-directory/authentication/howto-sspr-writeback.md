@@ -1,5 +1,5 @@
 ---
-title: Como configurar o write-back de senha para o Azure AD SSPR - Azure Active Directory
+title: Como configurar o Write-back de senha para o Azure AD SSPR-Azure Active Directory
 description: Usar o Azure AD e o Azure AD Connect para o write-back de senhas para um diretório local
 services: active-directory
 ms.service: active-directory
@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17a2661883dd069e8cb719672f6b92442f1a8a0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 71a16ad3c571086a73a2aae192fb2d00bce4d5f9
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60357488"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808161"
 ---
-# <a name="how-to-configure-password-writeback"></a>Instruções: Configurar o write-back de senha
+# <a name="how-to-configure-password-writeback"></a>Instruções: Configurar write-back de senha
 
 As etapas a seguir pressupõem que você já tenha configurado o Azure AD Connect em seu ambiente usando as configurações [Expressas](../hybrid/how-to-connect-install-express.md) ou [Personalizadas](../hybrid/how-to-connect-install-custom.md).
 
@@ -37,7 +37,7 @@ Para tarefas comuns de solução de problemas relacionadas ao write-back de senh
 > [!WARNING]
 > O write-back de senha deixará de funcionar para clientes que usam as versões 1.0.8641.0 e posteriores do Azure AD Connect quando o [serviço de ACS (Controle de Acesso do Microsoft Azure) for desativado em 7 de novembro de 2018](../develop/active-directory-acs-migration.md). As versões do Azure AD Connect 1.0.8641.0 e anteriores não permitirão mais o write-back de senha porque dependem do ACS para essa funcionalidade.
 >
-> Para evitar uma interrupção no serviço, atualize de uma versão anterior do Azure AD Connect para uma versão mais recente. Consulte o artigo [Azure AD Connect: atualização de uma versão anterior para a mais recente](../hybrid/how-to-upgrade-previous-version.md)
+> Para evitar uma interrupção no serviço, atualize de uma versão anterior do Azure AD Connect para uma versão mais recente, consulte o artigo [Azure AD Connect: atualização de uma versão anterior para a mais recente](../hybrid/how-to-upgrade-previous-version.md)
 >
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento do write-back de senha
@@ -53,13 +53,13 @@ Para usar o write-back de senha, você deve ter uma das licenças a seguir atrib
 * Microsoft 365 E3 ou A3
 * Microsoft 365 E5 ou A5
 * Microsoft 365 F1
-* Microsoft 365 Business
+* Microsoft 365 Empresarial
 
 > [!WARNING]
 > Os planos de licenciamento do Office 365 autônomo *não oferecem suporte à/ao "Redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local"* e exigem que você tenha um dos planos anteriores para que esse recurso funcione.
 >
 
-## <a name="active-directory-permissions"></a>Permissões do Active Directory
+## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Permissões de Active Directory e políticas de complexidade de senha local 
 
 A conta especificada no utilitário do Azure AD Connect deve ter os seguintes itens configurados para estar no escopo para SSPR:
 
@@ -99,7 +99,9 @@ Para configurar as permissões apropriadas para que ocorra o write-back de senha
     * **Gravar pwdLastSet**
 9. Selecione **Aplicar/OK** para aplicar as alterações e sair das caixas de diálogo abertas.
 
-## <a name="next-steps"></a>Próximas etapas
+Como a origem da autoridade está no local, as políticas de complexidade de senha se aplicam da mesma fonte de dados conectada. Verifique se você alterou as políticas de grupo existentes para "comprimento mínimo da senha". A política de grupo não deve ser definida como 1, o que significa que a senha deve ter pelo menos um dia de idade antes de ser atualizada. Você precisa ter certeza de que ele está definido como 0. Essas configurações podem ser encontradas em `gpmc.msc` em **configuração do computador > políticas > configurações do Windows > configurações de segurança > políticas de conta**. Execute `gpupdate /force` para garantir que a alteração entra em vigor. 
+
+## <a name="next-steps"></a>Próximos passos
 
 [O que é write-back de senha?](concept-sspr-writeback.md)
 

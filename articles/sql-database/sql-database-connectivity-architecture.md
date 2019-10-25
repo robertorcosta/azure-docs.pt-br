@@ -4,19 +4,19 @@ description: Este documento explica a arquitetura de conectividade do SQL do Azu
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
+ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: f15fb46568f4ad062605b51600d3c61870b48645
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: f26eb44dd407e379d0bf3291eb890d2e451c919e
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828859"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72807921"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -38,8 +38,8 @@ As seguintes etapas descrevem como uma conexão é estabelecida com um banco de 
 
 O Banco de Dados SQL do Azure oferece suporte às três opções a seguir para a configuração de diretiva de conexão de um servidor do Banco de Dados SQL:
 
-- **Redirecionamento (recomendado):** Os clientes estabelecem conexões diretamente com o nó que hospeda o banco de dados. Para habilitar a conectividade, os clientes devem permitir regras de firewall de saída para todos os endereços IP do Azure na região usando NSG (grupos de segurança de rede) com [marcas de serviço](../virtual-network/security-overview.md#service-tags)) para as portas 11000-11999, não apenas os endereços IP do gateway do banco de dados SQL do Azure na porta 1433. Como os pacotes vão diretamente para o banco de dados, a latência e o rendimento melhoraram o desempenho.
-- **Proxy:** Nesse modo, todas as conexões usam um proxy por meio dos gateways do Banco de Dados SQL do Azure. Para habilitar a conectividade, o cliente precisa ter regras de firewall de saída que permitam apenas os endereços IP do gateway do Banco de Dados SQL do Azure (geralmente, dois endereços IP por região). A escolha desse modo pode resultar em maior latência e menor rendimento, dependendo da natureza da carga de trabalho. É altamente recomendável usar a política de conexão `Redirect` em relação à política de conexão `Proxy` para a menor latência e maior taxa de transferência.
+- **Redirecionamento (recomendado):** Os clientes estabelecem conexões diretamente com o nó que hospeda o banco de dados. Para habilitar a conectividade, os clientes devem permitir regras de firewall de saída para todos os endereços IP do Azure na região usando NSG (grupos de segurança de rede) com [marcas de serviço](../virtual-network/security-overview.md#service-tags) para as portas 11000-11999, não apenas os endereços IP do gateway do banco de dados SQL do Azure na porta 1433. Como os pacotes vão diretamente para o banco de dados, a latência e o rendimento melhoraram o desempenho.
+- **Proxy:** Nesse modo, todas as conexões são intermediadas por proxy pelos gateways do Banco de Dados SQL do Azure. Para habilitar a conectividade, o cliente precisa ter regras de firewall de saída que permitam apenas os endereços IP do gateway do Banco de Dados SQL do Azure (geralmente, dois endereços IP por região). A escolha desse modo pode resultar em maior latência e menor rendimento, dependendo da natureza da carga de trabalho. É altamente recomendável usar a política de conexão `Redirect` em relação à política de conexão `Proxy` para a menor latência e maior taxa de transferência.
 - **Padrão:** Essa é a política de conexão em vigor em todos os servidores após a criação, a menos que você altere explicitamente a política de conexão para `Proxy` ou `Redirect`. A política efetiva depende se as conexões se originam no Azure (`Redirect`) ou fora do Azure (`Proxy`).
 
 ## <a name="connectivity-from-within-azure"></a>Conectividade de dentro do Azure
@@ -58,14 +58,14 @@ Se você estiver se conectando de fora do Azure, as conexões terão uma políti
 
 A tabela a seguir lista os endereços IP dos gateways por região. Para se conectar a um banco de dados SQL do Azure, você precisa permitir que o tráfego de rede & de **todos os** gateways para a região.
 
-Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões específicas estão no seguinte artigo: [Migração de tráfego do banco de dados SQL do Azure para gateways mais recentes](sql-database-gateway-migration.md)
+Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões específicas estão no seguinte artigo: [migração de tráfego do banco de dados SQL do Azure para gateways mais recentes](sql-database-gateway-migration.md)
 
 
 | Nome da Região          | Endereços IP do gateway |
 | --- | --- |
 | Austrália Central    | 20.36.105.0 |
 | Central2 da Austrália   | 20.36.113.0 |
-| Leste da Austrália       | 13.75.149.87, 40.79.161.1 |
+| Austrália Oriental       | 13.75.149.87, 40.79.161.1 |
 | Sudeste da Austrália | 191.239.192.109, 13.73.109.251 |
 | Sul do Brasil         | 104.41.11.5, 191.233.200.14 |
 | Canadá Central       | 40.85.224.249      |
@@ -75,10 +75,10 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Leste da China 2         | 40.73.82.1         |
 | Norte da China          | 139.219.15.17      |
 | Norte da China 2        | 40.73.50.0         |
-| Leste da Ásia            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| Ásia Oriental            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
+| Leste dos EUA              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | Leste dos EUA 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
-| Centro da França       | 40.79.137.0, 40.79.129.1 |
+| França Central       | 40.79.137.0, 40.79.129.1 |
 | Alemanha Central      | 51.4.144.100       |
 | Nordeste da Alemanha   | 51.5.144.179       |
 | Centro da Índia        | 104.211.96.159     |
@@ -93,13 +93,13 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Norte da África do Sul   | 102.133.152.0      |
 | Oeste da África do Sul    | 102.133.24.0       |
 | Centro-Sul dos EUA     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
-| Sudeste da Ásia      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
+| Sudeste Asiático      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | EAU Central          | 20.37.72.64        |
 | Norte dos EAU            | 65.52.248.0        |
 | Sul do Reino Unido             | 51.140.184.11      |
 | Oeste do Reino Unido              | 51.141.8.11        |
-| Centro-oeste dos EUA      | 13.78.145.25       |
-| Europa Ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| Centro-Oeste dos EUA      | 13.78.145.25       |
+| Oeste da Europa          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
 | Oeste dos EUA              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
 | Oeste dos EUA 2            | 13.66.226.202      |
 |                      |                    |
@@ -177,7 +177,7 @@ az resource show --ids %sqlserverid%
 az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre como alterar a política de conexão de Banco de Dados SQL do Azure para um servidor do Banco de Dados SQL do Azure, consulte [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - Para obter mais informações sobre o comportamento de conexão do Banco de Dados SQL do Azure para clientes que usam ADO.NET 4.5 ou uma versão mais recente, consulte [Portas depois da 1433 para ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).

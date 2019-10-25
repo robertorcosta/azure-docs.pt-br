@@ -1,21 +1,21 @@
 ---
-title: Mapear campos de entrada enriquecidos da pesquisa cognitiva para campos de saída – Azure Search
-description: Extrair e enriquecer os campos de dados de origem e mapear para os campos de saída em um índice do Azure Search.
+title: Mapear campos de entrada aprimorados do ia para campos de saída
+titleSuffix: Azure Cognitive Search
+description: Extrair e enriquecer campos de dados de origem e mapear para campos de saída em um índice de Pesquisa Cognitiva do Azure.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 4ceb8e6290e3e7f4fb552db13c97558db1c8c97e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 77f378f4e0c4a8e4827523e244f7b18c2a9ba336
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265498"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792119"
 ---
-# <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>Como mapear campos enriquecidos para um índice pesquisável
+# <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Como mapear campos de ia-ricos para um índice pesquisável
 
 Neste artigo, você aprenderá como mapear campos de entrada enriquecidos para campos de saída em um índice pesquisável. Uma vez que você [definiu um conjunto de qualificações](cognitive-search-defining-skillset.md), mapeie os campos de saída de qualquer habilidade diretamente a contribuição de valores para um determinado campo no índice de pesquisa. Mapeamentos de campo são necessários para mover o conteúdo de documentos enriquecidos no índice.
 
@@ -69,7 +69,7 @@ O caminho em um sourceFieldName pode representar um elemento ou vários elemento
 ```
  ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]
 ```
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Após mapear os campos enriquecidos para campos de pesquisa, defina os atributos de campo para cada um dos campos pesquisáveis [como parte da definição do índice](search-what-is-an-index.md).
 
-Para obter mais informações de mapeamentos de campo, consulte [Mapeamentos de campo nos indexadores do Azure Search](search-indexer-field-mappings.md).
+Para obter mais informações sobre mapeamento de campo, consulte [mapeamentos de campo no Azure pesquisa cognitiva indexadores](search-indexer-field-mappings.md).

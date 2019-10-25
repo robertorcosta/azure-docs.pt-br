@@ -1,5 +1,6 @@
 ---
-title: Personalizar declarações de token SAML para aplicativos empresariais no Azure AD | Microsoft Docs
+title: Personalizar declarações de token SAML para aplicativos empresariais no Azure AD
+titleSuffix: Microsoft identity platform
 description: Aprenda a personalizar as declarações emitidas no token SAML para aplicativos empresariais no Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -18,20 +19,20 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4f26c82d4cda6ce3d8bf01c7fd52fa579e86dcf
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
-ms.translationtype: MT
+ms.openlocfilehash: a9994d5f882e7bf27ac822a69c4310bc7c6fabe1
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240241"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803466"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Personalizar declarações emitidas no token SAML para aplicativos empresariais
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Personalizar declarações emitidas no token SAML para aplicativos empresariais
 
 Hoje, o Azure Active Directory (Azure AD) dá suporte ao SSO (logon único) com a maioria dos aplicativos corporativos, incluindo os aplicativos previamente integrados na Galeria de aplicativos do Azure AD, bem como os personalizados. Quando um usuário é autenticado em um aplicativo por meio do Azure AD usando o protocolo SAML 2.0, o Azure AD envia um token ao aplicativo (por um HTTP POST). Em seguida, o aplicativo é validado e usa o token para conectar o usuário em vez de solicitar um nome de usuário e a senha. Esses tokens SAML contêm informações sobre o usuário conhecido como *declarações*.
 
 Uma *declaração* são informações que um provedor de identidade declara sobre um usuário dentro do token que emite para esse usuário. No [Token SAML](https://en.wikipedia.org/wiki/SAML_2.0), esses dados normalmente estão contidos na Instrução de Atributo SAML. A ID única do usuário é normalmente representada na SAML Subject, também denominada Identificador de Nome.
 
-Por padrão, o Azure AD emite um token SAML para seu aplicativo que contém uma declaração `NameIdentifier` com um valor de nome de usuário (também conhecido como o nome UPN) no Azure AD, que pode identificar exclusivamente o usuário. O token SAML também contém declarações adicionais com o endereço de email, nome e sobrenome do usuário.
+Por padrão, o Azure AD emite um token SAML para seu aplicativo que contém uma declaração de `NameIdentifier` com um valor de nome de usuário (também conhecido como o nome UPN) no Azure AD, que pode identificar exclusivamente o usuário. O token SAML também contém declarações adicionais com o endereço de email, nome e sobrenome do usuário.
 
 Para exibir ou editar as declarações emitidas no token SAML para o aplicativo, abra o aplicativo no Portal do Azure. Em seguida, abra a seção **atributos de usuário & declarações** .
 
@@ -39,7 +40,7 @@ Para exibir ou editar as declarações emitidas no token SAML para o aplicativo,
 
 Há dois possíveis motivos para você precisar editar as declarações emitidas no token SAML:
 
-* O aplicativo exige que a declaração `NameIdentifier` ou NameID seja algo diferente do nome de usuário (ou nome UPN) armazenado no Azure AD.
+* O aplicativo requer que a declaração `NameIdentifier` ou NameID seja algo diferente do nome de usuário (ou nome UPN) armazenado no Azure AD.
 * O aplicativo foi escrito para exigir um conjunto diferente de URIs ou valores de declaração.
 
 ## <a name="editing-nameid"></a>Editando NameID
@@ -59,7 +60,7 @@ Se a solicitação SAML não contiver um elemento para NameIDPolicy, o Azure AD 
 
 Na lista suspensa **escolher formato do identificador de nome** , você pode selecionar uma das opções a seguir.
 
-| Formato NameID | DESCRIÇÃO |
+| Formato NameID | Descrição |
 |---------------|-------------|
 | **Padrão** | O Azure AD usará o formato de origem padrão. |
 | **Persistente** | O Azure AD usará persistente como o formato NameID. |
@@ -72,7 +73,7 @@ A NameID transitória também tem suporte, mas não está disponível na lista s
 
 Selecione a fonte desejada para a declaração `NameIdentifier` (ou NameID). Você pode selecionar entre as opções a seguir.
 
-| NOME | DESCRIÇÃO |
+| name | Descrição |
 |------|-------------|
 | Email | Endereço de email do usuário |
 | userprincipalName | UPN (nome principal do usuário) do usuário |
@@ -82,7 +83,7 @@ Selecione a fonte desejada para a declaração `NameIdentifier` (ou NameID). Voc
 | Extensões de diretório | Extensões de diretório [sincronizadas do Active Directory local usando a Sincronização do Azure AD Connect](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Atributos de Extensão 1-15 | Atributos de extensão locais usados para estender o esquema do Azure AD |
 
-Para obter mais informações, consulte [Table 3: Valores de ID válidos por origem @ no__t-0.
+Para obter mais informações, consulte a [tabela 3: valores de ID válidos por origem](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
 
 Você também pode atribuir qualquer valor constante (estático) a qualquer declaração que você definir no Azure AD. Siga as etapas abaixo para atribuir um valor constante:
 
@@ -102,10 +103,10 @@ Você também pode atribuir qualquer valor constante (estático) a qualquer decl
 
 Você também pode usar as funções de transformações de declarações.
 
-| Função | DESCRIÇÃO |
+| Função | Descrição |
 |----------|-------------|
 | **ExtractMailPrefix()** | Remove o sufixo de domínio do endereço de email ou do nome principal do usuário. Isso extrai somente a primeira parte do nome de usuário que está sendo passada (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
-| **Join()** | Une um atributo a um domínio verificado. Se o valor do identificador de usuário selecionado tiver um domínio, ele extrairá o nome de usuário para anexar o domínio verificado selecionado. Por exemplo, se você selecionar o email (joe_smith@contoso.com) como o valor de identificador de usuário e selecionar contoso.onmicrosoft.com como o domínio verificado, isso resultará em joe_smith@contoso.onmicrosoft.com. |
+| **Junção ()** | Une um atributo a um domínio verificado. Se o valor do identificador de usuário selecionado tiver um domínio, ele extrairá o nome de usuário para anexar o domínio verificado selecionado. Por exemplo, se você selecionar o email (joe_smith@contoso.com) como o valor de identificador de usuário e selecionar contoso.onmicrosoft.com como o domínio verificado, isso resultará em joe_smith@contoso.onmicrosoft.com. |
 | **ToLower()** | Converte os caracteres do atributo selecionado em caracteres minúsculos. |
 | **ToUpper()** | Converte os caracteres do atributo selecionado em caracteres maiúsculos. |
 
@@ -121,15 +122,15 @@ Para adicionar declarações específicas do aplicativo:
 
 Você também pode usar as funções de transformações de declarações.
 
-| Função | DESCRIÇÃO |
+| Função | Descrição |
 |----------|-------------|
 | **ExtractMailPrefix()** | Remove o sufixo de domínio do endereço de email ou do nome principal do usuário. Isso extrai somente a primeira parte do nome de usuário que está sendo passada (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
-| **Join()** | Cria um novo valor unindo dois atributos. Opcionalmente, você pode usar um separador entre os dois atributos. |
+| **Junção ()** | Cria um novo valor unindo dois atributos. Opcionalmente, você pode usar um separador entre os dois atributos. |
 | **ToLower()** | Converte os caracteres do atributo selecionado em caracteres minúsculos. |
 | **ToUpper()** | Converte os caracteres do atributo selecionado em caracteres maiúsculos. |
 | **Contains ()** | Gera um atributo ou constante se a entrada corresponde ao valor especificado. Caso contrário, você poderá especificar outra saída se não houver correspondência.<br/>Por exemplo, se você quiser emitir uma declaração em que o valor é o endereço de email do usuário, se ele contiver o domínio "@contoso.com", caso contrário, você desejará gerar o nome principal do usuário. Para fazer isso, configure os seguintes valores:<br/>*Parâmetro 1 (entrada)* : user. email<br/>*Valor*: "@contoso.com"<br/>Parâmetro 2 (saída): user. email<br/>Parâmetro 3 (saída se não houver correspondência): user. UserPrincipalName |
-| **EndWith()** | Gera um atributo ou constante se a entrada termina com o valor especificado. Caso contrário, você poderá especificar outra saída se não houver correspondência.<br/>Por exemplo, se você quiser emitir uma declaração em que o valor é o EmployeeID do usuário se o EmployeeID terminar com "000", caso contrário, você desejará gerar um atributo de extensão. Para fazer isso, configure os seguintes valores:<br/>*Parâmetro 1 (entrada)* : user. EmployeeID<br/>*Valor*: "000"<br/>Parâmetro 2 (saída): user. EmployeeID<br/>Parâmetro 3 (saída se não houver correspondência): user. extensionAttribute1 |
-| **StartWith()** | Gera um atributo ou constante se a entrada começa com o valor especificado. Caso contrário, você poderá especificar outra saída se não houver correspondência.<br/>Por exemplo, se você quiser emitir uma declaração em que o valor é o EmployeeID do usuário, se o país/região começar com "US", caso contrário, você deseja gerar um atributo de extensão. Para fazer isso, configure os seguintes valores:<br/>*Parâmetro 1 (entrada)* : user. Country<br/>*Valor*: DIGAMOS<br/>Parâmetro 2 (saída): user. EmployeeID<br/>Parâmetro 3 (saída se não houver correspondência): user. extensionAttribute1 |
+| **Endcom ()** | Gera um atributo ou constante se a entrada termina com o valor especificado. Caso contrário, você poderá especificar outra saída se não houver correspondência.<br/>Por exemplo, se você quiser emitir uma declaração em que o valor é o EmployeeID do usuário se o EmployeeID terminar com "000", caso contrário, você desejará gerar um atributo de extensão. Para fazer isso, configure os seguintes valores:<br/>*Parâmetro 1 (entrada)* : user. EmployeeID<br/>*Valor*: "000"<br/>Parâmetro 2 (saída): user. EmployeeID<br/>Parâmetro 3 (saída se não houver correspondência): user. extensionAttribute1 |
+| **StartWith()** | Gera um atributo ou constante se a entrada começa com o valor especificado. Caso contrário, você poderá especificar outra saída se não houver correspondência.<br/>Por exemplo, se você quiser emitir uma declaração em que o valor é o EmployeeID do usuário, se o país/região começar com "US", caso contrário, você deseja gerar um atributo de extensão. Para fazer isso, configure os seguintes valores:<br/>*Parâmetro 1 (entrada)* : user. Country<br/>*Valor*: "US"<br/>Parâmetro 2 (saída): user. EmployeeID<br/>Parâmetro 3 (saída se não houver correspondência): user. extensionAttribute1 |
 | **Extract ()-após correspondência** | Retorna a subcadeia de caracteres depois que ela corresponde ao valor especificado.<br/>Por exemplo, se o valor da entrada for "Finance_BSimon", o valor correspondente será "Finance_", então a saída da declaração será "BSimon". |
 | **Extrair ()-antes da correspondência** | Retorna a subcadeia de caracteres até corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "BSimon_US", o valor correspondente será "_US", então a saída da declaração será "BSimon". |
 | **Extract ()-entre correspondência** | Retorna a subcadeia de caracteres até corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "Finance_BSimon_US", o primeiro valor correspondente é "Finance_", o segundo valor correspondente é "_US", então a saída da declaração é "BSimon". |
@@ -142,7 +143,7 @@ Você também pode usar as funções de transformações de declarações.
 
 Se você precisar de transformações adicionais, envie sua ideia no [Fórum de comentários no Azure ad](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) na categoria de *aplicativo SaaS* .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerenciamento de aplicativos no Azure AD](../manage-apps/what-is-application-management.md)
 * [Configurar logon único para aplicativos que não estão na galeria de aplicativos do Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)

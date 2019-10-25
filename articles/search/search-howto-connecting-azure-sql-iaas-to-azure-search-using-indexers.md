@@ -1,31 +1,31 @@
 ---
-title: Conexão da VM (máquina virtual) do SQL do Azure para indexação de pesquisa – Azure Search
-description: Habilite conexões criptografadas e configure o firewall para permitir conexões com o SQL Server em uma VM (máquina virtual) do Azure de um indexador no Azure Search.
-author: HeidiSteen
+title: Conexão de VM de máquina virtual do Azure SQL para indexação de pesquisa
+titleSuffix: Azure Cognitive Search
+description: Habilite conexões criptografadas e configure o firewall para permitir conexões a SQL Server em uma VM (máquina virtual) do Azure de um indexador no Pesquisa Cognitiva do Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 02/04/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 7629750da8f58c2c62f15102b60b5b562689f087
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 57bea41d95b8859af55be777b17189861a445a12
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656712"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792139"
 ---
-# <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurar uma conexão de um indexador do Azure Search ao SQL Server em uma VM do Azure
-Conforme observado em [Conectando o Banco de Dados SQL do Azure ao Azure Search usando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), é possível criar indexadores no **SQL Server em VMs do Azure** (ou **VMs do SQL Azure**) usando o Azure Search, mas há alguns pré-requisitos relacionados à segurança que precisam ser verificados primeiro. 
+# <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurar uma conexão de um indexador Pesquisa Cognitiva do Azure para SQL Server em uma VM do Azure
 
-Conexões do Azure Search ao SQL Server em uma máquina virtual é uma conexão de Internet pública. Todas as medidas de segurança que você normalmente seguiria para essas conexões se aplicam aqui também:
+Conforme observado na [conexão do banco de dados SQL do Azure ao azure pesquisa cognitiva usando indexadores, a](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)criação de indexadores em relação a **SQL Server em VMs do azure** (ou **SQL Azure VMs** para curto) é suportada pelo Azure pesquisa cognitiva, mas há algumas pré-requisitos relacionados à segurança para cuidar do primeiro. 
+
+As conexões do Pesquisa Cognitiva do Azure para SQL Server em uma VM são uma conexão de Internet pública. Todas as medidas de segurança que você normalmente seguiria para essas conexões se aplicam aqui também:
 
 + Obter um certificado de um [provedor de Autoridade de Certificação](https://en.wikipedia.org/wiki/Certificate_authority#Providers) para o nome de domínio totalmente qualificado da instância do SQL Server na VM do Azure.
 + Instalar o certificado na VM e, em seguida, habilitar e configurar conexões criptografadas na VM usando as instruções neste artigo.
 
 ## <a name="enable-encrypted-connections"></a>Habilitar conexões criptografadas
-O Azure Search requer um canal criptografado para todas as solicitações de indexador em uma conexão de Internet pública. Esta seção lista as etapas para fazer isso funcionar.
+O Pesquisa Cognitiva do Azure requer um canal criptografado para todas as solicitações do indexador em uma conexão de Internet pública. Esta seção lista as etapas para fazer isso funcionar.
 
 1. Verifique as propriedades do certificado para verificar se o nome da entidade é o nome de domínio totalmente qualificado (FQDN) da VM do Azure. Você pode usar uma ferramenta como CertUtils ou o snap-in de certificados para exibir as propriedades. Você pode obter o FQDN na seção Essentials da folha de serviço da VM, no campo **rótulo de nome de DNS/endereço IP público** , no [portal do Azure](https://portal.azure.com/).
    
@@ -50,7 +50,7 @@ O Azure Search requer um canal criptografado para todas as solicitações de ind
 4. Reinicie o serviço SQL Server.
 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configurar a conectividade do SQL Server na VM
-Depois de configurar a conexão criptografada exigida pelo Azure Search, existem etapas de configuração adicionais intrínsecas ao SQL Server nas VMs do Azure. Se você ainda não fez isso, a próxima etapa é concluir a configuração usando qualquer um destes artigos:
+Depois de configurar a conexão criptografada exigida pelo Azure Pesquisa Cognitiva, há etapas de configuração adicionais intrínsecas a SQL Server em VMs do Azure. Se você ainda não fez isso, a próxima etapa é concluir a configuração usando qualquer um destes artigos:
 
 * Para uma VM do **Resource Manager** , veja [Conectar-se a uma Máquina Virtual do SQL Server no Azure usando o Resource Manager](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
 * Para uma VM **Clássica** , consulte [Conectar-se a uma Máquina Virtual do SQL Server no Azure clássico](../virtual-machines/windows/classic/sql-connect.md).
@@ -58,9 +58,9 @@ Depois de configurar a conexão criptografada exigida pelo Azure Search, existem
 Em particular, consulte a seção em cada artigo para "conectando pela internet".
 
 ## <a name="configure-the-network-security-group-nsg"></a>Configure o Grupo de Segurança de Rede (NSG)
-É comum configurar o NSG e o ponto de extremidade ou a ACL (Lista de Controle de Acesso) do Azure correspondente para dar acesso à sua VM do Azure a outras pessoas. É provável que você já tenha feito isso para permitir que a lógica do seu próprio aplicativo se conecte à VM do SQL Azure. Uma conexão do Azure Search com sua VM do SQL Azure não é diferente. 
+É comum configurar o NSG e o ponto de extremidade ou a ACL (Lista de Controle de Acesso) do Azure correspondente para dar acesso à sua VM do Azure a outras pessoas. É provável que você já tenha feito isso para permitir que a lógica do seu próprio aplicativo se conecte à VM do SQL Azure. Não é diferente para uma conexão de Pesquisa Cognitiva do Azure com sua VM SQL Azure. 
 
-Os links a seguir fornecem instruções sobre a configuração de NSG para implantações de VM. Use estas instruções para a ACL de um ponto de extremidade do Azure Search com base em seu endereço IP.
+Os links a seguir fornecem instruções sobre a configuração de NSG para implantações de VM. Use estas instruções para obter uma ACL de um ponto de extremidade de Pesquisa Cognitiva do Azure com base em seu endereço IP.
 
 > [!NOTE]
 > Para saber mais, consulte [O que é um Grupo de Segurança de Rede?](../virtual-network/security-overview.md)
@@ -78,15 +78,15 @@ O endereçamento IP pode apresentar alguns desafios que são facilmente superado
 #### <a name="managing-ip-address-fluctuations"></a>Gerenciando flutuações de endereço IP
 Se o seu serviço de pesquisa tiver apenas uma unidade de pesquisa (isto é, uma réplica e uma partição), o endereço IP poderá mudar durante a reinicialização do serviço de rotina, invalidando uma ACL existente com o endereço IP do seu serviço de pesquisa.
 
-Uma maneira de evitar o erro de conectividade subsequente é usar mais de uma réplica e uma partição no Azure Search. Isso aumenta o custo, mas também resolve o problema de endereço IP. No Azure Search, os endereços IP não são alterados quando você tiver mais de uma unidade de pesquisa.
+Uma maneira de evitar o erro de conectividade subsequente é usar mais de uma réplica e uma partição no Azure Pesquisa Cognitiva. Isso aumenta o custo, mas também resolve o problema de endereço IP. No Azure Pesquisa Cognitiva, os endereços IP não são alterados quando você tem mais de uma unidade de pesquisa.
 
 Uma segunda abordagem é permitir que a conexão falhe e, em seguida, reconfigurar as ACLs no NSG. Em média, você pode esperar que os endereços IP sejam alterados todas as semanas. Para clientes que fazem a indexação controlada raramente, essa abordagem pode ser viável.
 
 Uma terceira abordagem viável (mas não particularmente segura) é especificar o intervalo de endereços IP da região do Azure em que o serviço de pesquisa é provisionado. A lista de intervalos IP do qual os endereços IP públicos são alocados a recursos do Azure é publicada em [intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). 
 
-#### <a name="include-the-azure-search-portal-ip-addresses"></a>Incluir endereços IP do portal do Azure Search
-Se você estiver usando o portal do Azure para criar um indexador, a lógica do portal do Azure Search também precisará acessar a VM do SQL Azure durante a criação. Os endereços IP do portal do Azure Search podem ser encontrados executando ping de `stamp2.search.ext.azure.com`.
+#### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Incluir os endereços IP do portal de Pesquisa Cognitiva do Azure
+Se você estiver usando o portal do Azure para criar um indexador, a lógica do portal de Pesquisa Cognitiva do Azure também precisará acessar a VM do SQL Azure durante a criação. Os endereços IP do portal de Pesquisa Cognitiva do Azure podem ser encontrados por meio do ping `stamp2.search.ext.azure.com`.
 
-## <a name="next-steps"></a>Próximas etapas
-Com a configuração acima resolvido, agora você pode especificar um SQL Server na VM do Azure como a fonte de dados de um indexador do Azure Search. Confira [Conectando o banco de dados SQL do Azure ao Azure Search usando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) para obter mais informações.
+## <a name="next-steps"></a>Próximos passos
+Com a configuração fora do caminho, agora você pode especificar um SQL Server na VM do Azure como a fonte de dados para um indexador de Pesquisa Cognitiva do Azure. Consulte [conectando o banco de dados SQL do Azure ao azure pesquisa cognitiva usando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) para obter mais informações.
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9b3a4add951079ab918d3ac02ca5e38eff6161
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4a8823a9b354ca4ae9ecab0eeac265b486116bec
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241164"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808960"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
@@ -69,8 +69,8 @@ Parênteses são opcionais para uma única expressão. O comprimento total do co
 Uma regra de associação que preenche automaticamente um grupo de usuários ou dispositivos é uma expressão binária que resulta em um resultado verdadeiro ou falso. As três partes de uma regra simples são:
 
 - Propriedade
-- Operator
-- Valor
+- operador
+- Value
 
 A ordem das partes dentro de uma expressão é importante para evitar erros de sintaxe.
 
@@ -78,22 +78,22 @@ A ordem das partes dentro de uma expressão é importante para evitar erros de s
 
 Há três tipos de propriedades que podem ser usadas para construir uma regra de associação.
 
-- Boolean
-- String
+- Booliano
+- string
 - Coleção de Cadeias de Caracteres
 
 Estas são todas as propriedades do usuário que você pode usar para criar uma expressão única.
 
 ### <a name="properties-of-type-boolean"></a>Propriedades de tipo booliano
 
-| Properties | Valores permitidos | Uso |
+| propriedades | Valores permitidos | Uso |
 | --- | --- | --- |
-| accountEnabled |true, false |user.accountEnabled -eq true |
-| dirSyncEnabled |true, false |user.dirSyncEnabled -eq true |
+| accountEnabled |verdadeiro, falso |user.accountEnabled -eq true |
+| dirSyncEnabled |verdadeiro, falso |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Propriedades do tipo cadeia de caracteres
 
-| Properties | Valores permitidos | Uso |
+| propriedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | city |Qualquer valor de cadeia de caracteres ou *null* |(user.city -eq "valor") |
 | country |Qualquer valor de cadeia de caracteres ou *null* |(user.country -eq "valor") |
@@ -104,10 +104,10 @@ Estas são todas as propriedades do usuário que você pode usar para criar uma 
 | facsimileTelephoneNumber |Qualquer valor de cadeia de caracteres ou *null* |user.facsimileTelephoneNumber -eq ("valor") |
 | givenName |Qualquer valor de cadeia de caracteres ou *null* |user.givenName -eq ("valor") |
 | jobTitle |Qualquer valor de cadeia de caracteres ou *null* |(user.jobTitle - eq "valor") |
-| email |Qualquer valor de cadeia de caracteres ou *null* (endereço SMTP do usuário) |(user.mail - eq "valor") |
+| mail |Qualquer valor de cadeia de caracteres ou *null* (endereço SMTP do usuário) |(user.mail - eq "valor") |
 | mailNickName |Qualquer valor de cadeia de caracteres (alias de email do usuário) |(user.mailNickName - eq "valor") |
 | Serviço Móvel |Qualquer valor de cadeia de caracteres ou *null* |(user.mobile -eq "valor") |
-| objectId |GUID do objeto de usuário |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
+| ID do objeto |GUID do objeto de usuário |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | SID (ID de segurança) local para usuários que foram sincronizados do local para a nuvem. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Qualquer valor de cadeia de caracteres ou *null* |(user.physicalDeliveryOfficeName -eq "valor") |
@@ -124,7 +124,7 @@ Estas são todas as propriedades do usuário que você pode usar para criar uma 
 
 ### <a name="properties-of-type-string-collection"></a>Propriedades de coleção de cadeias de caracteres de tipo
 
-| Properties | Valores permitidos | Uso |
+| propriedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | otherMails |Um valor de cadeia de caracteres. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP:alias@domainsmtp:alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -135,10 +135,10 @@ Para as propriedades usadas para regras de dispositivo, consulte [Regras para di
 
 A tabela a seguir lista os operadores com suporte e sua sintaxe para uma única expressão. Os operadores podem ser usados com ou sem o prefixo de hífen (-).
 
-| Operator | Sintaxe |
+| operador | Sintaxe |
 | --- | --- |
 | Não é igual a |-ne |
-| É igual a |-eq |
+| Igual a |-eq |
 | Não começa com |-notStartsWith |
 | Começa com |-startsWith |
 | Não contém |-notContains |
@@ -177,7 +177,7 @@ David é avaliado como true, Da é avaliado como false.
 Os valores usados em uma expressão podem consistir em vários tipos, incluindo:
 
 * Cadeias de caracteres
-* Booliano – true, false
+* Booliano – verdadeiro, falso
 * Números
 * Matrizes – matriz de número, matriz de cadeia de caracteres
 
@@ -249,7 +249,7 @@ Uma regra de associação pode consistir em expressões complexas, onde as propr
 
 As propriedades de vários valores são coleções de objetos do mesmo tipo. Eles podem ser usados para criar regras de associação usando a opção - any e - todos os operadores lógicos.
 
-| Properties | Valores | Uso |
+| propriedades | Valores | Uso |
 | --- | --- | --- |
 | assignedPlans | Cada objeto na coleção expõe as seguintes propriedades de cadeia de caracteres: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP:alias@domainsmtp:alias@domain | (user.proxyAddresses -qualquer (\_ -contém "contoso")) |
@@ -368,29 +368,31 @@ Os seguintes atributos de dispositivo podem ser usados.
 
  Atributo do dispositivo  | Valores | Exemplo
  ----- | ----- | ----------------
- accountEnabled | true, false | (device.accountEnabled -eq true)
- displayName | Um valor de cadeia de caracteres. |(device.displayName -eq "Rob iPhone")
- deviceOSType | Um valor de cadeia de caracteres. | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(Device. deviceOSType-contém "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
+ accountEnabled | verdadeiro, falso | (device.accountEnabled -eq true)
+ displayName | Um valor de cadeia de caracteres. |(Device. displayName-EQ "Rob iPhone")
+ deviceOSType | Um valor de cadeia de caracteres. | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(Device. deviceOSType-contém "AndroidEnterprise")<br>(Device. deviceOSType-EQ "AndroidForWork")
  deviceOSVersion | Um valor de cadeia de caracteres. | (device.deviceOSVersion -eq "9.1")
  deviceCategory | o nome de uma categoria de dispositivo válida | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Um valor de cadeia de caracteres. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Um valor de cadeia de caracteres. | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Pessoal, Empresa, Desconhecido | (device.deviceOwnership -eq "Company")
  enrollmentProfileName | Perfil de registro de dispositivo da Apple, registro de dispositivo-identificadores de dispositivo corporativo (Android-quiosque) ou nome do perfil do Windows AutoPilot | (device.enrollmentProfileName -eq "DEP iPhones")
- isRooted | true, false | (device.isRooted -eq true)
+ isRooted | verdadeiro, falso | (device.isRooted -eq true)
  managementType | MDM (para dispositivos móveis)<br>PC (para computadores gerenciados pelo agente de PC do Intune) | (device.managementType -eq "MDM")
+ organizationalUnit | uma UO (unidade organizacional) local válida | (Device. organizationalUnit-contém "laptop")
  deviceId | uma ID de dispositivo do Azure AD válida | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
- objectId | uma ID de objeto do Azure AD válida |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ ID do objeto | uma ID de objeto do Azure AD válida |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ devicePhysicalIds | qualquer valor de cadeia de caracteres usado pelo AutoPilot, como todos os dispositivos AutoPilot, OrderID ou PurchaseOrderID  | (Device. devicePhysicalIDs-any _ contém "[ZTDId]") (Device. devicePhysicalIds-qualquer _-EQ "[OrderID]: 179887111881") (Device. devicePhysicalIds-qualquer _-EQ "[PurchaseOrderId]: 76222342342")
  systemLabels | qualquer cadeia de caracteres correspondente à propriedade de dispositivo do Intune para marcação de dispositivos de Local de Trabalho Moderno | (Device. systemLabels-contém "M365Managed")
 
 > [!Note]  
 > Para o deviceOwnership ao criar grupos dinâmicos para dispositivos, é necessário definir o valor igual a "Company". No Intune, a propriedade do dispositivo é representada como Corporate. Consulte [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) para obter mais detalhes. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Esses artigos fornecem mais informações sobre grupos no Azure Active Directory.
 
-- [Consultar grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Ver grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Criar um novo grupo e adicionando membros](../fundamentals/active-directory-groups-create-azure-portal.md)
 - [Gerenciar configurações de um grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Gerenciar associações de um grupo](../fundamentals/active-directory-groups-membership-azure-portal.md)

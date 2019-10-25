@@ -1,5 +1,6 @@
 ---
-title: Configurar a declaração de função emitida no token SAML para aplicativos empresariais no Azure AD | Microsoft Docs
+title: Configurar a declaração de função para aplicativos empresariais no Azure AD
+titleSuffix: Microsoft identity platform
 description: Saiba como configurar a declaração de função emitida no token SAML para aplicativos empresariais no Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -17,18 +18,18 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 699c8ce559d26ad226ad1dfd7f7266fe8c4acdfb
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c671626a431a47e5100cf42ca0c9e29ab580ab3a
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207198"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803500"
 ---
-# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: configurar a declaração de função emitida no token SAML para aplicativos empresariais
+# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como configurar a declaração de função emitida no token SAML para aplicativos empresariais
 
 Usando o Azure AD (Azure Active Directory), você pode personalizar o tipo de declaração para a declaração de função no token de resposta recebido após a autorização de um aplicativo.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Microsoft Azure AD com configuração de diretório.
 - Uma assinatura com logon único habilitado. Você precisa configurar o SSO com o aplicativo.
@@ -140,7 +141,7 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
       ![Operação de patch bem-sucedida](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
-7. Após a atualização da entidade de serviço com mais funções, será possível atribuir usuários às respectivas funções. Você pode atribuir os usuários acessando o portal e navegando até o aplicativo. Selecione a guia **Usuários e grupos**. Essa guia relaciona todos os usuários e grupos que já foram atribuídos ao aplicativo. Você pode adicionar novos usuários às novas funções. Você também pode selecionar um usuário existente e selecionar **Editar** para alterar a função.
+7. Após a atualização da entidade de serviço com mais funções, será possível atribuir usuários às respectivas funções. Você pode atribuir os usuários acessando o portal e navegando até o aplicativo. Selecione a guia **usuários e grupos** . Essa guia lista todos os usuários e grupos que já estão atribuídos ao aplicativo. Você pode adicionar novos usuários às novas funções. Você também pode selecionar um usuário existente e selecionar **Editar** para alterar a função.
 
     ![Guia “Usuários e grupos”](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
 
@@ -268,7 +269,7 @@ Para excluir uma função existente, execute as seguintes etapas:
     > [!NOTE]
     > A função deve ser desabilitada antes de ser removida.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter as etapas adicionais, confira a [documentação do aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 

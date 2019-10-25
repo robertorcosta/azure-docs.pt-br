@@ -1,27 +1,26 @@
 ---
-title: Como gerenciar gravações simultâneas em recursos – Azure Search
-description: Use a simultaneidade otimista para evitar colisões de ar intermediário em atualizações ou exclusões para os índices do Azure Search, indexadores e fontes de dados.
-author: HeidiSteen
+title: Como gerenciar gravações simultâneas em recursos
+titleSuffix: Azure Cognitive Search
+description: Use a simultaneidade otimista para evitar colisões de ar médio em atualizações ou exclusões para índices de Pesquisa Cognitiva do Azure, indexadores, fontes de dados.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 07/21/2017
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 67f2dad016d3958dc10ba87e785d31694a1c94f5
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: edfb2fe5cc37a00335ca7b5be851a88825b03eb1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656732"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792212"
 ---
-# <a name="how-to-manage-concurrency-in-azure-search"></a>Como gerenciar a simultaneidade no Azure Search
+# <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Como gerenciar a simultaneidade no Azure Pesquisa Cognitiva
 
-Ao gerenciar recursos do Azure Search, como índices e fontes de dados, é importante atualizar recursos com segurança, especialmente se os recursos são acessados simultaneamente por diferentes componentes do seu aplicativo. Quando dois clientes atualizam simultaneamente um recurso sem coordenação, condições de corrida são possíveis. Para evitar isso, o Azure Search oferece uma *modelo de simultaneidade otimista*. Não há nenhum bloqueio em um recurso. Em vez disso, há uma ETag para todos os recursos que identifica a versão do recurso para que você possa criar solicitações que evitam substituições acidentais.
+Ao gerenciar recursos do Azure Pesquisa Cognitiva como índices e fontes de dados, é importante atualizar os recursos com segurança, especialmente se os recursos forem acessados simultaneamente por diferentes componentes do seu aplicativo. Quando dois clientes atualizam simultaneamente um recurso sem coordenação, condições de corrida são possíveis. Para evitar isso, o Azure Pesquisa Cognitiva oferece um *modelo de simultaneidade otimista*. Não há nenhum bloqueio em um recurso. Em vez disso, há uma ETag para todos os recursos que identifica a versão do recurso para que você possa criar solicitações que evitam substituições acidentais.
 
 > [!Tip]
-> Código conceitual em uma [solução C# de exemplo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) explica como funciona o controle de simultaneidade no Azure Search. O código cria condições que invocam o controle de simultaneidade. Ler o [fragmento de código a seguir](#samplecode) é provavelmente suficiente para a maioria dos desenvolvedores, mas se você deseja executar, edite appsettings.json para adicionar o nome do serviço e uma chave de api de administração. Dado um URL de serviço de `http://myservice.search.windows.net`, o nome do serviço é `myservice`.
+> O código conceitual em uma [solução de exemplo C# ](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) explica como o controle de simultaneidade funciona no Azure pesquisa cognitiva. O código cria condições que invocam o controle de simultaneidade. Ler o [fragmento de código a seguir](#samplecode) é provavelmente suficiente para a maioria dos desenvolvedores, mas se você deseja executar, edite appsettings.json para adicionar o nome do serviço e uma chave de api de administração. Dado um URL de serviço de `http://myservice.search.windows.net`, o nome do serviço é `myservice`.
 
 ## <a name="how-it-works"></a>Como funciona
 
@@ -51,7 +50,7 @@ O código a seguir demonstra verificações accessCondition para operações de 
     class Program
     {
         // This sample shows how ETags work by performing conditional updates and deletes
-        // on an Azure Search index.
+        // on an Azure Cognitive Search index.
         static void Main(string[] args)
         {
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
@@ -62,14 +61,14 @@ O código a seguir demonstra verificações accessCondition para operações de 
             Console.WriteLine("Deleting index...\n");
             DeleteTestIndexIfExists(serviceClient);
 
-            // Every top-level resource in Azure Search has an associated ETag that keeps track of which version
+            // Every top-level resource in Azure Cognitive Search has an associated ETag that keeps track of which version
             // of the resource you're working on. When you first create a resource such as an index, its ETag is
             // empty.
             Index index = DefineTestIndex();
             Console.WriteLine(
                 $"Test index hasn't been created yet, so its ETag should be blank. ETag: '{index.ETag}'");
 
-            // Once the resource exists in Azure Search, its ETag will be populated. Make sure to use the object
+            // Once the resource exists in Azure Cognitive Search, its ETag will be populated. Make sure to use the object
             // returned by the SearchServiceClient! Otherwise, you will still have the old object with the
             // blank ETag.
             Console.WriteLine("Creating index...\n");
@@ -129,9 +128,9 @@ O código a seguir demonstra verificações accessCondition para operações de 
             serviceClient.Indexes.Delete("test", accessCondition: AccessCondition.GenerateIfExistsCondition());
 
             // This is slightly better than using the Exists method since it makes only one round trip to
-            // Azure Search instead of potentially two. It also avoids an extra Delete request in cases where
+            // Azure Cognitive Search instead of potentially two. It also avoids an extra Delete request in cases where
             // the resource is deleted concurrently, but this doesn't matter much since resource deletion in
-            // Azure Search is idempotent.
+            // Azure Cognitive Search is idempotent.
 
             // And we're done! Bye!
             Console.WriteLine("Complete.  Press any key to end application...\n");
@@ -170,7 +169,7 @@ O código a seguir demonstra verificações accessCondition para operações de 
 
 Um padrão de design para implementar simultaneidade otimista deve incluir um loop que repete a verificação da condição de acesso, um teste para a condição de acesso e, opcionalmente, recupera um recurso atualizado antes de tentar aplicar novamente as alterações.
 
-Este snippet de código mostra a adição de um synonymMap para um índice que já existe. Esse código é do [exemplo de C# sinônimo para Azure Search](search-synonyms-tutorial-sdk.md).
+Este snippet de código mostra a adição de um synonymMap para um índice que já existe. Esse código é do [exemplo de C# sinônimo para pesquisa cognitiva do Azure](search-synonyms-tutorial-sdk.md).
 
 O snippet de código obtém o índice "hotéis", verifica a versão do objeto em uma operação de atualização, gera uma exceção se a condição falha e, em seguida, repete a operação (até três vezes), iniciando com a recuperação de índice do servidor para obter a versão mais recente.
 
@@ -206,7 +205,7 @@ O snippet de código obtém o índice "hotéis", verifica a versão do objeto em
         }
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Examine o [exemplo sinônimos c#](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms) para obter mais contexto sobre como atualizar um índice existente, com segurança.
 
@@ -215,7 +214,7 @@ Tente modificar qualquer um dos exemplos a seguir para incluir objetos ETags ou 
 + [Amostra de API REST no GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
 + [Amostra do SDK do .NET no GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Essa solução inclui o projeto "DotNetEtagsExplainer" que contém o código apresentado neste artigo.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 [Cabeçalhos comuns de solicitação e resposta HTTP](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 [Códigos de status HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
