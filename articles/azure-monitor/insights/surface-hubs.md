@@ -1,24 +1,18 @@
 ---
-title: Monitorar Surface Hubs com o Azure Monitor | Microsoft Docs
+title: Monitorar hubs de superfície com Azure Monitor | Microsoft Docs
 description: Use a solução Surface Hubs para controlar a integridade dos seus Hubs de superfície e compreender como eles estão sendo usados.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/16/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 7e0dbb4c3cd8ae4bb552e7b7f0748f1bde2f51de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/16/2018
+ms.openlocfilehash: 7ced5f678b9f8b2d4aa073a984276f41b8b7c4b9
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232791"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900631"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Monitorar Surface Hubs com o Azure Monitor para acompanhar sua integridade
 
@@ -67,7 +61,7 @@ Se você não usar o Intune para gerenciar seu ambiente, poderá registrar dispo
 3. Clique em **Este dispositivo** e, em **Monitoramento**, clique em **Definir Configurações do Log Analytics**.
 4. Selecione **Habilitar monitoramento**.
 5. No diálogo Configurações do Log Analytics, digite o **ID do workspace** do Log Analytics e digite a **Chave do workspace**.  
-   ![settings](./media/surface-hubs/settings.png)
+   ![configurações](./media/surface-hubs/settings.png)
 6. Clique em **OK** para concluir a configuração.
 
 Uma confirmação será exibida informando se a configuração foi aplicada ou não com êxito ao dispositivo. Se foi, uma mensagem será exibida informando que o agente foi conectado com êxito ao Azure Monitor. O dispositivo começará a enviar dados ao Azure Monitor, em que você pode exibi-lo e trabalhar com ele.
@@ -83,6 +77,6 @@ Quando você clica no bloco Surface Hub, a integridade do dispositivo é exibida
 
 Você pode criar [alertas](../platform/alerts-overview.md) com base em pesquisas de log existentes ou personalizadas. Ao usar os dados que o Azure Monitor coleta de seu Surface Hubs, você pode procurar problemas e alertar sobre as condições que definir para seus dispositivos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Use [Consultas de log no Azure Monitor](../log-query/log-query-overview.md) para exibir dados detalhados do Surface Hub.
 * Crie [alertas](../platform/alerts-overview.md) para notificá-lo quando ocorrerem problemas com seus Surface Hubs.

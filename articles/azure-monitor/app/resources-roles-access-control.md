@@ -1,27 +1,22 @@
 ---
 title: Recursos, funções e controle de acesso no Azure Application Insights | Microsoft Docs
 description: Proprietários, colaboradores e leitores de percepções de sua organização.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 02/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 0f348e3e7dc2812bf354d1f8ec86330b0742439a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 02/14/2019
+ms.openlocfilehash: eea991b553d69fce5c177c1eee48633484dc19db
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60373637"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899953"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, funções e controle de acesso no Application Insights
 
-Você pode controlar quem tem acesso de leitura e atualização a seus dados no [Application Insights do Azure][start] usando o [Controle de acesso baseado em função no Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
+Você pode controlar quem tem acesso de leitura e atualização aos seus dados no Azure [Application insights][start], usando o [controle de acesso baseado em função no Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Atribua acesso aos usuários no **grupo de recursos ou assinatura** ao qual o recurso do aplicativo pertence, não no próprio recurso. Atribua a função **Colaborador de componente do Application Insights** . Isso garante o controle uniforme de acesso a testes na Web e alertas, juntamente com o recurso do aplicativo. [Saiba mais](#access).
@@ -35,20 +30,20 @@ Primeiro, algumas definições:
 
 * **Recurso** ‒ uma instância de um serviço do Microsoft Azure. O recurso do Application Insights coleta, analisa e exibe os dados de telemetria enviados de seu aplicativo.  Outros tipos de recursos do Azure incluem aplicativos Web, bancos de dados e VMs.
   
-    Para ver seus recursos, abra o [portal do Azure][portal], conecte-se e clique em Todos os Recursos. Para encontrar um recurso, digite uma parte de seu nome no campo de filtro.
+    Para ver seus recursos, abra o [portal do Azure][portal], entre e clique em todos os recursos. Para encontrar um recurso, digite uma parte de seu nome no campo de filtro.
   
     ![Lista de recursos do Azure](./media/resources-roles-access-control/10-browse.png)
 
 <a name="resource-group"></a>
 
-* [**Grupo de recursos**][group] ‒ cada recurso pertence a um grupo. Um grupo é uma maneira conveniente de gerenciar recursos relacionados, particularmente para controle de acesso. Por exemplo, em um grupo de recursos, você pode colocar um aplicativo Web, um recurso do Application Insights para monitorar o aplicativo e um Recurso de armazenamento para manter os dados exportados.
+* [**Grupo de recursos**][group] -cada recurso pertence a um grupo. Um grupo é uma maneira conveniente de gerenciar recursos relacionados, particularmente para controle de acesso. Por exemplo, em um grupo de recursos, você pode colocar um aplicativo Web, um recurso do Application Insights para monitorar o aplicativo e um Recurso de armazenamento para manter os dados exportados.
 
 * [**Assinatura**](https://portal.azure.com) - para usar o Application Insights ou outros recursos do Azure, entre em uma assinatura do Azure. Cada grupo de recursos pertence a uma assinatura do Azure, em que você escolhe o pacote de preços e, se for uma assinatura de organização, escolhe os membros e suas permissões de acesso.
-* [**Conta da Microsoft**][account] - o nome de usuário e a senha que você usa para entrar nas assinaturas do Microsoft Azure, no XBox Live, no Outlook.com e em outros serviços da Microsoft.
+* [**Conta Microsoft**][account] -o nome de usuário e a senha que você usa para entrar em assinaturas do Microsoft Azure, Xbox Live, Outlook.com e outros serviços da Microsoft.
 
 ## <a name="access"></a> Controlar o acesso no grupo de recursos
 
-É importante entender que, além do recurso criado para seu aplicativo, também há recursos ocultos separados para alertas e testes na Web. Eles estão conectados à mesma [grupo de recursos](#resource-group) como recurso do Application Insights. Você também pode colocar outros serviços do Azure nele, como sites ou armazenamento.
+É importante entender que, além do recurso criado para seu aplicativo, também há recursos ocultos separados para alertas e testes na Web. Eles são anexados ao mesmo [grupo de recursos](#resource-group) que o recurso de Application insights. Você também pode colocar outros serviços do Azure nele, como sites ou armazenamento.
 
 Portanto, para controlar o acesso a esses recursos, é recomendável:
 
@@ -59,7 +54,7 @@ Portanto, para controlar o acesso a esses recursos, é recomendável:
 
 Você deve ter direitos de Proprietário para a assinatura ou o grupo de recursos.
 
-O usuário deve ter uma [conta da Microsoft][account] ou acesso à sua [conta organizacional da Microsoft](../../active-directory/fundamentals/sign-up-organization.md). Você pode fornecer acesso a indivíduos e também a grupos de usuários definidos no Azure Active Directory.
+O usuário deve ter uma [conta da Microsoft][account]ou acesso à sua [conta organizacional da Microsoft](../../active-directory/fundamentals/sign-up-organization.md). Você pode fornecer acesso a indivíduos e também a grupos de usuários definidos no Azure Active Directory.
 
 #### <a name="navigate-to-resource-group-or-directly-to-the-resource-itself"></a>Navegue até o grupo de recursos ou diretamente ao próprio recurso
 
@@ -103,7 +98,7 @@ Quando aplicável, vincular a documentação de referência oficial associada.
 
 A 'edição' inclui a criação, a exclusão e a atualização:
 
-* Recursos
+* Implante
 * Testes da Web
 * Alertas
 * Exportação contínua

@@ -1,25 +1,18 @@
 ---
 title: Perguntas frequentes sobre preços para o Monitor de Desempenho de Rede do Azure | Microsoft Docs
 description: Perguntas frequentes - Monitor de Desempenho de Rede do Azure
-services: monitoring-and-diagnostics
-documentationcenter: na
-author: agummadi
-manager: cherylmc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/02/2018
+author: agummadi
 ms.author: agummadi
-ms.openlocfilehash: 68e84d8ac82d5cdd52bf92df858730315514c17c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 04/02/2018
+ms.openlocfilehash: 3d69637c2851764363209ed8dfbe8c24c636ffba
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612849"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898780"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Alterações de preços para o Monitor de Desempenho de Rede do Azure
 
@@ -37,8 +30,8 @@ As seções a seguir explicam as alterações de preços para os componentes do 
 **Como o uso do Monitor de Desempenho era cobrado no modelo antigo?**
 
 A cobrança do NPM era baseada no uso e consumo de dois componentes:
-* **Nós**: Todas as transações sintéticas se originam e terminam nos nós. Os nós também são conhecidos como agentes ou Microsoft Monitoring Agents.
-* **Data**: Os resultados de vários testes de rede são armazenados no espaço de trabalho do Log Analytics.
+* **Nós**: todas as transações sintéticas se originam e terminam nos nós. Os nós também são conhecidos como agentes ou Microsoft Monitoring Agents.
+* **Dados**: os resultados dos vários testes de rede são armazenados no espaço de trabalho log Analytics.
 
 No modelo antigo, a cobrança era calculada com base no número de nós e no volume de dados gerados. 
 
@@ -53,9 +46,9 @@ O recurso de Monitor de Desempenho no NPM agora é cobrado com base em uma combi
 
 O Monitor de Desempenho monitora a conectividade entre dois ou mais locais na rede. A conexão entre um grupo de nós ou agentes em uma sub-rede e um grupo de nós em outra sub-rede é chamado de link de sub-rede.
 
-**Tenho duas sub-redes (A e B) e vários agentes em cada sub-rede. O Monitor de Desempenho monitora a conectividade de todos os agentes na sub-rede A para todos os agentes na sub-rede B. Serei cobrado com base no número de conexões entre as sub-redes?**
+**Tenho duas sub-redes (A e B) e tenho vários agentes em cada sub-rede. O monitor de desempenho monitora a conectividade de todos os agentes na sub-rede A para todos os agentes na sub-rede B. Serei cobrado com base no número de conexões entre sub-redes?**
 
-Nº Para fins de cobrança, todas as conexões da sub-rede A para a sub-rede B são agrupadas em um link de sub-rede. Você será cobrado por uma única conexão. O Monitor de Desempenho continua monitorando a conectividade entre vários agentes em cada sub-rede.
+Não. Para fins de cobrança, todas as conexões da sub-rede A para a sub-rede B são agrupadas em um link de sub-rede. Você será cobrado por uma única conexão. O Monitor de Desempenho continua monitorando a conectividade entre vários agentes em cada sub-rede.
 
 **Quais são os custos de monitoramento de um link de sub-rede?**
 
@@ -63,7 +56,7 @@ Para o custo de monitoramento de um link de sub-rede único para o mês inteiro,
 
 **Quais são as cobranças para os dados que o Monitor de Desempenho gera?**
 
-A cobrança por ingestão (upload de dados ao espaço de trabalho do Log Analytics no Azure Monitor, processamento e indexação) está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para Log Analytics, na seção ingestão de dados. A cobrança por retenção de dados (ou seja, os dados retidos por opção do cliente, além do primeiro mês) também está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/), na seção Retenção de Dados.
+A cobrança por ingestão (carregamento de dados para Log Analytics espaço de trabalho em Azure Monitor, processamento e indexação) está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para log Analytics, na seção ingestão de dados. A cobrança por retenção de dados (ou seja, os dados retidos por opção do cliente, além do primeiro mês) também está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/), na seção Retenção de Dados.
 
 
 ## <a name="expressroute-monitor"></a>ExpressRoute Monitor
@@ -72,7 +65,7 @@ A cobrança por ingestão (upload de dados ao espaço de trabalho do Log Analyti
 
 As cobranças pelo ExpressRoute Monitor são feitas com base no volume de dados gerados durante o monitoramento. Para mais informações, consulte “Quais são as cobranças para os dados que o Monitor de Desempenho gera?”
 
-**Eu uso o Monitor do ExpressRoute para monitorar vários circuitos do ExpressRoute. Sou cobrado com base no número de circuitos que está sendo monitorado?**
+**Uso o monitor do ExpressRoute para monitorar vários circuitos do ExpressRoute. Sou cobrado com base no número de circuitos que estão sendo monitorados?**
 
 Você não será cobrado com base no número de circuitos ou no tipo de emparelhamento (por exemplo, emparelhamento privado, emparelhamento da Microsoft). Você é cobrado com base no volume de dados, conforme explicado anteriormente.
 
@@ -119,5 +112,5 @@ Consulte a seção [Monitoramento de conexão](https://azure.microsoft.com/prici
 
 ## <a name="references"></a>Referências
 
-[Perguntas frequentes sobre o preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/): A seção de perguntas frequentes traz informações sobre a camada gratuita, por preços de nós e outros detalhes de preços.
+[Perguntas frequentes sobre preços de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/): a seção de perguntas frequentes tem informações sobre a camada gratuita, por preços de nós e outros detalhes de preços.
 

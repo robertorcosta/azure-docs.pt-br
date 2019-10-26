@@ -1,31 +1,25 @@
 ---
 title: Exemplos de consulta de log do Azure Monitor | Microsoft Docs
 description: Exemplos de consultas de log no Azure Monitor usando a linguagem de consulta do Kusto.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 10/01/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 7cdd471e6618e83483f6cc304f284a1669f3b67b
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
-ms.translationtype: MT
+ms.date: 10/01/2019
+ms.openlocfilehash: 2ded97e427c8ecf4584ee486408de14a26f014eb
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718906"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900361"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemplos de consulta de log do Azure Monitor
 Este artigo inclui vários exemplos de [consultas](log-query-overview.md) usando a [linguagem de consulta do Kusto](/azure/kusto/query/) para recuperar os diferentes tipos de dados de log do Azure Monitor. Diferentes métodos são usados para consolidar e analisar os dados, de modo que você pode usar esses exemplos para identificar estratégias diferentes que pode usar para seus próprios requisitos.  
 
 Veja a [referência da linguagem Kusto](https://docs.microsoft.com/azure/kusto/query/) para obter detalhes sobre as diferentes palavras-chave usadas nesses exemplos. Confira uma [lição sobre como criar consultas](get-started-queries.md) se você não tiver experiência com o Azure Monitor.
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventos
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Pesquisar eventos de nível de aplicativo descritos como "Criptográficos"
 Este exemplo pesquisa a tabela **Eventos** em busca de registros em que **EventLog** é _Application_ e **RenderedDescription** contém _cryptographic_. Inclui registros das últimas 24 horas.
@@ -158,7 +152,7 @@ AzureDiagnostics
 | summarize arg_max(TimeGenerated, *) by Category
 ```
 
-## <a name="network-monitoring"></a>Monitoramento da rede
+## <a name="network-monitoring"></a>Monitoramento de rede
 
 ### <a name="computers-with-unhealthy-latency"></a>Computadores com latência não íntegra
 Este exemplo cria uma lista de computadores distintos com latência não íntegra.
@@ -170,7 +164,7 @@ NetworkMonitoring
 | distinct Computer
 ```
 
-## <a name="performance"></a>Desempenho
+## <a name="performance"></a>Performance
 
 ### <a name="join-computer-perf-records-to-correlate-memory-and-cpu"></a>Unir registros de desempenho do computador para correlacionar a memória e a CPU
 Este exemplo correlaciona os registros de **desempenho** de um computador específico e cria dois gráficos de tempo, a média de CPU e memória máxima.
@@ -237,7 +231,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>Contar eventos de segurança por ID da atividade
 
 
-Este exemplo baseia-se na estrutura fixa da coluna **Activity**: \<ID\>-\<Name\>.
+Este exemplo se baseia na estrutura fixa da coluna **Activity**: \<ID\>-\<Name\>.
 Ele analisa o valor de **Activity** em duas novas colunas e conta a ocorrência de cada **activityID**.
 
 ```Kusto
@@ -436,7 +430,7 @@ Update
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Veja a [Referência da linguagem Kusto](/azure/kusto/query) para obter detalhes sobre a linguagem.
 - Confira uma [lição sobre as consultas de log de gravação no Azure Monitor](get-started-queries.md).

@@ -4,19 +4,19 @@ description: Obtenha uma visão geral das configurações com suporte em uma pol
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: reference
 ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 834b13c512bca1b7c43c3c8e93a72383a82db198
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 5a3518dfcad3678dc298ba8529e731d48ec1d195
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274192"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893468"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional Azure Active Directory
 
@@ -41,7 +41,7 @@ Com as políticas de acesso condicional, você controla como os usuários acessa
 
 Você pode atribuir uma política de acesso condicional aos seguintes aplicativos de nuvem da Microsoft:
 
-- Azure Analysis Services
+- Analysis Services do Azure
 - Azure DevOps
 - Banco de dados SQL do Azure e data warehouse- [saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
 - Dynamics CRM Online
@@ -115,7 +115,7 @@ Em sua política de acesso condicional, você pode selecionar **navegadores** co
 
 Essa configuração funciona com todos os navegadores. No entanto, para satisfazer uma política de dispositivo, como um requisito de conformidade de dispositivo, há suporte para os sistemas operacionais e navegadores a seguir:
 
-| OS                     | Navegadores                                        |
+| SISTEMA OPERACIONAL                     | Navegadores                                        |
 | :--                    | :--                                             |
 | Windows 10             | Microsoft Edge, Internet Explorer, Chrome       |
 | Windows 8 / 8.1        | Internet Explorer, Chrome                       |
@@ -142,19 +142,19 @@ Para implantar automaticamente essa extensão para os navegadores Chrome, crie a
 
 |    |    |
 | --- | --- |
-| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Name | 1 |
-| Tipo | REG_SZ (String) |
-| Dados | ppnbnpeolgkicgegkbkbjmhlideopiji; https @ no__t-0//clients2. google. com/Service/Update2/CRX |
+| path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| name | 1 |
+| Type | REG_SZ (String) |
+| Dados | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.google.com/service/update2/crx |
 
 Para obter suporte ao Chrome no **Windows 8.1 e 7**, crie a seguinte chave do registro:
 
 |    |    |
 | --- | --- |
-| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Name | 1 |
-| Tipo | REG_SZ (String) |
-| Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+| path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| name | 1 |
+| Type | REG_SZ (String) |
+| Dados | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 Esses navegadores dão suporte à autenticação de dispositivo, permitindo que o dispositivo seja identificado e validado em relação a uma política. A verificação de dispositivo falha caso o navegador esteja sendo executado em modo privado.
 
@@ -255,7 +255,7 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 - Os requisitos da **política exigir proteção de aplicativo** :
     - Fornece suporte apenas para iOS e Android para [condição de plataforma de dispositivo](#device-platform-condition).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma visão geral do acesso condicional, consulte [o que é o acesso condicional no Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
 - Se você estiver pronto para configurar políticas de acesso condicional em seu ambiente, consulte as [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md).

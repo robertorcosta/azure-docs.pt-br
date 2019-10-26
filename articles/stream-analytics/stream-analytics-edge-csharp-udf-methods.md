@@ -1,6 +1,6 @@
 ---
 title: Desenvolver funções do .NET Standard para trabalhos do Edge do Azure Stream Analytics (versão prévia)
-description: Saiba como gravar funções definidas pelo usuário C# para trabalhos do Edge do Stream Analytics.
+description: Saiba como desenvolver funções definidas pelo usuário do .NET para trabalhos de Azure Stream Analytics usando codebehind, um pacote existente ou um projeto local.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -10,18 +10,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 40035b946d0f2b09929f8c7f1ac27231546e6746
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 287ee2d84ea3d5c6f1568edb1636191f509681e0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64692909"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901624"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Desenvolver funções definidas pelo usuário do .NET Standard para trabalhos do Edge do Azure Stream Analytics (versão prévia)
 
 O Azure Stream Analytics oferece uma linguagem de consulta semelhante à SQL para executar transformações e cálculos sobre fluxos de dados de eventos. Há muitas funções internas, mas alguns cenários complexos exigem flexibilidade adicional. Com as UDF (funções definidas pelo usuário) do .NET Standard, é possível invocar suas próprias funções gravadas em qualquer linguagem padrão do .NET (C#, F# etc.) para estender a linguagem de consulta do Stream Analytics. As UDFs permitem que você execute cálculos matemáticos complexos, importe modelos de ML personalizados usando ML.NET e use lógica de imputação personalizada para dados ausentes. O recurso UDF para trabalhos de borda do Stream Analytics está atualmente em visualização e não deve ser usado nas cargas de trabalho de produção.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 As ferramentas do Visual Studio para Azure Stream Analytics facilitam a gravação de UDFs, testam os trabalhos localmente (mesmo offline) e publicam o trabalho do Stream Analytics no Azure. Uma vez publicado no Azure, será possível implantar o trabalho em dispositivos IoT usando Hub IoT.
 
 Há três maneiras de implementar UDFs:
@@ -38,13 +38,13 @@ O formato de qualquer pacote UDF possui o caminho `/UserCustomCode/CLR/*`. As DL
 
 |**Tipo de UDF (C#)**  |**Tipo do Azure Stream Analytics**  |
 |---------|---------|
-|long  |  bigint   |
-|double  |  double   |
-|cadeia de caracteres  |  nvarchar(max)   |
+|longo  |  bigint   |
+|Duplo  |  Duplo   |
+|string  |  nvarchar(max)   |
 |dateTime  |  dateTime   |
 |struct  |  IRecord   |
 |objeto  |  IRecord   |
-|Matriz\<objeto >  |  IArray   |
+|Objeto de\<de matriz >  |  IArray   |
 |dictionary<string, object>  |  IRecord   |
 
 ## <a name="codebehind"></a>CodeBehind
@@ -114,8 +114,8 @@ Expanda o **a configuração de código definidos pelo usuário** seção e, em 
  |**Configuração**  |**Valor sugerido**  |
  |---------|---------|
  |Origem do assembly  | Pacotes existentes do assembly da nuvem    |
- |Resource  |  Escolha os dados da conta atual   |
- |Assinatura  |  Escolha sua assinatura.   |
+ |Grupos  |  Escolha os dados da conta atual   |
+ |Subscription  |  Escolha sua assinatura.   |
  |Conta de armazenamento  |  Escolha sua conta de armazenamento.   |
  |Contêiner  |  Escolha o contêiner que você criou na sua conta de armazenamento.   |
 
@@ -132,8 +132,8 @@ A versão prévia da UDF atualmente possui as seguintes limitações:
 
 * Como o código personalizado compartilha o contexto com o mecanismo do Azure Stream Analytics, o código personalizado não pode fazer referência a nada que tenha um namespace/dll_name conflitante com o código do Azure Stream Analytics. Por exemplo, não é possível referenciar *Newtonsoft Json*.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* [Tutorial: Gravar uma função C# definida pelo usuário para um trabalho do Azure Stream Analytics Edge (versão prévia)](stream-analytics-edge-csharp-udf.md)
-* [Tutorial: Funções definidas pelo usuário do JavaScript do Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)
+* [Tutorial: Gravar uma função definida pelo usuário C# para um trabalho do Edge do Azure Stream Analytics (versão prévia)](stream-analytics-edge-csharp-udf.md)
+* [Tutorial: Funções definidas pelo usuário do JavaScript do Stream Analytics do Azure](stream-analytics-javascript-user-defined-functions.md)
 * [Use o Microsoft Visual Studio para visualizar os trabalhos do Azure Stream Analytics](stream-analytics-vs-tools.md)

@@ -1,19 +1,18 @@
 ---
 title: Escopo de consulta de log em Azure Monitor Log Analytics | Microsoft Docs
 description: Descreve o escopo e o intervalo de tempo para uma consulta de log no Azure Monitor Log Analytics.
-services: log-analytics
-author: bwren
-manager: carmonm
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/25/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: e67dcb1236fd5ef113835dfe99de444fc2594481
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.date: 06/25/2019
+ms.openlocfilehash: 03e5e1bc79702a979be352095bb4833a7f5fe1c6
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405716"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900230"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Escopo de consulta de log e intervalo de tempo em Azure Monitor Log Analytics
 Quando você executa uma [consulta de log](log-query-overview.md) em [log Analytics no portal do Azure](get-started-portal.md), o conjunto de dados avaliado pela consulta depende do escopo e do intervalo de tempo que você selecionar. Este artigo descreve o escopo e o intervalo de tempo e como você pode definir cada um dependendo de seus requisitos. Ele também descreve o comportamento de diferentes tipos de escopos.
@@ -30,10 +29,10 @@ O escopo é determinado pelo método usado para iniciar Log Analytics e, em algu
 
 | Escopo da consulta | Registros no escopo | Como selecionar | Alterando o escopo |
 |:---|:---|:---|:---|
-| Workspace do Log Analytics | Todos os registros no espaço de trabalho Log Analytics. | Selecione **logs** no menu **Azure monitor** ou no menu **log Analytics espaços de trabalho** .  | Pode alterar o escopo para qualquer outro tipo de recurso. |
+| Espaço de trabalho do Log Analytics | Todos os registros no espaço de trabalho Log Analytics. | Selecione **logs** no menu **Azure monitor** ou no menu **log Analytics espaços de trabalho** .  | Pode alterar o escopo para qualquer outro tipo de recurso. |
 | Application Insights aplicativo | Todos os registros no aplicativo Application Insights. | Selecione **análise** na página **visão geral** do Application insights. | Só é possível alterar o escopo para outro aplicativo Application Insights. |
-| Grupo de recursos | Registros criados por todos os recursos no grupo de recursos. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu grupo de recursos. | Não é possível alterar o escopo.|
-| Assinatura | Registros criados por todos os recursos na assinatura. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu assinatura.   | Não é possível alterar o escopo. |
+| Resource group | Registros criados por todos os recursos no grupo de recursos. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu grupo de recursos. | Não é possível alterar o escopo.|
+| Subscription | Registros criados por todos os recursos na assinatura. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu assinatura.   | Não é possível alterar o escopo. |
 | Outros recursos do Azure | Registros criados pelo recurso. Pode incluir dados de vários espaços de trabalho do Log Analytics.  | Selecione **logs** no menu de recursos.<br>OU<br>Selecione **logs** no menu **Azure monitor** e, em seguida, selecione um novo escopo. | Só é possível alterar o escopo para o mesmo tipo de recurso. |
 
 ### <a name="limitations-when-scoped-to-a-resource"></a>Limitações no escopo de um recurso
@@ -61,7 +60,7 @@ Log Analytics ajuda a proteger contra sobrecarga excessiva de consultas que abra
 
 Sua consulta será impedida de ser executada se o escopo incluir espaços de trabalho em 20 ou mais regiões. Nesse caso, será solicitado que você reduza o número de regiões do espaço de trabalho e tente executar a consulta novamente. A lista suspensa exibirá todas as regiões no escopo da consulta e você deverá reduzir o número de regiões antes de tentar executar a consulta novamente.
 
-![A consulta falhou](media/scope/query-failed.png)
+![Falha na consulta](media/scope/query-failed.png)
 
 
 ## <a name="time-range"></a>Intervalo de tempo
@@ -69,7 +68,7 @@ O intervalo de tempo especifica o conjunto de registros que são avaliados para 
 
 | Location | Propriedade |
 |:---|:---|
-| Workspace do Log Analytics          | TimeGenerated |
+| Espaço de trabalho do Log Analytics          | TimeGenerated |
 | Application Insights aplicativo | timestamp     |
 
 Defina o intervalo de tempo selecionando-o no seletor de tempo na parte superior da janela de Log Analytics.  Você pode selecionar um período predefinido ou selecionar **personalizado** para especificar um intervalo de tempo específico.
@@ -82,7 +81,7 @@ Se você definir um filtro na consulta que usa a propriedade hora padrão, confo
 
 Se você usar o comando de [aplicativo](app-expression.md) ou [espaço de trabalho](workspace-expression.md) para recuperar dados de outro espaço de trabalho ou aplicativo, o seletor de tempo poderá se comportar de forma diferente. Se o escopo for um espaço de trabalho Log Analytics e você usar o **aplicativo**, ou se o escopo for um aplicativo Application insights e você usar o **espaço de trabalho**, log Analytics poderá não entender que a propriedade usada no filtro deve determinar o filtro de tempo.
 
-No exemplo a seguir, o escopo é definido como um espaço de trabalho Log Analytics.  A consulta usa o **espaço de trabalho** para recuperar dados de outro espaço de trabalho log Analytics. O seletor de tempo muda para **definido na consulta** porque vê um filtro que usa a Propriedade TimeGenerated esperada.
+No exemplo a seguir, o escopo é definido como um espaço de trabalho Log Analytics.  A consulta usa o **espaço de trabalho** para recuperar dados de outro espaço de trabalho log Analytics. O seletor de tempo muda para **definido na consulta** porque vê um filtro que usa a propriedade **TimeGenerated** esperada.
 
 ![Consulta com espaço de trabalho](media/scope/query-workspace.png)
 
@@ -90,7 +89,7 @@ Se a consulta usar o **aplicativo** para recuperar dados de um aplicativo Applic
 
 ![Consultar com o aplicativo](media/scope/query-app.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Percorra um [tutorial sobre como usar log Analytics no portal do Azure](get-started-portal.md).
 - Percorra um [tutorial sobre como escrever consultas](get-started-queries.md).

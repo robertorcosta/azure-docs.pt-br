@@ -1,5 +1,5 @@
 ---
-title: Pré-requisitos para acessar a API de relatório do Azure Active Directory | Microsoft Docs
+title: Pré-requisitos para a API de relatório de Azure Active Directory | Microsoft Docs
 description: Aprenda sobre os pré-requisitos para acessar a API de relatório do Azure AD
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 08/30/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7b6fab4a4a36691bbdeb11975c7a93b97ab86cb
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: af5e198a900241bc7bb0b6aff9a57eed59d1cd86
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241650"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895243"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para acessar a API de relatório do Azure Active Directory
 
@@ -41,11 +41,11 @@ Para preparar seu acesso à API de relatório, você precisa:
 
 Para obter acesso aos dados de relatórios por meio da API, você precisa ter uma das seguintes funções atribuídas:
 
-- Leitor de Segurança
+- Leitor de segurança
 
-- Administrador de Segurança
+- Administrador de segurança
 
-- Administrador Global
+- Administrador global
 
 
 ## <a name="register-an-application"></a>Registrar um aplicativo
@@ -80,7 +80,7 @@ Para configurar seu diretório para acessar a API de relatórios do Microsoft Az
 
     b. Para **tipo de contas com suporte**, selecione **contas somente nesta organização**.
 
-    c. Na caixa de texto selecionar URL de `https://localhost`redirecionamento, digite.
+    c. Na caixa de **texto selecionar** **URL de redirecionamento** , digite `https://localhost`.
 
     d. Selecione **Registrar**. 
 
@@ -91,7 +91,7 @@ Dependendo da API que deseja acessar, você precisa garantir ao seu aplicativo a
 
 | API | Permissão |
 | --- | --- |
-| Microsoft Azure Active Directory | Ler dados do diretório |
+| Windows Azure Active Directory | Ler dados do diretório |
 | Microsoft Graph | Ler todos os dados de log de auditoria |
 
 
@@ -110,7 +110,7 @@ A seção a seguir lista as etapas para ambas as APIs. Se não quiser acessar um
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
-3. Na página **permissões necessárias** , selecione **permissões de aplicativo**, expanda diretório caixa de seleção **diretório. ReadAll**.  Selecione **adicionar permissões**.
+3. Na página **permissões necessárias** , selecione **permissões de aplicativo** **, expanda diretório caixa** de seleção **diretório. ReadAll**.  Selecione **adicionar permissões**.
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/07.png)
 
@@ -118,7 +118,7 @@ A seção a seguir lista as etapas para ambas as APIs. Se não quiser acessar um
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/08.png)
 
-5. Observação: O **Microsoft Graph** é adicionado por padrão durante o registro da API.
+5. Observação: **Microsoft Graph** é adicionado por padrão durante o registro da API.
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/15.png)
 
@@ -183,7 +183,7 @@ Você precisa desses valores ao configurar chamadas para a API de relatórios.
 
     b. Como **Expira**, selecione **Em 2 anos**.
 
-    c. Clique em **Salvar**.
+    c. Clique em **Save** (Salvar).
 
     d. Copie o valor da chave.
 
@@ -208,11 +208,11 @@ Se você encontrar essa mensagem de erro ao tentar acessar entradas usando o Exp
 ![Modificar a interface do usuário de permissões](./media/troubleshoot-graph-api/modify-permissions.png)
 
 
-### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>Erro: O locatário não é B2C ou o locatário não tem licença Premium
+### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>Erro: o locatário não é B2C ou o locatário não tem licença Premium
 
 O acesso a relatórios de entrada requer uma licença do Azure Active Directory Premium 1 (P1). Se essa mensagem de erro for exibida quando você acessar as entradas, verifique se o locatário está licenciado com uma licença do Azure AD P1.
 
-### <a name="error-the-allowed-roles-does-not-include-user"></a>Erro: As funções permitidas não incluem usuário. 
+### <a name="error-the-allowed-roles-does-not-include-user"></a>Erro: as funções permitidas não incluem usuário. 
 
  Evite erros ao tentar acessar logs de auditoria ou entrar usando a API. Verifique se sua conta faz parte da função **leitor de segurança** ou **leitor de relatório** em seu locatário Azure Active Directory.
 
@@ -222,7 +222,7 @@ O acesso a relatórios de entrada requer uma licença do Azure Active Directory 
 
 Siga as etapas em [pré-requisitos para acessar a API de relatório de Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) para garantir que seu aplicativo esteja sendo executado com o conjunto certo de permissões. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Obter dados usando a API de Relatório do Azure Active Directory com certificados](tutorial-access-api-with-certificates.md)
 * [Referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 

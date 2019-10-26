@@ -1,5 +1,5 @@
 ---
-title: Requisitos de licença para usar o PIM-Azure Active Directory | Microsoft Docs
+title: Requisitos de licença para usar o Privileged Identity Management-Azure Active Directory | Microsoft Docs
 description: Descreve os requisitos de licenciamento para uso do Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 01/16/2019
+ms.date: 10/23/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83c31c2731a8e872dfd2750fced8b91d283d0892
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: e6e336ec40ba2b9f6d3018e6a4f5b2ac721077aa
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804065"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895108"
 ---
-# <a name="license-requirements-to-use-pim"></a>Requisitos de licença para uso do PIM
+# <a name="license-requirements-to-use-privileged-identity-management"></a>Requisitos de licença para usar o Privileged Identity Management
 
-Para usar o Azure AD (Azure Active Directory) PIM (Privileged Identity Management), um diretório precisa ter uma licença válida. Além disso, as licenças precisam ser atribuídas aos administradores e aos usuários relevantes. Este artigo descreve os requisitos de licença para uso do PIM.
+Para usar o Azure AD (Azure Active Directory) PIM (Privileged Identity Management), um diretório precisa ter uma licença válida. Além disso, as licenças precisam ser atribuídas aos administradores e aos usuários relevantes. Este artigo descreve os requisitos de licença para usar o Privileged Identity Management.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar o PIM, o diretório precisa ter uma das seguintes licenças pagas ou de avaliação:
+Para usar Privileged Identity Management, seu diretório deve ter uma das seguintes licenças pagas ou de avaliação:
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
@@ -40,7 +40,7 @@ Para obter mais informações, confira [O que é Azure Active Directory?](../fun
 
 ## <a name="which-users-must-have-licenses"></a>Quais usuários precisam ter licenças?
 
-Cada administrador ou usuário que interage com o PIM ou que recebe um benefício dele precisa ter uma licença. Os exemplos incluem:
+Cada administrador ou usuário que interage com ou recebe um benefício de Privileged Identity Management deve ter uma licença. Por exemplo:
 
 - Administradores com funções do Azure AD gerenciadas usando o PIM
 - Administradores com funções de recurso do Azure gerenciadas usando o PIM
@@ -55,16 +55,16 @@ Para obter informações sobre como atribuir licenças a seus usos, confira [Atr
 
 ## <a name="what-happens-when-a-license-expires"></a>O que acontece quando uma licença expira?
 
-Se uma licença do Azure AD Premium P2, do EMS E5 ou de avaliação expirar, os recursos do PIM não estarão mais disponíveis no diretório:
+Se uma licença Azure AD Premium P2, EMS E5 ou de avaliação expirar, Privileged Identity Management recursos não estarão mais disponíveis em seu diretório:
 
 - Atribuições de função permanentes para funções do Azure AD não serão afetadas.
-- O serviço PIM no portal do Azure, bem como os cmdlets da API do Graph e as interfaces do PowerShell do PIM, não estarão mais disponíveis para os usuários ativarem funções privilegiadas, gerenciarem o acesso privilegiado ou realizarem revisões de acesso de funções privilegiadas.
+- O serviço de Privileged Identity Management no portal do Azure, bem como os cmdlets do API do Graph e as interfaces do PowerShell do Privileged Identity Management, não estarão mais disponíveis para que os usuários ativem funções privilegiadas, gerenciem o acesso privilegiado ou executem revisões de acesso de funções com privilégios.
 - Atribuições de funções qualificadas de funções do Azure AD serão removidas, pois os usuários não poderão mais ativar funções privilegiadas.
-- As revisões de acesso em andamento de funções do Azure AD serão encerradas e as definições de configuração do PIM serão removidas.
-- O PIM não enviará mais emails sobre alterações na atribuição de função.
+- Todas as revisões de acesso em andamento das funções do Azure AD serão encerradas e Privileged Identity Management definições de configuração serão removidas.
+- Privileged Identity Management não enviará mais emails sobre alterações de atribuição de função.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Implantar o PIM](pim-deployment-plan.md)
-- [Começar a usar o PIM](pim-getting-started.md)
-- [Funções que não podem ser gerenciadas no PIM](pim-roles.md)
+- [Implantar Privileged Identity Management](pim-deployment-plan.md)
+- [Começar a usar o Privileged Identity Management](pim-getting-started.md)
+- [Funções que você não pode gerenciar no Privileged Identity Management](pim-roles.md)

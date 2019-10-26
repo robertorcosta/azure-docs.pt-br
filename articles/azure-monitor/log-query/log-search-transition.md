@@ -1,23 +1,18 @@
 ---
 title: Exibir e analisar dados no Azure Log Analytics | Microsoft Docs
 description: Assistência para usuários da pesquisa de logs do Log Analytics à experiência de consulta de log do Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/16/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: dc3a754bd1a9f689f4b24b9ee2c1e4cbc0611684
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/16/2019
+ms.openlocfilehash: b738d532cb458506ca50a07dea11687040f99e02
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60519904"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900337"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transição da pesquisa de logs do Log Analytics para os logs do Azure Monitor
 Recentemente, a pesquisa de logs do Log Analytics foi substituída por uma nova experiência de análise de logs do Azure Monitor. Atualmente, a página Pesquisa de logs ainda pode ser acessada por meio do item de menu **Logs (clássico)** na página **Workspaces do Log Analytics** no portal do Azure, mas será removida em 15 de fevereiro de 2019. Este artigo descreve as diferenças entre as duas experiências para ajudar você a fazer a transição da pesquisa de logs. 
@@ -72,6 +67,6 @@ Nos logs do Azure Monitor, [crie um alerta com base na consulta de log](../platf
 
 ![Grupo de ações](media/log-search-transition/action-group.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a nova [experiência de logs do Azure Monitor](get-started-portal.md).

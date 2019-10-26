@@ -1,24 +1,18 @@
 ---
 title: Soluções de monitoramento no Azure Monitor | Microsoft Docs
 description: As soluções de monitoramento no Azure Monitor são uma coleção de regras de lógica, visualização e aquisição de dados que fornecem métricas centradas em torno de uma área específica do problema.  Este artigo fornece informações sobre como instalar e usar soluções de monitoramento.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 08/13/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 6932f9f302bf1816842d78a662f01ebaafed8686
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.date: 08/13/2019
+ms.openlocfilehash: 4006a3c66da9cb98db16b72da0b5fb7059affe22
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989196"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900656"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitoramento no Azure Monitor
 As soluções de monitoramento aproveitam os serviços no Azure para fornecer informações adicionais sobre a operação de um aplicativo ou serviço específico. Este artigo fornece uma breve visão geral das soluções de monitoramento no Azure e detalhes sobre como utilizá-las e instalá-las.
@@ -41,7 +35,7 @@ Abra a página de **Visão geral** no Azure Monitor para exibir um bloco para ca
 1. Use as caixas suspensas na parte superior da tela para alterar o workspace ou o intervalo de tempo usado para os blocos.
 1. Clique no bloco para obter uma solução para abrir a exibição que inclui uma análise mais detalhada dos dados coletados.
 
-![Visão geral](media/solutions/overview.png)
+![Visão Geral](media/solutions/overview.png)
 
 As soluções de monitoramento podem conter vários tipos de recursos do Azure e é possível exibir todos os recursos incluídos em uma solução como qualquer outro recurso. Por exemplo, todas as consultas de log incluídas na solução estão listadas em **Consultas de Solução** no [Gerenciador de consultas](../log-query/get-started-portal.md#load-queries) e é possível usar essas consultas ao executar análises ad hoc com [consultas de log](../log-query/log-query-overview.md).
 
@@ -109,7 +103,7 @@ Você pode verificar o vínculo entre um espaço de trabalho do Log Analytics e 
 Para remover uma solução instalada, localize-a na [lista de soluções instaladas](#list-installed-monitoring-solutions). Clique no nome da solução para abrir a página de resumo e, em seguida, clique em **Excluir**.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Obter uma [lista de soluções de monitoramento da Microsoft](solutions-inventory.md).
 * Saiba como [criar consultas](../log-query/log-query-overview.md) para analisar dados coletados por soluções de monitoramento.
 

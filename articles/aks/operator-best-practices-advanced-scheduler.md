@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: a31f839b4bad79a52f5cab386d17e3084314784b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: f260e019ffa6eb89e8a2c1e17d2bf239e74290c2
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026114"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900121"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os recursos do agendador avançado no Serviço de Kubernetes do Azure (AKS)
 
-Ao gerenciar clusters no Serviço de Kubernetes do Azure (AKS), muitas vezes você precisa isolar as equipes e as carga de trabalho. O Agendador Kubernetes fornece recursos avançados que permitem controlar quais pods podem ser agendados em determinados nós, ou como o pod com vários aplicativos pode ser distribuído apropriadamente no cluster. 
+À medida que você gerencia clusters no Serviço de Kubernetes do Azure (AKS), geralmente é necessário isolar equipes e cargas de trabalho. O Agendador Kubernetes fornece recursos avançados que permitem controlar quais pods podem ser agendados em determinados nós, ou como o pod com vários aplicativos pode ser distribuído apropriadamente no cluster. 
 
 Este artigo sobre práticas recomendadas se concentra em recursos de agendamento de Kubernetes avançados para os operadores do cluster. Neste artigo, você aprenderá a:
 
@@ -179,9 +179,9 @@ Um bom exemplo é um aplicativo web que também usa um Azure Cache para Redis. V
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-Este exemplo é uma implantação mais complexa do que o uso de seletores de nó ou afinidade de nó. A implantação fornece a você o controle sobre os pods de agendas Kubernetes em nós e pode isolar os recursos logicamente. Para obter um exemplo completo deste aplicativo Web com o cache do Azure para Redis exemplo, consulte [colocar pods no mesmo nó][k8s-pod-affinity].
+Este exemplo é uma implantação mais complexa do que o uso de seletores de nó ou afinidade de nó. A implantação fornece a você o controle sobre os pods de agendas Kubernetes em nós e pode isolar os recursos logicamente. Para obter um exemplo completo deste aplicativo Web com o cache do Azure para Redis exemplo, consulte [co-localizar pods no mesmo nó][k8s-pod-affinity].
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo se concentra nos recursos avançados de agendador Kubernetes. Para obter mais informações sobre operações de cluster no AKS, consulte as seguintes práticas recomendadas:
 

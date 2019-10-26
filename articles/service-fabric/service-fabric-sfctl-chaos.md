@@ -3,22 +3,23 @@ title: CLI do Azure Service Fabric - sfctl chaos| Microsoft Docs
 description: Descreve os comandos do sfctl chaos da CLI do Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 27178b2f26086bf693dc9cda342c66f7d47a34d7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: f48ef260ab05f98da99c3ae317d0c350d018119f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035099"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901770"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Iniciar, parar e emitir relatórios sobre o serviço de teste de caos.
@@ -26,14 +27,14 @@ Iniciar, parar e emitir relatórios sobre o serviço de teste de caos.
 ## <a name="subgroups"></a>Subgrupos
 |Subgrupo|Descrição|
 | --- | --- |
-| [schedule](service-fabric-sfctl-chaos-schedule.md) | Obter e definir a agenda do caos. |
+| [schedule](service-fabric-sfctl-chaos-schedule.md) | Obtenha e defina a agenda do caos. |
 ## <a name="commands"></a>Comandos
 
-|Comando|Descrição|
+|Command|Descrição|
 | --- | --- |
-| eventos | Obtém o próximo segmento dos eventos do caos com base no token de continuação ou no intervalo. |
+| events | Obtém o próximo segmento dos eventos do caos com base no token de continuação ou no intervalo. |
 | get | Obter o status do caos. |
-| start | Inicia o Chaos no cluster. |
+| iniciar | Inicia o Chaos no cluster. |
 | parar | Interrompe o Chaos se ele estiver em execução no cluster e coloca a Agenda do Chaos em um estado parado. |
 
 ## <a name="sfctl-chaos-events"></a>sfctl chaos events
@@ -46,19 +47,19 @@ Para obter o próximo segmento dos eventos do Chaos, especifique o ContinuationT
 |Argumento|Descrição|
 | --- | --- |
 | --continuation-token | O parâmetro do token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio será incluso na resposta da API quando os resultados do sistema não couberem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
-| --hora de término utc | O horário do arquivo do Windows que representa a hora de término do intervalo de tempo para o qual um relatório Chaos deve ser gerado. Veja o [Método DateTime.ToFileTimeUtc](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para obter detalhes. |
+| --hora de término utc | O horário do arquivo do Windows que representa a hora de término do intervalo de tempo para o qual um relatório Chaos deve ser gerado. Veja o [Método DateTime.ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para obter detalhes. |
 | --max-results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser inferiores aos resultados máximos especificados se não couberem na mensagem, de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero, ou não for especificado, a consulta paginada incluirá o máximo de resultados possível na mensagem de retorno. |
-| --start-time-utc | O horário do arquivo do Windows que representa a hora de início do intervalo de tempo para o qual um relatório Chaos deve ser gerado. Veja o [Método DateTime.ToFileTimeUtc](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para obter detalhes. |
-| --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --start-time-utc | O horário do arquivo do Windows que representa a hora de início do intervalo de tempo para o qual um relatório Chaos deve ser gerado. Veja o [Método DateTime.ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para obter detalhes. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|DESCRIÇÃO|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-chaos-get"></a>sfctl chaos get
@@ -70,22 +71,22 @@ Obtenha o status do Chaos indicando se o Chaos está ou não em execução, os p
 
 |Argumento|Descrição|
 | --- | --- |
-| --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|DESCRIÇÃO|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-chaos-start"></a>início sfctl chaos
 Inicia o Chaos no cluster.
 
-Se Chaos já não estiver em execução no cluster, inicia o Chaos com os parâmetros passados no Chaos. Se o Chaos já estiver em execução quando esta chamada for feita, ela falhará com o código de erro FABRIC_E_CHAOS_ALREADY_RUNNING.
+Se Chaos já não estiver em execução no cluster, inicia o Chaos com os parâmetros passados no Chaos. Se o Chaos já estiver em execução quando esta chamada for feita, ela falhará com o código de erro FABRIC_E_CHAOS_ALREADY_RUNNING. Consulte o artigo [induzir o caos controlado em clusters Service Fabric](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos) para obter mais detalhes.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -100,19 +101,19 @@ Se Chaos já não estiver em execução no cluster, inicia o Chaos com os parâm
 | -max-percentual-aplicativos-prejudiciais | Ao avaliar a integridade de cluster durante caos, a porcentagem máxima permitida de aplicativos problemáticos antes de relatar um erro. <br><br> O percentual máximo permitido de aplicativos não íntegros antes de relatar um erro. Por exemplo, para permitir que 10% dos aplicativos sejam problemáticos, esse valor seria 10. A porcentagem representa o máximo tolerado de aplicativos que podem estar não íntegros antes de o cluster ser considerado com erro. Se a porcentagem for respeitada, mas houver pelo menos um aplicativo não íntegro, a integridade será avaliada como ‘Aviso’. Isso é calculado dividindo o número de aplicativos problemáticos pelo número total de instâncias do aplicativo no cluster, exceto aplicativos de tipos de aplicativos que estão incluídos no ApplicationTypeHealthPolicyMap. O cálculo é arredondado para cima para tolerar uma falha em um número pequeno de aplicativos. A porcentagem padrão é zero. |
 | -max-percentual-nós-prejudiciais | Ao avaliar a integridade do cluster durante o Chaos, a porcentagem máxima permitida de nós prejudiciais antes de relatar um erro. <br><br> O percentual máximo permitido de nós não íntegros antes de relatar um erro. Por exemplo, para permitir que 10% dos nós sejam problemáticos, esse valor seria 10. A porcentagem representa o máximo tolerado de nós que podem estar não íntegros antes de o cluster ser considerado com erro. Se a porcentagem for respeitada, mas houver pelo menos um nó não íntegro, a integridade será avaliada como ‘Aviso’. Este percentual é calculado pela divisão do número de nós não íntegros pelo número total de nós no cluster. O cálculo é arredondado para cima para tolerar uma falha em um número pequeno de nós. A porcentagem padrão é zero. Em clusters grandes, alguns nós sempre estarão inoperantes ou ausentes para reparos, de modo que esse percentual deve ser configurado para tolerá-los. |
 | -tempo de execução | Tempo total (em segundos) para o qual o Chaos será executado antes de parar automaticamente. O valor máximo permitido é 4.294.967.295 (System.UInt32.MaxValue).  Padrão\: 4294967295. |
-| --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --timeout -t | Padrão\: 60. |
 | --tempo de espera entre falhas | Tempo de espera (em segundos) entre falhas consecutivas dentro de uma única iteração.  Padrão\: 20. <br><br> Quanto maior o valor, menor a sobreposição entre falhas e mais simples a sequência de transições de estado pelas quais o cluster passa. A recomendação é iniciar com um valor entre 1 e 5 e ter cuidado ao mover para cima. |
 | --tempo de espera entre iterações | Tempo-separação (em segundos) entre as duas iterações consecutivas de Chaos. Quanto maior o valor, menor é a taxa de injeção de falhas.  Padrão\: 30. |
 | --aviso-como-erro | Indica se os avisos são ou não tratados com a mesma severidade que os erros. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|DESCRIÇÃO|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-chaos-stop"></a>parar sfctl chaos
@@ -124,19 +125,19 @@ Impede que o Chaos execute novas falhas. Falhas em curso continuarão em execuç
 
 |Argumento|Descrição|
 | --- | --- |
-| --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|DESCRIÇÃO|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

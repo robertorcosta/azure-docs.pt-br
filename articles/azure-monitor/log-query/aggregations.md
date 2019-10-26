@@ -1,29 +1,23 @@
 ---
 title: Agregações nas consultas de log do Azure Monitor | Microsoft Docs
 description: Descreve as funções de agregação nas consultas de log do Azure Monitor que oferecem maneiras úteis de analisar seus dados.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/16/2018
+ms.openlocfilehash: 86b84e76b4716c1fddda23a6d52c65c0700c5663
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602737"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900422"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agregações nas consultas de log do Azure Monitor
 
 > [!NOTE]
-> Você deve concluir [Introdução ao portal do Analytics](get-started-portal.md) e [Introdução às consultas](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir [Primeiros passos com o portal do Google Analytics](get-started-portal.md) e [Primeiros passos com as consultas](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -79,7 +73,7 @@ Heartbeat
 ```
 
 ### <a name="evaluating-subgroups"></a>Avaliando subgrupos
-Para executar uma contagem ou outras agregações em subgrupos em seus dados, use a `by` palavra-chave. Por exemplo, para contar o número de computadores Linux distintos que enviam pulsações a cada país/região:
+Para executar uma contagem ou outras agregações em subgrupos em seus dados, use a `by` palavra-chave. Por exemplo, para contar o número de computadores Linux distintos que enviaram pulsações em cada país/região:
 
 ```Kusto
 Heartbeat 
@@ -93,10 +87,10 @@ Heartbeat
 |Canadá           | 3                   |
 |Irlanda          | 0                   |
 |Reino Unido   | 0                   |
-|Países Baixos      | 2                   |
+|Holanda      | 2                   |
 
 
-Para analisar subgrupos ainda menores de seus dados, adicione nomes de coluna adicionais à seção`by`. Por exemplo, você talvez queira contar os computadores distintos de cada país/região por OSType:
+Para analisar subgrupos ainda menores de seus dados, adicione nomes de coluna adicionais à seção`by`. Por exemplo, talvez você queira contar os computadores distintos de cada país/região por OSType:
 
 ```Kusto
 Heartbeat 

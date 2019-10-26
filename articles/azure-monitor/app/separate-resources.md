@@ -1,23 +1,18 @@
 ---
 title: Separar a telemetria do desenvolvimento, teste e lançamento no Azure Application Insights | Microsoft Docs
 description: Direcione a telemetria para diferentes recursos para stamps de desenvolvimento, teste e produção.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/15/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 2e9c599c12ed10327d352baee02500d2284d98d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/15/2017
+ms.openlocfilehash: bcf741e82e247a5b79a478ef1015a70cccb4d274
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60713389"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899904"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Separação da telemetria de desenvolvimento, teste e produção
 
@@ -55,7 +50,7 @@ Defina a chave em um método de inicialização como global.aspx.cs em um servi�
 
 Nesse exemplo, as ikeys para os diferentes recursos são colocadas em diferentes versões do arquivo de configuração da Web. Trocar o arquivo de configuração da Web, que pode ser realizado como parte do script versão, alternará o recurso de destino.
 
-### <a name="web-pages"></a>Páginas da Web
+### <a name="web-pages"></a>Página da Web
 A iKey também é usada nas páginas da Web do aplicativo, no [script que você obteve da folha de início rápido](../../azure-monitor/app/javascript.md). Em vez de codificá-la literalmente no script, gere-a a partir do estado do servidor. Por exemplo, em um aplicativo ASP.NET:
 
 *JavaScript no Razor*
@@ -132,7 +127,7 @@ Há vários métodos diferentes de definir a propriedade de Versão do aplicativ
     </PropertyGroup>
     ```
 
-    Isso gera um arquivo chamado *nomedoSeuProjeto*.BuildInfo.config. O processo de Publicação renomeia o arquivo como BuildInfo.config.
+    Isso gera um arquivo chamado *yourProjectName*. BuildInfo. config. o processo de publicação o renomeia para BuildInfo. config.
 
     O rótulo da compilação contém um espaço reservado (AutoGen_...) quando você cria com o Visual Studio. Mas quando compilado com o MSBuild, ele é preenchido com o número de versão correta.
 
@@ -156,7 +151,7 @@ No entanto, observe que o número de versão de compilação é gerado apenas pe
 Se usar o Azure DevOps, você poderá [obter um marcador de anotação](../../azure-monitor/app/annotations.md) adicionado a seus gráficos sempre que lançar uma nova versão. A imagem a seguir mostra como esse marcador é exibido.
 
 ![Captura de tela de anotação de versão de exemplo em um gráfico](media/separate-resources/release-annotation.png)
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Recursos compartilhados para várias funções](../../azure-monitor/app/app-map.md)
 * [Criar um Inicializador de Telemetria para distinguir variantes A | B](../../azure-monitor/app/api-filtering-sampling.md#add-properties)

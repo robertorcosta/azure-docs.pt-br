@@ -1,6 +1,6 @@
 ---
 title: Visualize os trabalhos do Azure Stream Analytics no Microsoft Visual Studio
-description: Este artigo descreve como exibir e gerenciar Azure Stream Analytics trabalhos no Visual Studio.
+description: Saiba como exibir, iniciar e parar, testar conexões, verificar resultados e exportar seus trabalhos de Azure Stream Analytics usando o Visual Studio.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: ae532ed19c2273e43aa739e84d5a68cadb717b86
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: d73955436e651dfdb9db9d602481213fcc2cf502
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173021"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893546"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Use o Microsoft Visual Studio para visualizar os trabalhos do Azure Stream Analytics
 
@@ -38,8 +38,6 @@ Você pode usar o modo de exibição de trabalho para interagir com trabalhos do
 
     ![Lista de gerenciador de servidores do Stream Analytics](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-list-jobs-01.png)
 
-
-
 2. Expanda o nó de trabalho e clique duas vezes no nó **Exibição de Trabalho** para abrir uma exibição do trabalho.
     
    ![Nó de trabalho expandido](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-job-view-01.png)
@@ -50,13 +48,11 @@ Os trabalhos do Stream Analytics do Azure podem ser gerenciados totalmente da ex
     
    ![Controles de trabalho do Stream Analytics](./media/stream-analytics-vs-tools/azure-stream-analytics-job-view-controls.png)
 
-
 ## <a name="check-job-results"></a>Veriricar resultados de trabalho
 
 Atualmente, as ferramentas do Stream Analytics para o Visual Studio dão suporte a visualização de saída para o Azure Data Lake Storage e o armazenamento de blobs. Para exibir o resultado, simplesmente clique duas vezes no nó de saída do diagrama de trabalho na **Exibição de Trabalho** e insira as credenciais apropriadas.
 
    ![Saída do Trabalho do Stream Analytics](./media/stream-analytics-vs-tools/stream-analytics-blob-preview.png)
-
 
 ## <a name="export-jobs-to-a-project"></a>Exportar trabalhos para um projeto
 
@@ -84,9 +80,9 @@ Os resultados da **Conexão de Teste** são exibidos na janela de **Saída**.
 
    ![Testar os resultados de conexão](./media/stream-analytics-vs-tools/stream-analytics-test-connection-results.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Monitorar e gerenciar trabalhos do Azure Stream Analytics usando o Microsoft Visual Studio](stream-analytics-monitor-jobs-use-vs.md)
-* [Início Rápido: Criar um trabalho de Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Tutorial: Implantar um trabalho de Azure Stream Analytics com CI/CD usando Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Início Rápido: criar um trabalho do Stream Analytics usando o Microsoft Visual Studio](stream-analytics-quick-create-vs.md)
+* [Tutorial: Implantar um trabalho do Azure Stream Analytics com CI/CD usando o Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Integrar e desenvolver continuamente com ferramentas do Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md)

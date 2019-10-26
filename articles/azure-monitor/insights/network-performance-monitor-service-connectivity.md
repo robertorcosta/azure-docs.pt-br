@@ -1,24 +1,18 @@
 ---
 title: Solução Monitor de Desempenho de Rede no Azure Log Analytics | Microsoft Docs
 description: Use o recurso Monitor de Conectividade de Serviço em Monitor de Desempenho de Rede para monitorar a conectividade de rede para qualquer ponto de extremidade que tem uma porta TCP aberta.
-services: log-analytics
-documentationcenter: ''
-author: abshamsft
-manager: carmonm
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/20/2018
+author: abshamsft
 ms.author: absha
-ms.openlocfilehash: c5285ac95a2f5813949f22aae3849fd7f55b1ada
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 02/20/2018
+ms.openlocfilehash: dd02dad6d0f5b42181ad0bb27201384a6336ed6e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052096"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898815"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
 
@@ -59,17 +53,17 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 Comece criando os testes para monitorar a conectividade de rede aos pontos de extremidade de serviço.
 
 1. Selecione a guia **Monitor de Conectividade de Serviço**.
-2. Selecione **Adicionar teste** e insira o nome do teste e a descrição. Você pode criar testes de 450 máximo por espaço de trabalho. 
+2. Selecione **Adicionar teste** e insira o nome do teste e a descrição. Você pode criar um máximo de 450 testes por espaço de trabalho. 
 3. Selecione o tipo de teste:<br>
 
     * Selecione o **Web** para monitorar a conectividade a um serviço que responde às solicitações HTTP/S, como outlook.office365.com ou bing.com.<br>
     * Selecione a **Rede** para monitorar a conectividade a um serviço que responde à solicitação TCP, mas não responde à solicitação HTTP/S, como um SQL server, servidor FTP ou porta SSH etc. 
-    * Por exemplo:  Para criar um teste da web para uma conta de armazenamento de blob, selecione **Web** e insira o destino como *yourstorageaccount*. blob.core.windows.net. Da mesma forma, você pode criar testes para outro armazenamento de tabelas, armazenamento de filas e arquivos do Azure usando [este link.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * Por exemplo: para criar um teste na Web para uma conta de armazenamento de BLOBs, selecione **Web** e insira destino como *yourstorageaccount*. blob.Core.Windows.net. Da mesma forma, você pode criar testes para outros armazenamentos de tabelas, armazenamento de fila e arquivos do Azure usando [este link.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
 4. Se você não deseja executar medidas de rede, como latência de rede, perda de pacotes e descoberta de topologia, desmarque a caixa de seleção **Executar medidas de rede**. Mantenha selecionado para obter o máximo benefício da funcionalidade. 
 5. Em **Destino**, insira o endereço IP/FQDN/URL para o qual você deseja monitorar a conectividade de rede.
 6. Em **Número da porta**, insira o número da porta do serviço de destino. 
 7. Em **Frequência de Teste**, insira um valor para a frequência com a qual você deseja que o teste execute. 
-8. Selecione os nós do qual você deseja monitorar a conectividade de rede para o serviço. Certifique-se de que o número de agentes adicionados por teste é menos de 150. Qualquer agente pode testar máximo 150 pontos de extremidade/agentes.
+8. Selecione os nós do qual você deseja monitorar a conectividade de rede para o serviço. Verifique se o número de agentes adicionados por teste é menor que 150. Qualquer agente pode testar o máximo de 150 pontos de extremidade/agentes.
 
     >[!NOTE]
     > Para nós de servidor Windows, o recurso usa solicitações com base em TCP para executar as medidas de rede. Para nós de clientes Windows, o recurso usa solicitações com base em ICMP para executar as medidas de rede. Em alguns casos, o aplicativo de destino bloqueia solicitações ICMP quando os nós forem baseados em cliente Windows. A solução não pode realizar medidas de rede. É recomendável usar nós de servidores Windows nesses casos. 
@@ -96,11 +90,11 @@ No modo de exibição **nós de teste**, você pode observar a conectividade de 
 
 Determine se o desempenho insatisfatório do aplicativo é devido à rede ou devido a algum problema no final do provedor do aplicativo, observando a correlação entre o tempo de resposta do aplicativo e a latência de rede. 
 
-* **Problema de aplicativo:** Um aumento no tempo de resposta, mas a consistência a latência da rede sugere que a rede está funcionando corretamente e que o problema ocorre devido a um problema na extremidade do aplicativo. 
+* **Problema de aplicativo:** um aumento no tempo de resposta, mas a latência de rede é sugere que a rede está funcionando corretamente e o problema é devido a um problema no final do aplicativo. 
 
     ![Emita o aplicativo de Monitor de Conectividade de Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-application-issue.png)
 
-* **Problema de rede:** Um aumento no tempo de resposta acompanhado por um aumento correspondente na latência da rede sugere que o aumento no tempo de resposta é devido a um aumento na latência da rede. 
+* **Problema de Rede:** um aumento no tempo de resposta é acompanhado de um aumento correspondente na latência de rede que o aumento no tempo de resposta é devido a um aumento na latência de rede. 
 
     ![Emita a rede de Monitor de Conectividade de Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-network-issue.png)
 
@@ -128,16 +122,16 @@ Se você observar uma anormalidade, siga estas etapas:
 
 * Se o aplicativo está sendo executado lentamente, determine se o desempenho insatisfatório do aplicativo é devido à rede ou devido a algum problema no final do provedor de aplicativo.
 
-## <a name="gcc-office-urls-for-us-government-customers"></a>URLs de GCC do Office para os clientes do governo dos EUA
-Para a região do US Government Virgínia, apenas as URLs do DOD são NPM internos. Os clientes que usam URLs de GCC precisam criar testes personalizados e adicionar cada URL individualmente.
+## <a name="gcc-office-urls-for-us-government-customers"></a>URLs de GCC Office para clientes do governo dos EUA
+Para a região da Virgínia do governo dos EUA, somente as URLs do DOD são NPM internas. Os clientes que usam URLs GCC precisam criar testes personalizados e adicionar cada URL individualmente.
 
 | Campo | GCC |
 |:---   |:--- |
 | Portal do Office 365 e compartilhado | portal.apps.mil |
-| Identidade e autenticação do office 365 | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
-| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www .office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
+| Identidade e autenticação do Office 365 | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
+| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www. office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
 | Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
-| Equipes do MS | gov.teams.microsoft.us | 
+| MS Teams | gov.teams.microsoft.us | 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Pesquisar logs](../../azure-monitor/log-query/log-query-overview.md) para exibir registros de dados de desempenho de rede detalhados.

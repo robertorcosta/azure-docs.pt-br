@@ -1,24 +1,18 @@
 ---
 title: Solução de dados de transmissão em Azure Monitor | Microsoft Docs
 description: Os dados de transmissão são dados consolidados de rede e de desempenho de computadores com agentes do Log Analytics. Os dados de rede são combinados com os dados de log para ajudá-lo a correlacionar dados.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/03/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 4e1324bb90c0b92daf709b695a0a8b3af9161c2e
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 10/03/2018
+ms.openlocfilehash: 5e19c9bd47fe253f9a416b923ec0cb1748682842
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905421"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900583"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solução Wire Data 2.0 (versão prévia) no Azure Monitor
 
@@ -33,7 +27,7 @@ Além do agente do Log Analytics, a solução Wire Data usa os Agentes de Depend
 >[!NOTE]
 >Se você já implantou o Mapa do Serviço ou está considerando Mapa do Serviço ou [Azure monitor para VMs](../../azure-monitor/insights/vminsights-overview.md), há um novo conjunto de dados de métricas de conexão coletado e armazenado no Azure monitor que fornece informações comparáveis para a transmissão de dados.
 
-Por padrão, o Azure Monitor registra dados de CPU, memória, disco e dados de desempenho de rede de contadores criados no Windows e Linux, bem como outros contadores de desempenho que você pode especificar. A coleta de dados de rede e de outros dados é feita em tempo real para cada agente, incluindo sub-redes e protocolos no nível de aplicativo usados pelo computador.  O Wire Data analisa dados de rede no nível do aplicativo, não embaixo na camada de transporte TCP.  A solução não examina ACKs e SYNs individuais.  Após a conclusão do handshake, ele é considerado uma conexão dinâmica e marcado como Conectado. Essa conexão permanece ativa desde que ambos os lados aceitem que o soquete está aberto e que os dados podem passar em ambas as direções.  Quando um dos lados fecha a conexão, ele é marcado como desconectado.  Portanto, ele conta apenas a largura de banda de pacotes concluídos com êxito, não relatando nem reenviando pacotes com falha.
+Por padrão, o Azure Monitor registra dados de CPU, memória, disco e dados de desempenho de rede de contadores criados no Windows e Linux, bem como outros contadores de desempenho que você pode especificar. A coleta de dados de rede e de outros dados é feita em tempo real para cada agente, incluindo sub-redes e protocolos no nível de aplicativo usados pelo computador.  O Wire Data analisa dados de rede no nível do aplicativo, não embaixo na camada de transporte TCP.  A solução não examina as ACKs e SYNs individuais.  Depois que o handshake for concluído, ele será considerado uma conexão dinâmica e marcado como conectado. Essa conexão permanece ativa desde que ambos os lados aceitem que o soquete está aberto e que os dados podem passar em ambas as direções.  Quando um dos lados fecha a conexão, ele é marcado como desconectado.  Portanto, ele conta apenas a largura de banda de pacotes concluídos com êxito, não relatando nem reenviando pacotes com falha.
 
 Se você já tiver usado [sFlow](http://www.sflow.org/) ou outro software com o [protocolo NetFlow da Cisco](https://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), as estatísticas e os dados que você verá do Wire Data já serão conhecidos.
 
@@ -60,10 +54,10 @@ O Wire Data obtém seus dados do Agente de Dependência da Microsoft. A Dependen
 
 | **Fonte conectada** | **Com suporte** | **Descrição** |
 | --- | --- | --- |
-| Agentes do Windows | Sim | O Wire Data analisa e coleta dados de computadores de agente do Windows. <br><br> Além do [Agente do Log Analytics](../platform/agent-windows.md), os agentes do Windows exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
-| Agentes do Linux | Sim | O Wire Data analisa e coleta dados de computadores de agente do Linux.<br><br> Além do [Agente do Log Analytics](../learn/quick-collect-linux-computer.md), os agentes do Linux exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
-| Grupo de gerenciamento do System Center Operations Manager | Sim | O Wire Data analisa e coleta dados de agentes do Windows e do Linux em um [grupo de gerenciamento do System Center Operations Manager](../platform/om-agents.md) conectado. <br><br> É necessária uma conexão direta do computador do agente de System Center Operations Manager para Azure Monitor. |
-| Conta de armazenamento do Azure | Não | O Wire Data coleta dados de computadores do agente e, portanto, não há nenhum dado dele a ser coletado do Armazenamento do Azure. |
+| Agentes do Windows | SIM | O Wire Data analisa e coleta dados de computadores de agente do Windows. <br><br> Além do [Agente do Log Analytics](../platform/agent-windows.md), os agentes do Windows exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
+| Agentes do Linux | SIM | O Wire Data analisa e coleta dados de computadores de agente do Linux.<br><br> Além do [Agente do Log Analytics](../learn/quick-collect-linux-computer.md), os agentes do Linux exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
+| Grupo de gerenciamento do System Center Operations Manager | SIM | O Wire Data analisa e coleta dados de agentes do Windows e do Linux em um [grupo de gerenciamento do System Center Operations Manager](../platform/om-agents.md) conectado. <br><br> É necessária uma conexão direta do computador do agente de System Center Operations Manager para Azure Monitor. |
+| Conta de Armazenamento do Azure | Não | O Wire Data coleta dados de computadores do agente e, portanto, não há nenhum dado dele a ser coletado do Armazenamento do Azure. |
 
 No Windows, o Microsoft Monitoring Agent (MMA) é usado pelo System Center Operations Manager e Azure Monitor para coletar e enviar dados. Dependendo do contexto, esse agente é chamado de Agente do System Center Operations Manager, agente do Log Analytics, MMA ou Agente Direto. System Center Operations Manager e Azure Monitor fornecem versões ligeiramente diferentes do MMA. Essas versões podem cada relatório para System Center Operations Manager, para Azure Monitor ou para ambos.
 
@@ -100,7 +94,7 @@ As seções a seguir listam os sistemas operacionais com suporte para o Dependen
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
 
-#### <a name="windows-desktop"></a>Windows Desktop
+#### <a name="windows-desktop"></a>Área de trabalho do Windows
 
 - Windows 10 1803
 - Windows 10
@@ -140,7 +134,7 @@ As seções a seguir listam os sistemas operacionais com suporte para o Dependen
 
 | Versão do SO | Versão do kernel |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4.15.\*<br>4,18 * |
+| Ubuntu 18.04 | kernel 4,15.\*<br>4,18 * |
 | Ubuntu 16.04.3 | kernel 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
@@ -160,7 +154,7 @@ As seções a seguir listam os sistemas operacionais com suporte para o Dependen
 
 ### <a name="dependency-agent-downloads"></a>Downloads do Agente de Dependência
 
-| Arquivo | OS | Versão | SHA-256 |
+| Arquivo | SISTEMA OPERACIONAL | Versão | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
@@ -187,7 +181,7 @@ O Dependency Agent é instalado em computadores que executam o Windows por meio 
 Use as etapas a seguir para instalar o agente de dependência em cada computador que executa o Windows:
 
 1. Instale o agente do Log Analytics seguindo as etapas em [Coletar dados de computadores Windows hospedados em seu ambiente](../../azure-monitor/platform/agent-windows.md).
-2. Baixe o agente de dependência do Windows usando o link na seção anterior e execute-o usando o seguinte comando:`InstallDependencyAgent-Windows.exe`
+2. Baixe o agente de dependência do Windows usando o link na seção anterior e execute-o usando o seguinte comando: `InstallDependencyAgent-Windows.exe`
 3. Acompanhe o assistente para instalar o agente.
 4. Se o Agente de Dependência não for iniciado, verifique os logs para obter informações de erro detalhadas. Para Agentes do Windows, o diretório de log será %Programfiles%\Microsoft Dependency Agent\logs.
 
@@ -390,16 +384,16 @@ Um registro com um tipo de _WireData_ é criado para cada tipo de dados de entra
 
 | Propriedade | Descrição |
 |---|---|
-| Computer | Nome do computador em que os dados foram coletados |
+| Computador | Nome do computador em que os dados foram coletados |
 | TimeGenerated | Hora do registro |
 | LocalIP | Endereço IP do computador local |
 | SessionState | Conectado ou desconectado |
 | ReceivedBytes | Quantidade de bytes recebidos |
 | ProtocolName | Nome do protocolo de rede usado |
 | IPVersion | Versão IP |
-| Direction | Entrada ou saída |
+| Direção | Entrada ou saída |
 | MaliciousIP | Endereço IP de uma fonte mal-intencionada conhecida |
-| Severidade | Gravidade de suspeita de malware |
+| Gravidade | Gravidade de suspeita de malware |
 | RemoteIPCountry | País/região do endereço IP remoto |
 | ManagementGroupName | Nome do grupo de gerenciamento do Operations Manager |
 | SourceSystem | Fonte na qual o dados foram coletados |
@@ -418,6 +412,6 @@ Um registro com um tipo de _WireData_ é criado para cada tipo de dados de entra
 | RemoteIPLongitude | Valor de longitude do IP |
 | RemoteIPLatitude | Valor de latitude do IP |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Pesquise nos logs](../../azure-monitor/log-query/log-query-overview.md) para exibir registros detalhados da pesquisa de dados de transmissão.

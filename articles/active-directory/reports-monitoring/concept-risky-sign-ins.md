@@ -1,5 +1,5 @@
 ---
-title: Relatório de entradas de risco no portal do Azure Active Directory | Microsoft Docs
+title: Relatório de entradas arriscadas no portal | Microsoft Docs
 description: Saiba mais sobre o relatório de entradas de risco no portal do Azure Active Directory
 services: active-directory
 author: cawrites
@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72493400ba20ef3c838a636b66afdf26aa00ff62
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 31a002af32ac6c07e6358a3ccd0f1420d3e8c9ef
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127429"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895176"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Relatório de entradas de risco no portal do Azure Active Directory
 
@@ -42,9 +42,9 @@ Para saber como configurar as políticas que disparam essas detecções de risco
 
 Os relatórios de entradas de risco estão disponíveis para usuários nas funções a seguir:
 
-- Administrador de Segurança
-- Administrador Global
-- Leitor de Segurança
+- Administrador de segurança
+- Administrador global
+- Leitor de segurança
 
 Para saber como atribuir funções administrativas a um usuário no Azure Active Directory, veja [Exibir e atribuir funções de administrador no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
 
@@ -117,7 +117,7 @@ Ao selecionar um usuário, você obtém uma exibição detalhada do relatório d
 
 - Redefinir a senha do usuário
 
-- Ignorar todos os eventos
+- Descartar todos os eventos
 
 - Investigue as detecções de risco relatadas para o usuário. 
 
@@ -128,7 +128,7 @@ Isso abre a folha de **detalhes** para essa detecção de risco. Na folha **deta
 
 ![Entradas de risco](./media/concept-risky-sign-ins/325.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Como configurar a política de risco do usuário](../identity-protection/howto-user-risk-policy.md)
 - [Como configurar a política de correção de risco](../identity-protection/howto-user-risk-policy.md)

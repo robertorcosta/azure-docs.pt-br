@@ -10,15 +10,15 @@ ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/02/2019
+ms.date: 10/24/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 105728bdab9c70bb807f38e4a09d5be863694c16
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f453a0276a3448273964a589112e21ca5665c2d2
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231965"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900131"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado de autenticação e autorização no Serviço de Aplicativo do Azure
 
@@ -153,7 +153,7 @@ O Serviço de Aplicativo transmite declarações do usuário para seu aplicativo
 * X-MS-CLIENT-PRINCIPAL-NAME
 * X-MS-CLIENT-PRINCIPAL-ID
 
-Um código escrito em qualquer linguagem ou estrutura pode obter as informações necessárias desses cabeçalhos. Para aplicativos ASP.NET 4.6, **ClaimsPrincipal** é definido automaticamente com os valores apropriados.
+Um código escrito em qualquer linguagem ou estrutura pode obter as informações necessárias desses cabeçalhos. Para aplicativos ASP.NET 4.6, **ClaimsPrincipal** é definido automaticamente com os valores apropriados. O ASP.NET Core, no entanto, não fornece um middleware de autenticação que se integra às declarações de usuário do serviço de aplicativo. Para obter uma solução alternativa, consulte [MaximeRouiller. Azure. AppService. EasyAuth](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth).
 
 Seu aplicativo também pode obter detalhes adicionais sobre o usuário autenticado chamando `/.auth/me`. Os SDKs do servidor dos Aplicativos Móveis fornecem métodos auxiliares para trabalhar com esses dados. Para saber mais, confira [Como usar o SDK do Node.js dos Aplicativos Móveis do Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) e [Trabalhar com o SDK do servidor de back-end .NET para Aplicativos Móveis do Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
 
@@ -163,7 +163,7 @@ No seu código de servidor, os tokens específicos do provedor são injetados no
 
 | Provedor | Nomes do Cabeçalho |
 |-|-|
-| Active Directory do Azure | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
+| Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Token do Facebook | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
 | Google | `X-MS-TOKEN-GOOGLE-ID-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-ACCESS-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-EXPIRES-ON` <br/> `X-MS-TOKEN-GOOGLE-REFRESH-TOKEN` |
 | Conta da Microsoft | `X-MS-TOKEN-MICROSOFTACCOUNT-ACCESS-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-EXPIRES-ON` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-AUTHENTICATION-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-REFRESH-TOKEN` |
@@ -179,11 +179,11 @@ Do seu código do cliente (por exemplo, um aplicativo móvel ou JavaScript no na
 
 Quando o token de acesso do seu provedor (não o [token de sessão](#extend-session-token-expiration-grace-period)) expirar, você precisará autenticar novamente o usuário antes de usar esse token novamente. Você pode evitar a expiração do token fazendo uma `GET` chamada para o `/.auth/refresh` ponto de extremidade de seu aplicativo. Quando chamado, o Serviço de Aplicativo atualiza automaticamente tokens de acesso no repositório de token para o usuário autenticado. As solicitações subsequentes de tokens do seu código do aplicativo obtêm tokens atualizados. No entanto, para que a atualização do token funcione, o repositório de token deve conter [tokens de atualização](https://auth0.com/learn/refresh-tokens/) para o seu provedor. A forma de obter tokens de atualização é documentada por cada provedor, mas a lista a seguir traz um breve resumo:
 
-- **Google**: Acrescente um parâmetro de cadeia de caracteres de consulta `access_type=offline` à chamada à API `/.auth/login/google`. Se usar o SDK de Aplicativos Móveis, você pode adicionar o parâmetro a uma das `LogicAsync` sobrecargas (consulte [Tokens de atualização do Google](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
-- **Facebook**: Não fornece tokens de atualização. Tokens de vida útil longa expiram em 60 dias (consulte [Expiração e extensão de tokens de acesso do Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter**: Tokens de acesso não expiram (confira [Perguntas frequentes sobre o OAuth do Twitter](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
-- **Conta Microsoft**: Ao [definir configurações de autenticação de conta Microsoft](configure-authentication-provider-microsoft.md), selecione o escopo `wl.offline_access`.
-- **Azure Active Directory**: No [https://resources.azure.com](https://resources.azure.com), execute as seguintes etapas:
+- **Google**: anexe um `access_type=offline` parâmetro de cadeia de caracteres para consulta a sua `/.auth/login/google` chamada à API. Se usar o SDK de Aplicativos Móveis, você pode adicionar o parâmetro a uma das `LogicAsync` sobrecargas (consulte [Tokens de atualização do Google](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
+- **Facebook**: não fornece tokens de atualização. Tokens de vida útil longa expiram em 60 dias (consulte [Expiração e extensão de tokens de acesso do Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
+- **Twitter**: tokens de acesso não expiram (consulte [Perguntas frequentes sobre o OAuth do Twitter](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Microsoft Account**: quando [definir configurações de autenticação de conta Microsoft](configure-authentication-provider-microsoft.md), selecione o escopo `wl.offline_access`.
+- **Azure Active Directory**: em [https://resources.azure.com](https://resources.azure.com), execute as seguintes etapas:
     1. Na parte superior da página, selecione **Ler/Gravar**.
     2. No navegador à esquerda, navegue até **assinaturas** >  **_\<assinatura\_nome_**  > **resourceGroups** >  **_\<recurso\_grupo\_nome >_**  > **provedores** > **Microsoft.web** > **sites** >  **_\<aplicativo \_nome >_**  > **config** > **authsettings**. 
     3. Clique em **Editar**.
@@ -197,7 +197,7 @@ Quando o token de acesso do seu provedor (não o [token de sessão](#extend-sess
 
 Depois que seu provedor estiver configurado, você poderá [ encontrar o token de atualização e o tempo de expiração do token de acesso ](#retrieve-tokens-in-app-code) na loja do token. 
 
-Para atualizar seu token de acesso a qualquer momento, basta `/.auth/refresh` chamar em qualquer idioma. O snippet a seguir usa o jQuery para atualizar seus tokens de acesso de um cliente JavaScript.
+Para atualizar o token de acesso a qualquer momento, basta chamar `/.auth/refresh` em qualquer idioma. O snippet a seguir usa o jQuery para atualizar seus tokens de acesso de um cliente JavaScript.
 
 ```JavaScript
 function refreshTokens() {
@@ -230,7 +230,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>Limite do domínio de contas de entrada
 
-A Conta da Microsoft e o Microsoft Azure Active Directory permitem a entrada de vários domínios. Por exemplo, a Conta da Microsoft permite contas de _outlook.com_, _live.com_ e _hotmail.com_. O Azure AD permite qualquer número de domínios personalizados para as contas de entrada. No entanto, talvez você queira acelerar seus usuários diretamente para sua própria página de entrada do Azure AD com marca ( `contoso.com`como). Para sugerir o nome de domínio das contas de entrada, siga estas etapas.
+A Conta da Microsoft e o Microsoft Azure Active Directory permitem a entrada de vários domínios. Por exemplo, a Conta da Microsoft permite contas de _outlook.com_, _live.com_ e _hotmail.com_. O Azure AD permite qualquer número de domínios personalizados para as contas de entrada. No entanto, talvez você queira acelerar seus usuários diretamente para sua própria página de entrada do Azure AD com marca (como `contoso.com`). Para sugerir o nome de domínio das contas de entrada, siga estas etapas.
 
 Em [https://resources.azure.com](https://resources.azure.com), navegue até **assinaturas** >  **_\< assinatura\_ nome_**  > **resourceGroups** >  **_\< recurso\_ grupo\_ nome>_**  > **provedores** > **Microsoft.Web** > **sites** >  **_\< aplicativo\_ nome>_**  > **config** > **authsettings**. 
 
@@ -240,10 +240,10 @@ Clique em **Editar**, modifique a propriedade a seguir e, em seguida, clique em 
 "additionalLoginParams": ["domain_hint=<domain_name>"]
 ```
 
-Essa configuração acrescenta o `domain_hint` parâmetro de cadeia de caracteres de consulta à URL de redirecionamento de logon. 
+Essa configuração acrescenta o parâmetro de cadeia de caracteres de consulta `domain_hint` à URL de redirecionamento de logon. 
 
 > [!IMPORTANT]
-> É possível que o cliente remova o `domain_hint` parâmetro depois de receber a URL de redirecionamento e, em seguida, faça logon com um domínio diferente. Portanto, embora essa função seja conveniente, ela não é um recurso de segurança.
+> É possível que o cliente remova o parâmetro `domain_hint` depois de receber a URL de redirecionamento e, em seguida, faça logon com um domínio diferente. Portanto, embora essa função seja conveniente, ela não é um recurso de segurança.
 >
 
 ## <a name="authorize-or-deny-users"></a>Autorizar ou negar usuários
@@ -258,11 +258,11 @@ Embora o serviço de aplicativo se encarrega do caso de autorização mais simpl
 
 Para qualquer aplicativo do Windows, você pode definir o comportamento de autorização do servidor Web do IIS, editando o arquivo *Web. config* . Os aplicativos do Linux não usam o IIS e não podem ser configurados por meio do *Web. config*.
 
-1. Navegue até`https://<app-name>.scm.azurewebsites.net/DebugConsole`
+1. Navegue até `https://<app-name>.scm.azurewebsites.net/DebugConsole`
 
-1. No Gerenciador de navegador de seus arquivos do serviço de aplicativo, navegue até *site/wwwroot*. Se um *Web. config* não existir, crie-o selecionando **+**  >  **novo arquivo**. 
+1. No Gerenciador de navegador de seus arquivos do serviço de aplicativo, navegue até *site/wwwroot*. Se um *Web. config* não existir, crie-o selecionando **+**  > **novo arquivo**. 
 
-1. Selecione o lápis para *Web. config* para editá-lo. Adicione o código de configuração a seguir e clique em **salvar**. Se o *Web. config* já existir, basta adicionar `<authorization>` o elemento a tudo nele. Adicione as contas que você deseja permitir no `<allow>` elemento.
+1. Selecione o lápis para *Web. config* para editá-lo. Adicione o código de configuração a seguir e clique em **salvar**. Se o *Web. config* já existir, basta adicionar o elemento `<authorization>` com tudo o que está nele. Adicione as contas que você deseja permitir no elemento `<allow>`.
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -281,14 +281,14 @@ Para qualquer aplicativo do Windows, você pode definir o comportamento de autor
 O provedor de identidade pode fornecer determinada autorização de chave. Por exemplo:
 
 - Para [Azure app serviço](configure-authentication-provider-aad.md), você pode [gerenciar o acesso de nível corporativo](../active-directory/manage-apps/what-is-access-management.md) diretamente no Azure AD. Para obter instruções, consulte [como remover o acesso de um usuário a um aplicativo](../active-directory/manage-apps/methods-for-removing-user-access.md).
-- Para o [Google](configure-authentication-provider-google.md), os projetos de API do Google que pertencem a uma [organização](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) podem ser configurados para permitir acesso somente aos usuários em sua organização (consulte a [página de suporte do **OAuth 2,0** Configurando o Google](https://support.google.com/cloud/answer/6158849?hl=en)).
+- Para o [Google](configure-authentication-provider-google.md), os projetos de API do Google que pertencem a uma [organização](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) podem ser configurados para permitir acesso somente aos usuários em sua organização (consulte a [página de suporte do **OAuth 2,0 Configurando** o Google](https://support.google.com/cloud/answer/6158849?hl=en)).
 
 ### <a name="application-level"></a>Nível de aplicativo
 
 Se qualquer um dos outros níveis não fornecer a autorização de que você precisa, ou se sua plataforma ou provedor de identidade não tiver suporte, você deverá escrever um código personalizado para autorizar usuários com base nas [declarações do usuário](#access-user-claims).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Tutorial: Autenticar e autorizar usuários de ponta a ponta (Windows)](app-service-web-tutorial-auth-aad.md)
+> [Tutorial: Autenticar e autorizar usuários ponta a ponta (Windows)](app-service-web-tutorial-auth-aad.md)
 > [Tutorial: Autenticar e autorizar usuários de ponta a ponta (Linux)](containers/tutorial-auth-aad.md)

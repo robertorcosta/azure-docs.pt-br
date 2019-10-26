@@ -1,5 +1,5 @@
 ---
-title: 'Serviço de Backup do Azure: recupere arquivos e pastas de um backup de VM do Azure'
+title: 'Backup do Azure: recupere arquivos e pastas de um backup de VM do Azure'
 description: Recuperar arquivos de um ponto de recuperação de uma máquina virtual do Azure
 ms.reviewer: pullabhk
 author: dcurwin
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5ff4f1ff8a3d6143285b2842c351e1d26bd356ea
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 1c0d470f12cf54c900fec3c453b7e5f07d0b2325
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210359"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900306"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -67,16 +67,16 @@ Para restaurar arquivos ou pastas no ponto de recuperação, vá para a máquina
 
     - download.microsoft.com
     - URLs de serviço de recuperação (geo-name refere-se para a região onde reside o cofre dos serviços de recuperação)
-        - https:\//pod01-REC2.Geo-Name.backup.WindowsAzure.com (para áreas geográficas públicos do Azure)
-        - https:\//pod01-REC2.Geo-Name.backup.WindowsAzure.cn (para o Azure China 21vianet)
-        - https:\//pod01-REC2.Geo-Name.backup.WindowsAzure.us (para o governo dos EUA do Azure)
-        - https:\//pod01-REC2.Geo-Name.backup.WindowsAzure.de (para Azure Alemanha)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (para áreas geográficas públicos do Azure)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (para o Azure China 21Vianet)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (para o governo dos EUA do Azure)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (para Azure Alemanha)
     - porta de saída 3260
 
 > [!Note]
 > 
-> * O nome do arquivo de script baixado terá o **nome geográfico** a ser preenchido na URL. Por exemplo: O nome do script baixado começa \'com\'VMname\_\'\'geoname\'_GUID\', como ContosoVM_wcus_12345678....<br><br>
-> * A URL seria "https:\//pod01-REC2.wcus.backup.WindowsAzure.com"
+> * O nome do arquivo de script baixado terá o **nome geográfico** a ser preenchido na URL. Por exemplo: o nome do script baixado começa com \'VMname\'\_\'geoname\'_\'GUID\', como ContosoVM_wcus_12345678....<br><br>
+> * A URL seria "https:\//pod01-rec2.wcus.backup.windowsazure.com"
 
 
    Para o Linux, o script exige os componentes 'open-iscsi' e 'lshw' para se conectar ao ponto de recuperação. Se os componentes não existem no computador onde o script é executado, o script solicita a permissão para instalar os componentes. Conceda para instalar os componentes necessários.
@@ -179,7 +179,7 @@ $ mount [RAID Disk Path] [/mountpath]
 
 Se o disco RAID tiver outra LVM configurada, utilize o procedimento anterior para partições de LVM, mas utilize o nome de volume no lugar do nome do RAID Disk
 
-## <a name="system-requirements"></a>Requisitos de sistema
+## <a name="system-requirements"></a>Requisitos do sistema
 
 ### <a name="for-windows-os"></a>Para Windows 10
 
@@ -196,7 +196,7 @@ A tabela a seguir mostra a compatibilidade entre os sistemas operacionais de com
 
 No Linux, o SO do computador utilizado para restaurar arquivos deve fornecer suporte para o sistema de arquivos da máquina virtual protegida. Ao selecionar um computador para executar o script, certifique-se de que o computador possui um SO compatível e usa uma das versões identificadas na tabela a seguir:
 
-|SO Linux | Versões  |
+|Sistema operacional Linux | Versões  |
 | --------------- | ---- |
 | Ubuntu | 12.04 e acima |
 | CentOS | 6.5 e acima  |
@@ -213,13 +213,42 @@ No Linux, o SO do computador utilizado para restaurar arquivos deve fornecer sup
 
 O script também exige componentes Python e bash para executar e se conectar com segurança ao ponto de recuperação.
 
-|Componente | Version  |
+|Componente | Versão  |
 | --------------- | ---- |
 | bash | 4 e acima |
 | python | 2.6.6 e acima  |
 | TLS | 1.2 deve ser compatível  |
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Recuperação de arquivos de backups de máquina virtual com discos grandes
+
+Esta seção explica como executar a recuperação de arquivos de backups de máquinas virtuais do Azure cujo número de discos está > 16 e cada tamanho de disco é > 4 TB.
+
+Como o processo de recuperação de arquivo anexa todos os discos do backup, no caso de um grande número de discos (> 16) ou discos grandes (> 4 TB cada), recomenda-se os seguintes pontos de ação.
+
+- Mantenha um servidor de restauração separado (VMs de D2v3 de VM do Azure) para recuperação de arquivos. Você pode usar essa recuperação de arquivo somente e desligar quando não for necessário. Não é recomendável restaurar no computador original, pois ele terá um impacto significativo na própria VM.
+- Em seguida, execute o script uma vez para verificar se a operação de recuperação de arquivo foi concluída com sucesso.
+- Se o processo de recuperação de arquivo for interrompido (os discos nunca são montados ou se estiverem montados, mas os volumes não forem exibidos), execute as etapas a seguir.
+  - Se o servidor de restauração for uma VM do Windows
+    - Verifique se o sistema operacional é WS 2012 +.
+    - Verifique se as chaves do registro estão definidas conforme sugerido abaixo no servidor de restauração e certifique-se de reinicializar o servidor. O número ao lado do GUID pode variar de 0001-0005. No exemplo a seguir, é 0004. Navegue pelo caminho da chave do registro até a seção de parâmetros.
+
+    ![iSCSI-reg-Key-Changes. png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+
+```registry
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\EnableNOPOut – change this from 0 to 1
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200
+```
+
+- Se o servidor de restauração for uma VM do Linux
+  - No arquivo/etc/iSCSI/iscsid.conf, altere a configuração de
+    - node. conn [0]. time. noop_out_timeout = 5 para node. conn [0]. time. noop_out_timeout = 30
+- Depois de executar o seguinte, agora execute o script novamente. Com essas alterações, é altamente provável que a recuperação do arquivo seja realizada com sucesso.
+- Cada vez que o usuário baixa um script, o backup do Azure inicia o processo de preparação do ponto de recuperação para download. No caso de discos grandes, isso levará um tempo considerável. Se houver picos de solicitações sucessivas, a preparação de destino entrará em uma espiral de download. Portanto, é recomendável baixar um script do portal/PowerShell/CLI, aguardar 20-30 minutos (um heurístico) e, em seguida, executá-lo. Neste momento, espera-se que o destino esteja pronto para a conexão do script.
+- Após a recuperação de arquivos, certifique-se de voltar ao portal para clicar em "desmontar discos" para pontos de recuperação em que você não conseguiu montar volumes. Essencialmente, essa etapa limpará todos os processos/sessões existentes e aumentará a chance de recuperação.
+
+## <a name="troubleshooting"></a>Solução de Problemas
 
 Se você tiver problemas durante a recuperação de arquivos de máquinas virtuais, verifique a tabela a seguir para obter informações adicionais.
 
@@ -227,11 +256,11 @@ Se você tiver problemas durante a recuperação de arquivos de máquinas virtua
 | ------------------------ | -------------- | ------------------ |
 | Saída de exe: *exceção ao se conectar ao destino* |O script não é capaz de acessar o ponto de recuperação    | Verifique se a máquina preenche os requisitos de acesso anteriores. |  
 | Saída de exe: *o destino já foi acessado por meio de uma sessão iSCSI.* | O script já foi executado na mesma máquina e as unidades foram anexadas | Os volumes do ponto de recuperação já foram anexados. Eles NÃO podem ser montados com as mesmas letras de unidade da VM original. Navegue por todos os volumes disponíveis no Explorer para encontrar o arquivo |
-| Saída de exe: *esse script é inválido porque os discos foram desmontados por meio do portal/o limite de 12 horas foi excedido. Baixe um novo script a partir do portal.* |    Os discos foram desmontados do portal ou o limite de 12 horas foi excedido | Esse exe é inválido e não pode ser executado. Se você desejar acessar os arquivos desse ponto de recuperação a tempo, visite o portal para obter um novo exe|
-| No computador em que o exe é executado: novos volumes não serão desmontados depois que o botão de desmontagem for clicado | O Iniciador iSCSI na máquina não está respondendo/atualizando sua conexão para o destino e manutenção do cache. |  Depois de clicar em **Desmontar**, aguarde alguns minutos. Se os novos volumes não estiverem desmontados, navegue por todos os volumes. Navegar por todos os volumes força o iniciador a atualizar a conexão, e o volume é desmontado com uma mensagem de erro de que o disco não está disponível.|
-| Saída de exe: o script é executado com êxito, mas a mensagem “Novos volumes anexados” não é exibida na saída do script |    Esse é um problema temporário    | Os volumes já foram anexados. Abra o Explorer para navegar. Se você estiver usando a mesma máquina para todas as execuções de scripts, considere reiniciar a máquina, e a lista deverá ser exibida nas execuções subsequentes do exe. |
+| Saída de exe: *esse script é inválido porque os discos foram desmontados por meio do portal/excederam o limite de 12 horas. Baixe um novo script do Portal.* |    Os discos foram desmontados do portal ou o limite de 12 horas foi excedido | Esse exe é inválido e não pode ser executado. Se você desejar acessar os arquivos desse ponto de recuperação a tempo, visite o portal para obter um novo exe|
+| Na máquina na qual o exe é executado: novos volumes não serão desmontados depois que o botão de desmontagem for clicado | O Iniciador iSCSI na máquina não está respondendo/atualizando sua conexão para o destino e manutenção do cache. |  Depois de clicar em **Desmontar**, aguarde alguns minutos. Se os novos volumes não estiverem desmontados, navegue por todos os volumes. Navegar por todos os volumes força o iniciador a atualizar a conexão, e o volume é desmontado com uma mensagem de erro de que o disco não está disponível.|
+| Saída de exe: o script é executado com êxito, mas a mensagem "Novos volumes anexados" não é exibida na saída do script |    Esse é um problema temporário    | Os volumes já foram anexados. Abra o Explorer para navegar. Se você estiver usando a mesma máquina para todas as execuções de scripts, considere reiniciar a máquina, e a lista deverá ser exibida nas execuções subsequentes do exe. |
 | Específico do Linux: não é possível exibir os volumes desejados | O SO da máquina onde o script é executado pode não reconhecer o sistema de arquivos subjacente da VM protegida | Verifique se o ponto de recuperação é consistente com a falha ou consistentes com o arquivo. Se o arquivo for consistente, execute o script em outra máquina cujo SO reconheça o sistema de arquivos da VM protegida |
-| Específico para Windows: não é possível exibir os volumes desejados | Os discos podem ter sido anexados, mas os volumes não foram configurados | Na tela de gerenciamento de disco, identifique os discos adicionais relacionados ao ponto de recuperação. Se qualquer um desses discos estiver no estado offline, tente torná-los online clicando com o botão direito do mouse no disco e clique em ' online '|
+| Específico do Windows: não é possível exibir os volumes desejados | Os discos podem ter sido anexados, mas os volumes não foram configurados | Na tela de gerenciamento de disco, identifique os discos adicionais relacionados ao ponto de recuperação. Se qualquer um desses discos estiver no estado offline, tente torná-los online clicando com o botão direito do mouse no disco e clique em ' online '|
 
 ## <a name="security"></a>Segurança
 
@@ -269,4 +298,4 @@ O fluxo de dados entre o serviço de recuperação e o computador é protegido p
 
 Qualquer ACL (lista de controle de acesso) de arquivo presente na VM pai/com backup também é preservada no sistema de arquivos montado.
 
-O script fornece acesso somente leitura a um ponto de recuperação e é válido por apenas 12 horas. Se o usuário quiser remover o acesso anteriormente, entre no portal do Azure/PowerShell/CLI e execute os **discos** desmontados para esse ponto de recuperação específico. O script será invalidado imediatamente.
+O script fornece acesso somente leitura a um ponto de recuperação e é válido por apenas 12 horas. Se o usuário quiser remover o acesso anteriormente, entre no portal do Azure/PowerShell/CLI e execute os **discos desmontados** para esse ponto de recuperação específico. O script será invalidado imediatamente.

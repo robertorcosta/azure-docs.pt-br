@@ -1,24 +1,18 @@
 ---
 title: Introdução às consultas de log no Azure Monitor | Microsoft Docs
 description: Este artigo fornece um tutorial de introdução à programação de consultas de log no Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/09/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 6eb066e04cfa561a4fa443b8c8f9582e286a4d7b
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
-ms.translationtype: MT
+ms.date: 05/09/2019
+ms.openlocfilehash: d9116ba1b43959402223e0cbd1e4f729e053b9b6
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076751"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894297"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de log no Azure Monitor
 
@@ -112,7 +106,7 @@ SecurityEvent
 
 Ao escrever as condições de filtro, você pode usar as expressões a seguir:
 
-| Expressão | Descrição | Exemplo |
+| Expression | Descrição | Exemplo |
 |:---|:---|:---|
 | == | Verificação de igualdade<br>(diferencia maiusculas de minúsculas) | `Level == 8` |
 | =~ | Verificação de igualdade<br>(diferencia maiusculas de minúsculas) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -142,7 +136,7 @@ SecurityEvent
 ### <a name="time-picker"></a>Seletor de tempo
 O seletor de hora está próximo ao botão Executar e indica que estamos consultando apenas registro das últimas 24 horas. Isso é o intervalo de tempo padrão aplicado a todas as consultas. Para obter apenas os registros da última hora, selecione _última hora_ e execute a consulta novamente.
 
-![Seletor de tempo](media/get-started-queries/timepicker.png)
+![Seletor de Tempo](media/get-started-queries/timepicker.png)
 
 
 ### <a name="time-filter-in-query"></a>Filtro de tempo na consulta
@@ -244,6 +238,6 @@ Para tornar a saída mais clara, selecione-a como um gráfico de tempo, mostrand
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [como escrever consultas de pesquisa](search-queries.md)

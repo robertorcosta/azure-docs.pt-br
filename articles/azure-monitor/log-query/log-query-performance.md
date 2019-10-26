@@ -1,24 +1,18 @@
 ---
 title: Escrever consultas de log eficientes no Azure Monitor | Microsoft Docs
 description: Referências a recursos para aprender a escrever consultas no Log Analytics.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/17/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 25d6b582ed4d4e24df3841f4191471296e25abd8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/17/2019
+ms.openlocfilehash: a5ee03f6c42f076549856161a6ebe0b1888fe4aa
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60519377"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894124"
 ---
 # <a name="writing-efficient-log-queries-in-azure-monitor"></a>Escrever consultas de log eficientes no Azure Monitor
 Este artigo fornece recomendações para escrever consultas de log eficientes no Azure Monitor. Usando essas estratégias, você pode garantir que suas consultas sejam executadas rapidamente e com o mínimo de sobrecarga.
@@ -104,5 +98,5 @@ customEvents
 Ao usar o operador [join](/azure/kusto/query/joinoperator), escolha a tabela com menos linhas para estar no lado esquerdo da consulta.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre as práticas recomendadas de consulta, veja [Práticas recomendadas de consulta](/azure/kusto/query/best-practices).

@@ -1,23 +1,19 @@
 ---
 title: Solucionar problemas com o Profiler do Azure Application Insights | Microsoft Docs
 description: Este artigo contém etapas de solução de problemas e informações para ajudar os desenvolvedores que estão tendo problemas para habilitar ou usar o Application Insights Profiler.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 6b57ffbd3cb2b31da3fc2882e941f9788d83fea8
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: 7430f04846a1e66680f85f939854fd50a5df41e4
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341668"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899986"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solucionar problemas ao habilitar ou exibir o Profiler do Application Insights
 
@@ -67,13 +63,13 @@ Envie um tíquete de suporte no portal. Certifique-se de incluir uma ID de corre
 Para o Profiler funcionar corretamente:
 * Seu plano de serviço de aplicativo da web deve ser de nível Básico ou superior.
 * Seu aplicativo da web deve ter o Application Insights ativado.
-* Seu aplicativo web deve ter as seguintes configurações de aplicativo:
+* Seu aplicativo Web deve ter as seguintes configurações de aplicativo:
 
-    |Configurações de Aplicativo    | Valor    |
+    |Configurações de Aplicativo    | Value    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey do recurso do Application Insights    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey para o recurso de Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-    |DiagnosticServices_EXTENSION_VERSION | ~3 |
+    |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
 
 
 * O trabalho Web **ApplicationInsightsProfiler3** precisa estar em execução. Para verificar o trabalho Web:
@@ -83,35 +79,35 @@ Para o Profiler funcionar corretamente:
    
       ![trabalho Web do criador de perfil]   
    
-   1. Para exibir os detalhes do webjob, incluindo o log, selecione a **ApplicationInsightsProfiler3** link.  
+   1. Para exibir os detalhes do webjob, incluindo o log, selecione o link **ApplicationInsightsProfiler3** .  
      O painel **Detalhes do WebJob Contínuo**.
 
       ![Criador de perfil de trabalho Web de log]
 
-Se você não consegue descobrir por que o Profiler não está funcionando para você, você pode baixar o log e enviá-la à nossa equipe de assistência, serviceprofilerhelp@microsoft.com. 
+Se você não conseguir descobrir por que o profiler não está funcionando para você, poderá baixar o log e enviá-lo para nossa equipe para obter assistência, serviceprofilerhelp@microsoft.com. 
     
 ### <a name="manual-installation"></a>Instalação manual
 
-Quando você configura o Profiler, são feitas atualizações nas configurações do aplicativo Web. Será possível aplicar as atualizações manualmente se o ambiente exigir. Um exemplo pode ser que seu aplicativo está sendo executado em um ambiente de Aplicativos Web para o PowerApps. Para aplicar as atualizações manualmente:
+Quando você configura o Profiler, são feitas atualizações nas configurações do aplicativo Web. Será possível aplicar as atualizações manualmente se o ambiente exigir. Um exemplo pode ser que seu aplicativo está sendo executado em um ambiente de Aplicativos Web para o PowerApps. Para aplicar atualizações manualmente:
 
 1. No painel **Controle do Aplicativo Web**, abra **Configurações**.
 
-1. Definir **versão do .NET Framework** à **v4.6**.
+1. Defina **.NET Framework versão** como **v 4.6**.
 
 1. Defina **Sempre ativo** como **Ativado**.
-1. Crie essas configurações de aplicativo:
+1. Crie estas configurações de aplicativo:
 
-    |Configurações de Aplicativo    | Valor    |
+    |Configurações de Aplicativo    | Value    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey do recurso do Application Insights    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey para o recurso de Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-    |DiagnosticServices_EXTENSION_VERSION | ~3 |
+    |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
 
 ### <a name="too-many-active-profiling-sessions"></a>Número excessivo de sessões de criação de perfil ativas
 
 No momento, é possível habilitar o Profiler em no máximo quatro aplicativos Web do Azure e slots de implantação em execução no mesmo plano de serviço. Se você tiver mais do que quatro aplicativos Web em execução em um Plano do Serviço de Aplicativo, o Profiler poderá lançar uma *Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException*. O Profiler é executado separadamente para cada aplicativo Web e tenta iniciar uma sessão do ETW (Rastreamento de Eventos para Windows) para cada aplicativo. Mas há um número limitado de sessões do ETW que podem estar ativas simultaneamente. Se o trabalho Web do Profiler relatar um número excessivo de sessões de criação de perfil ativas, mova alguns aplicativos Web para um plano de serviço diferente.
 
-### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Erro de implantação: Diretório não vazio 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootapp_datajobs"></a>Erro de implantação: diretório não vazio 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 
 Se estiver reimplementando seu aplicativo Web em um recurso de Aplicativos Web com o Profiler habilitado, você poderá ver a seguinte mensagem:
 
@@ -131,7 +127,7 @@ O Profiler é executado como um trabalho Web contínuo no aplicativo Web. É pos
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Solucionar problemas com o Profiler e o Diagnóstico do Azure
 
->**Foi corrigido o bug no criador de perfil que é fornecido com o WAD para serviços de nuvem.** A versão mais recente do WAD (1.12.2.0) para serviços de nuvem funciona com todas as versões recentes do SDK do App Insights. Hosts de serviço de nuvem atualizará WAD automaticamente, mas não é imediata. Para forçar uma atualização, você pode reimplantar o serviço ou reinicializar o nó.
+>**O bug no criador de perfil que acompanha o WAD para serviços de nuvem foi corrigido.** A versão mais recente do WAD (1.12.2.0) para serviços de nuvem funciona com todas as versões recentes do SDK do App insights. Os hosts do serviço de nuvem atualizarão automaticamente o WAD, mas não será imediato. Para forçar uma atualização, você pode reimplantar o serviço ou reinicializar o nó.
 
 Para ver se o Profiler está configurado corretamente pelo Diagnóstico do Azure, siga estas três etapas: 
 1. Primeiro, você verifique se o conteúdo da configuração do Diagnóstico do Azure implantado é o esperado. 
@@ -142,19 +138,19 @@ Para ver se o Profiler está configurado corretamente pelo Diagnóstico do Azure
 
 Para verificar as configurações que foram usadas para configurar o Diagnóstico do Azure:
 
-1. Entrar para a máquina virtual (VM) e, em seguida, abra o arquivo de log neste local. (A unidade pode ser c ou d: e a versão do plug-in pode ser diferentes).
+1. Entre na máquina virtual (VM) e, em seguida, abra o arquivo de log neste local. (A unidade pode ser c: ou d: e a versão do plug-in pode ser diferente.)
 
     ```
     c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
     ```
-    ou o
+    ou
     ```
     c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
     ```
 
 1. No arquivo, você pode pesquisar pela cadeia de caracteres **WadCfg** para encontrar as configurações que foram passadas para a VM para configurar o Diagnóstico do Azure. Você pode verificar se a iKey utilizado pelo coletor do Profiler está correta.
 
-1. Verifique a linha de comando que é usada para iniciar o Profiler. Os argumentos que são usados para iniciar o Profiler estão no seguinte arquivo. (A unidade pode ser c ou d:)
+1. Verifique a linha de comando que é usada para iniciar o Profiler. Os argumentos que são usados para iniciar o profiler estão no arquivo a seguir. (A unidade pode ser c: ou d:)
 
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json
@@ -164,9 +160,9 @@ Para verificar as configurações que foram usadas para configurar o Diagnóstic
 
 1. Usando o caminho encontrado no arquivo *config.json* acima, verifique o arquivo de log do Profiler. Ele exibe as informações de depuração que indicam as configurações que o Profiler está usando. Ele também exibe mensagens de erro e de status do Profiler.  
 
-    Se o Profiler estiver em execução enquanto o aplicativo estiver recebendo solicitações, a seguinte mensagem será exibida: *Atividade do iKey detectada*. 
+    Se o profiler estiver em execução enquanto seu aplicativo estiver recebendo solicitações, a seguinte mensagem será exibida: *atividade detectada em iKey*. 
 
-    Quando o rastreamento está sendo carregado, a seguinte mensagem é exibida: *Iniciar upload de rastreamento*. 
+    Quando o rastreamento está sendo carregado, a seguinte mensagem é exibida: *Iniciar para carregar o rastreamento*. 
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png

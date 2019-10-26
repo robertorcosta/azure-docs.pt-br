@@ -1,29 +1,23 @@
 ---
 title: Junções nas consultas de log do Azure Monitor | Microsoft Docs
 description: Este artigo inclui uma lição sobre como usar junções nas consultas de log do Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: 526c359367271c69ccd461e4421c3223b00fbc36
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60520101"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900277"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Junções nas consultas de log do Azure Monitor
 
 > [!NOTE]
-> Você deve concluir [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md) e [consultas de log do Azure Monitor](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir a [introdução às consultas Azure Monitor log Analytics](get-started-portal.md) e [Azure monitor log](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -86,7 +80,7 @@ SecurityEvent
 ## <a name="join-kinds"></a>Tipos de junção
 Especifique o tipo de junção com o argumento _kind_. Cada tipo realiza uma correspondência diferente entre os registros das tabelas determinadas conforme descrito na tabela a seguir.
 
-| Tipo de junção | DESCRIÇÃO |
+| Tipo de junção | Descrição |
 |:---|:---|
 | innerunique | Esse é o modo de junção padrão. Primeiro, os valores da coluna correspondente na tabela esquerda são encontrados e os valores duplicados são removidos.  Em seguida, o conjunto de valores exclusivos é correspondido com a tabela direita. |
 | interna | Somente os registros correspondentes em ambas as tabelas são incluídos nos resultados. |
@@ -104,7 +98,7 @@ Considere os pontos a seguir para o desempenho ideal:
 - Se uma tabela sempre for menor do que a outra, use-a como o lado esquerdo da junção.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Confira outras lições para utilizar consultas de log no Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)

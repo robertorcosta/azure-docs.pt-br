@@ -1,24 +1,18 @@
 ---
 title: Expressão app() nas consultas de log do Azure Monitor | Microsoft Docs
-description: A expressão de aplicativo é usada em uma consulta de log do Azure Monitor para recuperar dados de um aplicativo de Application Insights específico no mesmo grupo de recursos, outro grupo de recursos ou outra assinatura.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+description: A expressão do aplicativo é usada em uma consulta Azure Monitor log para recuperar dados de um aplicativo Application Insights específico no mesmo grupo de recursos, em outro grupo de recursos ou em outra assinatura.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 01/25/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: a1a605bc733597430f64dceeb6c485db0abf657b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.date: 01/25/2019
+ms.openlocfilehash: fd6bfd40eadfc09008c992d263b065d7b41ffa1f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589242"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894468"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>expressão app() na consulta do Azure Monitor
 
@@ -33,9 +27,9 @@ A expressão `app` é usada em uma consulta do Azure Monitor para recuperar dado
 
 ## <a name="arguments"></a>Argumentos
 
-- *Identificador*: Identifica o aplicativo usando um dos formatos da tabela abaixo.
+- *Identificador*: identifica o aplicativo usando um dos formatos na tabela a seguir.
 
-| Identificador | DESCRIÇÃO | Exemplo
+| Identificador | Descrição | Exemplo
 |:---|:---|:---|
 | Nome do Recurso | Nome legível do aplicativo (também conhecido como "nome do componente") | app("fabrikamapp") |
 | Nome Qualificado | Nome completo do aplicativo no formato: "subscriptionName/resourceGroup/componentName" | app('AI-prototype/Fabrikam/fabrikamapp') |
@@ -43,7 +37,7 @@ A expressão `app` é usada em uma consulta do Azure Monitor para recuperar dado
 | ID do recurso do Azure | Identificador do recurso do Azure |app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
 
-## <a name="notes"></a>Observações
+## <a name="notes"></a>Notas
 
 * Você deve ter acesso de leitura ao aplicativo.
 * A identificação de um aplicativo por seu nome presume que ele seja exclusivo em todas as assinaturas acessíveis. Se você tiver vários aplicativos com o nome especificado, a consulta falhará devido à ambiguidade. Nesse caso, você deve usar um dos outros identificadores.
@@ -76,7 +70,7 @@ union
 | where TimeGenerated between(todatetime("2018-02-08 15:00:00") .. todatetime("2018-12-08 15:05:00"))
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Veja a [expressão do espaço de trabalho](workspace-expression.md) para se referir a um espaço de trabalho do Log Analytics.
 - Leia mais sobre como os [dados do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) são armazenados.

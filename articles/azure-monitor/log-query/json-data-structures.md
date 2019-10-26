@@ -1,29 +1,23 @@
 ---
 title: Trabalhar com cadeias de caracteres nas consultas de log no Azure Monitor | Microsoft Docs
-description: Este artigo fornece um tutorial sobre como usar o Log Analytics do Azure Monitor no portal do Azure para consultar e analisar dados de log no Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+description: Este artigo fornece um tutorial para usar Azure Monitor Log Analytics no portal do Azure para consultar e analisar dados de log no Azure Monitor.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 718b12c8a66d66a75796f88ef31b5f0f62abbbc4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: 82ac27e10a74dc99adb7615d604502e696aa9edb
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60519645"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894319"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Trabalhar com JSON e estruturas de dados em consultas de log do Azure Monitor
 
 > [!NOTE]
-> Você deve concluir [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md) e [Introdução às consultas de log do Azure Monitor](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir a introdução [ao Azure Monitor log Analytics](get-started-portal.md) e [a introdução às consultas de Azure monitor log](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -130,7 +124,7 @@ print hosts_object
 
 ![Criar esquema](media/json-data-structures/buildschema.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Confira outras lições para usar consultas de log no Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)

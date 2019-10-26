@@ -1,43 +1,39 @@
 ---
 title: Criar o perfil ativo de aplicativos do Serviço de Aplicativo do Azure com o Application Insights | Microsoft Docs
 description: Crie o perfil ativo de aplicativos do Serviço de Aplicativo do Azure com o Application Insights Profiler.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 71a8a0e268c1b264a0a1a7f955f310bfddc830d2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: d463732fc8e8f488851a57fe520f138b101eb6cf
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439949"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899950"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Criar o perfil ativo de aplicativos do Serviço de Aplicativo do Azure com o Application Insights
 
-Você pode executar Profiler em ASP.NET e ASP.NET Core aplicativos que estão em execução no serviço de aplicativo do Azure usando a camada de serviço básico ou superior. Habilitar o Profiler no Linux somente é possível através [deste método](profiler-aspnetcore-linux.md).
+Você pode executar o Profiler em aplicativos ASP.NET e ASP.NET Core que estão em execução no serviço Azure App usando a camada de serviço básica ou superior. Habilitar o Profiler no Linux somente é possível através [deste método](profiler-aspnetcore-linux.md).
 
 ## <a id="installation"></a> Habilitar o Profiler em seu aplicativo
 Para habilitar o Profiler em um aplicativo, siga as instruções abaixo. Se você estiver executando um tipo diferente de serviço do Azure, aqui estão as instruções para habilitar o Profiler em outras plataformas com suporte:
 * [Serviços de Nuvem](../../azure-monitor/app/profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Aplicativos do Service Fabric](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Máquinas virtuais](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Máquinas Virtuais](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-Application Insights Profiler previamente é instalado como parte do tempo de execução dos serviços de aplicativo. As etapas a seguir mostram como habilitar o serviço de aplicativo. Siga estas etapas, mesmo se você incluiu o SDK do App Insights em seu aplicativo no momento da compilação.
+Application Insights Profiler é pré-instalado como parte do tempo de execução dos serviços de aplicativo. As etapas a seguir mostrarão como habilitá-lo para o serviço de aplicativo. Siga estas etapas mesmo se você tiver incluído o SDK do App insights em seu aplicativo no momento da compilação.
 
-1. Habilite a configuração "Always On" para o serviço de aplicativo. Você pode atualizar a configuração na página de configuração do seu serviço de aplicativo em configurações gerais.
+1. Habilite a configuração "Always On" para o serviço de aplicativo. Você pode atualizar a configuração na página configuração do serviço de aplicativo em configurações gerais.
 1. Vá ao painel **Serviços de Aplicativos** no portal do Azure.
 1. Navegue até o painel **Configurações > Application Insights**.
 
    ![Habilitar Insights de Aplicativo no portal de Serviços de Aplicativos](./media/profiler/AppInsights-AppServices.png)
 
-1. Siga as instruções no painel para criar um novo recurso ou selecione um recurso existente do App Insights para monitorar seu aplicativo. Verifique também o Profiler está **On**. Se o recurso do Application Insights está em uma assinatura diferente do seu serviço de aplicativo, será possível usar esta página para configurar o Application Insights. Você ainda pode fazer isso manualmente embora criando as configurações necessárias do aplicativo manualmente. [A próxima seção contém instruções para habilitar o Profiler manualmente.](#enable-profiler-manually-or-with-azure-resource-manager) 
+1. Siga as instruções no painel para criar um novo recurso ou selecione um recurso existente do App Insights para monitorar seu aplicativo. Verifique também o Profiler está **On**. Se o recurso de Application Insights estiver em uma assinatura diferente do serviço de aplicativo, você não poderá usar essa página para configurar Application Insights. Você ainda pode fazê-lo manualmente criando as configurações de aplicativo necessárias manualmente. [A próxima seção contém instruções para habilitar manualmente o profiler.](#enable-profiler-manually-or-with-azure-resource-manager) 
 
    ![Adicione a extensão de site do App Insights][Enablement UI]
 
@@ -45,22 +41,22 @@ Application Insights Profiler previamente é instalado como parte do tempo de ex
 
     ![Configuração de aplicativo para o Profiler][profiler-app-setting]
 
-## <a name="enable-profiler-manually-or-with-azure-resource-manager"></a>Habilitar o Profiler manualmente ou com o Azure Resource Manager
-Application Insights Profiler pode ser habilitado com a criação de configurações de aplicativo para seu serviço de aplicativo do Azure. A página com as opções mostradas acima cria essas configurações de aplicativo para você. Mas você pode automatizar a criação dessas configurações usando um modelo ou outros meios. Essas configurações também funcionará se o recurso do Application Insights está em uma assinatura diferente do seu serviço de aplicativo do Azure.
+## <a name="enable-profiler-manually-or-with-azure-resource-manager"></a>Habilitar o profiler manualmente ou com Azure Resource Manager
+Application Insights Profiler pode ser habilitado pela criação de configurações de aplicativo para seu serviço de Azure App. A página com as opções mostradas acima cria essas configurações de aplicativo para você. Mas você pode automatizar a criação dessas configurações usando um modelo ou outros meios. Essas configurações também funcionarão se o recurso de Application Insights estiver em uma assinatura diferente do serviço de Azure App.
 Aqui estão as configurações necessárias para habilitar o criador de perfil:
 
-|Configurações de Aplicativo    | Valor    |
+|Configurações de Aplicativo    | Value    |
 |---------------|----------|
-|APPINSIGHTS_INSTRUMENTATIONKEY         | iKey do recurso do Application Insights    |
+|APPINSIGHTS_INSTRUMENTATIONKEY         | iKey para o recurso de Application Insights    |
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-|DiagnosticServices_EXTENSION_VERSION | ~3 |
+|DiagnosticServices_EXTENSION_VERSION | ~ 3 |
 
 
-Você pode definir esses valores usando [Azure Resource Manager Templates](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [do Azure Powershell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp), [CLI do Azure](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
+Você pode definir esses valores usando [modelos de Azure Resource Manager](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp) [CLI do Azure](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
 
-### <a name="enabling-profiler-for-other-clouds-manually"></a>Habilitar o Profiler para outras nuvens manualmente
+### <a name="enabling-profiler-for-other-clouds-manually"></a>Habilitando o Profiler para outras nuvens manualmente
 
-Se você deseja habilitar o criador de perfil para outras nuvens, você pode usar o abaixo de configurações do aplicativo.
+Se você quiser habilitar o criador de perfil para outras nuvens, poderá usar as configurações de aplicativo abaixo.
 
 |Configurações de Aplicativo    | Valores do governo dos EUA| Nuvem da China |   
 |---------------|---------------------|-------------|
@@ -75,10 +71,10 @@ Para interromper ou reiniciar o Profiler de uma instância individual do aplicat
 
 Recomendamos que você tenha o Profiler habilitado em todos os seus aplicativos para descobrir problemas de desempenho o mais rápido possível.
 
-Arquivos do Profiler podem ser excluídos, ao usar WebDeploy para implantar as alterações ao seu aplicativo web. Você pode impedir a exclusão, excluindo a pasta App_Data da exclusão durante a implantação. 
+Os arquivos do criador de perfil podem ser excluídos ao usar o WebDeploy para implantar alterações em seu aplicativo Web. Você pode impedir a exclusão, excluindo a pasta App_Data de ser excluída durante a implantação. 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Trabalhar com o Application Insights no Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 

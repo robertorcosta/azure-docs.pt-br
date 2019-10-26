@@ -1,29 +1,23 @@
 ---
 title: Trabalhar com valores de data e hora em consultas de log do Azure Monitor | Microsoft Docs
 description: Descreve como trabalhar com dados de data e hora em consultas de log do Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 402511ba3c45e8bd12cb7f92ecd54f6084c8ada2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/16/2018
+ms.openlocfilehash: 6ff095d674a11d95ed4fd2d008c3e664dd595fef
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62112350"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894208"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Trabalhar com valores de data e hora em consultas de log do Azure Monitor
 
 > [!NOTE]
-> Você deve concluir [Introdução ao portal do Analytics](get-started-portal.md) e [Introdução às consultas](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir [Primeiros passos com o portal do Google Analytics](get-started-portal.md) e [Primeiros passos com as consultas](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -91,7 +85,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-A coluna `timeAgo` contém valores, como: "00:09:31.5118992", que significa que elas são formatadas como hh:mm:ss.fffffff. Se você deseja formatar esses valores para o `numver` de minutos transcorridos desde a hora de início, divida esse valor por "1 minuto":
+A coluna `timeAgo` contém valores como: "00:09:31.5118992", o que significa que eles são formatados como hh: mm: SS. fffffff. Se você deseja formatar esses valores para o `numver` de minutos transcorridos desde a hora de início, divida esse valor por "1 minuto":
 
 ```Kusto
 Event
@@ -137,9 +131,9 @@ Essa consulta produz os seguintes resultados:
 |timestamp|count_|
 |--|--|
 |2018-07-28T00:00:00.000|7\.136|
-|2018-07-29T00:00:00.000|12\.315|
-|2018-07-30T00:00:00.000|16\.847|
-|2018-07-31T00:00:00.000|12\.616|
+|2018-07-29T00:00:00.000|12.315|
+|2018-07-30T00:00:00.000|16.847|
+|2018-07-31T00:00:00.000|12.616|
 |2018-08-01T00:00:00.000|5\.416|
 
 
@@ -161,8 +155,8 @@ Event
 | Obter parte do valor | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweekfunction) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
 | Obter um valor de data relativo  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
-## <a name="next-steps"></a>Próximas etapas
-Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
+## <a name="next-steps"></a>Próximos passos
+Confira outras lições para usar a [linguagem de consulta do Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Funções de agregação](aggregations.md)

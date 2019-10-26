@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: 57a325dd297955296a94db134b6a2a6d58a37f03
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a91098d06f481afaae75eb497d5a076c3eb42c07
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828607"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72896948"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento para VMs do SQL Server
 
@@ -62,7 +62,7 @@ O cache de disco para SSD Premium pode ser *ReadOnly*, *ReadWrite* ou *None*.
 
 
    > [!TIP]
-   > Certifique-se de que sua configuração de armazenamento corresponda às limitações impostas pelo tamanho da VM selecionada. Escolher parâmetros de armazenamento que excedem o limite de desempenho do tamanho da VM resultará em erro: `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`. Diminua o IOPs alterando o tipo de disco ou aumente a limitação do limite de desempenho aumentando o tamanho da VM. 
+   > Certifique-se de que sua configuração de armazenamento corresponda às limitações impostas pelo tamanho da VM selecionada. Escolher os parâmetros de armazenamento que excedem o limite de desempenho do tamanho da VM resultará em erro: `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`. Diminua o IOPs alterando o tipo de disco ou aumente a limitação do limite de desempenho aumentando o tamanho da VM. 
 
 
 Com base em suas opções, o Azure realiza as seguintes tarefas de configuração de armazenamento depois de criar a VM:
@@ -81,7 +81,7 @@ Se você usar os modelos do Resource Manager a seguir, dois discos de dados prem
 
 * [Criar VM com backup automatizado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
 * [Criar VM com aplicação de patch automatizada](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
-* [Criar VM com integração de AKV](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
+* [Criar a VM com a integração de AKV](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
 
 ### <a name="quickstart-template"></a>Modelo de início rápido
 
@@ -124,21 +124,18 @@ Para saber mais sobre preços, consulte a página [Preços de armazenamento](htt
 
 O Azure usa as configurações a seguir para criar o pool de armazenamento em VMs do SQL Server.
 
-| Configuração | Valor |
+| Configuração | Value |
 | --- | --- |
 | Tamanho da distribuição |256 KB (Data warehouse); 64 KB (Transacional) |
-| Tamanhos do disco |1 TB cada |
+| Tamanhos de disco |1 TB cada |
 | Cache |Leitura |
 | Tamanho da alocação |Tamanho da unidade de alocação de NTFS de 64 KB |
-| Inicialização de arquivo instantânea |Enabled |
-| Bloquear páginas na memória |Enabled |
-| Recuperação |Recuperação simples (sem resiliência) |
-| Número de colunas |Número de discos de dados<sup>1</sup> |
-| Local do TempDB |Armazenados em discos de dados<sup>2</sup> |
+| Recuperação | Recuperação simples (sem resiliência) |
+| Número de colunas |Número de discos de dados até 8<sup>1</sup> |
+
 
 <sup>1</sup>Após a criação do pool de armazenamento, você não pode alterar o número de colunas no pool de armazenamento.
 
-<sup>2</sup> Essa configuração se aplica somente a primeira unidade que você cria usando o recurso de configuração de armazenamento.
 
 ## <a name="workload-optimization-settings"></a>Configurações de otimização da carga de trabalho
 
@@ -146,13 +143,13 @@ A tabela a seguir descreve as três opções de tipo de carga de trabalho dispon
 
 | Tipo de carga de trabalho | Descrição | Otimizações |
 | --- | --- | --- |
-| **Geral** |Configuração padrão que oferece suporte à maioria das cargas de trabalho |Nenhuma |
+| **Geral** |Configuração padrão que oferece suporte à maioria das cargas de trabalho |Nenhum |
 | **Processamento transacional** |Otimiza o armazenamento para cargas de trabalho OLTP tradicionais do banco de dados |Sinalizador de Rastreamento 1117<br/>Sinalizador de Rastreamento 1118 |
 | **Data warehouse** |Otimiza o armazenamento para as cargas de trabalho de análise e emissão de relatórios |Sinalizador de Rastreamento 610<br/>Sinalizador de Rastreamento 1117 |
 
 > [!NOTE]
 > Você só pode especificar o tipo de carga de trabalho quando provisiona uma máquina virtual do SQL, selecionando-o na etapa de configuração de armazenamento.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
