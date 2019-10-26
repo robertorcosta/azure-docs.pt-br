@@ -12,7 +12,7 @@
     - name: Conectar um dispositivo ao Hub IoT
       href: quickstart-connect-pnp-device.md
     - name: Conectar um dispositivo à IoT Central
-      href: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      href: ../iot-central/core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: Conectar-se a um dispositivo da solução
       href: quickstart-connect-pnp-device-solution.md
 - name: Tutoriais
