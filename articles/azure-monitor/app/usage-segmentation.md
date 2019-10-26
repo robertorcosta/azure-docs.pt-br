@@ -1,24 +1,19 @@
 ---
 title: Análise de usuários, sessões e eventos no Application Insights do Azure | Microsoft Docs
 description: Análise demográfica dos usuários de seu aplicativo Web.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 7d378c2f72035c3584e1f5cd3c1f0fb9a5d5c2ed
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16b0b734b6b680bea75786bfdbe77eac5e590cfe
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60372271"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899406"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análise de usuários, sessões e eventos no Application Insights
 
@@ -26,7 +21,7 @@ Descubra quando as pessoas usam seu aplicativo Web, em quais páginas elas estã
 
 ![Captura de tela de Usuários do Application Insights](./media/usage-segmentation/0001-users.png)
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Comece agora
 
 Caso ainda não veja dados nas folhas de usuários, sessões ou eventos no portal do Application Insights, [veja como começar a usar as ferramentas de uso](usage-overview.md).
 
@@ -34,9 +29,9 @@ Caso ainda não veja dados nas folhas de usuários, sessões ou eventos no porta
 
 Três das folhas de uso usam a mesma ferramenta para dividir a telemetria do seu aplicativo Web em três perspectivas diferentes. Filtrando e dividindo os dados, você pode descobrir informações sobre o uso relativo de diferentes páginas e recursos.
 
-* **Ferramenta de usuários**: Quantas pessoas usaram seu aplicativo e seus recursos.  Os usuários são contados usando IDs anônimas armazenadas em cookies do navegador. Uma única pessoa que usar diferentes navegadores ou computadores será contada como mais de um usuário.
-* **Ferramenta de sessões**: Quantas sessões de atividade do usuário incluíram determinadas páginas e recursos de seu aplicativo. Uma sessão é contada após meia hora de inatividade do usuário ou após 24 horas contínuas de uso.
-* **Ferramenta de eventos**: Com que frequência determinadas páginas e recursos de seu aplicativo são usados. Uma exibição de página é contada quando um navegador carrega uma página do seu aplicativo, desde que você a tenha [instrumentado](../../azure-monitor/app/javascript.md). 
+* **Ferramenta de Usuários**: quantas pessoas usaram seu aplicativo e seus recursos.  Os usuários são contados usando IDs anônimas armazenadas em cookies do navegador. Uma única pessoa que usar diferentes navegadores ou computadores será contada como mais de um usuário.
+* **Ferramenta de Sessões**: quantas sessões de atividade do usuário incluíram determinadas páginas e recursos de seu aplicativo. Uma sessão é contada após meia hora de inatividade do usuário ou após 24 horas contínuas de uso.
+* **Ferramenta de Eventos**: com que frequência determinadas páginas e recursos de seu aplicativo são usados. Uma exibição de página é contada quando um navegador carrega uma página do seu aplicativo, desde que você a tenha [instrumentado](../../azure-monitor/app/javascript.md). 
 
     Um evento personalizado representa uma ocorrência de algo que esteja acontecendo em seu aplicativo, geralmente uma interação do usuário, como um clique de botão ou a conclusão de uma tarefa. Insira o código em seu aplicativo para [gerar eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
@@ -45,11 +40,11 @@ Três das folhas de uso usam a mesma ferramenta para dividir a telemetria do seu
 Explore diferentes grupos de usuários, ajustando as opções de consulta na parte superior da ferramenta de Usuários:
 
 * Mostrar: Escolha um coorte de usuários para analisar.
-* Quem usou: Escolha os eventos personalizados e todas as exibições de página.
-* Durante: Escolha um intervalo de tempo.
-* Por: Escolha como compartimentar os dados, seja segundo um período ou segundo outra propriedade, como navegador ou cidade.
-* Dividir por: Escolha uma propriedade segundo a qual o segmento ou os dados deverão ser divididos. 
-* Adicionar filtros: Limite a consulta a determinados usuários, sessões ou eventos com base em suas propriedades, como navegador ou cidade. 
+* Quem usou: escolha exibições de página e eventos personalizados.
+* Durante: escolha um intervalo de tempo.
+* Por: escolha como compartimentar os dados, seja segundo um período ou segundo outra propriedade, como navegador ou cidade.
+* Dividido por: escolha uma propriedade segundo a qual o segmento ou os dados deverão ser divididos. 
+* Adicionar filtros: limite a consulta a determinados usuários, sessões ou eventos com base em suas propriedades, como navegador ou cidade. 
  
 ## <a name="saving-and-sharing-reports"></a>Salvar e compartilhar relatórios 
 Você pode salvar relatórios de Usuários, de forma privada na seção Meus Relatórios ou de forma compartilhada com quem tiver acesso a esse recurso do Application Insights na seção Relatórios Compartilhados.
@@ -62,7 +57,7 @@ Para compartilhar uma cópia dos dados em um relatório de Usuários, Sessões o
 
 A seção **Conheça seus usuários** mostra informações sobre cinco usuários de exemplo que correspondem à consulta atual. Considerar e explorar os comportamentos de indivíduos, além de agregados, pode fornecer informações sobre como as pessoas realmente usam seu aplicativo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para habilitar as experiências de uso, comece enviando [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Se você já envia eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários utilizam o seu serviço.

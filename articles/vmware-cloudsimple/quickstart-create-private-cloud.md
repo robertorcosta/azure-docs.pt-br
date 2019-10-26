@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b38779681dfe612369fefb9d752389395965e7b4
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: c32045c6d68a813eaeb6e4e5de433160c2a30634
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285775"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901449"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Início rápido-configurar um ambiente de nuvem privada
 
@@ -42,12 +42,12 @@ As nuvens privadas são gerenciadas por meio do portal do CloudSimple. Eles têm
 
 5. No portal do CloudSimple, forneça um nome para sua nuvem privada.
 6. Selecione o **local** da sua nuvem privada.
-7. Selecione o **tipo de nó**, consistente com o que você comprou no Azure.
+7. Selecione o **tipo de nó**, consistente com o que você provisionou no Azure.
 8. Especifique a **contagem de nós**.  Pelo menos três nós são necessários para criar uma nuvem privada.
 
     ![Criar nuvem privada-informações básicas](media/create-private-cloud-basic-info.png)
 
-9. Clique em **Avançar: Opções avançadas @ no__t-0.
+9. Clique em **Avançar: opções avançadas**.
 10. Insira o intervalo CIDR para sub-redes vSphere/vSAN. Certifique-se de que o intervalo CIDR não se sobreponha a nenhuma das suas sub-redes do Azure locais ou outras (redes virtuais) ou com a sub-rede de gateway.
 
     **Opções de intervalo CIDR:** /24,/23,/22 ou/21. Um intervalo CIDR/24 dá suporte a até 26 nós, um intervalo CIDR/23 dá suporte a até 58 nós, e um intervalo CIDR/22 e/21 dá suporte a nós 64 (o número máximo de nós em uma nuvem privada).  Para saber mais e VLANs e sub-redes, consulte [visão geral de VLANs e sub-redes](cloudsimple-vlans-subnets.md).
@@ -55,7 +55,7 @@ As nuvens privadas são gerenciadas por meio do portal do CloudSimple. Eles têm
       > [!IMPORTANT]
       > Os endereços IP no intervalo CIDR vSphere/vSAN são reservados para uso pela infraestrutura de nuvem privada.  Não use o endereço IP nesse intervalo em qualquer máquina virtual.
 
-11. Clique em **Avançar: Examine e crie @ no__t-0.
+11. Clique em **Avançar: examinar e criar**.
 12. Examine as configurações. Se você precisar alterar as configurações, clique em **anterior**.
 13. Clique em **Criar**.
 
@@ -168,13 +168,13 @@ As telas do vCenter nos próximos procedimentos são do cliente vSphere (HTML5).
 O CloudSimple recomenda que você altere sua senha na primeira vez que entrar no vCenter.  
 A senha que você definir deve atender aos seguintes requisitos:
 
-* Tempo de vida máximo: A senha deve ser alterada a cada 365 dias
-* Restringir reutilização: Os usuários não podem reutilizar nenhuma das cinco senhas anteriores
-* Tamanho: 8-20 caracteres
-* Caractere especial: Pelo menos um caractere especial
-* Caracteres alfabéticos: Pelo menos um caractere maiúsculo, A-Z e, pelo menos, um caractere minúsculo, a-z
-* Números Pelo menos um caractere numérico, 0-9
-* Máximo de caracteres adjacentes idênticos: Três
+* Tempo de vida máximo: a senha deve ser alterada a cada 365 dias
+* Restringir reutilização: os usuários não podem reutilizar nenhuma das cinco senhas anteriores
+* Comprimento: 8-20 caracteres
+* Caractere especial: pelo menos um caractere especial
+* Caracteres alfabéticos: pelo menos um caractere maiúsculo, A-Z e, pelo menos, um caractere minúsculo, a-z
+* Números: pelo menos um caractere numérico, 0-9
+* Máximo de caracteres adjacentes idênticos: três
 
     Exemplo: CC ou CCC é aceitável como parte da senha, mas CCCC não é.
 
@@ -206,7 +206,7 @@ Para criar um grupo de portas distribuídas no vSphere:
 1. Siga as instruções em "adicionar um grupo de portas distribuídas" no [Guia de rede do vSphere](https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf).
 2. Ao configurar o grupo de portas distribuídas, forneça a ID de VLAN criada em [criar uma VLAN para suas VMs de carga de trabalho](#create-a-vlan-for-your-workload-vms).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Consumir VMs VMware no Azure](quickstart-create-vmware-virtual-machine.md)
 * [Conectar-se à rede local usando o Azure ExpressRoute](on-premises-connection.md)

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 10/10/2019
-ms.openlocfilehash: 54f8a1248688a6d62192e4f34cf6b98a94086da8
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: a558658d7c853560f0939c99dc5dce739d985944
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274767"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900708"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Criar e acessar conjuntos de os (visualização) no Azure Machine Learning
 
@@ -41,19 +41,19 @@ Para criar e trabalhar com conjuntos de os, você precisa de:
 * O [SDK do Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), que inclui o pacote de conjuntos de linhas do azureml.
 
 > [!Note]
-> Algumas classes de DataSet (versão prévia) têm dependências no pacote [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) . Para usuários do Linux, essas classes têm suporte apenas nas seguintes distribuições:  Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
+> Algumas classes de DataSet (versão prévia) têm dependências no pacote [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) . Para usuários do Linux, essas classes têm suporte apenas nas seguintes distribuições: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
 
 ## <a name="dataset-types"></a>Tipos de conjuntos de conjunto
 
 Os conjuntos de linhas são categorizados em dois tipos com base em como os usuários os consomem no treinamento.
 
-* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa dados em um formato tabular analisando o arquivo fornecido ou a lista de arquivos. Isso fornece a capacidade de materializar os dados em um data frame pandas ou Spark. Um objeto `TabularDataset` pode ser criado a partir de arquivos CSV, TSV, parquet, resultados da consulta SQL etc. Para obter uma lista completa, visite nossa [documentação](https://aka.ms/tabulardataset-api-reference).
+* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa dados em um formato tabular analisando o arquivo fornecido ou a lista de arquivos. Isso fornece a capacidade de materializar os dados em um data frame pandas ou Spark. Um objeto `TabularDataset` pode ser criado A partir de arquivos CSV, TSV, parquet, resultados da consulta SQL etc. Para obter uma lista completa, visite nossa [documentação](https://aka.ms/tabulardataset-api-reference).
 
 * [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) faz referência a um ou vários arquivos em seus armazenamentos de dados ou URLs públicas. Isso fornece a capacidade de baixar ou montar os arquivos em sua computação. Os arquivos podem ser de qualquer formato, o que permite uma ampla gama de cenários de aprendizado de máquina, incluindo aprendizado profundo.
 
 Para saber mais sobre as futuras alterações de API, consulte [aqui](https://aka.ms/tabular-dataset).
 
-## <a name="create-datasets"></a>Criar conjuntos de dados
+## <a name="create-datasets"></a>Crie conjuntos de dados
 
 Ao criar um conjunto de dados, você cria uma referência para o local da fonte de dado, juntamente com uma cópia de seus metadados. Os dados permanecem na localização existente, portanto, nenhum custo de armazenamento extra é gerado. Os TabularDatasets e filedatasets podem ser criados usando o SDK do Python ou a página de aterrissagem do espaço de trabalho (versão prévia). 
 
@@ -63,7 +63,7 @@ Para que os dados sejam acessíveis por Azure Machine Learning, os conjuntos de 
 
 Para criar conjuntos de valores de um [repositório de armazenamento do Azure](how-to-access-data.md) usando o SDK do Python:
 
-* Verifique se você tem acesso `contributor` ou `owner` ao Azure datastore registrado.
+* Verifique se você tem `contributor` ou `owner` acesso ao Azure datastore registrado.
 
 * Crie o conjunto de um fazendo referência a um caminho no repositório de armazenamento.
 
@@ -101,11 +101,11 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |Passageiroid|Sobreviveram|Pclass|NOME|Sexo|Idade|SibSp|Parch|Concessão|Tarifas|Cabine|Embarcou
+| |Passageiroid|Sobreviveram|Pclass|name|Sexo|Idade|SibSp|Parch|Concessão|Tarifas|Cabine|Embarcou
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|0|3|Braund, Sr. Owen Harris|masculino|22,0|1|0|A/5 21171|7,2500||S
+0|1|0|3|Braund, Sr. Owen Harris|masculino|22,0|1|0|A/5 21171|7,2500||P
 1|2|1|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|1|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
+2|3|1|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||P
 
 Use o método [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-) na classe `TabularDatasetFactory` para ler do banco de dados SQL do Azure.
 
@@ -120,7 +120,7 @@ sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'
 
 No TabularDatasets, um carimbo de data/hora pode ser especificado de uma coluna nos dados ou os dados de padrão de caminho são armazenados no para habilitar uma característica de série temporal, que permite a filtragem fácil e eficiente por tempo.
 
-Use o método [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) na classe `TabularDataset` para especificar a coluna de carimbo de data/hora e habilitar a filtragem por tempo. Mais exemplos e detalhes podem ser encontrados [aqui](https://aka.ms/azureml-tsd-notebook).
+Use o método [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) na classe `TabularDataset` para especificar a coluna de carimbo de data/hora e habilite a filtragem por tempo. Mais exemplos e detalhes podem ser encontrados [aqui](https://aka.ms/azureml-tsd-notebook).
 
 ```Python
 # create a TabularDataset with time series trait
@@ -141,7 +141,7 @@ data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 
 #### <a name="create-filedatasets"></a>Criar DataSets
 
-Use o método [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) na classe `FileDatasetFactory` para carregar arquivos em qualquer formato e criar um arquivo de dados não registrado.
+Use o método [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) na classe `FileDatasetFactory` para carregar arquivos em qualquer formato e criar um filedataset não registrado.
 
 ```Python
 # create a FileDataset from multiple paths in datastore
@@ -187,11 +187,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ## <a name="version-datasets"></a>Conjuntos de itens de versão
 
-Você pode registrar um novo conjunto de registros com o mesmo nome criando uma nova versão. A versão do conjunto de dados é uma maneira de marcar o estado de seus dados, de modo que você possa aplicar uma versão específica do DataSet para experimentação ou reprodução futura. Os cenários típicos a serem considerados para o controle de versão são: 
-
-* Quando novos dados estão disponíveis para novo treinamento.
-* Ao aplicar as abordagens de preparação de dados ou de engenharia de recursos diferentes.
-
+Você pode registrar um novo conjunto de registros com o mesmo nome criando uma nova versão. A versão do conjunto de dados é uma maneira de marcar o estado de seus dados, de modo que você possa aplicar uma versão específica do DataSet para experimentação ou reprodução futura. Saiba mais sobre [as versões do conjunto](how-to-version-track-datasets.md)de informações.
 ```Python
 # create a TabularDataset from Titanic training data
 web_paths = [
@@ -210,7 +206,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ## <a name="access-datasets-in-your-script"></a>Acessar conjuntos de os em seu script
 
-Os conjuntos de itens registrados são acessíveis localmente e remotamente em clusters de computação, como a Azure Machine Learning computação. Para acessar seu conjunto de seus conjuntos de testes entre experimentos, use o código a seguir para obter seu espaço de trabalho e o conjunto de um registrado pelo nome. Por padrão, o método [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) na classe `Dataset` retorna a versão mais recente do conjunto de informações registrado com o espaço de trabalho.
+Os conjuntos de itens registrados são acessíveis localmente e remotamente em clusters de computação, como a Azure Machine Learning computação. Para acessar seu conjunto de seus conjuntos de testes entre experimentos, use o código a seguir para obter seu espaço de trabalho e o conjunto de um registrado pelo nome. O método [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) na classe `Dataset`, por padrão, retorna a versão mais recente do conjunto de informações registrado com o espaço de trabalho.
 
 ```Python
 %%writefile $script_folder/train.py
@@ -229,8 +225,8 @@ titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
 df = titanic_ds.to_pandas_dataframe()
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* Saiba [como treinar com conjuntos de](how-to-train-with-datasets.md) os
+* Saiba [como treinar com conjuntos de](how-to-train-with-datasets.md)informações.
 * Use o Machine Learning automatizado para [treinar com o TabularDatasets](https://aka.ms/automl-dataset).
 * Para obter mais exemplos de treinamento com conjuntos de informações, consulte os [blocos de anotações de exemplo](https://aka.ms/dataset-tutorial).

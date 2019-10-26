@@ -1,23 +1,18 @@
 ---
 title: Perguntas frequentes - Solução de Monitor de Desempenho de Rede no Azure | Microsoft Docs
 description: Este artigo captura as perguntas frequentes sobre Monitor de Desempenho de Rede no Azure. O Monitor de Desempenho de Rede (NPM) ajuda a monitorar o desempenho de suas redes quase em tempo real e detectar e localizar afunilamentos de desempenho de rede.
-services: log-analytics
-documentationcenter: ''
-author: vinynigam
-manager: agummadi
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 10/12/2018
+author: vinynigam
 ms.author: vinigam
-ms.openlocfilehash: b3274c214aa60c930e62e651af960d5f01cbdd20
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
-ms.translationtype: MT
+ms.date: 10/12/2018
+ms.openlocfilehash: 26e9215c7e00eca59d33f7e8d259a689ad642f19
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782117"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898864"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Perguntas da Solução do Monitor de Desempenho de Rede
 
@@ -74,7 +69,7 @@ Você deve usar pelo menos um agente para cada sub-rede que deseja monitorar.
 ### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>Qual é o número máximo de agentes que posso usar ou que eu vejo o erro ".... Você atingiu seu limite de configuração "?
 O NPM limita o número de IPs a 5000 IPs por workspace. Se um nó tiver ambos os endereços IPv4 e IPv6, isso contará como 2 IPs para esse nó. Portanto, esse limite de 5000 IPs determinaria o limite superior do número de agentes. Você pode excluir os agentes inativos da guia Nós no NPM >> Configurar. O NPM também mantém o histórico de todos os IPs que já foram atribuídos à VM que hospeda o agente e cada um é contado como um IP separado, contribuindo para esse limite superior de 5000 IPs. Para liberar IPs para seu espaço de trabalho, você pode usar a página nós para excluir os IPs que não estão em uso.
 
-## <a name="monitoring"></a>Monitorando
+## <a name="monitoring"></a>Monitoramento
 
 ### <a name="how-are-loss-and-latency-calculated"></a>Como o perda e latência são calculados
 Agentes de origem enviam qualquer SYN TCP (se o TCP é escolhido como o protocolo para monitoramento) de solicitações ou solicitações de eco ICMP (se ICMP é escolhido como o protocolo para monitoramento) para o IP de destino em intervalos regulares para garantir que todos os caminhos entre o IP de origem-destino sejam abordados. A porcentagem de pacotes recebidos e o tempo de ida e volta do pacote é medida para calcular a perda e latência de cada caminho. Esses dados são agregados durante o intervalo de sondagem e em todos os caminhos para obter os valores agregados de perda e latência para a combinação de IP para o intervalo de sondagem específico.
@@ -136,7 +131,7 @@ NPM pode monitorar a conectividade para serviços em qualquer parte do mundo, de
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Quais regiões têm suporte para o Monitor do ExpressRoute do NPM?
 O NPM pode monitorar seus circuitos do ExpressRoute localizados em qualquer região do Azure. Para carregar no NPM, você precisará de um espaço de trabalho do Log Analytics que deve ser hospedado em uma das [regiões com suporte](/azure/expressroute/how-to-npm)
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Por que alguns dos saltos são marcos como não identificados na exibição da topologia de rede?
 O NPM usa uma versão modificada do rastreamento de rotas para descobrir a topologia do agente de origem para o destino. Um salto não identificado representa que o salto de rede não respondeu à solicitação de rastreamento de rotas do agente de origem. Se três saltos de rede consecutivos não responderem aos traceroute do agente, a solução marcará os saltos sem resposta como não sendo identificados e não tentará descobrir mais saltos.
@@ -165,12 +160,12 @@ E2EMedianLatency é a latência atualizada a cada três minutos após a agregaç
 
 ### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>Por que os números de latência de salto por salto são diferentes de HopLatencyValues 
 HopLatencyValues são de origem para ponto de extremidade.
-Por exemplo: Saltos-A, B, C. AvgHopLatency-10, 15, 20. Isso significa origem para uma latência = 10, latência de origem para B = 15 e a latência de origem para C é 20. A interface do usuário calculará A latência de salto-B como 5 na topologia
+Por exemplo: Hops-A, B, C. AvgHopLatency-10, 15, 20. Isso significa origem para uma latência = 10, latência de origem para B = 15 e a latência de origem para C é 20. A interface do usuário calculará A latência de salto-B como 5 na topologia
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>A solução mostra 100% de perda, mas há conectividade entre a origem e o destino
 Isso pode acontecer se o firewall do host ou o firewall intermediário (firewall de rede ou NSG do Azure) está bloqueando a comunicação entre o agente de origem e destino pela porta que está sendo usada para monitoramento pelo NPM (por padrão a porta é 8084, a menos que o cliente tenha mudado isso).
 
-* Para verificar se o firewall do host não está bloqueando a comunicação na porta necessária, exiba o status de integridade dos nós de origem e de destino do seguinte modo de exibição: Monitor de Desempenho de Rede -> Configuração -> Nós. 
+* Para verificar se o firewall do host não está bloqueando a comunicação na porta necessária, exiba o status de integridade de nós de origem e de destino do seguinte modo de exibição: Monitor de Desempenho de Rede -> Configuração -> Nós. 
   Se eles não estiverem íntegros, exiba as instruções e tome uma ação corretiva. Se os nós estiverem íntegros, vá para a etapa b. abaixo.
 * Para verificar se um firewall de rede intermediário ou o NSG do Azure não está bloqueando a comunicação na porta necessária, use o utilitário de PsPing de terceiros usando as instruções abaixo:
   * o utilitário psping está disponível para download [aqui](https://technet.microsoft.com/sysinternals/psping.aspx) 
@@ -219,7 +214,7 @@ Isso pode ocorrer se uma um mais opções forem verdadeiras:
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>Na funcionalidade do Monitor de Conectividade do Serviço, o tempo de resposta do serviço for NA, mas a perda da rede, bem como a latência é válida
 Isso pode acontecer se o serviço de destino não for um aplicativo web, mas o teste está configurado como um teste da Web. Edite a configuração de teste e escolha o tipo de teste como Rede em vez de Web.
 
-## <a name="miscellaneous"></a>Diversos
+## <a name="miscellaneous"></a>Disposições gerais
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Há um impacto de desempenho no nó que está sendo usado para monitoramento?
 O processo do NPM está configurado para ser interrompido se ele utiliza mais de 5% dos recursos de CPU do host. Isso é para garantir que você pode continuar usando os nós para suas cargas de trabalho normais sem afetar o desempenho.
@@ -233,6 +228,6 @@ Você pode exibir o status de integridade de nós que estão sendo usados para m
 ### <a name="can-npm-report-latency-numbers-in-microseconds"></a>O NPM pode relatar os números de latência em microssegundos?
 O NPM arredonda os números de latência na interface do usuário e, em milissegundos. Os mesmos dados são armazenados em uma granularidade maior (às vezes, até quatro decimais).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o Monitor de desempenho de rede consultando [Solução de Monitor de Desempenho de Rede no Azure](../../azure-monitor/insights/network-performance-monitor.md).

@@ -1,24 +1,19 @@
 ---
 title: Coortes de uso do Azure Application Insights| Microsoft Docs
 description: Analisar diferentes conjuntos ou usuários, sessões, eventos ou operações que tenham algo em comum
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 263316028e7b35a1a515322dddc4ee867011dcac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6762ac9253c838f715588451441aa9aa467f673
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604109"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899504"
 ---
 # <a name="application-insights-cohorts"></a>Coortes do Application Insights
 
@@ -35,13 +30,13 @@ Coortes são usadas de maneiras semelhantes aos filtros. Mas as definições de 
 > [!NOTE]
 > Após criadas, as coortes estarão disponíveis nas ferramentas Usuários, Sessões, Eventos e Fluxos dos Usuários.
 
-## <a name="example-engaged-users"></a>Exemplo: Usuários envolvidos
+## <a name="example-engaged-users"></a>Exemplo: usuários envolvidos
 
 Sua equipe define usuário envolvido como qualquer pessoa que usar seu aplicativo cinco ou mais vezes em um determinado mês. Nesta seção, você define uma coorte desses usuários envolvidos.
 
 1. Abra a ferramenta Coortes.
 
-2. Selecione a guia **Galeria de Modelos**. Uma coleção de modelos para várias coortes é exibida.
+2. Selecione a guia **Galeria de modelos** . Você verá uma coleção de modelos para vários coortes.
 
 3. Selecione **Usuários Envolvidos -- por Dias de Uso**.
 
@@ -76,15 +71,15 @@ Alguns aspectos importantes a observar:
 * Não é possível criar esse conjunto por meio de filtros normais. A lógica de data é mais avançada.
 * Você pode filtrar ainda mais essa coorte, usando os filtros normais na ferramenta Usuários. Portanto, embora a coorte seja definida em janelas de 28 dias, você ainda poderá ajustar o intervalo de tempo na ferramenta Usuários em 30, 60 ou 90 dias.
 
-Esses filtros dão suporte a perguntas mais sofisticadas impossíveis de serem expressas por meio do construtor de consultas. Um exemplo é _pessoas que estiveram envolvidas nos últimos 28 dias. Como essas mesmas pessoas comportaram-se nos últimos 60 dias?_
+Esses filtros dão suporte a perguntas mais sofisticadas impossíveis de serem expressas por meio do construtor de consultas. Um exemplo é _as pessoas que estavam envolvidas nos últimos 28 dias. Como as mesmas pessoas se comportaram nos últimos 60 dias?_
 
-## <a name="example-events-cohort"></a>Exemplo: Coorte de eventos
+## <a name="example-events-cohort"></a>Exemplo: coorte de eventos
 
 Você também pode fazer coortes de eventos. Nesta seção, você definirá um coorte de eventos e as exibições de páginas. Em seguida, verá como utilizá-las a partir das outras ferramentas. Essa coorte pode definir um conjunto de eventos que a equipe considera _uso ativo_ ou um conjunto relacionado a um determinado novo recurso.
 
 1. Abra a ferramenta Coortes.
 
-2. Selecione a guia **Galeria de Modelos**. Uma coleção de modelos para várias coortes será exibida.
+2. Selecione a guia **Galeria de modelos** . Você verá uma coleção de modelos para vários coortes.
 
 3. Selecione **Seletor de Eventos**.
 
@@ -94,7 +89,7 @@ Você também pode fazer coortes de eventos. Nesta seção, você definirá um c
 
 5. Salve a coorte e dê a ela um nome.
 
-## <a name="example-active-users-where-you-modify-a-query"></a>Exemplo: Usuários ativos em que você modifica uma consulta
+## <a name="example-active-users-where-you-modify-a-query"></a>Exemplo: usuários ativos em que você modifica uma consulta
 
 As duas coortes anteriores foram definidas usando caixas suspensas. Mas você também pode definir coortes usando consultas de análise para flexibilidade total. Para ver como, crie uma coorte de usuários do Reino Unido.
 
@@ -123,13 +118,13 @@ As duas coortes anteriores foram definidas usando caixas suspensas. Mas você ta
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Selecione **Executar Consulta**. Se você não vir as IDs de usuário aparecem na tabela, altere para um país/região em que seu aplicativo tenha usuários.
+3. Selecione **Executar Consulta**. Se você não vir as IDs de usuário aparecerem na tabela, altere para um país/região em que seu aplicativo tenha usuários.
 
 4. Salve e nomeie a coorte.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-_Eu defini uma coorte de usuários de um determinado país/região. Quando eu comparo esse coorte na ferramenta de usuários para definir apenas um filtro em que país/região, vejo resultados diferentes. Por quê?_
+_Defini um coorte de usuários de um determinado país/região. Quando comparo esse coorte na ferramenta de usuários para definir apenas um filtro nesse país/região, vejo resultados diferentes. Por?_
 
 Coortes e filtros são diferentes. Suponha que você tenha uma coorte de usuários do Reino Unido (definidos como o exemplo anterior) e compare os resultados com a configuração do filtro “País ou região = Reino Unido.”
 

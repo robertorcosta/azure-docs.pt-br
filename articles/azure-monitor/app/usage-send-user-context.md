@@ -1,25 +1,19 @@
 ---
 title: Enviar IDs de contexto de usuário para permitir experiências de uso no Azure Application Insights | Microsoft Docs
 description: Acompanhe como os usuários navegam pelo serviço, atribuindo a cada um deles uma cadeia de identificação exclusiva e persistente no Application Insights.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.devlang: csharp
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 7c458867b89a76a2f19bbd632c8a884c629f5765
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cf639be5db90e3632b8931564ac397c42e1d8403
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371828"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899374"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar IDs de contexto de usuário para permitir experiências de uso no Azure Application Insights
 
@@ -34,8 +28,8 @@ O Application Insights permite monitorar e acompanhar seus usuários por meio de
 
 Para acompanhar o que um usuário faz ao longo do tempo, o Application Insights precisa de uma ID para cada usuário ou sessão. Inclua estas IDs em cada exibição de página ou evento personalizado.
 
-- Usuários, Funis, Retenção e Coortes: Inclua a ID de usuário.
-- Sessões: Inclua a ID da sessão.
+- Usuários, Funis, Retenção e Coortes: inclua a ID de usuário.
+- Sessões: inclua a ID da sessão.
 
 > [!NOTE]
 > Este é um artigo avançado que descreve as etapas manuais para acompanhar a atividade do usuário com o Application Insights. Com muitos aplicativos Web, **talvez estas etapas não sejam necessárias**, pois, geralmente, os SDKs padrão do lado do servidor em conjunto com o [SDK do JavaScript do lado do cliente/navegador](../../azure-monitor/app/website-monitoring.md ), são suficientes para controlar automaticamente a atividade de usuário. Se você não tiver configurado o [monitoramento do lado do cliente](../../azure-monitor/app/website-monitoring.md ) além do SDK do lado do servidor, faça isso primeiro e teste se as ferramentas de análise de comportamento do usuário estão apresentando o desempenho esperado.
@@ -52,7 +46,7 @@ A ID deve ser um Guid ou outra cadeia de caracteres suficientemente complexa par
 
 Se a ID contém informações de identificação pessoal sobre o usuário, ela não é um valor apropriado para enviar ao Application Insights como uma ID de usuário. Você pode enviar tal ID como uma [ID de usuário autenticado](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), mas ela não atende ao requisito de ID de usuário para cenários de uso.
 
-## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>Aplicativos ASP.NET: Definir o contexto de usuário em um ITelemetryInitializer
+## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>Aplicativos ASP .NET: definir o contexto de usuário em um ITelemetryInitializer
 
 Crie um inicializador de telemetria, conforme descrito em detalhes [aqui](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer). Passe a ID de sessão por meio da telemetria de solicitação e defina o Context.User.Id e o Context.Session.Id.
 
@@ -134,7 +128,7 @@ namespace MvcWebRole.Telemetry
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para habilitar as experiências de uso, comece enviando [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Se você já envia eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários utilizam o seu serviço.

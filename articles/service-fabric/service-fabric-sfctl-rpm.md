@@ -3,40 +3,41 @@ title: CLI do Azure Service Fabric - sfctl rpm | Microsoft Docs
 description: Descreve os comandos do sfctl rpm da CLI do Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 3f40451087aba5af5b02625ad3ac1ca6231d976c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 9c37dc8131f14a3b35e68b3e88502c91f96810f6
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035879"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901027"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Consultar e enviar comandos para o serviço de gerenciador de reparo.
 
 ## <a name="commands"></a>Comandos
 
-|Comando|Descrição|
+|Command|Descrição|
 | --- | --- |
 | Aprovar-força | Força a aprovação de determinada tarefa de reparo. |
-| delete | Exclui uma tarefa de reparo concluída. |
-| lista | Obtém uma lista de tarefas de reparo, correspondendo os filtros fornecidos. |
+| excluir | Exclui uma tarefa de reparo concluída. |
+| list | Obtém uma lista de tarefas de reparo, correspondendo os filtros fornecidos. |
 
 ## <a name="sfctl-rpm-approve-force"></a>sfctl rpm aprovar força
 Força a aprovação de determinada tarefa de reparo.
 
 Essa API dá suporte à plataforma do Service Fabric; não é destinada a ser usada diretamente a partir do seu código.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
@@ -45,12 +46,12 @@ Essa API dá suporte à plataforma do Service Fabric; não é destinada a ser us
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|DESCRIÇÃO|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-rpm-delete"></a>excluir sfctl rpm
@@ -67,12 +68,12 @@ Essa API dá suporte à plataforma do Service Fabric; não é destinada a ser us
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|DESCRIÇÃO|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-rpm-list"></a>lista sfctl rpm
@@ -90,15 +91,15 @@ Essa API dá suporte à plataforma do Service Fabric; não é destinada a ser us
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|DESCRIÇÃO|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: atsenthi
-ms.openlocfilehash: 9030a1d9d0b1e3f9b84f6636b0d3d758ab4cfa3b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 4a2fe8238a1ac6f668450aca4e2fd6d2b4ba04a5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599977"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901541"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Criar um modelo do Resource Manager do cluster do Service Fabric
 
 Um [cluster do Azure Service Fabric](service-fabric-deploy-anywhere.md) é um conjunto conectado por rede de máquinas virtuais no qual os microsserviços são implantados e gerenciados. Um cluster do Service Fabric em execução no Azure é um recurso do Azure e é implantado, gerenciado e monitorado usando o Resource Manager.  Este artigo descreve como criar um modelo do Resource Manager para um cluster do Service Fabric em execução no Azure.  Quando o modelo estiver concluído, será possível [implantar o cluster no Azure](service-fabric-cluster-creation-via-arm.md).
 
-A segurança de cluster é configurada quando o cluster é configurado pela primeira vez e não poderá ser alterada posteriormente. Antes de configurar um cluster, leia [Service Fabric cenários de segurança de cluster][service-fabric-cluster-security]. No Azure, o Service Fabric usa o certificado x509 para proteger o cluster e os pontos de extremidade, autenticar clientes e criptografar dados. O Azure Active Directory também é recomendado para proteger o acesso a pontos de extremidade de gerenciamento. Os locatários e usuários do Microsoft Azure AD deverão ser criados antes da criação do cluster.  Para mais informações, leia [Configurar o Azure AD para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
+A segurança de cluster é configurada quando o cluster é configurado pela primeira vez e não poderá ser alterada posteriormente. Antes de configurar um cluster, leia [Service Fabric cenários de segurança de cluster][service-fabric-cluster-security]. No Azure, o Service Fabric usa o certificado x509 para proteger o cluster e os pontos de extremidade, autenticar clientes e criptografar dados. O Azure Active Directory também é recomendado para proteger o acesso a pontos de extremidade de gerenciamento. Os locatários e usuários do Microsoft Azure AD deverão ser criados antes da criação do cluster.  Para mais informações, leia [Configurar o Microsoft Azure AD para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
 
 Antes de implantar um cluster de produção para executar cargas de trabalho de produção, primeiro leia a [Lista de verificação de preparação para produção](service-fabric-production-readiness-checklist.md).
 
@@ -146,7 +146,7 @@ O certificado de autenticação do cluster tem que ser configurado tanto no recu
 Adicione a as configurações do Microsoft Azure Active Directory a um modelo do Resource Manager de cluster fazendo referência ao cofre de chaves que contém as chaves de certificado. Adicione esses valores e parâmetros do Azure AD em um arquivo de parâmetros de modelo do Resource Manager (*azuredeploy.parameters.json*). 
 
 > [!NOTE]
-> Os locatários e usuários do Azure AD deverão ser criados antes da criação do cluster.  Para mais informações, leia [Configurar o Microsoft Azure AD para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
+> No Linux, os locatários e usuários do Azure AD devem ser criados antes da criação do cluster.  Para mais informações, leia [Configurar o Microsoft Azure AD para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
 
 ```json
 {
@@ -258,7 +258,7 @@ O diagrama a seguir ilustra onde a configuração do cofre de chaves e do Azure 
 
 ![Mapa de dependências do Resource Manager][cluster-security-arm-dependency-map]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Agora que você tem um modelo para o cluster, saiba como [implantar o cluster no Azure](service-fabric-cluster-creation-via-arm.md).  Se você ainda não tiver feito isso, leia a [Lista de verificação de preparação para produção](service-fabric-production-readiness-checklist.md) antes de implantar um cluster de produção.
 
 Para saber mais sobre as propriedades e a sintaxe JSON dos recursos implantados neste artigo, consulte:

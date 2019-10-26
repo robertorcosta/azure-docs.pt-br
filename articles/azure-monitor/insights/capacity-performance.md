@@ -1,33 +1,27 @@
 ---
-title: Solução de capacidade e desempenho no Azure Monitor | Microsoft Docs
-description: Use a solução de capacidade e desempenho no Monitor para ajudá-lo a compreender a capacidade dos seus servidores Hyper-V.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Capacidade e Desempenho solução no Azure Monitor | Microsoft Docs
+description: Use a solução Capacidade e Desempenho no monitor para ajudá-lo a entender a capacidade de seus servidores Hyper-V.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 07/13/2017
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: fcf71bf144b559c4867303988d4c1f08b7aa5605
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/13/2017
+ms.openlocfilehash: 8b130b800b53afadc40e0c9b9a2b730f24da396e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101907"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899054"
 ---
-# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planejar a capacidade de máquina virtual do Hyper-V com a solução capacidade e desempenho (preterida)
+# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planejar a capacidade da máquina virtual do Hyper-V com a solução de Capacidade e Desempenho (preterida)
 
 ![Símbolo de capacidade e desempenho](./media/capacity-performance/capacity-solution.png)
 
 > [!NOTE]
 > A solução Capacidade e Desempenho foi preterida.  Os clientes que já têm instalada a solução podem continuar a usá-la, mas a Capacidade e Desempenho não pode ser adicionada a nenhum novo workspace.
 
-Você pode usar a solução capacidade e desempenho no Monitor para ajudá-lo a compreender a capacidade dos seus servidores Hyper-V. A solução fornece percepções sobre seu ambiente Hyper-V e apresentando uma visão geral da utilização (CPU, memória e disco) dos hosts e das VMs em execução nos hosts do Hyper-V. As métricas são coletadas para a CPU, memória e discos em todos os hosts e VMs em execução.
+Você pode usar a solução Capacidade e Desempenho no monitor para ajudá-lo a entender a capacidade de seus servidores Hyper-V. A solução fornece percepções sobre seu ambiente Hyper-V e apresentando uma visão geral da utilização (CPU, memória e disco) dos hosts e das VMs em execução nos hosts do Hyper-V. As métricas são coletadas para a CPU, memória e discos em todos os hosts e VMs em execução.
 
 A solução:
 
@@ -46,11 +40,11 @@ A solução:
 
 A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução.
 
-| Fonte Conectada | Suporte | DESCRIÇÃO |
+| Fonte Conectada | Suporte | Descrição |
 |---|---|---|
-| [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Sim | A solução coleta informações de dados de desempenho e capacidade de agentes do Windows. |
+| [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | SIM | A solução coleta informações de dados de desempenho e capacidade de agentes do Windows. |
 | [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não    | A solução não coleta informações de dados de desempenho e capacidade de agentes do Linux diretos.|
-| [Grupo de gerenciamento do SCOM](../../azure-monitor/platform/om-agents.md) | Sim |A solução coleta dados de desempenho e capacidade de agentes em um grupo de gerenciamento do SCOM conectado. Uma conexão direta do agente do SCOM ao Log Analytics não é necessária.|
+| [Grupo de gerenciamento do SCOM](../../azure-monitor/platform/om-agents.md) | SIM |A solução coleta dados de desempenho e capacidade de agentes em um grupo de gerenciamento do SCOM conectado. Uma conexão direta do agente do SCOM ao Log Analytics não é necessária.|
 | [Conta de armazenamento do Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Não | O armazenamento do Azure não inclui dados de desempenho, nem de capacidade.|
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -95,7 +89,7 @@ Clique no bloco de Capacidade e Desempenho para abrir o painel de capacidade e d
 - **Hosts**
     - **Utilização de CPU de host** Mostra uma tendência gráfica de utilização da CPU dos computadores host e uma lista de hosts com base no período selecionado. Passe o mouse sobre o gráfico de linhas para exibir detalhes de um ponto específico no tempo. Clique no gráfico para exibir mais detalhes na pesquisa de logs. Clique em um nome de host para abrir a pesquisa de logs e exibir os detalhes do contador da CPU das VMs hospedadas.
     - **Utilização de memória de host** Mostra uma tendência gráfica de utilização de memória de computadores host e uma lista de hosts com base no período selecionado. Passe o mouse sobre o gráfico de linhas para exibir detalhes de um ponto específico no tempo. Clique no gráfico para exibir mais detalhes na pesquisa de logs. Clique em um nome de host para abrir a pesquisa de logs e exibir os detalhes do contador da memória das VMs hospedadas.
-- **Máquinas virtuais**
+- **Máquinas Virtuais**
     - **Utilização de CPU da VM** mostra uma tendência gráfica da utilização da CPU de máquinas virtuais e uma lista de máquinas virtuais com base no período selecionado. Passe o mouse sobre o gráfico de linhas para exibir detalhes de um ponto específico no tempo para as 3 VMs superiores. Clique no gráfico para exibir mais detalhes na pesquisa de logs. Clique em qualquer nome da VM para abrir a pesquisa de logs e exibir detalhes do contador da CPU agregada para a VM.
     - **Utilização de memória de VM** Mostra uma tendência gráfica de utilização de memória das máquinas virtuais e uma lista de máquinas virtuais com base no período selecionado. Passe o mouse sobre o gráfico de linhas para exibir detalhes de um ponto específico no tempo para as 3 VMs superiores. Clique no gráfico para exibir mais detalhes na pesquisa de logs. Clique em qualquer nome da VM para abrir a pesquisa de logs e exibir detalhes do contador da memória agregada para a VM.
     - **IOPS de disco total da VM** mostra uma tendência gráfica do IOPS de disco total para máquinas virtuais e uma lista de máquinas virtuais com o IOPS para cada uma delas com base no período selecionado. Passe o mouse sobre o gráfico de linhas para exibir detalhes de um ponto específico no tempo para as 3 VMs superiores. Clique no gráfico para exibir mais detalhes na pesquisa de logs. Clique em qualquer nome da VM para abrir a pesquisa de logs e exibir os detalhes do contador de IOPS de disco agregado para a VM.
@@ -124,7 +118,7 @@ Para resumir, a solução coleta dados de desempenho e capacidade de uma varieda
 A tabela a seguir fornece as pesquisas de log de exemplo para dados de desempenho e capacidade coletados e calculados pela solução.
 
 
-| Consultar | DESCRIÇÃO |
+| Consulta | Descrição |
 |:--- |:--- |
 | Todas as configurações de memória do host | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "Host Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
 | Todas as configurações de memória da VM | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "VM Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
@@ -135,5 +129,5 @@ A tabela a seguir fornece as pesquisas de log de exemplo para dados de desempenh
 | Divisão da latência total em todos os CSVs | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "CSV Read Latency" or CounterName == "CSV Write Latency") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Use [pesquisas de log no Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para exibir dados detalhados de capacidade e desempenho.

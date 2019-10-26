@@ -2,18 +2,18 @@
 title: Introdução à CLI do Azure Service Fabric
 description: Saiba como usar a CLI do Azure Service Fabric. Saiba como se conectar a um cluster e como gerenciar aplicativos.
 services: service-fabric
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: d5b6f183a59e3f47aa5867b5e09e06541a6a67db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: e0146504bd06a3c56de8113cc59c9eedd375d06f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60803232"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901374"
 ---
 # <a name="azure-service-fabric-cli"></a>CLI do Azure Service Fabric
 
@@ -33,11 +33,12 @@ A CLI do Service Fabric serve para dar suporte à versão de tempo de execução
 
 | Versão da CLI   | versão do tempo de execução com suporte |
 |---------------|---------------------------|
-| Mais recente (~=7)  | Mais recente (~=6,4)            |
+| Mais recente (~ = 8)  | Mais recente (~ = 6,5)            |
+| 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |
 | 5.0.0         | 6.2                       |
 | 4.0.0         | 6.1                       |
-| 3.0.0         | 6.0                       |
+| 3.0.0         | 6,0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
 Opcionalmente, você pode especificar uma versão de destino da CLI para instalação acrescentando ao comando `pip install` o sufixo `==<version>`. Por exemplo, para a versão 1.1.0, a sintaxe seria:
@@ -113,7 +114,7 @@ Se a instalação no subsistema do Windows para Linux falhar com permissões de 
 sudo pip3 install sfctl
 ```
 
-### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (suporte à versão prévia do Service Fabric)
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (suporte à visualização do Service Fabric)
 
 Para instalar a CLI do Service Fabric no Red Hat, execute os seguintes comandos:
 
@@ -266,7 +267,7 @@ pip uninstall sfctl
 pip install sfctl
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Implantar um aplicativo com a CLI do Azure Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 * [Introdução ao Service Fabric no Linux](service-fabric-get-started-linux.md)

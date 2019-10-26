@@ -1,22 +1,22 @@
 ---
 title: Visão geral do HDInsight 4.0 – Azure
 description: Compare o HDInsight 3.6 com os recursos, as limitações e as recomendações de atualização do HDInsight 4.0.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: 74cd6a6919db1c01535fb984d1e8e0d0ad2d5ade
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 10/22/2019
+ms.openlocfilehash: 0463e3297bbb2fda50adfeefaa89f0a7a3ef8b0a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879334"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901520"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Visão geral do Azure HDInsight 4.0
 
-O Azure HDInsight é um dos serviços mais populares entre os clientes corporativos para análise de software livre Apache Hadoop e Apache Spark no Azure. O HDInsight 4,0 é uma distribuição em nuvem de componentes de Apache Hadoop. Este artigo fornece informações sobre a versão mais recente do Azure HDInsight e como atualizar.
+O Microsoft Azure HDInsight é um dos serviços mais populares entre os clientes empresariais para análise de código-fonte aberto Apache Hadoop e Apache Spark no Azure. O HDInsight 4,0 é uma distribuição em nuvem de componentes de Apache Hadoop. Este artigo fornece informações sobre a versão mais recente do Azure HDInsight e como atualizar.
 
 ## <a name="whats-new-in-hdinsight-40"></a>Novidades do HDInsight 4.0
 
@@ -40,7 +40,7 @@ Agora o Hive é compatível com exibições materializadas dinâmicas ou pré-co
 
 O HDI 4.0 inclui o Apache Hive 3, que requer conformidade ACID (atomicidade, consistência, isolamento e durabilidade) para tabelas transacionais que residem no warehouse do Hive. As tabelas e dados de tabela em conformidade com ACID são acessadas e gerenciadas pelo Hive. Os dados em tabelas CRUD (criar, recuperar, atualizar e excluir) devem estar no formato de arquivo ORC (coluna e linha otimizadas), mas as tabelas do tipo somente inserção são compatíveis com todos os formatos de arquivo.
 
-* O ACID v2 tem melhorias de desempenho no formato de armazenamento e no mecanismo de execução. 
+* O ACID v2 tem melhorias de desempenho no formato de armazenamento e no mecanismo de execução.
 
 * O ACID é habilitado por padrão para permitir o suporte completo para as atualizações de dados.
 
@@ -71,7 +71,6 @@ Você não precisa mais se preocupar com a tentativa acidental de acessar tabela
 
 Saiba mais sobre o [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html).
 
-
 ### <a name="apache-oozie"></a>Apache Oozie
 
 O Apache Oozie 4.3.1 está incluído no HDI 4.0 com as seguintes alterações:
@@ -86,18 +85,18 @@ Saiba mais sobre o [Apache Oozie](https://docs.hortonworks.com/HDPDocuments/HDP3
 
 Assim como em qualquer versão principal, é importante testar cuidadosamente seus componentes antes de implementar a versão mais recente em um ambiente de produção. O HDInsight 4.0 está disponível para você começar o processo de atualização, mas o HDInsight 3.6 é a opção padrão para evitar contratempos acidentais.
 
-Não há um caminho de atualização compatível das versões anteriores do HDInsight para o HDInsight 4.0. Como os formatos de dados de blob e do Metastore foram alterados, o HDInsight 4.0 não é compatível com versões anteriores. É importante que você mantenha o novo ambiente do HDInsight 4.0 separado do ambiente de produção atual. Se você implantar o HDInsight 4.0 no ambiente atual, o Metastore será atualizado e não poderá ser revertido.  
+Não há nenhum caminho de atualização com suporte de versões anteriores do HDInsight para o HDInsight 4,0. Como os formatos de dados de metastore e BLOB foram alterados, o HDInsight 4,0 não é compatível com as versões anteriores. É importante que você mantenha seu novo ambiente do HDInsight 4,0 separado do seu ambiente de produção atual. Se você implantar o HDInsight 4,0 em seu ambiente atual, o metastore será atualizado e não poderá ser revertido.  
 
 ## <a name="limitations"></a>Limitações
 
-* O HDInsight 4.0 não é compatível com o MapReduce para Apache Hive. Use o Apache Tez em vez disso. Saiba mais sobre o [Apache Tez](https://tez.apache.org/).
-* O HDInsight 4.0 não é compatível com o Apache Storm. 
-* A exibição do Hive não está mais disponível no HDInsight 4.0. 
-* O interpretador de shell no Apache Zeppelin não é compatível com clusters do Spark e de Consulta Interativa.
+* O HDInsight 4,0 não dá suporte a MapReduce para Apache Hive. Use o Apache Tez em vez disso. Saiba mais sobre o [Apache Tez](https://tez.apache.org/).
+* O HDInsight 4,0 não oferece suporte a Apache Storm.
+* A exibição do Hive não está mais disponível no HDInsight 4.0.
+* O interpretador de Shell no Apache Zeppelin não tem suporte em clusters de consulta do Spark e interativo.
 * Não é possível *desabilitar* o LLAP em um cluster Spark-LLAP. Você pode apenas desativar o LLAP.
 * O Azure Data Lake Storage Gen2 não é capaz de salvar Jupyter Notebooks em um cluster Spark.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Documentação do HDInsight do Azure](index.yml)
 * [Notas de versão](hdinsight-release-notes.md)

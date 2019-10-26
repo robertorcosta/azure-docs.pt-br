@@ -1,35 +1,30 @@
 ---
 title: Solucionar os testes de disponibilidade do Aplicativo Azure insights | Microsoft Docs
 description: Solucionar problemas de testes na Web no Aplicativo Azure insights. Obtenha alertas se um site fica indisponível ou responde lentamente.
-services: application-insights
-documentationcenter: ''
-author: lgayhardt
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/19/2019
 ms.reviewer: sdash
-ms.author: lagayhar
-ms.openlocfilehash: fd56fffe6b11d1c32d7abfe28140127d01933def
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 71c16fa005710bb5816ec69716573b79fcae620a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695051"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899538"
 ---
-# <a name="troubleshooting"></a>Solução de problemas
+# <a name="troubleshooting"></a>Solução de Problemas
 
 Este artigo o ajudará a solucionar problemas comuns que podem ocorrer ao usar o monitoramento de disponibilidade.
 
 ## <a name="ssltls-errors"></a>Erros de SSL/TLS
 
-|Sintoma/mensagem de erro| Causas possíveis|
+|Sintoma/mensagem de erro| Possíveis causas|
 |--------|------|
 |Não foi possível criar o canal seguro SSL/TLS  | Versão do SSL. Somente há suporte para TLS 1,0, 1,1 e 1,2. **Não há suporte para SSLv3.**
-|Camada de registro do TLSv 1.2: Alerta (nível: Fatal, descrição: MAC de registro inadequado)| Consulte thread do StackExchange para obter [mais informações](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake).
+|Camada de registro do TLSv 1.2: alerta (nível: fatal, descrição: MAC de registro inadequado)| Consulte thread do StackExchange para obter [mais informações](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake).
 |A URL que está falhando é para uma CDN (rede de distribuição de conteúdo) | Isso pode ser causado por uma configuração incorreta na CDN |  
 
 ### <a name="possible-workaround"></a>Possível solução alternativa
@@ -38,7 +33,7 @@ Este artigo o ajudará a solucionar problemas comuns que podem ocorrer ao usar o
 
 ## <a name="test-fails-only-from-certain-locations"></a>O teste falha apenas de determinados locais
 
-|Sintoma/mensagem de erro| Causas possíveis|
+|Sintoma/mensagem de erro| Possíveis causas|
 |----|---------|
 |Uma tentativa de conexão falhou porque a parte conectada não respondeu corretamente após um período de tempo  | Os agentes de teste em determinados locais estão sendo bloqueados por um firewall.|
 |    |O redirecionamento de determinados endereços IP está ocorrendo via (balanceadores de carga, gerenciadores de tráfego geográficos, rota expressa do Azure). 
@@ -46,7 +41,7 @@ Este artigo o ajudará a solucionar problemas comuns que podem ocorrer ao usar o
 
 ## <a name="test-failure-with-a-protocol-violation-error"></a>Falha de teste com um erro de violação de protocolo
 
-|Sintoma/mensagem de erro| Causas possíveis| Possíveis resoluções |
+|Sintoma/mensagem de erro| Possíveis causas| Possíveis resoluções |
 |----|---------|-----|
 |O servidor confirmou uma violação de protocolo. Seção = ResponseHeader Detail = CR deve ser seguido por LF | Isso ocorre quando cabeçalhos malformados são detectados. Especificamente, alguns cabeçalhos podem não estar usando CRLF para indicar o fim da linha, que viola a especificação de HTTP. Application Insights impõe essa especificação HTTP e falha em respostas com cabeçalhos malformados.| a. Contate o provedor de host/provedor de CDN do site para corrigir os servidores com falha. <br> b. Caso as solicitações com falha sejam recursos (por exemplo, arquivos de estilo, imagens, scripts), você pode considerar desabilitar a análise de solicitações dependentes. Tenha em mente, se você fizer isso, perderá a capacidade de monitorar a disponibilidade desses arquivos).
 
@@ -57,7 +52,7 @@ Este artigo o ajudará a solucionar problemas comuns que podem ocorrer ao usar o
 
 ### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>O site parece ok, mas eu vejo falhas de teste? Por que Application Insights alertar-me?
 
-   * Seu teste tem **solicitações dependentes de análise** habilitadas? Isso resulta em uma verificação estrita em recursos, como scripts, imagens, etc. Esses tipos de falhas podem não ser notados em um navegador. Verifique todas as imagens, scripts, folhas de estilos e outros arquivos carregados pela página. Se qualquer um deles falhar, o teste será relatado como com falha, mesmo que a página HTML principal seja carregada sem problema. Para dessensibilizar o teste para essas falhas de recurso, basta desmarcar as solicitações de análise dependentes da configuração de teste.
+   * Seu teste tem **solicitações dependentes de análise** habilitadas? Isso resulta em uma verificação estrita de recursos como scripts, imagens, etc. Esses tipos de falhas podem não ser perceptíveis em um navegador. Verifique todas as imagens, scripts, folhas de estilos e outros arquivos carregados pela página. Se qualquer um deles falhar, o teste será relatado como com falha, mesmo que a página HTML principal seja carregada sem problema. Para dessensibilizar o teste para essas falhas de recurso, basta desmarcar as solicitações de análise dependentes da configuração de teste.
 
    * Para reduzir as chances de ruído de blips de rede transitórias, etc., certifique-se de que habilitar novas tentativas para a configuração de falhas de teste esteja marcada. Você também pode testar em mais locais e gerenciar adequadamente o limite de regra de alerta para evitar problemas específicos de local que estão causando alertas desnecessários.
 
@@ -88,7 +83,7 @@ Se você o Application Insights está configurado para seu aplicativo do lado do
 
 ### <a name="can-i-call-code-from-my-web-test"></a>Posso chamar o código do meu teste na Web?
 
-Nº As etapas do teste devem estar no arquivo .webtest. E não é possível chamar outros testes da Web nem usar loops. Porém, há vários plug-ins que podem ser úteis.
+Não. As etapas do teste devem estar no arquivo .webtest. E não é possível chamar outros testes da Web nem usar loops. Porém, há vários plug-ins que podem ser úteis.
 
 
 ### <a name="is-there-a-difference-between-web-tests-and-availability-tests"></a>Há uma diferença entre "testes na Web" e "testes de disponibilidade"?
@@ -133,7 +128,7 @@ Esta seção só se aplica aos alertas clássicos e ajudará você a otimizar su
 
 Use a nova experiência de alerta/alertas quase em tempo real caso precise notificar usuários com base em suas funções. Com os [grupos de ação](../platform/action-groups.md), você pode configurar notificações por email para os usuários que tenham qualquer uma das funções de proprietário/colaborador/leitor (não combinadas como uma única opção).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Teste na Web de várias etapas](availability-multistep.md)
 * [Testes de ping de URL](monitor-web-app-availability.md)

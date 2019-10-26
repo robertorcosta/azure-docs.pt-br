@@ -1,24 +1,19 @@
 ---
 title: Analisar padrões de navegação do usuário com o Fluxos de Usuário no Azure Application Insights | Microsoft Docs
 description: Analise como os usuários navegam entre as páginas e recursos de seu aplicativo Web.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 91274fad4e56c69777333c81ea3b32dccdcf64ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4ebdfa692bb8727556a37698e3a280f40bc1b0f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60373245"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899479"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analisar padrões de navegação do usuário com o Fluxos de Usuário no Azure Application Insights
 
@@ -94,7 +89,7 @@ Use as opções **Dividir por** no menu **Editar**:
 1. Escolha o evento que você deseja dividir no menu **Evento**.
 2. Escolha uma dimensão no menu **Dimensão**. Por exemplo, se você tiver um evento chamado “Botão clicado”, tente uma propriedade personalizada chamada “Nome do botão.”
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral do uso](usage-overview.md)
 * [Usuários, Sessões e Eventos](usage-segmentation.md)

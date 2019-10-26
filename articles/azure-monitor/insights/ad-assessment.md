@@ -1,24 +1,18 @@
 ---
 title: Otimizar seu ambiente do Active Directory com o Azure Monitor | Microsoft Docs
 description: É possível usar a solução Verificação de Integridade do Active Directory para avaliar o risco e a integridade de seus ambientes em intervalos regulares.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 09/10/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: a0ffe7b8726ee78ca81751687bebd3c435365576
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 09/10/2019
+ms.openlocfilehash: bdc84a9213bd98981040775d3fec90f45edac54f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883076"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899196"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Otimizar seu ambiente do Active Directory com a solução de Verificação de Integridade do Active Directory no Azure Monitor
 
@@ -107,7 +101,7 @@ Não necessariamente. As recomendações baseiam-se no conhecimento e nas experi
 
 Cada recomendação inclui diretrizes sobre sua importância. Você deve usar essas diretrizes para avaliar se é adequado implementar a recomendação considerando a natureza de seus serviços de TI e as necessidades comerciais da sua organização.
 
-## <a name="use-health-check-focus-area-recommendations"></a>Usar as recomendações da área de foco da Verificação da Integridade
+## <a name="use-health-check-focus-area-recommendations"></a>Usar as recomendações da área de foco da verificação da integridade
 
 Após a instalação, é possível exibir o resumo das recomendações usando o bloco Verificação de Integridade do Active Directory na página de solução no Portal do Azure.
 
@@ -179,7 +173,7 @@ Após a execução da próxima verificação de integridade agendada, por padrã
 
 *Há uma maneira de configurar a frequência com a qual a verificação de integridade é executada?*
 
-* Não no momento.
+* No momento, não.
 
 *Se outro servidor for descoberto após eu ter adicionado a solução de verificação de integridade, ele será verificado?*
 
@@ -199,7 +193,7 @@ Após a execução da próxima verificação de integridade agendada, por padrã
 
 *Há uma maneira de configurar quando os dados são coletados?*
 
-* Não no momento.
+* No momento, não.
 
 *Por que apenas as 10 principais recomendações são exibidas?*
 
@@ -209,6 +203,6 @@ Após a execução da próxima verificação de integridade agendada, por padrã
 
 * Sim, confira a seção [Ignorar recomendações](#ignore-recommendations) acima.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Use as [Consultas de log do Azure Monitor](../log-query/log-query-overview.md) para saber como analisar dados detalhados da Verificação de Integridade do AD, bem como as recomendações.

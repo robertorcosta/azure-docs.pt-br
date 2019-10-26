@@ -1,24 +1,18 @@
 ---
 title: Azure Key Vault solução no Azure Monitor | Microsoft Docs
 description: Você pode usar a solução Azure Key Vault no Azure Monitor para examinar os logs de Azure Key Vault.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/27/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 1e0e9a0d76e644ec48ecd423a105dd89629d290c
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.date: 03/27/2019
+ms.openlocfilehash: 8863280407de5d02b53a203b2b6385477aa9f8ae
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997699"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899206"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solução de análise de Azure Key Vault no Azure Monitor
 
@@ -106,7 +100,7 @@ A solução de Cofre de Chaves do Azure analisa os registros que têm um tipo de
 | Propriedade | Descrição |
 |:--- |:--- |
 | `Type` |*AzureDiagnostics* |
-| `SourceSystem` |*As tabelas* |
+| `SourceSystem` |*Azure* |
 | `CallerIpAddress` |Endereço IP do cliente que fez a solicitação |
 | `Category` | *AuditEvent* |
 | `CorrelationId` |Um GUID opcional que o cliente pode passar para correlacionar os logs do lado do cliente aos logs do lado do serviço (Chave do Cofre). |
@@ -138,9 +132,9 @@ Para usar a solução atualizada:
 1. [Configurar o diagnóstico para ser enviado diretamente a um Log Analytics espaço de trabalho de Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
 2. Habilite a solução de Azure Key Vault usando o processo descrito em [Adicionar soluções de Azure monitor do Galeria de soluções](../../azure-monitor/insights/solutions.md)
 3. Atualizar todas as consultas salvas, painéis ou alertas para usar o novo tipo de dados
-   + O tipo é uma alteração de: KeyVaults para AzureDiagnostics. Use ResourceType para filtrar os logs do Key Vault.
+   + O tipo mudou de KeyVaults para AzureDiagnostics. Use ResourceType para filtrar os logs do Key Vault.
    + Em vez de: `KeyVaults`, use`AzureDiagnostics | where ResourceType'=="VAULTS"`
-   + Campos: (Os nomes de campo diferenciam maiúsculas de minúsculas)
+   + Campos: (os nomes de campo diferenciam maiúsculas de minúsculas)
    + Para qualquer campo que tenha um sufixo de \_s, \_d ou \_g no nome, altere o primeiro caractere para minúsculo
    + Para qualquer campo que tenha um sufixo de \_o no nome, os dados são divididos em campos individuais com base nos nomes de campos aninhados. Por exemplo, o UPN do chamador é armazenado em um campo `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    + O campo CallerIpAddress mudou para CallerIPAddress
@@ -149,8 +143,8 @@ Para usar a solução atualizada:
 
 Os dados coletados antes da alteração não estão visíveis na nova solução. Você pode continuar a consultar esses dados usando os nomes de campo e tipo antigos.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Use [consultas de log em Azure monitor](../../azure-monitor/log-query/log-query-overview.md) para exibir dados detalhados de Azure Key Vault.

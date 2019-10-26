@@ -1,25 +1,20 @@
 ---
 title: Perguntas Frequentes do Application Insights do Azure | Microsoft Docs
 description: Perguntas frequentes sobre o Application Insights.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
-ms.service: application-insights
-ms.workload: mobile
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/16/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 94e994a3dc1cd9d5d5d0b7acb5aed4783d881915
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.date: 09/16/2019
+ms.openlocfilehash: 55a096cd4971664e55bb2cfd17f9f8927d7c32f5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802296"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899514"
 ---
-# <a name="application-insights-frequently-asked-questions"></a>Application Insights: Perguntas frequentes
+# <a name="application-insights-frequently-asked-questions"></a>Application Insights: Perguntas Frequentes
 
 ## <a name="configuration-problems"></a>Problemas de configuração
 *Estou tendo problemas para configurar:*
@@ -84,7 +79,7 @@ Os detalhes dependem do tipo de projeto. Para um aplicativo Web:
 
   * Web.config
   * packages.config
-* (Somente novos projetos – se você [adicionar Application insights a um projeto existente][start], precisará fazer isso manualmente.) Insere snippets no código do cliente e do servidor para inicializá-los com a ID de recurso do Application Insights. Por exemplo, em um aplicativo MVC, o código é inserido na página mestra Views/Shared/_Layout.cshtml
+* (Somente novos projetos – se você [adicionar Application insights a um projeto existente][start], precisará fazer isso manualmente.) Insere trechos no código do cliente e do servidor para inicializá-los com a ID de recurso Application Insights. Por exemplo, em um aplicativo MVC, o código é inserido na página mestra Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Como atualizar de versões anteriores do SDK?
 Consulte as [notas de versão](release-notes.md) para o SDK adequado ao seu tipo de aplicativo.
@@ -103,9 +98,9 @@ Um aplicativo da área de trabalho que você pode usar no servidor Web do IIS pa
 A partir dos aplicativos Web do servidor:
 
 * Solicitações HTTP
-* [Dependências](asp-net-dependencies.md). Chamadas para: Banco de Dados SQL; chamadas HTTP para serviços externos; Azure Cosmos DB, tabela, armazenamento de blobs e fila. 
+* [Dependências](asp-net-dependencies.md). Chamadas para: Banco de Dados SQL; chamadas HTTP para serviços externos; tabela, armazenamento de blobs, fila e BD Cosmos do Azure. 
 * [Exceções](asp-net-exceptions.md) e rastreamentos de pilha.
-* [Contadores de desempenho](performance-counters.md) -se você usar [status monitor](monitor-performance-live-website-now.md), [monitoramento do Azure para serviços de aplicativos](azure-web-apps.md), [monitoramento do Azure para VM ou conjunto de dimensionamento de máquinas virtuais](azure-vm-vmss-apps.md)ou o [gravador Application insights coletado](java-collectd.md).
+* [Contadores de desempenho](performance-counters.md) -se você [usar status monitor](monitor-performance-live-website-now.md), [monitoramento do Azure para serviços de aplicativos](azure-web-apps.md), [monitoramento do Azure para VM ou conjunto de dimensionamento de máquinas virtuais](azure-vm-vmss-apps.md)ou o [gravador Application insights coletado](java-collectd.md).
 * [Eventos e métricas personalizados](api-custom-events-metrics.md) que você codifica.
 * [Logs de Rastreamento](asp-net-trace-logs.md) se você configurar o coletor apropriado.
 
@@ -137,8 +132,8 @@ Saiba mais sobre [ASP.NET](api-filtering-sampling.md) ou [Java](java-filter-tele
 
 Procuramos o endereço IP (IPv4 ou IPv6) do cliente Web usando [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
-* Telemetria do navegador: Coletamos o endereço IP do remetente.
-* Telemetria do servidor: O módulo Application Insights coleta o endereço IP do cliente. Ele não será coletado se `X-Forwarded-For` estiver configurado.
+* Telemetria do navegador: coletamos o endereço IP do remetente.
+* Telemetria do Servidor: o módulo Application Insights coleta o endereço IP do cliente. Ele não será coletado se `X-Forwarded-For` estiver configurado.
 * Para saber mais sobre como o endereço IP e os dados de localização geográfica são coletados no Application Insights consulte este [artigo](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
 
 
@@ -198,7 +193,7 @@ Use um recurso único para todos os componentes ou funções em um único sistem
 | Telemetria de dependência |[Instalar o AI Status Monitor no servidor](monitor-performance-live-website-now.md) |Diagnosticar problemas com bancos de dados ou outros componentes externos |
 | Obter rastreamentos de pilha por meio de exceções |[Inserir chamadas TrackException em seu código](asp-net-exceptions.md) (mas alguns são informados automaticamente) |Detectar e diagnosticar exceções |
 | Pesquisar rastreamentos de log |[Adicionar um adaptador de registro em log](asp-net-trace-logs.md) |Diagnosticar exceções, problemas de desempenho |
-| Noções básicas de uso do cliente: modos de exibição de página, sessões,... |[Inicializador de JavaScript em páginas da Web](javascript.md) |Análise de uso |
+| Noções básicas de uso do cliente: modos de exibição de página, sessões,... |[Inicializador de JavaScript em páginas da Web](javascript.md) |Analíticas de uso |
 | Métricas de cliente personalizadas |[Rastreando chamadas em páginas da Web](api-custom-events-metrics.md) |Aprimorar a experiência do usuário |
 | Métricas de servidor personalizadas |[Rastreando chamadas no servidor](api-custom-events-metrics.md) |Business intelligence |
 

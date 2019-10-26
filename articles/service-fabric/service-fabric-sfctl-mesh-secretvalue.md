@@ -3,33 +3,34 @@ title: CLI do Azure Service Fabric – valor secreto da malha do sfctl | Microso
 description: Descreve os comandos de valor secreto da malha do sfctl da CLI do Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 5200c40afe62ce3a236a3a16b59b64deb8d24ced
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 96ce4efe00d89c136a0c11d445170b2f67be6fcd
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035923"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901188"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 Obtém e exclui recursos de valor secreto da malha.
 
 ## <a name="commands"></a>Comandos
 
-|Comando|Descrição|
+|Command|Descrição|
 | --- | --- |
-| delete | Exclui o valor especificado do recurso de segredo nomeado. |
-| lista | Lista os nomes de todos os valores do recurso de segredo especificado. |
-| mostrar | Recupera o valor de uma versão especificada de um recurso de segredo. |
+| excluir | Exclui o valor especificado do recurso de segredo nomeado. |
+| list | Lista os nomes de todos os valores do recurso de segredo especificado. |
+| mostrar | Lista o valor especificado do recurso secreto. |
 
 ## <a name="sfctl-mesh-secretvalue-delete"></a>sfctl mesh secretvalue delete
 Exclui o valor especificado do recurso de segredo nomeado.
@@ -45,12 +46,12 @@ Exclui o recurso de valor secreto identificado pelo nome. O nome do recurso norm
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|DESCRIÇÃO|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-mesh-secretvalue-list"></a>sfctl mesh secretvalue list
@@ -66,16 +67,16 @@ Obtém informações sobre todos os recursos de valor secreto do recurso de segr
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|DESCRIÇÃO|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-mesh-secretvalue-show"></a>sfctl mesh secretvalue show
-Recupera o valor de uma versão especificada de um recurso de segredo.
+Lista o valor especificado do recurso secreto.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -87,15 +88,15 @@ Recupera o valor de uma versão especificada de um recurso de segredo.
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|DESCRIÇÃO|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

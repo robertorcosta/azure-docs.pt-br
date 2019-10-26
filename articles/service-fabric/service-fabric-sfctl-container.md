@@ -3,32 +3,33 @@ title: Contêiner do Azure Service Fabric CLI - sfctl | Microsoft Docs
 description: Descreve os comandos de contêiner sfctl CLI de malha do serviço.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 0ce6cf7c627657cf757b0c1ef9aa22428c17a7e7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 13de6ff7b3e5a41eced5ca49a3af38fab60ba0a0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036479"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901305"
 ---
 # <a name="sfctl-container"></a>sfctl container
 Execute comandos relacionados ao contêiner em um nó de cluster.
 
 ## <a name="commands"></a>Comandos
 
-|Comando|Descrição|
+|Command|Descrição|
 | --- | --- |
 | invocar api | Invoca a API de contêiner em um contêiner implantado em um nó do Service Fabric para o pacote de código fornecido. |
-| logs | Obtém os logs do contêiner para contêiner implantado em um nó de malha do serviço para o pacote de código fornecido. |
+| logs | Obtém os logs de contêiner para um contêiner implantado em um nó do Service Fabric. |
 
 ## <a name="sfctl-container-invoke-api"></a>contêiner de sfctl invoke-api
 Invoca a API de contêiner em um contêiner implantado em um nó do Service Fabric para o pacote de código fornecido.
@@ -46,20 +47,20 @@ Invoca a API de contêiner em um contêiner implantado em um nó do Service Fabr
 | – corpo da api de contêiner | Corpo da solicitação HTTP para API REST do contêiner. |
 | – contêiner-api-content-type | Tipo de conteúdo para a API REST, o padrão é 'application/json' de contêiner. |
 | --container-api-http-verb | Verbo HTTP para o contêiner de API REST, o padrão é GET. |
-| --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --timeout -t | Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|DESCRIÇÃO|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-container-logs"></a>logs de contêiner sfctl
-Obtém os logs do contêiner para contêiner implantado em um nó de malha do serviço para o pacote de código fornecido.
+Obtém os logs de contêiner para um contêiner implantado em um nó do Service Fabric.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -71,19 +72,19 @@ Obtém os logs do contêiner para contêiner implantado em um nó de malha do se
 | --node-name                [Obrigatório] | O nome do nó. |
 | --service-manifest-name    [Obrigatório] | O nome de um manifesto de serviço registrado como parte de um tipo de aplicativo em um cluster do Service Fabric. |
 | -final | Número de linhas a serem mostradas do final dos logs. O padrão é 100. 'todos' para mostrar os logs de conclusão. |
-| --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --timeout -t | Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|DESCRIÇÃO|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

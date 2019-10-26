@@ -1,29 +1,24 @@
 ---
 title: Monitorar a integridade e o uso do aplicativo com o Application Insights
 description: Introdução ao Application Insights. Analise o uso, disponibilidade e desempenho de seu local ou aplicativos do Microsoft Azure.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 40650472-e860-4c1b-a589-9956245df307
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: d7b8037f50fc4877fe233925f3e922648169f73b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ebf6fa6d3dac6c63dfaa349a77a08bc81d402ef8
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60372948"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899293"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitore o desempenho em aplicativos da web
 
 
-Certifique-se de que seu aplicativo está sendo bem executado, e saiba rapidamente sobre quaisquer falhas. O [Application Insights][start] lhe informará sobre quaisquer problemas de desempenho e exceções e lhe ajudará a localizar e diagnosticar as causas raiz.
+Certifique-se de que seu aplicativo está sendo bem executado, e saiba rapidamente sobre quaisquer falhas. [Application insights][start] informará sobre quaisquer problemas de desempenho e exceções, além de ajudá-lo a encontrar e diagnosticar as causas raiz.
 
 O Application Insights pode monitorar serviços e aplicativos Web Java e ASP.NET e serviços WCF. Eles podem ser hospedados localmente, em máquinas virtuais ou como sites do Microsoft Azure. 
 
@@ -108,11 +103,11 @@ Observe as unidades quando você for solicitado para inserir o valor de limite.
 ## <a name="diagnosis"></a>Diagnosticando problemas
 Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 
-* Configure os [testes da Web][availability] para serem alertados se seu site cair ou responder de forma incorreta ou lenta. 
+* Configure [testes da Web][availability] a serem alertados se o seu site ficar inativo ou responder de forma incorreta ou lenta. 
 * Compare a contagem de Solicitação com outras métricas para ver se falhas ou resposta lenta são relatadas ao carregar.
-* [Inserir e pesquisar instruções de rastreamento][diagnostic] em seu código para ajudar a detectar problemas.
+* [Inserir e Pesquisar instruções de rastreamento][diagnostic] em seu código para ajudar a identificar problemas.
 * Monitore seu aplicativo Web em operação com o [Live Metrics Stream][livestream].
-* Capturar o estado do aplicativo .NET com [depurador de instantâneo][snapshot].
+* Capture o estado do seu aplicativo .NET com [depurador de instantâneos][snapshot].
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Encontrar e corrigir gargalos de desempenho com uma experiência de investigação de desempenho
 
@@ -140,13 +135,13 @@ A experiência de investigação de desempenho mostra insights relevantes ao lad
 
 
 ## <a name="next"></a>Próximas etapas
-[Testes da Web][availability] – faça com que solicitações da Web sejam enviadas ao seu aplicativo em intervalos regulares de todo o mundo.
+[Testes da Web][availability] -têm solicitações da Web enviadas ao seu aplicativo em intervalos regulares em todo o mundo.
 
-[Capturar e pesquisar rastreamento de diagnóstico][diagnostic] – Inserir chamadas de rastreamento e separar através dos resultados para problemas de pinpoint.
+[Capturar e Pesquisar rastreamentos de diagnóstico][diagnostic] – inserir chamadas de rastreamento e examinar os resultados para identificar os problemas.
 
-[Acompanhamento de uso][usage] – Saiba como as pessoas usam seu aplicativo.
+[Acompanhamento de uso][usage] -Descubra como as pessoas usam seu aplicativo.
 
-[Solução de problemas][qna] – e P e R
+[Solução de problemas][qna] -e Q & A
 
 
 

@@ -1,24 +1,18 @@
 ---
 title: Monitorar o Status de Replicação do Active Directory com o Azure Monitor | Microsoft Docs
 description: O pacote de solução de Status de Replicação do Active Directory monitora regularmente seu ambiente do Active Directory em busca de falhas de replicação.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 01/24/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.date: 01/24/2018
+ms.openlocfilehash: 47f57fd9e9fe9cc84df5058794bc21e1d5cce11b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60495068"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899183"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorar o Status de Replicação do Active Directory com o Azure Monitor
 
@@ -44,7 +38,7 @@ Se não quiser conectar nenhum de seus controladores de domínio diretamente ao 
 3. Nesse computador, defina a seguinte chave do Registro:<br>Chave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Valor: **IsTarget**<br>Dados do Valor: **true**
 
    > [!NOTE]
-   > Essas alterações não entram em vigor até que você reinicie o serviço Microsoft Monitoring Agent (HealthService.exe).
+   > Essas alterações não entram em vigor até que você reinicie o serviço de Microsoft Monitoring Agent (HealthService. exe).
    > ### <a name="install-solution"></a>Instalar a solução
    > Siga o processo descrito em [Instalar uma solução de monitoramento](solutions.md#install-a-monitoring-solution) para adicionar o **Status de Replicação do Active Directory** ao espaço de trabalho do Log Analytics. Não é necessária nenhuma configuração.
 
@@ -52,7 +46,7 @@ Se não quiser conectar nenhum de seus controladores de domínio diretamente ao 
 ## <a name="ad-replication-status-data-collection-details"></a>Detalhes de coleta de dados do Status de Replicação do AD
 A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para o Status de Replicação de AD.
 
-| plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
+| plataforma | Agente Direct | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |a cada cinco dias |
 
@@ -128,7 +122,7 @@ R: Não no momento.
 **P: Preciso adicionar todos os meus controladores de domínio ao meu espaço de trabalho do Log Analytics para ver o status de replicação?**
 R: Não, apenas um único controlador de domínio deve ser adicionado. Se você tiver vários controladores de domínio em seu espaço de trabalho do Log Analytics, dados de todos eles serão enviados ao Azure Monitor.
 
-**P: Não quero adicionar qualquer controlador de domínio ao meu espaço de trabalho do Log Analytics. Ainda posso usar a solução Status de Replicação do AD?**
+**P: não desejo adicionar nenhum controlador de domínio ao meu espaço de trabalho do Log Analytics. Ainda posso usar a solução Status de Replicação do AD?**
 
 R: Sim. Você pode definir o valor de uma chave do Registro para habilitá-la. Confira [Habilitar o controlador fora do domínio](#enable-non-domain-controller).
 
@@ -154,5 +148,5 @@ Se precisar de assistência para conectar um de seus controladores de domínio, 
 
 Se você não quiser conectar nenhum controlador de domínio diretamente ao Azure Monitor ou ao System Center Operations Manager, confira [Habilitar um controlador fora do domínio](#enable-non-domain-controller).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Use [Consultas de log no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) para exibir dados detalhados do Status de Replicação do Active Directory.

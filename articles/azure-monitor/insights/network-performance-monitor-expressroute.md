@@ -1,24 +1,18 @@
 ---
 title: Solução Monitor de Desempenho de Rede no Azure Log Analytics | Microsoft Docs
 description: Use a funcionalidade ExpressRoute Monitor no Monitor de Desempenho de Rede para monitorar a conectividade de ponta a ponta e o desempenho entre as filiais e o Azure, por meio do Azure ExpressRoute.
-services: log-analytics
-documentationcenter: ''
-author: abshamsft
-manager: carmonm
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/27/2018
+author: abshamsft
 ms.author: absha
-ms.openlocfilehash: 7f9c0d905a7b2bc81063e59229d78a1200894d47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/27/2018
+ms.openlocfilehash: 5383402816eddba4c631c240585723b7c7119cef
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963803"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898890"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute Monitor
 
@@ -116,7 +110,7 @@ O Monitor de Desempenho de Rede ajuda a diagnosticar vários problemas de conect
 
 Você pode ver os códigos de notificação e definir alertas sobre eles por meio do **LogAnalytics**. Na página **Diagnóstico NPM**, você pode ver as descrições para cada mensagem de diagnóstico disparado.
 
-| Código de Notificação (Logs) | DESCRIÇÃO |
+| Código de Notificação (Logs) | Descrição |
 | --- | --- |
 | 5501 | Não é possível percorrer a conexão secundária do circuito do ExpressRoute |
 | 5502 | Não é possível percorrer a conexão primária do circuito do ExpressRoute |
@@ -146,5 +140,5 @@ Você pode ver os códigos de notificação e definir alertas sobre eles por mei
 
  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Pesquisar logs](../../azure-monitor/log-query/log-query-overview.md) para exibir registros de dados de desempenho de rede detalhados.

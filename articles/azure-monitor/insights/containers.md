@@ -1,24 +1,18 @@
 ---
 title: Solução de monitoramento de contêiner no Azure Monitor | Microsoft Docs
 description: A solução de monitoramento de contêiner no Azure Monitor ajuda a exibir e gerenciar seus hosts de contêiner do Docker e do Windows em um único local.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 07/22/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 5f48b1b1c8568c4f60d012797634b844a276b1bb
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.date: 07/22/2019
+ms.openlocfilehash: b71818d5d840a0466b5ff6f271df117043341f7b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951957"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899107"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solução de monitoramento de contêiner no Azure Monitor
 
@@ -31,9 +25,9 @@ Este artigo descreve como configurar e usar a solução de monitoramento de cont
 A solução mostra quais contêineres estão em execução, qual imagem de contêiner eles estão executando e onde os contêineres estão em execução. Você pode exibir informações detalhadas de auditoria, mostrando os comandos usados com contêineres. E você pode solucionar os problemas de contêineres exibindo e pesquisando logs centralizados sem precisar exibir remotamente os hosts do Docker ou do Windows. Você pode encontrar contêineres que podem estar com ruídos e consumindo recursos em excesso em um host. E você pode exibir o uso de CPU, memória, armazenamento e rede e informações de desempenho centralizadas para contêineres. Nos computadores que executam o Windows, você pode centralizar e comparar os logs do Windows Server, do Hyper-V e dos contêineres do Docker. A solução oferece suporte aos orquestradores de contêiner a seguir:
 
 - Docker Swarm
-- DC/SO
-- Kubernetes
-- Service Fabric
+- DC/OS
+- kubernetes
+- Malha de Serviço
 - Red Hat OpenShift
 
 Se você tiver contêineres implantados no [Azure Service Fabric](../../service-fabric/service-fabric-overview.md), é recomendável habilitar a [solução Service Fabric](../../service-fabric/service-fabric-diagnostics-oms-setup.md) e essa solução para incluir o monitoramento de eventos de cluster. Antes de habilitar a solução de Service Fabric, examine [o uso da solução Service Fabric](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) para entender o que ele fornece e como usá-lo.
@@ -52,11 +46,11 @@ Antes de começar, examine os detalhes a seguir para verificar se você atende a
 
 A tabela a seguir descreve a orquestração do Docker e o suporte ao monitoramento do sistema operacional de inventário de contêiner, desempenho e logs com Azure Monitor.   
 
-| | ACS | Linux | Windows | Contêiner<br>Inventário | Image<br>Inventário | Nó<br>Inventário | Contêiner<br>Desempenho | Contêiner<br>evento | evento<br>Log | Contêiner<br>Log |
+| | ACS | Linux | Windows | Contêiner<br>Inventário | Imagem<br>Inventário | Nó<br>Inventário | Contêiner<br>Performance | Contêiner<br>Evento | Evento<br>Log | Contêiner<br>Log |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
-| Mesosphere<br>DC/SO | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
-| Docker<br>Por nuvem | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
+| kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
+| Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Serviço<br>Fabric | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat Open<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(autônomo) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
@@ -557,7 +551,7 @@ A tabela a seguir mostra exemplos de registros coletados pela solução de Monit
 Os rótulos anexado aos tipos de dados *PodLabel* são seus próprios rótulos personalizados. Os rótulos PodLabel anexados mostrados na tabela são exemplos. Portanto, `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` serão diferentes no conjunto de dados de seu ambiente, e genericamente lembram `PodLabel_yourlabel_s`.
 
 ## <a name="monitor-containers"></a>Monitorar contêineres
-Depois que a solução estiver habilitada no portal do Azure, o bloco contêineres mostrará informações resumidas sobre os hosts de contêiner e os contêineres em execução nos hosts.
+Depois que a solução estiver habilitada no portal do Azure, o bloco **contêineres** mostrará informações resumidas sobre os hosts de contêiner e os contêineres em execução nos hosts.
 
 ![Bloco Contêineres](./media/containers/containers-title.png)
 
@@ -645,6 +639,6 @@ Salvar consultas é um recurso padrão no Azure Monitor. Ao salvá-las, você te
 
 Depois de criar uma consulta que considerar útil, salve-a clicando em **Favoritos** na parte superior da página Pesquisa de Log. Depois, você pode acessá-la facilmente pela página **Meu Painel**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Logs de consulta](../log-query/log-query-overview.md) para exibir registros de dados de contêiner detalhados.

@@ -1,24 +1,19 @@
 ---
 title: Criar relatórios interativos com pastas de trabalho do Azure Monitor | Microsoft Docs
 description: Simplifique a emissão de relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbbf511286c63acf4a939e0a0e7d9c3dc9efa75b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569612"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899383"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Crie relatórios interativos com pastas de trabalho do Azure Monitor
 
@@ -26,7 +21,7 @@ As Pastas de Trabalho combinam texto, [consultas de Análise](https://docs.mic
 
 As pastas de trabalho são úteis para cenários como:
 
-* Exploração do uso do aplicativo quando você não sabe as métricas de interesse antecipadamente: números de usuários, taxas de retenção, taxas de conversão, etc. Ao contrário de outras ferramentas de análise de uso, as pastas de trabalho permitem combinar vários tipos de visualizações e análises, tornando-as excelentes para esse tipo de exploração de forma livre.
+* Explorando o uso de seu aplicativo quando você não conhece as métricas de interesse com antecedência: números de usuários, taxas de retenção, taxas de conversão, etc. Ao contrário de outras ferramentas de análise de uso, as pastas de trabalho permitem combinar vários tipos de visualizações e análises, tornando-as excelentes para esse tipo de exploração de forma livre.
 * Explicar para sua equipe sobre o desempenho de um recurso recém-liberado, mostrando contagens de usuário para as principais interações e outras métricas.
 * Compartilhar os resultados de um experimento A/B no aplicativo com outros membros de sua equipe. Você pode explicar as metas do experimento com um texto e, depois, mostrar cada métrica de uso e consulta do Analytics usada para avaliar o experimento, junto com textos explicativos claros que indicam se cada métrica estava acima ou abaixo da meta.
 * Relatar o impacto de uma interrupção no uso do aplicativo, combinando dados, explicação de texto e uma discussão das próximas etapas para prevenir interrupções no futuro.
@@ -206,7 +201,7 @@ Gera o resultado:
 
 ![Controles de edição da seção Pastas de Trabalho do Application Insights](./media/usage-workbooks/011-data-table.png)
 
-Um exemplo mais aplicável está usando uma lista suspensa para escolher um conjunto de países/regiões por nome:
+Um exemplo mais aplicável é usar uma lista suspensa para escolher um conjunto de países/regiões por nome:
 
 ```
 customEvents
@@ -257,7 +252,7 @@ Para fixar um link em uma pasta de trabalho em um Painel do Azure:
 
 Você criou um modelo de pasta de trabalho incrível e quer compartilhá-lo com a comunidade? Para saber mais, visite nosso [repositório GitHub](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Para habilitar as experiências de uso, comece enviando [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Se você já envia eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários utilizam o seu serviço.
     - [Usuários, Sessões, Eventos](../../azure-monitor/app/usage-segmentation.md)
