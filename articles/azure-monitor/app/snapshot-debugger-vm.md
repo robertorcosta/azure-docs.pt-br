@@ -1,23 +1,19 @@
 ---
 title: Habilitar Depurador de Instantâneos para aplicativos .NET no Service Fabric do Azure, serviço de nuvem e máquinas virtuais | Microsoft Docs
 description: Habilitar Depurador de Instantâneos para aplicativos .NET no Azure Service Fabric, serviço de nuvem e máquinas virtuais
-services: application-insights
-documentationcenter: ''
-author: brahmnes
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 03/07/2019
+author: brahmnes
 ms.author: bfung
-ms.openlocfilehash: 5a6cf763ae16b55806df2acaf2e03fd8c13d1e76
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.date: 03/07/2019
+ms.reviewer: mbullwin
+ms.openlocfilehash: 98ceeeb8efb11e2caeffadeb48270c419cc7e430
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359281"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899808"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Habilitar Depurador de Instantâneos para aplicativos .NET no Azure Service Fabric, serviço de nuvem e máquinas virtuais
 
@@ -78,18 +74,18 @@ Se seu aplicativo for executado no Azure Service Fabric, serviço de nuvem, máq
 2. Inclua o pacote do NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo.
 
 3. Modifique a classe `Startup` do seu aplicativo para adicionar e configurar o processador de telemetria do Coletor de Instantâneo.
-    1. Se [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet Package versão 1.3.5 ou superior for usado, adicione as seguintes instruções using ao `Startup.cs`.
+    1. Se [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet Package versão 1.3.5 ou superior for usado, adicione as instruções using a seguir para `Startup.cs`.
 
        ```csharp
             using Microsoft.ApplicationInsights.SnapshotCollector;
        ```
 
-       Adicione o seguinte ao final do método configureservices na `Startup` classe em. `Startup.cs`
+       Adicione o seguinte ao final do método configureservices na classe `Startup` em `Startup.cs`.
 
        ```csharp
             services.AddSnapshotCollector((configuration) => Configuration.Bind(nameof(SnapshotCollectorConfiguration), configuration));
        ```
-    2. Se [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet Package versão 1.3.4 ou abaixo for usado, adicione as seguintes instruções using ao `Startup.cs`.
+    2. Se [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet Package versão 1.3.4 ou abaixo for usado, adicione as instruções using a seguir para `Startup.cs`.
 
        ```csharp
        using Microsoft.ApplicationInsights.SnapshotCollector;
@@ -181,7 +177,7 @@ Se seu aplicativo for executado no Azure Service Fabric, serviço de nuvem, máq
    }
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Gere o tráfego para o aplicativo que pode disparar uma exceção. Em seguida, aguarde de 10 a 15 minutos para que os instantâneos sejam enviados para a instância de Application Insights.
 - Consulte [instantâneos](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) na portal do Azure.

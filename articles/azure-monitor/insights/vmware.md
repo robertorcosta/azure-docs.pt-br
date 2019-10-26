@@ -1,35 +1,29 @@
 ---
-title: Solução de monitoramento de VMware no Azure Monitor | Microsoft Docs
+title: Monitoramento do VMware solução no Azure Monitor | Microsoft Docs
 description: Saiba mais sobre como a solução de Monitoramento de VMware pode ajudar a gerenciar logs e monitorar hosts ESXi.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/04/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: eac6a27c3bcf64462a9f3d9a57da6df736f30c78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/04/2018
+ms.openlocfilehash: dc453ad42312bb096aed1356d376b0906870a7b0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61385977"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900604"
 ---
-# <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solução de monitoramento do VMware (preterido) no Azure Monitor
+# <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Monitoramento do VMware (preterido) solução no Azure Monitor
 
 ![Símbolo de VMware](./media/vmware/vmware-symbol.png)
 
 > [!NOTE]
 > A solução de Monitoramento do VMware foi preterida.  Os clientes que já instalaram a solução podem continuar a usá-la, mas o Monitoramento do VMware não poderá ser adicionado a um novo workspace.
 
-A solução de monitoramento do VMware no Azure Monitor é uma solução que ajuda você a criar um log centralizado e a abordagem de monitoramento para grandes logs do VMware. Este artigo descreve como você pode solucionar problemas, capturar e gerenciar os hosts ESXi em uma única localização usando a solução. Com a solução, você pode ver os dados detalhados de todos os seus hosts ESXi em uma única localização. Você pode ver os principais eventos contagens, status e tendências de VM e hosts ESXi fornecidos por meio dos logs de host ESXi. Você pode solucionar problemas exibindo e pesquisando logs de host ESXi centralizados. Além disso, você pode criar alertas com base em consultas de pesquisa de log.
+A solução Monitoramento do VMware no Azure Monitor é uma solução que ajuda a criar uma abordagem centralizada de registro em log e monitoramento para grandes logs do VMware. Este artigo descreve como você pode solucionar problemas, capturar e gerenciar os hosts ESXi em uma única localização usando a solução. Com a solução, você pode ver os dados detalhados de todos os seus hosts ESXi em uma única localização. Você pode ver os principais eventos contagens, status e tendências de VM e hosts ESXi fornecidos por meio dos logs de host ESXi. Você pode solucionar problemas exibindo e pesquisando logs de host ESXi centralizados. Além disso, você pode criar alertas com base em consultas de pesquisa de log.
 
-A solução usa a funcionalidade de syslog nativo do host ESXi para enviar dados por push para um destino de VM, que tem o agente do Log Analytics. No entanto, a solução não grava arquivos no syslog dentro da VM de destino. O agente do Log Analytics abre a porta 1514 e escuta nela. Uma vez que recebe os dados, o agente do Log Analytics envia os dados para o Azure Monitor.
+A solução usa a funcionalidade de syslog nativo do host ESXi para enviar dados por push para um destino de VM, que tem o agente do Log Analytics. No entanto, a solução não grava arquivos no syslog dentro da VM de destino. O agente do Log Analytics abre a porta 1514 e escuta nela. Depois de receber os dados, o agente de Log Analytics envia os dados por push para Azure Monitor.
 
 ## <a name="install-and-configure-the-solution"></a>Instale e configure a solução
 Use as informações a seguir para instalar e configurar a solução.
@@ -71,9 +65,9 @@ Crie um sistema operacional do Linux VM para receber todos os dados syslog de ho
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-1. No portal do Azure, executar uma consulta de log para `VMware_CL`. Quando o Azure Monitor coleta os dados syslog, ele retém o formato syslog. No portal, alguns campos específicos são capturados, como *Hostname* e *ProcessName*.  
+1. No portal do Azure, execute uma consulta de log para `VMware_CL`. Quando Azure Monitor coleta os dados do syslog, ele retém o formato syslog. No portal, alguns campos específicos são capturados, como *Hostname* e *ProcessName*.  
 
-    ![Tipo](./media/vmware/type.png)  
+    ![type](./media/vmware/type.png)  
 
     Se seus resultados da pesquisa de log de exibição forem semelhantes àqueles da imagem acima, você estará pronto para usar o painel de solução de Monitoramento do VMWare.  
 
@@ -129,7 +123,7 @@ No modo de exibição de painel **VMware**, as folhas são organizadas por:
 
 Clique em qualquer folha para abrir o painel de pesquisa do Log Analytics que mostra informações detalhadas específicas para essa folha.
 
-A partir daqui, você pode editar a consulta de log para modificá-lo para algo específico. Para obter detalhes sobre como criar consultas de log, consulte [localizar dados usando consultas de log no Azure Monitor](../log-query/log-query-overview.md).
+A partir daqui, você pode editar a consulta de log para modificá-la para algo específico. Para obter detalhes sobre como criar consultas de log, consulte [Localizar dados usando consultas de log em Azure monitor](../log-query/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>Encontrar eventos do host ESXi
 Um único host ESXi gera vários logs, com base em seus processos. A solução de Monitoramento do VMware centraliza-os e resume as contagens de eventos. Essa exibição centralizada ajuda a entender qual host ESXi tem um alto volume de eventos e quais eventos ocorrem com mais frequência em seu ambiente.
@@ -151,14 +145,14 @@ Se você quiser ver dados adicionais de criação de VMs de host ESXi, clique em
 
 ![aprofundar-se](./media/vmware/createvm.png)
 
-#### <a name="common-log-queries"></a>Consultas comuns de log
+#### <a name="common-log-queries"></a>Consultas de log comuns
 A solução inclui outras consultas úteis que podem ajudá-lo a gerenciar seus hosts ESXi, como espaço de armazenamento de alta latência de armazenamento e falha do caminho.
 
 ![consultas](./media/vmware/queries.png)
 
 
 #### <a name="save-queries"></a>Salvar consultas
-Salvar consultas de log é um recurso padrão do Azure Monitor e pode ajudá-lo a manter todas as consultas que você considerar úteis. Depois de criar uma consulta você considerar útil, salve-a clicando em **Favoritos**. Uma consulta salva permite que você reutilize-a posteriormente com facilidade usando a página [Meu Painel](../learn/tutorial-logs-dashboards.md), na qual você pode criar seus próprios painéis personalizados.
+Salvar consultas de log é um recurso padrão no Azure Monitor e pode ajudá-lo a manter todas as consultas que você encontrou úteis. Depois de criar uma consulta você considerar útil, salve-a clicando em **Favoritos**. Uma consulta salva permite que você reutilize-a posteriormente com facilidade usando a página [Meu Painel](../learn/tutorial-logs-dashboards.md), na qual você pode criar seus próprios painéis personalizados.
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
@@ -203,7 +197,7 @@ Pode haver vários motivos:
 
      d. Se o arquivo não existe ou o usuário e a configuração de grupo estão errados, tome uma ação corretiva ao [Preparar um servidor Linux](#prepare-a-linux-server).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Usar [consultas de log](../log-query/log-query-overview.md) no Log Analytics para exibir dados detalhados de hosts do VMware.
 * [Criar seus próprios painéis](../learn/tutorial-logs-dashboards.md) mostrando os dados de host do VMware.
 * [Criar alertas](../platform/alerts-overview.md) quando ocorrem eventos específicos de host do VMware.

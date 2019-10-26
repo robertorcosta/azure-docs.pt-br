@@ -1,24 +1,18 @@
 ---
 title: Criar gráficos e diagramas a partir de consultas de log do Azure Monitor | Microsoft Docs
 description: Descreve várias visualizações no Azure Monitor para exibir seus dados de log de maneiras diferentes.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 07d0866bd697587da170a00e8077a57035989d32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: 34975a1752467c61ea5b329210473eee266c98d1
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60594114"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900409"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Criar gráficos e diagramas a partir de consultas de log do Azure Monitor
 
@@ -92,8 +86,8 @@ Você pode alternar entre selecionando o menu suspenso com o nome da coluna.
 
 ![Gráfico de barras AccountType](media/charts/charts-and-diagrams-multiDimension2.png)
 
-## <a name="next-steps"></a>Próximas etapas
-Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
+## <a name="next-steps"></a>Próximos passos
+Confira outras lições para usar a [linguagem de consulta do Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)

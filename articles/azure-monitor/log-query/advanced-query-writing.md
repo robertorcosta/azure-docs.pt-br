@@ -1,29 +1,23 @@
 ---
-title: Consultas no Azure Monitor avançadas | Microsoft Docs
+title: Consultas avançadas no Azure Monitor | Microsoft Docs
 description: Este artigo fornece um tutorial para usar o portal do Analytics para escrever consultas no Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/15/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/15/2018
+ms.openlocfilehash: 8895224bef037c8c3f8b28a6085359837478d924
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589583"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894497"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Escrever consultas avançadas no Azure Monitor
 
 > [!NOTE]
-> Você deve concluir [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md) e [Introdução às consultas](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir a introdução [ao Azure Monitor log Analytics](get-started-portal.md) e [a introdução às consultas](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -76,7 +70,7 @@ Event
 ```
 
 ## <a name="print"></a>Imprimir
-`print` retornará uma tabela com uma única coluna e uma única linha, mostrando o resultado de um cálculo. Isso geralmente é usado em casos em que você precisa de um cálculo simples. Por exemplo, para localizar a hora atual em PST e adicionar uma coluna com EST:
+`print` retornará uma tabela com uma única coluna e uma única linha, mostrando o resultado de um cálculo. Isso geralmente é usado nos casos em que você precisa de um cálculo simples. Por exemplo, para localizar a hora atual em PST e adicionar uma coluna com EST:
 
 ```Kusto
 print nowPst = now()-8h
@@ -129,8 +123,8 @@ SecurityEvent
 | project TimeGenerated, Account, AccountType, Computer, EventType
 ```
 
-## <a name="next-steps"></a>Próximas etapas
-Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
+## <a name="next-steps"></a>Próximos passos
+Confira outras lições para usar a [linguagem de consulta do Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)

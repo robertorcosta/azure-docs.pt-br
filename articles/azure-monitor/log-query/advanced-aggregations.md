@@ -1,24 +1,18 @@
 ---
 title: Agregações avançadas nas consultas de log do Azure Monitor | Microsoft Docs
 description: Descreve algumas das opções de agregação mais avançadas disponíveis para as consultas de log do Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 56e87da0353a41504035a070d4c10bab0dda2279
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: f34e71c4e15e3bb09676e366313e90a7261439e5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551746"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900436"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agregações avançadas nas consultas de log do Azure Monitor
 
@@ -120,7 +114,7 @@ Heartbeat
 | ... | ... |
 
 ## <a name="handling-missing-bins"></a>Handling missing bins
-A useful application of `mvexpand` is the need to fill default values in for missing bins. Por exemplo, suponha que você esteja procurando o tempo de atividade de uma determinada máquina, explorando sua pulsação. Você também deseja ver a origem da pulsação que está na coluna _categoria_. Normalmente, usaríamos um simples resumir instrução da seguinte maneira:
+Um aplicativo útil do `mvexpand` é a necessidade de preencher valores padrão no para compartimentos ausentes. Por exemplo, suponha que você esteja procurando o tempo de atividade de um determinado computador explorando sua pulsação. Você também deseja ver a origem da pulsação que está na coluna _categoria_. Normalmente, usaríamos um simples resumir instrução da seguinte maneira:
 
 ```Kusto
 Heartbeat
@@ -130,11 +124,11 @@ Heartbeat
 
 | Categoria | TimeGenerated | count_ |
 |--------------|----------------------|--------|
-| Agente direto | 2017-06-06T17:00:00Z | 15 |
-| Agente direto | 2017-06-06T18:00:00Z | 60 |
-| Agente direto | 2017-06-06T20:00:00Z | 55 |
-| Agente direto | 2017-06-06T21:00:00Z | 57 |
-| Agente direto | 2017-06-06T22:00:00Z | 60 |
+| Agente Direct | 2017-06-06T17:00:00Z | 15 |
+| Agente Direct | 2017-06-06T18:00:00Z | 60 |
+| Agente Direct | 2017-06-06T20:00:00Z | 55 |
+| Agente Direct | 2017-06-06T21:00:00Z | 57 |
+| Agente Direct | 2017-06-06T22:00:00Z | 60 |
 | ... | ... | ... |
 
 Nesses resultados, o bucket associado a "2017-06-06T19: 00: 00Z" está ausente porque não há dados de pulsação para essa hora. Use a função `make-series` para atribuir um valor padrão a depósitos vazios. Isso gerará uma linha para cada categoria com duas colunas de matriz extras, uma para valores e outra para correspondência de intervalos de tempo:
@@ -146,7 +140,7 @@ Heartbeat
 
 | Categoria | count_ | TimeGenerated |
 |---|---|---|
-| Agente direto | [15,60,0,55,60,57,60...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
+| Agente Direct | [15,60,0,55,60,57,60...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
 | ... | ... | ... |
 
 O terceiro elemento da matriz *count_* é 0 como esperado e há um registro de data e hora correspondente de "2017-06-06T19: 00: 00.0000000Z" na matriz _TimeGenerated_. Esse formato de matriz é difícil de ler, no entanto. Use `mvexpand` para expandir as matrizes e produzem o mesmo formato de saída gerada pelo `summarize`:
@@ -160,12 +154,12 @@ Heartbeat
 
 | Categoria | TimeGenerated | count_ |
 |--------------|----------------------|--------|
-| Agente direto | 2017-06-06T17:00:00Z | 15 |
-| Agente direto | 2017-06-06T18:00:00Z | 60 |
-| Agente direto | 2017-06-06T19:00:00Z | 0 |
-| Agente direto | 2017-06-06T20:00:00Z | 55 |
-| Agente direto | 2017-06-06T21:00:00Z | 57 |
-| Agente direto | 2017-06-06T22:00:00Z | 60 |
+| Agente Direct | 2017-06-06T17:00:00Z | 15 |
+| Agente Direct | 2017-06-06T18:00:00Z | 60 |
+| Agente Direct | 2017-06-06T19:00:00Z | 0 |
+| Agente Direct | 2017-06-06T20:00:00Z | 55 |
+| Agente Direct | 2017-06-06T21:00:00Z | 57 |
+| Agente Direct | 2017-06-06T22:00:00Z | 60 |
 | ... | ... | ... |
 
 
@@ -184,9 +178,9 @@ WindowsFirewall
 | where Computer in (ComputersNeedingUpdate)
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
+Confira outras lições para usar a [linguagem de consulta do Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)

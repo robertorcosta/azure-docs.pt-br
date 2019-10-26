@@ -4,16 +4,17 @@ description: Descreve as funções a serem usadas no modelo do Gerenciador de Re
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 10/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 968e55cc07d10a0d4b54d4a7e866417d18e98bb5
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 04358f21af79838f894dc50d5d9c165da67a332c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258878"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894170"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funções do modelo do Gerenciador de Recursos do Azure
+
 Este artigo descreve todas as funções que você pode usar em um modelo do Azure Resource Manager. Para obter informações sobre como usar funções em seu modelo, consulte [sintaxe do modelo](template-expressions.md).
 
 Para criar suas próprias funções, consulte [Funções definidas pelo usuário](resource-group-authoring-templates.md#functions).
@@ -81,7 +82,7 @@ O Gerenciador de Recursos fornece as seguintes funções para obter os valores d
 
 * [implantação](resource-group-template-functions-deployment.md#deployment)
 * [parâmetros](resource-group-template-functions-deployment.md#parameters)
-* [variables](resource-group-template-functions-deployment.md#variables)
+* [variáveis](resource-group-template-functions-deployment.md#variables)
 
 <a id="and" aria-hidden="true" />
 <a id="bool" aria-hidden="true" />
@@ -123,6 +124,7 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com núm
 * [mul](resource-group-template-functions-numeric.md#mul)
 * [sub](resource-group-template-functions-numeric.md#sub)
 
+<a id="extensionResourceId" aria-hidden="true" />
 <a id="listkeys" aria-hidden="true" />
 <a id="list" aria-hidden="true" />
 <a id="providers" aria-hidden="true" />
@@ -130,10 +132,13 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com núm
 <a id="resourcegroup" aria-hidden="true" />
 <a id="resourceid" aria-hidden="true" />
 <a id="subscription" aria-hidden="true" />
+<a id="subscriptionResourceId" aria-hidden="true" />
+<a id="tenantResourceId" aria-hidden="true" />
 
 ## <a name="resource-functions"></a>Funções de recurso
 O Gerenciador de Recursos fornece as seguintes funções para obter valores de recurso:
 
+* [extensionResourceId](resource-group-template-functions-resource.md#extensionresourceid)
 * [listAccountSas](resource-group-template-functions-resource.md#list)
 * [listKeys](resource-group-template-functions-resource.md#listkeys)
 * [listSecrets](resource-group-template-functions-resource.md#list)
@@ -142,7 +147,9 @@ O Gerenciador de Recursos fornece as seguintes funções para obter valores de r
 * [reference](resource-group-template-functions-resource.md#reference)
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
 * [resourceId](resource-group-template-functions-resource.md#resourceid)
-* [subscription](resource-group-template-functions-resource.md#subscription)
+* [assinatura](resource-group-template-functions-resource.md#subscription)
+* [subscriptionResourceId](resource-group-template-functions-resource.md#subscriptionresourceid)
+* [tenantResourceId](resource-group-template-functions-resource.md#tenantresourceid)
 
 <a id="base64" aria-hidden="true" />
 <a id="base64tojson" aria-hidden="true" />
@@ -196,7 +203,7 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 * [length](resource-group-template-functions-string.md#length)
 * [newGuid](resource-group-template-functions-string.md#newguid)
 * [padLeft](resource-group-template-functions-string.md#padleft)
-* [replace](resource-group-template-functions-string.md#replace)
+* [substitui](resource-group-template-functions-string.md#replace)
 * [skip](resource-group-template-functions-string.md#skip)
 * [split](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
@@ -205,15 +212,16 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 * [take](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)
 * [toUpper](resource-group-template-functions-string.md#toupper)
-* [trim](resource-group-template-functions-string.md#trim)
+* [cortar](resource-group-template-functions-string.md#trim)
 * [uniqueString](resource-group-template-functions-string.md#uniquestring)
 * [uri](resource-group-template-functions-string.md#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 * [utcNow](resource-group-template-functions-string.md#utcnow)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
+
 * Para obter uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, veja a seção [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
-* Para mesclar diversos modelos, confira a seção [Como usar modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md)
+* Para mesclar diversos modelos, confira a seção [Como usar modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md)
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, confira [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md)
 * Para ver como implantar o modelo que você criou, consulte [implantar um aplicativo com Azure Resource Manager modelo](resource-group-template-deploy.md)

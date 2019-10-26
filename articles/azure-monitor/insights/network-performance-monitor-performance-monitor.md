@@ -1,28 +1,22 @@
 ---
 title: Recurso de Monitor de Desempenho na solução Monitor de Desempenho de Rede no Azure Log Analytics | Microsoft Docs
 description: O recurso Monitor de Desempenho no Monitor de Desempenho de Rede ajuda a monitorar a conectividade de rede em vários pontos em sua rede. Você pode monitorar as implantações de nuvem e locais internos, vários data centers e filiais, e aplicativos críticos ou microsserviços de várias camadas.
-services: log-analytics
-documentationcenter: ''
-author: abshamsft
-manager: carmonm
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/20/2018
+author: abshamsft
 ms.author: absha
-ms.openlocfilehash: bb99689409ddff311e556250083b99842bc59927
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/20/2018
+ms.openlocfilehash: 745ec6ee8e69ad911e42b6360b3408d79d660718
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963516"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898842"
 ---
-# <a name="network-performance-monitor-solution-performance-monitoring"></a>Solução do Monitor de Desempenho de Rede: Monitoramento de desempenho
+# <a name="network-performance-monitor-solution-performance-monitoring"></a>Solução do Monitor de Desempenho de Rede – Monitoramento de Desempenho
 
-O recurso Monitor de Desempenho no [Monitor de Desempenho de Rede](network-performance-monitor.md) ajuda a monitorar a conectividade de rede em vários pontos em sua rede. Você pode monitorar as implantações de nuvem e locais internos, vários data centers e filiais, e aplicativos críticos ou microsserviços de várias camadas. Com o Monitor de Desempenho, você pode detectar problemas de rede antes de seus usuários reclamarem. As principais vantagens são que você pode: 
+O recurso Monitor de Desempenho no [Monitor de Desempenho de Rede](network-performance-monitor.md) ajuda a monitorar a conectividade de rede em vários pontos em sua rede. Você pode monitorar as implantações de nuvem e locais internos, vários data centers e filiais, e aplicativos críticos ou microsserviços de várias camadas. Com o Monitor de desempenho, você pode detectar problemas de rede antes de seus usuários reclamarem. As principais vantagens são que você pode: 
 
 - Monitorar perda e latência em várias sub-redes e definir alertas.
 - Monitorar todos os caminhos (incluindo caminhos redundantes) na rede.
@@ -134,5 +128,5 @@ Na imagem a seguir, a causa raiz das áreas problemáticas para a seção espec�
  
 ![Mapa de topologia com as propriedades do nó selecionadas](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Pesquisar logs](../../azure-monitor/log-query/log-query-overview.md) para exibir registros de dados de desempenho de rede detalhados.
