@@ -1,5 +1,5 @@
 ---
-title: Processamento de eventos em tempo real usando o processamento de eventos do Azure Stream Analytics
+title: Processamento de eventos em tempo real usando Azure Stream Analytics
 description: Este artigo descreve a arquitetura de referência para obter análise e processamento de eventos em tempo real usando o Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: ab1ca89427f332151120420c3c087902584706f4
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 21a0e4e468b606ec7bb7e33bf1a616e68cd6cf50
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621773"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925106"
 ---
-# <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Arquitetura de referência: Processamento de eventos em tempo real com o Stream Analytics do Microsoft Azure
+# <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Arquitetura de referência: processamento de eventos em tempo real com o Stream Analytics do Microsoft Azure
 A arquitetura de referência para processamento de eventos em tempo real com o Stream Analytics do Azure se destina a fornecer um plano gráfico genérico para implantar uma solução de processamento de fluxo de PaaS (plataforma como um serviço) em tempo real com o Microsoft Azure.
 
 ## <a name="summary"></a>Resumo
@@ -29,7 +29,7 @@ O Microsoft Azure oferece um catálogo abrangente de tecnologias de análise que
 * Proposta de valor de dados em tempo real no Azure
 * Cenários comuns de análise em tempo real
 * Arquitetura e componentes
-  * Fontes de dados
+  * Fontes de Dados
   * Camada de integração de dados
   * Camada de análise em tempo real
   * Camada de armazenamento de dados
@@ -38,16 +38,16 @@ O Microsoft Azure oferece um catálogo abrangente de tecnologias de análise que
 
 **Autor:** Charles Feddersen, arquiteto de soluções, Data Insights Center of Excellence, Microsoft Corporation
 
-**Publicado:** Janeiro de 2015
+**Publicação:** janeiro de 2015
 
 **Revisão:** 1.0
 
 **Download:** [Processamento de eventos em tempo real com o Stream Analytics do Microsoft Azure](https://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
-## <a name="get-help"></a>Obter ajuda
+## <a name="get-help"></a>Obtenha ajuda
 Para obter mais assistência, experimente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)

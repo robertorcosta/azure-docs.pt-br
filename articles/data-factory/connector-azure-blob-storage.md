@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: da8b4ebd5cf1e7a57842a116e5d9e21e3c3f7874
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: a68549622972bfa031bc2934473dc65f0a656231
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387296"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935708"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para o Armazenamento de Blobs do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -42,8 +42,8 @@ Especificamente, este conector de armazenamento de Blob dá suporte a:
 - Copiar blobs de blocos, acréscimos ou de páginas e copiar dados somente para blobs de blocos.
 - Copiar blobs no estado em que se encontram ou analisando ou gerando blobs com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
->[!NOTE]
->Se você habilitar a opção _"permitir que os serviços confiáveis da Microsoft acessem esta conta de armazenamento"_ nas configurações do firewall do armazenamento do Azure, o uso de Azure Integration Runtime para se conectar ao armazenamento de BLOBs falhará com um erro proibido, pois o ADF não será tratado como confiável Serviço da Microsoft. Conecte-se por meio de um Integration Runtime hospedado internamente.
+>[!IMPORTANT]
+>Se você habilitar a opção **permitir que os serviços confiáveis da Microsoft acessem esta conta de armazenamento** nas configurações do firewall do armazenamento do Azure e quiser usar o tempo de execução de integração do Azure para se conectar ao armazenamento de BLOBs, será necessário usar a [autenticação de identidade gerenciada](#managed-identity).
 
 ## <a name="get-started"></a>Comece agora
 
@@ -316,12 +316,9 @@ Estas propriedades são suportadas por um serviço vinculado de armazenamento de
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de dados](concepts-datasets-linked-services.md). 
 
-- Para **parquet, texto delimitado, JSON, Avro e formato binário**, consulte a seção [parquet, texto delimitado, JSON, Avro e DataSet de formato binário](#format-based-dataset) .
-- Para outros formatos como o **formato Orc/JSON**, consulte [outra](#other-format-dataset) seção do conjunto de exemplo.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a>Parquet, texto delimitado, JSON, Avro e conjunto de DataSet de formato binário
-
-Para copiar dados de e para o armazenamento de BLOBs em parquet, texto delimitado, formato Avro ou binário, consulte [formato parquet](format-parquet.md), [formato de texto delimitado](format-delimited-text.md), [formato de Avro](format-avro.md) e artigo de [formato binário](format-binary.md) em conjunto de dados com base em formato e configurações com suporte. As propriedades a seguir têm suporte para o blob do Azure em configurações `location` no conjunto de base de formato:
+As propriedades a seguir têm suporte para o blob do Azure em configurações `location` no conjunto de base de formato:
 
 | Propriedade   | Descrição                                                  | obrigatórios |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -329,10 +326,6 @@ Para copiar dados de e para o armazenamento de BLOBs em parquet, texto delimitad
 | contêiner  | O contêiner de BLOB.                                          | SIM      |
 | folderPath | O caminho para a pasta sob o contêiner fornecido. Se você quiser usar curinga para filtrar a pasta, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
 | fileName   | O nome do arquivo sob o contêiner especificado + folderPath. Se você quiser usar curinga para filtrar arquivos, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
-
-> [!NOTE]
->
-> **AzureBlob** tipo de conjunto de dados com parquet/formato de texto mencionado na próxima seção ainda tem suporte como é para a atividade de cópia/pesquisa/GetMetadata para compatibilidade com versões anteriores, mas não funciona com o fluxo de dados de mapeamento. Você é sugerido para usar esse novo modelo no futuro, e a interface do usuário de criação do ADF mudou para gerar esses novos tipos.
 
 **Exemplo:**
 
@@ -361,9 +354,10 @@ Para copiar dados de e para o armazenamento de BLOBs em parquet, texto delimitad
 }
 ```
 
-### <a name="other-format-dataset"></a>Outro conjunto de DataSet de formato
+### <a name="legacy-dataset-model"></a>Modelo de conjunto de DataSet herdado
 
-Para copiar dados de e para o armazenamento de BLOBs no formato ORC/JSON, defina a propriedade Type do conjunto de dados como **AzureBlob**. Há suporte para as seguintes propriedades.
+>[!NOTE]
+>O modelo de conjunto de itens a seguir ainda tem suporte como está para compatibilidade com versões anteriores. Você deve usar o novo modelo mencionado na seção acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
 
 | Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
@@ -414,12 +408,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="blob-storage-as-a-source-type"></a>Armazenamento de blob como um tipo de fonte
 
-- Para copiar de **parquet, de texto delimitado, JSON, Avro e formato binário**, consulte a seção [parquet, texto delimitado, JSON, Avro e fonte de formato binário](#format-based-source) .
-- Para copiar de outros formatos, como o **formato Orc**, consulte [outra seção fonte de formato](#other-format-source) .
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a>Parquet, texto delimitado, JSON, Avro e fonte de formato binário
-
-Para copiar dados de e para o armazenamento de BLOBs em **parquet, texto delimitado, JSON, Avro e formato binário**, consulte [formato parquet](format-parquet.md), [formato de texto delimitado](format-delimited-text.md), [formato de Avro](format-avro.md) e artigo de [formato binário](format-binary.md) no conjunto de dados baseado em formato e configurações com suporte. As propriedades a seguir têm suporte para o blob do Azure em configurações `storeSettings` em fonte de cópia baseada em formato:
+As propriedades a seguir têm suporte para o blob do Azure em configurações `storeSettings` em fonte de cópia baseada em formato:
 
 | Propriedade                 | Descrição                                                  | obrigatórios                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -475,9 +466,10 @@ Para copiar dados de e para o armazenamento de BLOBs em **parquet, texto delimit
 ]
 ```
 
-#### <a name="other-format-source"></a>Outra fonte de formato
+#### <a name="legacy-source-model"></a>Modelo de origem herdado
 
-Para copiar dados do armazenamento de BLOBs no **formato Orc**, defina o tipo de fonte na atividade de cópia como **blobname**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia.
+>[!NOTE]
+>O modelo de origem de cópia a seguir ainda tem suporte como está para compatibilidade com versões anteriores. Você deve usar o novo modelo mencionado acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
 
 | Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |
@@ -519,21 +511,15 @@ Para copiar dados do armazenamento de BLOBs no **formato Orc**, defina o tipo de
 
 ### <a name="blob-storage-as-a-sink-type"></a>Armazenamento de blob como um tipo de coletor
 
-- Para copiar de **parquet, de texto delimitado, JSON, Avro e formato binário**, consulte a seção [parquet, texto delimitado, JSON, Avro e fonte de formato binário](#format-based-source) .
-- Para copiar de outros formatos, como o **formato Orc**, consulte [outra seção fonte de formato](#other-format-source) .
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a>Parquet, texto delimitado, JSON, Avro e fonte de formato binário
-
-Para copiar dados do armazenamento de BLOBs em **parquet, texto delimitado, JSON, Avro e formato binário**, consulte [formato parquet](format-parquet.md), [formato de texto delimitado](format-delimited-text.md), [formato de Avro](format-avro.md) e artigo de [formato binário](format-binary.md) na fonte da atividade de cópia baseada em formato e configurações com suporte. As propriedades a seguir têm suporte para o blob do Azure em configurações `storeSettings` no coletor de cópia com base em formato:
+As propriedades a seguir têm suporte para o blob do Azure em configurações `storeSettings` no coletor de cópia com base em formato:
 
 | Propriedade                 | Descrição                                                  | obrigatórios |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | A propriedade Type em `storeSettings` deve ser definida como **AzureBlobStorageWriteSetting**. | SIM      |
 | copyBehavior             | Define o comportamento de cópia quando a fonte for de arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (padrão)</b>: Preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>- FlattenHierarchy</b>: Todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm os nomes gerados automaticamente. <br/><b>- MergeFiles</b>: Mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo ou do blob for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, ele será um nome de arquivo gerado automaticamente. | Não       |
 | maxConcurrentConnections | O número de conexões a serem conectadas ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não       |
-
-> [!NOTE]
-> Para o formato de texto parquet/delimitado, o coletor de atividade de cópia do tipo **BlobSink** mencionado na próxima seção ainda tem suporte como está para compatibilidade com versões anteriores. Você é sugerido para usar esse novo modelo no futuro, e a interface do usuário de criação do ADF mudou para gerar esses novos tipos.
 
 **Exemplo:**
 
@@ -570,9 +556,10 @@ Para copiar dados do armazenamento de BLOBs em **parquet, texto delimitado, JSON
 ]
 ```
 
-#### <a name="other-format-sink"></a>Outro coletor de formato
+#### <a name="legacy-sink-model"></a>Modelo de coletor herdado
 
-Para copiar dados para o armazenamento de blob no **formato Orc**, defina o tipo de coletor na atividade de cópia como **BlobSink**. As propriedades a seguir têm suporte na seção **coletor**.
+>[!NOTE]
+>O modelo de coletor de cópia a seguir ainda tem suporte como está para compatibilidade com versões anteriores. Você deve usar o novo modelo mencionado acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
 
 | Propriedade | Descrição | obrigatórios |
 |:--- |:--- |:--- |

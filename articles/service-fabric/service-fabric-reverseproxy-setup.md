@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 3fd1716fa7b9c32bb5b5e49598139b6a5e728692
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: a80eb1ba341a1b15da7ad59203a1d25284d03fd0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166591"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933905"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Defina e configure o proxy reverso no Azure Service Fabric
 O proxy reverso é um serviço opcional no Azure Service Fabric que ajuda microsserviços em execução em um cluster do Service Fabric a descobrir e comunicar-se com outros serviços que têm pontos de extremidade http. Para saber mais, confira [Proxy reverso no Azure Service Fabric](service-fabric-reverseproxy.md). Este artigo mostra como instalar e configurar o proxy reverso no cluster. 
@@ -29,7 +29,7 @@ O portal do Azure fornece uma opção para habilitar o proxy inverso ao criar um
 
 Para configurar o proxy reverso ao [criar um cluster usando o portal do Azure](./service-fabric-cluster-creation-via-portal.md), certifique-se de fazer o seguinte:
 
-1. Na **Etapa 2: Configuração do Cluster**, em **Configuração do tipo de nó**, selecione **Habilitar proxy reverso**.
+1. Na **etapa 2: Configuração de Cluster**, em **configuração do tipo de nó**, selecione **Habilitar proxy reverso**.
 
    ![Habilitar proxy reverso por meio do portal](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
 2. (Opcional) Para configurar o proxy reverso seguro, você precisa configurar um certificado SSL. Na **Etapa 3: Segurança**, em **Definir configurações de segurança do cluster**, em **Tipo de configuração**, selecione **Personalizado**. Em seguida, em **Certificado SSL de Proxy reverso**, selecione **Incluir um certificado SSL para proxy reverso** e insira os detalhes do certificado.
@@ -44,7 +44,7 @@ Para clusters no Azure, você pode usar o modelo do Azure Resource Manager do Az
 
 Para um novo cluster, você pode [criar um modelo do Gerenciador de Recursos personalizado](service-fabric-cluster-creation-via-arm.md) ou você pode usar um modelo de exemplo. 
 
-Você pode encontrar modelos do Gerenciador de Recursos de exemplo que podem ajudar a configurar o proxy reverso seguro para um cluster do Azure em [Modelos de exemplo de Proxy Reverso Seguro](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) no GitHub. Consulte [Configurar Proxy Reverso HTTPS em um cluster seguro](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) para o arquivo LEIAME para instruções e exemplos para usar e configurar o proxy reverso seguro com um certifico e tratar a substituição do certificado.
+Você pode encontrar modelos do Gerenciador de Recursos de exemplo que podem ajudar a configurar o proxy reverso seguro para um cluster do Azure em [Modelos de exemplo de Proxy Reverso Seguro](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample) no GitHub. Consulte [Configurar Proxy Reverso HTTPS em um cluster seguro](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) para o arquivo LEIAME para instruções e exemplos para usar e configurar o proxy reverso seguro com um certifico e tratar a substituição do certificado.
 
 Para um cluster existente, você pode exportar o modelo do Gerenciador de Recursos para o recurso do cluster de grupo usando o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell), ou a [CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
 
@@ -167,7 +167,7 @@ Para clusters autônomos, você habilita o proxy reverso no arquivo ClusterConfi
 
 As etapas a seguir mostram as configurações a serem usadas para habilitar o proxy reverso e, opcionalmente, para o proxy reverso seguro com um certificado X.509. 
 
-1. Para habilitar o proxy reverso, defina o valor **reverseProxyEndpointPort** para o tipo de nó em **propriedades** na configuração do cluster. O JSON a seguir mostra a configuração da porta de ponto de extremidade de proxy reverso para 19081 para nós com um tipo de “NodeType0”:
+1. Para habilitar o proxy reverso, defina o valor **reverseProxyEndpointPort** para o tipo de nó em **Propriedades** na configuração do cluster. O JSON a seguir mostra a configuração da porta do ponto de extremidade do proxy reverso para 19081 para nós com um tipo de "NodeType0":
 
    ```json
        "properties": {
@@ -335,6 +335,6 @@ Para obter mais informações sobre como atualizar as configurações de malha p
 
 Várias configurações de malha são usadas para ajudar a estabelecer uma comunicação segura entre o proxy reverso e serviços. Para obter informações detalhadas sobre essas configurações, consulte [conectar-se a um serviço seguro com o proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Definir encaminhamento para o serviço HTTP seguro com um proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md)
 * Para obter outras opções de configuração de proxy reverso, consulte a seção [ApplicationGateway/Http em Personalizar as configurações de cluster do Service Fabric](service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).

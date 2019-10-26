@@ -1,24 +1,18 @@
 ---
 title: Gerenciando o agente de Log Analytics do Azure | Microsoft Docs
 description: Este artigo descreve as diferentes tarefas de gerenciamento que normalmente serão executadas durante o ciclo de vida do Log Analytics o agente Windows ou Linux implantado em um computador.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/14/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 0c128aaf8102b3072b6a63c80ea860ceefbf5124
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.date: 06/14/2019
+ms.openlocfilehash: 8dec91a3987aed978bb088d1aeab48a6fd0f9fb4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67146302"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932797"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gerenciar e manter o agente de Log Analytics para o Windows e Linux
 
@@ -30,17 +24,17 @@ O agente de Log Analytics para Windows e Linux pode ser atualizado para a versã
 
 | Ambiente | Método de instalação | Método de atualização |
 |--------|----------|-------------|
-| Azure VM | Extensão de VM do agente de Log Analytics para Windows/Linux | O Agent é atualizado automaticamente por padrão, a menos que você tenha configurado seu modelo de Azure Resource Manager para recusar definindo a propriedade *autoUpgradeMinorVersion* como **false**. |
+| VM do Azure | Extensão de VM do agente de Log Analytics para Windows/Linux | O Agent é atualizado automaticamente por padrão, a menos que você tenha configurado seu modelo de Azure Resource Manager para recusar definindo a propriedade *autoUpgradeMinorVersion* como **false**. |
 | Imagens personalizadas de VM do Azure | Instalação manual do agente do Log Analytics para Windows/Linux | A atualização de VMs para a versão mais recente do agente precisa ser executada na linha de comando que executa o pacote do Windows Installer ou o grupo de script de shell instalável e de extração automática do Linux.|
 | VMs não Azure | Instalação manual do agente do Log Analytics para Windows/Linux | A atualização de VMs para a versão mais recente do agente precisa ser executada na linha de comando que executa o pacote do Windows Installer ou o grupo de script de shell instalável e de extração automática do Linux. |
 
 ### <a name="upgrade-windows-agent"></a>Atualizar o agente do Windows 
 
-Para atualizar o agente em uma VM do Windows para a versão mais recente não instalada usando a extensão de VM log Analytics, você pode executar no prompt de comando, script ou outra solução de automação ou usando a\<instalação\>MMASetup-Platform. msi Para.  
+Para atualizar o agente em uma VM do Windows para a versão mais recente não instalada usando a extensão de VM Log Analytics, você pode executar no prompt de comando, script ou outra solução de automação ou usando o assistente de instalação da plataforma\<MMASetup\>. msi.  
 
 Você pode baixar a versão mais recente do agente do Windows do seu espaço de trabalho Log Analytics, executando as etapas a seguir.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Escolha **workspaces do Log Analytics**.
 
@@ -58,7 +52,7 @@ Você pode baixar a versão mais recente do agente do Windows do seu espaço de 
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. Execute **MMASetup-\<Platform\>. exe** para iniciar o assistente de instalação.
+2. Execute o **MMASetup-\<platform\>. exe** para iniciar o assistente de instalação.
 
 3. Na primeira página do assistente de instalação, clique em **Avançar**.
 
@@ -247,7 +241,7 @@ Use um dos procedimentos a seguir para desinstalar o agente do Windows ou Linux 
 >O assistente de instalação do agente também pode ser executado clicando duas vezes em **MMASetup-\<platform\>.exe**, que está disponível para download no workspace no portal do Azure.
 
 #### <a name="uninstall-from-the-command-line"></a>Desinstalar usando a linha de comando
-O arquivo baixado para o agente é um pacote de instalação independente criado com IExpress. O programa de instalação para o agente e os arquivos de suporte estão contidos no pacote e precisa ser extraído para desinstalar adequadamente usando a linha de comando mostrada no exemplo a seguir.
+O arquivo baixado para o agente é um pacote de instalação autossuficiente criado com o IExpress. O programa de instalação para o agente e os arquivos de suporte estão contidos no pacote e precisa ser extraído para desinstalar adequadamente usando a linha de comando mostrada no exemplo a seguir.
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
@@ -298,7 +292,7 @@ Execute as seguintes etapas para configurar o agente do Log Analytics para Linux
 
 3. Reinicie o servidor OMI: `sudo /opt/omi/bin/service_control restart`
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine [solução de problemas do agente do Linux](agent-linux-troubleshoot.md) se você encontrar problemas ao instalar ou gerenciar o agente do Linux.
 

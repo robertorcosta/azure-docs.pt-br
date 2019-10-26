@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 10/24/2019
 ms.author: rajanaki
-ms.openlocfilehash: 92a46f7be116d0664b438c9039e311f802c873e5
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: 79a11a58f11486f3eda0205e62e7a4a92ff070b2
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708075"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933928"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação do Azure para o Azure
 
@@ -54,7 +54,7 @@ Ao habilitar a replicação para uma VM iniciada [na exibição da VM](azure-to-
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Ativar/desativar as configurações de atualização de dentro do cofre
 
 1. No cofre, vá para **gerenciar** > **site Recovery infraestrutura**.
-2. Em para**configurações de atualização de extensão** **de máquinas** > virtuais do Azure, ative a alternância **permitir site Recovery gerenciar** . Para gerenciar manualmente, desative-o. 
+2. Em **para máquinas virtuais do Azure** > **configurações de atualização de extensão**, ative a alternância **permitir site Recovery para gerenciar** . Para gerenciar manualmente, desative-o. 
 3. Clique em **Salvar**.
 
 ![Configurações de atualização de extensão](./media/azure-to-azure-autoupdate/vault-toggle.png)
@@ -66,7 +66,8 @@ Ao habilitar a replicação para uma VM iniciada [na exibição da VM](azure-to-
 > [!Note]
 > Qualquer opção notifica você sobre a conta de automação usada para gerenciar atualizações. Se você estiver usando esse recurso em um cofre pela primeira vez, uma nova conta de automação será criada por padrão. Como alternativa, você pode personalizar a configuração e escolher uma conta de automação existente. Todas as replicações habilitadas subsequentes no mesmo cofre usam a criada anteriormente. Atualmente, o menu suspenso listará apenas as contas de automação que estão no mesmo grupo de recursos que o cofre.  
 
-Para uma conta de automação personalizada, use o seguinte script:
+> [!IMPORTANT]
+> O script abaixo precisa ser executado no contexto de uma conta de automação para uma conta de automação personalizada, use o seguinte script:
 
 ```azurepowershell
 param(
@@ -505,7 +506,7 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 ### <a name="manage-updates-manually"></a>Gerenciar atualizações manualmente
 
-1. Se houver novas atualizações para o serviço de mobilidade instaladas em suas VMs, você verá a seguinte notificação: "A nova atualização do agente de replicação do site Recovery está disponível. Clique para instalar "
+1. Se houver novas atualizações para o serviço de mobilidade instaladas em suas VMs, você verá a seguinte notificação: "nova Site Recovery atualização do agente de replicação está disponível. Clique para instalar "
 
      ![Janela Itens replicados](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 2. Selecione a notificação para abrir a página seleção de VM.
@@ -520,7 +521,7 @@ Se houver um problema com as atualizações automáticas, você verá uma notifi
 
 Se você não pôde habilitar as atualizações automáticas, consulte os seguintes erros comuns e as ações recomendadas:
 
-- **Erro**: Você não tem permissão para criar uma conta Executar como do Azure (entidade de serviço) nem conceder a função Colaborador à entidade de serviço.
+- **Erro**: você não tem permissões para criar uma conta Executar como do Azure (entidade de serviço) e conceder a função Colaborador à entidade de serviço.
 
    **Ação recomendada**: Verifique se a conta conectada está atribuída como colaborador e tente novamente. Consulte a seção permissões necessárias em [usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) para obter mais informações sobre como atribuir permissões.
  
@@ -528,19 +529,19 @@ Se você não pôde habilitar as atualizações automáticas, consulte os seguin
 
    ![Botão de reparo do serviço Site Recovery nas configurações de atualização de extensão](./media/azure-to-azure-autoupdate/repair.png)
 
-- **Erro**: A conta Executar como não tem permissão para acessar o recurso de serviços de recuperação.
+- **Erro**: a conta Executar como não tem permissão para acessar o recurso de serviços de recuperação.
 
-    **Ação recomendada**: Exclua e [recrie a conta Executar como](https://docs.microsoft.com/azure/automation/automation-create-runas-account). Ou então, certifique-se de que o aplicativo de Azure Active Directory da conta Executar como da automação tenha acesso ao recurso dos serviços de recuperação.
+    **Ação recomendada**: exclua e [recrie a conta Executar como](https://docs.microsoft.com/azure/automation/automation-create-runas-account). Ou então, certifique-se de que o aplicativo de Azure Active Directory da conta Executar como da automação tenha acesso ao recurso dos serviços de recuperação.
 
-- **Erro**: A conta Executar como não foi localizada. Um deles foi excluído ou não criado - o aplicativo do Azure Active Directory, a entidade de serviço, a função, o ativo do certificado de automação, o ativo de conexão de automação - ou a impressão digital não é idêntica entre o certificado e a conexão. 
+- **Erro**: a conta Executar como não foi encontrada. Um deles foi excluído ou não criado - o aplicativo do Azure Active Directory, a entidade de serviço, a função, o ativo do certificado de automação, o ativo de conexão de automação - ou a impressão digital não é idêntica entre o certificado e a conexão. 
 
-    **Ação recomendada**: Exclua e [recrie a conta Executar como](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+    **Ação recomendada**: exclua e [recrie a conta Executar como](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
--  **Erro**: O certificado executar como do Azure usado pela conta de automação está prestes a expirar. 
+-  **Erro**: o certificado executar como do Azure usado pela conta de automação está prestes a expirar. 
 
-    O certificado autoassinado criado para a conta Executar como expirará um ano a partir da data de criação. Você pode renová-lo a qualquer momento antes que ele expire. Se você se inscreveu para notificações por email, também receberá emails quando uma ação for necessária do seu lado. Esse erro será mostrado 2 meses antes da data de expiração e será alterado para um erro crítico se o certificado tiver expirado. Depois que o certificado expirar, a atualização automática não será funcional até que você renove o mesmo.
+    O certificado autoassinado criado para a conta Executar como expirará um ano a partir da data de criação. Você pode renová-lo a qualquer momento antes que ele expire. Se você se inscreveu para notificações por email, também receberá emails quando uma ação for necessária do seu lado. Esse erro será mostrado dois meses antes da data de expiração e será alterado para um erro crítico se o certificado tiver expirado. Depois que o certificado expirar, a atualização automática não será funcional até que você renove o mesmo.
 
-   **Ação recomendada**: Clique em ' reparar ' e em ' renovar certificado ' para resolver esse problema.
+   **Ação recomendada**: clique em ' reparar ' e em ' renovar certificado ' para resolver esse problema.
     
    ![renovar-CERT](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
 

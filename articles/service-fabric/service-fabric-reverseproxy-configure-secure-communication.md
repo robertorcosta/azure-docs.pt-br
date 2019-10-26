@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e915e689f09ba7f5c92958ebf8531aa67eef4493
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837822"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933946"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Conectar-se a um serviço seguro com o proxy inverso
 
@@ -35,14 +35,14 @@ O proxy reverso identifica-se aos serviços usando seu certificado. Para cluster
 Os serviços podem implementar a lógica para verificar o certificado apresentado pelo proxy reverso. Os serviços podem especificar os detalhes do certificado de cliente aceito como definições de configuração no pacote de configuração. Isso pode ser lido em tempo de execução e usado para validar o certificado apresentado pelo proxy reverso. Consulte [Gerenciar parâmetros do aplicativo](service-fabric-manage-multiple-environment-app-configuration.md) para adicionar as definições de configuração. 
 
 ### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Proxy reverso verificando a identidade do serviço por meio do certificado apresentado pelo serviço:
-Proxy reverso suporta as seguintes políticas para executar a validação de certificado de servidor dos certificados apresentados pelos serviços: Nenhum, ServiceCommonNameAndIssuer e ServiceCertificateThumbprints.
+O proxy reverso suporta as seguintes políticas para executar a validação do certificado de servidor dos certificados apresentados pelos serviços: Nenhum, ServiceCommonNameAndIssuer e ServiceCertificateThumbprints.
 Para selecionar a política para o proxy reverso usar, especifique o **ApplicationCertificateValidationPolicy** na **ApplicationGateway/Http** seção sob [fabricSettings](service-fabric-cluster-fabric-settings.md).
 
 A próxima seção mostra detalhes de configuração para cada uma dessas opções.
 
 ### <a name="service-certificate-validation-options"></a>Opções de validação do certificado de serviço 
 
-- **Nenhum**: Proxy reverso ignora a verificação do certificado de serviço com proxy e estabelece a conexão segura. Esse é o comportamento padrão.
+- **Nenhum**: o proxy reverso ignora a verificação do certificado de serviço com proxy e estabelece a conexão segura. Esse é o comportamento padrão.
 Especifique o **ApplicationCertificateValidationPolicy** com o valor **None** no [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) seção.
 
    ```json
@@ -63,7 +63,7 @@ Especifique o **ApplicationCertificateValidationPolicy** com o valor **None** no
    }
    ```
 
-- **ServiceCommonNameAndIssuer**: Proxy reverso verifica o certificado apresentado pelo serviço com base no nome comum do certificado e a impressão digital do emissor imediato: Especifique o **ApplicationCertificateValidationPolicy** com o valor **ServiceCommonNameAndIssuer** no [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) seção.
+- **ServiceCommonNameAndIssuer**: proxy reverso verifica o certificado apresentado pelo serviço com base no nome comum do certificado e a impressão digital do emissor imediato: especifique o **ApplicationCertificateValidationPolicy** com o valor **ServiceCommonNameAndIssuer** no [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) seção.
 
    ```json
    {
@@ -110,7 +110,7 @@ Especifique o **ApplicationCertificateValidationPolicy** com o valor **None** no
    }
    ```
 
-- **ServiceCertificateThumbprints**: Proxy reverso verificará se o certificado de serviço com proxy com base em sua impressão digital. Você pode optar por acessar certificados autoassinados dessa rota quando os serviços estiverem configurados com: Especifique o **ApplicationCertificateValidationPolicy** com o valor **ServiceCertificateThumbprints** no [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) seção.
+- **ServiceCertificateThumbprints**: o proxy reverso verificará se o certificado de serviço com proxy tem base em sua impressão digital. Você pode optar por acessar certificados autoassinados dessa rota quando os serviços estiverem configurados com: especifique o **ApplicationCertificateValidationPolicy** com o valor **ServiceCertificateThumbprints** na seção [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
 
    ```json
    {
@@ -194,9 +194,9 @@ Se o cliente não apresentar um certificado, o proxy reverso encaminhará um cab
 > Proxy reverso é um mero encaminhador. Ele não executará nenhuma validação de certificado do cliente.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Definir e configurar proxy reverso em um cluster](service-fabric-reverseproxy-setup.md).
-* Consulte [Configurar o proxy reverso para se conectar aos serviços seguros](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) para obter exemplos de modelo do Azure Resource Manager a fim de configurar o proxy reverso seguro com as diferentes opções de validação de certificado do serviço.
+* Consulte [Configurar o proxy reverso para se conectar a serviços seguros](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services)
 * Confira um exemplo de comunicação HTTP entre serviços em um [projeto de exemplo no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Comunicação remota de serviço com os Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [API Web que usa o OWIN nos Reliable Services](service-fabric-reliable-services-communication-webapi.md)

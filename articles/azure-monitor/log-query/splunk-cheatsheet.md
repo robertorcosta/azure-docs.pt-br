@@ -1,24 +1,18 @@
 ---
 title: Splunk para a consulta de log do Azure Monitor | Microsoft Docs
 description: Ajuda para usuários que estão familiarizados com o Splunk para aprender sobre as consultas de log do Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/21/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 03a0d755cf6d099f07a7c6d853e1d747908eec05
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 08/21/2018
+ms.openlocfilehash: e16bf152e739a6145bfabaf8546fa71199f8d732
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177630"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932940"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk para a consulta de log do Azure Monitor
 
@@ -32,10 +26,10 @@ A tabela a seguir compara os conceitos e estruturas de dados entre logs do Splun
  | --- | --- | --- | ---
  | Unidade de implantação  | cluster |  cluster |  O Azure Monitor permite consultas arbitrárias entre clusters. O Splunk, não. |
  | Caches de dados |  buckets  |  Políticas de retenção e armazenamento em cache |  Controla o período e o nível de armazenamento em cache dos dados. Essa configuração afeta diretamente o desempenho das consultas e o custo da implantação. |
- | Partição lógica dos dados  |  index  |  database  |  Permite a separação lógica dos dados. Ambas as implementações permitem uniões e junções entre essas partições. |
- | Metadados de eventos estruturados | N/D | table |  O Splunk não tem o conceito exposto à linguagem de pesquisa de metadados de evento. Os logs do Azure Monitor têm o conceito de uma tabela, que tem colunas. Cada instância de evento é mapeada para uma linha. |
+ | Partição lógica dos dados  |  índice  |  database  |  Permite a separação lógica dos dados. Ambas as implementações permitem uniões e junções entre essas partições. |
+ | Metadados de eventos estruturados | N/D | tabela |  O Splunk não tem o conceito exposto à linguagem de pesquisa de metadados de evento. Os logs do Azure Monitor têm o conceito de uma tabela, que tem colunas. Cada instância de evento é mapeada para uma linha. |
  | Registro de dados | evento | linha |  Mudança de terminologia apenas. |
- | Atributo de registro de dados | field |  column |  No Azure Monitor, isso é predefinido como parte da estrutura de tabela. No Splunk, cada evento tem seu próprio conjunto de campos. |
+ | Atributo de registro de dados | field |  coluna |  No Azure Monitor, isso é predefinido como parte da estrutura de tabela. No Splunk, cada evento tem seu próprio conjunto de campos. |
  | Tipos | tipo de dados |  tipo de dados |  Os tipos de dados do Azure Monitor são mais explícitos, visto que são definidos nas colunas. Ambos têm a capacidade de trabalhar dinamicamente com os tipos de dados e o conjunto praticamente equivalente de tipos de dados, incluindo suporte a JSON. |
  | Consulta e pesquisa  | pequisa | query |  Os conceitos são essencialmente os mesmos entre o Azure Monitor e o Splunk. |
  | Hora da ingestão de evento | Hora do sistema | ingestion_time() |  No Splunk, cada evento obtém um carimbo de data/hora do sistema do momento em que o evento foi indexado. No Azure Monitor, você pode definir uma política chamada ingestion_time que expõe uma coluna do sistema que pode ser referenciada por meio da função ingestion_time(). |
@@ -51,7 +45,7 @@ A tabela a seguir especifica as funções no Azure Monitor que são equivalentes
 |if     | iff()   | (1) |
 |tonumber | todouble()<br>tolong()<br>toint() | (1) |
 |upper<br>lower |toupper()<br>tolower()|(1) |
-| substituir | replace() | (1)<br> Observe também que, embora `replace()` use três parâmetros em ambos os produtos, os parâmetros são diferentes. |
+| substitui | replace() | (1)<br> Observe também que, embora `replace()` use três parâmetros em ambos os produtos, os parâmetros são diferentes. |
 | substr | substring() | (1)<br>Observe também que Splunk usa índices com base em um. O Azure Monitor usa índices com base em zero. |
 | tolower |  tolower() | (1) |
 | toupper | toupper() | (1) |
@@ -59,7 +53,7 @@ A tabela a seguir especifica as funções no Azure Monitor que são equivalentes
 | regex | matches regex | No Splunk, `regex` é um operador. No Azure Monitor, é um operador relacional. |
 | searchmatch | == | No Splunk, `searchmatch` permite pesquisar a cadeia de caracteres exata.
 | random | rand()<br>rand(n) | A função do Splunk retorna um número de zero a 2<sup>31</sup>-1. O Azure Monitor retorna um número entre 0,0 e 1,0 ou, se um parâmetro é fornecido, entre 0 e n-1.
-| now | now() | (1)
+| agora | now() | (1)
 | relative_time | totimespan() | (1)<br>No Azure Monitor, o equivalente do Splunk de relative_time(datetimeVal, offsetVal) é datetimeVal + totimespan(offsetVal).<br>Por exemplo, <code>search &#124; eval n=relative_time(now(), "-1d@d")</code> torna-se <code>...  &#124; extend myTime = now() - totimespan("1d")</code>.
 
 (1) no Splunk, a função é invocada com o operador `eval`. No Azure Monitor, ela é usada como parte de `extend` ou `project`.<br>(2) no Splunk, a função é invocada com o operador `eval`. No Azure Monitor, ela pode ser usada com o operador `where`.
@@ -72,7 +66,7 @@ As seções a seguir fornecem exemplos do uso de operadores diferentes entre o A
 > [!NOTE]
 > Para fins do exemplo a seguir, o campo do Splunk _rule_ mapeia para uma tabela no Azure Monitor e o carimbo de data/hora padrão do Splunk mapeia para a coluna _ingestion_time()_ do Log Analytics.
 
-### <a name="search"></a>Search
+### <a name="search"></a>Pesquisa
 No Splunk, você pode omitir a palavra-chave `search` e especificar uma cadeia de caracteres sem aspas. No Azure Monitor, você deve iniciar cada consulta com `find`, uma cadeia de caracteres sem aspas é um nome de coluna e o valor de pesquisa deve ser uma cadeia de caracteres entre aspas. 
 
 | |  | |
@@ -81,7 +75,7 @@ No Splunk, você pode omitir a palavra-chave `search` e especificar uma cadeia d
 | Azure Monitor | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 | | |
 
-### <a name="filter"></a>Filter
+### <a name="filter"></a>Filtrar
 As consultas de log do Azure Monitor iniciam em um conjunto de resultados tabulares de onde filtrar. No Splunk, a filtragem é a operação padrão no índice atual. Você também pode usar o operador `where` no Splunk, mas isso não é recomendado.
 
 | |  | |
@@ -216,6 +210,6 @@ Você pode usar `summarize arg_min()` para inverter a ordem da qual o registro �
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Faça uma lição sobre como [escrever consultas de log no Azure Monitor](get-started-queries.md).

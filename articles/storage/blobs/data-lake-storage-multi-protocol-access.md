@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 9767282b3dd764a45f25a14d62af70a13c80b0ac
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 6e3b368d1f5615c34a49b155d288d3c37c28bc26
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300261"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933131"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage-preview"></a>Acesso de vários protocolos em Azure Data Lake Storage (versão prévia)
 
@@ -35,7 +35,7 @@ Isso também inclui ferramentas e aplicativos de terceiros. Você pode apontar p
 
 ## <a name="use-all-blob-storage-features"></a>Usar todos os recursos de armazenamento de BLOBs
 
-Os recursos de armazenamento de BLOBs, como [log de diagnóstico](../common/storage-analytics-logging.md), [camadas de acesso](storage-blob-storage-tiers.md)e [políticas de gerenciamento do ciclo de vida do armazenamento de BLOBs](storage-lifecycle-management-concepts.md) , agora funcionam com contas que têm um namespace hierárquico. Portanto, você pode habilitar namespaces hierárquicos em suas contas de armazenamento de BLOBs sem acesso perder a esses recursos importantes. 
+Os recursos de armazenamento de BLOBs, como [log de diagnóstico](../common/storage-analytics-logging.md), [camadas de acesso](storage-blob-storage-tiers.md)e [políticas de gerenciamento do ciclo de vida do armazenamento de BLOBs](storage-lifecycle-management-concepts.md) , agora funcionam com contas que têm um namespace hierárquico. Portanto, você pode habilitar namespaces hierárquicos em suas contas de armazenamento de BLOBs sem perder o acesso a esses recursos importantes. 
 
 > [!NOTE]
 > Para revisar as limitações, consulte o artigo [problemas conhecidos](data-lake-storage-known-issues.md) .
@@ -48,7 +48,7 @@ APIs de BLOB e APIs de Data Lake Storage Gen2 podem operar nos mesmos dados em c
 
 As ferramentas e os aplicativos existentes que usam a API de blob obterão esses benefícios automaticamente. Os desenvolvedores não precisarão modificá-los. Data Lake Storage Gen2 aplica de forma consistente ACLs de nível de arquivo e de diretório, independentemente do protocolo que as ferramentas e os aplicativos usam para acessar os dados. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte [problemas conhecidos](data-lake-storage-known-issues.md)
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 6c7cf82381dfb895fdaa0f130e33b2dc9a6e7403
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 350e553563aa152c61c922727fb87937bedd14b5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169748"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72928491"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteger o tráfego entre os pods usando as políticas de rede no Serviço de Kubernetes do Azure (AKS)
 
@@ -52,14 +52,14 @@ Ambas as implementações usam *iptables* do Linux para impor as políticas espe
 
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Diferenças entre as políticas do Azure e do Calico e seus recursos
 
-| Funcionalidade                               | Azure                      | Calico                      |
+| Capacidade                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Plataformas com suporte                      | Linux                      | Linux                       |
-| Opções de rede com suporte             | Azure CNI                  | CNI e kubenet do Azure       |
+| Opções de rede com suporte             | CNI do Azure                  | CNI e kubenet do Azure       |
 | Conformidade com a especificação kubernetes | Todos os tipos de política com suporte |  Todos os tipos de política com suporte |
 | Recursos adicionais                      | Nenhum                       | Modelo de política estendida que consiste em política de rede global, conjunto de rede global e ponto de extremidade do host. Para obter mais informações sobre como usar a CLI `calicoctl` para gerenciar esses recursos estendidos, consulte [calicoctl User Reference][calicoctl]. |
 | Suporte                                  | Suporte da equipe de suporte e engenharia do Azure | Suporte da Comunidade Calico. Para obter mais informações sobre suporte pago adicional, consulte [Opções de suporte do Project Calico][calico-support]. |
-| Registrando em log                                  | As regras adicionadas/excluídas no IPTables são registradas em todos os hosts em */var/log/Azure-NPM.log* | Para obter mais informações, consulte [Calico Component logs][calico-logs] |
+| Registro em log                                  | As regras adicionadas/excluídas no IPTables são registradas em todos os hosts em */var/log/Azure-NPM.log* | Para obter mais informações, consulte [Calico Component logs][calico-logs] |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Cria um cluster do AKS e habilita a política de rede
 
@@ -69,7 +69,11 @@ Para ver as políticas de rede em ação, vamos criar e, em seguida, expandir um
 * Permite o tráfego com base nos rótulos do pod.
 * Permite o tráfego com base no namespace.
 
-Primeiro, vamos criar um cluster AKS que dê suporte à política de rede. O recurso de política de rede só pode ser habilitado quando o cluster é criado. Não é possível habilitar a política de rede em um cluster AKS existente.
+Primeiro, vamos criar um cluster AKS que dê suporte à política de rede. 
+
+> [!IMPORTANT]
+>
+> O recurso de política de rede só pode ser habilitado quando o cluster é criado. Você não pode habilitar a política de rede em um cluster existente do AKS.
 
 Para usar a política de rede do Azure, você deve usar o [plug-in do CNI do Azure][azure-cni] e definir sua própria rede virtual e sub-redes. Para obter informações mais detalhadas sobre como planejar os intervalos de sub-rede necessários, consulte [Configurar a rede avançada][use-advanced-networking]. A política de rede Calico pode ser usada com esse mesmo plug-in do Azure CNI ou com o plug-in Kubenet CNI.
 
@@ -79,7 +83,7 @@ O exemplo de script a seguir:
 * Cria uma entidade de serviço Azure Active Directory (AD do Azure) para uso com o cluster AKS.
 * Atribui permissões de *Colaborador* para a entidade de serviço do cluster do AKS em uma rede virtual.
 * Cria um cluster AKS na rede virtual definida e habilita a política de rede.
-    * A opção de política de rede *do Azure* é usada. Para usar o Calico como a opção de política de rede, use o parâmetro `--network-policy calico`. Observação: Calico pode ser usado com `--network-plugin azure` ou `--network-plugin kubenet`.
+    * A opção de política de rede *do Azure* é usada. Para usar o Calico como a opção de política de rede, use o parâmetro `--network-policy calico`. Observação: o Calico pode ser usado com `--network-plugin azure` ou `--network-plugin kubenet`.
 
 Forneça sua própria *SP_PASSWORD* segura. Você pode substituir as variáveis *RESOURCE_GROUP_NAME* e *CLUSTER_NAME* :
 
@@ -163,7 +167,7 @@ Crie outro pod e anexe uma sessão de terminal para testar que você pode acessa
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-No prompt do Shell, use `wget` para confirmar que você pode acessar a página da Web NGINX padrão:
+No prompt do Shell, use `wget` para confirmar que você pode acessar a página da Web padrão do NGINX:
 
 ```console
 wget -qO- http://backend
@@ -273,7 +277,7 @@ Agende um pod que seja rotulado como *app = webapp, role = frontend* e anexe uma
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-No prompt do Shell, use `wget` para ver se você pode acessar a página da Web NGINX padrão:
+No prompt do Shell, use `wget` para ver se você pode acessar a página da Web padrão do NGINX:
 
 ```console
 wget -qO- http://backend
@@ -334,7 +338,7 @@ Agende um pod de teste no namespace *production* que esteja rotulado como *app=w
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-No prompt do Shell, use `wget` para confirmar que você pode acessar a página da Web NGINX padrão:
+No prompt do Shell, use `wget` para confirmar que você pode acessar a página da Web padrão do NGINX:
 
 ```console
 wget -qO- http://backend.development
@@ -449,7 +453,7 @@ kubectl delete namespace production
 kubectl delete namespace development
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre os recursos de rede, consulte [conceitos de rede para aplicativos no serviço de kubernetes do Azure (AKs)][concepts-network].
 

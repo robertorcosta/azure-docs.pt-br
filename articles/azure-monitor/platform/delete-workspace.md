@@ -1,24 +1,18 @@
 ---
 title: Excluir e restaurar o espaço de trabalho do Azure Log Analytics | Microsoft Docs
 description: Saiba como excluir seu espaço de trabalho do Log Analytics se tiver criado um em uma assinatura pessoal ou para reestruturar seu modelo de espaço de trabalho.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/11/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: fb6714a52a65ef5efe4725b99acb30cb67af20c3
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 10/11/2019
+ms.openlocfilehash: f15e9c2a5980c8fb6d98f7bf9187b030e6910523
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299270"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932362"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Excluir e restaurar o espaço de trabalho do Azure Log Analytics
 
@@ -62,7 +56,7 @@ Se você tiver permissões de colaborador para a assinatura e o grupo de recurso
 
 Você pode recuperar um espaço de trabalho recriando o espaço de trabalho usando os métodos Create do espaço de trabalho [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) ou [REST API]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) , contanto que essas propriedades sejam preenchidas com os detalhes do espaço de trabalho excluído, incluindo:
 
-* ID da assinatura
+* ID da Assinatura
 * Nome do Grupo de Recursos
 * Nome do workspace
 * Região

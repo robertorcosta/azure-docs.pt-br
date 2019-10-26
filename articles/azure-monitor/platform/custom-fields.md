@@ -1,24 +1,18 @@
 ---
 title: Campos personalizados no Azure Monitor | Microsoft Docs
 description: O recurso campos personalizados do Azure Monitor permite que você crie seus próprios campos pesquisáveis de registros em um espaço de trabalho Log Analytics que são adicionados às propriedades de um registro coletado.  Este artigo descreve o processo para criar um campo personalizado e fornece um passo a passo detalhado com um evento de exemplo.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: jwhit
-editor: tysonn
-ms.assetid: 31572b51-6b57-4945-8208-ecfc3b5304fc
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/23/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: f6b9c21a3d65e75abe11e705eba058b1d1fb17ff
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.date: 08/23/2019
+ms.openlocfilehash: 1fa8fb8ee944103626966839def358e68a55d8ac
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012727"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932604"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Criar campos personalizados em um espaço de trabalho Log Analytics no Azure Monitor
 
@@ -27,7 +21,7 @@ ms.locfileid: "70012727"
 
 O recurso **campos personalizados** do Azure monitor permite que você estenda os registros existentes em seu espaço de trabalho log Analytics adicionando seus próprios campos pesquisáveis.  Os campos personalizados são populados automaticamente por meio dos dados extraídos de outras propriedades no mesmo registro.
 
-![Visão geral](media/custom-fields/overview.png)
+![Visão Geral](media/custom-fields/overview.png)
 
 Por exemplo, o registro de exemplo abaixo tem dados úteis escondidos na descrição do evento. A extração desses dados em uma propriedade separada torna-o disponível para ações como classificação e filtragem.
 
@@ -51,7 +45,7 @@ A primeira etapa é identificar os registros que obterão o campo personalizado.
 1. Acesse **logs** e use uma [consulta para recuperar os registros](../log-query/log-query-overview.md) que terão o campo personalizado.
 2. Selecione um registro que o Log Analytics usará para atuar como um modelo para extrair dados para popular o campo personalizado.  Você identificará os dados que deseja extrair desse registro e o Log Analytics usará essas informações para determinar a lógica para popular o campo personalizado para todos os registros semelhantes.
 3. Expanda as propriedades do registro, clique na elipse à esquerda da propriedade Top do registro e selecione **extrair campos de**.
-4. O **Assistente** de extração de campo é aberto e o registro selecionado é exibido na coluna **exemplo principal** .  O campo personalizado será definido para os registros com os mesmos valores nas propriedades selecionadas.  
+4. O **Assistente de extração de campo** é aberto e o registro selecionado é exibido na coluna **exemplo principal** .  O campo personalizado será definido para os registros com os mesmos valores nas propriedades selecionadas.  
 5. Se a seleção não for exatamente o que você deseja, selecione campos adicionais para restringir os critérios.  Para alterar os valores de campo para os critérios, você deve cancelar e selecionar um registro diferente que corresponde aos critérios desejados.
 
 ### <a name="step-2---perform-initial-extract"></a>Etapa 2: Executar a extração inicial.
@@ -97,7 +91,7 @@ Definimos campos personalizados clicando na elipse ao lado da propriedade Top.
 
 O **Field Extraction Wizard** (Assistente de Extração de Campo) é aberto e os campos **EventLog** e **EventID** são selecionados na coluna **Main Example** (Exemplo Principal).  Isso indica que o campo personalizado será definido para eventos do log do sistema com uma ID de evento de 7036.  Isso é suficiente para que não precisemos selecionar nenhum outro campo.
 
-![Exemplo principal](media/custom-fields/main-example.png)
+![Main Example](media/custom-fields/main-example.png)
 
 Realçamos o nome do serviço na propriedade **RenderedDescription** e usamos **Service** para identificar o nome do serviço.  O campo personalizado será chamado **Service_CF**. O tipo de campo, nesse caso, é uma cadeia de caracteres, portanto, podemos deixar isso inalterado.
 
@@ -131,7 +125,7 @@ Agora podemos usar o campo personalizado como qualquer outra propriedade de regi
 
 ![Agrupar por consulta](media/custom-fields/query-group.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre [consultas de log](../log-query/log-query-overview.md) para criar consultas usando campos personalizados para critérios.
 * Monitorar [arquivos de log personalizados](data-sources-custom-logs.md) que você analisa usando campos personalizados.
 

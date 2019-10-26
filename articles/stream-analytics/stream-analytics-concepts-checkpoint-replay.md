@@ -1,5 +1,5 @@
 ---
-title: Conceitos de ponto de verificação e de recuperação de trabalho de reprodução no Azure Stream Analytics
+title: Conceitos de ponto de verificação e recuperação de reprodução no Azure Stream Analytics
 description: Este artigo descreve conceitos de ponto de verificação e de recuperação de trabalho de reprodução no Azure Stream Analytics.
 services: stream-analytics
 author: mamccrea
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9dcfbd4b5fcc8462c88b16f585424166ecd3d499
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26d8d8248c9dcc57edaaa4a90f87071ee61a70ce
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61361868"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935036"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Conceitos de ponto de verificação e de reprodução em trabalhos do Azure Stream Analytics
 Este artigo descreve os conceitos internos de ponto de verificação e de reprodução no Azure Stream Analytics e o impacto deles na recuperação de trabalho. Sempre que um trabalho do Stream Analytics é executado, as informações de estado são mantidas internamente. Essas informações de estado são salvas em um ponto de verificação periodicamente. Em alguns cenários, as informações de ponto de verificação são usadas para a recuperação de trabalho se ocorrer uma falha de trabalho ou de atualização. Em outras circunstâncias, o ponto de verificação não pode ser usado para a recuperação, e é necessária uma reprodução.
@@ -68,8 +68,8 @@ Para editar a sintaxe de Consulta em um trabalho de streaming, ou para ajustar a
 
 Os dados de ponto de verificação não podem ser usados para uma reinicialização de trabalho iniciada pelo usuário. Para estimar o atraso de saída durante tal reinicialização, use o mesmo procedimento conforme descrito na seção anterior e aplique uma mitigação semelhante se o atraso for muito longo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre confiabilidade e escalabilidade, confira estes artigos:
-- [Tutorial: Configurar alertas para trabalhos do Stream Analytics do Azure](stream-analytics-set-up-alerts.md)
+- [Tutorial: configurar alertas para trabalhos do Azure Stream Analytics](stream-analytics-set-up-alerts.md)
 - [Dimensionar um trabalho do Azure Stream Analytics para aumentar a taxa de transferência](stream-analytics-scale-jobs.md)
 - [Garantir a confiabilidade do trabalho do Stream Analytics durante atualizações do serviço](stream-analytics-job-reliability.md)
