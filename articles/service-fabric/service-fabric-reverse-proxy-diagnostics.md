@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: c9c8c649208cff95f4ee515d39cc8cca3e2c64bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6074b799e992371d41de050f68690e450f008789
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726835"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933960"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorar e diagnosticar o processamento de solicitação no proxy reverso
 
@@ -37,12 +37,12 @@ Aqui estão alguns exemplos de como interpretar os logs de falha comuns que pode
 
     A carga inclui:
 
-   * **traceId**: Esse GUID pode ser usado para correlacionar todos os eventos correspondentes a uma única solicitação. Nos dois eventos abaixo, traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**, indicando que pertencem à mesma solicitação.
-   * **requestUrl**: A URL (URL de proxy reverso) à qual a solicitação foi enviada.
-   * **verb**: Verbo HTTP.
-   * **remoteAddress**: Endereço do cliente que envia a solicitação.
-   * **resolvedServiceUrl**: URL do ponto de extremidade de serviço ao qual a solicitação de entrada foi resolvida. 
-   * **errorDetails**: Informações adicionais sobre a falha.
+   * **traceId**: esse GUID pode ser usado para correlacionar todos os eventos correspondentes a uma mesma solicitação. Nos dois eventos abaixo, traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**, indicando que pertencem à mesma solicitação.
+   * **requestUrl**: a URL (URL de Proxy Reverso) à qual a solicitação foi enviada.
+   * **verb**: verbo HTTP.
+   * **remoteAddress**: endereço do cliente que envia a solicitação.
+   * **resolvedServiceUrl**: URL de ponto de extremidade de serviço para a qual a solicitação de entrada foi resolvida. 
+   * **errorDetails**: informações adicionais sobre a falha.
 
      ```
      {
@@ -85,8 +85,8 @@ Aqui estão alguns exemplos de como interpretar os logs de falha comuns que pode
     
     Eis um evento de exemplo em que o proxy reverso retorna 404, já que não conseguiu localizar o ponto de extremidade de serviço correspondente.
     As entradas de carga de interesse aqui são:
-   * **processRequestPhase**: Indica a fase durante o processamento da solicitação quando a falha ocorreu, ***TryGetEndpoint*** , ou seja, durante a tentativa de buscar o ponto de extremidade de serviço para encaminhamento. 
-   * **errorDetails**: Lista os critérios de pesquisa de ponto de extremidade. Aqui você pode ver que o listenerName especificado = **FrontEndListener**, enquanto a lista de ponto de extremidade de réplica contém somente um ouvinte com o nome **OldListener**.
+   * **processRequestPhase**: indica a fase durante o processamento da solicitação em que a falha ocorreu, ***TryGetEndpoint***, ou seja, durante a tentativa de buscar o ponto de extremidade de serviço para encaminhamento. 
+   * **errorDetails**: lista os critérios de pesquisa de ponto de extremidade. Aqui você pode ver que o listenerName especificado = **FrontEndListener**, enquanto a lista de ponto de extremidade de réplica contém somente um ouvinte com o nome **OldListener**.
     
      ```
      {
@@ -104,7 +104,7 @@ Aqui estão alguns exemplos de como interpretar os logs de falha comuns que pode
      }
      }
      ```
-     Outro exemplo em que o proxy reverso pode retornar 404 não encontrado é: O parâmetro de configuração ApplicationGateway\Http **SecureOnlyMode** está definido como verdadeiro com o proxy inverso escutando **HTTPS**, no entanto, todos os pontos de extremidade de réplica são seguros (escutando HTTP).
+     Outro exemplo em que o proxy reverso pode retornar 404 Não Encontrado é: parâmetro de configuração ApplicationGateway\Http **SecureOnlyMode** está definido como true, com um proxy inverso escutando **HTTPS**; no entanto, nenhum ponto de extremidade de réplica é seguro (escutando HTTP).
      Proxy reverso retorna 404, já que não consegue localizar um ponto de extremidade de escuta HTTPS para encaminhar a solicitação. A análise dos parâmetros na carga do evento ajuda a delimitar o problema:
     
      ```
@@ -197,8 +197,8 @@ Aqui estão alguns exemplos de como interpretar os logs de falha comuns que pode
 > [!NOTE]
 > Eventos relacionados ao processamento de solicitação de websocket não estão registrados em log no momento. Isso será adicionado na próxima versão.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Agregação e coleta de eventos usando o Diagnóstico do Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md) para habilitar a coleta de logs em clusters do Azure.
 * Para exibir eventos do Service Fabric no Visual Studio, confira [Monitorar e diagnosticar localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-* Consulte [Configurar o proxy reverso para se conectar aos serviços seguros](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) para obter exemplos de modelo do Azure Resource Manager a fim de configurar o proxy reverso seguro com as diferentes opções de validação de certificado do serviço.
+* Consulte [Configurar o proxy reverso para se conectar aos serviços seguros](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services) para obter exemplos de modelo do Azure Resource Manager a fim de configurar o proxy reverso seguro com as diferentes opções de validação de certificado do serviço.
 * Leia [Proxy reverso do Service Fabric](service-fabric-reverseproxy.md) para saber mais.

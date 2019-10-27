@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: dc8deb16f7d124c5fb11568f25050eee99a245b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef8504f3f79d23fa0d59493c06cfbe133e1c4113
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60865504"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933451"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Executar uma simulação de recuperação de desastres para as VMs do Hyper-V em um site secundário
 
@@ -20,6 +20,10 @@ ms.locfileid: "60865504"
 Este artigo descreve como realizar uma simulação de recuperação de desastres (DR) para VMs do Hyper-V gerenciadas em nuvens do System Center VMM (Virtual Machine Manager) para um site secundário local usando o [Azure Site Recovery](site-recovery-overview.md).
 
 Execute um failover de teste para validar sua estratégia de replicação e realize uma simulação de DR sem nenhuma perda de dados ou tempo de inatividade. Um failover de teste não afeta a replicação em andamento nem o ambiente de produção. 
+
+> [!WARNING]
+> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](scvmm-site-recovery-deprecation.md) antes de continuar.
+
 
 ## <a name="how-do-test-failovers-work"></a>Como failovers de teste funcionam?
 
@@ -30,12 +34,12 @@ Executa-se um failover de teste do site principal para o site secundário. Se vo
     - Execute o failover com uma rede existente. Recomendamos que você não use uma rede de produção.
     - Execute o failover e permita que o Site Recovery crie automaticamente uma rede de teste. Nesse caso, o Site Recovery vai criar a rede automaticamente e vai limpá-la quando o failover de teste for concluído.
 - Você precisa selecionar um ponto de recuperação para o failover de teste: 
-    - **Mais recente processado**: Essa opção executa failover de uma VM para o último ponto de recuperação processado pelo Site Recovery. Essa opção fornece um RTO (Objetivo do Tempo de Recuperação) baixo porque não há tempo gasto para processar dados não processados.
-    - **Último consistente com o aplicativo**: Essa opção executa failover de uma VM para o ponto de recuperação consistente com o aplicativo mais recente pelo Site Recovery. 
-    - **Mais recente**: Essa opção primeiro processa todos os dados que foram enviados ao serviço do Site Recovery, para criar um ponto de recuperação para cada VM antes do failover da VM. Essa opção fornece o RPO (objetivo de ponto de recuperação) mais baixo porque a VM criada após o failover tem todos os dados replicados para o Site Recovery quando o failover for disparado.
-    - **Multi-VMs mais recentes processadas**: Disponível para os planos de recuperação que incluem uma ou mais VMs que tenham consistência de várias VMs ativadas. As VMs com a configuração habilitaram o failover para o último ponto de recuperação consistente com várias VMs em comum. Outras VMs fazem failover para o último ponto de recuperação processado.
-    - **Multi-VMs mais recentes consistentes com o aplicativo**: Essa opção está disponível para planos de recuperação com uma ou mais VMs com consistência de várias VM habilitada. As VMs que fazem parte de um failover do grupo de replicação para o ponto de recuperação comum mais recente de várias VMs consistente com aplicativo. Outras VMs fazem failover para seus últimos pontos de recuperação consistentes com aplicativo.
-    - **Personalizado**: Use essa opção para fazer failover de uma VM específica para um ponto de recuperação específico.
+    - **Últimos processados**: essa opção executa failover de uma VM para o último ponto de recuperação processado pelo Site Recovery. Essa opção fornece um RTO (Objetivo do Tempo de Recuperação) baixo porque não há tempo gasto para processar dados não processados.
+    - **Consistente com o aplicativo mais recente**: essa opção executa failover de uma VM para o ponto de recuperação consistente com o aplicativo mais recente pelo Site Recovery. 
+    - **Mais recente**: essa opção primeiro processa todos os dados que foram enviados ao serviço do Site Recovery para criar um ponto de recuperação para cada VM antes de fazer failover para ele. Essa opção fornece o RPO (objetivo de ponto de recuperação) mais baixo porque a VM criada após o failover tem todos os dados replicados para o Site Recovery quando o failover for disparado.
+    - **Várias VMs processadas mais recentemente**: disponível para os planos de recuperação que incluem uma ou mais VMs que tenham consistência de várias VMs ativada. As VMs com a configuração habilitaram o failover para o último ponto de recuperação consistente com várias VMs em comum. Outras VMs fazem failover para o último ponto de recuperação processado.
+    - **Várias VMs consistentes com o aplicativo mais recentes**: essa opção está disponível para planos de recuperação com uma ou mais VMs que tenham consistência com várias VMs ativada. As VMs que fazem parte de um failover do grupo de replicação para o ponto de recuperação comum mais recente de várias VMs consistente com aplicativo. Outras VMs fazem failover para seus últimos pontos de recuperação consistentes com aplicativo.
+    - **Personalizado**: use essa opção para fazer failover de uma VM específica para um ponto de recuperação específico.
 
 
 
@@ -100,8 +104,8 @@ Para executar um failover de teste em um teste de aplicativo, você precisará d
 ### <a name="prepare-dns"></a>Preparar o DNS
 Prepare um servidor DNS para o failover de teste da seguinte forma:
 
-* **DHCP**: Se as máquinas virtuais usarem o DHCP, o endereço IP do DNS de teste deverá ser atualizado no servidor DHCP de teste. Quando você usa um tipo de rede da Virtualização de Rede do Windows, o servidor VMM atua como o servidor DHCP. Portanto, o endereço IP do DNS deve ser atualizado na rede de failover de teste. Nesse caso, as máquinas virtuais se registrarão no servidor DNS relevante.
-* **Endereço estático**: Se as máquinas virtuais usarem um endereço IP estático, o endereço IP do servidor DNS de teste deverá ser atualizado na rede de failover de teste. Talvez você precise atualizar o DNS com o endereço IP das máquinas virtuais de teste. É possível usar o seguinte script de exemplo para este fim:
+* **DHCP**: se as máquinas virtuais usarem o DHCP, o endereço IP do DNS de teste deverá ser atualizado no servidor DHCP de teste. Quando você usa um tipo de rede da Virtualização de Rede do Windows, o servidor VMM atua como o servidor DHCP. Portanto, o endereço IP do DNS deve ser atualizado na rede de failover de teste. Nesse caso, as máquinas virtuais se registrarão no servidor DNS relevante.
+* **Endereço estático**: se as máquinas virtuais usarem um endereço IP estático, o endereço IP do servidor DNS de teste deverá ser atualizado na rede de failover de teste. Talvez você precise atualizar o DNS com o endereço IP das máquinas virtuais de teste. É possível usar o seguinte script de exemplo para este fim:
 
         Param(
         [string]$Zone,
@@ -143,7 +147,7 @@ Este procedimento descreve como executar um failover de teste para um plano de r
 * Essa forma de realizar o teste resulta em um tempo de inatividade para o aplicativo de produção. Solicite aos usuários do aplicativo que não usem o aplicativo quando a simulação de DR estiver em andamento.  
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Depois de executar uma simulação de recuperação de desastre com êxito, você pode [executar um failover completo](site-recovery-failover.md).
 
 

@@ -1,86 +1,134 @@
 ---
-title: Como vincular uma assinatura do Azure – Azure Active Directory B2C | Microsoft Docs
-description: Guia passo a passo para habilitar a cobrança de locatário do Azure AD B2C em uma assinatura do Azure.
+title: Modelo de cobrança para Azure Active Directory B2C
+description: Saiba mais sobre o modelo de cobrança do MAU (usuários ativos mensais) do Azure AD B2C e como habilitar a cobrança para uma assinatura específica do Azure.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 10/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 892f47b6acf22c62ce2290e2ede9d0bcd21eefc8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 844b62f9575249c7b99672e9e67c94cea7ec9f99
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065906"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931485"
 ---
-# <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Vincular uma assinatura do Azure a um locatário do Azure Active Directory B2C
+# <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de cobrança para Azure Active Directory B2C
+
+O uso de Azure Active Directory B2C (Azure AD B2C) é cobrado em uma assinatura vinculada do Azure e usa um modelo de cobrança MAU (usuários ativos mensais). Saiba como vincular um recurso de Azure AD B2C a uma assinatura e como o modelo de cobrança MAU funciona nas seções a seguir.
 
 > [!IMPORTANT]
-> Para obter as informações mais recentes sobre cobrança de uso e preços para Azure Active Directory B2C (Azure AD B2C), consulte [preços de Azure ad B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+> Este artigo não contém informações sobre preços. Para obter as informações mais recentes sobre cobrança e preços de uso, consulte [preços de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
-Os encargos de uso para o Azure AD B2C são cobrados de uma assinatura do Azure. Quando um locatário do Azure AD B2C é criado, o administrador de inquilinos precisa vincular explicitamente o locatário do Azure AD B2C a uma assinatura do Azure. Este artigo mostra como fazer isso.
+## <a name="monthly-active-users-mau-billing"></a>Cobrança de usuários ativos mensais (MAU)
 
-> [!NOTE]
-> Uma assinatura vinculada a um locatário do Azure AD B2C pode ser usada para a cobrança de uso do Azure AD B2C ou outros recursos do Azure, incluindo recursos adicionais do Azure AD B2C.  A assinatura não pode ser usada para adicionar outros serviços baseados em licença do Azure ou licenças do Office 365 no locatário do Azure AD B2C.
+A cobrança Azure AD B2C é medida na contagem de usuários exclusivos com atividade de autenticação em um mês civil, conhecida como cobrança de usuários ativos mensais (MAU).
 
-O link de assinatura é obtido com a criação de um “recurso” do Azure AD B2C na assinatura de destino do Azure. Vários “recursos” do Azure AD B2C podem ser vinculados a uma única assinatura do Azure juntamente com outros recursos do Azure (por exemplo, VMs, armazenamento de dados, Aplicativos Lógicos). Você pode ver todos os recursos na assinatura, indo para o locatário do Azure AD ao qual a assinatura está associada.
+A partir de **1º de novembro de 2019**, todos os locatários de Azure ad B2C recém-criados são cobrados por mau (usuários ativos por mês). Os locatários existentes que estão [vinculados a uma assinatura](#link-an-azure-ad-b2c-tenant-to-a-subscription) no ou após 01 de novembro de 2019 serão cobrados por usuários ativos por mês (mau).
 
-Há suporte para as assinaturas do CSP (Provedores de Soluções de Nuvem) do Azure no Azure AD B2C. A funcionalidade está disponível por meio de APIs ou pelo portal do Azure para o Azure AD B2C e todos os recursos do Azure. Os administradores de assinaturas do CSP podem vincular, mover e excluir relações com o Azure AD B2C da mesma forma que isso é feito para todos os recursos do Azure. O gerenciamento do Azure AD B2C usando o controle de acesso baseado em função não é afetado pela associação entre o locatário do Azure AD B2C e uma assinatura do Azure CSP. O controle de acesso baseado em função é obtido usando funções baseadas em locatário, não funções baseadas em assinatura.
+Se você tiver um locatário Azure AD B2C existente que foi vinculado a uma assinatura antes de 01 de novembro de 2019, você pode optar por fazer o seguinte:
 
-Uma assinatura do Azure válida é necessária para continuar.
+* Atualizar para o modelo de cobrança de usuários ativos mensais (MAU) ou
+* Permanecer no modelo de cobrança por autenticação
 
-## <a name="create-an-azure-ad-b2c-tenant"></a>Criar um locatário do Azure AD B2C
+### <a name="upgrade-to-monthly-active-users-billing-model"></a>Atualizar para o modelo de cobrança de usuários ativos mensais
 
-Você deve primeiro [criar um locatário do Azure AD B2C](active-directory-b2c-get-started.md) ao qual deseja vincular uma assinatura. Ignore esta etapa se você já criou um locatário do Azure AD B2C.
+Os proprietários de assinatura do Azure que têm acesso administrativo ao recurso de Azure AD B2C podem mudar para o modelo de cobrança MAU. As opções de cobrança são configuradas no recurso de Azure AD B2C.
 
-## <a name="open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Abrir o portal do Azure no locatário do Azure AD que mostra a sua assinatura do Azure
+A mudança para a cobrança de usuários ativos mensais (MAU) é **irreversível**. Depois de converter um recurso de Azure AD B2C no modelo de cobrança baseado em MAU, não é possível reverter esse recurso para o modelo de cobrança por autenticação.
 
-Navegue até o locatário do Azure AD que mostra a sua assinatura do Azure. Abra o [portal do Azure](https://portal.azure.com) e alterne para o locatário do Azure AD que mostra a assinatura do Azure que você deseja usar.
+Veja como fazer a mudança para a cobrança de MAU para um recurso de Azure AD B2C existente:
 
-![Alternando para o locatário do Azure AD](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
+1. Entre no [portal do Azure](https://portal.azure.com) como o proprietário da assinatura.
+1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o Azure ad B2C diretório que você deseja atualizar para a cobrança do mau.<br/>
+    ![o filtro de diretório e assinatura no portal do Azure](media/active-directory-b2c-how-to-enable-billing/portal-mau-01-select-b2c-directory.png)
+1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
+1. Na página **visão geral** do locatário do Azure ad B2C, selecione o link em **nome do recurso**. Você é direcionado para o recurso de Azure AD B2C em seu locatário do Azure AD.<br/>
+    ![link de recurso Azure AD B2C realçado em portal do Azure](media/active-directory-b2c-how-to-enable-billing/portal-mau-02-b2c-resource-link.png)
+1. Na página **visão geral** do recurso Azure ad B2C, em **unidades faturáveis**, selecione o link **por autenticação (alterar para mau)** .<br/>
+    ![alterar para o link MAU realçado em portal do Azure](media/active-directory-b2c-how-to-enable-billing/portal-mau-03-change-to-mau-link.png)
+1. Selecione **confirmar** para concluir a atualização para a cobrança do mau.<br/>
+    ![caixa de diálogo de confirmação de cobrança baseada em MAU no portal do Azure](media/active-directory-b2c-how-to-enable-billing/portal-mau-04-confirm-change-to-mau.png)
 
-## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Localizar Azure AD B2C no Azure Marketplace
+### <a name="what-to-expect-when-you-transition-to-mau-billing-from-per-authentication-billing"></a>O que esperar ao fazer a transição para a cobrança do MAU de cobrança por autenticação
 
-Clique no botão **Criar um recurso**. No campo **Pesquisar no Marketplace** , digite `Active Directory B2C`.
+A medição baseada em MAU é habilitada assim que você, o proprietário da assinatura/recurso, confirma a alteração. Sua fatura mensal refletirá as unidades de autenticação cobradas até a alteração e as novas unidades de MAU começando com a alteração.
 
-![Captura de tela do portal com ' Active Directory B2C ' na pesquisa do Marketplace](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+Os usuários não são contados duas vezes durante o mês de transição. Usuários ativos exclusivos que se autenticam antes da alteração são cobrados por uma taxa por autenticação em um mês civil. Esses mesmos usuários não estão incluídos no cálculo de MAU para o restante do ciclo de cobrança da assinatura. Por exemplo:
 
-Na lista de resultados, selecione **Azure AD B2C**.
+* O locatário contoso B2C tem 1.000 usuários. 250 os usuários estão ativos em um determinado mês. O administrador da assinatura muda de por autenticação para usuários ativos mensais (MAU) no décimo do mês.
+* A cobrança por 1º-10 é cobrada usando o modelo por autenticação.
+  * Se 100 usuários entrarem durante esse período (1º de 10º), esses usuários serão marcados como *pagos pelo mês*.
+* A cobrança do 10º (o tempo de transição efetivo) é cobrada na taxa de MAU.
+  * Se outros usuários 150 entrarem durante esse período (10 a 30), somente os 150 adicionais serão cobrados.
+  * A atividade contínua dos primeiros 100 usuários não afeta a cobrança pelo restante do mês do calendário.
 
-![Azure AD B2C selecionado na lista de resultados](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
+Durante o período de cobrança da transição, o proprietário da assinatura provavelmente verá entradas para os dois métodos (por autenticação e por MAU) exibidos em seu demonstrativo de cobrança de assinatura do Azure:
 
-Os detalhes sobre o Azure AD B2C são mostrados. Para começar a configurar seu novo locatário do Azure Active Directory B2C, clique no botão **Criar**.
+* Uma entrada para o uso até a data/hora da alteração que reflete por autenticação.
+* Uma entrada para o uso após a alteração que reflete os usuários ativos mensais (MAU).
 
-Na tela de criação de recursos, selecione **Vincular um Azure AD B2C existente à minha assinatura do Azure**.
+Para obter as informações mais recentes sobre cobrança de uso e preços para Azure AD B2C, consulte [preços de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
-## <a name="create-an-azure-ad-b2c-resource-within-the-azure-subscription"></a>Criar um recurso do Azure AD B2C na assinatura do Azure
+## <a name="link-an-azure-ad-b2c-tenant-to-a-subscription"></a>Vincular um locatário Azure AD B2C a uma assinatura
 
-Na caixa de diálogo de criação de recursos, selecione um locatário do Azure AD B2C na lista suspensa. Aparecerão todos os locatários para os quais você é o administrador global e aqueles que não estão vinculadas a uma assinatura.
+Os encargos de uso de Azure Active Directory B2C (Azure AD B2C) são cobrados em uma assinatura do Azure. Quando um locatário do Azure AD B2C é criado, o administrador de inquilinos precisa vincular explicitamente o locatário do Azure AD B2C a uma assinatura do Azure.
 
-O nome do recurso do Azure AD B2C será pré-selecionado para corresponder ao nome de domínio do locatário do Azure AD B2C.
+O link de assinatura é obtido criando um *recurso* de Azure ad B2C dentro da assinatura de destino do Azure. Vários recursos de Azure AD B2C podem ser criados em uma única assinatura do Azure, juntamente com outros recursos do Azure, como máquinas virtuais, contas de armazenamento e aplicativos lógicos. Você pode ver todos os recursos em uma assinatura acessando o locatário do Azure Active Directory (Azure AD) ao qual a assinatura está associada.
 
-Em Assinatura, selecione uma assinatura ativa do Azure que você administra.
+Uma assinatura vinculada a um locatário Azure AD B2C pode ser usada para a cobrança de Azure AD B2C uso ou outros recursos do Azure, incluindo recursos de Azure AD B2C adicionais. A assinatura não pode ser usada para adicionar outros serviços baseados em licença do Azure ou licenças do Office 365 no locatário do Azure AD B2C.
 
-Selecione um Grupo de Recursos e o local do Grupo de Recursos. Aqui, a seleção não tem impacto sobre o local, desempenho ou status de cobrança do locatário do Azure AD B2C.
+### <a name="prerequisites"></a>Pré-requisitos
 
-![A página de criação de recursos de Azure AD B2C no portal do Azure](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+* [Assinatura do Azure](https://azure.microsoft.com/free/)
+* [Azure ad B2C locatário](active-directory-b2c-get-started.md) que você deseja vincular a uma assinatura
+  * Você deve ser um administrador de locatários
+  * O locatário já não deve estar vinculado a uma assinatura
 
-## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Gerenciar seus recursos de locatário do Azure AD B2C
+### <a name="create-the-link"></a>Criar o link
 
-Depois que um recurso do Azure AD B2C é criado com êxito na assinatura do Azure, você verá um novo recurso do tipo "locatário do B2C" adicionado aos seus outros recursos do Azure.
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Selecione o **diretório +** filtro de assinatura no menu superior e selecione o diretório que contém a assinatura do Azure que você gostaria de usar (*não* o diretório que contém o locatário Azure ad B2C).
+1. Selecione **criar um recurso**, insira `Active Directory B2C` no campo **Pesquisar no Marketplace** e, em seguida, selecione **Azure Active Directory B2C**.
+1. Escolha **Criar**
+1. Selecione **vincular um locatário existente do Azure ad B2C à minha assinatura do Azure**.
+1. Selecione um **locatário Azure ad B2C** na lista suspensa. Somente os locatários para os quais você é um administrador global e que ainda não estão vinculados a uma assinatura são mostrados. O campo **nome do recurso de Azure ad B2C** é populado com o nome de domínio do locatário de Azure ad B2C que você selecionar.
+1. Selecione uma **assinatura** ativa do Azure da qual você é um administrador.
+1. Em **grupo de recursos**, selecione **criar novo**e especifique o **local do grupo de recursos**. As configurações do grupo de recursos aqui não têm impacto sobre o local Azure AD B2C locatário, o desempenho ou o status de cobrança.
+1. Clique em **Criar**.
+    ![a página de criação de recursos Azure AD B2C no portal do Azure](./media/active-directory-b2c-how-to-enable-billing/portal-01-create-b2c-resource-page.png)
+
+Depois de concluir essas etapas para um locatário Azure AD B2C, sua assinatura do Azure será cobrada de acordo com os detalhes do Azure Direct ou Enterprise Agreement, se aplicável.
+
+### <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Gerenciar seus recursos de locatário do Azure AD B2C
+
+Depois de criar o recurso de Azure AD B2C em uma assinatura do Azure, você deverá ver um novo recurso do tipo "locatário do B2C" que aparece com outros recursos do Azure.
 
 Você pode usar esse recurso para:
 
-- Navegar até a assinatura para revisar as informações de cobrança.
-- Ir até seu locatário do Azure AD B2C
-- Enviar uma solicitação de suporte
-- Mover o recurso de locatário do Azure AD B2C para outra assinatura do Azure ou para outro Grupo de Recursos.
+* Navegue até a assinatura para examinar as informações de cobrança
+* Obter a ID do locatário do Azure AD B2C locatário no formato GUID
+* Ir até seu locatário do Azure AD B2C
+* Envie uma solicitação de suporte
+* Mover seu Azure AD B2C recurso de locatário para outra assinatura do Azure ou grupo de recursos
 
-![Página de configurações de recursos do B2C no portal do Azure](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.PNG)
+![Página de configurações de recursos do B2C no portal do Azure](./media/active-directory-b2c-how-to-enable-billing/portal-02-b2c-resource-overview.png)
+
+### <a name="regional-restrictions"></a>Restrições regionais
+
+Se você estabeleceu restrições regionais para a criação de recursos do Azure em sua assinatura, essa restrição pode impedi-lo de criar o recurso de Azure AD B2C.
+
+Para atenuar esse problema, relaxe suas restrições regionais.
+
+## <a name="azure-cloud-solution-providers-csp-subscriptions"></a>Assinaturas do CSP (provedores de soluções na nuvem) do Azure
+
+Há suporte para as assinaturas do CSP (Provedores de Soluções de Nuvem) do Azure no Azure AD B2C. A funcionalidade está disponível por meio de APIs ou pelo portal do Azure para o Azure AD B2C e todos os recursos do Azure. Os administradores de assinatura do CSP podem vincular, mover e excluir relações com Azure AD B2C como feito com outros recursos do Azure.
+
+O gerenciamento do Azure AD B2C usando o controle de acesso baseado em função não é afetado pela associação entre o locatário do Azure AD B2C e uma assinatura do Azure CSP. O controle de acesso baseado em função é obtido usando funções baseadas em locatário, não funções baseadas em assinatura.
 
 ## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Alterar a assinatura de cobrança de locatário Azure AD B2C
 
@@ -90,14 +138,6 @@ Para saber como mover os recursos do Azure como seu locatário de Azure AD B2C p
 
 Antes de iniciar a movimentação, lembre-se de ler todo o artigo para entender totalmente as limitações e os requisitos para tal movimentação. Além de instruções para mover recursos, ele inclui informações críticas, como uma lista de verificação de pré-movimentação e como validar a operação de movimentação.
 
-## <a name="known-issues"></a>Problemas Conhecidos
+## <a name="next-steps"></a>Próximos passos
 
-### <a name="self-imposed-restrictions"></a>Restrições autoimpostas
-
-Um usuário pode ter estabelecido uma restrição regional para a criação de recursos do Azure. Essa restrição pode impedir a criação de recursos do Azure AD B2C. Para atenuar, reduza essa restrição.
-
-## <a name="next-steps"></a>Próximas etapas
-
-Quando essas etapas forem concluídas para cada um dos seus locatários do Azure AD B2C, sua assinatura do Azure será cobrada de acordo com os detalhes do Azure Direct ou Enterprise Agreement.
-
-Você pode revisar os detalhes de cobrança e uso dentro da assinatura do Azure selecionada. Você também pode rever os relatórios de uso detalhado do dia a dia usando a [API de Relatórios de Uso](active-directory-b2c-reference-usage-reporting-api.md).
+Além de examinar os detalhes de uso e cobrança em uma assinatura do Azure selecionada, você pode examinar relatórios de uso diário detalhados usando a API de [relatório de uso](active-directory-b2c-reference-usage-reporting-api.md).

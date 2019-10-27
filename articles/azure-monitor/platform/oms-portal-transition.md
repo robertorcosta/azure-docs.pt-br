@@ -1,23 +1,18 @@
 ---
 title: Portal do OMS migrando para o Azure | Microsoft Docs
 description: O portal do OMS está sendo desativado com toda a sua funcionalidade migrando para o portal do Azure. Este artigo fornece detalhes sobre essa transição.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/22/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: e8fd49781301406e0c35e1de57cea3040167c6c3
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.date: 08/22/2019
+ms.openlocfilehash: 170973d15b5f49021a0507bdd2fd6a2632777d48
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915858"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932141"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal do OMS migrando para o Azure
 
@@ -65,7 +60,7 @@ Em ambos os casos, o administrador precisa atribuir manualmente a função aprop
 | Permissão de portal do OMS | Função do Azure |
 |:---|:---|
 | ReadOnly | Leitor do Log Analytics |
-| Contribuidor | Colaborador do Log Analytics |
+| Colaborador | Colaborador do Log Analytics |
 | Administrador | Proprietário | 
  
 
@@ -91,9 +86,9 @@ O aplicativo móvel do OMS será desativado juntamente com o portal do OMS. Em l
 ## <a name="application-insights-connector-and-solution"></a>Conector do Application Insights e solução
 O [Conector do Application Insights](app-insights-connector.md) fornece uma maneira de incluir os dados do Application Insights em um espaço de trabalho do Log Analytics. Essa duplicação de dados era necessária para permitir a visibilidade entre dados de aplicativos e de infraestrutura. Com p suporte para retenção de dados estendido do Application Insights em março de 2019 e a capacidade de realizar [consultas entre recursos](../log-query/cross-workspace-query.md) além de poder [exibir vários recursos do Azure Monitor Application Insights](../log-query/unify-app-resource-data.md), não é necessário duplicar os dados dos recursos do Application Insights e enviá-lo para o Log Analytics. Além disso, o Conector envia um subconjunto das propriedades de aplicativos para o Log Analytics, enquanto as consultas entre recursos dão flexibilidade aprimorada.  
 
-Dessa forma, Conector do Application Insights foi preterida e removida do Azure Marketplace junto com a substituição do portal do OMS em 30 de março de 2019. As conexões existentes continuarão a funcionar até 30 de junho de 2019. Com o preterimento do portal OMS, não há como configurar nem remover conexões do portal. Isso terá suporte usando a API REST que será disponibilizada em janeiro de 2019, e uma notificação será publicada nas [atualizações do Azure](https://azure.microsoft.com/updates/). 
+Dessa forma, Conector do Application Insights foi preterida e removida do Azure Marketplace junto com a substituição do portal do OMS em 30 de março de 2019. As conexões existentes continuarão a funcionar até 30 de junho de 2019. Com o preterimento do portal OMS, não há como configurar nem remover conexões do portal. Isso terá suporte usando a API REST que será disponibilizada em janeiro de 2019 e uma notificação será publicada nas [atualizações do Azure](https://azure.microsoft.com/updates/). 
 
-## <a name="azure-network-security-group-analytics"></a>Análise do Grupo de Segurança de Rede do Azure
+## <a name="azure-network-security-group-analytics"></a>Análise de Grupo de Segurança de Rede do Azure
 A [solução de Análise do Grupo de Segurança de Rede do Azure](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor) será substituída pela recém-lançada [Análise de Tráfego](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) que fornece visibilidade sobre a atividade de usuário e do aplicativo em redes de nuvem. A Análise de Tráfego ajuda você a auditar a atividade de rede de sua organização, proteger aplicativos e dados, otimizar o desempenho da carga de trabalho e permanecer em conformidade. 
 
 Esta solução analisa logs de fluxo NSG e fornece insights sobre os elementos a seguir.
@@ -110,5 +105,5 @@ Você pode continuar a contar com as Configurações de Diagnóstico para enviar
 ## <a name="system-center-operations-manager"></a>System Center Operations Manager
 Se você [conectou seu grupo de gerenciamento do Operations Manager ao Log Analytics](om-agents.md), ele continuará funcionando sem alterações. No entanto, para novas conexões, você deve seguir as orientações em [Pacote de Gerenciamento do Microsoft System Center Operations Manager para configurar o Operations Management Suite](https://blogs.technet.microsoft.com/momteam/2018/07/25/microsoft-system-center-operations-manager-management-pack-to-configure-operations-management-suite/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Consulte [Perguntas comuns para a transição do portal do OMS para o portal do Azure para usuários do Log Analytics](oms-portal-faq.md) para obter diretrizes sobre como fazer a transição do portal do OMS para o portal do Azure.

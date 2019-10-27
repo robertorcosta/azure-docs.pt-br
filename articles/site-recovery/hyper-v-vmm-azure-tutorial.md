@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 59e6bbbca982d428d4e590cb647f186e1c3fec3a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: f686a02e363025daa5d0c3b3d4e53e07da636544
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813779"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933829"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurar a recuperação de desastre de VMs locais do Hyper-V em nuvens do VMM para o Azure
 
@@ -31,6 +31,10 @@ Neste tutorial, você aprenderá como:
 
 > [!NOTE]
 > Os tutoriais mostram o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Para obter instruções detalhadas, leia o artigo na seção **Guias de Instruções** da [documentação do Site Recovery](https://docs.microsoft.com/azure/site-recovery).
+
+> [!WARNING]
+> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](scvmm-site-recovery-deprecation.md) antes de continuar.
+
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -63,7 +67,7 @@ Ao configurar o ambiente de origem, você instala o provedor de Azure Site Recov
 1. Em **preparar infraestrutura**, selecione **origem**.
 2. Em **preparar origem**, selecione **+ VMM** para adicionar um servidor do VMM. Em **Adicionar Servidor**, verifique se o **Servidor do System Center VMM** aparece em **Tipo de servidor**.
 3. Baixe o instalador do Provedor do Microsoft Azure Site Recovery.
-4. Baixar a chave de registro do cofre. Você precisa dessa chave ao executar a instalação do provedor. A chave é válida por cinco dias após ser gerada.
+4. Baixe a chave do registro do cofre. Você precisa dessa chave ao executar a instalação do provedor. A chave é válida por cinco dias após ser gerada.
 5. Baixe o instalador para o agente de Serviços de Recuperação do Microsoft Azure.
 
     ![Baixar provedor, chave de registro e agente](./media/hyper-v-vmm-azure-tutorial/download-vmm.png)
@@ -101,7 +105,7 @@ A Recuperação de Site verifica se você tem uma ou mais contas de armazenament
 
 ## <a name="configure-network-mapping"></a>Configurar o mapeamento de rede
 
-1. Na **site Recovery infraestrutura** > **mapeamentos** > de rede**mapeamento de rede**, selecione o ícone **+ mapeamento de rede** .
+1. Em **site Recovery infraestrutura** > **mapeamentos de rede** > **mapeamento de rede**, selecione o ícone **+ mapeamento de rede** .
 2. Em **Adicionar mapeamento de rede**, selecione o servidor do VMM de origem. Selecione **Azure** como o destino.
 3. Verifique a assinatura e o modelo de implantação após o failover.
 4. Em **Rede de origem**, selecione a rede de origem da VM local.
@@ -121,7 +125,7 @@ A Recuperação de Site verifica se você tem uma ou mais contas de armazenament
     - **Criptografar dados armazenados no Azure** é definido como o padrão (**desativado**) e indica que os dados em repouso no Azure não são criptografados.
 4. Depois que a política for criada, selecione **OK**. Quando você cria uma nova política, ela é automaticamente associada à nuvem do VMM.
 
-## <a name="enable-replication"></a>Habilitar replicação
+## <a name="enable-replication"></a>Habilitar a replicação
 
 1. Em **Replicar aplicativo**, selecione **Origem**.
 2. Em **Origem**, selecione a nuvem do VMM. Depois, selecione **OK**.
@@ -131,6 +135,6 @@ A Recuperação de Site verifica se você tem uma ou mais contas de armazenament
 
    É possível acompanhar o progresso da ação **Habilitar Proteção** em **Trabalhos** > **Trabalhos do Site Recovery**. Depois que o trabalho **Finalizar Proteção** for concluído, a replicação inicial será concluída e a VM estará pronta para failover.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > [Realizar uma simulação de recuperação de desastre](tutorial-dr-drill-azure.md)

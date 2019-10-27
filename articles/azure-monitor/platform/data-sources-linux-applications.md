@@ -1,24 +1,18 @@
 ---
 title: Coletar o desempenho de aplicativos do Linux no Azure Monitor | Microsoft Docs
 description: Este artigo fornece detalhes para configurar o Agente do Log Analytics para Linux para coletar contadores de desempenho do MySQL e Apache HTTP Server.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/04/2017
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: ea74440a5c8a9a2584e742ec72ccf888b6bb5ad9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 05/04/2017
+ms.openlocfilehash: 60f09035f4aabcbd6348fb5608b812ca4b001b45
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628907"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932460"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Coletar contadores de desempenho para aplicativos do Linux no Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -48,11 +42,11 @@ A seguir, temos o formato para o arquivo de autenticação de OMI do MySQL
 
 As entradas no arquivo de autenticação são descritas na tabela a seguir.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--|:--|
-| Port | Representa a porta atual em que a instância do MySQL está escutando. A porta 0 significa que as propriedades a seguir são usadas para a instância padrão. |
+| Porta | Representa a porta atual em que a instância do MySQL está escutando. A porta 0 significa que as propriedades a seguir são usadas para a instância padrão. |
 | Endereço de Ligação| Endereço de associação atual de MySQL. |
-| username| Usuário do MySQL a utilizar para monitorar a instância do servidor MySQL. |
+| Nome de Usuário| Usuário do MySQL a utilizar para monitorar a instância do servidor MySQL. |
 | Senha codificada em Base64| Senha do usuário de monitoramento do MySQL codificada em Base64. |
 | Atualização Automática| Especifica se será feita uma nova varredura em busca de alterações no arquivo my.cnf e uma substituição do arquivo de Autenticação de OMI do MySQL quando o Provedor de OMI do MySQL é atualizado. |
 
@@ -61,7 +55,7 @@ O arquivo de autenticação de OMI do MySQL pode definir um número da porta e u
 
 A tabela a seguir tem configurações de instância de exemplo 
 
-| DESCRIÇÃO | Arquivo |
+| Descrição | Arquivo |
 |:--|:--|
 | Instância padrão e instância com porta 3308. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=, ,`<br>`AutoUpdate=true` |
 | Instância padrão e instância com porta 3308 e nome de usuário e senha diferentes. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=127.0.1.1, myuser2,cGluaGVhZA==`<br>`AutoUpdate=true` |
@@ -77,7 +71,7 @@ Incluído com a instalação do provedor de OMI do MySQL temos um programa de ar
 
 A tabela a seguir fornece detalhes sobre a sintaxe para usar mycimprovauth.
 
-| Operação | Exemplo | DESCRIÇÃO
+| Operação | Exemplo | Descrição
 |:--|:--|:--|
 | autoupdate *false or true* | mycimprovauth autoupdate false | Define se o arquivo de autenticação será atualizado automaticamente ao reiniciar ou atualizar. |
 | default *bind-address username password* | mycimprovauth default 127.0.0.1 root pwd | Define a instância padrão no arquivo de autenticação de OMI do MySQL.<br>O campo de senha deve ser inserido em texto sem formatação – a senha no arquivo de autenticação de OMI do MySQL será codificada em Base 64. |
@@ -118,8 +112,8 @@ Depois de configurar o agente do Log Analytics para Linux para enviar dados para
 
 | Nome do Objeto | Nome do contador |
 |:--|:--|
-| Banco de Dados MySQL | Espaço em Disco em Bytes |
-| Banco de Dados MySQL | Tabelas |
+| Banco de dados MySQL | Espaço em Disco em Bytes |
+| Banco de dados MySQL | Tabelas |
 | MySQL Server | % de Conexão Anulada |
 | MySQL Server | % de Uso da Conexão |
 | MySQL Server | Uso de Espaço em Disco em Bytes |
@@ -166,6 +160,6 @@ Depois de configurar o agente do Log Analytics para Linux para enviar dados para
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Coletar contadores de desempenho](data-sources-performance-counters.md) de agentes do Linux.
 * Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções. 

@@ -1,41 +1,35 @@
 ---
-title: Um guia de referência para as partes do Designer de exibição no Azure Monitor | Microsoft Docs
-description: Usando o Designer de exibição no Azure Monitor, você pode criar exibições personalizadas que são exibidas no portal do Azure e contenham uma variedade de visualizações de dados no espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Um guia de referência para as partes do designer de exibição no Azure Monitor | Microsoft Docs
+description: Usando o designer de exibição no Azure Monitor, você pode criar exibições personalizadas que são exibidas na portal do Azure e conter uma variedade de visualizações nos dados no espaço de trabalho Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/12/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/12/2018
+ms.openlocfilehash: 853f0153283f31c9242b884babf5778f96cce141
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61341796"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932004"
 ---
-# <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência para partes de visualização do Designer de exibição no Azure Monitor
-Usando o Designer de exibição no Azure Monitor, você pode criar uma variedade de modos de exibição personalizados no portal do Azure que pode ajudar você a visualizar os dados em seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
+# <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência para exibir partes de visualização do designer no Azure Monitor
+Usando o designer de exibição no Azure Monitor, você pode criar uma variedade de exibições personalizadas na portal do Azure que podem ajudá-lo a Visualizar dados em seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
 
 Para obter mais informações sobre o Designer de Exibição, consulte:
 
-* [Designer de exibição](view-designer.md): fornece uma visão geral do Designer de exibição e dos procedimentos para criar e editar exibições personalizadas.
-* [Referência de blocos](view-designer-tiles.md): fornece uma referência das configurações de cada um dos blocos disponíveis nas suas exibições personalizadas.
+* [Designer de Modos de Exibição](view-designer.md): fornece uma visão geral do Designer de Modos de Exibição e dos procedimentos para criar e editar exibições personalizadas.
+* [Referência de bloco](view-designer-tiles.md): fornece uma referência das configurações de cada um dos blocos disponíveis nas suas exibições personalizadas.
 
 
 Os tipos de blocos do Designer de Modos de Exibição disponíveis são descritos na tabela a seguir:
 
-| Tipo de exibição | DESCRIÇÃO |
+| Tipo de exibição | Descrição |
 |:--- |:--- |
 | [Lista de consultas](#list-of-queries-part) |Exibe uma lista de consultas de log. Você pode selecionar cada consulta para exibir seus resultados. |
 | [Número e lista](#number-and-list-part) |O cabeçalho exibe um único número que mostra uma contagem de registros de uma consulta de log. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
-| [Dois números e lista](#two-numbers-and-list-part) |O cabeçalho exibe dois números que mostram contagens de registros de consultas de log separados. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
+| [Dois números e lista](#two-numbers-and-list-part) |O cabeçalho exibe dois números que mostram contagens de registros de consultas de log separadas. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
 | [Lista e rosca](#donut-and-list-part) |O cabeçalho exibe um único número que resume uma coluna de valor em uma consulta de log. A rosca exibe graficamente os resultados dos três registros principais. |
 | [Duas linhas do tempo e lista](#two-timelines-and-list-part) |O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como gráficos de coluna com um balão mostrando um único número que resume de uma coluna de valor em uma consulta de log. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
 | [Informações](#information-part) |O cabeçalho exibe texto estático e um link opcional. A lista exibe um ou mais itens com texto e título estático. |
@@ -46,14 +40,14 @@ Os tipos de blocos do Designer de Modos de Exibição disponíveis são descrito
 As próximas seções descrevem os tipos de bloco e suas propriedades em detalhes.
 
 > [!NOTE]
-> Partes em exibições são baseadas em [registrar consultas](../log-query/log-query-overview.md) no espaço de trabalho do Log Analytics. Eles não têm suporte no momento [consultas de recurso entre](../log-query/cross-workspace-query.md) para recuperar dados do Application Insights.
+> As partes em exibições são baseadas em [consultas de log](../log-query/log-query-overview.md) em seu espaço de trabalho log Analytics. Atualmente, eles não dão suporte a [consultas entre recursos](../log-query/cross-workspace-query.md) para recuperar dados de Application insights.
 
 ## <a name="list-of-queries-part"></a>Lista da parte de consultas
-A lista da parte de consultas exibe uma lista de consultas de log. Você pode selecionar cada consulta para exibir seus resultados. O modo de exibição inclui uma única consulta por padrão e você pode selecionar **+ Consulta** para incluir consultas adicionais.
+A parte da lista de consultas exibe uma lista de consultas de log. Você pode selecionar cada consulta para exibir seus resultados. O modo de exibição inclui uma única consulta por padrão e você pode selecionar **+ Consulta** para incluir consultas adicionais.
 
 ![Lista da exibição de consultas](media/view-designer-parts/view-list-queries.png)
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Title |O texto que é exibido na parte superior da exibição. |
@@ -69,7 +63,7 @@ O cabeçalho exibe um único número que mostra uma contagem de registros de uma
 
 ![Lista da exibição de consultas](media/view-designer-parts/view-number-list.png)
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior da exibição. |
@@ -88,17 +82,17 @@ O cabeçalho exibe um único número que mostra uma contagem de registros de uma
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| NOME |O texto que é exibido na parte superior da primeira coluna. |
+| name |O texto que é exibido na parte superior da primeira coluna. |
 | Value |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>Dois números e parte da lista
-O cabeçalho tem dois números que exibem uma contagem de registros de consultas de log separados. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
+O cabeçalho tem dois números que exibem uma contagem de registros de consultas de log separadas. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
 ![Exibição de dois números e lista](media/view-designer-parts/view-two-numbers-list.png)
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior da exibição. |
@@ -119,7 +113,7 @@ O cabeçalho tem dois números que exibem uma contagem de registros de consultas
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| NOME |O texto que é exibido na parte superior da primeira coluna. |
+| name |O texto que é exibido na parte superior da primeira coluna. |
 | Value |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -129,7 +123,7 @@ O cabeçalho exibe um único número que resume uma coluna de valor em uma consu
 
 ![Exibição da lista e rosca](media/view-designer-parts/view-donut-list.png)
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior do bloco. |
@@ -143,8 +137,8 @@ O cabeçalho exibe um único número que resume uma coluna de valor em uma consu
 | Consulta |A consulta a ser executada para a rosca. A primeira propriedade é um valor de texto e a segunda é um valor numérico. |
 | Navegação clickthrough | Ação executada quando você clica no cabeçalho.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Rosca** |**> Centro** |
-| Text |O texto que é exibido sob o valor dentro da rosca. |
-| Operação |A operação a executar na propriedade de valor a resumir como um único valor.<ul><li>Soma: adiciona os valores de todos os registros.</li><li>Percentual: a taxa dos registros retornados pelos valores em **Valores de resultado usados na operação do centro** para o total de registros na consulta.</li></ul> |
+| Texto |O texto que é exibido sob o valor dentro da rosca. |
+| Operação |A operação a executar na propriedade de valor a resumir como um único valor.<ul><li>Soma: adiciona os valores de todos os registros.</li><li>Porcentagem: a taxa dos registros retornados pelos valores em **Valores de resultado usados na operação do centro** para o total de registros na consulta.</li></ul> |
 | Valores de resultado usados na operação do centro |Opcionalmente, selecione o sinal de adição (+) para adicionar um ou mais valores. Os resultados da consulta são limitados aos registros com os valores de propriedade que você especifica. Se nenhum valor for adicionado, todos os registros serão incluídos na consulta. |
 | **Opções adicionais** |**> Cores** |
 | Cor 1<br>Cor 2<br>Cor 3 |Selecione a cor de cada um dos valores que são exibidos na rosca. |
@@ -160,7 +154,7 @@ O cabeçalho exibe um único número que resume uma coluna de valor em uma consu
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| NOME |O texto que é exibido na parte superior da primeira coluna. |
+| name |O texto que é exibido na parte superior da primeira coluna. |
 | Value |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -170,7 +164,7 @@ O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como
 
 ![Duas linhas do tempo e exibição da lista](media/view-designer-parts/view-two-timelines-list.png)
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior do bloco. |
@@ -192,7 +186,7 @@ O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como
 | Operação |A operação a ser executada para o minigráfico. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| NOME |O texto que é exibido na parte superior da primeira coluna. |
+| name |O texto que é exibido na parte superior da primeira coluna. |
 | Value |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -202,17 +196,17 @@ O cabeçalho exibe texto estático e um link opcional. A lista exibe um ou mais 
 
 ![Exibição de informações](media/view-designer-parts/view-information.png)
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior do bloco. |
 | Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
 | Cor |A cor da tela de fundo do cabeçalho. |
 | **Cabeçalho** | |
-| Image |O arquivo de imagem que é exibido no cabeçalho. |
-| Rotular |O texto que é exibido no cabeçalho. |
+| Imagem |O arquivo de imagem que é exibido no cabeçalho. |
+| Rótulo |O texto que é exibido no cabeçalho. |
 | **Cabeçalho** |**> Link** |
-| Rotular |O texto do link. |
+| Rótulo |O texto do link. |
 | Url |A URL para o link. |
 | **Itens de informações** | |
 | Title |O texto que é exibido para o título de cada item. |
@@ -223,7 +217,7 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 
 ![Gráfico de linhas, balão e exibição da lista](media/view-designer-parts/view-line-chart-callout-list.png)
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior do bloco. |
@@ -239,8 +233,8 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 | **Gráfico de linhas** |**> Balão** |
 | Título do balão |O texto que é exibido acima do valor do balão. |
 | Nome da Série |Valor da propriedade para a série a ser usado para o valor do balão. Se nenhuma série for fornecida, todos os registros da consulta serão usados. |
-| Operação |A operação a executar na propriedade de valor a resumir como um único valor para o balão.<ul><li>Média: a média do valor de todos os registros.</li><li>Contagem: a contagem de registros que são retornados pela consulta.</li><li>Última amostra: o valor do último intervalo que é incluído no gráfico.</li><li>Máx.: o valor máximo dos intervalos que são incluídos no gráfico.</li><li>Mín.: o valor mínimo dos intervalos que são incluídos no gráfico.</li><li>Soma: a soma dos valores de todos os registros.</li></ul> |
-| **Gráfico de linhas** |**> Eixo Y** |
+| Operação |A operação a executar na propriedade de valor a resumir como um único valor para o balão.<ul><li>Média: a média do valor de todos os registros.</li><li>Contagem: a contagem de registros que são retornados pela consulta.</li><li>Última amostra: o valor do último intervalo que é incluído no gráfico.</li><li>Máx.: o valor máximo dos intervalos que são incluídos no gráfico.</li><li>Min.: o valor mínimo dos intervalos que são incluídos no gráfico.</li><li>Soma: a soma dos valores de todos os registros.</li></ul> |
+| **Gráfico de linhas** |**> eixo Y** |
 | Usar Escala Logarítmica |Selecione este link para usar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores a serem retornados pela consulta. Essas informações são usadas para exibir rótulos do gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores. O tipo *Unidade* especifica a categoria da unidade e define os valores que estão disponíveis para os valores do tipo *Unidade Atual* disponíveis. Se você selecionar um valor em *Converter para*, os valores numéricos serão convertidos do tipo *Unidade Atual* para o tipo *Converter para*. |
 | Rótulo personalizado |O texto que é exibido para o eixo y ao lado do rótulo para o tipo *Unidade*. Se nenhum rótulo for especificado, somente o tipo *Unidade* será exibido. |
@@ -253,7 +247,7 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| NOME |O texto que é exibido na parte superior da primeira coluna. |
+| name |O texto que é exibido na parte superior da primeira coluna. |
 | Value |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -263,7 +257,7 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 
 ![Gráfico de linhas e exibição da lista](media/view-designer-parts/view-line-chart-callout-list.png)
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior do bloco. |
@@ -276,7 +270,7 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 | **Gráfico de linhas** | |
 | Consulta |A consulta a executar para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda é um valor numérico. Essa consulta normalmente usa a palavra-chave *medida* para resumir resultados. Se a consulta usar a palavra-chave *intervalo*, o eixo X do gráfico usará esse intervalo de tempo. Se a consulta não inlcui a palavra-chave *intervalo*, o eixo x usará intervalos de horas. |
 | Navegação clickthrough | Ação executada quando você clica no cabeçalho.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
-| **Gráfico de linhas** |**> Eixo Y** |
+| **Gráfico de linhas** |**> eixo Y** |
 | Usar Escala Logarítmica |Selecione este link para usar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores a serem retornados pela consulta. Essas informações são usadas para exibir rótulos do gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores. O tipo *Unidade* especifica a categoria da unidade e define os valores que estão disponíveis para os valores do tipo *Unidade Atual* disponíveis. Se você selecionar um valor em *Converter para*, os valores numéricos serão convertidos do tipo *Unidade Atual* para o tipo *Converter para*. |
 | Rótulo personalizado |O texto que é exibido para o eixo y ao lado do rótulo para o tipo *Unidade*. Se nenhum rótulo for especificado, somente o tipo *Unidade* será exibido. |
@@ -289,7 +283,7 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| NOME |O texto que é exibido na parte superior da primeira coluna. |
+| name |O texto que é exibido na parte superior da primeira coluna. |
 | Value |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -299,7 +293,7 @@ A pilha de gráficos de linha exibe três gráficos de linhas separados com vár
 
 ![Pilha de gráficos de linha](media/view-designer-parts/view-stack-line-charts.png)
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior do bloco. |
@@ -311,7 +305,7 @@ A pilha de gráficos de linha exibe três gráficos de linhas separados com vár
 | **Gráfico 1<br>Gráfico 2<br>Gráfico 3** |**Gráfico de linhas** |
 | Consulta |A consulta a executar para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda é um valor numérico. Essa consulta normalmente usa a palavra-chave *medida* para resumir resultados. Se a consulta usar a palavra-chave *intervalo*, o eixo X do gráfico usará esse intervalo de tempo. Se a consulta não inlcui a palavra-chave *intervalo*, o eixo x usará intervalos de horas. |
 | Navegação clickthrough | Ação executada quando você clica no cabeçalho.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
-| **Gráfico** |**> Eixo Y** |
+| **Gráfico** |**> eixo Y** |
 | Usar Escala Logarítmica |Selecione este link para usar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores a serem retornados pela consulta. Essas informações são usadas para exibir rótulos do gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores. O tipo *Unidade* especifica a categoria da unidade e define os valores que estão disponíveis para os valores do tipo *Unidade Atual* disponíveis. Se você selecionar um valor em *Converter para*, os valores numéricos serão convertidos do tipo *Unidade Atual* para o tipo *Converter para*. |
 | Rótulo personalizado |O texto que é exibido para o eixo y ao lado do rótulo para o tipo *Unidade*. Se nenhum rótulo for especificado, somente o tipo *Unidade* será exibido. |
@@ -325,15 +319,15 @@ O separador de valor e nome é o delimitador de caractere único a ser usado par
 Por exemplo, considere uma propriedade chamada *Localização* que incluía valores como *Redmond-Building 41* e *Bellevue-Building12*. Você poderia especificar um traço (-) para o separador de valor e nome e *City-Building* para o nome. Essa abordagem analisa cada valor em duas propriedades chamadas *Cidade* e *Edifício*.
 
 ### <a name="click-through-navigation"></a>Navegação clickthrough
-A navegação clickthrough define qual ação será tomada quando você clicar em um cabeçalho ou item de lista em uma exibição.  Isso abrirá uma consulta na [do Log Analytics](../../azure-monitor/log-query/portals.md) ou iniciar outra exibição.
+A navegação clickthrough define qual ação será tomada quando você clicar em um cabeçalho ou item de lista em uma exibição.  Isso abrirá uma consulta no [log Analytics](../../azure-monitor/log-query/portals.md) ou iniciará outra exibição.
 
 A tabela a seguir descreve as configurações de navegação clickthrough.
 
-| Configuração           | DESCRIÇÃO |
+| Configuração           | Descrição |
 |:--|:--|
-| Pesquisa de Logs (Automática) | Consulta de log para ser executado quando você seleciona um item de cabeçalho.  Isso é a mesma consulta de log que o item se baseia.
-| Pesquisa de Log        | Consulta de log para ser executado quando você seleciona um item em uma lista.  Digite a consulta na caixa **Consulta de navegação**.   Use *{selected item}* para incluir a sintaxe para o item selecionado pelo usuário.  Por exemplo, se a consulta tiver uma coluna denominada *Computer* e a consulta de navegação for *{selected item}* , uma consulta como *Computer="MyComputer"* é executada quando você seleciona um computador. Se a consulta de navegação for do tipo *Type=Event {selected item}* , a consulta *Type=Event Computer="MyComputer"* é executada. |
-| Visualizar              | Modo de exibição para abrir quando você seleciona um item de cabeçalho ou um item em uma lista.  Selecione o nome de uma exibição no seu workspace na caixa **Nome de exibição**. |
+| Pesquisa de Logs (Automática) | Consulta de log a ser executada quando você seleciona um item de cabeçalho.  Essa é a mesma consulta de log na qual o item se baseia.
+| Pesquisa de log        | Consulta de log a ser executada quando você seleciona um item em uma lista.  Digite a consulta na caixa **Consulta de navegação**.   Use *{selected item}* para incluir a sintaxe para o item selecionado pelo usuário.  Por exemplo, se a consulta tiver uma coluna denominada *Computer* e a consulta de navegação for *{selected item}* , uma consulta como *Computer="MyComputer"* é executada quando você seleciona um computador. Se a consulta de navegação for do tipo *Type=Event {selected item}* , a consulta *Type=Event Computer="MyComputer"* é executada. |
+| Exibir              | Modo de exibição para abrir quando você seleciona um item de cabeçalho ou um item em uma lista.  Selecione o nome de uma exibição no seu workspace na caixa **Nome de exibição**. |
 
 
 
@@ -342,10 +336,10 @@ Um minigráfico é um pequeno gráfico de linha que ilustra o valor de uma entra
 
 A tabela a seguir descreve as configurações de minigráficos:
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Descrição |
 |:--- |:--- |
 | Habilitar minigráficos |Selecione este link para exibir um minigráfico em vez de uma barra horizontal. |
-| Operação |Se os minigráficos estiverem habilitados, essa será a operação a ser executada em cada propriedade na lista para calcular os valores do minigráfico.<ul><li>Última amostra: o último valor da série durante o intervalo.</li><li>Máx.: o valor máximo da série durante o intervalo.</li><li>Mín.: o valor mínimo da série durante o intervalo.</li><li>Soma: a soma dos valores da série durante o intervalo.</li><li>Resumo: usa o mesmo comando `measure` da consulta no cabeçalho.</li></ul> |
+| Operação |Se os minigráficos estiverem habilitados, essa será a operação a ser executada em cada propriedade na lista para calcular os valores do minigráfico.<ul><li>Última Amostra: O último valor da série durante o intervalo.</li><li>Máx: O valor máximo da série durante o intervalo.</li><li>Min: O valor mínimo da série durante o intervalo.</li><li>Soma: A soma dos valores da série durante o intervalo.</li><li>Resumo: Usa o mesmo comando `measure` da consulta no cabeçalho.</li></ul> |
 
 ### <a name="thresholds"></a>Limites
 Usando limites, você pode exibir um ícone de cor ao lado de cada item em uma lista. Os limites oferecem um indicador visual rápido de itens que excedem um valor específico ou ficam dentro de um intervalo específico. Por exemplo, você pode exibir um ícone verde para itens com um valor aceitável; amarelo, se o valor estiver dentro de um intervalo que indica um aviso, e vermelho se ele exceder um valor de erro.
@@ -356,12 +350,12 @@ Cada conjunto de limite tem um limite com um valor de **Padrão**. Essa é a cor
 
 A tabela a seguir descreve as configurações de limites:
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Descrição |
 |:--- |:--- |
 | Habilitar limites |Clique neste link para exibir um ícone de cor à esquerda de cada valor. O ícone indica a integridade do valor em relação a limites especificados. |
-| NOME |O nome do valor limite. |
+| name |O nome do valor limite. |
 | Limite |O valor para o limite. A cor de integridade para cada item de lista é definida como a cor do maior valor limite que é excedido pelo valor do item. Se nenhum valor limite for excedido, será usada uma cor padrão. |
 | Cor |A cor que indica o valor limite. |
 
-## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para oferecer suporte as consultas em partes de visualização.
+## <a name="next-steps"></a>Próximos passos
+* Saiba mais sobre [consultas de log](../log-query/log-query-overview.md) para dar suporte às consultas em partes de visualização.

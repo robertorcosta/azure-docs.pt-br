@@ -6,12 +6,12 @@ ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 33fc2cd19152fb6cbbffb106aa058948d39555f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51c0d832a6d6d9b1cd148f765e68cb77c4679819
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471427"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72929213"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gerenciar o acesso de recuperação do site com controle de acesso baseado em função (RBAC)
 
@@ -38,9 +38,12 @@ Um usuário precisa das seguintes permissões para concluir a replicação de um
 > [!IMPORTANT]
 >Certifique-se de que as permissões relevantes sejam adicionadas pelo modelo de implantação (Resource Manager/Clássico) usado para implantação de recursos.
 
+> [!NOTE]
+> Se você estiver habilitando a replicação para uma VM do Azure e quiser permitir que Site Recovery gerencie atualizações e, ao mesmo tempo, habilitar a replicação, convém criar uma nova conta de automação, caso em que você precisaria de permissão para criar uma conta de automação na mesma assinatura como o cofre também.
+
 | **Tipo de recurso** | **Modelo de implantação** | **Permissão** |
 | --- | --- | --- |
-| Computação | Gerenciador de Recursos | Microsoft.Compute/availabilitySets/read |
+| Computação | Resource Manager | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |
@@ -50,7 +53,7 @@ Um usuário precisa das seguintes permissões para concluir a replicação de um
 |  |  | Microsoft.ClassicCompute/virtualMachines/read |
 |  |  | Microsoft.ClassicCompute/virtualMachines/write |
 |  |  | Microsoft.ClassicCompute/virtualMachines/delete |
-| Rede | Gerenciador de Recursos | Microsoft.Network/networkInterfaces/read |
+| Rede | Resource Manager | Microsoft.Network/networkInterfaces/read |
 |  |  | Microsoft.Network/networkInterfaces/write |
 |  |  | Microsoft.Network/networkInterfaces/delete |
 |  |  | Microsoft.Network/networkInterfaces/join/action |
@@ -59,19 +62,19 @@ Um usuário precisa das seguintes permissões para concluir a replicação de um
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | Clássico | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Armazenamento | Gerenciador de Recursos | Microsoft.Storage/storageAccounts/read |
+| Armazenamento | Resource Manager | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | Clássico | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
-| Grupo de recursos | Gerenciador de Recursos | Microsoft.Resources/deployments/* |
+| Grupo de recursos | Resource Manager | Microsoft.Resources/deployments/* |
 |  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
 
 Considere usar as [funções internas](../role-based-access-control/built-in-roles.md) 'Colaborador de Máquina Virtual' e ‘Colaborador de Máquina Virtual Clássica’ para os modelos de implantação do Resource Manager e do Clássico respectivamente.
 
-## <a name="next-steps"></a>Próximas etapas
-* [Controle de acesso baseado em função](../role-based-access-control/role-assignments-portal.md): Comece no RBAC no portal do Azure.
+## <a name="next-steps"></a>Próximos passos
+* [Controle de Acesso Baseado em Função](../role-based-access-control/role-assignments-portal.md): introdução ao RBAC no portal do Azure.
 * Saiba como gerenciar o acesso com:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
-  * [API REST](../role-based-access-control/role-assignments-rest.md)
-* [Solução de problemas do Controle de Acesso Baseado em Função](../role-based-access-control/troubleshooting.md): Obtenha sugestões para corrigir problemas comuns.
+  * [REST API](../role-based-access-control/role-assignments-rest.md)
+* [Solução de problemas de Controle de Acesso Baseado em Função](../role-based-access-control/troubleshooting.md): obtenha sugestões para corrigir problemas comuns.

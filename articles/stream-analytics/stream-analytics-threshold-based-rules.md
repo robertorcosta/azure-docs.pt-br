@@ -1,5 +1,5 @@
 ---
-title: Processar regras de limite configurável com base no Azure Stream Analytics
+title: Regras baseadas em limite configuráveis no Azure Stream Analytics
 description: Este artigo descreve como usar dados de referência para obter uma solução de alerta com regras de limite configurável com base no Azure Stream Analytics.
 services: stream-analytics
 author: zhongc
@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8fd21f411093e22b2b1dc5afd6da9cb26db6ff8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761719"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934251"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Processar regras de limite configurável com base no Azure Stream Analytics
 Este artigo descreve como usar dados de referência para obter uma solução de alerta que usa regras de limite configurável com base no Azure Stream Analytics.
 
-## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Cenário: Alertas com base nos limites ajustáveis regra
+## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Cenário: Alertas com base nos limites de regra ajustáveis
 Talvez seja necessário gerar um alerta como saída quando eventos de fluxo de entrada atingirem um determinado valor, ou quando um valor agregado com base em eventos de fluxo de entrada exceder um certo limite. É simples configurar uma consulta do Stream Analytics, que tem o valor comparado com um limite estático, fixo e predeterminado. Um limite fixo pode ser codificado na sintaxe de consulta de streaming usando comparações numéricas simples (maior que, menor que e de igualdade).
 
 Em alguns casos, os valores de limite precisam ser mais facilmente configuráveis sem a edição da sintaxe de consulta cada vez que um valor de limite é alterado. Em outros casos, talvez você precise de vários dispositivos ou usuários processados na mesma consulta com cada um deles com valores de limite diferentes em cada tipo de dispositivo. 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: 50fbd0a2169fb120424d76e786a6269243eeb3e1
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 8d99ff6f2d8a21a501631a3a062be6b05130c05b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273939"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931810"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Fazer backup de um banco de dados SAP HANA no Azure
 
@@ -53,6 +53,9 @@ Certifique-se de fazer o seguinte antes de configurar os backups:
     sudo zypper update
     sudo zypper install unixODBC
     ```
+
+    > [!NOTE]
+    > Se você não atualizar os repositórios, verifique se a versão de unixODBC é min 2.3.4. Para saber a versão do uniXODBC, execute ```odbcinst -j``` como raiz
 
 2. Permita a conectividade da VM com a Internet, para que ela possa acessar o Azure, conforme descrito no procedimento [abaixo](#set-up-network-connectivity).
 
@@ -116,13 +119,13 @@ Especifique as configurações de política da seguinte maneira:
 
 1. Em **Nome da política**, insira um nome para a nova política.
 2. Em **Política de Backup Completo**, selecione uma **Frequência de Backup** escolhendo **Diária** ou **Semanal**.
-   - **Diariamente**: Selecione a hora e o fuso horário em que o trabalho de backup começa.
+   - **Diário**: selecione a hora e o fuso horário em que o trabalho de backup começa.
    
        - Você deve executar um backup completo. Você não pode desativar essa opção.
        - Clique em **Backup Completo** para exibir a política.
        - Você não pode criar backups diferenciais para backups diários completos.
        
-   - **Semanal**: Selecione o dia da semana, hora e fuso horário em que o trabalho de backup é executado.
+   - **Semanal**: selecione o dia da semana, hora e fuso horário em que o trabalho de backup é executado.
 3. Em **período de retenção**, defina as configurações de retenção para o backup completo.
     - Por padrão, todas as opções são selecionadas. Desmarque os limites de período de retenção que você não deseja usar e defina os que você faz.
     - O período de retenção mínimo para qualquer tipo de backup (completo/diferencial/log) é de sete dias.
@@ -167,7 +170,7 @@ Se você quiser fazer um backup local (usando o HANA Studio) de um banco de dado
 
 1. Aguarde até que os backups completos ou de log do banco de dados sejam concluídos. Verifique o status no SAP HANA Studio.
 2. Desabilite os backups de log e defina o catálogo de backup para o sistema de arquivos para o banco de dados relevante.
-3. Para fazer isso, clique duas vezes em **systemdb** > **configuração** > **Selecione banco de dados** > **filtro (log)** .
+3. Para fazer isso, clique duas vezes em systemdb **configuração** de >  > selecionar **filtro de > de banco de dados (log)** .
 4. Defina **enable_auto_log_backup** como **não**.
 5. Defina **log_backup_using_backint** como **false**.
 6. Faça um backup completo ad hoc do banco de dados.
@@ -187,7 +190,7 @@ Se você estiver protegendo bancos de SAP HANA 1,0 e quiser atualizar para o 2,0
 - Clique em redescobrir bancos de os para a mesma VM. Isso deve mostrar o novo banco de bancos na etapa 2 com detalhes corretos (SYSTEMDB e DB de locatário, não SDC). 
 - Proteja esses novos bancos de dados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba mais sobre](backup-azure-sap-hana-database-troubleshoot.md) como solucionar erros comuns ao usar o backup SAP Hana em VMs do Azure.
 [Saiba mais sobre como](backup-azure-arm-vms-prepare.md) fazer backup de VMs do Azure.

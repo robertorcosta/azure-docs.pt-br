@@ -4,34 +4,90 @@ description: Descreve como usar a limitação com solicitações Azure Resource 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 10/14/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: f457b316d9f499f2cab02452c1b03ad07a9aef27
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 29d319541e92abfc52cb3f351aeaf50fc5d5687b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302824"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931837"
 ---
 # <a name="throttling-resource-manager-requests"></a>Restrição de solicitações do Resource Manager
 
-Para cada assinatura e inquilino do Azure, o Gerenciador de Recursos permite até 12.000 solicitações de leitura por hora e 1.200 solicitações de gravação por hora. Esses limites têm como escopo a entidade de segurança (usuário ou aplicativo) que faz as solicitações e a ID da assinatura ou a ID do locatário. Se suas solicitações vierem de mais de uma entidade de segurança, seu limite entre a assinatura ou o locatário será maior que 12.000 e 1.200 por hora.
+Este artigo descreve como Azure Resource Manager limita as solicitações. Ele mostra como acompanhar o número de solicitações que permanecem antes de atingir o limite e como responder quando você atingir o limite.
 
-As solicitações são aplicadas à sua assinatura ou ao seu inquilino. As solicitações de assinatura são aquelas que envolvem a passagem da sua ID de assinatura, como a recuperação dos grupos de recursos em sua assinatura. As solicitações de inquilino não incluem seu ID de inscrição, como a recuperação de locais válidos do Azure.
+A limitação ocorre em dois níveis. Azure Resource Manager limita as solicitações para a assinatura e o locatário. Se a solicitação estiver sob os limites de limitação para a assinatura e o locatário, o Resource Manager roteia a solicitação para o provedor de recursos. O provedor de recursos aplica limites de limitação que são adaptados para suas operações. A imagem a seguir mostra como a limitação é aplicada, uma vez que uma solicitação passa do usuário para Azure Resource Manager e o provedor de recursos.
 
-Esses limites se aplicam a cada instância do Azure Resource Manager. Há várias instâncias em todas as regiões do Azure e o Azure Resource Manager é implantado em todas as regiões do Azure.  Portanto, na prática, os limites são efetivamente muito maiores do que esses, pois as solicitações do usuário são geralmente atendidas por muitas instâncias diferentes.
+![Limitação de solicitação](./media/resource-manager-request-limits/request-throttling.svg)
 
-Se seu aplicativo ou script atingir esses limites, será necessário restringir suas solicitações. Este artigo mostra como determinar as solicitações restantes que você tem antes de atingir o limite e como responder quando atingir o limite.
+## <a name="subscription-and-tenant-limits"></a>Limites de assinatura e locatário
 
-Quando você alcança o limite, recebe o código de status HTTP **429 Excesso de solicitações**.
+Todas as operações de nível de assinatura e de locatário estão sujeitas a limites de limitação. As solicitações de assinatura são aquelas que envolvem a passagem da sua ID de assinatura, como a recuperação dos grupos de recursos em sua assinatura. As solicitações de inquilino não incluem seu ID de inscrição, como a recuperação de locais válidos do Azure.
 
-O grafo de recursos do Azure limita o número de solicitações para suas operações. As etapas neste artigo para determinar as solicitações restantes e como responder quando o limite é atingido também se aplicam ao grafo de recursos. No entanto, o grafo de recursos define seu próprio limite e a taxa de redefinição. Para obter mais informações, consulte [limitação no grafo de recursos do Azure](../governance/resource-graph/overview.md#throttling).
+Os limites de limitação padrão por hora são mostrados na tabela a seguir.
+
+| Escopo | Operations | Limite |
+| ----- | ---------- | ------- |
+| Subscription | pareça | 12000 |
+| Subscription | excluído | 15000 |
+| Subscription | registra | 1\.200 |
+| Locatário | pareça | 12000 |
+| Locatário | registra | 1\.200 |
+
+O escopo desses limites são a entidade de segurança (usuário ou aplicativo) que faz as solicitações e a ID da assinatura ou a ID do locatário. Se suas solicitações vierem de mais de uma entidade de segurança, seu limite na assinatura ou no locatário será maior que 12.000 e 1.200 por hora.
+
+Esses limites se aplicam a cada instância do Azure Resource Manager. Há várias instâncias em todas as regiões do Azure e o Azure Resource Manager é implantado em todas as regiões do Azure.  Portanto, na prática, os limites são maiores que esses limites. As solicitações de um usuário geralmente são tratadas por instâncias diferentes do Azure Resource Manager.
+
+## <a name="resource-provider-limits"></a>Limites do provedor de recursos
+
+Os provedores de recursos aplicam seus próprios limites de limitação. Como o Resource Manager limita-se pela ID principal e por instância do Resource Manager, o provedor de recursos pode receber mais solicitações do que os limites padrão na seção anterior.
+
+Esta seção aborda os limites de limitação de alguns provedores de recursos amplamente usados.
+
+### <a name="storage-throttling"></a>Limitação de armazenamento
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../includes/azure-storage-limits-azure-resource-manager.md)]
+
+### <a name="network-throttling"></a>Limitação de rede
+
+O provedor de recursos Microsoft. Network aplica os seguintes limites de limitação:
+
+| Operação | Limite |
+| --------- | ----- |
+| gravação/exclusão (PUT) | 1000 por 5 minutos |
+| leitura (GET) | 10000 por 5 minutos |
+
+### <a name="compute-throttling"></a>Limitação de computação
+
+Para obter informações sobre limites de limitação para operações de computação, consulte [Solucionando problemas de erros de limitação de API-Compute](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+
+Para verificar as instâncias de máquina virtual em um conjunto de dimensionamento de máquinas virtuais, use as [operações de conjuntos de dimensionamento de máquinas virtuais](/rest/api/compute/virtualmachinescalesetvms). Por exemplo, use o [conjunto de dimensionamento de máquinas virtuais VMs-List](/rest/api/compute/virtualmachinescalesetvms/list) com parâmetros para verificar o estado de energia de instâncias de máquina virtual. Essa API reduz o número de solicitações.
+
+### <a name="azure-resource-graph-throttling"></a>Limitação do grafo de recursos do Azure
+
+O grafo de recursos do Azure limita o número de solicitações para suas operações. As etapas neste artigo para determinar as solicitações restantes e como responder quando o limite é atingido também se aplicam ao grafo de recursos. No entanto, o grafo de recursos define seu próprio limite e a taxa de redefinição. Para saber mais, confira [Limitação no Azure Resource Graph](../governance/resource-graph/overview.md#throttling).
+
+## <a name="request-increase"></a>Solicitar Aumento
+
+Às vezes, os limites de limitação podem ser aumentados. Para ver se os limites de limitação para seu cenário podem ser aumentados, crie uma solicitação de suporte. Os detalhes do seu padrão de chamada serão avaliados.
+
+## <a name="error-code"></a>Código do erro
+
+Quando você alcança o limite, recebe o código de status HTTP **429 Excesso de solicitações**. A resposta inclui um valor **Retry-After** , que especifica o número de segundos que o aplicativo deve aguardar (ou dormir) antes de enviar a próxima solicitação. Se você enviar uma solicitação antes do valor de repetição, sua solicitação não será processada e um novo valor de repetição será retornado.
+
+Depois de aguardar o tempo especificado, você também pode fechar e reabrir sua conexão com o Azure. Ao redefinir a conexão, você pode se conectar a uma instância diferente do Azure Resource Manager.
+
+Se você estiver usando um SDK do Azure, o SDK poderá ter uma configuração de repetição automática. Para obter mais informações, consulte [diretrizes de repetição para serviços do Azure](/azure/architecture/best-practices/retry-service-specific).
+
+Alguns provedores de recursos retornam 429 para relatar um problema temporário. O problema pode ser uma condição de sobrecarga que não é causada diretamente por sua solicitação. Ou pode representar um erro temporário sobre o estado do recurso de destino ou do recurso dependente. Por exemplo, o provedor de recursos de rede retorna 429 com o código de erro **RetryableErrorDueToAnotherOperation** quando o recurso de destino está bloqueado por outra operação. Para determinar se o erro é proveniente da limitação ou de uma condição temporária, exiba os detalhes do erro na resposta.
 
 ## <a name="remaining-requests"></a>Solicitações restantes
+
 Você pode determinar o número de solicitações restantes ao examinar cabeçalhos de resposta. As solicitações de leitura retornam um valor no cabeçalho para o número de solicitações de leitura restantes. As solicitações de gravação incluem um valor para o número de solicitações de gravação restantes. A tabela a seguir descreve os cabeçalhos de resposta que você pode examinar em busca desses valores:
 
-| Cabeçalho de resposta | DESCRIÇÃO |
+| Cabeçalho de resposta | Descrição |
 | --- | --- |
 | x-ms-ratelimit-remaining-subscription-reads |Leituras no escopo da assinatura restantes. Esse valor é retornado em operações de leitura. |
 | x-ms-ratelimit-remaining-subscription-writes |Gravações no escopo da assinatura restantes. Esse valor é retornado em operações de gravação. |
@@ -42,7 +98,10 @@ Você pode determinar o número de solicitações restantes ao examinar cabeçal
 | x-ms-ratelimit-remaining-tenant-resource-requests |Solicitações de tipo de recurso no escopo do locatário restantes.<br /><br />Esse cabeçalho será adicionado somente para solicitações em nível de locatário e somente se um serviço tiver substituído o limite padrão. O Resource Manager adiciona esse valor em vez das leituras ou gravações do locatário. |
 | x-ms-ratelimit-remaining-tenant-resource-entities-read |Solicitações de coletas de tipo de recurso no escopo do locatário restantes.<br /><br />Esse cabeçalho será adicionado somente para solicitações em nível de locatário e somente se um serviço tiver substituído o limite padrão. |
 
+O provedor de recursos também pode retornar cabeçalhos de resposta com informações sobre as solicitações restantes. Para obter informações sobre cabeçalhos de resposta retornados pelo provedor de recursos de computação, consulte [cabeçalhos de resposta informativo de taxa de chamada](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers).
+
 ## <a name="retrieving-the-header-values"></a>Recuperar os valores de cabeçalho
+
 Recuperar esses valores de cabeçalho no seu código ou script não é diferente de recuperar um outro valor de cabeçalho qualquer. 
 
 Por exemplo, em **C#** , recupere o valor de cabeçalho de um objeto **HttpWebResponse** chamado **response** com o código a seguir:
@@ -137,10 +196,7 @@ msrest.http_logger :     'Expires': '-1'
 msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
 
-## <a name="waiting-before-sending-next-request"></a>Aguardando antes de enviar a próxima solicitação
-Quando você alcançar o limite de solicitação, o Resource Manager retorna o código de status HTTP **429** e um valor **Retry-After** no cabeçalho. O valor **Retry-After** especifica o número de segundos que o aplicativo deve aguardar (ou ficar suspenso) antes de enviar a próxima solicitação. Se você enviar uma solicitação antes do valor de repetição, sua solicitação não será processada e um novo valor de repetição será retornado.
-
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para um exemplo completo do PowerShell, consulte [Verificar os limites do gerenciador de recursos para uma assinatura](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
 * Para obter mais informações sobre limites e cotas, confira [Assinatura do Azure e limite de serviços, cotas e restrições](../azure-subscription-service-limits.md).

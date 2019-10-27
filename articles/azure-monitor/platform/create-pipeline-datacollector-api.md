@@ -1,24 +1,18 @@
 ---
-title: Criar um pipeline de dados com a API do coletor de dados do Azure Monitor | Microsoft Docs
+title: Criar um pipeline de dados com a API do coletor de dados Azure Monitor | Microsoft Docs
 description: É possível usar a API do Coletor de Dados HTTP do Azure Monitor para adicionar dados JSON POST ao espaço de trabalho do Log Analytics de qualquer cliente que possa chamar a API REST. Este artigo descreve como carregar os dados armazenados em arquivos de uma maneira automatizada.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/09/2018
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 53457a044f5c69af7bf68561f24732e8f02219d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/09/2018
+ms.openlocfilehash: 8b739d86ec557ca8c7de7e0999c905b51d1d97a7
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65603240"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932624"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Criar um pipeline de dados com a API do Coletor de Dados
 
@@ -27,7 +21,7 @@ O [API do coletor de dados do Azure Monitor](data-collector-api.md) permite que 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Problema de exemplo
-No restante deste artigo, examinaremos dados de exibição de página no Application Insights. Em nosso cenário hipotético, queremos correlacionar informações geográficas coletadas por padrão pelo SDK do Application Insights para dados personalizados que contém a população de cada país/região do mundo, com o objetivo de identificar onde podemos deve estar dedicando algum o dólares de marketing mais. 
+No restante deste artigo, examinaremos dados de exibição de página no Application Insights. Em nosso cenário hipotético, queremos correlacionar informações geográficas coletadas por padrão pelo SDK Application Insights para dados personalizados que contenham a população de cada país/região do mundo, com o objetivo de identificar onde devemos gastar a maior parte dos investimentos em marketing. 
 
 Usamos uma fonte de dados pública, como as [Perspectivas Demográficas Mundiais do ONU](https://esa.un.org/unpd/wpp/) para essa finalidade. Os dados terão o seguinte esquema simples:
 
@@ -172,5 +166,5 @@ Este artigo apresentou um protótipo funcional, cuja lógica por trás pode ser 
 * Se você estiver carregando vários tipos de dados diferentes, separe-os em pastas individuais no contêiner de blob e crie a lógica para distribuir a lógica com base no tipo de dados. 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre a [API do Coletor de Dados](data-collector-api.md) para gravar dados no espaço de trabalho do Log Analytics por meio de qualquer cliente de API REST.

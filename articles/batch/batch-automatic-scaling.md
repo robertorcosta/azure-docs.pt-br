@@ -11,15 +11,15 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
-ms.date: 10/08/2019
+ms.date: 10/24/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: a788226ad5bd3f8cd6416ad032fc439e860fd713
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: ab16fc959a332076cac1d615b86d37e8c66e2f67
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286702"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933693"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula automática para dimensionar nós de computação em um pool do lote
 
@@ -61,7 +61,7 @@ O número de nós de destino pode ser maior, menor ou o mesmo que o número atua
 
 ### <a name="sample-autoscale-formulas"></a>Fórmulas de autoescala de exemplo
 
-Abaixo estão exemplos de duas fórmulas de dimensionamento automático, que podem ser ajustadas para funcionar na maioria dos cenários. As variáveis `startingNumberOfVMs` e `maxNumberofVMs` no exemplo de fórmulas podem ser ajustadas às suas necessidades.
+Abaixo estão exemplos de duas fórmulas de dimensionamento automático, que podem ser ajustadas para funcionar na maioria dos cenários. As variáveis `startingNumberOfVMs` e `maxNumberofVMs` nas fórmulas de exemplo podem ser ajustadas às suas necessidades.
 
 #### <a name="pending-tasks"></a>Tarefas pendentes
 
@@ -105,7 +105,7 @@ As tabelas a seguir mostram as variáveis de leitura e gravação e de somente l
 | Variáveis definidas pelo serviço de leitura/gravação | Descrição |
 | --- | --- |
 | $TargetDedicatedNodes |O número de nós de computação dedicados de destino para o pool. O número de nós dedicados é especificado como um destino porque um pool nem sempre consegue o número de nós desejado. Por exemplo, se o número de nós dedicados de destino for modificado por uma avaliação de autoescala antes que o pool tenha alcançado o destino inicial, então, o pool poderá não alcançar o destino. <br /><br /> Um pool em uma conta criada com a configuração do Serviço de Lote talvez não consiga atingir seu destino, se o destino exceder um nó da conta do Lote ou uma cota de núcleos. Um pool em uma conta criada com a configuração de Assinatura de Usuário poderá não atingir seu destino, se o destino exceder a cota de núcleos compartilhada para a assinatura.|
-| $TargetLowPriorityNodes |O número de destino de nós de computação de baixa prioridade para o pool. O número de nós de baixa prioridade é especificado como um destino porque um pool nem sempre consegue o número de nós desejado. Por exemplo, se o número de nós de baixa prioridade de destino for modificado por uma avaliação de autoescala antes que o pool tenha alcançado o destino inicial, então, o pool poderá não alcançar o destino. Um pool também não poderá atingir seu destino, se o destino exceder um nó da conta do Lote ou uma cota de núcleos. <br /><br /> Para obter mais informações sobre nós de computação de baixa prioridade, consulte [Usar VMs de baixa prioridade com o Lote (versão prévia)](batch-low-pri-vms.md). |
+| $TargetLowPriorityNodes |O número de destino de nós de computação de baixa prioridade para o pool. O número de nós de baixa prioridade é especificado como um destino porque um pool nem sempre consegue o número de nós desejado. Por exemplo, se o número de nós de baixa prioridade de destino for modificado por uma avaliação de autoescala antes que o pool tenha alcançado o destino inicial, então, o pool poderá não alcançar o destino. Um pool também não poderá atingir seu destino, se o destino exceder um nó da conta do Lote ou uma cota de núcleos. <br /><br /> Para obter mais informações sobre nós de computação de baixa prioridade, consulte [usar VMs de baixa prioridade com o lote](batch-low-pri-vms.md). |
 | $NodeDeallocationOption |A ação que ocorre quando nós de computação são removidos de um pool. Os valores possíveis são:<ul><li>recolocar na **fila**--o valor padrão. Encerra as tarefas imediatamente e as coloca novamente na fila de trabalho para que elas sejam reagendadas. Essa ação garante que o número de destino dos nós seja atingido o mais rápido possível, mas pode ser menos eficiente, pois qualquer tarefa em execução será interrompida e precisará ser reiniciada, desperdiçando qualquer trabalho que já tenha feito. <li>**terminate** – finaliza tarefas imediatamente e as remove da fila de trabalhos.<li>**taskcompletion** – aguarda que as tarefas em execução sejam concluídas e remove o nó do pool. Use essa opção para evitar que tarefas sejam interrompidas e recolocadas na fila, desperdiçando qualquer trabalho que a tarefa tenha feito. <li>**retaineddata** - aguarda que todos os dados de tarefas locais retidos no nó sejam limpos antes de remover o nó do pool.</ul> |
 
 > [!NOTE]
@@ -146,13 +146,13 @@ As tabelas a seguir mostram as variáveis de leitura e gravação e de somente l
 
 Esses tipos têm suporte em uma fórmula:
 
-* double
+* Duplo
 * doubleVec
 * doubleVecList
 * string
 * timestamp - timestamp é uma estrutura composta que contém os seguintes elementos:
 
-  * year
+  * ano
   * month (1-12)
   * day (1-31)
   * weekday (no formato de número, por exemplo, 1 para segunda-feira)
@@ -172,13 +172,13 @@ Esses tipos têm suporte em uma fórmula:
   * TimeInterval_Week
   * TimeInterval_Year
 
-## <a name="operations"></a>Operações
+## <a name="operations"></a>Operations
 
 Essas operações são permitidas nos tipos listados na seção anterior.
 
 | Operação | Operadores com suporte | Tipo de resultado |
 | --- | --- | --- |
-| double *operador* double |+, -, *, / |double |
+| double *operador* double |+, -, *, / |Duplo |
 | double *operador* timeinterval |* |timeinterval |
 | doubleVec *operador* double |+, -, *, / |doubleVec |
 | doubleVec *operador* doubleVec |+, -, *, / |doubleVec |
@@ -187,13 +187,13 @@ Essas operações são permitidas nos tipos listados na seção anterior.
 | timeinterval *operador* timestamp |+ |timestamp |
 | timestamp *operador* timeinterval |+ |timestamp |
 | timestamp *operador* timestamp |- |timeinterval |
-| *operador*double |-, ! |double |
+| *operador*double |-, ! |Duplo |
 | *operador*timeinterval |- |timeinterval |
-| double *operador* double |<, <=, ==, >=, >, != |double |
-| string *operador* string |<, <=, ==, >=, >, != |double |
-| timestamp *operador* timestamp |<, <=, ==, >=, >, != |double |
-| timeinterval *operador* timeinterval |<, <=, ==, >=, >, != |double |
-| double *operador* double |&&, &#124;&#124; |double |
+| double *operador* double |<, <=, ==, >=, >, != |Duplo |
+| string *operador* string |<, <=, ==, >=, >, != |Duplo |
+| timestamp *operador* timestamp |<, <=, ==, >=, >, != |Duplo |
+| timeinterval *operador* timeinterval |<, <=, ==, >=, >, != |Duplo |
+| double *operador* double |&&, &#124;&#124; |Duplo |
 
 Ao testar um double com um operador ternário (`double ? statement1 : statement2`), um item diferente de zero é **true** e zero é **false**.
 
@@ -202,25 +202,25 @@ Essas **funções** predefinidas estão disponíveis para usar na definição de
 
 | Função | Tipo de retorno | Descrição |
 | --- | --- | --- |
-| avg(doubleVecList) |double |Retorna o valor médio de todos os valores em doubleVecList. |
-| len(doubleVecList) |double |Retorna o comprimento do vetor criado por meio de doubleVecList. |
-| lg(double) |double |Retorna o logaritmo na base 2 do double. |
+| avg(doubleVecList) |Duplo |Retorna o valor médio de todos os valores em doubleVecList. |
+| len(doubleVecList) |Duplo |Retorna o comprimento do vetor criado por meio de doubleVecList. |
+| lg(double) |Duplo |Retorna o logaritmo na base 2 do double. |
 | lg(doubleVecList) |doubleVec |Retorna o logaritmo de componentes na base 2 do doubleVecList. Um vec(double) deve ser passado explicitamente para o parâmetro. Caso contrário, a versão double lg(double) será assumida. |
-| ln(double) |double |Retorna o logaritmo natural do double. |
+| ln(double) |Duplo |Retorna o logaritmo natural do double. |
 | ln(doubleVecList) |doubleVec |Retorna o logaritmo natural do double. |
-| log(double) |double |Retorna o logaritmo na base 10 do double. |
+| log(double) |Duplo |Retorna o logaritmo na base 10 do double. |
 | log(doubleVecList) |doubleVec |Retorna o logaritmo de componentes na base 10 do doubleVecList. Um vec(double) deve ser passado explicitamente para o parâmetro double único. Caso contrário, a versão double log(double) será assumida. |
-| max(doubleVecList) |double |Retorna o valor máximo em doubleVecList. |
-| min(doubleVecList) |double |Retorna o valor mínimo em doubleVecList. |
-| norm(doubleVecList) |double |Retorna a norma dupla do vetor criado por meio de doubleVecList. |
-| percentile(doubleVec v, double p) |double |Retorna o elemento percentil do vetor v. |
-| rand() |double |Retorna um valor aleatório entre 0,0 e 1,0. |
-| range(doubleVecList) |double |Retorna a diferença entre os valores mínimo e máximo em doubleVecList. |
-| std(doubleVecList) |double |Retorna o desvio padrão da amostra dos valores em doubleVecList. |
+| max(doubleVecList) |Duplo |Retorna o valor máximo em doubleVecList. |
+| min(doubleVecList) |Duplo |Retorna o valor mínimo em doubleVecList. |
+| norm(doubleVecList) |Duplo |Retorna a norma dupla do vetor criado por meio de doubleVecList. |
+| percentile(doubleVec v, double p) |Duplo |Retorna o elemento percentil do vetor v. |
+| rand() |Duplo |Retorna um valor aleatório entre 0,0 e 1,0. |
+| range(doubleVecList) |Duplo |Retorna a diferença entre os valores mínimo e máximo em doubleVecList. |
+| std(doubleVecList) |Duplo |Retorna o desvio padrão da amostra dos valores em doubleVecList. |
 | stop() | |Interrompe a avaliação da expressão de dimensionamento automático. |
-| sum(doubleVecList) |double |Retorna a soma de todos os componentes em doubleVecList. |
+| sum(doubleVecList) |Duplo |Retorna a soma de todos os componentes em doubleVecList. |
 | time(string dateTime="") |timestamp |Retorna o carimbo de data/hora do horário atual se nenhum parâmetro for passado, ou o carimbo de data/hora da cadeia de caracteres dateTime se algum parâmetro passar. Os formatos de dateTime com suporte são W3C-DTF e RFC1123. |
-| val(doubleVec v, double i) |double |Retorna o valor do elemento que está no local i do vetor v com um índice inicial de zero. |
+| val(doubleVec v, double i) |Duplo |Retorna o valor do elemento que está no local i do vetor v com um índice inicial de zero. |
 
 Algumas das funções descritas na tabela anterior podem aceitar uma lista como um argumento. A lista separada por vírgulas é qualquer combinação de *double* e *doubleVec*. Por exemplo:
 
@@ -394,7 +394,7 @@ Para criar um pool habilitado para dimensionamento automático em .NET, siga as 
 1. (Opcional) Defina a propriedade [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (o padrão é de 15 minutos).
 1. Confirmar o pool com [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) ou [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
-O snippet de código a seguir cria um pool habilitado para autoescala em .NET. A fórmula de autoescala do pool define o número de nós dedicados de destino para 5 às segundas-feiras e 1 em todos os outros dias da semana. O [intervalo de autoescala](#automatic-scaling-interval) é definido como 30 minutos. Neste e nos outros C# trechos de código neste artigo, `myBatchClient` é uma instância corretamente inicializada da classe [BatchClient][net_batchclient] .
+O snippet de código a seguir cria um pool habilitado para autoescala em .NET. A fórmula de autoescala do pool define o número de nós dedicados de destino para 5 às segundas-feiras e 1 em todos os outros dias da semana. O [intervalo de autoescala](#automatic-scaling-interval) é definido como 30 minutos. Neste e nos outros C# trechos de código neste artigo,`myBatchClient`é uma instância corretamente inicializada da classe [BatchClient][net_batchclient] .
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
@@ -669,7 +669,7 @@ $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-2-task-based-adjustment"></a>Exemplo 2: ajuste baseado em tarefa
+### <a name="example-2-task-based-adjustment"></a>Exemplo 2: ajuste baseado na tarefa
 
 Neste exemplo, o tamanho do pool é ajustado com base no número de tarefas na fila. Ambos os comentários e as quebras de linha são aceitáveis em cadeias de caracteres de fórmulas.
 
@@ -689,7 +689,7 @@ $TargetDedicatedNodes = max(0, min($targetVMs, 20));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-3-accounting-for-parallel-tasks"></a>Exemplo 3: contabilização de tarefas paralelas
+### <a name="example-3-accounting-for-parallel-tasks"></a>Exemplo 3: contagem de tarefas paralelas
 
 Esse exemplo ajusta o tamanho do pool baseado no número de tarefas. Essa fórmula também leva em conta o valor de [MaxTasksPerComputeNode][net_maxtasks] que foi definido para o pool. Essa abordagem é útil em situações nas quais a [execução de tarefas paralelas](batch-parallel-node-tasks.md) foi habilitada em seu pool.
 
@@ -736,7 +736,7 @@ string formula = string.Format(@"
     ", now, 4);
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Maximizar o uso dos recursos de computação do Lote do Azure com tarefas simultâneas do nó](batch-parallel-node-tasks.md) contém detalhes sobre como executar várias tarefas simultaneamente nos nós de computação em seu pool. Além de dimensionamento automático, esse recurso pode ajudar a reduzir a duração do trabalho para algumas cargas de trabalho, economizando dinheiro.
 * Para outro auxiliar de eficiência, certifique-se de que o aplicativo do Lote consulte o serviço de Lote da maneira ideal. Consulte [Consultar o serviço do Lote do Azure com eficiência](batch-efficient-list-queries.md) para saber como limitar a quantidade de dados que passam por transmissão ao consultar o status de potencialmente milhares de nós de computação ou tarefas.

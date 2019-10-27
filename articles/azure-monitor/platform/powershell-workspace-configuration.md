@@ -1,25 +1,24 @@
 ---
 title: Usar o PowerShell para criar e configurar um espaço de trabalho do Log Analytics | Microsoft Docs
 description: Log Analytics espaços de trabalho no Azure Monitor armazenar dados de servidores em sua infraestrutura local ou na nuvem. Você pode coletar dados da máquina do armazenamento do Azure quando gerados pelo diagnóstico do Azure.
-services: log-analytics
-author: bwren
-ms.service: log-analytics
-ms.devlang: powershell
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/19/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 16cad34290ecc518e95ec1a0ce0950722cfe0780
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.date: 05/19/2019
+ms.openlocfilehash: 9d5bbaf02798c0fd87c40f1d952db19aac7b0b7e
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71836135"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932076"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Gerenciar Log Analytics espaço de trabalho no Azure Monitor usando o PowerShell
 
 Você pode usar os [cmdlets do log Analytics PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para executar várias funções em um espaço de trabalho Log Analytics no Azure monitor de uma linha de comando ou como parte de um script.  Os exemplos das tarefas que você pode executar com o PowerShell incluem:
 
-* Criar um espaço de trabalho
+* Crie um workspace
 * Adicionar ou remover uma solução
 * Importar e exportar pesquisas salvas
 * Criar um grupo de computadores
@@ -45,7 +44,7 @@ Esses exemplos funcionam com a versão 1.0.0 ou posterior do módulo AZ. Operati
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar um espaço de trabalho do Log Analytics
 O exemplo de script a seguir ilustra como:
 
-1. Criar um espaço de trabalho
+1. Crie um workspace
 2. Listar as soluções disponíveis
 3. Adicionar soluções ao workspace
 4. Importar pesquisas salvas
@@ -197,26 +196,26 @@ No exemplo acima, regexDelimiter foi definido como "\\n" para nova linha. O deli
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Configurando Log Analytics para enviar o diagnóstico do Azure
 Para o monitoramento de recursos do Azure realizado sem o uso de agente, os recursos precisam ter o diagnóstico do Azure habilitado e configurado para gravar em um espaço de trabalho do Log Analytics. Essa abordagem envia dados diretamente para o espaço de trabalho e não requer que os dados sejam gravados em uma conta de armazenamento. Os recursos com suporte incluem:
 
-| Tipo de Recurso | Logs | metrics |
+| Tipo de recurso | Logs | Métricas |
 | --- | --- | --- |
-| Gateways do Aplicativo    | Sim | Sim |
-| Contas de automação     | Sim | |
-| Contas do Lote          | Sim | Sim |
-| Data Lake Analytics     | Sim | |
-| Data Lake Store         | Sim | |
-| Pool SQL Elástico        |     | Sim |
-| Namespace do Hub de Eventos     |     | Sim |
-| Hubs de IoT                |     | Sim |
-| Key Vault               | Sim | |
-| Balanceadores de Carga          | Sim | |
-| Aplicativos Lógicos              | Sim | Sim |
-| Grupos de segurança de rede | Sim | |
-| Cache Redis do Azure             |     | Sim |
-| Serviços de pesquisa         | Sim | Sim |
-| Namespace do Barramento de Serviço   |     | Sim |
-| SQL (v12)               |     | Sim |
-| Sites               |     | Sim |
-| Farms do servidor Web        |     | Sim |
+| Gateways de Aplicativo    | SIM | SIM |
+| Contas de Automação     | SIM | |
+| Contas do Lote          | SIM | SIM |
+| Data Lake Analytics     | SIM | |
+| Data Lake Store         | SIM | |
+| Pool SQL Elástico        |     | SIM |
+| Namespace do Hub de Eventos     |     | SIM |
+| Hubs IoT                |     | SIM |
+| Key Vault               | SIM | |
+| Load Balancers          | SIM | |
+| aplicativos Lógicos              | SIM | SIM |
+| Grupos de Segurança de Rede | SIM | |
+| Cache Redis do Azure             |     | SIM |
+| Serviços de pesquisa         | SIM | SIM |
+| Namespace do Barramento de Serviço   |     | SIM |
+| SQL (v12)               |     | SIM |
+| Sites da Web               |     | SIM |
+| Farms do servidor Web        |     | SIM |
 
 Para obter os detalhes das métricas disponíveis, consulte [métricas compatíveis com o Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 
@@ -271,6 +270,6 @@ Remove-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resourc
 Você também pode usar o script anterior para coletar logs de contas de armazenamento em assinaturas diferentes. O script é capaz de trabalhar entre assinaturas, pois você está fornecendo a ID do recurso da conta de armazenamento e uma chave de acesso correspondente. Quando você altera a chave de acesso, você precisa atualizar as informações de armazenamento para a nova chave.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Examinar cmdlets do PowerShell do Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para obter informações adicionais sobre como usar o PowerShell para a configuração do Log Analytics.
 

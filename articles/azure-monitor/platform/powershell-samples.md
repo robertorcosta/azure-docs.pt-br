@@ -1,26 +1,19 @@
 ---
-title: Exemplos do PowerShell do Azure Monitor | Microsoft Docs
-description: Exemplos do PowerShell do Azure Monitor
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-tags: ''
-ms.assetid: ''
-ms.service: log-analytics
+title: Exemplos do Azure Monitor PowerShell | Microsoft Docs
+description: Exemplos do Azure Monitor PowerShell
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/14/2017
+author: MGoedtel
 ms.author: magoedte
+ms.date: 09/14/2017
 ms.custom: mvc
-ms.openlocfilehash: 5aac1f7e1ded700b9bec38c358ea0049df93fd3e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e971b0181c4dedc3b1415451c3ba4e360fcae717
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60454550"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932093"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Exemplos do Azure Monitor PowerShell
 
@@ -29,6 +22,6 @@ A tabela a seguir inclui links para exemplos de scripts do PowerShell para execu
 | | |
 |---|---|
 |**Criar workspace**||
-| [Criar um espaço de trabalho do Log Analytics](../scripts/powershell-sample-create-workspace.md) | Cria um espaço de trabalho do Log Analytics no Azure Monitor.|
+| [Criar um espaço de trabalho do Log Analytics](../scripts/powershell-sample-create-workspace.md) | Cria um espaço de trabalho Log Analytics no Azure Monitor.|
 | | |
 

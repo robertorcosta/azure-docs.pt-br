@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 99f8c2b40445fe282800d096353bee1c7a934ebe
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: b644d293afd429bdc68fba66c119eb7146d0daf0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918118"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935459"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Executar o Apache Oozie em clusters do HDInsight Hadoop com o Enterprise Security Package
 
@@ -61,9 +61,9 @@ As definições de fluxos de trabalho do Oozie estão gravadas em Apache Hadoop 
    tar -xvf oozie-examples.tar.gz
    hdfs dfs -put examples /user/<DomainUser>/
    ```
-   Substitua `DomainUser` pelo nome de usuário de domínio. 
-   Substitua `DomainUserPath` pelo caminho do diretório base do usuário de domínio. 
-   Substitua `ClusterVersion` pela sua versão do Hortonworks Data Platform (HDP) de cluster.
+   Substitua `DomainUser` pelo nome de usuário de domínio.
+   Substitua `DomainUserPath` pelo caminho do diretório base do usuário de domínio.
+   Substitua `ClusterVersion` pela sua versão da plataforma de dados do cluster.
 
 2. Use a instrução a seguir para criar e editar um novo arquivo:
    ```bash
@@ -329,6 +329,6 @@ A IU da Web do Oozie fornece um modo de exibição baseado na web sobre o status
 
 2. Siga as etapas da [interface do usuário da Web do Oozie](../hdinsight-use-oozie-linux-mac.md) para habilitar o túnel SSH no nó de borda e acessar a interface do usuário da Web.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Usar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado no Linux](../hdinsight-use-oozie-linux-mac.md).
 * [Conectar ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

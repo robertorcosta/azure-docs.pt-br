@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: f760917ae8f4ab11902799e36973ae896c4a2b43
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ba08bbdca059b3e14281a3c26827d07f7b196d1c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232337"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72930936"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guia de desempenho e escalabilidade da atividade de cópia
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Data Factory que você está usando:"]
@@ -106,7 +106,7 @@ Siga estas etapas para ajustar o desempenho do seu serviço de Azure Data Factor
 
    As regras de ajuste de desempenho serão aprimoradas gradualmente também.
 
-   **Exemplo: Copiar no banco de dados SQL do Azure com dicas de ajuste de desempenho**
+   **Exemplo: copiar para o banco de dados SQL do Azure com dicas de ajuste de desempenho**
 
    Neste exemplo, durante uma execução de cópia, Azure Data Factory observa que o banco de dados SQL do Azure do coletor atinge alta utilização de DTU, o que reduz as operações de gravação. A sugestão é aumentar a camada do banco de dados SQL do Azure com mais DTUs. 
 
@@ -133,7 +133,7 @@ O Azure Data Factory fornece os seguintes recursos de otimização de desempenho
 
 Uma unidade de integração de dados é uma medida que representa a potência (uma combinação de CPU, memória e alocação de recursos de rede) de uma única unidade no Azure Data Factory. A unidade de integração de dados só se aplica ao [Integration Runtime do Azure](concepts-integration-runtime.md#azure-integration-runtime), mas não ao [tempo de execução de integração auto-hospedado](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-Você será cobrado **n º de DIUs \* da unidade \* de duração da cópia de tempo/DIU-hora**. Veja os preços atuais [aqui](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/). A moeda local e a descontagem separada podem ser aplicadas por tipo de assinatura.
+Você será cobrado **# of used DIUs \* duração da cópia \* preço unitário/DIU-hora**. Veja os preços atuais [aqui](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/). A moeda local e a descontagem separada podem ser aplicadas por tipo de assinatura.
 
 O DIUs permitido para capacitar uma execução da atividade de cópia é **entre 2 e 256**. Se não for especificado ou você escolher "auto" na interface do usuário, Data Factory aplicar dinamicamente a configuração ideal de DIU com base no seu par de coletor de origem e no padrão de dados. A tabela a seguir lista os DIUs padrão usados em diferentes cenários de cópia:
 
@@ -148,7 +148,7 @@ Para substituir esse padrão, especifique um valor para a propriedade **dataInte
 Você pode ver o DIUs usado para cada execução de cópia na saída da atividade de cópia ao monitorar uma execução de atividade. Para obter mais informações, consulte [monitoramento de atividade de cópia](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> A configuração de DIUs maior que quatro atualmente se aplica somente quando você copia vários arquivos do armazenamento do Azure, Azure Data Lake Storage, Amazon S3, Google Cloud Storage, FTP de nuvem ou SFTP em nuvem para qualquer outro armazenamento de dados de nuvem.
+> A configuração de DIUs maior que quatro atualmente se aplica somente quando você copia vários arquivos do blob do Azure/ADLS Gen1/ADLS Gen2/Amazon S3/Google Cloud Storage/nuvem FTP/Cloud SFTP ou do armazenamento de dados relacionais de nuvem habilitado para a opção de partição (incluindo [Oracle ](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)) a qualquer outro armazenamento de dados de nuvem.
 
 **Exemplo:**
 
@@ -192,7 +192,7 @@ Para controlar a carga em computadores que hospedam seus armazenamentos de dados
 
 **Pontos a serem observados:**
 
-- Quando você copia dados entre repositórios baseados em arquivo, o **parallelCopies** determina o paralelismo no nível de arquivo. O agrupamento em um único arquivo ocorre abaixo de forma automática e transparente. Ele foi projetado para usar o melhor tamanho de bloco adequado para um determinado tipo de armazenamento de dados de origem para carregar dados em paralelo e ortogonal em **parallelCopies**. O número real de cópias paralelas que o serviço de movimentação de dados usa para a operação de cópia no tempo de execução não é superior ao número de arquivos existentes. Se o comportamento de cópiafor mergefile, a atividade de cópia não poderá tirar proveito do paralelismo de nível de arquivo.
+- Quando você copia dados entre repositórios baseados em arquivo, o **parallelCopies** determina o paralelismo no nível de arquivo. O agrupamento em um único arquivo ocorre abaixo de forma automática e transparente. Ele foi projetado para usar o melhor tamanho de bloco adequado para um determinado tipo de armazenamento de dados de origem para carregar dados em paralelo e ortogonal em **parallelCopies**. O número real de cópias paralelas que o serviço de movimentação de dados usa para a operação de cópia no tempo de execução não é superior ao número de arquivos existentes. Se o comportamento de cópia for **mergefile**, a atividade de cópia não poderá tirar proveito do paralelismo de nível de arquivo.
 - Quando você copia dados de armazenamentos que não são baseados em arquivo (exceto [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [tabela SAP](connector-sap-table.md#sap-table-as-source)e conector de [Hub aberto SAP](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) como fonte com particionamento de dados habilitado) para armazenamentos que são baseados em arquivo, os dados o serviço de movimentação ignora a propriedade **parallelCopies** . Mesmo se o paralelismo for especificado, ele não será aplicado neste caso.
 - A propriedade **parallelCopies** é ortogonal a **dataIntegrationUnits**. O primeiro é contado em todas as unidades de integração de dados.
 - Ao especificar um valor para a propriedade **parallelCopies** , considere o aumento de carga nos armazenamentos de dados de origem e do coletor. Considere também o aumento de carga para o tempo de execução de integração auto-hospedado se a atividade de cópia for habilitada por ti, por exemplo, para cópia híbrida. Esse aumento de carga ocorre especialmente quando você tem várias atividades ou execuções simultâneas das mesmas atividades executadas no mesmo armazenamento de dados. Se você observar que o armazenamento de dados ou o tempo de execução de integração auto-hospedado está sobrecarregado com a carga, diminua o valor de **parallelCopies** para aliviar a carga.
@@ -241,12 +241,12 @@ No momento, não é possível copiar dados entre dois armazenamentos de dados qu
 
 Defina a configuração **enableStaging** na atividade de cópia para especificar se deseja que os dados sejam preparados no armazenamento de BLOBs antes de carregá-los em um armazenamento de dados de destino. Ao definir **enableStaging** como `TRUE`, especifique as propriedades adicionais listadas na tabela a seguir. Você também precisa criar um armazenamento do Azure ou um serviço vinculado à assinatura de acesso compartilhado de armazenamento para preparação, se você não tiver um.
 
-| Propriedade | Descrição | Valor padrão | Necessário |
+| Propriedade | Descrição | Valor padrão | obrigatórios |
 | --- | --- | --- | --- |
-| enableStaging |Especifique se você deseja copiar os dados por meio de um armazenamento de preparo provisório. |Falso |Não |
+| enableStaging |Especifique se você deseja copiar os dados por meio de um armazenamento de preparo provisório. |False |Não |
 | linkedServiceName |Especifique o nome de um serviço vinculado [AzureStorage](connector-azure-blob-storage.md#linked-service-properties), que se refere à instância do Armazenamento que você usa como um repositório de preparo provisório. <br/><br/> Você não pode usar o armazenamento com uma assinatura de acesso compartilhado para carregar dados em SQL Data Warehouse por meio do polybase. Pode usar em todos os outros cenários. |N/D |Sim, quando **enableStaging** está definido para TRUE |
-| path |Especifique o caminho do armazenamento de Blobs que você deseja que contenha os dados preparados. Se você não fornecer um caminho, o serviço criará um contêiner para armazenar dados temporários. <br/><br/> Especifique um caminho somente se você usar o Armazenamento com uma assinatura de acesso compartilhado ou precisar que os dados temporários fiquem em um local específico. |N/D |Não |
-| enableCompression |Especifica se os dados devem ser compactados antes de serem copiados para o destino. Essa configuração reduz o volume de dados que são transferidos. |Falso |Não |
+| caminho |Especifique o caminho do armazenamento de Blobs que você deseja que contenha os dados preparados. Se você não fornecer um caminho, o serviço criará um contêiner para armazenar dados temporários. <br/><br/> Especifique um caminho somente se você usar o Armazenamento com uma assinatura de acesso compartilhado ou precisar que os dados temporários fiquem em um local específico. |N/D |Não |
+| enableCompression |Especifica se os dados devem ser compactados antes de serem copiados para o destino. Essa configuração reduz o volume de dados que são transferidos. |False |Não |
 
 >[!NOTE]
 > Se você usar cópia em etapas com compactação habilitada, a entidade de serviço ou a autenticação MSI para o serviço vinculado de blob de preparo não terá suporte.
@@ -292,14 +292,14 @@ Você é cobrado com base em duas etapas: copiar duração e copiar tipo.
 
 Aqui estão as referências de monitoramento e ajuste do desempenho para alguns dos armazenamentos de dados com suporte:
 
-* Armazenamento do Azure, que inclui armazenamento de BLOBs e armazenamento de tabelas: [Destinos de escalabilidade de armazenamento do Azure](../storage/common/storage-scalability-targets.md) e [lista de verificação de desempenho e escalabilidade do armazenamento do Azure](../storage/common/storage-performance-checklist.md)
-* Banco de Dados SQL do Azure: Você pode [monitorar o desempenho](../sql-database/sql-database-single-database-monitor.md) e verificar a porcentagem de DTU (unidade de transação do banco de dados).
-* SQL Data Warehouse do Azure: Seu recurso é medido em DWUs (unidades de data warehouse). Consulte [gerenciar poder de computação no Azure SQL data warehouse (visão geral)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
-* O Azure Cosmos DB: [Níveis de desempenho no Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* SQL Server local: [Monitore e ajuste o desempenho](https://msdn.microsoft.com/library/ms189081.aspx).
-* Servidor de arquivos local: [Ajuste de desempenho para servidores de arquivos](https://msdn.microsoft.com/library/dn567661.aspx).
+* Armazenamento do Azure, que inclui armazenamento de BLOBs e armazenamento de tabelas: [destinos de escalabilidade de armazenamento do Azure](../storage/common/storage-scalability-targets.md) e [lista de verificação de escalabilidade e desempenho do armazenamento do Azure](../storage/common/storage-performance-checklist.md)
+* Banco de dados SQL do Azure: você pode [monitorar o desempenho](../sql-database/sql-database-single-database-monitor.md) e verificar a porcentagem de DTU (unidade de transação do banco de dados).
+* SQL Data Warehouse do Azure: seu recurso é medido em unidades de data warehouse (DWUs). Consulte [gerenciar poder de computação no Azure SQL data warehouse (visão geral)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+* Azure Cosmos DB: [níveis de desempenho no Azure Cosmos DB](../cosmos-db/performance-levels.md).
+* SQL Server local: [monitorar e ajustar o desempenho](https://msdn.microsoft.com/library/ms189081.aspx).
+* Servidor de arquivos local: [ajuste de desempenho para servidores de arquivos](https://msdn.microsoft.com/library/dn567661.aspx).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Consulte os outros artigos de atividade de cópia:
 
 - [Visão geral da atividade de cópia](copy-activity-overview.md)

@@ -1,17 +1,17 @@
 ---
-title: Reconhecer o nível de compatibilidade para trabalhos do Azure Stream Analytics
+title: Níveis de compatibilidade Azure Stream Analytics
 description: Saiba como definir um nível de compatibilidade para um trabalho do Azure Stream Analytics e as principais alterações no nível de compatibilidade mais recente
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: d6d31506a13656a954c48dfee00f14d8ab381fd5
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 888c1f0bb38a5317cc27790ea47917c182d49593
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173234"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925634"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para trabalhos do Azure Stream Analytics
 
@@ -81,7 +81,7 @@ O comportamento de Upsert é *Inserir ou substituir*.
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset ao gravar na saída do SQL
 
-**Níveis anteriores:** Os tipos de [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) foram ajustados para UTC.
+**Níveis anteriores: os** tipos de [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) foram ajustados para UTC.
 
 **nível de 1,2:** DateTimeOffset não está mais ajustado.
 
@@ -101,9 +101,9 @@ O comportamento de Upsert é *Inserir ou substituir*.
 
 **Níveis anteriores:** Não havia validação estrita dos prefixos de função.
 
-**nível de 1,2:** Azure Stream Analytics tem uma validação estrita dos prefixos de função. A adição de um prefixo a uma função interna causa um erro. Por exemplo,`myprefix.ABS(…)` não tem suporte.
+**nível de 1,2:** Azure Stream Analytics tem uma validação estrita dos prefixos de função. A adição de um prefixo a uma função interna causa um erro. Por exemplo, não há suporte para`myprefix.ABS(…)`.
 
-Adicionar um prefixo a agregações internas também resulta em erro. Por exemplo, `myprefix.SUM(…)` não tem suporte.
+Adicionar um prefixo a agregações internas também resulta em erro. Por exemplo, não há suporte para `myprefix.SUM(…)`.
 
 O uso do prefixo "System" para qualquer função definida pelo usuário resulta em erro.
 
@@ -119,7 +119,7 @@ As alterações principais a seguir são apresentadas no nível de compatibilida
 
 ### <a name="service-bus-xml-format"></a>Formato XML do barramento de serviço
 
-**nível de 1,0:** O Azure Stream Analytics usava o DataContractSerializer e, por isso, o conteúdo da mensagem incluía marcas XML. Por exemplo:
+**nível de 1,0:** Azure Stream Analytics o DataContractSerializer usado, portanto, o conteúdo da mensagem incluía marcas XML. Por exemplo:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
@@ -127,7 +127,7 @@ As alterações principais a seguir são apresentadas no nível de compatibilida
 
 ### <a name="persisting-case-sensitivity-for-field-names"></a>Persistência de maiúsculas e minúsculas para nomes de campo
 
-**nível de 1,0:** Os nomes de campos foram alterados para letras minúsculas quando processados pelo mecanismo do Azure Stream Analytics.
+**nível de 1,0:** Os nomes de campo foram alterados para minúsculas quando processados pelo mecanismo de Azure Stream Analytics.
 
 **nível 1,1:** a diferenciação de maiúsculas e minúsculas é persistida para nomes de campo quando eles são processados pelo mecanismo de Azure Stream Analytics.
 
@@ -136,17 +136,17 @@ As alterações principais a seguir são apresentadas no nível de compatibilida
 
 ### <a name="floatnandeserializationdisabled"></a>FloatNaNDeserializationDisabled
 
-**nível de 1,0:** O comando CREATE TABLE não filtrava eventos com NaN (não é um número. Por exemplo, Infinity, -Infinity) em um tipo de coluna FLOAT porque eles estão fora do intervalo documentado para esses números.
+**nível de 1,0:** CREATE TABLE comando não filtrou eventos com NaN (não é um número. Por exemplo, Infinity, -Infinity) em um tipo de coluna FLOAT porque eles estão fora do intervalo documentado para esses números.
 
-**nível de 1,1:** CREATE TABLE permite especificar um esquema forte. O mecanismo do Stream Analytics valida que os dados estão em conformidade com este esquema. Com esse modelo, o comando pode filtrar eventos com valores NaN.
+**nível de 1,1:** CREATE TABLE permite que você especifique um esquema forte. O mecanismo do Stream Analytics valida que os dados estão em conformidade com este esquema. Com esse modelo, o comando pode filtrar eventos com valores NaN.
 
 ### <a name="disable-automatic-upcast-for-datetime-strings-in-json"></a>Desabilitar o upcast automático para cadeias de caracteres DateTime em JSON
 
-**nível de 1,0:** O analisador JSON realiza upcast automaticamente dos valores de cadeia de caracteres com informações de data/hora/fuso horário para o tipo DateTime e, em seguida, converte-os em UTC. Esse comportamento resultou na perda das informações de fuso horário.
+**nível de 1,0:** O analisador JSON fazer automaticamente upcast de valores de cadeia de caracteres com informações de data/hora/zona para o tipo DateTime e, em seguida, converta-o em UTC. Esse comportamento resultou na perda das informações de fuso horário.
 
-**nível de 1,1:** Não há mais nenhum upcast automático de valores de cadeia de caracteres com informações de data/hora/fuso horário para o tipo DateTime. Dessa forma, as informações de fuso horário são mantidas.
+**nível de 1,1:** Não há mais nenhum upcast automático de valores de cadeia de caracteres com informações de data/hora/zona para o tipo DateTime. Dessa forma, as informações de fuso horário são mantidas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Solucionar problemas de entradas do Azure Stream Analytics](stream-analytics-troubleshoot-input.md)
 * [Stream Analytics o Resource Health](stream-analytics-resource-health.md)

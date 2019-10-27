@@ -16,19 +16,19 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 419970985b9531ffab348491730aaf6c00e143b1
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d3794f409b2cdc11373dc330099e5ff93d65a2a1
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527106"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934419"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>Controlar o acesso para usuários externos no gerenciamento de direitos do Azure AD (versão prévia)
 
 > [!IMPORTANT]
-> O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
-> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter recursos restritos.
-> Para obter mais informações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> No momento, o gerenciamento de direitos do Azure AD (Azure Active Directory) está em versão prévia pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O gerenciamento de direitos do Azure AD utiliza o [B2B (Business-to-Business) do Azure ad](../b2b/what-is-b2b.md) para colaborar com pessoas de fora da sua organização em outro diretório. Com o Azure AD B2B, os usuários externos se autenticam em seu diretório base, mas têm uma representação em seu diretório. A representação em seu diretório permite que o usuário receba acesso aos seus recursos.
 
@@ -50,11 +50,13 @@ O diagrama e as etapas a seguir fornecem uma visão geral de como os usuários e
 
 ![Diagrama mostrando o ciclo de vida de usuários externos](./media/entitlement-management-external-users/external-users-lifecycle.png)
 
+1. Você [adiciona uma organização conectada](entitlement-management-organization.md) para o diretório ou domínio do Azure AD com o qual você deseja colaborar.
+
 1. Você cria um pacote do Access em seu diretório que inclui uma política [para os usuários que não estão em seu diretório](entitlement-management-access-package-create.md#for-users-not-in-your-directory).
 
 1. Você envia um [link meu portal de acesso](entitlement-management-access-package-settings.md) para seu contato na organização externa que eles podem compartilhar com seus usuários para solicitar o pacote de acesso.
 
-1. Um usuário externo (**solicitante a** neste exemplo) usa o link meu portal de acesso para [solicitar acesso](entitlement-management-request-access.md) ao pacote de acesso.
+1. Um usuário externo (**solicitante a** neste exemplo) usa o link meu portal de acesso para [solicitar acesso](entitlement-management-request-access.md) ao pacote de acesso. A forma como o usuário entra depende do tipo de autenticação do diretório ou do domínio definido na organização conectada.
 
 1. Um Aprovador [aprova a solicitação](entitlement-management-request-approve.md) (ou a solicitação é aprovada automaticamente).
 
@@ -78,7 +80,7 @@ Você pode selecionar o que acontece quando um usuário externo, que foi convida
 
 **Função de pré-requisito:** Administrador global ou administrador de usuários
 
-1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
+1. No portal do Azure, clique em **Azure Active Directory** e, em seguida, em **Governança de Identidade**.
 
 1. No menu à esquerda, na seção **Gerenciamento de direitos** , clique em **configurações**.
 
@@ -100,7 +102,7 @@ Você pode selecionar o que acontece quando um usuário externo, que foi convida
 
 1. Se você quiser remover a conta de usuário convidado nesse diretório, poderá definir o número de dias antes que ele seja removido. Se você quiser remover a conta de usuário convidado assim que perder sua última atribuição para qualquer pacote de acesso, defina o **número de dias antes de remover o usuário externo desse diretório** para **0**.
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 ## <a name="enable-a-catalog-for-external-users"></a>Habilitar um catálogo para usuários externos
 
@@ -116,6 +118,6 @@ Você também pode alterar essa configuração depois de criar o catálogo.
 
 ## <a name="next-steps"></a>Próximos passos
 
+- [Adicionar uma organização conectada](entitlement-management-organization.md)
 - [Para usuários que não estão em seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [Criar e gerenciar um catálogo de recursos](entitlement-management-catalog-create.md)
-- [Delegação e funções](entitlement-management-delegate.md)

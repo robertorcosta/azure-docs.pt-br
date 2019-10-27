@@ -9,105 +9,92 @@ ms.date: 04/18/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 787618b59cd18dd4c38892ddf0861808211671cb
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 56dd58afa49296ab097dfd8a6560a7191ac8c644
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936620"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932017"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitorar o uso e os custos estimados no Azure Monitor
 
 > [!NOTE]
-> Este artigo descreve como exibir o uso e os custos estimados em vários recursos de monitoramento do Azure para diferentes modelos de preços. Os artigos relacionados para componentes específicos do Azure Monitor incluem:
+> Este artigo descreve como exibir o uso e os custos estimados em vários recursos de monitoramento do Azure. Os artigos relacionados para componentes específicos do Azure Monitor incluem:
 > - [Gerenciar o uso e os custos com logs de Azure monitor](manage-cost-storage.md) descreve como controlar seus custos alterando seu período de retenção de dados e como analisar e alertar o uso de dados.
 > - [Gerenciar o uso e os custos de Application insights](../../azure-monitor/app/pricing.md) descreve como analisar o uso de dados no Application insights.
 
-No hub do Monitor do Portal do Azure, a página **Uso e custos estimados** explica o uso dos principais recursos de monitoramento, como [alertas, métricas, notificações](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Para clientes nos planos de preços disponíveis antes de abril de 2018, isso também inclui o uso do Log Analytics adquirido por meio das ofertas do Insights e do Analytics.
+## <a name="azure-monitor-pricing-model"></a>Modelo de preços de Azure Monitor
 
-Nesta página, os usuários podem exibir o uso de recursos para os últimos 31 dias, agregados por assinatura. Os drill-ins mostram tendências de uso durante o período de 31 dias. São necessários vários dados para se juntar e fazer essa estimativa, portanto, seja paciente enquanto a página é carregada.
+O modelo de cobrança de Azure Monitor básica é um preço baseado em consumo, compatível com a nuvem ("pré-pago"). Você paga apenas pelo que usa. Os detalhes de preços estão disponíveis para [alertas, métricas, notificações](https://azure.microsoft.com/pricing/details/monitor/), [log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Application insights](https://azure.microsoft.com/pricing/details/application-insights/). 
+
+Além do modelo pago conforme o uso para dados de log, Log Analytics tem reservas de capacidade que permitem que você economize até 25% em comparação com o preço pago conforme o uso. O preço de reserva de capacidade permite que você compre uma reserva a partir de 100 GB/dia. Qualquer uso acima do nível de reserva será cobrado com a taxa paga conforme o uso. [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre os preços de reserva de capacidade.
+
+Alguns clientes terão acesso aos [tipos de preço log Analytics herdados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers) e ao [tipo de preço de Application insights empresarial herdado](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier). 
+
+## <a name="understanding-your-azure-monitor-costs"></a>Entendendo seus custos de Azure Monitor
+
+Há duas fases para entender os custos. A primeira é ao considerar Azure Monitor como sua solução de monitoramento. 
+
+### <a name="estimating-the-costs-to-manage-your-environment"></a>Estimando os custos para gerenciar seu ambiente
+
+Se você ainda não estiver usando logs de Azure Monitor, poderá usar a [calculadora de preços de Azure monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) para estimar o custo do uso de Azure monitor. Comece inserindo "Azure Monitor" na caixa de pesquisa e clicando no bloco do Azure Monitor resultante. Role a página para baixo até Azure Monitor e selecione uma das opções na lista suspensa Tipo:
+
+- Consultas e alertas de métricas  
+- Log Analytics
+- Percepções sobre o Aplicativo 
+
+Em cada um deles, a calculadora de preços o ajudará a estimar os custos prováveis com base na utilização esperada. 
+
+Por exemplo, com Log Analytics você pode inserir o número de VMs e os GB de dados que espera coletar de cada VM. Normalmente, 1 a 3 GB de dados de mês é ingerido de uma VM do Azure típica. Se já estiver avaliando os logs de Azure Monitor, você poderá usar suas estatísticas de dados do seu próprio ambiente. Veja abaixo como determinar o [número de VMs monitoradas](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-nodes-sending-data) e o [volume de dados que seu espaço de trabalho está ingerindo](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume). 
+
+Da mesma forma, para Application Insights, se você habilitar a funcionalidade "estimar volume de dados com base na atividade do aplicativo", poderá fornecer entradas sobre seu aplicativo (solicitações por mês e exibições de página por mês, caso você possa coletar a telemetria do lado do cliente), e, em seguida, a calculadora informará a quantidade mediana e 90 º percentil de dados coletados por aplicativos semelhantes. É claro que esses aplicativos abrangem o intervalo de configuração de Application Insights (por exemplo, alguns têm amostragem padrão, alguns não têm amostragem, etc.), portanto, você ainda tem o controle para reduzir o volume de dados que está ingerindo muito abaixo do nível mediano usando a amostragem. Mas esse é um ponto de partida para entender o que outros clientes semelhantes estão vendo. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/app/pricing#estimating-the-costs-to-manage-your-application) sobre estimativa de custos para Application insights.
+
+### <a name="understanding-your-usage-and-estimated-costs"></a>Compreendendo o uso e os custos estimados
+
+É importante entender e controlar seu uso uma vez usando Azure Monitor, e há um conjunto avançado de ferramentas para facilitar isso. 
+
+O Azure fornece uma grande funcionalidade útil no gerenciamento de [custos do Azure +](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) Hub de cobrança. Depois de abrir o **Gerenciamento de custos do Azure +** Hub de cobrança, clique em **Gerenciamento de custos** e selecione o [escopo](https://docs.microsoft.com/azure/cost-management/understand-work-scopes) (o conjunto de recursos a serem investigados). 
+
+Em seguida, para ver os custos de Azure Monitor dos últimos 30 dias, clique no bloco "custos acumulados", escolha "últimos 30 dias" em datas relativas e adicione um filtro que selecione os nomes de serviço:
+
+1. Azure Monitor
+2. Percepções sobre o Aplicativo
+3. Log Analytics
+4. Insight e Análise
+
+Isso resulta em uma exibição como:
+
+![Captura de tela de gerenciamento de custos do Azure](./media/usage-estimated-costs/010.png)
+
+A partir daqui, você pode analisar esse Resumo de custo acumulado para obter os detalhes mais detalhados na exibição "custo por recurso". 
+
+Uma compreensão ainda mais profunda de seu uso pode ser obtida [baixando seu uso do portal do Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). Na planilha baixada, você pode ver o uso por recurso do Azure por dia. Nesta planilha do Excel, o uso de seus recursos de Application Insights pode ser encontrado primeiro filtrando a coluna "categoria do medidor" para mostrar "Application Insights" e "Log Analytics" e, em seguida, adicionar um filtro na coluna "ID da instância" que é "contém Microsoft. insights/Components ".  A maior parte Application Insights uso é relatada em metros com a categoria de medidor de Log Analytics, já que há um único back-end de logs para todos os componentes de Azure Monitor.  Somente Application Insights recursos em tipos de preço herdados e testes na Web de várias etapas são relatados com uma categoria de medidor de Application Insights.  O uso é mostrado na coluna "quantidade consumida" e a unidade de cada entrada é mostrada na coluna "unidade de medida".  Mais detalhes estão disponíveis para ajudá-lo a [entender sua fatura de Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
+
+> [!NOTE]
+> Usar o **Gerenciamento de custos** no gerenciamento de custos **do Azure +** Hub de cobrança é a abordagem preferida para compreender amplamente os custos de monitoramento.  As experiências de **uso e custos estimadas** para [log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs) e [Application insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#understand-your-usage-and-estimate-costs) fornecem informações mais aprofundadas para cada uma dessas partes do Azure monitor. 
+
+Outra opção para exibir o uso de Azure Monitor é a página **uso e custos estimados** no Hub do monitor. Isso mostra o uso dos principais recursos de monitoramento, como [alertas, métricas, notificações](https://azure.microsoft.com/pricing/details/monitor/), [log Analytics do Azure](https://azure.microsoft.com/pricing/details/log-analytics/)e [insights de aplicativo Azure](https://azure.microsoft.com/pricing/details/application-insights/). Para clientes nos planos de preços disponíveis antes de abril de 2018, isso também inclui o uso do Log Analytics adquirido por meio das ofertas do Insights e do Analytics.
+
+Nesta página, os usuários podem exibir o uso de recursos para os últimos 31 dias, agregados por assinatura. `Drill-ins` mostrar as tendências de uso no período de 31 dias. São necessários vários dados para se juntar e fazer essa estimativa, portanto, seja paciente enquanto a página é carregada.
 
 Este exemplo mostra o uso de monitoramento e uma estimativa dos custos resultantes:
 
 ![Captura de tela do portal do uso e custos estimados](./media/usage-estimated-costs/001.png)
 
-Selecione o link na coluna de uso mensal para abrir um gráfico que mostra as tendências de uso nos últimos 31 dias:
+Selecione o link na coluna de uso mensal para abrir um gráfico que mostra as tendências de uso nos últimos 31 dias: 
 
 ![Incluído por captura de tela do gráfico de barras do nó](./media/usage-estimated-costs/002.png)
 
-Aqui está outro uso semelhante e resumo de custo. Este exemplo mostra uma assinatura no novo modelo de preços com base no consumo de abril de 2018. Observe a falta de cobrança com base no nó. A ingestão de dados e a retenção para o Log Analytics e Application Insights agora são relatadas em um novo medidor comum.
-
-![Captura de tela do portal do uso e custos estimados - Preços de abril de 2018](./media/usage-estimated-costs/003.png)
-
-## <a name="pricing-model"></a>Modelo de preços
-
-Em abril de 2018, um [novo modelo de preços de monitoramento foi liberado](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  Isso apresenta preços com base em consumo para a nuvem ("pré-pago"). Você paga apenas pelo que usa, sem compromissos baseados em nó. Os detalhes do novo modelo de preços estão disponíveis para [alertas, métricas, notificações](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
-
-Além do modelo pago conforme o uso, em setembro de 2019, adicionamos reservas de capacidade para Log Analytics que permitem que você economize até 25% em comparação com o preço pago conforme o uso. O preço de reserva de capacidade permite que você compre uma reserva a partir de 100 GB/dia. Qualquer uso acima do nível de reserva será cobrado com a taxa paga conforme o uso. [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre os preços de reserva de capacidade.
-
-Para clientes que participam do Log Analytics ou do Application Insights após 2 de abril de 2018, o novo modelo de preços é a única opção. Para clientes que já utilizam esses serviços, a mudança para o novo modelo de preços é opcional.
-
-## <a name="assessing-the-impact-of-the-new-pricing-model"></a>Avaliar o impacto do novo modelo de preços
-O novo modelo de preços terá impactos diferentes para cada cliente com base nos padrões de uso de monitoramento. Para os clientes que estavam usando o Log Analytics ou o Application Insights antes de 2 de abril de 2018, a página **Uso e custo estimados** no Azure Monitor calcula qualquer alteração nos custos se elas são movidas para o novo modelo de preços. Ele fornece a maneira de mover uma assinatura para o novo modelo. Para a maioria dos clientes, o novo modelo de preços será vantajoso. Para clientes com padrões de alto uso de dados ou em regiões de custo mais elevados, é possível que este não seja o caso.
-
-Para ver uma estimativa dos custos para as assinaturas que você selecionou na página **Uso e custos estimados**, selecione a faixa azul perto da parte superior da página. É recomendável fazer uma assinatura por vez, pois esse é o nível no qual o novo modelo de preços pode ser adotado.
-
-![Monitorar o uso e os custos estimados no novo modelo de preços - captura de tela](./media/usage-estimated-costs/004.png)
-
-A nova página mostra uma versão semelhante da página anterior com uma faixa verde:
-
-![Monitorar o uso e os custos estimados no modelo de preços atual - captura de tela](./media/usage-estimated-costs/005.png)
-
-A página mostra também um conjunto diferente de medidores que correspondem ao novo modelo de preços. Essa lista é um exemplo:
-
-- Insight e Análise\Excedente por Nó
-- Insight e Análise\Incluído por Nó
-- Application Insights\Dados Excedentes Básicos
-- Application Insights\Dados Incluídos
-
-O novo modelo de preços não tem as alocações de dados incluídas com base no nó. Portanto, esses medidores de ingestão de dados são combinados em um novo medidor de ingestão de dados comuns chamado **Serviços Compartilhados\Ingestão de Dados**. 
-
-Há outra alteração nos dados ingeridos no Log Analytics ou no Application Insights em regiões com custos mais altos. Os dados para essas regiões de alto custo serão mostrados com os novos medidores regionais. Um exemplo é **Ingestão de Dados (Centro-oeste dos EUA)** .
-
-> [!NOTE]
-> Os custos estimados por assinatura não influenciam os direitos por nó de nível de conta da assinatura Operations Management Suite (OMS). Neste caso, consulte seu representante de conta para uma discussão mais aprofundada sobre o novo modelo de preços.
-
-## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Novo modelo de preços e direitos de inscrição do Operations Management Suite
+## <a name="operations-management-suite-subscription-entitlements"></a>Direitos de assinatura do Operations Management Suite
 
 Clientes que adquiriram o Microsoft Operations Management Suite E1 e E2 estão qualificados para direitos de ingestão de dados por nó para [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing). Para receber esses direitos para workspaces Log Analytics ou recursos Application Insights em uma determinada assinatura: 
 
-- O modelo de preços da assinatura deve permanecer no modelo de pré-abril 2018.
 - Workspaces do Log Analytics devem usar o tipo de preço "por nó (OMS)".
-- Recursos do Application Insights devem usar o plano de preços "Enterprise".
+- Application Insights recursos devem usar o tipo de preço "Enterprise".
 
-Dependendo do número de nós do conjunto que sua organização adquiriu, mover algumas assinaturas para o novo modelo de preços poderia ser vantajoso, mas isso requer uma consideração cuidadosa. Em geral, é aconselhável simplesmente permanecer no modelo pré-abril 2018, conforme descrito acima.
-
-> [!WARNING]
-> Se sua organização adquiriu o Microsoft Operations Management Suite E1 e E2, é melhor manter suas assinaturas no modelo de preços de pré-abril 2018. 
->
-
-## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>Alterações ao mudar para o novo modelo de preços
-
-O novo modelo de preços simplifica as opções de preço do Log Analytics e Application Insights em um único tipo (ou plano). Mover uma assinatura para o novo de modelo de preços:
-
-- Alterará o tipo de preços para cada Log Analytics para um novo tipo por GB (chamado de "pergb2018" no Azure Resource Manager)
-- Todos os recursos do Application Insights no plano Enterprise são alterados para o plano Básico.
-
-A estimativa de custo mostra os efeitos dessas alterações.
+Dependendo do número de nós do conjunto que sua organização adquiriu, mover algumas assinaturas para um tipo de preço pago conforme o uso (por GB) pode ser vantajoso, mas isso requer uma consideração cuidadosa.
 
 > [!WARNING]
-> Aqui uma observação importante se você usa o Azure Resource Manager ou o PowerShell para implantar [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) ou [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) em uma assinatura que você alterou para o novo modelo de preços. Se você especificar um tipo/plano de preço diferente de “pergb2018” para o Log Analytics ou “Básico” para o Application Insights, em vez de a implantação falhar devido à especificação de um tipo/plano de preço inválido, ela terá êxito, **mas usará apenas o tipo/plano de preço válido**. (Isso não se aplica à Camada gratuita do Log Analytics, na qual é gerada uma mensagem de tipo de preço inválido).
+> Se sua organização comprou o Microsoft Operations Management Suite E1 e E2, geralmente é melhor manter seus espaços de trabalho de Log Analytics no tipo de preço "por nó (OMS)" e seus recursos de Application Insights no tipo de preço "Enterprise". 
 >
 
-## <a name="moving-to-the-new-pricing-model"></a>Mover para o novo modelo de preços
-
-Se você decidiu adotar o novo modelo de preços para uma determinada assinatura, vá para cada Application Insights recurso, abra o **uso e os custos estimados** e certifique-se de que ele esteja no tipo de preço básico e vá para cada espaço de trabalho log Analytics, abra cada umPágina de tipo de preço e altere para o tipo de preço **por GB (2018)** . 
-
-> [!NOTE]
-> O requisito de que todos os Application Insights recursos e espaços de trabalho de Log Analytics em uma determinada assinatura adotam o modelo de preços mais recente agora foi removido, permitindo maior flexibilidade e configuração mais fácil. 
-
-## <a name="automate-moving-to-the-new-pricing-model"></a>Mudança automatizada para o novo modelo de preços
-
-Conforme observado acima, o não é mais um requisito para mover todos os recursos de monitoramento em uma assinatura para o novo modelo de preços ao mesmo tempo e, portanto, a ação ``migratetonewpricingmodel`` não terá mais nenhum efeito. Agora você pode mover Application Insights recursos e Log Analytics espaços de trabalho separadamente para os tipos de preços mais recentes.  
-
-Automatizar essa alteração é documentado para Application Insights usando [set-AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) com ``-PricingPlan "Basic"`` e log Analytics usando [set-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) com ``-sku "PerGB2018"``. 

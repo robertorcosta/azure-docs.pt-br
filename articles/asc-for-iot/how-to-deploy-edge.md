@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 128265cd3e69cd27bab6538c9eb376410439824d
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 009ae89327272ae4b9acd82eb415aad724d14988
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176674"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934355"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implantar um módulo de segurança em seu dispositivo IoT Edge
 
@@ -104,10 +104,10 @@ Há três etapas para criar uma implantação de IoT Edge para a central de segu
     }
     ```
 
-1. Clique em **Salvar**.
-1. Role até a parte inferior da guia e selecione **definir configurações avançadas de tempo de execução do Microsoft Edge**. 
+1. Clique em **Save** (Salvar).
+1. Role até a parte inferior da guia e selecione **definir configurações avançadas de tempo de execução do Edge**. 
    
-1. Altere a **imagem** em **Hub de borda** para **MCR.Microsoft.com/azureiotedge-Hub:1.0.9-RC2**.
+1. Altere a **imagem** em **Hub de borda** para **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
 
 1. Verifique se a **opção criar opções** está definida como: 
          
@@ -134,11 +134,11 @@ Há três etapas para criar uma implantação de IoT Edge para a central de segu
        }
     }
     ```
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
    
-1. Clique em **Avançar**.
+1. Clique em \\**Próximo**.
 
-#### <a name="step-2-specify-routes"></a>Etapa 2: Especificar Rotas 
+#### <a name="step-2-specify-routes"></a>Etapa 2: especificar rotas 
 
 1. Na guia **especificar rotas** , verifique se você tem uma rota (explícita ou implícita) que encaminhará as mensagens do módulo **azureiotsecurity** para **$upstream** de acordo com os exemplos a seguir, somente clique em **Avançar**. 
 
@@ -150,7 +150,7 @@ Há três etapas para criar uma implantação de IoT Edge para a central de segu
 "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
 ~~~
 
-#### <a name="step-3-review-deployment"></a>Etapa 3: Rever implantação
+#### <a name="step-3-review-deployment"></a>Etapa 3: examinar a implantação
 
 - Na guia **examinar implantação** , examine as informações de implantação e, em seguida, selecione **Enviar** para concluir a implantação.
 
@@ -166,10 +166,10 @@ Se você encontrar um problema, os logs de contêiner serão a melhor maneira de
    
 1. Verifique se os seguintes contêineres estão em execução:
    
-   | NOME | IMAGEM |
+   | name | IMAGEM |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0 |
-   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2 |
+   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
    Se os contêineres mínimos necessários não estiverem presentes, verifique se o manifesto de implantação do IoT Edge está alinhado com as configurações recomendadas. Para obter mais informações, consulte [implantar IOT Edge Module](#deployment-using-azure-portal).
@@ -182,7 +182,7 @@ Se você encontrar um problema, os logs de contêiner serão a melhor maneira de
    
 1. Para logs mais detalhados, adicione a seguinte variável de ambiente à implantação do módulo **azureiotsecurity** : `logLevel=Debug`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as opções de configuração, vá para o guia de instruções para configuração de módulo. 
 > [!div class="nextstepaction"]

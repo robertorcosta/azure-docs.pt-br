@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 7feea92d48a826000fd8aa878b95658b79d6d908
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5affc9952cfe13ebfeede126051f2236499d1343
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869987"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934285"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de renderização do Mapas do Azure
 
@@ -38,10 +38,10 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Angola                           | ✓ | ✓ |
 | Benin                            | ✓ | ✓ |
 | Botsuana                         | ✓ | ✓ |
-| Burkina Faso                     | ✓ | ✓ |
+| Burquina Faso                     | ✓ | ✓ |
 | Burundi                          | ✓ | ✓ |
 | Cabo Verde                       | ✓ | ✓ |
-| Camarões                         | ✓ | ✓ |
+| República dos Camarões                         | ✓ | ✓ |
 | República Centro-Africana         | ✓ | Ø |
 | Chad                             | ✓ | Ø |
 | Ilhas Comores                          | ✓ | Ø |
@@ -101,7 +101,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Bahamas                   | ✓ | ✓ |
 | Barbados                  | ✓ | ✓ |
 | Belize                    | ✓ | ✓ |
-| Bermudas                   | ✓ | ✓ |
+| Bermuda                   | ✓ | ✓ |
 | Estado Plurinacional da Bolívia | ✓ | ✓ |
 | Bonaire, Santo Eustáquio e Saba | ✓ | ✓ |
 | Brasil                    | ✓ | ✓ |
@@ -115,7 +115,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Dominica                  | ✓ | ✓ |
 | República Dominicana        | ✓ | ✓ |
 | Equador                   | ✓ | ✓ |
-| Ilhas Malvinas | ✓ | ✓ |
+| Ilhas Falkland (Malvinas) | ✓ | ✓ |
 | Guiana Francesa             | ✓ | ✓ |
 | Groenlândia                 | ✓ | Ø |
 | Granada                   | ✓ | ✓ |
@@ -136,16 +136,16 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Porto Rico               | ✓ | ✓ |
 | Quebec (Canadá)           | ✓ | ✓ |
 | São Bartolomeu          | ✓ | ✓ |
-| São Cristóvão e Névis     | ✓ | ✓ |
+| São Cristóvão e Nevis     | ✓ | ✓ |
 | Santa Lúcia               | ✓ | ✓ |
 | Saint Martin (francesa)     | ✓ | ✓ |
 | São Pierre e Miquelon | ✓ | ✓ |
-| São Vincent e Granadinas | ✓ | ✓ |
+| São Vicente e Granadinas | ✓ | ✓ |
 | Sint Maarten (holandesa)      | ✓ | ✓ |
-| Geórgia do Sul e Ilhas Sandwich do Sul | ✓ | ✓ |
+| Ilhas Geórgia do Sul e Sandwich do Sul | ✓ | ✓ |
 | Suriname                  | ✓ | ✓ |
 | Trinidad e Tobago       | ✓ | ✓ |
-| Ilhas Turcas e Caicos  | ✓ | ✓ |
+| Ilhas Turcos e Caicos  | ✓ | ✓ |
 | Estados Unidos             | ✓ | ✓ |
 | Uruguai                   | ✓ | ✓ |
 | Venezuela                 | ✓ | ✓ |
@@ -166,7 +166,6 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | China                     |   | Ø |
 | Ilhas Cocos (Keeling)   |   | Ø |
 | República Democrática Popular da Coreia |   | Ø |
-| Dokdo e Takeshima       |   | Ø |
 | RAE de Hong Kong             | ✓ | ✓ |
 | Índia                     | Ø | ✓ | 
 | Indonésia                 | ✓ | ✓ |
@@ -178,7 +177,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Cazaquistão                |   | ✓ |
 | Kuwait                    | ✓ | ✓ |
 | Quirguistão                |   | Ø |
-| República Democrática do Laos |   | Ø |
+| República Democrática Popular do Laos |   | Ø |
 | Líbano                   | ✓ | ✓ |
 | RAE de Macau                 | ✓ | ✓ |
 | Malásia                  | ✓ | ✓ |
@@ -193,9 +192,9 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | República da Coreia         | ✓ | Ø |
 | Arábia Saudita              | ✓ | ✓ |
 | Ilhas Senkaku           |   | ✓ |
-| Singapura                 | ✓ | ✓|
+| Cingapura                 | ✓ | ✓|
 | Sri Lanka                 |   | Ø |
-| República Árabe Síria      |   | Ø |
+| República Árabe da Síria      |   | Ø |
 | Taiwan                    | ✓ | ✓ |
 | Tadjiquistão                |   | Ø |
 | Tailândia                  | ✓ | ✓ |
@@ -268,7 +267,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Irlanda                   | ✓ | ✓ |
 | Ilha de Man               | ✓ | ✓ |
 | Itália                     | ✓ | ✓ |
-| Jan Mayen                 | ✓ | ✓ |
+| Svalbard                 | ✓ | ✓ |
 | Jersey                    | ✓ | ✓ |
 | Letônia                    | ✓ | ✓ |
 | Liechtenstein             | ✓ | ✓ |
@@ -279,7 +278,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Moldova                   | ✓ | ✓ |
 | Mônaco                    | ✓ | ✓ |
 | Montenegro                | ✓ | ✓ |
-| Países Baixos               | ✓ | ✓ |
+| Holanda               | ✓ | ✓ |
 | Noruega                    | ✓ | ✓ |
 | Polônia                    | ✓ | ✓ |
 | Portugal                  | ✓ | ✓ |
@@ -299,7 +298,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Reino Unido            | ✓ | ✓ |
 | Cidade do Vaticano              | ✓ | ✓ |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a renderização de Mapas do Azure, consulte [Níveis de Zoom e grade de blocos](zoom-levels-and-tile-grid.md).
 

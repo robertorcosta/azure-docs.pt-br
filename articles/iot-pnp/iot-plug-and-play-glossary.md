@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: a5c9d2d54fcce1179e43c38027db23c3d7e557e8
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: db3581616b369345ad654593192048e8573c6fa4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249295"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935204"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossário de termos para a visualização de IoT Plug and Play
 
@@ -28,7 +28,7 @@ Você pode usar o site do [portal do Azure Certified para IOT](https://aka.ms/AC
 - Encontre [modelos de capacidade de dispositivo](#device-capability-model).
 - Publique um modelo de capacidade de dispositivo no [repositório de modelo público](#public-model-repository).
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-cli"></a>Azure CLI
 
 O CLI do Azure é uma ferramenta de linha de comando de plataforma cruzada para gerenciar recursos do Azure. A extensão do Azure IoT para o CLI do Azure é uma ferramenta de linha de comando para interagir com e testar [dispositivos de plug and Play IOT](#iot-plug-and-play-device). Você pode usar a extensão para:
 
@@ -117,9 +117,9 @@ Um [desenvolvedor de dispositivos](#device-developer) usa a [linguagem digital d
 
 ## <a name="device-provisioning-service"></a>Serviço de provisionamento de dispositivos
 
-O [Azure IOT central](#azure-iot-central) usa o serviço de provisionamento de dispositivos para gerenciar todo o registro e a conexão do dispositivo. Para obter mais informações, consulte [conectividade do dispositivo no Azure IOT central](../iot-central/concepts-connectivity-pnp.md). Você também pode usar o serviço de provisionamento de dispositivos para gerenciar o registro e a conexão de dispositivos com sua solução IoT baseada no Hub IoT. Para obter mais informações, consulte [Provisionando dispositivos com o serviço de provisionamento de dispositivos no Hub IOT do Azure](../iot-dps/about-iot-dps.md).
+O [Azure IOT central](#azure-iot-central) usa o serviço de provisionamento de dispositivos para gerenciar todo o registro e a conexão do dispositivo. Para obter mais informações, consulte [conectividade do dispositivo no Azure IOT central](../iot-central/core/concepts-connectivity-pnp.md). Você também pode usar o serviço de provisionamento de dispositivos para gerenciar o registro e a conexão de dispositivos com sua solução IoT baseada no Hub IoT. Para obter mais informações, consulte [Provisionando dispositivos com o serviço de provisionamento de dispositivos no Hub IOT do Azure](../iot-dps/about-iot-dps.md).
 
-## <a name="device-registration"></a>Registro de dispositivos
+## <a name="device-registration"></a>Registro do dispositivo
 
 Antes que um [dispositivo iot plug and Play](#iot-plug-and-play-device) possa se conectar a uma solução de IOT, ele deve ser registrado com a solução. O [Azure IOT central](#azure-iot-central) usa o [serviço de provisionamento de dispositivos](#device-provisioning-service) para gerenciar o registro de dispositivos. Em uma solução de IoT personalizada, você pode registrar dispositivos com o Hub IoT no portal do Azure ou de forma programática.
 
@@ -171,7 +171,7 @@ Um repositório de modelos armazena modelos e [interfaces](#interface)de [funcio
 
 Uma API para gerenciar e interagir com repositórios de modelo. Por exemplo, você pode usar a API para adicionar [modelos de capacidade de dispositivo](#device-capability-model) e Pesquisar modelos de funcionalidade.
 
-## <a name="properties"></a>Properties
+## <a name="properties"></a>propriedades
 
 As propriedades são campos de dados definidos em uma [interface](#interface) que representam algum estado de uma. digital. Você pode declarar propriedades como somente leitura ou gravável. Propriedades somente leitura, como número de série, são definidas pelo código em execução no próprio [dispositivo de plug and Play de IOT](#iot-plug-and-play-device) .  As propriedades graváveis, como um limite de alarme, normalmente são definidas a partir da solução de IoT baseada em nuvem.
 

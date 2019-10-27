@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 7ccd84042d11b586d524d4eb76eba03111e0b3c5
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 0948edec05b97dd604393218e3eeb3302548af82
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099004"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933565"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurar alertas de integridade de recursos do Azure usando modelos do Resource Manager
 
@@ -198,7 +198,7 @@ Os alertas no nível de grupo de recursos ou assinatura podem ter diferentes tip
 Aqui, usamos o wrapper `anyOf` para permitir que o alerta de integridade de recurso corresponda a qualquer uma das condições que especificamos, permitindo os alertas que se destinam a tipos específicos de recursos.
 
 ### <a name="adjusting-the-resource-health-events-that-alert-you"></a>Ajustar os eventos do Resource Health que alertam você
-Quando recursos passam por um evento de integridade, eles podem passar por uma série de estágios que representa o estado do evento de integridade: `Active`, `InProgress`, `Updated` e `Resolved`.
+Quando recursos passam por um evento de integridade, eles podem passar por uma série de estágios que representa o estado do evento de integridade: `Active`, `In Progress`, `Updated` e `Resolved`.
 
 Você pode deseja ser notificado apenas quando um recurso se tornar não íntegro, caso em que você deseja configurar o alerta para notificar somente quando `status` for `Active`. No entanto se quiser também ser notificado sobre os outros estágios, você poderá adicionar esses detalhes da seguinte forma:
 
@@ -214,7 +214,7 @@ Você pode deseja ser notificado apenas quando um recurso se tornar não íntegr
                 },
                 {
                     "field": "status",
-                    "equals": "InProgress"
+                    "equals": "In Progress"
                 },
                 {
                     "field": "status",
@@ -234,7 +234,7 @@ Se quiser ser notificado para todos os quatro estágios de eventos de integridad
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Ajustar os alertas do Resource Health para evitar eventos "desconhecidos"
 
-O Azure Resource Health pode relatar a você a integridade mais recente de seus recursos monitorando-os constantemente usando executores de teste. Os status de integridade reportada relevantes são: "Disponível", "Indisponível" e "Degradado". No entanto, em situações em que o executor e o recurso do Azure não conseguem se comunicar, um status de integridade "Desconhecido" é relatado para o recurso e é considerado um evento de integridade "Ativo".
+O Azure Resource Health pode relatar a você a integridade mais recente de seus recursos monitorando-os constantemente usando executores de teste. Os status de integridade reportados relevantes são: "Disponível", "Não disponível" e "Degradado". No entanto, em situações em que o executor e o recurso do Azure não conseguem se comunicar, um status de integridade "Desconhecido" é relatado para o recurso e é considerado um evento de integridade "Ativo".
 
 No entanto, quando um recurso relata "Desconhecido", é provável que o status de integridade não tenha sido alterado desde o último relatório preciso. Se quiser eliminar alertas em eventos "Desconhecidos", você poderá especificar essa lógica no modelo:
 
@@ -409,7 +409,7 @@ Usando os diferentes ajustes descritos na seção anterior, aqui está um modelo
                                 },
                                 {
                                     "field": "status",
-                                    "equals": "InProgress",
+                                    "equals": "In Progress",
                                     "containsAny": null
                                 },
                                 {
@@ -436,7 +436,7 @@ Usando os diferentes ajustes descritos na seção anterior, aqui está um modelo
 
 No entanto, você saberá melhor quais configurações são eficazes para você, então use as ferramentas mostradas a você nesta documentação para fazer sua própria personalização.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o Resource Health:
 -  [Visão geral do Azure Resource Health](Resource-health-overview.md)
