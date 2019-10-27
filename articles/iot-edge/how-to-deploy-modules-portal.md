@@ -10,12 +10,12 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f27484fd1d47a2e29aa5083a7d440e5c7dba11c1
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 4c2adc8ef0d426617dc85dd507907d612bbdabaa
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839655"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964913"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implantar módulos do Azure IoT Edge do portal do Azure
 
@@ -26,7 +26,7 @@ Este artigo mostra como o portal do Azure guia você por meio da criação de um
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na assinatura do Azure.
-* Um [Dispositivo do IoT Edge](how-to-register-device-portal.md) com o tempo de execução do IoT Edge instalado.
+* Um [Dispositivo do IoT Edge](how-to-register-device.md#register-in-the-azure-portal) com o tempo de execução do IoT Edge instalado.
 
 ## <a name="select-your-device"></a>Selecionar o dispositivo
 
@@ -70,7 +70,7 @@ O portal do Azure tem um assistente que ajuda você por meio da criação de man
 
 ### <a name="specify-routes"></a>Especificar Rotas
 
-Por padrão, o assistente fornece uma rota chamada **rota** e definida como **FROM /\* INTO $upstream**, que significa que quaisquer mensagens de saída por quaisquer módulos são enviadas para o seu Hub IoT.  
+Por padrão, o assistente fornece uma rota chamada **rota** e definida como **FROM /* INTO $upstream**, que significa que quaisquer mensagens de saída por quaisquer módulos são enviadas para o seu Hub IoT.  
 
 Adicionar ou atualizar as rotas com informações de [declarar rotas](module-composition.md#declare-routes), em seguida, selecione **próximo** para continuar para a seção de revisão.
 
@@ -92,7 +92,7 @@ Você pode instalar um módulo do IoT Edge por meio do Azure Marketplace ou do p
 
 1. Localize um módulo e inicie o processo de implantação.
 
-   * Portal do Azure: Encontre um módulo e selecione **Criar**.
+   * Portal do Azure: Localize um módulo e selecione **criar**.
 
    * Azure Marketplace:
 
@@ -107,6 +107,6 @@ Você pode instalar um módulo do IoT Edge por meio do Azure Marketplace ou do p
 
 1. Selecione **Criar** para continuar o processo padrão de configuração de um manifesto de implantação, incluindo a adição de outros módulos se desejado. Os detalhes para o novo módulo são predefinidos, como a imagem do URI, as opções de criação e as propriedades desejadas, mas podem ser alterados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [Implantar e monitorar módulos do IoT Edge em escala](how-to-deploy-monitor.md)

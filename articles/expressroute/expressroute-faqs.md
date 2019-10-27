@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 4fd27acc58f5aaeb9b7680062ad97aaba22dec51
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: df8b1c8fd31eed0a09b878f09faadb23f6b72aaa
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686985"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965433"
 ---
-# <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
+# <a name="expressroute-faq"></a>Perguntas frequentes sobre o ExpressRoute
 
 ## <a name="what-is-expressroute"></a>O que é ExpressRoute?
 
@@ -23,15 +23,15 @@ O ExpressRoute é um serviço do Azure que permite a criação de conexões priv
 
 ### <a name="what-are-the-benefits-of-using-expressroute-and-private-network-connections"></a>Quais são os benefícios do uso de ExpressRoute e conexões de rede privada?
 
-As conexões de ExpressRoute não passam pela Internet pública. Oferecem mais segurança, confiabilidade e velocidades maiores com latências consistentes e menores do que conexões típicas pela Internet. Em alguns casos, o uso de conexões do ExpressRoute para transferir dados entre dispositivos locais e o Azure pode proporcionar relações custo/benefício significativas.
+As conexões do ExpressRoute não passam pela Internet pública. Oferecem mais segurança, confiabilidade e velocidades maiores com latências consistentes e menores do que conexões típicas pela Internet. Em alguns casos, o uso de conexões do ExpressRoute para transferir dados entre dispositivos locais e o Azure pode proporcionar relações custo/benefício significativas.
 
 ### <a name="where-is-the-service-available"></a>Onde o serviço está disponível?
 
-Consulte esta página para obter a disponibilidade e localização do serviço: [Localizações e parceiros do ExpressRoute](expressroute-locations.md).
+Consulte esta página para localização de serviço e disponibilidade: [Locais e Parceiros da Rota Expressa](expressroute-locations.md).
 
 ### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>Como posso usar o ExpressRoute para conexão à Microsoft se eu não tenho parcerias com uma das operadoras parceiras do ExpressRoute?
 
-Você pode selecionar uma operadora regional e conexões Ethernet terrestres para um dos locais com suporte do provedor Exchange. Em seguida, você pode emparelhar com a Microsoft no local do provedor. Verifique a última seção de [Locais e Parceiros da ExpressRoute](expressroute-locations.md) para ver se o seu provedor de serviço está presente em qualquer um dos locais do Exchange. Em seguida, você pode solicitar um circuito de ExpressRoute por meio do provedor de serviço para se conectar ao Azure.
+Você pode selecionar uma operadora regional e conexões Ethernet terrestres para um dos locais com suporte do provedor Exchange. Em seguida, você pode emparelhar com a Microsoft no local do provedor. Verifique a última seção de [Locais e Parceiros da Rota Expressa](expressroute-locations.md) para ver se o seu provedor de serviço está presente em qualquer um dos locais do Exchange. Em seguida, você pode solicitar um circuito de ExpressRoute por meio do provedor de serviço para se conectar ao Azure.
 
 ### <a name="how-much-does-expressroute-cost"></a>Quanto custa o ExpressRoute?
 
@@ -39,7 +39,7 @@ Consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/expre
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Se eu pago por um circuito de ExpressRoute de uma determinada largura de banda, a conexão VPN que adquiro do meu provedor de serviços de rede precisa ser a mesma velocidade?
 
-Nº Você pode comprar uma conexão VPN de qualquer velocidade de seu provedor de serviços. No entanto, sua conexão com o Azure é limitada à largura de banda do circuito de ExpressRoute que você comprar.
+Não. Você pode comprar uma conexão VPN de qualquer velocidade de seu provedor de serviços. No entanto, sua conexão com o Azure é limitada à largura de banda do circuito de ExpressRoute que você comprar.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Se eu pago por um circuito de ExpressRoute de uma determinada largura de banda, tenho a capacidade de chegar até maiores velocidades, se necessário?
 
@@ -49,7 +49,7 @@ Sim. Circuitos de ExpressRoute são configurados para permitir que você dispare
 
 Sim. Um circuito de ExpressRoute, uma vez instalado, permite que você acesse os serviços em uma rede virtual e outros serviços do Azure simultaneamente. Você se conecta a redes virtuais pelo caminho de peering privado e a outros serviços pelo caminho de peering da Microsoft.
 
-### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>o ExpressRoute oferece um SLA (contrato de nível de serviço)?
+### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>O ExpressRoute oferece um SLA (contrato de nível de serviço)?
 
 Para obter informações, veja a página [SLA do ExpressRoute](https://azure.microsoft.com/support/legal/sla/).
 
@@ -61,15 +61,15 @@ O ExpressRoute dá suporte a [três domínios de roteamento](expressroute-circui
 
 * Redes virtuais, incluindo todas as máquinas virtuais e serviços de nuvem
 
-### <a name="microsoft-peering"></a>Emparelhamento Microsoft
+### <a name="microsoft-peering"></a>Emparelhamento da Microsoft
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI-disponível por meio de uma comunidade regional do Azure, consulte [aqui](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) para saber como descobrir a região do seu locatário de Power bi.
-* Active Directory do Azure
+* Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (comunidade de Serviços Globais do Azure)
 * Há suporte para a maioria dos serviços do Azure. Verifique diretamente o serviço que você deseja utilizar para confirmar o suporte.<br><br>**NÃO há suporte para os serviços a seguir**:
     * CDN
-    * Porta da frente do Azure
+    * Azure Front Door
     * Servidor de autenticação multifator (Herdado)
     * Gerenciador de Tráfego
 
@@ -83,9 +83,17 @@ O ExpressRoute dá suporte a [três domínios de roteamento](expressroute-circui
 * Há suporte para a maioria dos serviços do Azure. Verifique diretamente o serviço que você deseja utilizar para confirmar o suporte.<br><br>
   **NÃO há suporte para os serviços a seguir**:
     * CDN
-    * Porta da frente do Azure
+    * Azure Front Door
     * Servidor de autenticação multifator (Herdado)
     * Gerenciador de Tráfego
+
+### <a name="why-i-see-advertised-public-prefixes-status-as-validation-needed-while-configuring-microsoft-peering"></a>Por que vejo o status de ' prefixos públicos anunciados ' como ' validação necessária ' ao configurar o emparelhamento da Microsoft?
+
+A Microsoft verifica se os ' prefixos públicos publicados ' e ' peer ASN ' (ou ' cliente ASN ') especificados estão atribuídos a você no registro de roteamento da Internet. Se você estiver obtendo os prefixos públicos de outra entidade e se a atribuição não for registrada com o registro de roteamento, a validação automática não será concluída e exigirá validação manual. Se a validação automática falhar, você verá a mensagem "validação necessária".
+
+Se você vir a mensagem "validação necessária", colete os documentos que mostram os prefixos públicos são atribuídos à sua organização pela entidade que está listada como o proprietário dos prefixos no registro de roteamento e envie esses documentos para validação manual por abrindo um tíquete de suporte, conforme mostrado abaixo.
+
+![](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
 
 ### <a name="is-dynamics-365-supported-on-expressroute"></a>O Dynamics 365 tem suporte no ExpressRoute?
 
@@ -108,7 +116,7 @@ Ofertas de largura de banda com suporte:
 
 ### <a name="which-service-providers-are-available"></a>Que provedores de serviços estão disponíveis?
 
-Consulte [Locais e Parceiros da ExpressRoute](expressroute-locations.md) para a lista de locais e provedores de serviços.
+Consulte [Locais e Parceiros da Rota Expressa](expressroute-locations.md) para a lista de locais e provedores de serviços.
 
 ## <a name="technical-details"></a>Detalhes técnicos
 
@@ -148,13 +156,13 @@ Veja mais detalhes [aqui](https://docs.microsoft.com/azure/expressroute/expressr
 
 ### <a name="onep2plink"></a>Se eu não estiver colocalizado em uma troca de nuvem e meu provedor de serviços oferecer conexão ponto a ponto, preciso solicitar duas conexões físicas entre minha rede local e a Microsoft?
 
-Se seu provedor de serviços puder estabelecer dois circuitos virtuais de Ethernet por meio da conexão física, você só precisa de uma conexão física. A conexão física (por exemplo, uma fibra óptica) será encerrada em um dispositivo de camada 1 (L1) (confira a imagem). Os dois circuitos virtuais de Ethernet estão marcados com IDs de VLAN diferentes, uma para o circuito primário e outra para o secundário. As IDs de VLAN estão no cabeçalho de Ethernet 802.1Q exterior. O cabeçalho de Ethernet 802.1Q interior (não mostrado) é mapeado para um [domínio de roteamento de ExpressRoute](expressroute-circuit-peerings.md)específico.
+Se seu provedor de serviços puder estabelecer dois circuitos virtuais de Ethernet por meio da conexão física, você só precisa de uma conexão física. A conexão física (por exemplo, uma fibra óptica) será encerrada em um dispositivo de camada 1 (L1) (confira a imagem). Os dois circuitos virtuais de Ethernet estão marcados com IDs de VLAN diferentes, uma para o circuito primário e outra para o secundário. As IDs de VLAN estão no cabeçalho de Ethernet 802.1Q exterior. O cabeçalho de Ethernet 802.1Q interior (não mostrado) é mapeado para um [domínio de roteamento de Rota Expressa](expressroute-circuit-peerings.md)específico.
 
 ![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>Posso estender uma das minhas VLANs ao Azure usando a ExpressRoute?
 
-Nº Não há suporte para extensões de conectividade de camada 2 ao Azure.
+Não. Não há suporte para extensões de conectividade de camada 2 ao Azure.
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>Posso ter mais de um circuito de ExpressRoute em minha assinatura?
 
@@ -203,7 +211,7 @@ Para obter mais informações, consulte [Compartilhando um circuito de ExpressRo
 
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>As redes virtuais estão conectadas ao mesmo circuito e isoladas umas das outras?
 
-Nº Segunda uma perspectiva de roteamento, todas as redes virtuais vinculadas ao mesmo circuito de ExpressRoute fazem parte do mesmo domínio de roteamento e não estão isoladas entre si. Se você precisar de isolamento de rota, você precisará criar um circuito de ExpressRoute separado.
+Não. Segunda uma perspectiva de roteamento, todas as redes virtuais vinculadas ao mesmo circuito de ExpressRoute fazem parte do mesmo domínio de roteamento e não estão isoladas entre si. Se você precisar de isolamento de rota, você precisará criar um circuito de ExpressRoute separado.
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>Posso conectar uma Rede Virtual a mais de um circuito de ExpressRoute?
 
@@ -291,7 +299,7 @@ Você pode desabilitar o ExpressRoute Premium chamando a API REST ou o cmdlet do
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>Posso escolher os recursos que desejo do conjunto de recursos premium?
 
-Nº Você não pode escolher os recursos. Habilitamos todos os recursos quando você ativa o ExpressRoute premium.
+Não. Você não pode escolher os recursos. Habilitamos todos os recursos quando você ativa o ExpressRoute premium.
 
 ### <a name="how-much-does-expressroute-premium-cost"></a>Quanto custa o ExpressRoute premium?
 

@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/22/2019
-ms.openlocfilehash: 1d75b9e7d997b0c62c7e235187907f0556318efe
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 10/25/2019
+ms.openlocfilehash: 434ecbcf5158009b8e74ae392aeea95b5ea8b281
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970416"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72963431"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Regras de firewall do Banco de Dados do Azure para servidor MySQL
 Os firewalls impedem todo acesso ao seu servidor de banco de dados até que você especifique quais computadores têm permissão. O firewall concede acesso ao servidor com base no endereço IP de origem de cada solicitação.
 
 Para configurar seu firewall, crie regras de firewall que especifiquem intervalos de endereços IP aceitáveis. Você pode criar regras de firewall no nível de servidor.
 
-**Regras de firewall:** Essas regras permitem que os clientes acessem todo o servidor do Banco de Dados do Azure para MySQL, ou seja, todos os bancos de dados no mesmo servidor lógico. As regras de firewall no nível de servidor podem ser configuradas por meio do Portal do Azure ou dos comandos da CLI do Azure. Para criar regras de firewall no nível de servidor, você deve ser o proprietário da assinatura ou um colaborador da assinatura.
+**Regras de firewall:** essas regras permitem que os clientes acessem todo o Banco de Dados do Azure para servidor MySQL, ou seja, todos os bancos dentro do mesmo servidor lógico. As regras de firewall no nível de servidor podem ser configuradas por meio do Portal do Azure ou dos comandos da CLI do Azure. Para criar regras de firewall no nível de servidor, você deve ser o proprietário da assinatura ou um colaborador da assinatura.
 
 ## <a name="firewall-overview"></a>Visão geral do firewall
 Todo acesso de banco de dados ao seu servidor de Banco de Dados do Azure para MySQL é bloqueado por padrão pelo firewall. Para começar a usar o servidor de outro computador, especifique uma ou mais regras de firewall no nível do servidor para permitir o acesso ao seu servidor. Use as regras de firewall para especificar quais intervalos de endereços IP da Internet permitir. O acesso em si ao site do Portal do Azure não é afetado pelas regras de firewall.
@@ -43,25 +43,29 @@ Para permitir que aplicativos do Azure se conectem ao seu Banco de Dados do Azur
 
 ![Configurar Permitir o acesso aos serviços do Azure](./media/concepts-firewall-rules/allow-azure-services.png)
 
+### <a name="connecting-from-a-vnet"></a>Conectando de uma VNet
+Para se conectar com segurança ao banco de dados do Azure para servidor MySQL de uma VNet, considere o uso de [pontos de extremidade de serviço de VNet](./concepts-data-access-and-security-vnet.md). 
+
 ## <a name="programmatically-managing-firewall-rules"></a>Gerenciando programaticamente as regras de firewall
 Além do Portal do Azure, as regras de firewall podem ser gerenciadas por meio de programação usando a CLI do Azure. Confira também [Criar e gerenciar regras de firewall do Banco de Dados do Azure para MySQL usando a CLI do Azure](./howto-manage-firewall-using-cli.md)
 
 ## <a name="troubleshooting-firewall-issues"></a>Solucionando problemas de firewall
 Considere os seguintes pontos quando o acesso ao serviço do servidor de Banco de Dados do Microsoft Azure para MySQL não se comportar conforme o esperado:
 
-* **As alterações à lista de permissões ainda não entraram em vigor ainda:** Pode haver um atraso de até cinco minutos para que as alterações na configuração do firewall do Banco de Dados do Azure para MySQL Server entrem em vigor.
+* **As alterações à lista de permissões ainda não entraram em vigor:** pode ocorrer um atraso de cinco minutos para que as alterações na configuração do firewall do Banco de Dados do Azure para servidor MySQL entrem em vigor.
 
-* **O logon não está autorizado ou uma senha incorreta foi usada:** Se um logon não tiver permissões no servidor do Banco de Dados do Azure para MySQL ou se a senha usada estiver incorreta, a conexão com o Banco de Dados do Azure para o servidor MySQL será negada. Criar uma configuração de firewall apenas oferece aos clientes uma oportunidade de tentar se conectar ao servidor; cada cliente deve fornecer as credenciais de segurança necessárias.
+* **O logon não está autorizado ou uma senha incorreta foi usada:** se um logon não tiver permissões no servidor do Banco de Dados do Azure para servidor MySQL, ou se a senha usada estiver incorreta, a conexão com o Banco de Dados do Azure para servidor MySQL será negada. Criar uma configuração de firewall apenas oferece aos clientes uma oportunidade de tentar se conectar ao servidor; cada cliente deve fornecer as credenciais de segurança necessárias.
 
-* **Endereço IP dinâmico:** Se você tiver uma conexão com a Internet com endereçamento IP dinâmico e estiver tendo problemas para acessar o firewall, tente uma das seguintes soluções:
+* **Endereço IP dinâmico:** se você tiver uma conexão com a Internet com endereçamento IP dinâmico e estiver com dificuldades para atravessar o firewall, tente uma das seguintes soluções:
 
    * Peça ao seu Provedor de serviços de Internet (ISP) o intervalo de endereços IP atribuído aos computadores clientes que acessarão o servidor de Banco de Dados do Azure para servidor MySQL e, em seguida, adicione o intervalo de endereços IP como uma regra de firewall.
 
    * Obtenha o endereçamento IP estático para os computadores cliente e, em seguida, adicione os endereços IP como regras de firewall.
 
-* **O IP do servidor parece ser público:** As conexões com o servidor do Banco de Dados do Azure para MySQL são roteadas por meio de um gateway do Azure acessível publicamente. No entanto, o IP do servidor real é protegido pelo firewall. Para obter mais informações, consulte o [artigo sobre arquitetura de conectividade](concepts-connectivity-architecture.md). 
+* O **IP do servidor parece ser público:** As conexões com o banco de dados do Azure para servidor MySQL são roteadas por meio de um gateway do Azure acessível publicamente. No entanto, o IP do servidor real é protegido pelo firewall. Para obter mais informações, consulte o [artigo sobre arquitetura de conectividade](concepts-connectivity-architecture.md). 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar e gerenciar regras de firewall do Banco de Dados do Azure para MySQL usando o Portal do Azure](./howto-manage-firewall-using-portal.md)
 * [Criar e gerenciar regras de firewall do banco de dados do Azure para MySQL usando o CLI do Azure](./howto-manage-firewall-using-cli.md)
+- [Pontos de extremidade de serviço de VNet no banco de dados do Azure para MySQL](./concepts-data-access-and-security-vnet.md)

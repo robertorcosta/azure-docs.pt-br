@@ -133,6 +133,8 @@
           href: managed-disks-overview.md
         - name: Selecione um tipo de disco para VMs IaaS
           href: disks-types.md
+        - name: Criptografia
+          href: disk-encryption.md
         - name: Projetando para alto desempenho
           href: premium-storage-performance.md
         - name: Metas da escalabilidade para os discos

@@ -1,5 +1,5 @@
 ---
-title: Problemas conhecidos & solução de problemas
+title: Problemas conhecidos e soluções
 titleSuffix: Azure Machine Learning
 description: Obtenha uma lista dos problemas conhecidos, soluções alternativas e solução de problemas para Azure Machine Learning.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: a3ba28960327f1e0a56b1ac838b2cb90ab6ac72a
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 0dd0b8cf39da8039b3a59bf243284e0d5062bd78
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675642"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965591"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conhecidos e solução de problemas Azure Machine Learning
 
@@ -43,13 +43,13 @@ Talvez você queira executar um experimento que contenha apenas o conjunto de um
  
 Antes da correção, você pode conectar o conjunto de dados a qualquer módulo de Data Transformation (selecione as colunas no DataSet, editar metadados, dividir dados etc.) e executar o experimento. Em seguida, você pode visualizar o conjunto de os. 
 
-A imagem abaixo mostra como: ![visulize-data ](./media/resource-known-issues/aml-visualize-data.png)
+A imagem abaixo mostra como: ![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>Problemas de instalação do SDK
 
-**Mensagem de erro: não é possível desinstalar ' PyYAML '**
+**Mensagem de erro: não é possível desinstalar 'PyYAML'**
 
-Azure Machine Learning SDK para Python: PyYAML é um projeto distutils instalado. Portanto, não podemos determinar com precisão quais arquivos pertencem a ele se houver uma desinstalação parcial. Para continuar a instalação do SDK ao ignorar esse erro, use:
+Azure Machine Learning SDK para Python: PyYAML é um projeto distutils instalado. Portanto, não é possível determinar com precisão quais arquivos pertencem a ele no caso de uma desinstalação parcial. Para continuar a instalação do SDK ignorando esse erro, use:
 
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
@@ -63,21 +63,21 @@ conda create -n <env-name> python=3.7.3
 ```
 Que cria um ambiente Conda usando o Python 3.7.3, que não tem o problema de instalação presente no 3.7.4.
 
-## <a name="trouble-creating-azure-machine-learning-compute"></a>Problemas ao criar Azure Machine Learning computação
+## <a name="trouble-creating-azure-machine-learning-compute"></a>Problemas ao criar a computação do Azure Machine Learning
 
-Há uma rara chance de que alguns usuários que criaram seus Azure Machine Learning espaço de trabalho do portal do Azure antes da versão GA não possam criar Azure Machine Learning computação nesse espaço de trabalho. Você pode gerar uma solicitação de suporte em relação ao serviço ou criar um novo espaço de trabalho por meio do portal ou do SDK para desbloquear-se imediatamente.
+Há uma chance rara que alguns usuários que criaram seu workspace do Azure Machine Learning no portal do Azure antes da versão GA não consigam criar a computação do Azure Machine Learning nesse workspace. Você pode gerar uma solicitação de suporte no serviço ou criar um novo workspace por meio do Portal ou do SDK para desbloqueio imediato.
 
 ## <a name="image-building-failure"></a>Falha na criação da imagem
 
-Falha na criação da imagem ao implantar o serviço Web. A solução alternativa é adicionar "pynacl = = 1.2.1" como uma dependência Pip ao arquivo Conda para configuração de imagem.
+Falha na criação da imagem ao implantar o serviço Web. Uma solução alternativa é adicionar “pynacl==1.2.1” como uma dependência de pip para o arquivo Conda da imagem de configuração.
 
 ## <a name="deployment-failure"></a>Falha na implantação
 
-Se você observar `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, altere a SKU para VMs usadas em sua implantação para uma que tenha mais memória.
+Caso veja `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, altere o SKU das VMs usadas na implantação para uma que tenha mais memória.
 
 ## <a name="fpgas"></a>FPGAs
 
-Você não poderá implantar modelos no FPGAs até ter solicitado e aprovado para a cota de FPGA. Para solicitar acesso, preencha o formulário de solicitação de cota: https://aka.ms/aml-real-time-ai
+Não será possível implantar modelos em FPGAs até que você tenha solicitado e recebido aprovação para cota de FPGA. Para solicitar acesso, preencha o formulário de solicitação de cota: https://aka.ms/aml-real-time-ai
 
 ## <a name="automated-machine-learning"></a>Aprendizado de máquina automatizado
 
@@ -87,9 +87,19 @@ O aprendizado de máquina automatizado do tensor Flow atualmente não dá suport
 
 Os gráficos de classificação binária (recall de precisão, ROC, curva de lucro etc.) mostrados em iterações de experimento de ML automatizadas não são renderizados corretamente na interface do usuário desde 4/12. Atualmente, as plotagens de gráfico estão mostrando resultados inversos, onde os modelos de melhor desempenho são mostrados com resultados mais baixos. Uma resolução está sob investigação.
 
+## <a name="datasets-and-data-preparation"></a>Conjuntos de dados e preparo
+
+### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>Falha ao ler o arquivo parquet do HTTP ou ADLS Gen 2
+
+Há um problema conhecido na versão 1.1.25 do AzureML dataprep SDK que causa uma falha ao criar um conjunto de uma leitura de arquivos parquet de HTTP ou ADLS Gen 2. Para corrigir esse problema, atualize para uma versão superior a 1.1.26 ou faça downgrade para uma versão inferior a 1.1.24.
+
+```python
+pip install --upgrade azureml-dataprep
+```
+
 ## <a name="databricks"></a>Databricks
 
-Databricks e problemas de Azure Machine Learning.
+Problemas do Databricks e do Azure Machine Learning.
 
 ### <a name="failure-when-installing-packages"></a>Falha ao instalar pacotes
 
@@ -142,11 +152,11 @@ Se você vir um erro de `FailToSendFeather` ao ler dados no cluster Azure Databr
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-Se você for diretamente para exibir o espaço de trabalho de um link de compartilhamento no SDK ou no portal, não será possível exibir a página de visão geral normal com as informações de assinatura na extensão. Você também não será capaz de alternar para outro espaço de trabalho. Se você precisar exibir outro espaço de trabalho, a solução alternativa será ir diretamente para a [portal do Azure](https://portal.azure.com) e procurar o nome do espaço de trabalho.
+Se você for diretamente exibir seu workspace a partir de um link de compartilhamento do SDK ou do portal, não poderá exibir a página de Visão Geral normal com as informações de assinatura na extensão. Você também não poderá alternar para outro workspace. Se você precisar exibir outro workspace, a solução alternativa será ir diretamente para o [portal do Azure](https://portal.azure.com) e procurar o nome do workspace.
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
 
-Às vezes, pode ser útil se você puder fornecer informações de diagnóstico ao solicitar ajuda. Para ver alguns logs, visite [portal do Azure](https://portal.azure.com) e vá para seu espaço de trabalho e selecione **espaço de trabalho > teste > executar logs do >** .  Você também pode encontrar essas informações na seção **experimentos** da [página de aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com).
+Às vezes, pode ser útil fornecer informações de diagnóstico ao pedir ajuda. Para ver alguns logs, visite [portal do Azure](https://portal.azure.com) e vá para seu espaço de trabalho e selecione **espaço de trabalho > teste > executar logs do >** .  Você também pode encontrar essas informações na seção **experimentos** da [página de aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com).
 
 > [!NOTE]
 > Azure Machine Learning registra as informações de uma variedade de fontes durante o treinamento, como AutoML ou o contêiner do Docker que executa o trabalho de treinamento. Muitos desses logs não estão documentados. Se você encontrar problemas e entrar em contato com o suporte da Microsoft, eles podem ser capazes de usar esses logs durante a solução de problemas.
@@ -159,11 +169,11 @@ Algumas dessas ações aparecem na área __atividades__ do seu espaço de trabal
 
 ## <a name="resource-quotas"></a>Cotas de recursos
 
-Saiba mais sobre as [cotas de recursos](how-to-manage-quotas.md) que você pode encontrar ao trabalhar com Azure Machine Learning.
+Saiba mais sobre as [cotas de recursos](how-to-manage-quotas.md) que você pode encontrar ao trabalhar com o Azure Machine Learning.
 
 ## <a name="authentication-errors"></a>Erros de autenticação
 
-Se você executar uma operação de gerenciamento em um destino de computação de um trabalho remoto, receberá um dos seguintes erros:
+Se executar uma operação de gerenciamento em um destino de computação de um trabalho remoto, você receberá um dos seguintes erros:
 
 ```json
 {"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
@@ -173,7 +183,7 @@ Se você executar uma operação de gerenciamento em um destino de computação 
 {"error":{"code":"AuthenticationFailed","message":"Authentication failed."}}
 ```
 
-Por exemplo, você receberá um erro se tentar criar ou anexar um destino de computação de um pipeline de ML que é enviado para execução remota.
+Por exemplo, você receberá um erro se tentar criar ou anexar um destino de computação de um Pipeline de ML que é enviado para execução remota.
 
 ## <a name="overloaded-azurefile-storage"></a>Armazenamento do Azurefile sobrecarregado
 
@@ -232,7 +242,7 @@ Com base na observação geral, aqui estão as recomendações do Azure ML para 
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors (nenhum módulo chamado)
 Se você estiver executando o ModuleErrors enquanto envia experimentos no Azure ML, significa que o script de treinamento está esperando que um pacote seja instalado, mas não adicionado. Depois de fornecer o nome do pacote, o Azure ML instalará o pacote no ambiente usado para seu treinamento. 
 
-Se você estiver usando [estimadores](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) para enviar experimentos, poderá especificar um nome de pacote por meio de `pip_packages` ou `conda_packages` parâmetro no estimador com base em qual fonte você deseja instalar o pacote. Você também pode especificar um arquivo yml com todas as suas dependências usando `conda_dependencies_file`or listar todos os seus requisitos de Pip em um arquivo txt usando `pip_requirements_file` parâmetro.
+Se você estiver usando [estimadores](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) para enviar experimentos, poderá especificar um nome de pacote por meio de `pip_packages` ou `conda_packages` parâmetro no estimador com base em qual fonte você deseja instalar o pacote. Você também pode especificar um arquivo yml com todas as suas dependências usando `conda_dependencies_file`ou listar todos os seus requisitos de Pip em um arquivo txt usando `pip_requirements_file` parâmetro.
 
 O Azure ML também fornece estimadores específicos da estrutura para Tensorflow, PyTorch, chainer e SKLearn. Usar esses estimadores garantirá que as dependências de estrutura sejam instaladas em seu nome no ambiente usado para treinamento. Você tem a opção de especificar dependências extras, conforme descrito acima. 
  

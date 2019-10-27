@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.openlocfilehash: d76a644de8cb55da5e743e482d14946d371c3dfe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/25/2019
+ms.openlocfilehash: 2813567eeb9435ca5e1d29dc6a0a246f9cca3b05
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61423199"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965962"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MySQL usando o Portal do Azure
 
@@ -62,17 +62,18 @@ As etapas a seguir restauram o exemplo de servidor para um ponto anterior:
 3. Preencha o formulário Restaurar com as informações necessárias:
 
    ![Banco de Dados do Azure para MySQL - Informações de restauração](./media/howto-restore-server-portal/3-restore.png)
-   - **Ponto de restauração**: Selecione o ponto no tempo que você quer restaurar.
-   - **Servidor de destino**: Forneça um nome para o novo servidor.
-   - **Localização**: Não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.
-   - **Camada de preços**: Não é possível alterar esses parâmetros ao fazer uma restauração pontual. Ele é igual ao servidor de origem. 
+   - **Ponto de restauração**: selecione o ponto para o qual você deseja restaurar.
+   - **Servidor de destino**: forneça um nome para o novo servidor.
+   - **Local**: não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.
+   - **Tipo de preço**: você não pode alterar esses parâmetros ao fazer uma restauração pontual. Ele é igual ao servidor de origem. 
 
 4. Clique em **OK** para restaurar o servidor em um ponto anterior. 
 
 5. Após a conclusão da restauração, localize o novo servidor criado para verificar se os dados foram restaurados conforme o esperado.
 
->[!Note]
->Observe que o novo servidor criado pela restauração pontual tem o mesmo nome de logon e senha do administrador válidos para o servidor existente no ponto escolhido. Você pode alterar a senha na página **Visão geral** do novo servidor.
+O novo servidor criado pela restauração pontual tem o mesmo nome de logon e senha do administrador válidos para o servidor existente no ponto escolhido. Você pode alterar a senha na página **Visão geral** do novo servidor.
+
+O novo servidor criado durante uma restauração não tem as regras de firewall ou os pontos de extremidade de serviço de VNet que existiam no servidor original. Essas regras precisam ser configuradas separadamente para esse novo servidor.
 
 ## <a name="geo-restore"></a>Restauração geográfica
 Se você configurou seu servidor para backups com redundância geográfica, um novo servidor pode ser criado do backup do servidor existente. Esse novo servidor pode ser criado em qualquer região em que o Banco de Dados do Azure para MySQL esteja disponível.  
@@ -82,7 +83,7 @@ Se você configurou seu servidor para backups com redundância geográfica, um n
    ![Opção “Banco de Dados do Azure para MySQL”](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
 
 2. Na lista suspensa **Selecionar origem** do formulário, escolha **Backup**. Essa ação carrega uma lista de servidores que têm backups com redundância geográfica habilitados. Selecione um desses backups para ser a origem do novo servidor.
-   ![Selecionar origem: Backup e lista de backups com redundância geográfica](./media/howto-restore-server-portal/2-georestore.png)
+   ![Selecionar origem: backup e lista de backups com redundância geográfica](./media/howto-restore-server-portal/2-georestore.png)
 
    > [!NOTE]
    > Quando um servidor é criado pela primeira vez, talvez não fique imediatamente disponível para restauração geográfica. Pode demorar algumas horas para que os metadados necessários sejam preenchidos.
@@ -90,10 +91,13 @@ Se você configurou seu servidor para backups com redundância geográfica, um n
 
 3. Preencha o restante do formulário com suas preferências. Você pode selecionar qualquer **Local**. Depois de selecionar o local, você pode selecionar o **Tipo de Preço**. Por padrão, os parâmetros do servidor existente de onde você está restaurando são exibidos. Você pode clicar em **OK** sem fazer nenhuma alteração para herdar as configurações. Ou pode alterar **Geração de Computação** (se disponível na região escolhida), número de **vCores**, **Período de Retenção de Backup** e **Opção de Redundância de Backup**. Não há suporte para a alteração do **Tipo de Preço** (Básico, Uso Geral ou Otimizado para Memória) ou do tamanho de **Armazenamento** durante a restauração.
 
->[!Note]
->O novo servidor criado pela restauração geográfica tem o mesmo nome de logon e senha do administrador válidos para o servidor existente no momento em que a restauração foi iniciada. A senha pode ser alterada na página **Visão geral** do servidor.
+O novo servidor criado pela restauração geográfica tem o mesmo nome de logon e senha do administrador válidos para o servidor existente no momento em que a restauração foi iniciada. A senha pode ser alterada na página **Visão geral** do servidor.
+
+O novo servidor criado durante uma restauração não tem as regras de firewall ou os pontos de extremidade de serviço de VNet que existiam no servidor original. Essas regras precisam ser configuradas separadamente para esse novo servidor.
 
 
-## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre os [backups](concepts-backup.md) do serviço.
-- Saiba mais sobre as opções de [continuidade dos negócios](concepts-business-continuity.md).
+
+## <a name="next-steps"></a>Próximos passos
+- Saiba mais sobre os [backups](concepts-backup.md) do serviço
+- Saiba mais sobre [réplicas](concepts-read-replicas.md)
+- Saiba mais sobre as opções de [continuidade dos negócios](concepts-business-continuity.md)

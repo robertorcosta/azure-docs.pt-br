@@ -1,22 +1,20 @@
 ---
 title: Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MariaDB
 description: Aprenda a fazer backup e restaurar um servidor no Banco de Dados do Azure para MariaDB usando a CLI do Azure.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: 409fe7b76306036cad19980459ca718c87118d8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/25/2019
+ms.openlocfilehash: ae2e8049c58be312eed380fe2197985e61d28a26
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171382"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965218"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MariaDB usando a CLI do Azure
-
-## <a name="backup-happens-automatically"></a>O backup ocorre automaticamente
 
 O backup dos servidores do Banco de Dados do Azure para MariaDB é realizado periodicamente para habilitar recursos de restauração. Com esse recurso de backup automático, você pode restaurar o servidor e todos os seus bancos de dados para um ponto anterior em um novo servidor.
 
@@ -71,18 +69,20 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 
 O comando `az mariadb server restore` exige os seguintes parâmetros:
 
-| Configuração | Valor sugerido | DESCRIÇÃO  |
+| Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
-| name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
+| Nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Selecione um ponto no tempo para o qual restaurar. Essa data e hora devem estar dentro do período de retenção de backup do servidor de origem. Use o formato ISO8601 de data e hora. Por exemplo, você pode usar seu fuso horário local, como `2018-03-13T05:59:00-08:00`. Você também pode usar o formato UTC Zulu, por exemplo, `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | O nome ou ID para restaurar a partir do servidor de origem. |
 
-Quando você restaura um servidor para um ponto anterior no tempo, é criado um novo servidor. O servidor original e seus bancos de dados do ponto no tempo especificado são copiados para o novo servidor.
+Quando você restaura um servidor para um ponto anterior no tempo, um novo servidor é criado. O servidor original e seus bancos de dados do ponto no tempo especificado são copiados para o novo servidor.
 
-Os valores de local e tipo de preço para o servidor restaurado permanecem iguais aos do servidor de origem.
+Os valores de local e tipo de preço para o servidor restaurado permanecem iguais aos do servidor de origem. 
 
-Depois que o processo de restauração é concluído, localize o novo servidor e verifique se os dados são restaurados como esperado.
+Depois que o processo de restauração é concluído, localize o novo servidor e verifique se os dados são restaurados como esperado. O novo servidor tem o mesmo nome de logon e senha do administrador do servidor que eram válidos para o servidor existente no momento em que a restauração foi iniciada. A senha pode ser alterada na página **Visão geral** do servidor.
+
+O novo servidor criado durante uma restauração não tem as regras de firewall ou os pontos de extremidade de serviço de VNet que existiam no servidor original. Essas regras precisam ser configuradas separadamente para esse novo servidor.
 
 ## <a name="geo-restore"></a>Restauração geográfica
 
@@ -111,20 +111,22 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 
 O comando `az mariadb server georestore` exige os seguintes parâmetros:
 
-| Configuração | Valor sugerido | DESCRIÇÃO  |
+| Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | O nome do grupo de recursos a qual o novo servidor pertencerá.|
-|name | mydemoserver-georestored | O nome do novo servidor. |
+|Nome | mydemoserver-georestored | O nome do novo servidor. |
 |source-server | mydemoserver | O nome do servidor existente cujos backups com redundância geográfica são usados. |
 |location | eastus | A localização do novo servidor. |
 |sku-name| GP_Gen5_8 | Esse parâmetro define o tipo de preço, a geração de computação e o número de vCores do novo servidor. GP_Gen5_8 mapeia para um Uso geral, Gen 5 com 8 vCores.|
 
->[!Important]
->Ao criar um novo servidor com uma restauração geográfica, ele herda o mesmo tamanho de armazenamento e tipo de preços do servidor de origem. Esses valores não podem ser alterados durante a criação. Depois que o novo servidor é criado, seu tamanho de armazenamento pode ser expandido.
+Ao criar um novo servidor com uma restauração geográfica, ele herda o mesmo tamanho de armazenamento e tipo de preços do servidor de origem. Esses valores não podem ser alterados durante a criação. Depois que o novo servidor é criado, seu tamanho de armazenamento pode ser expandido.
 
-Depois que o processo de restauração é concluído, localize o novo servidor e verifique se os dados são restaurados como esperado.
+Depois que o processo de restauração é concluído, localize o novo servidor e verifique se os dados são restaurados como esperado. O novo servidor tem o mesmo nome de logon e senha do administrador do servidor que eram válidos para o servidor existente no momento em que a restauração foi iniciada. A senha pode ser alterada na página **Visão geral** do servidor.
 
-## <a name="next-steps"></a>Próximas etapas
+O novo servidor criado durante uma restauração não tem as regras de firewall ou os pontos de extremidade de serviço de VNet que existiam no servidor original. Essas regras precisam ser configuradas separadamente para esse novo servidor.
 
-- Saiba mais sobre os [backups](concepts-backup.md) do serviço.
-- Saiba mais sobre as opções de [continuidade dos negócios](concepts-business-continuity.md).
+## <a name="next-steps"></a>Próximos passos
+
+- Saiba mais sobre os [backups](concepts-backup.md) do serviço
+- Saiba mais sobre [réplicas](concepts-read-replicas.md)
+- Saiba mais sobre as opções de [continuidade dos negócios](concepts-business-continuity.md)

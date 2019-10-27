@@ -10,12 +10,12 @@ ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 61ea7eb0b81c5489ad2bf20e8148d2481bb4fb13
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c3d721427075736138ba73fda51a4fd515125f1c
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840170"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964868"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Implantar módulos do Azure IoT Edge do Visual Studio Code
 
@@ -26,9 +26,9 @@ Este artigo mostra como criar um manifesto de implantação JSON e usar esse arq
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na assinatura do Azure.
-* Um [Dispositivo do IoT Edge](how-to-register-device-portal.md) com o tempo de execução do IoT Edge instalado.
+* Um [Dispositivo do IoT Edge](how-to-register-device.md#register-with-visual-studio-code) com o tempo de execução do IoT Edge instalado.
 * [Visual Studio Code](https://code.visualstudio.com/).
-* [Ferramentas de IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) para Visual Studio Code.
+* [Ferramentas IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) para Visual Studio Code.
 
 ## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
 
@@ -149,6 +149,6 @@ Se você implantou recentemente novos módulos em um dispositivo, passe o mouse 
 
 Clique com o botão direito do mouse no nome de um módulo para exibir e editar o módulo gêmeo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [Implantar e monitorar módulos do IoT Edge em escala](how-to-deploy-monitor.md)

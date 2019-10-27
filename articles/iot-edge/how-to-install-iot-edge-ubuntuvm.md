@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: f4bab6ab837b746c6a569cc6de95a95023bf83f4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 0e5bec7d3e1ecd63541a319cd5a9151560ef4139
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987001"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964637"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Executar Azure IoT Edge em Máquinas Virtuais do Ubuntu
 
@@ -33,7 +33,7 @@ Na primeira inicialização, o Azure IoT Edge na VM do Ubuntu pré-instala a úl
     *   Se for a primeira vez que você irá experimentar uma VM, será mais fácil usar uma senha e habilitar o SSH no menu da porta de entrada pública. 
     *   Se você tiver uma carga de trabalho com muitos recursos, atualize o tamanho da máquina virtual, adicionando mais CPUs e/ou memória.
 4.  Depois que a máquina virtual for implantada, configure-a para conectar ao Hub IoT:
-    1.  Copie a cadeia de conexão do dispositivo do dispositivo do IoT Edge criado no Hub IoT (você poderá seguir a guia de instruções [Registrar um novo dispositivo do Azure IoT Edge no portal do Azure](how-to-register-device-portal.md), se não estiver familiarizado com esse processo )
+    1.  Copie a cadeia de conexão do dispositivo de seu dispositivo IoT Edge criado no Hub IoT (você pode seguir a [cadeia de conexão recuperar o no procedimento portal do Azure](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal) se você não estiver familiarizado com esse processo)
     1.  Selecionar o recurso de máquina virtual recém-criada no portal do Azure e abrir a opção **executar comando**
     1.  Selecionar a opção **RunShellScript**
     1.  Execute o script abaixo através da janela de comando com a cadeia de conexão do dispositivo: `/etc/iotedge/configedge.sh “{device_connection_string}”`
@@ -85,7 +85,7 @@ No portal do Azure, pesquise "Azure IoT Edge" e selecione **Ubuntu Server 16.04 
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
-1. Defina a cadeia de conexão do dispositivo (você poderá seguir o guia de instruções [Registrar um novo dispositivo do Azure IoT Edge com a CLI do Azure](how-to-register-device-cli.md), se você não estiver familiarizado com esse processo):
+1. Defina a cadeia de conexão do dispositivo (você pode seguir a cadeia de conexão [de recuperação com o procedimento CLI do Azure](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli) se não estiver familiarizado com esse processo):
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
@@ -94,12 +94,12 @@ No portal do Azure, pesquise "Azure IoT Edge" e selecione **Ubuntu Server 16.04 
 Se você quiser SSH nessa VM após a instalação, use o publicIpAddress com o comando: `ssh azureuser@{publicIpAddress}`
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você tem um dispositivo IoT Edge provisionado com o tempo de execução instalado, é possível [implantar os módulos do IoT Edge](how-to-deploy-modules-portal.md).
 
 Se você estiver tendo problemas com o tempo de execução do IoT Edge sendo instalado corretamente, confira a página de [solução de problemas](troubleshoot.md) .
 
-Para atualizar uma instalação existente para a versão mais recente do IoT Edge, consulte [Atualizar o IoT Edge de segurança e o tempo de execução do IoT Edge](how-to-update-iot-edge.md).
+Para atualizar uma instalação existente para a versão mais recente do IoT Edge, consulte [Atualizar o daemon de segurança e o tempo de execução do IoT Edge](how-to-update-iot-edge.md).
 
 Se você quiser abrir portas para acessar a VM por meio de SSH ou de outras conexões de entrada, consulte a documentação da máquina virtual do Azure [para abrir portas e pontos de extremidade em uma VM do Linux](../virtual-machines/linux/nsg-quickstart.md)

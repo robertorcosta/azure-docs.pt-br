@@ -1,19 +1,19 @@
 ---
-title: 'Redefinir emparelhamento de circuito – ExpressRoute:  Azure | Microsoft Docs'
+title: 'Redefinir emparelhamento de circuito-ExpressRoute: Azure | Microsoft Docs'
 description: Como desabilitar e habilitar emparelhamentos de circuitos do ExpressRoute.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 10/25/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 8541362a16c7d12a0e3a4cf009ed9cd5faf9f1cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 841c68b43e7f31693863268c3a7b2bd544c5e7ae
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366293"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965342"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Redefinir emparelhamentos de circuitos do ExpressRoute
 
@@ -21,7 +21,7 @@ Este artigo descreve como desabilitar e habilitar peerings de um circuito da Rot
 
 Há alguns cenários em que você pode achar útil redefinir seus peerings da ExpressRoute.
 * Teste seu design de recuperação de desastres e implementação. Por exemplo, você tem dois circuitos ExpressRoute. Você pode desabilitar os peerings de um circuito e forçar o tráfego de sua rede a falhar no outro circuito.
-* Habilite bidirecional encaminhamento de detecção (BFD) no emparelhamento privado do Azure do seu circuito do ExpressRoute. BFD é habilitado por padrão, se o circuito de ExpressRoute for criado após 1 de agosto de 2018. Se o circuito foi criado antes dessa, BFD não foi habilitado. Você pode habilitar BFD desabilitando o emparelhamento e reabilitando a ele. Deve-se observar BFD tem suporte apenas no emparelhamento privado do Azure.
+* Habilite a detecção de encaminhamento bidirecional (BFD) no emparelhamento privado do Azure ou no emparelhamento da Microsoft do circuito do ExpressRoute. O BFD será habilitado por padrão no emparelhamento privado do Azure se o circuito do ExpressRoute for criado após 1 2018 de agosto e no emparelhamento da Microsoft se o circuito do ExpressRoute for criado após 1 2019 de outubro. Se o circuito foi criado antes dessa, BFD não foi habilitado. Você pode habilitar BFD desabilitando o emparelhamento e reabilitando a ele. 
 
 ### <a name="working-with-azure-powershell"></a>Trabalhando com o Azure PowerShell
 
@@ -142,7 +142,7 @@ Há alguns cenários em que você pode achar útil redefinir seus peerings da Ex
    ```
    O emparelhamento deve estar em um estado que você definir. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Se você precisar de ajuda para solucionar um problema do ExpressRoute, confira os seguintes artigos:
 * [Verificando a conectividade do ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 * [Solucionando problemas de desempenho de rede](expressroute-troubleshooting-network-performance.md)

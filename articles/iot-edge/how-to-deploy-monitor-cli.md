@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 2601d05c5d2302bedb51e959747939aa3c33db44
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7ba38e1aa7196263b0ac64a6c92984cc3e7416a6
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839637"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964804"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implantar e monitorar módulos do IoT Edge em escala usando a CLI do Azure
 
@@ -28,8 +28,8 @@ Neste artigo, você configura a CLI do Azure e a extensão IoT. Em seguida, voc�
 ## <a name="cli-prerequisites"></a>Pré-requisitos da CLI
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-using-cli.md) na assinatura do Azure. 
-* [Dispositivos do IoT Edge](how-to-register-device-cli.md) com o tempo de execução do IoT Edge instalado.
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu ambiente. No mínimo, a versão da CLI do Azure deve ser 2.0.24 ou superior. Use `az --version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. 
+* [Dispositivos do IoT Edge](how-to-register-device.md#prerequisites-for-the-azure-cli) com o tempo de execução do IoT Edge instalado.
+* A [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. No mínimo, a versão da CLI do Azure deve ser 2.0.24 ou superior. Use `az --version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. 
 * A [extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
@@ -142,10 +142,10 @@ az iot edge deployment create --deployment-id [deployment id] --hub-name [hub na
 O comando de criação de implantação usa os seguintes parâmetros: 
 
 * **--deployment-id** - O nome da implantação que será criada no Hub IoT. Dê à sua implantação um nome exclusivo com até 128 letras minúsculas. Evite usar espaços e os seguintes caracteres inválidos: `& ^ [ ] { } \ | " < > /`.
-* **--hub-name** - Nome do hub IoT no qual a implantação será criada. O hub deve estar na assinatura atual. Altere sua assinatura atual com o `az account set -s [subscription name]` comando.
+* **--hub-name** - Nome do hub IoT no qual a implantação será criada. O hub deve estar na assinatura atual. Altere sua assinatura atual com o comando `az account set -s [subscription name]`.
 * **--content** - Caminho do arquivo para o manifesto de implantação JSON. 
 * **--labels** - Adicione rótulos para ajudar a acompanhar as implantações. Rótulos são pares de Nome e Valor que descrevem a implantação. Os rótulos usam a formatação JSON para os nomes e valores. Por exemplo, `{"HostPlatform":"Linux", "Version:"3.0.1"}`
-* **--target-condition** - Insira uma condição de destino para determinar quais dispositivos serão segmentados com essa implantação. A condição se baseia nas marcas do dispositivo gêmeo ou propriedades reportadas do dispositivo gêmeo e deve corresponder ao formato da expressão. Por exemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`. 
+* **--target-condition** - Insira uma condição de destino para determinar quais dispositivos serão segmentados com essa implantação. A condição é baseada nas marcas de dispositivo ou nas propriedades relatadas do dispositivo e deve corresponder ao formato da expressão. Por exemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`. 
 * **--priority** - Um inteiro positivo. No caso de duas ou mais implantações serem direcionadas ao mesmo dispositivo, será aplicada a implantação com o maior valor numérico para Prioridade.
 
 ## <a name="monitor-a-deployment"></a>Monitorar uma implantação
@@ -160,7 +160,7 @@ O comando Deployment show usa os seguintes parâmetros:
 * **--deployment-id** - O nome da implantação que existe no hub IoT.
 * **--hub-name** - Nome do hub IoT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
 
-Inspecione a implantação na janela de comando. A propriedade **Metrics** lista uma contagem para cada métrica avaliada por cada hub:
+Inspecione a implantação na janela de comando. A propriedade de **métricas** lista uma contagem de cada métrica que é avaliada por cada Hub:
 
 * **targetedCount** - Uma métrica do sistema que especifica o número de dispositivos gêmeos no Hub IoT que correspondem à condição de direcionamento.
 * **appliedCount** - Uma métrica de sistema especifica o número de dispositivos que tiveram o conteúdo de implantação aplicado aos módulos gêmeos no Hub IoT.
@@ -217,6 +217,6 @@ O comando de exclusão de implantação usa os seguintes parâmetros:
 * **--deployment-id** - O nome da implantação que existe no hub IoT.
 * **--hub-name** - Nome do hub IoT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a implantação de módulos em dispositivos IOT Edge](module-deployment-monitoring.md).
