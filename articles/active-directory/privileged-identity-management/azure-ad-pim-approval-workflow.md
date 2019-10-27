@@ -4,11 +4,11 @@ description: Saiba como aprovar ou negar solicitações para funções do Azure 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
@@ -16,14 +16,14 @@ ms.date: 04/09/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a8d373a7e6edeaefd933e4f8ec8ee11e3c14ee
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 3245f7343a48d3e54795c14dcb23b836c8d9d988
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804030"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756420"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Aprovar ou negar solicitações para funções do Azure AD no PIM
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Aprovar ou negar solicitações para funções do Azure AD no Privileged Identity Management
 
 Com o Azure Active Directory (Azure AD) Privileged Identity Management (PIM), você pode configurar funções para exigir aprovação para ativação e escolher um ou vários usuários ou grupos como aprovadores delegados. Os aprovadores representantes têm 24 horas para aprovar as solicitações. Se a solicitação não for aprovada dentro de 24 horas, o usuário qualificado deverá enviar outra. A janela de tempo de aprovação de 24 horas não é configurável.
 
@@ -31,15 +31,15 @@ Siga as etapas neste artigo para aprovar ou negar solicitações para funções 
 
 ## <a name="view-pending-requests"></a>Exibir solicitações pendentes
 
-Como um Aprovador delegado, você receberá uma notificação por email quando uma solicitação de função do Azure AD estiver aguardando sua aprovação. Você pode exibir essas solicitações pendentes no PIM.
+Como um Aprovador delegado, você receberá uma notificação por email quando uma solicitação de função do Azure AD estiver aguardando sua aprovação. Você pode exibir essas solicitações pendentes no Privileged Identity Management.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. Abra o **Azure AD Privileged Identity Management**.
 
 1. Clique em **funções do Microsoft Azure Active Directory**.
 
-1. Clique em **aprovar solicitações**.
+1. Clique em **Aprovar solicitações**.
 
     ![Funções do Azure AD – aprovar solicitações](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
@@ -71,11 +71,11 @@ Como um Aprovador delegado, você receberá uma notificação por email quando u
 
     ![Negar o painel de solicitações selecionadas com um motivo de negação](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
 
-1. Clique em **negar**.
+1. Clique em **Negar**.
 
     Símbolo de Status será atualizado com a negação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Notificações por email no PIM](pim-email-notifications.md)
-- [Aprovar ou negar as solicitações para funções de recurso do Azure no PIM](pim-resource-roles-approval-workflow.md)
+- [Notificações por email no Privileged Identity Management](pim-email-notifications.md)
+- [Aprovar ou negar solicitações para funções de recurso do Azure no Privileged Identity Management](pim-resource-roles-approval-workflow.md)
