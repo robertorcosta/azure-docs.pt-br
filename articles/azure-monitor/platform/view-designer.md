@@ -1,24 +1,18 @@
 ---
 title: Criar exibições para analisar dados de log em Azure Monitor | Microsoft Docs
 description: Usando o designer de exibição no Azure Monitor, você pode criar exibições personalizadas que são exibidas na portal do Azure e conter uma variedade de visualizações nos dados no espaço de trabalho Log Analytics. Este artigo contém uma visão geral do Designer de Exibição e apresenta procedimentos para criar e editar exibições personalizadas.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/22/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 33930823fbeb42011d8e2a368d17c9a21070a243
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 06/22/2018
+ms.openlocfilehash: a1a4dbffed37480178d1b94a77587ca251396db6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035609"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931945"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Criar exibições personalizadas usando o designer de exibição no Azure Monitor
 Usando o designer de exibição no Azure Monitor, você pode criar uma variedade de exibições personalizadas na portal do Azure que podem ajudá-lo a Visualizar dados em seu espaço de trabalho do Log Analytics. Este artigo apresenta uma visão geral do Designer de Exibição e procedimentos para criar e editar exibições personalizadas.
@@ -27,8 +21,8 @@ Usando o designer de exibição no Azure Monitor, você pode criar uma variedade
 
 Para obter mais informações sobre o Designer de Exibição, consulte:
 
-* [Referência de bloco](view-designer-tiles.md): Fornece um guia de referência das configurações de cada um dos blocos disponíveis nas exibições personalizadas.
-* [Referência de parte da visualização](view-designer-parts.md): Fornece um guia de referência das configurações das partes de visualização disponíveis nas exibições personalizadas.
+* [Referência de bloco](view-designer-tiles.md): fornece um guia de referência para as configurações de cada um dos blocos disponíveis em suas exibições personalizadas.
+* [Referência da parte de visualização](view-designer-parts.md): fornece um guia de referência para as configurações das partes de visualização que estão disponíveis em nas exibições personalizadas.
 
 
 ## <a name="concepts"></a>Conceitos
@@ -75,9 +69,9 @@ As opções estão descritas na tabela a seguir:
 O Designer de Exibição é utilizado para criar novas exibições ou editar as existentes. 
 
 O Designer de Exibição tem três painéis: 
-* **Design**: Contém a exibição personalizada que você está criando ou editando. 
-* **Controles**: Contém os blocos e as partes que você adiciona ao painel **Design**. 
-* **Propriedades**: Exibe as propriedades das partes ou dos blocos selecionados.
+* **Design**: contém a exibição personalizada que você está criando ou editando. 
+* **Controles**: contém os blocos e as partes que você adiciona ao painel **Design**. 
+* **Propriedades**: exibe as propriedades dos blocos ou partes selecionadas.
 
 ![Exibir Designer](media/view-designer/view-designer-screenshot.png)
 
@@ -106,10 +100,10 @@ As opções para trabalhar com exibições no modo de edição são descritas na
 | Salvar        | Salva as alterações e fecha a exibição. |
 | Cancelar      | Descarta as alterações e fecha a exibição. |
 | Excluir Exibição | Exclui a exibição. |
-| Exportar      | Exporta a exibição para um [modelo do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) que você poderá importar para outro workspace. O nome do arquivo é o nome da exibição e tem uma extensão *omsview*. |
+| Exportação      | Exporta a exibição para um [modelo do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) que você poderá importar para outro workspace. O nome do arquivo é o nome da exibição e tem uma extensão *omsview*. |
 | Importar      | Importa o arquivo *omsview* que foi exportado de outro workspace. Essa ação substitui a configuração da exibição existente. |
 | Clonar       | Cria uma nova exibição e abre no Designer de Exibição. O nome da nova exibição é o mesmo que o nome original, mas com *Copiar* acrescentado a ele. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Adicione [Blocos](view-designer-tiles.md) ao modo de exibição personalizado.
 * Adicione as [Partes de visualização](view-designer-parts.md) à sua exibição personalizada.

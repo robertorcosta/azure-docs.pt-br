@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 953699793d81485e3828b9fb46de8523d2b7674e
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 846650fce6701bb7e382df049902f427390b3051
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129994"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931220"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Idiomas e regiões compatíveis com a API de Análise de Texto
 
@@ -38,24 +38,24 @@ Para análise de sentimento, extração de frases-chave e reconhecimento de enti
 * Alemão
 * Espanhol
 
-Somente as `Person` `Location` entidades e`Organization` nomeadas são retornadas para os outros idiomas.
+Somente as `Person`, `Location` e `Organization` entidades nomeadas são retornadas para os outros idiomas.
 
 ## <a name="language-list-and-status"></a>Status e lista de idiomas
 
 O suporte a idiomas é implantado inicialmente em versão prévia, passando para o status GA (disponível ao público em geral), de modo independente um do outro e do serviço de Análise de Texto como um todo. É possível que idiomas permaneçam em versão prévia mesmo quando a API de Análise de Texto passar para disponível ao público em geral.
 
-| Idioma    | Código de idioma | Sentimento | Frases principais | Reconhecimento de Entidade Nomeada |   Observações  |
+| Idioma    | Código de idioma | Sentimento | Frases principais | Reconhecimento de Entidade Nomeada |   Notas  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Árabe      | `ar`          |           |             | ✔ \*                     | |
 | Tcheco       | `cs`          |           |             | ✔ \*                     | |
 | Chinês-simplificado | `zh-hans`| ✔ \***     |             | ✔         |    |
 | Chinês-tradicional | `zh-hant`| ✔ \***     |             |          |    |
 | Dinamarquês      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
-| Holandês       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
+| Holandês       | `nl`          | ✔ \***     | ✔          |  ✔ \*           |     |
 | Inglês     | `en`          | ✔ \***       | ✔           |  ✔ \*\*     |      |
 | Finlandês     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
 | Francês      | `fr`          | ✔ \***       | ✔           |  ✔            |     |
-| Alemão      | `de`          | ✔ \*     | ✔           |  ✔           |     |
+| Alemão      | `de`          | ✔ \***     | ✔           |  ✔           |     |
 | Grego       | `el`          | ✔ \*     |             |            |     |
 | Húngaro   | `hu`          |           |             |  ✔ \*          |     | 
 | Italiano     | `it`          | ✔ \***     | ✔           |  ✔ \*           |     |
@@ -63,20 +63,20 @@ O suporte a idiomas é implantado inicialmente em versão prévia, passando para
 | Coreano      | `ko`          |          | ✔           |  ✔ \*          |     |
 | Norueguês (Bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
 | Polonês      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
-| Português (Portugal) | `pt-PT`| ✔        |  ✔          | ✔ \*      |`pt` também é aceito|
+| Português (Portugal) | `pt-PT`| ✔ \***        |  ✔          | ✔ \*      |`pt` também é aceito|
 | Português (Brasil)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
 | Russo     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Espanhol     | `es`          | ✔        | ✔           |   ✔ \*\*      |     | 
+| Espanhol     | `es`          | ✔ \***       | ✔           |   ✔ \*\*      |     | 
 | Sueco     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
 | Turco     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
 
-\*O suporte ao idioma está em versão prévia
+o suporte ao idioma \* está em versão prévia
 
-\*\*O [reconhecimento de entidade nomeada](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) e a [vinculação de entidade](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) estão disponíveis para esse idioma.  
+\*\* o [reconhecimento de entidade nomeada](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) e a [vinculação de entidade](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) estão disponíveis para esse idioma.  
 
-\** * Disponível na [Visualização pública do análise de sentimento v3](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview)
+\** * disponível na [Visualização pública do análise de sentimento v3](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 [Página Documentação dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/)   
 [Página do Produto de Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)
