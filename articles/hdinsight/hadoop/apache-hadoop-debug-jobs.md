@@ -1,5 +1,5 @@
 ---
-title: 'Apache Hadoop de depuração: Exibir logs e interpretar mensagens de erro-Azure HDInsight'
+title: 'Apache Hadoop de depuração: logs e mensagens de erro no Azure HDInsight'
 description: Saiba quais são as mensagens de erro que você pode receber ao administrar o HDInsight usando o PowerShell, e as etapas que podem ser executadas para recuperação.
 ms.reviewer: jasonh
 author: ashishthaps
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 847b36c2aab761383a4a25bd4da5c626c4744ce1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2e5cb1676670642121caec71a973374063fe4320
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935489"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044853"
 ---
 # <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Analisar logs de Apache Hadoop no Azure HDInsight
 

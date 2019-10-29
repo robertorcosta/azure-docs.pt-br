@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fb4342e024d826c65ed33184aaf33012d09190a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a467593d16c54e73d58f9cb2b67a4fa31eb0179e
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545204"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042323"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permissões e consentimento no ponto de extremidade v1.0 do Azure Active Directory
 
@@ -38,7 +38,7 @@ As *permissões*, também conhecidas como *escopos*, facilitam a autorização p
 O Microsoft Active Directory do Azure define dois tipos de permissões:
 
 * **Permissões delegadas** - são usadas por aplicativos que têm um usuário conectado presente. Para esses aplicativos, o usuário ou administrador consente as permissões solicitadas pelo aplicativo e este recebe permissão para agir como o usuário conectado na hora de fazer chamadas à API. Dependendo da API, o usuário talvez não consiga dar o consentimento diretamente; em vez disso, seria [necessário um administrador para fornecer o "consentimento do administrador"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
-* **Permissões de aplicativo** - são usadas por aplicativos executados sem um usuário conectado presente; por exemplo, aplicativos executados como serviços em segundo plano ou daemons. As permissões de aplicativo só podem ser [consentidas por um administrador](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) porque eles são geralmente poderosos e permitem o acesso a dados entre limites de usuário, ou a dados que seriam restritos aos administradores.
+* **Permissões de aplicativo** - são usadas por aplicativos executados sem um usuário conectado presente; por exemplo, aplicativos executados como serviços em segundo plano ou daemons. As permissões de aplicativo só podem ser [consentidas por administradores](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) , pois normalmente são poderosas e permitem o acesso a dados entre os limites do usuário ou dados que, de outra forma, seriam restritos aos administradores. Os usuários que são definidos como proprietários do aplicativo de recurso (ou seja, a API que publica as permissões) também têm permissão para conceder permissões de aplicativo para as APIs que eles possuem.
 
 Permissões efetivas são as permissões que seu aplicativo terá ao fazer solicitações para uma API. 
 
@@ -61,7 +61,7 @@ As permissões no AD do Azure têm um número de propriedades que ajudam, admini
 > (Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles
 > ```
 
-| Nome da propriedade | DESCRIÇÃO | Exemplo |
+| Nome da propriedade | Descrição | Exemplo |
 | --- | --- | --- |
 | `ID` | É um valor de GUID que identifica exclusivamente esta permissão. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
 | `IsEnabled` | Indica se essa permissão está disponível para uso. | true |

@@ -1,5 +1,5 @@
 ---
-title: Função Definida pelo Usuário (UDF) Java com o Apache Hive no HDInsight - Azure
+title: UDF (função definida pelo usuário) Java com Apache Hive Azure HDInsight
 description: Saiba como criar uma baseado em Java-função definida pelo usuário (UDF) que funciona com o Apache Hive. Este UDF de exemplo converte uma tabela de cadeias de caracteres de texto em minúsculas.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 43208636fb275c38573f820ef8245d7652b4aa86
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 5690f2cc5bc85d7bcdbf1d05930a05bcc2e764c0
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181170"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044792"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Usar um Java UDF com Apache Hive no HDInsight
 
@@ -24,7 +24,7 @@ Saiba como criar uma baseado em Java-função definida pelo usuário (UDF) que f
 * Um cluster Hadoop no HDInsight. Consulte [Introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * [JDK (Java Developer Kit) versão 8](https://aka.ms/azure-jdks)
 * [Apache Maven](https://maven.apache.org/download.cgi) corretamente [instalado](https://maven.apache.org/install.html) de acordo com o Apache.  O Maven é um sistema de construção de projetos para projetos Java.
-* O [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) do seu armazenamento primário de clusters. Isso seria wasb://para o armazenamento do Azure, abfs://para Azure Data Lake Storage Gen2 ou adl://para Azure Data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento do Azure, `wasbs://`o URI será.  Consulte também a [transferência segura](../../storage/common/storage-require-secure-transfer.md).
+* O [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) do seu armazenamento primário de clusters. Isso seria wasb://para o armazenamento do Azure, abfs://para Azure Data Lake Storage Gen2 ou adl://para Azure Data Lake Storage Gen1. Se a transferência segura estiver habilitada para o Armazenamento do Azure, o URI será `wasbs://`.  Confira também [Transferência segura](../../storage/common/storage-require-secure-transfer.md).
 
 * Um editor de texto ou Java IDE
 
@@ -51,20 +51,20 @@ cd C:\HDI
 
     Este comando cria um diretório chamado `exampleudf`, que contém o projeto Maven.
 
-2. Depois que o projeto tiver sido criado, exclua o `exampleudf/src/test` diretório que foi criado como parte do projeto digitando o seguinte comando:
+2. Depois que o projeto tiver sido criado, exclua o diretório `exampleudf/src/test` que foi criado como parte do projeto, digitando o seguinte comando:
 
     ```cmd
     cd ExampleUDF
     rmdir /S /Q "src/test"
     ```
 
-3. Abra `pom.xml` inserindo o comando a seguir:
+3. Abra `pom.xml` inserindo o comando abaixo:
 
     ```cmd
     notepad pom.xml
     ```
 
-    Em seguida, substitua `<dependencies>` a entrada existente pelo seguinte XML:
+    Em seguida, substitua a entrada de `<dependencies>` existente pelo seguinte XML:
 
     ```xml
     <dependencies>
@@ -143,7 +143,7 @@ cd C:\HDI
 
     Salve o arquivo depois que as alterações forem feitas.
 
-4. Digite o comando a seguir para criar e abrir um novo `ExampleUDF.java`arquivo:
+4. Digite o comando a seguir para criar e abrir um novo arquivo `ExampleUDF.java`:
 
     ```cmd
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java
@@ -180,7 +180,7 @@ cd C:\HDI
 
 ## <a name="build-and-install-the-udf"></a>Compilar e instalar o UDF
 
-Nos comandos abaixo, substitua `sshuser` pelo nome de usuário real, se for diferente. Substituir `mycluster` pelo nome real do cluster.
+Nos comandos abaixo, substitua `sshuser` pelo nome de usuário real, se for diferente. Substitua `mycluster` pelo nome real do cluster.
 
 1. Compile e empacote o UDF digitando o seguinte comando:
 
@@ -190,7 +190,7 @@ Nos comandos abaixo, substitua `sshuser` pelo nome de usuário real, se for dife
 
     Este comando cria e empacota o UDF no arquivo `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar`.
 
-2. Use o `scp` comando para copiar o arquivo para o cluster HDInsight digitando o seguinte comando:
+2. Use o comando `scp` para copiar o arquivo para o cluster HDInsight digitando o seguinte comando:
 
     ```cmd
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
@@ -248,7 +248,7 @@ Nos comandos abaixo, substitua `sshuser` pelo nome de usuário real, se for dife
         | colorado      | Colorado      |
         +---------------+---------------+--+
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 
 Ao executar o trabalho do hive, você poderá encontrar um erro semelhante ao texto a seguir:
 
@@ -264,7 +264,7 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 [IO.File]::WriteAllText($original_file, $text)
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para ver outras maneiras de trabalhar com o Hive, confira [Usar o Apache Hive com o HDInsight](hdinsight-use-hive.md).
 

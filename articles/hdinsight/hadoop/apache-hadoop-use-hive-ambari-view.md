@@ -1,5 +1,5 @@
 ---
-title: Use o Apache Ambari Views para trabalhar com o Hive no HDInsight (Apache Hadoop) - Azure
+title: Usar o modo de exibição do Apache Ambari Hive com Apache Hadoop no Azure HDInsight
 description: Saiba como usar o Modo de Exibição do Hive em seu navegador da Web para enviar consultas do Hive. O Modo de exibição do Hive faz parte da Interface de Usuário da Web do Ambari fornecida com o cluster HDInsight baseado em Linux.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: da4d1ed7dec8b3b0bc61dd2959a868d03875039c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 5063be247b2ad51dc8888f8512f523ccf2b0174c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077005"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044821"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Use o Apache Ambari Hive View com o Apache Hadoop no HDInsight
 
@@ -59,18 +59,18 @@ Saiba como executar as consultas do Hive usando o Apache Ambari Hive View. A Exi
         GROUP BY t4;
     ```
 
-    Essas instruções executam as seguintes ações:
+    As instruções executam as seguintes ações:
 
-   * `DROP TABLE`: Exclui a tabela e o arquivo de dados, caso a tabela já exista.
+   * `DROP TABLE`: exclui a tabela e o arquivo de dados, caso a tabela já exista.
 
-   * `CREATE EXTERNAL TABLE`: Cria uma nova tabela "externa" no Hive.
+   * `CREATE EXTERNAL TABLE`: cria uma nova tabela "externa" no Hive.
      As tabelas externas armazenam apenas a definição da tabela no Hive. Os dados são mantidos no local original.
 
-   * `ROW FORMAT`: Mostra como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
+   * `ROW FORMAT`: mostra como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
 
-   * `STORED AS TEXTFILE LOCATION`: Mostra o local em que os dados são armazenados e se estão armazenados como texto.
+   * `STORED AS TEXTFILE LOCATION`: mostra o local em que os dados são armazenados e se estão armazenados como texto.
 
-   * `SELECT`: Seleciona uma contagem de todas as linhas em que a coluna t4 contém o valor [ERROR].
+   * `SELECT`: seleciona uma contagem de todas as linhas em que a coluna t4 contém o valor [ERROR].
 
    > [!IMPORTANT]  
    > Deixe a seleção __Banco de dados__ em __padrão__. Os exemplos neste documento usam o banco de dados padrão incluído no HDInsight.
@@ -150,7 +150,7 @@ add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-Você pode usar a UDF em sua consulta. Por exemplo: `SELECT myawesomeudf(name) FROM people;`.
+Você pode usar a UDF em sua consulta. Por exemplo, `SELECT myawesomeudf(name) FROM people;`.
 
 Para saber mais sobre como usar UDFs com Hive no HDInsight, consulte os seguintes artigos:
 
@@ -170,4 +170,4 @@ Para informações gerais sobre o Hive no HDInsight:
 Para obter informações sobre outras maneiras que você pode trabalhar com Hadoop no HDInsight:
 
 * [Use o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
-* [Usar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Usar MapReduce com Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)

@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 2f9d2cea7adaf2e46feb0417ea9631ce02478f80
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7a9f726273dc3c5b336b22588d49704ffc2d8192
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934132"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043367"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticar e solucionar problemas ao usar o gatilho de Azure Functions para Cosmos DB
 
@@ -103,6 +103,9 @@ Definir [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.m
 Esse erro ocorrerá se seu projeto Azure Functions (ou qualquer projeto referenciado) contiver uma referência manual do NuGet para o SDK do Azure Cosmos DB com uma versão diferente daquela fornecida pela [extensão Azure Functions Cosmos DB](./troubleshoot-changefeed-functions.md#dependencies).
 
 Para solucionar essa situação, remova a referência manual do NuGet que foi adicionada e permita que o Azure Cosmos DB referência do SDK seja resolvido por meio do pacote de extensão Azure Functions Cosmos DB.
+
+### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>Alterando o intervalo de sondagem da função do Azure para a detecção de alterações
+Conforme explicado anteriormente para [# # # minhas alterações demoram ser recebidas](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-be-received), o Azure function será suspenso por um período de tempo configurável (5 segundos, por padrão) antes de verificar se há novas alterações (para evitar o alto consumo de ru). Você pode configurar este tempo de suspensão ao `FeedPollDelay/feedPollDelay`fazer as [configurações](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) do seu gatilho (o valor é esperado em milissegundos).
 
 ## <a name="next-steps"></a>Próximos passos
 

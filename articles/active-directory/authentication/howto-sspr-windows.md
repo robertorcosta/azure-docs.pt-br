@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ab46bd29aef2fab26c744e1e4c199f6c9a9fff1
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 0aa0480e95fa072b6fa87aea8debd3dafc8ebcab
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304205"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042057"
 ---
-# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Como: Habilitar a redefinição de senha na tela de logon do Windows
+# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Como habilitar a redefinição de senha na tela de logon do Windows
 
 Para computadores que executam o Windows 7, 8, 8,1 e 10, você pode permitir que os usuários redefinam sua senha na tela de logon do Windows. Os usuários não precisam mais localizar um dispositivo com um navegador da Web para acessar o [portal do SSPR](https://aka.ms/sspr).
 
@@ -30,15 +30,14 @@ Para computadores que executam o Windows 7, 8, 8,1 e 10, você pode permitir que
 - **Os usuários devem se registrar no SSPR antes de usar esse recurso**
 - Requisitos de proxy de rede
    - Dispositivos Windows 10 
-       - Porta 443 para `passwordreset.microsoftonline.com` e`ajax.aspnetcdn.com`
+       - Porta 443 para `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com`
        - Dispositivos Windows 10 dão suporte apenas à configuração de proxy no nível de computador
    - Dispositivos Windows 7, 8 e 8,1
-       - Porta 443 para`passwordreset.microsoftonline.com`
+       - Porta 443 para `passwordreset.microsoftonline.com`
 
 ## <a name="general-limitations"></a>Limitações gerais
 
 - Atualmente, a redefinição de senha não tem suporte de uma Área de Trabalho Remota ou de sessões avançadas do Hyper-V.
-- Não há suporte para desbloqueio de conta, notificação de aplicativo móvel e código de aplicativo móvel.
 - Esse recurso não funciona para redes com autenticação de rede 802.1x implantada e a opção "Executar imediatamente antes do logon do usuário". Para redes com autenticação de rede 802.1x implantada, é recomendável usar a autenticação de computador para habilitar esse recurso.
 
 ## <a name="windows-10-password-reset"></a>Redefinição de senha do Windows 10
@@ -59,7 +58,7 @@ Para computadores que executam o Windows 7, 8, 8,1 e 10, você pode permitir que
     - EnableLostMode é definido no dispositivo
     - Explorer.exe é substituído por um shell personalizado
 - A combinação das três configurações específicas a seguir pode fazer com que esse recurso não funcione.
-    - Logon interativo: Não exigir CTRL + ALT + DEL = Disabled
+    - Logon interativo: não exigir CTRL + ALT + DEL = Disabled
     - DisableLockScreenAppNotifications = 1 ou habilitado
     - IsContentDeliveryPolicyEnforced = 1 ou true 
 
@@ -102,7 +101,7 @@ O log de auditoria do Microsoft Azure AD inclui informações sobre o endereço 
 
 ![Exemplo de redefinição de senha do Windows 7 no log de auditoria do Azure AD](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-Quando os usuários redefinem sua senha na tela de logon de um dispositivo Windows 10, uma conta temporária de `defaultuser1` baixo privilégio chamada é criada. Essa conta é usada para manter o processo de redefinição de senha seguro. A própria conta tem uma senha gerada aleatoriamente, não é mostrada na conexão do dispositivo e será removida automaticamente após o usuário reiniciar sua senha. Vários `defaultuser` perfis podem existir, mas podem ser ignorados com segurança.
+Quando os usuários redefinem sua senha na tela de logon de um dispositivo Windows 10, uma conta temporária de baixo privilégio chamada `defaultuser1` é criada. Essa conta é usada para manter o processo de redefinição de senha seguro. A própria conta tem uma senha gerada aleatoriamente, não é mostrada na conexão do dispositivo e será removida automaticamente após o usuário reiniciar sua senha. Vários perfis de `defaultuser` podem existir, mas podem ser ignorados com segurança.
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Redefinição de senha do Windows 7, 8 e 8,1
 
@@ -115,7 +114,7 @@ Quando os usuários redefinem sua senha na tela de logon de um dispositivo Windo
 > [!WARNING]
 > O TLS 1,2 deve ser habilitado, não apenas definido como negociação automática
 
-### <a name="install"></a>Instalar
+### <a name="install"></a>Instale
 
 1. Baixe o instalador correto para a versão do Windows que você quer habilitar.
    - O software está disponível no Centro de Download da Microsoft em [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
@@ -141,8 +140,8 @@ Se for necessário outro registro em log, uma chave do Registro no computador po
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- Para habilitar o log detalhado, crie `REG_DWORD: “EnableLogging”`um e defina-o como 1.
-- Para desabilitar o `REG_DWORD: “EnableLogging”` log detalhado, altere para 0.
+- Para habilitar o log detalhado, crie um `REG_DWORD: “EnableLogging”`e defina-o como 1.
+- Para desabilitar o log detalhado, altere o `REG_DWORD: “EnableLogging”` para 0.
 
 ## <a name="what-do-users-see"></a>O que os usuários veem
 
@@ -154,7 +153,7 @@ Quando os usuários tentam entrar, eles agora veem um link **Redefinir senha** o
 
 Os usuários podem encontrar orientações sobre esse recuso em [Redefinir sua senha corporativa ou de estudante](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Planejar métodos de autenticação para permitir](concept-authentication-methods.md)
 

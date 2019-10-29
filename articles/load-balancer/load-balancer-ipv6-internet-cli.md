@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 0ee85a92753845e0e67fff22da894a048acb1b14
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 3d92f1a7067d4b3717ecdfd5b8cb16ec0234bdec
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274949"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025701"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Criar um balanceador de carga público com IPv6 usando a CLI do Azure
 
+>[! Observação: alterar na prática recomendada para IPv6] Este artigo descreve um recurso IPv6 introdutório para permitir que os balanceadores de carga básicos forneçam conectividade IPv4 e IPv6.  A conectividade IPv6 mais abrangente agora está disponível com o [IPv6 para Azure VNETs](../virtual-network/ipv6-overview.md) que integra a conectividade IPv6 com suas redes virtuais e inclui recursos importantes, como regras de grupo de segurança de rede IPv6, roteamento definido pelo usuário IPv6, IPv6 básico e Balanceamento de carga padrão e muito mais.  O IPv6 para Azure VNETs é a melhor prática recomendada para aplicativos IPv6 no Azure. 
+>Consulte [IPv6 para a implantação da CLI VNET do Azure](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md)
 
 Um Azure Load Balancer é um balanceador de carga de Camada 4 (TCP, UDP). Os balanceadores de carga fornecem alta disponibilidade, distribuindo o tráfego de entrada entre instâncias do serviço íntegras em serviços de nuvem ou máquinas virtuais em um conjunto de balanceadores de carga. Os balanceadores de carga também podem apresentar esses serviços em várias portas, em vários endereços IP ou em ambos.
 
@@ -46,11 +48,11 @@ As etapas a seguir mostram como criar um balanceador de carga público usando a 
 
 Para implantar um balanceador de carga, crie e configure os seguintes objetos:
 
-* **Configuração de IP de front-end**: Contém endereços IP públicos para tráfego de entrada.
-* **Pool de endereços de back-end**: Contém NICs (adaptadores de rede) para as máquinas virtuais receberem tráfego do balanceador de carga.
-* **Regras de balanceamento de carga**: Contém regras que mapeiam uma porta pública no balanceador de carga para uma porta no pool de endereços de back-end.
-* **Regras NAT de entrada**: Contém regras NAT (conversão de endereços de rede) que mapeiam uma porta pública no balanceador de carga para uma porta de uma máquina virtual específica no pool de endereços de back-end.
-* **Investigações**: Contém investigações de integridade que são usadas para verificar a disponibilidade de instâncias de máquina virtual no pool de endereços de back-end.
+* **Configuração de IP de front-end**: contém endereços IP públicos para o tráfego de rede de entrada.
+* **Pool de endereços de back-end**: contém NICs (interfaces de rede) para que as máquinas virtuais recebam o tráfego de rede do balanceador de carga.
+* **Regras de balanceamento de carga**: contém regras que mapeiam uma porta pública no balanceador de carga para uma porta no pool de endereços de back-end.
+* **Regras NAT de entrada**: contém regras de NAT (tradução de endereço de rede) que mapeiam uma porta pública no balanceador de carga para uma porta de uma máquina virtual específica no pool de endereços de back-end.
+* **Investigações**: contém investigações de integridade usadas para verificar a disponibilidade de instâncias de máquinas virtuais no pool de endereços de back-end.
 
 ## <a name="set-up-azure-cli"></a>Configurar a CLI do Azure
 
@@ -296,8 +298,4 @@ Para criar VMs, você deve ter uma conta de armazenamento. Para o balanceamento 
     az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
 
-## <a name="next-steps"></a>Próximas etapas
 
-[Introdução à configuração de um balanceador de carga interno](load-balancer-get-started-ilb-arm-cli.md)  
-[Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)  
-[Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)

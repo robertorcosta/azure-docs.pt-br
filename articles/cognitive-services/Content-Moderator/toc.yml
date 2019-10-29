@@ -12,11 +12,7 @@
     - name: Usando o SDK do cliente
       items:
         - name: Usar o .NET SDK
-          items:
-            - name: Analisar conteúdo da imagem
-              href: image-moderation-quickstart-dotnet.md
-            - name: Analisar conteúdo do texto
-              href: text-moderation-quickstart-dotnet.md
+          href: dotnet-sdk-quickstart.md
         - name: Usar o SDK do Python
           href: python-sdk-quickstart.md
         - name: Usar o SDK do Java
@@ -69,8 +65,6 @@
           href: Review-Tool-User-Guide/Review-Moderated-Images.md
         - name: API REST
           href: try-review-api-review.md
-        - name: SDK .NET
-          href: moderation-reviews-quickstart-dotnet.md
         - name: Análises de vídeo (.NET)
           href: video-reviews-quickstart-dotnet.md
         - name: Análises de transcrição do vídeo (.NET)

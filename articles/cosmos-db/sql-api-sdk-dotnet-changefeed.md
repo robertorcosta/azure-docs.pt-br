@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: ea6de5f42910457efa5ca6c458d7af63faa38e18
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2392eb1f02ede13aca88419c00ea33ae38cfd8ab
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637740"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023898"
 ---
-# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do Processador do Feed de Alterações do .NET: download e notas sobre a versão
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do feed de alterações do .NET: download e notas de versão
 
 > [!div class="op_single_selector"]
 >
@@ -42,6 +42,15 @@ ms.locfileid: "68637740"
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="v2-builds"></a>v2 builds
+
+### <a name="a-name228228"></a><a name="2.2.8"/>2.2.8
+* Aprimoramentos de estabilidade e diagnóstico:
+  * Suporte adicionado para detectar a leitura do feed de alterações demorando muito. Quando demora mais do que o valor especificado pela propriedade `ChangeFeedProcessorOptions.ChangeFeedTimeout`, as etapas a seguir são executadas:
+    * A operação para ler o feed de alterações na partição problemática foi anulada.
+    * A instância do processador do feed de alterações elimina a propriedade da concessão problemática. A concessão descartada será coletada durante a próxima etapa de aquisição de concessão que será feita pela mesma instância do processador do feed de alterações ou diferente. Dessa forma, a leitura do feed de alterações será reiniciada.
+    * Um problema é relatado no Health Monitor. O monitor integridade padrão envia todos os problemas relatados para o log de rastreamento.
+  * Adicionada uma nova propriedade pública: `ChangeFeedProcessorOptions.ChangeFeedTimeout`. O valor padrão dessa propriedade é 10 minutos.
+  * Adicionado um novo valor de enumeração público: `Monitoring.MonitoredOperation.ReadChangeFeed`. Quando o valor de `HealthMonitoringRecord.Operation` é definido como `Monitoring.MonitoredOperation.ReadChangeFeed`, ele indica que o problema de integridade está relacionado à leitura do feed de alterações.
 
 ### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
 * Melhor estratégia de balanceamento de carga para o cenário ao obter todas as concessões leva mais tempo do que o intervalo de expiração de concessão, por exemplo, devido a problemas de rede:
@@ -76,7 +85,7 @@ ms.locfileid: "68637740"
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 * Adicionado suporte a coleções particionadas de concessão. A chave de partição deve ser definida como /id.
-* Pequena alteração interruptiva: os métodos da interface IChangeFeedDocumentClient e a classe ChangeFeedDocumentClient foram alterados para incluir parâmetros de RequestOptions e CancellationToken. IChangeFeedDocumentClient é um ponto de extensibilidade avançada que permite que você forneça uma implementação personalizada do Cliente de Documento a ser usado com o Processador do Feed de Alteração, por exemplo, decorar DocumentClient e interceptar todas as chamadas para ele para fazer rastreamento extra, tratamento de erros etc. Com essa atualização, o código que implementa IChangeFeedDocumentClient precisará ser alterado para incluir novos parâmetros na implementação.
+* Pequena alteração interruptiva: os métodos da interface IChangeFeedDocumentClient e a classe ChangeFeedDocumentClient foram alterados para incluir parâmetros de RequestOptions e CancellationToken. IChangeFeedDocumentClient é um ponto de extensibilidade avançado que permite que você forneça a implementação personalizada do cliente de documento para usar com o processador do feed de alterações, por exemplo, decorar o DocumentClient e interceptar todas as chamadas para ele para fazer rastreamento extra, tratamento de erros diante. Com essa atualização, o código que implementa IChangeFeedDocumentClient precisará ser alterado para incluir novos parâmetros na implementação.
 * Pequenos aprimoramentos de diagnóstico.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
@@ -170,6 +179,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.2.8](#2.2.8) |28 de outubro de 2019 |--- |
 | [2.2.7](#2.2.7) |14 de maio de 2019 |--- |
 | [2.2.6](#2.2.6) |29 janeiro de 2019 |--- |
 | [2.2.5](#2.2.5) |13 de dezembro de 2018 |--- |
@@ -189,6 +199,6 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

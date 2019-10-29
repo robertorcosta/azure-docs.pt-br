@@ -1,5 +1,5 @@
 ---
-title: 'BCDR (continuidade de negócios e recuperação de desastres): Regiões combinadas do Azure | Microsoft Docs'
+title: Continuidade dos negócios & recuperação de desastre-regiões emparelhadas do Azure
 description: Saiba mais sobre os pares regionais do Azure, que garantem que os aplicativos sejam resilientes durante falhas de data centers.
 author: rayne-wiselman
 manager: carmon
@@ -7,14 +7,14 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: 81ba993e6cbe55b45d34325545754bec561ce479
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 90111325677e1bdd12a03081ad7513a34f68fd40
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514465"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044133"
 ---
-# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR (continuidade de negócios e recuperação de desastres): Regiões combinadas do Azure
+# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
 
 ## <a name="what-are-paired-regions"></a>O que são regiões emparelhadas?
 
@@ -31,7 +31,7 @@ Figura 1 – Pares regionais do Azure
 | Ásia |Ásia Oriental |Sudeste Asiático |
 | Austrália |Austrália Oriental |Sudeste da Austrália |
 | Austrália |Austrália Central |Austrália Central 2 |
-| Brasil |Sul do Brasil |Centro-Sul dos Estados Unidos |
+| Brasil |Sul do Brasil |Centro-Sul dos EUA |
 | Canadá |Canadá Central |Leste do Canadá |
 | China |Norte da China |Leste da China|
 | China |Norte da China 2 |Leste da China 2|
@@ -42,25 +42,25 @@ Figura 1 – Pares regionais do Azure
 | Índia |Índia Ocidental |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
 | Coreia do Sul |Coreia Central |Sul da Coreia |
-| América do Norte |East US |Oeste dos EUA |
-| América do Norte |Leste dos EUA 2 |Centro dos EUA |
-| América do Norte |Centro-Norte dos EUA |Centro-Sul dos Estados Unidos |
+| América do Norte |Leste dos EUA |Oeste dos EUA |
+| América do Norte |Leste dos EUA 2 |EUA Central |
+| América do Norte |Centro-Norte dos EUA |Centro-Sul dos EUA |
 | América do Norte |Oeste dos EUA 2 |Centro-Oeste dos EUA 
-| África do Sul | Norte da África do Sul | Sul da África do Sul
+| África do Sul | Norte da África do Sul | Oeste da África do Sul
 | Reino Unido |Oeste do Reino Unido |Sul do Reino Unido |
 | Emirados Árabes Unidos | Norte dos EAU | EAU Central
-| Departamento de Defesa dos EUA |DoD do Leste dos EUA |DoD Central dos EUA |
-| Governo dos EUA |Governo dos EUA do Arizona |Governo dos EUA do Texas |
-| Governo dos EUA |US Gov Iowa |Gov. dos EUA – Virgínia |
-| Governo dos EUA |Gov. dos EUA – Virgínia |Governo dos EUA do Texas |
+| Departamento de Defesa dos EUA |US DoD Leste |US DoD Central |
+| Governo dos EUA |US Gov - Arizona |US Gov - Texas |
+| Governo dos EUA |US Gov - Iowa |US Gov - Virgínia |
+| Governo dos EUA |US Gov - Virgínia |US Gov - Texas |
 
 Tabela 1 – mapeamento de pares regionais do Azure
 
-- Índia Ocidental é emparelhada em apenas uma direção. A região secundária da Índia Ocidental é o Sul da Índia, mas a região secundária do Sul da Índia é a Índia Central.
-- O Sul do Brasil é exclusivo porque ele está associado a uma região fora de sua própria região geográfica. A região secundária do Sul do Brasil é Centro-Sul dos EUA. Da Centro-Sul dos EUA região secundária não é o sul do Brasil.
-- Região secundária do Gov. EUA Iowa é Gov. EUA Virgínia.
-- A região secundária de US gov – Virgínia é US gov-Texas.
-- Região secundária do US gov – Texas é gov. EUA-Arizona.
+- A Índia ocidental é emparelhada apenas em uma direção. A região secundária da Índia Ocidental é o Sul da Índia, mas a região secundária do Sul da Índia é a Índia Central.
+- O Sul do Brasil é exclusivo porque ele está associado a uma região fora de sua própria região geográfica. A região secundária do Sul do Brasil é EUA Central do Sul. A região secundária do Sul EUA Central não é sul do Brasil.
+- A região secundária do US Gov Iowa é US Gov-Virgínia.
+- A região secundária do US Gov-Virgínia é US Gov Texas.
+- A região secundária do US Gov Texas é US Gov Arizona.
 
 
 É recomendável que você configure a recuperação de desastre de continuidade de negócios (BCDR) entre os pares regionais para se beneficiar das políticas de isolamento e a disponibilidade do Azure. Para aplicativos que dão suporte a várias regiões do Active Directory, recomendamos usar ambas as regiões em um par de regiões, sempre que possível. Isso irá garantir a disponibilidade ideal para aplicativos e tempo de recuperação minimizado em caso de desastre. 
@@ -75,9 +75,9 @@ Figura 2 – par da região do Azure hipotético
 ## <a name="cross-region-activities"></a>Atividades entre regiões
 Como mencionado na Figura 2.
 
-![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Computação do Azure (IaaS)** – Você deve provisionar recursos de computação adicionais com antecedência para garantir que os recursos estejam disponíveis em outra região durante um desastre. Para saber mais, confira as [Orientação técnica de resiliência do Azure](resiliency/resiliency-technical-guidance.md).
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Computação do Azure (IaaS)** – Você deve provisionar recursos de computação adicionais com antecedência para garantir que os recursos estejam disponíveis em outra região durante um desastre. Para saber mais, consulte [Diretrizes técnicas de resiliência do Azure](resiliency/resiliency-technical-guidance.md).
 
-![Armazenamento](./media/best-practices-availability-paired-regions/2Green.png) **o armazenamento do Azure** – se você estiver usando discos gerenciados, saiba mais sobre [backups entre regiões](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) com o Backup do Azure, e [replicação de VMs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) de uma região para outro com o Azure Site Recovery. Se você estiver usando contas de armazenamento, armazenamento com redundância geográfica (GRS) é configurado por padrão quando uma conta de armazenamento do Azure é criada. Com o GRS, seus dados são replicados automaticamente três vezes na região primária e três vezes na região emparelhada. Para saber mais, consulte [Opções de redundância do Armazenamento do Azure](storage/common/storage-redundancy.md).
+![armazenamento](./media/best-practices-availability-paired-regions/2Green.png) **armazenamento do Azure** – se você estiver usando discos gerenciados, saiba mais sobre [backups entre regiões](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) com o backup do Azure e [replicando VMs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) de uma região para outra com Azure site Recovery. Se você estiver usando contas de armazenamento, o armazenamento com redundância geográfica (GRS) será configurado por padrão quando uma conta de armazenamento do Azure for criada. Com o GRS, seus dados são replicados automaticamente três vezes na região primária e três vezes na região emparelhada. Para saber mais, consulte [Opções de redundância do Armazenamento do Azure](storage/common/storage-redundancy.md).
 
 ![SQL Azure](./media/best-practices-availability-paired-regions/3Green.png) **Banco de Dados SQL do Azure** – Com a Replicação Geográfica do Banco de Dados SQL do Azure é possível configurar a replicação assíncrona de transações para qualquer região do mundo, no entanto, é recomendável que você implemente esses recursos em uma região emparelhada para a maioria dos cenários de recuperação de desastre. Para saber mais, confira [Replicação geográfica no Banco de Dados SQL do Azure](sql-database/sql-database-geo-replication-overview.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Use C# com o Apache Hive e Apache Pig em Apache Hadoop no HDInsight – Azure
+title: C#, Apache Hive & Apache Pig no Apache Hadoop-Azure HDInsight
 description: Aprenda a usar as funções definidas pelo usuário (UDF) do C# com o Apache Hive e o streaming do Apache Pig no Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: fa40f206447f631c78052bda085b26a56e481194
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 222b91b2efefa81186d32fee7229aa0cc4f13a63
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066911"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044602"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Usar C# funções definidas pelo usuário com Apache Hive e Apache Pig no Apache Hadoop no HDInsight
 
@@ -213,7 +213,7 @@ Para obter mais informações sobre a versão do .NET Framework e do Mono inclu�
 
 ## <a name="run-an-apache-pig-job"></a>Executar um trabalho do Apache Pig
 
-1. Use o SSH para conectar-se ao cluster HDInsight. Por exemplo: `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Para obter mais informações, consulte [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
+1. Use o SSH para conectar-se ao cluster HDInsight. Por exemplo, `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Para obter mais informações, consulte [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 2. Use um dos comandos a seguir para iniciar a linha de comando do Pig:
 
@@ -249,7 +249,7 @@ Para obter mais informações sobre a versão do .NET Framework e do Mono inclu�
         (2012-02-03 20:11:56 SampleClass5 [TRACE] verbose detail for id 1737534798)
         (2012-02-03 20:11:56 SampleClass7 [DEBUG] detail for id 1475865947)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, você aprendeu a usar um aplicativo do .NET Framework do Hive e do Pig no HDInsight. Caso deseje saber como usar o Python com o Hive e o Pig, confira [Usar o Python com o Apache Hive e o Apache Pig no HDInsight](python-udf-hdinsight.md).
 

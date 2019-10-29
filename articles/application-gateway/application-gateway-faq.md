@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: fd4eef9771ae89e330c99b398ad6d473356213f5
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: cbb4668ae87404771513ca5825482efe9206308d
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858536"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025012"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o gateway de aplicativo
 
@@ -104,9 +105,9 @@ A maioria das implantações que usam a SKU v2 leva cerca de 6 minutos para ser 
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Posso usar o Exchange Server como um back-end com o gateway de aplicativo?
 
-Nº O gateway de aplicativo não dá suporte a protocolos de email como SMTP, IMAP e POP3. 
+Não. O gateway de aplicativo não dá suporte a protocolos de email como SMTP, IMAP e POP3. 
 
-## <a name="performance"></a>Desempenho
+## <a name="performance"></a>Performance
 
 ### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>Como o Application Gateway suporta alta disponibilidade e escalabilidade?
 
@@ -124,7 +125,7 @@ Sim, o SKU Application Gateway v2 suporta escalonamento automático. Para obter 
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>A redução ou redução manual causa tempo de inatividade?
 
-Nº As instâncias são distribuídas entre domínios de atualização e domínios de falha.
+Não. As instâncias são distribuídas entre domínios de atualização e domínios de falha.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>O Gateway de Aplicativo suporta a drenagem de conexão?
 
@@ -146,7 +147,7 @@ Contanto que você tenha conectividade de IP, o gateway de aplicativo pode se co
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Posso implantar coisa na sub-rede do gateway de aplicativo?
 
-Nº Mas você pode implantar outros gateways de aplicativo na sub-rede.
+Não. Mas você pode implantar outros gateways de aplicativo na sub-rede.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Os grupos de segurança de rede têm suporte na sub-rede do gateway de aplicativo?
 
@@ -178,7 +179,7 @@ Há suporte para a arquitetura de microserviço. Para investigar em portas difer
 
 ### <a name="do-custom-probes-support-wildcards-or-regex-on-response-data"></a>As investigações personalizadas dão suporte a curingas ou Regex nos dados de resposta?
 
-Nº 
+Não. 
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>Como as regras de roteamento são processadas no gateway de aplicativo?
 
@@ -186,7 +187,7 @@ Consulte [ordem de regras de processamento](https://docs.microsoft.com/azure/app
 
 ### <a name="for-custom-probes-what-does-the-host-field-signify"></a>Para investigações personalizadas, o que o campo Host significa?
 
-O campo host especifica o nome para o qual enviar a investigação quando você configurou multissite no gateway de aplicativo. Caso contrário, use ' 127.0.0.1 '. Esse valor é diferente do nome de host da máquina virtual. Seu formato é \<Protocol\>://\<host\>:\<Port\>Path.\>\<
+O campo host especifica o nome para o qual enviar a investigação quando você configurou multissite no gateway de aplicativo. Caso contrário, use ' 127.0.0.1 '. Esse valor é diferente do nome de host da máquina virtual. Seu formato é \<protocolo\>://\<\>do host:\<porta\>\<caminho\>.
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Posso permitir o acesso do gateway de aplicativo a apenas alguns endereços IP de origem?
 
@@ -194,7 +195,7 @@ Sim. Consulte [restringir o acesso a IPS de origem específicos](https://docs.mi
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Posso usar a mesma porta para ouvintes públicos e voltados para o público?
 
-Nº
+Não.
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Há alguma orientação disponível para migrar da SKU v1 para a SKU v2?
 
@@ -269,7 +270,7 @@ O gateway de aplicativo dá suporte a até 100 certificados SSL.
 
 ### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>A quantos certificados de autenticação para recriptografia de back-end o gateway de aplicativo dá suporte?
 
-O gateway de aplicativo dá suporte a até 10 certificados de autenticação. O padrão é 5.
+O gateway de aplicativo dá suporte a até 100 certificados de autenticação.
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>O gateway de aplicativo integra-se nativamente com o Azure Key Vault?
 
@@ -299,7 +300,7 @@ Monitore o WAF por meio do log de diagnóstico. Para obter mais informações, c
 
 ### <a name="does-detection-mode-block-traffic"></a>Modo de detecção bloqueia o tráfego?
 
-Nº O modo de detecção registra somente o tráfego que dispara uma regra WAF.
+Não. O modo de detecção registra somente o tráfego que dispara uma regra WAF.
 
 ### <a name="can-i-customize-waf-rules"></a>Como posso personalizar regras WAF?
 
@@ -333,15 +334,15 @@ Sim. Para obter detalhes, consulte [migrar aplicativo Azure gateway e firewall d
 
 O gateway de aplicativo fornece três logs: 
 
-* **ApplicationGatewayAccessLog**: O log de acesso contém cada solicitação enviada ao front-end do gateway de aplicativo. Os dados incluem o IP do chamador, a URL solicitada, a latência de resposta, o código de retorno e os bytes de entrada e saída. O log de acesso é coletado a cada 300 segundos. Ele contém um registro por gateway de aplicativo.
-* **ApplicationGatewayPerformanceLog**: O log de desempenho captura informações de desempenho para cada gateway de aplicativo. As informações incluem a taxa de transferência em bytes, total de solicitações atendidas, contagem de solicitações com falha e contagem de instâncias de back-end íntegras e não íntegras.
-* **ApplicationGatewayFirewallLog**: Para gateways de aplicativo que você configura com o WAF, o log do firewall contém solicitações que são registradas por meio do modo de detecção ou do modo de prevenção.
+* **ApplicationGatewayAccessLog**: o log de acesso contém cada solicitação enviada ao front-end do gateway de aplicativo. Os dados incluem o IP do chamador, a URL solicitada, a latência de resposta, o código de retorno e os bytes de entrada e saída. O log de acesso é coletado a cada 300 segundos. Ele contém um registro por gateway de aplicativo.
+* **ApplicationGatewayPerformanceLog**: o log de desempenho captura informações de desempenho para cada gateway de aplicativo. As informações incluem a taxa de transferência em bytes, total de solicitações atendidas, contagem de solicitações com falha e contagem de instâncias de back-end íntegras e não íntegras.
+* **ApplicationGatewayFirewallLog**: para gateways de aplicativo que você configura com o WAF, o log de firewall contém solicitações que são registradas por meio do modo de detecção ou do modo de prevenção.
 
 Para obter mais informações, consulte [integridade de back-end, logs de diagnóstico e métricas para o gateway de aplicativo](application-gateway-diagnostics.md).
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Como sei se meus membros do pool de back-end são saudáveis?
 
-Verifique a integridade usando o cmdlet `Get-AzApplicationGatewayBackendHealth` do PowerShell ou o Portal. Para obter mais informações, consulte [Diagnósticos do Gateway de Aplicativo](application-gateway-diagnostics.md).
+Verifique a integridade usando o cmdlet do PowerShell `Get-AzApplicationGatewayBackendHealth` ou o Portal. Para obter mais informações, consulte [Diagnósticos do Gateway de Aplicativo](application-gateway-diagnostics.md).
 
 ### <a name="whats-the-retention-policy-for-the-diagnostic-logs"></a>Qual é a política de retenção para os logs de diagnóstico?
 
@@ -372,6 +373,6 @@ Sim. Se sua configuração corresponder ao cenário a seguir, você não verá o
 - Você tem um NSG na sub-rede do gateway de aplicativo
 - Você habilitou os logs de fluxo do NSG no NSG
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o gateway de aplicativo, consulte [o que é aplicativo Azure gateway?](overview.md).

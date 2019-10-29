@@ -1,6 +1,6 @@
 ---
 title: Instalar o gateway de dados local-aplicativos lógicos do Azure
-description: Antes de poder acessar dados locais de aplicativos lógicos do Azure, baixe e instale o gateway de dados local
+description: Antes de poder acessar dados nas instalações dos Aplicativos Lógicos do Azure, baixe e instale o gateway de dados local
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,21 +9,21 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 7533b391917175fd9dea395f58906a9f78a61488
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 6467937e2aca08e234cb136c5f610503627921fb
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675697"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042160"
 ---
-# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados local para aplicativos lógicos do Azure
+# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para os Aplicativos Lógicos do Azure
 
 Antes de poder [se conectar a fontes de dados locais de aplicativos lógicos do Azure](../logic-apps/logic-apps-gateway-connection.md), baixe e instale o [Gateway de dados](https://aka.ms/on-premises-data-gateway-installer) local em um computador local. O gateway funciona como uma ponte que fornece transferência rápida de dados e criptografia entre fontes de dados locais e seus aplicativos lógicos. Você pode usar a mesma instalação de gateway com outros serviços de nuvem, como Power BI, Microsoft Flow, PowerApps e Azure Analysis Services. Para obter informações sobre como usar o gateway com esses serviços, consulte estes artigos:
 
 * [Gateway de dados local do Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Microsoft PowerApps gateway de dados local](https://powerapps.microsoft.com/tutorials/gateway-management/)
-* [Microsoft Flow gateway de dados local](https://flow.microsoft.com/documentation/gateway-manage/)
-* [Azure Analysis Services Gateway de dados local](../analysis-services/analysis-services-gateway.md)
+* [Gateway de dados local do Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Gateway de dados local do Microsoft Flow](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Gateway de dados local do Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
 Este artigo mostra como baixar, instalar e configurar seu gateway de dados local para que você possa acessar fontes de dados locais de aplicativos lógicos do Azure. Você também pode saber mais sobre [como o gateway de dados funciona](#gateway-cloud-service) mais adiante neste tópico. Para obter mais informações sobre o gateway, consulte [o que é um gateway local](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)?
 
@@ -31,7 +31,7 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta do Azure e uma assinatura. Se você não tiver uma conta do Azure com uma assinatura, [Inscreva-se para obter uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma conta e uma assinatura do Azure. Se você não tiver uma conta do Azure com uma assinatura, [Inscreva-se para obter uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
   * Você precisa usar a mesma conta do Azure para instalar e administrar o gateway no computador local.
 
@@ -47,17 +47,17 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
     >
     > Para usar uma [assinatura padrão do Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) que esteja vinculada a um conta Microsoft, primeiro [crie um locatário no Azure ad](../active-directory/develop/quickstart-create-new-tenant.md) ou use o diretório padrão. Adicione um usuário com uma senha ao diretório e conceda a esse usuário acesso à sua assinatura do Azure. Em seguida, você pode entrar durante a instalação do gateway com esse nome de usuário e senha.
 
-* Aqui estão os requisitos para seu computador local:
+* Aqui estão os requisitos para o computador local:
 
   **Requisitos mínimos**
 
   * .NET Framework 4.7.2
-  * versão de 64 bits do Windows 7 ou Windows Server 2008 R2 (ou posterior)
+  * Versão de 64 bits do Windows 7 ou Windows Server 2008 R2 (ou posterior)
 
   **Requisitos recomendados**
 
-  * CPU de 8 núcleos
-  * 8 GB de memória
+  * CPU com oito núcleos
+  * Memória de 8 GB
   * versão de 64 bits do Windows Server 2012 R2 ou posterior
   * Armazenamento SSD (unidade de estado sólido) para o spooling
 
@@ -66,10 +66,10 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
 
 * **Considerações relacionadas**
 
-  * Você pode instalar o gateway de dados local somente em um computador local, não em um controlador de domínio. No entanto, você não precisa instalar o gateway no mesmo computador que a fonte de dados. Você precisa de apenas um gateway para todas as suas fontes de dados, portanto, não é necessário instalar o gateway para cada fonte de dados.
+  * É possível instalar o gateway de dados local apenas em um computador local, não em um controlador de domínio. No entanto, não é necessário instalar o gateway no mesmo computador que a fonte de dados. Você precisa de apenas um gateway para todas as suas fontes de dados, portanto, não é necessário instalar o gateway para cada fonte de dados.
 
     > [!TIP]
-    > Para minimizar a latência, você pode instalar o gateway o mais próximo possível da fonte de dados ou no mesmo computador, supondo que você tenha permissões.
+    > Para minimizar a latência, você pode instalar o gateway o mais próximo possível da sua fonte de dados ou no mesmo computador, presumindo que você tenha permissões.
 
   * Instale o gateway em um computador que esteja em uma rede com fio, conectado à Internet, sempre ligado e não vá para o estado de suspensão. Caso contrário, o gateway não pode ser executado e o desempenho pode ser afetado em uma rede sem fio.
 
@@ -83,21 +83,21 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
 
 <a name="install-gateway"></a>
 
-## <a name="install-data-gateway"></a>Instalar o gateway de dados
+## <a name="install-data-gateway"></a>Instalar gateway de dados
 
 1. [Baixe e execute o instalador do gateway em um computador local](https://aka.ms/on-premises-data-gateway-installer).
 
 1. Depois que o instalador for aberto, selecione **Avançar**.
 
-   ![Introdução ao instalador](./media/logic-apps-gateway-install/gateway-intro-screen.png)
+   ![Tela de introdução para o instalador do gateway](./media/logic-apps-gateway-install/gateway-intro-screen.png)
 
 1. Selecione **Gateway de dados local (recomendado)** , que é o modo padrão e, em seguida, selecione **Avançar**.
 
-   ![Selecionar modo de gateway](./media/logic-apps-gateway-install/select-gateway-mode.png)
+   ![Selecione o modo de execução para o gateway de dados](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
 
 1. Examine os requisitos mínimos, mantenha o caminho de instalação padrão, aceite os termos de uso e, em seguida, selecione **instalar**.
 
-   ![Revise os requisitos e aceite os termos de uso](./media/logic-apps-gateway-install/accept-terms.png)
+   ![Revise os requisitos e aceite os termos de uso](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
 
 1. Depois que o gateway for instalado com êxito, forneça o endereço de email para sua conta do Azure e, em seguida, selecione **entrar**, por exemplo:
 
@@ -107,42 +107,42 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
 
 1. Selecione **registrar um novo gateway neste computador**  > **Avançar**. Essa etapa registra a instalação do gateway com o [serviço de nuvem do gateway](#gateway-cloud-service).
 
-   ![Registrar gateway](./media/logic-apps-gateway-install/register-gateway.png)
+   ![Registrar gateway no computador local](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
 1. Forneça essas informações para a instalação do gateway:
 
    * Um nome de gateway que é exclusivo em seu locatário do Azure AD
    * A chave de recuperação, que deve ter pelo menos oito caracteres, que você deseja usar
-   * Confirmação para sua chave de recuperação
+   * Confirmação para a chave de recuperação
 
-   ![Configurar gateway](./media/logic-apps-gateway-install/set-up-gateway.png)
+   ![Fornecer informações para a instalação do gateway](./media/logic-apps-gateway-install/gateway-name-recovery-key.png)
 
    > [!IMPORTANT]
-   > Salve e mantenha sua chave de recuperação em um local seguro. Você precisará dessa chave se quiser alterar o local, mover, recuperar ou assumir uma instalação de gateway.
+   > Salve e mantenha a chave de recuperação em um local seguro. Você precisará dessa chave se quiser alterar o local, mover, recuperar ou assumir uma instalação de gateway.
 
    Observe a opção para **Adicionar a um cluster de gateway existente**, que você seleciona ao instalar gateways adicionais para [cenários de alta disponibilidade](#high-availability).
 
 1. Verifique a região para o serviço de nuvem do gateway e o [barramento de serviço do Azure](https://azure.microsoft.com/services/service-bus/) que é usado pela instalação do seu gateway. Por padrão, essa região é o mesmo local que o locatário do Azure AD para sua conta do Azure.
 
-   ![Região de verificação](./media/logic-apps-gateway-install/check-region.png)
+   ![Confirmar região para serviço de gateway e barramento de serviço](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
 1. Para aceitar a região padrão, selecione **Configurar**. No entanto, se a região padrão não for aquela mais próxima de você, você poderá alterar a região.
 
-   *Por que alterar a região para a instalação do gateway?*
+   *Por que alterar a região de instalação do gateway?*
 
-   Por exemplo, para reduzir a latência, você pode alterar a região do gateway para a mesma região que seu aplicativo lógico. Ou, você pode selecionar a região mais próxima de sua fonte de dados local. O *recurso de gateway no Azure* e seu aplicativo lógico podem ter locais diferentes.
+   Por exemplo, para reduzir a latência, é possível alterar a região do gateway para a mesma região que o aplicativo lógico. Ou então, é possível selecionar a região mais próxima à fonte de dados local. O *recurso de gateway no Azure* e o aplicativo lógico podem ter locais diferentes.
 
-   1. Ao lado da região atual, selecione **alterar região**.
+   1. Ao lado de região atual, selecione **Alterar Região**.
 
-      ![Alterar região](./media/logic-apps-gateway-install/change-region.png)
+      ![Alterar a região do gateway atual](./media/logic-apps-gateway-install/change-gateway-service-region.png)
 
    1. Na página seguinte, abra a lista **selecionar região** , selecione a região desejada e selecione **concluído**.
 
-      ![Selecionar outra região](./media/logic-apps-gateway-install/select-region-gateway-install.png)
+      ![Selecionar outra região para o serviço de gateway](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
 1. Examine as informações na janela de confirmação final. Este exemplo usa a mesma conta para aplicativos lógicos, Power BI, PowerApps e Microsoft Flow, portanto, o gateway está disponível para todos esses serviços. Quando estiver pronto, selecione **fechar**.
 
-   ![Gateway concluído](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
+   ![Confirmar informações do gateway de dados](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
 1. Agora, [crie o recurso do Azure para a instalação do gateway](../logic-apps/logic-apps-gateway-connection.md).
 
@@ -163,13 +163,13 @@ Para evitar pontos únicos de falha para acesso a dados local, você pode ter v�
 
 * O gateway primário deve estar executando a atualização do gateway de novembro de 2017 ou posterior.
 
-Depois de configurar o gateway primário, quando você for instalar outro gateway, selecione **Adicionar a um cluster de gateway existente**, selecione o gateway primário, que é o primeiro gateway que você instalou e forneça a chave de recuperação para esse gateway. Para obter mais informações, consulte [clusters de alta disponibilidade para o gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster).
+Depois de configurar o gateway primário, quando você for instalar outro gateway, selecione **Adicionar a um cluster de gateway existente**, selecione o gateway primário, que é o primeiro gateway que você instalou e forneça a chave de recuperação para esse gateway. Para obter mais informações, consulte [Clusters de alta disponibilidade para gateway de dados locais](https://docs.microsoft.com/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster).
 
 <a name="update-gateway-installation"></a>
 
-## <a name="change-location-migrate-restore-or-take-over-existing-gateway"></a>Alterar local, migrar, restaurar ou assumir o gateway existente
+## <a name="change-location-migrate-restore-or-take-over-existing-gateway"></a>Alterar o local, migrar, restaurar ou assumir um gateway existente
 
-Se for necessário alterar o local do gateway, mover a instalação do gateway para um novo computador, recuperar um gateway danificado ou apropriar-se de um gateway existente, você precisará da chave de recuperação que foi fornecida durante a instalação do gateway.
+Se for necessário alterar o local do gateway, mover a instalação do gateway para um novo computador, recuperar um gateway danificado ou assumir a propriedade de um gateway existente, você precisará da chave de recuperação que foi fornecida durante a instalação do gateway.
 
 1. Execute o instalador do gateway no computador que tem o gateway existente. Se você não tiver o instalador do gateway mais recente, [Baixe a versão mais recente do gateway](https://aka.ms/on-premises-data-gateway-installer).
 
@@ -181,11 +181,11 @@ Se for necessário alterar o local do gateway, mover a instalação do gateway p
 
 1. Selecione **migrar, restaurar ou tomada um gateway existente**  > **Avançar**, por exemplo:
 
-   ![Selecione "migrar, restaurar ou tomada um gateway existente"](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
+   ![Selecionar "Migrar, restaurar ou assumir um gateway existente"](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
 1. Selecione entre os clusters e gateways disponíveis e insira a chave de recuperação para o gateway selecionado, por exemplo:
 
-   ![Selecionar gateway](./media/logic-apps-gateway-install/select-existing-gateway.png)
+   ![Selecionar gateway e fornecer chave de recuperação](./media/logic-apps-gateway-install/select-existing-gateway.png)
 
 1. Para alterar a região, selecione **alterar região**e selecione a nova região.
 
@@ -197,7 +197,7 @@ Para obter visibilidade de todos os gateways de dados locais em um locatário do
 
 <a name="restart-gateway"></a>
 
-## <a name="restart-gateway"></a>Reiniciar gateway
+## <a name="restart-gateway"></a>Reiniciar o gateway
 
 Por padrão, a instalação do gateway no computador local é executada como uma conta de serviço do Windows denominada "serviço de gateway de dados local". No entanto, a instalação do gateway usa o nome do `NT SERVICE\PBIEgwService` para suas credenciais de conta "fazer logon como" e tem permissões para "fazer logon como um serviço".
 
@@ -212,9 +212,9 @@ Como qualquer outro serviço do Windows, você pode iniciar e parar o gateway de
 
 Os usuários em sua organização podem acessar dados locais para os quais eles já têm acesso autorizado. No entanto, antes que esses usuários possam se conectar à sua fonte de dados local, você precisa instalar e configurar um gateway de dados local. Normalmente, um administrador é a pessoa que instala e configura um gateway. Essas ações podem exigir permissões de administrador do servidor ou conhecimento especial sobre seus servidores locais.
 
-O gateway facilita a comunicação rápida e segura por trás das cenas de comunicação. Essa comunicação flui entre um usuário na nuvem, o serviço de nuvem do gateway e sua fonte de dados local. O serviço de nuvem do gateway criptografa e armazena suas credenciais de fonte de dados e detalhes do gateway. O serviço também roteia consultas e seus resultados entre o usuário, o gateway e sua fonte de dados local.
+O gateway facilita a comunicação rápida e segura por trás das cenas de comunicação. Essa comunicação flui entre um usuário na nuvem, o serviço de nuvem do gateway e sua fonte de dados local. O serviço de nuvem do gateway criptografa e armazena suas credenciais da fonte de dados e os detalhes do gateway. O serviço também roteia consultas e seus resultados entre o usuário, o gateway e sua fonte de dados local.
 
-O gateway funciona com firewalls e usa apenas conexões de saída. Todo o tráfego é originado como tráfego de saída seguro do agente de gateway. O gateway retransmite dados de fontes locais em canais criptografados por meio do [barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md). Esse barramento de serviço cria um canal entre o gateway e o serviço de chamada, mas não armazena nenhum dado. Todos os dados que trafegam pelo gateway são criptografados.
+O gateway funciona com firewalls e usa apenas conexões de saída. Todo o tráfego é originado como tráfego de saída seguro do agente de gateway. O gateway retransmite dados de fontes locais em canais criptografados por meio do [barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md). O barramento de serviço cria um canal entre o gateway e o serviço de chamada, mas não armazena nenhum dado. Todos os dados que trafegam através do gateway são criptografados.
 
 ![Arquitetura do gateway de dados local](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -233,7 +233,7 @@ Estas etapas descrevem o que acontece quando você interage com um elemento que 
 
 1. O gateway envia a consulta à fonte de dados para execução.
 
-1. Os resultados são enviados da fonte de dados de volta para o gateway e, em seguida, para o serviço de nuvem do gateway. Em seguida, o serviço de nuvem do gateway usa os resultados.
+1. Os resultados são enviados da fonte de dados de volta ao gateway e, em seguida, para o serviço de nuvem do gateway. O serviço de nuvem do gateway então usa os resultados.
 
 ### <a name="authentication-to-on-premises-data-sources"></a>Autenticação para fontes de dados locais
 
@@ -270,12 +270,12 @@ Aqui estão as maneiras pelas quais você pode corresponder às suas contas de A
 
 Para saber mais, consulte esses tópicos:
 
-* [Perguntas frequentes do gateway de dados local](/data-integration/gateway/service-gateway-onprem-faq)
-* [Solucionar problemas do gateway de dados local](/data-integration/gateway/service-gateway-tshoot)
-* [Monitorar e otimizar o desempenho do gateway](/data-integration/gateway/service-gateway-performance)
+* [Perguntas frequentes de gateway de dados no local](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
+* [Solucionar problemas do gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
+* [Monitorar e otimizar o desempenho do gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>Próximos passos
 
 * [Conectar-se a dados locais de aplicativos lógicos](../logic-apps/logic-apps-gateway-connection.md)
 * [Recursos de integração corporativa](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* [Conectores para aplicativos lógicos do Azure](../connectors/apis-list.md)
+* [Conectores de Aplicativos Lógicos do Azure](../connectors/apis-list.md)

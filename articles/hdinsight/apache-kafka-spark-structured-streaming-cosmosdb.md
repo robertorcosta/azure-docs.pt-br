@@ -1,5 +1,5 @@
 ---
-title: Apache Spark dados de Apache Kafka para Azure Cosmos DB-Azure HDInsight
+title: Apache Spark & Apache Kafka com Cosmos DB-Azure HDInsight
 description: Saiba como usar o Streaming Estruturado do Apache Spark para ler dados do Apache Kafka e, em seguida, armazená-los no Azure Cosmos DB. Neste exemplo, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0d8c6929705ab29ced25a847bf7c5a72d57aa49b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: faae65c6664123bd673711674a36edc928c74278
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037283"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044902"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Use o Streaming Estruturado do Apache Spark com o Apache Kafka e o Azure Cosmos DB
 
@@ -32,12 +32,12 @@ O streaming estruturado do Spark é um mecanismo de processamento de fluxo basea
 
 ## <a name="create-the-clusters"></a>Criar os clusters
 
-Apache Kafka no HDInsight não fornece acesso para Agentes de Kafka pela internet pública. Qualquer coisa que se comunique com Kafka deve estar na mesma rede virtual do Azure que os nós no cluster Kafka. Para este exemplo, clusters de Spark e Kafka estão localizados em uma rede virtual do Azure. O diagrama a seguir mostra como a comunicação flui entre os clusters:
+Apache Kafka no HDInsight não fornece acesso para Agentes de Kafka pela internet pública. Qualquer item que se comunique com o Kafka deve estar na mesma rede virtual do Azure que os nós no cluster Kafka. Para este exemplo, clusters de Spark e Kafka estão localizados em uma rede virtual do Azure. O seguinte diagrama mostra como a comunicação flui entre os clusters:
 
 ![Diagrama de clusters Spark e Kafka em uma rede virtual do Azure](./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png)
 
 > [!NOTE]  
-> O serviço Kafka é limitado a comunicação dentro da rede virtual. Outros serviços no cluster, como SSH e Ambari, podem ser acessados pela Internet. Para obter mais informações sobre as portas públicas disponíveis com o HDInsight, consulte [portas e URIs usados pelo HDInsight](hdinsight-hadoop-port-settings-for-services.md).
+> O serviço Kafka é limitado a comunicação dentro da rede virtual. Outros serviços no cluster, como SSH e Ambari, podem ser acessados pela Internet. Para obter mais informações sobre as portas públicas disponíveis com o HDInsight, confira [Portas e URIs usados pelo HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark manualmente, é mais fácil usar um modelo do Azure Resource Manager. Use as seguintes etapas para implantar uma rede virtual do Azure, Kafka e clusters de Spark para sua assinatura do Azure.
 
@@ -69,28 +69,28 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
 
     ![Valores de implantação personalizada do HDInsight](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
-    * **Assinatura**: Selecione sua assinatura do Azure.
+    * **Assinatura**: selecione sua assinatura do Azure.
 
     * **Grupo de recursos**: Crie um grupo ou selecione um existente. Esse grupo contém o cluster HDInsight.
 
-    * **Local**: escolha uma localização geograficamente perto de você.
+    * **Local**: escolha um local geograficamente perto de você.
 
-    * **Nome da conta do Cosmos DB**: este valor é usado como o nome da conta do Cosmos DB.
+    * **Nome da conta do Cosmos DB**: esse valor é usado como o nome da conta do Cosmos DB.
 
-    * **Nome do cluster de base**: este valor é usado como o nome de base dos clusters Spark e Kafka. Por exemplo, inserir **myhdi** cria um cluster Spark chamado__spark-myhdi__ e um cluster Kafka chamado **kafka-myhdi**.
+    * **Nome do Cluster de base**: esse valor é usado como o nome de base para os clusters Spark e Kafka. Por exemplo, inserir **myhdi** cria um cluster Spark chamado__spark-myhdi__ e um cluster Kafka chamado **kafka-myhdi**.
 
-    * **Versão do cluster**: a versão do cluster do HDInsight.
+    * **Versão do cluster**: versão do cluster HDInsight.
 
         > [!IMPORTANT]  
         > Este exemplo é testado com 3.6 HDInsight e pode não funcionar com outros tipos de cluster.
 
-    * **Nome de usuário de logon do cluster**: O nome do usuário administrador dos clusters Spark e Kafka.
+    * **Nome de usuário de logon do cluster**: O nome de usuário do administrador para os clusters Spark e Kafka.
 
-    * **Senha de Logon do Cluster**: A senha do usuário administrador dos clusters Spark e Kafka.
+    * **Senha de logon do cluster**: A senha de usuário do administrador para os clusters Spark e Kafka.
 
-    * **Nome de Usuário SSH**: O usuário SSH para criar para os clusters Spark e Kafka.
+    * **Nome de usuário SSH**: O usuário SSH para criar para os clusters Spark e Kafka.
 
-    * **Senha SSH**: A senha para o usuário SSH dos clusters Kafka e Spark.
+    * **Senha SSH**: a senha para o usuário SSH dos clusters Kafka e Spark.
 
 3. Leia **Termos e Condições**, e depois selecione **Concordo com os termos e condições declarados acima**.
 
@@ -202,7 +202,7 @@ Depois que os arquivos forem carregados, selecione a entrada __Stream-taxi-data-
 
 Na home page do [Jupyter Notebook](https://jupyter.org/), selecione a entrada __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__. Siga as etapas no bloco de anotações para transmitir dados do Kafka para o Azure Cosmos DB usando o Streaming Estruturado do Spark.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu a usar o Fluxo Estruturado do Spark, consulte os seguintes documentos para saber mais sobre como trabalhar com o Apache Spark, o Apache Kafka e o Azure Cosmos DB:
 

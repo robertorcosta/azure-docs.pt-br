@@ -3,8 +3,8 @@ title: Log ML experimentos & métricas
 titleSuffix: Azure Machine Learning
 description: Monitore seus experimentos do Azure ML e monitore as métricas de execução para aprimorar o processo de criação de modelo. Adicione o registro em log ao script de treinamento e exiba os resultados registrados de uma execução.  Use execute. log, Run. start_logging ou ScriptRunConfig.
 services: machine-learning
-author: heatherbshapiro
-ms.author: hshapiro
+author: sdgilley
+ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: a37ed7c7f39324a7fb4750389c0d76c36539c3cc
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c72de809dc5818cced95be2cbd6b47308bad4f22
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002700"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045216"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitorar execuções e métricas de experimento do Azure ML
 
@@ -30,7 +30,7 @@ Aprimore o processo de criação de modelo rastreando suas experiências e monit
 
 As métricas a seguir podem ser adicionadas a uma execução durante o treinamento de um experimento. Para exibir uma lista mais detalhada do que pode ser acompanhado em uma execução, veja a [Documentação de referência de classe de execução](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|Tipo| Função do Python | Observações|
+|Type| Função do Python | Notas|
 |----|:----|:----|
 |Valores escalares |Função:<br>`run.log(name, value, description='')`<br><br>Exemplo:<br>run.log("accuracy", 0.95) |Registre um valor numérico ou de string para a execução com o nome dado. Registrar uma métrica em log para uma execução faz essa métrica ser armazenada no registro de execução no experimento.  Você pode registrar em log a mesma métrica várias vezes dentro de uma execução, sendo o resultado considerado um vetor dessa métrica.|
 |Listas|Função:<br>`run.log_list(name, value, description='')`<br><br>Exemplo:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Faça uma lista de valores para a execução com o nome fornecido.|
@@ -61,7 +61,7 @@ Antes de adicionar o registro em log e enviar um experimento, você deve configu
    ws = Workspace.from_config()
    ```
   
-## <a name="option-1-use-start_logging"></a>Opção 1: Usar o start_logging
+## <a name="option-1-use-start_logging"></a>Opção 1: Usar start_logging
 
 **start_logging** cria uma execução interativa para uso em cenários como blocos de anotações. Qualquer métrica registrada em log durante a sessão é adicionada ao registro de execução no experimento.
 
@@ -246,7 +246,7 @@ Você também pode obter um link para a mesma exibição em seu espaço de traba
 print(run.get_portal_url())
 ```
 
-2. **[Para execuções automatizadas do aprendizado de máquina]**  Para acessar os gráficos a partir de uma execução anterior. Substituir `<<experiment_name>>` pelo nome de experimento apropriado:
+2. **[Para execuções automatizadas do aprendizado de máquina]**  Para acessar os gráficos a partir de uma execução anterior. Substitua `<<experiment_name>>` pelo nome de experimento apropriado:
 
    ``` 
    from azureml.widgets import RunDetails
@@ -306,7 +306,7 @@ Os seguintes blocos de anotações demonstram conceitos neste artigo:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Experimente estas próximas etapas para aprender a usar o SDK do Azure Machine Learning para Python:
 

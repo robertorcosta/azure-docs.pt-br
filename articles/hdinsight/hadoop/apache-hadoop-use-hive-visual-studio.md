@@ -1,5 +1,5 @@
 ---
-title: Apache Hive com o Data Lake Tools para Visual Studio – Azure HDInsight
+title: Apache Hive & Data Lake Tools for Visual Studio – Azure HDInsight
 description: Saiba como usar as ferramentas de Data Lake para Visual Studio para executar consultas do Apache Hive com Apache Hadoop no Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1e5e3854f0b132ede38e182f99435a569c04d49e
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 37652a8ca9750e6b33bd2744bda386eaba92b025
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076274"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044523"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Executar consultas do Apache Hive usando as ferramentas do Data Lake para Visual Studio
 
@@ -63,23 +63,23 @@ Consultas ad hoc podem ser executadas no modo de **lote** ou **interativo** .
 
     O editor do Hive é compatível com o IntelliSense. Agora as Ferramentas do Data Lake para Visual Studio dão suporte à obtenção de metadados remotos quando você edita o script do Hive. Por exemplo, se você digitar `SELECT * FROM`, o IntelliSense listará todos os nomes de tabela sugeridos. Quando um nome de tabela for especificado, o IntelliSense listará os nomes de coluna. As ferramentas dão suporte a quase todas as instruções DML Hive, subconsultas e UDFs internos. O IntelliSense sugere apenas os metadados dos clusters selecionados na Barra de Ferramentas do HDInsight.
 
-    ![Captura de tela de um exemplo 1 de IntelliSense das Ferramentas do Visual Studio do HDInsight](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-table-name.png "U-SQL IntelliSense")
+    ![Captura de tela de um exemplo do HDInsight Ferramentas do Visual Studio IntelliSense 1](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-table-name.png "IntelliSense U-SQL")
    
-    ![Captura de tela de um exemplo 2 de IntelliSense das Ferramentas do Visual Studio do HDInsight](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-column-name.png "U-SQL IntelliSense")
+    ![Captura de tela de um exemplo do HDInsight Ferramentas do Visual Studio IntelliSense 2](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-column-name.png "IntelliSense U-SQL")
 
 7. Selecione **Enviar** ou **Enviar (Avançado)** .
 
    Se você selecionar a opção de envio avançado, configure **Nome do Trabalho**, **Argumentos**, **Configurações Adicionais** e **Diretório de Status** para o script:
 
-    ![Captura de tela de uma consulta Hive do HDInsight Hadoop](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png "Enviar consultas")
+    ![Captura de tela de uma consulta de Hive Hadoop do HDInsight](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png "Enviar consultas")
 
 ### <a name="hive-application"></a>Aplicativo do hive
 
 1. Abra o **Visual Studio**.
 
-2. Na barra de menus, navegue até **arquivo** > **novo** > **projeto**.
+2. Na barra de menus, navegue até **arquivo** > **novo** **projeto**de > .
 
-3. Na janela **novo projeto** , navegue até **modelos** > **Azure data Lake** > **aplicativo Hive** **do hive (HDInsight)**  > . 
+3. Na janela **novo projeto** , navegue até **modelos** > **Azure data Lake** > **Hive (HDInsight)**  > **aplicativo Hive**. 
 
 4. Forneça um nome para este projeto e, em seguida, selecione **OK**.
 
@@ -94,22 +94,22 @@ Consultas ad hoc podem ser executadas no modo de **lote** ou **interativo** .
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
     ```
 
-    Essas instruções executam as seguintes ações:
+    As instruções executam as seguintes ações:
 
-   * `DROP TABLE`: Se a tabela existir, esta instrução a excluirá.
+   * `DROP TABLE`: se a tabela existir, esta instrução a excluirá.
 
-   * `CREATE EXTERNAL TABLE`: Cria uma nova tabela ‘externa’ no Hive. As tabelas externas armazenam apenas a definição da tabela no Hive (os dados são mantidos no local original).
+   * `CREATE EXTERNAL TABLE`: cria uma nova tabela 'externa' no Hive. As tabelas externas armazenam apenas a definição da tabela no Hive (os dados são mantidos no local original).
 
      > [!NOTE]  
      > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um trabalho de MapReduce ou serviço do Azure.
      >
      > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
 
-   * `ROW FORMAT`: Informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
+   * `ROW FORMAT`: informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
 
-   * `STORED AS TEXTFILE LOCATION`: Informa ao Hive o local em que os dados são armazenados no diretório de exemplo/de dados e que eles estão armazenados como texto.
+   * `STORED AS TEXTFILE LOCATION`: informa ao Hive o local em que os dados são armazenados no diretório de exemplo/de dados e que eles estão armazenados como texto.
 
-   * `SELECT`: Seleciona uma contagem de todas as linhas, nas quais a coluna `t4` contém o valor `[ERROR]`. Essa instrução retorna um valor de `3`, já que há três linhas que contêm esse valor.
+   * `SELECT`: seleciona uma contagem de todas as linhas, nas quais a coluna `t4` contém o valor `[ERROR]`. Essa instrução retorna um valor de `3`, já que há três linhas que contêm esse valor.
 
    * `INPUT__FILE__NAME LIKE '%.log'`: informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Essa cláusula restringe a pesquisa para o arquivo sample.log que contém os dados.
 
@@ -125,7 +125,7 @@ Consultas ad hoc podem ser executadas no modo de **lote** ou **interativo** .
 
 ### <a name="additional-example"></a>Exemplo adicional
 
-Este exemplo se baseia na `log4jLogs` tabela criada na etapa anterior.
+Este exemplo se baseia na tabela de `log4jLogs` criada na etapa anterior.
 
 1. Em **Gerenciador de servidores**, clique com o botão direito do mouse no cluster e selecione **gravar uma consulta do hive**.
 
@@ -137,16 +137,16 @@ Este exemplo se baseia na `log4jLogs` tabela criada na etapa anterior.
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
     ```
 
-    Essas instruções executam as seguintes ações:
+    As instruções executam as seguintes ações:
 
-    * `CREATE TABLE IF NOT EXISTS`: Crie uma tabela, se ela ainda não existir. Uma vez que a palavra-chave `EXTERNAL` não é usada, essa instrução cria uma tabela interna. As tabelas internas são armazenadas no data warehouse do Hive e gerenciadas por ele.
+    * `CREATE TABLE IF NOT EXISTS`: cria uma tabela, se ela ainda não existir. Uma vez que a palavra-chave `EXTERNAL` não é usada, essa instrução cria uma tabela interna. As tabelas internas são armazenadas no data warehouse do Hive e gerenciadas por ele.
     
     > [!NOTE]  
     > Ao contrário das tabelas `EXTERNAL`, o descarte de uma tabela interna excluirá também os dados subjacentes.
 
-    * `STORED AS ORC`: Armazena os dados no formato colunar de linha otimizado (ORC). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
+    * `STORED AS ORC`: armazena os dados no formato ORC (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
     
-    * `INSERT OVERWRITE ... SELECT`: Seleciona linhas da tabela `log4jLogs` que contêm `[ERROR]` e, então, insere os dados na tabela `errorLogs`.
+    * `INSERT OVERWRITE ... SELECT`: seleciona linhas da tabela `log4jLogs` que contêm `[ERROR]` e, então, insere os dados na tabela `errorLogs`.
 
 3. Execute a consulta no modo de **lote** .
 
@@ -164,7 +164,7 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Use o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
 
-* [Usar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Usar MapReduce com Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
 Para obter mais informações sobre as ferramentas do HDInsight para o Visual Studio:
 

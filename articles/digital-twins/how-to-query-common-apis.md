@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/29/2019
-ms.openlocfilehash: 1d1c0e2f12d5a971cf08933e5d469093eb1f6d52
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 10/27/2019
+ms.openlocfilehash: ef9e7a41f1de05e4d21a9ad7b45ed2b99885b6b8
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949869"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044447"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Como consultar as APIs dos Gêmeos Digitais do Azure para tarefas comuns
 
@@ -234,7 +234,7 @@ Esta seção mostra alguns exemplos de consultas de API para gerenciar usuários
     YOUR_MANAGEMENT_API_URL/users/ANY_USER_ID
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber como autenticar-se com a API de gerenciamento, leia [Autenticar com APIs](./security-authenticating-apis.md).
 

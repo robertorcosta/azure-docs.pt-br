@@ -1,5 +1,5 @@
 ---
-title: Aprenda a usar um Apache Hadoop sandbox-Emulator-Azure HDInsight
+title: Aprenda a usar uma área restrita Apache Hadoop, emulador-Azure HDInsight
 description: 'Para começar a aprender sobre o uso do ecossistema do Apache Hadoop, você pode configurar um sandbox do Hadoop a partir do Hortonworks em uma máquina virtual do Azure. '
 keywords: emulador do hadoop,área restrita do hadoop
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9515f0ecae92e6350924b3856aa6cbf20e608d51
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 47ee66393e3e1678576b12a70b767f35cb3bc635
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066689"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044763"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introdução a uma área restrita do Apache Hadoop, um emulador em uma máquina virtual
 
@@ -44,7 +44,7 @@ Para baixar uma área restrita da versão mais antiga do HDP, consulte os links 
 
     ![início normal do VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
-1. Abra um navegador da Web e navegue até a URL exibida ( `http://127.0.0.1:8888`geralmente).
+1. Abra um navegador da Web e navegue até a URL exibida (geralmente `http://127.0.0.1:8888`).
 
 ## <a name="set-sandbox-passwords"></a>Definir senhas da Área Restrita
 
@@ -73,7 +73,7 @@ Para baixar uma área restrita da versão mais antiga do HDP, consulte os links 
 
         select * from sample_07 limit 10;
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Aprenda a usar o Visual Studio com a Hortonworks Sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
 

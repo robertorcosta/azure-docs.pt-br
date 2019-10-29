@@ -1,5 +1,5 @@
 ---
-title: Backup e replicação para Apache HBase e Apache Phoenix no Azure HDInsight
+title: Backup & replicação para Apache HBase, Phoenix – Azure HDInsight
 description: Configurar o backup e a replicação para o Apache HBase e o Apache Phoenix no Azure HDInsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 3674ce1a2882fb87b79f69a98c643c73653cddc4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9611199cf08084505381223ef485ae2b6f00cb21
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810453"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044706"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurar backup e replicação para Apache HBase e Apache Phoenix no HDInsight
 
@@ -206,6 +206,6 @@ As etapas gerais para configurar a replicação são:
 
 Para habilitar a replicação no HDInsight, aplique uma Ação de Script ao seu cluster do HDInsight de origem em execução. Para obter uma explicação da habilitação da replicação no seu cluster, ou para fazer experiências com replicação nos clusters de exemplo criados em redes virtuais usando modelos de gerenciamento de recursos do Azure, consulte [Configurar replicação do Apache HBase](apache-hbase-replication.md). Esse artigo também inclui instruções para habilitar a replicação de metadados de Phoenix.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Configure a replicação do Apache HBase](apache-hbase-replication.md)

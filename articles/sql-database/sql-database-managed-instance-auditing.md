@@ -13,12 +13,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 04/08/2019
-ms.openlocfilehash: a4941038288b90bcbfd61660458c564ce64add9e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 23e3a15ac26cdf0950ee31fddad2af4a3b7414c2
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958498"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025379"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à Auditoria da instância gerenciada do Banco de Dados SQL do Azure
 
@@ -153,7 +153,7 @@ A seção a seguir descreve a configuração da auditoria na instância gerencia
 
 Para informações adicionais:
 
-- [Diferenças de auditoria entre bancos de dados individuais, pools elásticos e instâncias gerenciadas no Banco de Dados SQL do Azure e em bancos de dados do SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [Diferenças de auditoria entre bancos de dados individuais, pools elásticos e instâncias gerenciadas no banco de dados SQL do Azure e nos bancos de dados no SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CRIAR AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTERAR AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -171,7 +171,7 @@ Os logs de auditoria de uma instância gerenciada podem ser enviados para até m
 
 5. Selecione um destino para os eventos de auditoria – Hub de eventos, logs de Azure Monitor ou ambos. Configure os parâmetros necessários (por exemplo, espaço de trabalho do Log Analytics) para cada destino.
 
-6. Clique em **Salvar**.
+6. Clique em **Save** (Salvar).
 
     ![Definir as configurações de diagnóstico](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 
@@ -214,7 +214,7 @@ Para consumir dados de logs de auditoria do Hub de Eventos, você precisará con
 
 ### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Consumir e analisar logs armazenados em logs de Azure Monitor
 
-Se os logs de auditoria forem gravados nos logs de Azure Monitor, eles estarão disponíveis no espaço de trabalho Log Analytics, onde você poderá executar pesquisas avançadas nos dados de auditoria. Como ponto de partida, navegue até o espaço de trabalho log Analytics e, em seção *geral* , clique em *logs* e insira uma consulta `search "SQLSecurityAuditEvents"` simples, como: para exibir os logs de auditoria.  
+Se os logs de auditoria forem gravados nos logs de Azure Monitor, eles estarão disponíveis no espaço de trabalho Log Analytics, onde você poderá executar pesquisas avançadas nos dados de auditoria. Como ponto de partida, navegue até o espaço de trabalho Log Analytics e, em seção *geral* , clique em *logs* e insira uma consulta simples, como: `search "SQLSecurityAuditEvents"` para exibir os logs de auditoria.  
 
 Os logs de Azure Monitor fornecem informações operacionais em tempo real usando pesquisa integrada e painéis personalizados para analisar rapidamente milhões de registros em todas as suas cargas de trabalho e servidores. Para obter informações úteis adicionais sobre os comandos e o idioma de pesquisa de logs do Azure Monitor, consulte [referência de pesquisa de Azure monitor logs](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
@@ -225,20 +225,19 @@ Os logs de Azure Monitor fornecem informações operacionais em tempo real usand
 As principais diferenças entre a auditoria em bancos de dados no Banco de Dados SQL do Azure e em bancos de dados no SQL Server são:
 
 - Com a opção de implantação de instância gerenciada no Banco de Dados SQL do Azure, a auditoria funciona no nível do servidor e armazena os arquivos de log `.xel` no armazenamento de Blobs do Azure.
-- Com as opções de implantação de banco de dados individual e pool elástico no Banco de Dados SQL do Azure, a auditoria funciona no nível do banco de dados.
 - No SQL Server local/em máquinas virtuais, a auditoria funciona no nível do servidor, mas armazena os eventos em logs de eventos do Windows/do sistema de arquivos.
 
-A auditoria XEvent na instância gerenciada dá suporte aos destinos do armazenamento de Blobs do Azure. **Não há suporte** para logs de arquivo e do Windows.
+A auditoria XEvent na Instância Gerenciada oferece suporte a destinos de armazenamento de blobs do Azure. **Não há suporte** para logs de arquivo e do Windows.
 
 As principais diferenças na sintaxe `CREATE AUDIT` para a auditoria do armazenamento de Blobs do Azure são:
 
 - Uma nova sintaxe `TO URL` é fornecida e permite que você especifique a URL do contêiner de armazenamento de blobs do Azure onde arquivos `.xel` são colocados.
-- Uma nova sintaxe `TO EXTERNAL MONITOR` é fornecida para habilitar destinos de logs de Azure monitor e de Hub par.
+- Uma nova sintaxe `TO EXTERNAL MONITOR` é fornecida para habilitar o Hub par e Azure Monitor destinos de logs.
 - A sintaxe `TO FILE` **não tem suporte** porque a instância gerenciada do Banco de Dados SQL não pode acessar compartilhamentos de arquivos do Windows.
 - A opção de desligamento **não é compatível**.
 - **Não há suporte** para `queue_delay` de 0.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma lista completa de métodos de consumo de log de auditoria, consulte o [Introdução à auditoria de banco de dados do SQL](sql-database-auditing.md).
 - Para obter mais informações sobre os programas do Azure que dão suporte à conformidade com padrões, consulte a [central de confiabilidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde você pode encontrar a lista mais atual de certificações de conformidade do banco de dados SQL.

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 75b8ea5e8dcaed533eac424bb8df1d1862889490
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7f0d846a83312e28c305100e7c8dc74cc8140d7d
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592374"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023840"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o ponto de extremidade privado do Azure?
 
@@ -24,8 +24,8 @@ O ponto de extremidade privado do Azure é uma interface de rede que conecta voc
 
 |Propriedade  |Descrição |
 |---------|---------|
-|NaME    |    Um nome exclusivo dentro do grupo de recursos.      |
-|Redes    |  A sub-rede para implantar e alocar endereços IP privados de uma rede virtual. Para obter os requisitos de sub-rede, consulte a seção limitações neste artigo.         |
+|name    |    Um nome exclusivo dentro do grupo de recursos.      |
+|Sub-rede    |  A sub-rede para implantar e alocar endereços IP privados de uma rede virtual. Para obter os requisitos de sub-rede, consulte a seção limitações neste artigo.         |
 |Recurso de link privado    |   O recurso de link privado para se conectar usando a ID de recurso ou alias da lista de tipos disponíveis. Um identificador de rede exclusivo será gerado para todo o tráfego enviado para esse recurso.       |
 |Subrecurso de destino   |      O subrecurso a ser conectado. Cada tipo de recurso de link privado tem opções diferentes para selecionar com base na preferência.    |
 |Método de aprovação de conexão    |  Automático ou manual. Com base nas permissões de RBAC (controle de acesso baseado em função), seu ponto de extremidade privado pode ser aprovado automaticamente. Se você tentar se conectar a um recurso de link privado sem RBAC, use o método manual para permitir que o proprietário do recurso aprove a conexão.        |
@@ -52,9 +52,9 @@ Um recurso de link privado é o destino de destino de um determinado ponto de ex
  
 |Nome do recurso do link privado  |Tipo de recurso   |Sub-recursos  |
 |---------|---------|---------|
-|**Serviço de vínculo privado** (seu próprio serviço)   |  Microsoft. Network/privateLinkServices       | Esvaziá |
-|**Banco de Dados SQL do Azure** | Microsoft. SQL/Servers    |  SQL Server (sqlServer)        |
-|**SQL Data Warehouse do Azure** | Microsoft. SQL/Servers    |  SQL Server (sqlServer)        |
+|**Serviço de vínculo privado** (seu próprio serviço)   |  Microsoft. Network/privateLinkServices       | empty |
+|**Banco de Dados SQL do Azure** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
+|**SQL Data Warehouse do Azure** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
 |**armazenamento do Azure**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (Web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)       |
  
@@ -66,7 +66,7 @@ Você pode bloquear completamente suas cargas de trabalho de acessar pontos de e
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Acesso a um recurso de link privado usando o fluxo de trabalho de aprovação 
 Você pode se conectar a um recurso de link privado usando os seguintes métodos de aprovação de conexão:
-- Aprovado **automaticamente** quando você possui ou tem permissão no recurso de link particular específico. A permissão necessária é baseada no tipo de recurso de link privado no seguinte formato: Microsoft. \<Provider >/< resource_type >/privateEndpointConnectionApproval/action
+- Aprovado **automaticamente** quando você possui ou tem permissão no recurso de link particular específico. A permissão necessária é baseada no tipo de recurso de link privado no seguinte formato: Microsoft. Provedor de\<>/< resource_type >/privateEndpointConnectionApproval/action
 - Solicitação **manual** quando você não tem a permissão necessária e deseja solicitar acesso. Um fluxo de trabalho de aprovação será iniciado. O ponto de extremidade privado e a conexão de ponto de extremidade particular subsequente serão criados em um estado "pendente". O proprietário do recurso de link privado é responsável por aprovar a conexão. Depois de aprovado, o ponto de extremidade privado é habilitado para enviar o tráfego normalmente, conforme mostrado no diagrama de fluxo de trabalho de aprovação a seguir.  
 
 ![aprovação do fluxo de trabalho](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -91,7 +91,7 @@ O adaptador de rede associado ao ponto de extremidade privado contém o conjunto
 Você pode usar as seguintes opções para definir as configurações de DNS para pontos de extremidade privados: 
 - **Use o arquivo de host (recomendado apenas para teste)** . Você pode usar o arquivo de host em uma máquina virtual para substituir o DNS.  
 - **Use uma zona DNS privada**. Você pode usar zonas DNS privadas para substituir a resolução DNS para um determinado ponto de extremidade particular. Uma zona DNS privada pode ser vinculada à sua rede virtual para resolver domínios específicos.
-- **Use seu servidor DNS personalizado**. Você pode usar seu próprio servidor DNS para substituir a resolução DNS para um determinado recurso de link privado. Se o servidor DNS estiver hospedado em uma rede virtual, você poderá criar uma regra de encaminhamento de DNS para usar uma zona DNS privada para simplificar a configuração de todos os recursos de link privado.
+- **Use seu servidor DNS personalizado**. Você pode usar seu próprio servidor DNS para substituir a resolução DNS para um determinado recurso de link privado. Se o [servidor DNS](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server) estiver hospedado em uma rede virtual, você poderá criar uma regra de encaminhamento de DNS para usar uma zona DNS privada para simplificar a configuração de todos os recursos de link privado.
  
 > [!IMPORTANT]
 > Não é recomendável substituir uma zona que esteja ativamente em uso para resolver pontos de extremidade públicos. As conexões com recursos não poderão ser resolvidas corretamente sem o encaminhamento de DNS para o DNS público. Para evitar problemas, crie um nome de domínio diferente ou siga o nome sugerido para cada serviço abaixo. 
@@ -119,18 +119,18 @@ Seus aplicativos não precisam alterar a URL de conexão. Ao tentar resolver usa
 A tabela a seguir inclui uma lista de limitações conhecidas ao usar pontos de extremidade privados: 
 
 
-|Limitação |Descrição |Redução  |
+|Limitações |Descrição |Redução  |
 |---------|---------|---------|
 |As regras do NSG (grupo de segurança de rede) e as rotas definidas pelo usuário não se aplicam ao ponto de extremidade privado    |Não há suporte para NSG em pontos de extremidade privados. Embora as sub-redes que contenham o ponto de extremidade privado possam ter NSG associado a ela, as regras não serão efetivas no tráfego processado pelo ponto de extremidade privado. Você deve ter [imposição de políticas de rede desabilitada](disable-private-endpoint-network-policy.md) para implantar pontos de extremidade privados em uma sub-rede. O NSG ainda é imposto em outras cargas de trabalho hospedadas na mesma sub-rede. As rotas em qualquer sub-rede do cliente usarão um prefixo/32, alterando o comportamento de roteamento padrão requer um UDR semelhante  | Controle o tráfego usando regras de NSG para o tráfego de saída em clientes de origem. Implantar rotas individuais com o prefixo/32 para substituir rotas de ponto de extremidade particulares        |
 |Os pontos de extremidade privados não podem ser criados em sub-redes habilitadas para ponto de extremidades de serviço ou cargas de trabalho especializadas    |Pontos de extremidade privados não podem ser implantados em sub-redes habilitadas para pontos de extremidade de serviço ou sub-redes delegadas a cargas de trabalho especializadas|  Crie uma sub-rede separada para implantar os pontos de extremidade privados.        |
 |o ponto de extremidade privado só pode ser mapeado para o serviço de vínculo privado (pertencente ao cliente) na mesma região    |   Não há suporte para a conexão a um serviço de vínculo privado (seu próprio) de uma região diferente       |  Durante a visualização, você deve implantar seu serviço de vínculo privado na mesma região.        |
 |  A rede virtual emparelhada com pontos de extremidade privados só não tem suporte   |   Não há suporte para a conexão com pontos de extremidade privados em uma rede virtual emparelhada sem nenhuma outra carga de trabalho       | Implantar uma única VM na rede virtual emparelhada para habilitar a conectividade |
-|Cargas de trabalho especializadas não podem acessar pontos de extremidade privados    |   Os seguintes serviços implantados em sua rede virtual não podem acessar nenhum recurso de link privado usando pontos de extremidade privados:<br>Plano do serviço de aplicativo</br>Instância de contêiner do Azure</br>Azure NetApp Files</br>HSM Dedicado do Azure<br>       |   Sem mitigação durante a visualização.       |
+|Cargas de trabalho especializadas não podem acessar pontos de extremidade privados    |   Os seguintes serviços implantados em sua rede virtual não podem acessar nenhum recurso de link privado usando pontos de extremidade privados:<br>Plano do Serviço de Aplicativo</br>Azure Container Instance</br>Azure NetApp Files</br>HSM Dedicado do Azure<br>       |   Sem mitigação durante a visualização.       |
 
 
 ## <a name="next-steps"></a>Próximos passos
-- [Criar um ponto de extremidade privado para o servidor de banco de dados SQL usando o portal](create-private-endpoint-portal.md)
-- [Criar um ponto de extremidade privado para o servidor de banco de dados SQL usando o PowerShell](create-private-endpoint-powershell.md)
-- [Criar um ponto de extremidade privado para o servidor de banco de dados SQL usando a CLI](create-private-endpoint-cli.md)
-- [Criar um ponto de extremidade privado para a conta de armazenamento usando o portal](create-private-endpoint-storage-portal.md)
-- [Crie seu próprio serviço de vínculo privado usando Azure PowerShell](create-private-link-service-powershell.md)
+- [Criar um Ponto de Extremidade Privado para o Servidor do Banco de Dados SQL usando o portal](create-private-endpoint-portal.md)
+- [Criar um Ponto de Extremidade Privado para o Servidor do Banco de Dados SQL usando o PowerShell](create-private-endpoint-powershell.md)
+- [Criar um Ponto de Extremidade Privado para o Servidor do Banco de Dados SQL usando a CLI ](create-private-endpoint-cli.md)
+- [Criar um Ponto de Extremidade Privado para a conta de Armazenamento usando o portal ](create-private-endpoint-storage-portal.md)
+- [Criar seu próprio serviço de Link Privado usando o Azure PowerShell](create-private-link-service-powershell.md)

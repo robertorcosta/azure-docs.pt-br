@@ -3,7 +3,7 @@ title: Relatórios de atividade de entrada no portal do Azure Active Directory |
 description: Introdução aos relatórios de atividades de entrada no portal do Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/17/2019
-ms.author: markvi
+ms.date: 10/28/2019
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6121ca6c1636c8839110712310a1b94fe7fada49
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 553d882600203d0fa01cd876562d9ced7985d7a8
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619216"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043724"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -30,22 +30,24 @@ A arquitetura de relatórios no Azure AD (Azure Active Directory) consiste nos s
 
 - **Atividade** 
     - **Entradas** – Informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
-    - **Logs de Auditoria** - [Logs de Auditoria](concept-audit-logs.md) fornecer informações de atividades do sistema sobre usuários e gerenciamento de grupos, aplicativos gerenciados e atividades de diretório.
+    - Os **logs de auditoria** - logs de [auditoria](concept-audit-logs.md) fornecem informações de atividade do sistema sobre gerenciamento de usuários e de grupos, aplicativos gerenciados e atividades de diretório.
 - **Segurança** 
-    - **Entradas arriscadas** - Uma [entrada arriscada](concept-risky-sign-ins.md) é um indicador para uma tentativa de entrada que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário.
+    - **Entradas arriscadas** -uma [entrada arriscada](concept-risky-sign-ins.md) é um indicador para uma tentativa de entrada por alguém que não seja o proprietário legítimo de uma conta de usuário.
     - **Usuários sinalizados para risco** - Um [usuário arriscado](concept-user-at-risk.md) é um indicador de uma conta de usuário que pode ter sido comprometida.
 
-Este tópico fornece uma visão geral das atividades de entradas.
+Este artigo fornece uma visão geral do relatório de entradas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
-* Usuários nas funções Administrador de Segurança, Leitor de Segurança e Leitor de Relatório
+
+* Usuários nas funções administrador de segurança, leitor de segurança e leitor de relatório
 * Administradores globais
-* Além disso, qualquer usuário (não administrador) pode acessar suas próprias entradas 
+* Qualquer usuário (não administradores) pode acessar suas próprias entradas 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Qual licença do Azure AD você precisa para acessar a atividade de entrada?
-* O locatário deve ter uma licença do Azure AD Premium associada a ele para ver todo o relatório de atividade de entrada. Consulte [Introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para fazer upgrade da edição do Azure Active Directory. Observe que, se você não tiver dados das atividades antes da atualização, eles demorarão alguns dias para ser exibidos nos relatórios depois de atualizar para uma licença premium.
+
+* O locatário deve ter uma licença do Azure AD Premium associada a ele para ver todo o relatório de atividade de entrada. Consulte [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar sua edição do Azure Active Directory. Levará alguns dias para que os dados sejam exibidos nos relatórios após a atualização para uma licença Premium sem atividades de dados antes da atualização.
 
 ## <a name="sign-ins-report"></a>Relatório de entradas
 
@@ -55,9 +57,9 @@ O relatório de entradas de usuário fornece respostas para as seguintes pergunt
 * Quantos usuários entraram em uma semana?
 * Qual é o status dessas entradas?
 
-É possível acessar o relatório de entradas, selecionando **Entradas** na seção **Atividade** da folha **Azure Active Directory** no [portal do Azure](https://portal.azure.com). Observe que alguns registros de entrada podem levar até duas horas para ser exibidos no portal.
+Comece com [portal do Azure](https://portal.azure.com). Para acessar o relatório de entradas, selecione **entradas**, continue para o **monitoramento.** Pode levar até duas horas para que alguns registros de entrada sejam exibidos no Portal.
 
-![Atividade de entrada](./media/concept-sign-ins/61.png "Atividade de entrada")
+![Atividade de entrada](./media/concept-sign-ins/reporting-azure-sign-in-screen.png "Atividade de entrada")
 
 > [!IMPORTANT]
 > O relatório de entradas exibe apenas os **logins** interativos, isto é, os logins nos quais um usuário faz login manualmente usando seu nome de usuário e senha. Os logins não interativos, como a autenticação de serviço a serviço, não são exibidos no relatório de logins. 
@@ -71,19 +73,19 @@ Um log de entradas tem um modo de exibição de lista padrão que mostra:
 - O status da detecção de riscos
 - O status do requisito de MFA (autenticação multifator)
 
-![Atividade de entrada](./media/concept-sign-ins/01.png "Atividade de entrada")
+![Atividade de entrada](./media/concept-sign-ins/sign-in-activity.png "Atividade de entrada")
 
 Você pode personalizar o modo de exibição de lista clicando em **Colunas** na barra de ferramentas.
 
 ![Atividade de entrada](./media/concept-sign-ins/19.png "Atividade de entrada")
 
-Isso permite a você exibir campos adicionais ou remover campos que já estão exibidos.
+Exibe campos adicionais ou remove os campos que já estão exibidos.
 
 ![Atividade de entrada](./media/concept-sign-ins/02.png "Atividade de entrada")
 
 Selecione um item na exibição de lista para obter informações mais detalhadas.
 
-![Atividade de entrada](./media/concept-sign-ins/03.png "Atividade de entrada")
+![Atividade de entrada](./media/concept-sign-ins/basic-sign-in.png "Atividade de entrada")
 
 > [!NOTE]
 > Agora, os clientes podem solucionar problemas de políticas de acesso condicional por meio de todos os relatórios de entrada. Ao clicar na guia **acesso condicional** para um registro de entrada, os clientes podem examinar o status de acesso condicional e aprofundar-se nos detalhes das políticas que foram aplicadas à entrada e ao resultado de cada política.
@@ -93,7 +95,7 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 
 ## <a name="filter-sign-in-activities"></a>Filtrar atividades de entrada
 
-Para restringir os dados relatados a um nível que funciona para você, você pode filtrar os dados de entradas usando o campo de data como filtro padrão. Além disso, o Azure AD oferece uma ampla variedade de filtros adicionais que podem ser definidos.
+Primeiro, restringir os dados relatados a um nível que funciona para você. Em segundo lugar, filtre os dados de entrada usando o campo de data como filtro padrão. O Azure AD oferece uma ampla variedade de filtros adicionais que você pode definir.
 
 ![Atividade de entrada](./media/concept-sign-ins/04.png "Atividade de entrada")
 
@@ -103,21 +105,21 @@ O filtro **Aplicativo** permite que você especifique o nome do aplicativo desej
 
 O filtro **status de entrada** permite que você selecione:
 
-- Todas
-- Êxito
-- Falha
+- Tudo
+- Sucesso
+- Failure
 
 O filtro **Acesso Condicional** permite que você selecione o status da política de Autoridade de Certificação para a entrada:
 
-- Todas
-- Não Aplicado
-- Êxito
-- Falha
+- Tudo
+- Não aplicado
+- Sucesso
+- Failure
 
 O filtro **Data** permite definir um período de tempo para os dados retornados.  
 Os valores possíveis são:
 
-- 1 mês
+- Um mês
 - 7 dias
 - 24 horas
 - Intervalo de tempo personalizado
@@ -128,28 +130,28 @@ Se você adicionar outros campos ao modo de exibição de entradas, esses campos
 ![Atividade de entrada](./media/concept-sign-ins/12.png "Atividade de entrada")
 
 - **Navegador**  
-    Esse filtro mostra todos os eventos em que as tentativas de entrada foram executadas usando fluxos de navegador.
+    Esse filtro mostra todos os eventos em que as tentativas de entrada foram tentadas usando fluxos de navegador.
 - **Exchange ActiveSync (com suporte)**  
     Esse filtro mostra todas as tentativas de entrada em que o protocolo EAS (Exchange ActiveSync) foi tentado a partir de plataformas com suporte, como iOS, Android e Windows Phone.
 - **Exchange ActiveSync (sem suporte)**  
     Esse filtro mostra todas as tentativas de entrada nas quais o protocolo EAS foi tentado a partir de plataformas sem suporte, como o Linux distribuições.
-- **Aplicativos móveis e clientes de área de trabalho** Esse filtro mostra todas as tentativas de entrada que não estavam usando fluxos de navegador. Isso pode ser aplicativos móveis de qualquer plataforma usando qualquer protocolo ou de aplicativos cliente de desktop, como Office no Windows ou MacOS.
+- **Aplicativos móveis e clientes de área de trabalho** O filtro mostra todas as tentativas de entrada que não estavam usando fluxos de navegador. Por exemplo, aplicativos móveis de qualquer plataforma usando qualquer protocolo ou de aplicativos cliente de desktop como Office no Windows ou MacOS.
   
 - **Outros clientes**
     - **IMAP**  
         Um cliente de email herdado usando IMAP para recuperar email.
     - **MAPI**  
         Office 2013, onde a ADAL está habilitada e está usando MAPI.
-    - **Clientes mais antigos do Office**  
+    - **Clientes do Office antigos**  
         Office 2013 em sua configuração padrão em que a ADAL não está habilitada e está usando MAPI ou o Office 2016 em que a ADAL foi desabilitada.
     - **POP**  
         Um cliente de email herdado usando POP3 para recuperar email.
-    - **SMTP**  
+    - **PROTOCOLO**  
         Um cliente de email herdado usando SMTP para enviar email.
 
 ## <a name="download-sign-in-activities"></a>Baixar atividades de entrada
 
-Você poderá [baixar os dados de entradas](quickstart-download-sign-in-report.md), caso queira trabalhar com esses dados fora do portal do Azure. Clicar em **baixar** oferece a opção de criar um arquivo CSV ou JSON dos registros 250.000 mais recentes.  
+Clique na opção **baixar** para criar um arquivo CSV ou JSON dos registros 250.000 mais recentes. Comece com [baixar os dados de entradas](quickstart-download-sign-in-report.md) se quiser trabalhar com eles fora do portal do Azure.  
 
 ![Baixar](./media/concept-sign-ins/71.png "Baixar")
 
@@ -159,7 +161,7 @@ Você poderá [baixar os dados de entradas](quickstart-download-sign-in-report.m
 
 ## <a name="sign-ins-data-shortcuts"></a>Atalhos dos dados de entradas
 
-Além do Azure AD, o portal do Azure fornece pontos de entrada adicionais aos dados de entradas:
+O Azure AD e o portal do Azure fornecem pontos de entrada adicionais para os dados de entrada:
 
 - Visão geral da proteção de segurança de identidade
 - Usuários
@@ -168,7 +170,7 @@ Além do Azure AD, o portal do Azure fornece pontos de entrada adicionais aos da
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Dados de entradas de usuário na proteção de segurança de identidade
 
-O grafo de entrada do usuário na página Visão geral da **proteção de segurança de identidade** mostra as agregações semanais de entradas para todos os usuários em um determinado período de tempo. O padrão para o período é de 30 dias.
+O grafo de entrada do usuário na página Visão geral da **proteção de segurança de identidade** mostra as agregações semanais de entradas. O padrão para o período de tempo é de 30 dias.
 
 ![Atividade de entrada](./media/concept-sign-ins/06.png "Atividade de entrada")
 
@@ -183,16 +185,16 @@ Cada linha na lista de atividades de entrada mostra:
 
 Ao clicar em um item, você verá mais detalhes sobre a operação de entrada:
 
-- ID de usuário
-- User
-- Nome de usuário
-- ID do Aplicativo
+- Id de Usuário
+- Usuário
+- Nome de Usuário
+- ID do aplicativo
 - Aplicativo
 - Cliente
 - Location
 - Endereço IP
-- Date
-- MFA Necessário
+- Data
+- MFA obrigatório
 - Status de entrada
 
 > [!NOTE]
@@ -208,33 +210,31 @@ Com uma exibição centrada no aplicativo de seus dados de entrada, você pode r
 
 * Quem está usando meus aplicativos?
 * Quais são os três principais aplicativos em sua organização?
-* Recentemente, eu implantei um aplicativo. Como ele está se saindo?
+* Como está o meu aplicativo mais recente?
 
-Seu ponto de entrada para esses dados é composto pelos três principais aplicativos em sua organização no relatório dos 30 últimos dias, presente na seção **Visão geral**, em **Aplicativos empresariais**.
+O ponto de entrada para esses dados são os três principais aplicativos em sua organização. Os dados estão contidos no relatório últimos 30 dias na seção **visão geral** em **aplicativos empresariais**.
 
 ![Atividade de entrada](./media/concept-sign-ins/10.png "Atividade de entrada")
 
-As agregações semanais do grafo de uso do aplicativo de entradas para os três principais aplicativos em um determinado período de tempo. O padrão para o período é de 30 dias.
+Os gráficos de uso de aplicativo geram agregações semanais de entradas para os três principais aplicativos em um determinado período de tempo. O padrão para o período é de 30 dias.
 
-![Atividade de entrada](./media/concept-sign-ins/47.png "Atividade de entrada")
+![Atividade de entrada](./media/concept-sign-ins/graph-chart.png "Atividade de entrada")
 
 Se desejar, você pode definir o foco em um aplicativo específico.
 
-![Relatórios](./media/concept-sign-ins/single_spp_usage_graph.png "Relatórios")
+![Relatórios](./media/concept-sign-ins/single-app-usage-graph.png "Relatório")
 
 Quando você clica em um dia no grafo de uso do aplicativo, pode obter uma lista detalhada das atividades de entrada.
 
 A opção **Entradas** oferece uma visão geral completa de todos os eventos de entrada para seus aplicativos.
 
-![Atividade de entrada](./media/concept-sign-ins/11.png "Atividade de entrada")
-
 ## <a name="office-365-activity-logs"></a>Logs de atividade do Office 365
 
-Você pode exibir os logs de atividade do Office 365 no [centro de administração do Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Embora a atividade do Office 365 e os logs de atividades do Azure AD compartilhem muitos recursos de diretório, somente o Microsoft 365 centro de administração fornece uma visão completa dos logs de atividade do Office 365. 
+Você pode exibir os logs de atividade do Office 365 no [centro de administração do Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Considere o ponto que, a atividade do Office 365 e os logs de atividade do Azure AD compartilham um número significativo de recursos de diretório. Somente o centro de administração Microsoft 365 fornece uma visão completa dos logs de atividades do Office 365. 
 
 Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Códigos de erro do relatório de atividade de entrada](reference-sign-ins-error-codes.md)
 * [Políticas de retenção de dados do Azure AD](reference-reports-data-retention.md)

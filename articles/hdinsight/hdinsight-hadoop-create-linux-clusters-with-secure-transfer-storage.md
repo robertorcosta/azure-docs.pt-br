@@ -1,5 +1,5 @@
 ---
-title: Criar um cluster Hadoop com contas de armazenamento para transferência segura no Azure HDInsight
+title: Apache Hadoop & armazenamento seguro do transr-Azure HDInsight
 description: Saiba como criar clusters HDInsight com contas de armazenamento do Azure com transferência segura habilitada.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: d182ca9f74f86922a4d8c94c9b3557f6111b7d53
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: b8a5d48e977009cf592f271760232a3b0138c8c5
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098754"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044955"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Criar um cluster Apache Hadoop com contas de armazenamento de transferência segura no Azure HDInsight
 
@@ -23,7 +23,7 @@ O recurso [Transferência segura exigida](../storage/common/storage-require-secu
 
 Antes de começar este artigo, você deve ter:
 
-* **Assinatura do Azure**: Para criar uma conta de avaliação gratuita de um mês, acesse [azure.microsoft.com/free](https://azure.microsoft.com/free).
+* **Assinatura do Azure**: para criar uma conta de avaliação gratuita de um mês, acesse [azure.microsoft.com/free](https://azure.microsoft.com/free).
 * **Uma conta de Armazenamento do Azure com transferência segura habilitada**. Para obter as instruções, consulte [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) e [Exigir transferência segura](../storage/common/storage-require-secure-transfer.md).
 * **Um contêiner de Blob na conta de armazenamento**.
 
@@ -60,7 +60,7 @@ Há várias opções para adicionar outras contas de armazenamento com transfer�
 - Crie um cluster usando o [Portal do Azure](https://portal.azure.com) e especifique a conta de armazenamento vinculada.
 - Use ações de script para adicionar outras contas de armazenamento com transferência segura habilitada a um cluster existente do HDInsight. Para saber mais, confira [Adicionar outras contas de armazenamento ao HDInsight](hdinsight-hadoop-add-storage.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, você aprendeu a criar um cluster HDInsight e a habilitar a transferência segura para as contas de armazenamento.
 
 Para saber mais sobre como analisar dados com o HDInsight, consulte os seguintes artigos:

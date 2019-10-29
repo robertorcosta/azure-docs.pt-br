@@ -7,14 +7,14 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8ae5c9b6b52ea13e3d0981664e8c920cc5b47a01
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 2e96a2a2dd5504c906b5fb84b643467a83518f21
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263550"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027578"
 ---
-# <a name="overview-custom-rules-for-web-application-firewall-v2"></a>Visão geral: Regras personalizadas para o Firewall do aplicativo Web v2
+# <a name="overview-custom-rules-for-web-application-firewall-v2"></a>Visão geral: regras personalizadas para o Firewall do aplicativo Web v2
 
 O WAF (firewall do aplicativo Web) de gateway Aplicativo Azure v2 vem com um conjunto de regras pré-configurado e gerenciado por plataforma que oferece proteção contra vários tipos diferentes de ataques. Esses ataques incluem scripts entre sites, injeção de SQL e outros. Se você for um administrador de WAF, talvez queira escrever suas próprias regras para ampliar as regras de conjunto de regras principais. Suas regras podem bloquear ou permitir o tráfego solicitado com base nos critérios de correspondência.
 
@@ -32,6 +32,9 @@ Se você quiser usar o *ou* o para duas condições diferentes, as duas condiç�
 > O número máximo de regras personalizadas de WAF é 100. Para obter mais informações sobre os limites do gateway de aplicativo, consulte [assinatura e limites de serviço, cotas e restrições do Azure](../azure-subscription-service-limits.md#application-gateway-limits).
 
 Também há suporte para expressões regulares em regras personalizadas, assim como nos conjuntos de regras principais. Para obter exemplos dessas regras, consulte "exemplo 3" e "exemplo 5" em [criar e usar regras personalizadas de firewall do aplicativo Web](create-custom-waf-rules.md).
+
+> [!NOTE]
+> As regras personalizadas não estão disponíveis no WAF de SKU v1.
 
 ## <a name="allowing-or-blocking-traffic"></a>Permitindo ou bloqueando o tráfego
 
@@ -107,14 +110,14 @@ Atualmente, o tipo de regra deve ser **MatchRule**.
 
 A variável de correspondência deve ser uma das seguintes:
 
-- RemoteAddr: O endereço IP ou o nome do host da conexão do computador remoto
-- RequestMethod: O método de solicitação HTTP (obter, postar, colocar, excluir e assim por diante).
-- QueryString A variável no URI.
-- Argumentos: Os argumentos que são enviados no corpo da POSTAgem. As regras personalizadas que usam essa variável de correspondência serão aplicadas somente se o cabeçalho Content-Type estiver definido como "application/x-www-form-urlencoded" e "multipart/form-data".
-- RequestUri: O URI da solicitação.
-- RequestHeaders Os cabeçalhos da solicitação.
-- RequestBody A variável que contém todo o corpo da solicitação como um todo. As regras personalizadas que usam essa variável de correspondência serão aplicadas somente se o cabeçalho Content-Type estiver definido como "application/x-www-form-urlencoded". 
-- RequestCookies: Os cookies da solicitação.
+- RemoteAddr: o endereço IP ou o nome do host da conexão do computador remoto
+- RequestMethod: o método de solicitação HTTP (GET, POST, PUT, DELETE e assim por diante).
+- QueryString: a variável no URI.
+- Deargs: os argumentos que são enviados no corpo da POSTAgem. As regras personalizadas que usam essa variável de correspondência serão aplicadas somente se o cabeçalho Content-Type estiver definido como "application/x-www-form-urlencoded" e "multipart/form-data".
+- RequestUri: o URI da solicitação.
+- RequestHeaders: os cabeçalhos da solicitação.
+- RequestBody: a variável que contém todo o corpo da solicitação como um todo. As regras personalizadas que usam essa variável de correspondência serão aplicadas somente se o cabeçalho Content-Type estiver definido como "application/x-www-form-urlencoded". 
+- RequestCookies: os cookies da solicitação.
 
 ### <a name="selector-optional"></a>Seletor (opcional)
 
@@ -124,8 +127,8 @@ O seletor descreve o campo da coleção matchVariable. Por exemplo, se matchVari
 
 O operador deve ser um dos seguintes:
 
-- IPMatch: Esse operador é usado somente quando a variável de correspondência é *RemoteAddr*.
-- Seja A entrada é a mesma que a Matchvalue.
+- IPMatch: esse operador é usado somente quando a variável de correspondência é *RemoteAddr*.
+- Equals: a entrada é igual a Matchvalue.
 - Contém:
 - LessThan
 - GreaterThan
@@ -158,12 +161,12 @@ O campo matchValues é uma lista de valores a serem correspondidos, que pode ser
 
 O campo ação oferece as seguintes opções: 
 
-- Permitir: Autoriza a transação e ignora todas as regras subsequentes. Isso significa que a solicitação especificada é adicionada à lista de permissões e, depois que ela é correspondida, a solicitação para uma avaliação adicional e é enviada para o pool de back-end. As regras que estão na lista de permissões não são avaliadas para regras personalizadas adicionais ou regras gerenciadas.
+- Permitir: autoriza a transação e ignora todas as regras subsequentes. Isso significa que a solicitação especificada é adicionada à lista de permissões e, depois que ela é correspondida, a solicitação para uma avaliação adicional e é enviada para o pool de back-end. As regras que estão na lista de permissões não são avaliadas para regras personalizadas adicionais ou regras gerenciadas.
 
-- Bloquear: Bloqueia a transação com base em *SecDefaultAction* (modo de detecção/prevenção). Como a ação permitir, depois que a solicitação é avaliada e adicionada à lista de bloqueios, a avaliação é interrompida e a solicitação é bloqueada. As solicitações subsequentes que atendem às mesmas condições não são avaliadas. Eles são bloqueados somente. 
+- Bloquear: bloqueia a transação com base em *SecDefaultAction* (modo de detecção/prevenção). Como a ação permitir, depois que a solicitação é avaliada e adicionada à lista de bloqueios, a avaliação é interrompida e a solicitação é bloqueada. As solicitações subsequentes que atendem às mesmas condições não são avaliadas. Eles são bloqueados somente. 
 
-- Façam Permite que a regra grave no log e permite que o restante das regras seja executado para avaliação. As regras personalizadas subsequentes são avaliadas em ordem de prioridade, seguidas pelas regras gerenciadas.
+- Log: permite que a regra grave no log e permite que o restante das regras seja executado para avaliação. As regras personalizadas subsequentes são avaliadas em ordem de prioridade, seguidas pelas regras gerenciadas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu sobre regras personalizadas, você pode [criar suas próprias regras personalizadas](create-custom-waf-rules.md).
