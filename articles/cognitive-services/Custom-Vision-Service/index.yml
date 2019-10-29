@@ -2,8 +2,8 @@
 title: Documentação da Visão Personalizada
 summary: A Visão Personalizada é um serviço cognitivo que permite compilar, implantar e aprimorar seus próprios classificadores de imagens. Um classificador de imagens é um serviço de IA que aplica rótulos (que representam classes) a imagens, de acordo com suas características visuais.
 metadata:
-  title: Documentação da Visão Personalizada
-  description: A Visão Personalizada é um serviço cognitivo que permite compilar, implantar e aprimorar seus próprios classificadores de imagens. Um classificador de imagens é um serviço de IA que aplica rótulos (que representam classes) a imagens, de acordo com suas características visuais.
+  title: Documentação da Visão Personalizada – Inícios rápidos, tutoriais, referência de API – Serviços Cognitivos do Azure | Microsoft Docs
+  description: A Visão Personalizada é um serviço cognitivo que permite criar, implantar e aprimorar seus próprios classificadores de imagens. Um classificador de imagens é um serviço de IA que aplica rótulos (que representam classes) a imagens, de acordo com suas características visuais.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: custom-vision
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 5be5dcd64345de32e37413932869574391573c60
-  ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+  ms.openlocfilehash: 21e4c324b947cb863614f50bb2ee0bfe09246372
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2019
-  ms.locfileid: "72176180"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72931632"
 landingContent:
 - title: Sobre a Visão Personalizada
   linkLists:
@@ -128,3 +128,11 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
     - text: CLI (interface de linha de comando) do Azure
       url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+- title: Ajuda e comentários
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: UserVoice
+      url: https://cognitive.uservoice.com/forums/598141-custom-vision-service
+    - text: Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/microsoft-cognitive

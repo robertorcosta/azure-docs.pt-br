@@ -1,5 +1,7 @@
-- name: Documentação da Grade de Eventos
+- name: Documentação da Grade de Eventos do Azure
   href: index.yml
+- name: Alternar para a documentação do IoT Edge para a Grade de Eventos
+  href: edge/pub-sub-events-webhook-local.md
 - name: Visão geral
   items:
     - name: O que é Grade de Eventos?

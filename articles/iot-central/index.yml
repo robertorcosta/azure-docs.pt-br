@@ -1,36 +1,132 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentação do Azure IoT Central
+### YamlMime:Hub
+title: Documentação das soluções do IoT Central
+summary: Explore a documentação das soluções e do serviço Azure IoT Central.
+brand: azure
 metadata:
-  title: 'Documentação do Azure IoT Central - Tutoriais, Referência de API | Microsoft Docs'
-  description: 'O Azure IoT Central é uma solução SaaS (software como serviço) totalmente gerenciada que facilita conectar, monitorar e gerenciar seus ativos de IoT em escala. O Azure IoT Central simplifica a configuração inicial de sua solução IoT e reduz o ônus do gerenciamento, custos operacionais e sobrecarga de um projeto IoT típico. Saiba como criar, personalizar, gerenciar e usar um aplicativo do Azure IoT Central com nossos tutoriais e guias de início rápido.'
-  author: dominicbetts
-  ms.topic: landing-page
-  ms.date: 11/08/2017
-  ms.author: dobett
+  title: Hub de documentação do Azure IoT Central
+  description: Explore a documentação das soluções e do serviço Azure IoT Central.
   ms.service: iot-central
-  services: iot-central
-  manager: timlt
-abstract:
-  description: 'O Azure IoT Central é uma solução SaaS (software como serviço) totalmente gerenciada que facilita conectar, monitorar e gerenciar seus ativos de IoT em escala. O Azure IoT Central simplifica a configuração inicial de sua solução IoT e reduz o ônus do gerenciamento, custos operacionais e sobrecarga de um projeto IoT típico. Saiba como criar, personalizar, gerenciar e usar um aplicativo do Azure IoT Central com nossos tutoriais e guias de início rápido.'
-sections:
-  - title: Alerta de Recursos
-    items:
-      - type: paragraph
-        text: 'O Azure IoT Central fez a transição para usar o Serviço de Provisionamento de Dispositivos no Hub IoT (DPS) do Azure para todas as conexões dos dispositivos. Você precisará usar o SDK do DPS para registrar e conectar os dispositivos ao seu aplicativo do Azure IoT Central. <a href="https://docs.microsoft.com/azure/iot-central/concepts-connectivity">Saiba mais sobre a conectividade do Dispositivo no Azure IoT Central.</a> Todos os aplicativos que usam o recurso de exportação de dados contínuos e/ou o modelo de soluções do Power BI precisarão alterar o contêiner de armazenamento de destino e criar um novo modelo de solução.'
-  - title: Guia de início rápido de 5 minutos
-    items:
-      - type: paragraph
-        text: Saiba como <a href="quick-deploy-iot-central">criar um novo aplicativo do Azure IoT Central</a>.
-  - title: Tutoriais Passo a Passo
-    items:
-      - type: paragraph
-        text: Saiba como personalizar e usar seu aplicativo do Azure IoT Central.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-define-device-type">Definir um novo tipo de dispositivo</a>
-          - html: <a href="tutorial-configure-rules">Configurar regras</a>
-          - html: <a href="tutorial-customize-operator">Personalizar exibição do operador</a>
-          - html: <a href="tutorial-monitor-devices">Monitorar seus dispositivos</a>
-          - html: <a href="tutorial-add-device">Adicionar um dispositivo real</a>
+  ms.topic: hub-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 10/25/2019
+  ms.openlocfilehash: e60c4da08d92cce1cd5964f78e8198f6c04069ef
+  ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 10/27/2019
+  ms.locfileid: "72965880"
+highlightedContent:
+  items:
+  - title: O que é o IoT Central?
+    itemType: overview
+    url: ./core/overview-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - title: O que são modelos de aplicativo?
+    itemType: concept
+    url: ./core/howto-use-app-templates-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - title: Arquitetura do Azure IoT Central
+    itemType: architecture
+    url: ./core/concepts-architecture-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - title: Crie um novo aplicativo
+    itemType: quickstart
+    url: ./core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - title: Definir um tipo de dispositivo e adicionar um dispositivo
+    itemType: tutorial
+    url: ./core/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - title: Monitorar seus dispositivos
+    itemType: tutorial
+    url: ./core/tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+conceptualContent:
+  items:
+  - title: Conectar-se (versão prévia dos recursos)
+    links:
+    - url: ./core/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      itemType: how-to-guide
+      text: Configurar um modelo de dispositivo
+    - url: ./core/tutorial-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      itemType: tutorial
+      text: Conectar um dispositivo IoT Plug and Play
+    footerLink:
+      url: ./core/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      text: Veja mais
+  - title: Permanecer conectado (versão prévia dos recursos)
+    links:
+    - url: ./core/howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      itemType: how-to-guide
+      text: Usar grupos de dispositivos
+    - url: ./core/howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      itemType: how-to-guide
+      text: Gerenciar seus dispositivos
+    - url: ./core/howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      itemType: concept
+      text: Como executar um trabalho
+    - url: ./core/howto-create-analytics-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      itemType: how-to-guide
+      text: Analisar dados do dispositivo
+    footerLink:
+      url: ./core/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      text: Veja mais
+  - title: Transformação (versão prévia dos recursos)
+    links:
+    - url: ./core/howto-create-telemetry-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      itemType: how-to-guide
+      text: Criar uma regra de telemetria
+    - url: ./core/howto-export-data-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      itemType: how-to-guide
+      text: Configure a exportação contínua de dados
+    footerLink:
+      url: ./core/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      text: Veja mais
+productDirectory:
+  title: Introdução à criação com modelos de aplicativos do setor
+  summary: Pronto para criar? Confira nossos modelos de aplicativos relevantes do setor criados para os construtores de solução.
+  items:
+  - title: Criação para varejo
+    imageSrc: ./retail/media/index/iot-central-retail.svg
+    links:
+    - text: Como criar soluções de varejo com o Azure IoT Central
+      url: ./retail/overview-iot-central-retail-pnp.md
+    - text: Criar um aplicativo de varejo
+      url: ./retail/tutorial-in-store-analytics-create-app-pnp.md
+    - text: Criar um aplicativo de gerenciamento de estoque inteligente
+      url: ./retail/tutorial-iot-central-smart-inventory-management-pnp.md
+    - text: Criar um aplicativo de logística conectada
+      url: ./retail/tutorial-iot-central-connected-logistics-pnp.md
+    - text: Criar um aplicativo de centro de distribuição digital
+      url: ./retail/tutorial-iot-central-digital-distribution-center-pnp.md
+  - title: Criação para serviços de saúde
+    imageSrc: ./healthcare/media/index/iot-central-healthcare.svg
+    links:
+    - url: ./healthcare/overview-iot-central-healthcare.md
+      text: Criar soluções de serviços de saúde com o IoT Central
+    - url: ./healthcare/tutorial-continuous-patient-monitoring.md
+      text: Criar um aplicativo de monitoramento contínuo do paciente
+  - title: Criação para energia
+    imageSrc: ./energy/media/index/iot-central-energy.svg
+    links:
+    - url: ./energy/overview-iot-central-energy.md
+      text: Criar soluções de energia com o IoT Central
+    - url: ./energy/tutorial-smart-meter-app.md
+      text: Criar um aplicativo de monitoramento de medidor inteligente
+    - url: ./energy/tutorial-solar-panel-app.md
+      text: Criar um aplicativo de monitoramento de painel solar
+  - title: Criação para o governo
+    imageSrc: ./government/media/index/iot-central-government.svg
+    links:
+    - url: ./government/overview-iot-central-government.md
+      text: Criar soluções governamentais com o IoT Central
+    - url: ./government/tutorial-water-quality-monitoring.md
+      text: Criar um aplicativo de monitoramento da qualidade de água
+    - url: ./government/tutorial-water-consumption-monitoring.md
+      text: Criar um aplicativo de monitoramento do consumo de água
+    - url: ./government/tutorial-connected-waste-management.md
+      text: Criar um aplicativo de gerenciamento de resíduos conectado
+additionalContent:
+  sections:
+  - items:
+    - title: APIs do IoT Central
+      summary: Explore as APIs do IoT Central.
+      url: https://docs.microsoft.com/rest/api/azure/
+    - title: IoT Central no Microsoft Learn
+      summary: Explore o IoT Central no ambiente de área restrita gratuita.
+      url: https://aka.ms/iotcentralapimslearnjourney

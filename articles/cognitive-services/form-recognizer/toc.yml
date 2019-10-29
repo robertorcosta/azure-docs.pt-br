@@ -23,6 +23,10 @@
               href: quickstarts/python-receipts.md
     - name: Usar o .NET SDK
       href: quickstarts/dotnet-sdk.md
+- name: Tutoriais
+  items:
+    - name: Usar o Reconhecimento de Formulários com os Aplicativos Lógicos
+      href: tutorial-form-recognizer-with-logic-apps.md
 - name: Guias de instruções
   items:
     - name: Criar um conjunto de dados de treinamento

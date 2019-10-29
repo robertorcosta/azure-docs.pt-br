@@ -62,22 +62,31 @@
           href: virtual-machines-windows-portal-sql-server-provision.md
         - name: Usar PowerShell do Azure
           href: virtual-machines-windows-ps-sql-create.md
-    - name: Registrar com o provedor de recursos
-      href: virtual-machines-windows-sql-register-with-resource-provider.md
-    - name: Alterar o modelo de licenciamento
-      href: virtual-machines-windows-sql-ahb.md
-    - name: Alterar a edição
-      href: virtual-machines-windows-sql-change-edition.md
+    - name: Registrar-se com o RP da VM do SQL
+      displayName: 'resource provider, registration'
+      items:
+        - name: VM única
+          href: virtual-machines-windows-sql-register-with-resource-provider.md
+        - name: Registrar várias VMs em massa
+          href: virtual-machines-windows-sql-bulk-register-with-resource-provider.md
+    - name: Gerenciar
+      items:
+        - name: Modelo de licenciamento
+          displayName: 'ahb, ahub, payg, change, modify, update'
+          href: virtual-machines-windows-sql-ahb.md
+        - name: Edição
+          displayName: 'change, modify, update'
+          href: virtual-machines-windows-sql-change-edition.md
+        - name: Armazenamento do Azure para backup e restauração
+          href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
     - name: Migrar
       items:
-        - name: Migrar um banco de dados do SQL Server
+        - name: Banco de dados do SQL Server para VM
           href: virtual-machines-windows-migrate-sql.md
         - name: VM para uma nova região
           href: virtual-machines-windows-sql-move-different-region.md
     - name: Configurar alta disponibilidade
       items:
-        - name: Usar o Armazenamento do Azure para backup e restauração
-          href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
         - name: Grupo de disponibilidade Always On
           items:
             - name: CLI da VM do SQL do Azure

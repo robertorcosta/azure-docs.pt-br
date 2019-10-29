@@ -1,0 +1,62 @@
+- name: Documentação do IoT Edge para a Grade de Eventos
+  href: index.yml
+- name: Alternar para a documentação da Grade de Eventos do Azure
+  href: ../overview.md
+- name: Visão geral
+  items:
+    - name: O que é a Grade de Eventos no IoT Edge?
+      href: overview.md
+- name: Tutoriais
+  items:
+    - name: Publicar e assinar eventos no local
+      href: pub-sub-events-webhook-local.md
+    - name: Publicar e assinar eventos na nuvem
+      href: pub-sub-events-webhook-cloud.md
+    - name: Encaminhar eventos para a Grade de Eventos do Azure
+      href: forward-events-event-grid-cloud.md
+    - name: Encaminhar eventos para o Hub IoT do Azure
+      href: forward-events-iothub.md
+    - name: Reagir aos eventos do Armazenamento de Blobs localmente
+      href: react-blob-storage-events-locally.md
+- name: Exemplos
+  href: 'https://github.com/Azure/event-grid-iot-edge'
+- name: Conceitos
+  items:
+    - name: Conceitos da Grade de Eventos
+      href: concepts.md
+    - name: Segurança e autenticação
+      href: security-authentication.md
+    - name: Esquemas de evento
+      href: event-schemas.md
+    - name: Entregar e tentar novamente
+      href: delivery-retry.md
+    - name: Envio em lote de saída
+      href: delivery-output-batching.md
+    - name: Filtragem avançada
+      href: advanced-filtering.md
+- name: Guias de instruções
+  items:
+    - name: Manter o estado
+      items:
+        - name: Linux
+          href: persist-state-linux.md
+        - name: Windows
+          href: persist-state-windows.md
+    - name: Configurar protocolos de API
+      href: configure-api-protocol.md
+    - name: Configurar a autenticação do cliente
+      href: configure-client-auth.md
+    - name: Configurar a autenticação do assinante do webhook
+      href: configure-webhook-subscriber-auth.md
+    - name: Configurar a autenticação de identidade
+      href: configure-identity-auth.md
+    - name: Solucionar problemas
+      href: troubleshoot.md
+- name: Referência
+  items:
+    - name: API REST
+      href: api.md
+    - name: Configurar a Grade de Eventos
+      href: configure-event-grid.md
+    - name: Esquema de configuração do Módulo Gêmeo
+      href: twin-json.md

@@ -3,7 +3,7 @@ title: Como gerenciar seu ambiente do Azure Time Series Insights usando modelos 
 description: Este artigo descreve como gerenciar seu ambiente do Azure Time Series Insights programaticamente usando o Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.devlang: csharp
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3aa6d06add1d80512eda0e62888b4a36760e98c
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: f7a88dafb9662e404cedf10334b22af149a3cd16
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274791"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991207"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar recursos do Time Series Insights usando modelos do Azure Resource Manager
 
@@ -24,7 +24,7 @@ Este artigo descreve como criar e implantar Time Series Insights recursos usando
 
 O Time Series Insights oferece suporte aos seguintes recursos:
 
-   | Resource | DESCRIÇÃO |
+   | Grupos | Descrição |
    | --- | --- |
    | Ambiente | Um ambiente de Time Series Insights é um agrupamento lógico de eventos que são lidos de agentes de evento, armazenados e disponibilizados para consulta. Para obter mais informações, consulte [planejar seu ambiente de Azure Time Series insights](time-series-insights-environment-planning.md) |
    | Origem do Evento | Uma fonte de evento é uma conexão com um agente de eventos de onde o Time Series Insights lê e ingere eventos no ambiente. As fontes de evento com suporte no momento são o Hub IoT e o Hub de Eventos. |
@@ -59,19 +59,19 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
 
    * Parâmetros obrigatórios
 
-     | Parâmetro | DESCRIÇÃO |
+     | . | Descrição |
      | --- | --- |
      | eventHubNamespaceName | O namespace do hub de eventos de origem. |
      | eventHubName | O nome do hub de eventos de origem. |
      | consumerGroupName | O nome do grupo consumidor que o serviço Time Series Insights usará para ler os dados do hub de eventos. **OBSERVAÇÃO:** para evitar a contenção de recursos, esse grupo consumidor deve ser dedicado ao serviço Time Series Insights e não deve ser compartilhado com outros leitores. |
-     | environmentName | O nome do ambiente. O nome não pode incluir: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` e quaisquer caracteres de controle. Todos os outros caracteres são permitidos.|
-     | eventSourceName | O nome do recurso filho da fonte do evento. O nome não pode incluir: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` e quaisquer caracteres de controle. Todos os outros caracteres são permitidos. |
+     | environmentName | O nome do ambiente. O nome não pode incluir: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`e quaisquer caracteres de controle. Todos os outros caracteres são permitidos.|
+     | eventSourceName | O nome do recurso filho da fonte do evento. O nome não pode incluir: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`e quaisquer caracteres de controle. Todos os outros caracteres são permitidos. |
 
     <div id="optional-parameters"></div>
 
    * Parâmetros opcionais
 
-     | Parâmetro | DESCRIÇÃO |
+     | . | Descrição |
      | --- | --- |
      | existingEventHubResourceId | Uma ID de recurso opcional de um Hub de Eventos existente que será conectada ao ambiente do Time Series Insights através da fonte do evento. **OBSERVAÇÃO:** o usuário que vai implantar o modelo deve ter privilégios para executar a operação listkeys no Hub de Eventos. Se nenhum valor for transmitido, um novo hub de eventos será criado pelo modelo. |
      | environmentDisplayName | Um nome amigável opcional para exibição nas ferramentas ou interfaces de usuário em vez do nome do ambiente. |
@@ -250,6 +250,6 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
        <img src="https://azuredeploy.net/deploybutton.png"/>
     </a>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre como gerenciar programaticamente os recursos do Time Series Insights usando APIs REST, confira [Gerenciamento do Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights-management/).

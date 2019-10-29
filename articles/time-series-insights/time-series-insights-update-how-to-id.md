@@ -1,62 +1,78 @@
 ---
 title: Melhores práticas para escolher uma ID do Time Series na Versão Prévia do Azure Time Series Insights | Microsoft Docs
 description: Noções básicas sobre as práticas recomendadas quando você escolhe uma ID do Time Series na Versão prévia do Azure Time Series Insights.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7057ce27cbbba8d70835493fc91a88ad823369bb
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 48f1fb542f5e28c7b8130d03cd86442390a8ad56
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947194"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989935"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Práticas recomendadas para escolher uma ID do Time Series
 
-Este artigo aborda a chave de partição da Versão prévia do Azure Time Series Insights, a ID do Time Series e as práticas recomendadas para escolher uma.
+Este artigo resume a importância da ID da série temporal para seu ambiente de visualização Azure Time Series Insights e as práticas recomendadas para escolher uma.
 
 ## <a name="choose-a-time-series-id"></a>Escolha uma ID do Time Series
 
-Escolher uma ID do Time Series é como escolher uma chave de partição para um banco de dados. É uma decisão importante que deve ser tomada em tempo de design. Não é possível atualizar um ambiente existente da Versão prévia do Time Series Insights para usar uma ID do Time Series diferente. Em outras palavras, quando um ambiente é criado com uma ID do Time Series, a política é uma propriedade imutável que não pode ser alterado.
+Escolher uma ID do Time Series é como escolher uma chave de partição para um banco de dados. Ele precisa ser selecionado enquanto você estiver criando um ambiente de visualização de Time Series Insights. É uma propriedade *imutável* . Ou seja, depois de criar um ambiente de visualização de Time Series Insights com uma ID de série temporal, você não poderá alterá-lo para esse ambiente. 
 
 > [!IMPORTANT]
-> A ID do Time Series é imutável e diferencia maiúsculas de minúsculas (não pode ser alterada depois de definida).
+> A ID da série temporal diferencia maiúsculas de minúsculas.
 
-Tendo isso em mente, selecionar a ID do Time Series adequada é essencial. Quando você seleciona uma ID do Time Series, considere estas práticas recomendadas a seguir:
+A seleção de uma ID de série temporal apropriada é crítica. Aqui estão algumas das práticas recomendadas que você pode seguir:
 
-* Escolha um nome de propriedade que tenha uma ampla gama de valores e tenha padrões de acesso uniformes. É uma prática recomendada ter uma chave de partição com muitos valores distintos (por exemplo, centenas ou milhares). Para muitos clientes, isso será algo como DeviceID ou SensorID no JSON.
+* Escolha uma chave de partição com muitos valores distintos (por exemplo, centenas ou milhares). Em muitos casos, essa pode ser a ID do dispositivo, ID do sensor ou ID de marca em seu JSON.
 * A ID do Time Series deve ser exclusiva no nível do nó folha do seu [Modelo do Time Series](./time-series-insights-update-tsm.md).
-* Uma cadeia de caracteres de nome de propriedade de ID do Time Series pode ter até 128 caracteres e valores de propriedade de ID do Time Series que podem ter até 1024 caracteres.
-* Se estiverem faltando alguns valores de propriedade de ID do Time Series exclusivo, eles são tratados como valores nulos, que fazem parte da restrição de exclusividade.
-
-Além disso, você pode selecionar até *três* (3) propriedades de chave como sua ID do Time Series.
+* Se a origem do evento for um hub IoT, a ID da série temporal provavelmente será *iothub-Connection-Device-ID*.
+* O limite de caracteres para a cadeia de caracteres do nome da propriedade da ID da série temporal é 128. Para o valor da propriedade da ID da série temporal, o limite de caracteres é 1.024.
+* Se um valor de propriedade exclusivo para a ID da série temporal estiver ausente, ele será tratado como um valor nulo e seguirá a mesma regra da restrição de exclusividade.
+* Você também pode selecionar até *três* Propriedades de chave como sua ID de série temporal. Sua combinação será uma chave composta que representa a ID da série temporal.  
 
   > [!NOTE]
-  > Suas *três* (3) propriedades de chave devem ser cadeias de caracteres.
+  > Suas propriedades de três chaves devem ser cadeias de caracteres.
+  > Você precisaria consultar essa chave composta em vez de uma propriedade de cada vez.
 
-Os cenários a seguir descrevem como selecionar mais de uma propriedade de chave como sua ID do Time Series:  
+Os cenários a seguir descrevem a seleção de mais de uma propriedade de chave como sua ID de série temporal.  
 
-### <a name="scenario-one"></a>Cenário um
+### <a name="example-1-time-series-id-with-a-unique-key"></a>Exemplo 1: ID de série temporal com uma chave exclusiva
 
-* Você tem frotas herdadas de ativos, cada uma com uma chave exclusiva.
-* Por exemplo, uma frota é identificada exclusivamente pela propriedade *deviceId* e outra em que a propriedade exclusiva é *objectId*. Nenhuma das frotas contém a propriedade exclusiva da outra frota. Neste exemplo, você seleciona duas chaves, deviceId e objectId, como chaves exclusivas.
-* Podemos aceitar valores nulos e a ausência de uma propriedade na carga do evento é contado como um valor `null`. Essa também é a maneira apropriada para lidar com o envio de dados para duas fontes de eventos diferentes em que os dados em cada fonte de eventos têm ID do Time Series exclusiva.
+* Você tem frotas de ativos herdados. Cada um tem uma chave exclusiva.
+* Uma frota é identificada exclusivamente pela propriedade **DeviceID**. Para outra frota, a propriedade Unique é **ObjectID**. Nenhuma frota contém a propriedade exclusiva da outra frota. Neste exemplo, você selecionaria duas chaves, **DeviceID** e **ObjectID**, como chaves exclusivas.
+* Aceitamos valores nulos e a falta de uma presença de propriedade no conteúdo do evento conta como um valor nulo. Essa também é a maneira apropriada de lidar com o envio de dados para duas origens de evento, em que os dados em cada origem de evento têm uma ID de série temporal exclusiva.
 
-### <a name="scenario-two"></a>Cenário dois
+### <a name="example-2-time-series-id-with-a-composite-key"></a>Exemplo 2: ID de série temporal com uma chave composta
 
 * Você precisa que várias propriedades sejam exclusivas dentro do mesma frota de ativos. 
-* Por exemplo, digamos que você é um construtor civil inteligente e implanta sensores em cada sala. Em cada sala, normalmente você têm os mesmos valores para *sensorId*, como *sensor1*, *sensor2* e *sensor3*.
-* Além disso, o prédio tem números de andar e salas iguais nos locais da propriedade *flrRm*, que têm valores como *1a*, *2b*, *3a* , e assim por diante.
-* Finalmente, você tem uma propriedade, *location*, que contém valores como *Redmond*, *Barcelona* e *Tóquio*. Para criar a exclusividade, você criaria as três propriedades a seguir como suas chaves de ID do Time Series: *sensorId*, *flrRm* e *location*.
+* Você é um fabricante de prédios inteligentes e implanta sensores em todas as salas. Em cada sala, você normalmente tem os mesmos valores para **sensorid**. Os exemplos são **sensor1**, **sensor2**e **sensor3**.
+* Seu edifício tem sobreposição de piso e números de sala entre sites na propriedade **flrRm**. Esses números têm valores como **1a**, **2B**e **3a**.
+* Você tem uma propriedade, **local**, que contém valores como **Redmond**, **Barcelona**e **Tokyo**. Para criar a exclusividade, você designa as três propriedades a seguir como suas chaves de ID de série temporal: **sensorid**, **flrRm**e **local**.
 
-## <a name="next-steps"></a>Próximas etapas
+Exemplo de evento bruto:
 
-* Leia mais sobre [Modelagem de dados](./time-series-insights-update-tsm.md).
+```JSON
+{
+  "sensorId": "sensor1",
+  "flrRm": "1a",
+  "location": "Redmond",
+  "temperature": 78
+}
+```
 
-* Planeje o [ambiente do Azure Time Series Insights (Versão prévia)](./time-series-insights-update-plan.md).
+Na portal do Azure, você pode inserir essa chave composta como: 
+
+`[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]`
+
+## <a name="next-steps"></a>Próximos passos
+
+* Leia mais sobre [modelagem de dados](./time-series-insights-update-tsm.md).
+
+* Planeje seu [ambiente de visualização de Azure Time Series insights](./time-series-insights-update-plan.md).

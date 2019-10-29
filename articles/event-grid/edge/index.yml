@@ -1,0 +1,67 @@
+### YamlMime:Landing
+title: Documentação da Grade de Eventos no IoT Edge
+summary: Saiba como usar a Grade de Eventos no IoT Edge para reagir a eventos relevantes gerados em dispositivos de borda em tempo quase real.
+metadata:
+  title: Documentação da Grade de Eventos no IoT Edge
+  description: Saiba como usar a Grade de Eventos no IoT Edge para reagir a eventos relevantes gerados em dispositivos de borda em tempo quase real.
+  services: event-grid
+  ms.service: event-grid
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 10/12/2019
+  ms.openlocfilehash: 4b79d64240b96ed41b535f8dbcd1155d67e76282
+  ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 10/28/2019
+  ms.locfileid: "72991606"
+landingContent:
+- title: Sobre a Grade de Eventos no IoT Edge
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a Grade de Eventos no IoT Edge?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Conceitos da Grade de Eventos
+      url: concepts.md
+    - text: Esquemas de evento
+      url: event-schemas.md
+    - text: Envio em lote de saída
+      url: delivery-output-batching.md
+    - text: Filtragem avançada
+      url: advanced-filtering.md
+    - text: Entregar e tentar novamente
+      url: delivery-retry.md
+- title: Cenários
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Publicar e assinar eventos no local
+      url: pub-sub-events-webhook-local.md
+    - text: Publicar e assinar eventos na nuvem
+      url: pub-sub-events-webhook-cloud.md
+    - text: Encaminhar eventos para a Grade de Eventos do Azure
+      url: forward-events-event-grid-cloud.md
+    - text: Encaminhar eventos para o Hub IoT do Azure
+      url: forward-events-event-grid-cloud.md
+    - text: Reagir aos eventos do Armazenamento de Blobs do Azure localmente
+      url: react-blob-storage-events-locally.md
+- title: Segurança
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Segurança e autenticação
+      url: security-authentication.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurar a autenticação do cliente
+      url: configure-client-auth.md
+    - text: Configurar a autenticação do assinante do webhook
+      url: configure-webhook-subscriber-auth.md
+    - text: Configurar a autenticação de identidade
+      url: configure-identity-auth.md

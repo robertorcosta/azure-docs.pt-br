@@ -1,0 +1,138 @@
+- name: Documentação do Azure IoT Central para Varejo
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: Como criar soluções de varejo com o Azure IoT Central
+      href: overview-iot-central-retail-pnp.md
+- name: Tutoriais
+  items:
+    - name: Finalização de compra na análise na loja
+      items:
+        - name: 1 – Criar um aplicativo de varejo
+          href: tutorial-in-store-analytics-create-app-pnp.md
+        - name: 2 – Personalizar o dashboard do operador
+          href: tutorial-in-store-analytics-customize-dashboard-pnp.md
+        - name: 3 – Exportar dados e visualizar insights
+          href: tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
+    - name: Gerenciamento de estoque inteligente
+      items:
+        - name: Criar um aplicativo de gerenciamento de estoque inteligente
+          href: tutorial-iot-central-smart-inventory-management-pnp.md
+    - name: Logística conectada
+      items:
+        - name: Criar um aplicativo de logística conectada
+          href: tutorial-iot-central-connected-logistics-pnp.md
+    - name: Centro de distribuição digital
+      items:
+        - name: Criar um aplicativo de centro de distribuição digital
+          href: tutorial-iot-central-digital-distribution-center-pnp.md
+- name: Conceitos
+  items:
+    - name: Arquitetura do modelo de aplicativo de logística conectada
+      href: architecture-connected-logistics-pnp.md
+    - name: Arquitetura do modelo de aplicativo de centro de distribuição digital
+      href: architecture-digital-distribution-center-pnp.md
+    - name: Arquitetura do modelo de aplicativo de gerenciamento de estoque inteligente
+      href: architecture-smart-inventory-management-pnp.md
+    - name: Arquitetura da análise na loja
+      href: store-analytics-architecture.md
+    - name: Conectividade
+      href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+- name: Guias de instruções
+  items:
+    - name: Conectar dispositivos
+      items:
+        - name: Preparar e conectar um MXChip IoT DevKit
+          href: ../core/howto-connect-devkit-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Preparar e conectar um Rigado Cascade 500
+          href: ../core/howto-connect-rigado-cascade-500-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Preparar e conectar um dispositivo RuuviTag
+          href: ../core/howto-connect-ruuvi-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Monitorar a conectividade do dispositivo usando a CLI do Azure
+          href: ../core/howto-monitor-devices-azure-cli-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: Gerenciar dispositivos
+      items:
+        - name: Gerenciar seus dispositivos
+          href: ../core/howto-manage-devices-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Executar um trabalho
+          href: ../core/howto-run-a-job.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Usar grupos de dispositivos
+          href: ../core/howto-use-device-groups-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Modelo do dispositivo de versão
+          href: ../core/howto-version-device-template-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: Monitoramento e análise
+      items:
+        - name: Analisar dados do dispositivo
+          href: ../core/howto-create-analytics-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Criar webhooks em regras
+          href: ../core/howto-create-webhooks-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: Ações e extensibilidade
+      items:
+        - name: Configure a exportação contínua de dados
+          href: ../core/howto-export-data-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Criar regras personalizadas
+          href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Criar análises personalizadas com o Databricks
+          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Criar análises personalizadas com o Databricks
+          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: Administração
+      items:
+        - name: Alterar as configurações de aplicativo
+          href: ../core/howto-administer-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Exportar seu aplicativo
+          href: ../core/howto-use-app-templates-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Gerenciar usuários e funções
+          href: ../core/howto-manage-users-roles-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Gerenciar sua fatura
+          href: ../core/howto-view-bill-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Personalizar a interface do usuário do aplicativo
+          href: ../core/howto-customize-ui-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Adicionar blocos ao dashboard
+          href: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Gerenciar usando o portal do Azure
+          href: ../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Gerenciar usando a CLI do Azure
+          href: ../core/howto-manage-iot-central-from-cli.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Gerenciar usando o Azure PowerShell
+          href: ../core/howto-manage-iot-central-from-powershell.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Gerenciar usando o portal do CSP
+          href: ../core/howto-create-and-manage-applications-csp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: Personalização
+      items:
+        - name: Criar dashboards pessoais do Azure IoT Central
+          href: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Gerenciar suas preferências pessoais
+          href: ../core/howto-manage-preferences.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+        - name: Alternar chat ao vivo
+          href: ../core/howto-show-hide-chat.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+- name: Relacionados
+  items:
+    - name: Serviços de plataforma
+      items:
+        - name: Hub IoT
+          href: /azure/iot-hub
+        - name: IoT Plug and Play
+          href: /azure/iot-pnp
+        - name: Provisionamento de Dispositivos no Hub IoT
+          href: /azure/iot-dps
+        - name: Serviços Baseados no Local
+          href: /azure/location-based-services
+        - name: SDKs do Serviço
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: IoT Edge
+      items:
+        - name: Azure IoT Edge
+          href: /azure/iot-edge
+        - name: SDKs do dispositivo IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+- name: Recursos
+  items:
+    - name: Documentação da referência de API
+      href: 'https://go.microsoft.com/fwlink/?linkid=2109131'
+    - name: Solicitações de dados do cliente
+      href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+    - name: Navegadores com suporte
+      href: ../core/iot-central-supported-browsers.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json

@@ -7,16 +7,16 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: 04bcdee5f2772f6a6a2758af5316031ff29c7b06
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 581aecb113a2c6e0bb03d04de46c7dbeb71db3ce
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794989"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901381"
 ---
 # <a name="mobile-application-development-in-microsoft"></a>Desenvolvimento de aplicativos móveis na Microsoft
 Os tomadores de decisões, as equipes de desenvolvimento e o departamento de TI precisam criar uma estratégia sólida de desenvolvimento de aplicativos móveis que aborda muitos itens:
-- Direcione os tipos de aplicativos que correspondem a seu objetivo de negócios, como B2E (Business to Enterprise), B2B (Business to Business) ou B2C (Business to Consumer).
+- Defina como destino os tipos de aplicativos que correspondem a seu objetivo de negócios, como B2E (Business to Enterprise), B2B (entre empresas) ou B2C (Business to Consumer).
 - Decida se deseja investir e criar aplicativos para iOS, Android ou Windows com linguagens de plataforma única ou adotar uma abordagem de plataforma cruzada.
 - Forneça serviços de back-end que podem ser dimensionados.
 - Integre-se perfeitamente a dados de back-end, seja online ou offline.

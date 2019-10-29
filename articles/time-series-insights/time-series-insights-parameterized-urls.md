@@ -1,57 +1,56 @@
 ---
-title: Compartilhar Azure Time Series Insights exibições personalizadas com URLs com parâmetros | Microsoft Docs
-description: Este artigo descreve como desenvolver URLs com parâmetros no Azure Time Series Insights, para que uma exibição de cliente possa ser facilmente compartilhada.
+title: Compartilhar exibições personalizadas do Azure Time Series Insights com URLs parametrizadas | Microsoft Docs
+description: Este artigo descreve como desenvolver URLs parametrizadas no Azure Time Series Insights para que uma exibição do cliente possa ser facilmente compartilhada.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: e862cd604263c5125259344baf2e990ad56a3291
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: e62455a0c8412a579c0fab9d7fabd6016f47dbf3
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675844"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991105"
 ---
-# <a name="share-a-custom-view-using-a-parameterized-url"></a>Compartilhar uma exibição personalizada usando uma URL com parâmetros
+# <a name="share-a-custom-view-using-a-parameterized-url"></a>Compartilhar uma exibição personalizada usando uma URL parametrizada
 
 Para compartilhar uma exibição personalizada no Time Series Insights Explorer, você pode criar programaticamente uma URL com parâmetros da exibição personalizada.
 
-O Time Series Insights Explorer dá suporte a parâmetros de consulta de URL para especificar exibições na experiência diretamente da URL. Por exemplo, usando apenas a URL, você pode especificar um ambiente de destino, um predicado de pesquisa e um período de tempo desejado. Quando um usuário seleciona a URL personalizada, a interface fornece um link diretamente para esse ativo no portal de Time Series Insights. As políticas de acesso a dados se aplicam.
+O Time Series Insights Explorer dá suporte a parâmetros de consulta de URL para especificar exibições na experiência diretamente da URL. Por exemplo, usando apenas a URL, você pode especificar um ambiente de destino, um predicado de pesquisa e um período de tempo desejado. Quando um usuário seleciona a URL personalizada, a interface fornece um link diretamente para esse ativo no portal de Time Series Insights. Aplicam-se políticas de acesso a dados.
 
 > [!TIP]
 > * Veja a [demonstração de time Series insights](https://insights.timeseries.azure.com/samples)gratuita.
 > * Leia a documentação do [Time Series insights Explorer](./time-series-insights-explorer.md) que acompanha.
 
-## <a name="environment-id"></a>ID do ambiente
+## <a name="environment-id"></a>ID do Ambiente
 
 O parâmetro `environmentId=<guid>` especifica a ID do ambiente de destino. É um componente do FQDN de acesso a dados, e você pode encontrá-lo no canto superior direito da visão geral do ambiente na portal do Azure. É tudo o que precede `env.timeseries.azure.com`.
 
-Um parâmetro de ID de ambiente de exemplo é `?environmentId=10000000-0000-0000-0000-100000000108`.
+Um parâmetro de ID do ambiente de exemplo é `?environmentId=10000000-0000-0000-0000-100000000108`.
 
 ## <a name="time"></a>Tempo
 
-Você pode especificar valores de tempo absolutos ou relativos com uma URL com parâmetros.
+Você pode especificar valores de tempo relativos ou absolutos com uma URL parametrizada.
 
 ### <a name="absolute-time-values"></a>Valores de tempo absolutos
 
 Para valores de tempo absolutos, use os parâmetros `from=<integer>` e `to=<integer>`.
 
-* `from=<integer>` é um valor em milissegundos de JavaScript da hora de início para o intervalo de pesquisa.
-* `to=<integer>`is um valor em milissegundos de JavaScript da hora de término para o intervalo de pesquisa.
+* `from=<integer>` é um valor em milissegundos de JavaScript da hora de início para o alcance de pesquisa.
+* `to=<integer>` é um valor em milissegundos de JavaScript da hora de término para o alcance de pesquisa.
 
-Para identificar os milissegundos de JavaScript de uma data, confira [época & o conversor de carimbo de data/hora UNIX](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html).
+Para identificar os milissegundos de JavaScript para uma data, veja [Conversor de carimbo de data/hora Epoch & Unix](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html).
 
 ### <a name="relative-time-values"></a>Valores de tempo relativos
 
-Para um valor de tempo relativo, use `relativeMillis=<value>`, onde o *valor* está em milissegundos de JavaScript dos dados mais recentes no back-end.
+Para um valor de tempo relativo, use `relativeMillis=<value>`, onde *value* está em milissegundos de JavaScript dos dados mais recentes no back-end.
 
-Por exemplo, `&relativeMillis=3600000` exibe os mais recentes 60 minutos de dados.
+Por exemplo, `&relativeMillis=3600000` exibe os 60 minutos mais recentes dos dados.
 
 Os valores aceitos correspondem ao menu de **tempo rápido** do time Series insights Explorer e incluem:
 
@@ -71,9 +70,9 @@ O parâmetro `timeSeriesDefinitions=<collection of term objects>` especifica os 
 | . | Item de URL | Descrição |
 | --- | --- | --- |
 | **name** | `\<string>` | O nome do *termo*. |
-| **splitBy** | `\<string>` | O nome da coluna *pela qual dividir*. |
+| **splitBy** | `\<string>` | O nome da coluna para *dividido por*. |
 | **measureName** | `\<string>` | O nome da coluna de *medida*. |
-| **predicado** | `\<string>` | A cláusula *Where* para a filtragem do lado do servidor. |
+| **predicado** | `\<string>` | O cláusula *where* para filtragem do lado do servidor. |
 | **Uso** | `true` | Um parâmetro opcional que especifica o uso da soma para sua medida. </br>  Observe que, se `Events` for a medida selecionada, Count será selecionado por padrão.  </br>  Se `Events` não for selecionado, a média será selecionada por padrão. |
 
 * O par `multiChartStack=<true/false>` chave-valor habilita o empilhamento no gráfico.
@@ -84,8 +83,8 @@ O parâmetro `timeSeriesDefinitions=<collection of term objects>` especifica os 
 | Par (es) | Descrição |
 | --- | --- |
 | `multiChartStack=false` | o `true` é habilitado por padrão, assim, passe `false` para Stack. |
-| `multiChartStack=false&multiChartSameScale=true` | O empilhamento deve ser habilitado para usar a mesma escala do eixo Y entre os termos.  É `false` por padrão, então a passagem de ' true ' habilita essa funcionalidade. |
-| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unidades = dias, horas, minutos, segundos, milissegundos.  Sempre coloque a unidade em maiúscula. </br> Defina o número de unidades passando o inteiro desejado para timeBucketSize.  Observe que você suaviza até 7 dias.  |
+| `multiChartStack=false&multiChartSameScale=true` | O empilhamento deve estar habilitado para usar a mesma escala de eixo Y entre os termos.  É `false` por padrão, então a passagem de ' true ' habilita essa funcionalidade. |
+| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unidades = dias, horas, minutos, segundos e milissegundos.  Sempre colocar em maiuscula a unidade. </br> Defina o número de unidades passando o inteiro desejado ao timeBucketSize.  Observe que é possível suavizar até sete dias.  |
 | `timezoneOffset=-<integer>` | O inteiro é sempre em milissegundos. </br> Observe que essa funcionalidade é um pouco diferente do que habilitamos no Time Series Insights Explorer, no qual podemos permitir que você escolha local (horário do navegador) ou UTC. |
 
 ### <a name="examples"></a>Exemplos
@@ -114,11 +113,11 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 
 A URL acima descreve e compila a exibição do Time Series Insights Explorer:
 
-[Termos do Gerenciador de informações do ![Time Series](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
+[![termos do Time Series Insights Explorer](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 
 A exibição completa (incluindo o gráfico):
 
-[![Chart exibição](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+[exibição de gráfico de![](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
 
 ## <a name="next-steps"></a>Próximos passos
 
