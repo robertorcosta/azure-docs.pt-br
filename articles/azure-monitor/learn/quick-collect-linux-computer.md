@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
-ms.custom: mvc, seo-javascript-september2019
-ms.openlocfilehash: 72f50754a28f0bbf5648ae64299d28ff13e2ec31
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: 959f36107ab9f79d4e66cc23b0744f1dbb8b2690
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703048"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677957"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Início Rápido: Coletar dados de um computador Linux em um ambiente híbrido com o Azure Monitor
 
@@ -35,9 +35,9 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-a-workspace"></a>Criar um workspace
 
-1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Pesquise **Espaços de trabalho do Log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Escolha **workspaces do Log Analytics**.
 
-    ![Portal do Azure](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+    ![Como encontrar um workspace do Log Analytics no portal do Azure](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Selecione **Criar** e, em seguida, selecione opções para os seguintes itens:
 
@@ -47,7 +47,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
    * Selecione o **Local** no qual as VMs serão implantadas.  Para obter mais informações, consulte em quais [regiões o Log Analytics está disponível](https://azure.microsoft.com/regions/services/).
    * Se você estiver criando um workspace em uma nova assinatura feita depois de 2 de abril de 2018, ele usará o plano de preços *por GB* e a opção de selecionar um tipo de preço não estará disponível.  Se você estiver criando um workspace para uma assinatura existente feita antes de 2 de abril ou uma assinatura associada a uma inscrição de EA existente, selecione seu tipo de preço preferido.  Para obter mais informações sobre os tipos específicos, consulte [Detalhes de preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-        ![Criar folha de recursos do Log Analytics](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![Como criar um workspace do Log Analytics no portal do Azure](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. Depois de fornecer as informações necessárias no painel do **workspace do Log Analytics**, selecione **OK**.  
 
@@ -65,7 +65,7 @@ Antes de instalar o agente do Log Analytics para Linux, você precisa da ID do e
 
 3. Selecione **Configurações avançadas**:
 
-    ![Configurações avançadas do Log Analytics](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png) 
+    ![Menu Configurações Avançadas do Log Analytics no portal do Azure](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
  
 4. Selecione **Fontes Conectadas** e, em seguida, selecione **Servidores Linux**.
 
@@ -129,7 +129,7 @@ O Azure Monitor pode coletar eventos especificados do Syslog do Linux e de conta
 
 7. Quando você configura os contadores de desempenho do Linux para um novo espaço de trabalho do Log Analytics pela primeira vez, você tem a opção de criar rapidamente vários contadores comuns. Eles são listados com uma caixa de seleção ao lado de cada um.
 
-    ![Contadores de desempenho padrão do Windows selecionados](media/quick-collect-azurevm/linux-perfcounters-default.png)
+    ![Contadores de desempenho padrão do Linux selecionados no Azure Monitor](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     Selecione **Aplicar configuração abaixo aos meus computadores** e, em seguida, selecione **Adicionar os contadores de desempenho selecionados**. Eles são adicionados e predefinidos com um intervalo de amostragem de coleta de dez segundos.  
 

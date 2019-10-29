@@ -11,10 +11,10 @@ ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 10a10882efe05ef9e6bb86e54fcfcf8c5d73d225
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70098753"
 ---
 # <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Integração do controle do código-fonte para SQL Data Warehouse do Azure
@@ -31,13 +31,13 @@ Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Ser
 
 1. Em sua Organização do Azure DevOps, crie um projeto que hospedará seu projeto de banco de dados do SSDT por meio de um Repositório do Azure
 
-   ![Criar Projeto](media/sql-data-warehouse-source-control-integration/1-create-project-azure-devops.png "Criar Projeto")
+   ![Criar Projeto](media/sql-data-warehouse-source-control-integration/1-create-project-azure-devops.png "Criar projeto")
 
 2. Abra o Visual Studio e conecte-se à sua organização e projeto do Azure DevOps da etapa 1 selecionando "Gerenciar Conexões"
 
-   ![Gerenciar Conexões](media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Gerenciar Conexões")
+   ![Gerenciar Conexões](media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Gerenciar conexões")
 
-   ![Conectar](media/sql-data-warehouse-source-control-integration/3-connect.png "Conectar")
+   ![Conectar](media/sql-data-warehouse-source-control-integration/3-connect.png "Connect")
 
 3. Clone seu repositório Azure Repo de seu projeto para o computador local
 
@@ -47,11 +47,11 @@ Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Ser
 
 1. No Visual Studio, crie um novo Projeto de Banco de Dados do SQL Server com um diretório e um repositório Git local em seu **repositório clonado local**
 
-   ![Criar novo projeto](media/sql-data-warehouse-source-control-integration/5-create-new-project.png "Criar novo projeto")  
+   ![Criar projeto](media/sql-data-warehouse-source-control-integration/5-create-new-project.png "Criar um novo projeto")  
 
 2. Clique com o botão direito do mouse em seu sqlproject vazio e importe seu data warehouse para o projeto de banco de dados
 
-   ![Importar Projeto](media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Importar Projeto")  
+   ![Importar Projeto](media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Importar projeto")  
 
 3. No Team Explorer no Visual Studio, confirme suas alterações no repositório Git local 
 
@@ -67,11 +67,11 @@ Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Ser
 
 1. Verifique se as alterações foram enviadas por push para o Repositório do Azure atualizando uma coluna de tabela em seu projeto de banco de dados no SSDT (SQL Server Data Tools) do Visual Studio
 
-   ![Validar atualização de coluna](media/sql-data-warehouse-source-control-integration/8-validation-update-column.png "Validar atualização de coluna")
+   ![Validar coluna de atualização](media/sql-data-warehouse-source-control-integration/8-validation-update-column.png "Validar coluna de atualização")
 
 2. Confirme e envie por push a alteração do repositório local para seu Azure Repo
 
-   ![Enviar alterações por push](media/sql-data-warehouse-source-control-integration/9-push-column-change.png "Enviar alterações por push")
+   ![Efetuar push das alterações](media/sql-data-warehouse-source-control-integration/9-push-column-change.png "Enviar alterações por push")
 
 3. Verifique se a alteração foi enviada por push em seu repositório Azure Repo
 

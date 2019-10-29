@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 7ea4eecd5c27b6a9f14bc358c7db61da544e7530
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68825102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Tutorial: Integração do Azure Active Directory com Zscaler Two
@@ -177,7 +177,7 @@ Para configurar o logon único do Azure AD com o Zscaler Two, siga as etapas aba
 
 5. Na janela **Editar SAML**, execute as seguintes etapas: e clique em Salvar.  
             
-    ![Gerenciar usuários e autenticação](./media/zscaler-two-tutorial/ic800208.png "Gerenciar usuários e autenticação")
+    ![Gerenciar Usuários e Autenticação](./media/zscaler-two-tutorial/ic800208.png "Gerenciar Usuários e Autenticação")
     
     a. Na caixa de texto **URL do Portal SAML**, cole o a **URL de Logon** copiada do portal do Azure.
 
@@ -214,7 +214,7 @@ Para configurar o logon único do Azure AD com o Zscaler Two, siga as etapas aba
 
 3. Clique na guia **Conexões** .   
   
-     ![Conexões](./media/zscaler-two-tutorial/ic769493.png "Conexões")
+     ![Conexões](./media/zscaler-two-tutorial/ic769493.png "conexões")
 
 4. Clique em **Configurações da LAN** para abrir a caixa de diálogo **Configurações da LAN**.
 

@@ -1,5 +1,5 @@
 ---
-title: Criar várias instâncias de recursos usando o Azure Resource Manager | Microsoft Docs
+title: Criar várias instâncias de recursos – Azure Resource Manager
 description: Saiba como criar um modelo do Azure Resource Manager para criar várias instâncias de recurso do Azure.
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: cf2559b280a1c43269c0cf45d77ee98dcd5ee5a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1233ff4695a1f715801d78d70ea80ab84be2a36
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388755"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528257"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: Criar várias instâncias de recursos com modelos do Resource Manager
 
@@ -64,7 +64,7 @@ No Visual Studio Code, faça as quatro alterações a seguir:
 ![O Azure Resource Manager cria várias instâncias](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
 1. Adicione um elemento `copy` à definição de recurso de conta de armazenamento. No elemento de cópia, você especifica o número de iterações e uma variável para esse loop. O valor da contagem deve ser um número inteiro positivo e não pode exceder 800.
-2. A função `copyIndex()` retorna a iteração atual no loop. Você pode usar o índice como o prefixo do nome. `copyIndex()`é baseado em zero. Para deslocar o valor do índice, você pode passar um valor na função copyIndex(). Por exemplo, *copyIndex(1)*.
+2. A função `copyIndex()` retorna a iteração atual no loop. Você pode usar o índice como o prefixo do nome. `copyIndex()`é baseado em zero. Para deslocar o valor do índice, você pode passar um valor na função copyIndex(). Por exemplo, *copyIndex(1)* .
 3. Exclua o elemento **variables**, porque ele não é mais usado.
 4. Exclua o elemento **outputs**. Ele não é mais necessário.
 

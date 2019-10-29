@@ -1,5 +1,5 @@
 ---
-title: Exemplo de script da CLI do Azure – Criar uma definição de aplicativo gerenciado | Microsoft Docs
+title: Criar uma definição de aplicativo gerenciado – CLI do Azure
 description: Fornece uma amostra de script da CLI do Azure que cria uma definição de aplicativo gerenciado na assinatura.
 services: managed-applications
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: a653f2c10c28683c79f86c1c882bf00112f61ec0
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b5ac119aa2c4d79c046a6eeabe252801496caa1c
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332610"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528921"
 ---
 # <a name="create-a-managed-application-definition-with-azure-cli"></a>Criar uma definição de aplicativo gerenciado com a CLI do Azure
 

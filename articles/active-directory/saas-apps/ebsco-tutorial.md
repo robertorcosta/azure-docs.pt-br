@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/24/2019
+ms.date: 10/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebaf3a1d877025cafe8829bc937ef032a3c95d03
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f37085744b9a0e7785ef3a411d53e4df5d15e494
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163449"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595017"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ebsco"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao EBSCO
 
@@ -48,7 +48,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 * O EBSCO dá suporte ao provisionamento de usuário **just-in-time**
 
 > [!NOTE]
-> Como o identificador desse aplicativo é um valor de cadeia de caracteres fixo, apenas uma instância pode ser configurada em um locatário.
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
 
 ## <a name="adding-ebsco-from-the-gallery"></a>Adicionando EBSCO da galeria
 
@@ -68,10 +68,10 @@ Configure e teste o SSO do Azure AD com o EBSCO usando um usuário de teste cham
 Para configurar e testar o SSO do Azure AD com o EBSCO, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
-    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+    * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
 1. **[Configurar o SSO do EBSCO](#configure-ebsco-sso)** – para definir as configurações de logon único no lado do aplicativo.
-    1. **[Criar um usuário de teste do EBSCO](#create-ebsco-test-user)** – para ter um equivalente de B.Fernandes no EBSCO que esteja vinculado à representação de usuário do Azure AD.
+    * **[Criar um usuário de teste do EBSCO](#create-ebsco-test-user)** – para ter um equivalente de B.Fernandes no EBSCO que esteja vinculado à representação de usuário do Azure AD.
 1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -100,6 +100,21 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     o   **Custid** = Inserir ID de cliente exclusivo do EBSCO 
 
     o   **Profile** = Clientes podem personalizar o link para direcionar usuários a um perfil específico (dependendo do que adquirirem do EBSCO). Eles podem digitar uma ID de perfil específica. As IDs principais são eds (Serviço de descoberta de EBSCO) e ehost (bancos de dados do EBSOCOhost). Instruções para isso são fornecidas [aqui](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
+
+1. O aplicativo EBSCO espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+
+    ![image](common/default-attributes.png)
+
+    > [!Note]
+    > O atributo **nome** é obrigatório e é mapeado com o **valor Identificador de Nome** no aplicativo EBSCO. Isso é adicionado por padrão, então você não precisa adicioná-lo manualmente.
+
+1. Além do indicado acima, o aplicativo EBSCO espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
+
+    | NOME | Atributo de Origem|
+    | ---------------| --------------- |
+    | Nome   | user.givenname |
+    | Sobrenome   | user.surname |
+    | Email   | user.mail |
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -151,8 +166,8 @@ No caso de EBSCO, o provisionamento de usuários é automático.
 
 O Azure AD passa os dados necessários para o aplicativo EBSCO. O provisionamento de usuário do EBSCO pode ser automático OU exige uma única forma. Depende de se o cliente possui muitas contas de EBSCOhost pré-existentes com configurações pessoais salvadas. O mesmo pode ser discutido com a [equipe de suporte EBSCO](mailto:support@ebsco.com) durante a implementação. De qualquer forma, o cliente não precisa criar contas de EBSCOhost antes de testar.
 
-   >[!Note]
-   >Você pode automatizar o provisionamento/a personalização de usuário de EBSCOhost. Entre em contato com a [equipe de suporte EBSCO](mailto:support@ebsco.com) sobre o provisionamento just in time do usuário.
+   > [!Note]
+   > Você pode automatizar o provisionamento/a personalização de usuário de EBSCOhost. Entre em contato com a [equipe de suporte EBSCO](mailto:support@ebsco.com) sobre o provisionamento just in time do usuário.
 
 ## <a name="test-sso"></a>Testar o SSO
 
@@ -180,4 +195,3 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente o EBSCO com o Azure AD](https://aad.portal.azure.com/)
-

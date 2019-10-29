@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 10/21/2019
 ms.author: diberry
-ms.openlocfilehash: aaeddac98e3f192d5e6a87ecfd48005526379ff2
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: cf0ef1095946b1c8e9479b3cd47fe403baeed7d1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390996"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757118"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Tutorial: Identificar intenções e entidades comuns
 
@@ -63,12 +63,9 @@ O LUIS fornece várias entidades predefinidas para extração de dados comuns.
 
 1. Selecione as entidades a seguir na lista de entidades predefinidas e selecione **Pronto**:
 
-   * **[PersonName](luis-reference-prebuilt-person.md)** 
    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-     ![Captura de tela do número selecionado na caixa de diálogo de entidades predefinidas](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
-
-     Essas entidades ajudarão você a adicionar o reconhecimento de nome e local ao aplicativo cliente.
+     Essa entidade ajudará você a adicionar o reconhecimento de local ao aplicativo cliente.
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar enunciados de exemplo à intenção None 
 
@@ -86,79 +83,83 @@ O LUIS fornece várias entidades predefinidas para extração de dados comuns.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. Acesse o fim da URL na barra de endereço do navegador e insira `I want to cancel my trip to Seattle to see Bob Smith`. O último parâmetro da cadeia de consulta é `q`, a declaração **query**. 
+1. Acesse o fim da URL na barra de endereço do navegador e insira `I want to cancel my trip to Seattle`. O último parâmetro da cadeia de consulta é `q`, a declaração **query**. 
 
     ```json
     {
-      "query": "I want to cancel my trip to Seattle to see Bob Smith.",
+      "query": "I want to cancel my trip to Seattle",
       "topScoringIntent": {
-        "intent": "Utilities.ReadAloud",
-        "score": 0.100361854
+        "intent": "Utilities.Cancel",
+        "score": 0.1055009
       },
       "intents": [
         {
-          "intent": "Utilities.ReadAloud",
-          "score": 0.100361854
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.08102781
-        },
-        {
-          "intent": "Utilities.SelectNone",
-          "score": 0.0398852825
-        },
-        {
           "intent": "Utilities.Cancel",
-          "score": 0.0277276486
+          "score": 0.1055009
         },
         {
           "intent": "Utilities.SelectItem",
-          "score": 0.0220712926
+          "score": 0.02659072
         },
         {
-          "intent": "Utilities.StartOver",
-          "score": 0.0145813478
+          "intent": "Utilities.Stop",
+          "score": 0.0253379084
         },
         {
-          "intent": "None",
-          "score": 0.012434179
+          "intent": "Utilities.ReadAloud",
+          "score": 0.02528683
+        },
+        {
+          "intent": "Utilities.SelectNone",
+          "score": 0.02434013
         },
         {
           "intent": "Utilities.Escalate",
-          "score": 0.0122632384
+          "score": 0.009161292
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.006861785
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.00633448
         },
         {
           "intent": "Utilities.ShowNext",
-          "score": 0.008534077
+          "score": 0.0053827134
+        },
+        {
+          "intent": "None",
+          "score": 0.002602003
         },
         {
           "intent": "Utilities.ShowPrevious",
-          "score": 0.00547111453
+          "score": 0.001797354
         },
         {
           "intent": "Utilities.SelectAny",
-          "score": 0.00152912608
+          "score": 0.000831930141
         },
         {
           "intent": "Utilities.Repeat",
-          "score": 0.0005556819
-        },
-        {
-          "intent": "Utilities.FinishTask",
-          "score": 0.000169488427
+          "score": 0.0006924066
         },
         {
           "intent": "Utilities.Confirm",
-          "score": 0.000149565312
+          "score": 0.000606057351
         },
         {
           "intent": "Utilities.GoBack",
-          "score": 0.000141017343
+          "score": 0.000276725681
+        },
+        {
+          "intent": "Utilities.FinishTask",
+          "score": 0.000267822179
         },
         {
           "intent": "Utilities.Reject",
-          "score": 6.27324E-06
+          "score": 3.21784828E-05
         }
       ],
       "entities": [
@@ -167,18 +168,12 @@ O LUIS fornece várias entidades predefinidas para extração de dados comuns.
           "type": "builtin.geographyV2.city",
           "startIndex": 28,
           "endIndex": 34
-        },
-        {
-          "entity": "bob smith",
-          "type": "builtin.personName",
-          "startIndex": 43,
-          "endIndex": 51
         }
       ]
     }
     ```
 
-    O resultado previu a intenção de Utilities.Cancel com 80% de confiança e extraiu os dados de nome de cidade e de pessoa. 
+    O resultado previu a intenção de Utilities.Cancel com 80% de confiança e extraiu os dados de cidade. 
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos

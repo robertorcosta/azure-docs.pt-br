@@ -4,22 +4,21 @@ description: Saiba como executar aplicativos Web no Serviço de Aplicativo do Az
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: cfowler
-editor: ''
+manager: gwallace
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 08/30/2019
+ms.date: 10/21/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4f479ad60d74f1c7381b5fb776c5508aaa0785f1
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 258e547c58016cb449c74b058d02f2a2e4d7d683
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242250"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792749"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Criar um aplicativo Web do ASP.NET Framework no Azure
 
@@ -44,19 +43,19 @@ Crie um aplicativo Web ASP.NET seguindo estas etapas:
 
 1. Abra o Visual Studio e selecione **Criar novo projeto**.
 
-1. Em **Criar novo projeto**, localize e escolha **Aplicativo Web ASP.NET (.NET Framework)** para C# e, em seguida, selecione **Avançar**.
+2. Em **Criar novo projeto**, localize e escolha **Aplicativo Web ASP .NET (.NET Framework)** e, em seguida, selecione **Avançar**.
 
-1. Em **Configurar seu novo projeto**, dê ao aplicativo o nome _myFirstAzureWebApp_ e, em seguida, selecione, **Criar**.
+3. Em **Configurar seu novo projeto**, dê ao aplicativo o nome _myFirstAzureWebApp_ e, em seguida, selecione, **Criar**.
 
    ![Configurar seu projeto de aplicativo Web](./media/app-service-web-get-started-dotnet-framework/configure-web-app-project-framework.png)
 
-1. Você pode implantar qualquer tipo de aplicativo Web ASP.NET no Azure. Para este início rápido, escolha o modelo **MVC**. 
+4. Você pode implantar qualquer tipo de aplicativo Web ASP.NET no Azure. Para este início rápido, escolha o modelo **MVC**.
 
-1. Verifique se a autenticação está definida como **Sem Autenticação**. Selecione **Criar**.
+5. Verifique se a autenticação está definida como **Sem Autenticação**. Selecione **Criar**.
 
    ![Criar aplicativo Web ASP.NET](./media/app-service-web-get-started-dotnet-framework/select-mvc-template-vs2019.png)
 
-1. No menu do Visual Studio, selecione **Depurar** > **Iniciar sem Depuração** para executar o aplicativo Web localmente.
+6. No menu do Visual Studio, selecione **Depurar** > **Iniciar sem Depuração** para executar o aplicativo Web localmente.
 
    ![Executar o aplicativo localmente](./media/app-service-web-get-started-dotnet-framework/local-web-app.png)
 
@@ -64,7 +63,7 @@ Crie um aplicativo Web ASP.NET seguindo estas etapas:
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **myFirstAzureWebApp** e selecione **Publicar**.
 
-1. Escolha **Serviço de Aplicativo** e selecione **Publicar**.
+1. Escolha **Serviço de Aplicativo** e, em seguida, altere **Criar perfil** para **Publicar**.
 
    ![Publicar na página de visão geral do projeto](./media/app-service-web-get-started-dotnet-framework/publish-app-framework-vs2019.png)
 
@@ -99,9 +98,9 @@ Crie um aplicativo Web ASP.NET seguindo estas etapas:
 
 1. Em **Nome**, insira um nome de aplicativo exclusivo que inclua somente os caracteres válidos `a-z`, `A-Z`, `0-9` e `-`. Você pode aceitar o nome exclusivo gerado automaticamente. A URL do aplicativo Web é `http://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome do aplicativo.
 
-   ![Configurar nome do aplicativo](./media/app-service-web-get-started-dotnet-framework/web-app-name-framework-vs2019.png)
+2. Clique em **Criar** para começar a criar os recursos do Azure.
 
-1. Clique em **Criar** para começar a criar os recursos do Azure.
+   ![Configurar nome do aplicativo](./media/app-service-web-get-started-dotnet-framework/web-app-name-framework-vs2019.png)
 
 Depois que o assistente é concluído, ele publica o aplicativo Web ASP.NET no Azure e, em seguida, inicia o aplicativo no navegador padrão.
 
@@ -124,11 +123,7 @@ O nome do aplicativo especificado na página **Criar Novo Serviço de Aplicativo
    </div>
    ```
 
-1. Para implantar novamente no Azure, clique com o botão direito do mouse no projeto **myFirstAzureWebApp**, no **Gerenciador de Soluções** e selecione **Publicar**.
-
-1. Na página de resumo **Publicar**, selecione **Publicar**.
-
-   ![Página de resumo do Visual Studio para a publicação](./media/app-service-web-get-started-dotnet-framework/publish-summary-page-framework-vs2019.png)
+1. Para implantar novamente no Azure, clique com o botão direito do mouse no projeto **myFirstAzureWebApp**, no **Gerenciador de Soluções** e selecione **Publicar**. Em seguida, selecione **Publicar**.
 
 Quando a publicação está concluída, o Visual Studio inicia um navegador para a URL do aplicativo Web.
 
@@ -138,7 +133,7 @@ Quando a publicação está concluída, o Visual Studio inicia um navegador para
 
 1. Acesse o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo Web.
 
-1. No menu à esquerda, selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do seu aplicativo do Azure.
+2. No menu à esquerda, selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do seu aplicativo do Azure.
 
    ![Navegação no Portal para o aplicativo do Azure](./media/app-service-web-get-started-dotnet-framework/access-portal-framework-vs2019.png)
 
@@ -147,14 +142,6 @@ Quando a publicação está concluída, o Visual Studio inicia um navegador para
    ![Visão geral do Serviço de Aplicativo no portal do Microsoft Azure](./media/app-service-web-get-started-dotnet-framework/web-app-general-framework-vs2019.png)
 
    O menu à esquerda fornece páginas diferentes para configurar seu aplicativo.
-
-## <a name="video"></a>Vídeo
-
-Assista ao vídeo para ver este início rápido em ação e, depois, execute as etapas para publicar seu primeiro aplicativo .NET no Azure.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
-
-[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

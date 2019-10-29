@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: Assistente virtual personalizado que tem como prioridade o uso de voz (versão prévia), Java (Windows, Linux) – Serviço de Fala'
+title: 'Início Rápido: Assistente virtual voice-first personalizado (versão prévia), Java (Windows, Linux) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
-description: Neste Início Rápido, você aprenderá a usar o SDK (Software Development Kit) de Fala dos Serviços Cognitivos em um aplicativo de console Java. Você aprenderá como é possível conectar seu aplicativo cliente a um bot do Bot Framework criado anteriormente, configurado para usar o canal de Fala do Direct Line e proporcionar uma experiência de assistente virtual que tem como prioridade o uso de voz.
+description: Neste início rápido, você aprenderá a usar o SDK de Fala dos Serviços Cognitivos em um aplicativo de console Java. Você aprenderá a conectar seu aplicativo cliente a um bot do Bot Framework criado anteriormente, configurado para usar o canal de Fala do Direct Line e proporcionar uma experiência de assistente virtual voice-first.
 services: cognitive-services
 author: bidishac
 manager: nitinme
@@ -10,51 +10,51 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: bidishac
-ms.openlocfilehash: c5a6042e4b181190849b3759325e4aab0c22413b
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: ca3d650f9a53f536a00f2a11aca37b2a61556129
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71800030"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675522"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Início Rápido: Criar um assistente virtual que tem como prioridade o uso de voz com o SDK de Fala, Java
 
-Também estão disponíveis inícios rápidos para [conversão de fala em texto](quickstart-java-jre.md), [conversão de texto em fala](quickstart-text-to-speech-java-jre.md) e [tradução de fala](quickstart-translate-speech-java-jre.md).
+Também há inícios rápidos disponíveis para [conversão de fala em texto](quickstart-java-jre.md), [conversão de texto em fala](quickstart-text-to-speech-java-jre.md) e [tradução de fala](quickstart-translate-speech-java-jre.md).
 
-Neste artigo, você criará um aplicativo de console Java usando o [SDK de Fala dos Serviços Cognitivos](speech-sdk.md). O aplicativo se conectará a um bot criado anteriormente, configurado para usar o canal de Fala do Direct Line, enviar uma solicitação de voz e retornar uma atividade de resposta de voz (se configurado). O aplicativo é criado com o pacote Maven do SDK de Fala e o Java IDE do Eclipse no Windows, no Ubuntu Linux ou no macOS. Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
+Neste artigo, você criará um aplicativo de console Java usando o [SDK de Fala dos Serviços Cognitivos do Azure](speech-sdk.md). O aplicativo se conecta a um bot criado anteriormente, configurado para usar o canal de Fala do Direct Line, envia uma solicitação de voz e retorna uma atividade de resposta de voz (se configurada). O aplicativo é criado com o pacote Maven do SDK de Fala e o Java IDE do Eclipse no Windows, no Ubuntu Linux ou no macOS. Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido requer:
 
-* Sistema operacional: Windows (64 bits), Ubuntu Linux 16.04/18.04 (64 bits) ou macOS 10.13 ou posterior
-* [Java IDE do Eclipse](https://www.eclipse.org/downloads/)
-* [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* Sistema operacional: Windows (64 bits), Ubuntu Linux 16.04/18.04 (64 bits) ou macOS 10.13 ou posterior.
+* [Java IDE do Eclipse](https://www.eclipse.org/downloads/).
+* [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * Uma chave de assinatura do Azure para os Serviços de Fala. [Obtenha uma gratuitamente](get-started.md) ou crie-a no [portal do Azure](https://portal.azure.com).
-* Um bot pré-configurado criado usando o Bot Framework versão 4.2 ou posterior. O bot precisa assinar o novo canal "Fala do Direct Line" para receber entradas de voz.
+* Um bot pré-configurado criado com o Bot Framework versão 4.2 ou superior. O bot precisa assinar o novo canal Fala do Direct Line para receber entradas de voz.
 
     > [!NOTE]
-    > A Fala do Direct Line (Versão prévia) está disponível atualmente em um subconjunto de regiões dos Serviços de Fala. Consulte [a lista de regiões com suporte a assistentes virtuais com prioridade no uso de voz](regions.md#Voice-first virtual assistants) e implante seus recursos em uma dessas regiões.
+    > Atualmente, a Versão Prévia da Fala do Direct Line está disponível em um subconjunto de regiões dos Serviços de Fala. Confira [a lista de regiões compatíveis com assistentes virtuais voice-first](regions.md#voice-first-virtual-assistants) e implante seus recursos em uma dessas regiões.
 
-Se você estiver executando o Ubuntu 16.04/18.04, verifique se estas dependências estão instaladas antes de iniciar o Eclipse:
+Se estiver executando o Ubuntu 16.04/18.04, instale estas dependências antes de iniciar o Eclipse:
 
 ```console
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
-Se você estiver executando o Windows (64 bits), verifique se instalou os Pacotes Redistribuíveis do Microsoft Visual C++ para a sua plataforma:
+Se estiver executando o Windows (64 bits), verifique se você instalou o Pacote Redistribuível do Microsoft Visual C++ para a sua plataforma:
 * [Baixar Pacotes Redistribuíveis do Microsoft Visual C++ para Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 ## <a name="optional-get-started-fast"></a>Opcional: Introdução rápida
 
-Este Início Rápido descreverá, passo a passo, como criar um aplicativo cliente simples para conectá-lo ao bot habilitado para fala. Se você preferir se aprofundar, o código-fonte completo e pronto para compilação usado neste início rápido estará disponível nos [Exemplos de SDK de Fala](https://aka.ms/csspeech/samples) na pasta `quickstart`.
+Este início rápido descreve, passo a passo, como criar um aplicativo cliente simples para conectá-lo ao bot habilitado para fala. Caso você prefira se aprofundar no tópico, o código-fonte completo e pronto para compilação usado neste início rápido estará disponível nas [amostras do SDK de Fala](https://aka.ms/csspeech/samples) na pasta `quickstart`.
 
 ## <a name="create-and-configure-project"></a>Criar e configurar o projeto
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-Além disso, para habilitar o log, atualize o arquivo **pom.xml** para incluir a dependência a seguir.
+Além disso, para habilitar o log, atualize o arquivo *pom.xml* para incluir a seguinte dependência:
 
    ```xml
     <dependency>
@@ -68,11 +68,11 @@ Além disso, para habilitar o log, atualize o arquivo **pom.xml** para incluir a
 
 1. Para adicionar uma nova classe vazia ao projeto Java, selecione **Arquivo** > **Novo** > **Classe**.
 
-1. Na janela **Nova Classe Java**, insira **speechsdk.quickstart** no campo **Pacote** e **Principal** no campo **Nome**.
+1. Na janela **Nova Classe Java**, insira *speechsdk.quickstart* no campo **Pacote** e *Principal* no campo **Nome**.
 
    ![Captura de tela da janela Nova Classe Java](media/sdk/qs-java-jre-06-create-main-java.png)
 
-1. Abra a classe **Main** recém-criada e substitua o conteúdo do arquivo `Main.java` pelo código inicial a seguir.
+1. Abra a classe `Main` recém-criada e substitua o conteúdo do arquivo `Main.java` pelo seguinte código inicial:
 
     ```java
     package speechsdk.quickstart;
@@ -139,58 +139,58 @@ Além disso, para habilitar o log, atualize o arquivo **pom.xml** para incluir a
     }
     ```
 
-1. No método **main**, primeiro você configurará o `DialogServiceConfig` e o usará para criar uma instância do `DialogServiceConnector`. Isso será conectado ao canal de Fala do Direct Line para interagir com seu bot. Uma instância de `AudioConfig` também é usada para especificar a origem da entrada de áudio. Neste exemplo, o microfone padrão é usado com `AudioConfig.fromDefaultMicrophoneInput()`.
+1. No método `main`, primeiro você configurará o `DialogServiceConfig` e o usará para criar uma instância do `DialogServiceConnector`. Essa instância se conecta ao canal de Fala do Direct Line para interagir com o bot. Uma instância de `AudioConfig` também é usada para especificar a origem da entrada de áudio. Neste exemplo, o microfone padrão é usado com `AudioConfig.fromDefaultMicrophoneInput()`.
 
-    * Substitua a cadeia de caracteres `YourSubscriptionKey` por sua chave de assinatura, que pode ser obtida [aqui](get-started.md).
+    * Substitua a cadeia de caracteres `YourSubscriptionKey` por sua chave de assinatura, que pode ser obtida [neste site](get-started.md).
     * Substitua a cadeia de caracteres `YourServiceRegion` pela [região](regions.md) associada à sua assinatura.
     * Substitua a cadeia de caracteres `YourChannelSecret` por seu segredo do canal de Fala do Direct Line.
 
     > [!NOTE]
-    > A Fala do Direct Line (Versão prévia) está disponível atualmente em um subconjunto de regiões dos Serviços de Fala. Consulte [a lista de regiões com suporte a assistentes virtuais com prioridade no uso de voz](regions.md#voice-first-virtual-assistants) e implante seus recursos em uma dessas regiões.
+    > Atualmente, a Versão Prévia da Fala do Direct Line está disponível em um subconjunto de regiões dos Serviços de Fala. Confira [a lista de regiões compatíveis com assistentes virtuais voice-first](regions.md#voice-first-virtual-assistants) e implante seus recursos em uma dessas regiões.
 
     ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret
     final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
-    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only a subset of regions are currently supported
+    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: Only a subset of regions are currently supported.
     final DialogServiceConfig botConfig = DialogServiceConfig.fromBotSecret(channelSecret, subscriptionKey, region);
 
-    // Configure audio input from microphone.
+    // Configure audio input from a microphone.
     final AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 
-    // Create a DialogServiceConnector instance
+    // Create a DialogServiceConnector instance.
     final DialogServiceConnector connector = new DialogServiceConnector(botConfig, audioConfig);
     ```
 
-1. `DialogServiceConnector` depende de vários eventos para comunicar suas atividades de bot, resultados de reconhecimento de fala e outras informações. Adicione esses ouvintes de eventos em seguida.
+1. O conector `DialogServiceConnector` depende de vários eventos para comunicar as atividades do bot, os resultados de reconhecimento de fala e outras informações. Adicione esses ouvintes de eventos em seguida.
 
     ```java
-    // Recognizing will provide the intermediate recognized text while an audio stream is being processed
+    // Recognizing will provide the intermediate recognized text while an audio stream is being processed.
     connector.recognizing.addEventListener((o, speechRecognitionResultEventArgs) -> {
         log.info("Recognizing speech event text: {}", speechRecognitionResultEventArgs.getResult().getText());
     });
 
-    // Recognized will provide the final recognized text once audio capture is completed
+    // Recognized will provide the final recognized text once audio capture is completed.
     connector.recognized.addEventListener((o, speechRecognitionResultEventArgs) -> {
         log.info("Recognized speech event reason text: {}", speechRecognitionResultEventArgs.getResult().getText());
     });
 
-    // SessionStarted will notify when audio begins flowing to the service for a turn
+    // SessionStarted will notify when audio begins flowing to the service for a turn.
     connector.sessionStarted.addEventListener((o, sessionEventArgs) -> {
         log.info("Session Started event id: {} ", sessionEventArgs.getSessionId());
     });
 
-    // SessionStopped will notify when a turn is complete and it's safe to begin listening again
+    // SessionStopped will notify when a turn is complete and it's safe to begin listening again.
     connector.sessionStopped.addEventListener((o, sessionEventArgs) -> {
         log.info("Session stopped event id: {}", sessionEventArgs.getSessionId());
     });
 
-    // Canceled will be signaled when a turn is aborted or experiences an error condition
+    // Canceled will be signaled when a turn is aborted or experiences an error condition.
     connector.canceled.addEventListener((o, canceledEventArgs) -> {
         log.info("Canceled event details: {}", canceledEventArgs.getErrorDetails());
         connector.disconnectAsync();
     });
 
-    // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities.
+    // ActivityReceived is the main way your bot will communicate with the client and uses Bot Framework activities.
     connector.activityReceived.addEventListener((o, activityEventArgs) -> {
         final String act = activityEventArgs.getActivity().serialize();
             log.info("Received activity {} audio", activityEventArgs.hasAudio() ? "with" : "without");
@@ -200,7 +200,7 @@ Além disso, para habilitar o log, atualize o arquivo **pom.xml** para incluir a
         });
     ```
 
-1. Conecte o `DialogServiceConnector` à Fala do Direct Line invocando o método `connectAsync()`. Para testar seu bot, invoque o método `listenOnceAsync` para enviar a entrada de áudio do microfone. Além disso, use também o método `sendActivityAsync` para enviar uma atividade personalizada como uma cadeia de caracteres serializada. Essas atividades personalizadas podem fornecer dados adicionais que o bot usará na conversa.
+1. Conecte `DialogServiceConnector` à Fala do Direct Line invocando o método `connectAsync()`. Para testar seu bot, invoque o método `listenOnceAsync` para enviar a entrada de áudio do microfone. Além disso, use também o método `sendActivityAsync` para enviar uma atividade personalizada como uma cadeia de caracteres serializada. Essas atividades personalizadas podem fornecer dados adicionais que o bot usa na conversa.
 
     ```java
     connector.connectAsync();
@@ -213,11 +213,11 @@ Além disso, para habilitar o log, atualize o arquivo **pom.xml** para incluir a
 
 1. Salve as alterações no arquivo `Main`.
 
-1. Para dar suporte à reprodução de resposta, você adicionará uma classe extra que transformará o objeto PullAudioOutputStream retornado da API getAudio() para um InputStream Java para facilitar sua manipulação. Este ActivityAudioStream é uma classe especializada que manipulará a resposta de áudio do "Canal de fala de Direct Line". Ele fornecerá acessadores para buscar as informações de formato de áudio necessárias para lidar com a reprodução: Para fazer isso, selecione **Arquivo** > **Novo** > **Classe**.
+1. Para dar suporte à reprodução de resposta, adicione uma classe extra que transforma o objeto PullAudioOutputStream retornado da API getAudio() em um InputStream Java para facilitar a manipulação. Este `ActivityAudioStream` é uma classe especializada que manipula a resposta de áudio do canal de Fala do Direct Line. Ele fornece acessadores para efetuar fetch das informações de formato de áudio necessárias para manipular a reprodução. Para fazer isso, selecione **Arquivo** > **Novo** > **Classe**.
 
-1. Na janela **Nova Classe Java**, insira **speechsdk.quickstart** no campo **Pacote** e **ActivityAudioStream** no campo **Nome**.
+1. Na janela **Nova Classe Java**, insira *speechsdk.quickstart* no campo **Pacote** e *ActivityAudioStream* no campo **Nome**.
 
-1. Abra a classe **ActivityAudioStream** recém-criada e substitua-a pelo código fornecido abaixo.
+1. Abra a classe `ActivityAudioStream` recém-criada e substitua-a pelo seguinte código:
 
     ```java
     package com.speechsdk.quickstart;
@@ -230,11 +230,11 @@ Além disso, para habilitar o log, atualize o arquivo **pom.xml** para incluir a
 
     public final class ActivityAudioStream extends InputStream {
         /**
-         * The number of samples played per second. (16 kHz)
+         * The number of samples played per second (16 kHz).
          */
         public static final long SAMPLE_RATE = 16000;
         /**
-         * The number of bits in each sample of a sound that has this format. (16 bits)
+         * The number of bits in each sample of a sound that has this format (16 bits).
          */
         public static final int BITS_PER_SECOND = 16;
         /**
@@ -294,7 +294,7 @@ Além disso, para habilitar o log, atualize o arquivo **pom.xml** para incluir a
         }
 
         /**
-         * Reads up to a specified maximum number of bytes of data from the activity audio stream
+         * Reads up to a specified maximum number of bytes of data from the activity audio stream,
          * putting them into the given byte array.
          *
          * @param b the buffer into which the data is read
@@ -348,7 +348,7 @@ Além disso, para habilitar o log, atualize o arquivo **pom.xml** para incluir a
         }
 
         /**
-         * Fetch the audio format for the ActivityAudioStream. The ActivityAudioFormat defines the sample rate, bits per sample and the # channels
+         * Fetch the audio format for the ActivityAudioStream. The ActivityAudioFormat defines the sample rate, bits per sample, and the # channels.
          *
          * @return instance of the ActivityAudioFormat associated with the stream
          */
@@ -361,7 +361,7 @@ Além disso, para habilitar o log, atualize o arquivo **pom.xml** para incluir a
          * audio input stream without blocking.
          *
          * @return the number of bytes that can be read from this audio input stream without blocking.
-         * As this implementation does not buffer this will be defaulted to 0
+         * As this implementation does not buffer, this will be defaulted to 0
          */
         @Override
         public int available() {
@@ -444,7 +444,7 @@ Além disso, para habilitar o log, atualize o arquivo **pom.xml** para incluir a
         }
 
         /**
-         * Enum defining the types of audio encoding supported by this stream
+         * Enum defining the types of audio encoding supported by this stream.
          */
         public enum AudioEncoding {
             PCM_SIGNED("PCM_SIGNED");
@@ -463,8 +463,9 @@ Além disso, para habilitar o log, atualize o arquivo **pom.xml** para incluir a
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar o aplicativo
 
-Pressione F11 ou selecione **Executar** > **Depurar**.
-O console exibirá uma mensagem "Diga algo". Nesse momento, você poderá falar uma frase ou uma sentença em inglês que o bot entenderá. Sua fala será transmitida ao bot por meio do canal de Fala do Direct Line, no qual ela será reconhecida e processada pelo bot, e a resposta será retornada como uma atividade. Se o bot retornar uma fala como resposta, o áudio será reproduzido usando a classe `AudioPlayer`.
+Selecione F11 ou **Executar** > **Depurar**.
+O console exibirá a mensagem "Diga algo".
+Neste ponto, fale uma frase ou uma sentença em inglês que o bot possa entender. Sua fala é transmitida para o bot por meio do canal de Fala do Direct Line, no qual é reconhecido e processado pelo bot. A resposta é retornada como uma atividade. Se o bot retornar uma fala como resposta, o áudio será reproduzido usando a classe `AudioPlayer`.
 
 ![Captura de tela da saída do console após o reconhecimento com êxito](media/sdk/qs-java-jre-08-console-output.png)
 

@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 1d8b3aad3104f07f8f6499c88f00328c95047816
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 1a0d0426904ef5f9f49a627120ff2cc65f630861
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274224"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72785938"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análise de sentimento em dados de transmissão usando o Azure Databricks
 
@@ -43,7 +43,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 > [!Note]
 > Este tutorial não pode ser realizado usando a **Assinatura de avaliação gratuita do Azure**.
-> Para usar uma conta gratuita para criar o cluster do Azure Databricks, antes de criar o cluster, vá até o seu perfil e altere sua assinatura para **pré-pago**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=sparkeventhubs-docs-alehall).
+> Se você tiver uma conta gratuita, acesse seu perfil e altere para uma assinatura **pré-paga**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/). Em seguida, [remova o limite de gastos](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center) e [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para as vCPUs da sua região. Quando você cria seu espaço de trabalho do Azure Databricks, pode selecionar o tipo de preço **Versão de avaliação (Premium - DBUs gratuitas por 14 dias)** para conceder ao espaço de trabalho acesso gratuito aos DBUs do Premium Azure Databricks por 14 dias.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,7 +69,7 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 
 3. Em **Serviço do Azure Databricks**, forneça os valores para criar um workspace do Databricks.
 
-    ![Criar um workspace do Azure Databricks](./media/databricks-sentiment-analysis-cognitive-services/create-databricks-workspace.png "Criar um workspace do Azure Databricks")
+    ![Crie um workspace do Azure Databricks](./media/databricks-sentiment-analysis-cognitive-services/create-databricks-workspace.png "Criar um workspace do Azure Databricks")
 
     Forneça os seguintes valores:
 
@@ -97,7 +97,7 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 
 3. Na página **Novo cluster**, forneça os valores para criar um cluster.
 
-    ![Criar cluster do Databricks Spark no Azure](./media/databricks-sentiment-analysis-cognitive-services/create-databricks-spark-cluster.png "Criar cluster do Databricks Spark no Azure")
+    ![Criar um cluster Spark do Databricks no Azure](./media/databricks-sentiment-analysis-cognitive-services/create-databricks-spark-cluster.png "Criar um cluster Spark do Databricks no Azure")
 
     Aceite todos os outros valores padrão que não sejam o seguinte:
 
@@ -115,7 +115,7 @@ Para receber uma transmissão de tweets, crie um aplicativo no Twitter. Siga as 
 
 1. Em um navegador da Web, acesse [Twitter para Desenvolvedores](https://developer.twitter.com/en/apps) e selecione **Criar um aplicativo**. Você poderá ver uma mensagem indicando que precisa solicitar uma conta de desenvolvedor do Twitter. Fique à vontade para fazer isso e, depois que seu aplicativo tiver sido aprovado, você deverá ver um email de confirmação. Podem ser necessários vários dias para ser aprovado para uma conta de desenvolvedor.
 
-    ![Confirmação da conta de desenvolvedor do Twitter](./media/databricks-sentiment-analysis-cognitive-services/databricks-twitter-dev-confirmation.png "Twitter developer account confirmation")
+    ![Confirmação da conta de desenvolvedor do Twitter](./media/databricks-sentiment-analysis-cognitive-services/databricks-twitter-dev-confirmation.png "Confirmação da conta de desenvolvedor do Twitter")
 
 2. Na página **Criar um aplicativo**, forneça os detalhes para o novo aplicativo e selecione **Criar seu aplicativo do Twitter**.
 
@@ -135,16 +135,16 @@ Neste tutorial, você usará as APIs do Twitter para enviar tweets aos Hubs de E
 
 1. No workspace do Azure Databricks, selecione **Clusters** e escolha o cluster Spark existente. No menu do cluster, escolha **Bibliotecas** e clique em **Instalar Novo**.
 
-   ![Caixa de diálogo Adicionar biblioteca](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-locate-cluster.png "Localizar cluster em Adicionar biblioteca")
+   ![Caixa de diálogo Adicionar biblioteca](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-locate-cluster.png "Adicionar um cluster de localização de biblioteca")
 
-   ![Caixa de diálogo Adicionar biblioteca](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-install-new.png "Instalar Novo em Adicionar biblioteca")
+   ![Caixa de diálogo Adicionar biblioteca](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-install-new.png "Adicionar uma nova instalação de biblioteca")
 
 2. Na página Nova Biblioteca, em **Fonte**, selecione **Maven**. Para **Coordenada**, clique em **Pesquisar Pacotes** para o pacote que deseja adicionar. Estas são as coordenadas Maven para as bibliotecas usadas neste tutorial:
 
    * Conector dos Hubs de Eventos do Spark – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * API do Twitter – `org.twitter4j:twitter4j-core:4.0.7`
 
-     ![Fornecer coordenadas Maven](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-search.png "Fornecer coordenadas Maven")
+     ![Fornecer coordenadas do Maven](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-search.png "Fornecer coordenadas do Maven")
 
      ![Fornecer coordenadas do Maven](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-search-dialogue.png "Pesquisar coordenadas do Maven")
 
@@ -152,7 +152,7 @@ Neste tutorial, você usará as APIs do Twitter para enviar tweets aos Hubs de E
 
 4. No menu do cluster, verifique se ambas as bibliotecas estão instaladas e anexadas corretamente.
 
-    ![Verificar bibliotecas](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-check.png "Check libraries")
+    ![Verificar bibliotecas](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-check.png "Verificar bibliotecas")
 
 6. Repita essas etapas para o pacote do Twitter, `twitter4j-core:4.0.7`.
 
@@ -201,11 +201,11 @@ Nesta seção, você criará dois blocos de notas no workspace do Databricks com
 
 1. No painel esquerdo, escolha **Workspace**. Na lista suspensa **Workspace**, selecione **Criar**e selecione **Bloco de Anotações**.
 
-    ![Criar bloco de notas em Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-notebook.png "Criar bloco de notas em Databricks")
+    ![Criar notebook no Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-notebook.png "Criar notebook no Databricks")
 
 2. Na caixa de diálogo **Criar Bloco de Notas**, insira **SendTweetsToEventHub**, selecione **Scala** como a linguagem e selecione o cluster Spark criado anteriormente.
 
-    ![Criar bloco de notas em Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-notebook-details.png "Criar bloco de notas em Databricks")
+    ![Criar notebook no Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-notebook-details.png "Criar notebook no Databricks")
 
     Selecione **Criar**.
 
@@ -620,7 +620,7 @@ Um valor perto **1** na coluna **Sentimento** sugere uma ótima experiência com
 
 Depois de terminar de executar o tutorial, você poderá encerrar o cluster. Para isso, no workspace do Azure Databricks, no painel esquerdo, selecione **Clusters**. No cluster que deseja encerrar, mova o cursor sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**.
 
-![Parar um cluster do Databricks](./media/databricks-sentiment-analysis-cognitive-services/terminate-databricks-cluster.png "Parar um cluster do Databricks")
+![Interromper um cluster Databricks](./media/databricks-sentiment-analysis-cognitive-services/terminate-databricks-cluster.png "Interromper um cluster Databricks")
 
 Se você não encerrar o cluster manualmente, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **Terminar depois de \_\_ minutos de inatividade** ao criar o cluster. Nesse caso, o cluster será interrompido automaticamente se ficar inativo durante o tempo especificado.
 

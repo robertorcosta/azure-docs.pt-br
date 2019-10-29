@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/22/2019
+ms.date: 10/21/2019
 ms.author: juliako
-ms.openlocfilehash: f9ca4b54db305a5c088b4dda27a6844c8439fa1a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3f065f77c6843b135554e61f5887655114571b08
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055291"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750262"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – REST
 
@@ -62,8 +62,6 @@ Clone um repositório GitHub que contenha os arquivos do ambiente e coleção Po
 
 ## <a name="configure-postman"></a>Configurar Postman
 
-Esta seção configura o Postman.
-
 ### <a name="configure-the-environment"></a>Configure o ambiente 
 
 1. Abra o aplicativo **Postman**.
@@ -96,18 +94,19 @@ Esta seção configura o Postman.
 Nesta seção, enviamos solicitações relevantes para codificar e criar URLs para que seja possível transmitir o arquivo. Especificamente, as solicitações a seguir são enviadas:
 
 1. Obter token do Microsoft Azure AD para autenticação de entidade de serviço
+1. Iniciar um ponto de extremidade de streaming
 2. Criar um ativo de saída
-3. Criar uma **Transformação**
-4. Criar um **Trabalho**
-5. Criar um **Localizador de Streaming**
-6. Listar caminhos do **Localizador de Streaming**
+3. Criar uma Transformação
+4. Crie um trabalho
+5. Criar um Localizador de Streaming
+6. Listar caminhos do Localizador de Streaming
 
 > [!Note]
 >  Este tutorial pressupõe que você está criando todos os recursos com nomes exclusivos.  
 
 ### <a name="get-azure-ad-token"></a>Obter token do Microsoft Azure AD 
 
-1. Na janela esquerda do Postman, selecione "Etapa 1: obter token de autenticação do Azure Active Directory".
+1. Na janela esquerda do aplicativo Postman, selecione "Etapa 1: obter token de autenticação do Azure Active Directory".
 2. Em seguida, selecione "Obter token do Microsoft Azure AD para autenticação de entidade de serviço".
 3. Pressione **Enviar**.
 
@@ -121,11 +120,38 @@ Nesta seção, enviamos solicitações relevantes para codificar e criar URLs pa
 
     ![Obter token do AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
+
+### <a name="start-a-streaming-endpoint"></a>Iniciar um ponto de extremidade de streaming
+
+Para habilitar o streaming, primeiro é necessário iniciar o [Ponto de Extremidade de Streaming](https://docs.microsoft.com/azure/media-services/latest/streaming-endpoint-concept) do qual você deseja transmitir o vídeo.
+
+> [!NOTE]
+> Você só será cobrado quando o ponto de extremidade de streaming estiver no estado de execução.
+
+1. Na janela esquerda do aplicativo Postman, selecione "Streaming e Ao Vivo".
+2. Em seguida, selecione "Iniciar StreamingEndpoint".
+3. Pressione **Enviar**.
+
+    * A seguinte operação **POST** é enviada:
+
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/start?api-version={{api-version}}
+        ```
+    * Se a solicitação for bem-sucedida, o `Status: 202 Accepted` será retornado.
+
+        Esse status significa que a solicitação foi aceita para processamento; no entanto, o processamento não foi concluído. Você pode consultar o status da operação com base no valor no cabeçalho de resposta `Azure-AsyncOperation`.
+
+        Por exemplo, a seguinte operação GET retorna o status da operação:
+        
+        `https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/<resourceGroupName>/providers/Microsoft.Media/mediaservices/<accountName>/streamingendpointoperations/1be71957-4edc-4f3c-a29d-5c2777136a2e?api-version=2018-07-01`
+
+        O artigo [Acompanhar as operações assíncronas do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) explica detalhadamente como acompanhar o status das operações assíncronas do Azure por meio dos valores retornados na resposta.
+
 ### <a name="create-an-output-asset"></a>Criar um ativo de saída
 
 O [Ativo](https://docs.microsoft.com/rest/api/media/assets) de saída armazena o resultado do trabalho de codificação. 
 
-1. Na janela esquerda do Postman, selecione "Ativos".
+1. Na janela esquerda do aplicativo Postman, selecione "Ativos".
 2. Em seguida, selecione "Criar ou atualizar um ativo".
 3. Pressione **Enviar**.
 
@@ -156,7 +182,7 @@ Você pode usar um EncoderNamedPreset interno ou usar as predefinições persona
 > [!Note]
 > Ao criar uma [Transformação](https://docs.microsoft.com/rest/api/media/transforms), será necessário primeiro verificar se já existe alguma usando o método **Get**. Este tutorial pressupõe que você está criando a transformação com um nome exclusivo.
 
-1. Na janela esquerda do Postman, selecione "Codificação e Análise".
+1. Na janela esquerda do aplicativo Postman, selecione "Codificação e Análise".
 2. Em seguida, selecione "Criar Transformação".
 3. Pressione **Enviar**.
 
@@ -191,7 +217,7 @@ Um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs) é a solicitação
 
 Neste exemplo, a entrada do trabalho é baseada na URL HTTPS ("https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
-1. Na janela esquerda do Postman, selecione "Codificação e Análise".
+1. Na janela esquerda do aplicativo Postman, selecione "Codificação e Análise".
 2. Em seguida, selecione "Criar ou Atualizar Trabalho".
 3. Pressione **Enviar**.
 
@@ -243,7 +269,7 @@ Ao criar um [Localizador de streaming](https://docs.microsoft.com/rest/api/media
 
 A conta de Serviço de Mídia tem uma cota para o número de entradas de **Política de Streaming**. Você não deve criar uma nova **Política de Streaming** para cada **Localizador de Streaming**.
 
-1. Na janela esquerda do Postman, selecione "Políticas de Streaming".
+1. Na janela esquerda do aplicativo Postman, selecione "Políticas de Streaming".
 2. Em seguida, selecione "Criar um Localizador de Streaming".
 3. Pressione **Enviar**.
 
@@ -269,7 +295,7 @@ A conta de Serviço de Mídia tem uma cota para o número de entradas de **Polí
 
 Agora que o [Localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) foi criado, é possível obter as URLs de streaming
 
-1. Na janela esquerda do Postman, selecione "Políticas de Streaming".
+1. Na janela esquerda do aplicativo Postman, selecione "Políticas de Streaming".
 2. Em seguida, selecione "Listar Caminhos".
 3. Pressione **Enviar**.
 

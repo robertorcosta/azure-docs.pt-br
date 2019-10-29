@@ -13,24 +13,22 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 3c23cc4fc7647cffa98cff9310498f683fda6328
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 115320a8b4ee7afc6e420dcfa96612b91ea6d1a0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275713"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790761"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Uma introdução ao Azure Lab Services
-O Azure Lab Services permite que você configure rapidamente um ambiente para a sua equipe (por exemplo: ambiente de desenvolvimento, ambiente de teste, ambiente de laboratório de sala de aula) na nuvem. Um proprietário de laboratório cria um laboratório, provisiona máquinas virtuais do Windows ou do Linux, instala o software e as ferramentas necessárias e disponibiliza-os para os usuários do laboratório. Os usuários do laboratório se conectam às VMs (máquinas virtuais) do laboratório e as usam para o trabalho diário, para projetos de curto prazo ou para fazer exercícios em sala de aula. Depois que os usuários começam a usar recursos no laboratório, um administrador de laboratório pode analisar o custo e o uso em vários laboratórios e definir políticas abrangentes para otimizar os custos da equipe ou sua organização.
+Há dois serviços no Azure que permitem que você configure ambientes de laboratório na nuvem. 
 
-> [!IMPORTANT]
-> O **Azure DevTest Labs** está sendo expandido com novos tipos de laboratórios (Azure Lab Services)!
->  
-> O Azure Lab Services permite criar tipos de laboratório gerenciado, como laboratórios de sala de aula. O próprio serviço cuida de todo o gerenciamento da infraestrutura de um tipo de laboratório gerenciado, da criação de VMs ao tratamento de erros e dimensionamento da infraestrutura. Por enquanto, o [DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) e o [Azure Lab Services](https://azure.microsoft.com/services/lab-services/) continuarão sendo serviços separados no portal do Azure. 
+- **Azure DevTest Labs** – este serviço permite que você configure rapidamente um ambiente para sua equipe (por exemplo: ambiente de desenvolvimento, ambiente de teste ou ambiente de teste na nuvem). Um proprietário de laboratório cria um laboratório, provisiona máquinas virtuais do Windows ou do Linux, instala o software e as ferramentas necessárias e disponibiliza-os para os usuários do laboratório. Os usuários do laboratório se conectam às VMs (máquinas virtuais) do laboratório e as usam para o trabalho diário, para projetos de curto prazo. Depois que os usuários começam a usar recursos no laboratório, um administrador de laboratório pode analisar o custo e o uso em vários laboratórios e definir políticas abrangentes para otimizar os custos da equipe ou sua organização.
+- **Azure Lab Services** – este serviço permite criar tipos de laboratório gerenciados. Atualmente, o laboratório de sala de aula é o único laboratório gerenciado com suporte do Azure Lab Services. O próprio serviço cuida de todo o gerenciamento da infraestrutura de um tipo de laboratório gerenciado, da criação de VMs ao tratamento de erros e dimensionamento da infraestrutura. Depois que um administrador de TI cria uma conta de laboratório no Azure Lab Services, um instrutor pode configurar rapidamente um laboratório para sua classe, especificar o número e o tipo de VMs que precisam ser exercitadas na classe e adicionar usuários à classe. Depois que um usuário se registra na classe, o usuário pode acessar a VM para fazer exercícios para a classe.  
 
 ## <a name="key-capabilities"></a>Principais recursos
 
-O Azure Lab Services dá suporte aos seguintes recursos/funcionalidades principais:
+Esses serviços (Azure DevTest Labs e Azure Lab Services) dão suporte aos seguintes recursos/funcionalidades principais:
 
 - **Configuração rápida e flexível de um laboratório**. Usando o Azure Lab Services, os proprietários de laboratório podem rapidamente configurar um laboratório para suas necessidades. O serviço oferece a opção para cuidar de todo o trabalho de infraestrutura do Azure de tipos de laboratório gerenciado ou permitir que os proprietários do laboratório gerenciem e personalizem a infraestrutura na assinatura do proprietário do laboratório. O serviço fornece dimensionamento interno e a resiliência da infraestrutura para laboratórios que o serviço gerencia para você.
 - **Simplificado experiência para os usuários do laboratório**. Em um tipo de laboratório gerenciado, como um laboratório de sala de aula, os usuários do laboratório podem se registrar em um laboratório com um código de registro e acessar o laboratório a qualquer momento para usar os recursos dele. Em um laboratório criado no DevTest Labs, um proprietário de laboratório pode atribuir permissões para usuários do laboratório criarem e acessarem as máquinas virtuais, gerenciar e reutilizar os discos de dados e configurar segredos reutilizáveis.  
@@ -43,7 +41,7 @@ O Azure Lab Services dá suporte aos seguintes recursos/funcionalidades principa
 
 ## <a name="scenarios"></a>Cenários
 
-Aqui estão alguns dos cenários aos quais o Azure Lab Services dá suporte:
+Aqui estão alguns dos cenários aos quais o Azure DevTest Labs e o Azure Lab Services dão suporte:
 
 ### <a name="set-up-a-resizable-computer-lab-in-the-cloud-for-your-classroom"></a>Configure um laboratório de computação redimensionável na nuvem para sua sala de aula  
 

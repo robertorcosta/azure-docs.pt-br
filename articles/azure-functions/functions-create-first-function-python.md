@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: gwallace
-ms.openlocfilehash: 03b8e12d63ba84b4e20d7263f1c2ecb8d912936d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: f2602e5a13f83090291656e7062c74c245bc6568
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203172"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693345"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Criar uma função disparada por HTTP no Azure
 
@@ -26,7 +26,7 @@ Este artigo é o primeiro de dois inícios rápidos do Python para o Azure Funct
 
 Antes de começar, é necessário:
 
-+ Instale o [Python 3.6.x](https://www.python.org/downloads/).
++ Instale o [Python 3.6.8](https://www.python.org/downloads/). Essa versão do Python é verificada com o Functions. Ainda não há suporte para a versão 3.7 e versões posteriores.
 
 + Instale o [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.7.1575 ou posterior.
 

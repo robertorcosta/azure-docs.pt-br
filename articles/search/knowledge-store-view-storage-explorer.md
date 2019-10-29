@@ -1,23 +1,24 @@
 ---
-title: Exibir um repositório de conhecimento com o Gerenciador de Armazenamento – Azure Search
-description: Exiba e analise um repositório de conhecimento do Azure Search com o Gerenciador de Armazenamento do portal do Azure.
+title: Exibir um repositório de conhecimento com o Gerenciador de Armazenamento
+titleSuffix: Azure Cognitive Search
+description: Exiba e analise um repositório de conhecimento da Pesquisa Cognitiva do Azure com o Gerenciador de Armazenamento do portal do Azure.
+manager: nitinme
 author: lisaleib
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 09/03/2019
 ms.author: v-lilei
-ms.openlocfilehash: 9ec93bcd2309bb47b24983260c35726ac24b5e95
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: cfa85e61059e27cd39a9701a835a725e16e5bc0a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265615"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789966"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Exibir um repositório de conhecimento com o Gerenciador de Armazenamento
 
 > [!Note]
-> O armazenamento de dados de conhecimento está em versão prévia e não é destinado a uso em produção. A [API REST do Azure Search versão 2019-05-06 versão prévia](search-api-preview.md) fornece esse recurso. Não há suporte para SDK do .NET no momento.
+> O armazenamento de dados de conhecimento está em versão prévia e não é destinado a uso em produção. A [API REST da Pesquisa Cognitiva do Azure versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para SDK do .NET no momento.
 >
 Neste artigo, você aprenderá como se conectar e explorar um repositório de conhecimento usando o Gerenciador de Armazenamento no portal do Azure. Para criar o exemplo de repositório de conhecimento usado neste passo a passo, confira [Criar um repositório de conhecimento no portal do Azure](knowledge-store-create-portal.md).
 
@@ -41,11 +42,11 @@ Selecione qualquer tabela para exibir os dados aprimorados, incluindo pontuaçõ
 
 Para alterar o tipo de dados para qualquer valor de tabela ou para alterar valores individuais em sua tabela, clique em **Editar**. Quando você alterar o tipo de dados para qualquer coluna na linha de tabela, ele será aplicado a todas as linhas.
 
-   ![Editar tabela no Gerenciador de Armazenamento](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Editar tabela no Gerenciador de Armazenamento")
+   ![Editar tabelas no Gerenciador de Armazenamento](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Editar tabelas no Gerenciador de Armazenamento")
 
 Para executar consultas, clique em **Consultar** na barra de comandos e insira suas condições.  
 
-   ![Consultar tabela no Gerenciador de Armazenamento](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Consultar tabela no Gerenciador de Armazenamento")
+   ![Consultar tabelas no Gerenciador de Armazenamento](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Consultar tabelas no Gerenciador de Armazenamento")
 
 ## <a name="clean-up"></a>Limpar
 

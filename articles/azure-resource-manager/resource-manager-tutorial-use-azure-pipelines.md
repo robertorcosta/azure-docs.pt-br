@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 06/12/2019
+ms.date: 10/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 462d9cd6d2a911e660221621ebde5829e928cf00
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b176e97a546335f597d4cf424d7feb4f5fa0f775
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122217"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597251"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua dos modelos do Azure Resource Manager com o Azure Pipelines
 
@@ -91,7 +91,7 @@ Esse repositório é conhecido como um *repositório remoto*. Cada um dos desenv
 
     Substitua o **[NomeDaSuaConta]** pelo nome da conta do GitHub e **[NomeDoSeuRepositórioGitHub]** pelo nome do repositório criado no procedimento anterior.
 
-    As capturas de tela a seguir mostram um exemplo.
+    A captura de tela a seguir mostra um exemplo.
 
     ![Azure Resource Manager do Azure DevOps do Azure Pipelines criar Bash do GitHub](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-github-bash.png)
 
@@ -183,9 +183,11 @@ Para criar um pipeline com uma etapa para implantar um modelo:
 
     ```yaml
     steps:
-    - task: AzureResourceGroupDeployment@2
+    - task: AzureResourceManagerTemplateDeployment@3
       inputs:
-        azureSubscription: '[YourServiceConnectionName]'
+        deploymentScope: 'Resource Group'
+        ConnectedServiceName: '[EnterYourServiceConnectionName]'
+        subscriptionName: '[EnterTheTargetSubscriptionID]'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '[EnterANewResourceGroupName]'
         location: 'Central US'
@@ -200,14 +202,16 @@ Para criar um pipeline com uma etapa para implantar um modelo:
 
     Faça as seguintes alterações:
 
-    * **azureSubscription**: atualize o valor com a conexão de serviço criada no procedimento anterior.
+    * **deloymentScope**: Selecione o escopo de implantação nas opções `Management Group`, `Subscription` e `Resource Group`. Use **Grupo de Recursos** neste tutorial. Para saber mais sobre os escopos, confira [Escopos de implantação](./resource-group-template-deploy-rest.md#deployment-scope).
+    * **ConnectedServiceName**: Especifique o nome da conexão de serviço criada anteriormente.
+    * **SubscriptionName**:  Especifique a ID da assinatura de destino.
     * **action**: a ação **Criar ou Atualizar Grupo de Recursos** executa 2 ações – 1. criar um grupo de recursos se um novo nome de grupo de recursos for fornecido; 2. implantar o modelo especificado.
     * **resourceGroupName**: especifique um novo nome de grupo de recursos. Por exemplo, **AzureRmPipeline-rg**.
     * **location**: especifique a localização do grupo de recursos.
     * **templateLocation**: quando **Artefato vinculado** está especificado, a tarefa pesquisa o arquivo de modelo diretamente do repositório conectado.
     * **csmFile** é o caminho para o arquivo de modelo. Não é necessário especificar um arquivo de parâmetros de modelo porque todos os parâmetros definidos no modelo têm valores padrão.
 
-    Para saber mais sobre a tarefa, confira [Tarefa de implantação do grupo de recursos do Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)
+    Para obter mais informações sobre a tarefa, confira [Tarefa de implantação de grupo de recursos do Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment) e [Tarefa de implantação de modelo do Azure Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md)
 1. Selecione **Salvar e executar**.
 1. Selecione **Salvar e executar** novamente. Uma cópia do arquivo YAML é salva no repositório conectado. É possível ver o arquivo YAML navegando até seu repositório.
 1. Verifique se o pipeline foi executado com êxito.

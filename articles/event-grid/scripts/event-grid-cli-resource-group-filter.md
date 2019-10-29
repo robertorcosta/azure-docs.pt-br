@@ -1,22 +1,22 @@
 ---
-title: Exemplo de script da CLI do Azure – Assinar o grupo de recursos e filtrar por recurso | Microsoft Docs
+title: CLI do Azure – assinar o grupo de recursos e filtrar por recurso
 description: Exemplo de script da CLI do Azure – Assinar o grupo de recursos e filtrar por recursos | Microsoft Docs
 services: event-grid
 documentationcenter: na
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
-ms.author: tomfitz
-ms.openlocfilehash: bc058baa01021f94cf5906dd492153a8d367cc90
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.date: 10/22/2019
+ms.author: spelluru
+ms.openlocfilehash: f19890570b13278c15ab3264c83c9290326d69b3
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51033972"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790753"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-azure-cli"></a>Assinar eventos de um grupo de recursos e filtrar por um recurso com a CLI do Azure
 

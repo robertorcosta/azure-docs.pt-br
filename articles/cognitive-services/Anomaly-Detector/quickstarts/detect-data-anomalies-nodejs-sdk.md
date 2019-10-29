@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 09/17/2019
 ms.author: aahi
-ms.openlocfilehash: 320c690eb873f760af89b7514893f14ecc209323
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 1932ac571c94f9dc96240bdb63b44fe53c626f1f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71106787"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554739"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-nodejs"></a>Início Rápido: Biblioteca de clientes do Detector de Anomalias para Node.js
 
@@ -26,7 +26,7 @@ Use a biblioteca de cliente do Detector de Anomalias para Node.js para:
 * Detectar anomalias em todo o seu conjunto de dados de série temporal, como uma solicitação em lote
 * Detectar o status de anomalias do ponto de dados mais recente em sua série temporal
 
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Pacote (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [Exemplos](https://github.com/Azure-Samples/anomalydetector)
+[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Pacote (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [Exemplos de código](https://github.com/Azure-Samples/anomalydetector)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,13 +37,8 @@ Use a biblioteca de cliente do Detector de Anomalias para Node.js para:
 
 ### <a name="create-an-anomaly-detector-azure-resource"></a>Criar um recurso do Detector de Anomalias do Azure
 
-Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para o Detector de Anomalias usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Você também pode:
+[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-* Obter uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por 7 dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/);  
-* Exibir esse recurso no [portal do Azure](https://portal.azure.com/).
-
-Depois de obter uma chave do recurso ou da assinatura de avaliação, [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, chamada `ANOMALY_DETECTOR_KEY`. Em seguida, crie um para o Ponto de Extremidade do Azure, chamado `ANOMALY_DETECTOR_ENDPOINT`.
- 
 ### <a name="create-a-new-nodejs-application"></a>Criar um novo aplicativo do Node.js
 
 Em uma janela de console (como cmd, PowerShell ou Bash), crie um novo diretório para seu aplicativo e navegue até ele. 
@@ -62,9 +57,9 @@ Crie um arquivo chamado `index.js` e importe as seguintes bibliotecas:
 
 [!code-javascript[Import statements](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=imports)]
 
-Crie variáveis para a chave e o Ponto de Extremidade do Azure do recurso. Se você criou a variável de ambiente depois de iniciar o aplicativo, será necessário fechar e recarregar o editor, o IDE ou o shell em execução para acessar a variável. Crie outra variável para o arquivo de dados de exemplo que você vai baixar em uma etapa posterior. Em seguida, crie um objeto ApiKeyCredentials para conter a chave.
+Crie variáveis para a chave e o Ponto de Extremidade do Azure do recurso. Se você criou a variável de ambiente depois de iniciar o aplicativo, será necessário fechar e recarregar o editor, o IDE ou o shell em execução para acessar a variável. Crie outra variável para o arquivo de dados de exemplo que você baixará em uma etapa posterior e uma lista vazia para os pontos de dados. Em seguida, crie um objeto de `ApiKeyCredentials` para conter a chave.
 
-[!code-javascript[Initial variables](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=vars)]
+[!code-javascript[Initial endpoint and key variables](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=vars)]
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca de clientes
 
@@ -94,9 +89,6 @@ Esses snippets de códigos mostram como fazer o seguinte com a biblioteca de cli
 * [Detectar o status de anomalias do último ponto de dados](#detect-the-anomaly-status-of-the-latest-data-point)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
-
-> [!NOTE]
-> Este guia de início rápido pressupõe que você já [criou uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave do Detector de Anomalias, denominada `ANOMALY_DETECTOR_KEY`.
 
 Crie uma instância de um objeto [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) com seu ponto de extremidade e suas credenciais.
 

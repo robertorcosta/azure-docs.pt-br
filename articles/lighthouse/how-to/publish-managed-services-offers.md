@@ -4,15 +4,15 @@ description: Saiba como publicar uma oferta de serviço gerenciado que integre o
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 09/19/2019
+ms.date: 10/17/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: c358c728f7fe008ee8d9138cd081932524e7eaf9
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 10105d06e48a727e71ea5cb03f2ffceb589df50a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300292"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595269"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicar uma oferta de serviços gerenciados no Azure Marketplace
 
@@ -132,7 +132,7 @@ Quando estiver satisfeito com todas as informações fornecidas, a próxima etap
 
 ## <a name="the-customer-onboarding-process"></a>O processo de integração do cliente
 
-Quando um cliente adiciona sua oferta, ele poderá [delegar uma ou mais assinaturas ou grupos de recursos específicos](view-manage-service-providers.md#delegate-resources) que serão integrados no gerenciamento de recursos delegados do Azure. Se um cliente tiver aceitado uma oferta, mas ainda não tiver delegado nenhum recurso, ele verá uma observação na parte superior da seção **Ofertas de provedores** da página [**Provedores de serviço**](view-manage-service-providers.md) no portal do Azure.
+Quando um cliente adiciona sua oferta, ele poderá [delegar uma ou mais assinaturas ou grupos de recursos específicos](view-manage-service-providers.md#delegate-resources) que serão integrados no gerenciamento de recursos delegados do Azure. Se um cliente tiver aceitado uma oferta, mas ainda não tiver delegado nenhum recurso, ele verá uma observação na parte superior da seção **Ofertas de provedores** da página [**Provedores de serviço**](view-manage-service-providers.md) no portal do Azure. Se um usuário do locatário do cliente não puder realizar essa delegação, provavelmente ele não terá a função Proprietário na assinatura. Para localizar os usuários que podem delegar a assinatura, o usuário poderá selecionar a assinatura no portal do Azure, abrir o **IAM (Controle de acesso)** e [exibir todos os usuários com a função Proprietário](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
 
 Antes que uma assinatura (ou grupo de recursos dentro de uma assinatura) possa ser integrada, ela deve ser autorizada para integração ao ser registrada manualmente no provedor de recursos **Microsoft.ManagedServices**. Um usuário no locatário do cliente com a função Colaborador ou Proprietário pode fazer isso seguindo as etapas descritas em [Provedores e tipos de recursos do Azure](../../azure-resource-manager/resource-manager-supported-services.md).
 

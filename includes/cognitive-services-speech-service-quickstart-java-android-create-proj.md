@@ -4,51 +4,51 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 5/23/2019
 ms.author: travisw
-ms.openlocfilehash: e1f9b561efb1fd88fe2dd00f8c175f1ebae848d8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 5c0b6400c6dc346597329c82e82801403a888a4d
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391538"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675550"
 ---
-1. Inicialize o Android Studio e escolha **Iniciar um novo projeto Android Studio** na janela Boas-Vindas.
+1. Inicialize o Android Studio e selecione **Iniciar um novo projeto do Android Studio** na janela de **boas-vindas**.
 
     ![Captura de tela da janela de Boas-Vindas do Android Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-01-start-new-android-studio-project.png)
 
-1. O assistente **Escolha seu projeto** aparece. Selecione **Telefone e Tablet** e **Atividade vazia** na caixa de seleção de atividade. Selecione **Avançar**.
+1. O assistente **Escolher o projeto** será exibido. Selecione **Telefone e Tablet** e **Atividade Vazia** na caixa de seleção de atividades. Selecione **Avançar**.
 
    ![Captura de tela do assistente Escolha seu projeto](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-02-target-android-devices.png)
 
-1. Na tela **Configure seu projeto**, insira **Início Rápido** como **Nome**, **samples.speech.cognitiveservices.microsoft.com** como **Nome do pacote** e escolha um diretório do projeto. Para **nível mínimo de API** escolher **API 23: Android 6.0 (Marshmallow)** , deixe todas as outras caixas de seleção desmarcadas e selecione **Concluir**.
+1. Na tela **Configurar o projeto**, insira *Início Rápido* como **Nome** e *samples.speech.cognitiveservices.microsoft.com* como **Nome do pacote**. Em seguida, selecione um diretório do projeto. Em **Nível mínimo da API**, selecione **API 23: Android 6.0 (Marshmallow)** . Mantenha todas as outras caixas de seleção desmarcadas e selecione **Concluir**.
 
    ![Captura de tela do assistente Configure seu projeto](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-03-create-android-project.png)
 
-O Android Studio demora algum tempo para preparar seu novo projeto Android. Em seguida, configure o projeto para saber sobre o SDK de Fala e usar o Java 8.
+O Android Studio demora algum tempo para preparar seu novo projeto Android. Em seguida, configure o projeto para saber mais sobre o SDK de Fala dos Serviços Cognitivos do Azure e usar o Java 8.
 
-[!INCLUDE [License Notice](cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License notice](cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Fala dos Serviços Cognitivos é `1.7.0`.
+A versão atual do SDK de Fala dos Serviços Cognitivos é 1.7.0.
 
 O Speech SDK para Android é empacotado como um [AAR (Biblioteca Android)](https://developer.android.com/studio/projects/android-library), que inclui as bibliotecas necessárias e as permissões necessárias do Android.
-Ele está hospedado em um repositório Maven em https:\//csspeechstorage.blob.core.windows.net/maven/.
+Ele está hospedado em um repositório do Maven em https:\//csspeechstorage.blob.core.windows.net/maven/.
 
-Configure seu projeto para usar o SDK de Fala. Abra a janela de estrutura do projeto escolhendo **Arquivo** > **Estrutura do Projeto** na barra de menus do Android Studio. Na janela Estrutura do Projeto, faça as seguintes alterações:
+Configure seu projeto para usar o SDK de Fala. Abra a janela **Estrutura do Projeto** selecionando **Arquivo** > **Estrutura do Projeto** na barra de menus do Android Studio. Na janela **Estrutura do Projeto**, faça as seguintes alterações:
 
-1. Na lista no lado esquerdo da janela, selecione **Projeto**. Edite as configurações de **Repositório de Biblioteca Padrão** anexando uma vírgula e nossa URL do repositório Maven entre aspas simples. 'https:\//csspeechstorage.blob.core.windows.net/maven/'
+1. Na lista no lado esquerdo da janela, selecione **Projeto**. Edite as configurações do **Repositório de Biblioteca Padrão** acrescentando uma vírgula e a URL do repositório do Maven entre aspas simples: 'https:\//csspeechstorage.blob.core.windows.net/maven/'
 
    ![Captura de tela da janela Estrutura do Projeto](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-06-add-maven-repository.png)
 
-1. Na mesma tela, no lado esquerdo, selecione **aplicativo**. Em seguida, selecione a guia **Dependências** na parte superior da janela. Selecione o sinal de mais (+) verde e escolha **Dependência da biblioteca** no menu suspenso.
+1. Na mesma tela, no lado esquerdo, selecione **aplicativo**. Em seguida, selecione a guia **Dependências** na parte superior da janela. Selecione o sinal de adição verde ( **+** ) e **Dependência da biblioteca** no menu suspenso.
 
-   ![Captura de tela da janela Estrutura do Projeto](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
+   ![Captura de tela da Dependência da biblioteca](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Na janela que for exibida, insira o nome e a versão do SDK de Fala para Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`. Depois, selecione **OK**.
-   O SDK de Fala deve ser adicionado à lista de dependências agora, conforme mostrado abaixo:
+1. Na janela exibida, insira o nome e a versão do SDK de Fala para Android, *com.microsoft.cognitiveservices.speech:client-sdk:1.7.0*. Depois, selecione **OK**.
+   O SDK de Fala deverá ser adicionado à lista de dependências agora, conforme mostrado:
 
-   ![Captura de tela da janela Estrutura do Projeto](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
+   ![Captura de tela do SDK de Fala na lista de dependências](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
 
 1. Clique na guia **Propriedades**. Para **Compatibilidade de Origem** e **Compatibilidade de Destino**, selecione **1.8**.
 
-   ![](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-09-dependency-added.png)
+   ![Captura de tela da Compatibilidade de Origem e da Compatibilidade de Destino](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-09-dependency-added.png)
 
-1. Selecione **OK** para fechar a janela Estrutura do Projeto e aplicar as alterações ao projeto.
+1. Selecione **OK** para fechar a janela **Estrutura do Projeto** e aplicar as alterações ao projeto.

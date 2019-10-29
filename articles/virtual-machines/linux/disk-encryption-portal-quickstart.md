@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 0249867a6af16505a692e7090639807ed3d239c9
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 83446d30de17973352e836d6107ad545b2da63e3
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030806"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550323"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Início Rápido: Criar e criptografar uma máquina virtual com o portal do Azure
 
@@ -77,7 +77,7 @@ Levará alguns minutos para que sua VM seja implantada. Quando a implantação f
 
 1. Na tela criptografia, em **Discos para criptografar**, escolha **SO e discos de dados**.
 1. Em **Configurações de criptografia**, clique em "Selecionar um cofre de chaves e uma chave para criptografia".
-1. Na barra lateral direita, selecione o nome do cofre de chaves que você criou anteriormente como o valor para *Cofre de chaves** e clique em **Selecionar**.
+1. Na barra lateral direita, selecione o nome do cofre de chaves criado anteriormente como o valor para **Cofre de chaves** e clique em **Selecionar**.
 
     ![seleção de discos e criptografia](./media/disk-encryption/portal-qs-encrypt-vm-screen.png)
 1. Na parte superior da tela de criptografia, clique em "Salvar". Um pop-up avisará que a VM será reinicializada. Clique em **Sim**.

@@ -17,10 +17,10 @@ ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28f3fca731c9ceb28f66ecd1c178e5c025f80ede
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70163542"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-envoy"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Envoy
@@ -160,7 +160,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 7. Na seção de configuração da **Autenticação SAML** , realize as seguintes etapas:
 
-    ![Autenticação SAML](./media/envoy-tutorial/ic776785.png "Autenticação SAML")
+    ![Autenticação SAML](./media/envoy-tutorial/ic776785.png "Autenticação de SAML")
     
     >[!NOTE]
     >O valor para a ID de Local de Matriz é automaticamente gerada pelo aplicativo.

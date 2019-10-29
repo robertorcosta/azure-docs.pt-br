@@ -1,23 +1,22 @@
 ---
-title: Exemplo de script do Azure PowerShell – Inscrever-se em uma assinatura do Azure | Microsoft Docs
-description: Exemplo de script do Azure PowerShell – Inscrever-se em uma assinatura do Azure
+title: Azure PowerShell – criar uma assinatura do Azure
+description: Exemplo de script do Azure PowerShell e da Grade de Eventos do Azure – criar uma assinatura do Azure
 services: event-grid
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: spelluru
 ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
-ms.author: tomfitz
-ms.openlocfilehash: 3d3d7a864bf6941dfb0bf7496b291639e7e5ea6d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/22/2019
+ms.author: spelluru
+ms.openlocfilehash: 8ab0d61e2c7ec23b7c3ed82d460cbb53711d5c7f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66117164"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790489"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-powershell"></a>Inscrever-se em eventos de uma assinatura do Azure com o PowerShell
 

@@ -17,10 +17,10 @@ ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dcf0341e03a5d95abbe8b1a8ce69379fef8251b7
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68989061"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Zscaler
@@ -187,7 +187,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 1. Na janela **Editar SAML**, execute as seguintes etapas: e clique em Salvar.  
 
-    ![Gerenciar usuários e autenticação](./media/zscaler-tutorial/ic800208.png "Gerenciar usuários e autenticação")
+    ![Gerenciar Usuários e Autenticação](./media/zscaler-tutorial/ic800208.png "Gerenciar Usuários e Autenticação")
     
     a. Na caixa de texto **URL do Portal SAML**, cole o a **URL de Logon** copiada do portal do Azure.
 
@@ -225,7 +225,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 1. Clique na guia **Conexões** .
   
-    ![Conexões](./media/zscaler-tutorial/ic769493.png "Conexões")
+    ![Conexões](./media/zscaler-tutorial/ic769493.png "conexões")
 
 1. Clique em **Configurações da LAN** para abrir a caixa de diálogo **Configurações da LAN**.
 

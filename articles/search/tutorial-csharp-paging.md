@@ -1,22 +1,23 @@
 ---
-title: Tutorial de C# para paginação de resultados da pesquisa – Azure Search
-description: Este tutorial é baseado no projeto "Criar seu primeiro aplicativo – Azure Search", com a escolha de dois tipos de paginação. O primeiro usa uma série de botões de número de página, bem como os botões para primeira, próxima, anterior e última página. O segundo sistema de paginação usa a rolagem infinita, acionada movendo uma barra de rolagem vertical até seu limite inferior.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: Tutorial de C# sobre a paginação de resultados da pesquisa
+titleSuffix: Azure Cognitive Search
+description: Este tutorial é baseado no projeto "Criar seu primeiro aplicativo – Pesquisa Cognitiva do Azure", com duas opções de tipos de paginação. O primeiro usa uma série de botões de número de página, bem como os botões para primeira, próxima, anterior e última página. O segundo sistema de paginação usa a rolagem infinita, acionada movendo uma barra de rolagem vertical até seu limite inferior.
+manager: nitinme
 author: PeterTurcan
-ms.date: 05/01/2019
-ms.openlocfilehash: 7e6c433168b73c6b58d13d4698bed55d7c18ec58
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 935e6d43cf77d94b485d55eb4bc5eb517bf802a0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434620"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793994"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-search"></a>Tutorial do C#: Paginação de resultados da pesquisa – Azure Search
+# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>Tutorial do C#: Paginação dos resultados da pesquisa – Pesquisa Cognitiva do Azure
 
-Saiba como implementar dois sistemas de paginação diferentes, o primeiro baseado nos números de página e o segundo na rolagem infinita. Os dois sistemas de paginação são amplamente utilizados e selecionar o sistema certo depende da experiência do usuário que você deseja ter com os resultados. Este tutorial insere os sistemas de paginação no projeto criado no [Tutorial do C#: Criar seu primeiro aplicativo – Azure Search](tutorial-csharp-create-first-app.md).
+Saiba como implementar dois sistemas de paginação diferentes, o primeiro baseado nos números de página e o segundo na rolagem infinita. Os dois sistemas de paginação são amplamente utilizados e selecionar o sistema certo depende da experiência do usuário que você deseja ter com os resultados. Este tutorial insere os sistemas de paginação no projeto criado no [Tutorial do C#: Criar seu primeiro aplicativo – Pesquisa Cognitiva do Azure](tutorial-csharp-create-first-app.md).
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -27,7 +28,7 @@ Neste tutorial, você aprenderá como:
 
 Para concluir este tutorial, você precisará:
 
-Ter o projeto [Tutorial do C#: Criar seu primeiro aplicativo – Azure Search](tutorial-csharp-create-first-app.md) em funcionamento. O projeto pode ser sua própria versão ou pode ser instalado do GitHub: [Criar primeiro aplicativo](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Ter o projeto [Tutorial do C#: Criar seu primeiro aplicativo – Pesquisa Cognitiva do Azure](tutorial-csharp-create-first-app.md) em funcionamento. O projeto pode ser sua própria versão ou pode ser instalado do GitHub: [Criar primeiro aplicativo](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="extend-your-app-with-numbered-paging"></a>Estender seu aplicativo com paginação numerada
 
@@ -361,7 +362,7 @@ Abra a solução de página de pesquisa básica.
     ```
 
     > [!Note]
-    > Há um impacto sobre o desempenho, embora normalmente não seja grande, ao definir **IncludeTotalResultCount** como true, pois esse total precisa ser calculado pelo Azure Search. Com conjuntos de dados complexos, há um aviso de que o valor retornado é uma _aproximação_. Para nossos dados de hotel, ele será preciso.
+    > Há um impacto sobre o desempenho, embora normalmente não seja grande, ao definir **IncludeTotalResultCount** como true, pois esse total precisa ser calculado pela Pesquisa Cognitiva do Azure. Com conjuntos de dados complexos, há um aviso de que o valor retornado é uma _aproximação_. Para nossos dados de hotel, ele será preciso.
 
 ### <a name="compile-and-run-the-app"></a>Compilar e executar o aplicativo
 
@@ -474,7 +475,7 @@ Apenas três ações precisam ser enviadas ao controlador: a primeira execução
 
 1. Abra o arquivo do controlador da tela inicial e exclua o método **RunQueryAsync** do tutorial original.
 
-2. Substitua a ação **Index(model)** pelo seguinte código. Agora, ela trata do campo **paging** quando ele é nulo ou definido como "next" e lida com a chamada para o Azure Search.
+2. Substitua a ação **Index(model)** pelo seguinte código. Agora, ela trata do campo **paging** quando ele é nulo ou definido como "next" e lida com a chamada para a Pesquisa Cognitiva do Azure.
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -600,4 +601,4 @@ Considere as principais conclusões deste projeto:
 A paginação é fundamental para pesquisas na Internet. Com a paginação bem detalhada, a etapa seguinte é melhorar ainda mais a experiência do usuário adicionando pesquisas de preenchimento automático.
 
 > [!div class="nextstepaction"]
-> [Tutorial do C#: Adicionar preenchimento automático e sugestões – Azure Search](tutorial-csharp-type-ahead-and-suggestions.md)
+> [Tutorial do C#: Adicionar preenchimento automático e sugestões – Pesquisa Cognitiva do Azure](tutorial-csharp-type-ahead-and-suggestions.md)

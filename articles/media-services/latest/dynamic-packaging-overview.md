@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2019
+ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: af6542757e75d7d6226c2470adf3c2b51d60875a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 35fd511f2383a09898bcd7e7a5227b750c36125a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383527"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595526"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
@@ -98,7 +98,7 @@ Para obter informações sobre transmissão ao vivo nos Serviços de Mídia v3, 
 O Empacotamento Dinâmico é compatível com arquivos MP4 que contêm vídeo codificado com [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC ou AVC1) ou [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 ou hvc1).
 
 > [!NOTE]
-> As resoluções de até 4K e taxa de quadros de até 60 quadros/segundo foram testadas com o Empacotamento Dinâmico. O [Codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) dá suporte à codificação para H.265, por meio das APIs v2 herdadas. Contate amshelp@microsoft.com em caso de dúvidas sobre esse tópico. 
+> As resoluções de até 4K e taxa de quadros de até 60 quadros/segundo foram testadas com o Empacotamento Dinâmico. O [Codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) dá suporte à codificação para H.265, por meio das APIs v2 herdadas.
 
 ## <a name="a-idaudio-codecsaudio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>Codecs de áudio com suporte do Empacotamento Dinâmico
 
@@ -124,7 +124,7 @@ O Empacotamento Dinâmico é compatível com múltiplas faixas de áudio com DAS
 O Empacotamento Dinâmico não dá suporte a arquivos que contenham áudio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) (é um codec herdado).
 
 > [!NOTE]
-> O [Codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) dá suporte à codificação para Dolby Digital Plus, por meio das APIs v2 herdadas. Contate amshelp@microsoft.com em caso de dúvidas sobre esse tópico. 
+> O [Codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) dá suporte à codificação para Dolby Digital Plus, por meio das APIs v2 herdadas. 
 
 ## <a name="manifests"></a>Manifestos 
  
@@ -272,6 +272,10 @@ Você pode usar *criptografia dinâmica* para criptografar dinamicamente seu con
 ## <a name="more-information"></a>Mais informações
 
 Confira a [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
+
+## <a name="need-help"></a>Precisa de ajuda?
+
+Abra um tíquete de suporte navegando até [Nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-steps"></a>Próximas etapas
 

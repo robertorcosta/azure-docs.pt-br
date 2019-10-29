@@ -17,10 +17,10 @@ ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e908cb76a57f027494230edc648b69da0730ac27
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70164236"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Onit
@@ -141,15 +141,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 3. Clique em **Editar Empresa**.
    
-    ![Editar Corporação](./media/onit-tutorial/IC791175.png "Editar Corporação")
+    ![Editar Empresa](./media/onit-tutorial/IC791175.png "Editar Empresa")
    
 4. Clique na guia **Segurança** .
     
-    ![Editar Informações da Empresa](./media/onit-tutorial/IC791176.png "Editar Informações da Empresa")
+    ![Editar Dados da Empresa](./media/onit-tutorial/IC791176.png "Editar Informações da Empresa")
 
 5. Na guia **Segurança** , realize as seguintes etapas:
 
-    ![Logon Único](./media/onit-tutorial/IC791177.png "Logon Único")
+    ![Logon único](./media/onit-tutorial/IC791177.png "Logon Único")
 
     a. Como **Estratégia de Autenticação**, selecione **Logn Único e Senha**.
     
@@ -173,7 +173,7 @@ Para permitir que os usuários do AD do Azure façam logon no Onit, eles devem s
 
 3. Na página do diálogo **Adicionar usuário** , realize as seguintes etapas:
 
-    ![Adicionar Usuário](./media/onit-tutorial/IC791181.png "Adicionar Usuário")
+    ![Adicionar Usuário](./media/onit-tutorial/IC791181.png "Adicionar usuário")
 
     a. Digite o **Nome** e **Endereço de Email** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
 

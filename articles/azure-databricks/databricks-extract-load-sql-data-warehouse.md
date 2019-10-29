@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 228b0fff7231af811206d5c477b63ed70706939b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: c2d7d7d97dce974ad8d72cc98f9ec6d3d554fb6d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329767"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72783978"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados usando o Azure Databricks
 
@@ -23,7 +23,7 @@ As etapas neste tutorial usam o conector do SQL Data Warehouse para Azure Databr
 
 A ilustração a seguir mostra o fluxo do aplicativo:
 
-![Azure Databricks com o Data Lake Store e o SQL Data Warehouse](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks com o Data Lake Store e o SQL Data Warehouse")
+![Azure Databricks com Data Lake Storage e SQL Data Warehouse](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks com Data Lake Storage e SQL Data Warehouse")
 
 Este tutorial cobre as seguintes tarefas:
 
@@ -41,7 +41,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 > [!Note]
 > Este tutorial não pode ser realizado usando a **Assinatura de avaliação gratuita do Azure**.
-> Se você tiver uma conta gratuita, acesse seu perfil e altere para uma assinatura **pré-paga**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/). Em seguida, [remova o limite de gastos](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center) e [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para as vCPUs da sua região. Quando você cria seu espaço de trabalho do Azure Databricks, pode selecionar o tipo de preço **Versão de avaliação (Premium - DBUs gratuitas por 14 dias)** para conceder ao espaço de trabalho acesso gratuito aos DBUs do Premium Azure Databricks por 14 dias.
+> Se você tiver uma conta gratuita, acesse seu perfil e altere para uma assinatura **pré-paga**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/). Em seguida, [remova o limite de gastos](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) e [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para as vCPUs da sua região. Quando você cria seu espaço de trabalho do Azure Databricks, pode selecionar o tipo de preço **Versão de avaliação (Premium - DBUs gratuitas por 14 dias)** para conceder ao espaço de trabalho acesso gratuito aos DBUs do Premium Azure Databricks por 14 dias.
      
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -117,7 +117,7 @@ Nesta seção, você criará um serviço do Azure Databricks usando o portal do 
 
 3. Na página **Novo cluster**, forneça os valores para criar um cluster.
 
-    ![Criar cluster do Databricks Spark no Azure](./media/databricks-extract-load-sql-data-warehouse/create-databricks-spark-cluster.png "Criar cluster do Databricks Spark no Azure")
+    ![Criar um cluster Spark do Databricks no Azure](./media/databricks-extract-load-sql-data-warehouse/create-databricks-spark-cluster.png "Criar um cluster Spark do Databricks no Azure")
 
 4. Preencha os valores para os seguintes campos e aceite os valores padrão para os outros campos:
 
@@ -139,7 +139,7 @@ Nesta seção, você cria um notebook no workspace do Azure Databricks e executa
 
 3. Na caixa de diálogo **Criar Bloco de Anotações**, digite um nome para o bloco de anotações. Selecione **Scala** como linguagem e selecione o cluster Spark criado anteriormente.
 
-    ![Forneça detalhes para um notebook no Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-notebook-details.png "Forneça detalhes para um notebook no Databricks")
+    ![Fornecer detalhes para um notebook no Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-notebook-details.png "Fornecer detalhes para um notebook no Databricks")
 
 4. Selecione **Criar**.
 
@@ -371,7 +371,7 @@ Como mencionado anteriormente, o conector do SQL Data Warehouse usa o Armazename
 
 6. Conecte-se ao banco de dados SQL e verifique se você consegue ver um banco de dados **SampleTable**.
 
-   ![Verificar a tabela de exemplo](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "Verificar a tabela de exemplo")
+   ![Verificar a tabela de exemplo](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "Verificar tabela de exemplo")
 
 7. Execute uma consulta select para verificar o conteúdo da tabela. A tabela deve ter os mesmos dados que o quadro de dados **renamedColumnsDF**.
 
@@ -381,7 +381,7 @@ Como mencionado anteriormente, o conector do SQL Data Warehouse usa o Armazename
 
 Depois de concluir o tutorial, você poderá terminar o cluster. No workspace do Azure Databricks, selecione **Clusters** à esquerda. Para que o cluster seja terminado, em **Ações**, aponte para o botão de reticências (...) e selecione o ícone **Terminar**.
 
-![Parar um cluster do Databricks](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Parar um cluster do Databricks")
+![Interromper um cluster Databricks](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Interromper um cluster Databricks")
 
 Se você não terminar o cluster manualmente, ele será interrompido automaticamente, desde que você tenha marcado a caixa de seleção **Terminar depois de \_\_ minutos de inatividade** ao criar o cluster. Nesse caso, o cluster será interrompido automaticamente se ficar inativo durante o tempo especificado.
 

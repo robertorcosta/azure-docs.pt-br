@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 2f728231c01056ecb8709f84f13e834ef3618dc8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 2fb7bc0851868f6551ed57d742c4005550caec99
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71803306"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675553"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em Java no Android usando SDK de Fala
 
@@ -23,30 +23,30 @@ Guias de início rápido também estão disponíveis para a [sintetização de v
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, você aprenderá a desenvolver um aplicativo Java para Android usando Speech SDK dos Serviços Cognitivos para transcrever conversão de fala em texto.
-O aplicativo baseia-se no Pacote Maven do SDK de Fala, bem como no Android Studio 3.3.
-O SDK de Fala é atualmente compatível com dispositivos Android que têm processadores ARM de 32/64 bits e Intel x86/x64 compatíveis.
+Neste artigo, você aprenderá a desenvolver um aplicativo Java para Android usando o SDK de Fala dos Serviços Cognitivos do Azure para converter uma fala em texto.
+
+O aplicativo baseia-se no Pacote do Maven do SDK de Fala e no Android Studio 3.3. Atualmente, o SDK de Fala é compatível com dispositivos Android que têm processadores compatíveis com Intel x86/x64 e ARM de 32 ou 64 bits.
 
 > [!NOTE]
 > Para o SDK dos Dispositivos de Fala e o dispositivo Roobo, confira [SDK dos Dispositivos de Fala](speech-devices-sdk.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa de uma chave de assinatura dos Serviços de Fala para concluir este Início Rápido. Obtenha uma gratuitamente. Consulte [Experimentar os Serviços de Fala gratuitamente](get-started.md) para obter mais detalhes.
+Você precisará de uma chave de assinatura dos Serviços de Fala para concluir este início rápido. Obtenha uma gratuitamente. Para obter mais informações, confira [Experimentar os Serviços de Fala gratuitamente](get-started.md).
 
 ## <a name="create-and-configure-a-project"></a>Criar e configurar um projeto
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
 
-## <a name="create-user-interface"></a>Criar interface do usuário
+## <a name="create-a-user-interface"></a>Criar uma interface do usuário
 
-Vamos criar uma interface do usuário básica para o aplicativo. Edite o layout da atividade principal `activity_main.xml`. Inicialmente, o layout inclui uma barra de título com o nome do aplicativo e um TextView contendo o texto "Olá, Mundo!".
+Agora criaremos uma interface do usuário básica para o aplicativo. Edite o layout da atividade principal `activity_main.xml`. Inicialmente, o layout inclui uma barra de título com o nome do aplicativo e uma TextView que contém o texto "Olá, Mundo!".
 
-* Clique no elemento TextView. Altere o atributo da ID no canto superior direito para `hello`.
+* Selecione o elemento TextView. Altere o atributo da ID no canto superior direito para `hello`.
 
-* Na Paleta, no canto superior esquerdo da janela `activity_main.xml`, arraste um botão para o espaço vazio acima do texto.
+* Na paleta no canto superior esquerdo da janela `activity_main.xml`, arraste um botão para o espaço vazio acima do texto.
 
-* Nos atributos do botão à direita, no valor para o atributo `onClick`, digite `onSpeechButtonClicked`. Vamos escrever um método com esse nome para manipular o evento do botão.  Altere o atributo da ID no canto superior direito para `button`.
+* Nos atributos do botão à direita, no valor para o atributo `onClick`, digite `onSpeechButtonClicked`. Vamos escrever um método com esse nome para manipular o evento do botão. Altere o atributo da ID no canto superior direito para `button`.
 
 * Use o ícone de varinha mágica na parte superior do designer para inferir restrições de layout.
 
@@ -54,37 +54,37 @@ Vamos criar uma interface do usuário básica para o aplicativo. Edite o layout 
 
 O texto e a representação gráfica da sua interface do usuário agora devem ser semelhantes a isto:
 
-![](media/sdk/qs-java-android-11-gui.png)
+![Interface do usuário](media/sdk/qs-java-android-11-gui.png)
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
-1. Abra o arquivo de origem `MainActivity.java`. Substitua todo o código nesse arquivo pelo seguinte.
+1. Abra o arquivo de origem `MainActivity.java`. Substitua todo o código nesse arquivo pelo seguinte:
 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
    * O método `onCreate` inclui código que solicita permissões de microfone e Internet, além de inicializar a associação de plataforma nativa. Só é necessário configurar as associações de plataforma nativa uma vez. Isso deve ser feito no início, durante a inicialização do aplicativo.
 
-   * O método `onSpeechButtonClicked` é, conforme observado anteriormente, o manipulador de clique do botão. Um pressionamento de botão aciona a transcrição de conversão de fala em texto.
+   * O método `onSpeechButtonClicked` é, conforme observado anteriormente, o manipulador de clique do botão. Um pressionamento de botão dispara a transcrição de fala em texto.
 
 1. No mesmo arquivo, substitua a cadeia de caracteres `YourSubscriptionKey` por sua chave de assinatura.
 
-1. Substitua também a cadeia de caracteres `YourServiceRegion` pela [região](regions.md) associada à assinatura (por exemplo, `westus` para a assinatura de avaliação gratuita).
+1. Substitua também a cadeia de caracteres `YourServiceRegion` pela [região](regions.md) associada à sua assinatura. Por exemplo, use `westus` para a assinatura de avaliação gratuita.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar o aplicativo
 
-1. Conecte o dispositivo Android ao PC de desenvolvimento. Verifique se você habilitou o [modo de desenvolvimento e depuração de USB](https://developer.android.com/studio/debug/dev-options) no dispositivo.
+1. Conecte o dispositivo Android ao PC de desenvolvimento. Verifique se você habilitou o [modo de desenvolvimento e a depuração de USB](https://developer.android.com/studio/debug/dev-options) no dispositivo.
 
-1. Para compilar o aplicativo, pressione Ctrl+F9 ou escolha **Construir** > **Criar um Projeto** na barra de menus.
+1. Para compilar o aplicativo, selecione Ctrl+F9 ou **Compilar** > **Criar Projeto** na barra de menus.
 
-1. Para inicializar o aplicativo, pressione Shift+F10 ou escolha **Executar** > **Executar 'aplicativo'** .
+1. Para iniciar o aplicativo, selecione Shift+F10 ou **Executar** > **Executar 'aplicativo'** .
 
-1. Na janela de destino da implantação exibida, escolha seu dispositivo Android.
+1. Na janela de destino da implantação exibida, selecione seu dispositivo Android.
 
    ![Captura de tela da janela Selecionar Destino da Implantação](media/sdk/qs-java-android-12-deploy.png)
 
-Pressione o botão no aplicativo para iniciar uma seção de reconhecimento de fala. Os próximos 15 segundos de fala em inglês serão enviados para os Serviços de Fala e transcritos. O resultado é exibido no aplicativo Android e na janela logcat no Android Studio.
+Selecione o botão no aplicativo para iniciar uma seção de reconhecimento de fala. Os próximos 15 segundos de fala em inglês serão enviados para os Serviços de Fala e serão transcritos. O resultado é exibido no aplicativo Android e na janela logcat no Android Studio.
 
 ![Captura de tela do aplicativo Android](media/sdk/qs-java-android-13-gui-on-device.png)
 

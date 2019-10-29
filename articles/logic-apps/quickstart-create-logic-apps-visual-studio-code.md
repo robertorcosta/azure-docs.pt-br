@@ -1,6 +1,6 @@
 ---
-title: Criar e gerenciar fluxos de trabalho no Visual Studio Code – Aplicativos Lógicos do Azure
-description: Início Rápido – Criar e gerenciar definições de aplicativos lógicos com JSON no VS Code (Visual Studio Code)
+title: Automatizar fluxos de trabalho com o Visual Studio Code – Aplicativos Lógicos do Azure
+description: Criar ou editar as definições JSON subjacentes de aplicativo lógico com o VS Code (Visual Studio Code)
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,16 +12,16 @@ ms.reviewer: klam, deli, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/05/2018
-ms.openlocfilehash: 34de50517580c84c78ee1f192daa908b3f262670
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: a1387ca4d94410bafb1b1024345b5e307e215e6f
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035357"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679161"
 ---
-# <a name="quickstart-create-and-manage-logic-app-definitions-by-using-visual-studio-code"></a>Início Rápido: Criar e gerenciar definições de aplicativos lógicos usando o Visual Studio Code
+# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-with-visual-studio-code"></a>Início Rápido: Criar e gerenciar definições de fluxo de trabalho de aplicativo lógico com o Visual Studio Code
 
-Com o [Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o Visual Studio Code, você pode criar e gerenciar aplicativos lógicos que ajudam a automatizar tarefas, fluxos de trabalho e processos para integrar aplicativos, dados, sistemas e serviços em organizações e empresas. Este início rápido mostra como criar e editar definições de fluxo de trabalho de aplicativo lógico trabalhando com o esquema de definição de fluxo de trabalho em JSON (JavaScript Object Notation) por meio de uma experiência baseada em código. Também é possível trabalhar em aplicativos lógicos existentes já implantados no Azure.
+Com o [Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o Visual Studio Code, você pode criar e gerenciar aplicativos lógicos que ajudam a automatizar tarefas, fluxos de trabalho e processos para integrar aplicativos, dados, sistemas e serviços em organizações e empresas. Este início rápido mostra como criar e editar as definições de fluxo de trabalho subjacentes, que usam o JSON (JavaScript Object Notation), para aplicativos lógicos por meio de uma experiência baseada em código. Também é possível trabalhar em aplicativos lógicos existentes já implantados no Azure.
 
 Embora seja possível executar essas mesmas tarefas no [portal do Azure](https://portal.azure.com) e no Visual Studio, você poderá começar mais rapidamente no Visual Studio Code quando já conhecer definições de aplicativo lógico e desejar trabalhar diretamente no código. Por exemplo, é possível desabilitar, habilitar, excluir e atualizar aplicativos lógicos já criados. Além disso, você pode trabalhar em aplicativos lógicos e nas contas de integração de qualquer plataforma de desenvolvimento em que o Visual Studio Code é executado, como Linux, Windows e Mac.
 
@@ -33,7 +33,7 @@ Antes de começar, verifique se você possui estes itens:
 
 * Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-* Conhecimento básico sobre [as definições do fluxo de trabalho do aplicativo lógico](../logic-apps/logic-apps-workflow-definition-language.md) e sua estrutura, que usa JSON (JavaScript Object Notation)
+* Conhecimento básico sobre as [definições de fluxo de trabalho de aplicativo lógico](../logic-apps/logic-apps-workflow-definition-language.md) e a estrutura dele, conforme descrito com o JSON
 
   Se você for novo nos Aplicativos Lógicos, experimente este [início rápido](../logic-apps/quickstart-create-first-logic-app-workflow.md) que explica como criar seus primeiros aplicativos lógicos no portal do Azure e se concentra mais nos conceitos básicos.
 

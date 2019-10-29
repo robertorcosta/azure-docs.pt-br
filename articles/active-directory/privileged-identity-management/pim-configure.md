@@ -4,7 +4,7 @@ description: Apresenta uma visão geral do PIM Azure AD PIM (Privileged Identity
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -14,24 +14,24 @@ ms.date: 04/09/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5009310dd4ea4e99e1da2871085ee2d2d99a6eab
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 1ae9429920a4d3a6bac8830d6add2782276850d7
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804514"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595350"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
-O PIM (Privileged Identity Management) do Azure AD (Azure Active Directory) é um serviço que permite gerenciar, controlar e monitorar o acesso a importantes recursos em sua organização. Isso inclui o acesso a recursos no Azure AD, recursos do Azure e outros Microsoft Online Services, como o Office 365 ou o Microsoft Intune.
+O PIM (Privileged Identity Management) do Azure AD (Azure Active Directory) é um serviço que permite gerenciar, controlar e monitorar o acesso a importantes recursos em sua organização. Esses recursos incluem os recursos no Azure AD, no Azure e em outros Microsoft Online Services, como o Office 365 ou o Microsoft Intune.
 
-## <a name="why-should-i-use-pim"></a>Por que devo usar o PIM?
+## <a name="reasons-to-use"></a>Motivos para usá-lo
 
-As empresas desejam minimizar o número de pessoas que têm acesso a informações seguras ou recursos, porque isso reduz a chance de um ator mal-intencionado obter esse tipo de acesso ou um usuário autorizado afetar acidentalmente um recurso confidencial. No entanto, os usuários ainda precisam executar operações privilegiadas em aplicativos do Azure AD, Azure, Office 365 ou SaaS. As organizações podem proporcionar aos usuários acesso privilegiado JIT (Just-In-Time) aos recursos do Azure e ao Azure AD. É preciso supervisionar o que esses usuários estão fazendo com seus privilégios de administrador. O PIM ajuda a reduzir o risco de direitos de acesso excessivos, desnecessários ou mal utilizados.
+As empresas desejam minimizar o número de pessoas que têm acesso a informações seguras ou recursos, porque isso reduz a chance de um ator mal-intencionado obter esse tipo de acesso ou um usuário autorizado afetar acidentalmente um recurso confidencial. No entanto, os usuários ainda precisam executar operações privilegiadas em aplicativos do Azure AD, Azure, Office 365 ou SaaS. As organizações podem proporcionar aos usuários acesso privilegiado JIT (Just-In-Time) aos recursos do Azure e ao Azure AD. É preciso supervisionar o que esses usuários estão fazendo com seus privilégios de administrador.
 
-## <a name="what-can-i-do-with-pim"></a>O que posso fazer com o PIM?
+## <a name="what-does-it-do"></a>O que ela faz?
 
-O PIM, essencialmente, ajuda você a gerenciar quem, o que, quando, onde e por que para os recursos com os quais você se importa. Veja alguns dos principais recursos do PIM:
+O Privileged Identity Management fornece ativação de função baseada em tempo e aprovação para atenuar os riscos de permissões de acesso excessivas, desnecessárias ou que foram indevidamente utilizadas em recursos importantes. Estes são alguns dos principais recursos do Privileged Identity Management:
 
 - Fornecer acesso privilegiado **just-in-time** ao Azure AD e aos recursos do Azure
 - Atribua acesso com **limite de tempo** aos recursos usando as datas de início e término
@@ -42,9 +42,45 @@ O PIM, essencialmente, ajuda você a gerenciar quem, o que, quando, onde e por q
 - Realizar **revisões de acesso** para garantir que os usuários ainda precisem de funções
 - Baixar o **histórico de auditoria** para auditoria interna ou externa
 
+## <a name="what-can-i-do-with-it"></a>O que posso fazer com ele?
+
+Depois de configurar o Privileged Identity Management, você verá as opções **Tarefas**, **Gerenciar** e **Atividade** no menu de navegação à esquerda. Como administrador, você poderá escolher entre gerenciar **funções do Azure AD** e funções de **recursos do Azure**. Quando você escolhe o tipo de funções a ser gerenciado, você vê um conjunto semelhante de opções para esse tipo de função.
+
+![Captura de tela do Privileged Identity Management no portal do Azure](./media/pim-configure/pim-overview.png)
+
+## <a name="who-can-do-what"></a>Quem pode fazer o quê?
+
+Se você for a primeira pessoa a usar o Privileged Identity Management, receberá automaticamente as funções [Administrador de segurança](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) e [Administrador de funções com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) no diretório.
+
+Para as funções do Azure AD no Privileged Identity Management, somente um usuário que está na função Administrador de funções com privilégios pode gerenciar atribuições para outros administradores. Você pode [permitir acesso a outros administradores para gerenciar o Privileged Identity Management](pim-how-to-give-access-to-pim.md). Os Administradores globais, os Administradores de segurança, os Leitores globais e os Leitores de segurança também podem exibir as atribuições às funções do Azure AD no Privileged Identity Management.
+
+Para as funções de recurso do Azure no Privileged Identity Management, somente um administrador de assinatura, um proprietário de recurso ou um administrador de acesso de usuário de recurso pode gerenciar atribuições para outros administradores. Por padrão, os usuários que são Administradores de funções com privilégios, Administradores da segurança ou Leitores de segurança não têm acesso para exibir as atribuições às funções de recurso do Azure no Privileged Identity Management.
+
+## <a name="scenarios"></a>Cenários
+
+O PIM dá suporte aos seguintes cenários:
+
+### <a name="privileged-role-administrator-permissions"></a>Permissões do Administrador de funções com privilégios
+
+- Habilitar a aprovação para funções específicas
+- Especificar usuários ou grupos aprovadores para aprovar solicitações
+- Exibir o histórico de solicitações e aprovações de todas as funções com privilégios
+
+### <a name="approver-permissions"></a>Permissões do aprovador
+
+- Exibir as aprovações pendentes (solicitações)
+- Aprovar ou rejeitar solicitações de elevação de função (única e em massa)
+- Fornecer uma justificativa para minha aprovação ou rejeição
+
+### <a name="eligible-role-user-permissions"></a>Permissões de usuário de função qualificado
+
+- Solicitar a ativação de uma função que exige aprovação
+- Exibir o status de sua solicitação a ser ativada
+- Concluir a tarefa no Azure AD caso a ativação tenha sido aprovada
+
 ## <a name="terminology"></a>Terminologia
 
-Para entender melhor o PIM e sua documentação, examine os termos a seguir.
+Para entender melhor o Privileged Identity Management e a documentação dele, examine os termos a seguir.
 
 | Termo ou conceito | Categoria de atribuição de função | DESCRIÇÃO |
 | --- | --- | --- |
@@ -60,50 +96,14 @@ Para entender melhor o PIM e sua documentação, examine os termos a seguir.
 | Acesso JIT (Just-In-Time) |  | Um modelo no qual os usuários recebem permissões temporárias para executar tarefas privilegiadas, o que impede que usuários mal-intencionados ou não autorizados obtenham acesso após a expiração das permissões. O acesso é concedido somente quando os usuários precisam dele. |
 | princípio de acesso de privilégios mínimos |  | Uma prática de segurança recomendada na qual todos os usuários recebem apenas os privilégios mínimos necessários para realizar as tarefas que estão autorizados a executar. Essa prática minimiza o número de Administradores Globais usando funções de administrador específicas para determinados cenários. |
 
-## <a name="what-does-pim-look-like"></a>Como é a aparência do PIM?
-
-Depois de configurar o PIM, você verá as opções **Tarefas**, **Gerenciar** e **Atividade** no menu de navegação esquerdo. Como administrador, você poderá escolher entre gerenciar **funções do Azure AD** e funções de **recursos do Azure**. Quando você escolhe o tipo de funções a ser gerenciado, você vê um conjunto semelhante de opções para esse tipo de função.
-
-![Captura de tela do PIM do portal do Azure](./media/pim-configure/pim-overview.png)
-
-## <a name="who-can-do-what-in-pim"></a>Quem pode fazer o que no PIM?
-
-Se você for a primeira pessoa a usar o PIM, receberá automaticamente as funções de [Administrador de Segurança](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) e [Administrador de Função com Privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) no diretório.
-
-Para funções do Azure AD, apenas um usuário que está na função de Administrador de Função Privilegiada pode gerenciar atribuições para outros administradores no PIM. Você pode [conceder acesso a outros administradores para gerenciar o PIM](pim-how-to-give-access-to-pim.md). Os Administradores Globais, Administradores de Segurança e Leitores de Segurança podem exibir atribuições às funções do Azure AD no PIM.
-
-Para funções de recurso do Azure, somente um administrador de assinatura, um Proprietário de recurso ou um Administrador de Acesso de Usuário de recursos pode gerenciar atribuições para outros administradores no PIM. Por padrão, o usuários que são Administradores de Funções com Privilégio, Administradores de Segurança ou Leitores de Segurança não têm acesso para exibir as atribuições a funções de recurso do Azure no PIM.
-
-## <a name="scenarios"></a>Cenários
-
-O PIM é compatível com os seguintes cenários:
-
-**Como PRA (Administrador da Função com Privilégios), você pode:**
-
-- Habilitar a aprovação para funções específicas
-- Especificar usuários e/ou grupos aprovadores para aprovar solicitações
-- Exibir o histórico de solicitações e aprovações de todas as funções com privilégios
-
-**Como aprovador, você pode:**
-
-- Exibir as aprovações pendentes (solicitações)
-- Aprovar ou rejeitar solicitações de elevação de função (única e/ou em massa)
-- Fornecer uma justificativa para minha aprovação/rejeição 
-
-**Como usuário de função qualificado, você pode:**
-
-- Solicitar a ativação de uma função que exige aprovação
-- Exibir o status de sua solicitação a ser ativada
-- Concluir a tarefa no Azure AD caso a ativação tenha sido aprovada
-
 ## <a name="license-requirements"></a>Requisitos de licença
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Para saber mais sobre licenças para usuários, confira [License requirements to use PIM](subscription-requirements.md) (Requisitos de licença para usar o PIM).
+Para obter informações sobre licenças para usuários, confira [Requisitos de licença para usar o Privileged Identity Management](subscription-requirements.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Requisitos de licença para usar o PIM](subscription-requirements.md)
+- [Requisitos de licença para usar o Privileged Identity Management](subscription-requirements.md)
 - [Protegendo o acesso privilegiado para implantações de nuvem e híbridos no Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-- [Implantar o PIM](pim-deployment-plan.md)
+- [Implantar o Privileged Identity Management](pim-deployment-plan.md)

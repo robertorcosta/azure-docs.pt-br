@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe02e9d6c3fa69e0ccd88057e10edb6ea1c6e0d0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 15e98bf83cedc22aa565ba0f98089e9f6f217728
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986052"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787637"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Workplace by Facebook
 
@@ -63,7 +63,6 @@ Para configurar a integração do Workplace by Facebook ao Azure AD, você preci
 1. Na seção **Adicionar por meio da galeria**, digite **Workplace by Facebook** na caixa de pesquisa.
 1. Selecione **Workplace by Facebook** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-workplace-by-facebook"></a>Configurar e testar o SSO do Azure AD para Workplace by Facebook
 
 Configure e teste o SSO do Azure AD com o Workplace by Facebook usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Workplace by Facebook.
@@ -71,10 +70,10 @@ Configure e teste o SSO do Azure AD com o Workplace by Facebook usando um usuár
 Para configurar e testar o SSO do Azure AD com o Workplace by Facebook, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
-    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+    * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
 2. **[Configurar o SSO do Workplace by Facebook](#configure-workplace-by-facebook-sso)** – para definir as configurações de Logon Único no lado do aplicativo.
-    1. **[Criar usuário de teste no Workplace by Facebook](#create-workplace-by-facebook-test-user)** – para ter um equivalente de B.Fernandes no Workplace by Facebook que esteja vinculado à representação deste usuário no Azure AD.
+    * **[Criar usuário de teste no Workplace by Facebook](#create-workplace-by-facebook-test-user)** – para ter um equivalente de B.Fernandes no Workplace by Facebook que esteja vinculado à representação deste usuário no Azure AD.
 3. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -96,11 +95,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE] 
     > Esses não são os valores reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Consulte a página Autenticação do Workplace Company Dashboard a fim de obter os valores corretos para a comunidade do Workplace.
 
-4. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o Workplace by Facebook**, copie a(s) URL(s) apropriada(s) com base em seus requisitos.
+1. Na seção **Configurar o Workplace by Facebook**, copie a(s) URL(s) apropriada(s) com base em seus requisitos.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -136,24 +135,36 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 ## <a name="configure-workplace-by-facebook-sso"></a>Configurar o SSO do Workplace by Facebook
 
-1. Em outra janela do navegador da Web, faça logon em seu site de empresa do Workplace by Facebook como administrador.
-  
+1. Para automatizar a configuração no Workplace by Facebook, é necessário instalar a **Extensão do navegador de Entrada Segura dos Meus Aplicativos**, clicando em **Instalar a extensão**.
+
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
+
+1. Após adicionar a extensão ao navegador, um clique em **Configurar o Workplace by Facebook** direcionará você ao aplicativo Workplace by Facebook. Nele, forneça as credenciais de administrador para entrar no Workplace by Facebook. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 5.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+1. Caso deseje configurar o Workplace by Facebook manualmente, abra uma nova janela do navegador da Web, entre em seu empresarial do Workplace by Facebook como administrador e execute as seguintes etapas:
+
     > [!NOTE]
     > Como parte do processo de autenticação SAML, o Workplace poderá utilizar cadeias de consulta de até 2,5 quilobytes para passar parâmetros para o Azure AD.
 
-2. No **Painel de Administração**, acesse a guia **Segurança**.
+1. No painel de navegação esquerdo, navegue até a guia **Segurança** > **Autenticação**.
 
     ![Painel de Administração](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
-3. Na guia **Autenticação**, selecione **SSO (logon único)** e execute as seguintes etapas:
+    a. Marque a opção **SSO (logon único)** .
+    
+    b. Clique em **+Adicionar novo Provedor de SSO**.
+
+1. Na guia **Autenticação**, selecione **SSO (logon único)** e execute as seguintes etapas:
 
     ![Guia Autenticação](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
 
-    a. Na caixa de texto **URL do SAML**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    a. No **Nome do Provedor de SSO**, insira o nome da instância de SSO, como Azureadsso.
 
-    b. Na **caixa de texto URI do Emissor do SAML**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
+    b. Na caixa de texto **URL do SAML**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
-    c. Em **Redirecionamento de Logoff SAML** (Opcional), cole o valor da **URL de Logout** copiado do portal do Azure.
+    c. Na caixa de texto **URL do Emissor do SAML**, cole o valor do **Identificador do Azure AD**, copiado do portal do Azure.
 
     d. Abra o **Certificado codificado em Base64** no bloco de notas baixado do Portal do Azure, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Certificado SAML**.
 
@@ -169,7 +180,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     i. Agora, todos os usuários que usam o Workplace verão a página de logon do Azure AD para autenticação.
 
-4. **Redirecionamento de Logoff SAML (opcional)**  -
+1. **Redirecionamento de Logoff SAML (opcional)**  -
 
     Você pode optar por configurar uma URL de Logoff SAML, que pode ser usada para apontar para a página de logoff do Azure AD. Quando essa configuração for habilitada e configurada, o usuário não será mais direcionado para a página de logoff do Workplace. Em vez disso, o usuário será redirecionado para a URL que foi adicionada à configuração Redirecionamento de Logoff SAML.
 
@@ -230,4 +241,3 @@ Quando você clica no bloco Workplace by Facebook no painel de acesso, você dev
 - [Configurar Provisionamento de Usuário](workplacebyfacebook-provisioning-tutorial.md)
 
 - [Experimentar o Workplace by Facebook com o Azure AD](https://aad.portal.azure.com)
-

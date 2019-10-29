@@ -1,22 +1,23 @@
 ---
-title: Tutorial do C# sobre preenchimento automático e sugestões – Azure Search
-description: Este tutorial baseia-se no projeto "Paginação dos resultados da pesquisa – Azure Search" para adicionar preenchimento automático e sugestões. A meta é uma experiência de usuário mais rica. Aprenda a combinar uma lista suspensa de sugestões com preenchimento automático embutido.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: Tutorial de C# sobre preenchimento automático e sugestões
+titleSuffix: Azure Cognitive Search
+description: Este tutorial baseia-se no projeto "Paginação dos resultados da pesquisa – Pesquisa Cognitiva do Azure" para adicionar preenchimento automático e sugestões. A meta é uma experiência de usuário mais rica. Aprenda a combinar uma lista suspensa de sugestões com preenchimento automático embutido.
+manager: nitinme
 author: PeterTurcan
-ms.date: 05/01/2019
-ms.openlocfilehash: 01c0819fd0bf525739675ad756031cafc1a51673
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 959ae749f9ab8a025ec9c78d75640e2108868372
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434732"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786495"
 ---
-# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-search"></a>Tutorial do C#: Adicionar preenchimento automático e sugestões – Azure Search
+# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>Tutorial do C#: Adicionar preenchimento automático e sugestões – Pesquisa Cognitiva do Azure
 
-Aprenda a implementar o preenchimento automático (digitação antecipada e sugestões) quando um usuário começa a digitar na caixa de pesquisa. Neste tutorial, vamos mostrar os resultados do preenchimento automático e os resultados de sugestões separadamente, então apresentaremos um método de combiná-los para criar uma experiência de usuário mais rica. Um usuário pode precisar apenas digitar duas ou três teclas para localizar todos os resultados disponíveis. Este tutorial baseia-se no projeto paginação criado no [Tutorial do C#: Paginação dos resultados da pesquisa – Azure Search](tutorial-csharp-paging.md).
+Aprenda a implementar o preenchimento automático (digitação antecipada e sugestões) quando um usuário começa a digitar na caixa de pesquisa. Neste tutorial, vamos mostrar os resultados do preenchimento automático e os resultados de sugestões separadamente, então apresentaremos um método de combiná-los para criar uma experiência de usuário mais rica. Um usuário pode precisar apenas digitar duas ou três teclas para localizar todos os resultados disponíveis. Este tutorial baseia-se no projeto paginação criado no [Tutorial do C#: Paginação dos resultados da pesquisa – Pesquisa Cognitiva do Azure](tutorial-csharp-paging.md).
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -29,7 +30,7 @@ Neste tutorial, você aprenderá como:
 
 Para concluir este tutorial, você precisará:
 
-Ter o projeto [Tutorial do C#: Paginação dos resultados da pesquisa – Azure Search](tutorial-csharp-paging.md) em funcionamento. Esse projeto pode ser sua própria versão, que você concluiu no tutorial anterior, ou é possível instalá-lo do GitHub: [Criar primeiro aplicativo](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Ter o projeto [Tutorial do C#: Paginação dos resultados da pesquisa – Pesquisa Cognitiva do Azure](tutorial-csharp-paging.md) em funcionamento. Esse projeto pode ser sua própria versão, que você concluiu no tutorial anterior, ou é possível instalá-lo do GitHub: [Criar primeiro aplicativo](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="add-suggestions"></a>Adicionar sugestões
 
@@ -146,7 +147,7 @@ A função de preenchimento automático chamada no script acima não é algo que
  
     ![Digitando "pa" com fuzzy definido como true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-    Se você estiver interessado, [Sintaxe de consulta do Lucene no Azure Search](https://docs.microsoft.com/azure/search/query-lucene-syntax) descreve em detalhes a lógica usada em pesquisas difusas.
+    Se você estiver interessado, [Sintaxe de consulta Lucene na Pesquisa Cognitiva do Azure](https://docs.microsoft.com/azure/search/query-lucene-syntax) descreve em detalhes a lógica usada em pesquisas difusas.
 
 ## <a name="add-highlighting-to-the-suggestions"></a>Adicionar realce às sugestões
 
@@ -255,7 +256,7 @@ Outra variação, levemente diferente das sugestões, é o preenchimento automá
 
 ## <a name="combine-autocompletion-and-suggestions"></a>Combinar o preenchimento automático e sugestões
 
-Combinar preenchimento automático e sugestões é a opção mais complexa e provavelmente proporciona a melhor experiência do usuário. Nós queremos exibir, embutida no texto que está sendo digitado, a primeira opção do Azure Search para realizar o preenchimento automático do texto. Além disso, queremos uma gama de sugestões como uma lista suspensa.
+Combinar preenchimento automático e sugestões é a opção mais complexa e provavelmente proporciona a melhor experiência do usuário. Nós queremos exibir, embutida no texto que está sendo digitado, a primeira opção da Pesquisa Cognitiva do Azure para realizar o preenchimento automático do texto. Além disso, queremos uma gama de sugestões como uma lista suspensa.
 
 Há bibliotecas que oferecem essa funcionalidade, frequentemente chamada de "preenchimento automático embutido" ou um nome semelhante. No entanto, vamos implementar esse recurso nativamente para que você possa ver o que está acontecendo. Vamos começar a trabalhar no controlador primeiro neste exemplo.
 
@@ -464,6 +465,6 @@ Considere as principais conclusões deste projeto:
 No próximo tutorial, vamos analisar outra maneira de melhorar a experiência do usuário, usando facetas para restringir a pesquisa com um único clique.
 
 > [!div class="nextstepaction"]
-> [Tutorial do C#: Usar facetas para auxiliar a navegação – Azure Search](tutorial-csharp-facets.md)
+> [Tutorial do C#: Usar facetas para auxiliar a navegação – Pesquisa Cognitiva do Azure](tutorial-csharp-facets.md)
 
 

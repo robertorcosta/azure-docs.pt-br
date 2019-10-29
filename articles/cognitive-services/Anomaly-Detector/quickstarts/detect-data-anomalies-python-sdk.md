@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 08/01/2019
+ms.date: 10/15/2019
 ms.author: aahi
-ms.openlocfilehash: 28dbcde723e25577545cfd44fed9ef00249d8f30
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 926d7043ea6f56c1ba6d13fd4586fc6f6d59cfa8
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694901"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554717"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>Início Rápido: Biblioteca de clientes do Detector de Anomalias para Python
 
@@ -26,7 +26,7 @@ Use a biblioteca de cliente do Detector de Anomalias para Python para:
 * Detectar anomalias em todo o seu conjunto de dados de série temporal, como uma solicitação em lote
 * Detectar o status de anomalias do ponto de dados mais recente em sua série temporal
 
-[Documentação de referência da biblioteca](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Pacote (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [Exemplos](https://github.com/Azure-Samples/anomalydetector)
+[Documentação de referência da biblioteca](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Pacote (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [Exemplos de código](https://github.com/Azure-Samples/anomalydetector)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,11 +40,9 @@ Use a biblioteca de cliente do Detector de Anomalias para Python para:
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-Depois de obter uma chave do recurso ou da assinatura de avaliação, [crie uma variável de ambiente](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para a chave, chamada `ANOMALY_DETECTOR_KEY`.
-
 ### <a name="create-a-new-python-application"></a>Criar um novo aplicativo Python
 
- Crie um novo aplicativo Python em seu IDE ou editor preferido. Depois, importe as bibliotecas a seguir.
+ Crie um arquivo do Python e importe as bibliotecas a seguir.
 
 [!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
 
@@ -114,7 +112,7 @@ Chame a API do Detector de Anomalias para determinar se o seu ponto de dados mai
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 
-Execute o aplicativo em seu IDE ou na linha de comando com o comando `python` e o nome do arquivo.
+Execute o aplicativo com o comando `python` e o nome do arquivo.
  
 ## <a name="clean-up-resources"></a>Limpar recursos
 

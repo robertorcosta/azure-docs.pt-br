@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/23/2019
 ms.author: alehall
-ms.openlocfilehash: 942553e2ececf2bdc7bb2b240d4fa6c5f338beb2
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 0ea85e60a84b540af2c772f81326dd8c45f61d4d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "68976499"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784015"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutorial: Transmitir dados para o Azure Databricks usando Hubs de Eventos
 
@@ -45,7 +45,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 > [!Note]
 > Este tutorial não pode ser realizado usando a **Assinatura de avaliação gratuita do Azure**.
-> Se você tiver uma conta gratuita, acesse seu perfil e altere para uma assinatura **pré-paga**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/). Em seguida, [remova o limite de gastos](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center) e [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para as vCPUs da sua região. Quando você cria seu espaço de trabalho do Azure Databricks, pode selecionar o tipo de preço **Versão de avaliação (Premium - DBUs gratuitas por 14 dias)** para conceder ao espaço de trabalho acesso gratuito aos DBUs do Premium Azure Databricks por 14 dias.
+> Se você tiver uma conta gratuita, acesse seu perfil e altere para uma assinatura **pré-paga**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/). Em seguida, [remova o limite de gastos](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) e [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para as vCPUs da sua região. Quando você cria seu espaço de trabalho do Azure Databricks, pode selecionar o tipo de preço **Versão de avaliação (Premium - DBUs gratuitas por 14 dias)** para conceder ao espaço de trabalho acesso gratuito aos DBUs do Premium Azure Databricks por 14 dias.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -71,7 +71,7 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 
 3. Em **Serviço do Azure Databricks**, forneça os valores para criar um workspace do Databricks.
 
-    ![Criar um workspace do Azure Databricks](./media/databricks-stream-from-eventhubs/create-databricks-workspace.png "Criar um workspace do Azure Databricks")
+    ![Crie um workspace do Azure Databricks](./media/databricks-stream-from-eventhubs/create-databricks-workspace.png "Criar um workspace do Azure Databricks")
 
     Forneça os seguintes valores:
 
@@ -99,7 +99,7 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 
 3. Na página **Novo cluster**, forneça os valores para criar um cluster.
 
-    ![Criar cluster do Databricks Spark no Azure](./media/databricks-stream-from-eventhubs/create-databricks-spark-cluster.png "Criar cluster do Databricks Spark no Azure")
+    ![Criar um cluster Spark do Databricks no Azure](./media/databricks-stream-from-eventhubs/create-databricks-spark-cluster.png "Criar um cluster Spark do Databricks no Azure")
 
     Aceite todos os outros valores padrão que não sejam o seguinte:
 
@@ -117,7 +117,7 @@ Para receber uma transmissão de tweets, crie um aplicativo no Twitter. Siga as 
 
 1. Em um navegador da Web, acesse [Twitter para Desenvolvedores](https://developer.twitter.com/en/apps) e selecione **Criar um aplicativo**. Você poderá ver uma mensagem indicando que precisa solicitar uma conta de desenvolvedor do Twitter. Fique à vontade para fazer isso e, depois que seu aplicativo tiver sido aprovado, você deverá ver um email de confirmação. Podem ser necessários vários dias para ser aprovado para uma conta de desenvolvedor.
 
-    ![Confirmação da conta de desenvolvedor do Twitter](./media/databricks-stream-from-eventhubs/databricks-twitter-dev-confirmation.png "Twitter developer account confirmation")
+    ![Confirmação da conta de desenvolvedor do Twitter](./media/databricks-stream-from-eventhubs/databricks-twitter-dev-confirmation.png "Confirmação da conta de desenvolvedor do Twitter")
 
 2. Na página **Criar um aplicativo**, forneça os detalhes para o novo aplicativo e selecione **Criar seu aplicativo do Twitter**.
 
@@ -137,16 +137,16 @@ Neste tutorial, você usará as APIs do Twitter para enviar tweets aos Hubs de E
 
 1. No workspace do Azure Databricks, selecione **Clusters** e escolha o cluster Spark existente. No menu do cluster, escolha **Bibliotecas** e clique em **Instalar Novo**.
 
-   ![Caixa de diálogo Adicionar biblioteca](./media/databricks-stream-from-eventhubs/databricks-add-library-locate-cluster.png "Localizar cluster em Adicionar biblioteca")
+   ![Caixa de diálogo Adicionar biblioteca](./media/databricks-stream-from-eventhubs/databricks-add-library-locate-cluster.png "Adicionar um cluster de localização de biblioteca")
 
-   ![Caixa de diálogo Adicionar biblioteca](./media/databricks-stream-from-eventhubs/databricks-add-library-install-new.png "Instalar Novo em Adicionar biblioteca")
+   ![Caixa de diálogo Adicionar biblioteca](./media/databricks-stream-from-eventhubs/databricks-add-library-install-new.png "Adicionar uma nova instalação de biblioteca")
 
 2. Na página Nova Biblioteca, em **Fonte**, selecione **Maven**. Para **Coordenada**, clique em **Pesquisar Pacotes** para o pacote que deseja adicionar. Estas são as coordenadas Maven para as bibliotecas usadas neste tutorial:
 
    * Conector dos Hubs de Eventos do Spark – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * API do Twitter – `org.twitter4j:twitter4j-core:4.0.7`
 
-     ![Fornecer coordenadas Maven](./media/databricks-stream-from-eventhubs/databricks-add-library-search.png "Fornecer coordenadas Maven")
+     ![Fornecer coordenadas do Maven](./media/databricks-stream-from-eventhubs/databricks-add-library-search.png "Fornecer coordenadas do Maven")
 
      ![Fornecer coordenadas do Maven](./media/databricks-stream-from-eventhubs/databricks-add-library-search-dialogue.png "Pesquisar coordenadas do Maven")
 
@@ -154,7 +154,7 @@ Neste tutorial, você usará as APIs do Twitter para enviar tweets aos Hubs de E
 
 4. No menu do cluster, verifique se ambas as bibliotecas estão instaladas e anexadas corretamente.
 
-    ![Verificar bibliotecas](./media/databricks-stream-from-eventhubs/databricks-add-library-check.png "Check libraries")
+    ![Verificar bibliotecas](./media/databricks-stream-from-eventhubs/databricks-add-library-check.png "Verificar bibliotecas")
 
 6. Repita essas etapas para o pacote do Twitter, `twitter4j-core:4.0.7`.
 
@@ -167,11 +167,11 @@ Nesta seção, você criará dois blocos de notas no workspace do Databricks com
 
 1. No painel esquerdo, escolha **Workspace**. Na lista suspensa **Workspace**, selecione **Criar** > **Notebook**.
 
-    ![Criar bloco de notas em Databricks](./media/databricks-stream-from-eventhubs/databricks-create-notebook.png "Criar bloco de notas em Databricks")
+    ![Criar notebook no Databricks](./media/databricks-stream-from-eventhubs/databricks-create-notebook.png "Criar notebook no Databricks")
 
 2. Na caixa de diálogo **Criar Bloco de Notas**, insira **SendTweetsToEventHub**, selecione **Scala** como a linguagem e selecione o cluster Spark criado anteriormente.
 
-    ![Criar bloco de notas em Databricks](./media/databricks-stream-from-eventhubs/databricks-notebook-details.png "Criar bloco de notas em Databricks")
+    ![Criar notebook no Databricks](./media/databricks-stream-from-eventhubs/databricks-notebook-details.png "Criar notebook no Databricks")
 
     Selecione **Criar**.
 
@@ -411,7 +411,7 @@ Agora a saída é semelhante ao seguinte snippet de código:
 
 Depois de terminar de executar o tutorial, você poderá encerrar o cluster. Para isso, no workspace do Azure Databricks, no painel esquerdo, selecione **Clusters**. No cluster que deseja encerrar, mova o cursor sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**.
 
-![Parar um cluster do Databricks](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "Parar um cluster do Databricks")
+![Interromper um cluster Databricks](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "Interromper um cluster Databricks")
 
 Se você não encerrar o cluster manualmente, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **Terminar depois de \_\_ minutos de inatividade** ao criar o cluster. Nesse caso, o cluster será interrompido automaticamente se ficar inativo durante o tempo especificado.
 

@@ -1,20 +1,20 @@
 ---
-title: Enviar eventos personalizados para conexão híbrida – Grade de Eventos, CLI do Azure
+title: Enviar eventos personalizados para conexão híbrida – Grade de Eventos
 description: Use a Grade de Eventos do Azure e a CLI do Azure para publicar um tópico e assinar esse evento. Uma conexão híbrida é usada para o ponto de extremidade.
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 02/02/2019
+ms.date: 10/22/2019
 ms.topic: tutorial
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 270059537fc8d06648c86088b22aef5b78ff00ec
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 7e1493903cdb51191c942762895644ee12c49f10
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606306"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790253"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutorial: Encaminhe eventos personalizados para as Conexões Híbridas de Retransmissão do Azure com a CLI do Azure e a Grade de Eventos
 

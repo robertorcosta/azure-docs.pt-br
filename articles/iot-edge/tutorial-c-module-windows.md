@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: b69000e251bb71bc08ea97b24a7422daf2cd89e4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: fdd1aeea20160bb1a9f91de934bd9268a179648a
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813820"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529246"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo do IoT Edge em C para dispositivos Windows
 
@@ -90,9 +90,9 @@ Crie um modelo de solução de C que possa ser personalizado com seu próprio c�
    | Nome do projeto de módulo | Nomeie o módulo **CModule**. | 
    | Repositório de imagens do Docker | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner é populada previamente com base no valor de nome do projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. Você pode recuperar o servidor de logon da página Visão Geral do seu registro de contêiner no portal do Azure. <br><br> O repositório de imagem final se parece com \<nome do Registro\>.azurecr.io/cmodule. |
 
-   ![Configurar seu projeto para o dispositivo de destino, tipo de módulo e registro de contêiner](./media/tutorial-c-module-windows/add-application-and-module.png)
+   ![Configure seu projeto para o dispositivo de destino, tipo de módulo e registro de contêiner](./media/tutorial-c-module-windows/add-application-and-module.png)
 
-5. Selecione **OK** para aplicar suas alterações. 
+5. Selecione **Adicionar** para criar o projeto. 
 
 ### <a name="add-your-registry-credentials"></a>Adicionar suas credenciais de registro
 

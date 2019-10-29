@@ -1,43 +1,43 @@
 ---
-title: Introdução ao repositório de conhecimento (versão prévia) – Azure Search
-description: Envie documentos enriquecidos ao armazenamento do Azure onde você pode exibir, reformatar e consumir documentos enriquecidos no Azure Search e em outros aplicativos.
-manager: nitinme
+title: Introdução ao repositório de conhecimento (versão prévia)
+titleSuffix: Azure Cognitive Search
+description: Envie documentos enriquecidos ao armazenamento do Azure onde você pode exibir, reformatar e consumir documentos enriquecidos na Pesquisa Cognitiva do Azure e em outros aplicativos.
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: overview
-ms.date: 08/02/2019
+manager: nitinme
 ms.author: heidist
-ms.openlocfilehash: ec0bf6002d8e90b41c2eed3c21f53e38f0fbbe8f
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
-ms.translationtype: HT
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 82f8606f4b4201833667347d3ed16fdd73f70a36
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265216"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790363"
 ---
-# <a name="what-is-knowledge-store-in-azure-search"></a>O que é o repositório de dados de conhecimento no Azure Search?
+# <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introdução aos repositórios de conhecimento na Pesquisa Cognitiva do Azure
 
 > [!Note]
 > O armazenamento de dados de conhecimento está em versão prévia e não é destinado para uso em produção. A [API REST versão 2019-05-06-versão prévia](search-api-preview.md) fornece esse recurso. Não há suporte para SDK do .NET no momento.
 >
 
-O repositório de conhecimento é um recurso do Azure Search que salva documentos aprimorados e metadados criados por um pipeline de indexação baseado em IA [(pesquisa cognitiva)](cognitive-search-concept-intro.md). Um documento aprimorado é a saída de um pipeline, criada com base no conteúdo que foi extraído, estruturado e analisado usando recursos nos Serviços Cognitivos. Em um pipeline baseado em IA padrão, documentos aprimorados são transitórios, usados apenas durante a indexação e descartados em seguida. Com o repositório de conhecimento, os documentos são salvos para avaliação e exploração subsequente e podem potencialmente se tornar entradas para uma carga de trabalho de ciência de dados downstream. 
+O repositório de conhecimento é um recurso da Pesquisa Cognitiva do Azure que persiste a saída de um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) para análise posterior ou outro processamento downstream. Um *documento enriquecido* é a saída de um pipeline, criado com base no conteúdo que foi extraído, estruturado e analisado usando processos de IA. Em um pipeline de IA padrão, documentos aprimorados são transitórios, usados apenas durante a indexação e descartados em seguida. Com o repositório de conhecimento, os documentos enriquecidos são preservados. 
 
-Se você já usou a pesquisa cognitiva, sabe que os conjuntos de habilidades são usados para mover um documento por uma sequência de aprimoramentos. O resultado pode ser um índice do Azure Search ou projeções (uma novidade nesta versão prévia) em um repositório de dados de conhecimento. As duas saídas, o índice de pesquisa e o repositório de conhecimento são fisicamente diferentes uns dos outros. Eles compartilham o mesmo conteúdo, mas são armazenados e usados de maneiras muito diferentes.
+Se já usou habilidades cognitivas com a Pesquisa Cognitiva do Azure, você sabe que os *conjuntos de habilidades* movem um documento por uma sequência de aprimoramentos. O resultado pode ser um índice de pesquisa ou projeções (uma novidade nesta versão prévia) em um repositório de conhecimento. As duas saídas, o índice de pesquisa e o repositório de conhecimento, compartilham o mesmo conteúdo, mas são armazenados e usados de maneiras muito diferentes.
 
-Fisicamente, um repositório de conhecimento está em uma conta de Armazenamento do Azure, como Armazenamento de Tabela do Azure, Armazenamento de Blobs ou ambos, dependendo de como você configura o pipeline. Qualquer ferramenta ou processo que pode se conectar ao Armazenamento do Azure pode consumir o conteúdo de um repositório de conhecimento.
+Fisicamente, um repositório de conhecimento é um [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview), podendo ser o Armazenamento de Tabelas do Azure, o Armazenamento de Blobs do Azure ou ambos. Qualquer ferramenta ou processo que pode se conectar ao Armazenamento do Azure pode consumir o conteúdo de um repositório de conhecimento.
 
-As projeções são o mecanismo para estruturar dados em um repositório de conhecimento. Por exemplo, por meio de projeções, é possível escolher se a saída é salva como um único blob ou como uma coleção de tabelas relacionadas. Uma maneira fácil de exibir o conteúdo do repositório de conhecimento é por meio do [Gerenciador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) interno para armazenamento do Azure.
+![Diagrama do repositório de conhecimento no diagrama](./media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg "Diagrama do repositório de conhecimento no diagrama")
 
-![Repositório de dados de conhecimento no diagrama do pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Repositório de dados de conhecimento no diagrama do pipeline")
+As projeções são o mecanismo para estruturar dados em um repositório de conhecimento. Por exemplo, por meio de projeções, é possível escolher se a saída é salva como um único blob ou como uma coleção de tabelas relacionadas. 
 
-Para usar o repositório de dados de conhecimento, adicione um elemento `knowledgeStore` a um conjunto de qualificações que defina operações por etapas em um pipeline de indexação. Durante a execução, o Azure Search cria um espaço em sua conta de armazenamento do Azure e projeta os documentos avançados com a definição criada dentro do pipeline.
+Para usar o repositório de dados de conhecimento, adicione um elemento `knowledgeStore` a um conjunto de qualificações que defina operações por etapas em um pipeline de indexação. Durante a execução, a Pesquisa Cognitiva do Azure cria um espaço em sua conta de armazenamento do Azure e projeta os documentos enriquecidos como blobs ou em tabelas, dependendo de sua configuração.
 
 ## <a name="benefits-of-knowledge-store"></a>Vantagens do repositório de dados de conhecimento
 
 Um repositório de dados de conhecimento fornece estrutura, contexto e conteúdo real, compilados de arquivos de dados não estruturados e semiestruturados como blobs, arquivos de imagem que passaram por análise ou mesmo dados estruturados que são reformatados. Em um [passo a passo](knowledge-store-howto.md) escrito para esta versão prévia, você pode ver em primeira mão como um documento JSON denso é particionado em subestruturas, reconstituído em novas estruturas e disponibilizado para processos downstream como aprendizado de máquina e cargas de trabalho de ciência de dados.
 
-Embora seja útil ver o que um pipeline de indexação baseada em IA pode produzir, o poder real do repositório de dados de conhecimento é a capacidade de reformatar dados. Você pode começar com um conjunto de qualificações básicas e depois iterar sobre ele para adicionar níveis crescentes de estrutura, que podem ser combinados em novas estruturas e consumidos em outros aplicativos além do Azure Search.
+Embora seja útil ver o que um pipeline de enriquecimento de IA pode produzir, o poder real do repositório de conhecimento é a capacidade de reformatar dados. Você pode começar com um conjunto de qualificações básicas e depois iterar sobre ele para adicionar níveis crescentes de estrutura, que podem ser combinados em novas estruturas e consumidos em outros aplicativos além da Pesquisa Cognitiva do Azure.
 
 Se enumeradas, as vantagens do repositório de dados de conhecimento incluem o seguinte:
 
@@ -45,24 +45,31 @@ Se enumeradas, as vantagens do repositório de dados de conhecimento incluem o s
 
 + Refinar um pipeline de indexação por IA durante as etapas de depuração e definições de conjuntos de qualificações. Um repositório de dados de conhecimento mostra o produto de uma definição de conjuntos de qualificações em um pipeline de indexação por IA. Você pode usar esses resultados para criar um conjunto de qualificações enriquecido já que pode ver exatamente como são os enriquecimentos. Você pode usar o [Gerenciador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) no armazenamento do Azure para exibir o conteúdo de um repositório de dados de conhecimento.
 
-+ Reformatar os dados. A reformatação é codificada em conjuntos de qualificações. No entanto, a questão é que um conjunto de qualificações já pode oferecer essa capacidade. A [habilidade do Shaper](cognitive-search-skill-shaper.md) no Azure Search foi estendida para acomodar essa tarefa. A reformatação permite definir uma projeção que se alinha com o uso pretendido dos dados enquanto preserva as relações.
++ Reformatar os dados. A reformatação é codificada em conjuntos de qualificações. No entanto, a questão é que um conjunto de qualificações já pode oferecer essa capacidade. A [habilidade do Shaper](cognitive-search-skill-shaper.md) na Pesquisa Cognitiva do Azure foi estendida para acomodar essa tarefa. A reformatação permite definir uma projeção que se alinha com o uso pretendido dos dados enquanto preserva as relações.
 
 > [!Note]
-> Não está familiarizado com a indexação baseada em IA usando os Serviços Cognitivos? O Azure Search integra-se aos recursos de Visão de Computação e Idioma nos Serviços Cognitivos para extrair e enriquecer os dados de origem usando OCR (Reconhecimento Óptico de Caracteres) em arquivos de imagem, reconhecimento de entidade e extração de frases-chave de arquivos de texto e muito mais. Saiba mais em [O que é a pesquisa cognitiva?](cognitive-search-concept-intro.md).
+> Não está familiarizado com enriquecimento de IA usando os Serviços Cognitivos? A Pesquisa Cognitiva do Azure integra-se aos recursos de Visão de Computação e Idioma nos Serviços Cognitivos para extrair e enriquecer os dados de origem usando OCR (Reconhecimento Óptico de Caracteres) em arquivos de imagem, reconhecimento de entidade e extração de frases-chave de arquivos de texto e muito mais. Para obter mais informações, confira [Enriquecimento de IA na Pesquisa Cognitiva do Azure](cognitive-search-concept-intro.md).
 
-## <a name="create-a-knowledge-store"></a>Criar um repositório de dados de conhecimento
+## <a name="creating-a-knowledge-store"></a>Criando um repositório de conhecimento
 
-Um repositório de dados de conhecimento é parte da definição de um conjunto de qualificações. Nesta versão prévia, a criação exige a API REST usando o `api-version=2019-05-06-Preview` ou o assistente **Importar Dados** no portal.
+Um repositório de conhecimento faz parte de um [repositório de conhecimento](cognitive-search-working-with-skillsets.md), que, por sua vez, faz parte de um [indexar](search-indexer-overview.md). 
 
-O JSON a seguir especifica um `knowledgeStore` que faz parte de um conjunto de qualificações chamado por um indexador (não mostrado). A especificação de projeções no `knowledgeStore` determina se tabelas ou objetos são criados no armazenamento do Azure.
+Nesta versão prévia, você pode criar um repositório de conhecimento usando a API REST e `api-version=2019-05-06-Preview`, ou por meio do assistente **Importar dados** no portal.
 
-Se você já estiver familiarizado com a indexação baseada em IA, a definição do conjunto de qualificações determina a criação, a organização e a substância de cada documento enriquecido.
+### <a name="json-representation-of-a-knowledge-store"></a>Representação JSON de um repositório de conhecimento
+
+O JSON a seguir especifica um `knowledgeStore` que faz parte de um conjunto de qualificações chamado por um indexador (não mostrado). Se você já estiver familiarizado com o enriquecimento da IA, um conjunto de qualificações determinará a criação, a organização e a substância de cada documento enriquecido. Um conjunto de habilidades precisa conter pelo menos uma habilidade, provavelmente uma habilidade de Shaper, quando você está modulando estruturas de dados.
+
+Um `knowledgeStore` consiste em uma conexão e projeções. 
+
++ A conexão é feita com uma conta de armazenamento na mesma região do Azure Search. 
+
++ As projeções são pares de tabelas-objetos. `Tables` define a expressão física dos documentos enriquecidos no armazenamento de Tabelas do Azure. `Objects` define os objetos físicos no armazenamento de Blobs do Azure.
 
 ```json
 {
   "name": "my-new-skillset",
-  "description": 
-  "Example showing knowledgeStore placement, supported in api-version=2019-05-06-Preview. You need at least one skill, most likely a Shaper skill if you are modulating data structures.",
+  "description": "Example showing knowledgeStore placement in a skillset.",
   "skills":
   [
     {
@@ -124,15 +131,9 @@ Se você já estiver familiarizado com a indexação baseada em IA, a definiçã
 }
 ```
 
-## <a name="components-backing-a-knowledge-store"></a>Componentes que fornecem backup a um repositório de dados de conhecimento
+### <a name="sources-of-data-for-a-knowledge-store"></a>Fontes de dados para um repositório de conhecimento
 
-Para criar um repositório de dados de conhecimento, você precisa dos seguintes serviços e artefatos.
-
-### <a name="1---source-data"></a>1\. Dados de origem
-
-Os dados ou documentos que você deseja enriquecer devem existir em uma fonte de dados do Azure compatível com os indexadores do Azure Search: 
-
-* [SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+Se um repositório de conhecimento for uma saída de um pipeline de enriquecimento de IA, quais serão as entradas? Os dados originais que você deseja extrair, enriquecer e, eventualmente, salvar em um repositório de conhecimento podem se originar de qualquer fonte de dados do Azure com suporte dos indexadores de pesquisa: 
 
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
@@ -140,56 +141,24 @@ Os dados ou documentos que você deseja enriquecer devem existir em uma fonte de
 
 * [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 
-### <a name="2---azure-search-service"></a>2\. Serviço do Azure Search
+* [SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
-Você também precisa de uma API REST e o serviço do Azure Search para criar e configurar objetos usados para o enriquecimento de dados. A API REST para a criação de um repositório de dados de conhecimento é `api-version=2019-05-06-Preview`.
+Os indexadores e conjuntos de habilidades que você cria extraem e enriquecem ou transformam esse conteúdo como parte de uma carga de trabalho de indexação e, em seguida, salvam os resultados em um repositório de conhecimento.
 
-O Azure Search fornece o recurso de indexador, e os indexadores são usados para conduzir todo o processo de ponta a ponta. O resultado são documentos enriquecidos e persistentes no armazenamento do Azure. Os indexadores usam uma fonte de dados, um índice e um conjunto de qualificações, todos necessários para criar e preencher um repositório de dados de conhecimento.
+### <a name="rest-apis-used-in-creation-of-a-knowledge-store"></a>APIs REST usadas na criação de um repositório de conhecimento
+
+Somente duas APIs têm as extensões necessárias para criar um repositório de conhecimento (Criar Conjunto de Habilidades e Criar Indexador). Outras APIs são usadas no estado em que se encontram.
 
 | Objeto | API REST | DESCRIÇÃO |
 |--------|----------|-------------|
 | fonte de dados | [Criar Fonte de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso que identifica uma fonte de dados externa do Azure, fornecendo os dados de origem usados para criar documentos enriquecidos.  |
-| conjunto de qualificações | [Criar conjunto de habilidades (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que coordena o uso de [habilidades internas](cognitive-search-predefined-skills.md) e de [habilidades cognitivas personalizadas](cognitive-search-custom-skill-interface.md) em um pipeline de enriquecimento durante a indexação. |
-| índice | [Criar o índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Um esquema que expressa um índice do Azure Search. Os campos no índice são mapeados para os campos na fonte de dados ou para os campos fabricados durante a fase de enriquecimento (por exemplo, um campo para os nomes de organização criados pelo reconhecimento de entidade). |
+| conjunto de qualificações | [Criar conjunto de habilidades (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que coordena o uso de [habilidades internas](cognitive-search-predefined-skills.md) e de [habilidades cognitivas personalizadas](cognitive-search-custom-skill-interface.md) em um pipeline de enriquecimento durante a indexação. Um conjunto de habilidades tem uma definição de `knowledgeStore` como elemento filho. |
+| índice | [Criar o índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Um esquema que expressa um índice de pesquisa. Os campos no índice são mapeados para os campos na fonte de dados ou para os campos fabricados durante a fase de enriquecimento (por exemplo, um campo para os nomes de organização criados pelo reconhecimento de entidade). |
 | indexador | [Criar Indexador (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que define os componentes usados durante a indexação: incluindo uma fonte de dados, um conjunto de habilidades, associações de campo de origem e estruturas de dados intermediárias para o índice de destino e o próprio índice. Executar o indexador é o gatilho para a ingestão de dados e o enriquecimento. A saída é um índice de pesquisa com base no esquema de índice, preenchido com os dados de origem, enriquecidos por conjuntos de qualificações.  |
 
-### <a name="3---cognitive-services"></a>3\. Serviços Cognitivos
+### <a name="physical-composition-of-a-knowledge-store"></a>Composição física de um repositório de conhecimento
 
-Os aprimoramentos especificados em um conjunto de habilidades são personalizados ou baseados nos recursos de Pesquisa Visual Computacional e Idioma nos Serviços Cognitivos. A funcionalidade dos Serviços Cognitivos é utilizada durante a indexação por meio de seu conjunto de qualificações. Um conjunto de qualificações é uma composição de habilidades, e elas estão vinculadas a recursos específicos de Pesquisa Visual Computacional e Idioma. Para integrar os Serviços Cognitivos, [anexe um recurso dos Serviços Cognitivos](cognitive-search-attach-cognitive-services.md) a um conjunto de qualificações.
-
-### <a name="4---storage-account"></a>4\. Conta de armazenamento
-
-Em sua conta de Armazenamento do Azure, o Azure Search cria um contêiner de blobs, tabelas ou ambos, dependendo da forma como você configura projeções no conjunto de habilidades. Se os dados são provenientes do Armazenamento de Blobs ou de Tabelas do Azure, você já está pronto e pode reutilizar a conta de armazenamento. Caso contrário, será preciso criar uma conta de armazenamento do Azure. As tabelas e objetos no armazenamento do Azure contêm os documentos enriquecidos criados pelo pipeline de indexação baseada em IA.
-
-A conta de armazenamento é especificada no conjunto de qualificações. Em `api-version=2019-05-06-Preview`, a definição de um conjunto de qualificações inclui uma definição de repositório de dados de conhecimento para que você possa fornecer informações de conta.
-
-<a name="tools-and-apps"></a>
-
-### <a name="5---access-and-consume"></a>5\. Acesso e consumo
-
-Após os enriquecimentos estarem no armazenamento, qualquer ferramenta ou tecnologia que se conecte ao armazenamento de Blobs ou de Tabelas do Azure poderá ser usada para explorar, analisar ou consumir o conteúdo. A lista a seguir é um começo:
-
-+ [Gerenciador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) para exibir o conteúdo e a estrutura do documento enriquecido. Considere isso como sua ferramenta de linha de base para visualizar o conteúdo do repositório de dados de conhecimento.
-
-+ [Power BI com o Power Query](https://support.office.com/article/connect-to-microsoft-azure-blob-storage-power-query-f8165faa-4589-47b1-86b6-7015b330d13e) para consultas em linguagem natural ou use ferramentas de análise e relatórios se tiver dados numéricos.
-
-+ [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) para manipular mais.
-
-+ Índice do Azure Search para a pesquisa de texto completo sobre o conteúdo que você indexou usando a [pesquisa cognitiva](cognitive-search-concept-intro.md).
-
-## <a name="document-persistence"></a>Persistência de documento
-
-Na conta de armazenamento, os enriquecimentos podem ser expressos como tabelas no armazenamento de Tabelas do Azure ou como objetos no armazenamento de Blobs do Azure. Os enriquecimentos, uma vez armazenados, podem ser usados como uma fonte para carregar dados em outros bancos de dados e ferramentas.
-
-+ O armazenamento de Tabelas é útil quando você deseja uma representação com reconhecimento de esquema dos dados em formato tabular. Se você quiser reformatar ou recombinar elementos de novas maneiras, o armazenamento de tabela fornecerá a granularidade necessária.
-
-+ O armazenamento de Blobs cria uma representação JSON completa de cada documento. Você pode usar as duas opções de armazenamento em um conjunto de qualificações para obter uma gama completa de expressões.
-
-+ O Azure Search persiste o conteúdo em um índice. Se o cenário não estiver relacionado à pesquisa, por exemplo, se seu objetivo for a análise em outra ferramenta, exclua o índice criado pelo pipeline. No entanto, você também pode manter o índice e usar uma ferramenta interna como o [Gerenciador de Pesquisa](search-explorer.md) como uma terceira mídia (após o Gerenciador de Armazenamento e seu aplicativo de análise) para interagir com seu conteúdo.  
-
-## <a name="inside-a-knowledge-store"></a>Dentro de um repositório de dados de conhecimento
-
- Um *projeção* define o esquema e a estrutura de enriquecimentos que correspondem ao uso pretendido. Será possível definir várias projeções se você tiver aplicativos que consomem os dados em diferentes formatos e formas. 
+ Uma *projeção*, que é um elemento de uma definição de `knowledgeStore`, articula o esquema e a estrutura de saída de modo a corresponder ao uso pretendido. Será possível definir várias projeções se você tiver aplicativos que consomem os dados em diferentes formatos e formas. 
 
 As projeções podem ser articuladas como objetos ou tabelas:
 
@@ -200,6 +169,19 @@ As projeções podem ser articuladas como objetos ou tabelas:
 Você pode criar várias projeções em um repositório de dados de conhecimento para acomodar os vários clientes da organização. Talvez um desenvolvedor precise de acesso à representação JSON completa de um documento enriquecido e cientistas de dados ou analistas talvez queiram estruturas de dados granulares ou modulares formatadas pelo conjunto de qualificações.
 
 Por exemplo, se um dos objetivos do processo de enriquecimento também for criar um conjunto de dados para treinar um modelo, projetar os dados no armazenamento de objetos seria uma maneira de usar os dados em seus pipelines de ciência de dados. Como alternativa, se você quiser criar um painel rápido do Power BI com base nos documentos enriquecidos, a projeção tabular funcionará bem.
+
+<a name="tools-and-apps"></a>
+
+## <a name="connecting-with-tools-and-apps"></a>Conectando-se com ferramentas e aplicativos
+
+Após os enriquecimentos estarem no armazenamento, qualquer ferramenta ou tecnologia que se conecte ao armazenamento de Blobs ou de Tabelas do Azure poderá ser usada para explorar, analisar ou consumir o conteúdo. A lista a seguir é um começo:
+
++ [Gerenciador de Armazenamento](knowledge-store-view-storage-explorer.md) para exibir o conteúdo e a estrutura do documento enriquecido. Considere isso como sua ferramenta de linha de base para visualizar o conteúdo do repositório de dados de conhecimento.
+
++ O [Power BI](knowledge-store-connect-power-bi.md) para as ferramentas de relatório e análise se você tiver dados numéricos.
+
++ [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) para manipular mais.
+
 
 <!---
 ## Data lifecycle and billing
@@ -231,29 +213,28 @@ Although Azure Search creates and updates structures and content in Azure storag
 
 -->
 
-## <a name="where-do-i-start"></a>Por onde começo?
+<!-- ## Where do I start?
 
-Recomendamos o uso do serviço Gratuito para fins de aprendizado, mas lembre-se de que o número de transações gratuitas é limitado a 20 documentos por dia, por assinatura.
+We recommend the Free service for learning purposes, but be aware that the number of free transactions is limited to 20 documents per day, per subscription.
 
-Quando usar vários serviços, crie todos os serviços na mesma região para obter o melhor desempenho e minimizar os custos. Você não é cobrado pela largura de banda para dados de entrada ou dados de saída que vão para outro serviço na mesma região.
+When using multiple services, create all of your services in the same region for best performance and to minimize costs. You are not charged for bandwidth for inbound data or outbound data that goes to another service in the same region.
 
-**Etapa 1: [Criar um recurso do Azure Search](search-create-service-portal.md)** 
+**Step 1: [Create an Azure Cognitive Search resource](search-create-service-portal.md)** 
 
-**Etapa 2: [Criar uma conta do armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)** 
+**Step 2: [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)** 
 
-**Etapa 3: [Criar um recurso dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)** 
+**Step 3: [Create a Cognitive Services resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)** 
 
-**Etapa 4: [Começar com o portal](cognitive-search-quickstart-blob.md) ou [Introdução aos dados de exemplo usando o REST e o Postman](knowledge-store-howto.md)** 
+**Step 4: [Get started with the portal](cognitive-search-quickstart-blob.md) - or - [Get started with sample data using REST and Postman](knowledge-store-howto.md)** 
 
-Você pode usar o `api-version=2019-05-06-Preview` REST para criar um pipeline com base em IA que inclui o repositório de dados de conhecimento. Na API de versão prévia mais recente, o objeto Skillset fornece a definição `knowledgeStore`.
-
-## <a name="takeaways"></a>Observações
-
-O repositório de dados de conhecimento oferece uma variedade de benefícios, incluindo, mas não se limitando a, permitir o uso de documentos enriquecidos em diversos cenários de pesquisa, controles de custos e gerenciamento de desvios no processo de enriquecimento. Esses recursos estão disponíveis. Para usá-los, basta adicionar uma conta de armazenamento ao conjunto de qualificações e usar o idioma da expressão atualizado, conforme descrito em [Introdução ao repositório de dados de conhecimento](knowledge-store-howto.md). 
+You can use REST `api-version=2019-05-06-Preview` to construct an AI-based pipeline that includes knowledge store. In the newest preview API, the Skillset object provides the `knowledgeStore` definition. -->
 
 ## <a name="next-steps"></a>Próximas etapas
 
-A abordagem mais simples para criar documentos enriquecidos é através do assistente **Importar dados**.
+O repositório de conhecimento oferece persistência de documentos enriquecidos, que é útil ao criar um conjunto de habilidades ou ao criar novas estruturas e conteúdo para consumo por qualquer aplicativo cliente capaz de acessar uma conta de Armazenamento do Azure.
+
+A abordagem mais simples para a criação de documentos aprimorados é por meio do assistente **Importar dados**, mas você também pode usar o Postman e a API REST, que é mais útil quando você quer obter informações sobre como os objetos são criados e referenciados.
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Experimente a pesquisa cognitiva em um passo a passo no portal](cognitive-search-quickstart-blob.md)
+> [Criar um repositório de conhecimento usando o portal](knowledge-store-create-portal.md)
+> [Criar um repositório de conhecimento usando o Postman e a API REST](knowledge-store-create-rest.md)

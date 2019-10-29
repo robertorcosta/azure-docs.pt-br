@@ -2,36 +2,49 @@
 title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: machine-learning
-author: sdgilley
+author: peterclu
 ms.service: machine-learning
-ms.author: sgilley
+ms.author: peterlu
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 05/06/2019
-ms.openlocfilehash: eb84dc1b5bf3f756e484ef27aaa998ab6b94cc51
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.date: 10/09/2019
+ms.openlocfilehash: 3f969fb346ce341e694458dcc38bf193f012226b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891697"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792648"
 ---
-Um experimento é executado em um destino de computação, um recurso de computação anexado ao workspace.  Depois de criar um destino de computação, você poderá reutilizá-lo para execuções futuras.
+Um pipeline é executado em um destino de computação, que é um recurso de computação anexado ao workspace. Depois de criar um destino de computação, você poderá reutilizá-lo para execuções futuras.
 
-1. Selecione **Executar** na parte inferior para executar o teste.
+1. Selecione **Executar** na parte superior da tela para executar o pipeline.
 
-1. Quando a caixa de diálogo **Configurar Destinos de Computação** for exibida, se o workspace já tiver um recurso de computação, você poderá selecioná-lo agora.  Caso contrário, selecione **Criar**.
+1. Quando o painel **Configurações** for exibido, selecione **Selecionar de destino de computação**.
+
+    Se já tiver um destino de computação disponível, você poderá selecioná-lo para executar esse pipeline.
 
     > [!NOTE]
     > A interface visual só pode executar experimentos em destinos de Computação do Machine Learning. Outros destinos de computação não serão mostrados.
 
 1. Forneça um nome para o recurso de computação.
 
-1. Selecione **Executar**.
+1. Clique em **Salvar**.
 
     ![Configurar o destino de computação](./media/aml-ui-create-training-compute/set-compute.png)
 
-    O recurso de computação agora será criado. Veja o status no canto superior direito do experimento. 
+1. Selecione **Executar**.
+
+1. Na caixa de diálogo **Configurar execução de pipeline**, selecione **+Novo experimento** para o **Experimento**
+
+    > [!NOTE]
+    > Pipelines semelhantes no grupo de experimentos são executados juntos. Se executar um pipeline várias vezes, você poderá selecionar o mesmo experimento para execuções sucessivas.
+
+    * Insira um **Nome do Experimento** descritivo
+
+    * Selecionar **Executar**
+    
+    Você pode exibir o status e os detalhes da execução no canto superior direito da tela.
 
     > [!NOTE]
     > São necessários aproximadamente 5 minutos para criar um recurso de computação. Depois que o recurso for criado, você poderá reutilizá-lo e ignorar esse tempo de espera para execuções futuras.

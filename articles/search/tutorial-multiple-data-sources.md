@@ -1,27 +1,27 @@
 ---
-title: 'Tutorial do C#: Indexar várias fontes de dados – Azure Search'
-description: Saiba como importar dados de várias fontes de dados para um único índice do Azure Search.
-author: RobDixon22
+title: 'Tutorial do C#: Indexar várias fontes de dados'
+titleSuffix: Azure Cognitive Search
+description: Saiba como importar dados de várias fontes de dados para um único índice da Pesquisa Cognitiva do Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 06/21/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: d55a586d3dfb22b5dad377ff656b8d6a6c940bdb
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: HT
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 3b94e3e352f4d6b5cd7da41feb9660be2ffed2bd
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241844"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786479"
 ---
-# <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>Tutorial do C#: Combinar dados de várias fontes de dados em um índice do Azure Search
+# <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-cognitive-search-index"></a>Tutorial do C#: Combinar dados de várias fontes de dados em um índice da Pesquisa Cognitiva do Azure
 
-O Azure Search pode importar, analisar e indexar dados de várias fontes de dados em um único índice de pesquisa combinado. Isso dá suporte a situações em que os dados estruturados são agregados com os dados menos estruturados ou, até mesmo, de texto sem formatação de outras fontes, como texto, HTML ou documentos JSON.
+A Pesquisa Cognitiva do Azure pode importar, analisar e indexar dados de várias fontes de dados em um único índice de pesquisa combinado. Isso dá suporte a situações em que os dados estruturados são agregados com os dados menos estruturados ou, até mesmo, de texto sem formatação de outras fontes, como texto, HTML ou documentos JSON.
 
 Este tutorial descreve como indexar dados de hotéis de uma fonte de dados do Azure Cosmos DB e mesclá-los com os detalhes de quartos de hotel extraídos de documentos do Armazenamento de Blobs do Azure. O resultado será um índice combinado de pesquisa de hotéis contendo tipos de dados complexos.
 
-Este tutorial usa o C#, o SDK do .NET para Azure Search e o portal do Azure para realizar as seguintes tarefas:
+Este tutorial usa o C#, o SDK do .NET para a Pesquisa Cognitiva do Azure e o portal do Azure para realizar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Fazer upload de dados de exemplo e criar fontes de dados
@@ -34,7 +34,7 @@ Este tutorial usa o C#, o SDK do .NET para Azure Search e o portal do Azure para
 
 Os serviços, as ferramentas e os dados a seguir são usados neste início rápido. 
 
-- [Crie um serviço Azure Search](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. Você pode usar um serviço gratuito para este tutorial.
+- [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. Você pode usar um serviço gratuito para este tutorial.
 
 - [Crie uma conta do Azure Cosmos DB](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para armazenar os dados de hotéis de exemplo.
 
@@ -46,7 +46,7 @@ Os serviços, as ferramentas e os dados a seguir são usados neste início rápi
 
 1. Localize o repositório de exemplo no GitHub: [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 1. Selecione **Clonar ou baixar** e faça sua cópia local particular do repositório.
-1. Abra o Visual Studio e instale o pacote NuGet do Microsoft Azure Search, caso ele ainda não esteja instalado. No menu **Ferramentas**, selecione **Gerenciador de Pacotes NuGet** e, em seguida, **Gerenciar Pacotes NuGet para a Solução...** . Selecione a guia **Procurar** e digite "Azure Search" na caixa de pesquisa. Instale **Microsoft.Azure.Search** quando ele for exibido na lista (versão 9.0.1 ou posterior). Você precisará clicar nas caixas de diálogo adicionais para concluir a instalação.
+1. Abra o Visual Studio e instale o pacote NuGet da Pesquisa Cognitiva do Microsoft Azure, caso ele ainda não esteja instalado. No menu **Ferramentas**, selecione **Gerenciador de Pacotes NuGet** e, em seguida, **Gerenciar Pacotes NuGet para a Solução...** . Na guia **Procurar**, localize e instale **Microsoft.Azure.Search** (versão 9.0.1 ou posterior). Você precisará clicar nas caixas de diálogo adicionais para concluir a instalação.
 
     ![Como usar o NuGet para adicionar bibliotecas do Azure](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
@@ -54,7 +54,7 @@ Os serviços, as ferramentas e os dados a seguir são usados neste início rápi
 
 ## <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
 
-Para interagir com o serviço Azure Search, você precisará da URL do serviço e de uma chave de acesso. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Search à sua assinatura, siga estas etapas para obter as informações necessárias:
+Para interagir com o serviço da Pesquisa Cognitiva do Azure, será necessária a URL de serviço e uma chave de acesso. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou a Pesquisa Cognitiva do Azure à sua assinatura, siga estas etapas para obter as informações necessárias:
 
 1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão Geral** do serviço de pesquisa, obtenha a URL. Um ponto de extremidade de exemplo pode parecer com `https://mydemo.search.windows.net`.
 
@@ -72,15 +72,15 @@ Esta amostra usa dois conjuntos de dados pequenos que descrevem sete hotéis fic
 
 1. Na barra de menus, clique em Adicionar Contêiner. Especifique "Criar banco de dados" e use o nome **hotel-rooms-db**. Insira **hotels** para o nome da coleção e **/HotelId** para a chave de Partição. Clique em **OK** para criar o banco de dados e o contêiner.
 
-   ![Adicionar um contêiner do Azure Cosmos DB](media/tutorial-multiple-data-sources/cosmos-add-container.png "Add an Azure Cosmos DB container")
+   ![Adicionar um contêiner do Azure Cosmos DB](media/tutorial-multiple-data-sources/cosmos-add-container.png "Adicionar um contêiner do Azure Cosmos DB")
 
 1. Acesse o Cosmos DB Data Explorer e selecione o elemento **items** sob o contêiner **hotels** no banco de dados **hotel-rooms-db**. Em seguida, clique em **Carregar Item** na barra de comandos.
 
-   ![Upload na coleção do Azure Cosmos DB](media/tutorial-multiple-data-sources/cosmos-upload.png "Upload to Cosmos DB collection")
+   ![Carregar na coleção do Azure Cosmos DB](media/tutorial-multiple-data-sources/cosmos-upload.png "Carregar na coleção do Cosmos DB")
 
 1. No painel de upload, clique no botão de pasta e, em seguida, navegue até o arquivo **cosmosdb/HotelsDataSubset_CosmosDb.json** na pasta do projeto. Clique em **OK** para iniciar o upload.
 
-   ![Selecionar arquivo para upload](media/tutorial-multiple-data-sources/cosmos-upload2.png "Select file to upload")
+   ![Selecione o arquivo para carregar](media/tutorial-multiple-data-sources/cosmos-upload2.png "Selecione arquivo para carregar")
 
 1. Use o botão Atualizar para atualizar a exibição dos itens na coleção de hotéis. Você deverá ver sete novos documentos de banco de dados listados.
 
@@ -90,15 +90,15 @@ Esta amostra usa dois conjuntos de dados pequenos que descrevem sete hotéis fic
 
 1. [Crie um contêiner de blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) chamado **hotel-rooms** para armazenar os arquivos JSON de quartos de hotel de exemplo. Você pode definir o Nível de Acesso Público para qualquer um de seus valores válidos.
 
-   ![Criar um contêiner de blobs](media/tutorial-multiple-data-sources/blob-add-container.png "Create a blob container")
+   ![Crie um contêiner de blob](media/tutorial-multiple-data-sources/blob-add-container.png "Criar um contêiner de blob")
 
 1. Depois que o contêiner for criado, abra-o e selecione **Carregar** na barra de comandos.
 
-   ![Carregar na barra de comandos](media/search-semi-structured-data/upload-command-bar.png "Upload on command bar")
+   ![Carregar na barra de comandos](media/search-semi-structured-data/upload-command-bar.png "Carregar na barra de comandos")
 
 1. Navegue até a pasta que contém os arquivos de exemplo. Selecione todos eles e, em seguida, clique em **Carregar**.
 
-   ![Carregar arquivos](media/tutorial-multiple-data-sources/blob-upload.png "Upload files")
+   ![Carregar arquivos](media/tutorial-multiple-data-sources/blob-upload.png "Carregar arquivos")
 
 Após a conclusão do upload, os arquivos deverão ser exibidos na lista do contêiner de dados.
 
@@ -121,17 +121,17 @@ As informações de conexão para o serviço de pesquisa e as fontes de dados s�
 }
 ```
 
-As duas primeiras entradas usam a URL e as chaves de administração do serviço Azure Search. Considerando o ponto de extremidade `https://mydemo.search.windows.net`, o nome do serviço a ser fornecido é `mydemo`.
+As duas primeiras entradas usam a URL e as chaves de administração do serviço da Pesquisa Cognitiva do Azure. Considerando o ponto de extremidade `https://mydemo.search.windows.net`, o nome do serviço a ser fornecido é `mydemo`.
 
 As próximas entradas especificam os nomes de conta e as informações de cadeia de conexão do Armazenamento de Blobs do Azure, bem como as fontes de dados do Azure Cosmos DB.
 
 ### <a name="identify-the-document-key"></a>Identificar a chave de documento
 
-No Azure Search, o campo de chave identifica exclusivamente cada documento no índice. Cada índice de pesquisa deve ter exatamente um campo de chave do tipo `Edm.String`. Esse campo de chave precisa estar presente para cada documento em uma fonte de dados que é adicionada ao índice. (Na verdade, ele é o único campo obrigatório.)
+Na Pesquisa Cognitiva do Azure, o campo de chave identifica exclusivamente cada documento no índice. Cada índice de pesquisa deve ter exatamente um campo de chave do tipo `Edm.String`. Esse campo de chave precisa estar presente para cada documento em uma fonte de dados que é adicionada ao índice. (Na verdade, ele é o único campo obrigatório.)
 
 Ao indexar dados de várias fontes de dados, cada valor de chave de fonte de dados precisa ser mapeado para o mesmo campo de chave no índice combinado. Isso geralmente exige algum planejamento inicial para identificar uma chave de documento significativa para o índice e verificar se ela existe em cada fonte de dados.
 
-Os indexadores do Azure Search podem usar mapeamentos de campo para renomear e, até mesmo, reformatar os campos de dados durante o processo de indexação, de modo que os dados de origem possam ser direcionados para o campo de índice correto.
+Os indexadores da Pesquisa Cognitiva do Azure podem usar mapeamentos de campo para renomear e, até mesmo, reformatar os campos de dados durante o processo de indexação, de modo que os dados de origem possam ser direcionados para o campo de índice correto.
 
 Por exemplo, em nossos dados de exemplo do Azure Cosmos DB, o identificador de hotel é chamado **HotelId**. Porém, nos arquivos de blob JSON dos quartos de hotel, o identificador de hotel é chamado **Id**. O programa lida com isso mapeando o campo **Id** dos blobs para o campo de chave **HotelId** no índice.
 
@@ -143,7 +143,7 @@ Por exemplo, em nossos dados de exemplo do Azure Cosmos DB, o identificador de h
 Depois que os dados e as definições configuração estiverem em vigor, o programa de exemplo em **AzureSearchMultipleDataSources.sln** deverá estar pronto para ser compilado e executado.
 
 Este aplicativo de console C#/.NET simples realiza as seguintes tarefas:
-* Cria um índice do Azure Search com base na estrutura de dados da classe Hotel C# (que também referencia as classes Address e Room).
+* Cria um índice da Pesquisa Cognitiva do Azure com base na estrutura de dados da classe Hotel em C# (que também referencia as classes Address e Room).
 * Cria uma fonte de dados do Azure Cosmos DB e um indexador que mapeia os dados do Azure Cosmos DB para os campos do índice.
 * Executa o indexador do Azure Cosmos DB para carregar os dados de Hotel.
 * Cria uma fonte de dados do Armazenamento de Blobs do Azure e um indexador que mapeia dados de blob JSON para os campos do índice.
@@ -152,11 +152,11 @@ Este aplicativo de console C#/.NET simples realiza as seguintes tarefas:
  Antes de executar o programa, reserve um minuto para estudar o código e as definições de índice e indexador desta amostra. O código relevante encontra-se em dois arquivos:
 
   + **Hotel.cs** contém o esquema que define o índice
-  + **Program.cs** contém funções que criam o índice, as fontes de dados e os indexadores do Azure Search e carrega os resultados combinados no índice.
+  + **Program.cs** contém funções que criam o índice, as fontes de dados e os indexadores da Pesquisa Cognitiva do Azure e carrega os resultados combinados no índice.
 
 ### <a name="define-the-index"></a>Definir o índice
 
-Este programa de exemplo usa o SDK do .NET para definir e criar um índice do Azure Search. Ele aproveita a classe [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) para gerar uma estrutura de índice de uma classe de modelo de dados C#.
+Este programa de exemplo usa o SDK do .NET para definir e criar um índice da Pesquisa Cognitiva do Azure. Ele aproveita a classe [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) para gerar uma estrutura de índice de uma classe de modelo de dados C#.
 
 O modelo de dados é definido pela classe Hotel, que também contém referências às classes Address e Room. O FieldBuilder faz uma busca detalhada em várias definições de classe para gerar uma estrutura de dados complexa para o índice. As marcas de metadados são usadas para definir os atributos de cada campo, como se ele é pesquisável ou classificável.
 
@@ -336,22 +336,22 @@ Explore o índice de pesquisa populado após a execução do programa usando o [
 
 No portal do Azure, abra a página **Visão Geral** do serviço de pesquisa e localize o índice **hotel-rooms-sample** na lista **Índices**.
 
-  ![Lista de índices do Azure Search](media/tutorial-multiple-data-sources/index-list.png "List of Azure Search indexes")
+  ![Lista de índices da Pesquisa Cognitiva do Azure](media/tutorial-multiple-data-sources/index-list.png "Lista de índices da Pesquisa Cognitiva do Azure")
 
 Clique no índice hotel-rooms-sample na lista. Você verá uma interface do Search Explorer para o índice. Insira uma consulta para um termo como "Luxo". Você deverá ver, pelo menos, um documento nos resultados, o qual deverá mostrar uma lista de objetos de quarto em sua matriz de quartos.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-A maneira mais rápida de fazer a limpeza depois de um tutorial é excluindo o grupo de recursos que contém o serviço Azure Search. Você pode excluir o grupo de recursos agora para excluir permanentemente todo o conteúdo. No portal, o nome do grupo de recursos está na página Visão Geral do serviço Azure Search.
+A maneira mais rápida de fazer a limpeza depois de um tutorial é excluindo o grupo de recursos que contém o serviço da Pesquisa Cognitiva do Azure. Você pode excluir o grupo de recursos agora para excluir permanentemente todo o conteúdo. No portal, o nome do grupo de recursos está na página Visão geral do serviço da Pesquisa Cognitiva do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Há várias abordagens e várias opções para indexar blobs JSON. Se os dados de origem incluírem algum conteúdo JSON, examine essas opções para ver o que funciona melhor para seu cenário.
 
 > [!div class="nextstepaction"]
-> [Como indexar blobs JSON usando o indexador de Blobs do Azure Search](search-howto-index-json-blobs.md)
+> [Como indexar blobs JSON usando o indexador de Blobs da Pesquisa Cognitiva do Azure](search-howto-index-json-blobs.md)
 
-O ideal é ampliar os dados de índice estruturados de uma fonte de dados com os dados enriquecidos cognitivamente de blobs não estruturados ou conteúdo de texto completo. O tutorial a seguir mostra como usar os Serviços Cognitivos junto com o Azure Search, usando o SDK do .NET.
+O ideal é ampliar os dados de índice estruturados de uma fonte de dados com os dados enriquecidos cognitivamente de blobs não estruturados ou conteúdo de texto completo. O tutorial a seguir mostra como usar os Serviços Cognitivos junto com a Pesquisa Cognitiva do Azure, usando o SDK do .NET.
 
 > [!div class="nextstepaction"]
-> [Chamar APIs de Serviços Cognitivos em um pipeline de indexação do Azure Search](cognitive-search-tutorial-blob-dotnet.md)
+> [Chamar APIs de Serviços Cognitivos em um pipeline de indexação da Pesquisa Cognitiva do Azure](cognitive-search-tutorial-blob-dotnet.md)

@@ -1,27 +1,27 @@
 ---
-title: 'Tutorial do C#: Indexar dados de bancos de dados SQL do Azure – Azure Search'
-description: Um exemplo de código C# que mostra como se conectar ao banco de dados SQL do Azure, extrair dados pesquisáveis e carregá-los em um índice do Azure Search.
-author: HeidiSteen
+title: 'Tutorial do C#: Indexar dados de bancos de dados SQL do Azure'
+titleSuffix: Azure Cognitive Search
+description: Um exemplo de código C# que mostra como se conectar ao banco de dados SQL do Azure, extrair dados pesquisáveis e carregá-los em um índice da Pesquisa Cognitiva do Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 1ba0a965de356cfbe7d9a1cfc8d6d2e8da092934
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: d83db424ee6e9a009353ca568232b38260883a4c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327169"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793614"
 ---
-# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial do C#: Rastrear um Banco de Dados SQL do Azure usando indexadores do Azure Search
+# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-cognitive-search-indexers"></a>Tutorial do C#: Rastrear um banco de dados SQL do Azure usando indexadores da Pesquisa Cognitiva do Azure
 
-Saiba como configurar um indexador para extrair dados pesquisáveis de um Banco de dados SQL do Azure de exemplo. [Indexadores](search-indexer-overview.md) são componentes do Azure Search que rastreiam as fontes de dados externas, preenchendo um [índice de pesquisa](search-what-is-an-index.md) com conteúdo. De todos os indexadores, o indexador do Banco de Dados SQL do Azure é o mais amplamente utilizado. 
+Saiba como configurar um indexador para extrair dados pesquisáveis de um Banco de dados SQL do Azure de exemplo. [Indexadores](search-indexer-overview.md) são componentes da Pesquisa Cognitiva do Azure que rastreiam as fontes de dados externas, preenchendo um [índice de pesquisa](search-what-is-an-index.md) com conteúdo. De todos os indexadores, o indexador do Banco de Dados SQL do Azure é o mais amplamente utilizado. 
 
 Ser proficiente na configuração do indexador é útil porque ele simplifica a quantidade de código que você precisa escrever e manter. Em vez de preparar e enviar por push um conjunto de dados JSON compatíveis com esquema, você pode anexar um indexador para uma fonte de dados, fazer o indexador extrair dados e inseri-lo em um índice e, opcionalmente, executar o indexador em um agendamento recorrente para acompanhar as alterações na fonte subjacente.
 
-Neste tutorial, use as [bibliotecas de cliente do .NET do Azure Search](https://aka.ms/search-sdk) e um aplicativo de console do .NET Core para executar as seguintes tarefas:
+Neste tutorial, use as [bibliotecas de cliente do .NET da Pesquisa Cognitiva do Azure](https://aka.ms/search-sdk) e um aplicativo de console do .NET Core para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Adiciona informações de serviço de pesquisa às configurações do aplicativo
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Os serviços, as ferramentas e os dados a seguir são usados neste início rápido. 
 
-[Crie um serviço Azure Search](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. Você pode usar um serviço gratuito para este tutorial.
+[Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. Você pode usar um serviço gratuito para este tutorial.
 
 O [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) armazena a fonte de dados externa usada por um indexador. A solução de exemplo fornece um arquivo de dados do SQL para criar a tabela. As etapas para criação do serviço e do banco de dados são fornecidas neste tutorial.
 
@@ -46,11 +46,11 @@ O [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), qualquer 
 [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) fornece a solução de amostra, localizada no repositório GitHub de amostras do Azure. Baixe e extraia a solução. Por padrão, as soluções são somente leitura. Clique com o botão direito do mouse na solução e desmarque o atributo somente leitura para que você possa modificar arquivos.
 
 > [!Note]
-> Se você estiver usando o serviço do Azure Search gratuito, você está limitado a três índices, três indexadores e três fontes de dados. Este tutorial cria um de cada. Não se esqueça de deixar um espaço em seu serviço para aceitar os novos recursos.
+> Se estiver usando o serviço gratuito da Pesquisa Cognitiva do Azure, você estará limitado a três índices, três indexadores e três fontes de dados. Este tutorial cria um de cada. Não se esqueça de deixar um espaço em seu serviço para aceitar os novos recursos.
 
 ## <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
 
-As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicitação. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Search à sua assinatura, siga estas etapas para obter as informações necessárias:
+As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicitação. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou a Pesquisa Cognitiva do Azure à sua assinatura, siga estas etapas para obter as informações necessárias:
 
 1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão Geral** do serviço de pesquisa, obtenha a URL. Um ponto de extremidade de exemplo pode parecer com `https://mydemo.search.windows.net`.
 
@@ -67,7 +67,7 @@ As informações de conexão para os serviços necessários são especificadas n
 
 1. No Gerenciador de Soluções, abra **appsettings.json** para popular cada configuração.  
 
-As duas primeiras entradas podem ser preenchidas agora com a URL e as chaves de administrador para o serviço Azure Search. Dado um ponto de extremidade de `https://mydemo.search.windows.net`, o nome do serviço a ser fornecido é `mydemo`.
+As duas primeiras entradas podem ser preenchidas agora com a URL e as chaves de administrador para o serviço da Pesquisa Cognitiva do Azure. Dado um ponto de extremidade de `https://mydemo.search.windows.net`, o nome do serviço a ser fornecido é `mydemo`.
 
 ```json
 {
@@ -81,7 +81,7 @@ A última entrada exige um banco de dados existente. Você o criará na próxima
 
 ## <a name="prepare-sample-data"></a>Preparar os dados de exemplo
 
-Nesta etapa, crie uma fonte de dados externa que pode ser rastreada por um indexador. Você pode usar o portal do Azure e o arquivo *hotels.sql* de exemplo para criar o conjunto de dados no Banco de Dados SQL do Azure. O Azure Search consome conjuntos de linhas bidimensionais, como aqueles gerados em uma exibição ou consulta. O arquivo SQL na solução de exemplo cria e preenche uma única tabela.
+Nesta etapa, crie uma fonte de dados externa que pode ser rastreada por um indexador. Você pode usar o portal do Azure e o arquivo *hotels.sql* de exemplo para criar o conjunto de dados no Banco de Dados SQL do Azure. A Pesquisa Cognitiva do Azure consome conjuntos de linhas bidimensionais, como aqueles gerados em uma exibição ou consulta. O arquivo SQL na solução de exemplo cria e preenche uma única tabela.
 
 O exercício a seguir pressupõe que não há nenhum servidor ou banco de dados existentes e instrui você a criar os dois na etapa 2. Opcionalmente, se você tiver um recurso existente, pode adicionar a tabela hotéis, começando na etapa 4.
 
@@ -159,7 +159,7 @@ Neste tutorial, o indexador extrai dados de uma fonte de dados. Na prática, voc
 
 O programa principal inclui lógica para a criação de um cliente, um índice, uma fonte de dados e um indexador. O código verifica e exclui os recursos existentes do mesmo nome, sob a suposição de que você pode executar este programa várias vezes.
 
-O objeto de fonte de dados é configurado com configurações específicas de recursos do banco de dados SQL do Azure, incluindo a [indexação incremental](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) para aproveitar os [recursos internos de detecção de alterações](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) do Azure SQL. O banco de dados de hotéis de demonstração no SQL Azure tem uma coluna de "exclusão reversível" chamada **IsDeleted**. Quando essa coluna está definida como true no banco de dados, o indexador remove o documento correspondente do índice do Azure Search.
+O objeto de fonte de dados é configurado com configurações específicas de recursos do banco de dados SQL do Azure, incluindo a [indexação incremental](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) para aproveitar os [recursos internos de detecção de alterações](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) do Azure SQL. O banco de dados de hotéis de demonstração no SQL Azure tem uma coluna de "exclusão reversível" chamada **IsDeleted**. Quando essa coluna está definida como true no banco de dados, o indexador remove o documento correspondente do índice da Pesquisa Cognitiva do Azure.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -261,7 +261,7 @@ Todos os indexadores, incluindo o que você acabou de criar de forma programáti
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-A maneira mais rápida de fazer a limpeza depois de um tutorial é excluindo o grupo de recursos que contém o serviço Azure Search. Você pode excluir o grupo de recursos agora para excluir permanentemente todo o conteúdo. No portal, o nome do grupo de recursos está na página Visão geral do serviço Azure Search.
+A maneira mais rápida de fazer a limpeza depois de um tutorial é excluindo o grupo de recursos que contém o serviço da Pesquisa Cognitiva do Azure. Você pode excluir o grupo de recursos agora para excluir permanentemente todo o conteúdo. No portal, o nome do grupo de recursos está na página Visão geral do serviço da Pesquisa Cognitiva do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

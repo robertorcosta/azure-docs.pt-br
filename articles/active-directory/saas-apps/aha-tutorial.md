@@ -17,10 +17,10 @@ ms.date: 08/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a63872680d28664c6d5a7ff109f6de72817173d5
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68989658"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Tutorial: Integre o Aha! ao Azure Active Directory
@@ -158,7 +158,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 8. Na página de configuração **Logon Único** , realize as seguintes etapas:
 
-    ![Logon Único](./media/aha-tutorial/IC798954.png "Logon Único")
+    ![Logon único](./media/aha-tutorial/IC798954.png "Logon Único")
 
     a. Na caixa de texto **Nome** , digite um nome para a sua configuração.
 

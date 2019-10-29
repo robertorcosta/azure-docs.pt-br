@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial do Python: Chamar os Serviços Cognitivos em um pipeline com enriquecimento de IA – Azure Search'
-description: Percorra um exemplo de extração de dados, linguagem natural e processamento de imagem por IA no Azure Search usando um notebook Jupyter Python. Os dados extraídos são indexados e podem ser acessados facilmente pela consulta.
+title: 'Tutorial do Python: Chamar os Serviços Cognitivos em um pipeline com enriquecimento de IA'
+titleSuffix: Azure Cognitive Search
+description: Percorra um exemplo de extração de dados, linguagem natural e processamento de imagem por IA na Pesquisa Cognitiva do Azure usando um notebook Jupyter Python. Os dados extraídos são indexados e podem ser acessados facilmente pela consulta.
 manager: nitinme
 author: LisaLeib
-services: search
-ms.service: search
+ms.author: v-lilei
+ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 06/04/2019
-ms.author: v-lilei
-ms.openlocfilehash: 606194e28ca4f058a647aeb5224de19e754de078
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.date: 11/04/2019
+ms.openlocfilehash: bb36ae551c48fc53756933e78ff0212f8ec1cdeb
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265731"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790213"
 ---
-# <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutorial do Python: Chamar APIs de Serviços Cognitivos em um pipeline de indexação do Azure Search
+# <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-enrichment-pipeline"></a>Tutorial do Python: Chamar APIs de Serviços Cognitivos em um pipeline de enriquecimento da Pesquisa Cognitiva do Azure
 
-Neste tutorial, você aprenderá a mecânica de programação enriquecimento de dados no Azure Search usando *habilidades cognitivas*. As habilidades são apoiadas pelos recursos de processamento de linguagem natural (PLN) e análise de imagem nos Serviços Cognitivos. Por meio da composição do conjunto de qualificações e configuração, você pode extrair texto e representações de texto de um arquivo de imagem ou documento digitalizado. Você também pode detectar a linguagem, entidades, frases-chave e muito mais. O resultado é um conteúdo mais avançado em um índice do Azure Search, criado com aprimoramentos por IA em um pipeline de indexação. 
+Neste tutorial, você aprenderá a mecânica de programação de enriquecimento de dados na Pesquisa Cognitiva do Azure usando *habilidades cognitivas*. As habilidades são apoiadas pelos recursos de processamento de linguagem natural (PLN) e análise de imagem nos Serviços Cognitivos. Por meio da composição do conjunto de qualificações e configuração, você pode extrair texto e representações de texto de um arquivo de imagem ou documento digitalizado. Você também pode detectar a linguagem, entidades, frases-chave e muito mais. O resultado é um conteúdo mais avançado em um índice de pesquisa, criado com aprimoramentos de IA em um pipeline de indexação. 
 
 Neste tutorial, você usará Python para realizar as seguintes tarefas:
 
@@ -29,14 +29,14 @@ Neste tutorial, você usará Python para realizar as seguintes tarefas:
 > * Executar solicitações e analisar resultados
 > * Redefinir o índice e indexadores para desenvolvimento futuro
 
-Saída é um índice de pesquisa de texto completo no Azure Search. Você pode aprimorar o índice com outros recursos padrão, como [sinônimos](search-synonyms.md), [perfis de pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analisadores](search-analyzers.md), e [filtros](search-filters.md). 
+A saída é um índice pesquisável de texto completo na Pesquisa Cognitiva do Azure. Você pode aprimorar o índice com outros recursos padrão, como [sinônimos](search-synonyms.md), [perfis de pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analisadores](search-analyzers.md), e [filtros](search-filters.md). 
 
 Este tutorial é executado no serviço gratuito, mas o número de transações gratuitos é limitado a 20 documentos por dia. Se você quiser executar este tutorial mais de uma vez no mesmo dia, use um conjunto de arquivos menor para que você possa encaixar mais execuções.
 
 > [!NOTE]
-> À medida que expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará [anexar um recurso de Serviços Cognitivos faturável](cognitive-search-attach-cognitive-services.md). As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem como parte do estágio de decodificação de documentos no Azure Search. Não há encargos para extração de texto em documentos.
+> À medida que expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará [anexar um recurso de Serviços Cognitivos faturável](cognitive-search-attach-cognitive-services.md). As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem, como parte do estágio de quebra de documento na Pesquisa Cognitiva do Azure. Não há encargos para extração de texto em documentos.
 >
-> A execução de habilidades integradas é cobrada nos [preços pagos conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. O preço de extração de imagem é descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de habilidades integradas é cobrada nos [preços pagos conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. O preço da extração de imagem é descrito na [página de preços da Pesquisa Cognitiva do Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -44,17 +44,17 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Os serviços, as ferramentas e os dados a seguir são usados neste tutorial. 
 
-+ [Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para armazenar os dados de exemplo. Verifique se que a conta de armazenamento está na mesma região do Azure Search.
++ [Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para armazenar os dados de exemplo. Verifique se a conta de armazenamento está na mesma região da Pesquisa Cognitiva do Azure.
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), que fornece o Python 3.x e os Notebooks Jupyter.
 
 + [Dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consistem em um conjunto de pequenos arquivos de tipos diferentes. 
 
-+ [Crie um serviço Azure Search](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. Você pode usar um serviço gratuito para este tutorial.
++ [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. Você pode usar um serviço gratuito para este tutorial.
 
 ## <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
 
-Para interagir com o serviço do Azure Search, será necessária a URL de serviço e uma chave de acesso. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Search à sua assinatura, siga estas etapas para obter as informações necessárias:
+Para interagir com o serviço da Pesquisa Cognitiva do Azure, será necessária a URL de serviço e uma chave de acesso. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou a Pesquisa Cognitiva do Azure à sua assinatura, siga estas etapas para obter as informações necessárias:
 
 1. [Entre no portal do Azure](https://portal.azure.com/) e, na página **Visão Geral** do serviço de pesquisa, obtenha a URL. Um ponto de extremidade de exemplo pode parecer com `https://mydemo.search.windows.net`.
 
@@ -66,7 +66,7 @@ Todas as solicitações requerem uma chave de api em cada pedido enviado ao serv
 
 ## <a name="prepare-sample-data"></a>Preparar os dados de exemplo
 
-O pipeline de enriquecimento extrai de fontes de dados do Azure. Fonte de dados deve originar-se de um tipo de fonte de dados com suporte de um [indexador do Azure Search](search-indexer-overview.md). Para este exercício, usamos o armazenamento de blob para apresentar múltiplos tipos de conteúdo.
+O pipeline de enriquecimento extrai de fontes de dados do Azure. Os dados de origem precisam ser originários de um tipo de fonte de dados com suporte de um [indexador da Pesquisa Cognitiva do Azure](search-indexer-overview.md). Para este exercício, usamos o armazenamento de blob para apresentar múltiplos tipos de conteúdo.
 
 1. [Entre no portal do Azure](https://portal.azure.com), navegue até sua conta de Armazenamento do Azure, clique em **Blobs** e, em seguida, clique em **+ Contêiner**.
 
@@ -91,7 +91,7 @@ Existem outras maneiras de especificar a cadeia de caracteres de conexão, como 
 
 Use o Anaconda Navigator para iniciar o Jupyter Notebook e criar um novo notebook Python 3.
 
-## <a name="connect-to-azure-search"></a>Conectar-se ao Azure Search
+## <a name="connect-to-azure-cognitive-search"></a>Conectar-se à Pesquisa Cognitiva do Azure
 
 No notebook, execute este script a fim de carregar as bibliotecas usadas para trabalhar com JSON e formular solicitações HTTP.
 
@@ -128,7 +128,7 @@ params = {
 
 ## <a name="create-a-data-source"></a>Criar uma fonte de dados
 
-Agora que os serviços e os arquivos de origem estão preparados, comece montando os componentes do pipeline de indexação. Comece com um objeto de fonte de dados que indica ao Azure Search como recuperar dados de origem externa.
+Agora que os serviços e os arquivos de origem estão preparados, comece montando os componentes do pipeline de indexação. Comece com um objeto de fonte de dados que indica à Pesquisa Cognitiva do Azure como recuperar dados de origem externa.
 
 No script a seguir, substitua o espaço reservado YOUR-BLOB-RESOURCE-CONNECTION-STRING pela cadeia de conexão do blob que você criou na etapa anterior. Em seguida, execute o script para criar uma fonte de dados chamada `cogsrch-py-datasource`.
 
@@ -155,7 +155,7 @@ A solicitação deve retornar um código de status 201 que confirma o êxito.
 
 No portal do Azure, na página do painel do serviço de pesquisa, verifique se cogsrch-py-datasource aparece na lista **Fontes de dados**. Clique em **Atualizar** para atualizar a página.
 
-![Fontes de dados lado a lado no portal do](./media/cognitive-search-tutorial-blob-python/py-data-source-tile.png "lado a lado no portal de fontes de dados")
+![Bloco de fontes de dados no portal](./media/cognitive-search-tutorial-blob-python/py-data-source-tile.png "Bloco de fontes de dados no portal")
 
 ## <a name="create-a-skillset"></a>Criar um conjunto de habilidades
 
@@ -260,11 +260,11 @@ A solicitação deve retornar um código de status 201 que confirma o êxito.
 
 A habilidade de extração de frase-chave é aplicada a cada página. A definição do contexto como `"document/pages/*"` faz com que esse aprimorador seja executado para cada membro da matriz de documento/páginas (para cada página do documento).
 
-Cada uma delas executa no conteúdo do documento. Durante o processamento, o Azure Search danifique cada documento para ler o conteúdo de diferentes formatos de arquivo. O texto encontrado no arquivo de origem é colocado em um campo `content`, um para cada documento. Portanto, defina a entrada como `"/document/content"`.
+Cada uma delas executa no conteúdo do documento. Durante o processamento, a Pesquisa Cognitiva do Azure abre cada documento para ler o conteúdo de diferentes formatos de arquivo. O texto encontrado no arquivo de origem é colocado em um campo `content`, um para cada documento. Portanto, defina a entrada como `"/document/content"`.
 
 Uma representação gráfica do conjunto de qualificações é mostrada abaixo.
 
-![Entender um conjunto de qualificações](media/cognitive-search-tutorial-blob/skillset.png "entender um conjunto de qualificações")
+![Entender um conjunto de habilidades](media/cognitive-search-tutorial-blob/skillset.png "Entender um conjunto de habilidades")
 
 As saídas podem ser mapeadas para um índice, usadas como entrada para uma habilidade posterior, ou ambos, como é o caso com o código de idioma. No índice, um código de idioma é útil para filtragem. Como uma entrada, o código de idioma é usado por habilidades de análise de texto para informar as regras linguísticas em torno de quebra de palavras.
 
@@ -336,7 +336,7 @@ print(r.status_code)
 
 A solicitação deve retornar um código de status 201 que confirma o êxito.
 
-Para saber mais sobre como definir um índice, consulte [Criar Índice (API REST do Azure Search)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Para saber mais sobre como definir um índice, consulte [Criar Índice (API REST da Pesquisa Cognitiva do Azure)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 ## <a name="create-an-indexer-map-fields-and-execute-transformations"></a>Crie um indexador, mapear os campos e executar transformações
 
@@ -431,7 +431,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 Na resposta, monitore os valores de "status" e "endTime" em “lastResult”. Execute o script periodicamente para verificar o status. Quando o indexador for concluído, o status será definido como "success", será especificado um "endTime" e a resposta incluirá todos os erros e avisos que ocorreram durante o aprimoramento.
 
-![O indexador foi criado](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "O indexador foi criado")
+![O indexador é criado](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "O indexador é criado")
 
 Os avisos são comuns com algumas combinações de arquivo e a habilidade de origem e sempre não indicam um problema. Neste tutorial, os avisos não são problemáticos. Por exemplo, um dos arquivos JPEG que não tem texto mostrará o aviso nesta captura de tela.
 
@@ -439,7 +439,7 @@ Os avisos são comuns com algumas combinações de arquivo e a habilidade de ori
 
 ## <a name="query-your-index"></a>Consultar o índice
 
-Depois de terminar de indexação, execute consultas que retornam o conteúdo dos campos individuais. Por padrão, o Azure Search retorna os 50 melhores resultados. Os dados de exemplo serão pequenos para que o padrão funciona bem. No entanto, ao trabalhar com grandes conjuntos de dados, você precisará incluir parâmetros na cadeia de caracteres de consulta para retornar mais resultados. Para obter instruções, consulte [como página de resultados do Azure Search](search-pagination-page-layout.md).
+Depois de terminar de indexação, execute consultas que retornam o conteúdo dos campos individuais. Por padrão, a Pesquisa Cognitiva do Azure retorna os 50 melhores resultados. Os dados de exemplo serão pequenos para que o padrão funciona bem. No entanto, ao trabalhar com grandes conjuntos de dados, você precisará incluir parâmetros na cadeia de caracteres de consulta para retornar mais resultados. Para obter instruções, consulte [Como paginar resultados da Pesquisa Cognitiva do Azure](search-pagination-page-layout.md).
 
 Como uma etapa de verificação, consulte o índice para todos os campos.
 
@@ -452,7 +452,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 O resultado deve ser semelhante ao exemplo a seguir. A captura de tela mostra apenas uma parte da resposta.
 
-![Consultar índice em relação a todos os campos](./media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png "Consultar o índice em relação a todos os campos")
+![Índice de consulta para todos os campos](./media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png "Consultar o índice para todos os campos")
 
 A saída é o esquema de índice, com o nome, tipo e atributos de cada campo.
 
@@ -467,7 +467,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 O resultado deve ser semelhante ao exemplo a seguir. A captura de tela mostra apenas uma parte da resposta.
 
-![Consultar índice em relação ao conteúdo das organizações](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "Consultar o índice para retornar conteúdo das organizações")
+![Índice de consulta para o conteúdo das organizações](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "Consultar o índice para retornar o conteúdo das organizações")
 
 Repita para campos adicionais: conteúdo, idioma, frases-chave e organizações neste exercício. Você pode retornar vários campos via `$select` usando uma lista delimitada por vírgulas.
 
@@ -477,7 +477,7 @@ Você pode usar GET ou POST, dependendo do tamanho e complexidade de cadeia de c
 
 ## <a name="reset-and-rerun"></a>Redefinir e execute novamente
 
-Nos primeiros estágios experimentais de desenvolvimento de pipeline, a abordagem mais prática para iterações de design é excluir os objetos do Azure Search e permitir que seu código para recriá-los. Nomes de recurso são exclusivos. Excluir um objeto permite que você recriá-la usando o mesmo nome.
+Nos primeiros estágios experimentais de desenvolvimento do pipeline, a abordagem mais prática para as iterações de design é excluir os objetos da Pesquisa Cognitiva do Azure e permitir que seu código para recriá-los. Nomes de recurso são exclusivos. Excluir um objeto permite que você recriá-la usando o mesmo nome.
 
 Reindexar seus documentos com as novas definições:
 
@@ -504,17 +504,17 @@ Como seu código amadurece, talvez queira refinar uma estratégia de reconstruç
 
 Este tutorial demonstra as etapas básicas para a criação de um pipeline de indexação enriquecido durante a criação de componentes: uma fonte de dados, o conjunto de qualificações, o índice e o indexador.
 
-Introduzimos [habilidades predefinidas](cognitive-search-predefined-skills.md), com definições de conjunto de habilidades e uma maneira de encadear habilidades por meio de entradas e saídas. Você também aprendeu que `outputFieldMappings` no indexador definição é necessária para roteamentos valores enriquecidos do pipeline em um índice de pesquisado em um serviço do Azure Search.
+Introduzimos [habilidades internas](cognitive-search-predefined-skills.md), com definições de conjunto de habilidades e uma maneira de encadear habilidades por meio de entradas e saídas. Você também aprendeu que `outputFieldMappings` na definição do indexador é necessário para encaminhar valores enriquecidos do pipeline em um índice pesquisável em um serviço da Pesquisa Cognitiva do Azure.
 
 Por fim, você aprendeu a testar os resultados e a redefinir o sistema para ter novas iterações. Você aprendeu que emitir consultas em relação ao índice retorna a saída criada pelo pipeline de indexação enriquecido. Nesta versão, há um mecanismo para exibir as construções internas (enriquecidas documentos criados pelo sistema). Também aprendeu a verificar o status do indexador e quais objetos devem ser excluídos antes de executar novamente um pipeline.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-A maneira mais rápida para limpar depois de um tutorial é excluindo o grupo de recursos que contém o serviço do Azure Search e o serviço de Blob do Azure. Supondo que tenha colocado os dois serviços no mesmo grupo, exclua o grupo de recursos para eliminar permanentemente todo o seu conteúdo, inclusive os serviços e o conteúdo armazenado que criou para este tutorial. No portal, o nome do grupo de recurso está na página de Visão geral de cada serviço.
+A maneira mais rápida de fazer a limpeza depois de um tutorial é excluindo o grupo de recursos que contém o serviço da Pesquisa Cognitiva do Azure e o serviço Blob do Azure. Supondo que tenha colocado os dois serviços no mesmo grupo, exclua o grupo de recursos para eliminar permanentemente todo o seu conteúdo, inclusive os serviços e o conteúdo armazenado que criou para este tutorial. No portal, o nome do grupo de recurso está na página de Visão geral de cada serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Personalizar ou estender o pipeline com qualificações personalizadas. Criando uma habilidade personalizada e adicionando-a a um conjunto de qualificações permite que você carregue texto ou análise de imagem que você escreve por conta própria.
 
 > [!div class="nextstepaction"]
-> [Exemplo: Como criar uma habilidade personalizada para a pesquisa cognitiva](cognitive-search-create-custom-skill-example.md)
+> [Exemplo: Como criar uma habilidade personalizada para enriquecimento de IA](cognitive-search-create-custom-skill-example.md)

@@ -1,92 +1,91 @@
 ---
-title: Criar um repositório de conhecimento no portal do Azure – Azure Search
-description: Crie um repositório de conhecimento do Azure Search para persistir aprimoramentos do pipeline de pesquisa cognitiva, usando o assistente de Importação de dados no portal do Azure.
+title: Criar um repositório de conhecimento no portal do Azure
+titleSuffix: Azure Cognitive Search
+description: Use o assistente de Importação de dados para criar um repositório de conhecimento para persistir conteúdo enriquecido. Conecte-se a um repositório de conhecimento para obter análise de outros aplicativos ou enviar conteúdo enriquecido para processos downstream.
 author: lisaleib
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 09/03/2019
+manager: nitinme
 ms.author: v-lilei
-ms.openlocfilehash: fb979a7ff4144694aecad0985c5bce9be2de05bd
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: d714e913d5e03233ed3ffcaaebca6eb989a56bd7
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265205"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790042"
 ---
-# <a name="create-an-azure-search-knowledge-store-in-the-azure-portal"></a>Criar um repositório de conhecimento do Azure Search no portal do Azure
+# <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Início Rápido: Criar um repositório de conhecimento da Pesquisa Cognitiva do Azure no portal do Azure
 
 > [!Note]
-> O armazenamento de dados de conhecimento está em versão prévia e não é destinado a uso em produção. A [API REST do Azure Search versão 2019-05-06 versão prévia](search-api-preview.md) fornece esse recurso. Não há suporte para SDK do .NET no momento.
+> O armazenamento de dados de conhecimento está em versão prévia e não é destinado a uso em produção. O portal do Azure e a [API REST do Search versão 2019-05-06-Preview](search-api-preview.md) fornecem esse recurso. Não há suporte para SDK do .NET no momento.
 >
 
-O repositório de conhecimento é um recurso do Azure Search que persiste a saída de um pipeline de enriquecimento de IA para análise posterior ou outro processamento downstream. Um pipeline aprimorado por IA aceita arquivos de imagem ou arquivos de texto não estruturados, indexa-os usando o Azure Search, aplica os aprimoramentos de IA dos Serviços Cognitivos (tais como análise de imagem e processamento de linguagem natural) e, em seguida, salva os resultados em um repositório de conhecimento no Armazenamento do Azure. É possível usar ferramentas como o Power BI ou o Gerenciador de Armazenamento para explorar o repositório de conhecimento.
+O repositório de conhecimento é um recurso da Pesquisa Cognitiva do Azure que persiste a saída de um pipeline de habilidades cognitivas para análise posterior ou outro processamento downstream. 
 
-Neste artigo, você usará o assistente de Importação de Dados no portal do Azure para ingerir, indexar e aplicar os aprimoramentos de AI a um conjunto de resenhas de hotéis. As resenhas de hotéis são importadas para o Armazenamento de Blobs do Azure e os resultados são salvos como um repositório de conhecimento no Armazenamento de Tabelas do Azure.
+Um pipeline aceita imagens e texto não estruturado como conteúdo bruto, aplica IA por meio dos Serviços Cognitivos (como processamento de imagem e linguagem natural) e cria conteúdo enriquecido (novas estruturas e informações) como saída. Um dos artefatos físicos criados por um pipeline é um [repositório de conhecimento](knowledge-store-concept-intro.md), que pode ser acessado por meio de ferramentas para analisar e explorar o conteúdo.
 
-Depois de criar o repositório de conhecimento, será possível aprender a acessá-lo usando o Gerenciador de Armazenamento ou o Power BI.
+Neste início rápido, você combinará serviços e dados na nuvem do Azure para criar um repositório de conhecimento. Quando tudo estiver configurado, você executará o assistente **Importar dados** no portal para reunir tudo. O resultado final é um conteúdo original gerado por IA que você pode exibir no portal ([Gerenciador de armazenamento](knowledge-store-view-storage-explorer.md)).
 
-## <a name="prerequisites"></a>Pré-requisitos
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-+ [Crie um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. Você pode usar um serviço gratuito para este tutorial.
+## <a name="create-services-and-load-data"></a>Criar serviços e carregar dados
 
-+ [Crie uma conta de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para armazenar dados de exemplo e o repositório de conhecimento. Sua conta de armazenamento deve usar a mesma localização (como US-WEas seu serviço do Azure Search e o *Tipo de conta* deve ser *Armazenamento V2 (Uso Geral V2)* (padrão) ou *Armazenamento (Uso Geral V1)* .
+Este início rápido usa a Pesquisa Cognitiva do Azure, o Armazenamento de Blobs do Azure e os [Serviços Cognitivos do Azure](https://azure.microsoft.com/services/cognitive-services/) para IA. 
 
-## <a name="load-the-data"></a>Carregar os dados
+Como a carga de trabalho é muito pequena, os Serviços Cognitivos são acionados nos bastidores para fornecer processamento gratuito para até 20 transações diárias quando invocados pela Pesquisa Cognitiva do Azure. Desde que use os dados de exemplo que fornecemos, você pode ignorar a criação ou anexação de um recurso dos Serviços Cognitivas.
 
-Carregue o arquivo CSV de resenhas de hotéis no Armazenamento de Blobs do Azure para que ele possa ser acessado por um indexador do Azure Search e alimentado por meio do pipeline de aprimoramento de IA.
+1. [Baixe HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). Esses são dados de resenhas de hotel salvos em um arquivo CSV (originário do Kaggle.com) que contêm 19 resenhas de clientes de um hotel. 
 
-### <a name="create-an-azure-blob-container-with-the-data"></a>Criar um contêiner de Blobs do Azure com os dados
+1. [Crie uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) ou [localize uma conta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) na assinatura atual. Você usará o armazenamento do Azure para o conteúdo bruto a ser importado e para o repositório de conhecimento que é o resultado final.
 
-1. [Baixe os dados de resenhas de hotel salvos em um arquivo CSV (HotelReviews_Free.csv)](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). Esses dados são originados do Kaggle.com e contêm comentários do cliente sobre hotéis.
-1. [Entre no portal do Azure](https://portal.azure.com) e navegue até sua conta de armazenamento do Azure.
-1. [Criar um contêiner de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) Para fazer isso, na barra de navegação esquerda de sua conta de armazenamento, clique em **Blobs** e, em seguida, clique em **+ Contêiner** na barra de comandos.
-1. Para o novo contêiner **Nome**, insira `hotel-reviews`.
-1. Selecione qualquer **Nível de Acesso Público**. Nós usamos o padrão.
-1. Clique em **OK** para criar o contêiner de Blobs do Azure.
-1. Abra o novo contêiner `hotels-review`, clique em **Upload** e selecione o arquivo **HotelReviews-Free.csv** que você baixou na primeira etapa.
+   Há dois requisitos para esta conta:
 
-    ![Fazer upload dos dados](media/knowledge-store-create-portal/upload-command-bar.png "Carregar as resenhas de hotéis")
+   + Escolha a mesma região que a Pesquisa Cognitiva do Azure. 
+   
+   + Escolha o tipo de conta StorageV2 (uso geral V2). 
 
-1. Clique em **Upload** para importar o arquivo CSV no Armazenamento de Blobs do Azure. O novo contêiner será exibido.
+1. Abra as páginas dos serviços Blob e crie um contêiner.  
 
-    ![Criar o contêiner de Blobs do Azure](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "o contêiner de Blobs do Azure")
+1. Clique em **Carregar**.
 
-### <a name="get-the-azure-storage-account-connection-string"></a>Obter a cadeia de conexão da conta de Armazenamento do Azure
+    ![Carregar os dados](media/knowledge-store-create-portal/upload-command-bar.png "Carregar as resenhas de hotéis")
 
-1. No portal, navegue até sua conta de Armazenamento do Azure.
-1. Na navegação esquerda do serviço, clique em **Chaves de acesso**.
-1. Em **chave 1**, copie e salve a *Cadeia de conexão*. A cadeia de caracteres começa com `DefaultEndpointsProtocol=https`. O nome e a chave da sua conta de armazenamento estão inseridos na cadeia de caracteres. Mantenha essa cadeia de caracteres acessível. Você precisará dela em etapas futuras.
+1. Carregue o arquivo **HotelReviews-Free.csv** que você baixou na primeira etapa.
 
-## <a name="create-and-run-ai-enrichments"></a>Criar e executar aprimoramentos de IA
+    ![Criar o contêiner de Blob do Azure](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Criar o contêiner de Blob do Azure")
 
-Use o assistente para importar dados para criar o repositório de conhecimento. Você criará uma fonte de dados, escolherá aprimoramentos, configurará um repositório de conhecimento e um índice e, em seguida, executará.
+1. Você quase terminou de trabalhar com esse recurso, mas antes de sair dessas páginas, use um link no painel de navegação esquerdo para abrir a página **Chaves de Acesso**. Obtenha uma cadeia de conexão para recuperar dados do armazenamento de Blobs. A cadeia de conexão é semelhante ao seguinte exemplo: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
-### <a name="start-the-import-data-wizard"></a>Iniciar o assistente Importar dados
+1. [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na mesma assinatura. É possível usar um serviço gratuito para este início rápido.
 
-1. No portal do Azure, [Encontre seu serviço de pesquisa](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+Agora, você está pronto prosseguir para assistente de Importação de dados.
 
-1. Na barra de comandos, clique em **Importar dados** para iniciar o assistente de importação.
+## <a name="run-the-import-data-wizard"></a>Executar o assistente de Importação de dados
 
-### <a name="connect-to-your-data-import-data-wizard"></a>Conectar-se aos seus dados (Assistente de importação de dados)
+Na página de Visão geral do serviço de pesquisa, clique em **Importar dados** na barra de comandos para criar um repositório de conhecimento em quatro etapas.
 
-Nesta etapa do assistente, você criará uma fonte de dados do Blob do Azure com os dados dos seus hotéis.
+  ![Comando Importar de dados](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
-1. Na lista **Fonte de Dados**, selecione **Armazenamento de Blobs do Azure**.
+### <a name="step-1-create-a-data-source"></a>Etapa 1: Criar uma fonte de dados
+
+1. Em **Conectar-se aos seus dados**, escolha **Armazenamento de Blobs do Azure** e selecione a conta e o contêiner criados. 
 1. Para o **Nome**, insira `hotel-reviews-ds`.
 1. Para **Modo de análise**, selecione **Texto delimitado** e, em seguido, marque a caixa de seleção **A Primeira Linha Contém Cabeçalho**. Verifique se o **Caractere delimitador** é uma vírgula (,).
 1. Insira a **Cadeia de Conexão** do serviço de armazenamento salva em uma etapa anterior.
 1. Para **Nome do contêiner**, insira `hotel-reviews`.
-1. Clique em **Avançar: adicionar pesquisa cognitiva (Opcional)** .
+1. Clique em **Avançar: Adicionar enriquecimento de IA (opcional)** .
 
       ![Criar um objeto de fonte de dados](media/knowledge-store-create-portal/hotel-reviews-ds.png "Criar um objeto de fonte de dados")
 
-## <a name="add-cognitive-search-import-data-wizard"></a>Adicionar pesquisa cognitiva (Assistente de importação de dados)
+1. Continue para a próxima página.
 
-Nesta etapa do assistente, você criará um conjunto de habilidades com aprimoramentos de habilidades cognitivas. As habilidades usadas neste modelo extrairão frases-chave e detectarão o idioma e o sentimento. Esses aprimoramentos serão “projetados” em um repositório de conhecimento como tabelas do Azure.
+### <a name="step-2-add-cognitive-skills"></a>Etapa 2: Adicionar habilidades cognitivas
+
+Nesta etapa do assistente, você criará um conjunto de habilidades com aprimoramentos de habilidades cognitivas. As habilidades usadas neste modelo extrairão frases-chave e detectarão o idioma e o sentimento. Em uma etapa posterior, esses aprimoramentos serão “projetados” em um repositório de conhecimento como tabelas do Azure.
 
 1. Expanda **Anexar Serviços Cognitivos**. **Gratuito (Aprimoramentos limitados)** é selecionado por padrão. É possível usar esse recurso porque o número de registros em HotelReviews-Free.csv é 19 e esse recurso gratuito permite até 20 transações por dia.
-1. Expanda **Adicionar Aprimoramentos**.
+1. Expanda **Adicionar habilidades cognitivas**.
 1. Em **Nome do conjunto de habilidades**, insira `hotel-reviews-ss`.
 1. Em **Campo de dados de origem**, selecione **reviews_text*.
 1. Para **Nível de granularidade do aprimoramento**, selecione **Páginas (5 mil partes de caracteres)**
@@ -104,11 +103,11 @@ Nesta etapa do assistente, você criará um conjunto de habilidades com aprimora
     + **Páginas**
     + **Frases-chave**
 
-    ![Configurar repositório de conhecimento](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configurar repositório de conhecimento")
+    ![Configurar um repositório de conhecimento](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configurar um repositório de conhecimento")
 
-1. Clique em **Avançar: personalizar o índice de destino**.
+1. Continue para a próxima página.
 
-### <a name="import-data-import-data-wizard"></a>Importar dados (Assistente de importação de dados)
+### <a name="step-3-configure-the-index"></a>Etapa 3: Configurar o índice
 
 Nesta etapa do assistente, você configurá um índice para consultas de pesquisa de texto completo opcionais. O assistente criará um exemplo de sua fonte de dados para inferir campos e tipos de dados. Só é necessário selecionar os atributos do seu comportamento desejado. Por exemplo, o atributo **Recuperável** permitirá que o serviço de pesquisa retorne um valor de campo enquanto o **Pesquisável** habilitará a pesquisa de texto completo no campo.
 
@@ -122,9 +121,9 @@ Nesta etapa do assistente, você configurá um índice para consultas de pesquis
 
     ![Configurar um índice](media/knowledge-store-create-portal/hotel-reviews-idx.png "Configurar um índice")
 
-1. Clique em **Avançar: criar um indexador**.
+1. Continue para a próxima página.
 
-### <a name="create-an-indexer"></a>Criar um indexador
+### <a name="step-4-configure-the-indexer"></a>Etapa 4: Configurar o indexador
 
 Nesta etapa do assistente, você configurará um indexador que reunirá a fonte de dados, o conjunto de habilidades e o índice definidos nas etapas anteriores do assistente.
 
@@ -132,22 +131,21 @@ Nesta etapa do assistente, você configurará um indexador que reunirá a fonte 
 1. Para **Agenda**, mantenha o padrão **Uma vez**.
 1. Clique em **Enviar** para executar o indexador. A extração de dados, a indexação e a aplicação de habilidades cognitivas acontecem nesta etapa.
 
-### <a name="monitor-the-notifications-queue-for-status"></a>Monitorar a fila de Notificações para ver o status
+## <a name="monitor-status"></a>Monitorar status
 
-1. No portal do Azure, monitore o log de atividades de Notificações para obter um link de status de **notificação do Azure Search** clicável. A execução pode levar vários minutos para ser concluída.
+A indexação de habilidades cognitivas leva mais tempo para ser concluída em comparação à indexação típica baseada em texto. O assistente deverá abrir a lista Indexador na página de visão geral, de modo que você possa acompanhar o progresso. Para a autonavegação, acesse a página Visão Geral e clique em **Indexadores**.
+
+No portal do Azure, também é possível monitorar o log de atividades de Notificações para obter um link de status de **notificação da Pesquisa Cognitiva do Azure** clicável. A execução pode levar vários minutos para ser concluída.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprimorou seus dados usando os serviços cognitivos e projetou os resultados em um repositório de conhecimento, é possível usar o Gerenciador de Armazenamento ou o Power BI para explorar seu conjunto de dados aprimorado.
 
-Para saber como explorar esse repositório de conhecimento usando o Gerenciador de Armazenamento, confira o seguinte passo a passo.
+Você pode exibir o conteúdo no Gerenciador de Armazenamento ou ir um passo adiante com o Power BI para obter informações sobre a visualização.
 
 > [!div class="nextstepaction"]
 > [Exibir com o Gerenciador de Armazenamento](knowledge-store-view-storage-explorer.md)
+> [Conectar-se ao Power BI](knowledge-store-connect-power-bi.md)
 
-Para saber como conectar esse repositório de conhecimento ao Power BI, confira o seguinte passo a passo.
-
-> [!div class="nextstepaction"]
-> [Conectar com o Power BI](knowledge-store-connect-power-bi.md)
-
-Se desejar repetir esse exercício ou experimentar um passo a passo de aprimoramento de IA diferente, exclua o indexador *hotel-reviews-idx*. A exclusão do indexador redefine o contador de transações diárias gratuito para zero.
+> [!Tip]
+> Se desejar repetir esse exercício ou experimentar um passo a passo de aprimoramento de IA diferente, exclua o indexador *hotel-reviews-idx*. A exclusão do indexador redefine o contador de transações diárias gratuito para zero para o processamento dos Serviços Cognitivos.

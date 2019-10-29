@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 84753f2c3ab19a0cc9d72ef8ce5011dfc8e5a8da
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f3d5aaaf57387ae4ccefdfe8ec22435f03b2452f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711881"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757553"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Início Rápido: Carregar, baixar e listar blobs com o portal do Azure
 
@@ -28,10 +28,10 @@ Neste guia de início rápido, você aprenderá a usar o [portal do Azure](https
 Para criar um contêiner no portal do Azure, siga estas etapas:
 
 1. Navegue até sua nova conta de armazenamento no portal do Azure.
-2. No menu à esquerda da conta de armazenamento, role até a seção **Serviço Blob** e selecione **Blobs**.
+2. No menu à esquerda da conta de armazenamento, role a página até a seção **Serviço Blob** e, em seguida, selecione **Contêineres**.
 3. Selecione o botão **+ Contêiner**.
 4. Digite um nome para o novo contêiner. O nome do contêiner deve estar com letras minúsculas, começar com uma letra ou número e pode incluir apenas letras, números e o caractere traço (-). Para obter mais informações sobre nomes de contêiner e de blobs, confira [Nomeando e referenciando contêineres, blobs e metadados](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
-5. Defina o nível de acesso público ao contêiner. O nível padrão é **Privado (sem acesso anônimo)**.
+5. Defina o nível de acesso público ao contêiner. O nível padrão é **Privado (sem acesso anônimo)** .
 6. Selecione **OK** para criar o contêiner.
 
     ![Captura de tela mostrando como criar um contêiner no portal do Azure](media/storage-quickstart-blobs-portal/create-container.png)
@@ -67,7 +67,7 @@ Para excluir o contêiner:
 
 1. No portal do Azure, navegue até a lista de contêineres na sua conta de armazenamento.
 2. Selecione o contêiner a ser excluído.
-3. Selecione o botão **Mais** (**...**) e selecione **Excluir**.
+3. Selecione o botão **Mais** ( **...** ) e selecione **Excluir**.
 4. Confirme que você realmente deseja excluir o contêiner.
 
 ## <a name="next-steps"></a>Próximas etapas

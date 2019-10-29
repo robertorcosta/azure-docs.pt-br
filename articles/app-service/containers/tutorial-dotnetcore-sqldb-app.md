@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a4774431b6a6e37ee9e175e161813936a71cdee9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 532c6a45351f872260ea9383adaacacd486b9d9a
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68824681"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532725"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Criar um aplicativo ASP.NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure no Linux
 
 > [!NOTE]
-> Este artigo implanta um aplicativo no Serviço de Aplicativo no Linux. Para implantar no Serviço de Aplicativo no _Windows_ , confira [Criar um aplicativo .NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure](../app-service-web-tutorial-dotnetcore-sqldb.md).
+> Este artigo implanta um aplicativo no Serviço de Aplicativo no Linux. Para implantar no Serviço de Aplicativo no _Windows_, confira [Criar um aplicativo .NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure](../app-service-web-tutorial-dotnetcore-sqldb.md).
 >
 
 O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este tutorial mostra como criar um aplicativo .NET Core e conectá-lo a um Banco de Dados SQL. Quando terminar, você terá um aplicativo MVC .NET Core em execução no Serviço de Aplicativo no Linux.
@@ -49,7 +49,7 @@ Neste tutorial, você aprenderá como:
 Para concluir este tutorial:
 
 * [Instalar o Git](https://git-scm.com/)
-* [Instalar o .NET Core](https://www.microsoft.com/net/core/)
+* [Instalar o SDK do .NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 
 ## <a name="create-local-net-core-app"></a>Criar um aplicativo .NET Core local
 
@@ -78,7 +78,7 @@ dotnet ef database update
 dotnet run
 ```
 
-Navegue até `http://localhost:5000` em um navegador. Selecione o link **Criar novo** e crie alguns itens _de tarefas_ .
+Navegue até `http://localhost:5000` em um navegador. Selecione o link **Criar novo** e crie alguns itens _de tarefas_.
 
 ![conecta-se com êxito ao Banco de Dados SQL](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
@@ -183,7 +183,7 @@ Para ver como a cadeia de conexão é referenciada em seu código, consulte [Con
 
 ### <a name="configure-environment-variable"></a>Configurar variável de ambiente
 
-Em seguida, defina a configuração de aplicativo `ASPNETCORE_ENVIRONMENT` como _Produção_ . Essa configuração permite saber se o aplicativo está em execução no Azure, porque você usa o SQLite para o ambiente de desenvolvimento local e o Banco de Dados SQL para o ambiente do Azure.
+Em seguida, defina a configuração de aplicativo `ASPNETCORE_ENVIRONMENT` como _Produção_. Essa configuração permite saber se o aplicativo está em execução no Azure, porque você usa o SQLite para o ambiente de desenvolvimento local e o Banco de Dados SQL para o ambiente do Azure.
 
 O exemplo a seguir define uma configuração de aplicativo `ASPNETCORE_ENVIRONMENT` no aplicativo do Azure. Substitua o espaço reservado *\<app-name>* .
 
@@ -302,7 +302,7 @@ dotnet ef database update
 
 Faça algumas alterações em seu código para usar a propriedade `Done`. Para simplificar este tutorial, somente as exibições `Index` e `Create` serão alteradas para observar a propriedade em ação.
 
-Abra _Controllers\TodosController.cs_ .
+Abra _Controllers\TodosController.cs_.
 
 Localize o `Create()` método e adicione `Done` à lista de propriedades no atributo `Bind`. Quando terminar, a assinatura do método `Create()` deverá ter o seguinte código:
 
@@ -310,7 +310,7 @@ Localize o `Create()` método e adicione `Done` à lista de propriedades no atri
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
 ```
 
-Abra _Views\Todos\Create.cshtml_ .
+Abra _Views\Todos\Create.cshtml_.
 
 No código do Razor, você deve ver um elemento `<div class="form-group">` para `Description` e, em seguida, outro elemento `<div class="form-group">` para `CreatedDate`. Imediatamente após esses dois elementos, adicione outro elemento `<div class="form-group">` para `Done`:
 
@@ -324,7 +324,7 @@ No código do Razor, você deve ver um elemento `<div class="form-group">` para 
 </div>
 ```
 
-Abra _Views\Todos\Index.cshtml_ .
+Abra _Views\Todos\Index.cshtml_.
 
 Procure o elemento vazio `<th></th>`. Logo acima desse elemento, adicione o seguinte código do Razor:
 

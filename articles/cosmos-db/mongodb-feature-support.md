@@ -1,30 +1,31 @@
 ---
-title: Use a API do Azure Cosmos DB para dar suporte ao recurso do MongoDB
-description: Saiba mais sobre o suporte de recurso que a API do Azure Cosmos DB para MongoDB fornece ao MongoDB 3.4.
+title: Sintaxe e recursos compatíveis da API do Azure Cosmos DB para MongoDB (versão 3.2)
+description: Saiba mais sobre a sintaxe e os recursos compatíveis da API do Azure Cosmos DB para MongoDB (versão 3.2).
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 05/21/2019
+ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 999b9ed88b6ff2c14defd3424c0fb541b7cf5d8e
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 12e5dba0339b6092564e5d35c1a6250b0c47f50f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050102"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754995"
 ---
-# <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB: sintaxe e recursos do MongoDB com suporte
+# <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB (versão 3.2): sintaxe e recursos compatíveis
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível comunicar-se com a API do Azure Cosmos DB para MongoDB usando qualquer [driver](https://docs.mongodb.org/ecosystem/drivers) de cliente do MongoDB de software livre. A API do Azure Cosmos DB para MongoDB permite o uso de drivers de cliente existentes ao aderir ao [protocolo de transmissão](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) do MongoDB.
 
 Usando a API do Azure Cosmos DB para MongoDB, você pode aproveitar os benefícios do MongoDB com os quais está acostumado, com todas as funcionalidades empresariais que o Cosmos DB oferece: [distribuição global](distribute-data-globally.md), [fragmentação automática](partition-data.md), garantias de disponibilidade e latência, indexação automática de cada campo, criptografia em repouso, backups e muito mais.
 
+> [!NOTE]
+> Este artigo refere-se à API do Azure Cosmos DB para MongoDB 3.2. Para o MongoDB versão 3.6, confira [Sintaxe e recursos compatíveis do MongoDB 3.6](mongodb-feature-support-36.md).
+
 ## <a name="protocol-support"></a>Suporte de protocolo
 
-A API do Azure Cosmos DB para MongoDB é compatível com o servidor do MongoDB versão **3.2** por padrão. Os operadores com suporte e qualquer limitação ou exceções estão listadas abaixo. Os recursos ou os operadores de consulta adicionados à versão do MongoDB **3.4** estão disponíveis no momento como um recurso de visualização. Qualquer driver de cliente que entenda esses protocolos poderá conectar-se à API do Azure Cosmos DB para MongoDB.
-
-O [pipeline de agregação do MongoDB](#aggregation-pipeline) também está disponível como um recurso de visualização separado.
+Todas as novas contas da API do Azure Cosmos DB para MongoDB são compatíveis com o servidor MongoDB versão **3.6**. Este artigo aborda o MongoDB versão 3.2. Os operadores com suporte e qualquer limitação ou exceções estão listadas abaixo. Qualquer driver de cliente que entenda esses protocolos poderá conectar-se à API do Azure Cosmos DB para MongoDB.
 
 ## <a name="query-language-support"></a>Suporte de linguagem de consulta
 
@@ -35,6 +36,7 @@ A API do Azure Cosmos DB para MongoDB fornece um suporte abrangente para constru
 A API do Azure Cosmos DB para MongoDB é compatível com os seguintes comandos de banco de dados:
 
 ### <a name="query-and-write-operation-commands"></a>Comandos de operação de consulta e gravação
+
 - excluir
 - find
 - findAndModify
@@ -44,11 +46,13 @@ A API do Azure Cosmos DB para MongoDB é compatível com os seguintes comandos d
 - atualizar
 
 ### <a name="authentication-commands"></a>Comandos de autenticação
+
 - logout
 - authenticate
 - getnonce
 
 ### <a name="administration-commands"></a>Comandos de administração
+
 - dropDatabase
 - listCollections
 - drop
@@ -61,6 +65,7 @@ A API do Azure Cosmos DB para MongoDB é compatível com os seguintes comandos d
 - reIndex
 
 ### <a name="diagnostics-commands"></a>Comandos de diagnóstico
+
 - buildInfo
 - collStats
 - dbStats
@@ -72,14 +77,16 @@ A API do Azure Cosmos DB para MongoDB é compatível com os seguintes comandos d
 
 ## <a name="aggregation-pipelinea"></a>Pipeline de agregação</a>
 
-O Cosmos DB dá suporte ao pipeline de agregação em versão prévia pública. Consulte o [blog do Azure](https://aka.ms/mongodb-aggregation) para obter instruções sobre como integrar a visualização pública.
+O Cosmos DB dá suporte ao pipeline de agregação para o MongoDB 3.2 na versão prévia pública. Consulte o [blog do Azure](https://aka.ms/mongodb-aggregation) para obter instruções sobre como integrar a visualização pública.
 
 ### <a name="aggregation-commands"></a>Comandos de agregação
+
 - aggregate
 - count
 - distinct
 
 ### <a name="aggregation-stages"></a>Estágios de agregação
+
 - $project
 - $match
 - $limit
@@ -96,11 +103,13 @@ O Cosmos DB dá suporte ao pipeline de agregação em versão prévia pública. 
 ### <a name="aggregation-expressions"></a>Expressões de agregação
 
 #### <a name="boolean-expressions"></a>Expressões boolianas
+
 - $and
 - $or
 - $not
 
 #### <a name="set-expressions"></a>Expressões de definição
+
 - $setEquals
 - $setIntersection
 - $setUnion
@@ -110,6 +119,7 @@ O Cosmos DB dá suporte ao pipeline de agregação em versão prévia pública. 
 - $allElementsTrue
 
 #### <a name="comparison-expressions"></a>Expressões de comparação
+
 - $cmp
 - $eq
 - $gt
@@ -119,6 +129,7 @@ O Cosmos DB dá suporte ao pipeline de agregação em versão prévia pública. 
 - $ne
 
 #### <a name="arithmetic-expressions"></a>Expressões aritméticas
+
 - $abs
 - $add
 - $ceil
@@ -136,6 +147,7 @@ O Cosmos DB dá suporte ao pipeline de agregação em versão prévia pública. 
 - $trunc
 
 #### <a name="string-expressions"></a>Expressões de cadeia de caracteres
+
 - $concat
 - $indexOfBytes
 - $indexOfCP
@@ -150,6 +162,7 @@ O Cosmos DB dá suporte ao pipeline de agregação em versão prévia pública. 
 - $toUpper
 
 #### <a name="array-expressions"></a>Expressões de matriz
+
 - $arrayElemAt
 - $concatArrays
 - $filter
@@ -162,6 +175,7 @@ O Cosmos DB dá suporte ao pipeline de agregação em versão prévia pública. 
 - $in
 
 #### <a name="date-expressions"></a>Expressões de data
+
 - $dayOfYear
 - $dayOfMonth
 - $dayOfWeek
@@ -176,10 +190,12 @@ O Cosmos DB dá suporte ao pipeline de agregação em versão prévia pública. 
 - $isoWeek
 
 #### <a name="conditional-expressions"></a>Expressões condicionais
+
 - $cond
 - $ifNull
 
 ## <a name="aggregation-accumulators"></a>Acumuladores de agregação
+
 - $sum
 - $avg
 - $first
@@ -234,12 +250,15 @@ $regex | `{ "Volcano Name": { $regex: "^Rain"} }`|  | -
 ### <a name="notes"></a>Observações
 
 Em consultas de $regex, as expressões ancoradas à esquerda permitem pesquisa de índice. No entanto, usar o modiciador 'i' (não sensível a maiúsculas e minúsculas) e o modificador 'm' (várias linhas) faz com que a coleção verifique todas as expressões.
-Quando houver a necessidade de se incluir '$' ou '|', é melhor criar duas (ou mais) consultas regex. Por exemplo, dada a seguinte consulta original: ```find({x:{$regex: /^abc$/})```, ela deve ser modificada da seguinte maneira: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
-A primeira parte usará o índice para restringir a pesquisa a esses documentos começando com ^abc e a segunda parte corresponderá às entradas exatas. O operador de barra '|' atua como uma função "or" – a consulta ```find({x:{$regex: /^abc|^def/})``` faz a correspondência dos documentos em que o campo 'x' tem valores que começam com "abc" ou "def". Para utilizar o índice, é recomendável dividir a consulta em duas consultas diferentes unidas pelo operador $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+Quando houver a necessidade de se incluir '$' ou '|', é melhor criar duas (ou mais) consultas regex.
+Por exemplo, dada a seguinte consulta original: ```find({x:{$regex: /^abc$/})```, ela deve ser modificada da seguinte maneira: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
+A primeira parte usará o índice para restringir a pesquisa a esses documentos começando com ^abc e a segunda parte corresponderá às entradas exatas.
+O operador de barra '|' atua como uma função "or" – a consulta ```find({x:{$regex: /^abc|^def/})``` faz a correspondência dos documentos em que o campo 'x' tem valores que começam com "abc" ou "def". Para utilizar o índice, é recomendável dividir a consulta em duas consultas diferentes unidas pelo operador $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
 ### <a name="update-operators"></a>Operadores de atualização
 
 #### <a name="field-update-operators"></a>Operadores de atualização de campo
+
 - $inc
 - $mul
 - $rename
@@ -251,6 +270,7 @@ A primeira parte usará o índice para restringir a pesquisa a esses documentos 
 - $currentDate
 
 #### <a name="array-update-operators"></a>Operadores de atualização de matriz
+
 - $addToSet
 - $pop
 - $pullAll
@@ -263,6 +283,7 @@ A primeira parte usará o índice para restringir a pesquisa a esses documentos 
 - $position
 
 #### <a name="bitwise-update-operator"></a>Operador de atualização bit a bit
+
 - $bit
 
 ### <a name="geospatial-operators"></a>Operadores geoespaciais
@@ -282,16 +303,17 @@ $box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 4
 $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Sim |
 
 ## <a name="sort-operations"></a>Classificar operações
+
 Ao usar a operação `findOneAndUpdate`, há suporte para operações de classificação em um único campo, mas não há para operações em vários campos.
 
 ## <a name="additional-operators"></a>Operadores adicionais
 
-Operador | Exemplo | Observações 
+Operador | Exemplo | Observações
 --- | --- | --- |
-$all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` | 
-$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
-$size | ```{ "Location.coordinates": { $size: 2 } }``` | 
-$comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
+$all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
+$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |
+$size | ```{ "Location.coordinates": { $size: 2 } }``` |
+$comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` |
 $text |  | Sem suporte. Nesse caso, use $regex.
 
 ## <a name="unsupported-operators"></a>Operadores sem suporte
@@ -304,13 +326,13 @@ Os seguintes métodos são suportados:
 
 #### <a name="cursor-methods"></a>Métodos de cursor
 
-Método | Exemplo | Observações 
+Método | Exemplo | Observações
 --- | --- | --- |
 cursor.Sort() | ```cursor.sort({ "Elevation": -1 })``` | Documentos sem chave de classificação não são retornados
 
 ## <a name="unique-indexes"></a>Índices exclusivos
 
-O Cosmos DB indexa cada campo em documentos que são gravados no banco de dados por padrão. Índices exclusivos garantem que um campo específico não possua valores duplicados em todos os documentos em uma coleção, de forma semelhante a como a exclusividade é preservada na chave “_id” padrão. Você pode criar índices personalizados no Cosmos DB usando o comando createIndex, incluindo a restrição 'unique'.
+O Cosmos DB indexa cada campo em documentos que são gravados no banco de dados por padrão. Os índices exclusivos garantem que um campo específico não tenha valores duplicados em todos os documentos em uma coleção, de forma semelhante a como a exclusividade é preservada na chave `_id` padrão. Crie índices personalizados no Cosmos DB usando o comando createIndex, incluindo a restrição 'unique'.
 
 Há índices exclusivos disponíveis para todas as contas do Cosmos usando a API do Azure Cosmos DB para MongoDB.
 

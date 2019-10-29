@@ -1,18 +1,18 @@
 ---
-title: Criar sua própria recuperação de desastre para Tópicos Personalizados na Grade de Eventos do Azure | Microsoft Docs
-description: Sobreviva a interrupções regionais para manter a Grade de Eventos do Azure conectada.
+title: Recuperação de desastre para tópicos personalizados na Grade de Eventos do Azure
+description: Saiba como sobreviver a interrupções regionais para manter a Grade de Eventos do Azure conectada.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/16/2019
+ms.date: 10/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 4a069db7984a7b0b0bb4bb867dc510f73d8b1f75
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 7020fb167539e8ad16cc6c386f58e38326dec43b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305069"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790270"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Criar sua própria recuperação de desastre para tópicos personalizados na Grade de Eventos
 A recuperação de desastre tem como foco a recuperação após uma perda grave de funcionalidade do aplicativo. Este tutorial o orientará pelo processo de configurar sua arquitetura de eventos a ser recuperada se o serviço de Grade de Eventos se tornar não íntegro em uma região específica.

@@ -1,5 +1,5 @@
 ---
-title: Criar e implantar um modelo do Azure Resource Manager usando o portal do Azure | Microsoft Docs
+title: Implantar um modelo do Resource Manager – portal do Azure
 description: Saiba como criar seu primeiro modelo do Azure Resource Manager usando o portal do Azure e como implantá-lo.
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 708656ee88f5bacaa498bcd84fde34d69228d28b
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 109c838d903faee7510441a8b3d502a7e95d8bb4
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170277"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533675"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Início Rápido: Criar e implantar modelos do Azure Resource Manager usando o portal do Azure
 

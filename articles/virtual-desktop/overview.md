@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 97087b7fdc6e4cdaccf922a1c72f35284c7a7040
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e1ae0501e2a558967b7d53229dc629e035c5e067
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676563"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597897"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows? 
 
@@ -76,8 +76,8 @@ A infraestrutura precisa dos seguintes itens para dar suporte à Área de Trabal
 * Um Windows Server Active Directory em sincronia com o Azure Active Directory. Isso pode ser habilitado por meio do:
   * Azure AD Connect
   * Azure AD Domain Services
-  >[!NOTE]
-  >A Área de Trabalho Virtual do Windows dá suporte apenas a usuários dos Azure AD Domain Services originados do Azure Active Directory. Usuários originados do AD do Windows Server não têm suporte no momento.
+     >[!NOTE]
+     >Se você usar o Azure AD Domain Services, os usuários precisarão ser obtidos no Azure Active Directory. No momento, não há suporte para o uso do Azure AD Domain Services com usuários obtidos no Windows Server AD.
 * Uma assinatura do Azure, contendo uma rede virtual que contenha o Windows Server Active Directory ou que esteja conectada a ele
   
 As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windows precisam ser:

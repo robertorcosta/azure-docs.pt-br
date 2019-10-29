@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 10/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adf62a6edf0a53248ccde30c08aed709e60f1957
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 5e54994d02dd1abbca1602952fbad058b3ad993d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559054"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72594272"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-scalex-enterprise"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ScaleX Enterprise
 
@@ -57,6 +57,7 @@ Para configurar a integração do ScaleX Enterprise ao Azure AD, você precisar�
 1. Na seção **Adicionar por meio da galeria**, digite **ScaleX Enterprise** na caixa de pesquisa.
 1. Selecione **ScaleX Enterprise** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
+
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-scalex-enterprise"></a>Configurar e testar o logon único do Azure AD para o ScaleX Enterprise
 
 Configure e teste o SSO do Azure AD com o ScaleX Enterprise usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do ScaleX Enterprise.
@@ -64,13 +65,13 @@ Configure e teste o SSO do Azure AD com o ScaleX Enterprise usando um usuário d
 Para configurar e testar o SSO do Azure AD com o ScaleX Enterprise, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-2. **[Configurar o SSO do ScaleX Enterprise](#configure-scalex-enterprise-sso)** – para definir as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do ScaleX Enterprise](#create-scalex-enterprise-test-user)** – para ter um equivalente de B.Fernandes no ScaleX Enterprise que esteja vinculado à representação de usuário do Azure AD.
-6. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
+    * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+1. **[Configurar o SSO do ScaleX Enterprise](#configure-scalex-enterprise-sso)** – para definir as configurações de logon único no lado do aplicativo.
+    * **[Criar um usuário de teste do ScaleX Enterprise](#create-scalex-enterprise-test-user)** – para ter um equivalente de B.Fernandes no ScaleX Enterprise que esteja vinculado à representação de usuário do Azure AD.
+1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
@@ -105,9 +106,47 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="configure-scalex-enterprise-sso"></a>Configurar o SSO do ScaleX Enterprise
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-1. Para configurar o logon único no **ScaleX Enterprise**, entre no site da empresa ScaleX Enterprise como administrador.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
+
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. Selecione **Novo usuário** na parte superior da tela.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+
+Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao ScaleX Enterprise.
+
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **ScaleX Enterprise**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+
+   ![O link “Usuários e grupos”](common/users-groups-blade.png)
+
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+
+    ![O link Adicionar Usuário](common/add-assign-user.png)
+
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+
+## <a name="configure-scalex-enterprise-sso"></a>Configurar o SSO do ScaleX Enterprise
+
+1. Para automatizar a configuração no ScaleX Enterprise, é necessário instalar a **extensão do navegador Entrada Segura dos Meus Aplicativos** clicando em **Instalar a extensão**.
+
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
+
+1. Após a adição da extensão ao navegador, um clique em **Configurar o ScaleX Enterprise** direcionará você ao aplicativo ScaleX Enterprise. Nele, forneça as credenciais de administrador para entrar no ScaleX Enterprise. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 6.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+1. Caso deseje configurar o ScaleX Enterprise manualmente, abra uma nova janela do navegador da Web, entre em seu site de empresa do ScaleX Enterprise como administrador e execute as seguintes etapas:
 
 1. Clique no menu na parte superior direita e selecione **Administração do Contoso**.
 
@@ -140,41 +179,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     h. Clique em **Atualizar Configurações de SSO** para salvar as configurações.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
-
-Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
-
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
-1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
-   1. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
-
-Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao ScaleX Enterprise.
-
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
-1. Na lista de aplicativos, selecione **ScaleX Enterprise**.
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
-
 ### <a name="create-scalex-enterprise-test-user"></a>Criar um usuário de teste do ScaleX Enterprise
 
 Para permitir que os usuários do Azure AD entrem no ScaleX Enterprise, eles precisam ser provisionados no ScaleX Enterprise. No caso do ScaleX Enterprise, o provisionamento é uma tarefa automática e nenhuma etapa manual é necessária. Qualquer usuário que pode se autenticar com êxito com as credenciais de SSO será provisionado automaticamente no ScaleX.
 
-### <a name="test-sso"></a>Testar o SSO
+## <a name="test-sso"></a>Testar o SSO
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
@@ -187,3 +196,5 @@ Ao clicar no bloco do ScaleX Enterprise no Painel de Acesso, você deverá ser c
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimentar o ScaleX Enterprise com o Azure AD](https://aad.portal.azure.com/)

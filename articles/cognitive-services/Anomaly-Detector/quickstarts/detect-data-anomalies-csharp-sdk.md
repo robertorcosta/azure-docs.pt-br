@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 08/01/2019
+ms.date: 10/15/2019
 ms.author: aahi
-ms.openlocfilehash: c1dd5e4f469b24918eaa03e694a95fa90c91b481
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 04d788160f1bdfd772f48b40b35f6db54cbf87b7
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725566"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554779"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-net"></a>Início Rápido: biblioteca de clientes do Detector de Anomalias para .NET
 
@@ -26,7 +26,7 @@ Use a biblioteca de cliente do Detector de Anomalias para .NET para:
 * Detectar anomalias em todo o seu conjunto de dados de série temporal, como uma solicitação em lote
 * Detectar o status de anomalias do ponto de dados mais recente em sua série temporal
 
-[Documentação de referência da biblioteca](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Exemplos](https://github.com/Azure-Samples/anomalydetector)
+[Documentação de referência da biblioteca](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Exemplos de código](https://github.com/Azure-Samples/anomalydetector)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,13 +39,9 @@ Use a biblioteca de cliente do Detector de Anomalias para .NET para:
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-Depois de obter uma chave do recurso ou da assinatura de avaliação, [crie uma variável de ambiente](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para a chave, chamada `ANOMALY_DETECTOR_KEY`.
+### <a name="create-a-new-net-core-application"></a>Criar um aplicativo .NET Core
 
-### <a name="create-a-new-c-application"></a>Criar um aplicativo em C#
-
-Crie um novo aplicativo .NET Core em seu IDE ou editor preferido. 
-
-Em uma janela de console (como cmd, PowerShell ou Bash), use o comando `new` para criar um novo aplicativo do console com o nome `anomaly-detector-quickstart`. Esse comando cria um projeto simples C# "Olá, Mundo" com um arquivo de origem único: *Program.cs*. 
+Em uma janela de console (como cmd, PowerShell ou Bash), use o comando `new` para criar um novo aplicativo do console com o nome `anomaly-detector-quickstart`. Este comando cria um projeto "Olá, Mundo" simples com um único arquivo de origem C#: *Program.cs*. 
 
 ```console
 dotnet new console -n anomaly-detector-quickstart
@@ -67,14 +63,6 @@ Build succeeded.
 ...
 ```
 
-No diretório do projeto, abra o arquivo *program.cs* no IDE ou no editor de sua preferência. Adicione o seguinte usando `directives`:
-
-[!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
-
-No método `main()` do aplicativo, crie variáveis para o local do Azure do seu recurso e a chave como uma variável de ambiente. Se você criou a variável de ambiente depois de iniciar o aplicativo, será necessário fechar e recarregar o editor, o IDE ou o shell em execução para acessar a variável.
-
-[!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=mainMethod)]
-
 ### <a name="install-the-client-library"></a>Instalar a biblioteca de clientes
 
 Dentro do diretório do aplicativo, instale a biblioteca de clientes do Detector de Anomalias para .NET com o seguinte comando:
@@ -83,7 +71,13 @@ Dentro do diretório do aplicativo, instale a biblioteca de clientes do Detector
 dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector --version 0.8.0-preview
 ```
 
-Se estiver usando o IDE do Visual Studio, a biblioteca de clientes estará disponível como um pacote do NuGet. 
+No diretório do projeto, abra o arquivo *program.cs* e adicione o seguinte usando `directives`:
+
+[!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
+
+No método `main()` do aplicativo, crie variáveis para o local do Azure do seu recurso e a chave como uma variável de ambiente. Se você criou a variável de ambiente depois de iniciar o aplicativo, será necessário fechar e recarregar o editor, o IDE ou o shell em execução para acessar a variável.
+
+[!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=mainMethod)]
 
 ## <a name="object-model"></a>Modelo de objeto
 

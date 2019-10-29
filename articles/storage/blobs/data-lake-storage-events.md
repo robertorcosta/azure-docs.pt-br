@@ -9,10 +9,10 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.openlocfilehash: 03a07e70c967f92fe5dcc7c951aeea299b050405
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71326982"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Tutorial: Implementar o padrão de captura do data lake para atualizar uma tabela do Databricks Delta
@@ -92,7 +92,7 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 
 2. Em **Serviço do Azure Databricks**, forneça os valores para criar um workspace do Databricks.
 
-    ![Criar um workspace do Azure Databricks](./media/data-lake-storage-events/new-databricks-service.png "Criar um workspace do Azure Databricks")
+    ![Crie um workspace do Azure Databricks](./media/data-lake-storage-events/new-databricks-service.png "Criar um workspace do Azure Databricks")
 
     A criação do workspace leva alguns minutos. Para monitorar o status da operação, veja a barra de progresso na parte superior.
 
@@ -106,7 +106,7 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 
 3. Na página **Novo cluster**, forneça os valores para criar um cluster.
 
-    ![Criar cluster do Databricks Spark no Azure](./media/data-lake-storage-events/create-databricks-spark-cluster.png "Criar cluster do Databricks Spark no Azure")
+    ![Criar um cluster Spark do Databricks no Azure](./media/data-lake-storage-events/create-databricks-spark-cluster.png "Criar um cluster Spark do Databricks no Azure")
 
     Aceite todos os outros valores padrão que não sejam o seguinte:
 
@@ -121,11 +121,11 @@ Para obter mais informações sobre como criar clusters, consulte [Criar um clus
 
 1. No painel esquerdo, escolha **Workspace**. Na lista suspensa **Workspace**, selecione **Criar** > **Notebook**.
 
-    ![Criar bloco de notas em Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Criar bloco de notas em Databricks")
+    ![Criar notebook no Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Criar notebook no Databricks")
 
 2. Na caixa de diálogo **Criar Bloco de Anotações**, digite um nome para o bloco de anotações. Selecione **Python** como a linguagem e, em seguida, selecione o cluster Spark criado anteriormente.
 
-    ![Criar bloco de notas em Databricks](./media/data-lake-storage-events/new-databricks-notebook.png "Criar bloco de notas em Databricks")
+    ![Criar notebook no Databricks](./media/data-lake-storage-events/new-databricks-notebook.png "Criar notebook no Databricks")
 
     Selecione **Criar**.
 
@@ -271,7 +271,7 @@ Crie uma função do Azure que executa o trabalho.
 
 6. Na página **Configurações do Aplicativo**, escolha o botão **Nova configuração de aplicativo** para adicionar cada configuração.
 
-   ![Adicionar definição de configuração](./media/data-lake-storage-events/add-application-setting.png "Adicionar definição de configuração")
+   ![Adicionar uma definição de configuração](./media/data-lake-storage-events/add-application-setting.png "Adicionar uma definição de configuração")
 
    Adicione as seguintes configurações:
 
@@ -383,7 +383,7 @@ Nesta seção, você criará uma assinatura da Grade de Eventos que chama a fun�
 
    A tabela retornada mostra o registro mais recente.
 
-   ![O registro mais recente aparece na tabela](./media/data-lake-storage-events/final_query.png "O registro mais recente aparece na tabela")
+   ![O registro mais recente é exibido na tabela](./media/data-lake-storage-events/final_query.png "O registro mais recente é exibido na tabela")
 
 6. Para atualizar esse registro, crie um arquivo chamado `customer-order-update.csv`, cole as informações a seguir nesse arquivo e salve-o no computador local.
 
@@ -404,7 +404,7 @@ Nesta seção, você criará uma assinatura da Grade de Eventos que chama a fun�
 
    A tabela retornada mostra o registro atualizado.
 
-   ![O registro atualizado aparece na tabela](./media/data-lake-storage-events/final_query-2.png "O registro atualizado aparece na tabela")
+   ![O registro atualizado é exibido na tabela](./media/data-lake-storage-events/final_query-2.png "O registro atualizado é exibido na tabela")
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -3,15 +3,15 @@ title: Visão geral do Azure Resource Graph
 description: Entenda como o serviço do Azure Resource Graph habilita a consulta complexa de recursos em grande escala.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/06/2019
+ms.date: 10/21/2019
 ms.topic: overview
 ms.service: resource-graph
-ms.openlocfilehash: bf54f1a96c6be7bbfb19770472752b3f958695c4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 45853e3c8986cec58f27d785af31f174aff21b2e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976815"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755881"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Visão geral do serviço Azure Resource Graph
 
@@ -34,7 +34,7 @@ Nesta documentação, você estudará cada recurso em detalhes.
 
 Atualmente, o Azure Resource Manager dá suporte para consultas por campos de recursos básicos, mais especificamente: Nome do recurso, ID, Tipo, Grupo de recursos, Assinatura e Local. O Resource Manager também fornece recursos para chamar provedores de recursos individuais para propriedades detalhadas um recurso por vez.
 
-Com o Azure Resource Graph, você pode acessar essas propriedades retornadas pelos provedores de recursos sem a necessidade de fazer chamadas individuais para cada um deles. Para obter uma lista de tipos de recursos com suporte, procure um **Sim** na tabela [Recursos para implantações do modo completo](../../azure-resource-manager/complete-mode-deletion.md). Uma maneira alternativa de ver os tipos de recursos com suporte é por meio do [navegador de Esquema do Azure Resource Graph Explorer](./first-query-portal.md#schema-browser).
+Com o Azure Resource Graph, você pode acessar essas propriedades retornadas pelos provedores de recursos sem a necessidade de fazer chamadas individuais para cada um deles. Para obter uma lista de tipos de recursos com suporte, procure um **Sim** na tabela [Recursos para implantações do modo completo](../../azure-resource-manager/complete-mode-deletion.md). Encontre tipos de recursos adicionais nas [tabelas do Resource Graph](./concepts/query-language.md#resource-graph-tables) relacionadas. Uma maneira alternativa de ver os tipos de recursos com suporte é por meio do [navegador de Esquema do Azure Resource Graph Explorer](./first-query-portal.md#schema-browser).
 
 Com o Azure Resource Graph, é possível:
 
@@ -45,6 +45,9 @@ Com o Azure Resource Graph, é possível:
 
 Quando um recurso do Azure é atualizado, o Resource Graph é notificado pelo Resource Manager sobre a alteração.
 O Resource Graph então atualiza o banco de dados. O Resource Graph também executa uma _verificação completa_ regularmente. Essa verificação garante que os dados do Resource Graph sejam atuais no caso de perda de notificações ou quando um recurso for atualizado fora do Resource Manager.
+
+> [!NOTE]
+> O Resource Graph usa um `GET` para a API mais recente que não é de versão prévia de cada provedor de recursos para coletar propriedades e valores. Como resultado, a propriedade esperada pode não estar disponível. Em alguns casos, a versão da API usada foi substituída para fornecer propriedades mais atuais ou amplamente usadas nos resultados. Confira a amostra [Mostrar a versão da API de cada tipo de recurso](./samples/advanced.md#apiversion) para obter uma lista completa no ambiente.
 
 ## <a name="the-query-language"></a>A linguagem da consulta
 

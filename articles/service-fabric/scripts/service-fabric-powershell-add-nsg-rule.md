@@ -14,16 +14,16 @@ ms.topic: sample
 ms.date: 11/28/2017
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 8e3187ba399ffa4d6c0ca863380205f7fbbfaae8
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 44bb0e615453450c401949f0ce76f15cb82fab67
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036126"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680537"
 ---
 # <a name="add-an-inbound-network-security-group-rule"></a>Adicionar uma regra de grupo de segurança de rede de entrada
 
-Esse exemplo de script cria uma regra de grupo de segurança de rede para permitir o tráfego de entrada na porta 8081.  O script obtém o recurso `Microsoft.Network/networkSecurityGroups` em que o cluster está localizado, cria uma nova regra de configuração de segurança de rede e atualiza o grupo de segurança de rede. Personalize os parâmetros conforme necessário.
+Esse exemplo de script cria uma regra de grupo de segurança de rede para permitir o tráfego de entrada na porta 8081.  O script obtém o grupo de segurança de rede, cria uma regra de configuração de segurança de rede e atualiza o grupo de segurança de rede. Personalize os parâmetros conforme necessário.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

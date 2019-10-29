@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 43d7e58f0c267afe8a22c217d9800abb041df8cb
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68723052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Tutorial: Integração do Azure Active Directory com Zscaler ZSCloud
@@ -177,7 +177,7 @@ Para configurar o logon único do Azure AD com o Zscaler ZSCloud, siga as etapas
 
 5. Na janela **Editar SAML**, execute as seguintes etapas: e clique em Salvar.  
             
-    ![Gerenciar usuários e autenticação](./media/zscaler-zscloud-tutorial/ic800208.png "Gerenciar usuários e autenticação")
+    ![Gerenciar Usuários e Autenticação](./media/zscaler-zscloud-tutorial/ic800208.png "Gerenciar Usuários e Autenticação")
     
     a. Na caixa de texto **URL do Portal SAML**, cole o a **URL de Logon** copiada do portal do Azure.
 
@@ -214,7 +214,7 @@ Para configurar o logon único do Azure AD com o Zscaler ZSCloud, siga as etapas
 
 3. Clique na guia **Conexões** .   
   
-     ![Conexões](./media/zscaler-zscloud-tutorial/ic769493.png "Conexões")
+     ![Conexões](./media/zscaler-zscloud-tutorial/ic769493.png "conexões")
 
 4. Clique em **Configurações da LAN** para abrir a caixa de diálogo **Configurações da LAN**.
 

@@ -1,5 +1,5 @@
 ---
-title: Integrar o Azure Key Vault à implantação de modelo do Resource Manager | Microsoft Docs
+title: Usar o Azure Key Vault no modelo do Resource Manager
 description: Saiba como usar o Azure Key Vault para passar valores de parâmetro seguros durante a implantação de modelo do Resource Manager
 services: azure-resource-manager
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: b91a3488750795e8ee9df6602bb2b3df8a9b08ec
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5dfc186e5d047de76e16ec145f5f0afe94b8d2f4
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436584"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533604"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-resource-manager-template-deployment"></a>Tutorial: Integrar o Azure Key Vault à implantação do modelo do Resource Manager
 

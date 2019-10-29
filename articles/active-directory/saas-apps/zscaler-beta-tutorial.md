@@ -17,10 +17,10 @@ ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07b0f8112f724c857ffb46378f7aa7ef605b9bbb
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68943284"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Integração do Azure Active Directory ao Zscaler Beta
@@ -177,7 +177,7 @@ Para configurar o logon único do Azure AD com Zscaler Beta, siga estas etapas.
 
 5. Na janela **Editar SAML**, siga estas etapas: 
             
-    ![Gerenciar usuários e autenticação](./media/zscaler-beta-tutorial/ic800208.png "Gerenciar usuários e autenticação")
+    ![Gerenciar Usuários e Autenticação](./media/zscaler-beta-tutorial/ic800208.png "Gerenciar Usuários e Autenticação")
     
     a. Na caixa **URL do Portal SAML**, cole a **URL de Logon** copiada do portal do Azure.
 
@@ -210,17 +210,17 @@ Para definir as configurações de proxy no Internet Explorer, siga estas etapas
 
 2. Selecione **Opções da Internet** no menu **Ferramentas** para abrir a caixa de diálogo **Opções da Internet**. 
     
-     ![Caixa de diálogo Opções da Internet](./media/zscaler-beta-tutorial/ic769492.png "Opções da Internet")
+     ![Caixa de diálogo de Opções da Internet](./media/zscaler-beta-tutorial/ic769492.png "Opções da Internet")
 
 3. Selecione a guia **Conexões**. 
   
-     ![Guia Conexões](./media/zscaler-beta-tutorial/ic769493.png "Conexões")
+     ![Guia Conexões](./media/zscaler-beta-tutorial/ic769493.png "conexões")
 
 4. Selecione **Configurações da LAN** para abrir a caixa de diálogo **Configurações da Rede Local (LAN)** .
 
 5. Na seção **Servidor Proxy**, siga estas etapas: 
    
-    ![Seção Servidor Proxy](./media/zscaler-beta-tutorial/ic769494.png "Servidor Proxy")
+    ![Seção do servidor proxy](./media/zscaler-beta-tutorial/ic769494.png "Servidor proxy")
 
     a. Selecione a caixa de seleção **Usar um Servidor Proxy para LAN**.
 

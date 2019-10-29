@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 327e470d60235e6bf400293e80e3aec5f6144ff4
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68943437"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Azure Active Directory com o PolicyStat
@@ -162,15 +162,15 @@ Para configurar o logon único do Azure AD com o PolicyStat, realize as seguinte
 
 2. Clique na guia **Admin** e, em seguida, clique em **Configuração de Logon Único** no painel de navegação à esquerda.
    
-    ![Menu Administrador](./media/policystat-tutorial/ic808633.png "Menu Administrador")
+    ![Menu do Administrador](./media/policystat-tutorial/ic808633.png "Menu do Administrador")
 
 3. Na seção **Configuração**, selecione **Habilitar Integração de Logon Único**.
    
-    ![Configuração de Logon Único](./media/policystat-tutorial/ic808634.png "Configuração de Logon Único")
+    ![Configuração de logon único](./media/policystat-tutorial/ic808634.png "Configuração de Logon Único")
 
 4. Clique em **Configurar Atributos** e, em seguida, na seção **Configurar Atributos**, realize as seguintes etapas:
    
-    ![Configuração de Logon Único](./media/policystat-tutorial/ic808635.png "Configuração de Logon Único")
+    ![Configuração de logon único](./media/policystat-tutorial/ic808635.png "Configuração de Logon Único")
    
     a. Na caixa de texto **Atributo do Nome de Usuário**, digite **uid**.
 
@@ -184,7 +184,7 @@ Para configurar o logon único do Azure AD com o PolicyStat, realize as seguinte
 
 5. Clique em **Seus Metadados do IDP** e, na seção **Seus Metadados do IDP**, realize as seguintes etapas:
    
-    ![Configuração de Logon Único](./media/policystat-tutorial/ic808636.png "Configuração de Logon Único")
+    ![Configuração de logon único](./media/policystat-tutorial/ic808636.png "Configuração de Logon Único")
    
     a. Abra o arquivo de metadados baixado, copie o conteúdo e, depois, cole-o na caixa de texto **Metadados do Provedor de Identidade**.
 
