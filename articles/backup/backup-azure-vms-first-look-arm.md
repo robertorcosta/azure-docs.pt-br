@@ -1,5 +1,5 @@
 ---
-title: Fazer backup de uma VM do Azure usando configurações da VM com o serviço de Backup do Azure
+title: Fazer backup de uma VM do Azure das configurações da VM com o backup do Azure
 description: Aprenda a fazer backup de uma VM do Azure com o serviço de Backup do Azure
 author: dcurwin
 manager: carmonm
@@ -7,23 +7,21 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 042fa44b8f24bb729b94c7631db9469de8493ba4
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: cfbec94a2922995eed546d526c1f469e2ea54118
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639779"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969040"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Fazer backup de uma VM do Azure usando as configurações da VM
 
 Este artigo explica como fazer backup de VMs do Azure com o serviço de [Backup do Azure](backup-overview.md). Você pode fazer backup de VMs do Azure usando dois métodos:
 
-- Única VM do Azure: As instruções deste artigo descrevem como fazer backup de uma VM do Azure diretamente com as configurações da VM.
-- Várias VMs do Azure: Você pode configurar um cofre dos Serviços de Recuperação e configurar o backup para várias VMs do Azure. Siga as instruções [neste artigo](backup-azure-arm-vms-prepare.md) para esse cenário.
+- Única VM do Azure: as instruções neste artigo descrevem como fazer backup de uma VM do Azure diretamente das configurações da VM.
+- Várias VMs do Azure: você pode configurar um cofre de serviços de recuperação e configurar o backup para várias VMs do Azure. Siga as instruções [neste artigo](backup-azure-arm-vms-prepare.md) para esse cenário.
 
-
-
-## <a name="before-you-start"></a>Antes de iniciar
+## <a name="before-you-start"></a>Antes de começar
 
 1. [Saiba mais](backup-architecture.md#how-does-azure-backup-work) como funciona o backup e [verifique](backup-support-matrix.md#azure-vm-backup-support) os requisitos de suporte.
 2. [Obtenha uma visão geral](backup-azure-vms-introduction.md) sobre backup de VM do Azure.
@@ -37,8 +35,7 @@ Para fazer backup de VMs do Azure, o Backup do Azure instala uma extensão no ag
 
 ## <a name="back-up-from-azure-vm-settings"></a>Fazer backup usando as configurações da VM do Azure
 
-
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Clique em **Todos os serviços** e no Filtro, digite **Máquinas virtuais** e, em seguida, clique em **Máquinas virtuais**.
 3. Na lista de VMs, selecione a VM que você deseja fazer backup.
 4. No menu da VM, clique em **Backup**.
@@ -63,17 +60,15 @@ Para fazer backup de VMs do Azure, o Backup do Azure instala uma extensão no ag
 8. Você pode acompanhar o progresso da configuração nas notificações do portal.
 9. Depois que o trabalho for concluído, no menu da VM, clique em **Backup**. A página mostra o status do backup para a VM, informações sobre pontos de recuperação, trabalhos em execução e alertas emitidos.
 
-   ![Status do backup](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
+   ![Status de backup](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
 10. Depois de habilitar o backup, um backup inicial é executado. Você pode começar o backup inicial imediatamente ou aguardar até que ele inicie de acordo com o agendamento de backup.
     - Até que o backup inicial seja concluído, o **Status do último backup** é mostrado como **Aviso (Backup inicial pendente)** .
     - Para ver quando o próximo backup agendado será executado, clique no nome da política de backup.
 
-
 > [!NOTE]
 > O serviço de backup do Azure cria um grupo de recursos separado (diferente do grupo de recursos da VM) para armazenar o instantâneo, com o formato de nomenclatura **AzureBackupRG_geography_number** (exemplo: AzureBackupRG_northeurope_1). Os dados nesse grupo de recursos serão mantidos durante a duração em dias, conforme especificado na seção "reter instantâneo de recuperação instantânea" da política de backup de máquina virtual do Azure. A aplicação de um bloqueio a esse grupo de recursos pode causar falhas de backup.<br>
 Esse grupo de recursos também deve ser excluído de qualquer restrição de nome/marca, uma vez que uma política de restrição bloquearia a criação de coleções de ponto de recurso novamente, causando falhas de backup.
-
 
 ## <a name="run-a-backup-immediately"></a>Executar um backup imediatamente
 
@@ -87,14 +82,11 @@ Esse grupo de recursos também deve ser excluído de qualquer restrição de nom
 
 3. As notificações do portal permitem que você saiba que o trabalho de backup foi disparado. Para monitorar o progresso do backup, clique em **Exibir todos os trabalhos**.
 
-
-
-
 ## <a name="back-up-from-the-recovery-services-vault"></a>Fazer backup do cofre dos Serviços de Recuperação
 
 Siga as instruções neste artigo para habilitar o backup para VMs do Azure por meio da configuração de um cofre dos Serviços de Recuperação do Backup do Azure, habilitando o backup no cofre.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Se você tiver dificuldade com qualquer um dos procedimentos deste artigo, confira a [guia de solução de problemas](backup-azure-vms-troubleshoot.md).
 - [Saiba mais sobre](backup-azure-manage-vms.md) gerenciamento dos backups.

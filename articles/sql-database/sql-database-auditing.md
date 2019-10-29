@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: cc12579a4932894b730b04cdc77acc0151168bdb
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: d5214b6a6ffcb7c78fc00fe0305a1d1846b328f8
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010206"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990271"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
@@ -93,23 +93,24 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
 
     ![opções de armazenamento](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
-6. Para configurar a gravação de logs de auditoria para uma conta de armazenamento, selecione **Armazenamento** e abra **Detalhes do armazenamento**. Selecione a conta de armazenamento do Azure na qual os logs serão salvos e, em seguida, selecione o período de retenção. Os logs antigos serão excluídos. Clique em **OK**.
+6. Para configurar a gravação de logs de auditoria para uma conta de armazenamento, selecione **Armazenamento** e abra **Detalhes do armazenamento**. Selecione a conta de armazenamento do Azure na qual os logs serão salvos e, em seguida, selecione o período de retenção. Os logs antigos serão excluídos. Em seguida, clique em **OK**.
 
    > [!IMPORTANT]
-   > O valor padrão do período de retenção é 0 (retenção ilimitada). Você pode alterar esse valor movendo o controle deslizante de **retenção (dias)** em **configurações de armazenamento** ao configurar a conta de armazenamento para auditoria.
+   > - O valor padrão do período de retenção é 0 (retenção ilimitada). Você pode alterar esse valor movendo o controle deslizante de **retenção (dias)** em **configurações de armazenamento** ao configurar a conta de armazenamento para auditoria.
+   > - Se você alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, observe que a retenção será aplicada somente aos logs gravados após a alteração do valor de retenção (logs gravados durante o período em que a retenção foi definida como ilimitada são preservados, mesmo após a retenção está habilitada)
 
-    ![Conta de Armazenamento](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+    ![do Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 7. Para configurar a gravação de logs de auditoria em um espaço de trabalho do Log Analytics, selecione **Log Analytics (Visualizar)** e abra **detalhes do Log Analytics**. Selecione ou crie o espaço de trabalho do Log Analytics, onde os logs serão gravados e, em seguida, clique em **Ok**.
 
-    ![Workspace do Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Espaço de trabalho do Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. Para configurar a gravação de logs de auditoria para um hub de eventos, selecione **Hub de Eventos (versão prévia)** e abra **Detalhes do Hub de Eventos**. Selecione o hub de eventos no qual os logs serão gravados e, em seguida, clique em **OK**. Verifique se o hub de eventos está na mesma região que o banco de dados e o servidor.
 
-    ![Hub de eventos](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+    ![Hub de Eventos](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
-9. Clique em **Salvar**.
-10. Se quiser personalizar os eventos auditados, você poderá fazer isso por meio de [cmdlets do PowerShell](#subheading-7) ou da [API REST](#subheading-9).
+9. Clique em **Save** (Salvar).
+10. Se quiser personalizar os eventos auditados, você poderá fazer isso por meio de [cmdlets do PowerShell](#subheading-7) ou da API REST.
 11. Depois de definir as configurações de auditoria, você poderá ativar o novo recurso de detecção de ameaças e configurar emails para receber alertas de segurança. Ao usar a detecção de ameaças, você recebe alertas proativos sobre atividades anômalas do banco de dados que podem indicar possíveis ameaças à segurança. Para obter mais informações, consulte [Introdução à detecção de ameaças](sql-database-threat-detection-get-started.md).
 
 > [!IMPORTANT]
@@ -197,8 +198,8 @@ Se você optar por gravar logs de auditoria em uma conta de Armazenamento do Azu
 
 Com bancos de dados com replicação geográfica, quando você habilitar a auditoria no banco de dados primário, o banco de dados secundário terá uma política de auditoria idêntica. Também é possível configurar a auditoria no banco de dados secundário, habilitando a auditoria no **servidor secundário**, independentemente do banco de dados primário.
 
-- Nível do servidor (**recomendado**): Ativa a auditoria do **servidor primário** e do **servidor secundário** - os bancos de dados primário e secundário serão auditados independentemente, com base na respectiva política no nível do servidor.
-- Nível do banco de dados: A auditoria de nível do banco de dados para bancos de dados secundários só pode ser definida nas configurações de auditoria do banco de dados primário.
+- Nível do servidor (**recomendado**): ative a auditoria do **servidor primário** e do **servidor secundário** – os bancos de dados primário e secundário serão auditados independentemente, com base em sua respectiva política no nível do servidor.
+- Nível de banco de dados: a auditoria de nível de banco de dados para bancos de dados secundários só pode ser configurada nas configurações de auditoria do banco de dados primário.
   - A auditoria precisa estar habilitada no *banco de dados primário*, não no servidor.
   - Depois que a auditoria estiver habilitada no banco de dados primário, ela também será habilitada no banco de dados secundário.
 

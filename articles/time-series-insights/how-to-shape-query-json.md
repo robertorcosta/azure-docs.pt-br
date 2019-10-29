@@ -2,19 +2,19 @@
 title: Melhores práticas para formatar JSON nas consultas do Azure Time Series Insights | Microsoft Docs
 description: Saiba como melhorar a eficiência de consulta do Azure Time Series Insights.
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
+ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
 ms.date: 10/09/2019
-ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 4916397d05ad9d5fcae7624bf558eb7dc5be940f
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 09090354012d2cd3ba050ff9c94593947f27b006
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274409"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990275"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Forma JSON para maximizar o desempenho da consulta 
 
@@ -36,6 +36,9 @@ Pense em como você envia eventos para Time Series Insights. Ou seja, você semp
    - 600 propriedades (colunas) para ambientes S1.
    - 800 propriedades (colunas) para ambientes S2.
 
+> [!TIP]
+> Examine [os limites e o planejamento](time-series-insights-update-plan.md) na visualização Azure Time Series insights.
+
 As diretrizes a seguir ajudam a garantir o melhor desempenho de consulta possível:
 
 1. Não use propriedades dinâmicas, como uma ID de marca, como um nome de propriedade. Isso usa contribui para atingir o limite máximo de propriedades.
@@ -51,7 +54,7 @@ Os dois exemplos a seguir demonstram como enviar eventos para realçar as recome
 
 Os exemplos são baseados em um cenário onde vários dispositivos enviam sinais ou medidas. As medidas ou os sinais podem ser taxa de fluxo, pressão de óleo do motor, temperatura e umidade. No primeiro exemplo, há algumas medidas em todos os dispositivos. O segundo exemplo tem muitos dispositivos, e cada dispositivo envia muitas medidas exclusivas.
 
-## <a name="scenario-one-only-a-few-measurements-exist"></a>Cenário um: Existem apenas algumas medições
+## <a name="scenario-one-only-a-few-measurements-exist"></a>Cenário um: há apenas algumas medições
 
 > [!TIP]
 > É recomendável que você envie cada medida ou sinal como uma propriedade ou coluna separada.
@@ -94,16 +97,16 @@ Considere o seguinte conteúdo JSON enviado ao seu ambiente Time Series Insights
 
    | deviceId | messageId | deviceLocation |
    | --- | --- | --- |
-   | FXXX | LINE\_DATA | EU |
-   | FYYY | LINE\_DATA | US |
+   | FXXX | DADOS\_LINHA | UE |
+   | FAAA | DADOS\_LINHA | EUA |
 
 * Time Series Insights tabela de eventos, após o nivelamento:
 
    | deviceId | messageId | deviceLocation | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 1,0172575712203979 | 34,7 |
-   | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2,445906400680542 | 49,2 |
-   | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0,58015072345733643 | 22,2 |
+   | FXXX | DADOS\_LINHA | UE | 2018-01-17T01:17:00Z | 1,0172575712203979 | 34,7 |
+   | FXXX | DADOS\_LINHA | UE | 2018-01-17T01:17:00Z | 2,445906400680542 | 49,2 |
+   | FAAA | DADOS\_LINHA | EUA | 2018-01-17T01:18:00Z | 0,58015072345733643 | 22,2 |
 
 > [!NOTE]
 > - A coluna **deviceId** serve como o cabeçalho de coluna para vários dispositivos em uma frota. Tornar o valor **DeviceID** seu próprio nome de propriedade limita o total de dispositivos a 595 (para ambientes S1) ou 795 (para ambientes S2) com as outras cinco colunas.
@@ -112,7 +115,7 @@ Considere o seguinte conteúdo JSON enviado ao seu ambiente Time Series Insights
 > - São usadas duas camadas de aninhamento, que é a quantidade máxima de aninhamento com suporte pelo Time Series Insights. É essencial para evitar matrizes profundamente aninhadas.
 > - As medidas são enviadas como propriedades separadas dentro do mesmo objeto porque há poucas medidas. Aqui, **series.Flow Rate psi** e **series.Engine Oil Pressure ft3/s** são colunas exclusivas.
 
-## <a name="scenario-two-several-measures-exist"></a>Cenário dois: Existem várias medidas
+## <a name="scenario-two-several-measures-exist"></a>Cenário dois: existem várias medidas
 
 > [!TIP]
 > Recomendamos que você envie medidas como tuplas "tipo", "unidade" e "valor".
@@ -164,21 +167,21 @@ Carga JSON de exemplo:
 
    | deviceId | series.tagId | messageId | deviceLocation | type | unit |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINE\_DATA | EU | Taxa de Fluxo | ft3/s |
-   | FXXX | oilPressure | LINE\_DATA | EU | Pressão de óleo do motor | psi |
-   | FYYY | pumpRate | LINE\_DATA | US | Taxa de Fluxo | ft3/s |
-   | FYYY | oilPressure | LINE\_DATA | US | Pressão de óleo do motor | psi |
+   | FXXX | pumpRate | DADOS\_LINHA | UE | Taxa de Fluxo | ft3/s |
+   | FXXX | oilPressure | DADOS\_LINHA | UE | Pressão de óleo do motor | psi |
+   | FAAA | pumpRate | DADOS\_LINHA | EUA | Taxa de Fluxo | ft3/s |
+   | FAAA | oilPressure | DADOS\_LINHA | EUA | Pressão de óleo do motor | psi |
 
 * Time Series Insights tabela de eventos, após o nivelamento:
 
    | deviceId | series.tagId | messageId | deviceLocation | type | unit | timestamp | series.value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINE\_DATA | EU | Taxa de Fluxo | ft3/s | 2018-01-17T01:17:00Z | 1,0172575712203979 | 
-   | FXXX | oilPressure | LINE\_DATA | EU | Pressão de óleo do motor | psi | 2018-01-17T01:17:00Z | 34,7 |
-   | FXXX | pumpRate | LINE\_DATA | EU | Taxa de Fluxo | ft3/s | 2018-01-17T01:17:00Z | 2,445906400680542 | 
-   | FXXX | oilPressure | LINE\_DATA | EU | Pressão de óleo do motor | psi | 2018-01-17T01:17:00Z | 49,2 |
-   | FYYY | pumpRate | LINE\_DATA | US | Taxa de Fluxo | ft3/s | 2018-01-17T01:18:00Z | 0,58015072345733643 |
-   | FYYY | oilPressure | LINE\_DATA | US | Pressão de óleo do motor | psi | 2018-01-17T01:18:00Z | 22,2 |
+   | FXXX | pumpRate | DADOS\_LINHA | UE | Taxa de Fluxo | ft3/s | 2018-01-17T01:17:00Z | 1,0172575712203979 | 
+   | FXXX | oilPressure | DADOS\_LINHA | UE | Pressão de óleo do motor | psi | 2018-01-17T01:17:00Z | 34,7 |
+   | FXXX | pumpRate | DADOS\_LINHA | UE | Taxa de Fluxo | ft3/s | 2018-01-17T01:17:00Z | 2,445906400680542 | 
+   | FXXX | oilPressure | DADOS\_LINHA | UE | Pressão de óleo do motor | psi | 2018-01-17T01:17:00Z | 49,2 |
+   | FAAA | pumpRate | DADOS\_LINHA | EUA | Taxa de Fluxo | ft3/s | 2018-01-17T01:18:00Z | 0,58015072345733643 |
+   | FAAA | oilPressure | DADOS\_LINHA | EUA | Pressão de óleo do motor | psi | 2018-01-17T01:18:00Z | 22,2 |
 
 > [!NOTE]
 > - As colunas **DeviceID** e **Series. tagId** servem como cabeçalhos de coluna para os vários dispositivos e marcas em uma frota. O uso de cada um como seu próprio atributo limita a consulta ao total de dispositivos 594 (para ambientes S1) ou 794 (para ambientes S2), com as outras seis colunas.
@@ -193,9 +196,9 @@ Para uma propriedade com um grande número de valores possíveis, é melhor envi
   - No primeiro exemplo, algumas propriedades têm vários valores, portanto, é apropriado tornar cada uma propriedade separada.
   - No segundo exemplo, as medidas não são especificadas como propriedades individuais. Em vez disso, eles são uma matriz de valores ou medidas em uma propriedade de série comum. A nova chave **tagId** é enviada, o que cria a nova coluna **Series. tagId** na tabela achatada. O novo **tipo** e a **unidade** de propriedades são criados usando dados de referência para que o limite de propriedade não seja atingido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Leia mais sobre como enviar [mensagens de dispositivo do Hub IOT para a nuvem](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+- Leia mais sobre como enviar [mensagens de dispositivo do Hub IOT para a nuvem](../iot-hub/iot-hub-devguide-messages-construct.md).
 
 - Leia [Azure Time Series insights sintaxe de consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) para saber mais sobre a sintaxe de consulta para a API REST de acesso a dados Time Series insights.
 
