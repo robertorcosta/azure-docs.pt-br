@@ -29,7 +29,7 @@
     - name: Inscrever-separa redefinição de senha
       href: active-directory-passwords-reset-register.md
     - name: Redefinir sua senha
-      href: user-help-reset-password.md
+      href: active-directory-passwords-update-your-own-password.md
 - name: Ajuda do aplicativo Microsoft Authenticator
   items:
     - name: Visão geral

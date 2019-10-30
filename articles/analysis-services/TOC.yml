@@ -68,7 +68,7 @@
       items:
         - name: Modelagem tabular
           href: 'https://docs.microsoft.com/analysis-services/tabular-models/tabular-models-ssas'
-        - name: Implantar pelo Visual Studio (SSDT)
+        - name: Implantar com o Visual Studio
           href: analysis-services-deploy.md
         - name: Atualizar com a API REST
           href: analysis-services-async-refresh.md
