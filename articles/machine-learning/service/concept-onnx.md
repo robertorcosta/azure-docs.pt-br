@@ -1,7 +1,7 @@
 ---
 title: Inferência de plataforma cruzada de alto desempenho com ONNX
 titleSuffix: Azure Machine Learning
-description: Saiba mais sobre o ONNX e o tempo de execução do ONNX para acelerar modelos
+description: Saiba como usar a troca de rede neural aberta (ONNX) pode ajudar a otimizar a inferência do seu modelo de aprendizado de máquina.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f6e9e6b44e4a8fcc52f6d8ae19af60d64972b3a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: dc4a5984f42e87aa42c6873bb1ee63d66744e633
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035400"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053579"
 ---
-# <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX e Azure Machine Learning: Criar e acelerar modelos de ML
+# <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX e Azure Machine Learning: criar e acelerar modelos de ML
 
 Saiba como usar a [troca de rede neural aberta](https://onnx.ai) (ONNX) pode ajudar a otimizar a inferência do seu modelo de aprendizado de máquina. A inferência, ou a Pontuação do modelo, é a fase em que o modelo implantado é usado para previsão, mais comumente em dados de produção. 
 
@@ -30,7 +30,7 @@ O [tempo de execução do ONNX](https://github.com/Microsoft/onnxruntime) é um 
 
 O tempo de execução do ONNX é usado em serviços de alta escala da Microsoft, como Bing, Office e serviços cognitivas. Os ganhos de desempenho dependem de vários fatores, mas esses serviços da Microsoft perceberam um __ganho de desempenho médio de 2x na CPU__. O tempo de execução do ONNX também é usado como parte do Windows ML em centenas de milhões de dispositivos. Você pode usar o tempo de execução com Azure Machine Learning. Usando o tempo de execução do ONNX, você pode se beneficiar das grandes otimizações de nível de produção, testes e melhorias contínuas.
 
-[![Diagrama de fluxo ONNX mostrando treinamento, conversores e implantação](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
+[![diagrama de fluxo ONNX mostrando treinamento, conversores e implantação](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>Obter modelos ONNX
 

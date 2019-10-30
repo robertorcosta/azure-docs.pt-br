@@ -1,19 +1,19 @@
 ---
-title: Failover durante a recuperação de desastre com o Azure Site Recovery | Microsoft Docs
+title: Failover durante a recuperação de desastre com o Azure Site Recovery
 description: Aprenda sobre o failover de VMs e servidores físicos durante a recuperação de desastre com o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/30/2019
+ms.date: 10/29/2019
 ms.author: raynew
-ms.openlocfilehash: da55d83665792f6ea2f4c78aa2a6c3ca26c39233
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1585c5dbdecf11bbc6ef3dad63bf4f982c70f73e
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383195"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053765"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Fazer failover de VMs e servidores físicos 
 
@@ -27,8 +27,8 @@ Use a tabela a seguir para saber sobre as opções de failover fornecidas pelo A
 
 | Cenário | Requisito de recuperação de aplicativo | Fluxo de trabalho para Hyper-V | Fluxo de trabalho para VMware
 |---|--|--|--|
-|Failover planejado devido a um futuro tempo de inatividade do datacenter| Perda de dados zero para o aplicativo quando uma atividade planejada é executada| Para o Hyper-V, o ASR replica os dados em uma frequência de cópia especificada pelo usuário. Failover planejado é usado para substituir a frequência e replicar as alterações finais antes de um failover ser iniciado. <br/> <br/> 1. Planeje uma janela de manutenção de acordo com o processo de gerenciamento de alterações da sua empresa. <br/><br/> 2. Notifique os usuários sobre o tempo de inatividade futuro. <br/><br/> 3. Coloque offline o aplicativo voltado ao usuário.<br/><br/>4. Inicie o failover planejado usando o portal de ASR. A máquina virtual local é automaticamente desligada.<br/><br/>Perda de dados efetiva do aplicativo = 0 <br/><br/>Um diário de pontos de recuperação também é fornecido em uma janela de retenção para um usuário que deseje usar um ponto de recuperação mais antigo. (retenção de 24 horas para o Hyper-V). Se a replicação tiver sido interrompida além do período da janela de retenção, os clientes ainda poderão conseguir fazer failover usando os últimos pontos de recuperação disponíveis. | Para o VMware, o ASR replica dados continuamente usando CDP. O failover fornece ao usuário a opção de failover para os dados mais recentes (incluindo após o desligamento do aplicativo)<br/><br/> 1. Planeje uma janela de manutenção de acordo com o processo de gerenciamento de alterações <br/><br/>2.Notifique os usuários sobre o tempo de inatividade que está por vir <br/><br/>3. Coloque offline o aplicativo voltado ao usuário.<br/><br/>4. Inicie um Failover Planejado, usando o portal do ASR para o último momento depois o aplicativo ficar offline. Use a opção "failover planejado" no portal e selecione o ponto mais recente para failover. A máquina virtual local é automaticamente desligada.<br/><br/>Perda de dados efetiva do aplicativo = 0 <br/><br/>Um diário de pontos de recuperação em uma janela de retenção é fornecido para um cliente que deseje usar um ponto de recuperação mais antigo. (72 horas de retenção para o VMware). Se a replicação tiver sido interrompida além do período da janela de retenção, os clientes ainda poderão conseguir fazer failover usando os últimos pontos de recuperação disponíveis.
-|Failover devido a um tempo de inatividade não planejado do datacenter (desastre natural ou de TI) | Perda mínima de dados para o aplicativo | 1. Iniciar o plano BCP da organização <br/><br/>2. Inicie o failover não planejado usando o portal do ASR para a versão mais recente ou um ponto na janela de retenção (diário).| 1. Inicie o plano BCP da organização. <br/><br/>2. Inicie o failover não planejado usando o portal do ASR para a versão mais recente ou um ponto na janela de retenção (diário).
+|Failover planejado devido a um futuro tempo de inatividade do datacenter| Perda de dados zero para o aplicativo quando uma atividade planejada é executada| Para o Hyper-V, o ASR replica os dados em uma frequência de cópia especificada pelo usuário. Failover planejado é usado para substituir a frequência e replicar as alterações finais antes de um failover ser iniciado. <br/> <br/> 1. Planeje uma janela de manutenção de acordo com o processo de gerenciamento de alterações de sua empresa. <br/><br/> 2. notifique os usuários sobre o tempo de inatividade futuro. <br/><br/> 3. Coloque o aplicativo voltado para o usuário offline.<br/><br/>4. Inicie o failover planejado usando o portal de ASR. A máquina virtual local é automaticamente desligada.<br/><br/>Perda de dados efetiva do aplicativo = 0 <br/><br/>Um diário de pontos de recuperação também é fornecido em uma janela de retenção para um usuário que deseje usar um ponto de recuperação mais antigo. (retenção de 24 horas para o Hyper-V). Se a replicação tiver sido interrompida além do período da janela de retenção, os clientes ainda poderão conseguir fazer failover usando os últimos pontos de recuperação disponíveis. | Para o VMware, o ASR replica dados continuamente usando CDP. O failover fornece ao usuário a opção de failover para os dados mais recentes (incluindo após o desligamento do aplicativo)<br/><br/> 1. planejar uma janela de manutenção de acordo com o processo de gerenciamento de alterações <br/><br/>2.Notifique os usuários sobre o tempo de inatividade que está por vir <br/><br/>3. Coloque o aplicativo voltado para o usuário offline.<br/><br/>4. Inicie um failover planejado usando o portal de ASR para o último ponto depois que o aplicativo estiver offline. Use a opção "failover planejado" no portal e selecione o ponto mais recente para failover. A máquina virtual local é automaticamente desligada.<br/><br/>Perda de dados efetiva do aplicativo = 0 <br/><br/>Um diário de pontos de recuperação em uma janela de retenção é fornecido para um cliente que deseje usar um ponto de recuperação mais antigo. (72 horas de retenção para o VMware). Se a replicação tiver sido interrompida além do período da janela de retenção, os clientes ainda poderão conseguir fazer failover usando os últimos pontos de recuperação disponíveis.
+|Failover devido a um tempo de inatividade não planejado do datacenter (desastre natural ou de TI) | Perda mínima de dados para o aplicativo | 1. iniciar o plano BCP da organização <br/><br/>2. Inicie o failover não planejado usando o portal de ASR para a versão mais recente ou um ponto da janela de retenção (diário).| 1. Inicie o plano BCP da organização. <br/><br/>2. Inicie o failover não planejado usando o portal de ASR para a versão mais recente ou um ponto da janela de retenção (diário).
 
 
 ## <a name="run-a-failover"></a>Executar um failover
@@ -39,12 +39,12 @@ Este procedimento descreve como executar um failover para um [plano de recupera�
 
 1. Selecione **Planos de Recuperação** > *recoveryplan_name*. Clique em **Failover**.
 2. Na tela de **Failover**, selecione um **Ponto de Recuperação** para o qual fazer o failover. Você pode usar uma das seguintes opções:
-   1. **Mais recente**: Essa opção inicia o trabalho primeiro processando todos os dados que foram enviados ao serviço Site Recovery. O processamento dos dados cria um ponto de recuperação para cada máquina virtual. Esse ponto de recuperação é usado pela máquina virtual durante o failover. Essa opção oferece o menor RPO (Objetivo de Ponto de Recuperação), pois a máquina virtual criada após o failover terá todos os dados que tiverem sido replicados para o serviço de Site Recovery quando o failover for disparado.
-   1. **Mais recente processado**: Essa opção faz failover em todas as máquinas virtuais do plano de recuperação para o último ponto de recuperação que já foi processado pelo serviço de Site Recovery. Quando você estiver realizando o failover de teste de uma máquina virtual, o carimbo de data/hora do último ponto de recuperação processado também é mostrado. Se estiver fazendo o failover de um plano de recuperação, você pode ir para a máquina virtual individual e visualizar o bloco **Últimos Pontos de Recuperação** para obter essas informações. Como nenhum tempo é gasto para processar os dados não processados, esta opção fornece uma opção de failover de baixo RTO (objetivo de tempo de recuperação).
-   1. **Consistente com o aplicativo mais recente**: Essa opção realiza failover em todas as máquinas virtuais do plano de recuperação para o último ponto de recuperação consistente de aplicativo que já foi processado pelo serviço do Site Recovery. Quando você estiver realizando failover de teste de uma máquina virtual, o carimbo de data/hora do ponto mais recente recuperação consistentes com o aplicativo também é mostrado. Se estiver fazendo o failover de um plano de recuperação, você pode ir para a máquina virtual individual e visualizar o bloco **Últimos Pontos de Recuperação** para obter essas informações.
-   1. **Várias VMs processadas mais recentemente**: Essa opção só está disponível para os planos de recuperação que têm pelo menos uma máquina virtual com consistência de várias VMs ativada. As máquinas virtuais que fazem parte de um failover de grupo de replicação para o ponto de recuperação consistente de várias VMs comuns mais recentes. Outras máquinas virtuais fazem failover para seus últimos pontos de recuperação processados.  
-   1. **Multi-VMs mais recentes consistentes com o aplicativo**: Essa opção só está disponível para os planos de recuperação que têm pelo menos uma máquina virtual com consistência de várias VMs ativada. Máquinas virtuais que fazem parte de um failover do grupo de replicação para o ponto de recuperação comum mais recente de várias VMs consistente com aplicativo. Outras máquinas virtuais fazem failover para seus últimos pontos de recuperação consistentes com aplicativo.
-   1. **Personalizado**: Se você estiver realizando teste de failover de uma máquina virtual, você pode usar essa opção de failover para um determinado ponto de recuperação.
+   1. **Mais recente**: essa opção inicia o trabalho primeiro processando todos os dados que foram enviados ao serviço Site Recovery. O processamento dos dados cria um ponto de recuperação para cada máquina virtual. Esse ponto de recuperação é usado pela máquina virtual durante o failover. Essa opção oferece o menor RPO (Objetivo de Ponto de Recuperação), pois a máquina virtual criada após o failover terá todos os dados que tiverem sido replicados para o serviço de Site Recovery quando o failover for disparado.
+   1. **Mais recentes processados**: essa opção faz failover em todas as máquinas virtuais do plano de recuperação para o último ponto de recuperação que já foi processado pelo serviço de Site Recovery. Quando você estiver realizando o failover de teste de uma máquina virtual, o carimbo de data/hora do último ponto de recuperação processado também é mostrado. Se estiver fazendo o failover de um plano de recuperação, você pode ir para a máquina virtual individual e visualizar o bloco **Últimos Pontos de Recuperação** para obter essas informações. Como nenhum tempo é gasto para processar os dados não processados, esta opção fornece uma opção de failover de baixo RTO (objetivo de tempo de recuperação).
+   1. **Consistente de aplicativo mais recente**: essa opção realiza failover em todas as máquinas virtuais do plano de recuperação para o último ponto de recuperação consistente de aplicativo que já foi processado pelo serviço do Site Recovery. Quando você estiver realizando failover de teste de uma máquina virtual, o carimbo de data/hora do ponto mais recente recuperação consistentes com o aplicativo também é mostrado. Se estiver fazendo o failover de um plano de recuperação, você pode ir para a máquina virtual individual e visualizar o bloco **Últimos Pontos de Recuperação** para obter essas informações.
+   1. **Várias VMs processadas mais recentemente**: essa opção só está disponível para os planos de recuperação que têm pelo menos uma máquina virtual com consistência de várias VMs ativada. As máquinas virtuais que fazem parte de um failover de grupo de replicação para o ponto de recuperação consistente de várias VMs comuns mais recentes. Outras máquinas virtuais fazem failover para seus últimos pontos de recuperação processados.  
+   1. **Várias VMs mais recentes consistentes com aplicativo**: essa opção só está disponível para os planos de recuperação que têm pelo menos uma máquina virtual com consistência de várias VMs ativada. Máquinas virtuais que fazem parte de um failover do grupo de replicação para o ponto de recuperação comum mais recente de várias VMs consistente com aplicativo. Outras máquinas virtuais fazem failover para seus últimos pontos de recuperação consistentes com aplicativo.
+   1. **Personalizado**: se você estiver realizando teste de failover de uma máquina virtual, você pode usar essa opção de failover para um determinado ponto de recuperação.
 
       > [!NOTE]
       > A opção de escolher um ponto de recuperação só está disponível ao fazer failover no Azure.
@@ -61,7 +61,7 @@ Este procedimento descreve como executar um failover para um [plano de recupera�
     >
     >
 
-1. Você pode acompanhar o progresso do failover na página **Trabalhos** . Mesmo que ocorram erros durante um failover não planejado, o plano de recuperação será executado até que seja concluído.
+1. Você pode acompanhar o progresso do failover na página **Trabalhos**. Mesmo que ocorram erros durante um failover não planejado, o plano de recuperação será executado até que seja concluído.
 1. Após o failover, valide a máquina virtual, efetuando logon nela. Se desejar alternar outro ponto de recuperação da máquina virtual, você poderá usar a opção **Alterar ponto de recuperação**.
 1. Quando estiver satisfeito com a máquina virtual que passou por failover, você pode **Confirmar** o failover. **A confirmação exclui todos os pontos de recuperação disponíveis no serviço** e a opção **Alterar ponto de recuperação** não está mais disponível.
 
@@ -78,9 +78,9 @@ Máquinas virtuais/servidores físicos protegidos usando o Site Recovery também
 
 Quando é disparado, um failover envolve as seguintes etapas:
 
-1. Verificação de pré-requisitos: Essa etapa garante que todas as condições necessárias para o failover sejam atendidas
-1. Failover: Essa etapa processa os dados, deixando-os prontos para que uma máquina virtual do Azure seja criada a partir deles. Se você tiver escolhido o ponto de recuperação **Mais recente**, essa etapa cria um ponto de recuperação dos dados que foram enviados para o serviço.
-1. Iniciar: Essa etapa cria uma máquina virtual do Azure usando os dados processados na etapa anterior.
+1. Verificação de pré-requisitos: essa etapa garante que todas as condições necessárias para o failover sejam atendidas
+1. Failover: essa etapa processa os dados, deixando-os prontos para que uma máquina virtual do Azure seja criada a partir deles. Se você tiver escolhido o ponto de recuperação **Mais recente**, essa etapa cria um ponto de recuperação dos dados que foram enviados para o serviço.
+1. Início: Essa etapa cria uma máquina virtual do Azure usando os dados processados na etapa anterior.
 
 > [!WARNING]
 > **Não cancele um failover em andamento**: Antes de iniciar o failover, a replicação para a máquina virtual é interrompida. Se você **Cancelar** um trabalho em andamento, o failover é interrompido, mas a máquina virtual não começa a replicação. A replicação não pode ser iniciada novamente.
@@ -117,10 +117,10 @@ Azure Site Recovery lida com a retenção de letras de unidade. [Leia mais](vmwa
 
 Se você quiser se conectar às VMs do Azure usando RDP/SSH após o failover, siga os requisitos resumidos na tabela mostrada [aqui](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 
-Siga as etapas descritas [aqui](site-recovery-failover-to-azure-troubleshoot.md) para solucionar quaisquer problemas de conectividade após o failover.
+Siga as etapas descritas [aqui](site-recovery-failover-to-azure-troubleshoot.md) para solucionar problemas de conectividade após o failover.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!WARNING]
 > Após o failover das máquinas virtuais, quando o datacenter local estiver disponível, você deverá [**Proteger novamente**](vmware-azure-reprotect.md) as máquinas virtuais VMware no datacenter local.

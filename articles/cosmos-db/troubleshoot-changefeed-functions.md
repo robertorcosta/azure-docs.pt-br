@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 7a9f726273dc3c5b336b22588d49704ffc2d8192
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
-ms.translationtype: MT
+ms.openlocfilehash: 2e5eaed40c954df5e7c731bb3fbd5d9424ea9b97
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043367"
+ms.locfileid: "73053294"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticar e solucionar problemas ao usar o gatilho de Azure Functions para Cosmos DB
 
@@ -105,7 +105,7 @@ Esse erro ocorrerá se seu projeto Azure Functions (ou qualquer projeto referenc
 Para solucionar essa situação, remova a referência manual do NuGet que foi adicionada e permita que o Azure Cosmos DB referência do SDK seja resolvido por meio do pacote de extensão Azure Functions Cosmos DB.
 
 ### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>Alterando o intervalo de sondagem da função do Azure para a detecção de alterações
-Conforme explicado anteriormente para [# # # minhas alterações demoram ser recebidas](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-be-received), o Azure function será suspenso por um período de tempo configurável (5 segundos, por padrão) antes de verificar se há novas alterações (para evitar o alto consumo de ru). Você pode configurar este tempo de suspensão ao `FeedPollDelay/feedPollDelay`fazer as [configurações](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) do seu gatilho (o valor é esperado em milissegundos).
+Conforme explicado anteriormente para [que minhas alterações demore muito para serem recebidas, a](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received)função do Azure entrará em suspensão por um período configurável (5 segundos, por padrão) antes de verificar se há novas alterações (para evitar o alto consumo de ru). Você pode configurar este tempo de suspensão ao `FeedPollDelay/feedPollDelay`fazer as [configurações](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) do seu gatilho (o valor é esperado em milissegundos).
 
 ## <a name="next-steps"></a>Próximos passos
 

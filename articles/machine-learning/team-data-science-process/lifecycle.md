@@ -1,6 +1,6 @@
 ---
 title: O ciclo de vida do Processo de Ciência de Dados de Equipe
-description: As etapas necessárias para executar os projetos de ciência de dados
+description: O TDSP (Processo de Ciência de Dados da Equipe) fornece um ciclo de vida recomendado que você pode usar para estruturar seus projetos de ciência de dados.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 40d1af6e6258b5026853532f7963a76d4fc389db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00efe89314d4a1a5c3302e820b8609adf194aa59
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837872"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053234"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>O ciclo de vida do Processo de Ciência de Dados de Equipe
 
@@ -43,11 +43,11 @@ O ciclo de vida do TDSP é modelado como uma sequência de etapas iteradas que f
 
 Para cada estágio, fornecemos as seguintes informações:
 
-   * **Metas**: Os objetivos específicos.
-   * **Como fazer isso**: Uma estrutura de tópicos de tarefas específicas e diretrizes sobre como conclui-las.
-   * **Artefatos**: As entregas e o suporte para produzi-las.
+   * **Metas**: os objetivos específicos.
+   * **Como fazer isso**: uma estrutura de tópicos de tarefas específicas e diretrizes sobre como conclui-las.
+   * **Artefatos**: as entregas e o suporte para produzi-las.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Fornecemos passo a passo completos que demonstram todas as etapas do processo para cenários específicos. O artigo [Passo a passos de exemplo](walkthroughs.md) fornece uma lista dos cenários com descrições de links e miniaturas. Os passo a passo ilustram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
 

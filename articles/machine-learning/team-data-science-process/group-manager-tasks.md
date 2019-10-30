@@ -1,6 +1,6 @@
 ---
 title: Tarefas do gerenciador de grupos de Processo de Ciência de Dados de Equipe
-description: Uma explicação detalhada das tarefas para um gerente de grupo em um projeto de equipe de ciência de dados.
+description: Siga estas instruções detalhadas sobre as tarefas que um gerente de grupo conclui em um projeto de equipe de ciência de dados.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f95bb30f547e863fc7a796e69fffe1e2334e489c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a3d23950f5cbfaac00b03b25e3c19078c76ad0a5
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326803"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053316"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Tarefas do gerenciador de grupos de Processo de Ciência de Dados de Equipe
 
@@ -57,7 +57,7 @@ O tutorial a seguir percorre as etapas em detalhes.
    
    ![Criar projeto](./media/group-manager-tasks/create-project.png)
 
-A página de **Resumo** do projeto **GroupCommon** é aberta. A URL da página é *https: \/ @ no__t-2 @ no__t-3servername >/\<organization-name >/GroupCommon*.
+A página de **Resumo** do projeto **GroupCommon** é aberta. A URL da página é *https:\//\<servername >/\<nome da organização >/GroupCommon*.
 
 ![Página Resumo do projeto](./media/group-manager-tasks/project-summary.png)
 
@@ -65,9 +65,9 @@ A página de **Resumo** do projeto **GroupCommon** é aberta. A URL da página �
 
 Azure Repos hospeda os seguintes tipos de repositórios para seu grupo:
 
-- **Repositórios comuns de grupo**: Repositórios de uso geral que várias equipes dentro de uma unidade de ciência de dados podem adotar para muitos projetos de ciência de dados. 
-- **Repositórios de equipe**:  Repositórios para equipes específicas em uma unidade de ciência de dados. Esses repositórios são específicos para as necessidades de uma equipe e podem ser usados para vários projetos dentro dessa equipe, mas não são gerais o suficiente para serem usados em várias equipes em uma unidade de ciência de dados.
-- **Repositórios do projeto**: Repositórios para projetos específicos. Esses repositórios podem não ser gerais o suficiente para vários projetos dentro de uma equipe ou para outras equipes em uma unidade de ciência de dados.
+- **Repositórios comuns de grupo**: repositórios de uso geral que várias equipes em uma unidade de ciência de dados podem adotar para muitos projetos de ciência de dados. 
+- **Repositórios de equipe**: repositórios para equipes específicas em uma unidade de ciência de dados. Esses repositórios são específicos para as necessidades de uma equipe e podem ser usados para vários projetos dentro dessa equipe, mas não são gerais o suficiente para serem usados em várias equipes em uma unidade de ciência de dados.
+- **Repositórios de projeto**: repositórios para projetos específicos. Esses repositórios podem não ser gerais o suficiente para vários projetos dentro de uma equipe ou para outras equipes em uma unidade de ciência de dados.
 
 Para configurar os repositórios comuns de grupo em seu projeto, você: 
 - Renomeie o repositório **GroupCommon** padrão para **GroupProjectTemplate**
@@ -121,13 +121,13 @@ Para importar os repositórios da equipe do TDSP:
    
    ![Selecionar importação](./media/group-manager-tasks/import-repo.png)
    
-1. Na caixa de diálogo **importar um repositório git** , selecione **git** como o **tipo de origem**e digite *https: \//GitHub. com/Azure/Azure-TDSP-ProjectTemplate. git* para a **URL de clone**. Em seguida, selecione **importar**. O conteúdo do repositório ProjectTemplate da equipe do Microsoft TDSP é importado para seu repositório do GroupProjectTemplate. 
+1. Na caixa de diálogo **importar um repositório git** , selecione **git** como o **tipo de origem**e digite *https:\//github.com/Azure/Azure-TDSP-ProjectTemplate.git* para a **URL de clone**. Em seguida, selecione **importar**. O conteúdo do repositório ProjectTemplate da equipe do Microsoft TDSP é importado para seu repositório do GroupProjectTemplate. 
    
    ![Importar repositório da equipe do Microsoft TDSP](./media/group-manager-tasks/import-repo-2.png)
    
 1. Na parte superior da página **repositórios** , clique no menu suspenso e selecione o repositório **GroupUtilities** .
    
-1. Repita o processo de importação para importar o conteúdo do repositório de **utilitários** de equipe do Microsoft TDSP, *https: \//github. com/Azure/Azure-TDSP-Utilities. git*, em seu repositório **GroupUtilities** . 
+1. Repita o processo de importação para importar o conteúdo do repositório de **utilitários** de equipe do Microsoft TDSP, *https:\//github.com/Azure/Azure-TDSP-Utilities.git*, para seu repositório **GroupUtilities** . 
    
 Cada um dos seus repositórios de dois grupos agora contém todos os arquivos, exceto aqueles no diretório *. git* , do repositório correspondente do Microsoft TDSP Team. 
 
@@ -215,7 +215,7 @@ git push
 ```
 
 > [!NOTE]
-> Se esta for a primeira vez que você se compromete a um repositório git, talvez seja necessário configurar os parâmetros globais *User.Name* e *User. email* antes de `git commit` executar o comando. Execute os dois comandos a seguir:
+> Se esta for a primeira vez que você se compromete a um repositório git, talvez seja necessário configurar os parâmetros globais *User.Name* e *User. email* antes de executar o comando `git commit`. Execute os dois comandos a seguir:
 > 
 > `git config --global user.name <your name>`
 > 
@@ -254,7 +254,7 @@ Para configurar permissões para membros:
    
    ![Conceder permissões a membros](./media/group-manager-tasks/grant-permissions.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Aqui estão os links para descrições detalhadas das outras funções e tarefas no processo de ciência de dados de equipe:
 
