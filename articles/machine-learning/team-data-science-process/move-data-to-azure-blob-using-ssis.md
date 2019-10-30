@@ -1,6 +1,6 @@
 ---
 title: Mover dados do Armazenamento de Blobs com conectores SSIS – processo de ciência de dados de equipe
-description: Mover dados do Armazenamento de Blob do Azure usando conectores SSIS.
+description: Saiba como mover dados de ou para o armazenamento de BLOBs do Azure usando o SQL Server Integration Services Feature Pack para o Azure.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 688ef059387dc4c312873051c7c9d1eae259b1ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8fb802905070ab1ddc8af93e501e8e11e262cf4a
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429869"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053947"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Mover dados para ou do Armazenamento de Blobs do Azure usando conectores SSIS
 O [Feature Pack dos Serviços de Integração do SQL Server para Azure](https://msdn.microsoft.com/library/mt146770.aspx) fornece componentes para se conectar ao Azure, transferir dados entre o Azure e fontes de dados locais e processar os dados armazenados no Azure.
@@ -42,8 +42,8 @@ Para realizar as tarefas descritas neste artigo, você deve ter uma assinatura d
 
 Para usar os **conectores SSIS**, você deverá baixar:
 
-* **SQL Server 2014 ou 2016 Standard (ou superior)** : A instalação inclui o SQL Server Integration Services.
-* **Feature Pack do Microsoft SQL Server 2014 ou 2016 Integration Services para o Azure**: Eles podem ser baixados, respectivamente, nas páginas do [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) e do [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492).
+* **SQL Server 2014 ou 2016 Standard (ou mais recente)** : a instalação inclui os SQL Server Integration Services.
+* **Feature Pack dos Serviços de Integração do Microsoft SQL Server 2014 ou 2016 para Azure**: eles podem ser baixados, respectivamente, nas páginas dos [Serviços de Integração do SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=47366) e [Serviços de Integração do SQL Server 2016](https://www.microsoft.com/download/details.aspx?id=49492).
 
 > [!NOTE]
 > O SSIS é instalado com o SQL Server, mas não está incluído na versão Express. Para obter informações sobre quais aplicativos estão incluídos nas várias edições do SQL Server, veja [Edições do SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
@@ -52,7 +52,7 @@ Para usar os **conectores SSIS**, você deverá baixar:
 
 Para obter os materiais de treinamento sobre o SSIS, veja [Treinamento prático sobre o SSIS](https://www.microsoft.com/sql-server/training-certification)
 
-Para obter informações sobre como começar a usar o SISS para compilar pacotes ETL (extração, transformação e carregamento) simples, confira [Tutorial do SSIS: criando um pacote ETL simples](https://msdn.microsoft.com/library/ms169917.aspx).
+Para obter informações sobre como começar a usar o SISS para compilar pacotes ETL (extração, transformação e carregamento) simples, veja [Tutorial do SSIS: criando um pacote ETL simples](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## <a name="download-nyc-taxi-dataset"></a>Baixar o conjunto de dados NYC Taxi
 O exemplo descrito aqui usa um conjunto de dados disponível publicamente, o conjunto de dados [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) . O conjunto de dados é formado por cerca de 173 milhões de corridas de táxi em NYC no ano de 2013. Há dois tipos de dados: dados sobre detalhes da corrida e dados sobre tarifas. Como há um arquivo para cada mês, temos 24 arquivos no total, cada um deles com aproximadamente 2 GB descompactados.
@@ -64,7 +64,7 @@ Para mover dados do local para o Armazenamento de Blobs do Azure usando o pacote
 
 Os parâmetros usados pela tarefa são descritos aqui:
 
-| Campo | DESCRIÇÃO |
+| Campo | Descrição |
 | --- | --- |
 | **AzureStorageConnection** |Especifica um Gerenciador de Conexão de Armazenamento do Azure existente ou cria um novo, que faz referência a uma conta de armazenamento do Azure, que aponta para onde os arquivos de blob estão hospedados. |
 | **BlobContainer** |Especifica o nome do contêiner de blob que contém os arquivos carregados como blobs. |
