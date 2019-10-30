@@ -18,6 +18,8 @@
       href: advisor-performance-recommendations.md
     - name: Reduza os custos de serviço
       href: advisor-cost-recommendations.md
+    - name: Alcançar excelência operacional
+      href: advisor-operational-excellence-recommendations.md
     - name: Configure as recomendações
       href: view-recommendations.md
     - name: Permissões e ações bloqueadas
