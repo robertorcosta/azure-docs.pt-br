@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 0b5d9deacdd4266da30f17c95b6e575a652d2f76
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 00d292b3ba2d1b6c7c425d4c9f89188e660ac80d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171964"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182170"
 ---
 Neste procedimento, você vai:
 
@@ -25,7 +25,7 @@ Neste procedimento, você vai:
 4. Use `aspnet_regiis -pdf connectionStrings` para descriptografar o arquivo web.config.
 5. No arquivo web.config descriptografado, sob o nó `connectionStrings` , adicione a cadeia de conexão para sua instância de SQL Server e o nome do banco de dados de conteúdo. Veja os exemplos a seguir.
    
-    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
+    `<add name="RBSMaintainerConnectionWSSContent" connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
 6. Use `aspnet_regiis –pef connectionStrings` para criptografar o arquivo web.config novamente. 
 7. Renomeie o web.config para Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config. 
 

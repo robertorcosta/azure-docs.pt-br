@@ -1,5 +1,5 @@
 ---
-title: Como exibir dependências de aplicativo com Azure Monitor para VMs (visualização) | Microsoft Docs
+title: Exibir dependências de aplicativo com Azure Monitor para VMs (versão prévia)
 description: O MAP é um recurso do Azure Monitor para VMs. Ele descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre como usar o recurso de mapa em vários cenários.
 ms.service: azure-monitor
 ms.subservice: ''
@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: f886ce4ed1b9396cf90bf98626e0cfd2424b2eac
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 7ca79b0df55dbfea6a0e2c016773f9f32bf29667
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553788"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199086"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Use o recurso de mapa de Azure Monitor para VMs (versão prévia) para entender os componentes do aplicativo
 No Azure Monitor para VMs, você pode exibir componentes de aplicativos descobertos em VMs (máquinas virtuais) do Windows e Linux que são executadas no Azure ou no seu ambiente. Você pode observar as VMs de duas maneiras. Exiba um mapa diretamente de uma VM ou exiba um mapa de Azure Monitor para ver os componentes em grupos de VMs. Este artigo o ajudará a entender esses dois métodos de exibição e como usar o recurso de mapa. 
 
-Para obter informações sobre como configurar Azure Monitor para VMs, consulte [habilitar Azure monitor para VMs](vminsights-enable-overview.md).
+Para obter informações sobre como configurar o Azure Monitor para VMs, confira [Habilitar o Azure Monitor para VMs](vminsights-enable-overview.md).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 Entre no [portal do Azure](https://portal.azure.com).
@@ -88,15 +88,15 @@ Se o grupo incluir servidores monitorados e não monitorados, você poderá sele
 
 Para acessar Azure Monitor para VMs diretamente de uma VM:
 
-1. No portal do Azure, selecione **máquinas virtuais**. 
+1. No Portal do Azure, selecione **Máquinas Virtuais**. 
 2. Na lista, escolha uma VM. Na seção **monitoramento** , escolha **insights (versão prévia)** .  
-3. Selecione a guia **mapa** .
+3. Selecione a guia **Mapa**.
 
 O mapa visualiza as dependências da VM ao descobrir a execução de processos e grupos de processos que têm conexões de rede ativas em um intervalo de tempo especificado.  
 
 Por padrão, o mapa mostra os últimos 30 minutos. Se você quiser ver como as dependências foram examinadas no passado, poderá consultar intervalos de tempo históricos de até uma hora. Para executar a consulta, use o seletor de **intervalo de timerange** no canto superior esquerdo. Você pode executar uma consulta, por exemplo, durante um incidente ou para ver o status antes de uma alteração.  
 
-![Visão geral do mapa de VM direto](./media/vminsights-maps/map-direct-vm-01.png)
+![Visão geral do mapa de VM direta](./media/vminsights-maps/map-direct-vm-01.png)
 
 ## <a name="view-a-map-from-a-virtual-machine-scale-set"></a>Exibir um mapa de um conjunto de dimensionamento de máquinas virtuais
 
@@ -104,7 +104,7 @@ Para acessar Azure Monitor para VMs diretamente de um conjunto de dimensionament
 
 1. Na portal do Azure, selecione **conjuntos de dimensionamento de máquinas virtuais**.
 2. Na lista, escolha uma VM. Em seguida, na seção **monitoramento** , escolha **insights (versão prévia)** .  
-3. Selecione a guia **mapa** .
+3. Selecione a guia **Mapa**.
 
 O mapa visualiza todas as instâncias no conjunto de dimensionamento como um nó de grupo junto com as dependências do grupo. O nó expandido lista as instâncias no conjunto de dimensionamento. Você pode percorrer essas instâncias 10 por vez. 
 
@@ -112,7 +112,7 @@ Para carregar um mapa para uma instância específica, primeiro selecione essa i
 
 Por padrão, o mapa mostra os últimos 30 minutos. Se você quiser ver como as dependências foram examinadas no passado, poderá consultar intervalos de tempo históricos de até uma hora. Para executar a consulta, use o seletor de **intervalo de timerange** . Você pode executar uma consulta, por exemplo, durante um incidente ou para ver o status antes de uma alteração.
 
-![Visão geral do mapa de VM direto](./media/vminsights-maps/map-direct-vmss-01.png)
+![Visão geral do mapa de VM direta](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
 >Você também pode acessar um mapa para uma instância específica do modo de exibição de **instâncias** para o conjunto de dimensionamento de máquinas virtuais. Na seção **configurações** , vá para **instâncias**  > **insights (versão prévia)** .
@@ -121,9 +121,9 @@ Por padrão, o mapa mostra os últimos 30 minutos. Se você quiser ver como as d
 
 No Azure Monitor, o recurso de mapa fornece uma exibição global de suas VMs e suas dependências. Para acessar o recurso de mapa no Azure Monitor:
 
-1. Na portal do Azure, selecione **Monitor**. 
+1. No portal do Azure, selecione **Monitor**. 
 2. Na seção **insights** , escolha **máquinas virtuais (versão prévia)** .
-3. Selecione a guia **mapa** .
+3. Selecione a guia **Mapa**.
 
    ![Azure Monitor mapa de visão geral de várias VMs](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 

@@ -1,7 +1,7 @@
 ---
-title: Práticas recomendadas de implantação-serviço de Azure App | Microsoft Docs
-description: Saiba mais sobre os principais componentes da implantação no serviço Azure App.
-keywords: serviço de aplicativo do Azure, aplicativo Web, implantar, implantação, pipelines, compilação
+title: Deployment best practices - Azure App Service | Microsoft Docs
+description: Learn about the key components of deploying to Azure App Service.
+keywords: azure app service, web app, deploy, deployment, pipelines, build
 services: app-service
 documentationcenter: ''
 author: jasonfreeberg
@@ -15,62 +15,62 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
 ms.custom: ''
-ms.openlocfilehash: d1b6444b8512b1b55ac46370e805f8f662f5f555
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 121ea4b7e29510ef86b61350ed97ffca5d133d56
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070691"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199480"
 ---
-# <a name="deployment-best-practices"></a>Práticas recomendadas de implantação
+# <a name="deployment-best-practices"></a>Deployment Best Practices
 
-Cada equipe de desenvolvimento tem requisitos exclusivos que podem tornar difícil a implementação de um pipeline de implantação eficiente em qualquer serviço de nuvem. Este artigo apresenta os três principais componentes da implantação para o serviço de aplicativo: fontes de implantação, pipelines de compilação e mecanismos de implantação. Este artigo também aborda algumas práticas recomendadas e dicas para pilhas de idiomas específicas.
+Every development team has unique requirements that can make implementing an efficient deployment pipeline difficult on any cloud service. This article introduces the three main components of deploying to App Service: deployment sources, build pipelines, and deployment mechanisms. This article also covers some best practices and tips for specific language stacks.
 
-## <a name="deployment-components"></a>Componentes de implantação
+## <a name="deployment-components"></a>Deployment Components
 
-### <a name="deployment-source"></a>Origem de Implantação
+### <a name="deployment-source"></a>Deployment Source
 
-Uma origem de implantação é o local do código do aplicativo. Para aplicativos de produção, a origem da implantação geralmente é um repositório hospedado pelo software de controle de versão, como [GitHub, BitBucket ou Azure Repos](deploy-continuous-deployment.md). Para cenários de desenvolvimento e teste, a origem da implantação pode ser [um projeto em seu computador local](deploy-local-git.md). O serviço de aplicativo também dá suporte a [pastas do onedrive e do Dropbox](deploy-content-sync.md) como fontes de implantação. Embora as pastas de nuvem possam facilitar a introdução ao serviço de aplicativo, normalmente não é recomendável usar essa fonte para aplicativos de produção de nível empresarial. 
+A deployment source is the location of your application code. For production apps, the deployment source is usually a repository hosted by version control software such as [GitHub, BitBucket, or Azure Repos](deploy-continuous-deployment.md). For development and test scenarios, the deployment source may be [a project on your local machine](deploy-local-git.md). App Service also supports [OneDrive and Dropbox folders](deploy-content-sync.md) as deployment sources. While cloud folders can make it easy to get started with App Service, it is not typically recommended to use this source for enterprise-level production applications. 
 
-### <a name="build-pipeline"></a>Pipeline de Build
+### <a name="build-pipeline"></a>Build Pipeline
 
-Depois de decidir sobre uma origem de implantação, a próxima etapa é escolher um pipeline de compilação. Um pipeline de compilação lê o código-fonte da origem da implantação e executa uma série de etapas (como código de compilação, HTML minificar e JavaScript, testes em execução e componentes de empacotamento) para obter o aplicativo em um estado executável. Os comandos específicos executados pelo pipeline de compilação dependem da pilha de idiomas. Essas operações podem ser executadas em um servidor de compilação, como Azure Pipelines ou executadas localmente.
+Once you decide on a deployment source, your next step is to choose a build pipeline. A build pipeline reads your source code from the deployment source and executes a series of steps (such as compiling code, minifying HTML and JavaScript, running tests, and packaging components) to get the application in a runnable state. The specific commands executed by the build pipeline depend on your language stack. These operations can be executed on a build server such as Azure Pipelines, or executed locally.
 
-### <a name="deployment-mechanism"></a>Mecanismo de implantação
+### <a name="deployment-mechanism"></a>Deployment Mechanism
 
-O mecanismo de implantação é a ação usada para colocar seu aplicativo interno no diretório */Home/site/wwwroot* do seu aplicativo Web. O diretório */wwwroot* é um local de armazenamento montado compartilhado por todas as instâncias do seu aplicativo Web. Quando o mecanismo de implantação coloca seu aplicativo nesse diretório, suas instâncias recebem uma notificação para sincronizar os novos arquivos. O serviço de aplicativo dá suporte aos seguintes mecanismos de implantação:
+The deployment mechanism is the action used to put your built application into the */home/site/wwwroot* directory of your web app. The */wwwroot* directory is a mounted storage location shared by all instances of your web app. When the deployment mechanism puts your application in this directory, your instances receive a notification to sync the new files. App Service supports the following deployment mechanisms:
 
-- Kudu pontos de extremidade: O [kudu](https://github.com/projectkudu/kudu/wiki) é a ferramenta de produtividade de desenvolvedor de software livre que é executada como um processo separado no serviço de aplicativo do Windows e como um segundo contêiner no serviço de aplicativo do Linux. O kudu lida com implantações contínuas e fornece pontos de extremidade HTTP para implantação, como zipdeploy.
-- FTP e WebDeploy: Usando suas [credenciais de site ou de usuário](deploy-configure-credentials.md), você pode carregar arquivos [via FTP](deploy-ftp.md) ou WebDeploy. Esses mecanismos não passam pelo kudu.  
+- Kudu endpoints: [Kudu](https://github.com/projectkudu/kudu/wiki) is the open-source developer productivity tool that runs as a separate process in Windows App Service, and as a second container in Linux App Service. Kudu handles continuous deployments and provides HTTP endpoints for deployment, such as zipdeploy.
+- FTP and WebDeploy: Using your [site or user credentials](deploy-configure-credentials.md), you can upload files [via FTP](deploy-ftp.md) or WebDeploy. These mechanisms do not go through Kudu.  
 
-As ferramentas de implantação, como os plug-ins Azure Pipelines, Jenkins e editor, usam um desses mecanismos de implantação.
+Deployment tools such as Azure Pipelines, Jenkins, and editor plugins use one of these deployment mechanisms.
 
-## <a name="language-specific-considerations"></a>Considerações específicas a um idioma
+## <a name="language-specific-considerations"></a>Language-Specific Considerations
 
 ### <a name="java"></a>Java
 
-Use o kudu [zipdeploy/](deploy-zip.md) API para implantar aplicativos jar e [wardeploy/](deploy-zip.md#deploy-war-file) para aplicativos War. Se você estiver usando o Jenkins, poderá usar essas APIs diretamente na fase de implantação. Para obter mais informações, consulte [este artigo](../jenkins/execute-cli-jenkins-pipeline.md).
+Use the Kudu [zipdeploy/](deploy-zip.md) API for deploying JAR applications, and [wardeploy/](deploy-zip.md#deploy-war-file) for WAR apps. If you are using Jenkins, you can use those APIs directly in your deployment phase. Para obter mais informações, consulte [este artigo](../jenkins/execute-cli-jenkins-pipeline.md).
 
 ### <a name="node"></a>Nó
 
-Por padrão, o kudu executa as etapas de Build para o seu aplicativo`npm install`de nó (). Se você estiver usando um serviço de compilação como o Azure DevOps, a compilação kudu será desnecessária. Para desabilitar a compilação kudu, crie uma configuração de aplicativo `SCM_DO_BUILD_DURING_DEPLOYMENT`,, com um valor `false`de.
+By default, Kudu executes the build steps for your Node application (`npm install`). If you are using a build service such as Azure DevOps, then the Kudu build is unnecessary. To disable the Kudu build, create an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, with a value of `false`.
 
 ### <a name="net"></a>.NET 
 
-Por padrão, o kudu executa as etapas de Build para seu aplicativo .NET`dotnet build`(). Se você estiver usando um serviço de compilação como o Azure DevOps, a compilação kudu será desnecessária. Para desabilitar a compilação kudu, crie uma configuração de aplicativo `SCM_DO_BUILD_DURING_DEPLOYMENT`,, com um valor `false`de.
+By default, Kudu executes the build steps for your .Net application (`dotnet build`). If you are using a build service such as Azure DevOps, then the Kudu build is unnecessary. To disable the Kudu build, create an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, with a value of `false`.
 
-## <a name="other-deployment-considerations"></a>Outras considerações sobre implantação
+## <a name="other-deployment-considerations"></a>Other Deployment Considerations
 
-### <a name="use-deployment-slots"></a>Usar slots de implantação
+### <a name="use-deployment-slots"></a>Use deployment slots
 
-Sempre que possível, use [Slots de implantação](deploy-staging-slots.md) ao implantar uma nova compilação de produção. Ao usar uma camada de plano do serviço de aplicativo padrão ou melhor, você pode implantar seu aplicativo em um ambiente de preparo, validar suas alterações e fazer testes de fumaça. Quando estiver pronto, você poderá trocar os slots de preparo e de produção. A operação de permuta ativa as instâncias de trabalho necessárias para corresponder à escala de produção, eliminando assim o tempo de inatividade. 
+Whenever possible, use [deployment slots](deploy-staging-slots.md) when deploying a new production build. When using a Standard App Service Plan tier or better, you can deploy your app to a staging environment, validate your changes, and do smoke tests. When you are ready, you can swap your staging and production slots. The swap operation warms up the necessary worker instances to match your production scale, thus eliminating downtime. 
 
 ### <a name="local-cache"></a>Cache Local
 
-O conteúdo do Serviço de Aplicativo do Azure é armazenado no Armazenamento do Microsoft Azure e exibido de forma duradoura como um compartilhamento de conteúdo. No entanto, alguns aplicativos precisam apenas de um repositório de conteúdo somente leitura de alto desempenho que podem ser executados com alta disponibilidade. Esses aplicativos podem se beneficiar do uso do [cache local](overview-local-cache.md). O cache local não é recomendado para sites de gerenciamento de conteúdo, como WordPress.
+O conteúdo do Serviço de Aplicativo do Azure é armazenado no Armazenamento do Microsoft Azure e exibido de forma duradoura como um compartilhamento de conteúdo. However, some apps just need a high-performance, read-only content store that they can run with high availability. These apps can benefit from using [local cache](overview-local-cache.md). Local cache is not recommended for content management sites such as WordPress.
 
-Sempre use o cache local em conjunto com [slots de implantação] (Deploy-staging-Slots MD) para evitar o tempo de inatividade. Consulte [esta seção](overview-local-cache.md#best-practices-for-using-app-service-local-cache) para obter informações sobre como usar esses recursos juntos.
+Always use local cache in conjunction with [deployment slots](deploy-staging-slots.md) to prevent downtime. See [this section](overview-local-cache.md#best-practices-for-using-app-service-local-cache) for information on using these features together.
 
-### <a name="high-cpu-or-memory"></a>Alta CPU ou memória
+### <a name="high-cpu-or-memory"></a>High CPU or Memory
 
 Se o plano do serviço de aplicativo estiver usando mais de 90% da memória ou CPU disponível, a máquina virtual subjacente poderá ter problemas para processar sua implantação. Quando isso acontece, expanda temporariamente sua contagem de instâncias para executar a implantação. Depois que a implantação for concluída, você poderá retornar a contagem de instâncias para seu valor anterior.

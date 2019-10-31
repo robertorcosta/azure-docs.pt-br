@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60f38b60b5fbf0166f25c423663d157cf8f13ee2
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b1b44a7df499dc0b6ce4370bf74ece35c99a4493
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860897"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200233"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerenciar identidades de dispositivo usando o portal do Azure
 
@@ -34,11 +34,11 @@ O portal do AD do Azure fornece um local central para gerenciar suas identidades
 1. Entre no [portal do Azure](https://portal.azure.com) como administrador.
 2. Na barra de navegação à esquerda, clique em **Active Directory**.
 
-   ![Definir configurações de dispositivo](./media/device-management-azure-portal/01.png)
+   ![Definir configurações do dispositivo](./media/device-management-azure-portal/01.png)
 
 3. Na seção **Gerenciar**, clique em **Dispositivos**.
 
-   ![Definir configurações de dispositivo](./media/device-management-azure-portal/74.png)
+   ![Definir configurações do dispositivo](./media/device-management-azure-portal/74.png)
 
 A página de **Dispositivos** permite que você:
 
@@ -47,11 +47,11 @@ A página de **Dispositivos** permite que você:
 - Executar tarefas de gerenciamento de identidade do dispositivo
 - Examinar os logs de auditoria relacionados ao dispositivo  
   
-## <a name="configure-device-settings"></a>Definir configurações de dispositivo
+## <a name="configure-device-settings"></a>Definir configurações do dispositivo
 
 Para gerenciar suas identidades de dispositivo usando o portal do AD do Azure, seus dispositivos precisam ser [registrados ou ingressados](overview.md) no Azure AD. Como administrador, você pode ajustar o processo de registro e ingresso de dispositivos definindo as configurações do dispositivo.
 
-![Definir configurações de dispositivo](./media/device-management-azure-portal/22.png)
+![Definir configurações do dispositivo](./media/device-management-azure-portal/22.png)
 
 A página de configurações do dispositivo permite que você configure:
 
@@ -136,6 +136,7 @@ Para ativar / desativar um dispositivo, você tem duas opções:
 
 - Você precisa ser um administrador global ou um administrador de dispositivo de nuvem no Azure AD para habilitar/desabilitar um dispositivo. 
 - A desabilitação de um dispositivo impede que um dispositivo seja autenticado com êxito com o Azure AD, impedindo que o dispositivo acesse seus recursos do Azure AD protegidos pela AC do dispositivo ou usando suas credenciais do WH4B.
+- A desabilitação do dispositivo revogará o token de atualização primário (PRT) e os tokens de atualização (RT) no dispositivo.
 
 ### <a name="delete-an-azure-ad-device"></a>Excluir um dispositivo do Azure Active Directory
 
@@ -174,11 +175,11 @@ Você pode usar uma ID de dispositivo para verificar os detalhes de ID de dispos
 Para exibir ou copiar as chaves do BitLocker, você precisa ser o proprietário do dispositivo ou um usuário que tenha pelo menos uma das seguintes funções atribuídas:
 
 - Administrador de Dispositivo de Nuvem
-- Administrador Global
-- Administrador de Assistência Técnica
-- Administrador de Serviços do Intune
-- Administrador de Segurança
-- Leitor de Segurança
+- Administrador global
+- Administrador de assistência técnica
+- Administrador de serviços do Intune
+- Administrador de segurança
+- Leitor de segurança
 
 > [!NOTE]
 > Os dispositivos do Windows 10 ingressados no Azure AD híbrido não têm um proprietário. Portanto, se você está procurando por um dispositivo pelo proprietário e não o encontrou, pesquise pela ID do dispositivo.
@@ -214,13 +215,13 @@ Para restringir os dados relatados a um nível que funciona para você, filtre o
 - Tipo de recurso de atividade
 - Atividade
 - Intervalo de datas
-- Destino
+- Escolha o destino
 - Iniciado por (ator)
 
 Além dos filtros, você pode pesquisar itens específicos.
 
 ![Logs de auditoria](./media/device-management-azure-portal/65.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Como gerenciar dispositivos obsoletos no Azure AD](manage-stale-devices.md)

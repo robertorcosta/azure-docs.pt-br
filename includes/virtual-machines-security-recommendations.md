@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: Arquivo de inclusão
+description: Arquivo de inclusão
 services: virtual-machines
 author: barclayn
 ms.service: virtual-machines
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/19/2019
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: d43860d71b14bdac275df51695c9206539529171
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e687fc071272e7a509b1dcfb0a417828a07aa7a9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72511440"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182171"
 ---
-Este artigo contém recomendações de segurança para máquinas virtuais do Azure. Siga estas recomendações para ajudar a atender as obrigações de segurança descritas em nosso modelo para responsabilidade compartilhada. As recomendações também ajudarão você a melhorar a segurança geral para suas soluções de aplicativo Web. Para obter mais informações sobre o que a Microsoft faz para atender às responsabilidades do provedor de serviços, consulte [responsabilidades compartilhadas para computação em nuvem](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf).
+Este artigo contém recomendações de segurança para máquinas virtuais do Azure. Siga estas recomendações para ajudar a atender as obrigações de segurança descritas em nosso modelo para responsabilidade compartilhada. As recomendações também ajudarão você a melhorar a segurança geral para suas soluções de aplicativo Web. Para obter mais informações sobre o que a Microsoft faz para atender às responsabilidades do provedor de serviços, consulte [responsabilidades compartilhadas para computação em nuvem](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
 Algumas das recomendações deste artigo podem ser abordadas automaticamente pela central de segurança do Azure. A central de segurança do Azure é a primeira linha de defesa para seus recursos no Azure. Ele analisa periodicamente o estado de segurança de seus recursos do Azure para identificar possíveis vulnerabilidades de segurança. Em seguida, ele recomenda como tratar as vulnerabilidades. Para obter mais informações, consulte [recomendações de segurança na central de segurança do Azure](../articles/security-center/security-center-recommendations.md).
 
@@ -26,7 +26,7 @@ Para obter informações gerais sobre a central de segurança do Azure, consulte
 | Categoria | Recomendações | Comentários | Central de Segurança |
 |-|-|----|--|
 | Geral | Ao criar imagens de VM personalizadas, aplique as atualizações mais recentes. | Antes de criar imagens, instale as atualizações mais recentes para o sistema operacional e para todos os aplicativos que serão parte da sua imagem.  | - |
-| Geral | Mantenha suas VMs atuais. | Você pode usar a solução [Gerenciamento de atualizações](../articles/automation/automation-update-management.md) na automação do Azure para gerenciar atualizações do sistema operacional para seus computadores Windows e Linux no Azure. | [Sim](../articles/security-center/security-center-apply-system-updates.md) |
+| Geral | manter as VMs atualizadas. | Você pode usar a solução [Gerenciamento de atualizações](../articles/automation/automation-update-management.md) na automação do Azure para gerenciar atualizações do sistema operacional para seus computadores Windows e Linux no Azure. | [Sim](../articles/security-center/security-center-apply-system-updates.md) |
 | Geral | Faça backup de suas VMs. | O [backup do Azure](../articles/backup/backup-overview.md) ajuda a proteger os dados do aplicativo e tem custos operacionais mínimos. Erros de aplicativo podem corromper seus dados, enquanto erros humanos podem introduzir bugs em seus aplicativos. O backup do Azure protege suas VMs que executam Windows e Linux. | - |
 | Geral | Use várias VMs para obter maior resiliência e disponibilidade. | Se sua VM executar aplicativos que devem ser altamente disponíveis, use várias VMs ou [conjuntos de disponibilidade](../articles/virtual-machines/windows/manage-availability.md). | - |
 | Geral | Adote uma estratégia de BCDR (continuidade dos negócios e recuperação de desastre). | Azure Site Recovery permite que você escolha entre diferentes opções criadas para dar suporte à continuidade dos negócios. Ele dá suporte a diferentes cenários de replicação e failover. Para obter mais informações, consulte [About site Recovery](../articles/site-recovery/site-recovery-overview.md). | - |
@@ -38,7 +38,7 @@ Para obter informações gerais sobre a central de segurança do Azure, consulte
 | Segurança dos dados | Armazene segredos e chaves com segurança. | Simplifique o gerenciamento de seus segredos e chaves fornecendo aos proprietários do aplicativo uma opção segura e gerenciada centralmente. Esse gerenciamento reduz o risco de um comprometimento acidental ou vazamento. Azure Key Vault pode armazenar com segurança suas chaves em HSMs (módulos de segurança de hardware) certificados para o FIPS 140-2 nível 2. Se você precisar usar o FIPs 140,2 nível 3 para armazenar suas chaves e segredos, poderá usar o [HSM dedicado do Azure](../articles/dedicated-hsm/overview.md). | - |
 | Rede | Restrinja o acesso às portas de gerenciamento. | Os invasores verificam intervalos de IP de nuvem pública para portas de gerenciamento aberto e tentam ataques "fáceis", como senhas comuns e vulnerabilidades não corrigidas conhecidas. Você pode usar o [acesso à VM just-in-time (JIT)](../articles/security-center/security-center-just-in-time.md) para bloquear o tráfego de entrada para suas VMs do Azure, reduzindo a exposição a ataques ao mesmo tempo em que fornece conexões fáceis às VMs quando elas forem necessárias. | - |
 | Rede | Limite o acesso à rede. | Os grupos de segurança de rede permitem restringir o acesso à rede e controlar o número de pontos de extremidade expostos. Para obter mais informações, consulte [criar, alterar ou excluir um grupo de segurança de rede](../articles/virtual-network/manage-network-security-group.md). | - |
-| Monitoramento | Monitore suas VMs. | Você pode usar [Azure monitor para VMs](../articles/azure-monitor/insights/vminsights-overview.md) para monitorar o estado de suas VMs do Azure e conjuntos de dimensionamento de máquinas virtuais. Problemas de desempenho com uma VM podem levar à interrupção do serviço, o que viola o princípio de segurança de disponibilidade. | - |
+| Monitoramento | Monitore suas VMs. | Você pode usar [Azure monitor para VMs](../articles/azure-monitor/insights/vminsights-overview.md) para monitorar o estado de suas VMs do Azure e conjuntos de dimensionamento de máquinas virtuais. Problemas de desempenho com uma máquina virtual podem levar a interrupção do serviço, o que viola o princípio de segurança de disponibilidade. | - |
 
 ## <a name="next-steps"></a>Próximos passos
 

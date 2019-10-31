@@ -1,6 +1,6 @@
 ---
 title: Conectar-se ao armazenamento de BLOBs do Azure-aplicativo lógico do Azure
-description: Criar e gerenciar blobs no armazenamento do Azure com os Aplicativos Lógicos do Azure
+description: Criar e gerenciar BLOBs em contas de armazenamento do Azure usando aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,33 +9,29 @@ ms.author: estfan
 manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 10/28/2019
 tags: connectors
-ms.openlocfilehash: 98a811508d5fa65135c224536b668145ea0808d0
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: c431f917f6fc1ac080b13184bd9ce205a20afbaa
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176076"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199579"
 ---
-# <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Criar e gerenciar blobs no armazenamento de blobs do Azure com os Aplicativos Lógicos do Azure
+# <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Criar e gerenciar BLOBs no armazenamento de BLOBs do Azure usando o aplicativo lógico do Azure
 
 Este artigo mostra como você pode acessar e gerenciar arquivos armazenados como blobs em sua conta de armazenamento do Azure de dentro de um aplicativo lógico com o conector do Armazenamento de Blobs do Azure. Dessa forma, você pode criar aplicativos lógicos que automatizam tarefas e fluxos de trabalho para gerenciar seus arquivos. Por exemplo, você pode criar aplicativos lógicos que criam, obtêm, atualizam e excluem arquivos na sua conta de armazenamento.
 
 Suponha que você tem uma ferramenta que é atualizada em um site do Azure. que atua como o gatilho do aplicativo lógico. Quando esse evento ocorre, você pode fazer com que o aplicativo lógico atualize um arquivo em seu contêiner de armazenamento de blobs, o que é uma ação no aplicativo lógico.
 
+Se você não estiver familiarizado com os Aplicativos Lógicos, examine [O que são Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início rápido: crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obter informações técnicas específicas do conector, confira a [Referência do conector do Armazenamento de Blobs do Azure](https://docs.microsoft.com/connectors/azureblobconnector/).
+
 > [!IMPORTANT]
->
-> Os aplicativos lógicos não podem acessar diretamente as contas de armazenamento do Azure que têm [regras de firewall](../storage/common/storage-network-security.md) e existem na mesma região. No entanto, se você permitir os [endereços IP de saída para conectores gerenciados em sua região, os](../logic-apps/logic-apps-limits-and-config.md#outbound)aplicativos lógicos poderão acessar contas de armazenamento em uma região diferente, exceto quando você usar o conector de armazenamento de tabela do Azure ou o conector de armazenamento de filas do Azure. Para acessar o armazenamento de tabelas ou o armazenamento de filas, você ainda pode usar o gatilho e as ações de HTTP. 
-> Caso contrário, você pode usar as opções mais avançadas aqui:
-> 
-> * Criar um [Ambiente de Serviço de Integração](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que pode se conectar aos recursos em uma rede virtual do Azure.
->
-> * Se você usar uma camada dedicada para o gerenciamento de API, poderá antecipar a API de armazenamento usando o gerenciamento de API e permitindo os endereços IP da última por meio do firewall. Basicamente, adicione a rede virtual do Azure que é usada pelo gerenciamento de API à configuração de firewall da conta de armazenamento. Em seguida, você pode usar a ação de gerenciamento de API ou a ação HTTP para chamar as APIs de armazenamento do Azure. No entanto, se você escolher essa opção, precisará manipular o processo de autenticação por conta própria. Para obter mais informações, confira [Arquitetura Enterprise Integration simples](https://aka.ms/aisarch).
+> Para habilitar o acesso de aplicativos lógicos do Azure a contas de armazenamento por trás de firewalls, consulte a seção [acessar contas de armazenamento por trás de firewalls](#storage-firewalls) mais adiante neste tópico.
 
-Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obter informações técnicas específicas do conector, confira a [Referência do conector do Armazenamento de Blobs do Azure](/connectors/azureblobconnector/).
+<a name="blob-storage-limits"></a>
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
 * Por padrão, as ações do armazenamento de BLOBs do Azure podem ler ou gravar arquivos que são *50 MB ou menores*. Para lidar com arquivos com mais de 50 MB, mas até 1024 MB, as ações do armazenamento de BLOBs do Azure dão suporte ao [agrupamento de mensagens](../logic-apps/logic-apps-handle-large-messages.md). A ação **obter conteúdo do blob** usa implicitamente o agrupamento.
 
@@ -47,7 +43,7 @@ Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que sã
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Um [contêiner de armazenamento padrão e uma conta de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md)
 
@@ -65,9 +61,9 @@ Este exemplo mostra como você pode iniciar um fluxo de trabalho de aplicativo l
 
 2. Na caixa de pesquisa, digite "blob do azure" como filtro. Na lista de gatilhos, selecione o gatilho desejado.
 
-   Este exemplo usa este gatilho: **Quando um blob é adicionado ou modificado (somente Propriedades)**
+   Este exemplo usa este gatilho: **quando um blob é adicionado ou modificado (somente Propriedades)**
 
-   ![Selecionar gatilho](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
+   ![Selecionar gatilho do armazenamento de BLOBs do Azure](./media/connectors-create-api-azureblobstorage/add-azure-blob-storage-trigger.png)
 
 3. Se forem solicitados os detalhes da conexão, [crie sua conexão de armazenamento de blobs agora](#create-connection). Ou, se a conexão já existir, forneça as informações necessárias para o gatilho.
 
@@ -77,7 +73,7 @@ Este exemplo mostra como você pode iniciar um fluxo de trabalho de aplicativo l
 
    2. Na lista de pastas, escolha o colchete direito ( **>** ) e navegue até localizar e selecionar a pasta desejada.
 
-      ![Selecionar pasta](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
+      ![Selecione a pasta de armazenamento a ser usada com o gatilho](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
    3. Selecione o intervalo e a frequência com a qual o gatilho deve verificar alterações na pasta.
 
@@ -95,15 +91,15 @@ Em Aplicativos Lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
 
 2. No designer do aplicativo lógico, no gatilho ou na ação, escolha **nova etapa**.
 
-   ![Adicionar uma ação](./media/connectors-create-api-azureblobstorage/add-action.png) 
+   ![Adicionar nova etapa ao fluxo de trabalho do aplicativo lógico](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
    Para adicionar uma ação entre etapas existentes, mova o mouse sobre a seta de conexão. Escolha o sinal de adição ( **+** ) que aparece e selecione **Adicionar uma ação**.
 
 3. Na caixa de pesquisa, digite "blob do azure" como filtro. Na lista de ações, selecione a ação desejada.
 
-   Este exemplo usa esta ação: **Obter conteúdo do blob**
+   Este exemplo usa esta ação: **obter conteúdo de blob**
 
-   ![Ação selecionar](./media/connectors-create-api-azureblobstorage/azure-blob-action.png)
+   ![Selecionar ação de armazenamento de BLOBs do Azure](./media/connectors-create-api-azureblobstorage/add-azure-blob-storage-action.png)
 
 4. Se forem solicitados os detalhes da conexão, [crie sua conexão do Armazenamento de Blobs do Azure agora](#create-connection).
 Ou, se a conexão já existir, forneça as informações necessárias para a ação.
@@ -112,9 +108,9 @@ Ou, se a conexão já existir, forneça as informações necessárias para a aç
 
    1. Na caixa **Blob**, selecione o ícone de pasta.
   
-      ![Selecionar pasta](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
+      ![Selecione a pasta de armazenamento a ser usada com a ação](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
-   2. Localize e selecione o arquivo desejado com base no número de **ID** do blob. Você pode encontrar esse número de **ID** nos metadados do blob retornados pelo gatilho de Armazenamento de Blobs descrito anteriormente.
+   2. Localize e selecione o arquivo desejado com base no número de **ID** do blob. Você pode encontrar esse número de **ID** nos metadados do blob que são retornados pelo gatilho de armazenamento de blob descrito anteriormente.
 
 5. Quando terminar, selecione **Salvar** na barra de ferramentas do designer.
 Para testar seu aplicativo lógico, verifique se a pasta selecionada contém um blob.
@@ -127,12 +123,85 @@ Este exemplo obtém apenas o conteúdo de um blob. Para exibir o conteúdo, adic
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-[!INCLUDE [Create a connection to Azure blob storage](../../includes/connectors-create-api-azureblobstorage.md)]
+1. Quando você for solicitado a criar a conexão, forneça estas informações:
+
+   | Propriedade | obrigatórios | Value | Descrição |
+   |----------|----------|-------|-------------|
+   | **Nome da Conexão** | SIM | <*connection-name*> | O nome para criar a conexão |
+   | **Conta de armazenamento** | SIM | <*storage-account*> | Selecione sua conta de armazenamento na lista. |
+   ||||
+
+   Por exemplo:
+
+   ![Criar conexão de conta de armazenamento de BLOBs do Azure](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png)  
+
+1. Quando estiver pronto, selecione **criar**
+
+1. Depois de criar a conexão, continue com a ação [Adicionar gatilho de armazenamento de BLOBs](#add-trigger) ou [Adicionar armazenamento de BLOBs](#add-action).
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo de API aberta do conector (anteriormente, Swagger), consulte a [página de referência do conector](/connectors/azureblobconnector/).
+Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo de API aberta do conector (anteriormente, Swagger), consulte a [página de referência do conector](https://docs.microsoft.com/connectors/azureblobconnector/).
 
-## <a name="next-steps"></a>Próximas etapas
+<a name="storage-firewalls"></a>
+
+## <a name="access-storage-accounts-behind-firewalls"></a>Acessar contas de armazenamento por trás de firewalls
+
+Você pode adicionar segurança de rede a uma conta de armazenamento do Azure restringindo o acesso com regras de firewall [e firewall](../storage/common/storage-network-security.md). No entanto, essa configuração cria um desafio para o Azure e outros serviços da Microsoft que precisam acessar a conta de armazenamento. A comunicação local no datacenter abstrai os endereços IP internos, portanto, você não pode configurar regras de firewall com restrições de IP. Para saber mais, consulte [Configurar Redes Virtuais e Firewalls de Armazenamento do Azure](../storage/common/storage-network-security.md).
+
+Aqui estão várias opções para acessar contas de armazenamento por trás de firewalls de aplicativos lógicos do Azure usando o conector de armazenamento de BLOBs do Azure ou outras soluções:
+
+* Conector do blob de armazenamento do Azure
+
+  * [Acessar contas de armazenamento em outras regiões](#access-other-regions)
+  * [Acessar contas de armazenamento por meio de uma rede virtual confiável](#access-trusted-virtual-network)
+
+* Outras soluções
+
+  * [Acesse contas de armazenamento como um serviço confiável com identidades gerenciadas](#access-trusted-service)
+  * [Acessar contas de armazenamento por meio do gerenciamento de API do Azure](#access-api-management)
+
+<a name="access-other-regions"></a>
+
+### <a name="access-to-storage-accounts-in-other-regions"></a>Acesso a contas de armazenamento em outras regiões
+
+Os aplicativos lógicos não podem acessar diretamente as contas de armazenamento que têm regras de firewall e estão na mesma região. No entanto, se você permitir o acesso para os [endereços IP de saída para conectores gerenciados em sua região](../logic-apps/logic-apps-limits-and-config.md#outbound), seus aplicativos lógicos poderão acessar contas de armazenamento em uma região diferente, exceto quando você usar o conector de armazenamento de tabela do Azure ou o conector de armazenamento de filas do Azure. Para acessar o armazenamento de tabelas ou o armazenamento de filas, você ainda pode usar o gatilho HTTP interno e as ações.
+
+<a name="access-trusted-virtual-network"></a>
+
+### <a name="access-storage-accounts-through-a-trusted-virtual-network"></a>Acessar contas de armazenamento por meio de uma rede virtual confiável
+
+Você pode colocar a conta de armazenamento em uma rede virtual do Azure que você gerencia e, em seguida, adicionar essa rede virtual à lista de redes virtuais confiáveis. Para que seu aplicativo lógico acesse a conta de armazenamento por meio de uma [rede virtual confiável](../virtual-network/virtual-networks-overview.md), você precisa implantar esse aplicativo lógico em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que pode se conectar a recursos em uma rede virtual. Em seguida, você pode adicionar as sub-redes no ISE à lista de confiáveis. Os conectores de armazenamento do Azure, como o conector de armazenamento de BLOBs, podem acessar diretamente o contêiner de armazenamento. Essa configuração é a mesma experiência usada para usar os pontos de extremidade de serviço de um ISE.
+
+<a name="access-trusted-service"></a>
+
+### <a name="access-storage-accounts-as-a-trusted-service-with-managed-identities"></a>Acesse contas de armazenamento como um serviço confiável com identidades gerenciadas
+
+Para conceder aos serviços confiáveis da Microsoft acesso a uma conta de armazenamento por meio de um firewall, você pode configurar uma exceção nessa conta de armazenamento para esses serviços. Essa solução permite que os serviços do Azure que dão suporte a [identidades gerenciadas para autenticação](../active-directory/managed-identities-azure-resources/overview.md) acessem contas de armazenamento por trás de firewalls como serviços confiáveis. Especificamente, para um aplicativo lógico no Azure multilocatário global para acessar essas contas de armazenamento, você primeiro [habilita o suporte de identidade gerenciada](../logic-apps/create-managed-service-identity.md) no aplicativo lógico. Em seguida, use a ação HTTP ou o gatilho em seu aplicativo lógico e [defina seu tipo de autenticação para usar a identidade gerenciada do aplicativo lógico](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). Para esse cenário, você pode usar *apenas* a ação ou o gatilho http.
+
+Para configurar a exceção e o suporte de identidade gerenciada, siga estas etapas gerais:
+
+1. Em sua conta de armazenamento, em **configurações**, selecione **firewalls e redes virtuais**. Em **permitir acesso de**, selecione a opção **redes selecionadas** para que as configurações relacionadas sejam exibidas.
+
+1. Em **exceções**, selecione **permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento**e, em seguida, selecione **salvar**.
+
+   ![Selecione uma exceção que permita que os serviços confiáveis da Microsoft](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
+
+1. Nas configurações do aplicativo lógico, [habilite o suporte para a identidade gerenciada](../logic-apps/create-managed-service-identity.md).
+
+1. No fluxo de trabalho do aplicativo lógico, adicione e configure a ação HTTP ou o gatilho para acessar a conta ou a entidade de armazenamento.
+
+   > [!IMPORTANT]
+   > Para a ação HTTP de saída ou chamadas de gatilho para contas de armazenamento do Azure, certifique-se de que o cabeçalho de solicitação inclui a propriedade `x-ms-version` e a versão da API para a operação que você deseja executar na conta de armazenamento. Para obter mais informações, consulte [autenticar o acesso com identidade gerenciada](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) e [controle de versão para serviços de armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+
+1. Nessa ação, [Selecione a identidade gerenciada](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) a ser usada para autenticação.
+
+<a name="access-api-management"></a>
+
+### <a name="access-storage-accounts-through-azure-api-management"></a>Acessar contas de armazenamento por meio do gerenciamento de API do Azure
+
+Se você usar uma camada dedicada para o [Gerenciamento de API](../api-management/api-management-key-concepts.md), poderá antecipar a API de armazenamento usando o gerenciamento de API e permitindo os endereços IP da última por meio do firewall. Basicamente, adicione a rede virtual do Azure que é usada pelo gerenciamento de API à configuração de firewall da conta de armazenamento. Em seguida, você pode usar a ação de gerenciamento de API ou a ação HTTP para chamar as APIs de armazenamento do Azure. No entanto, se você escolher essa opção, precisará manipular o processo de autenticação por conta própria. Para obter mais informações, confira [Arquitetura Enterprise Integration simples](https://aka.ms/aisarch).
+
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

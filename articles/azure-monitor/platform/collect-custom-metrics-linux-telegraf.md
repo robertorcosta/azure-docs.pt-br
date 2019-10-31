@@ -1,5 +1,5 @@
 ---
-title: Coletar métricas personalizadas para uma VM do Linux com o Agente InfluxData Telegraf
+title: Coletar métricas personalizadas para VM Linux com o agente InfluxData Telegraf
 description: Coletar métricas personalizadas para uma VM do Linux com o Agente InfluxData Telegraf
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: e8164a111b9ad5ebcc67c248586e2576046334b0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 05cc1dcb2a6fa4e7790fa57cd2136d21d94b8a0b
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883236"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200529"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Coletar métricas personalizadas para uma VM do Linux com o Agente InfluxData Telegraf
 
@@ -29,7 +29,7 @@ O [Telegraf](https://docs.influxdata.com/telegraf/v1.7/) é um agente controlado
 
 Para este tutorial, podemos implantar uma VM do Linux que executa o sistema operacional Ubuntu 16.04 LTS. A maioria dos sistemas operacionais Linux tem suporte para o agente Telegraf. Os pacotes Debian e RPM estão disponíveis junto com binários descompactados do Linux no portal de download do [InfluxData](https://portal.influxdata.com/downloads). Consulte este [guia de instalação Telegraf](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) para instruções de instalação adicionais e opções. 
 
-Entre no [Portal do Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 Crie uma nova VM do Linux: 
 
@@ -39,7 +39,7 @@ Crie uma nova VM do Linux:
 1. Forneça um nome de VM como **MyTelegrafVM**.  
 1. Deixe o tipo de disco como **SSD**. Em seguida, forneça um **nome de usuário**, como **azureuser**. 
 1. Para **tipo de autenticação**, selecione **senha**. Insira uma senha que você usará posteriormente para SSH para essa VM. 
-1. Escolha **criar novo grupo de recursos**. Em seguida, forneça um nome,como MyResource. Escolha seu **local**. Depois, selecione **OK**. 
+1. Escolha **criar novo grupo de recursos**. Em seguida, forneça um nome, como **MyResource**. Escolha seu **local**. Depois, selecione **OK**. 
 
     ![Criar uma VM do Ubuntu](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
@@ -47,13 +47,13 @@ Crie uma nova VM do Linux:
 
     ![Visão Geral do Agente Telegraf para o tamanho da Máquina Virtual](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. Na página **configurações** , em > **grupo** > de segurança de rede de rede,**selecione portas de entrada públicas**, selecione **http** e **SSH (22)** . Deixe o restante dos padrões e selecione **OK**. 
+1. Na página **configurações** em **rede** > **grupo de segurança de rede** > **selecione portas de entrada públicas**, selecione **http** e **SSH (22)** . Deixe o restante dos padrões e selecione **OK**. 
 
 1. Na página Resumo, selecione **Criar** para iniciar a implantação da máquina virtual. 
 
 1. A VM será fixada ao painel do portal do Azure. Depois que a implantação for concluída, o resumo da VM abre automaticamente. 
 
-1. No painel de VM, navegue até a guia **Identidade**. Certifique-se de que sua VM tem uma identidade atribuída pelo sistema, definida como **em**. 
+1. No painel VM, navegue até a guia **identidade** . Verifique se sua VM tem uma identidade atribuída pelo sistema definida como **ativada**. 
  
     ![Visualização de identidade da VM Telegraf](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
  
@@ -81,7 +81,7 @@ wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb
 # install the package 
 sudo dpkg -i telegraf_1.8.0~rc1-1_amd64.deb
 ```
-O arquivo de configuração do Telegraf define as operações. Por padrão, um arquivo de configuração de exemplo é instalado no caminho **/etc/telegraf/telegraf.conf**. O arquivo de configuração de exemplo lista todos os plug-ins de entrada e saída possíveis. No entanto, vamos criar um arquivo de configuração personalizado e fazer com que o agente use-o executando os comandos a seguir: 
+O arquivo de configuração do Telegraf define as operações. Por padrão, um arquivo de configuração de exemplo é instalado no caminho **/etc/telegraf/telegraf.conf**. O arquivo de configuração de exemplo lista todos os plug-ins de entrada e saída possíveis. No entanto, vamos criar um arquivo de configuração personalizado e fazer com que o agente o use, executando os seguintes comandos: 
 
 ```cmd
 # generate the new Telegraf config file in the current directory 
@@ -108,7 +108,7 @@ Agora o agente coletará as métricas de cada um dos plug-ins de entrada especif
 
 1. Abra o [Portal do Azure](https://portal.azure.com). 
 
-1. Navegue até a nova guia **Monitor** . Em seguida, selecione métricas.  
+1. Navegue até a nova guia **Monitor** . Em seguida, selecione **métricas**.  
 
      ![Monitor - métricas (visualização)](./media/collect-custom-metrics-linux-telegraf/metrics.png)
 
@@ -122,7 +122,7 @@ Agora o agente coletará as métricas de cada um dos plug-ins de entrada especif
 
 ## <a name="additional-configuration"></a>Configuração adicional 
 
-As etapas fornecem informações sobre como configurar o agente Telegraf para coletar as métricas de alguns plug-ins de entrada básicos. O agente Telegraf tem suporte para mais de 150 plug-ins de entrada, com algumas opções de configuração de suporte adicionais. O InfluxData publicou uma [lista de plug-ins com suporte](https://docs.influxdata.com/telegraf/v1.7/plugins/inputs/) e instruções sobre [como configurá-los](https://docs.influxdata.com/telegraf/v1.7/administration/configuration/).  
+O guia de explicação anterior fornece informações sobre como configurar o agente Telegraf para coletar métricas de alguns plug-ins de entrada básicos. O agente Telegraf tem suporte para mais de 150 plug-ins de entrada, com algumas opções de configuração adicionais de suporte. O InfluxData publicou uma [lista de plug-ins com suporte](https://docs.influxdata.com/telegraf/v1.7/plugins/inputs/) e instruções sobre [como configurá-los](https://docs.influxdata.com/telegraf/v1.7/administration/configuration/).  
 
 Além disso, neste passo a passo, você usou o agente Telegraf para emitem métricas sobre o agente é implantado na VM. O agente Telegraf também pode ser usado como um coletor e encaminhador de métricas para outros recursos. Para saber como configurar o agente para emitir métricas para outros recursos do Azure, consulte [Saída de Métrica Personalizada do Azure Monitor para Telegraf](https://github.com/influxdata/telegraf/blob/fb704500386214655e2adb53b6eb6b15f7a6c694/plugins/outputs/azure_monitor/README.md).  
 
@@ -130,7 +130,7 @@ Além disso, neste passo a passo, você usou o agente Telegraf para emitem métr
 
 Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos para a máquina virtual e selecione **excluir**. Em seguida, confirme o nome do grupo de recursos para excluir. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
 
 

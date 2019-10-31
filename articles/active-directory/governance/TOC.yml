@@ -5,7 +5,7 @@
   items:
     - name: O que é Governança de Identidade?
       href: identity-governance-overview.md
-    - name: O que é gerenciamento de direitos? (Visualização)
+    - name: O que é gerenciamento de direitos?
       href: entitlement-management-overview.md
     - name: O que são revisões de acesso?
       href: access-reviews-overview.md
