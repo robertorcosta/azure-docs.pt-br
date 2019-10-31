@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: 0e5bec7d3e1ecd63541a319cd5a9151560ef4139
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: fec39a9e788debcd9c3ac707a0431e268d87ed35
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964637"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146189"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Executar Azure IoT Edge em Máquinas Virtuais do Ubuntu
 
@@ -36,7 +36,7 @@ Na primeira inicialização, o Azure IoT Edge na VM do Ubuntu pré-instala a úl
     1.  Copie a cadeia de conexão do dispositivo de seu dispositivo IoT Edge criado no Hub IoT (você pode seguir a [cadeia de conexão recuperar o no procedimento portal do Azure](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal) se você não estiver familiarizado com esse processo)
     1.  Selecionar o recurso de máquina virtual recém-criada no portal do Azure e abrir a opção **executar comando**
     1.  Selecionar a opção **RunShellScript**
-    1.  Execute o script abaixo através da janela de comando com a cadeia de conexão do dispositivo: `/etc/iotedge/configedge.sh “{device_connection_string}”`
+    1.  Execute o script abaixo através da janela de comando com a cadeia de conexão do dispositivo: `/etc/iotedge/configedge.sh "{device_connection_string}"`
     1.  Selecionar **Executar**
     1.  Aguarde alguns instantes e a tela deverá exibir uma mensagem de êxito, indicando que a cadeia de conexão foi configurada com êxito.
 

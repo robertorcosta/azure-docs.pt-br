@@ -4,15 +4,15 @@ description: Saiba como criar entidades de serviço para automatizar tarefas do 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 94f1313825b21b3adf7173b56798fce22736ea87
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a590590faa422d47306e697a7c90bb635ea8c6e9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294572"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146368"
 ---
 # <a name="automation-with-service-principals"></a>Automação com entidades de serviço
 
@@ -48,9 +48,9 @@ AppID de entidade de serviço e senha ou certificado podem ser usados em cadeias
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a>módulo <a name="azmodule" />Using AZ. AnalysisServices
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />usando o módulo AZ. AnalysisServices
 
-Ao usar uma entidade de serviço para operações de gerenciamento de recursos com o módulo [AZ. AnalysisServices](/powershell/module/az.analysisservices) , use o cmdlet `Connect-AzAccount`. 
+Ao usar uma entidade de serviço para operações de gerenciamento de recursos com o módulo [AZ. AnalysisServices](/powershell/module/az.analysisservices) , use `Connect-AzAccount` cmdlet. 
 
 No exemplo a seguir, appID e uma senha são usados para executar operações de plano de controle para sincronização para réplicas somente leitura e escala vertical/horizontal:
 
@@ -108,6 +108,6 @@ tbl.RequestRefresh(RefreshType.Full);
 db.Model.SaveChanges();
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Entrar com o Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
 [Adicionar uma entidade de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)   

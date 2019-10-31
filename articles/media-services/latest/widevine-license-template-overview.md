@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: c6fc363a7ab9de215647e371a9d3c846f8688bd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30e5daba56bb371aafa6d2636a0a9f641977e6fa
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466316"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162556"
 ---
 # <a name="widevine-license-template-overview"></a>Visão geral do modelo de licença do Widevine 
 
@@ -54,18 +54,18 @@ A solicitação de licença do Widevine é formatada como uma mensagem JSON.
           "renewal_server_url":"<renewal server url>",
           "renewal_delay_seconds":<renewal delay>,
           "renewal_retry_interval_seconds":<renewal retry interval>,
-          "renew_with_usage”:<renew with usage>
+          "renew_with_usage":<renew with usage>
        }
     }
 
 ## <a name="json-message"></a>Mensagem JSON
 
-| NOME | Value | DESCRIÇÃO |
+| name | Value | Descrição |
 | --- | --- | --- |
 | payload |Cadeia de caracteres codificada em Base64 |A solicitação de licença enviada por um cliente. |
 | content_id |Cadeia de caracteres codificada em Base64 |Identificador usado para gerar a(s) ID(s) de chave e chaves de conteúdo para cada content_key_specs.track_type. |
-| provider |cadeia de caracteres |Usado para pesquisar as políticas e chaves de conteúdo. Se a distribuição de chaves da Microsoft é usada para entrega de licença do Widevine, esse parâmetro é ignorado. |
-| policy_name |cadeia de caracteres |Nome de uma política registrada anteriormente. Opcional. |
+| provider |string |Usado para pesquisar as políticas e chaves de conteúdo. Se a distribuição de chaves da Microsoft é usada para entrega de licença do Widevine, esse parâmetro é ignorado. |
+| policy_name |string |Nome de uma política registrada anteriormente. Opcional. |
 | allowed_track_types |enum |SD_ONLY ou SD_HD. Controla quais chaves de conteúdo são incluídas em uma licença. |
 | content_key_specs |Matriz de estruturas JSON, confira a seção “Especificações de chave de conteúdo”.  |Um controle mais refinado sobre quais chaves de conteúdo retornar. Para obter mais informações, consulte a seção "Especificações de chave de conteúdo". Apenas um dos valores allowed_track_types e content_key_specs pode ser especificado. |
 | use_policy_overrides_exclusively |Booliano, true ou false |Use os atributos de política especificados por policy_overrides e omita todas as políticas armazenadas anteriormente. |
@@ -74,20 +74,20 @@ A solicitação de licença do Widevine é formatada como uma mensagem JSON.
 | parse_only |Booliano, true ou false |A solicitação de licença é analisada, mas nenhuma licença é emitida. No entanto, os valores da solicitação de licença retornam na resposta. |
 
 ## <a name="content-key-specs"></a>Especificações de chave de conteúdo
-Se existir uma política pré-existente, não será necessário especificar nenhum dos valores na especificação da chave de conteúdo. A política pré-existente associada a esse conteúdo é usada para determinar a proteção HDCP e o CGMS. Se uma política pré-existente não estiver registrada no servidor de licenças Widevine, o provedor de conteúdo poderá injetar os valores na solicitação de licença.   
+Se houver uma política pré-existente, não será necessário especificar nenhum dos valores na especificação de chave de conteúdo. A política pré-existente associada a esse conteúdo é usada para determinar a proteção de saída, como o Proteção de Conteúdo Digital de alta largura de banda (HDCP) e o sistema de gerenciamento geral de cópia (CGMS). Se uma política pré-existente não estiver registrada no servidor de licenças Widevine, o provedor de conteúdo poderá injetar os valores na solicitação de licença.   
 
 Cada valor content_key_specs deve ser especificado para todos os controles, independentemente da opção use_policy_overrides_exclusively. 
 
-| NOME | Value | DESCRIÇÃO |
+| name | Value | Descrição |
 | --- | --- | --- |
-| content_key_specs. track_type |cadeia de caracteres |Um nome de tipo de controle. Se content_key_specs for especificado na solicitação de licença, especifique de forma explícita todos os tipos de controle. Se você não fizer isso, haverá uma falha de reprodução após 10 segundos. |
+| content_key_specs. track_type |string |Um nome de tipo de controle. Se content_key_specs for especificado na solicitação de licença, especifique de forma explícita todos os tipos de controle. Se você não fizer isso, haverá uma falha de reprodução após 10 segundos. |
 | content_key_specs  <br/> security_level |uint32 |Define os requisitos de robustez de reprodução do cliente. <br/> - É necessário aplicar a criptografia whitebox baseada em software. <br/> - É necessário aplicar a criptografia de software e um decodificador ofuscado. <br/> - As principais operações de criptografia e de materiais devem ser executadas em um ambiente de execução confiável com suporte de hardware. <br/> - A criptografia e decodificação do conteúdo devem ser executadas em um ambiente de execução confiável com suporte de hardware.  <br/> - A criptografia, decodificação e qualquer manipulação da mídia (compactada e descompactada) devem ser tratadas em um ambiente de execução confiável com suporte de hardware. |
 | content_key_specs <br/> required_output_protection.hdc |cadeia de caracteres, uma de HDCP_NONE, HDCP_V1, HDCP_V2 |Indica se HDCP é necessário. |
-| content_key_specs <br/>chave |Base64-<br/>Base64 |Chave de conteúdo a ser usada para este controle. Se for especificado, o track_type ou a key_id será obrigatório. O provedor de conteúdo pode usar essa opção para insirir a chave de conteúdo para este controle em vez de deixar o servidor de licença do Widevine gerar ou procurar uma chave. |
+| content_key_specs <br/>chave |Base64-<br/>Base64 |Chave de conteúdo a ser usada para esta faixa. Se especificado, o track_type ou Key_ID é necessário. O provedor de conteúdo pode usar essa opção para insirir a chave de conteúdo para este controle em vez de deixar o servidor de licença do Widevine gerar ou procurar uma chave. |
 | content_key_specs.key_id |Binário de cadeia de caracteres codificada em Base64, 16 bytes |Identificador exclusivo para a chave. |
 
 ## <a name="policy-overrides"></a>Substituições de política
-| NOME | Value | DESCRIÇÃO |
+| name | Value | Descrição |
 | --- | --- | --- |
 | policy_overrides&#46;can_play |Booliano, true ou false |Indica que a reprodução do conteúdo é permitida. O padrão é falso. |
 | policy_overrides&#46;can_persist |Booliano, true ou false |Indica que a licença pode ser persistente para o armazenamento não volátil para uso offline. O padrão é falso. |
@@ -95,14 +95,14 @@ Cada valor content_key_specs deve ser especificado para todos os controles, inde
 | policy_overrides&#46;license_duration_seconds |int64 |Indica o período para esta licença específica. Um valor 0 indica que não há qualquer limite para a duração. O padrão é 0. |
 | policy_overrides&#46;rental_duration_seconds |int64 |Indica o período em que a reprodução é permitida. Um valor 0 indica que não há qualquer limite para a duração. O padrão é 0. |
 | policy_overrides&#46;playback_duration_seconds |int64 |O período de exibição após o início da reprodução dentro da duração da licença. Um valor 0 indica que não há qualquer limite para a duração. O padrão é 0. |
-| policy_overrides&#46;renewal_server_url |cadeia de caracteres |Todas as solicitações (renovação) de pulsação dessa licença são direcionadas para a URL especificada. Este campo só será usado se can_renew for true. |
+| policy_overrides&#46;renewal_server_url |string |Todas as solicitações (renovação) de pulsação dessa licença são direcionadas para a URL especificada. Este campo só será usado se can_renew for true. |
 | policy_overrides&#46;renewal_delay_seconds |int64 |O número de segundos após license_start_time antes da primeira tentativa de renovação. Este campo só será usado se can_renew for true. O padrão é 0. |
 | policy_overrides&#46;renewal_retry_interval_seconds |int64 |Especifica o atraso em segundos entre as solicitações de renovação da licença subsequentes, em caso de falha. Este campo só será usado se can_renew for true. |
 | policy_overrides&#46;renewal_recovery_duration_seconds |int64 |O período durante o qual a reprodução pode continuar enquanto ocorre a tentativa de renovação, porém sem êxito devido a problemas de back-end com o servidor de licença. Um valor 0 indica que não há qualquer limite para a duração. Este campo só será usado se can_renew for true. |
 | policy_overrides&#46;renew_with_usage |Booliano, true ou false |Indica que a licença é enviada para renovação quando o uso inicia. Este campo só será usado se can_renew for true. |
 
 ## <a name="session-initialization"></a>Inicialização da sessão
-| NOME | Value | DESCRIÇÃO |
+| name | Value | Descrição |
 | --- | --- | --- |
 | provider_session_token |Cadeia de caracteres codificada em Base64 |Este token de sessão é repassado na licença e continuará a existir em renovações subsequentes. O token de sessão não persiste além das sessões. |
 | provider_client_token |Cadeia de caracteres codificada em Base64 |Token de cliente para envio na resposta da licença. Se a solicitação de licença contiver um token de cliente, esse valor será ignorado. O token do cliente persiste além das sessões da licença. |
@@ -203,6 +203,6 @@ private static ContentKeyPolicyWidevineConfiguration ConfigureWidevineLicenseTem
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Confira como [proteger com DRM](protect-with-drm.md)

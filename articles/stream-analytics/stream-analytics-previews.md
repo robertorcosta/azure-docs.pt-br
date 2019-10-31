@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 587304968cdf3a3763e47b9f8b614fe67aebf534
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 10/30/2019
+ms.openlocfilehash: df3e8c1cd91c676c64d15c46c5acdc3d5bcfaa8e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798045"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161364"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Recursos de visualização do Azure Stream Analytics
 
@@ -23,28 +23,52 @@ Este artigo resume todos os recursos atualmente em visualização do Azure Strea
 
 Os seguintes recursos estão em pré-visualização pública. Você pode aproveitar esses recursos hoje, mas não os use em seu ambiente de produção.
 
-### <a name="one-click-integration-with-event-hubs"></a>Integração com Hubs de eventos em um único clique 
-Com essa integração, você agora poderá visualizar os dados de entrada e começar a escrever uma consulta do Stream Analytics com um clique do portal do Hub de eventos. Quando sua consulta estiver pronta, você poderá experimentamos-la em apenas alguns cliques e começar a obter insights em tempo real. Isso reduzirá significativamente o tempo e o custo de desenvolver soluções de análise em tempo real. A documentação está disponível [aqui](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics).
+### <a name="online-scaling"></a>Dimensionamento online
+
+Com o dimensionamento online, não é necessário interromper seu trabalho se você precisar alterar a alocação de SU. Você pode aumentar ou diminuir a capacidade de SU de um trabalho em execução sem precisar interrompê-lo. Isso se baseia na promessa do cliente de pipelines de missão crítica de longa execução que Stream Analytics oferece hoje. Para obter mais informações, consulte [configurar Azure Stream Analytics unidades de streaming](stream-analytics-streaming-unit-consumption.md#configure-stream-analytics-streaming-units-sus).
+
+### <a name="c-custom-de-serializers"></a>C#desserializadores personalizados
+Os desenvolvedores podem aproveitar o poder do Azure Stream Analytics para processar dados em Protobuf, XML ou qualquer formato personalizado. Você pode implementar [desserializadores personalizados](custom-deserializer-examples.md) no C#, que podem ser usados para desserializar eventos recebidos por Azure Stream Analytics.
+
+### <a name="extensibility-with-c-custom-code"></a>Extensibilidade com C# código personalizado
+
+Os desenvolvedores que criam Stream Analytics módulos na nuvem ou em IoT Edge podem gravar ou reutilizar funções personalizadas C# e chamá-las diretamente na consulta por meio de [funções definidas pelo usuário](stream-analytics-edge-csharp-udf-methods.md).
+
+### <a name="managed-identity-authentication-with-power-bi"></a>Autenticação de identidade gerenciada com Power BI
+
+O Azure Stream Analytics oferece suporte completo à autenticação baseada em identidade gerenciada com Power BI para uma experiência de painel dinâmico.
+
+### <a name="anomaly-detection"></a>Detecção de Anomalias
+
+Azure Stream Analytics os modelos de aprendizado de máquina têm suporte para detecção de *pico* e *DIPs* , além de detecção bidirecional, positiva lenta e baixa de tendências negativas. Para obter mais informações, visite [detecção de anomalias em Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
+
+### <a name="debug-query-steps-in-visual-studio"></a>Depurar etapas de consulta no Visual Studio
+
+Você pode visualizar facilmente o conjunto de linhas intermediários em um diagrama de dados ao fazer testes locais no Azure Stream Analytics Tools para Visual Studio. 
+
+### <a name="local-testing-with-live-data-in-visual-studio-code"></a>Teste local com dados dinâmicos no Visual Studio Code
+
+Você pode testar suas consultas em dados dinâmicos em seu computador local antes de enviar o trabalho para o Azure. Cada iteração de teste leva menos de dois a três segundos em média, resultando em um processo de desenvolvimento muito eficiente.
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code para Azure Stream Analytics
 
-Os trabalhos do Azure Stream Analytics podem ser criados no Visual Studio Code. Consulte nosso [VS Code tutorial de Introdução](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
+Os trabalhos do Azure Stream Analytics podem ser criados no Visual Studio Code. Veja nosso [tutorial de introdução ao vs Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
 
-### <a name="anomaly-detection"></a>Detecção de anomalias
 
-O Azure Stream Analytics apresenta novos modelos de aprendizado de máquina com suporte para a detecção de *spike* e *dips*, além da detecção de tendências negativas bidirecionais, lentas positivas e lentas. Para obter mais informações, visite [detecção de anomalias no Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
+### <a name="anomaly-detection"></a>Detecção de Anomalias
+
+O Azure Stream Analytics apresenta novos modelos de aprendizado de máquina com suporte para a detecção de *spike* e *dips*, além da detecção de tendências negativas bidirecionais, lentas positivas e lentas. Para obter mais informações, visite [detecção de anomalias em Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
+
 
 ### <a name="integration-with-azure-machine-learning"></a>Integração com o Azure Machine Learning
 
 Você pode dimensionar os trabalhos do Stream Analytics com as funções de Aprendizado de Máquina (ML). Para saber mais sobre como usar as funções do ML em seu trabalho do Stream Analytics, visite [Dimensionar seu trabalho do Stream Analytics com as funções do Azure Machine Learning](stream-analytics-scale-with-machine-learning-functions.md). Confira um cenário do mundo real com [Realizando análise de sentimentos usando o Azure Stream Analytics e o Aprendizado de Máquina do Azure](stream-analytics-machine-learning-integration-tutorial.md).
 
-### <a name="javascript-user-defined-aggregate"></a>Agregado definido pelo usuário de JavaScript
-
-O Azure Stream Analytics oferece suporte a agregados definidos pelo usuário (UDA) escritos em JavaScript, que permitem implementar lógica de negócios com informações de estado complexas. Aprenda a usar UDAs da documentação [agregados definidos pelo usuário do JavaScript do Azure Stream Analytics](stream-analytics-javascript-user-defined-aggregates.md). 
 
 ### <a name="live-data-testing-in-visual-studio"></a>Em tempo real de dados de teste no Visual Studio
 
 As ferramentas do Visual Studio para o Azure Stream Analytics aprimoram o recurso de teste local que permite testar suas consultas em fluxos de eventos ao vivo de fontes de nuvem, como Hub de Eventos ou Hub de IoT. Saiba como [Testar dados ao vivo localmente usando as ferramentas do Azure Stream Analytics para o Visual Studio](stream-analytics-live-data-local-testing.md).
+
 
 ### <a name="net-user-defined-functions-on-iot-edge"></a>Funções definidas pelo usuário .NET no IoT Edge
 
@@ -52,13 +76,12 @@ Com as funções definidas pelo usuário padrão do .NET, você pode executar o 
 
 ## <a name="other-previews"></a>Outras visualizações
 
-Os recursos a seguir também estão disponíveis na versão prévia na solicitação.
+Os recursos a seguir também estão disponíveis em visualização na solicitação.
 
-### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge-and-cloud"></a>C#desserializador personalizado para o Azure Stream Analytics no IoT Edge e nuvem
+### <a name="real-time-high-performance-scoring-with-custom-ml-models-managed-by-azure-machine-learning"></a>Pontuação de alto desempenho em tempo real com modelos de ML personalizados gerenciados por Azure Machine Learning
 
-Os desenvolvedores podem implementar desserializadores personalizados no C# para desserializar os eventos recebidos pelo Azure Stream Analytics. Exemplos de formatos que podem ser desserializados incluem Parquet, Protobuf, XML ou qualquer formato binário. Inscreva-se para essa versão prévia [aqui](https://aka.ms/asapreview1).
+O Azure Stream Analytics dá suporte a pontuação em tempo real de alto desempenho, aproveitando modelos de Machine Learning pré-treinados personalizados gerenciados por Azure Machine Learning e hospedados no AKS (serviço kubernetes do Azure) ou ACI (instâncias de contêiner do Azure), usando um fluxo de trabalho Isso não exige que você escreva código. [Inscrever-se](https://aka.ms/asapreview1) para visualização
 
-### <a name="support-for-azure-stack"></a>Suporte para o Azure Stack
-Esse recurso seja habilitado no tempo de execução do Azure IoT Edge aproveita os recursos do Azure Stack personalizados, como o suporte nativo para entradas locais e gera em execução no Azure Stack (por exemplo, os Hubs de eventos, IoT Hub, o armazenamento de BLOBs). Essa nova integração permite que você crie arquiteturas híbridas que podem analisar seus dados perto de onde ele foi gerado, reduzindo a latência e maximizar a insights.
-Inscreva-se para essa versão prévia [aqui](https://aka.ms/asapreview1).
-
+### <a name="support-for-azure-stack"></a>Suporte para Azure Stack
+Esse recurso habilitado no tempo de execução de Azure IoT Edge, aproveita os recursos de Azure Stack personalizados, como suporte nativo para entradas locais e saídas em execução em Azure Stack (por exemplo, hubs de eventos, Hub IoT, armazenamento de BLOBs). Essa nova integração permite que você crie arquiteturas híbridas que podem analisar seus dados perto de onde são gerados, reduzindo a latência e maximizando as informações.
+Esse recurso permite que você crie arquiteturas híbridas que podem analisar seus dados perto de onde são gerados, reduzindo a latência e maximizando as informações. Você deve [se inscrever](https://aka.ms/asapreview1) para esta versão prévia.

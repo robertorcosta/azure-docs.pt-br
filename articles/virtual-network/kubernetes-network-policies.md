@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: ff6fd45e0a68a3e93e4c62eb31a566a6dffa2344
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 5a6da7e65a9a3e962a2df37b062792fbb990d04d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494942"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159687"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Visão geral das políticas de rede do Kubernetes do Azure
 
@@ -51,7 +51,7 @@ A configuração de exemplo JSON abaixo cria uma rede virtual e uma sub-rede, e 
   "properties": {
     "orchestratorProfile": {
       "orchestratorType": "Kubernetes",
-      “kubernetesConfig”: {
+      "kubernetesConfig": {
          "networkPolicy": "azure"
        }
     },
@@ -87,7 +87,7 @@ A configuração de exemplo JSON abaixo cria uma rede virtual e uma sub-rede, e 
 
 ```
 ### <a name="creating-your-own-kubernetes-cluster-in-azure"></a>Criar seu próprio cluster Kubernetes no Azure
-A implementação pode ser usada para fornecer políticas de rede para Pods em clusters Kubernetes que você implantou por conta própria, sem contar com ferramentas como o ACS-Engine. Nesse caso, instale primeiro o plug-in do CNI e habilite-o em todas as máquinas virtuais em um cluster. Para ver instruções detalhadas, consulte [Implantar o plug-in para um cluster Kubernetes que você implantou por conta própria](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
+A implementação pode ser usada para fornecer políticas de rede para Pods em clusters Kubernetes que você implantou por conta própria, sem contar com ferramentas como o ACS-Engine. Nesse caso, instale primeiro o plug-in do CNI e habilite-o em todas as máquinas virtuais em um cluster. Para ver instruções detalhadas, confira [Implantar o plug-in em um cluster Kubernetes que você implanta por conta própria](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 
 Depois que o cluster for implantado, execute o seguinte comando `kubectl` para baixar e aplicar a política de rede do Azure *daemonset* ao cluster.
 
@@ -99,7 +99,7 @@ A solução também é um software livre e o código está disponível no [repos
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [Serviço de Kubernetes do Azure](../aks/intro-kubernetes.md).
 -  Saiba mais sobre [redes de contêiner](container-networking-overview.md).
 - [Implante o plug-in](deploy-container-networking.md) para clusters Kubernetes ou contêineres do Docker.

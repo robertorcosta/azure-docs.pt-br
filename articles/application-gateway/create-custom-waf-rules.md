@@ -7,16 +7,16 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8cf82ce9ed4a9dc701c016f15224d6adfa299736
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 95303ba51fd4133fc6e05be16d6448c8699c3a43
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263594"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162088"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>Criar e usar regras personalizadas do firewall do aplicativo Web v2
 
-O WAF (firewall do aplicativo Web) do gateway Aplicativo Azure v2 fornece proteção para aplicativos Web. Essa proteção é fornecida pelo conjunto de regras principais do OWASP (projeto de segurança de aplicativo Web aberto). Em alguns casos, talvez seja necessário criar suas próprias regras personalizadas para atender às suas necessidades específicas. Para obter mais informações sobre regras personalizadas do WAF, consulte [Overview: Regras personalizadas de firewall do aplicativo Web @ no__t-0.
+O WAF (firewall do aplicativo Web) do gateway Aplicativo Azure v2 fornece proteção para aplicativos Web. Essa proteção é fornecida pelo conjunto de regras principais do OWASP (projeto de segurança de aplicativo Web aberto). Em alguns casos, talvez seja necessário criar suas próprias regras personalizadas para atender às suas necessidades específicas. Para obter mais informações sobre regras personalizadas do WAF, consulte [visão geral: regras personalizadas de firewall do aplicativo Web](custom-waf-rules-overview.md).
 
 Este artigo mostra alguns exemplos de regras personalizadas que você pode criar e usar com o WAF v2. Para saber como implantar o WAF com uma regra personalizada usando Azure PowerShell, consulte [configurar regras personalizadas do firewall do aplicativo Web usando Azure PowerShell](configure-waf-custom-rules.md).
 
@@ -369,7 +369,7 @@ Este é o código JSON correspondente:
       {
         "name": "myrule4",
         "ruleType": "MatchRule",
-        “priority”: 100
+        "priority": 100,
         "action": "block",
         "matchConditions": [
           {
@@ -495,7 +495,7 @@ Este é o código JSON correspondente:
   }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de criar suas regras personalizadas, você pode aprender a exibir seus logs do WAF. Para obter mais informações, consulte [Diagnósticos do Gateway de Aplicativo](application-gateway-diagnostics.md#diagnostic-logging).
 

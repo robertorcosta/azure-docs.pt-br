@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 2e286854b9a38c1189ff85307f3e29454be46fb9
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 3877648723a8866ec7d9c5f1987ae3a276114d5e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898728"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152047"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Perguntas frequentes sobre o Catálogo de Dados do Azure
 Este artigo apresenta respostas para perguntas frequentes relacionadas ao serviço de Catálogo de Dados do Azure.
@@ -25,20 +25,20 @@ O Catálogo de Dados enfrenta o desafio de descoberta de fonte de dados e os "da
 ## <a name="what-are-its-target-audiences"></a>Quais são seus públicos-alvo?
 O Catálogo de Dados é desenvolvido para usuários técnicos e não técnicos, incluindo:
 
-* Desenvolvedores de dados e profissionais de BI e de análise: Pessoas responsáveis por produzir conteúdo de dados e análises para que outras pessoas consumam.
-* Administradores de dados: Pessoas que têm o conhecimento sobre os dados, o que isso significa e como eles devem ser usados.
-* Consumidores de dados: As pessoas que precisam ser capazes de descobrir, entender e conectar-se facilmente aos dados de que precisam para realizar seu trabalho, usando a ferramenta de sua escolha.
-* TI central: As pessoas que precisam tornar centenas de fontes de dados detectáveis por usuários empresariais e que precisam manter a supervisão sobre como os dados estão sendo usados e por quem.
+* Desenvolvedores de dados e profissionais de BI e análises: pessoas responsáveis por produzir dados e conteúdo de análises para outras pessoas consumirem.
+* Administradores de dados: pessoas que têm conhecimento sobre os dados, o que eles significam e como devem ser usado.
+* Consumidores de dados: pessoas que precisam ser capazes de descobrir, entender e conectar-se aos dados necessários com facilidade para fazerem seu trabalho usando a ferramenta de sua preferência.
+* TI central: pessoas que precisam tornar centenas de fontes de dados detectáveis por usuários de negócios e que precisam supervisionar a maneira como os dados estão sendo usados e por quem.
 
 ## <a name="what-is-its-availability-by-region"></a>Qual é a disponibilidade por região?
 No momento, os serviços de Catálogo de Dados estão disponíveis nos seguintes datacenters:
 
 * Oeste dos EUA
-* East US
-* Europa Ocidental
+* Leste dos EUA
+* Oeste da Europa
 * Europa Setentrional
-* Leste da Austrália
-* Sudeste da Ásia
+* Austrália Oriental
+* Sudeste Asiático
 
 ## <a name="what-are-its-limits-on-the-number-of-data-assets"></a>Quais são os limites ao número de ativos de dados?
 A Edição Gratuita do Catálogo de Dados está limitada a 5 mil ativos de dados registrados.
@@ -87,7 +87,7 @@ As propriedades específicas diferem de uma fonte de dados para outra, porém, e
 >
 
 > [!NOTE]
-> Para fontes de dados como SQL Server Analysis Services que têm uma propriedade **Description** de primeira classe, a ferramenta de registro de fonte de dados do Catálogo de Dados extrai esse valor da propriedade. Para bancos de dados relacionais do SQL Server, que não têm uma propriedade **Description** de primeira classe, a ferramente de registro de fonte de dados do Catálogo de Dados extrai o valor da propriedade estendida **ms_description** para objetos e colunas. Para saber mais, confira [Como usar propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Para fontes de dados como SQL Server Analysis Services que têm uma propriedade **Description** de primeira classe, a ferramenta de registro de fonte de dados do Catálogo de Dados extrai esse valor da propriedade. Para bancos de dados relacionais SQL Server *locais* que não têm uma propriedade de **Descrição** de primeira classe, a ferramenta de registro de fonte de dados do catálogo de dados extrai o valor da propriedade estendida **MS_Description** para objetos e colunas. Para saber mais, confira [Como usar propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 

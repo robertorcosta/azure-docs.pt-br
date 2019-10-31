@@ -4,15 +4,15 @@ description: Um gateway local será necessário se o servidor do Analysis Servic
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8d9df32070ff252dff791650788888d1d9a6ce84
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 35ffc7f3c97ca7ab14f94c3607560ffb6ea0b399
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294945"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146856"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conectando-se a fontes de dados locais com o gateway de dados local
 
@@ -31,7 +31,7 @@ Por Azure Analysis Services, obter a configuração com o gateway na primeira ve
 ## <a name="how-it-works"> </a>Como funciona
 O gateway que você instala em um computador de sua organização é executado como um serviço Windows, o **Gateway de dados local**. Esse serviço local é registrado no Serviço de Nuvem do Gateway por meio do Barramento de Serviço do Azure. Em seguida, você cria um recurso de gateway de dados local para sua assinatura do Azure. Seus servidores de Azure Analysis Services são então conectados ao recurso de gateway do Azure. Quando modelos em seu servidor precisarem se conectar às fontes de dados locais para consultas ou processamento, um fluxo de dados e consultas atravessará o recurso de gateway, o Barramento de Serviço do Azure, o serviço de gateway de dados local e suas fontes de dados. 
 
-![Como ele funciona](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
+![Como funciona](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
 Fluxo de dados e consultas:
 
@@ -50,11 +50,11 @@ Ao instalar o para um ambiente de Azure Analysis Services, é importante seguir 
 
 O gateway cria uma conexão de saída para o Barramento de Serviço do Azure. Ele se comunica nas portas de saída: TCP 443 (padrão), 5671, 5672, 9350 a 9354.  O gateway não exige portas de entrada.
 
-Talvez seja necessário colocar os endereços IP da lista de permissões em sua região de dados em seu firewall. Baixe a [lista de IPs de Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). A lista é atualizada semanalmente. Os Endereços IP listados na lista de IP de Datacenter do Azure estão em notação CIDR. Para saber mais, consulte [Roteamento entre Domínios sem Classificação](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Talvez seja necessário incluir endereços IP para sua região de dados em seu firewall. Baixe a [lista de IPs de Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). A lista é atualizada semanalmente. Os Endereços IP listados na lista de IP de Datacenter do Azure estão em notação CIDR. Para saber mais, consulte [Roteamento entre Domínios sem Classificação](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Estes são os nomes de domínio totalmente qualificados usados pelo Gateway.
 
-| Nomes de domínio | Portas de saída | DESCRIÇÃO |
+| Nomes de domínio | Portas de saída | Descrição |
 | --- | --- | --- |
 | *.powerbi.com |80 |HTTP usado para baixar o instalador. |
 | *.powerbi.com |443 |HTTPS |
@@ -79,7 +79,7 @@ Você pode forçar o gateway para se comunicar com o Barramento de Serviço do A
 </setting>
 ```
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>Próximos passos 
 
 Os artigos a seguir estão incluídos no conteúdo geral do gateway de dados local que se aplica a todos os serviços aos quais o gateway dá suporte:
 

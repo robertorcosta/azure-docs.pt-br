@@ -13,29 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2019
+ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9ed2d00d6f229d958e0df024c70381051840548c
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7ad7a29a92d25556190b4cf44f4e48158a6f0952
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726995"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162753"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Visão geral de gerenciamento e monitoramento de segurança do Azure
 Este artigo fornece uma visão geral dos recursos de segurança e serviços que o Azure fornece para auxiliar no gerenciamento e no monitoramento de serviços de nuvem e máquinas virtuais do Azure.
-
-## <a name="shared-responsibility"></a>Responsabilidade compartilhada
-
-A segurança de seus serviços em nuvem da Microsoft é uma parceria e uma responsabilidade compartilhada entre você e a Microsoft. A Microsoft é responsável pela plataforma do Azure e pela segurança física de seus data centers (com o uso de proteções de segurança, como portas de entrada bloqueadas com acesso por crachá, grades e vigilância). O Azure fornece fortes níveis de segurança de nuvem na camada de software que atendem às necessidades de segurança, privacidade e conformidade de seus clientes.
-
-Você é o proprietário de seus dados e identidades, tem a responsabilidade de protegê-los, além de ser responsável pela segurança de seus recursos locais e dos componentes de nuvem que estão sob seu controle. A Microsoft fornece controles de segurança e funcionalidades para ajudá-lo a proteger seus dados e aplicativos. Seu grau de responsabilidade pela segurança se baseia no tipo de serviço de nuvem.
-
-A tabela a seguir resume a proporção de responsabilidade assumida entre a Microsoft e o cliente.
-
-![Responsabilidade compartilhada](./media/management-monitoring-overview/shared-responsibility.png)
-
-Para obter mais informações sobre gerenciamento de segurança, consulte [Gerenciamento de segurança no Azure](management.md).
 
 ## <a name="role-based-access-control"></a>Controle de Acesso Baseado em Função
 
@@ -112,7 +100,7 @@ Saiba mais:
 * [Gerenciamento de identidades com privilégios do AD do Azure](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Introdução ao Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md)
 
-## <a name="identity-protection"></a>Identity Protection
+## <a name="identity-protection"></a>Proteção de identidade
 
 O Azure Active Directory Identity Protection fornece uma exibição consolidada das atividades de entrada suspeitas e das vulnerabilidades potenciais, com o objetivo de ajudar a proteger seus negócios. A Proteção de Identidade detecta atividades suspeitas para usuários e identidades com privilégios (administrador), com base em sinais como:
 
@@ -125,7 +113,7 @@ Ao fornecer notificações e correções recomendadas, o Identity Protection aju
 Saiba mais:
 
 * [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection)
-* [Canal 9: Azure AD e Identity Show: Versão Prévia do Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [Canal 9: Azure AD e Identity Show: visualização do Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Central de Segurança
 
@@ -146,7 +134,11 @@ Saiba mais:
 
 ## <a name="intelligent-security-graph"></a>Gráfico de Segurança Inteligente
 
-O Gráfico de Segurança Inteligente fornece proteção contra ameaças em tempo real nos serviços e produtos da Microsoft. Ele usa análises avançadas que vinculam uma grande quantidade de dados de segurança e inteligência de ameaça para fornecer insights que podem reforçar a segurança da organização. A Microsoft usa análises avançadas, processando mais de 450 bilhões de autenticações por mês, verificando a presença de malware e phishing em 400 bilhões de emails e atualizando um bilhão de dispositivos, para gerar insights mais avançados. Esses insights podem ajudar sua organização detectar e responder a ataques rapidamente.
+O Gráfico de Segurança Inteligente fornece proteção contra ameaças em tempo real nos serviços e produtos da Microsoft. Ele usa análises avançadas que vinculam uma grande quantidade de dados de segurança e inteligência de ameaça para fornecer insights que podem reforçar a segurança da organização. A Microsoft usa análises avançadas, processando mais de 450 bilhões de autenticações por mês, verificando a presença de malware e phishing em 400 bilhões de emails e atualizando um bilhão de dispositivos, para gerar insights mais avançados. Com esses insights, sua organização pode detectar e responder a ataques rapidamente.
 
 * [Gráfico de Segurança Inteligente](https://www.microsoft.com/security/intelligence)
 
+## <a name="next-steps"></a>Próximas etapas
+Saiba mais sobre o [modelo de responsabilidade compartilhada](shared-responsibility.md) e quais tarefas de segurança são tratadas pela Microsoft e quais tarefas são tratadas por você.
+
+Para obter mais informações sobre gerenciamento de segurança, consulte [Gerenciamento de segurança no Azure](management.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Configurar conexões VPN site a site e de ExpressRoute - coexistir: clássico: Azure | Microsoft Docs'
+title: 'Configurar conexões VPN site a site e de ExpressRoute – Coexist: clássico: Azure | Microsoft Docs'
 description: Este artigo o orienta na configuração do ExpressRoute e de uma conexão VPN Site a Site que pode coexistir para o modelo de implantação clássico.
 documentationcenter: na
 services: expressroute
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 70e7c689acac094890545ac1e65374e9377a0be0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8eb1d7da9c588aedaedb37dc50c69970fe79ac2
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370384"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162721"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurar as conexões coexistentes do ExpressRoute e do Site a Site (clássico)
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Este artigo descreve como configurar as conexões VPN site a site e de ExpressRo
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 > [!IMPORTANT]
-> Os circuitos de ExpressRoute devem ser previamente configurados antes de você seguir as instruções abaixo. Verifique se você seguiu as guias para [criar um circuito de ExpressRoute](expressroute-howto-circuit-classic.md) e [configurar o roteamento](expressroute-howto-routing-classic.md) antes de seguir as etapas abaixo.
+> Os circuitos do ExpressRoute devem ser previamente configurados antes de você seguir as instruções abaixo. Verifique se você seguiu as guias para [criar um circuito de ExpressRoute](expressroute-howto-circuit-classic.md) e [configurar o roteamento](expressroute-howto-routing-classic.md) antes de seguir as etapas abaixo.
 > 
 > 
 
@@ -74,14 +74,14 @@ Há dois conjuntos de procedimentos diferentes para configurar as conexões de m
     Se você ainda não tiver uma rede virtual, esse procedimento explicará isso criando uma nova rede virtual usando o modelo de implantação clássico e criando novas conexões de VPN Site a Site e de ExpressRoute. Para configurar, siga as etapas na seção do artigo [Para criar uma nova rede virtual e conexões coexistentes](#new).
 * Eu já tenho uma VNet do modelo de implantação clássico
   
-    Talvez você já tenha uma rede virtual implementada com uma conexão de VPN Site a Site ou uma conexão de ExpressRoute existente. A seção do artigo [Para configurar conexões coexistentes para uma VNet já existente](#add) explica como excluir o gateway e criar novas conexões de VPN Site a Site e de ExpressRoute. Observe que, ao criar novas conexões, as etapas devem ser concluídas em uma ordem muito específica. Não use as instruções de outros artigos para criar seus gateways e conexões.
+    Talvez você já tenha uma rede virtual implementada com uma conexão de VPN Site a Site ou uma conexão do ExpressRoute existente. A seção do artigo [Para configurar conexões coexistentes para uma VNet já existente](#add) explica como excluir o gateway e criar novas conexões de VPN Site a Site e de ExpressRoute. Observe que, ao criar novas conexões, as etapas devem ser concluídas em uma ordem muito específica. Não use as instruções de outros artigos para criar seus gateways e conexões.
   
     Neste procedimento, a criação de conexões que possam coexistir exigirá que você exclua seu gateway e então configure novos gateways. Isso significa que haverá tempo de inatividade nas suas conexões entre locais durante o processo de exclusão e recriação de seu gateway e conexões, mas você não precisará migrar nenhuma das suas VMs ou serviços para uma nova rede virtual. Suas VMs e serviços ainda poderão se comunicar por meio do balanceador de carga enquanto você configura o seu gateway, se estiverem configurados para fazer isso.
 
 ## <a name="new"></a>Para criar uma nova rede virtual e conexões coexistentes
 Este procedimento orientará você na criação de uma Rede Virtual, bem como na criação das conexões site a site e de ExpressRoute que coexistirão.
 
-1. Você precisará instalar a versão mais recente dos cmdlets do Azure PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para saber mais sobre como instalar os cmdlets do PowerShell. Observe que os cmdlets que você usará para essa configuração podem ser ligeiramente diferentes daqueles com os quais você talvez esteja familiarizado. Certifique-se de usar os cmdlets especificados nestas instruções. 
+1. Você precisará instalar a versão mais recente dos cmdlets do Azure PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações sobre como instalar os cmdlets do PowerShell. Observe que os cmdlets que você usará para essa configuração podem ser ligeiramente diferentes daqueles com os quais você talvez esteja familiarizado. Certifique-se de usar os cmdlets especificados nestas instruções. 
 2. Crie um esquema para a sua rede virtual. Para saber mais sobre o esquema de configuração, confira [Esquema de configuração de Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
    
     Quando criar seu esquema, certifique-se de usar os seguintes valores:
@@ -114,7 +114,7 @@ Este procedimento orientará você na criação de uma Rede Virtual, bem como na
     Use o cmdlet a seguir para carregar seu arquivo, substituindo o valor existente pelo seu.
    
         Set-AzureVNetConfig -ConfigurationPath 'C:\NetworkConfig.xml'
-4. <a name="gw"></a>Crie um gateway de ExpressRoute. Especifique o Gateway SKU como *Standard*, *HighPerformance* ou *UltraPerformance* e o Tipo de Gateway como *DynamicRouting*.
+4. <a name="gw"></a>Crie um gateway do ExpressRoute. Especifique o Gateway SKU como *Standard*, *HighPerformance* ou *UltraPerformance* e o Tipo de Gateway como *DynamicRouting*.
    
     Use o exemplo a seguir, substituindo os valores existentes pelos seus.
    
@@ -187,7 +187,7 @@ Este procedimento orientará você na criação de uma Rede Virtual, bem como na
 ## <a name="add"></a>Para configurar conexões coexistentes para uma VNet já existente
 Se você tiver uma rede virtual existente, verifique o tamanho da sub-rede do gateway. Se a sub-rede do gateway é /28 ou /29, você deve primeiro excluir o gateway da rede virtual e aumentar o tamanho de sub-rede do gateway. As etapas nesta seção mostram como fazer isso.
 
-Se a sub-rede do gateway é /27 ou maior e a rede virtual está conectada vio ExpressRoute, você pode ignorar as etapas abaixo e ir para a ["Etapa 6: criar um gateway de VPN Site a Site"](#vpngw) na seção anterior.
+Se a sub-rede do gateway é /27 ou maior e a rede virtual está conectada via ExpressRoute, você pode ignorar as etapas abaixo e ir para a ["Etapa 6: criar um gateway de VPN Site a Site"](#vpngw) na seção anterior.
 
 > [!NOTE]
 > Quando você exclui o gateway existente, suas instalações locais perdem a conexão à sua rede virtual enquanto você está trabalhando nessa configuração.
@@ -200,7 +200,7 @@ Se a sub-rede do gateway é /27 ou maior e a rede virtual está conectada vio Ex
         Remove-AzureVNetGateway –VnetName MyAzureVNET
 3. Exporte o esquema da rede virtual. Use o cmdlet do PowerShell a seguir, substituindo os valores existentes pelos seus.
    
-        Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”
+        Get-AzureVNetConfig –ExportToFile "C:\NetworkConfig.xml"
 4. Edite o esquema do arquivo de configuração de rede para que a sub-rede de gateway seja /27 ou um prefixo menor (como /26 ou /25). Veja os exemplos a seguir. 
    
    > [!NOTE]
@@ -222,6 +222,6 @@ Se a sub-rede do gateway é /27 ou maior e a rede virtual está conectada vio Ex
                 </Gateway>
 6. Neste ponto, você terá uma VNet sem nenhum gateway. Para criar novos gateways e concluir suas conexões, você pode prosseguir com a [Etapa 4: criar um gateway de ExpressRoute](#gw), encontrada no conjunto de etapas anterior.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre o ExpressRoute, confira [Perguntas frequentes sobre ExpressRoute](expressroute-faqs.md)
 

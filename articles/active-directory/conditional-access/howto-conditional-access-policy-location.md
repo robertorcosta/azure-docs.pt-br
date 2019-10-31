@@ -5,27 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c782c8bb2807017053375b45560685acf78161e7
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 64b7add9ddb1734d763c46e93d6788ce21a2c321
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169980"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150884"
 ---
-# <a name="conditional-access-block-access-by-location"></a>Acesso condicional: Bloquear o acesso por local
+# <a name="conditional-access-block-access-by-location"></a>Acesso condicional: bloquear o acesso por local
 
 Com a condição de localização no acesso condicional, você pode controlar o acesso aos seus aplicativos de nuvem com base no local de rede de um usuário. A condição de localização é comumente usada para bloquear o acesso de países onde sua organização sabe que o tráfego não deveria vir do.
 
 ## <a name="define-locations"></a>Definir locais
 
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue até **Azure Active Directory** **acesso condicional** > .
+1. Navegue até **Azure Active Directory** > **acesso condicional**.
 1. Escolha **novo local**.
 1. Dê um nome ao seu local.
 1. Escolha **intervalos de IP** se você souber os intervalos de endereços IPv4 acessíveis externamente que compõem esse local ou **países/regiões**.
@@ -38,7 +38,7 @@ Mais informações sobre a condição de localização no acesso condicional pod
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de acesso condicional
 
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue até **Azure Active Directory** **acesso condicional** > .
+1. Navegue até **Azure Active Directory** > **acesso condicional**.
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
 1. Em **atribuições**, selecione **usuários e grupos**
@@ -50,11 +50,11 @@ Mais informações sobre a condição de localização no acesso condicional pod
    1. **Incluir** **locais selecionados** de seleção
    1. Selecione o local bloqueado que você criou para sua organização.
    1. Clique em **selecionar** > **concluído** > **concluído**.
-1. Em **controles de acesso**@no__t-**1 e**selecione **selecionar**.
+1. Em **controles de acesso** > **bloco**e selecione **selecionar**.
 1. Confirme suas configurações e defina **habilitar política** como **ativado**.
 1. Selecione **criar** para criar para habilitar a política.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

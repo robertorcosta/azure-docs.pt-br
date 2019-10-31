@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 0c694ffe6ccd23803fbe16001f54b7c1611635cd
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 704d6d4a12550507a8e38be4777e5abc7b57fe74
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154718"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161759"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuração e problemas de gerenciamento para Serviços de Nuvem do Azure: Perguntas frequentes (FAQs)
+# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para Serviços de Nuvem do Azure: perguntas frequentes
 
 Este artigo inclui perguntas frequentes sobre a configuração e o gerenciamento de [Serviços de Nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Você também pode consultar a [página de tamanho de VM de Serviços de Nuvem](cloud-services-sizes-specs.md) para obter informações de tamanho.
 
@@ -32,7 +32,7 @@ Este artigo inclui perguntas frequentes sobre a configuração e o gerenciamento
 - [Por que a cadeia de certificados do meu certificado SSL de serviço de nuvem está incompleta?](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
 - [Qual é a finalidade do "Certificado de Criptografia das Ferramentas do Microsoft Azure para Extensões"?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
 - [Como posso gerar uma CSR (Solicitação de Assinatura de Certificado) sem fazer "RDP" para a instância?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
-- [O certificado de gerenciamento de serviço de nuvem está vencendo. Como renová-lo?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
+- [Meu certificado de gerenciamento de serviço de nuvem está expirando. Como renová-lo?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
 - [Como automatizar a instalação do certificado SSL principal (.pfx) e do certificado intermediário (.p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
 - [Qual é a finalidade do certificado de “Gerenciamento de Serviço do Microsoft Azure para MachineKey”?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
@@ -52,7 +52,7 @@ Este artigo inclui perguntas frequentes sobre a configuração e o gerenciamento
 **Permissões**
 
 - [Os engenheiros internos da Microsoft podem tornar o desktop remoto para instâncias de serviço de nuvem sem permissão?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
-- [Não consigo tornar o desktop remoto para VM de serviço de nuvem usando o arquivo RDP. Recebo o seguinte erro: Ocorreu um erro de autenticação (Código: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
+- [Não consigo a área de trabalho remota para a VM do serviço de nuvem usando o arquivo RDP. Obtenho o seguinte erro: ocorreu um erro de autenticação (código: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
 **Dimensionamento**
 
@@ -68,8 +68,8 @@ Este artigo inclui perguntas frequentes sobre a configuração e o gerenciamento
 - [Como adicionar uma extensão antimalware para os Serviços de Nuvem de maneira automatizada?](#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
 - [Como habilitar a SNI (Indicação de Nome de Servidor) para Serviços de Nuvem?](#how-to-enable-server-name-indication-sni-for-cloud-services)
 - [Como adicionar marcas ao meu Serviço de Nuvem do Azure?](#how-can-i-add-tags-to-my-azure-cloud-service)
-- [O portal do Azure não exibe a versão do SDK do meu serviço de nuvem. Como posso mudar isso?](#the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that)
-- [Desejo interromper o serviço de nuvem por vários meses. Como reduzir o custo de cobrança do serviço de nuvem sem perder o endereço IP?](#i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address)
+- [O portal do Azure não exibe a versão do SDK do meu serviço de nuvem. Como posso conseguir isso?](#the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that)
+- [Quero desligar o serviço de nuvem por vários meses. Como reduzir o custo de cobrança do serviço de nuvem sem perder o endereço IP?](#i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address)
 
 
 ## <a name="certificates"></a>Certificados
@@ -90,7 +90,7 @@ Consulte o documento de diretrizes a seguir:
 
 [Como obter um certificado para uso com o WAWS (Sites do Microsoft Azure)](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/)
 
-O CSR é apenas um arquivo de texto. Ele não precisa ser criado no computador em que o certificado, por fim, será usado. Embora este documento tenha sido escrito para um Serviço de Aplicativo, a criação de CSR é genérica e também se aplica a Serviços de Nuvem.
+O CSR é apenas um arquivo de texto. Ele não precisa ser criado no computador em que o certificado, por fim, será usado. Embora este documento seja escrito para um serviço de aplicativo, a criação do CSR é genérica e também se aplica aos serviços de nuvem.
 
 ### <a name="my-cloud-service-management-certificate-is-expiring-how-to-renew-it"></a>Meu certificado de gerenciamento de serviço de nuvem está vencendo. Como renová-lo?
 
@@ -110,7 +110,7 @@ Você pode automatizar essa tarefa usando um script de inicialização (lote/cmd
 
 Este certificado é usado para encriptar chaves de máquina em Funções de Web do Azure. Para saber mais, confira [este comunicado](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 - [Como configurar e executar tarefas de inicialização para um serviço de nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [Tarefas de inicialização comuns do Serviço de Nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
@@ -130,7 +130,7 @@ Capacidade de escolher o blob ou local para o seu csdef e de carregar localizaç
 Capacidade de monitorar as métricas no nível de instância. Recursos de monitoramentos adicionais estão disponíveis em [como monitorar Serviços De Nuvem](cloud-services-how-to-monitor.md).
 
 ### <a name="why-does-iis-stop-writing-to-the-log-directory"></a>Por que o IIS para de gravar no diretório de log?
-Você esgotou a cota de armazenamento local para gravar no diretório de log. Para corrigir isso, você pode executar uma destas três ações:
+Você esgotou a cota de armazenamento local para gravar no diretório de log. Para corrigir isso, você pode executar uma das três ações a seguir:
 * Habilitar o diagnóstico para o IIS e mover o diagnóstico periodicamente para o armazenamento de Blobs.
 * Remover manualmente os arquivos de log do diretório de log.
 * Aumentar os limite de cota para recursos locais.
@@ -148,7 +148,7 @@ Você pode habilitar o log do Windows Azure Diagnostics (WAD) através das segui
 Para obter as configurações atuais do WAD do seu Serviço em Nuvem, você pode usar [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) pscmd ou pode visualizá-lo no portal a partir da folha "Serviços em Nuvem -> Extensões".
 
 
-## <a name="network-configuration"></a>Configuração da rede
+## <a name="network-configuration"></a>Configuração de rede
 
 ### <a name="how-do-i-set-the-idle-timeout-for-azure-load-balancer"></a>Como fazer para configurar o tempo limite para o Azure Load Balancer?
 Você pode especificar o tempo limite no arquivo de definição de serviço (csdef) assim:
@@ -169,7 +169,7 @@ Você pode especificar o tempo limite no arquivo de definição de serviço (csd
     </Endpoints>
   </WorkerRole>
 ```
-Veja [Novo: tempo limite de ociosidade configurável para o Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) para obter mais informações.
+Consulte [Novo: tempo limite de ociosidade configurável para o Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) para obter mais informações.
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Como fazer para associar um endereço IP estático ao meu serviço de nuvem?
 Para configurar um endereço IP estático, você precisa criar um IP reservado. Esse IP reservado pode ser associado a um novo serviço de nuvem ou a uma implantação existente. Consulte os documentos a seguir para obter detalhes:
@@ -182,7 +182,7 @@ Para configurar um endereço IP estático, você precisa criar um IP reservado. 
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Quais são os recursos e as funcionalidades que o DDOS e o IPS/IDS básicos do Azure oferecem?
 O Azure tem IPS/IDS nos servidores físicos do datacenter para proteger-se contra ameaças. Além disso, os clientes podem implantar soluções de segurança de terceiros, como firewalls de aplicativo Web, firewalls de rede, antimalware, IDS/IPS (sistema de detecção de intrusão/sistema de prevenção de intrusão) e muito mais. Para obter mais informações, consulte [Proteger seus dados e ativos e cumprir padrões de segurança globais](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity).
 
-A Microsoft monitora continuamente servidores, redes e aplicativos para detectar ameaças. A abordagem de gerenciamento de ameaças em várias frentes do Azure, usa detecção de intrusão, prevenção de ataque de DDoS (negação de serviço distribuída), teste de penetração, análise de comportamento, detecção de anomalias e machine learning para reforçar constantemente sua defesa e reduzir os riscos. O Microsoft Antimalware para Azure protege os serviços de nuvem e as máquinas virtuais do Azure. Você tem a opção de implantar soluções de segurança de terceiros adicionalmente, como firewalls de aplicativo Web, firewalls de rede, antimalware, IDS/IPS (sistema de detecção de intrusão/sistema de prevenção de intrusão) e muito mais.
+A Microsoft monitora servidores, redes e aplicativos continuamente para detectar ameaças. A abordagem de gerenciamento de ameaças em várias frentes do Azure, usa detecção de intrusão, prevenção de ataque de DDoS (negação de serviço distribuída), teste de penetração, análise de comportamento, detecção de anomalias e machine learning para reforçar constantemente sua defesa e reduzir os riscos. O Microsoft Antimalware para Azure protege os serviços de nuvem e as máquinas virtuais do Azure. Você tem a opção de implantar soluções de segurança de terceiros adicionalmente, como firewalls de aplicativo Web, firewalls de rede, antimalware, IDS/IPS (sistema de detecção de intrusão/sistema de prevenção de intrusão) e muito mais.
 
 ### <a name="how-to-enable-http2-on-cloud-services-vm"></a>Como habilitar o HTTP/2 na VM dos Serviços de Nuvem?
 
@@ -195,10 +195,10 @@ O Windows 10 e Windows Server 2016 vêm com suporte para HTTP/2 no lado do clien
 5. Reinicie seu servidor.
 6. Vá para o **Site da Web padrão** e, em **Associações**, crie uma nova associação TLS com o certificado autoassinado recém-criado. 
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [HTTP/2 no IIS](https://blogs.iis.net/davidso/http2)
-- [Vídeo: HTTP 2 no Windows 10: Navegador, Aplicativos e Servidor Web](https://channel9.msdn.com/Events/Build/2015/3-88)
+- [Vídeo: HTTP/2 no Windows 10: navegador, aplicativos e servidor Web](https://channel9.msdn.com/Events/Build/2015/3-88)
          
 
 Essas etapas poderiam ser automatizadas por meio de uma tarefa de inicialização. Assim, sempre que uma nova instância PaaS for criada, ela poder á fazer as alterações acima no Registro do sistema. Para obter mais informações, consulte [Como configurar e executar tarefas de inicialização para um serviço de nuvem](cloud-services-startup-tasks.md).
@@ -223,7 +223,7 @@ Consulte [Entender as diferentes funções no Azure](../role-based-access-contro
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Os engenheiros internos da Microsoft podem tornar o desktop remoto para instâncias de serviço de nuvem sem permissão?
 A Microsoft segue um processo estrito que não permite que os engenheiros internos tornem o desktop remoto em seu serviço de nuvem sem permissão por escrito (email ou outra comunicação por escrito) do proprietário ou seu representante.
 
-### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Não consigo tornar o desktop remoto para VM de serviço de nuvem usando o arquivo RDP. Recebo o seguinte erro: Ocorreu um erro de autenticação (Código: 0x80004005)
+### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Não consigo tornar o desktop remoto para VM de serviço de nuvem usando o arquivo RDP. Recebo o seguinte erro: Ocorreu um erro de autenticação (código: 0x80004005)
 
 Esse erro pode ocorrer se você usar o arquivo RDP a partir de um computador associado ao Microsoft Azure Active Directory. Para resolver esse problema, siga estas etapas:
 
@@ -281,7 +281,7 @@ Consulte [Limites específicos do serviço](../azure-subscription-service-limits
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Por que a unidade na VM do meu serviço de nuvem mostra muito pouco espaço livre em disco?
 Esse comportamento é esperado e não deve causar nenhum problema ao seu aplicativo. Registro em log está ativado para a unidade %approot% em VMs virtuais de PaaS do Azure, que consome basicamente o dobro da quantidade de espaço que os arquivos normalmente ocupam. No entanto, há vários elementos a serem considerados que essencialmente transformam isso em um não problema.
 
-O tamanho da unidade% approot% é calculado \<como tamanho de. cspkg + tamanho máximo do diário + uma margem de espaço livre > ou 1,5 GB, o que for maior. O tamanho da sua VM não tem influência sobre esse cálculo. (O tamanho da VM só afeta o tamanho da unidade C: temporária.) 
+O tamanho da unidade% approot% é calculado como \<tamanho de. cspkg + tamanho máximo do diário + uma margem de espaço livre > ou 1,5 GB, o que for maior. O tamanho da sua VM não tem influência sobre esse cálculo. (O tamanho da VM só afeta o tamanho da unidade C: temporária.) 
 
 Não tem suporte para gravar na unidade %approot%. Se você estiver gravando na VM do Azure, deverá fazer isso em um recurso LocalStorage temporário (ou outra opção, como o armazenamento de Blobs, Arquivos do Azure etc.). Portanto, a quantidade de espaço livre na pasta %approot% não é significativa. Se você não tiver certeza de que seu aplicativo está gravando na unidade %approot%, poderá sempre permitir que o serviço seja executado por alguns dias e, em seguida, comparar os tamanhos "antes" e "depois". 
 
@@ -310,14 +310,14 @@ A associação de SNI pode ser configurada usando o cmdlet do PowerShell **New-W
     
 Conforme descrito [aqui](https://technet.microsoft.com/library/ee790567.aspx), o $sslFlags poderia ser um dos valores como o seguinte:
 
-|Valor|Significado|
+|Value|Significado|
 ------|------
 |0|Nenhuma SNI|
-|1|SNI habilitada |
-|2 |Nenhuma associação de SNI que usa o Repositório de certificados central|
-|3|Associação de SNI que usa o Repositório de certificados central |
+|1|SNI habilitada|
+|2|Nenhuma associação de SNI que usa o Repositório de certificados central|
+|3|Associação de SNI que usa o Repositório de certificados central|
  
-**Método 2: usar código**
+**Método 2: código de uso**
 
 A associação de SNI também pode ser configurada por meio de código na inicialização da função conforme descrito nesta [postagem no blog](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
 
@@ -325,8 +325,8 @@ A associação de SNI também pode ser configurada por meio de código na inicia
     //<code snip> 
                     var serverManager = new ServerManager(); 
                     var site = serverManager.Sites[0]; 
-                    var binding = site.Bindings.Add(“:443:www.test1.com”, newCert.GetCertHash(), “My”); 
-                    binding.SetAttributeValue(“sslFlags”, 1); //enables the SNI 
+                    var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
+                    binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
                     serverManager.CommitChanges(); 
     //</code snip> 
     

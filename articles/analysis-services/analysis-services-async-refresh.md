@@ -4,21 +4,21 @@ description: Aprenda a codificar atualização assíncrona usando a API REST.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: daa25ecd12cb4c3b6ba72164c36cef01001448cf
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 5fbb3f2cbc0e53ab1bc04d57b583802e26b92a60
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301170"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147355"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 
 Ao usar qualquer linguagem de programação que seja compatível com chamadas REST, você pode executar operações de atualização de dados assíncronas em seus modelos de tabela do Azure Analysis Services. Isso inclui a sincronização de réplicas somente leitura para expansão de consulta. 
 
-As operações de atualização de dados podem demorar algum tempo, dependendo de uma série de fatores, incluindo o volume de dados, o nível de otimização usando partições, etc. Essas operações têm sido tradicionalmente invocadas com métodos existentes, como o uso de [TOM](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), de cmdlets do [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) ou de [TMSL](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). No entanto, esses métodos geralmente exigem conexões HTTP não confiáveis de execução longa.
+As operações de atualização de dados podem levar algum tempo, dependendo de vários fatores, incluindo o volume de dados, o nível de otimização usando partições, etc. Essas operações têm sido tradicionalmente invocadas com métodos existentes, como o uso de [Tom](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (modelo de objeto de tabela), cmdlets do [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) ou [TMSL](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (linguagem de script de modelo de tabela). No entanto, esses métodos geralmente exigem conexões HTTP não confiáveis de execução longa.
 
 A API REST do Azure Analysis Services permite que as operações de atualização de dados sejam realizadas de forma assíncrona. Ao usar a API REST, as conexões HTTP de execução longa de aplicativos cliente não são necessárias. Também há outros recursos internos para a confiabilidade, como repetições automáticas e confirmações em lote.
 
@@ -56,7 +56,7 @@ Por exemplo, você pode usar o verbo POST na coleção Refreshes para executar u
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Todas as chamadas devem ser autenticadas com um token do Azure Active Directory (OAuth 2) válido no cabeçalho Authorization e devem atender aos seguintes requisitos:
 
@@ -97,13 +97,13 @@ O corpo pode ser semelhante ao seguinte:
 
 Não é necessário especificar parâmetros. O padrão será aplicado.
 
-| NOME             | type  | DESCRIÇÃO  |Padrão  |
+| name             | Type  | Descrição  |Padrão  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | O tipo de processamento a ser executado. Os tipos são alinhados com os tipos de [comandos de atualização](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) da TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Não há suporte para a adição de tipo.      |   automático      |
 | `CommitMode`     | Enum  | Determina se os objetos serão confirmados em lotes ou somente na conclusão. Os modos incluem: default, transactional, partialBatch.  |  transacional       |
-| `MaxParallelism` | int   | Esse valor determina o número máximo de threads nos quais executar comandos de processamento em paralelo. Esse valor é alinhado com a propriedade MaxParallelism, que pode ser definida no [comando Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) da TMSL ou com o uso de outros métodos.       | 10        |
-| `RetryCount`     | int   | Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
-| `Objects`        | Array | Uma matriz de objetos a serem processados. Cada objeto inclui: "table" ao processar a tabela inteira ou "table" e "partition" ao processar uma partição. Se nenhum objeto for especificado, todo o modelo será atualizado. |   Processar todo o modelo      |
+| `MaxParallelism` | Int   | Esse valor determina o número máximo de threads nos quais executar comandos de processamento em paralelo. Esse valor é alinhado com a propriedade MaxParallelism, que pode ser definida no [comando Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) da TMSL ou com o uso de outros métodos.       | 10        |
+| `RetryCount`     | Int   | Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
+| `Objects`        | Matriz | Uma matriz de objetos a serem processados. Cada objeto inclui: "table" ao processar a tabela inteira ou "table" e "partition" ao processar uma partição. Se nenhum objeto for especificado, todo o modelo será atualizado. |   Processar todo o modelo      |
 
 O CommitMode é igual ao partialBatch. Ele é usado ao fazer uma carga inicial de grandes conjuntos de dados, que pode levar horas. Se a operação de atualização falhar depois de confirmar com êxito um ou mais lotes, os lotes confirmados com êxito permanecerão confirmados (ela não reverterá lotes confirmadas com êxito).
 
@@ -166,7 +166,7 @@ Para cancelar uma operação de atualização em andamento, use o verbo DELETE n
 
 ## <a name="post-sync"></a>POST /sync
 
-Ao realizar as operações de atualização, poderá ser necessário sincronizar os novos dados com as réplicas para a expansão da consulta. Para executar uma operação de sincronização de um modelo, use o verbo POST na função /sync. O cabeçalho Location na resposta inclui a ID da operação de sincronização.
+Após realizar operações de atualização, pode ser necessário sincronizar os novos dados com réplicas para expansão de consulta. Para executar uma operação de sincronização para um modelo, use o verbo POST na função/Sync. O cabeçalho Location na resposta inclui a ID da operação de sincronização.
 
 ## <a name="get-sync-status"></a>GET /sync status
 
@@ -185,11 +185,11 @@ Para verificar o status de uma operação de sincronização, use o verbo GET pa
 
 Os valores para `syncstate`:
 
-- 0: Replicando. Os arquivos do banco de dados estão sendo replicados para uma pasta de destino.
-- 1: Reidratando. O banco de dados está sendo reidratado em instâncias de servidor somente leitura.
-- 2: Concluído. A operação de sincronização foi concluída com êxito.
-- 3: Falhou. A operação de sincronização falhou.
-- 4: Finalizando. A operação de sincronização foi concluída, mas está executando etapas de limpeza.
+- 0: replicando. Os arquivos do banco de dados estão sendo replicados para uma pasta de destino.
+- 1: reidratação. O banco de dados está sendo reidratado em instâncias de servidor somente leitura.
+- 2: concluída. A operação de sincronização foi concluída com êxito.
+- 3: falha. A operação de sincronização falhou.
+- 4: finalizando. A operação de sincronização foi concluída, mas está executando etapas de limpeza.
 
 ## <a name="code-sample"></a>Exemplo de código
 
@@ -211,9 +211,9 @@ Consulte [Criar entidade de serviço - portal do Azure](../active-directory/deve
 3.  Execute o exemplo.
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte
 
 [Exemplos](analysis-services-samples.md)   
-[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

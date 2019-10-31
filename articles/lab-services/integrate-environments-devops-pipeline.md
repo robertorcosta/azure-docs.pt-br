@@ -1,6 +1,6 @@
 ---
-title: Integrar ambientes em Pipelines do Azure no Azure DevTest Labs | Microsoft Docs
-description: Aprenda a integrar ambientes do Azure DevTest Labs em seu Azure DevOps CI (integração contínua) e os pipelines de entrega contínua (CD).
+title: Integre ambientes em Azure Pipelines no Azure DevTest Labs | Microsoft Docs
+description: Saiba como integrar ambientes de Azure DevTest Labs em seus pipelines de CI (integração contínua) e distribuição contínua (CD) do Azure DevOps.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,73 +12,73 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c665c65dcda2266a7acd7bc78726179d559f4d64
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61318373"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163919"
 ---
-# <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrar ambientes em seus pipelines do Azure DevOps CI/CD
-Você pode usar a extensão de tarefas do Azure DevTest Labs é instalada nos serviços de DevOps do Azure (anteriormente conhecido como Visual Studio Team Services) para integrar facilmente a CI (integração contínua) / recurso build e versão entrega contínua (CD) de pipeline com o Azure DevTest Labs. Essas extensões torná-lo mais fácil de implantar rapidamente uma [ambiente](devtest-lab-test-env.md) para uma determinada tarefa de teste e, em seguida, excluí-lo quando o teste for concluído. 
+# <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integre ambientes em seus pipelines de CI/CD do Azure DevOps
+Você pode usar a extensão de tarefas de Azure DevTest Labs que é instalada no Azure DevOps Services (anteriormente conhecido como Visual Studio Team Services) para integrar facilmente seu pipeline de integração contínua (CI)/entrega contínua (CD) com o Azure DevTest Labs. Essas extensões facilitam a implantação rápida de um [ambiente](devtest-lab-test-env.md) para uma tarefa de teste específica e, em seguida, a exclusão quando o teste é concluído. 
 
-Este artigo mostra como criar e implantar um ambiente e, em seguida, excluir o ambiente, tudo em um pipeline completo. Você normalmente executaria cada uma dessas tarefas individualmente em seu próprio pipeline personalizado de build-teste-implantação. As extensões usadas neste artigo são Além dessas [criar/excluir tarefas da VM de DTL](devtest-lab-integrate-ci-cd-vsts.md):
+Este artigo mostra como criar e implantar um ambiente e, em seguida, excluir o ambiente, tudo em um único pipeline completo. Normalmente, você executaria cada uma dessas tarefas individualmente em seu próprio pipeline personalizado de compilação-teste-implantação. As extensões usadas neste artigo são além das [tarefas criar/excluir VM DTL](devtest-lab-integrate-ci-cd-vsts.md):
 
 - Criar um ambiente
 - Excluir um ambiente
 
 ## <a name="before-you-begin"></a>Antes de começar
-Antes de você pode integrar seu pipeline de CI/CD com o Azure DevTest Labs, instale [tarefas do Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) extensão do Visual Studio Marketplace. 
+Antes de integrar seu pipeline de CI/CD com Azure DevTest Labs, instale [Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) extensão de tarefas do Visual Studio Marketplace. 
 
 ## <a name="create-and-configure-the-lab-for-environments"></a>Criar e configurar o laboratório para ambientes
-Esta seção descreve como criar e configurar um laboratório em que o ambiente do Azure será implantado.
+Esta seção descreve como criar e configurar um laboratório no qual o ambiente do Azure será implantado.
 
-1. [Criar um laboratório](devtest-lab-create-lab.md) se você ainda não tiver um. 
-2. Configure o laboratório e criar um modelo de ambiente seguindo as instruções deste artigo: [Criar ambientes de várias VMs e recursos de PaaS com modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md).
-3. Para este exemplo, use um modelo de início rápido do Azure existentes [ https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/ ](https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/).
-4. Cópia de **201-web-app-redis-cache-sql-database** pasta para o **ArmTemplate** pasta no repositório configurado na etapa 2.
+1. [Crie um laboratório](devtest-lab-create-lab.md) se você ainda não tiver um. 
+2. Configure o laboratório e crie um modelo de ambiente seguindo as instruções deste artigo: [criar ambientes de várias VMs e recursos de PaaS com modelos de Azure Resource Manager](devtest-lab-create-environment-from-arm.md).
+3. Para este exemplo, use um modelo de início rápido do Azure existente [https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/](https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/).
+4. Copie a pasta **201-Web-App-Redis-cache-SQL-Database** para a pasta **ArmTemplate** no repositório configurado na etapa 2.
 
 ## <a name="create-a-release-definition"></a>Criar uma definição de versão
 Para criar uma definição da versão, faça o seguinte:
 
-1.  Sobre o **versões** guia da **hub de versão e compilação**, selecione o **sinal de adição (+)** botão.
+1.  Na guia **versões** do **Hub Build & versão**, selecione o botão de sinal de **adição (+)** .
 2.  Na janela **Criar definição da versão**, selecione o modelo **Vazio** e selecione **Avançar**.
 3.  Selecione **Escolher Depois** e selecione **Criar** para criar uma nova definição da versão com um ambiente padrão e nenhum artefato vinculado.
-4.  Para abrir o menu de atalho, na nova definição de versão, selecione o **reticências (...)**  próximo ao nome do ambiente e, em seguida, selecione **configurar variáveis**.
+4.  Para abrir o menu de atalho, na nova definição de versão, selecione as **reticências (...)** ao lado do nome do ambiente e, em seguida, selecione **configurar variáveis**.
 5.  Na janela **Configurar – ambiente**, para as variáveis usadas nas tarefas de definição da versão, insira os seguintes valores:
 1.  Para **administratorLogin**, insira o nome de logon do administrador do SQL.
-2.  Para **administratorLoginPassword**, insira a senha a ser usada pelo logon de administrador do SQL. Use o ícone de "cadeado" para ocultar e proteger a senha.
-3.  Para **databaseName**, insira o nome do banco de dados SQL.
+2.  Para **administratorLoginPassword**, insira a senha a ser usada pelo logon do administrador do SQL. Use o ícone de "cadeado" para ocultar e proteger a senha.
+3.  Para **DatabaseName**, insira o nome do banco de dados SQL.
 4.  Essas variáveis são específicas para os ambientes de exemplo, ambientes diferentes podem ter variáveis diferentes.
 
 ## <a name="create-an-environment"></a>Criar um ambiente
-O próximo estágio da implantação é criar o ambiente a ser usado para fins de teste ou desenvolvimento.
+O próximo estágio da implantação é criar o ambiente a ser usado para fins de desenvolvimento ou teste.
 
 1. Na definição da versão, selecione **Adicionar tarefas**.
-2. Sobre o **tarefas** guia, adicione uma tarefa de criar ambiente do Azure DevTest Labs. Configure as tarefas da seguinte forma:
+2. Na guia **tarefas** , adicione uma tarefa Azure DevTest Labs criar ambiente. Configure as tarefas da seguinte forma:
     1. Para **Assinatura do Azure RM**, selecione uma conexão na lista **Conexões de Serviço do Azure Disponíveis** ou crie uma conexão de permissões mais restritas para sua assinatura do Azure. Para saber mais, confira [Ponto de extremidade de serviço do Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints).
 2. Para **nome do laboratório**, selecione o nome da instância que você criou anteriormente *.
-3. Para **nome do repositório**, selecione o repositório em que o modelo do Gerenciador de recursos (201) foi enviado para *.
-4. Para **nome do modelo**, selecione o nome do ambiente que você salvou em seu repositório de código de origem *. 
-5. O **nome do laboratório**, **nome do repositório**, e **nome do modelo** são as representações amigáveis das IDs do recurso do Azure. Inserir manualmente o nome amigável, causar falhas, use as listas suspensas para selecionar as informações.
-6. Para **nome do ambiente**, insira um nome para identificar exclusivamente a instância do ambiente no laboratório.  Ele deve ser exclusivo no laboratório.
-7. O **arquivo de parâmetro** e o **parâmetros**, permitir que os parâmetros personalizados a serem passados para o ambiente. Um ou ambos podem ser usados para definir os valores de parâmetro. Neste exemplo, a seção de parâmetros será usada. Use os nomes das variáveis que você definiu no ambiente, por exemplo: `-administratorLogin “$(administratorLogin)” -administratorLoginPassword “$(administratorLoginPassword)” -databaseName “$(databaseName)” -cacheSKUCapacity 1`
-8. Informações dentro do modelo de ambiente podem ser passadas na seção de saída do modelo. Verifique **criar variáveis de saída com base na saída do modelo de ambiente** para que outras tarefas podem usar os dados. `$(Reference name.Output Name)` é o padrão a seguir. Por exemplo, se o nome de referência foi DTL e o nome de saída no modelo era local a variável seria `$(DTL.location)`.
+3. Para **nome do repositório**, selecione o repositório onde o modelo do Resource Manager (201) foi enviado por push para *.
+4. Para **nome do modelo**, selecione o nome do ambiente que você salvou em seu repositório de código-fonte *. 
+5. O nome do **laboratório**, o **nome do repositório**e o **nome do modelo** são as representações amigáveis das IDs de recursos do Azure. A inserção manual do nome amigável causará falhas, use as listas suspensas para selecionar as informações.
+6. Para **nome do ambiente**, insira um nome para identificar exclusivamente a instância de ambiente no laboratório.  Ele deve ser exclusivo no laboratório.
+7. O **arquivo de parâmetro** e os **parâmetros**permitem que os parâmetros personalizados sejam passados para o ambiente. Um ou ambos podem ser usados para definir os valores de parâmetro. Para este exemplo, a seção de parâmetros será usada. Use os nomes das variáveis que você definiu no ambiente, por exemplo: `-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
+8. As informações no modelo de ambiente podem ser passadas na seção de saída do modelo. Marque **criar variáveis de saída com base na saída do modelo de ambiente** para que outras tarefas possam usar os dados. `$(Reference name.Output Name)` é o padrão a ser seguido. Por exemplo, se o nome de referência era DTL e o nome de saída no modelo era local, a variável seria `$(DTL.location)`.
 
 ## <a name="delete-the-environment"></a>Excluir o ambiente
-O estágio final é excluir o ambiente que você implantou em sua instância do Azure DevTest Labs. Normalmente, você excluiria o ambiente depois de executar as tarefas de desenvolvimento ou executar os testes que você precisa sobre os recursos implantados.
+O estágio final é excluir o ambiente implantado em sua instância de Azure DevTest Labs. Normalmente, você excluiria o ambiente depois de executar as tarefas de desenvolvimento ou executar os testes necessários nos recursos implantados.
 
-Na definição da versão, selecione **adicionar tarefas**e, em seguida, no **Deploy** guia, adicione um **excluir ambiente do Azure DevTest Labs** tarefa. Configure-o da seguinte maneira:
+Na definição da versão, selecione **adicionar tarefas**e, em seguida, na guia **implantar** , adicione uma tarefa **Azure DevTest Labs excluir ambiente** . Configure-o da seguinte maneira:
 
-1. Para excluir a VM, consulte [tarefas do Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks):
+1. Para excluir a VM, consulte [tarefas de Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks):
     1. Para **Assinatura do Azure RM**, selecione uma conexão na lista **Conexões de Serviço do Azure Disponíveis** ou crie uma conexão de permissões mais restritas para sua assinatura do Azure. Para saber mais, confira [Ponto de extremidade de serviço do Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints).
-    2. Para **nome do laboratório**, selecione o laboratório onde existe o ambiente.
+    2. Para **nome do laboratório**, selecione o laboratório no qual o ambiente existe.
     3. Para **nome do ambiente**, insira o nome do ambiente a ser removido.
 2. Insira um nome para a definição da versão e, em seguida, salve-a.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Confira os seguintes artigos: 
-- [Criar ambientes de várias VMs com modelos do Resource Manager](devtest-lab-create-environment-from-arm.md).
-- Modelos do Gerenciador de recursos de início rápido para a automação do DevTest Labs do [repositório GitHub do DevTest Labs](https://github.com/Azure/azure-quickstart-templates).
+- [Crie ambientes com várias VMs com modelos do Resource Manager](devtest-lab-create-environment-from-arm.md).
+- Modelos de início rápido do Resource Manager para a automação do DevTest Labs do [repositório GitHub do DevTest Labs](https://github.com/Azure/azure-quickstart-templates).
 - [Página de solução de problemas do VSTS](/azure/devops/pipelines/troubleshooting)
 

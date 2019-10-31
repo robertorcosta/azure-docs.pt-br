@@ -1,10 +1,10 @@
 ---
 title: Isolamento na nuvem pública do Azure | Microsoft Docs
-description: Aprenda sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa.
+description: Saiba como o Azure fornece isolamento contra usuários mal-intencionados e não-mal-intencionados e oferece várias opções de isolamento para arquitetos.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -13,38 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: a3e4a598446c0b59cd678e186906abc61d3d727d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 5e6910db7765c4cb8f151401a6803e6d4d3f998e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123065"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159762"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
-##  <a name="introduction"></a>Introdução
-### <a name="overview"></a>Visão geral
-Para ajudar os clientes atuais e potenciais do Azure a entender e usar as várias funcionalidades relacionadas à segurança disponíveis na Plataforma Azure e em suas proximidades, a Microsoft desenvolveu uma série de white papers, visões gerais de segurança, práticas recomendadas e listas de verificação.
-Os tópicos variam em termos de abrangência e profundidade e são atualizados periodicamente. Este documento faz parte de uma série, conforme resumido na próxima seção Resumo.
+O Azure permite que você execute aplicativos e VMs (máquinas virtuais) na infraestrutura física compartilhada. Uma das principais motivações econômicas para a execução de aplicativos em um ambiente de nuvem é a capacidade de distribuir o custo de recursos compartilhados entre vários clientes. Essa prática de multilocação aprimora a eficiência por meio da multiplexação de recursos entre diferentes clientes por custos baixos. Infelizmente, ela também apresenta o risco de compartilhar servidores físicos e outros recursos de infraestrutura a fim de executar seus aplicativos confidenciais e VMs que possam pertencer a um usuário aleatório e possivelmente malicioso.
 
-### <a name="azure-platform"></a>Plataforma Azure
-O Azure é uma plataforma de serviço de nuvem aberta e flexível que dá suporte a mais ampla seleção de sistemas operacionais, linguagens de programação, estruturas, ferramentas, bancos de dados e dispositivos. Por exemplo, você pode:
-- Executar contêineres do Linux com a integração com o Docker;
-- Compilar aplicativos com JavaScript, Python, .NET, PHP, Java e Node.js; e
-- Crie back-ends para dispositivos iOS, Android e Windows.
-
-O Microsoft Azure dá suporte às mesmas tecnologias com as quais milhões de desenvolvedores e profissionais de TI já contam e confiam.
-
-Ao se basear ou migrar ativos de TI para um provedor de serviços de nuvem pública, você está confiando na capacidade dessa organização de proteger seus aplicativos e dados com os serviços e os controles que ela oferece para gerenciar a segurança de seus ativos baseados em nuvem.
-
-A infraestrutura do Azure foi projetada desde a instalação até os aplicativos para hospedar simultaneamente milhões de clientes e fornecer uma base confiável com a qual as empresas podem atender às suas necessidades de segurança. Além disso, o Azure oferece uma ampla variedade de opções de segurança configuráveis e a capacidade de controlá-las, para que você possa personalizar a segurança de forma a atender aos requisitos específicos de suas implantações. Este documento ajuda você a atender a esses requisitos.
-
-### <a name="abstract"></a>Resumo
-
-O Microsoft Azure permite que você execute aplicativos e VMs (máquinas virtuais) em uma infraestrutura física compartilhada. Uma das principais motivações econômicas para a execução de aplicativos em um ambiente de nuvem é a capacidade de distribuir o custo de recursos compartilhados entre vários clientes. Essa prática de multilocação aprimora a eficiência por meio da multiplexação de recursos entre diferentes clientes por custos baixos. Infelizmente, ela também apresenta o risco de compartilhar servidores físicos e outros recursos de infraestrutura a fim de executar seus aplicativos confidenciais e VMs que possam pertencer a um usuário aleatório e possivelmente malicioso.
-
-Este artigo descreve como o Microsoft Azure fornece isolamento contra usuários mal-intencionados e bem-intencionados, e serve como um guia para arquitetar soluções de nuvem, oferecendo várias opções de isolamento para arquitetos. Este white paper se concentra na tecnologia da Plataforma Azure e nos controles de segurança voltados para o cliente e não tenta solucionar questões de SLAs, modelos de preço e considerações de prática de DevOps.
+Este artigo descreve como o Azure fornece isolamento contra usuários mal-intencionados e não mal-intencionados e serve como um guia para arquitetar soluções de nuvem oferecendo várias opções de isolamento para arquitetos.
 
 ## <a name="tenant-level-isolation"></a>Isolamento no nível do locatário
 Um dos principais benefícios da computação em nuvem é o conceito de uma infraestrutura comum e compartilhada simultaneamente entre vários clientes, resultando em economia de escala. Esse conceito é chamado de multilocação. A Microsoft trabalha continuamente para garantir que a arquitetura de multilocação do Microsoft Cloud Azure ofereça suporte a segurança, confidencialidade, privacidade, integridade e padrões de disponibilidade.
@@ -71,9 +52,9 @@ Usuários, grupos e aplicativos do diretório podem gerenciar recursos na assina
 
 - Os usuários do Azure AD não têm acesso a ativos físicos ou locais e, portanto, não é possível ignorar as verificações lógicas da política de RBAC mencionadas a seguir.
 
-Para as necessidades de diagnóstico e manutenção, um modelo operacional que emprega um sistema de elevação de privilégio just-in-time é exigido e usado. O Azure AD Privileged Identity Management (PIM) introduz o conceito de um administrador elegível. [Administradores elegíveis](../../active-directory/privileged-identity-management/pim-configure.md) devem ser usuários que precisam de acesso privilegiado às vezes, mas não todos os dias. A função fica inativa até que o usuário precise de acesso, então ele conclui um processo de ativação e torna-se um administrador ativo por um tempo predeterminado.
+Para as necessidades de diagnóstico e manutenção, um modelo operacional que emprega um sistema de elevação de privilégio just-in-time é exigido e usado. Azure AD Privileged Identity Management (PIM) apresenta o conceito de administrador qualificado. [Administradores qualificados](../../active-directory/privileged-identity-management/pim-configure.md) devem ser usuários que precisam de acesso privilegiado agora e, em seguida, não todos os dias. A função fica inativa até que o usuário precise de acesso, então ele conclui um processo de ativação e torna-se um administrador ativo por um tempo predeterminado.
 
-![Azure AD Privileged Identity Management](./media/isolation-choices/azure-isolation-fig2.png)
+![Gerenciamento de identidades com privilégios do AD do Azure](./media/isolation-choices/azure-isolation-fig2.png)
 
 O Azure Active Directory hospeda cada locatário em seu próprio contêiner protegido, com políticas e permissões para e dentro do contêiner que é de propriedade e gerenciamento exclusivo do locatário.
 
@@ -158,7 +139,7 @@ No Azure, a VM raiz é especial: ela executa um sistema operacional protegido ch
 
 A coleção de hipervisor do Azure, SO raiz/FA e VMs de cliente/GAs forma um nó de computação. Os FAs são gerenciados por um controlador de malha (FC), que existe fora dos nós de computação e de armazenamento (clusters de computação e de armazenamento são gerenciados por FCs separados). Se um cliente atualiza o arquivo de configuração de seu aplicativo enquanto ele está em execução, o FC se comunica com o FA, que então contata os GAs, que notificam o aplicativo sobre a alteração na configuração. No caso de falha de hardware, o FC localizará automaticamente o hardware disponível e reiniciará a VM no local.
 
-![Controlador de malha do Azure](./media/isolation-choices/azure-isolation-fig6.jpg)
+![Recursos de infraestrutura do Azure](./media/isolation-choices/azure-isolation-fig6.jpg)
 
 A comunicação de um controlador de malha com um agente é unidirecional. O agente implementa um serviço protegido por SSL que só responde às solicitações do controlador. Ele não pode iniciar conexões com o controlador ou com outros nós internos privilegiados. O FC trata todas as respostas como se fossem não confiáveis.
 
@@ -176,9 +157,9 @@ Por padrão, todo o tráfego é bloqueado quando uma máquina virtual é criada.
 
 Há duas categorias de regras que são programadas:
 
--   **Regras de configuração do computador ou de infraestrutura:** por padrão, toda a comunicação é bloqueada. Há exceções para permitir que uma máquina virtual envie e receba tráfego DHCP e DNS. As máquinas virtuais também podem enviar tráfego para a Internet "pública" e para outras máquinas virtuais na mesma Rede Virtual do Azure e no servidor de ativação do sistema operacional. A lista de destinos permitidos das máquinas virtuais não inclui sub-redes de roteador do Azure, gerenciamento do Azure e outras propriedades da Microsoft.
+-   **Configuração de máquina ou regras de infraestrutura**: por padrão, toda a comunicação é bloqueada. Há exceções para permitir que uma máquina virtual envie e receba tráfego DHCP e DNS. As máquinas virtuais também podem enviar tráfego para a Internet "pública" e para outras máquinas virtuais na mesma Rede Virtual do Azure e no servidor de ativação do sistema operacional. A lista de destinos permitidos das máquinas virtuais não inclui sub-redes de roteador do Azure, gerenciamento do Azure e outras propriedades da Microsoft.
 
--   **Arquivo de configuração de função:** define as Listas de Controle de Acesso (ACLs) de entrada com base no modelo de serviço do locatário.
+-   **Arquivo de configuração de função**: define as Listas de Controle de Acesso (ACLs) de entrada com base no modelo de serviço do locatário.
 
 ### <a name="vlan-isolation"></a>Isolamento de VLAN
 Há três VLANs em cada cluster:
@@ -284,7 +265,7 @@ O Banco de Dados SQL é um serviço de banco de dados relacional de nuvem da Mic
 
 [O Banco de Dados SQL do Azure](../../sql-database/sql-database-single-database-get-started.md) é um serviço de banco de dados relacional baseado em nuvem compilado com tecnologias do SQL Server. Ele fornece um serviço de banco de dados multilocatário altamente disponível e escalonável hospedado pela Microsoft na nuvem.
 
-Da perspectiva do aplicativo, o SQL Azure fornece a seguinte hierarquia: cada nível tem de um a vários níveis de independência abaixo.
+Da perspectiva do aplicativo, o SQL Azure fornece a seguinte hierarquia: cada nível tem de um a vários confinamentos de níveis abaixo.
 
 ![Modelo de aplicativo do SQL Azure](./media/isolation-choices/azure-isolation-fig10.png)
 
@@ -300,7 +281,7 @@ Os bancos de dados mestres lógicos incluem:
 
 -   Logons do SQL usados para se conectar ao servidor
 
--   Regras de Firewall
+-   Regras de firewall
 
 Não há garantia de que as informações relacionadas à cobrança e ao uso para Bancos de Dados SQL do Azure do mesmo servidor lógico estejam na mesma instância física em cluster do SQL Azure, em vez disso, os aplicativos devem fornecer o nome do banco de dados de destino durante a conexão.
 
@@ -326,14 +307,14 @@ A camada por trás dos gateways é chamada de "back-end". É nela onde todos os 
 Em geral, o sistema de back-end não se comunica, de saída, com outros sistemas como uma precaução de segurança. Isso é reservado aos sistemas na camada front-end (gateway). As máquinas da camada do gateway têm privilégios limitados nos computadores back-end para minimizar a superfície de ataque como um mecanismo de defesa avançada.
 
 ### <a name="isolation-by-machine-function-and-access"></a>Isolamento por função e acesso do computador
-O SQL Azure é composto por serviços em execução nas funções de máquina diferentes. O SQL Azure é dividido em Banco de dados de nuvem "back-end" e ambientes "front-end" (Gateway/Gerenciamento), com o princípio geral de tráfego somente entrando no back-end e não saindo. O ambiente front-end pode se comunicar com o mundo exterior de outros serviços e, em geral, tem apenas permissões limitadas no back-end (suficiente para chamar os pontos de entrada que ele precisa chamar).
+O SQL Azure é composto por serviços em execução nas funções de máquina diferentes. A SQL Azure é dividida no banco de dados de nuvem "backend" e nos ambientes de "front-end" (gateway/gerenciamento), com o princípio geral de tráfego entrando apenas em back-end e não fora. O ambiente de front-end pode se comunicar com o mundo exterior de outros serviços e, em geral, tem apenas permissões limitadas no back-end (o suficiente para chamar os pontos de entrada que precisa invocar).
 
 ## <a name="networking-isolation"></a>Isolamento de rede
 A implantação do Azure têm vários níveis de isolamento de rede. O diagrama a seguir mostra várias camadas de isolamento de rede que o Azure fornece aos clientes. Essas camadas são tanto nativas na plataforma Azure em si quanto recursos definidos pelo cliente. Proveniente da Internet, o DDoS do Azure fornece isolamento contra ataques em grande escala contra o Azure. A próxima camada de isolamento é de endereços IP públicos definidos pelo cliente (pontos de extremidade), que são usados para determinar qual tráfego pode passar pelo serviço de nuvem para a rede virtual. O isolamento de rede virtual Nativa do Azure garante o isolamento completo de todas as outras redes e garante que o tráfego flua somente através de métodos e caminhos configurados pelo usuário. Esses caminhos e métodos são a próxima camada em que NSGs, UDR e soluções de virtualização de rede podem ser usados para criar limites de isolamento para proteger as implantações de aplicativo na rede protegida.
 
 ![Isolamento de rede](./media/isolation-choices/azure-isolation-fig13.png)
 
-**Isolamento de tráfego:** uma [rede virtual](../../virtual-network/virtual-networks-overview.md) é o limite de isolamento de tráfego na plataforma Azure. As VMs (máquinas virtuais) em uma rede virtual não podem comunicar-se diretamente com VMs em uma rede virtual diferente, mesmo que ambas as redes virtuais sejam criadas pelo mesmo cliente. Isolamento é uma propriedade vital que garante que as VMs e as comunicações do cliente permaneçam privadas em uma rede virtual.
+**Isolamento de tráfego**: uma [rede virtual](../../virtual-network/virtual-networks-overview.md) é o limite de isolamento de tráfego na plataforma Azure. As VMs (máquinas virtuais) em uma rede virtual não podem comunicar-se diretamente com VMs em uma rede virtual diferente, mesmo que ambas as redes virtuais sejam criadas pelo mesmo cliente. Isolamento é uma propriedade vital que garante que as VMs e as comunicações do cliente permaneçam privadas em uma rede virtual.
 
 [Subrede](../../virtual-network/virtual-networks-overview.md) oferece uma camada adicional de isolamento na rede virtual com base no intervalo de IPs. Os endereços IP na rede virtual. Você pode dividir uma rede virtual em várias sub-redes para organização e segurança. As VMs e as instâncias de função de PaaS implantadas em sub-redes (iguais ou diferentes) em uma Rede Virtual podem se comunicar entre si sem nenhuma configuração adicional. Você também pode configurar os [NSGs (Grupos de segurança de rede)](../../virtual-network/virtual-networks-overview.md) para permitir ou negar o tráfego de rede para uma instância de VM com base em regras configuradas na lista de controle de acesso (ACL) do NSG. Os NSGs podem ser associados a sub-redes ou instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras de ACL se aplicam a todas as instâncias de VM na sub-rede.
 
@@ -350,4 +331,3 @@ O Microsoft Azure fornece vários serviços de computação baseados em nuvem qu
 - [Isolamento de armazenamento](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 
 O Microsoft Azure separa a computação baseada em VM do cliente do armazenamento. Essa separação permite que a computação e o armazenamento sejam escalados de maneira independente, facilitando o fornecimento do isolamento e da multilocação. Portanto, o Armazenamento do Azure é executado em um hardware separado sem conectividade de rede com a Computação do Azure, exceto logicamente. Todas as solicitações são executadas via HTTP ou HTTPS com base na escolha do cliente.
-

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14146be73de309a7119f5c7b416c4e02f3bb4285
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 40cf8e16e08db67c36009435758db36797518d96
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383092"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160760"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Atualizar suas informações de perfil e conta no portal meus aplicativos
 
@@ -86,7 +86,7 @@ Se você quiser alterar a senha de sua conta corporativa ou de estudante, poder�
 Se você esqueceu sua senha, nunca obteve uma de seu suporte de empresa ou foi bloqueada por sua conta, você pode redefinir sua própria senha.
 
 >[!Important]
->O administrador deve ativar esse recurso e você deve se registrar para participar. Para obter detalhes sobre como registrar e como redefinir sua senha, consulte [registrar para redefinição de senha](active-directory-passwords-reset-register.md) de autoatendimento e [redefinir sua senha corporativa ou de estudante](user-help-reset-password.md).
+>O administrador deve ativar esse recurso e você deve se registrar para participar. Para obter detalhes sobre como registrar e como redefinir sua senha, consulte [registrar para redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md) e [redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="change-your-security-verification-information"></a>Alterar suas informações de verificação de segurança
 
@@ -132,7 +132,7 @@ Você pode optar por sair de todos os lugares em que estiver conectado no moment
 
 2. Na caixa de confirmação sair de todos os **lugares** , selecione **Sim** para confirmar que deseja sair de todas as suas sessões e dispositivos. Selecione **não** se você mudar de ideia.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de concluir as atualizações na página de **perfil** , você pode:
 

@@ -1,5 +1,5 @@
 ---
-title: Gerenciando tokens (biblioteca de autenticação da Microsoft)
+title: Adquirir e armazenar tokens em cache usando MSAL
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre a aquisição e o armazenamento em cache de tokens usando a MSAL (Biblioteca de Autenticação da Microsoft).
 services: active-directory
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
+ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa6a939fce3eae8b1367c2d01e947e813fa5437
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 0d47fa92de8365ed3a5e0349b78899ff7fde1375
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803292"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150648"
 ---
-# <a name="acquiring-and-caching-tokens-using-msal"></a>Adquirir e armazenar tokens em cache usando a MSAL
+# <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquirir e armazenar tokens em cache usando a MSAL (biblioteca de autenticação da Microsoft)
+
 Os [tokens de acesso](access-tokens.md) permitem que os clientes chamem com segurança as APIs Web protegidas pelo Azure. Há muitas maneiras de adquirir um token usando a MSAL (Biblioteca de Autenticação da Microsoft). Algumas formas exigem interações do usuário por meio de um navegador da Web. Algumas não exigem interações do usuário. Geralmente, a maneira de adquirir um token dependerá se o aplicativo for um aplicativo cliente público (área de trabalho ou aplicativo móvel) ou um aplicativo cliente confidencial (Aplicativo Web, API da Web ou aplicativo daemon, como um serviço do Windows).
 
 A MSAL armazena um token em cache após sua aquisição.  Primeiro, o código do aplicativo deve tentar obter um token silenciosamente (a partir do cache), antes de adquirir um token por outros meios.

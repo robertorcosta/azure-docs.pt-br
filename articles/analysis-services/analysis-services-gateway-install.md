@@ -4,15 +4,15 @@ description: Saiba como instalar e configurar um Gateway de dados local.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6f182976ac655692f8c50d4e7560aa21444ce848
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 99b5a0ff9cc0fd7fdc3b8a0e453ed287c45e1c60
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298654"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147133"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados local
 
@@ -101,11 +101,11 @@ Após ter instalado e registrado seu gateway, você precisa criar um recurso de 
    
      A assinatura padrão baseia-se na conta do Azure utilizada para entrar.
 
-   * **Grupo de recursos**: Crie um grupo de recursos ou selecione um grupo de recursos existente.
+   * **Grupo de recursos**: Crie um novo grupo de recursos ou escolha um grupo de recursos existente.
 
-   * **Localização**: selecione a região em que você registrou o gateway.
+   * **Local**: selecione a região em que você registrou o gateway.
 
-   * **Nome de Instalação**: Se a instalação do gateway ainda não estiver selecionada, selecione o gateway que você instalou no computador e registrado. 
+   * **Nome da instalação**: se a instalação do gateway ainda não estiver selecionada, selecione o gateway que você instalou no computador e registrado. 
 
      Quando tiver concluído, clique em **Criar**.
 
@@ -127,9 +127,9 @@ Após ter instalado e registrado seu gateway, você precisa criar um recurso de 
 
     ![Êxito ao conectar o servidor ao recurso de gateway](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-É isso. Se precisar abrir portas ou solucionar qualquer problema, não deixe de conferir [Gateway de dados local](analysis-services-gateway.md).
+Pronto! Se precisar abrir portas ou solucionar qualquer problema, não deixe de conferir [Gateway de dados local](analysis-services-gateway.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerenciar o Analysis Services](analysis-services-manage.md)   
 * [Obter dados do Azure Analysis Services](analysis-services-connect.md)   

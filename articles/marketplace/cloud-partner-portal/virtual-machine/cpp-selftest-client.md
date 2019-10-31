@@ -1,5 +1,5 @@
 ---
-title: Cliente de teste automático para validar previamente uma máquina virtual | O Azure Marketplace
+title: Cliente de teste automático para validar previamente uma máquina virtual | Azure Marketplace
 description: Como criar um cliente de autoteste para validar previamente uma imagem de máquina virtual para o Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
 author: dan-wesley
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pabutler
-ms.openlocfilehash: 117249feea04381b34f8fc1d95f77c2c1a567dba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46923ecd33a054a36aa6900a415d0b563e5afff0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938715"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163263"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Criar um cliente de autoteste para validar previamente uma imagem de máquina virtual do Azure
 
@@ -46,8 +46,8 @@ A API de autoteste contém um ponto de extremidade individual que dá suporte ap
 ```
 Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
-Request Header:  Content-Type: “application/json”
-Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
+Request Header:  Content-Type: "application/json"
+Authorization:   "Bearer xxxx-xxxx-xxxx-xxxxx"
 Request body:    The Request body parameters should use the following JSON format:
                  {
                    "DNSName":"XXXX.westus.cloudapp.azure.com",
@@ -62,13 +62,13 @@ Request body:    The Request body parameters should use the following JSON forma
 A tabela a seguir descreve os campos da API.
 
 
-|      Campo         |    DESCRIÇÃO    |
+|      Campo         |    Descrição    |
 |  ---------------   |  ---------------  |
 |  Autorização     |  A cadeia de caracteres “Portador xxxx-xxxx-xxxx-xxxxx” contém o token de cliente do Azure AD (Active Directory), que pode ser criado usando o PowerShell.          |
 |  DNSName           |  Nome DNS da VM a ser testada    |
 |  Usuário              |  Nome de usuário para entrar na VM         |
 |  Senha          |  Senha para entrar na VM          |
-|  SO                |  Sistema operacional da VM: `Linux` ou `Windows`          |
+|  SISTEMA OPERACIONAL                |  Sistema operacional da VM: `Linux` ou `Windows`          |
 |  PortNo            |  Abra o número da porta para se conectar à VM. O número da porta é normalmente `22` para Linux e `5986` para Windows.          |
 |  |  |
 
@@ -87,7 +87,7 @@ Para chamar a API no PowerShell, siga estas etapas:
 O exemplo de código a seguir mostra uma chamada à API no PowerShell.
 
 ```powershell
-$accesstoken = “Get token for your Client AAD App”
+$accesstoken = "Get token for your Client AAD App"
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")
 $Body = @{
@@ -201,7 +201,7 @@ Para chamar a API com cURL, siga estas etapas:
 
 ```
 CURL POST -H "Content-Type:application/json"
--H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
+-H "Authorization: Bearer XXXXXX-Token-XXXXXXXX"
 https://isvapp.azurewebsites.net/selftest-vm
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
 ```
@@ -219,7 +219,7 @@ A captura de tela a seguir mostra os resultados em JSON da chamada de curl.
 
 Use as etapas a seguir para escolher o locatário do Azure AD no qual deseja criar seu aplicativo.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Na barra de menus superior, selecione sua conta e, na lista Diretório, escolha o locatário do Active Directory no qual deseja registrar seu aplicativo. Se preferir, selecione o ícone **Diretório + Assinatura** para ver o filtro de assinatura Global. A captura de tela a seguir mostra um exemplo desse filtro.
 
    ![Selecionar o filtro de assinatura](./media/stclient-subscription-filter.png)
@@ -247,9 +247,9 @@ Use as etapas a seguir para registrar o aplicativo cliente.
 
    - **Nome** – insira um nome amigável para o aplicativo. Por exemplo, “SelfTestClient”.
    - **Tipo de aplicativo** – selecione **API/Aplicativo Web**
-   - **URL de logon** – tipo de "https:\//isvapp.azurewebsites.net/selftest-vm"
+   - **URL de logon** – digite "https:\//isvapp.azurewebsites.net/selftest-VM"
 
-4. Selecione **Criar**.
+4. Clique em **Criar**.
 5. Em **Registros de aplicativo** ou em **Aplicativo registrado**, copie a **ID do Aplicativo**.
 
    ![Obtenha a ID do aplicativo](./media/stclient-app-id.png)
@@ -293,7 +293,7 @@ Use as etapas a seguir para registrar o aplicativo cliente.
 
 Use um dos seguintes programas para criar e obter um token usando a API REST OAuth:
 
-- Postman
+- postman
 - cURL no Linux
 - C&#35;
 - PowerShell
@@ -350,7 +350,7 @@ A captura de tela a seguir mostra um exemplo de como usar o comando curl para ob
 
 ### <a name="to-create-and-get-a-token-using-c35"></a>Para criar e obter um token usando C&#35;
 
-Para solicitar tokens para qualquer um dos seus aplicativos autorizados Auth0, executar uma operação POST para o https:\//soamtenant.auth0.com/oauth/token de ponto de extremidade com uma carga no seguinte formato:
+Para solicitar Auth0 tokens para qualquer um dos seus aplicativos autorizados, execute uma operação POST para o ponto de extremidade https:\//soamtenant.auth0.com/oauth/token com uma carga no seguinte formato:
 
 ```csharp
 string clientId = "Your Application Id";
@@ -373,7 +373,7 @@ var token = JObject.Parse(content)["access_token"];
 
 ### <a name="to-create-and-get-a-token-using-powershell"></a>Para criar e obter um token usando o PowerShell
 
-Para solicitar tokens para qualquer um dos seus aplicativos autorizados Auth0, executar uma operação POST para o https:\//soamtenant.auth0.com/oauth/token de ponto de extremidade com uma carga no seguinte formato:
+Para solicitar Auth0 tokens para qualquer um dos seus aplicativos autorizados, execute uma operação POST para o ponto de extremidade https:\//soamtenant.auth0.com/oauth/token com uma carga no seguinte formato:
 
 ```powershell
 $clientId = "Application Id of AD Client APP";
@@ -507,6 +507,6 @@ Os snippets de código a seguir mostram os resultados do teste no formato JSON.
     },
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de testar sua máquina virtual do Azure com êxito, você poderá [Publicar a oferta](./cpp-publish-offer.md).

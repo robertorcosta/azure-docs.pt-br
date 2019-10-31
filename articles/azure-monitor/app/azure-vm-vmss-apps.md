@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/26/2019
-ms.openlocfilehash: 4eb515d63d746e2f1f0b96431848a8b450d09358
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 248dfb83c26d3f49fb492272ee3bd87d1e34fefa
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678213"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161478"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Implantar o agente de Application Insights de Azure Monitor em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -23,9 +23,9 @@ Este artigo orienta você pela habilitação do monitoramento de Application Ins
 > [!IMPORTANT]
 > No momento, o agente de informações do Aplicativo Azure para .NET está em visualização pública.
 > Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável para cargas de trabalho de produção. Alguns recursos podem não ter suporte e alguns podem ter recursos restritos.
-> Para obter mais informações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="enable-application-insights"></a>Habilitar Application Insights
+## <a name="enable-application-insights"></a>Habilitar o Application Insights
 
 Há duas maneiras de habilitar o monitoramento de aplicativos para máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure aplicativos hospedados:
 
@@ -59,14 +59,14 @@ Instalar ou atualizar o agente de Application Insights como uma extensão para m
 ```powershell
 $publicCfgJsonString = '
 {
-  "RedfieldConfiguration": {
-    "InstrumentationKeyMap": {
-      "Filters": [
+  "redfieldConfiguration": {
+    "instrumentationKeyMap": {
+      "filters": [
         {
-          "AppFilter": ".*",
-          "MachineFilter": ".*",
-          "InstrumentationSettings" : {
-            "InstrumentationKey": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          "appFilter": ".*",
+          "machineFilter": ".*",
+          "instrumentationSettings" : {
+            "instrumentationKey": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           }
         }
       ]
@@ -113,14 +113,14 @@ Instalar ou atualizar o agente de Application Insights como uma extensão para o
 ```powershell
 $publicCfgHashtable =
 @{
-  "RedfieldConfiguration"= @{
-    "InstrumentationKeyMap"= @{
-      "Filters"= @(
+  "redfieldConfiguration"= @{
+    "instrumentationKeyMap"= @{
+      "filters"= @(
         @{
-          "AppFilter"= ".*";
-          "MachineFilter"= ".*";
-          "InstrumentationSettings"= @{
-            "InstrumentationKey"= "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"; # Application Insights Instrumentation Key, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
+          "appFilter"= ".*";
+          "machineFilter"= ".*";
+          "instrumentationSettings"= @{
+            "instrumentationKey"= "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"; # Application Insights Instrumentation Key, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
           }
         }
       )
@@ -165,14 +165,14 @@ Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myR
 # ResourceId        : /subscriptions/<mySubscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.Compute/virtualMachineScaleSets/<myVmssName>/extensions/ApplicationMonitoringWindows
 ```
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 
 Encontre dicas de solução de problemas para Application Insights extensão do agente de monitoramento para aplicativos .NET em execução em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais.
 
 > [!NOTE]
 > Os aplicativos .NET Core, Java e node. js só têm suporte em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure por meio de instrumentação manual baseada em SDK e, portanto, as etapas a seguir não se aplicam a esses cenários.
 
-A saída de execução de extensão é registrada nos arquivos encontrados nos seguintes diretórios:
+A saída de execução da extensão é registrada nos arquivos localizados nos seguintes diretórios:
 ```Windows
 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.ApplicationMonitoringWindows\<version>\
 ```

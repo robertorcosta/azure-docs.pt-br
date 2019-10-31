@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 502fb8b49770b4933c44aa1eb447abb746943c0d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: bde1741d12cc7ef181fb60bc7eecbec1fed8cbd0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554818"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151210"
 ---
 # <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
 
@@ -32,7 +32,7 @@ As seguintes configurações de segurança serão ativadas em seu locatário.
 
 ## <a name="unified-multi-factor-authentication-registration"></a>Registro de autenticação multifator unificado
 
-Todos os usuários em seu locatário devem se registrar para a MFA (autenticação multifator) na forma do serviço de autenticação multifator do Azure. Os usuários têm 14 dias para se registrarem na autenticação multifator usando o aplicativo Microsoft Authenticator. Depois que os 14 dias tiverem passado, o usuário não poderá entrar até que o registro da autenticação multifator seja concluído.
+Todos os usuários em seu locatário devem se registrar para a autenticação multifator (MFA) na forma do serviço de autenticação multifator do Azure. Os usuários têm 14 dias para se registrarem na autenticação multifator usando o aplicativo Microsoft Authenticator. Depois que os 14 dias tiverem passado, o usuário não poderá entrar até que o registro da autenticação multifator seja concluído.
 
 Entendemos que alguns usuários podem estar fora do escritório ou não entrarão durante os 14 dias imediatamente após habilitar os padrões de segurança. Para garantir que cada usuário tenha bastante tempo para se registrar na autenticação multifator, o período de 14 dias é exclusivo para cada usuário. O período de 14 dias de um usuário começa após sua primeira entrada interativa bem-sucedida depois de habilitar os padrões de segurança.
 
@@ -40,7 +40,7 @@ Entendemos que alguns usuários podem estar fora do escritório ou não entrarã
 
 ### <a name="protecting-administrators"></a>Protegendo administradores
 
-Os usuários com acesso a contas com privilégios aumentaram o acesso ao seu ambiente. Devido à potência que essas contas têm, você deve tratá-las com cuidado especial. Um método comum para melhorar a proteção de contas com privilégios é exigir uma forma mais forte de verificação de conta para entrada. No Azure AD, você pode obter uma verificação de conta mais forte exigindo a autenticação multifator.
+Os usuários com acesso a contas com privilégios aumentaram o acesso ao seu ambiente. Devido à capacidade que essas contas têm, devem ser tratadas com cuidado especial. Um método comum para melhorar a proteção de contas com privilégios é exigir uma forma mais forte de verificação de conta para entrada. No Azure AD, você pode obter uma verificação de conta mais forte exigindo a autenticação multifator.
 
 Após a conclusão do registro com a autenticação multifator, serão necessárias as nove funções de administrador do Azure AD a seguir para executar autenticação adicional sempre que entrarem:
 
@@ -51,7 +51,7 @@ Após a conclusão do registro com a autenticação multifator, serão necessár
 - Administrador de segurança
 - Administrador de assistência técnica ou administrador de senha
 - Administrador de cobrança
-- Administrador do usuário
+- Administrador de usuários
 - Administrador de autenticação
 
 ### <a name="protecting-all-users"></a>Protegendo todos os usuários
@@ -113,6 +113,7 @@ Aqui estão os guias passo a passo sobre como você pode usar o acesso condicion
 - [Exigir MFA para administradores](howto-conditional-access-policy-admin-mfa.md)
 - [Exigir MFA para gerenciamento do Azure](howto-conditional-access-policy-azure-management.md)
 - [Bloquear autenticação herdada](howto-conditional-access-policy-block-legacy.md)
+- [Exigir MFA para todos os usuários](howto-conditional-access-policy-all-users-mfa.md)
 
 ## <a name="enabling-security-defaults"></a>Habilitando padrões de segurança
 
@@ -122,7 +123,7 @@ Para habilitar os padrões de segurança em seu diretório:
 1. Navegue até **Azure Active Directory**  **Propriedades**de > de  .
 1. Selecione **gerenciar padrões de segurança**.
 1. Defina a alternância **habilitar padrões de segurança** para **Sim**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="next-steps"></a>Próximos passos
 

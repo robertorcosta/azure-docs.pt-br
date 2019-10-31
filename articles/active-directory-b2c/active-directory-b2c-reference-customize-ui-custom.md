@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7053f5b0211878d2f0b9d810fc3f4c0b9361e6f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e4714de9868dbd540e2e662b22a22da6df6514b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509598"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147539"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizar a interface do usuário de um Percurso do Usuário com políticas personalizadas
 
@@ -43,7 +43,7 @@ Você pode fornecer quantas páginas de conteúdo quiser ao criar arquivos de HT
 > [!NOTE]
 > Por motivos de segurança, bloqueamos a personalização do uso do JavaScript no momento. 
 
-Em cada um de seus modelos de HTML5/CSS, você deve fornecer um elemento *âncora*, que corresponde ao elemento `<div id=”api”>` necessário no HTML ou na página de conteúdo, como ilustram daqui em diante. O Azure AD B2C requer que todas as páginas de conteúdo tenham essa divisão específica.
+Em cada um de seus modelos de HTML5/CSS, você deve fornecer um elemento *âncora*, que corresponde ao elemento `<div id="api">` necessário no HTML ou na página de conteúdo, como ilustram daqui em diante. O Azure AD B2C requer que todas as páginas de conteúdo tenham essa divisão específica.
 
 ```
 <!DOCTYPE html>
@@ -76,7 +76,7 @@ Para garantir que tudo funcione conforme o esperado, é necessário que você:
 
 Graças a essa abordagem baseada em CORS, os usuários finais têm experiências consistentes entre seu aplicativo e as páginas atendidas pelo Azure AD B2C.
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Crie uma conta de armazenamento
 
 Como pré-requisito, você precisa criar uma conta de armazenamento. Você precisa de uma assinatura do Azure para criar uma conta de Armazenamento de Blobs do Azure. Você pode se inscrever para uma avaliação gratuita no [site do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -111,7 +111,7 @@ Como pré-requisito, você precisa criar uma conta de armazenamento. Você preci
     c.  O nome do seu contêiner de armazenamento de blobs de armazenamento, *containerName*, por exemplo, *b2c*.
     d.  O caminho dos arquivos de exemplo *Pacote Starter*, por exemplo *..\B2CTemplates\wingtiptoys*.
 
-Se você seguiu as etapas anteriores, os arquivos HTML5 e CSS do *UI-Customization-Pack* para a empresa fictícia **wingtiptoys** agora estão apontando para sua conta de armazenamento.  Para verificar se o conteúdo foi carregado corretamente, abra o painel de contêineres relacionados no Portal do Azure. Como alternativa, você pode verificar se o conteúdo foi carregado corretamente, para isso, acesse a página de um navegador. Para obter mais informações, confira [Azure Active Directory B2C: Uma ferramenta auxiliar usada para demonstrar o recurso de personalização da interface de usuário (IU) da página](active-directory-b2c-reference-ui-customization-helper-tool.md).
+Se você seguiu as etapas anteriores, os arquivos HTML5 e CSS do *UI-Customization-Pack* para a empresa fictícia **wingtiptoys** agora estão apontando para sua conta de armazenamento.  Para verificar se o conteúdo foi carregado corretamente, abra o painel de contêineres relacionados no Portal do Azure. Como alternativa, você pode verificar se o conteúdo foi carregado corretamente, para isso, acesse a página de um navegador. Para obter mais informações, confira [Azure Active Directory B2C: uma ferramenta auxiliar usada para demonstrar o recurso de personalização da interface de usuário (IU) da página](active-directory-b2c-reference-ui-customization-helper-tool.md).
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>Certifique-se de que a conta de armazenamento tenha o CORS habilitado
 
@@ -119,14 +119,14 @@ O CORS (compartilhamento de recurso entre origens) deve estar habilitado no pont
 
 Para verificar se o armazenamento que está hospedando o conteúdo tem CORS habilitado, prossiga com as etapas a seguir:
 
-1. Abra uma sessão de navegação e navegue até a página *unified.html* usando a URL completa do seu local na sua conta de armazenamento `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Por exemplo: https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
+1. Abra uma sessão de navegação e navegue até a página *unified.html* usando a URL completa do seu local na sua conta de armazenamento `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Por exemplo, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
 2. Navegue até https://test-cors.org. Este site permite que você verifique se a página que você está usando tem CORS habilitado.  
    <!--
    ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
    -->
 
 3. Na **URL remota**, insira a URL completa para o seu conteúdo unified.html e clique em **Enviar solicitação**.
-4. Verifique se a saída da seção **Resultados** contém *XHR status: 200*, que indica que o CORS está habilitado.
+4. Verifique se a saída na seção **Resultados** contém *XHR status: 200*, o que indica que o CORS está habilitado.
    <!--
    ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
    -->
@@ -138,7 +138,7 @@ Para verificar se o armazenamento que está hospedando o conteúdo tem CORS habi
 
 A tabela a seguir descreve a finalidade das páginas HTML5 precedentes.
 
-| Modelo do HTML5 | DESCRIÇÃO |
+| Modelo do HTML5 | Descrição |
 |----------------|-------------|
 | *phonefactor.html* | Esta página pode ser usada como modelo para uma página de autenticação multifator. |
 | *resetpassword.html* | Esta página pode ser usada como modelo para uma página de esquecimento de senha. |
@@ -150,11 +150,11 @@ A tabela a seguir descreve a finalidade das páginas HTML5 precedentes.
 
 Você pode adicionar um link para os modelos de HTML5/CSS ao seu percurso do usuário ao editar diretamente uma política personalizada.
 
-Os modelos de HTML5/CSS personalizados usados no seu percurso do usuário devem ser especificados em uma lista de definições de conteúdo que podem ser usados nos percursos do usuário. Para essa finalidade, um recurso opcional  *\<ContentDefinitions >* elemento XML deve ser declarado na  *\<BuildingBlocks >* seção do seu arquivo XML de política personalizada.
+Os modelos de HTML5/CSS personalizados usados no seu percurso do usuário devem ser especificados em uma lista de definições de conteúdo que podem ser usados nos percursos do usuário. Para essa finalidade, um elemento XML opcional de *\<ContentDefinitions >* deve ser declarado na seção *\<> do BUILDINGBLOCKS* do arquivo XML da política personalizada.
 
 A tabela a seguir descreve o conjunto de IDs de definição de conteúdo reconhecido pelo mecanismo de experiência de identidade de Azure AD B2C e o tipo de páginas relacionadas a eles.
 
-| ID de definição de conteúdo | DESCRIÇÃO |
+| ID de definição de conteúdo | Descrição |
 |-----------------------|-------------|
 | *api.error* | **Página de erro**. Essa página é exibida quando uma exceção ou um erro é encontrado. |
 | *api.idpselections* | **Página de seleção de provedor de identidade**. Esta página contém uma lista de provedores de identidade que o usuário pode escolher durante a inscrição. Esses provedores são fornecedores de identidade empresarial, provedores de identidade social, como Facebook e Google+, ou contas locais (baseadas em endereço de email ou nome de usuário). |
@@ -167,5 +167,5 @@ A tabela a seguir descreve o conjunto de IDs de definição de conteúdo reconhe
 | *api.selfasserted.profileupdate* | **Página de atualização de perfil**. Esta página contém um formulário que o usuário pode usar para atualizar seu perfil. Essa página é semelhante à página de inscrição para conta de redes sociais anterior, com exceção dos campos de entrada da senha. |
 | *api.signuporsignin* | **Página de inscrição ou entrada unificada**.  Esta página controla tanto a inscrição quanto a entrada dos usuários, que podem usar provedores de identidade empresarial, provedores de identidade social como Facebook ou Google+ ou contas locais.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Referência: Aprenda como as políticas personalizadas trabalham com o Identity Experience Framework no B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)

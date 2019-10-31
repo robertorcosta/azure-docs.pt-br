@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: f74f9ba55f3593ed31994b83bb9bda1501445e0a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9949c389ad0511c3ed5923e0451bc96e7063621f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100660"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159732"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurar um Grupo de Disponibilidade Always On em máquinas virtuais do Azure em diferentes regiões
 
@@ -123,14 +123,14 @@ Para criar uma réplica em um data center remoto, execute as seguintes etapas:
    >[!IMPORTANT]
    >O grupo de recursos de cluster inclui os dois endereços IP. Os dois endereços IP são dependências para o ponto de acesso de cliente do ouvinte. Use o **ou** operador na configuração de dependência do cluster.
 
-1. [Definir os parâmetros do cluster no PowerShell](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
+1. [Defina os parâmetros de cluster no PowerShell](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
 
 Execute o script do PowerShell com o nome de rede do cluster, o endereço IP e a porta de investigação configurado no balanceador de carga na nova região.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
    $IPResourceName = "<IPResourceName>" # The cluster name for the new IP Address resource.
-   $ILBIP = “<n.n.n.n>” # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
+   $ILBIP = "<n.n.n.n>" # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ProbePort = <nnnnn> # The probe port you set on the ILB.
 
    Import-Module FailoverClusters
@@ -157,14 +157,14 @@ Para testar a conectividade do ouvinte para a região remota, é possível reali
 1. Clique em OK.
 1. Em **Pesquisador**, com o botão direito no grupo de disponibilidade e clique em **Mostrar painel**.
 1. No painel, verifique se a réplica no site de recuperação de desastre está sincronizada.
-1. Em **Pesquisador**, com o botão direito no grupo de disponibilidade e clique **Failover...** . SQL Server Management Studio abre um Assistente de failover do SQL Server.  
+1. No Pesquisador de **objetos**, clique com o botão direito do mouse no grupo de disponibilidade e clique em **failover...** . SQL Server Management estúdios abre um assistente para fazer failover de SQL Server.  
 1. Clique em **Avançar** e selecione a instância do SQL Server no site de recuperação de desastre. Clique em **Avançar** novamente.
 1. Conecte-se à instância do SQL Server no site de recuperação de desastre e clique em **Avançar**.
 1. Sobre o **resumo** página, verifique as configurações e clique em **concluir**.
 
 Depois de testar a conectividade, mova a réplica primária de volta para seu data center principal e definir o modo de disponibilidade para suas configurações operacionais normais. A tabela a seguir mostra as configurações operacionais normais para a arquitetura descrita neste documento:
 
-| Location | Instância do servidor | Role | Modo de Disponibilidade | Modo de failover
+| Location | Instância do servidor | Função | Modo de Disponibilidade | Modo de failover
 | ----- | ----- | ----- | ----- | -----
 | Data center principal | SQL-1 | Primário | Síncrono | Automático
 | Data center principal | SQL-2 | Secundário | Síncrono | Automático
@@ -173,7 +173,7 @@ Depois de testar a conectividade, mova a réplica primária de volta para seu da
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Para obter mais informações sobre failover manual forçado e não planejado
 
-Para mais informações, consulte os seguintes tópicos:
+Para saber mais, consulte os tópicos a seguir:
 
 - [Executar um Failover Manual planejado de um grupo de disponibilidade (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
 - [Executar um Failover Manual forçado de um grupo de disponibilidade (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)

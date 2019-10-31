@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 49c836f5e9189104ba77e8f3d865f4db199c4060
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37ee600a2f7d621d3fefb2f70c26b6c29f738ea9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002968"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162698"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserção de anúncios no lado do cliente
 Este artigo contém informações sobre como inserir vários tipos de anúncios no lado do cliente.
@@ -32,13 +32,13 @@ Para obter informações sobre o suporte a legendagem oculta e anúncios em víd
 > 
 
 ## <a id="insert_ads_into_media"></a>Inserir anúncios em sua mídia
-Os Serviços de Mídia do Azure oferecem suporte à inserção de anúncios por meio da Plataforma de Mídia do Windows: Player Frameworks. As estruturas de player com suporte a anúncios estão disponíveis para dispositivos com Windows 8, Silverlight, Windows Phone 8 e iOS. Cada estrutura de player contém código de exemplo que mostra como implementar um aplicativo de player. Há três tipos diferentes de anúncios que podem ser inseridos na sua lista de mídias:
+Os Serviços de Mídia do Azure dão suporte à inserção de anúncios por meio da Plataforma de Mídia do Windows: Player Frameworks. As estruturas de player com suporte a anúncios estão disponíveis para dispositivos com Windows 8, Silverlight, Windows Phone 8 e iOS. Cada estrutura de player contém código de exemplo que mostra como implementar um aplicativo de player. Há três tipos diferentes de anúncios que podem ser inseridos na sua lista de mídias:
 
 * **Lineares** – anúncios em tela cheia que pausam o vídeo principal.
 * **Não lineares** – anúncios de sobreposição que são exibidos quando o vídeo principal está sendo reproduzido, geralmente um logotipo ou outra imagem estática colocada no player.
 * **Complementares** – anúncios que são exibidos fora do player.
 
-Os anúncios podem ser inseridos em qualquer ponto na linha do tempo do vídeo principal. Você deve indicar ao player quando reproduzir o anúncio e quais anúncios devem ser reproduzidos. Isso é feito usando um conjunto de arquivos padrão baseados em XML: Video Ad Service Template (VAST), Digital Video Multiple Ad Playlist (VMAP), Media Abstract Sequencing Template (MAST) e Digital Video Player Ad Interface Definition (VPAID). Os arquivos VAST especificam quais anúncios devem ser exibidos. Os arquivos VMAP especificam quando reproduzir diversos anúncios e contêm XML VAST. Os arquivos MAST são outra maneira de sequenciar anúncios que também podem conter XML VAST. Os arquivos VPAID definem uma interface entre o player de vídeo e o anúncio ou o servidor de anúncios.
+Os anúncios podem ser inseridos em qualquer ponto na linha do tempo do vídeo principal. Você deve indicar ao player quando reproduzir o anúncio e quais anúncios devem ser reproduzidos. Isso é feito usando um conjunto de arquivos padrão baseados em XML: VAST (Video Ad Service Template), VMAP (Digital Video Multiple Ad Playlist), MAST (Media Abstract Sequencing Template) e VPAID (Digital Video Player Ad Interface Definition). Os arquivos VAST especificam quais anúncios devem ser exibidos. Os arquivos VMAP especificam quando reproduzir diversos anúncios e contêm XML VAST. Os arquivos MAST são outra maneira de sequenciar anúncios que também podem conter XML VAST. Os arquivos VPAID definem uma interface entre o player de vídeo e o anúncio ou o servidor de anúncios.
 
 Cada estrutura do player funciona de maneira diferente e cada uma será abordada em seu próprio artigo. Este artigo descreve os mecanismos básicos utilizados para inserir anúncios. Os aplicativos de player de vídeo solicitam anúncios de um servidor de anúncios. O servidor do anúncio pode responder de várias maneiras:
 
@@ -332,7 +332,7 @@ O elemento **trigger** contém um elemento **startConditions** que especifica qu
 1. **type** – especifica o tipo de condição, evento ou propriedade
 2. **nome** – o nome da propriedade ou evento a ser usado durante a avaliação
 3. **valor** – o valor contra o qual uma propriedade será avaliada
-4. **operador** – operação a ser usada durante a avaliação: EQ (igual), NEQ (não igual), GTR (maior que), GEQ (maior ou igual a), LT (menor que), LEQ (menor ou igual a), MOD (módulo)
+4. **operador** – operação a ser usada durante a avaliação: EQ (igual), NEQ (não igual), GTR (maior), GEQ (maior ou igual), LT (menor que), LEQ (menor ou igual), MOD (módulo)
 
 **endConditions** também contêm elementos `<condition>`. Quando uma condição avalia para verdadeiro, o gatilho é reiniciado. O elemento `<trigger>` também contém um elemento `<sources>` que contém um ou mais elementos `<source>`. Os elementos de `<source>` definem o URI para a resposta de anúncio e o tipo de resposta de anúncio. Neste exemplo, um URI é dado a uma resposta VAST.
 
@@ -356,8 +356,8 @@ Um anúncio executável é criado no código que deve ser executado em um ambien
 
 ```xml
     <MediaFiles>
-       <MediaFile id="1" delivery="progressive" type=”application/x-shockwaveflash”
-                  width=”640” height=”480” apiFramework=”VPAID”>
+       <MediaFile id="1" delivery="progressive" type="application/x-shockwaveflash"
+                  width="640" height="480" apiFramework="VPAID">
            <!-- CDATA wrapped URI to executable ad -->
        </MediaFile>
     </MediaFiles>
@@ -366,7 +366,7 @@ Um anúncio executável é criado no código que deve ser executado em um ambien
 Um anúncio executável pode ser inicializado usando o elemento `<AdParameters>` dentro dos elementos `<Linear>` ou `<NonLinear>` em um resposta VAST. Para saber mais sobre o elemento `<AdParameters>`, consulte [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf). Para saber mais sobre o VPAID API, consulte [VPAID 2.0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
 
 ## <a name="implementing-a-windows-or-windows-phone-8-player-with-ad-support"></a>Implementação de um player no Windows ou Windows Phone 8 com suporte a anúncios
-A Plataforma de Mídia da Microsoft: o Player Framework para Windows 8 e Windows Phone 8 contém uma coleção de aplicativos de exemplo que mostra como implementar um aplicativo de player de vídeo usando a estrutura. Você pode baixar o Player Framework e os exemplos do [Player Framework para Windows 8 e Windows Phone 8](https://playerframework.codeplex.com).
+A Plataforma de Mídia da Microsoft: Player Framework para Windows 8 e Windows Phone 8 contém uma coleção de aplicativos de exemplo que mostra como implementar um aplicativo de player de vídeo usando a estrutura. Você pode baixar o Player Framework e os exemplos do [Player Framework para Windows 8 e Windows Phone 8](https://playerframework.codeplex.com).
 
 Quando você abrir a solução Microsoft.PlayerFramework.Xaml.Samples, verá um número de pastas dentro do projeto. A pasta Anúncios contém o código de exemplo relevante para a criação de um player de vídeo com suporte para anúncios. Dentro da pasta Anúncios há vários arquivos XAML/cs, cada um dos quais mostra como inserir anúncios de maneira diferente. A lista a seguir descreve cada:
 
@@ -586,7 +586,7 @@ Esse exemplo utiliza o VmapSchedulerPlugin para agendar anúncios usando um arqu
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>Implementando um iOS Video Player com suporte para anúncios
-A Plataforma de Mídia da Microsoft: o Player Framework para iOS contém uma coleção de aplicativos de exemplo que mostra como implementar um aplicativo de player de vídeo usando a estrutura. Você pode baixar o Player Framework e os exemplos do [Framework do Player de Mídia do Azure](https://github.com/Azure/azure-media-player-framework). A página do GitHub tem um link para uma Wiki que contém informações adicionais sobre a estrutura de player e uma introdução ao exemplo do player: [Wiki do Player de Mídia do Azure](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+A Plataforma de Mídia da Microsoft: Player Framework para iOS contém uma coleção de aplicativos de exemplo que mostra como implementar um aplicativo de player de vídeo usando a estrutura. Você pode baixar o Player Framework e os exemplos do [Framework do Player de Mídia do Azure](https://github.com/Azure/azure-media-player-framework). A página do GitHub tem um link para um wiki que contém informações adicionais sobre a estrutura do Player e uma introdução ao exemplo do Player: [player de mídia do Azure wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
 ### <a name="scheduling-ads-with-vmap"></a>Agendando anúncios com VMAP
 O exemplo a seguir mostra como agendar anúncios usando um arquivo VMAP.
@@ -849,6 +849,6 @@ O exemplo a seguir mostra como agendar um anúncio com sobreposição mid-roll.
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [Desenvolver aplicativos de player de vídeo](media-services-develop-video-players.md)
 

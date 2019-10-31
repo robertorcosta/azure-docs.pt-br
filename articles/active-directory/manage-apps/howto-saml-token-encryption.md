@@ -16,14 +16,14 @@ ms.date: 02/06/2019
 ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f8b785b8eadd21f1f94cf82fe137d6f747e738
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eafd209073b36265d24dbad4a66b3870d8f593db
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824763"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73148634"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Como: Configurar a criptografia de token SAML no Azure AD (versão prévia)
+# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Como configurar a criptografia de token SAML do Azure AD (versão prévia)
 
 > [!NOTE]
 > A criptografia de token é um recurso premium do Azure Active Directory (Azure AD). Para saber mais sobre as edições, os recursos e os preços do Azure AD, confira [Preços do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -131,7 +131,7 @@ Essa funcionalidade estará disponível em breve.
 1. Set the token encryption settings using the **[Set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** command.
 
     ```
-    Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials “<KeyCredentialsObject>”  -TokenEncryptionKeyId <keyID>
+    Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
     ```
 
 1. Read the token encryption settings using the following commands.
@@ -223,7 +223,7 @@ Essa funcionalidade estará disponível em breve.
     }  
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Descubra [Como o Azure AD usa o protocolo SAML](../develop/active-directory-saml-protocol-reference.md)
 * Conheça o formato, as características de segurança e o conteúdo de [Tokens SAML no Azure AD](../develop/reference-saml-tokens.md)

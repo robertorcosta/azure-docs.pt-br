@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: darrine
 ROBOTS: NOINDEX
-ms.openlocfilehash: c300a6477daa5759a68d5d11d40b1a71b46bd808
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1d16668e2c0f52c0824016c977251e64c800c54d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793833"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161734"
 ---
 # <a name="paper-entity"></a>Entidade Artigo
 
@@ -55,14 +55,14 @@ name | Descrição
 --- | ---
 BT | Tipo de documento BibTex ("a": artigo de diário, "b": livro, "c": capítulo de livro, "p": papel de conferência)
 BV | Nome do local do BibTex
-CC | Contextos de citação – lista de IDs dos artigos de referência e o contexto correspondente no artigo (por exemplo, [{123:[“as raposas marrons são conhecidas por pular conforme relatado no artigo”, “os cachorros preguiçosos são um equívoco histórico conforme mostrado no artigo 123”]})
+CC | Contextos de citação – lista de IDs de papel referenciadas e o contexto correspondente no documento (por exemplo, [{123: ["Brown Foxes é conhecido por saltar como referenciado no papel 123", "as cachorros lentas são um informativo histórico, conforme mostrado no artigo 123"]})
 DN | Título do papel original
 DOI | Identificador de Objeto Digital
 FP | Primeira página de papel na publicação
 I | Problema de publicação
 IA | Resumo invertido
 IA.IndexLength | Número de itens no índice (contagem de palavras do resumo)
-IA.InvertedIndex | Lista de palavras do resumo e sua posição correspondente no resumo original (por exemplo, [{"a": [0, 15, 30]}, {"raposa": [1]}, {"marrom":[2]}])
+IA.InvertedIndex | Lista de palavras abstratas e sua posição correspondente no resumo original (por exemplo, [{"The": [0, 15, 30]}, {"Brown": [1]}, {"Fox": [2]}])
 LP | Última página de papel na publicação
 PB | Publicador
 P | Fontes – lista das fontes da Web do artigo, ordenadas por classificação estática
