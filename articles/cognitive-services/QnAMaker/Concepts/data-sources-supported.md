@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 4bd1386c68f3173c19b282c1e01ecff545c4bcd7
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 39746032fd012de8e0868c3bc7f810cd8e780b68
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972059"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176364"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Fontes de dados para conteúdo do QnA Maker
 
@@ -27,9 +27,9 @@ O QnA Maker extrai automaticamente pares de pergunta-resposta do conteúdo semie
 
 A tabela a seguir resume os tipos de conteúdo e formatos de arquivo com suporte no QnA Maker.
 
-|Tipo de Fonte|Tipo de Conteúdo| Exemplos|
+|Tipo de Fonte|Tipo de conteúdo| Exemplos|
 |--|--|--|
-|URL|Perguntas Frequentes<br> (simples, com seções ou com uma página inicial de tópicos)<br>Páginas de suporte <br> (artigos de instrução de uma página, artigos de solução de problemas etc.)|[Perguntas frequentes simples](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Perguntas frequentes com links](https://www.microsoft.com/software-download/faq),<br> [Perguntas frequentes com home page de tópicos](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Artigo de suporte](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|URL|Perguntas frequentes<br> (simples, com seções ou com uma página inicial de tópicos)<br>Páginas de suporte <br> (artigos de instrução de uma página, artigos de solução de problemas etc.)|[Perguntas frequentes simples](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Perguntas frequentes com links](https://www.microsoft.com/en-us/software-download/faq),<br> [Perguntas frequentes com home page de tópicos](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Artigo de suporte](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
 |PDF/DOC|Perguntas frequentes,<br> Manual do Produto,<br> Folhetos,<br> Papel,<br> Política de folheto,<br> Guia de suporte,<br> QnA estruturado,<br> etc.|[QnA.doc estruturado](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exemplo produto Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Exemplo semi-estruturado.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exemplo White Paper. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br>[Exemplo de multi-Turn. docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)|
 |\* Excel|Arquivo QnA estruturado<br> (incluindo suporte RTF, HTML)|[Exemplo de QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |\* TXT/TSV|Arquivo QnA estruturado|[Exemplo de chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
@@ -58,7 +58,7 @@ Os [locais de fonte de dados do SharePoint](../How-to/add-sharepoint-datasources
 
 ## <a name="faq-urls"></a>URLs de perguntas frequentes
 
-O QnA Maker pode dar suporte a páginas da Web de perguntas frequentes em três diferentes formas: páginas de perguntas frequentes simples, páginas de perguntas frequentes com links, páginas de perguntas frequentes com uma home page de tópicos.
+O QnA Maker pode dar suporte a páginas da Web de perguntas frequentes de três maneiras diferentes: páginas de Perguntas Frequentes Simples, páginas de Perguntas Frequentes com links, páginas de Perguntas Frequentes com uma Página Inicial de Tópicos.
 
 ### <a name="plain-faq-pages"></a>Páginas de perguntas frequentes simples
 
@@ -101,7 +101,7 @@ O QnA Maker pode processar páginas da web de suporte semiestruturadas, como art
 
 O QnA Maker pode processar o conteúdo semiestruturado em um arquivo PDF ou documento e convertê-la em QnAs. Um bom arquivo que pode ser extraído também é um arquivo em que o conteúdo está organizado em alguma forma estruturada e é representado em seções bem definidas. As seções adicionais podem ser divididas em subseções ou subtópicos. A extração funciona melhor em documentos que têm uma estrutura clara com cabeçalhos hierárquicos.
 
-O QnA Maker identifica seções e subseções e relacionamentos no arquivo com base em indícios visuais, como tamanho da fonte, estilo da fonte, numeração, cores etc. Arquivos PDF ou DOC semiestruturados poderiam ser Manuais, Perguntas Frequentes, Diretrizes, Políticas, Brochuras, Folhetos e muitos outros tipos de arquivos. Abaixo estão alguns tipos de exemplo desses arquivos.
+QnA Maker identifica seções e subseções e relações no arquivo com base em pistas visuais, como tamanho da fonte, estilo da fonte, numeração, cores, etc. Arquivos de documento ou PDF semiestruturados podem ser manuais, perguntas frequentes, diretrizes, políticas, folhetos, panfletos e muitos outros tipos de arquivos. Abaixo estão alguns tipos de exemplo desses arquivos.
 
 ### <a name="product-manuals"></a>Manuais de produtos
 
@@ -116,7 +116,7 @@ Abaixo está um exemplo de um manual com uma página de índice e conteúdo hier
 
 ### <a name="brochures-guidelines-papers-and-other-files"></a>Brochuras, diretrizes, documentos e outros arquivos
 
-Muitos outros tipos de documentos também podem ser processados para gerar pares de QA, contanto que tenham uma estrutura e um layout claros. Elas incluem: brochuras, diretrizes, relatórios, white papers, artigos científicos, políticas, livros etc. Veja um exemplo [aqui](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
+Muitos outros tipos de documentos também podem ser processados para gerar pares de QA, contanto que tenham uma estrutura e um layout claros. Eles incluem: folhetos, diretrizes, relatórios, White papers, documentos científicos, políticas, livros, etc. Veja um exemplo [aqui](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
 
 Abaixo está um exemplo de um documento semiestruturado sem um índice:
 
@@ -204,8 +204,8 @@ Uma nova linha entre duas frases.|`\n\n`|`How can I create a bot with \n\n QnA M
 |URL de itálico para o link|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![formato para URL de itálico](../media/qnamaker-concepts-datasources/format-url-italics.png)|
 |Símbolos de redução de escape|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![formato para URL de itálico](../media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |Lista ordenada|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>O exemplo anterior usa a numeração automática incorporada à redução.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>O exemplo anterior usa a numeração explícita.|![formato da lista ordenada](../media/qnamaker-concepts-datasources/format-ordered-list.png)|
-|Lista não ordenada|`\n * item1 \n * item2`<br>ou o<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![formato da lista não ordenada](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
-|Listas aninhadas|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Você pode aninhar listas ordenadas e não ordenadas juntas. A guia, `\t`, indica o nível de recuo do elemento filho.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![formato da lista não ordenada aninhada](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![formato da lista ordenada aninhada](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
+|Lista não ordenada|`\n * item1 \n * item2`<br>ou<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![formato da lista não ordenada](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
+|Listas aninhadas|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Você pode aninhar listas ordenadas e não ordenadas juntas. A guia `\t`, indica o nível de recuo do elemento filho.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![formato da lista não ordenada aninhada](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![formato da lista ordenada aninhada](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
 \* QnA Maker não processa a imagem de forma alguma. É a função do aplicativo cliente para renderizar a imagem. 
 
@@ -213,10 +213,10 @@ Se você deseja adicionar conteúdo usando atualizar/substituir APIs da base de 
 
 | Preservar HTML  | Representação na solicitação de API  | Representação em KB |
 |-----------|---------|-------------------------|
-| Sim | \&LT; br @ no__t-1gt; | &lt;br @ no__t-1 |
-| Sim | \&LT; H3 @ no__t-1gt; header @ no__t-2LT;/H3 @ no__t-3GT; | &lt;h3 @ no__t-1header @ no__t-2/H3 @ no__t-3 |
+| SIM | \&lt; br\&gt; | &lt;br&gt; |
+| SIM | \&lt; H3\&gt; header\&lt;/H3\&gt; | &lt;o cabeçalho&gt;H3&lt;/H3&gt; |
 
-Além disso, CR LF (\r\n) são convertidas em \n no KB. A LF (\n) é mantida como está. Se você quiser escapar qualquer sequência de escape como um \t ou \n, poderá usar uma barra invertida, por exemplo: ' \\ @ no__t-1R @ no__t-2 @ no__t-3N ' e ' \\ @ no__t-5T '
+Além disso, CR LF (\r\n) são convertidas em \n no KB. A LF (\n) é mantida como está. Se você quiser escapar qualquer sequência de escape como um \t ou \n, poderá usar uma barra invertida, por exemplo: '\\\\r\\\\n ' e '\\\\t '
 
 ## <a name="editing-your-knowledge-base-locally"></a>Como editar sua base de dados de conhecimento localmente
 
@@ -234,11 +234,11 @@ Use o tutorial **[CommonMark](https://commonmark.org/help/tutorial/index.html)**
 
 O controle de versão para dados é fornecido por meio do [recurso de importação/exportação](development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) na página **configurações** . 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Configurar um serviço do QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Consulte 
 
 [Visão geral do QnA Maker](../Overview/overview.md)

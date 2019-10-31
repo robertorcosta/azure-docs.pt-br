@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0f7c1987cd4184ba6cda37d4d1894f0dba0b2f1
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: ea38317868d183bd02958398b51ef906eb78e799
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024624"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177039"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -236,6 +236,10 @@ Os usuários nessa função podem ler configurações e informações administra
 > No momento, esses recursos estão em desenvolvimento.
 >
 
+### <a name="group-administratorgroup-administrator"></a>[Administrador de grupo](#group-administrator)
+
+Os usuários nessa função podem criar/gerenciar grupos e suas configurações, como políticas de nomenclatura e expiração. É importante entender que a atribuição de um usuário a essa função oferece a eles a capacidade de gerenciar todos os grupos no locatário em várias cargas de trabalho, como equipes, SharePoint, Yammer, além do Outlook. Além disso, o usuário poderá gerenciar as configurações de vários grupos em vários portais de administrador, como o centro de administração da Microsoft, o portal do Azure, bem como a carga de trabalho específica, como equipes e centros de administração do SharePoint.
+
 ### <a name="guest-inviterguest-inviter-permissions"></a>[Convite do convidado](#guest-inviter-permissions)
 
 Os usuários nessa função podem gerenciar Azure Active Directory convites de usuário convidado B2B quando os **Membros podem convidar** a configuração de usuário estiver definido como não. Mais informações sobre a colaboração B2B em [Sobre a colaboração B2B do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Ela não inclui nenhuma outra permissão.
@@ -286,6 +290,10 @@ Os usuários nessa função podem monitorar todas as notificações no centro de
 ### <a name="message-center-readermessage-center-reader-permissions"></a>[Leitor do centro de mensagens](#message-center-reader-permissions)
 
 Os usuários nessa função podem monitorar notificações e atualizações de integridade de consultoria no [centro de mensagens do Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) para sua organização em serviços configurados, como o Exchange, o Intune e o Microsoft Teams. Os Leitores do Centro de Mensagens recebem por email resumos semanais de postagens, atualizações e podem compartilhar postagens do Centro de Mensagens no Office 365. No Azure AD, os usuários atribuídos a essa função terão acesso somente leitura aos serviços do Azure AD como usuários e grupos. Essa função não tem acesso para exibir, criar nem gerenciar tíquetes de suporte.
+
+### <a name="office-apps-administratoroffice-apps-administrator-permissions"></a>[Administrador de aplicativos do Office](#office-apps-administrator-permissions)
+
+Os usuários nessa função podem gerenciar as configurações de nuvem dos aplicativos do Office 365. Isso inclui o gerenciamento de políticas de nuvem, o gerenciamento de download de autoatendimento e a capacidade de exibir o relatório relacionado aos aplicativos do Office. Essa função adicionalmente concede a capacidade de gerenciar tíquetes de suporte e monitorar a integridade do serviço no centro de administração principal. Os usuários atribuídos a essa função também podem gerenciar a comunicação de novos recursos nos aplicativos do Office. 
 
 ### <a name="partner-tier1-supportpartner-tier1-support-permissions"></a>[Suporte do nível 1 para parceiros](#partner-tier1-support-permissions)
 
@@ -1060,6 +1068,28 @@ Pode ler tudo o que um administrador global pode, mas não editar nada.
 | Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
 | Microsoft. office365. webportal/myentities/Standard/Read   | Ler propriedades padrão em todos os recursos no Microsoft. office365. webportal. |
 
+### <a name="group-administrator"></a>Administrador de grupo
+Pode gerenciar todos os aspectos de grupos e configurações de grupo, como políticas de nomenclatura e expiração
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| Microsoft. Directory/groups/Basic/Read | Leia as propriedades padrão em Grupos no Azure Active Directory.  |
+| Microsoft. Directory/groups/Basic/Update | Atualize as propriedades básicas nos grupos do Active Directory do Azure. |
+| Microsoft. Directory/groups/Create | Crie grupos no Active Directory do Azure. |
+| Microsoft. Directory/groups/createAsOwner | Crie grupos no Active Directory do Azure. O criador é adicionado como o primeiro proprietário e o objeto criado conta com a cota de 250 objetos criados pelo criador. |
+| Microsoft. Directory/groups/Delete | Exclua grupos no Azure Active Directory. |
+| Microsoft. Directory/groups/hiddenMembers/Read | Ler a propriedade hiddenmembers no Azure Active Directory. |
+| Microsoft. Directory/groups/Members/Update | Atualize a propriedade Groups no Azure Active Directory. |
+| Microsoft. Directory/groups/Owners/Update | Atualize a propriedade Owners no Azure Active Directory. |
+| Microsoft. Directory/groups/Restore | Restaure grupos no Azure Active Directory. |
+| Microsoft. Directory/groups/Settings/Update | Atualize a propriedade Groups no Azure Active Directory. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
+| microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
+| microsoft.office365.messageCenter/messages/read | Ler mensagens em microsoft.office365.messageCenter. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
+| Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
+
 ### <a name="guest-inviter-permissions"></a>Permissões do convite do convidado
 Pode convidar usuários convidados independentemente da configuração "membros podem convidar pessoas".
 
@@ -1201,6 +1231,25 @@ Pode ler as mensagens e as atualizações para sua organização somente no Cent
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.messageCenter/messages/read | Ler mensagens em microsoft.office365.messageCenter. |
+
+### <a name="office-apps-administrator-permissions"></a>Permissões de administrador de aplicativos do Office
+Pode gerenciar os serviços de nuvem dos aplicativos do Office, incluindo gerenciamento de políticas e configurações, e gerenciar a capacidade de selecionar, cancelar a seleção e publicar o conteúdo do recurso "o que há de novo" nos dispositivos dos usuários finais.
+
+> [!NOTE]
+> Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+>
+>
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
+| microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
+| microsoft.office365.messageCenter/messages/read | Ler mensagens em microsoft.office365.messageCenter. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
+| Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
+| Microsoft. office365. usercommunications/myentities/TaskId | Leia e atualize a visibilidade das mensagens novas. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="partner-tier1-support-permissions"></a>Permissões de suporte do nível 1 do parceiro
 
@@ -1636,6 +1685,7 @@ Gravadores de diretório | Gravadores de diretório | 9360feb5-f418-4baa-8175-e2
 Administrador de serviços do Exchange | Administrador do Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Administrador do provedor de identidade externo | Administrador do provedor de identidade externo | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Leitor global | Leitor global | f2ef992c-3afb-46b9-b7cf-a126ee74c451
+Administrador de grupo | Administrador de grupo | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Emissor do Convite ao Convidado | Emissor do convite ao convidado | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Administrador de assistência técnica | Administrador de senha | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Administrador de serviços do Intune | Administrador do Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
@@ -1644,6 +1694,7 @@ Administrador de Licenças | Administrador de licenças | 4d6ac14f-3453-41d0-bef
 Administrador de serviços do Lync | Administrador do Skype for Business | 75941009-915a-4869-abe7-691bff18279e
 Leitor de privacidade do centro de mensagens | Leitor de privacidade do centro de mensagens | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Leitor do Centro de Mensagens | Leitor do centro de mensagens | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+Administrador de aplicativos do Office | Administrador de aplicativos do Office | 2b745bdf-0803-4d80-aa65-822c4493daac
 Suporte de camada 1 do parceiro | Suporte de camada 1 do parceiro | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Suporte de camada 2 do parceiro | Suporte de camada 2 do parceiro | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Administrador de senha | Administrador de senha | 966707d0-3269-4727-9be2-8c3a10f19b9d

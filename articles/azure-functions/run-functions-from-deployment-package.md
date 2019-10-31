@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: glenga
-ms.openlocfilehash: 549768473460dcb97b66c3589d71c02039220605
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: dc7f2b6c6e00477b6326e3277cb195aa0de6868c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389962"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176411"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Executar o Azure Functions de um arquivo de pacote
 
@@ -42,10 +42,10 @@ Para habilitar seu aplicativo de funções para execução de um pacote, basta a
 | Value  | Descrição  |
 |---------|---------|
 | **`1`**  | Recomendado para aplicativos de funções em execução no Windows. Execute de um arquivo de pacote na pasta `d:\home\data\SitePackages` do seu aplicativo de funções. Se não estiver [implantando com a implantação de zip](#integration-with-zip-deployment), essa opção exigirá que a pasta também tenha um arquivo chamado `packagename.txt`. Esse arquivo contém apenas o nome do arquivo de pacote na pasta, sem espaços em branco. |
-|**`<url>`**  | Localização de um arquivo de pacote específico que você deseja executar. Ao usar o armazenamento de Blobs, você deve usar um contêiner privado com uma [SAS (Assinatura de Acesso Compartilhado)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para habilitar o tempo de execução do Functions para acessar o pacote. Você pode usar o [Gerenciador de Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar arquivos de pacote para sua conta de armazenamento de Blobs.         |
+|**`<URL>`**  | Localização de um arquivo de pacote específico que você deseja executar. Ao usar o armazenamento de Blobs, você deve usar um contêiner privado com uma [SAS (Assinatura de Acesso Compartilhado)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para habilitar o tempo de execução do Functions para acessar o pacote. Você pode usar o [Gerenciador de Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar arquivos de pacote para sua conta de armazenamento de Blobs. Ao especificar uma URL, você também deve [sincronizar gatilhos](functions-deployment-technologies.md#trigger-syncing) depois de publicar um pacote atualizado. |
 
 > [!CAUTION]
-> Ao executar um aplicativo de funções no Windows, a opção de URL externa gera um pior desempenho de inicialização a frio. Ao implantar seu aplicativo de funções no Windows, você deve definir `WEBSITE_RUN_FROM_PACKAGE` como `1` e publicar com a implantação de zip.
+> Ao executar um aplicativo de funções no Windows, a opção de URL externa gera um pior desempenho de inicialização a frio. Ao implantar seu aplicativo de funções no Windows, você deve definir `WEBSITE_RUN_FROM_PACKAGE` para `1` e publicar com a implantação do zip.
 
 O exemplo a seguir mostra um aplicativo de funções configurado para ser executado de um arquivo .zip hospedado no armazenamento de Blobs do Azure:
 
@@ -67,7 +67,7 @@ A [implantação de zip][Zip deployment for Azure Functions] é um recurso do se
 - Executar do pacote torna `wwwroot` somente leitura, portanto, você receberá um erro ao gravar arquivos nesse diretório.
 - Não há suporte para formatos tar e gzip.
 - Esse recurso não compõe o cache local.
-- Para obter um desempenho de inicialização a frio aprimorado, use a opção de zip local (`WEBSITE_RUN_FROM_PACKAGE` = 1).
+- Para obter um desempenho de inicialização a frio aprimorado, use a opção de zip local (`WEBSITE_RUN_FROM_PACKAGE`= 1).
 
 ## <a name="next-steps"></a>Próximos passos
 

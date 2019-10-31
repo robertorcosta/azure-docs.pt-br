@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 64f79b3e72a8655f8d704ffd531d9e34485832b0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ebacd386221ed12e1171034eb5d23236bd234849
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570622"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176044"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes para recursos em redes virtuais do Azure
 
@@ -40,7 +40,7 @@ O tipo de resolução de nomes usado depende de como seus recursos precisam se c
 | Resolução de nomes entre VMs em diferentes redes virtuais ou instâncias de função em serviços de nuvem diversos. |[Zonas Privadas do DNS do Azure](../dns/private-dns-overview.md) ou Servidores DNS gerenciados pelo cliente que encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Confira [Resolução de nomes usando o seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
 | Resolução de nomes de um Serviço de Aplicativo do Azure (Aplicativo Web, Função ou Bot) usando a integração de rede virtual para instâncias de função ou VMs localizadas na mesma rede virtual. |Servidores DNS gerenciados pelo cliente que encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Confira [Resolução de nomes usando o seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
 | Resolução de nomes de Aplicativos Web do Serviço de Aplicativo para VMs na mesma rede virtual. |Servidores DNS gerenciados pelo cliente que encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Confira [Resolução de nomes usando o seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
-| Resolução de nomes de Aplicativos Web do Serviço de Aplicativo em uma rede virtual para VMs em redes virtuais diferentes. |Servidores DNS gerenciados pelo cliente que encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Confira Resolução de nomes usando seu próprio servidor DNS. |Somente FQDN |
+| Resolução de nomes de Aplicativos Web do Serviço de Aplicativo em uma rede virtual para VMs em redes virtuais diferentes. |Servidores DNS gerenciados pelo cliente que encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Confira [Resolução de nomes usando o seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
 | Resolução de nomes de computador e de serviço locais em VMs ou instâncias de função no Azure. |Servidores DNS gerenciados pelo cliente (controlador de domínio local, controlador de domínio somente leitura local ou DNS secundário sincronizado usando transferências de zona, por exemplo). Confira [Resolução de nomes usando o seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
 | Resolução de nomes de host do Azure de computadores locais. |Encaminhe consultas para um servidor de proxy DNS gerenciado pelo cliente na rede virtual correspondente. O servidor proxy encaminha consultas para resolução pelo Azure. Confira [Resolução de nomes usando o seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Somente FQDN |
 | DNS inverso para IPs internos. |[Resolução de nome usando seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Não aplicável |
@@ -154,7 +154,7 @@ O encaminhamento do DNS também possibilita a resolução do DNS entre redes vir
 
 ![Diagrama do DNS entre redes virtuais](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-Quando você estiver usando a resolução de nomes fornecida pelo Azure, o protocolo de configuração de Host dinâmico (DHCP) do Azure fornecerá um sufixo DNS interno ( **.internal.cloudapp.net**) para cada VM. Esse sufixo permite que a resolução de nomes do host, assim como os registros de nomes do host, estejam na zona **internal.cloudapp.net**. Ao usar sua própria solução de resolução de nomes, esse sufixo não será fornecido para as VMs, pois interfere com outras arquiteturas de DNS (como cenários associados ao domínio). Em vez disso, o Azure fornece um espaço reservado não funcional (*reddog.microsoft.com*).
+Quando você estiver usando a resolução de nomes fornecida pelo Azure, o protocolo de configuração de Host dinâmico (DHCP) do Azure fornecerá um sufixo DNS interno ( **.internal.cloudapp.net**) para cada VM. Esse sufixo permite que a resolução de nomes do host, assim como os registros de nomes do host, estejam na zona **internal.cloudapp.net**. Ao usar sua própria solução de resolução de nomes, esse sufixo não será fornecido para as VMs, pois interfere com outras arquiteturas de DNS (como cenários associados ao domínio). Em vez disso, o Azure fornece um espaço reservado que não funciona (*reddog.microsoft.com*).
 
 Se necessário, você pode determinar o sufixo DNS interno usando o PowerShell ou a API:
 
@@ -210,7 +210,7 @@ Ao usar o modelo de implantação clássica, você pode especificar os servidore
 >
 >
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Modelo de implantação do Azure Resource Manager:
 

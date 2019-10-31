@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 56bc8934db86bb03446a6d2637bd54daaf2b5fb9
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 6a3d1fb347819015887ffc4fd8089bbc1f3a70de
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254735"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176324"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Entender Azure Policy para o serviço kubernetes do Azure
 
@@ -21,7 +21,7 @@ Ao estender o uso do [gatekeeper](https://github.com/open-policy-agent/gatekeepe
 > [!NOTE]
 > Azure Policy para AKS está em visualização limitada e só dá suporte a definições de políticas internas.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Para habilitar e usar Azure Policy para AKS com o cluster AKS, execute as seguintes ações:
 
@@ -96,7 +96,7 @@ O _complemento Azure Policy_ para kubernetes conecta o serviço de Azure Policy 
 
 Antes de instalar o complemento no cluster do AKS, a extensão de visualização deve ser instalada. Esta etapa é feita com CLI do Azure:
 
-1. Você precisa do CLI do Azure versão 2.0.62 ou posterior instalado e configurado. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+1. Você precisa do CLI do Azure versão 2.0.62 ou posterior instalado e configurado. Execute `az --version` para encontrar a versão. Caso precise instalá-la ou atualizá-la, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 1. O cluster AKS deve ser a versão _1,10_ ou superior. Use o script a seguir para validar a versão do cluster AKS:
 
@@ -143,7 +143,7 @@ Depois que os pré-requisitos forem concluídos, instale o complemento Azure Pol
      > [!NOTE]
      > Se o botão **habilitar complemento** estiver esmaecido, a assinatura ainda não foi adicionada à versão prévia. Consulte [aceitar para visualizar](#opt-in-for-preview) as etapas necessárias.
 
-- CLI do Azure
+- Azure CLI
 
   ```azurecli-interactive
   # Log in first with az login if you're not using Cloud Shell
@@ -164,7 +164,7 @@ A cada 5 minutos, o complemento chama uma verificação completa do cluster. Dep
 
 A estrutura de linguagem Azure Policy para gerenciar AKS segue as políticas existentes. O efeito _EnforceRegoPolicy_ é usado para gerenciar seus clusters AKs e usa propriedades de _detalhes_ específicas para trabalhar com Opa e gatekeeper. Para obter detalhes e exemplos, consulte o efeito [EnforceRegoPolicy](effects.md#enforceregopolicy) .
 
-Como parte da propriedade _Details. Policy_ na definição de política, Azure Policy passa o URI de uma política rego para o complemento. Rego é a linguagem que o OPA e o GateKeeper dão suporte para validar ou mutar uma solicitação para o cluster kubernetes. Ao dar suporte a um padrão existente para o gerenciamento de kubernetes, Azure Policy torna possível reutilizar as regras existentes e emparelhar com Azure Policy para uma experiência unificada de relatórios de conformidade de nuvem. Para obter mais informações, consulte [o que é rego?](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego).
+Como parte da propriedade _Details. Policy_ na definição de política, Azure Policy passa o URI de uma política rego para o complemento. Rego é a linguagem que o OPA e o GateKeeper dão suporte para validar ou mutar uma solicitação para o cluster kubernetes. Ao dar suporte a um padrão existente para o gerenciamento de kubernetes, Azure Policy torna possível reutilizar as regras existentes e emparelhar com Azure Policy para uma experiência unificada de relatórios de conformidade de nuvem. Para obter mais informações, consulte [o que é rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 
 ## <a name="built-in-policies"></a>Políticas internas
 
@@ -183,7 +183,7 @@ Para localizar as políticas internas de gerenciamento de AKS usando o portal do
 
 Como alternativa, use o guia de início rápido [atribuir um portal de política](../assign-policy-portal.md) para localizar e atribuir uma política de AKs. Procure uma definição de política kubernetes em vez do exemplo ' auditar VMs '.
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Registro em log
 
 ### <a name="azure-policy-add-on-logs"></a>Azure Policy logs de complemento
 
@@ -220,7 +220,7 @@ Para remover o complemento Azure Policy do cluster do AKS, use o portal do Azure
 
      ![Desabilitar o Azure Policy para o complemento AKS](../media/rego-for-aks/disable-policy-add-on.png)
 
-- CLI do Azure
+- Azure CLI
 
   ```azurecli-interactive
   # Log in first with az login if you're not using Cloud Shell
@@ -228,7 +228,7 @@ Para remover o complemento Azure Policy do cluster do AKS, use o portal do Azure
   az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
   ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revisar a [Estrutura de definição de política](definition-structure.md).

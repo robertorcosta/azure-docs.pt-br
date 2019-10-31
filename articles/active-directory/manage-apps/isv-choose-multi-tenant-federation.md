@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c5975b57b6f960badf747e33deb238adf260199
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: ede458e7d4c1cb1a8d7e3f2e2c9df54d5925d6d8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967206"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175977"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Escolha o protocolo de Federação correto para seu aplicativo multilocatário
 
@@ -30,12 +30,12 @@ A tabela a seguir compara
 * SAML (Security Assertion Markup Language)
 * Especificação Web Services Federation (WSFed)
 
-| Funcionalidade| OAuth/OIDC| SAML/WSFed |
+| Capacidade| OAuth/OIDC| SAML/WSFed |
 | - |-|-|
 | Logon único baseado na Web| √| √ |
 | Logout único baseado na Web| √| √ |
-| Logon único baseado em móvel| √| √* |
-| Logout único baseado em celular| √| √* |
+| Logon único baseado em móvel| √| √ |
+| Logout único baseado em celular| √| √ |
 | Políticas de acesso condicional para aplicativos móveis| √| X |
 | Experiência de MFA direta para aplicativos móveis| √| X |
 | Microsoft Graph de acesso| √| X |
@@ -60,7 +60,7 @@ Além disso, o uso desses protocolos permite que seus clientes usem políticas d
 
 Registre seu aplicativo com a identidade da Microsoft, que é um provedor OAuth 2,0. Você também pode registrar seu aplicativo baseado em OAuth 2,0 com qualquer outro provedor de identidade com o qual deseja integrar. 
 
-Para obter informações sobre como registrar seu aplicativo e implementar esses protocolos para o SSO para aplicativos Web, consulte autorizar o [acesso a aplicativos Web usando OpenID Connect e Azure Active Directory](../develop/sample-v2-code.md).  Para obter informações sobre como implementar esses protocolos para SSO em aplicativos móveis, consulte o seguinte: 
+Para obter informações sobre como registrar seu aplicativo e implementar esses protocolos para o SSO para aplicativos Web, consulte [autorizar o acesso a aplicativos Web usando OpenID Connect e Azure Active Directory](../develop/sample-v2-code.md).  Para obter informações sobre como implementar esses protocolos para SSO em aplicativos móveis, consulte o seguinte: 
 
 * [Android](../develop/quickstart-v2-android.md)
 

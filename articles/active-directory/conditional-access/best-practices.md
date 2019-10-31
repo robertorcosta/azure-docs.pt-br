@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a30e466e78c3a71764b36bf8337aaeae8981f7
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 6b8402279b5c2717b1f73a28f2efc02ade5e479c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980491"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175773"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Práticas recomendadas para acesso condicional no Azure Active Directory
 
@@ -31,7 +31,7 @@ Este artigo pressupõe que você esteja familiarizado com os conceitos e a termi
 
 Ao criar uma nova política, não há usuários, grupos, aplicativos ou controles de acesso selecionados.
 
-![Aplicativos de nuvem](./media/best-practices/02.png)
+![Aplicativos na nuvem](./media/best-practices/02.png)
 
 Para que a política funcione, você deve configurar:
 
@@ -53,7 +53,7 @@ Todas as políticas são impostas em duas fases:
 
 - Na **segunda** fase, você é solicitado a atender aos requisitos que não atendeu. Se qualquer uma das políticas bloquear o acesso, você será bloqueado e não será solicitado a atender a outros controles de política. Se nenhuma das políticas bloquear você, você será solicitado a atender a outros controles de política na seguinte ordem:
 
-   ![Ordem](./media/best-practices/06.png)
+   ![Solicite](./media/best-practices/06.png)
     
    Os provedores de MFA externos e os termos de uso vêm em seguida.
 
@@ -89,7 +89,7 @@ Para cada entrada, o Azure Active Directory avalia todas as políticas e garante
 
 Sim, você pode usar o Exchange ActiveSync em uma política de acesso condicional.
 
-Alguns aplicativos de nuvem, como o SharePoint Online e o Exchange Online, também oferecem suporte a protocolos de autenticação herdados. Quando um aplicativo de cliente pode usar um protocolo de autenticação herdado para acessar um aplicativo de nuvem, o Azure AD não pode impor uma política de acesso condicional nessa tentativa de acesso. Para impedir que um aplicativo de cliente ignore a imposição de políticas, verifique se é possível habilitar a autenticação moderna apenas nos aplicativos de nuvem afetados.
+Alguns aplicativos de nuvem, como o SharePoint Online e o Exchange Online, também oferecem suporte a protocolos de autenticação herdados. Quando um aplicativo cliente pode usar um protocolo de autenticação herdado para acessar um aplicativo de nuvem, o Azure AD não pode impor uma política de acesso condicional nessa tentativa de acesso. Para impedir que um aplicativo de cliente ignore a imposição de políticas, verifique se é possível habilitar a autenticação moderna apenas nos aplicativos de nuvem afetados.
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Como você deve configurar o acesso condicional com os aplicativos do Office 365?
 
@@ -142,7 +142,7 @@ Considere migrar as políticas que você não tiver criado no Portal do Azure po
 
 Para obter mais informações, consulte [Migrar políticas clássicas no portal do Azure](policy-migration.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você quiser saber:
 

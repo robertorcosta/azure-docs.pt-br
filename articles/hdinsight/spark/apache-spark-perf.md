@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/01/2019
-ms.openlocfilehash: aa5329c6321866fd26e393b581702a392f510108
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 0d8890eeba7fcb53517d6ee653c8dd09866805ef
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936839"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177374"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Otimizar Apache Spark trabalhos no HDInsight
 
@@ -59,10 +59,10 @@ Ao criar um novo cluster Spark, você pode selecionar o armazenamento de BLOBs d
 
 | Tipo de Armazenamento | Sistema de Arquivos | Velocidade | Transitório | Casos de uso |
 | --- | --- | --- | --- | --- |
-| Armazenamento de Blob do Azure | **wasb:** //url/ | **Standard** | Sim | Cluster transitório |
-| Armazenamento de BLOBs do Azure (seguro) | **wasbs:** //URL/ | **Standard** | Sim | Cluster transitório |
-| Azure Data Lake Storage Gen 2| **abfs:** //URL/ | **Mais rápido** | Sim | Cluster transitório |
-| Azure Data Lake Store Gen 1| **adl:** //url/ | **Mais rápido** | Sim | Cluster transitório |
+| Armazenamento de Blobs do Azure | **wasb:** //url/ | **Standard** | SIM | Cluster transitório |
+| Armazenamento de BLOBs do Azure (seguro) | **wasbs:** //URL/ | **Standard** | SIM | Cluster transitório |
+| Azure Data Lake Storage Gen 2| **abfs:** //URL/ | **Mais rápido** | SIM | Cluster transitório |
+| Azure Data Lake Store Gen 1| **adl:** //url/ | **Mais rápido** | SIM | Cluster transitório |
 | HDFS local | **hdfs:** //url/ | **Mais rápida** | Não | Cluster interativo 24/7 |
 
 ## <a name="use-the-cache"></a>Usar o cache
@@ -74,7 +74,7 @@ O Spark fornece os próprios mecanismos de cache nativo que podem ser utilizados
     * Não funciona com particionamento, o que pode ser alterado em versões futuras do Spark.
 
 * Cache de nível de armazenamento (recomendado)
-    * Pode ser implementado usando [Alluxio](https://www.alluxio.org/).
+    * Pode ser implementado usando [Alluxio](https://www.alluxio.io/).
     * Usa cache SSD e em memória.
 
 * HDFS local (recomendado)
@@ -149,7 +149,7 @@ df1.join(broadcast(df2), Seq("PK")).
 sql("SELECT col1, col2 FROM V_JOIN")
 ```
 
-Se você estiver usando tabelas em Bucket, terá um terceiro tipo de junção, a junção `Merge`. Um conjunto de dados corretamente pré-particionado e pré-classificado ignorará a fase de classificação cara de uma junção `SortMerge`.
+Se você estiver usando tabelas segmentadas, terá um terceiro tipo de junção, a `Merge` join. Um conjunto de dados corretamente pré-particionado e pré-classificado ignorará a fase de classificação cara de uma junção `SortMerge`.
 
 A ordem de questões de junção, particularmente em consultas mais complexas. Inicie com as junções mais seletivas. Além disso, mova junções que aumentam o número de linhas após as agregações, quando possível.
 
@@ -177,8 +177,8 @@ Ao decidir a configuração de executor, considere a sobrecarga de coleta de lix
     1. Reduzir a sobrecarga de comunicação entre os executores.
     2. Reduzir o número de conexões abertas entre executores (N2) em clusters maiores (> 100 executores).
     3. Aumentar o tamanho do heap para acomodar tarefas intensivas de memória.
-    4. Opcional: Reduzir a sobrecarga da memória por executor.
-    5. Opcional: Aumentar a utilização e a simultaneidade ao sobrecarregar a CPU.
+    4. Opcional: reduzir a sobrecarga da memória por executor.
+    5. Opcional: aumentar a utilização e a simultaneidade ao sobrecarregar a CPU.
 
 Como regra geral, ao selecionar o tamanho do executor:
 
@@ -212,7 +212,7 @@ A chave para desempenho de consultas do Spark 2.x é o mecanismo Tungsten, que d
 MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Depurar trabalhos do Apache Spark em execução no Azure HDInsight](apache-spark-job-debugging.md)
 * [Gerenciar recursos para um cluster do Apache Spark no HDInsight](apache-spark-resource-manager.md)

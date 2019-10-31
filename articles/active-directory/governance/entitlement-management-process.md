@@ -1,6 +1,6 @@
 ---
-title: Solicitar notificações de processo e email no gerenciamento de direitos do Azure AD (versão prévia) – Azure Active Directory
-description: Saiba mais sobre o processo de solicitação de um pacote do Access e quando as notificações por email são enviadas no gerenciamento de direitos de Azure Active Directory (versão prévia).
+title: Solicitar notificações de processo e email no gerenciamento de direitos do Azure AD-Azure Active Directory
+description: Saiba mais sobre o processo de solicitação de um pacote do Access e quando as notificações por email são enviadas no gerenciamento de direitos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb5f322d8bc974274f7f2da7811b124499224635
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
-ms.translationtype: MT
+ms.openlocfilehash: 6a1ce3b2cb72a7b57e556e09264cb5bd421eda0f
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678137"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173750"
 ---
-# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Solicitar notificações de processo e email no gerenciamento de direitos do Azure AD (versão prévia)
-
-> [!IMPORTANT]
-> No momento, o gerenciamento de direitos do Azure AD (Azure Active Directory) está em versão prévia pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Solicitar notificações de processo e email no gerenciamento de direitos do Azure AD
 
 Quando um usuário envia uma solicitação para um pacote do Access, um processo é iniciado para entregar essa solicitação. O gerenciamento de direitos do Azure AD também envia notificações por email a Aprovadores e solicitantes quando ocorrem eventos de chave durante o processo.
 
@@ -42,12 +37,12 @@ Um usuário que precisa acessar um pacote do Access pode enviar uma solicitaçã
 
 | Estado | Descrição |
 | --- | --- |
-| Enviado | O usuário envia uma solicitação. |
+| Enviada | O usuário envia uma solicitação. |
 | Aprovação pendente | Se a política para um pacote de acesso exigir aprovação, uma solicitação será movida para aprovação pendente. |
 | Expirado | Se nenhum Aprovador aprovar uma solicitação dentro do tempo limite da solicitação de aprovação, a solicitação expirará. Para tentar novamente, o usuário precisará reenviar a solicitação. |
-| Negado | O aprovador nega uma solicitação. |
+| Nega | O aprovador nega uma solicitação. |
 | Aprovado | O aprovador aprova uma solicitação. |
-| Entregando | O usuário **não** recebeu acesso a todos os recursos no pacote de acesso. Se esse for um usuário externo, talvez o usuário ainda não tenha acessado o diretório de recursos e aceitou o prompt de consentimento. |
+| Fornecimento | O usuário **não** recebeu acesso a todos os recursos no pacote de acesso. Se esse for um usuário externo, talvez o usuário ainda não tenha acessado o diretório de recursos e aceitou o prompt de consentimento. |
 | Entregue | O usuário recebeu acesso a todos os recursos no pacote de acesso. |
 | Acesso estendido | Se as extensões forem permitidas na política, o usuário estendeu a atribuição. |
 | Acesso expirado | O acesso do usuário ao pacote de acesso expirou. Para obter acesso novamente, o usuário precisará enviar uma solicitação. |
@@ -62,8 +57,8 @@ A tabela a seguir fornece mais detalhes sobre cada uma dessas notificações por
 
 | # | Assunto do email | Quando enviado | Enviado para |
 | --- | --- | --- | --- |
-| 1 | Ação necessária: Examinar a solicitação de acesso de *[solicitante]* para *[pacote do Access]* por *[data]* | Quando um solicitante envia uma solicitação para um pacote de acesso | Todos os aprovadores |
-| 2 | Ação necessária: Examinar a solicitação de acesso de *[solicitante]* para *[pacote do Access]* por *[data]* | X dias antes do tempo limite da solicitação de aprovação | Todos os aprovadores |
+| 1 | Ação necessária: examine a solicitação de acesso de *[solicitante]* para *[pacote do Access]* por *[data]* | Quando um solicitante envia uma solicitação para um pacote de acesso | Todos os aprovadores |
+| 2 | Ação necessária: examine a solicitação de acesso de *[solicitante]* para *[pacote do Access]* por *[data]* | X dias antes do tempo limite da solicitação de aprovação | Todos os aprovadores |
 | 3 | Notificação de status: a solicitação de acesso *[solicitante]* do *[pacote de acesso]* expirou | Quando os aprovadores não aprovam ou negam uma solicitação de acesso dentro da duração da solicitação | Solicitante |
 | 4 | Notificação de status: *[solicitante]* a solicitação de acesso ao *[pacote do Access]* foi concluída | Quando o primeiro aprovador aprova ou nega uma solicitação de acesso | Todos os aprovadores |
 | 5 | Você teve o acesso negado ao *[pacote do Access]* | Quando um solicitante teve o acesso negado ao pacote de acesso | Solicitante |
@@ -91,7 +86,7 @@ Os solicitantes são notificados quando sua solicitação de acesso expirou. Qua
 
 ![Email de solicitação de acesso expirado](./media/entitlement-management-process/email-expired-access-request.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Solicitar acesso a um pacote de acesso](entitlement-management-request-access.md)
 - [Aprovar ou negar solicitações de acesso](entitlement-management-request-approve.md)

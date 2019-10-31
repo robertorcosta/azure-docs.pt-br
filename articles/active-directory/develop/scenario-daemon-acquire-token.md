@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 605614265d033647bfcf22bb99d45c89f275298b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4a5a3ac1438d5e958317f1899fc6c447f5c149ac
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596390"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175523"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplicativo daemon que chama APIs da Web – adquirir um token
 
@@ -40,7 +40,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Em MSAL. Python, o arquivo de configuração se pareceria com o seguinte trecho de código:
+No MSAL Python, o arquivo de configuração se pareceria com o seguinte trecho de código:
 
 ```Json
 {
@@ -115,8 +115,6 @@ if not result:
 if "access_token" in result:
     # Call a protected API with the access token
     print(result["token_type"])
-    print(result["expires_in"])  # You don't normally need to care about this.
-                                 # It will be good for at least 5 minutes.
 else:
     print(result.get("error"))
     print(result.get("error_description"))
@@ -124,6 +122,8 @@ else:
 ```
 
 # <a name="javatabjava"></a>[Java](#tab/java)
+
+Esta é uma extração dos [exemplos de desenvolvimento do MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/).
 
 ```Java
 ClientCredentialParameters clientCredentialParam = ClientCredentialParameters.builder(
@@ -152,7 +152,7 @@ future.join();
 
 Se você ainda não tiver uma biblioteca para o idioma de sua escolha, talvez queira usar o protocolo diretamente:
 
-#### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primeiro caso: solicitação de token de acesso com um segredo compartilhado
+#### <a name="first-case-access-token-request-with-a-shared-secret"></a>Na primeira ocorrência: solicitação de token de acesso com um segredo compartilhado
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
@@ -185,7 +185,7 @@ Para obter mais informações, consulte a documentação do protocolo: [platafor
 
 No MSAL.NET, `AcquireTokenForClient` usa o **cache de token de aplicativo** (todos os outros métodos AcquireTokenXX usam o cache de token de usuário) não chamam `AcquireTokenSilent` antes de chamar `AcquireTokenForClient` conforme `AcquireTokenSilent` usa o cache de token de **usuário** . `AcquireTokenForClient` verifica o cache do token de **aplicativo** e o atualiza.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de Problemas
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Você usou o escopo de recurso/. padrão?
 

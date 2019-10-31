@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: 34ff075a604afdcbef67c7b10ce1ef8cbe2924e7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: adc7b65b4e079c55b9400b06603625971efc3ea3
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137029"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177682"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Gatilhos e execução de pipeline no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -77,7 +77,7 @@ Por exemplo, digamos que você tenha um pipeline básico denominado **copyPipeli
 Na definição JSON, o pipeline usa dois parâmetros: **sourceBlobContainer** e **sinkBlobContainer**. Você passa valores para esses parâmetros em tempo de execução.
 
 Você pode executar o pipeline manualmente usando um dos seguintes métodos:
-- SDK .NET
+- .NET SDK
 - Módulo do Azure PowerShell
 - API REST
 - SDK do Python
@@ -90,7 +90,7 @@ POST
 https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory/pipelines/copyPipeline/createRun?api-version=2017-03-01-preview
 ```
 
-Para ver um exemplo completo, consulte [Início rápido: Criar um data factory usando a API REST](quickstart-create-data-factory-rest-api.md).
+Para obter um exemplo completo, confira o [Início Rápido: criar um data factory usando a API REST](quickstart-create-data-factory-rest-api.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -119,16 +119,16 @@ O conteúdo da resposta é uma ID exclusiva do pipeline de execução:
 }
 ```
 
-Para ver um exemplo completo, consulte [Início rápido: Criar um data factory usando o Azure PowerShell](quickstart-create-data-factory-powershell.md).
+Para obter um exemplo completo, confira o [Início Rápido: criar um data factory usando o Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="net-sdk"></a>SDK .NET
+### <a name="net-sdk"></a>.NET SDK
 A chamada de exemplo abaixo mostra como executar o pipeline manualmente usando o SDK do .NET:
 
 ```csharp
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
 ```
 
-Para ver um exemplo completo, consulte [Início rápido: Criar um data factory usando o SDK do .NET](quickstart-create-data-factory-dot-net.md).
+Para obter um exemplo completo, confira o [Início Rápido: criar um data factory usando o SDK do .NET](quickstart-create-data-factory-dot-net.md).
 
 > [!NOTE]
 > Você pode usar o SDK do .NET para invocar os pipelines do Data Factory a partir do Azure Functions, de seus próprios serviços Web, etc.
@@ -136,13 +136,13 @@ Para ver um exemplo completo, consulte [Início rápido: Criar um data factory u
 <h2 id="triggers">Execução do gatilho</h2>
 Os gatilhos são outra forma de realizar uma execução do pipeline. Os gatilhos representam uma unidade de processamento que determina quando uma execução de pipeline precisa ser inicializada. Atualmente, o Data Factory dá suporte a três tipos de gatilhos:
 
-- Gatilho de agendamento: Um gatilho que invoca um pipeline em um agendamento de relógio.
+- Gatilho de agenda: um gatilho que invoca um pipeline em um agendamento de relógio.
 
-- Gatilho de janela em cascata: Um gatilho que opera em um intervalo periódico, também retendo o estado.
+- Gatilho de janela em cascata: um gatilho que opera em um intervalo periódico enquanto também mantém o estado.
 
-- Gatilho baseado em evento: Um gatilho que responde a um evento.
+- Gatilho baseado em eventos: um disparador que responde a um evento.
 
-Pipelines e gatilhos têm uma relação de muitos para muitos. Vários gatilhos podem disparar um único pipeline, ou um único gatilho pode disparar vários pipelines. Na definição de gatilho a seguir, a propriedade **pipelines** se refere a uma lista de canais que são disparados pelo gatilho específico. A definição da propriedade inclui valores para os parâmetros de pipeline.
+Pipelines e gatilhos têm uma relação muitos-para-muitos (exceto para o gatilho de janela em cascata). Vários gatilhos podem disparar um único pipeline, ou um único gatilho pode disparar vários pipelines. Na definição de gatilho a seguir, a propriedade **pipelines** se refere a uma lista de canais que são disparados pelo gatilho específico. A definição da propriedade inclui valores para os parâmetros de pipeline.
 
 ### <a name="basic-trigger-definition"></a>Definição básica do gatilho
 
@@ -230,7 +230,7 @@ Para que o gatilho de agendamento dispare uma execução de pipeline, inclua uma
 ### <a name="schema-overview"></a>Visão geral do esquema
 A tabela a seguir fornece uma visão geral de alto nível dos principais elementos de esquema relacionados à recorrência e ao agendamento de um gatilho:
 
-| Propriedade JSON | DESCRIÇÃO |
+| Propriedade JSON | Descrição |
 |:--- |:--- |
 | **startTime** | Um valor de data/hora. Para agendamentos básicos, o valor da propriedade **startTime** se aplica à primeira ocorrência. Para agendamentos complexos, o gatilho não é iniciado antes do valor de **startTime** especificado. |
 | **endTime** | A data e a hora de início do gatilho. O gatilho não é executado após a data e a hora de término especificadas. O valor da propriedade não pode estar no passado. <!-- This property is optional. --> |
@@ -276,12 +276,12 @@ A tabela a seguir fornece uma visão geral de alto nível dos principais element
 
 ### <a name="schema-defaults-limits-and-examples"></a>Padrões, limites e exemplos de esquema
 
-| Propriedade JSON | type | Obrigatório | Valor padrão | Valores válidos | Exemplo |
+| Propriedade JSON | Type | obrigatórios | Valor padrão | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | sim | Nenhum | Data/hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | objeto | sim | Nenhum | Um objeto de recorrência | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | string | SIM | Nenhum | Data/hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | objeto | SIM | Nenhum | Um objeto de recorrência | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | número | Não | 1 | 1 a 1000 | `"interval":10` |
-| **endTime** | string | sim | Nenhum | Um valor de Data/Hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | string | SIM | Nenhum | Um valor de Data/Hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | objeto | Não | Nenhum | Um objeto do agendamento | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propriedade startTime
@@ -292,7 +292,7 @@ A seguinte tabela mostra como a propriedade **startTime** controla uma execuçã
 | **A hora de início está no passado** | Calcula a primeira hora de execução futura após a hora de início e executa nessa hora.<br /><br />Executa as execuções subsequentes calculadas a partir do último tempo de execução.<br /><br />Consulte o exemplo após esta tabela. | O gatilho é iniciado _não antes da_ hora de início especificada. A primeira ocorrência se baseia no agendamento, calculada com base na hora de início.<br /><br />Executa as execuções seguintes com base no agendamento de recorrência. |
 | **A hora de início está no futuro ou é a hora atual** | É executado uma vez na hora de início especificada.<br /><br />Executa as execuções subsequentes calculadas a partir do último tempo de execução. | O gatilho é iniciado _não antes da_ hora de início especificada. A primeira ocorrência baseia-se no elemento schedule calculado com base na hora de início.<br /><br />Executa as execuções seguintes com base no agendamento de recorrência. |
 
-Vejamos um exemplo do que acontece quando a hora de início está no passado, com uma recorrência, mas sem agendamento. Suponha que a hora atual seja 8/4/2017 às 13h, a hora de início seja 7/4/2017 às 14h e a recorrência seja a cada dois dias. (O valor de **recurrence** é definido pela configuração da propriedade **frequency** como "day" e a propriedade **interval** como 2.) Observe que o valor de **startTime** está no passado e ocorre antes da hora atual.
+Vejamos um exemplo do que acontece quando a hora de início está no passado, com uma recorrência, mas sem agendamento. Suponha que a hora atual seja 8/4/2017 às 13h, a hora de início seja 7/4/2017 às 14h e a recorrência seja a cada dois dias. (O valor de **recorrência** é definido definindo a propriedade **Frequency** como "Day" e a propriedade **Interval** como 2.) Observe que o valor **StartTime** está no passado e ocorre antes da hora atual.
 
 Sob essas condições, a primeira execução será em 9/4/2017 às 14h. O mecanismo do Agendador calcula as ocorrências de execução desde a hora de início. As instâncias no passado serão descartadas. O mecanismo usa a próxima instância que ocorrer no futuro. Neste cenário, a hora de início é 7/4/2017 às 14h. A próxima instância é dois dias a partir dessa hora, que é 9/4/2017 às 14h.
 
@@ -309,7 +309,7 @@ Se forem especificados vários elementos **schedule**, a ordem de avaliação é
 
 A seguinte tabela descreve elementos **schedule** em detalhes:
 
-| Elemento JSON | DESCRIÇÃO | Valores válidos |
+| Elemento JSON | Descrição | Valores válidos |
 |:--- |:--- |:--- |
 | **minutos** | Minutos da hora em que o gatilho será executado. |- Número inteiro<br />- Matriz de números inteiros|
 | **horas** | As horas do dia em que o gatilho será executado. |- Número inteiro<br />- Matriz de números inteiros|
@@ -333,7 +333,7 @@ Esta seção fornece exemplos de agendamentos de recorrência. Ela tem como foco
 
 Os exemplos pressupõem que o valor de **interval** seja 1 e que o valor de **frequency** esteja correto de acordo com a definição de agendamento. Por exemplo, não é possível ter um valor de **frequency** igual a "day" e também ter uma modificação de **monthDays** no objeto **schedule**. Esses tipos de restrições estão descritos na tabela da seção anterior.
 
-| Exemplo | DESCRIÇÃO |
+| Exemplo | Descrição |
 |:--- |:--- |
 | `{"hours":[5]}` | Executar às 5h todos os dias. |
 | `{"minutes":[15], "hours":[5]}` | Executar às 5h15 todos os dias. |
@@ -371,14 +371,14 @@ A tabela a seguir fornece uma comparação entre o gatilho de janela em cascata 
 |:--- |:--- |:--- |
 | **Cenários de aterramento** | Com suporte. As execuções de pipeline podem ser agendadas para janelas no passado. | Sem suporte. As execuções de pipeline podem ser executadas somente em períodos de tempo atuais e no futuro. |
 | **Confiabilidade** | 100% de confiabilidade. As execuções de pipeline podem ser agendadas para todas as janelas de uma data de início especificada sem folgas. | Menos confiável. |
-| **Repetir o recurso** | Com suporte. As execuções de pipeline com falha têm o padrão de política de repetição como 0, ou uma política especificada pelo usuário como parte da definição do gatilho. Repete automaticamente quando a execução do pipeline falha devido a limites de simultaneidade/servidor/limitação (ou seja, códigos de status 400: Erro de Usuário, 429: Excesso de solicitações; e 500: Erro interno do servidor). | Não compatível. |
-| **Simultaneidade** | Com suporte. Os usuários podem definir explicitamente os limites de simultaneidade para o gatilho. Permite entre 1 e 50 execuções de pipeline disparadas simultaneamente. | Sem suporte. |
+| **Repetir o recurso** | Com suporte. As execuções de pipeline com falha têm o padrão de política de repetição como 0, ou uma política especificada pelo usuário como parte da definição do gatilho. Repete automaticamente quando a execução do pipeline falha devido a limites de simultaneidade/servidor/limitação (ou seja, os códigos de status 400: erro de usuário, 429: muitas solicitações e 500: erro interno do servidor). | Sem suporte. |
+| **Concurrency** | Com suporte. Os usuários podem definir explicitamente os limites de simultaneidade para o gatilho. Permite entre 1 e 50 execuções de pipeline disparadas simultaneamente. | Sem suporte. |
 | **Variáveis do sistema** | Dá suporte ao uso das variáveis de sistema **WindowStart** e **WindowEnd**. Os usuários podem acessar `triggerOutputs().windowStartTime` e `triggerOutputs().windowEndTime` como variáveis de sistema de gatilho na definição do gatilho. Os valores são usados como hora de início e hora de término da janela, respectivamente. Por exemplo, para um gatilho de janela em cascata que é executado a cada hora, para a janela de 1h a 2h, a definição é `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` e `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Sem suporte. |
 | **Relação pipeline para gatilho** | Dá suporte a uma relação um para um. Somente um pipeline pode ser disparado. | Dá suporte a relações muitos para muitos. Vários gatilhos podem disparar um único pipeline. Um único gatilho pode disparar vários pipelines. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes tutoriais:
 
-- [Início Rápido: Criar um data factory usando o SDK do .NET](quickstart-create-data-factory-dot-net.md)
+- [Início Rápido: criar um data factory usando o SDK do .NET](quickstart-create-data-factory-dot-net.md)
 - [Criar um gatilho de agenda](how-to-create-schedule-trigger.md)
 - [Criar um gatilho de janela em cascata](how-to-create-tumbling-window-trigger.md)

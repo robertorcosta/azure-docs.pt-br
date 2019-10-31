@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e542ad59f6fd64b52aef9438ed0f646e9e36fc4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d3166c1f97a81c12b75dd400f591fd92a705cadf
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209635"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73178028"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usar o serviço de Importação/ Exportação do Azure para exportar dados do Armazenamento de Blobs do Azure
 Este artigo fornece instruções passo a passo sobre como usar o serviço de Importação/Exportação do Azure para exportar com segurança grandes quantidades de dados do Armazenamento de Blobs do Azure. O serviço requer que você envie unidades vazias para o datacenter do Azure. O serviço exporta os dados de sua conta de armazenamento para as unidades e, em seguida, envia as unidades de volta.
@@ -24,8 +24,8 @@ Antes de criar um trabalho de exportação para transferir dados para fora do Ar
 
 - Ter uma assinatura ativa do Azure que pode ser usada para o serviço de Importação/Exportação.
 - Ter pelo menos uma conta de Armazenamento do Azure. Consulte a lista de [Contas de armazenamento e tipos de armazenamento com suporte para o serviço de Importação/Exportação](storage-import-export-requirements.md). Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-quickstart-create-account.md).
-- Ter o número adequado de discos de [Tipos com suporte](storage-import-export-requirements.md#supported-disks).
-- Ter uma conta FedEx/DHL. Se você quiser usar uma operadora que não seja FedEx/DHL, contate a equipe de operações de caixa de dados do Azure em `adbops@microsoft.com`. 
+- Ter o número adequado de discos de [tipos com suporte](storage-import-export-requirements.md#supported-disks).
+- Ter uma conta FedEx/DHL. Se você quiser usar uma operadora diferente de FedEx/DHL, contate a equipe de operações Azure Data Box em `adbops@microsoft.com`. 
     - A conta deve ser válida, deve ter saldo e ter recursos de devolução.
     - Gerar um número de controle para o trabalho de exportação.
     - Cada trabalho deve ter um número de controle separado. Não há suporte para vários trabalhos com o mesmo número de controle. 
@@ -37,7 +37,7 @@ Antes de criar um trabalho de exportação para transferir dados para fora do Ar
 
 Execute as etapas a seguir para criar um trabalho de exportação no portal do Azure.
 
-1. Efetuar logon no https://portal.azure.com/.
+1. Faça logon em https://portal.azure.com/.
 2. Vá para **Todos os serviços > Armazenamento > Trabalhos de importação/exportação**. 
 
     ![Vá para Trabalhos de importação/exportação](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
@@ -67,7 +67,7 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
          ![Exportar tudo](./media/storage-import-export-data-from-blobs/export-from-blob4.png) 
 
     - Você pode especificar quais contêineres e blobs exportar.
-        - **Especificar um blob para exportar**: Use o seletor **Igual a**. Especifique o caminho relativo do blob, começando com o nome do contêiner. Use *$root* para especificar o contêiner raiz.
+        - **Para especificar um blob para exportar**: Use o seletor **Igual a**. Especifique o caminho relativo do blob, começando com o nome do contêiner. Use *$root* para especificar o contêiner raiz.
         - **Para especificar todos os blobs que começam com um prefixo**: Use o seletor **Começa com**. Especifique o prefixo, começando com uma barra '/'. O prefixo pode ser do nome do contêiner, o nome do contêiner completo ou o nome do contêiner completo seguido do prefixo do nome do blob. Você deve fornecer os caminhos de blob no formato válido para evitar erros durante o processamento, como mostrado nesta captura de tela. Para obter mais informações, consulte [Exemplos de caminhos de blob válido](#examples-of-valid-blob-paths). 
    
            ![Exporte os blobs e os contêineres selecionados](./media/storage-import-export-data-from-blobs/export-from-blob5.png) 
@@ -82,9 +82,9 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
 
 4. Em **Retornar informações de envio**:
 
-    - Selecione a operadora na lista suspensa. Se você quiser usar uma operadora que não seja FedEx/DHL, escolha uma opção existente na lista suspensa. Entre em contato com operações de caixa de dados do Azure de equipe em `adbops@microsoft.com` com as informações sobre o carro que você planeja usar.
-    - Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usa essa conta para enviar as unidades para você quando seu trabalho de exportação for concluído. 
-    - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região.
+    - Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente de FedEx/DHL, escolha uma opção existente na lista suspensa. Contate a equipe de operações de Azure Data Box em `adbops@microsoft.com` com as informações sobre a transportadora que você planeja usar.
+    - Insira um número de conta da operadora válido que você criou com esse transporte. A Microsoft usa essa conta para enviar as unidades de volta para você quando o trabalho de exportação estiver concluído. 
+    - Forneça um nome de contato válido e completo, bem como telefone, email, endereço, cidade, zip, estado/município e país/região.
 
         > [!TIP] 
         > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
@@ -105,7 +105,7 @@ Se você não souber o número de unidades que você precisa, vá para [Verifica
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## <a name="step-3-update-the-job-with-tracking-information"></a>Etapa 3: Atualizar o trabalho com informações de acompanhamento
+## <a name="step-3-update-the-job-with-tracking-information"></a>Etapa 3: Atualizar o trabalho com informações de controle
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
@@ -127,9 +127,9 @@ A exportação foi concluída. Neste momento, você pode excluir o trabalho ou e
 
 Essa etapa *opcional* ajuda você a determinar o número de unidades necessárias para o trabalho de exportação. Execute essa etapa em um sistema Windows executando uma [versão do sistema operacional com suporte](storage-import-export-requirements.md#supported-operating-systems).
 
-1. [Baixe o WAImportExport versão 1](https://aka.ms/waiev1) no sistema Windows. 
-2. Descompacte para a pasta padrão `waimportexportv1`. Por exemplo: `C:\WaImportExportV1`.
-3. Abra um PowerShell ou janela de linha de comando com privilégios administrativos. Para alterar o diretório para a pasta descompactada, execute o seguinte comando:
+1. [Baixe o WAImportExport versão 1](https://www.microsoft.com/download/details.aspx?id=42659) no sistema Windows. 
+2. Descompacte para a pasta padrão `waimportexportv1`. Por exemplo, `C:\WaImportExportV1`.
+3. Abra uma janela do PowerShell ou uma janela de linha de comando com privilégios administrativos. Para alterar o diretório para a pasta descompactada, execute o seguinte comando:
     
     `cd C:\WaImportExportV1`
 
@@ -139,7 +139,7 @@ Essa etapa *opcional* ajuda você a determinar o número de unidades necessária
 
     Os parâmetros estão descritos na tabela a seguir:
     
-    |Parâmetro de linha de comando|DESCRIÇÃO|  
+    |Parâmetro de linha de comando|Descrição|  
     |--------------------------|-----------------|  
     |**/logdir:**|Opcional. O diretório de log. Os arquivos de log detalhados são gravados nesse diretório. Se nenhum for especificado, o diretório atual será usado como o diretório de log.|  
     |**/sn:**|Obrigatório. O nome da conta de armazenamento do trabalho de exportação.|  
@@ -193,7 +193,7 @@ Number of drives needed:        3
 
 A tabela a seguir mostra exemplos de caminhos de blob válidos:
    
-   | Seletor | Caminho do Blob | DESCRIÇÃO |
+   | Seletor | Caminho do Blob | Descrição |
    | --- | --- | --- |
    | Começa com |/ |Exporta todos os blobs na conta de armazenamento |
    | Começa com |/$root/ |Exporta todos os blobs no contêiner raiz |
@@ -203,7 +203,7 @@ A tabela a seguir mostra exemplos de caminhos de blob válidos:
    | Igual a |$root/logo.bmp |Exporta o blob **logo.bmp** no contêiner raiz |
    | Igual a |videos/story.mp4 |Exporta o blob **story.mp4** no contêiner **videos** |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Exibir o status do trabalho e da unidade](storage-import-export-view-drive-status.md)
 * [Verificar os requisitos de Importação/Exportação](storage-import-export-requirements.md)

@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: a8b250c45716146c505a803046b18bf5d05cf116
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9657414c56296ee710f17663bf0bbdd3a4d67ac8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073765"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176803"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos
 
@@ -30,11 +30,13 @@ Há três maneiras básicas para personalizar o portal do desenvolvedor no Geren
 
 Modelos são usados para personalizar o conteúdo das páginas de portal de desenvolvedor geradas pelo sistema (por exemplo, documentos de API, produtos, autenticação do usuário etc.). Com a sintaxe do [DotLiquid](http://dotliquidmarkup.org/), e um conjunto fornecido de recursos de cadeia de caracteres localizados, ícones e controles de página, você conta com muita flexibilidade para configurar o conteúdo das páginas como quiser.
 
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="developer-portal-templates-overview"></a>Visão geral de modelos de portal do desenvolvedor
 
-A edição dos modelos é feita no **Portal do desenvolvedor** ao entrar como administrador. Para chegar lá, primeiro abra o Portal do Azure e clique em **Portal do desenvolvedor** na barra de ferramentas de serviço da sua instância de Gerenciamento de API.
+A edição dos modelos é feita no **Portal do desenvolvedor** ao entrar como administrador. Para começar, primeiro abra o portal do Azure e clique em **portal do desenvolvedor** na barra de ferramentas de serviço da sua instância de gerenciamento de API.
 
 Para acessar os modelos de portal do desenvolvedor, clique no ícone de personalizar à esquerda para exibir o menu de personalização e clique em **Modelos**.
 
@@ -182,7 +184,7 @@ Para restaurar todos os modelos para as versões padrão, clique em **Restaurar 
 
 Os modelos restaurados devem ser publicados individualmente ou todos de uma vez, seguindo as etapas em [Para publicar um modelo](#to-publish-a-template).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter informações de referência para modelos do portal do desenvolvedor, recursos de cadeia de caracteres, ícones e controles de página, consulte [referência de modelos de portal do desenvolvedor do Gerenciamento de API](api-management-developer-portal-templates-reference.md).
 
 [modify-content-layout]: api-management-modify-content-layout.md

@@ -1,5 +1,5 @@
 ---
-title: Autenticação na plataforma Microsoft Identity | Azure
+title: Autenticação na plataforma de identidade da Microsoft | Azure
 description: Saiba mais sobre os conceitos básicos de autenticação na plataforma Microsoft Identity (v 2.0).
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40d0cd29452b5473d16851451a88c93e78ef3f36
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: MT
+ms.openlocfilehash: 8b88337960eb92b8c27c0dd8cae8e545e4249ee9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554431"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175745"
 ---
 # <a name="authentication-basics"></a>Noções básicas de autenticação
 
@@ -31,9 +31,9 @@ ms.locfileid: "72554431"
 
 Este artigo aborda muitos dos conceitos de autenticação que você precisará entender para criar aplicativos Web protegidos, APIs da Web ou aplicativos que chamam APIs da Web protegidas.
 
-A **autenticação** é o processo de provar que você é quem diz que está. Às vezes, a autenticação é reduzida para Authn.
+A **autenticação** é o processo de provar que você é quem diz que está. Às vezes, a autenticação é abreviada para AuthN.
 
-A **autorização** é o ato de conceder uma permissão de parte autenticada para fazer algo. Ele especifica quais dados você tem permissão para acessar e o que você pode fazer com esses dados. Às vezes, a autorização é reduzida para AuthZ.
+A **autorização** é o ato de conceder uma permissão de parte autenticada para fazer algo. Ele especifica quais dados você tem permissão para acessar e o que você pode fazer com esses dados. Às vezes, a autorização é abreviada para AuthZ.
 
 Em vez de criar aplicativos que mantêm suas próprias informações de nome de usuário e senha, o que provoca uma alta carga administrativa quando você precisa adicionar ou remover usuários em vários aplicativos, os aplicativos podem delegar essa responsabilidade a um provedor de identidade centralizado.
 
@@ -41,7 +41,7 @@ O Azure Active Directory (AD do Azure) é um provedor de identificação central
 
 Um provedor de identidade centralizado é ainda mais importante para aplicativos que têm usuários localizados em todo o mundo que não necessariamente se conectam da rede da empresa. O Azure AD autentica usuários e fornece tokens de acesso. Um token de acesso é um token de segurança que é emitido por um servidor de autorização. Ele contém informações sobre o usuário e o aplicativo para os quais o token se destina, que pode ser usado para acessar APIs da Web e outros recursos protegidos.
 
-A plataforma de identidade da Microsoft simplifica a autenticação para desenvolvedores de aplicativos fornecendo identidade como um serviço, com suporte para protocolos padrão do setor, como OAuth 2,0 e OpenID Connect, bem como bibliotecas de software livre para diferentes plataformas para ajudá-lo a começar a codificar rapidamente. Ele permite que os desenvolvedores criem aplicativos que se conectam a todas as identidades da Microsoft, obtenham tokens para chamar Microsoft Graph, outras APIs da Microsoft ou APIs que os desenvolvedores criaram. Para obter mais informações, consulte [evolução da plataforma de identidade da Microsoft](about-microsoft-identity-platform.md).
+A plataforma de identidade da Microsoft simplifica a autenticação para desenvolvedores de aplicativos fornecendo identidade como um serviço, com suporte para protocolos padrão do setor, como OAuth 2,0 e OpenID Connect, bem como bibliotecas de software livre para diferentes plataformas para ajudá-lo a começar a codificar rapidamente. Ela permite que os desenvolvedores criem aplicativos que se conectam a todas as identidades da Microsoft e obtêm tokens para chamar o Microsoft Graph, outras APIs da Microsoft ou APIs que os desenvolvedores criaram. Para obter mais informações, consulte [evolução da plataforma de identidade da Microsoft](about-microsoft-identity-platform.md).
 
 ### <a name="tenants"></a>Locatários
 
@@ -101,24 +101,24 @@ A plataforma Microsoft Identity:
 
 Lide com o consentimento do usuário durante o tempo de solicitação de token e facilite o provisionamento dinâmico de aplicativos entre locatários o consentimento é o processo de um proprietário de recurso que concede autorização a um aplicativo cliente para acessar recursos protegidos, sob permissões específicas, em nome do proprietário do recurso. A plataforma Microsoft Identity:
 
-* Permite que usuários e administradores ascedam ou neguem dinamicamente o consentimento do aplicativo para acessar recursos em seu nome.
-* Permite que os administradores decidam, por fim, quais aplicativos têm permissão para fazer e quais usuários podem usar aplicativos específicos e como os recursos do diretório são acessados.
+* Permite aos usuários e administradores conceder ou negar de forma dinâmica o consentimento ao aplicativo para o acesso de recursos em seu nome.
+* Permite aos administradores decidir, em última análise, o que os aplicativos têm permissão para fazer, quais usuários podem usar aplicativos específicos e como os recursos do diretório são acessados.
 
 Na plataforma Microsoft Identity, um **objeto Application** descreve um aplicativo como uma entidade abstrata. No momento da implantação, a plataforma de identidade da Microsoft usa o objeto Application como um plano gráfico para criar uma **entidade de serviço**, que representa uma instância concreta de um aplicativo em um diretório ou locatário. A entidade de serviço define o que o aplicativo pode realmente fazer em um diretório de destino específico, que pode usá-lo, a quais recursos ele tem acesso e assim por diante. A plataforma de identidade da Microsoft cria uma entidade de serviço de um objeto de aplicativo por meio de **consentimento**.
 
-O diagrama a seguir mostra um fluxo simplificado de provisionamento da plataforma Microsoft Identity orientado por consentimento. Ele mostra dois locatários (A e B). O locatário a possui o aplicativo. O locatário B está instanciando o aplicativo por meio de uma entidade de serviço.  
+O diagrama a seguir mostra um fluxo de provisionamento simplificado da plataforma de identidade da Microsoft orientado por consentimento. Ele mostra dois locatários (A e B). O locatário a possui o aplicativo. O locatário B está instanciando o aplicativo por meio de uma entidade de serviço.  
 
-![Fluxo de provisionamento simplificado controlado por consentimento](./media/authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
+![Fluxo de provisionamento simplificado orientado por consentimento](./media/authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
 
 Neste fluxo de provisionamento:
 
-1. Um usuário do locatário B tenta entrar com o aplicativo, o ponto de extremidade de autorização solicita um token para o aplicativo.
+1. Um usuário do locatário B tenta entrar com o aplicativo; o ponto de extremidade da autorização solicita um token para o aplicativo.
 1. As credenciais do usuário são adquiridas e verificadas quanto à autenticação.
 1. O usuário é solicitado a fornecer consentimento para que o aplicativo tenha acesso ao locatário B.
 1. A plataforma de identidade da Microsoft usa o objeto Application no locatário A como um plano gráfico para criar uma entidade de serviço no locatário B.
 1. O usuário recebe o token solicitado.
 
-Você pode repetir esse processo para locatários adicionais. O locatário A retém o plano gráfico para o aplicativo (objeto de aplicativo). Usuários e administradores de todos os outros locatários em que o aplicativo recebe consentimento, mantêm o controle sobre o que o aplicativo tem permissão para fazer por meio do objeto de entidade de serviço correspondente em cada locatário. Para obter mais informações, consulte [objetos de aplicativo e entidade de serviço na plataforma Microsoft Identity](app-objects-and-service-principals.md).
+Você pode repetir esse processo para locatários adicionais. O locatário A mantém o blueprint para o aplicativo (objeto de aplicativo). Usuários e administradores de todos os outros locatários em que o aplicativo recebe consentimento, mantêm o controle sobre o que o aplicativo tem permissão para fazer por meio do objeto de entidade de serviço correspondente em cada locatário. Para obter mais informações, confira [Objetos de entidade de serviço e aplicativo na plataforma de identidade da Microsoft](app-objects-and-service-principals.md).
 
 ## <a name="web-app-sign-in-flow-with-azure-ad"></a>Fluxo de entrada do aplicativo Web com o Azure AD
 

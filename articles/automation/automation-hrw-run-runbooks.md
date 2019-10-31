@@ -9,18 +9,18 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ff36230095b90418a2619bbf1c5bb02863072b5
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 83c185a6ba8f1c5e6edf095db5baf575f750fa3b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372842"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176477"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks em um Hybrid Runbook Worker
 
 Não há diferença na estrutura de runbooks executados na Automação do Azure daqueles que executam em um Hybrid Runbook Worker. Provavelmente, os runbooks usados em cada um serão bem diferentes. Essa diferença ocorre porque os runbooks direcionados a um Hybrid Runbook Worker normalmente gerenciam recursos no próprio computador local, ou com base em recursos no ambiente local onde ele é implantado. Os runbooks na Automação do Azure normalmente gerenciam recursos na nuvem do Azure.
 
-Ao criar runbooks para executar em um Hybrid Runbook Worker, é necessário editar e testar os runbooks no computador que hospeda o Hybrid Worker. O computador host possui todos os módulos e acesso à rede do PowerShell necessários para gerenciar e acessar os recursos locais. Após um runbook ser testado no computador do Hybrid Worker, você poderá carregá-lo no ambiente de Automação do Azure, onde ficará disponível para execução no Hybrid Worker. É importante conhecer os trabalhos executados na conta Sistema Local para Windows ou em uma conta de usuário especial `nxautomation` no Linux. No Linux, isso significa que você deve garantir que a conta `nxautomation` tenha acesso ao local onde você armazena seus módulos. Ao usar o cmdlet [install-Module](/powershell/module/powershellget/install-module) , especifique **AllUsers** para o parâmetro `-Scope` para confirmar que a conta de `naxautomation` tem acesso.
+Ao criar runbooks para executar em um Hybrid Runbook Worker, é necessário editar e testar os runbooks no computador que hospeda o Hybrid Worker. O computador host possui todos os módulos e acesso à rede do PowerShell necessários para gerenciar e acessar os recursos locais. Após um runbook ser testado no computador do Hybrid Worker, você poderá carregá-lo no ambiente de Automação do Azure, onde ficará disponível para execução no Hybrid Worker. É importante conhecer os trabalhos executados na conta Sistema Local para Windows ou em uma conta de usuário especial `nxautomation` no Linux. No Linux, isso significa que você deve garantir que a conta `nxautomation` tenha acesso ao local onde você armazena seus módulos. Ao usar o cmdlet [install-Module](/powershell/module/powershellget/install-module) , especifique **AllUsers** para o parâmetro `-Scope` para confirmar que a conta de `nxautomation` tem acesso.
 
 Para obter mais informações sobre o PowerShell no Linux, consulte [problemas conhecidos do PowerShell em plataformas que não são do Windows](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms).
 

@@ -1,6 +1,6 @@
 ---
-title: Aplicativo Web que chamadas de web APIs (chamando uma API da web) - plataforma de identidade da Microsoft
-description: Saiba como criar um aplicativo Web que chama APIs (chamando uma API da web) da web
+title: Aplicativo Web que chama APIs da Web (chamando uma API Web)-plataforma de identidade da Microsoft
+description: Saiba como criar um aplicativo Web que chama APIs da Web (chamando uma API da Web)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3624f4e859081e53ee27b6f8415eb3f9b5a2a5fa
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: d971ec3c7cd82d6e028d0f96c8f52b897cedc351
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785471"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175294"
 ---
-# <a name="web-app-that-calls-web-apis---call-a-web-api"></a>Aplicativo Web que chama APIs - web chamar uma API web
+# <a name="web-app-that-calls-web-apis---call-a-web-api"></a>Aplicativo Web que chama APIs da Web – chamar uma API da Web
 
-Agora que você tem um token, você pode chamar uma API web protegida.
+Agora que você tem um token, você pode chamar uma API Web protegida.
 
-## <a name="aspnet-core"></a>ASP.NET Core
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Aqui está um código simplificado da ação do `HomeController`. Esse código obtém um token para chamar o Microsoft Graph. Esse código de tempo foi adicionado, que mostra como chamar o Microsoft Graph como uma API REST. A URL para a API do graph é fornecida na `appsettings.json` de arquivos e ler em uma variável chamada `webOptions`:
+Aqui está um código simplificado da ação do `HomeController`. Esse código obtém um token para chamar o Microsoft Graph. Esse código de tempo foi adicionado, mostrando como chamar Microsoft Graph como uma API REST. A URL para a API do Graph é fornecida no arquivo de `appsettings.json` e lida em uma variável chamada `webOptions`:
 
 ```JSon
 {
@@ -83,11 +83,54 @@ public async Task<IActionResult> Profile()
 ```
 
 > [!NOTE]
-> Você pode usar o mesmo princípio para chamar qualquer API da web.
+> Você pode usar o mesmo princípio para chamar qualquer API da Web.
 >
-> APIs de web mais do Azure fornecem um SDK que simplifica a chamá-lo. Isso também é o caso do Microsoft Graph. Você aprenderá no próximo artigo onde encontrar um tutorial que ilustra esses aspectos.
+> A maioria das APIs da Web do Azure fornece um SDK que simplifica a chamada. Esse também é o caso do Microsoft Graph. Você aprenderá no próximo artigo onde encontrar um tutorial que ilustre esses aspectos.
 
-## <a name="next-steps"></a>Próximas etapas
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```Java
+private String getUserInfoFromGraph(String accessToken) throws Exception {
+    // Microsoft Graph user endpoint
+    URL url = new URL("https://graph.microsoft.com/v1.0/me");
+
+    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+    // Set the appropriate header fields in the request header.
+    conn.setRequestProperty("Authorization", "Bearer " + accessToken);
+    conn.setRequestProperty("Accept", "application/json");
+
+    String response = HttpClientHelper.getResponseStringFromConn(conn);
+
+    int responseCode = conn.getResponseCode();
+    if(responseCode != HttpURLConnection.HTTP_OK) {
+        throw new IOException(response);
+    }
+
+    JSONObject responseObject = HttpClientHelper.processResponse(responseCode, response);
+    return responseObject.toString();
+}
+
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+```Python
+@app.route("/graphcall")
+def graphcall():
+    token = _get_token_from_cache(app_config.SCOPE)
+    if not token:
+        return redirect(url_for("login"))
+    graph_data = requests.get(  # Use token to call downstream service
+        app_config.ENDPOINT,
+        headers={'Authorization': 'Bearer ' + token['access_token']},
+        ).json()
+    return render_template('display.html', result=graph_data)
+```
+
+---
+
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Mover para a produção](scenario-web-app-call-api-production.md)
+> [Mover para produção](scenario-web-app-call-api-production.md)

@@ -1,5 +1,5 @@
 ---
-title: O que é o gerenciamento de direitos do Azure AD? (Visualização)-Azure Active Directory
+title: O que é o gerenciamento de direitos do Azure AD? -Azure Active Directory
 description: Obtenha uma visão geral do gerenciamento de direitos Azure Active Directory e como você pode usá-lo para gerenciar o acesso a grupos, aplicativos e sites do SharePoint Online para usuários internos e externos.
 services: active-directory
 documentationCenter: ''
@@ -16,19 +16,14 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7a8df09322def77037575b78ddbff3fae374229
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
-ms.translationtype: HT
+ms.openlocfilehash: b1c054bf354b5cdc5e0803ba6849af19fab40f3c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062749"
+ms.locfileid: "73174164"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>O que é o gerenciamento de direitos do Azure AD? Visualização
-
-> [!IMPORTANT]
-> No momento, o gerenciamento de direitos do Azure AD (Azure Active Directory) está em versão prévia pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="what-is-azure-ad-entitlement-management"></a>O que é o gerenciamento de direitos do Azure AD?
 
 O gerenciamento de direitos do Azure Active Directory (AD do Azure) é um recurso de [governança de identidade](identity-governance-overview.md) que permite que as organizações gerenciem o ciclo de vida de identidade e acesso em escala, automatizando fluxos de trabalho de solicitação de acesso, atribuições de acesso, revisões e Ela.
 
@@ -137,7 +132,7 @@ Para entender melhor o gerenciamento de direitos e sua documentação, você pod
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Nuvens especializadas, como Azure governamental, Azure Alemanha e Azure China 21Vianet, atualmente não estão disponíveis para uso nesta versão prévia.
+Nuvens especializadas, como Azure governamental, Azure Alemanha e Azure China 21Vianet, não estão disponíveis para uso no momento.
 
 ### <a name="which-users-must-have-licenses"></a>Quais usuários precisam ter licenças?
 

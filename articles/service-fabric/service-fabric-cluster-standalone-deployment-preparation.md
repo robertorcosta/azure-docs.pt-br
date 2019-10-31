@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: dad37af030c456f9ba2cd814fa92a7811dce6aa1
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 96956e1ad935933572b1f2d31b70ef64f8b92501
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130320"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175866"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planejar e preparar a implantação de cluster Autônomo do Service Fabric
 
@@ -65,7 +65,7 @@ Veja algumas especificações recomendadas para cada computador que você deseja
 * Mínimo de 40 GB de espaço em disco disponível
 * Uma CPU de 4 núcleos ou maior
 * Conectividade com uma rede segura para todos os computadores
-* SO Windows Server instalado (versões válidas: 2012 R2, 2016, 1709 ou 1803). Service Fabric versão 6.4.654.9590 e posterior também dá suporte ao servidor 2019 e 1809.
+* Sistema operacional Windows Server instalado (versões válidas: 2012 R2, 2016, 1709 ou 1803). Service Fabric versão 6.4.654.9590 e posterior também dá suporte ao servidor 2019 e 1809.
 * [.NET Framework 4.5.1 ou posterior](https://www.microsoft.com/download/details.aspx?id=40773), instalação completa
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * O [serviço RemoteRegistry](https://technet.microsoft.com/library/cc754820) deve estar em execução em todos os computadores
@@ -93,7 +93,7 @@ Depois que a configuração do cluster tiver todas as configurações definidas 
 
 <a id="environmentsetup"></a>
 
-## <a name="environment-setup"></a>Configuração do ambiente
+## <a name="environment-setup"></a>Configuração de ambiente
 
 Quando um administrador de cluster configura um cluster autônomo do Service Fabric, o ambiente precisa ser configurado com os seguintes critérios: <br>
 1. O usuário que está criando o cluster deve ter privilégios de segurança de nível de administrador para todos os computadores listados como nós no arquivo de configuração do cluster.
@@ -102,15 +102,14 @@ Quando um administrador de cluster configura um cluster autônomo do Service Fab
    * Desinstalar o tempo de execução do Service Fabric 
    * Habilitar o serviço de Firewall do Windows (mpssvc)
    * Ter o Serviço de Registro Remoto (registro remoto) habilitado
-   * Habilitar o compartilhamento de arquivos (SMB)
    * Abrir as portas necessárias, com base nas portas de configuração de cluster
-   * Abrir as portas necessárias para o Serviço de Registro Remoto e o SMB do Windows: 135, 137, 138, 139 e 445
+   * Ter as portas necessárias abertas para o serviço de registro remoto: 135, 137, 138 e 139
    * Ter conectividade de rede com os outros computadores
 3. Nenhum dos computadores de nó de cluster deve ser um controlador de domínio.
 4. Se o cluster a ser implantado é um cluster seguro, valide que os pré-requisitos de segurança necessários estão em vigor e configurados corretamente em relação à configuração.
 5. Se os computadores do cluster não são acessíveis pela Internet, defina o seguinte na configuração do cluster:
-   * Desabilitar telemetria: Em *Propriedades*, defina *"enableTelemetry": false*
-   * Desabilitar o download automático de versão do e Fabric e as notificações de que a versão do cluster atual está aproximando do fim do suporte: em *Propriedades*, defina *"fabricClusterAutoupgradeEnabled": true*
+   * Desabilitar telemetria: em *Propriedades* , defina *"enableTelemetry": false*
+   * Desabilite a versão automática do Fabric baixando & notificações de que a versão atual do cluster está se aproximando do fim do suporte: em *Properties* Set *"fabricClusterAutoupgradeEnabled": false*
    * Como alternativa, se o acesso à rede da Internet estiver limitado aos domínios na lista de permissões, os domínios abaixo serão necessários para a atualização automática: go.microsoft.com download.microsoft.com
 
 6. Defina as exclusões de antivírus do Service Fabric apropriadas:
@@ -167,5 +166,5 @@ No momento, este módulo de teste de configuração não valida a configuração
 > 
 > 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Criar um cluster autônomo em execução no Windows Server](service-fabric-cluster-creation-for-windows-server.md)

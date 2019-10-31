@@ -8,12 +8,12 @@ ms.date: 10/15/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: bc78f11d4f61c46e2ad4f7143fe8b3af6762b0b4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 118d2b42bc14a943aa3fa60b34aa1c151d5dea4c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950412"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176295"
 ---
 # <a name="export-your-azure-iot-central-datapreview-features"></a>Exportar seus dados de IoT Central do Azure (recursos de visualização)
 
@@ -195,7 +195,7 @@ Cada mensagem ou registro em um instantâneo representa uma ou mais alterações
 
 - `@id` do dispositivo na IoT Central
 - `name` do dispositivo
-- `deviceId` do [Serviço de Provisionamento de Dispositivos](https://aka.ms/iotcentraldocsdps)
+- `deviceId` do [Serviço de Provisionamento de Dispositivos](/azure/iot-central/core/howto-connect-nodejs)
 - Informações de modelo de dispositivo
 - Valores de propriedade
 

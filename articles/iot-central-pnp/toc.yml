@@ -42,7 +42,7 @@
         - name: Criar uma regra
           href: ../iot-central/core/tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - name: Usar a API REST
-          href: 'https://go.microsoft.com/fwlink/?linkid=2108888'
+          href: 'https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/'
 - name: Conceitos
   items:
     - name: Arquitetura
