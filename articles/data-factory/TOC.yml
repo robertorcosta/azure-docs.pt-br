@@ -80,9 +80,9 @@
           items:
             - name: Ferramenta Copiar Dados
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-    - name: Transformar dados usando o fluxo de dados de mapeamento
+    - name: Transformar dados com o fluxo de dados de mapeamento
       href: tutorial-data-flow.md
-    - name: Transformar dados na nuvem usando o Spark
+    - name: Transformações externas
       items:
         - name: HDInsight Spark
           items:
@@ -94,7 +94,7 @@
           items:
             - name: Interface do usuário (IU)
               href: transform-data-using-databricks-notebook.md
-    - name: Transformar dados na rede virtual
+    - name: Transformação do Hive na rede virtual
       items:
         - name: Interface do usuário (IU)
           href: tutorial-transform-data-hive-virtual-network-portal.md
@@ -622,6 +622,8 @@
       items:
         - name: Processar arquivos de texto de largura fixa
           href: how-to-fixed-width.md
+        - name: Tratamento da linha de erros
+          href: how-to-data-flow-error-rows.md
     - name: Migração do SSIS do local
       items:
         - name: Visão geral de migração do SSIS

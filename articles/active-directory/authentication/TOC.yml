@@ -43,6 +43,8 @@
       items:
         - name: Como funciona o MFA
           href: concept-mfa-howitworks.md
+        - name: Habilitar MFA
+          href: concept-mfa-get-started.md
         - name: Autorize seus usuários
           href: concept-mfa-licensing.md
         - name: Gerenciar um Provedor de Autenticação
@@ -135,6 +137,10 @@
           href: howto-authentication-passwordless-deployment.md
         - name: Chaves de segurança sem senha
           href: howto-authentication-passwordless-security-key.md
+        - name: Windows 10 sem senha
+          href: howto-authentication-passwordless-security-key-windows.md
+        - name: Locais sem senha
+          href: howto-authentication-passwordless-security-key-on-premises.md
         - name: Entrada por telefone sem senha
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello for Business

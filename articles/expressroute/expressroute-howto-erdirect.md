@@ -1,6 +1,6 @@
 ---
 title: Configurar o ExpressRoute Direct – Azure | Microsoft Docs
-description: Esta página ajuda você a configurar diretos do ExpressRoute.
+description: Esta página ajuda a configurar o ExpressRoute Direct.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0fec7234d18659051c61fda593b1ba0fb846c220
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9dcefb2d47b6862466b64b3568e1a530a2fdb8cb
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964251"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161589"
 ---
-# <a name="how-to-configure-expressroute-direct"></a>Como configurar diretos do ExpressRoute
+# <a name="how-to-configure-expressroute-direct"></a>Como configurar o ExpressRoute Direct
 
 O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede global da Microsoft em localizações de emparelhamento estrategicamente distribuídas no mundo todo. Para obter mais informações, confira [Sobre a conexão do ExpressRoute Direct](expressroute-erdirect-about.md).
 
@@ -26,7 +26,7 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
    ```powershell
    Connect-AzAccount 
 
-   Select-AzSubscription -Subscription “<SubscriptionID or SubscriptionName>”
+   Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
 2. Liste todas as localizações onde há suporte para o ExpressRoute Direct.
   
@@ -163,10 +163,10 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
    Links[0] é a porta primária e Links[1] é a porta secundária.
 
    ```powershell
-   $ERDirect.Links[0].AdminState = “Enabled”
+   $ERDirect.Links[0].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
-   $ERDirect.Links[1].AdminState = “Enabled”
+   $ERDirect.Links[1].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    ```
    **Exemplo de saída:**
@@ -218,17 +218,17 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
    Circuits                   : []
    ```
 
-   Use o mesmo procedimento com `AdminState = “Disabled”` para desabilitar as portas.
+   Use o mesmo procedimento com `AdminState = "Disabled"` para desabilitar as portas.
 
 ## <a name="circuit"></a>Criar um circuito
 
 Por padrão, você pode criar 10 circuitos na assinatura que contém o recurso ExpressRoute Direct. Esse número pode ser aumentado pelo suporte. Você é responsável por acompanhar a largura de banda provisionada e utilizada. A largura de banda provisionada é a soma da largura de banda de todos os circuitos no recurso ExpressRoute Direct, e a largura de banda utilizada é o uso físico das interfaces físicas subjacentes.
 
-Há larguras de banda de circuito adicionais que podem ser utilizadas no ExpressRoute Direct apenas para dar suporte aos cenários descritos acima. Elas são: 40 Gbps e 100 Gbps.
+Há larguras de banda de circuito adicionais que podem ser utilizadas no ExpressRoute Direct apenas para dar suporte aos cenários descritos acima. São elas: 40 Gbps e 100 Gbps.
 
-**SkuTier** pode ser Local, Standard ou Premium.
+**SkuTier** pode ser local, Standard ou Premium.
 
-**SkuFamily** deve ser MeteredData como ilimitado diretos do ExpressRoute não tem suporte.
+**SkuFamily** deve ser MeteredData somente como ilimitado não tem suporte no ExpressRoute Direct.
 
 Crie um circuito no recurso ExpressRoute Direct.
 
@@ -270,6 +270,6 @@ Crie um circuito no recurso ExpressRoute Direct.
   GatewayManagerEtag     
   ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o ExpressRoute Direct, confira [Visão geral](expressroute-erdirect-about.md).

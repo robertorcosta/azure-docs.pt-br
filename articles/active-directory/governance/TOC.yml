@@ -68,7 +68,7 @@
               href: entitlement-management-access-package-request-policy.md
             - name: Alterar configurações de ciclo de vida
               href: entitlement-management-access-package-lifecycle-policy.md
-            - name: Exibir e gerenciar solicitações
+            - name: Exibir solicitações
               href: entitlement-management-access-package-requests.md
             - name: 'Exibir, adicionar e remover atribuições'
               href: entitlement-management-access-package-assignments.md
