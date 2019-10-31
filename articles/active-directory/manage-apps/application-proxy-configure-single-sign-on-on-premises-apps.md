@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff5152a2d65ea3921f0fef7f3a020bcea80d1769
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: d004d1183c9f5c1aec2dae7ab2d638528f164cd9
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68421261"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062510"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Logon único do SAML para aplicativos locais com o proxy de aplicativo
 
@@ -41,7 +41,7 @@ Os diagramas de protocolo abaixo descrevem a sequência de logon único para um 
 
 1. Na portal do Azure, selecione **Azure Active Directory > aplicativos empresariais** e selecione **novo aplicativo**.
 
-2. Em **Adicionar seu próprio aplicativo**, selecione **aplicativo**inexistente na galeria.
+2. Na seção **aplicativos locais** , selecione **Adicionar um aplicativo local**.
 
 3. Insira o nome de exibição para o novo aplicativo e, em seguida, selecione **Adicionar**.
 
@@ -68,7 +68,7 @@ Para poder fornecer SSO para aplicativos locais, você precisa habilitar o proxy
 
 3. Copie a **URL externa** para o aplicativo. Você precisará dessa URL para concluir a configuração do SAML.
 
-4. Usando a conta de teste, tente abrir o aplicativo com a **URL externa** para validar que o proxy de aplicativo está configurado corretamente. Se houver problemas, consulte solucionar problemas [de proxy de aplicativo e mensagens de erro](application-proxy-troubleshoot.md).
+4. Usando a conta de teste, tente abrir o aplicativo com a **URL externa** para validar que o proxy de aplicativo está configurado corretamente. Se houver problemas, consulte [solucionar problemas de proxy de aplicativo e mensagens de erro](application-proxy-troubleshoot.md).
 
 ## <a name="update-the-saml-configuration"></a>Atualizar a configuração do SAML
 
@@ -76,7 +76,7 @@ Para poder fornecer SSO para aplicativos locais, você precisa habilitar o proxy
 
 2. Na página **Configurar logon único com SAML** , vá para o cabeçalho **configuração básica do SAML** e selecione o ícone de **edição** (um lápis). A **URL externa** que você configurou no proxy de aplicativo preenche automaticamente os campos **identificador**, **URL de resposta**e **URL de logout** . Não edite essas URLs porque elas são necessárias para que o proxy de aplicativo funcione corretamente.
 
-3. Edite a **URL de resposta** configurada anteriormente para que seu domínio possa ser acessado pelo proxy de aplicativo. Por exemplo, se a **URL externa** for `https://contosotravel-f128.msappproxy.net` e a **URL de resposta** original `https://contosotravel.com/acs`tiver sido, você precisará atualizar a **URL** de resposta `https://contosotravel-f128.msappproxy.net/acs`original para. 
+3. Edite a **URL de resposta** configurada anteriormente para que seu domínio possa ser acessado pelo proxy de aplicativo. Por exemplo, se a **URL externa** for `https://contosotravel-f128.msappproxy.net` e a **URL de resposta** original foi `https://contosotravel.com/acs`, você PRECISArá atualizar a **url de resposta** original para `https://contosotravel-f128.msappproxy.net/acs`. 
 
     ![Inserir dados básicos de configuração do SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
@@ -97,7 +97,7 @@ Depois de concluir todas essas etapas, seu aplicativo estará pronto para execu�
 1. Abra um navegador e navegue até a **URL externa** que você criou quando publicou o aplicativo. 
 1. Entre com a conta de teste que você atribuiu ao aplicativo. Você deve ser capaz de carregar o aplicativo e ter o SSO no aplicativo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Como o Proxy de Aplicativo do Azure AD fornece logon único?](application-proxy-single-sign-on.md)
 - [Solucionar problemas de Proxy de Aplicativo](application-proxy-troubleshoot.md)

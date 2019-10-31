@@ -8,16 +8,16 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: df93405940c02affa224fba2d2e6f07ce5278b15
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 4f1b8b116cf2a8411a90946dd5801dd1e541323c
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755369"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063971"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
-No mundo dos microsserviços, cada operação lógica requer que o trabalho seja feito em vários componentes do serviço. Cada um desses componentes pode ser monitorado separadamente pelo [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). O componente do aplicativo Web se comunica com o componente de provedor de autenticação para validar as credenciais do usuário e com o componente de API para obter dados para visualização. O componente de API pode consultar dados de outros serviços e usar componentes do provedor de cache para notificar o componente de cobrança sobre essa chamada. O Application Insights é compatível com a correlação de telemetria distribuída, que você pode usar para detectar qual componente é responsável por falhas ou degradação do desempenho.
+No mundo dos microsserviços, cada operação lógica requer que o trabalho seja feito em vários componentes do serviço. Cada um desses componentes pode ser monitorado separadamente pelo [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). O Application Insights é compatível com a correlação de telemetria distribuída, que você pode usar para detectar qual componente é responsável por falhas ou degradação do desempenho.
 
 Este artigo explica o modelo de dados usado pelo Application Insights para correlacionar a telemetria enviada por vários componentes. Ele aborda protocolos e técnicas de propagação de contexto. Também aborda a implementação de conceitos de correlação em plataformas e idiomas diferentes.
 
@@ -221,7 +221,7 @@ OpenCensus Python segue as especificações de modelo de dados `OpenTracing` des
 
 ### <a name="incoming-request-correlation"></a>Correlação de solicitação de entrada
 
-OpenCensus Python correlaciona cabeçalhos de contexto de rastreamento W3C de solicitações de entrada para as extensões que são geradas a partir das próprias solicitações. O OpenCensus fará isso automaticamente com integrações para estruturas de aplicativos Web populares, como `flask`, `django` e `pyramid`. Os cabeçalhos de contexto de rastreamento do W3C simplesmente precisam ser preenchidos com o [formato correto](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)e enviados com a solicitação. Veja abaixo um exemplo `flask` aplicativo que demonstra isso.
+OpenCensus Python correlaciona cabeçalhos de contexto de rastreamento W3C de solicitações de entrada para as extensões que são geradas a partir das próprias solicitações. O OpenCensus fará isso automaticamente com integrações para as seguintes estruturas de aplicativos Web populares: `flask`, `django` e `pyramid`. Os cabeçalhos de contexto de rastreamento do W3C simplesmente precisam ser preenchidos com o [formato correto](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) e enviados com a solicitação. Veja abaixo um exemplo `flask` aplicativo que demonstra isso.
 
 ```python
 from flask import Flask
@@ -253,7 +253,7 @@ Observando o [formato de cabeçalho de contexto de rastreamento](https://www.w3.
 `parent-id/span-id`: `00f067aa0ba902b7`
 `trace-flags`: `01`
 
-Se olharmos a entrada de solicitação que foi enviada para Azure Monitor, podemos ver os campos populados com as informações de cabeçalho de rastreamento.
+Se olharmos a entrada de solicitação que foi enviada para Azure Monitor, podemos ver os campos populados com as informações de cabeçalho de rastreamento. Você pode encontrar esses dados em logs (análise) no recurso Azure Monitor Application Insights.
 
 ![Captura de tela da telemetria de solicitação em logs (análise) com campos de cabeçalho de rastreamento realçados em caixa vermelha](./media/opencensus-python/0011-correlation.png)
 
@@ -290,6 +290,8 @@ Quando esse código é executado, obtemos o seguinte no console:
 2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
 ```
 Observe como há um spanid presente para a mensagem de log que está dentro do span, que é o mesmo spanid que pertence ao trecho nomeado `hello`.
+
+Você pode exportar os dados de log usando o `AzureLogHandler`. Encontre mais informações [aqui](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs)
 
 ## <a name="telemetry-correlation-in-net"></a>Correlação de telemetria em .NET
 

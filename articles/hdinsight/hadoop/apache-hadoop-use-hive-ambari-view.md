@@ -2,18 +2,18 @@
 title: Usar o modo de exibição do Apache Ambari Hive com Apache Hadoop no Azure HDInsight
 description: Saiba como usar o Modo de Exibição do Hive em seu navegador da Web para enviar consultas do Hive. O Modo de exibição do Hive faz parte da Interface de Usuário da Web do Ambari fornecida com o cluster HDInsight baseado em Linux.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
-ms.openlocfilehash: 5063be247b2ad51dc8888f8512f523ccf2b0174c
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.date: 10/24/2019
+ms.openlocfilehash: 6c199a0dd75b89d9c9368e799c97a28b73758d06
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044821"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73097111"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Use o Apache Ambari Hive View com o Apache Hadoop no HDInsight
 
@@ -30,9 +30,9 @@ Saiba como executar as consultas do Hive usando o Apache Ambari Hive View. A Exi
 
 1. No [portal do Azure](https://portal.azure.com/), selecione o cluster.  Consulte [listar e mostrar clusters](../hdinsight-administer-use-portal-linux.md#showClusters) para obter instruções. O cluster é aberto em uma nova folha de portal.
 
-2. Em **painéis do cluster**, selecione **exibições do Ambari**. Quando solicitado a autenticar, use o nome e senha da conta de logon de cluster (padrão `admin`) que você forneceu ao criar o cluster.
+1. Em **painéis do cluster**, selecione **exibições do Ambari**. Quando solicitado a autenticar, use o nome e senha da conta de logon de cluster (padrão `admin`) que você forneceu ao criar o cluster. Como alternativa, navegue até `https://CLUSTERNAME.azurehdinsight.net/#/main/views` no navegador em que `CLUSTERNAME` é o nome do cluster.
 
-3. Na lista de exibições, selecione __Exibição de Hive__.
+1. Na lista de exibições, selecione __Exibição de Hive__.
 
     ![Exibição Apache Hive de seleção do Apache Ambari](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
@@ -40,7 +40,7 @@ Saiba como executar as consultas do Hive usando o Apache Ambari Hive View. A Exi
 
     ![Imagem da planilha de consulta para a exibição de Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
-4. Da guia __Consulta__, cole as seguintes instruções HiveQL na planilha:
+1. Da guia __Consulta__, cole as seguintes instruções HiveQL na planilha:
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -54,8 +54,8 @@ Saiba como executar as consultas do Hive usando o Apache Ambari Hive View. A Exi
         t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
-        WHERE t4 = '[ERROR]' 
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs
+        WHERE t4 = '[ERROR]'
         GROUP BY t4;
     ```
 
@@ -75,9 +75,9 @@ Saiba como executar as consultas do Hive usando o Apache Ambari Hive View. A Exi
    > [!IMPORTANT]  
    > Deixe a seleção __Banco de dados__ em __padrão__. Os exemplos neste documento usam o banco de dados padrão incluído no HDInsight.
 
-5. Para iniciar a consulta, selecione **executar** abaixo da planilha. O botão fica laranja e o texto é alterado para **Parar**.
+1. Para iniciar a consulta, selecione **executar** abaixo da planilha. O botão fica laranja e o texto é alterado para **Parar**.
 
-6. Depois que a consulta for concluída, a seção **Resultados** exibirá os resultados da operação. O texto a seguir é o resultado da consulta:
+1. Depois que a consulta for concluída, a seção **Resultados** exibirá os resultados da operação. O texto a seguir é o resultado da consulta:
 
         loglevel       count
         [ERROR]        3
@@ -133,7 +133,7 @@ Declare e salve um conjunto de UDFs usando a guia **UDF** na parte superior da e
 
 Depois de adicionar uma UDF à exibição do Hive, um botão **Inserir udfs** será exibido na parte inferior do **Editor de Consultas**. Ao selecionar essa entrada, uma lista suspensa de UDFs definidas na Exibição do Hive será exibida. A seleção de uma UDF adiciona instruções HiveQL à sua consulta para habilitar a UDF.
 
-Por exemplo, se você tiver definido uma UDF com as seguintes propriedades:
+Por exemplo, se você tiver definido um UDF com as seguintes propriedades:
 
 * Nome de recurso: myudfs
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f50ace6d707db35dfd7cf9f14026d755093a038c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 5372bf853092ea55952b45a1300d0f979f1b086c
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802434"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062268"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerenciar o grupo de administradores locais nos dispositivos do Microsoft Azure Active Directory
 
@@ -59,10 +59,10 @@ Para modificar a função de administrador do dispositivo, configure **Administr
 >[!NOTE]
 > Essa opção exige um locatário do Azure AD Premium. 
 
-Administradores do dispositivo são atribuídos a todos os dispositivos ingressados do Microsoft Azure AD. Não é possível definir o escopo de administradores do dispositivo para um conjunto específico de dispositivos. Atualizar a função de administrador do dispositivo não tem necessariamente um impacto imediato sobre os usuários afetados. Para os dispositivos, um usuário já está conectado, a atualização de privilégio ocorre:
+Administradores do dispositivo são atribuídos a todos os dispositivos ingressados do Microsoft Azure AD. Não é possível definir o escopo de administradores do dispositivo para um conjunto específico de dispositivos. Atualizar a função de administrador do dispositivo não tem necessariamente um impacto imediato sobre os usuários afetados. Em dispositivos em que um usuário já está conectado, a atualização de privilégio ocorre quando *ambas* as ações abaixo acontecem:
 
-- Quando um usuário se desconecta.
-- Após 4 horas, quando um novo primário Token de atualização for emitido. 
+- 4 horas passaram para o Azure AD emitir um novo token de atualização primário com os privilégios apropriados. 
+- O usuário sai e faz logon, não bloqueia/desbloqueie, para atualizar seu perfil.
 
 ## <a name="manage-regular-users"></a>Gerenciar usuários regulares
 

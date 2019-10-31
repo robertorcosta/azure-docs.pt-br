@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 2e5eaed40c954df5e7c731bb3fbd5d9424ea9b97
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
-ms.translationtype: HT
+ms.openlocfilehash: e3ff86770ec0337c9a4a11b30c6d88e8365bfa24
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053294"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064100"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticar e solucionar problemas ao usar o gatilho de Azure Functions para Cosmos DB
 
@@ -105,6 +105,7 @@ Esse erro ocorrerá se seu projeto Azure Functions (ou qualquer projeto referenc
 Para solucionar essa situação, remova a referência manual do NuGet que foi adicionada e permita que o Azure Cosmos DB referência do SDK seja resolvido por meio do pacote de extensão Azure Functions Cosmos DB.
 
 ### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>Alterando o intervalo de sondagem da função do Azure para a detecção de alterações
+
 Conforme explicado anteriormente para [que minhas alterações demore muito para serem recebidas, a](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received)função do Azure entrará em suspensão por um período configurável (5 segundos, por padrão) antes de verificar se há novas alterações (para evitar o alto consumo de ru). Você pode configurar este tempo de suspensão ao `FeedPollDelay/feedPollDelay`fazer as [configurações](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) do seu gatilho (o valor é esperado em milissegundos).
 
 ## <a name="next-steps"></a>Próximos passos

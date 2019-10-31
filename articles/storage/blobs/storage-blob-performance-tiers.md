@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: ac483a338b7d71142b89b13e41fc048346ac037f
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: e0d746f1b01784bc383c12543936f06dae66ca09
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802647"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063250"
 ---
 # <a name="azure-block-blob-storage-performance-tiers"></a>Camadas de desempenho de armazenamento de blob de blocos do Azure
 
@@ -28,7 +28,7 @@ As seguintes considerações se aplicam a diferentes níveis de desempenho:
 
 - O desempenho padrão está disponível em todas as [regiões do Azure](https://azure.microsoft.com/global-infrastructure/services/?products=storage). O desempenho Premium está disponível em [regiões selecionadas](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 - O desempenho premium fornece preços otimizados para aplicativos com altas taxas de transação para ajudar a [reduzir o custo total de armazenamento](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/) para essas cargas de trabalho.
-- O desempenho premium requer o uso de contas de armazenamento de blob de bloco, que dão suporte ao blob de blocos e ao blob de acréscimo
+- Para obter o desempenho premium para BLOBs de bloco, você deve usar o tipo de conta BlockBlobStorage.
 - O desempenho padrão está disponível com as contas de armazenamento Uso Geral v1, Uso Geral V2 e BLOB.
 - O desempenho premium e Standard dão suporte a [blobs de blocos de alta taxa de transferência](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/). Os blobs de blocos de alta taxa de transferência estão disponíveis para desempenho premium em mais de 256 KiB. Os blobs de blocos de alta taxa de transferência estão disponíveis para desempenho padrão em mais de 4 blocos Put de MiB ou colocam tamanhos de BLOB.
 - O desempenho Premium está atualmente disponível somente com LRS (armazenamento com redundância local).
@@ -54,7 +54,7 @@ Para saber mais, consulte [gerenciar o ciclo de vida do armazenamento de BLOBs d
 
 Os dados armazenados em uma conta de armazenamento de blob de blocos Premium não podem ser movidos entre as camadas quente, fria e arquivo morto. No entanto, você pode copiar blobs de uma conta de armazenamento de blobs de blocos para a camada de acesso quente em uma conta *diferente* . Use o [bloco Put da API de URL](/rest/api/storageservices/put-block-from-url) ou [AzCopy V10](../common/storage-use-azcopy-v10.md) para copiar dados para uma conta diferente. O **bloco Put da API de URL copia de** forma síncrona os dados no servidor. A chamada é concluída somente depois que todos os dados são movidos do local do servidor original para o local de destino.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Avaliar a quente, a frio e o arquivo em contas de armazenamento de BLOBs e GPv2
 

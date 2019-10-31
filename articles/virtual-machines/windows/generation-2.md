@@ -11,20 +11,20 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 10/29/2019
 ms.author: lahugh
-ms.openlocfilehash: 1b906a9e3ce803b7f319a920f29b5a60f62c47b1
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c85e02b01e11b94d9e23e669bf2f6fcde7f2c1de
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550160"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064027"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Suporte para VMs de geração 2 (versão prévia) no Azure
 
 > [!IMPORTANT]
 > O suporte do Azure para VMs de geração 2 está atualmente em visualização.
-> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter recursos restritos.
+> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O suporte para VMs (máquinas virtuais) de geração 2 agora está disponível em versão prévia no Azure. Você não pode alterar a geração de uma máquina virtual depois de criá-la, portanto, examine as considerações nesta página antes de escolher uma geração. 
@@ -64,6 +64,8 @@ As VMs de geração 2 dão suporte às seguintes imagens do Marketplace:
 * Windows Server 2012 Datacenter
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
+* Ubuntu Server 16.04+
+
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>VMs locais vs. Azure geração 2
 
@@ -71,11 +73,11 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 
 | Recurso de geração 2                | Hyper-V local | Azure |
 |-------------------------------------|---------------------|-------|
-| Inicialização segura                         | :heavy_check_mark:  | w.x.y.   |
-| VM blindada                         | :heavy_check_mark:  | w.x.y.   |
-| vTPM                                | :heavy_check_mark:  | w.x.y.   |
-| Segurança baseada em virtualização (VBS) | :heavy_check_mark:  | w.x.y.   |
-| Formato VHDX                         | :heavy_check_mark:  | w.x.y.   |
+| Inicialização segura                         | :heavy_check_mark:  | :x:   |
+| VM blindada                         | :heavy_check_mark:  | :x:   |
+| vTPM                                | :heavy_check_mark:  | :x:   |
+| Segurança baseada em virtualização (VBS) | :heavy_check_mark:  | :x:   |
+| Formato VHDX                         | :heavy_check_mark:  | :x:   |
 
 ## <a name="features-and-capabilities"></a>Recursos e funcionalidades
 
@@ -91,13 +93,13 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 
 | Capacidade | Geração 1 | Geração 2 |
 |------------|--------------|--------------|
-| Disco do sistema operacional > 2 TB                    | w.x.y.                | :heavy_check_mark: |
+| Disco do sistema operacional > 2 TB                    | :x:                | :heavy_check_mark: |
 | Disco personalizado/imagem/sistema operacional de permuta         | :heavy_check_mark: | :heavy_check_mark: |
 | Suporte ao conjunto de dimensionamento de máquinas virtuais | :heavy_check_mark: | :heavy_check_mark: |
-| Recuperação de Site do Azure               | :heavy_check_mark: | w.x.y.                |
+| Recuperação de Site do Azure               | :heavy_check_mark: | :x:                |
 | Backup/restauração                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galeria de imagens compartilhadas              | :heavy_check_mark: | :heavy_check_mark: |
-| Criptografia de disco do Azure             | :heavy_check_mark: | w.x.y.                |
+| Criptografia de disco do Azure             | :heavy_check_mark: | :x:                |
 
 ## <a name="creating-a-generation-2-vm"></a>Criando uma VM de geração 2
 
