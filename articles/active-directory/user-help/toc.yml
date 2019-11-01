@@ -116,3 +116,13 @@
       href: my-apps-portal-end-user-access-reviews.md
     - name: Solucionar problemas
       href: my-apps-portal-end-user-troubleshoot.md
+- name: Ajuda do portal Meus Aplicativos (versão prévia)
+  items:
+    - name: Visão geral
+      href: my-applications-portal-overview.md
+    - name: Acessar e usar o portal Meus Aplicativos
+      href: my-applications-portal-access.md
+    - name: Acessar e usar workspaces
+      href: my-applications-portal-workspaces.md
+    - name: Editar ou revogar permissões de aplicativo
+      href: my-applications-portal-permissions-saved-accounts.md

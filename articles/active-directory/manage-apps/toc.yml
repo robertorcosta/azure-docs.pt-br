@@ -131,10 +131,14 @@
           items:
             - name: Configurar consentimento do usuário
               href: configure-user-consent.md
+            - name: Configurar o fluxo de trabalho de consentimento do administrador (versão prévia)
+              href: configure-admin-consent-workflow.md
             - name: Métodos para atribuir usuários e grupos a um aplicativo
               href: methods-for-assigning-users-and-groups.md
             - name: Atribuir um usuário a um aplicativo
               href: assign-user-or-group-access-portal.md
+            - name: Criar workspaces em Meus Aplicativos (versão prévia)
+              href: access-panel-workspaces.md
             - name: Usar o acesso a aplicativo de autoatendimento
               href: access-panel-manage-self-service-access.md
             - name: Métodos para remover o acesso de um usuário a um aplicativo
@@ -155,6 +159,8 @@
               href: migration-resources.md
             - name: Migrar um aplicativo do ADFS para o Azure
               href: migrate-adfs-apps-to-azure.md
+            - name: Usar o relatório de atividade do aplicativo do AD FS (versão prévia)
+              href: migrate-adfs-application-activity.md
         - name: Solucionar problemas
           items:
             - name: Solucionar problemas de adição de aplicativos
