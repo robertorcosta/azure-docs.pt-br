@@ -90,7 +90,7 @@ Agora você tem um aplicativo de malha do Service Fabric. Em seguida, crie o mod
 
 Para simplificar, os itens de tarefas pendentes são armazenados em uma lista na memória. Crie uma biblioteca de classes para os itens de tarefas pendentes e uma lista para armazená-los. No Visual Studio, que atualmente tem a solução **todolistapp** carregada, escolha **Arquivo** > **Adicionar** > **Novo Projeto**.
 
-No diálogo **Adicionar Novo Projeto**, na caixa **Pesquisar** na parte superior, digite `C# .net core class`. Selecione o modelo **Biblioteca de Classes (.NET Core)**.
+No diálogo **Adicionar Novo Projeto**, na caixa **Pesquisar** na parte superior, digite `C# .net core class`. Selecione o modelo **Biblioteca de Classes (.NET Core)** .
 
 Na caixa **Nome**, digite `Model`. Clique em **OK** para criar a biblioteca de classes.
 
@@ -194,7 +194,7 @@ Em seguida, o diálogo **Novo Aplicativo Web ASP.NET Core** será exibido. Nesse
 
 Como o serviço de back-end não fornece nenhuma interface do usuário, desative a inicialização do navegador quando o serviço for iniciado. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **ToDoService** e selecione **Propriedades**. Na janela de propriedades exibida, selecione a guia **Depurar** à esquerda e desmarque a opção **Iniciar navegador**. Pressione **Ctrl+S** para salvar as alterações.
 
-Como esse serviço mantém as informações de tarefas pendentes, adicione uma referência à biblioteca de classes Model. No Gerenciador de Soluções, clique com botão direito do mouse em **ToDoService** e selecione **Adicionar** > **Referência...**. O diálogo **Gerenciador de Referências** será exibido.
+Como esse serviço mantém as informações de tarefas pendentes, adicione uma referência à biblioteca de classes Model. No Gerenciador de Soluções, clique com botão direito do mouse em **ToDoService** e selecione **Adicionar** > **Referência...** . O diálogo **Gerenciador de Referências** será exibido.
 
 No **Gerenciador de Referências**, marque a caixa de seleção **Model** e clique em **OK**.
 

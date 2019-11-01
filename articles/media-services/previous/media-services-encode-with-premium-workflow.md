@@ -57,7 +57,7 @@ As seguintes etapas são executadas:
 3. Obtenha o processador de mídia "Fluxo de trabalho do Media Encoder Premium".
 4. Criar um trabalho e uma tarefa.
 
-    Na maioria dos casos, a cadeia de caracteres de configuração para a tarefa está vazia (como no exemplo a seguir). Há alguns cenários avançados (que exigem que você defina propriedades de tempo de execução dinamicamente) em que você forneceria uma cadeia de caracteres XML para a tarefa de codificação. Exemplos desses cenários são: criação de uma sobreposição, união de mídia paralela ou sequencial, colocação de legenda.
+    Na maioria dos casos, a cadeia de caracteres de configuração para a tarefa está vazia (como no exemplo a seguir). Há alguns cenários avançados (que exigem que você defina propriedades de runtime dinamicamente) em que você forneceria uma cadeia de caracteres XML para a tarefa de codificação. Exemplos desses cenários são: criação de uma sobreposição, união de mídia paralela ou sequencial, colocação de legenda.
 5. Adicionar dois ativos de entrada à tarefa.
 
    1. 1º – o ativo de fluxo de trabalho.

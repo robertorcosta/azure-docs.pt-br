@@ -206,7 +206,7 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.KeyVault/vaults|AuditEvent|Logs de Auditoria|
 |Microsoft.Kusto/Clusters|SucceededIngestion|Operações de ingestão com êxito|
 |Microsoft.Kusto/Clusters|FailedIngestion|Operações de ingestão com falha|
-|Microsoft.Logic/workflows|WorkflowRuntime|Eventos de diagnóstico de tempo de execução do fluxo de trabalho|
+|Microsoft.Logic/workflows|WorkflowRuntime|Eventos de diagnóstico de runtime de fluxo de trabalho|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Acompanhar os eventos da Conta de Integração|
 |Microsoft.MachineLearningServices/workspaces|AmlComputeClusterEvent|AmlComputeClusterEvent|
 |Microsoft.MachineLearningServices/workspaces|AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|
@@ -262,7 +262,7 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Logs operacionais|
 |Microsoft.Sql/servers/databases|SQLInsights|Insights do SQL|
 |Microsoft.Sql/servers/databases|AutomaticTuning|Ajuste automático|
-|Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Estatísticas de Tempo de Execução do Repositório de Consultas|
+|Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Estatísticas de Runtime do Repositório de Consultas|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Estatísticas de Espera do Repositório de Consultas|
 |Microsoft.Sql/servers/databases|Errors|Errors|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Estatísticas de Espera do Banco de Dados|
@@ -279,7 +279,7 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.Sql/managedInstances|ResourceUsageStats|Estatísticas de uso de recursos|
 |Microsoft.Sql/managedInstances|SQLSecurityAuditEvents|Evento de Auditoria de Segurança do SQL|
 |Microsoft.Sql/managedInstances/databases|SQLInsights|Insights do SQL|
-|Microsoft.Sql/managedInstances/databases|QueryStoreRuntimeStatistics|Estatísticas de Tempo de Execução do Repositório de Consultas|
+|Microsoft.Sql/managedInstances/databases|QueryStoreRuntimeStatistics|Estatísticas de Runtime do Repositório de Consultas|
 |Microsoft.Sql/managedInstances/databases|QueryStoreWaitStatistics|Estatísticas de Espera do Repositório de Consultas|
 |Microsoft.Sql/managedInstances/databases|Errors|Errors|
 |Microsoft.Storage/storageAccounts/tableServices|StorageRead|StorageRead|

@@ -64,7 +64,7 @@ Use este guia de início rápido para começar a usar os serviços cognitivas do
     |--|--|
     | **Nome** | Um nome descritivo para o recurso de serviços cognitivos. Por exemplo, *MyCognitiveServicesResource*. |
     | **Assinatura** | Selecione uma das suas assinaturas do Azure disponíveis. |
-    | **Localidade** | A localização da sua instância de serviço cognitivo. Locais diferentes podem introduzir latência, mas não têm impacto sobre a disponibilidade de tempo de execução do seu recurso. Lembre-se do local do Azure, pois você pode precisar dele ao chamar os serviços cognitivas do Azure. |
+    | **Localidade** | A localização da sua instância de serviço cognitivo. Locais diferentes podem introduzir latência, mas não têm impacto sobre a disponibilidade de runtime do seu recurso. Lembre-se do local do Azure, pois você pode precisar dele ao chamar os serviços cognitivas do Azure. |
     | **Tipo de preço** | O custo da sua conta de Serviços Cognitivos depende das opções escolhidas e do seu uso. Para obter mais informações, consulte a API [detalhes de preços](https://azure.microsoft.com/pricing/details/cognitive-services/).
     | **Grupo de recursos** | O grupo de recursos do Azure que conterá seu recurso de serviços cognitivas. Você pode criar um grupo ou adicioná-lo a um grupo pré-existente. |
 
@@ -78,7 +78,7 @@ Use este guia de início rápido para começar a usar os serviços cognitivas do
     |--|--|
     | **Nome** | Um nome descritivo para o recurso de serviços cognitivos. Por exemplo, *TextAnalyticsResource*. |
     | **Assinatura** | Selecione uma das suas assinaturas do Azure disponíveis. |
-    | **Localidade** | A localização da sua instância de serviço cognitivo. Locais diferentes podem introduzir latência, mas não têm impacto sobre a disponibilidade de tempo de execução do seu recurso. Lembre-se do local do Azure, pois você pode precisar dele ao chamar os serviços cognitivas do Azure. |
+    | **Localidade** | A localização da sua instância de serviço cognitivo. Locais diferentes podem introduzir latência, mas não têm impacto sobre a disponibilidade de runtime do seu recurso. Lembre-se do local do Azure, pois você pode precisar dele ao chamar os serviços cognitivas do Azure. |
     | **Tipo de preço** | O custo da sua conta de Serviços Cognitivos depende das opções escolhidas e do seu uso. Para obter mais informações, consulte a API [detalhes de preços](https://azure.microsoft.com/pricing/details/cognitive-services/).
     | **Grupo de recursos** | O grupo de recursos do Azure que conterá seu recurso de serviços cognitivas. Você pode criar um grupo ou adicioná-lo a um grupo pré-existente. |
 

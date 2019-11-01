@@ -95,7 +95,7 @@ Uma forma de testar sua lógica de repetição é desconectar seu computador cli
 
 Como parte da primeira tentativa de repetição, você pode reconectar o computador cliente à rede e, em seguida, tentar se conectar.
 
-Para tornar esse teste prático, desconecte o computador da rede antes de iniciar o programa. Em seguida, o programa reconhece um parâmetro de tempo de execução que faz com que o programa:
+Para tornar esse teste prático, desconecte o computador da rede antes de iniciar o programa. Em seguida, o programa reconhece um parâmetro de runtime que faz com que o programa:
 
 - Adicione temporariamente 11001 à sua lista de erros a serem considerados como transitórios.
 - Tente fazer sua primeira conexão como de costume.
@@ -113,7 +113,7 @@ Seu programa pode errar intencionalmente o nome de usuário antes da primeira te
 
 Como parte da primeira tentativa de repetição, o programa pode corrigir a ortografia e tentar se conectar.
 
-Para tornar esse teste prático, o programa reconhece um parâmetro de tempo de execução que faz com que o programa:
+Para tornar esse teste prático, o programa reconhece um parâmetro de runtime que faz com que o programa:
 
 - Adicione temporariamente 18456 à sua lista de erros a serem considerados como transitórios.
 - Adicione propositadamente 'WRONG_' ao nome de usuário.

@@ -46,11 +46,11 @@ Não há suporte para [relatórios de cargas dinâmicas](service-fabric-cluster-
 
 ## <a name="resource-governance-mechanism"></a>Mecanismo de governança de recursos
 
-Atualmente, o tempo de execução do Service Fabric não fornece uma reserva de recursos. Quando um processo ou um contêiner é aberto, o tempo de execução define os limites de recursos para as cargas que foram definidas no momento da criação. Além disso, o tempo de execução rejeita a abertura de novos pacotes de serviço disponíveis quando os recursos são excedidos. Para entender melhor como o processo funciona, vamos usar um exemplo de um nó com dois núcleos de CPU (o mecanismo de governança de memória é equivalente):
+Atualmente, o runtime do Service Fabric não fornece uma reserva de recursos. Quando um processo ou um contêiner é aberto, o runtime define os limites de recursos para as cargas que foram definidas no momento da criação. Além disso, o runtime rejeita a abertura de novos pacotes de serviço disponíveis quando os recursos são excedidos. Para entender melhor como o processo funciona, vamos usar um exemplo de um nó com dois núcleos de CPU (o mecanismo de governança de memória é equivalente):
 
-1. Primeiro, um contêiner é colocado no nó, solicitando um núcleo de CPU. O tempo de execução abre o contêiner e define o limite de CPU para um núcleo. O contêiner não poderá usar mais de um núcleo.
+1. Primeiro, um contêiner é colocado no nó, solicitando um núcleo de CPU. O runtime abre o contêiner e define o limite de CPU para um núcleo. O contêiner não poderá usar mais de um núcleo.
 
-2. Em seguida, uma réplica do serviço é colocada no nó e o pacote de serviço correspondente especifica um limite de um núcleo de CPU. O tempo de execução abre o pacote de códigos e define o limite de CPU para um núcleo.
+2. Em seguida, uma réplica do serviço é colocada no nó e o pacote de serviço correspondente especifica um limite de um núcleo de CPU. O runtime abre o pacote de códigos e define o limite de CPU para um núcleo.
 
 Neste ponto, a soma dos limites é igual à capacidade do nó. Um processo e um contêiner estão em execução com um núcleo cada e não interferem um no outro. O Service Fabric não coloca mais nenhum contêiner ou réplica quando eles estão especificando o limite de CPU.
 

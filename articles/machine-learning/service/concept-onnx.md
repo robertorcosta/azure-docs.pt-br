@@ -62,7 +62,7 @@ import onnxruntime
 session = onnxruntime.InferenceSession("path to model")
 ```
 
-A documentação que acompanha o modelo geralmente informa as entradas e saídas para usar o modelo. Também é possível usar uma ferramenta de visualização como o [Netron](https://github.com/lutzroeder/Netron) para exibir o modelo. O Tempo de Execução do ONNX também permite consultar os metadados do modelo, as entradas e as saídas:    
+A documentação que acompanha o modelo geralmente informa as entradas e saídas para usar o modelo. Também é possível usar uma ferramenta de visualização como o [Netron](https://github.com/lutzroeder/Netron) para exibir o modelo. O Runtime do ONNX também permite consultar os metadados do modelo, as entradas e as saídas:    
 ```python
 session.get_modelmeta()
 first_input_name = session.get_inputs()[0].name

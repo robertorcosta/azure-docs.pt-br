@@ -164,7 +164,7 @@ Para clusters do Linux, o **MEU** armazenar padroniza para a pasta **/var/lib/sf
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Substituição dos pontos de extremidade em ServiceManifest.xml
 
-Na seção ApplicationManifest, inclua ResourceOverrides, que será um irmão da seção ConfigOverrides. Nessa seção, é possível especificar a substituição da seção Pontos de Extremidade na seção de recursos especificada no Manifesto do serviço. A substituição de pontos de extremidade é compatível com o tempo de execução 5.7.217/SDK 2.7.217 e superior.
+Na seção ApplicationManifest, inclua ResourceOverrides, que será um irmão da seção ConfigOverrides. Nessa seção, é possível especificar a substituição da seção Pontos de Extremidade na seção de recursos especificada no Manifesto do serviço. A substituição de pontos de extremidade é compatível com o runtime 5.7.217/SDK 2.7.217 e superior.
 
 Para substituir o Ponto de extremidade no ServiceManifest usando ApplicationParameters, altere o ApplicationManifest da seguinte forma:
 

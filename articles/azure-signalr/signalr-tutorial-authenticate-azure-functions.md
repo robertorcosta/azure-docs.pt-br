@@ -45,7 +45,7 @@ Vá para o [portal do Azure](https://portal.azure.com/) e entre com suas credenc
 
 Você vai compilar e testar o aplicativo do Azure Functions localmente. O aplicativo acessará uma instância do Serviço SignalR no Azure que precisa ser criada antecipadamente.
 
-1. Clique no botão **Criar um recurso** (**+**) para criar um novo recurso do Azure.
+1. Clique no botão **Criar um recurso** ( **+** ) para criar um novo recurso do Azure.
 
 1. Pesquise **Serviço SignalR** e selecione-o. Clique em **Criar**.
 
@@ -283,7 +283,7 @@ A interface do usuário do aplicativo de chat é um SPA (aplicativo de página �
 
 1. Na pasta **conteúdo**, crie um novo arquivo chamado **index.html**.
 
-1. Copie e cole o conteúdo de **[index. HTML](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/2720a9a565e925db09ef972505e1c5a7a3765be4/docs/demo/chat-with-auth/index.html)**.
+1. Copie e cole o conteúdo de **[index. HTML](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/2720a9a565e925db09ef972505e1c5a7a3765be4/docs/demo/chat-with-auth/index.html)** .
 
 1. Salve o arquivo.
 
@@ -309,7 +309,7 @@ Você estava executando o aplicativo de chat e o aplicativo de funções localme
 
 Uma conta de Armazenamento do Microsoft Azure é necessária para um aplicativo de funções no Azure. Você também irá hospedar a página da web para o bate-papo da interface do usuário usando o recurso de sites estáticos do Armazenamento do Microsoft Azure.
 
-1. No portal do Azure, clique em **Criar um recurso** (**+**) para criar um novo recurso do Azure.
+1. No portal do Azure, clique em **Criar um recurso** ( **+** ) para criar um novo recurso do Azure.
 
 1. Selecione a categoria **Armazenamento**, em seguida, selecione **Conta de armazenamento**.
 
@@ -467,7 +467,7 @@ Embora haja uma configuração de CORS no **local.settings.json**, ela não ser�
 
     ![Localizar CORS](media/signalr-tutorial-authenticate-azure-functions/signalr-find-cors.png)
 
-1. Na seção *Origens permitidas*, adicione uma entrada com o site estático *ponto de extremidade primário* como o valor (remover à direita */*).
+1. Na seção *Origens permitidas*, adicione uma entrada com o site estático *ponto de extremidade primário* como o valor (remover à direita */* ).
 
 1. Para o SDK do JavaScript do SignalR chame seu aplicativo de funções em um navegador, suporte para credenciais no CORS deve ser habilitado. Selecione a checkbox “Habilitar Acesso-Controle-Credenciais”.
 

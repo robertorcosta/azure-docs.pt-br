@@ -20,7 +20,7 @@ ms.locfileid: "72965381"
 Para adicionar um dispositivo [ IoT Edge ](../iot-edge/about-iot-edge.md) ao seu acelerador de solução, conclua as duas etapas a seguir:
 
 1. Adicione o dispositivo de borda na página de **Device Explorer** na interface do usuário da Web de monitoramento remoto do Solution Accelerator.
-1. Instale o tempo de execução IoT Edge no seu dispositivo Edge.
+1. Instale o runtime do IoT Edge no seu dispositivo Edge.
 
 ## <a name="add-the-iot-edge-device"></a>Adicionar o dispositivo do IoT Edge
 
@@ -40,9 +40,9 @@ Também é possível registrar um dispositivo IoT Edge diretamente com a instân
 
 Quando você registra um dispositivo diretamente com o Hub IoT no acelerador de solução de monitoramento remoto, ele é listado na página de **Device Explorer** na interface do usuário da Web.
 
-## <a name="install-the-iot-edge-runtime"></a>Instalar o tempo de execução do Azure IoT Edge
+## <a name="install-the-iot-edge-runtime"></a>Instalar o runtime do Azure IoT Edge
 
-Antes de implantar módulos no seu dispositivo Edge, você deve instalar o tempo de execução do IoT Edge no dispositivo real. Os guias de instruções a seguir mostram como instalar o tempo de execução em plataformas de dispositivos comuns:
+Antes de implantar módulos no seu dispositivo Edge, você deve instalar o runtime do IoT Edge no dispositivo real. Os guias de instruções a seguir mostram como instalar o runtime em plataformas de dispositivos comuns:
 
 - [Instalar o tempo de execução do Azure IoT Edge no Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md)
 - [Instalar o tempo de execução do Azure IoT Edge no Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux-arm.md)

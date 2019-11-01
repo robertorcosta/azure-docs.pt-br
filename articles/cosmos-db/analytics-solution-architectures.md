@@ -22,7 +22,7 @@ Este artigo descreve as soluções que podem ser criadas usando a análise distr
 
 Você pode usar o suporte ao Spark no Azure Cosmos DB para fornecer recomendações e ofertas em tempo real. Você pode ajudar os clientes a descobrir os itens de que eles precisam com personalização e recomendações de produtos em tempo real.
 
-* Você pode usar o suporte interno ao Machine Learning fornecido pelo tempo de execução do Apache Spark para gerar recomendações em tempo real em todos os catálogos de produtos.
+* Você pode usar o suporte interno ao Machine Learning fornecido pelo runtime do Apache Spark para gerar recomendações em tempo real em todos os catálogos de produtos.
 
 * Você pode fazer a mineração com um clique de dados de fluxo, de compra e do cliente para fornecer recomendações direcionadas que promovem valor por todo o tempo de vida.
 

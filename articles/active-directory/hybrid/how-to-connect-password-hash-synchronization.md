@@ -209,7 +209,7 @@ Se o servidor tiver sido bloqueado de acordo com o FIPS (Federal Information Pro
 
 1. Vá para %programfiles%\Azure AD Sync\Bin.
 2. Abra miiserver.exe.config.
-3. Acesse o nó configuração/tempo de execução no fim do arquivo.
+3. Acesse o nó configuração/runtime no fim do arquivo.
 4. Adicione o seguinte nó: `<enforceFIPSPolicy enabled="false"/>`
 5. Salve suas alterações.
 

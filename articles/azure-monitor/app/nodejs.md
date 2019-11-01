@@ -76,7 +76,7 @@ Inclua o SDK em seu aplicativo, para que ele possa coletar dados.
 
 ### <a name="monitor"></a>Monitore o seu aplicativo
 
-O SDK reúne automaticamente a telemetria sobre o tempo de execução do Node.js e sobre alguns módulos de terceiros comuns. Use o aplicativo para gerar alguns desses dados.
+O SDK reúne automaticamente a telemetria sobre o runtime do Node.js e sobre alguns módulos de terceiros comuns. Use o aplicativo para gerar alguns desses dados.
 
 Em seguida, na [portal do Azure][portal] vá para o recurso Application insights que você criou anteriormente. Na **Linha do tempo de visão geral**, procure seus primeiros pontos de dados. Para obter dados mais detalhadas, selecione componentes diferentes nos gráficos.
 

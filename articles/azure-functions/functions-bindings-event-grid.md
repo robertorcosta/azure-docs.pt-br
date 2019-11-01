@@ -370,7 +370,7 @@ Os dados de uma Grade de Eventos são recebidos como um objeto JSON no corpo de 
 }]
 ```
 
-O exemplo mostrado é uma matriz de um elemento. A Grade de Eventos envia sempre uma matriz e pode enviar mais de um evento na matriz. O tempo de execução invoca sua função uma vez para cada elemento da matriz.
+O exemplo mostrado é uma matriz de um elemento. A Grade de Eventos envia sempre uma matriz e pode enviar mais de um evento na matriz. O runtime invoca sua função uma vez para cada elemento da matriz.
 
 As propriedades de nível superior nos dados JSON de evento serão as mesmas entre todos os tipos de eventos, enquanto os conteúdos da propriedade `data` estiverem especificados para cada tipo de evento. O exemplo mostrado é para um evento de armazenamento de Blobs.
 
@@ -400,11 +400,11 @@ Para criar uma assinatura usando [a CLI do Azure](https://docs.microsoft.com/cli
 
 O comando requer a URL do ponto de extremidade que invoca a função. O exemplo a seguir mostra o padrão de URL específico da versão:
 
-#### <a name="version-2x-runtime"></a>Tempo de execução versão 2.x
+#### <a name="version-2x-runtime"></a>runtime versão 2.x
 
     https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
 
-#### <a name="version-1x-runtime"></a>Tempo de execução versão 1.x
+#### <a name="version-1x-runtime"></a>runtime versão 1.x
 
     https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
 
@@ -412,7 +412,7 @@ A chave do sistema é uma chave de autorização que deve ser incluída na URL d
 
 Apresentamos aqui um exemplo que assina em uma conta de armazenamento de Blobs (com um espaço reservado para a chave do sistema):
 
-#### <a name="version-2x-runtime"></a>Tempo de execução versão 2.x
+#### <a name="version-2x-runtime"></a>runtime versão 2.x
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -423,7 +423,7 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
 ```
 
-#### <a name="version-1x-runtime"></a>Tempo de execução versão 1.x
+#### <a name="version-1x-runtime"></a>runtime versão 1.x
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -440,13 +440,13 @@ Para obter mais informações sobre como criar uma assinatura, consulte o [Guia 
 
 Você pode obter a chave do sistema usando a seguinte API (HTTP GET):
 
-#### <a name="version-2x-runtime"></a>Tempo de execução versão 2.x
+#### <a name="version-2x-runtime"></a>runtime versão 2.x
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
 ```
 
-#### <a name="version-1x-runtime"></a>Tempo de execução versão 1.x
+#### <a name="version-1x-runtime"></a>runtime versão 1.x
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
@@ -570,7 +570,7 @@ Faça o download do *ngrok.exe* do [ngrok](https://ngrok.com/) e execute com o s
 ngrok http -host-header=localhost 7071
 ```
 
-O parâmetro -host-header é necessário porque o tempo de execução das funções espera solicitações do localhost quando é executado no localhost. 7071 é o número de porta padrão quando o tempo de execução é executado localmente.
+O parâmetro -host-header é necessário porque o runtime das funções espera solicitações do localhost quando é executado no localhost. 7071 é o número de porta padrão quando o runtime é executado localmente.
 
 O comando cria saída semelhante à seguinte:
 

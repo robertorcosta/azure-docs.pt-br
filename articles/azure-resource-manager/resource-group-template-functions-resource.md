@@ -122,7 +122,7 @@ A sintaxe dessa função varia de acordo com o nome das operações de lista. Ca
 | . | obrigatórios | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | resourceName ou resourceIdentifier |SIM |string |Identificador exclusivo para o recurso. |
-| apiVersion |SIM |string |Versão de API do estado de tempo de execução do recurso. Normalmente, no formato **aaaa-mm-dd**. |
+| apiVersion |SIM |string |Versão de API do estado de runtime do recurso. Normalmente, no formato **aaaa-mm-dd**. |
 | functionValues |Não |objeto | Um objeto que tem valores para a função. Fornecer apenas este objeto para funções que dão suporte ao recebimento de um objeto com valores de parâmetro, como **listAccountSas** em uma conta de armazenamento. Um exemplo de passar valores de função é mostrado neste artigo. | 
 
 ### <a name="valid-uses"></a>Usos válidos
@@ -425,7 +425,7 @@ Para o provedor de recursos **Microsoft.Web** e o tipo de recurso **sites**, o e
 reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 ```
 
-Retorna um objeto que representa o estado de tempo de execução de um recurso.
+Retorna um objeto que representa o estado de runtime de um recurso.
 
 ### <a name="parameters"></a>parâmetros
 
@@ -441,7 +441,7 @@ Cada tipo de recurso retorna propriedades diferentes para a função de referên
 
 ### <a name="remarks"></a>Comentários
 
-A função de referência recupera o estado de tempo de execução de um recurso implantado anteriormente ou um recurso implantado no modelo atual. Este artigo mostra exemplos de ambos os cenários.
+A função de referência recupera o estado de runtime de um recurso implantado anteriormente ou um recurso implantado no modelo atual. Este artigo mostra exemplos de ambos os cenários.
 
 Normalmente, você usa a função **reference** para retornar um valor específico de um objeto, como o URI do ponto de extremidade de blob ou o nome de domínio totalmente qualificado.
 

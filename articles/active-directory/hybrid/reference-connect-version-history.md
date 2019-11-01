@@ -338,9 +338,9 @@ Novos recursos e aprimoramentos
 - Assistente do Azure AD Connect: remoção do contêiner de “Configuração” da página de Domínio/filtragem de UO
 - Instalação do mecanismo de sincronização: remoção da lógica herdada desnecessária que falha ocasionalmente no msi de instalação do mecanismo de sincronização
 - Assistente do Azure AD Connect: correção do texto pop-up de ajuda na página de recursos opcionais para sincronização de hash de senha
-- Tempo de execução do mecanismo de sincronização: correção do cenário em que um objeto do CS tem uma importação excluída e regras de sincronização tentam reprovisionar o objeto.
-- Tempo de execução do mecanismo de sincronização: adição de link de ajuda para guia de solução de problemas de conectividade online para o log de eventos de um erro de importação
-- Tempo de execução do mecanismo de sincronização: uso de memória reduzido do agendador de sincronização ao enumerar os conectores
+- runtime do mecanismo de sincronização: correção do cenário em que um objeto do CS tem uma importação excluída e regras de sincronização tentam reprovisionar o objeto.
+- runtime do mecanismo de sincronização: adição de link de ajuda para guia de solução de problemas de conectividade online para o log de eventos de um erro de importação
+- runtime do mecanismo de sincronização: uso de memória reduzido do agendador de sincronização ao enumerar os conectores
 - Assistente do Azure AD Connect: correção de problema de resolução de uma conta de serviço de sincronização personalizada que não tem nenhum privilégios de leitura no AD
 - Assistente do Azure AD Connect: melhoria de registro em log do domínio e seleções de filtragem de UO
 - Assistente do Azure AD Connect: adição de declarações padrão do AD FS para confiança de federação criada para o cenário MFA

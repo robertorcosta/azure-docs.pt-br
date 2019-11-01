@@ -70,11 +70,11 @@ A seguir, você verá uma caixa de diálogo **Publicar aplicativo do Service Fab
 
 Escolha a conta e assinatura do Azure. Escolha um **Local**. Este artigo usa **Leste dos EUA**.
 
-Em **Grupo de recursos**, escolha **\<Criar Novo Grupo de Recursos...>**. Uma caixa de diálogo é exibida no local onde você irá criar um novo grupo de recursos. Este artigo usa o local **Leste dos EUA** e nomeia o grupo **sfmeshTutorial1RG** (se sua organização tiver várias pessoas usando a mesma assinatura, escolha um nome de grupo exclusivo).  Pressione **Criar** para criar o grupo de recursos e retornar à caixa de diálogo de publicação.
+Em **Grupo de recursos**, escolha **\<Criar Novo Grupo de Recursos...>** . Uma caixa de diálogo é exibida no local onde você irá criar um novo grupo de recursos. Este artigo usa o local **Leste dos EUA** e nomeia o grupo **sfmeshTutorial1RG** (se sua organização tiver várias pessoas usando a mesma assinatura, escolha um nome de grupo exclusivo).  Pressione **Criar** para criar o grupo de recursos e retornar à caixa de diálogo de publicação.
 
 ![Caixa de diálogo do novo grupo de recursos de Malha do Service Fabric do Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-De volta à caixa de diálogo **Publicar aplicativo do Service Fabric**, em **Registro de Contêiner do Azure**, escolha **\<Criar Novo Registro de Contêiner...>**. Na caixa de diálogo **Criar Registro de Contêiner**, use um nome exclusivo para o **Nome do registro de contêiner**. Especifique um **Local** (este tutorial usa **Leste dos EUA**). Escolha o **Grupo de recursos** que você criou na etapa anterior na lista suspensa, por exemplo, **sfmeshTutorial1RG**. Defina a **SKU** para **Básico** e pressione **Criar** para criar o Registro de Contêiner do Azure privado e retornar à caixa de diálogo Publicar.
+De volta à caixa de diálogo **Publicar aplicativo do Service Fabric**, em **Registro de Contêiner do Azure**, escolha **\<Criar Novo Registro de Contêiner...>** . Na caixa de diálogo **Criar Registro de Contêiner**, use um nome exclusivo para o **Nome do registro de contêiner**. Especifique um **Local** (este tutorial usa **Leste dos EUA**). Escolha o **Grupo de recursos** que você criou na etapa anterior na lista suspensa, por exemplo, **sfmeshTutorial1RG**. Defina a **SKU** para **Básico** e pressione **Criar** para criar o Registro de Contêiner do Azure privado e retornar à caixa de diálogo Publicar.
 
 ![Caixa de diálogo do novo registro de contêiner da Malha do Service Fabric do Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 

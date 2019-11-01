@@ -1,6 +1,6 @@
 ---
 title: Configurar um ambiente de desenvolvimento do Windows para microsserviços do Azure | Microsoft Docs
-description: Instale o tempo de execução, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir a instalação, você estará pronto para criar aplicativos no Windows.
+description: Instale o runtime, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir a instalação, você estará pronto para criar aplicativos no Windows.
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
@@ -48,19 +48,19 @@ Há suporte de desenvolvimento para as seguintes versões de sistema operacional
 >
 
 ## <a name="install-the-sdk-and-tools"></a>Instalar o SDK e as ferramentas
-O WebPI (Web Platform Installer) é a maneira recomendada de instalar o SDK e as ferramentas. Caso receba os erros de tempo de execução usando o WebPI, você também poderá encontrar links diretos para os instaladores nas notas sobre a versão específica do Service Fabric. As notas sobre a versão podem ser encontradas em vários anúncios de lançamentos no [blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
+O WebPI (Web Platform Installer) é a maneira recomendada de instalar o SDK e as ferramentas. Caso receba os erros de runtime usando o WebPI, você também poderá encontrar links diretos para os instaladores nas notas sobre a versão específica do Service Fabric. As notas sobre a versão podem ser encontradas em vários anúncios de lançamentos no [blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
 > [!NOTE]
 > Não há suporte para atualizações de cluster de desenvolvimento do Service Fabric local.
 
 ### <a name="to-use-visual-studio-2017-or-2019"></a>Para usar o Visual Studio 2017 ou 2019
 Os Ferramentas do Service Fabric fazem parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2017 e 2019. Habilite essa carga de trabalho como parte da instalação do Visual Studio.
-Além disso, você precisa instalar o SDK e o tempo de execução do Microsoft Azure Service Fabric usando o Web Platform Installer.
+Além disso, você precisa instalar o SDK e o runtime do Microsoft Azure Service Fabric usando o Web Platform Installer.
 
 * [Instalar o SDK do Microsoft Azure Service Fabric][core-sdk]
 
 ### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Para usar o Visual Studio 2015 (requer a atualização do Visual Studio 2015 2 ou posterior)
-Para Visual Studio 2015, as ferramentas do Service Fabric são instaladas junto com o SDK e o tempo de execução, usando o Web Platform Installer:
+Para Visual Studio 2015, as ferramentas do Service Fabric são instaladas junto com o SDK e o runtime, usando o Web Platform Installer:
 
 * [Instalar o SDK e as ferramentas do Microsoft Azure Service Fabric][full-bundle-vs2015]
 

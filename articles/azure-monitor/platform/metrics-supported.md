@@ -1600,7 +1600,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |LateInputEvents|Eventos de entrada tardia|Contagem|Total|Eventos de entrada tardia|LogicalName, PartitionID|
 |OutputEvents|Eventos de saída|Contagem|Total|Eventos de saída|LogicalName, PartitionID|
 |ConversionErrors|Erros de conversão de dados|Contagem|Total|Erros de conversão de dados|LogicalName, PartitionID|
-|Los|Erros de tempo de execução|Contagem|Total|Erros de tempo de execução|LogicalName, PartitionID|
+|Los|Erros de runtime|Contagem|Total|Erros de runtime|LogicalName, PartitionID|
 |DroppedOrAdjustedEvents|Eventos fora de ordem|Contagem|Total|Eventos fora de ordem|LogicalName, PartitionID|
 |AMLCalloutRequests|Solicitações de função|Contagem|Total|Solicitações de função|LogicalName, PartitionID|
 |AMLCalloutFailedRequests|Solicitações de função com falha|Contagem|Total|Solicitações de função com falha|LogicalName, PartitionID|

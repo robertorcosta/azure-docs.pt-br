@@ -18,7 +18,7 @@ ms.locfileid: "72597411"
 
 As versões principais do tempo de execução do Azure Functions estão relacionadas à versão do .NET na qual o tempo de execução se baseia. A tabela a seguir indica a versão atual do tempo de execução, o nível de versão e a versão do .NET relacionada. 
 
-| Versão de tempo de execução | Nível de liberação<sup>1</sup> | Versão do .NET | 
+| Versão de runtime | Nível de liberação<sup>1</sup> | Versão do .NET | 
 | --------------- | ------------- | ------------ |
 | 3.x  | versão prévia | .NET Core 3. x | 
 | 2. x | GA | .NET Core 2,2 |
@@ -87,7 +87,7 @@ Na versão 2. x, as seguintes alterações foram feitas:
 
 Você pode ter projetos de aplicativo de funções existentes que você desenvolveu localmente usando o tempo de execução da versão 1. x. Para atualizar para a versão 2. x, você deve criar um projeto de aplicativo de função local com a versão 2. x e portar seu código existente para o novo aplicativo. Você pode atualizar manualmente o projeto e o código existentes, um tipo de atualização "in-loco". No entanto, há uma série de outros aprimoramentos entre a versão 1. x e a versão 2. x que talvez você ainda precise fazer. Por exemplo, no C# objeto de depuração foi alterado de `TraceWriter` para `ILogger`. Ao criar um novo projeto de versão 2. x, você começa com as funções atualizadas com base nos modelos da versão 2. x mais recentes.
 
-#### <a name="visual-studio-runtime-versions"></a>Versões de tempo de execução do Visual Studio
+#### <a name="visual-studio-runtime-versions"></a>Versões de runtime do Visual Studio
 
 No Visual Studio, você seleciona a versão de tempo de execução ao criar um projeto. O Azure Functions Tools para Visual Studio dá suporte às principais versões de tempo de execução. A versão correta é usada ao depurar e publicar com base nas configurações do projeto. As configurações de versão são definidas no arquivo de `.csproj` nas seguintes propriedades:
 
@@ -105,7 +105,7 @@ No Visual Studio, você seleciona a versão de tempo de execução ao criar um p
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
-Quando você depura ou publica seu projeto, a versão correta do tempo de execução é usada.
+Quando você depura ou publica seu projeto, a versão correta do runtime é usada.
 
 #### <a name="vs-code-and-azure-functions-core-tools"></a>VS Code e Azure Functions Core Tools
 
@@ -123,7 +123,7 @@ A partir da versão 2. x, o tempo de execução usa um novo [modelo de extensibi
 
 * Suporte para extensões de associação de terceiros.
 
-* Desacoplamento de tempo de execução e associações. Essa alteração permite que as extensões de ligação tenham controle de versão e sejam liberadas de forma independente. Você pode, por exemplo, optar por atualizar para uma versão de uma extensão que dependa de uma versão mais recente de um SDK subjacente.
+* Desacoplamento de runtime e associações. Essa alteração permite que as extensões de ligação tenham controle de versão e sejam liberadas de forma independente. Você pode, por exemplo, optar por atualizar para uma versão de uma extensão que dependa de uma versão mais recente de um SDK subjacente.
 
 * Um ambiente de execução mais leve, em que apenas as associações em uso são conhecidas e carregadas pelo tempo de execução.
 

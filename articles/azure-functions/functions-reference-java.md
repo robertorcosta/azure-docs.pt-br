@@ -143,9 +143,9 @@ Aqui está o `function.json` correspondente gerado pelo [plug-in Azure-Functions
 
 ```
 
-## <a name="jdk-runtime-availability-and-support"></a>Suporte e disponibilidade de tempo de execução do JDK 
+## <a name="jdk-runtime-availability-and-support"></a>Suporte e disponibilidade de runtime do JDK 
 
-Para o desenvolvimento local de aplicativos de funções Java, baixe e use o [azul Zulu Enterprise para o Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDKs de [sistemas azul](https://www.azul.com/downloads/azure-only/zulu/). O Azure Functions usa o tempo de execução do JDK Java 8 da Azul quando você implanta seus aplicativos de funções na nuvem.
+Para o desenvolvimento local de aplicativos de funções Java, baixe e use o [azul Zulu Enterprise para o Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDKs de [sistemas azul](https://www.azul.com/downloads/azure-only/zulu/). O Azure Functions usa o runtime do JDK Java 8 da Azul quando você implanta seus aplicativos de funções na nuvem.
 
 O [suporte do Azure](https://azure.microsoft.com/support/) para problemas com o JDKs e os aplicativos de função está disponível com um plano de [suporte qualificado](https://azure.microsoft.com/support/plans/).
 

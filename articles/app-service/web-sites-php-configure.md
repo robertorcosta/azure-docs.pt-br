@@ -79,7 +79,7 @@ Para usar a Interface de Linha de Comando do Azure, você deve [Instalar a CLI d
 
 Para qualquer tempo de execução interno do PHP, é possível alterar qualquer uma das opções de configuração seguindo estas etapas. (Para obter informações sobre diretrizes de php. ini, consulte [Lista de diretrizes php.ini].)
 
-### <a name="changing-phpiniuser-phpiniperdir-phpiniall-configuration-settings"></a>Alterando as configurações de PHP\_INI\_USER, PHP\_INI\_PERDIR e PHP\_INI\_ALL
+### <a name="changing-php_ini_user-php_ini_perdir-php_ini_all-configuration-settings"></a>Alterando as configurações de PHP\_INI\_USER, PHP\_INI\_PERDIR e PHP\_INI\_ALL
 
 1. Adicione um arquivo [.user.ini] no seu diretório raiz.
 1. Adicione as definições de configuração ao arquivo `.user.ini` usando a mesma sintaxe que você usaria em um arquivo `php.ini`. Por exemplo, se você quisesse ativar a configuração `display_errors` e definir a configuração `upload_max_filesize` para 10M, o arquivo `.user.ini` conteria este texto:
@@ -95,7 +95,7 @@ Para qualquer tempo de execução interno do PHP, é possível alterar qualquer 
 
 Uma alternativa ao uso de um arquivo `.user.ini` é usar a função [ini_set()] em scripts para definir opções de configuração que não sejam diretrizes de nível de sistema.
 
-### <a name="changing-phpinisystem-configuration-settings"></a>Alterando as configurações de PHP\_INI\_SYSTEM
+### <a name="changing-php_ini_system-configuration-settings"></a>Alterando as configurações de PHP\_INI\_SYSTEM
 
 1. Adicionar uma Configuração de Aplicativo ao seu aplicativo com a chave `PHP_INI_SCAN_DIR` e o valor `d:\home\site\ini`
 1. Crie um arquivo `settings.ini` usando o console Kudu (http://&lt;nome-do-site&gt;.scm.azurewebsite.net) no diretório `d:\home\site\ini`.

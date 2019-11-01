@@ -71,7 +71,7 @@ O serviço vinculado do Oracle oferece suporte às seguintes propriedades:
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **Oracle**. | SIM |
 | connectionString | Especifica as informações necessárias para se conectar à instância do Banco de Dados Oracle. <br/>Marque este campo como um `SecureString` para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha em Azure Key Vault e extrair a configuração de `password` da cadeia de conexão. Consulte os exemplos a seguir e [armazene as credenciais em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. <br><br>**Tipo de conexão com suporte**: você pode optar por usar a **Oracle SID** ou o **Oracle Service Name** para identificar o banco de dados:<br>-Se você usar a SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Se você usar Service Name:`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | SIM |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não especificado, o Tempo de Execução de Integração do Azure padrão será usado. |Não |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não especificado, o Azure Integration Runtime padrão será usado. |Não |
 
 >[!TIP]
 >Se você receber um erro, "ORA-01025: parâmetro UPI fora do intervalo" e a versão do Oracle for 8i, adicione `WireProtocolMode=1` à sua cadeia de conexão. Em seguida, tente novamente.

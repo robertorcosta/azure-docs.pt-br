@@ -61,7 +61,7 @@ Hoje, os Aplicativos Lógicos não têm funcionalidades internas para transforma
 
 Neste exemplo, analisamos um arquivo CSV, mas qualquer outro tipo de arquivo pode ser processado da mesma forma. Basta modificar a parte de desserialização do Azure Function para refletir a lógica correta para o tipo de dados específico.
 
-1.  Crie um Azure Function, usando o tempo de execução v1 do Function e baseado em consumo quando solicitado.  Selecione o modelo de **gatilho HTTP** direcionado ao C# como um ponto de partida que configura as associações, conforme necessário. 
+1.  Crie um Azure Function, usando o runtime v1 do Function e baseado em consumo quando solicitado.  Selecione o modelo de **gatilho HTTP** direcionado ao C# como um ponto de partida que configura as associações, conforme necessário. 
 2.  Na guia **Exibir Arquivos** no painel direito, crie um arquivo chamado **project.json** e cole o seguinte código dos pacotes NuGet que estamos usando:
 
     ![Projeto de exemplo do Azure Functions](./media/create-pipeline-datacollector-api/functions-example-project-01.png)

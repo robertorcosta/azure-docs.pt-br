@@ -67,7 +67,7 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 
 ## <a name="dynamically-specifying-move-cost-on-a-per-replica-basis"></a>Especificando dinamicamente o custo de movimentação por réplica
 
-Os snippets de código anteriores são todos voltados a especificar MoveCost para um serviço inteiro de uma vez, de fora do próprio serviço. No entanto, o custo de movimentação é mais útil quando muda ao longo do tempo de vida de um objeto de serviço específico. Como os próprios serviços provavelmente sabem melhor qual é o custo de sua movimentação em um determinado momento, há uma API para os serviços relatarem seu próprio custo de movimentação individual durante o tempo de execução. 
+Os snippets de código anteriores são todos voltados a especificar MoveCost para um serviço inteiro de uma vez, de fora do próprio serviço. No entanto, o custo de movimentação é mais útil quando muda ao longo do tempo de vida de um objeto de serviço específico. Como os próprios serviços provavelmente sabem melhor qual é o custo de sua movimentação em um determinado momento, há uma API para os serviços relatarem seu próprio custo de movimentação individual durante o runtime. 
 
 C#:
 

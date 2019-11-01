@@ -1,6 +1,6 @@
 ---
-title: Saiba como o tempo de execução gerencia dispositivos – Azure IoT Edge | Microsoft Docs
-description: Saiba como os módulos, segurança, comunicação e emissão de relatórios em seus dispositivos são gerenciados pelo tempo de execução do Azure IoT Edge
+title: Saiba como o runtime gerencia dispositivos – Azure IoT Edge | Microsoft Docs
+description: Saiba como os módulos, segurança, comunicação e emissão de relatórios em seus dispositivos são gerenciados pelo runtime do Azure IoT Edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -16,11 +16,11 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2019
 ms.locfileid: "73163152"
 ---
-# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Reconhecer o tempo de execução do Azure IoT Edge e sua arquitetura
+# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Reconhecer o runtime do Azure IoT Edge e sua arquitetura
 
 O tempo de execução do IoT Edge é uma coleção de programas que transforma um dispositivo em um dispositivo IoT Edge. Coletivamente, os IoT Edge os componentes de tempo de execução permitem que os dispositivos IoT Edge recebam código para serem executados na borda e se comuniquem com os resultados. 
 
-O tempo de execução do IoT Edge executa as seguintes funções em dispositivos IoT Edge:
+O runtime do IoT Edge executa as seguintes funções em dispositivos IoT Edge:
 
 * Instala e atualiza as cargas de trabalho no dispositivo.
 * Mantém os padrões de segurança do Azure IoT Edge no dispositivo.
@@ -30,15 +30,15 @@ O tempo de execução do IoT Edge executa as seguintes funções em dispositivos
 * Facilitar a comunicação entre módulos no dispositivo IoT Edge.
 * Facilite a comunicação entre o IoT Edge dispositivo e a nuvem.
 
-![O tempo de execução comunica insights e integridade de módulo para o Hub IoT](./media/iot-edge-runtime/Pipeline.png)
+![O runtime comunica insights e integridade de módulo para o Hub IoT](./media/iot-edge-runtime/Pipeline.png)
 
-As responsabilidades do tempo de execução do IoT Edge se enquadram em duas categorias: gerenciamento de comunicação e de módulo. Essas duas funções são executadas por dois componentes que fazem parte do tempo de execução de IoT Edge. O *Hub de IOT Edge* é responsável pela comunicação, enquanto o *agente de IOT Edge* implanta e monitora os módulos. 
+As responsabilidades do runtime do IoT Edge se enquadram em duas categorias: gerenciamento de comunicação e de módulo. Essas duas funções são executadas por dois componentes que fazem parte do tempo de execução de IoT Edge. O *Hub de IOT Edge* é responsável pela comunicação, enquanto o *agente de IOT Edge* implanta e monitora os módulos. 
 
 Tanto o hub do IoT Edge quanto o agente do IoT Edge são módulos, assim como qualquer outro módulo em execução em um dispositivo IoT Edge. 
 
 ## <a name="iot-edge-hub"></a>Hub do IoT Edge
 
-O hub do IoT Edge é um dos dois módulos que compõem o tempo de execução do Azure IoT Edge. Ele atua como um proxy local para o Hub IoT expondo os mesmos pontos de extremidade de protocolo que o Hub IoT. Essa consistência significa que os clientes (sejam dispositivos ou módulos) podem se conectar no tempo de execução do IoT Edge como faria para no Hub IoT. 
+O hub do IoT Edge é um dos dois módulos que compõem o runtime do Azure IoT Edge. Ele atua como um proxy local para o Hub IoT expondo os mesmos pontos de extremidade de protocolo que o Hub IoT. Essa consistência significa que os clientes (sejam dispositivos ou módulos) podem se conectar no runtime do IoT Edge como faria para no Hub IoT. 
 
 >[!NOTE]
 > IoT Edge Hub dá suporte a clientes que se conectam usando MQTT ou AMQP. Ele não oferece suporte a clientes que usam HTTP. 
@@ -79,7 +79,7 @@ O desenvolvedor da solução é responsável por especificar as regras que deter
 
 ## <a name="iot-edge-agent"></a>Agente do IoT Edge
 
-O agente do IoT Edge é o outro módulo que compõe o tempo de execução do Azure IoT Edge. Ele é responsável por instanciar módulos, fazendo com que continuem a funcionar, e indicar o status dos módulos para o Hub IoT. Assim como qualquer outro módulo, o agente do IoT Edge usa seu módulo gêmeo para armazenar esses dados de configuração. 
+O agente do IoT Edge é o outro módulo que compõe o runtime do Azure IoT Edge. Ele é responsável por instanciar módulos, fazendo com que continuem a funcionar, e indicar o status dos módulos para o Hub IoT. Assim como qualquer outro módulo, o agente do IoT Edge usa seu módulo gêmeo para armazenar esses dados de configuração. 
 
 O [daemon de segurança do IoT Edge](iot-edge-security-manager.md) inicia o agente do IoT Edge na inicialização do dispositivo. O agente recupera seu módulo gêmeo do Hub IoT e inspeciona o manifesto de implantação. O manifesto de implantação é um arquivo JSON que declara os módulos que precisam ser iniciados. 
 
@@ -99,13 +99,13 @@ Cada item no manifesto de implantação contém informações específicas sobre
    * `on-unhealthy`-se o módulo falhar ou for considerado não íntegro, o agente de IoT Edge o reiniciará.
    * `always`-se o módulo falhar, for considerado não íntegro ou for desligado de alguma forma, o agente de IoT Edge o reiniciará. 
 
-O agente do IoT Edge envia a resposta de tempo de execução para o Hub IoT. Aqui está uma lista das possíveis respostas:
+O agente do IoT Edge envia a resposta de runtime para o Hub IoT. Aqui está uma lista das possíveis respostas:
   * 200 - OK
   * 400 - A configuração de implantação está malformada ou inválida.
   * 417-o dispositivo não tem um conjunto de configuração de implantação.
   * 412 - A versão do esquema na configuração de implantação é inválida.
   * 406 – o dispositivo do IoT Edge está offline ou não está enviando relatórios de status.
-  * 500 – ocorreu um erro no tempo de execução do IoT Edge.
+  * 500 – ocorreu um erro no runtime do IoT Edge.
 
 Para obter mais informações, consulte [saiba como implantar módulos e estabelecer rotas no IOT Edge](module-composition.md).   
 

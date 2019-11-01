@@ -240,7 +240,7 @@ Nesta seção, você compila e executa o projeto localmente e dispara a função
 
 1. Pressione **Ctrl + F5** para executar o projeto.
 
-   O console mostra que o tempo de execução encontrou sua função e está aguardando as mensagens de fila o dispararem. A saída a seguir é gerada pelo host v3.x:
+   O console mostra que o runtime encontrou sua função e está aguardando as mensagens de fila o dispararem. A saída a seguir é gerada pelo host v3.x:
 
    ```console
     info: Microsoft.Azure.WebJobs.Hosting.JobHostService[0]
@@ -469,7 +469,7 @@ As associações de entrada simplificam o código que lê dados. Neste exemplo, 
    }
    ```
 
-   Nesse código, `queueTrigger` é uma [expressão de associação](../azure-functions/functions-bindings-expressions-patterns.md), o que significa que ele resolve para um valor diferente no tempo de execução.  No tempo de execução, ele tem o conteúdo da mensagem da fila.
+   Nesse código, `queueTrigger` é uma [expressão de associação](../azure-functions/functions-bindings-expressions-patterns.md), o que significa que ele resolve para um valor diferente no tempo de execução.  No runtime, ele tem o conteúdo da mensagem da fila.
 
 1. Adicione um `using`:
 

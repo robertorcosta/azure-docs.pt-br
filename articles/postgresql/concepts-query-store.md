@@ -17,7 +17,7 @@ ms.locfileid: "72331310"
 
 **Aplica-se a:** Banco de dados do Azure para PostgreSQL-versões de servidor único 9,6, 10, 11
 
-O recurso de Repositório de Consultas no Banco de Dados do Azure para PostgreSQL fornece uma maneira de acompanhar o desempenho de consultas ao longo do tempo. O Repositório de Consultas simplifica a solução de problemas ajudando você a rapidamente localizar as consultas de execução mais longa e que consomem mais recursos. O Repositório de Consultas captura automaticamente um histórico das estatísticas de tempo de execução e consultas e o retém para sua análise. Ele separa os dados por janelas de tempo para que você possa ver padrões de uso do banco de dados. Os dados de todos os usuários, bancos de dados e consultas são armazenados em um banco de dados chamado **azure_sys** na instância do Banco de Dados do Azure para PostgreSQL.
+O recurso de Repositório de Consultas no Banco de Dados do Azure para PostgreSQL fornece uma maneira de acompanhar o desempenho de consultas ao longo do tempo. O Repositório de Consultas simplifica a solução de problemas ajudando você a rapidamente localizar as consultas de execução mais longa e que consomem mais recursos. O Repositório de Consultas captura automaticamente um histórico das estatísticas de runtime e consultas e o retém para sua análise. Ele separa os dados por janelas de tempo para que você possa ver padrões de uso do banco de dados. Os dados de todos os usuários, bancos de dados e consultas são armazenados em um banco de dados chamado **azure_sys** na instância do Banco de Dados do Azure para PostgreSQL.
 
 > [!IMPORTANT]
 > Não modifique o banco de dados **azure_sys** ou seus esquemas. Fazer isso impedirá que o Repositório de Consultas e os recursos de desempenho relacionados funcionem corretamente.
@@ -46,7 +46,7 @@ Permita que o primeiro lote de dados persista no banco de dados azure_sys por at
 
 ## <a name="information-in-query-store"></a>Informações no Repositório de Consultas
 O Repositório de Consultas tem dois repositórios:
-- Um repositório de estatísticas de tempo de execução para manter as informações de estatísticas de execução de consulta.
+- Um repositório de estatísticas de runtime para manter as informações de estatísticas de execução de consulta.
 - Um repositório de estatísticas de espera para manter as informações de estatísticas de execução de espera.
 
 Os cenários comuns para usar o Repositório de Consultas incluem:
@@ -56,7 +56,7 @@ Os cenários comuns para usar o Repositório de Consultas incluem:
 - Identificar as principais N consultas que estão aguardando recursos
 - Entender a natureza de espera de uma consulta específica
 
-Para minimizar o uso de espaço, as estatísticas de execução de tempo de execução no repositório de estatísticas de tempo de execução são agregadas em uma janela de tempo fixa configurável. As informações nesses repositórios são visíveis consultando as exibições do repositório de consultas.
+Para minimizar o uso de espaço, as estatísticas de execução de runtime no repositório de estatísticas de runtime são agregadas em uma janela de tempo fixa configurável. As informações nesses repositórios são visíveis consultando as exibições do repositório de consultas.
 
 ## <a name="access-query-store-information"></a>Informações de Repositório de Consultas de acesso
 
@@ -76,7 +76,7 @@ Você também pode emitir Repositório de Consultas dados para [Azure monitor lo
 
 
 ## <a name="finding-wait-queries"></a>Localizando consultas de espera
-Os tipos de evento de espera combinam diferentes eventos de espera em buckets por semelhança. O Repositório de Consultas fornece o tipo de evento de espera, o nome do evento de espera específico e a consulta em questão. Ser capaz de correlacionar essas informações de espera com as estatísticas de tempo de execução de consulta significa que você pode obter uma compreensão mais profunda do que contribui para as características de desempenho de consulta.
+Os tipos de evento de espera combinam diferentes eventos de espera em buckets por semelhança. O Repositório de Consultas fornece o tipo de evento de espera, o nome do evento de espera específico e a consulta em questão. Ser capaz de correlacionar essas informações de espera com as estatísticas de runtime de consulta significa que você pode obter uma compreensão mais profunda do que contribui para as características de desempenho de consulta.
 
 Aqui estão alguns exemplos de como você pode obter mais insights sobre sua carga de trabalho usando as estatísticas de espera no Repositório de Consultas:
 

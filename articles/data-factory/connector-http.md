@@ -71,7 +71,7 @@ As seguintes propriedades são suportadas para o serviço vinculado HTTP:
 | URL | A URL base para o servidor web. | SIM |
 | enableServerCertificateValidation | Especifique se deseja ativar a validação do certificado SSL do servidor ao se conectar a um terminal HTTP. Se seu servidor HTTPS usa um certificado autoassinado, defina essa propriedade como **falsos**. | Não<br /> (o padrão é **verdadeira**) |
 | authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anônimo**, **Básico**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Veja as seções que seguem esta tabela para mais propriedades e amostras JSON para esses tipos de autenticação. | SIM |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) usar para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não especificado, o Tempo de Execução de Integração do Azure padrão será usado. |Não |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) usar para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não especificado, o Azure Integration Runtime padrão será usado. |Não |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Usando a autenticação Básica, Digest ou Windows
 

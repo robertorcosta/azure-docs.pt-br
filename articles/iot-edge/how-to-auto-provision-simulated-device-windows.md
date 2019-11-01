@@ -27,7 +27,7 @@ Este artigo mostra como testar o provisionamento automático em um dispositivo I
 * Criar uma nova instância para o Serviço de Provisionamento de Dispositivos (DPS) no Hub IoT.
 * Crie um dispositivo simulado em seu computador Windows com um simulado Trusted Platform Module (TPM) para segurança de hardware.
 * Crie um registro individual para o dispositivo.
-* Instale o tempo de execução do IoT Edge e conecte o dispositivo ao Hub IoT.
+* Instale o runtime do IoT Edge e conecte o dispositivo ao Hub IoT.
 
 > [!NOTE]
 > O TPM 2,0 é necessário ao usar o atestado de TPM com o DPS e só pode ser usado para criar registros individuais, não de grupo.
@@ -44,7 +44,7 @@ Este artigo mostra como testar o provisionamento automático em um dispositivo I
 
 Criar uma nova instância do Serviço de Provisionamento de Dispositivos no Hub IoT no Microsoft Azure e vincular ao seu hub IoT. Você pode seguir as instruções em [Configurar o DPS do Hub IoT](../iot-dps/quick-setup-auto-provision.md).
 
-Depois de executar o Serviço de Provisionamento de Dispositivo, copie o valor do **Escopo de ID** da página de visão geral. Você usa esse valor ao configurar o tempo de execução do Azure IoT Edge.
+Depois de executar o Serviço de Provisionamento de Dispositivo, copie o valor do **Escopo de ID** da página de visão geral. Você usa esse valor ao configurar o runtime do Azure IoT Edge.
 
 > [!TIP]
 > Se você estiver usando um dispositivo TPM físico, você precisará determinar a **chave de endosso**, que é exclusiva de cada chip TPM e é obtida do fabricante do chip TPM associado a ela. Você pode derivar uma **ID de registro** exclusiva para seu dispositivo TPM, por exemplo, criando um hash SHA-256 da chave de endosso.
@@ -69,11 +69,11 @@ Dispositivo simulado e guias de inscrição individuais:
 * [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
 * [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
-Depois de criar o registro individual, salve o valor do **ID de registro**. Você usa esse valor ao configurar o tempo de execução do Azure IoT Edge.
+Depois de criar o registro individual, salve o valor do **ID de registro**. Você usa esse valor ao configurar o runtime do Azure IoT Edge.
 
-## <a name="install-the-iot-edge-runtime"></a>Instalar o tempo de execução do Azure IoT Edge
+## <a name="install-the-iot-edge-runtime"></a>Instalar o runtime do Azure IoT Edge
 
-O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Seus componentes são executados em contêineres e permitem implantar contêineres adicionais no dispositivo para que você possa executar o código na borda.
+O runtime do IoT Edge é implantado em todos os dispositivos IoT Edge. Seus componentes são executados em contêineres e permitem implantar contêineres adicionais no dispositivo para que você possa executar o código na borda.
 
 Você precisará das seguintes informações ao provisionar seu dispositivo:
 
@@ -109,7 +109,7 @@ Para obter informações mais detalhadas sobre como instalar o IoT Edge no Windo
 
 ## <a name="verify-successful-installation"></a>Verificar instalação com êxito
 
-Se o tempo de execução foi iniciado com êxito, você pode entrar em seu Hub IoT e iniciar a implantação de módulos do IoT Edge em seu dispositivo. Use os seguintes comandos em seu dispositivo para verificar o tempo de execução instalado e iniciado com êxito.  
+Se o runtime foi iniciado com êxito, você pode entrar em seu Hub IoT e iniciar a implantação de módulos do IoT Edge em seu dispositivo. Use os seguintes comandos em seu dispositivo para verificar o runtime instalado e iniciado com êxito.  
 
 Verifique o status do serviço do IoT Edge.
 

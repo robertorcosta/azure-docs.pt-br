@@ -27,11 +27,11 @@ Antes da instalação, verifique se seu ambiente tem o Python e o pip instalados
 
 A CLI dá suporte às versões 2.7, 3.5, 3.6 e 3.7 do Python. Python 3.x é a versão recomendada, pois o suporte ao Python 2.7 chegará ao fim em breve.
 
-### <a name="service-fabric-target-runtime"></a>Tempo de execução de destino do Service Fabric
+### <a name="service-fabric-target-runtime"></a>runtime de destino do Service Fabric
 
-A CLI do Service Fabric serve para dar suporte à versão de tempo de execução mais recente do SDK do Service Fabric. Use a tabela a seguir para determinar qual versão da CLI instalar:
+A CLI do Service Fabric serve para dar suporte à versão de runtime mais recente do SDK do Service Fabric. Use a tabela a seguir para determinar qual versão da CLI instalar:
 
-| Versão da CLI   | versão do tempo de execução com suporte |
+| Versão da CLI   | versão do runtime com suporte |
 |---------------|---------------------------|
 | Mais recente (~ = 8)  | Mais recente (~ = 6,5)            |
 | 7.1.0         | 6.4                       |

@@ -19,7 +19,7 @@ ms.locfileid: "72964770"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Instalar o tempo de execução de Azure IoT Edge em sistemas Linux baseados em Debian
 
-O tempo de execução do Azure IoT Edge é o que transforma um dispositivo em um dispositivo do IoT Edge. O tempo de execução pode ser implantado em dispositivos pequenos como um Raspberry Pi ou grandes como um servidor industrial. Após um dispositivo ser configurado com o tempo de execução do IoT Edge, você poderá começar a implantar a lógica de negócios da nuvem nele. Para saber mais, confira [entender o tempo de execução de Azure IOT Edge e sua arquitetura](iot-edge-runtime.md).
+O runtime do Azure IoT Edge é o que transforma um dispositivo em um dispositivo do IoT Edge. O runtime pode ser implantado em dispositivos pequenos como um Raspberry Pi ou grandes como um servidor industrial. Após um dispositivo ser configurado com o runtime do IoT Edge, você poderá começar a implantar a lógica de negócios da nuvem nele. Para saber mais, confira [entender o tempo de execução de Azure IOT Edge e sua arquitetura](iot-edge-runtime.md).
 
 Este artigo lista as etapas para instalar o Azure IoT Edge Runtime em um dispositivo com x64, ARM32 ou ARM64 Linux. Os pacotes de instalação são fornecidos para o Ubuntu Server 16, 4, o Ubuntu Server 18, 4 e o Stretch Raspbian. Consulte [Azure IOT Edge sistemas com suporte](support.md#operating-systems) para obter uma lista de arquiteturas e sistemas operacionais Linux com suporte.
 
@@ -67,9 +67,9 @@ Instalar a chave pública do Microsoft GPG
    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
    ```
 
-### <a name="install-the-container-runtime"></a>Instalar o contêiner de tempo de execução
+### <a name="install-the-container-runtime"></a>Instalar o runtime de contêiner
 
-O Azure IoT Edge depende de um tempo de execução de contêiner [compatível com OCI](https://www.opencontainers.org/). Para cenários de produção, recomendamos que você use o mecanismo [baseado em Moby](https://mobyproject.org/) fornecido abaixo. É o único mecanismo de contêiner oficialmente com suporte do Azure IoT Edge. Imagens de contêiner do docker CE/EE são compatíveis com o tempo de execução Moby.
+O Azure IoT Edge depende de um tempo de execução de contêiner [compatível com OCI](https://www.opencontainers.org/). Para cenários de produção, recomendamos que você use o mecanismo [baseado em Moby](https://mobyproject.org/) fornecido abaixo. É o único mecanismo de contêiner oficialmente com suporte do Azure IoT Edge. Imagens de contêiner do docker CE/EE são compatíveis com o runtime Moby.
 
 Execute a atualização de apt.
 
@@ -93,7 +93,7 @@ Se você encontrar erros ao instalar o tempo de execução do contêiner Moby, s
 
 ### <a name="install-the-azure-iot-edge-security-daemon"></a>Instalar o daemon de segurança do Azure IoT Edge
 
-O **daemon de segurança do IOT Edge** fornece e mantém os padrões de segurança no dispositivo IOT Edge. O daemon é iniciado a cada inicialização e inicializa o dispositivo iniciando o restante do tempo de execução do IoT Edge.
+O **daemon de segurança do IOT Edge** fornece e mantém os padrões de segurança no dispositivo IOT Edge. O daemon é iniciado a cada inicialização e inicializa o dispositivo iniciando o restante do runtime do IoT Edge.
 
 O comando de instalação também instala a versão padrão do **libiothsm** , se ainda não estiver presente.
 
@@ -159,7 +159,7 @@ Quando IoT Edge for instalado com êxito, a saída solicitará que você atualiz
 
 ## <a name="configure-the-security-daemon"></a>Configurar o daemon de segurança
 
-Configure o tempo de execução do IoT Edge para vincular seu dispositivo físico com uma identidade do dispositivo existente em um Hub IoT do Azure.
+Configure o runtime do IoT Edge para vincular seu dispositivo físico com uma identidade do dispositivo existente em um Hub IoT do Azure.
 
 O daemon pode ser configurado usando o arquivo de configuração no `/etc/iotedge/config.yaml`. O arquivo está protegido contra gravação por padrão, permissões elevadas talvez sejam necessárias para editá-lo.
 
@@ -276,7 +276,7 @@ Depois de instalar IoT Edge em seu dispositivo, o único módulo que você deve 
 
 ## <a name="tips-and-troubleshooting"></a>Dicas e solução de problemas
 
-Você precisa de privilégios elevados para executar comandos `iotedge`. Após instalar o tempo de execução, saia da sua máquina virtual e entre novamente para atualizar suas permissões automaticamente. Até lá, use **sudo** na frente de qualquer um dos comandos `iotedge`.
+Você precisa de privilégios elevados para executar comandos `iotedge`. Após instalar o runtime, saia da sua máquina virtual e entre novamente para atualizar suas permissões automaticamente. Até lá, use **sudo** na frente de qualquer um dos comandos `iotedge`.
 
 Em dispositivos com restrição de recursos, é altamente recomendável que a variável de ambiente *OptimizeForPerformance* seja definida como *false* de acordo com as instruções no [guia de solução de problemas](troubleshoot.md).
 
@@ -299,25 +299,25 @@ Isso fornecerá uma saída detalhada que contém o status dos recursos de kernel
 
 Para remover a instalação do IoT Edge do dispositivo Linux, use o seguinte comando em uma linha de comando.
 
-Remova o tempo de execução do IoT Edge.
+Remova o runtime do IoT Edge.
 
 ```bash
 sudo apt-get remove --purge iotedge
 ```
 
-Quando o tempo de execução do IoT Edge for removido, o contêiner criado por ele será interrompido, mas ainda existará no seu dispositivo. Exiba todos os contêineres para ver quais deles permanecem.
+Quando o runtime do IoT Edge for removido, o contêiner criado por ele será interrompido, mas ainda existará no seu dispositivo. Exiba todos os contêineres para ver quais deles permanecem.
 
 ```bash
 sudo docker ps -a
 ```
 
-Exclua os contêineres do seu dispositivo, incluindo dois contêineres de tempo de execução.
+Exclua os contêineres do seu dispositivo, incluindo dois contêineres de runtime.
 
 ```bash
 sudo docker rm -f <container name>
 ```
 
-Por fim, remova o tempo de execução do contêiner do seu dispositivo.
+Por fim, remova o runtime do contêiner do seu dispositivo.
 
 ```bash
 sudo apt-get remove --purge moby-cli

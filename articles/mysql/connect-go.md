@@ -26,7 +26,7 @@ Este guia de início rápido usa os recursos criados em um destes guias como pon
 ## <a name="install-go-and-mysql-connector"></a>Instalar o conector MySQL e Go
 Instale o [Go](https://golang.org/doc/install) e o [go-sql-driver para MySQL](https://github.com/go-sql-driver/mysql#installation) em seu próprio computador. Dependendo da sua plataforma, siga as etapas na seção apropriada:
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 1. [Baixe](https://golang.org/dl/) e instale o Go para Microsoft Windows de acordo com as [instruções de instalação](https://golang.org/doc/install).
 2. Inicie o prompt de comando no menu Iniciar.
 3. Crie uma pasta para o seu projeto, como. `mkdir  %USERPROFILE%\go\src\mysqlgo`.

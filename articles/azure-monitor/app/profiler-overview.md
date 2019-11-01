@@ -63,7 +63,7 @@ A pilha de chamadas mostrada na exibição de linha do tempo é o resultado da a
 
 **clr!ThePreStub** é uma função auxiliar no .NET Framework que prepara o código para ser executado pela primeira vez. Essa execução geralmente inclui, mas não se limita à compilação JIT (Just-In-Time). Para cada método C#, **clr!ThePreStub** deve ser invocado no máximo uma vez durante um processo.
 
-Se **clr!ThePreStub** demorar muito para uma solicitação, essa solicitação será a primeira a executar esse método. O tempo necessário para o tempo de execução do .NET Framework carregar o primeiro método é significativo. Você pode considerar usar um processo de aquecimento que executa essa parte do código antes que seus usuários a acessem ou considerar executar o Gerador de Imagem Nativa (ngen.exe) em seus assemblies.
+Se **clr!ThePreStub** demorar muito para uma solicitação, essa solicitação será a primeira a executar esse método. O tempo necessário para o runtime do .NET Framework carregar o primeiro método é significativo. Você pode considerar usar um processo de aquecimento que executa essa parte do código antes que seus usuários a acessem ou considerar executar o Gerador de Imagem Nativa (ngen.exe) em seus assemblies.
 
 ### <a id="lockcontention"></a>Contenção de bloqueio (clr!JITutil\_MonContention ou clr!JITutil\_MonEnterWorker)
 

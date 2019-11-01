@@ -1,6 +1,6 @@
 ---
 title: Referência host.json para o Azure Functions 2.x
-description: Documentação de referência do arquivo host.json do Azure Functions com o tempo de execução v2.
+description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 author: ggailey777
 manager: gwallace
 ms.service: azure-functions
@@ -20,7 +20,7 @@ ms.locfileid: "72927440"
 > * [Versão 1](functions-host-json-v1.md)
 > * [Versão 2](functions-host-json.md)
 
-O arquivo de metadados *host.json* contém opções de configuração global que afetam todas as funções de um aplicativo de funções. Este artigo lista as configurações disponíveis para o tempo de execução v2.  
+O arquivo de metadados *host.json* contém opções de configuração global que afetam todas as funções de um aplicativo de funções. Este artigo lista as configurações disponíveis para o runtime v2.  
 
 > [!NOTE]
 > Este artigo serve para o Azure Functions 2.x.  Para obter uma referência de host.json no Functions 1.x, consulte [Referência de host.json para o Azure Functions 1.x](functions-host-json-v1.md).
@@ -280,7 +280,7 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 |lockPeriod|00:00:15|O período em que ocorrem os bloqueios de nível de função. Os bloqueios têm renovação automática.| 
 |listenerLockPeriod|00:01:00|O período em que ocorrem os bloqueios de ouvinte.| 
 |listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo usado para a recuperação do bloqueio de ouvinte caso não tenha sido possível adquirir um bloqueio de ouvinte durante a inicialização.| 
-|lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo em que o tempo de execução tenta adquirir um bloqueio.| 
+|lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo em que o runtime tenta adquirir um bloqueio.| 
 |lockAcquisitionPollingInterval|N/D|O intervalo entre as tentativas de aquisição de bloqueio.| 
 
 ## <a name="version"></a>version

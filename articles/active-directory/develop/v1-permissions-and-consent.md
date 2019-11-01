@@ -94,7 +94,7 @@ Os aplicativos no Microsoft Azure Active Directory dependem de autorização par
 - Escolha entre permissões delegadas e permissões de aplicativo com base no cenário compatível com seu aplicativo.
     - Use sempre permissões delegadas se a chamada estiver sendo feita em nome do usuário.
     - Use somente permissões de aplicativo se o aplicativo for não interativo e não estiver fazendo chamadas em nome de um usuário específico. As permissões de aplicativo são altamente privilegiadas e devem ser usadas apenas quando absolutamente necessário.
-- Ao usar um aplicativo com base no ponto de extremidade v 2.0, defina sempre as permissões estáticas (as especificadas no registro de aplicativo) como o superconjunto das permissões dinâmicas solicitadas no tempo de execução (aquelas especificadas no código e enviados como parâmetros de consulta na solicitação de autorização) para que os cenários, como o administrador de consentimento, funcionem corretamente.
+- Ao usar um aplicativo com base no ponto de extremidade v 2.0, defina sempre as permissões estáticas (as especificadas no registro de aplicativo) como o superconjunto das permissões dinâmicas solicitadas no runtime (aquelas especificadas no código e enviados como parâmetros de consulta na solicitação de autorização) para que os cenários, como o administrador de consentimento, funcionem corretamente.
 
 ### <a name="resourceapi-best-practices"></a>Melhores práticas de API/recurso
 

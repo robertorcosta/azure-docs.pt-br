@@ -72,7 +72,7 @@ A Configuração padrão dos Reliable Services com estado pode ser modificada po
 * **Config** – a configuração por meio do pacote de configuração é feita alterando o arquivo "Settings.xml" gerado na raiz do pacote do Microsoft Visual Studio sob a pasta "Config" para cada serviço no aplicativo.
 * **Código** – A configuração via código é feita com a criação de um ReliableStateManager usando um objeto ReliableStateManagerConfiguration com o conjunto de opções apropriadas.
 
-Por padrão, o tempo de execução do Service Fabric do Azure procura nomes de seção predefinidos no arquivo "Settings.xml" e consome os valores de configuração ao criar os componentes de tempo de execução subjacentes.
+Por padrão, o runtime do Service Fabric do Azure procura nomes de seção predefinidos no arquivo "Settings.xml" e consome os valores de configuração ao criar os componentes de runtime subjacentes.
 
 > [!NOTE]
 > **Não** exclua os nomes de seção das configurações a seguir no arquivo Settings.xml gerado na solução do Visual Studio, a menos que pretenda configurar o serviço via código.

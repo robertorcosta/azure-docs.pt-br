@@ -18,13 +18,13 @@ ms.locfileid: "73146189"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Executar Azure IoT Edge em Máquinas Virtuais do Ubuntu
 
-O tempo de execução do Azure IoT Edge é o que transforma um dispositivo em um dispositivo do IoT Edge. O tempo de execução pode ser implantado em dispositivos pequenos como um Raspberry Pi ou grandes como um servidor industrial. Após um dispositivo ser configurado com o tempo de execução do IoT Edge, você poderá começar a implantar a lógica de negócios da nuvem nele.
+O runtime do Azure IoT Edge é o que transforma um dispositivo em um dispositivo do IoT Edge. O runtime pode ser implantado em dispositivos pequenos como um Raspberry Pi ou grandes como um servidor industrial. Após um dispositivo ser configurado com o runtime do IoT Edge, você poderá começar a implantar a lógica de negócios da nuvem nele.
 
 Para saber mais sobre como funciona o tempo de execução do IoT Edge e quais componentes estão incluídos, veja [Entender o tempo de execução do Azure IoT Edge e sua arquitetura](iot-edge-runtime.md).
 
 Este artigo lista as etapas para executar o tempo de execução do Azure IoT Edge em uma Máquina Virtual do Ubuntu 16.04 usando o [Azure IoT Edge na oferta do Azure Marketplace do Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm) pré-configurado. 
 
-Na primeira inicialização, o Azure IoT Edge na VM do Ubuntu pré-instala a última versão do tempo de execução do Azure IoT Edge. Isso também inclui um script para definir a cadeia de conexão e reiniciar o tempo de execução, que pode ser disparado remotamente por meio do portal da VM do Azure ou da linha de comando do Azure, permitindo configurar e conectar facilmente o dispositivo do IoT Edge sem iniciar uma sessão SSH ou área de trabalho remota. Esse script aguardará para definir a cadeia de conexão até que o cliente do IoT Edge esteja totalmente instalado para que não seja necessário incorporá-lo à automação.
+Na primeira inicialização, o Azure IoT Edge na VM do Ubuntu pré-instala a última versão do runtime do Azure IoT Edge. Isso também inclui um script para definir a cadeia de conexão e reiniciar o runtime, que pode ser disparado remotamente por meio do portal da VM do Azure ou da linha de comando do Azure, permitindo configurar e conectar facilmente o dispositivo do IoT Edge sem iniciar uma sessão SSH ou área de trabalho remota. Esse script aguardará para definir a cadeia de conexão até que o cliente do IoT Edge esteja totalmente instalado para que não seja necessário incorporá-lo à automação.
 
 ## <a name="deploy-from-the-azure-marketplace"></a>Implantar do Azure Marketplace
 1.  Navegue até a oferta do Marketplace [Azure IoT Edge no Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm) ou pesquise "Azure IoT Edge no Ubuntu" no [Azure Marketplace](https://azuremarketplace.microsoft.com/)

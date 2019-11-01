@@ -532,7 +532,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="trigger---usage"></a>Gatilho - uso
 
-O tipo de entrada do gatilho é declarado como `HttpRequest` ou um tipo personalizado. Ao escolher `HttpRequest`, você obterá acesso completo ao objeto de solicitação. Para um tipo personalizado, o tempo de execução tenta analisar o corpo da solicitação JSON para definir as propriedades do objeto.
+O tipo de entrada do gatilho é declarado como `HttpRequest` ou um tipo personalizado. Ao escolher `HttpRequest`, você obterá acesso completo ao objeto de solicitação. Para um tipo personalizado, o runtime tenta analisar o corpo da solicitação JSON para definir as propriedades do objeto.
 
 ### <a name="customize-the-http-endpoint"></a>Personalização do ponto de extremidade HTTP
 
@@ -689,7 +689,7 @@ Por padrão, todas as rotas de função são prefixadas com *api*. Você também
 
 Se seu aplicativo de função estiver usando [Serviço de Aplicativo de Autenticação / Autorização](../app-service/overview-authentication-authorization.md), você poderá visualizar informações sobre clientes autenticados a partir de seu código. Essas informações estão disponíveis como [headers de solicitação injetados pela plataforma](../app-service/app-service-authentication-how-to.md#access-user-claims). 
 
-Você também pode ler essas informações a partir de dados vinculados. Esse recurso está disponível apenas para o tempo de execução do Functions 2.x. Atualmente, também está disponível apenas para idiomas .NET.
+Você também pode ler essas informações a partir de dados vinculados. Esse recurso está disponível apenas para o runtime do Functions 2.x. Atualmente, também está disponível apenas para idiomas .NET.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -779,7 +779,7 @@ As funções permitem o uso de chaves para dificultar o acesso aos pontos de ext
 > Embora as chaves possam ajudar o ofuscar seus pontos de extremidade HTTP durante o desenvolvimento, elas não foram projetadas como uma maneira de proteger um gatilho HTTP em produção. Para obter mais informações, confira [Proteger um ponto de extremidade HTTP em produção](#secure-an-http-endpoint-in-production).
 
 > [!NOTE]
-> No tempo de execução 1.x do Functions, os provedores de webhook podem usar chaves para autorizar solicitações de várias maneiras, dependendo do suporte do provedor. Isso é abordado em [Webhooks e chaves](#webhooks-and-keys). A versão 2.x do tempo de execução não inclui suporte interno para provedores de webhook.
+> No runtime 1.x do Functions, os provedores de webhook podem usar chaves para autorizar solicitações de várias maneiras, dependendo do suporte do provedor. Isso é abordado em [Webhooks e chaves](#webhooks-and-keys). A versão 2.x do runtime não inclui suporte interno para provedores de webhook.
 
 Há dois tipos de chave:
 
@@ -830,7 +830,7 @@ Ao usar um dos seguintes métodos de segurança no nível do aplicativo de funç
 ### <a name="webhooks"></a>Webhooks
 
 > [!NOTE]
-> O modo de webhook só está disponível para a versão 1.x do tempo de execução do Functions. Essa alteração foi feita para melhorar o desempenho de gatilhos HTTP na versão 2.x.
+> O modo de webhook só está disponível para a versão 1.x do runtime do Functions. Essa alteração foi feita para melhorar o desempenho de gatilhos HTTP na versão 2.x.
 
 Na versão 1.x, os modelos de webhook fornecem validação adicional para conteúdo de webhook. Na versão 2.x, o gatilho HTTP base ainda funciona e é a abordagem recomendada para webhooks. 
 

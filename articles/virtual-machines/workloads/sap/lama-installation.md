@@ -121,7 +121,7 @@ Você pode implantar uma nova máquina virtual manualmente ou usar um dos modelo
 É recomendável usar uma sub-rede separada para todas as máquinas virtuais que você deseja gerenciar com o SAP LaMa e não usar endereços IP dinâmicos para evitar que o IP endereço "roube" ao implantar novas máquinas virtuais e instâncias do SAP que não estão preparadas.
 
 > [!NOTE]
-> Se possível, remova todas as extensões de máquina virtual, pois elas podem causar longos tempos de execução para desanexar discos de uma máquina virtual.
+> Se possível, remova todas as extensões de máquina virtual, pois elas podem causar longos runtimes para desanexar discos de uma máquina virtual.
 
 Certifique-se de que o usuário \<hanasid > adm, \<sapsid > adm e o grupo de sapsys existam no computador de destino com a mesma ID e GID ou usam o LDAP. Habilite e inicie o servidor NFS nas máquinas virtuais que deve ser usadas para executar o SAP NetWeaver (A)SCS.
 
@@ -208,7 +208,7 @@ Os modelos têm os seguintes parâmetros:
 
 * sapacExtLocation: O local das Extensões Adaptativas do SAP. Nota SAP [2343511] lista o nível de patch mínimo necessário para o Azure.
 
-* vcRedistLocation: O local do tempo de execução VC que é necessário para instalar as extensões de SAP adaptativo. Esse parâmetro só é necessário para Windows.
+* vcRedistLocation: O local do runtime VC que é necessário para instalar as extensões de SAP adaptativo. Esse parâmetro só é necessário para Windows.
 
 * odbcDriverLocation: O local do driver ODBC que você deseja instalar. Apenas Driver ODBC Microsoft para SQL Server é compatível.
 

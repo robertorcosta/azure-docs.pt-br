@@ -150,7 +150,7 @@ Você pode usar Application Insights sem nenhuma configuração personalizada. A
 
 ### <a name="categories"></a>Categorias
 
-O agente do Azure Functions inclui uma *categoria* para cada log. A categoria indica qual parte do código de tempo de execução ou do seu código de função gravou o log. 
+O agente do Azure Functions inclui uma *categoria* para cada log. A categoria indica qual parte do código de runtime ou do seu código de função gravou o log. 
 
 O tempo de execução do Functions cria logs com uma categoria que começa com "host". Na versão 1. x, os logs `function started`, `function executed` e `function completed` têm a categoria `Host.Executor`. A partir da versão 2. x, esses logs têm a categoria `Function.<YOUR_FUNCTION_NAME>`.
 
@@ -256,7 +256,7 @@ Se [host. JSON] incluir várias categorias que comecem com a mesma cadeia de car
 
 Para suprimir todos os logs para uma categoria, você pode usar o nível de log `None`. Nenhum log é gravado com essa categoria e não há nenhum nível de registro acima dele.
 
-As seções a seguir descrevem as principais categorias de logs que o tempo de execução cria. 
+As seções a seguir descrevem as principais categorias de logs que o runtime cria. 
 
 ### <a name="category-hostresults"></a>Categoria Host.Results
 
@@ -288,7 +288,7 @@ Os logs gravados pelo seu código de função têm a categoria `Function` e pode
 
 ## <a name="configure-the-aggregator"></a>Configurar o agregador
 
-Conforme observado na seção anterior, o tempo de execução agrega dados sobre as execuções de função em um período. O período padrão é de 30 segundos ou 1.000 execuções, o que ocorrer primeiro. Você pode definir essa configuração no arquivo [host. JSON].  Aqui está um exemplo:
+Conforme observado na seção anterior, o runtime agrega dados sobre as execuções de função em um período. O período padrão é de 30 segundos ou 1.000 execuções, o que ocorrer primeiro. Você pode definir essa configuração no arquivo [host. JSON].  Aqui está um exemplo:
 
 ```json
 {
@@ -415,7 +415,7 @@ Você pode usar o pacote do NuGet [Microsoft.ApplicationInsights](https://www.nu
 
 ### <a name="version-2x"></a>Versão 2.x
 
-A versão de tempo de execução 2.x usa recursos mais recentes no Application Insights para correlacionar automaticamente a telemetria com a operação atual. Não é necessário definir manualmente a operação `Id`, `ParentId` ou `Name` campos.
+A versão de runtime 2.x usa recursos mais recentes no Application Insights para correlacionar automaticamente a telemetria com a operação atual. Não é necessário definir manualmente a operação `Id`, `ParentId` ou `Name` campos.
 
 ```cs
 using System;
@@ -564,7 +564,7 @@ namespace functionapp0915
 }
 ```
 
-Não chame `TrackRequest` ou `StartOperation<RequestTelemetry>`, pois você verá solicitações duplicadas para uma invocação de função.  O tempo de execução do Functions controla automaticamente as solicitações.
+Não chame `TrackRequest` ou `StartOperation<RequestTelemetry>`, pois você verá solicitações duplicadas para uma invocação de função.  O runtime do Functions controla automaticamente as solicitações.
 
 Não definir `telemetryClient.Context.Operation.Id`. Essa configuração global causa correlação incorreta quando muitas funções são executadas simultaneamente. Em vez disso, crie uma nova instância de telemetria (`DependencyTelemetry`, `EventTelemetry`) e modifique a propriedade `Context`. Em seguida, passe a instância de telemetria para o método `Track` correspondente em `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). Esse método garante que a telemetria tenha os detalhes de correlação corretos para a invocação de função atual.
 

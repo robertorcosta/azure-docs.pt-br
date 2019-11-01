@@ -170,7 +170,7 @@ A imagem a seguir mostra as recomendações de compra do relatório.
 
 Neste exemplo, o Cloudyn mostra \_uma conta com 32 recomendações de compra de instância reservada. Se você seguir todas as recomendações de compra, poderia poupar até US$ 137.770 por ano. Tenha em mente que as recomendações de compra fornecidas pelo Cloudyn presumem que o uso de suas cargas de trabalho em execução permanecerão consistentes.
 
-Para exibir detalhes sobre por que cada compra é recomendada, clique no símbolo de adição (**+**) em **Justificativas** . Aqui está um exemplo para a primeira recomendação na lista.
+Para exibir detalhes sobre por que cada compra é recomendada, clique no símbolo de adição ( **+** ) em **Justificativas** . Aqui está um exemplo para a primeira recomendação na lista.
 
 ![Exemplo mostrando detalhes de justificativa de compra](./media/tutorial-optimize-reserved-instances/aws02.png)
 

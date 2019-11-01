@@ -24,7 +24,7 @@ O método descrito neste artigo é baseado em [Integração do Diagnóstico do A
 ## <a name="define-a-base-query"></a>Definir uma consulta base
 
 Para começar, definiremos uma consulta base que recupera os eventos do Log de Eventos do Windows do canal do Microsoft Azure, que são capturados no Application Insights como registros de rastreamento.
-Esses registros podem ser usados para detectar uma variedade de problemas nos Serviços de Nuvem do Azure, como falhas na inicialização, falhas no tempo de execução e loops de reciclagem.
+Esses registros podem ser usados para detectar uma variedade de problemas nos Serviços de Nuvem do Azure, como falhas na inicialização, falhas no runtime e loops de reciclagem.
 
 > [!NOTE]
 > A consulta base abaixo verifica se há problemas em uma janela de tempo de 30 minutos e pressupõe uma latência de 10 minutos ao ingerir os registros de telemetria. Esses padrões podem ser configurados como desejar.

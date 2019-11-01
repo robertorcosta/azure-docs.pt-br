@@ -523,7 +523,7 @@ Supondo que você deixou o `PageSize` igual ou maior a 100 no servidor, uma soli
 Tabelas offline usam um armazenamento local do SQLite para armazenamento de dados para uso no modo offline.  Todas as operações da tabela são executadas no armazenamento local do SQLite em vez de no armazenamento do servidor remoto.  Para criar uma tabela offline, primeiro, prepare seu projeto:
 
 1. No Visual Studio, clique com o botão direito do mouse na solução > **Gerenciar Pacotes NuGet para a Solução...** , procure e instale o pacote NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** para todos os projetos na solução.
-2. (Opcional) Para dar suporte a dispositivos Windows, instale um dos seguintes pacotes de tempo de execução do SQLite:
+2. (Opcional) Para dar suporte a dispositivos Windows, instale um dos seguintes pacotes de runtime do SQLite:
 
    * **Tempo de Execução do Windows 8.1:** instalar o [SQLite para Windows 8.1][3].
    * **Windows Phone 8.1:** instalar o [SQLite para Windows Phone 8.1][4].

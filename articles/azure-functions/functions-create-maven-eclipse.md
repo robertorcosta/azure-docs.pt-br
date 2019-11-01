@@ -64,7 +64,7 @@ O Maven cria os arquivos de projeto em uma nova pasta com um nome de _artifactId
 1. Em **Editar configuração** caixa de diálogo, insira `package` no **metas** e **nome** campos, em seguida, selecione **executar**. Isso irá compilar e empacotar o código de função.
 1. Quando a construção estiver concluída, crie outra configuração de execução, como acima, usando `azure-functions:run` como meta e nome. Selecione **Executar** para executar a função no IDE.
 
-Encerrar o tempo de execução na janela do console, quando você terminar de testar sua função. Apenas um host de função pode estar ativo e em execução localmente de cada vez.
+Encerrar o runtime na janela do console, quando você terminar de testar sua função. Apenas um host de função pode estar ativo e em execução localmente de cada vez.
 
 ### <a name="debug-the-function-in-eclipse"></a>Depurar a função no Eclipse
 

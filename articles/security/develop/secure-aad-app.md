@@ -419,7 +419,7 @@ Os serviços do Azure registram em log de forma extensiva as atividades do siste
    - Todas as chaves em Key Vault são protegidas pelo módulo de segurança de hardware (HSM) [tipo de chave = módulo de segurança de hardware (HSM) protegido       
      Chave RSA de 2048 bits]
    - Todos os usuários/identidades recebem as permissões mínimas necessárias usando o RBAC (controle de acesso baseado em função)
-   - Aplicativos não compartilham um Key Vault, exceto se confiam uns nos outros e precisam ter acesso aos mesmos segredos em tempo de execução
+   - Aplicativos não compartilham um Key Vault, exceto se confiam uns nos outros e precisam ter acesso aos mesmos segredos em runtime
    - Os Logs de diagnóstico para Key Vault são habilitados com um período de retenção de pelo menos 365 dias.
    - Operações criptográficas permitidas para chaves são restritas às necessárias
 

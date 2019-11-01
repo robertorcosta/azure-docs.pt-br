@@ -74,7 +74,7 @@ Por exemplo, digamos que você tenha um pipeline básico denominado **copyPipeli
 }
 ```
 
-Na definição JSON, o pipeline usa dois parâmetros: **sourceBlobContainer** e **sinkBlobContainer**. Você passa valores para esses parâmetros em tempo de execução.
+Na definição JSON, o pipeline usa dois parâmetros: **sourceBlobContainer** e **sinkBlobContainer**. Você passa valores para esses parâmetros em runtime.
 
 Você pode executar o pipeline manualmente usando um dos seguintes métodos:
 - .NET SDK

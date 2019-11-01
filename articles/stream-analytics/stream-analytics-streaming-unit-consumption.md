@@ -143,7 +143,7 @@ Para um trabalho com 6 unidades de streaming, talvez seja necessário quatro ou 
 Os dados de referência no ASA são carregados na memória para uma pesquisa rápida. Com a implementação atual, cada operação de junção com dados de referência mantém uma cópia dos dados de referência na memória, mesmo se você ingressar com os mesmos dados de referência várias vezes. Para consultas com **PARTITION BY**, cada partição tem uma cópia dos dados de referência, para que as partições fiquem completamente separadas. Com o efeito multiplicador, o uso da memória pode ficar muito alto rapidamente se você ingressar com dados de referência várias vezes e com várias partições.  
 
 ### <a name="use-of-udf-functions"></a>Uso de funções UDF
-Quando você adiciona uma função UDF, o Azure Stream Analytics carrega o tempo de execução do JavaScript na memória. Isso afetará a % de SU.
+Quando você adiciona uma função UDF, o Azure Stream Analytics carrega o runtime do JavaScript na memória. Isso afetará a % de SU.
 
 ## <a name="next-steps"></a>Próximos passos
 * [Criar consultas paralelizáveis no Azure Stream Analytics](stream-analytics-parallelization.md)

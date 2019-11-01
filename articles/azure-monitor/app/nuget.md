@@ -80,8 +80,8 @@ Veja abaixo a lista atual de pacotes NuGet de versão estável para o Applicatio
 
 | Nome do Pacote | Versão estável | Descrição | Baixar |
 |-------------------------------|-----------------------|------------|----|
-| Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Habilita a coleta de dados de tempo de execução para aplicativos x64 | [Baixar Pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
-| Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Habilita a coleta de dados de tempo de execução para aplicativos x86. | [Baixar Pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
+| Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Habilita a coleta de dados de runtime para aplicativos x64 | [Baixar Pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
+| Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Habilita a coleta de dados de runtime para aplicativos x86. | [Baixar Pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
 Esses pacotes fazem parte da funcionalidade principal do monitoramento de tempo de execução no [Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md). Você não precisa baixar esses pacotes diretamente. Basta usar o instalador do Status Monitor. Se você quiser entender mais sobre como esses pacotes funcionam nos bastidores, essa [postagem no blog](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) de um de nossos desenvolvedores é um bom começo.
 

@@ -1558,7 +1558,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
 > | Microsoft.Compute/availabilitySets/read | Obter as propriedades de um conjunto de disponibilidade |
-> | Microsoft.Compute/virtualMachines/*/read | Ler as propriedades de uma máquina virtual (tamanhos de VM, status de tempo de execução, extensões de VM etc.) |
+> | Microsoft.Compute/virtualMachines/*/read | Ler as propriedades de uma máquina virtual (tamanhos de VM, status de runtime, extensões de VM etc.) |
 > | Microsoft.Compute/virtualMachines/deallocate/action | Desligar a máquina virtual e liberar os recursos de computação |
 > | Microsoft.Compute/virtualMachines/read | Obter as propriedades de uma máquina virtual |
 > | Microsoft.Compute/virtualMachines/restart/action | Reinicia a máquina virtual |

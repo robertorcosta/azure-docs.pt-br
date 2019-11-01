@@ -1113,7 +1113,7 @@ A Computação do Azure Machine Learning pode ser criada no Python, pelo portal 
   * `SummaryFunction.N` foi renomeado para `SummaryFunction.Count`.
   
 + **Correções de bug**
-  * Use o Token de Execução do AML mais recente ao ler e gravar em armazenamentos de dados ou execuções remotas. Anteriormente, se o Token de Execução do AML fosse atualizado no Python, o tempo de execução de preparação de dados não seria atualizado com o novo Token de Execução do AML.
+  * Use o Token de Execução do AML mais recente ao ler e gravar em armazenamentos de dados ou execuções remotas. Anteriormente, se o Token de Execução do AML fosse atualizado no Python, o runtime de preparação de dados não seria atualizado com o novo Token de Execução do AML.
   * Mensagens de erro mais claras adicionais
   * to_spark_dataframe() não falhará mais quando o Spark usar a serialização `Kryo`
   * Agora, o Inspetor de Contagem de Valor pode mostrar mais de mil valores únicos

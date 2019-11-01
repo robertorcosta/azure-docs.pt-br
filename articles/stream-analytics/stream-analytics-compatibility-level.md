@@ -21,7 +21,7 @@ No entanto, algumas novas funcionalidades do serviço podem introduzir uma alter
 
 ## <a name="choose-a-compatibility-level"></a>Escolher um nível de compatibilidade
 
-O nível de compatibilidade controla o comportamento de tempo de execução de um trabalho do Stream Analytics. 
+O nível de compatibilidade controla o comportamento de runtime de um trabalho do Stream Analytics. 
 
 O Azure Stream Analytics atualmente dá suporte a três níveis de compatibilidade:
 

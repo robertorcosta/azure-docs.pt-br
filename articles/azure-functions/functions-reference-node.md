@@ -248,7 +248,7 @@ Retorna um objeto nomeado que contém dados de invocação de função e os meta
 context.done([err],[propertyBag])
 ```
 
-Permite que o tempo de execução saiba que seu código foi concluído. Quando sua função usa a declaração [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function), você não precisa usar`context.done()`. O `context.done` retorno de chamada é chamado implicitamente. As funções assíncronas estão disponíveis no Nó 8 ou em uma versão posterior, que requer a versão 2.x do tempo de execução de Funções.
+Permite que o runtime saiba que seu código foi concluído. Quando sua função usa a declaração [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function), você não precisa usar`context.done()`. O `context.done` retorno de chamada é chamado implicitamente. As funções assíncronas estão disponíveis no Nó 8 ou em uma versão posterior, que requer a versão 2.x do runtime de Funções.
 
 Se a função não é uma função assíncrona, **você precisa chamar** `context.done` para informar ao tempo de execução que a função está concluída. Os tempos de execução se está ausente.
 
@@ -416,11 +416,11 @@ Ao trabalhar com gatilhos HTTP, há várias maneiras de acessar os objetos de so
 
 ## <a name="node-version"></a>Versão do nó
 
-A tabela a seguir mostra a versão do Node.js usada por cada versão principal do tempo de execução do Functions:
+A tabela a seguir mostra a versão do Node.js usada por cada versão principal do runtime do Functions:
 
 | Versão do Functions | Versão do Node.js | 
 |---|---|
-| 1.x | 6.11.2 (bloqueada pelo tempo de execução) |
+| 1.x | 6.11.2 (bloqueada pelo runtime) |
 | 2. x  | _Active LTS_ e _Maintenance LTS_ versões do node. js (aproximadamente, 10 recomendado). Direcione a versão no Azure definindo a configuração do [aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION como `~10`.|
 
 Veja versão atual que o tempo de execução está usando verificando a configuração de aplicativo acima ou imprimindo `process.version` de qualquer função.

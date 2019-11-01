@@ -128,7 +128,7 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
    | Campo de cabeçalho de resposta do ponto de extremidade | Tipo | Necessário | Descrição |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | Não | O tamanho da parte sugerido em bytes |
-   | **Location** | String | Sim | O local da URL para a qual enviar as mensagens HTTP PATCH |
+   | **Localidade** | Cadeia | Sim | O local da URL para a qual enviar as mensagens HTTP PATCH |
    ||||
 
 3. Seu aplicativo lógico cria e envia mensagens HTTP PATCH de acompanhamento, cada uma com essas informações:

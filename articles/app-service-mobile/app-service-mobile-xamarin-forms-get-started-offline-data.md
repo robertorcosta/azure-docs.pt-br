@@ -43,7 +43,7 @@ O código de sincronização offline é incluído no projeto usando diretivas de
 2. No Gerenciador de Soluções, abra o arquivo TodoItemManager.cs do projeto com **Portable** no nome, que é o projeto da Biblioteca de Classes Portátil e remova o comentário da seguinte diretiva de pré-processador:
 
         #define OFFLINE_SYNC_ENABLED
-3. (Opcional) Para dar suporte a dispositivos Windows, instale um dos seguintes pacotes de tempo de execução do SQLite:
+3. (Opcional) Para dar suporte a dispositivos Windows, instale um dos seguintes pacotes de runtime do SQLite:
 
    * **Tempo de Execução do Windows 8.1:** instalar o [SQLite para Windows 8.1][3].
    * **Windows Phone 8.1:** instalar o [SQLite para Windows Phone 8.1][4].

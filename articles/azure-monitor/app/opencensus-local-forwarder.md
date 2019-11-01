@@ -78,7 +78,7 @@ Para determinados casos de uso, pode ser útil executar o encaminhador local com
   ```batchfile
   E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
   ```
-* um conjunto .NET Core autossuficiente de binários para plataformas x86 e x64. Isso não requer tempo de execução do .NET Core para ser executado. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
+* um conjunto .NET Core autossuficiente de binários para plataformas x86 e x64. Isso não requer runtime do .NET Core para ser executado. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
   ```batchfile
   E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
   E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
@@ -93,7 +93,7 @@ Assim como acontece com o Windows, a versão vem com as seguintes versões execu
 dotnet Microsoft.LocalForwarder.ConsoleHost.dll
 ```
 
-* um conjunto .NET Core autossuficiente de binários para linux-64. Isso não requer tempo de execução do .NET Core para ser executado. */ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost*.
+* um conjunto .NET Core autossuficiente de binários para linux-64. Isso não requer runtime do .NET Core para ser executado. */ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost*.
 
 ```batchfile
 user@machine:~/ConsoleHost/linux-x64/publish$ sudo chmod +x Microsoft.LocalForwarder.ConsoleHost

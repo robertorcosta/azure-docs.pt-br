@@ -92,7 +92,7 @@ Use o [portal do Azure para criar um aplicativo de funções](https://portal.azu
 | SISTEMA OPERACIONAL | Windows |
 | Plano de Hospedagem | Plano de consumo |
 | Location | Leste dos EUA |
-| Pilha de tempo de execução | .NET |
+| Pilha de runtime | .NET |
 | Armazenamento | Criar Novo |
 
 ### <a name="sendgrid-account"></a>Conta do SendGrid

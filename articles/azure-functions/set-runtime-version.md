@@ -1,6 +1,6 @@
 ---
 title: Como direcionar Azure Functions versões de tempo de execução
-description: O Azure Functions dá suporte a várias versões do tempo de execução. Saiba como especificar a versão de tempo de execução de um aplicativo de funções hospedado no Azure.
+description: O Azure Functions dá suporte a várias versões do tempo de execução. Saiba como especificar a versão de runtime de um aplicativo de funções hospedado no Azure.
 services: functions
 author: ggailey777
 manager: jeconnoc
@@ -40,7 +40,7 @@ A tabela a seguir mostra os valores de `FUNCTIONS_EXTENSION_VERSION` para cada v
 
 Uma alteração na versão de tempo de execução faz com que um aplicativo de funções seja reiniciado.
 
-## <a name="view-and-update-the-current-runtime-version"></a>Exibir e atualizar a versão de tempo de execução atual
+## <a name="view-and-update-the-current-runtime-version"></a>Exibir e atualizar a versão de runtime atual
 
 Você pode alterar a versão de tempo de execução usada pelo seu aplicativo de funções. Devido ao potencial de alterações significativas, você só pode alterar a versão de tempo de execução antes de criar qualquer função em seu aplicativo de funções. 
 

@@ -284,7 +284,7 @@ A tabela a seguir descreve os atributos do elemento `Certificate`.
 |permissionLevel|string|Opcional. Especifica as permissões de acesso fornecidas aos processos de função. Se você desejar que apenas processos com privilégios elevados possam acessar a chave privada, especifique a permissão `elevated`. A permissão `limitedOrElevated` permite que todos os processos de função acessem a chave privada. Os valores possíveis são `limitedOrElevated` ou `elevated`. O valor padrão é `limitedOrElevated`.|
 
 ##  <a name="Imports"></a> Imports
-O elemento `Imports` descreve uma coleção de módulos de importação para uma função de trabalho que adicionam componentes ao sistema operacional convidado. Esse elemento é o pai do elemento `Import`. Esse elemento é opcional e uma função pode ter apenas um bloco de tempo de execução.
+O elemento `Imports` descreve uma coleção de módulos de importação para uma função de trabalho que adicionam componentes ao sistema operacional convidado. Esse elemento é o pai do elemento `Import`. Esse elemento é opcional e uma função pode ter apenas um bloco de runtime.
 
 O elemento `Imports` só está disponível usando o SDK do Azure versão 1.3 ou superior.
 
@@ -300,7 +300,7 @@ A tabela a seguir descreve os atributos do elemento `Import`.
 |moduleName|string|Obrigatório. O nome do módulo a ser importado. Os módulos de importação válidos são:<br /><br /> -   RemoteAccess<br />-   RemoteForwarder<br />-   Diagnostics<br /><br /> Os módulos RemoteAccess e RemoteForwarder permitem que você configure sua instância de função para conexões de área de trabalho remota. Para obter mais informações, consulte [Enable Remote Desktop Connection](cloud-services-role-enable-remote-desktop-new-portal.md) (Habilitar Conexão de Área de Trabalho Remota).<br /><br /> O módulo Diagnóstico permite coletar dados de diagnóstico para uma instância de função|
 
 ##  <a name="Runtime"></a> Runtime
-O elemento `Runtime` descreve uma coleção de configurações de variável de ambiente para uma função de trabalho que controlam o ambiente de tempo de execução do processo de host do Azure. Esse elemento é o pai do elemento `Environment`. Esse elemento é opcional e uma função pode ter apenas um bloco de tempo de execução.
+O elemento `Runtime` descreve uma coleção de configurações de variável de ambiente para uma função de trabalho que controlam o ambiente de tempo de execução do processo de host do Azure. Esse elemento é o pai do elemento `Environment`. Esse elemento é opcional e uma função pode ter apenas um bloco de runtime.
 
 O elemento `Runtime` só está disponível usando o SDK do Azure versão 1.3 ou superior.
 

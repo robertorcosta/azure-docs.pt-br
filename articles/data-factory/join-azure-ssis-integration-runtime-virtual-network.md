@@ -19,7 +19,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/15/2019
 ms.locfileid: "72326615"
 ---
-# <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir o tempo de execução de integração do Azure-SSIS a uma rede virtual
+# <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir o runtime de integração do Azure-SSIS a uma rede virtual
 Ao usar o SQL Server Integration Services (SSIS) no Azure Data Factory, você deve unir seu IR (Integration Runtime) do Azure-SSIS a uma rede virtual do Azure nos seguintes cenários: 
 
 - Você deseja se conectar a armazenamentos de dados locais de pacotes do SSIS que são executados no seu Azure-SSIS IR sem configurar ou gerenciar um IR autohospedado como um proxy. 
@@ -280,7 +280,7 @@ Depois de configurar sua rede virtual Azure Resource Manager ou rede virtual cl�
 
 1. Na interface de usuário do Data Factory, alterne para a guia **Editar**, selecione **Conexões** e alterne para a guia **Tempos de execução de integração**. 
 
-   ![Guia "tempos de execução de integração"](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
+   ![Guia "runtimes de integração"](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
 
 1. Se o Azure-SSIS IR estiver em execução, na lista de **tempos de execução de integração** , na coluna **ações** , selecione o botão **parar** para seu Azure-SSIS ir. Não é possível editar um IR até que você o interrompa. 
 
@@ -288,7 +288,7 @@ Depois de configurar sua rede virtual Azure Resource Manager ou rede virtual cl�
 
 1. Na lista de **tempos de execução de integração** , na coluna **ações** , selecione o botão **Editar** para seu Azure-SSIS ir. 
 
-   ![Editar o tempo de execução de integração](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png)
+   ![Editar o runtime de integração](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png)
 
 1. No painel **de configuração do Integration Runtime** , avance pelas páginas **configurações gerais** e **configurações do SQL** selecionando o botão **Avançar** . 
 

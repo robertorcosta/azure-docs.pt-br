@@ -1175,7 +1175,7 @@ Quando você salva seu aplicativo lógico, o mecanismo do Logic Apps executa ess
 
 * Seu fluxo de trabalho pode usar apenas um gatilho HTTP padrão ou gatilho JSON webhook genérico. 
 
-  O mecanismo do Logic Apps obtém e armazena em cache a URL do acionador, que é usada no tempo de execução. No entanto, se alguma operação invalidar a URL em cache, a ação **Função** falhará no tempo de execução. Para corrigir esse problema, salve o aplicativo lógico novamente para que o aplicativo lógico receba e armazene novamente o URL do acionador.
+  O mecanismo do Logic Apps obtém e armazena em cache a URL do acionador, que é usada no runtime. No entanto, se alguma operação invalidar a URL em cache, a ação **Função** falhará no tempo de execução. Para corrigir esse problema, salve o aplicativo lógico novamente para que o aplicativo lógico receba e armazene novamente o URL do acionador.
 
 * A função não pode ter nenhuma rota definida.
 
@@ -2380,7 +2380,7 @@ Para acionadores e ações, você pode limitar a duração do padrão assíncron
 
 <a name="runtime-config-options"></a>
 
-## <a name="runtime-configuration-settings"></a>Definições de configuração de tempo de execução
+## <a name="runtime-configuration-settings"></a>Definições de configuração de runtime
 
 Você pode alterar o comportamento de tempo de execução padrão para acionadores e ações com essas propriedades `runtimeConfiguration` na definição de acionador ou ação.
 
