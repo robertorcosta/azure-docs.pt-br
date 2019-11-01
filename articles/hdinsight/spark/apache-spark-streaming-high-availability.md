@@ -1,5 +1,5 @@
 ---
-title: Criar trabalhos de streaming do Spark altamente disponíveis no YARN - Azure HDInsight
+title: Trabalhos de streaming do Spark altamente disponíveis no YARN – Azure HDInsight
 description: Como configurar o streaming de Apache Spark para um cenário de alta disponibilidade no Azure HDInsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: e4414a64b2ee34ec16fde56dd750f2faa26b2e09
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 3e48f220035c56d34d6ca5a7347e9a4ee100e1f1
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002960"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241250"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Crie tarefas do Apache Spark Streaming de alta disponibilidade com o YARN
 
@@ -117,10 +117,10 @@ Para resumir, usando o ponto de verificação + WAL + receptores confiáveis, vo
     // to be able to recover on restart, store all offsets in an external database
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral do Streaming do Apache Spark](apache-spark-streaming-overview.md)
 * [Criar trabalhos de Streaming do Apache Spark com exatamente-uma vez o evento de processamento](apache-spark-streaming-exactly-once.md)
 * [Trabalhos de Streaming do Apache de longa execução Spark no YARN](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
-* [Fluxo Estruturado: Semântica de tolerância a falhas](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
-* [Streams discretizados: Um modelo tolerante a falhas para processamento de stream escalonável](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)
+* [Streaming estruturado: semântica de tolerância a falhas](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
+* [Streams discretizado: um modelo de tolerância a falhas para processamento de fluxo escalonável](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

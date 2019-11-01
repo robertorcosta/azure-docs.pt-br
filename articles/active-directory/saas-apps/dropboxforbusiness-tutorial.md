@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 63502412-758b-4b46-a580-0e8e130791a1
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 591d8d28be5fc9322de8cf4886dc5924f53b1deb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 615c10357e099b547008b128ca5f5a773ff1aa14
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67103779"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158312"
 ---
 # <a name="tutorial-integrate-dropbox-for-business-with-azure-active-directory"></a>Tutorial: Integrar o Dropbox for Business ao Azure Active Directory
 
@@ -114,33 +115,33 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 3. Se você quiser configurar manualmente o Dropbox for Business, abra uma nova janela do navegador da Web, acesse o locatário do Dropbox for Business e entre no locatário do Dropbox for Business. Execute as seguintes etapas:
 
-    ![Configurar logon único](./media/dropboxforbusiness-tutorial/ic769509.png "Configurar logon único")
+    ![Configurar Logon Único](./media/dropboxforbusiness-tutorial/ic769509.png "Configurar o logon único")
 
 4. Clique na guia **ícone do usuário** e selecione **configurações**.
 
-    ![Configurar logon único](./media/dropboxforbusiness-tutorial/configure1.png "Configurar logon único")
+    ![Configurar Logon Único](./media/dropboxforbusiness-tutorial/configure1.png "Configurar o logon único")
 
 5. No painel de navegação à esquerda, clique em **console de administração**.
 
-    ![Configurar logon único](./media/dropboxforbusiness-tutorial/configure2.png "Configurar logon único")
+    ![Configurar Logon Único](./media/dropboxforbusiness-tutorial/configure2.png "Configurar o logon único")
 
 6. Sobre o **console de administração**, clique em **configurações** no painel de navegação à esquerda.
 
-    ![Configurar logon único](./media/dropboxforbusiness-tutorial/configure3.png "Configurar logon único")
+    ![Configurar Logon Único](./media/dropboxforbusiness-tutorial/configure3.png "Configurar o logon único")
 
 7. Selecione a opção **Conexão única** na seção **Autenticação**.
 
-    ![Configurar logon único](./media/dropboxforbusiness-tutorial/configure4.png "Configurar logon único")
+    ![Configurar Logon Único](./media/dropboxforbusiness-tutorial/configure4.png "Configurar o logon único")
 
 8. Na seção **Conexão única**, execute as seguintes etapas:  
 
-    ![Configurar logon único](./media/dropboxforbusiness-tutorial/configure5.png "Configurar logon único")
+    ![Configurar Logon Único](./media/dropboxforbusiness-tutorial/configure5.png "Configurar o logon único")
 
     a. Selecione **Obrigatório** como uma opção no menu suspenso para o **Logon único**.
 
     b. Clique em **Adicionar URL de credenciais** e, na caixa de texto **URL de credenciais do provedor de identidade**, cole o valor da **URL de Logon** copiado no portal do Azure e, em seguida, selecione **Concluído**.
 
-    ![Configurar logon único](./media/dropboxforbusiness-tutorial/configure6.png "Configurar logon único")
+    ![Configurar Logon Único](./media/dropboxforbusiness-tutorial/configure6.png "Configurar o logon único")
 
     c. Clique em **Carregar certificado** e, em seguida, navegue até o **arquivo de certificado codificado em Base64** que você baixou do portal do Azure.
 
@@ -195,4 +196,4 @@ Quando escolher o bloco do Dropbox for Business no Painel de Acesso, você dever
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

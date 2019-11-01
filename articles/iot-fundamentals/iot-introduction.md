@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: e1cb588d68153a88d8b55b2696b376c4eb8704f5
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2f46ebcabd98c7a8c3376157c72da9ec5ed424a4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199245"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935224"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>O que é o Azure IoT (Internet das Coisas)?
 
@@ -105,7 +105,7 @@ A implementação dessa solução de IoT permitiu que a empresa verificasse e tr
 
 Há vários serviços relacionados à IoT no Azure, e pode ser complexo saber qual deles é o ideal. Alguns deles, como o IoT Central e os aceleradores de solução de IoT, fornecem modelos para ajudar você a criar sua própria solução e começar a trabalhar rapidamente. Você também pode desenvolver totalmente suas próprias soluções usando outros serviços disponíveis; tudo depende do grau de ajuda e de controle desejado. Confira uma lista dos serviços disponíveis e para que eles servem.
 
-1. [**IoT Central**](../iot-central/overview-iot-central.md): É uma solução de SaaS que ajuda você a se conectar, monitorar e gerenciar seus dispositivos IoT. Para começar, selecione um modelo para o tipo de dispositivo, crie e teste um aplicativo básico do IoT Central que será usado pelos operadores do dispositivo. O aplicativo do IoT Central também permitirá que você monitore os dispositivos e provisione novos dispositivos. Esse serviço destina-se a soluções simples que não exigem personalização avançada do serviço. 
+1. [**IoT Central**](../iot-central/core/overview-iot-central.md): É uma solução de SaaS que ajuda você a se conectar, monitorar e gerenciar seus dispositivos IoT. Para começar, selecione um modelo para o tipo de dispositivo, crie e teste um aplicativo básico do IoT Central que será usado pelos operadores do dispositivo. O aplicativo do IoT Central também permitirá que você monitore os dispositivos e provisione novos dispositivos. Esse serviço destina-se a soluções simples que não exigem personalização avançada do serviço. 
 
 2. [**Aceleradores de solução de IoT**](/azure/iot-suite): É uma coleção das soluções de PaaS que você pode usar para acelerar o desenvolvimento de uma solução de IoT. Comece com uma solução IoT fornecida e a personalize totalmente de acordo com suas necessidades. Você precisa ter conhecimento de Java ou .NET para personalizar o back-end, e ter conhecimento de JavaScript para personalizar a visualização. 
 

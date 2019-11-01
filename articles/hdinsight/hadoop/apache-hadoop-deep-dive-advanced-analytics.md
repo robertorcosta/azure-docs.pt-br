@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: dde4b4efc62ec444cbbd662a70e7507a1b8f70e7
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 436825c6e5df2be524dc06ccdaf82f0156714679
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066990"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241659"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Mergulho profundo – Análise avançada
 
@@ -48,7 +48,7 @@ Além de selecionar os algoritmos mais adequados, você precisa considerar se pr
 | Classificação | Classificar pessoas ou coisas em grupos | Supervisionado | Árvores de decisão, Regressão logística, redes neurais |
 | Clustering | Dividir um conjunto de exemplos em grupos homogêneos | Não supervisionado | Modelo de cluster K-means |
 | Detecção de padrões | Identificar associações frequentes nos dados | Não supervisionado | Regras da associação |
-| Regressão | Prever resultados numéricos | Supervisionado | Regressão linear, redes neurais |
+| regressão | Prever resultados numéricos | Supervisionado | Regressão linear, redes neurais |
 | Reforço | Determinar comportamento ideal para robôs | Reforço | Simulações Monte Carlo, DeepMind |
 
 ## <a name="machine-learning-on-hdinsight"></a>Aprendizado de máquina no HDInsight
@@ -78,7 +78,7 @@ Como parte do HDInsight, é possível criar um cluster do HDInsight com [ML Serv
 
 ### <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning e Apache Hive
 
-O [Azure Machine Learning Studio](https://studio.azureml.net/) fornece ferramentas para modelar análises preditivas, bem como um serviço totalmente gerenciado que você pode usar para implantar seus modelos preditivos como serviços Web prontos para uso. O Azure Machine Learning fornece ferramentas para criar soluções de análise preditiva completas na nuvem para criar, testar, operacionalizar e gerenciar modelos preditivos rapidamente. Selecione de uma grande biblioteca de algoritmos, use um estúdio baseado na Web para a criação de modelos e implante facilmente seu modelo como um serviço Web.
+[Azure Machine Learning Studio (clássico)](https://studio.azureml.net/) fornece ferramentas para modelar análises preditivas, bem como um serviço totalmente gerenciado que você pode usar para implantar seus modelos de previsão como serviços Web prontos para consumo. O Azure Machine Learning fornece ferramentas para criar soluções de análise preditiva completas na nuvem para criar, testar, operacionalizar e gerenciar modelos preditivos rapidamente. Selecione de uma grande biblioteca de algoritmos, use um estúdio baseado na Web para a criação de modelos e implante facilmente seu modelo como um serviço Web.
 
 ### <a name="apache-spark-and-deep-learning"></a>Apache Spark e Aprendizado profundo
 
@@ -117,7 +117,7 @@ Todo o pré-processamento/pontuação das 10.000 imagens leva menos de um minuto
 
 Execute [este tutorial](../spark/apache-spark-microsoft-cognitive-toolkit.md) para implementar esta solução de ponta a ponta: configure um cluster HDInsight Spark, instale o Kit de Ferramentas Cognitivas e execute o Jupyter Notebook que pontua 10.000 imagens CIFAR.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Apache Hive e Azure Machine Learning
 
@@ -127,8 +127,8 @@ Apache Hive e Azure Machine Learning
 Apache Spark e MLLib
 
 * [Machine Learning com Spark em HDInsight no HDInsight](../../machine-learning/team-data-science-process/spark-overview.md)
-* [Apache Spark com Machine Learning: Usar o Apache Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema de HVAC](../spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: Usar o Apache Spark no HDInsight para prever resultados da inspeção de alimentos](../spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com Machine Learning: Use Apache Spark no HDInsight para analisar a temperatura de edifício usando dados HVAC](../spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Use Apache Spark no HDInsight para prever os resultados da inspeção de alimentos](../spark/apache-spark-machine-learning-mllib-ipython.md)
 
 Aprendizado Profundo, Kit de Ferramentas Cognitivas e outros
 

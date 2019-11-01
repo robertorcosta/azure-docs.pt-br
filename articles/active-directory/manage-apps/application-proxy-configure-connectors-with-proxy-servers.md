@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e4b073a63b5b6bec565aed67bcaec7ed014261b
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: d305f3354e7b1af6d43f31f0dd5fe9f54ef3e66f
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807866"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242286"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy locais existentes
 
@@ -114,9 +114,9 @@ Permita o acesso às seguintes URLs:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem do Proxy de Aplicativo |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O Azure usa essas URLs para verificar os certificados |
-| login.windows.net<br>login.microsoftonline.com | O conector usa essas URLs durante o processo de registro. |
+| login.windows.net<br>Secure.aadcdn.microsoftonline p.com<br>*. microsoftonline.com<br>* . microsoftonline-p.com<br>*. msauth.net<br>* . msauthimages.net<br>*. msecnd.net<br>* . msftauth.net<br>*. msftauthimages.net<br>* . PhoneFactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | O conector usa essas URLs durante o processo de registro. |
 
-Se seu firewall ou proxy permite que você configure listas de permissões de DNS, você pode permitir conexões com \*. msappproxy.net e \*. servicebus.windows.net. Caso contrário, você precisará permitir o acesso aos [intervalos IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Os intervalos de IP são atualizados a cada semana.
+Se o firewall ou o proxy permitir que você configure listas de permissões de DNS, você poderá permitir conexões com \*. msappproxy.net e \*. servicebus.windows.net. Caso contrário, você precisará permitir o acesso aos [intervalos IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Os intervalos de IP são atualizados a cada semana.
 
 Se você não puder permitir a conectividade pelo FQDN e precisar especificar intervalos IP, use estas opções:
 
@@ -161,7 +161,7 @@ Para a solução de problemas inicial, execute as seguintes etapas:
 1. Inicie o serviço Conector do Proxy de Aplicativo do Azure AD.
 1. Pare a captura de rede.
 
-   ![Captura de tela mostra o botão de captura de rede de parada](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
+   ![Captura de tela mostra o botão parar captura de rede](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
 
 ### <a name="check-if-the-connector-traffic-bypasses-outbound-proxies"></a>Verifique se o tráfego do conector ignorou proxies de saída
 
@@ -183,7 +183,7 @@ O filtro anterior mostra apenas as solicitações e respostas HTTPs para/da port
 
 Caso sejam exibidos outros códigos de resposta, como 407 ou 502, isso indica que o proxy está exigindo autenticação ou não está permitindo o tráfego por algum outro motivo. Neste ponto, você interage com a equipe de suporte do servidor proxy.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md)
 * Se você tiver problemas de conectividade do conector, faça sua pergunta no [fórum do Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) ou crie um tíquete com nossa equipe de suporte.

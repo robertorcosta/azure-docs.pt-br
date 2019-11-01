@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2019
 ms.author: mlottner
-ms.openlocfilehash: 7cdf9f61c88d93f0cbf0b80576aa30dff5ce9cab
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 67361c402bdbc82d5df01709dc962b59671cb2aa
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551600"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991410"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Início Rápido: Integrar o serviço Central de Segurança do Azure para IoT no Hub IoT
 
@@ -43,14 +43,8 @@ Este artigo oferece uma explicação de como habilitar o serviço Central de Seg
 Para habilitar a segurança no Hub IoT: 
 
 1. Abra o **Hub IoT** no portal do Azure. 
-1. No menu **Segurança**, clique em **Proteger sua solução de IoT**.
-1. Deixe **Habilitar** selecionado como o padrão. 
-1. Selecione o workspace do Log Analytics.
-1. Forneça os detalhes do workspace do Log Analytics. 
-   - Opte por habilitar **coleção de gêmeos**, deixando a **coleção de gêmeos** alternada em **Ativar**.
-   - Opte por armazenar **eventos brutos** além dos tipos de informações padrão de armazenamento selecionando **Armazenar eventos brutos de segurança do dispositivo** no Log Analytics. Deixe a alternância de **evento bruto** **Ativada**. 
-    
-1. Clique em **Save** (Salvar). 
+1. No menu **Segurança**, clique em **Proteger sua solução de IoT**.    
+
 
 Parabéns! Você concluiu a habilitação da Central de Segurança do Azure para IoT em seu Hub IoT. 
 

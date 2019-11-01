@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 09/01/2019
-ms.openlocfilehash: 8c1f26ef8395f60293b2564d93578a166d688305
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.date: 10/23/2019
+ms.openlocfilehash: f322a240835d86697ae18c984700f22ca7b00145
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756080"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882174"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -23,11 +23,6 @@ Você pode [Experimentar o Azure Cosmos DB Gratuitamente](https://azure.microsof
 
 > [!div class="nextstepaction"]
 > [Experimente o Azure Cosmos DB Gratuitamente](https://azure.microsoft.com/try/cosmosdb/)
-
-Você também pode usar o [Programa de Inicialização do Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/) para acelerar a criação ou a migração de seus aplicativos no Azure Cosmos DB. Quando você se inscreve nesse programa, os engenheiros do Azure Cosmos DB são atribuídos para auxiliar no seu projeto e podem ajudá-lo a migrar seus dados para o Azure Cosmos DB ou para criar aplicativos no Azure Cosmos DB.
-
-> [!div class="nextstepaction"]
-> [Inscreva-se no programa de inicialização do Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/)
 
 ![O Azure Cosmos DB é serviço de banco de dados distribuído globalmente da Microsoft com escala horizontal elástica, baixa latência garantida, cinco modelos de consistência e SLAs de garantia abrangente](./media/introduction/azure-cosmos-db.png)
 

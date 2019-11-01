@@ -10,12 +10,12 @@ ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a52b9ee26aac20d95356db6a280c5feb40023fed
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 8e0e028be6b4a507ba97f9126c791ee77c764c70
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942797"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880506"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Active Directory do Azure?
 
@@ -52,7 +52,7 @@ Para aprimorar a implementação do Azure AD, também é possível adicionar rec
 
 - **Azure Active Directory Premium P1.** Além dos recursos gratuitos, o P1 também permite que seus usuários híbridos acessem recursos locais e de nuvem. Ele também dá suporte à administração avançada, como grupos dinâmicos, gerenciamento de grupo de autoatendimento, Microsoft Identity Manager (um conjunto de gerenciamento de acesso e identidade local) e recursos de write-back de nuvem, que permitem a redefinição de senha por autoatendimento para os usuários locais.
 
-- **Azure Active Directory Premium P2.** Além dos recursos nos planos Gratuito e P1, o P2 também oferece o [Azure Active Directory Identity Protection](../identity-protection/enable.md), a fim de fornecer Acesso Condicional baseado em risco para seus aplicativos e dados críticos da empresa, e o [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md), para ajudar a descobrir, restringir e monitorar os administradores e o acesso deles a recursos e fornecer acesso Just-In-Time quando for necessário.
+- **Azure Active Directory Premium P2.** Além dos recursos nos planos Gratuito e P1, o P2 também oferece o [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md), a fim de fornecer Acesso Condicional baseado em risco para seus aplicativos e dados críticos da empresa, e o [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md), para ajudar a descobrir, restringir e monitorar os administradores e o acesso deles a recursos e fornecer acesso Just-In-Time quando for necessário.
 
 - **Licenças de recurso de "Pagamento conforme o uso".** Você também pode obter licenças de outros recursos, como o Azure Active Directory B2C (Entre empresa e consumidor). O B2C pode ajudar você a fornecer soluções de gerenciamento de acesso e identidade para seus aplicativos voltados ao cliente. Para saber mais, confira a [Documentação sobre o Azure Active Directory B2C](../../active-directory-b2c/index.yml).
 

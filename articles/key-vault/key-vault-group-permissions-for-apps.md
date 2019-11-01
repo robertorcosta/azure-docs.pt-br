@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b472d36f17853549f2bfc773bdcb65faf0421b3f
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 9e51249bdcfa3cf506700cd3032b1ca39b773d82
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719000"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73102361"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fornecer a autenticação do Key Vault com uma política de controle de acesso
 
@@ -83,7 +83,7 @@ Você pode adicionar vários aplicativos e usuários a um grupo do Azure AD e, e
 Para localizar a objectId de um grupo do Azure AD com a CLI do Azure, use o comando [az ad group list](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-list). Devido ao grande número de grupos que podem existir em sua organização, você também deverá fornecer uma cadeia de pesquisa para o parâmetro `--display-name`.
 
 ```azurecli-interactive
-az ad group list --displayname <search-string>
+az ad group list --display-name <search-string>
 ```
 A objectId será retornada no JSON:
 

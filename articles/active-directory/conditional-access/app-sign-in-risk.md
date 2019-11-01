@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 928900c526ec0e77f84c621f630ac5894cdb2d23
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 619f1ea3bae001d25eb520f43da33ca94a3160c8
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125652"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880349"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Início Rápido: bloquear o acesso quando um risco de sessão é detectado com acesso condicional do Azure Active Directory  
 
@@ -33,7 +33,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Para concluir o cenário deste tutorial, você precisa de:
 
 - **Acesso a uma edição do Azure Active Directory Premium P2** - enquanto o Acesso Condicional é um recurso do Azure Active Directory Premium P1, você precisa de uma edição de P2 pois o cenário neste início rápido requer a proteção de identidade.
-- **Proteção de identidade** -o cenário neste início rápido requer a proteção de identidade a ser habilitado. Se você não sabe como habilitar a proteção de identidade, confira [Habilitando o Azure Active Directory Identity Protection](../identity-protection/enable.md).
+- **Proteção de identidade** -o cenário neste início rápido requer a proteção de identidade a ser habilitado. Se você não sabe como habilitar a proteção de identidade, confira [Habilitando o Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
 - **Tor Browser** - o [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) foi projetado para ajudá-lo a preservar sua privacidade online. Identity Protection detecta uma entrada de um Tor Browser como entradas de endereços IP anônimos, que tem um nível de risco médio. Para obter mais informações, confira [Detecções de risco do Azure Active Directory](../reports-monitoring/concept-risk-events.md).  
 - **Uma conta de teste chamada Alain Charon** – caso não saiba como criar uma conta de teste, consulte [Adicionar usuários baseados em nuvem](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 

@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 153c692a8fb0fa538ec49c6eafa11815dd794b5d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7e7a01b7fdc1a508fa19397900f8fd4f52d49c53
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681533"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73164011"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Rotear tráfego com uma tabela de rotas utilizando o Portal do Azure
 
@@ -55,9 +55,9 @@ Entre no [Portal do Azure](https://portal.azure.com).
     | Configuração | Valor |
     | ------- | ----- |
     | NOME | Insira *myRouteTablePublic*. |
-    | Assinatura | Selecione sua assinatura. |
-    | Grupo de recursos | Selecione **Criar novo** e insira *myResourceGroup*, então selecione *OK*. |
-    | Local padrão | Deixe o padrão **Leste dos EUA**.
+    | Subscription | Selecione sua assinatura. |
+    | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, então selecione *OK*. |
+    | Location | Deixe o padrão **Leste dos EUA**.
     | Propagação de rotas BGP | Deixe o padrão **Habilitado**. |
 
 1. Selecione **Criar**.
@@ -68,7 +68,7 @@ Entre no [Portal do Azure](https://portal.azure.com).
 
 1. Quando **myRouteTablePublic** aparecer nos resultados da pesquisa, selecione-o.
 
-1. Em **myRouteTablePublic** em **Configurações**, selecione **Rotas** > **+ Adicionar**.
+1. Em **myRouteTablePublic** em **Configurações**, selecione **Rotas** >  **+ Adicionar**.
 
     ![Adicionar rota](./media/tutorial-create-route-table-portal/add-route.png)
 
@@ -97,9 +97,9 @@ Antes de poder associar uma tabela de rotas a uma sub-rede, será necessário cr
     | ------- | ----- |
     | NOME | Insira *myVirtualNetwork*. |
     | Espaço de endereço | Insira *10.0.0.0/16*. |
-    | Assinatura | Selecione sua assinatura. |
-    | Grupo de recursos | Selecione ***Selecionar existente*** > **myResourceGroup**. |
-    | Local padrão | Deixe o padrão **Leste dos EUA**. |
+    | Subscription | Selecione sua assinatura. |
+    | Resource group | Selecione ***Selecionar existente*** > **myResourceGroup**. |
+    | Location | Deixe o padrão **Leste dos EUA**. |
     | Sub-rede – Nome | Insira *Público*. |
     | Sub-rede – Intervalo de endereços | Insira *10.0.0.0/24*. |
 
@@ -111,7 +111,7 @@ Antes de poder associar uma tabela de rotas a uma sub-rede, será necessário cr
 
 1. Quando **myVirtualNetwork** aparecer nos resultados da pesquisa, selecione-o.
 
-1. Na **myVirtualNetwork**, em **Configurações**, selecione **Sub-redes** > **+ Sub-rede**.
+1. Na **myVirtualNetwork**, em **Configurações**, selecione **Sub-redes** >  **+ Sub-rede**.
 
     ![Adicionar sub-rede](./media/tutorial-create-route-table-portal/add-subnet.png)
 
@@ -154,8 +154,8 @@ NVAs são VMs que ajudam com as funções de rede como a otimização de roteame
     | Configuração | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
-    | Assinatura | Selecione sua assinatura. |
-    | Grupo de recursos | Selecione **myResourceGroup**. |
+    | Subscription | Selecione sua assinatura. |
+    | Resource group | Selecione **myResourceGroup**. |
     | **DETALHES DA INSTÂNCIA** |  |
     | Nome da máquina virtual | Insira *myVmNva*. |
     | Região | Selecione **Leste dos EUA**. |
@@ -182,7 +182,7 @@ NVAs são VMs que ajudam com as funções de rede como a otimização de roteame
     | Configuração | Valor |
     | ------- | ----- |
     | Rede virtual | Deixe o padrão **myVirtualNetwork**. |
-    | Sub-rede | Selecione **DMZ (10.0.2.0/24)**. |
+    | Sub-rede | Selecione **DMZ (10.0.2.0/24)** . |
     | IP público | Selecione **Nenhum**. Você não precisa de um endereço IP público. A VM não se conecta à Internet.|
 
 1. Deixe o restante dos padrões e selecione **Avançar: Gerenciamento**.
@@ -194,9 +194,9 @@ NVAs são VMs que ajudam com as funções de rede como a otimização de roteame
     | Configuração | Valor |
     | ------- | ----- |
     | NOME | Insira *mynvastorageaccount*. |
-    | Tipo de conta | Deixe o padrão **Armazenamento (uso geral v1)**. |
+    | Tipo de conta | Deixe o padrão **Armazenamento (uso geral v1)** . |
     | Desempenho | Deixe o padrão **Standard**. |
-    | Replicação | Deixe o padrão **LRS (Armazenamento com redundância local)**.
+    | Replicação | Deixe o padrão **LRS (Armazenamento com redundância local)** .
 
 1. Selecione **OK**
 
@@ -236,7 +236,7 @@ Conclua as etapas 1 a 12 de [Criar uma NVA](#create-an-nva). Use a maioria das m
 | NOÇÕES BÁSICAS |  |
 | Nome da máquina virtual | Insira *myVmPublic*. |
 | REDE | |
-| Sub-rede | Selecione **Público (10.0.0.0/24)**. |
+| Sub-rede | Selecione **Público (10.0.0.0/24)** . |
 | Endereço IP público | Aceite o padrão. |
 | Porta de entrada públicas | Selecione **Permitir portas selecionadas**. |
 | Selecione as portas de entrada | Selecione **HTTP** e **RDP**. |
@@ -246,7 +246,7 @@ Conclua as etapas 1 a 12 de [Criar uma NVA](#create-an-nva). Use a maioria das m
 | NOÇÕES BÁSICAS |  |
 | Nome da máquina virtual | Insira *myVmPrivate*. |
 | REDE | |
-| Sub-rede | Selecione **Privado (10.0.1.0/24)**. |
+| Sub-rede | Selecione **Privado (10.0.1.0/24)** . |
 | Endereço IP público | Aceite o padrão. |
 | Porta de entrada públicas | Selecione **Permitir portas selecionadas**. |
 | Selecione as portas de entrada | Selecione **HTTP** e **RDP**. |
@@ -290,7 +290,7 @@ Em uma etapa posterior, você usará a ferramenta de rastreamento de rota para t
 1. Insira este comando:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
     Você está usando o rastreamento de rotas para testar o roteamento neste tutorial. Para ambientes de produção, não é recomendável permitir ICMP por meio do Firewall do Windows.
@@ -311,7 +311,7 @@ Você [ativou o encaminhamento de IP](#turn-on-ip-forwarding) para o adaptador d
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
     ```
 
-1. Reinicie a VM *myVmNva*. Na barra de tarefas, selecione **Botão iniciar** > **Botão liga/desliga**, **Outro (Planejado)** > **Continuar**.
+1. Reinicie a VM *myVmNva*. Na barra de tarefas, selecione **Botão iniciar** > **Botão liga/desliga**, **Outro (Planejado)**  > **Continuar**.
 
     Que também desconecta a sessão de área de trabalho remota.
 
@@ -325,7 +325,7 @@ Você [ativou o encaminhamento de IP](#turn-on-ip-forwarding) para o adaptador d
 1. Habilite o ICMP por meio do Firewall do Windows digitando este comando:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
 ## <a name="test-the-routing-of-network-traffic"></a>Testar o roteamento de tráfego de rede

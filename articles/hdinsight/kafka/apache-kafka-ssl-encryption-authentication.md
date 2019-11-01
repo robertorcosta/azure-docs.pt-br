@@ -1,5 +1,5 @@
 ---
-title: Configurar a criptografia e a autenticação SSL para Apache Kafka no Azure HDInsight
+title: Autenticação de & de criptografia SSL Apache Kafka-Azure HDInsight
 description: Configure a criptografia SSL para a comunicação entre os clientes Kafka e os agentes Kafka, bem como entre os agentes Kafka. Configurar a autenticação SSL de clientes.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: d555c51838f3595367e931341a3cf6161857faef
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 5dd698b28a01ed251492cf34e9da2dda4d0c2580
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554615"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241986"
 ---
 # <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurar a criptografia e autenticação do protocolo SSL (SSL) para Apache Kafka no Azure HDInsight
 
@@ -119,20 +119,20 @@ Use as seguintes instruções detalhadas para concluir a configuração do agent
 
 ## <a name="update-kafka-configuration-to-use-ssl-and-restart-brokers"></a>Atualizar a configuração do Kafka para usar SSL e reiniciar os agentes
 
-Agora você configurou cada agente do Kafka com um repositório de chaves e trustStore e importou os certificados corretos. Em seguida, modifique as propriedades de configuração de Kafka relacionadas usando Ambari e reinicie os agentes Kafka.
+Agora você configurou cada agente do Kafka com um repositório de chaves e trustStore e importou os certificados corretos. Em seguida, modifique as propriedades de configuração do Kafka relacionadas usando o Ambari e reinicie os agentes do Kafka.
 
-Para concluir a modificação de configuração, execute as seguintes etapas:
+Execute as seguintes etapas para concluir a modificação à configuração:
 
-1. Entre no portal do Azure e selecione o cluster do Azure HDInsight Apache Kafka.
-1. Acesse a interface do usuário do amAmbari clicando em **Ambari página inicial** em **painéis do cluster**.
-1. Em **Kafka Broker** , defina a propriedade **listeners** como `PLAINTEXT://localhost:9092,SSL://localhost:9093`
-1. Em **Advanced Kafka-Broker,** defina a propriedade **Security. inter. Broker. Protocol** como `SSL`
+1. Entre no portal do Azure e selecione seu cluster do Apache Kafka do Azure HDInsight.
+1. Vá para a interface do usuário do Ambari, clicando em **Página Inicial do Ambari** nos **Painéis do cluster**.
+1. Em **Agente do Kafka**, defina a propriedade **ouvintes** para `PLAINTEXT://localhost:9092,SSL://localhost:9093`
+1. Sob **Agente avançado do Kafka**, defina a propriedade **security.inter.broker.protocol** para `SSL`
 
-    ![Editando propriedades de configuração do Kafka SSL no Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
+    ![Editar as propriedades de configuração de SSL do Kafka no Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
 
-1. Em **Custom Kafka-Broker,** defina a propriedade **SSL. Client. auth** como `required`. Esta etapa só será necessária se você estiver configurando a autenticação e a criptografia.
+1. Em **Agente do Kafka personalizado**, defina a propriedade **ssl.client.auth** para `required`. Esta etapa só será necessária se você estiver configurando a autenticação e a criptografia.
 
-    ![Editando propriedades de configuração do Kafka SSL no Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
+    ![Editar as propriedades de configuração de SSL do Kafka no Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
 1. Em **Advanced Kafka-env,** adicione as seguintes linhas ao final da propriedade de **modelo Kafka-env** .
 
@@ -147,20 +147,20 @@ Para concluir a modificação de configuração, execute as seguintes etapas:
 
     ![Editando a propriedade de modelo Kafka-env em Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png)
 
-1. Reinicie todos os agentes Kafka.
+1. Reinicie todos os agentes do Kafka.
 1. Inicie o cliente administrador com as opções produtor e consumidor para verificar se os produtores e os consumidores estão trabalhando na porta 9093.
 
 ## <a name="client-setup-with-authentication"></a>Configuração do cliente (com autenticação)
 
 > [!Note]
-> As etapas a seguir serão necessárias apenas se você estiver configurando a criptografia **e** a autenticação SSL. Se você estiver configurando apenas a criptografia, vá para a [configuração do cliente sem autenticação](apache-kafka-ssl-encryption-authentication.md#client-setup-without-authentication)
+> As etapas a seguir são necessárias apenas se você está configurando a criptografia SSL **e** também a autenticação. Se você estiver configurando somente a criptografia, vá para [Configuração do cliente sem autenticação](apache-kafka-ssl-encryption-authentication.md#client-setup-without-authentication)
 
 Conclua as seguintes etapas para concluir a configuração do cliente:
 
 1. Entre no computador cliente (hn1).
-1. Crie um repositório de chaves Java e obtenha um certificado assinado para o agente. Em seguida, copie o certificado para a VM em que a autoridade de certificação está em execução.
+1. Crie um repositório de chaves Java e obtenha um certificado assinado para o agente. Em seguida, copie o certificado para a VM em que a autoridade de certificação está sendo executada.
 1. Alterne para o computador da CA (hn0) para assinar o certificado do cliente.
-1. Vá para o computador cliente (hn1) e navegue até a pasta `~/ssl`. Copie o certificado assinado no computador cliente.
+1. Vá para o computador cliente (hn1) e navegue até a pasta `~/ssl`. Copie o certificado autoassinado para o computador cliente.
 
 ```bash
 cd ssl
@@ -191,7 +191,7 @@ keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert 
 keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -alias my-local-pc1 -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 ```
 
-Por fim, exiba o arquivo `client-ssl-auth.properties` com o `cat client-ssl-auth.properties` de comando. Ele deve ter as seguintes linhas:
+Por fim, exiba o arquivo `client-ssl-auth.properties` com o comando `cat client-ssl-auth.properties`. Ele deve conter as seguintes linhas:
 
 ```bash
 security.protocol=SSL
@@ -206,12 +206,12 @@ ssl.key.password=MyClientPassword123
 
 Se você não precisar de autenticação, as etapas para configurar somente a criptografia SSL serão:
 
-1. Entre no computador cliente (hn1) e navegue até a pasta `~/ssl`
-1. Copie o certificado assinado no computador cliente do computador da CA (WN0).
-1. Importar o certificado de autoridade de certificação para o trustStore
-1. Importar o certificado de autoridade de certificação para o repositório de chaves
+1. Entrar no computador cliente (hn1) e navegar até a pasta `~/ssl`
+1. Do computador da AC (wn0), copie o certificado autoassinado para o computador cliente.
+1. Importar o certificado da AC para o truststore
+1. Importar o certificado da AC para o repositório de chaves
 
-Essas etapas são mostradas no trecho de código a seguir.
+Essas etapas são mostradas no snippet de código a seguir.
 
 ```bash
 cd ssl
@@ -226,7 +226,7 @@ keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cer
 keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file cert-signed -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 ```
 
-Por fim, exiba o arquivo `client-ssl-auth.properties` com o `cat client-ssl-auth.properties` de comando. Ele deve ter as seguintes linhas:
+Por fim, exiba o arquivo `client-ssl-auth.properties` com o comando `cat client-ssl-auth.properties`. Ele deve conter as seguintes linhas:
 
 ```bash
 security.protocol=SSL

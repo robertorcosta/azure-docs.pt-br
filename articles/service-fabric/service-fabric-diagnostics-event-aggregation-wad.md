@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 641f9150d1135f4f214038150b95b6691a37ecc0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 555a8a823526a51b045b4a0314ef7610bf728e5b
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393244"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242979"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Coleta e agregação de eventos utilizando o Diagnóstico do Windows Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "60393244"
 
 Quando você estiver executando um cluster de Service Fabric do Azure, é uma boa ideia coletar os logs de todos os nós em um local central. Ter os logs em um local central ajuda a analisar e solucionar problemas no cluster ou nos aplicativos e serviços em execução nesse cluster.
 
-Uma maneira de fazer upload e coletar logs é utilizar a extensão WAD (Diagnóstico do Windows Azure) que faz upload dos logs no Armazenamento do Azure e, além disso, possui a opção de enviar os logs para o Azure Application Insights ou Hubs de Evento. Você também pode usar um processo externo para ler os eventos do armazenamento e colocá-los em um produto de plataforma de análise, como [registra em log do Azure Monitor](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise de log.
+Uma maneira de fazer upload e coletar logs é utilizar a extensão WAD (Diagnóstico do Windows Azure) que faz upload dos logs no Armazenamento do Azure e, além disso, possui a opção de enviar os logs para o Azure Application Insights ou Hubs de Evento. Você também pode usar um processo externo para ler os eventos do armazenamento e colocá-los em um produto da plataforma de análise, como [logs de Azure monitor](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise de log.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -39,7 +39,7 @@ Uma maneira de fazer upload e coletar logs é utilizar a extensão WAD (Diagnós
 As ferramentas a seguir são usadas neste artigo:
 
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-* [PowerShell do Azure](/powershell/azure/overview)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric-platform-events"></a>Eventos de plataforma do Service Fabric
@@ -60,7 +60,7 @@ Ao criar o cluster, na etapa de configuração do cluster, expanda as configura�
 
 ![Modelo de cluster](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
 
-Agora que você está agregando eventos no armazenamento do Azure, [configurar logs do Azure Monitor](service-fabric-diagnostics-oms-setup.md) para obter insights e consultá-los no Azure Monitor registra o portal
+Agora que você está agregando eventos no armazenamento do Azure, [configure Azure monitor logs](service-fabric-diagnostics-oms-setup.md) para obter informações e consultá-los no portal de logs de Azure monitor
 
 >[!NOTE]
 >Atualmente, não há como filtrar ou preparar os eventos que são enviados para as tabelas. Se você não implementar um processo para remover eventos da tabela, a tabela continuará crescendo (o limite padrão é 50 GB). Instruções sobre como mudar isso estão descritas [mais adiante neste artigo](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Além disso, há um exemplo de um serviço de limpeza de dados em execução no [exemplo Watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), e é recomendável que você grave um para você mesmo, a menos que haja uma boa razão para armazenar logs além de um período de 30 ou 90 dias.
@@ -70,7 +70,7 @@ Agora que você está agregando eventos no armazenamento do Azure, [configurar l
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Implantar a extensão de Diagnóstico por meio do Azure Resource Manager
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Criar um cluster com a extensão de diagnóstico
-Para criar um cluster usando o Resource Manager, você precisa adicionar a configuração de Diagnóstico JSON ao modelo do Resource Manager completo. Fornecemos um exemplo de modelo de Gerenciador de Recursos de cluster de cinco VMs com configuração de Diagnóstico adicionada a ele como parte dos exemplos do modelo de Gerenciador de Recursos. Veja isso neste local na Galeria de exemplos do Azure: [cluster de cinco nós com exemplo de modelo do Gerenciador de Recursos de Diagnóstico](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Para criar um cluster usando o Resource Manager, você precisa adicionar a configuração de Diagnóstico JSON ao modelo do Resource Manager completo. Fornecemos um exemplo de modelo de Gerenciador de Recursos de cluster de cinco VMs com configuração de Diagnóstico adicionada a ele como parte dos exemplos do modelo de Gerenciador de Recursos. Você pode vê-lo nesse local na Galeria de exemplos do Azure: [cluster cinco nós com exemplo de modelo do Gerenciador de Recursos de Diagnóstico](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 Para ver a configuração do Diagnóstico no modelo do Resource Manager, abra o arquivo azuredeploy.json e pesquise **IaaSDiagnostics**. Para criar um cluster usando este modelo, selecione o botão **Implantar no Azure** disponível no link anterior.
 
@@ -165,6 +165,15 @@ Em seguida, atualize a seção `VirtualMachineProfile` do arquivo template.json 
                     "DefaultEvents": {
                     "eventDestination": "ServiceFabricSystemEventTable"
                     }
+                },
+                {
+                    "provider": "02d06793-efeb-48c8-8f7f-09713309a810",
+                    "scheduledTransferLogLevelFilter": "Information",
+                    "scheduledTransferKeywordFilter": "4611686018427387904",
+                    "scheduledTransferPeriod": "PT5M",
+                    "DefaultEvents": {
+                    "eventDestination": "ServiceFabricSystemEventTable"
+                    }
                 }
                 ]
             }
@@ -202,18 +211,18 @@ Como as tabelas preenchidas pela extensão aumentam até que a cota seja atingid
 ## <a name="log-collection-configurations"></a>Configurações de coleção de log
 Logs de canais adicionais também estão disponíveis para coleção, aqui estão algumas das configurações mais comuns que você pode fazer no modelo para clusters em execução no Azure.
 
-* Canal operacional – Básico: habilitado por padrão, operações de alto nível executadas pelo Service Fabric e pelo cluster, incluindo eventos para um nó surgindo, um novo aplicativo sendo implantado ou uma reversão de upgrade etc. Para obter uma relação de eventos, consulte [Eventos Operacionais do Canal](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Canal operacional-base: habilitada por padrão, operações de alto nível executadas por Service Fabric e o cluster, incluindo eventos para um nó surgindo, um novo aplicativo sendo implantado ou uma reversão de atualização, etc. Para obter uma lista de eventos, consulte [eventos de canal operacional](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* Canal operacional – Detalhado: inclui relatórios de integridade e balanceamento de cargo, além de tudo no canal operacional básico. Esses eventos são gerados pelo sistema ou seu código usando a integridade ou APIs de relatórios de carga como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000008" à lista de provedores de ETW.
+* Canal operacional - Detalhado: Inclui relatórios de integridade e balanceamento de cargo, além de tudo no canal operacional de base. Esses eventos são gerados pelo sistema ou seu código usando a integridade ou APIs de relatórios de carga como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000008" à lista de provedores de ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
   ```
 
-* Canal de Dados e Mensagens – Básico: logs e eventos críticos gerados no sistema de mensagens (atualmente, apenas o ReverseProxy) e o caminho de dados, além dos logs do canal operacional detalhado. Esses eventos são falhas de processamento de solicitações e outros problemas críticos no ReverseProxy, bem como solicitações processadas. **Essa é a nossa recomendação para o registro em log abrangente**. Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000010" à lista de provedores de ETW.
+* Canal de Dados e Mensagens- Base: logs e eventos críticos gerados no sistema de mensagens (atualmente, apenas o ReverseProxy) e o caminho de dados, além dos logs do canal operacional detalhado. Esses eventos são falhas de processamento de solicitações e outros problemas críticos no ReverseProxy, bem como solicitações processadas. **Essa é a nossa recomendação para o registro em log abrangente**. Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000010" à lista de provedores de ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387928"
@@ -262,6 +271,15 @@ Para habilitar o **Canal Operacional de Base** nossa recomendação para o log a
                 "DefaultEvents": {
                   "eventDestination": "ServiceFabricSystemEventTable"
                 }
+              },
+              {
+                "provider": "02d06793-efeb-48c8-8f7f-09713309a810",
+                "scheduledTransferLogLevelFilter": "Information",
+                "scheduledTransferKeywordFilter": "4611686018427387904",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                "eventDestination": "ServiceFabricSystemEventTable"
+                }
               }
             ]
           }
@@ -303,7 +321,7 @@ Se você estiver usando um coletor do Application Insights, conforme descrito na
 >[!NOTE]
 >No momento, isso só é aplicável a clusters do Windows.
 
-Há duas maneiras principais de enviar dados do WAD para o Azure Application Insights, que é obtida com a adição de um coletor do Application Insights para a configuração WAD, por meio do portal do Azure ou por meio de um modelo do Azure Resource Manager.
+Há duas maneiras principais de enviar dados do WAD para o Aplicativo Azure insights, que é obtido adicionando um coletor de Application Insights à configuração do WAD, por meio do portal do Azure ou por meio de um modelo de Azure Resource Manager.
 
 #### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Adicionar uma chave de instrumentação do Application Insights ao criar um cluster no portal do Azure
 
@@ -337,20 +355,20 @@ No "WadCfg" do modelo do Resource Manager, adicione um "Coletor", incluindo as d
 
 Nos dois snippets de código anteriores, o nome "applicationInsights" era usado para descrever o coletor. Isso não é um requisito e, enquanto o nome do coletor estiver incluído em "coletores", você poderá definir o nome para qualquer cadeia de caracteres.
 
-Atualmente, os logs do cluster aparecem como **rastreios** no visualizador de log do Application Insights. Como a maioria dos rastreamentos provenientes da plataforma é de nível "Informativo", você também pode considerar alterar a configuração do coletor para enviar somente logs do tipo "Aviso" ou "Erro". Isso pode ser feito adicionando "Canais" ao seu coletor, conforme demonstrado [neste artigo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+Atualmente, os logs do cluster aparecem como **rastreios** no visualizador de log do Application Insights. Como a maioria dos rastreamentos provenientes da plataforma são do nível "informativo", você também pode considerar alterar a configuração do coletor para enviar somente logs do tipo "aviso" ou "erro". Isso pode ser feito adicionando "Canais" ao seu coletor, conforme demonstrado [neste artigo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 >[!NOTE]
 >Se você usar uma chave do Application Insights incorreta no portal ou no modelo do Resource Manager, será necessário alterar manualmente a chave e atualizá-la / reimplementá-la.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Depois de configurar corretamente o diagnóstico do Azure, você verá os dados nas Tabelas de armazenamento dos logs do ETW e EventSource. Se você optar por usar os logs do Azure Monitor, Kibana ou qualquer outra análise e visualização de plataforma de dados que não foi configurada diretamente no modelo do Resource Manager, certifique-se de configurar a plataforma de sua escolha para ler os dados dessas tabelas de armazenamento. Fazer isso para logs do Azure Monitor é relativamente simples e é explicado [análise de log e evento](service-fabric-diagnostics-event-analysis-oms.md). O Application Insights é um pouco diferente nesse sentido, pois ele pode ser configurado como parte da configuração da extensão de diagnóstico, então consulte o [artigo apropriado](service-fabric-diagnostics-event-analysis-appinsights.md) se optar por usar o AI.
+Depois de configurar corretamente o diagnóstico do Azure, você verá os dados nas Tabelas de armazenamento dos logs do ETW e EventSource. Se você optar por usar logs de Azure Monitor, Kibana ou qualquer outra plataforma de análise e visualização de dados que não esteja configurada diretamente no modelo do Resource Manager, certifique-se de configurar a plataforma de sua escolha para ler os dados dessas tabelas de armazenamento. Fazer isso para Azure Monitor logs é relativamente trivial e é explicado em [análise de eventos e log](service-fabric-diagnostics-event-analysis-oms.md). O Application Insights é um pouco diferente nesse sentido, pois ele pode ser configurado como parte da configuração da extensão de diagnóstico, então consulte o [artigo apropriado](service-fabric-diagnostics-event-analysis-appinsights.md) se optar por usar o AI.
 
 >[!NOTE]
 >Atualmente, não há nenhuma maneira de filtrar ou limpar os eventos que são enviados para a tabela. Se você não implantar um processo para remover eventos da tabela, a tabela continuará crescendo. Atualmente, há um exemplo de um serviço de limpeza de dados em execução no [exemplo Watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), e é recomendável que você grave um para você mesmo, a menos que haja uma boa razão para armazenar logs além de um período de 30 ou 90 dias.
 
 * [Aprenda a coletar contadores de desempenho ou logs usando a extensão de Diagnóstico](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Visualização e Análise de Eventos com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Visualização e análise de eventos com os logs do Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
+* [Análise de eventos e visualização com logs de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
 * [Visualização e Análise de Eventos com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Visualização e análise de eventos com os logs do Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
+* [Análise de eventos e visualização com logs de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)

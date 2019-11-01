@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 596da9cfe0e914183bd3b2603ffa1047f1d9352b
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: f5a9f83a8f6e8d5e83f30d30da2b1c4c0f722dc3
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310017"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063050"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são identidades gerenciadas para recursos do Azure?
 
@@ -122,23 +122,25 @@ Saiba como usar uma identidade gerenciada com uma VM do Windows:
 
 Saiba como usar uma identidade gerenciada com uma VM do Linux:
 
+* [Acessar o Registro de Contêiner do Azure](../../container-registry/container-registry-authentication-managed-identity.md)
 * [Acessar Azure Data Lake Store](tutorial-linux-vm-access-datalake.md)
 * [Acessar o Azure Resource Manager](tutorial-linux-vm-access-arm.md)
 * [Acessar o Armazenamento do Azure usando uma chave de acesso](tutorial-linux-vm-access-storage.md)
 * [Acessar o Armazenamento do Azure usando assinaturas de acesso compartilhado](tutorial-linux-vm-access-storage-sas.md)
 * [Acessar um recurso que não seja do Azure AD com o Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
-* [Acessar o Registro de Contêiner do Azure](../../container-registry/container-registry-authentication-managed-identity.md)
 
 Saiba como usar uma identidade gerenciada com outros serviços do Azure:
 
 * [Serviço de Aplicativo do Azure](/azure/app-service/overview-managed-identity)
-* [Funções do Azure](/azure/app-service/overview-managed-identity)
-* [Aplicativos Lógicos do Azure](/azure/logic-apps/create-managed-service-identity)
-* [Barramento de Serviço do Azure](../../service-bus-messaging/service-bus-managed-service-identity.md)
-* [Hubs de eventos do Azure](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Gerenciamento de API do Azure](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Instâncias de Contêiner do Azure](../../container-instances/container-instances-managed-identity.md)
 * [Tarefas do Registro de Contêiner do Azure](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
+* [Hubs de eventos do Azure](../../event-hubs/event-hubs-managed-service-identity.md)
+* [Funções do Azure](/azure/app-service/overview-managed-identity)
+* [Serviço de Kubernetes do Azure](/azure/aks/use-managed-identity)
+* [Aplicativos Lógicos do Azure](/azure/logic-apps/create-managed-service-identity)
+* [Barramento de Serviço do Azure](../../service-bus-messaging/service-bus-managed-service-identity.md)
+
 
 ## O recurso tem suporte de quais serviços do Azure?<a name="which-azure-services-support-managed-identity"></a>
 

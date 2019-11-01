@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: bf7b9b288a32d9f6cc2c9e0d7dba4b074c4bf878
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: cbf19d941e63429b6a5edcc6745d04834cf18621
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515719"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73164058"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: Conectar redes virtuais ao emparelhamento de rede virtual usando o portal do Azure
 
@@ -54,7 +54,7 @@ Faça logon no Portal do Azure em https://portal.azure.com.
     |Grupo de recursos| Selecione **Criar novo** e insira *myResourceGroup*.|
     |Região| Selecione **Leste dos EUA**.|
     |NOME|myVirtualNetwork1|
-    ![Definir configurações básicas de rede virtual] (
+   
 4. Na página **Endereços IP**, insira 10.0.0.0/16 para o campo **Espaço de Endereço**. Clique no botão **Adicionar sub-rede** abaixo e insira Subnet1 para **Nome da sub-rede** e 10.0.0.0/24 para **Intervalo de endereços da sub-rede**.
    
 5. Conclua as etapas 1 a 3 novamente, com as seguintes alterações:
@@ -147,7 +147,7 @@ As VMs podem levar alguns minutos para serem criadas. Não continue com as etapa
 6. Em uma etapa posterior, o ping será usado para comunicar-se com a VM *myVm2* da VM *myVm1*. O ping usa o protocolo ICMP que, por padrão, não é permitido através do Firewall do Windows. Sobre a VM *myVm1*, habilite o ICMP por meio do Firewall do Windows, para que você possa executar ping nessa VM pela *myVm2* em uma etapa posterior, usando o PowerShell:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
     
     Embora o ping seja usado para realizar a comunicação entre VMs neste tutorial, não é recomendável a permissão de ICMP através do Firewall do Windows para implantações de produção.

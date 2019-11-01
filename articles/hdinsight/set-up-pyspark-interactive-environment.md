@@ -1,5 +1,5 @@
 ---
-title: Ferramentas do Azure HDInsight – ambiente interativo do PySpark para Visual Studio Code
+title: Ambiente interativo do PySpark com as ferramentas do Azure HDInsight
 description: Saiba como usar as Ferramentas do Azure HDInsight para Visual Studio Code para criar e enviar consultas e scripts.
 keywords: VSCode, Ferramentas do Azure HDInsight, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Hive Interativo, Consulta Interativa
 author: jejiang
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: f62f7994818e487202e35e4931472355fb6ac3d2
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: db2336fb79207ada24b71e0e64f0aaaab543e4da
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130185"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241550"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurar o ambiente interativo do PySpark para o Visual Studio Code
 
@@ -24,7 +24,7 @@ Usamos comando **python/pip** para criar o ambiente virtual em seu caminho de P�
 1. Instale o [Python](https://www.python.org/downloads/) e o [Pip](https://pip.pypa.io/en/stable/installing/).
 
    + Instale o Python de [https://www.python.org/downloads/](https://www.python.org/downloads/).
-   + Instale o Pip [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) do (se ele não estiver instalado na instalação do Python).
+   + Instale o Pip do [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) (se ele não estiver instalado na instalação do Python).
    + Valide se o Python e o Pip foram instalados com êxito usando os comandos a seguir. (Opcional)
 
         ![Verificar o comando de versão do Python Pip](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
@@ -52,12 +52,12 @@ sudo apt-get install libkrb5-dev
 sudo apt-get install python-dev
 ```
 
-Reinicie o VS Code e, em seguida, retorne para o editor de scripts que está executando o **HDInsight: PySpark Interativo**.
+Reinicie o VS Code e volte para o editor de scripts que está executando o **HDInsight: PySpark Interactive**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 ### <a name="demo"></a>Demonstração
-* HDInsight para VS Code: [Vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
+* HDInsight para VS Code: [vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 * [Usar a Ferramenta do Azure HDInsight para Visual Studio Code](hdinsight-for-vscode.md)

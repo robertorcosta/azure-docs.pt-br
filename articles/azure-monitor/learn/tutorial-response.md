@@ -1,25 +1,19 @@
 ---
 title: Responder a eventos com alertas do Azure Log Analytics | Microsoft Docs
 description: Este tutorial ajuda-o a reconhecer alertas com Log Analytics para identificar informações importantes no workspace e notificá-lo proativamente sobre problemas ou invocar ações para tentar corrigi-los.
-services: log-analytics
-documentationcenter: log-analytics
-author: MGoedtel
-manager: carmonm
-editor: ''
-ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: tutorial
-ms.date: 10/05/2018
+author: MGoedtel
 ms.author: magoedte
+ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 6521688e595230951e0753fd67c2bf9b02e0a6ec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a30b7569c14aaccb40b357cc5acb82b0e32d2895
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102139"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894652"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Responder a eventos com alertas do Azure Monitor
 Os alertas no Azure Monitor podem identificar informações importantes no repositório do Log Analytics. Eles são criados por regras de alerta que executam pesquisas de logs automaticamente em intervalos regulares e, se os resultados da pesquisa de logs corresponderem a determinados critérios, um registro de alerta será criado e poderá ser configurado para executar uma resposta automatizada.  Este tutorial é uma continuação do tutorial [Criar e compartilhar painéis de dados do Log Analytics](tutorial-logs-dashboards.md).   
@@ -45,15 +39,15 @@ No exemplo a seguir, você criará uma regra de alerta de medição métrica com
 3. Para a primeira etapa, na seção **Criar Alerta** você selecionará o espaço de trabalho do Log Analytics como o recurso, pois esse é um sinal de alerta baseado em log.  Filtre os resultados, escolhendo a **Assinatura** específica na lista suspensa, se houver mais de uma, a qual contém a VM e o espaço de trabalho do Log Analytics criado anteriormente.  Filtre o **Tipo de Recurso**, selecionando o **Log Analytics** na lista suspensa.  Por fim, selecione **Recurso** **DefaultLAWorkspace** e, em seguida, clique em **Concluído**.<br><br> ![Criar tarefa 1 da etapa de alerta](./media/tutorial-response/alert-rule-03.png)<br>
 4. Na seção **Critérios de Alerta**, clique em **Adicionar Critérios** para selecionar a consulta salva e, em seguida, especifique a lógica que a regra de alerta segue.  No painel **Configurar sinal lógico**, selecione *VMs do Azure - Utilização do processador* na lista.  O painel é atualizado para apresentar as configurações do alerta.  Na parte superior, mostra o conjunto de resultados dos últimos 30 minutos do sinal selecionado e a própria consulta de pesquisa.  
 5. Configure o alerta com as informações a seguir:  
-    a. Na lista suspensa **Com base em**, selecione **Medição métrica**.  Uma medição métrica criará um alerta para cada objeto na consulta com um valor que exceda o limite especificado.  
+   a. Na lista suspensa **Com base em**, selecione **Medição métrica**.  Uma medição métrica criará um alerta para cada objeto na consulta com um valor que exceda o limite especificado.  
    b. Para a **Condição**, selecione **Maior que** e insira **90** para o **Limite**.  
    c. Na seção Disparar Alerta com Base Em, selecione **Violações consecutivas** e na lista suspensa selecione **Maior que** e insira um valor de 3.  
    d. Em Avaliação com base na seção, modifique o valor de **Período** para **30** minutos. A regra executará a cada cinco minutos e retornará registros criados nos últimos 30 minutos em relação à hora atual.  Definir o período de tempo para uma janela maior considera uma possível latência de dados, garantindo que a consulta retorne dados para evitar um falso negativo em que o alerta nunca é disparado.  
 6. Clique em **Concluído** para concluir a regra de alerta.<br><br> ![Configurar sinal de alerta](./media/tutorial-response/alert-signal-logic-02.png)<br> 
-7. Agora, passando para a segunda etapa, forneça um nome de alerta no campo **Nome da regra de alerta**, como **Percentual de CPU maior que 90%**.  Especifique uma **Descrição** com detalhes específicos para o alerta e selecione **Critical(Sev 0)** para o valor de **Gravidade** das opções fornecidas.<br><br> ![Configurar detalhes de alerta](./media/tutorial-response/alert-signal-logic-04.png)<br>
+7. Agora, passando para a segunda etapa, forneça um nome de alerta no campo **Nome da regra de alerta**, como **Percentual de CPU maior que 90%** .  Especifique uma **Descrição** com detalhes específicos para o alerta e selecione **Critical(Sev 0)** para o valor de **Gravidade** das opções fornecidas.<br><br> ![Configurar detalhes de alerta](./media/tutorial-response/alert-signal-logic-04.png)<br>
 8. Para ativar imediatamente a regra de alerta na criação, aceite o valor padrão para **Habilitar regra após a criação**.
 9. Na terceira e última etapa, você especifica um **Grupo de Ações**, o qual garantirá que as mesmas ações sejam executadas sempre que um alerta for disparado e poderá ser utilizado para cada regra definida.  Configure um novo grupo de ações com as informações a seguir:  
-    a. Selecione **Novo grupo de ações** e o painel **Adicionar grupo de ações** aparece.  
+   a. Selecione **Novo grupo de ações** e o painel **Adicionar grupo de ações** aparece.  
    b. Para **Nome do grupo de ações**, especifique um nome como **Operações de TI - Notificar** e um **Nome curto** como **itops-n**.  
    c. Verifique se os valores padrão para **Assinatura** e **Grupo de recursos** estão corretos. Caso contrário, selecione um correto na lista suspensa.   
    d. Na seção Ações, especifique um nome para a ação, como **Enviar Email** e em **Tipo de Ação** selecione **Email/SMS/Push/Voz** na lista suspensa. O painel de propriedades **Email/SMS/Push/Voz** será aberto à direita para fornecer informações adicionais.  

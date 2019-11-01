@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78d259c0354a1519fa57633a68a1dcfa5a183890
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa689e6138f8d965e59f7cfa7a85e0835301086c
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105710"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158705"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Azure Active Directory ao software Cezanne HR
 
@@ -227,11 +228,11 @@ Para habilitar usuários do AD do Azure a fazer logon no Cezanne HR Software, el
 
 2. No painel de navegação esquerdo, clique em **Configuração do Sistema**. Vá para **Gerenciar Usuários**. Em seguida, navegue até **Add New User**.
 
-    ![Novo Usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Novo Usuário")
+    ![Novo usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Novo Usuário")
 
 3. Na seção **DETALHES PESSOAIS**, execute as etapas abaixo:
 
-    ![Novo Usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Novo Usuário")
+    ![Novo usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Novo Usuário")
 
     a. Defina **Internal User** como OFF.
 
@@ -243,7 +244,7 @@ Para habilitar usuários do AD do Azure a fazer logon no Cezanne HR Software, el
 
 4. Na seção **Informações da Conta** , execute as etapas abaixo:
 
-    ![Novo Usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Novo Usuário")
+    ![Novo usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Novo Usuário")
 
     a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brittasimon@contoso.com.
 
@@ -277,4 +278,4 @@ Ao clicar no bloco do Cezanne HR Software no Painel de Acesso, você deverá ser
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 10/05/2019
 ms.author: victorh
-ms.openlocfilehash: 6f5f2263736e1317ca40e6c27a909be2aa106270
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 8cd5986d61765680698b6c682567dd6388d80a2a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960441"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158852"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>Início Rápido: Criar uma zona DNS privada do Azure usando a CLI do Azure
 
@@ -147,7 +147,7 @@ Você pode usar o comando ping para testar a resolução de nome. Portanto, conf
 2. Execute o comando a seguir:
 
    ```powershell
-   New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+   New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
    ```
 
 Repita para myVM02.

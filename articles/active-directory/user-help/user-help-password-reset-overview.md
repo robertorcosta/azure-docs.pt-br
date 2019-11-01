@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66cb7218b5217565529e1e15d875c23dff10e06f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 15fbc526822f3b6659bc190ee67c6c17ff96b067
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382277"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160611"
 ---
 # <a name="reset-your-own-work-or-school-password-overview"></a>Visão geral da redefinição de senha corporativa ou de estudante
 
@@ -35,4 +35,4 @@ Para obter informações detalhadas e instruções sobre como registrar sua cont
 |Artigo |DESCRIÇÃO |
 |------|------------|
 | [Registrar-se para redefinição de senha self-service](active-directory-passwords-reset-register.md) Instruções sobre como verificar seus métodos de autenticação e se inscrever na redefinição de senha self-service para que você possa redefinir sua própria senha.|
-| [Redefinir sua senha](user-help-reset-password.md) Instruções sobre como redefinir ou desbloquear sua senha para uma conta corporativa ou de estudante.|
+| [Redefinir sua senha](active-directory-passwords-update-your-own-password.md) Instruções sobre como redefinir ou desbloquear sua senha para uma conta corporativa ou de estudante.|

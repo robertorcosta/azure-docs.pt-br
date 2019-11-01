@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f87210cd14570687eebae88896830bb3ee00b74e
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119715"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242985"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerenciar servidor de configuração para recuperação de desastres do servidor físico
 
@@ -32,13 +32,13 @@ A tabela resume os pré-requisitos para implantação do computador do servidor 
 | Espaço livre em disco (cache do servidor de processo) | 600 GB
 | Espaço livre em disco (disco de retenção) | 600 GB|
 | Sistema operacional  | Windows Server 2012 R2 <br> Windows Server 2016 |
-| Localidade do sistema operacional | Inglês (EUA)|
-| Versão do VMware vSphere PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
+| Localidade do sistema operacional | English (US)|
+| Versão do VMware vSphere PowerCLI | Não obrigatório|
 | Funções do Windows Server | Não habilite essas funções: <br> - Active Directory Domain Services <br>- Serviços de Informações da Internet <br> - Hyper-V |
 | Políticas de grupo| Não habilite estas políticas de grupo: <br> - Impedir o acesso ao prompt de comando <br> - Impedir o acesso às ferramentas de edição do registro <br> - Lógica de confiança para anexos de arquivo <br> - Ativar a execução do script <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 | IIS | – Nenhum site da Web padrão já existente <br> - Habilitar [Autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar configuração [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> – Nenhum aplicativo/site da Web pré-existente escutando na porta 443<br>|
 | Tipo de NIC | VMXNET3 (quando implantado como uma VM VMware) |
-| Tipo de endereço IP | Estático |
+| Tipo de endereço IP | estático |
 | Acesso à Internet | O servidor precisa de acesso a estas URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (não obrigatório para servidores de processo de expansão) <br> - time.nist.gov <br> - time.windows.com |
 | Portas | 443 (orquestração do canal de controle)<br>9443 (transporte de dados)|
 
@@ -108,21 +108,21 @@ Execute o arquivo de instalação da seguinte maneira:
 
 ### <a name="parameters"></a>parâmetros
 
-|Nome do Parâmetro| Type | DESCRIÇÃO| Valores|
+|Nome do parâmetro| Type | Descrição| Valores|
 |-|-|-|-|
-| /ServerMode|Obrigatório|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
-|/InstallLocation|Obrigatório|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
-|/MySQLCredsFilePath|Obrigatório|O caminho do arquivo no qual as credenciais do servidor MySQL são armazenadas|O arquivo deve ser do formato especificado abaixo|
-|/VaultCredsFilePath|Obrigatório|O caminho do arquivo de credenciais do cofre|Caminho de arquivo válido|
-|/EnvType|Obrigatório|Tipo de ambiente que você deseja proteger |VMware<br>NonVMware|
-|/PSIP|Obrigatório|Endereço IP da NIC a ser usada para transferência de dados de replicação| Qualquer endereço IP válido|
-|/CSIP|Obrigatório|O endereço IP da NIC na qual o servidor de configuração está escutando| Qualquer endereço IP válido|
-|/PassphraseFilePath|Obrigatório|O caminho completo para o local do arquivo de senha|Caminho de arquivo válido|
+| /ServerMode|obrigatórios|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
+|/InstallLocation|obrigatórios|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
+|/MySQLCredsFilePath|obrigatórios|O caminho do arquivo no qual as credenciais do servidor MySQL são armazenadas|O arquivo deve ser do formato especificado abaixo|
+|/VaultCredsFilePath|obrigatórios|O caminho do arquivo de credenciais do cofre|Caminho de arquivo válido|
+|/EnvType|obrigatórios|Tipo de ambiente que você deseja proteger |VMware<br>NonVMware|
+|/PSIP|obrigatórios|Endereço IP da NIC a ser usada para transferência de dados de replicação| Qualquer endereço IP válido|
+|/CSIP|obrigatórios|O endereço IP da NIC na qual o servidor de configuração está escutando| Qualquer endereço IP válido|
+|/PassphraseFilePath|obrigatórios|O caminho completo para o local do arquivo de senha|Caminho de arquivo válido|
 |/BypassProxy|Opcional|Especifica se o servidor de gerenciamento se conecta ao Azure sem um proxy|Para obter esse valor de Venu|
 |/ProxySettingsFilePath|Opcional|Configurações de proxy (o proxy padrão exige autenticação ou um proxy personalizado)|O arquivo deve estar no formato especificado abaixo|
 |DataTransferSecurePort|Opcional|O número da porta no PSIP a ser usada para dados de replicação| Número da porta válido (o valor padrão é 9433)|
 |/SkipSpaceCheck|Opcional|Ignorar verificação de espaço do disco de cache| |
-|/AcceptThirdpartyEULA|Obrigatório|Sinalizar implica na aceitação do EULA de terceiros| |
+|/AcceptThirdpartyEULA|obrigatórios|Sinalizar implica na aceitação do EULA de terceiros| |
 |/ShowThirdpartyEULA|Opcional|Exibe o EULA de terceiros. Se fornecido como entrada, todos os outros parâmetros serão ignorados| |
 
 
@@ -252,9 +252,9 @@ Atualize o servidor da seguinte maneira:
 >   Se você planejar reutilizar o servidor de configuração com o Azure Site Recovery novamente, poderá ignorar a etapa 4 diretamente
 
 1. Faça logon no Servidor de Configuração como um Administrador.
-2. Abra o painel de controle > programa > desinstalar programas
+2. Abrir o Painel de Controle > Programa > Desinstalar Programas
 3. Desinstale os programas na sequência a seguir:
-   * Agente de Serviços de Recuperação do Microsoft Azure
+   * Agente de Serviços dos Serviços de Recuperação do Microsoft Azure
    * Servidor de destino do Microsoft Azure Site Recovery mobilidade mestra do serviço
    * Provedor do Microsoft Azure Site Recovery
    * Servidor de processo/servidor de configuração do Microsoft Azure Site Recovery
@@ -288,7 +288,7 @@ Atualize o servidor da seguinte maneira:
     `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> O **-forçar** opção em Remove-AzSiteRecoveryFabric pode ser usada para forçar a remoção/exclusão do servidor de configuração.
+> A opção **-Force** em Remove-AzSiteRecoveryFabric pode ser usada para forçar a remoção/exclusão do servidor de configuração.
 
 ## <a name="renew-ssl-certificates"></a>Renovar certificados SSL
 O servidor de configuração tem uma servidor de Web embutido, que coordena as atividades dos serviços móveis, servidores de processo e servidores de destino conectados a ele. O servidor da web usa um certificado SSL para autenticar clientes. O certificado expira depois de três anos e pode ser renovado a qualquer momento.
@@ -313,7 +313,7 @@ Para implantações de servidor de configuração antes de maio de 2016, a expir
 ## <a name="common-issues"></a>Problemas comuns
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Analisar os tutoriais para configurar a recuperação após desastres de [servidores físicos](tutorial-physical-to-azure.md) no Azure.
 

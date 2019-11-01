@@ -14,21 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 8ddb5d0566c57dd1d507d543ac53c0975a83dd43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60a4669e20aa8aaf80ae174c88631f3dc572656d
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723530"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242894"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar serviços confiáveis com estado
 Há dois conjuntos de definições de configuração para Reliable Services. Um conjunto é global para todos os Reliable Services no cluster, enquanto o outro conjunto é específico para um determinado Reliable Service.
 
-## <a name="global-configuration"></a>Configuração Global
-A configuração do Reliable Service global é especificada no manifesto do cluster para o cluster na seção KtlLogger. Ela permite a configuração do local e do tamanho do log compartilhado, além dos limites de memória global usados pelo agente. O manifesto do cluster é um arquivo XML individual que contém definições e configurações que se aplicam a todos os nós e serviços no cluster. O arquivo normalmente é chamado de ClusterManifest.xml. Você pode ver o manifesto do cluster do seu cluster usando o comando Get-ServiceFabricClusterManifest powershell.
+## <a name="global-configuration"></a>Configuração global
+A configuração do Reliable Service global é especificada no manifesto do cluster para o cluster na seção KtlLogger. Ela permite a configuração do local e do tamanho do log compartilhado, além dos limites de memória global usados pelo agente. O manifesto do cluster é um arquivo XML individual que contém definições e configurações que se aplicam a todos os nós e os serviços no cluster. O arquivo normalmente é chamado de ClusterManifest.xml. Você pode ver o manifesto do cluster do seu cluster usando o comando Get-ServiceFabricClusterManifest powershell.
 
 ### <a name="configuration-names"></a>Nomes da configuração
-| NOME | Unidade | Valor padrão | Comentários |
+| name | Unidade | Valor padrão | Comentários |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Quilobytes |8388608 |O número mínimo de KB a ser alocado no modo kernel para o pool de memória do buffer de gravação do agente. Esse pool de memória é usado para armazenar em cache informações de estado antes da gravação no disco. |
 | WriteBufferMemoryPoolMaximumInKB |Quilobytes |Sem limite |Tamanho máximo que o pool de memória do buffer de gravação do agente pode atingir. |
@@ -36,7 +36,7 @@ A configuração do Reliable Service global é especificada no manifesto do clus
 | SharedLogPath |Nome de caminho totalmente qualificado |"" |Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado usado por todos os serviços confiáveis em todos os nós no cluster que não especificam o SharedLogPath na configuração específica de seu serviço. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado. |
 | SharedLogSizeInMB |Megabytes |8192 |Especifica o número de MB do espaço em disco a ser alocado estatisticamente para o log compartilhado. O valor deve ser de 2048 ou superior. |
 
-No Azure ARM ou no modelo JSON de local, o exemplo a seguir mostra como alterar o log de transações compartilhado que é criado para dar apoio às coleções confiáveis para serviços com estado.
+No modelo do Azure ARM ou local JSON, o exemplo a seguir mostra como alterar o log de transações compartilhado que é criado para fazer backup de quaisquer coleções confiáveis para serviços com estado.
 
     "fabricSettings": [{
         "name": "KtlLogger",
@@ -64,7 +64,7 @@ O agente tem um pool de memória global alocado da memória kernel não paginada
 
 As configurações SharedLogId e SharedLogPath sempre são usadas juntas para definir o GUID e o local para o log compartilhado padrão de todos os nós no cluster. O log compartilhado padrão é usado para todos os serviços confiáveis que não especificam as configurações em settings.xml para o serviço específico. Para melhor desempenho, os arquivos de log compartilhados devem ser colocados em discos usados exclusivamente para o arquivo de log compartilhado para reduzir a contenção.
 
-SharedLogSizeInMB especifica a quantidade de espaço em disco a ser pré-alocada para o log compartilhado padrão em todos os nós.  SharedLogId e SharedLogPath não precisam ser especificadas para que SharedLogSizeInMB seja especificada.
+SharedLogSizeInMB especifica a quantidade de espaço em disco a ser pré-alocada para o log compartilhado padrão em todos os nós.  SharedLogId e SharedLogPath não precisam ser especificados para que SharedLogSizeInMB seja especificado.
 
 ## <a name="service-specific-configuration"></a>Configuração específica de serviço
 A Configuração padrão dos Reliable Services com estado pode ser modificada por meio do pacote de configuração (Config) ou da implementação do serviço (código).
@@ -109,14 +109,14 @@ ReplicatorConfig
 > 
 
 ### <a name="configuration-names"></a>Nomes da configuração
-| NOME | Unidade | Valor padrão | Comentários |
+| name | Unidade | Valor padrão | Comentários |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Segundos |0,015 |Período de tempo pelo qual o replicador no secundário espera após o recebimento de uma operação antes de enviar novamente uma confirmação ao primário. Todas as outras confirmações a serem enviadas para operações e processadas dentro deste intervalo são enviadas como uma única resposta. |
 | ReplicatorEndpoint |N/D |Nenhum parâmetro padrão obrigatório |Endereço IP e porta que o replicador primário/secundário usará para se comunicar com outros replicadores no conjunto de réplicas. Eles devem fazer referência a um ponto de extremidade do recurso de TCP no manifesto do serviço. Consulte [Recursos do manifesto do serviço](service-fabric-service-manifest-resources.md) para saber mais sobre como definir os recursos de ponto de extremidade em um manifesto de serviço. |
 | MaxPrimaryReplicationQueueSize |Número de operações |8192 |Número máximo de operações na fila principal. Uma operação é liberada depois que o replicador primário recebe uma confirmação de todos os replicadores secundários. Esse valor deve ser maior que 64 e uma potência de 2. |
 | MaxSecondaryReplicationQueueSize |Número de operações |16384 |Número máximo de operações na fila secundária. Uma operação é liberada depois de tornar seu estado de altamente disponível por meio de persistência. Esse valor deve ser maior que 64 e uma potência de 2. |
 | CheckpointThresholdInMB |MB |50 |Quantidade de espaço de arquivo de log depois que o estado é o ponto de verificação. |
-| MaxRecordSizeInKB |KB |1024 |O maior tamanho de registro que o replicador pode gravar no log. Esse valor deve ser um múltiplo de 4 e maior que 16. |
+| MaxRecordSizeInKB |KB |1\.024 |O maior tamanho de registro que o replicador pode gravar no log. Esse valor deve ser um múltiplo de 4 e maior que 16. |
 | MinLogSizeInMB |MB |0 (sistema de determinado) |Tamanho mínimo do log transacional. O log não poderá truncar um tamanho abaixo dessa configuração. 0 indica que o replicador determinará o tamanho mínimo do log. Aumentar esse valor aumenta a possibilidade de fazer cópias parciais e backups incrementais, uma vez que as chances de registros de log relevantes sendo truncados são reduzidas. |
 | TruncationThresholdFactor |Fator |2 |Determina em que tamanho do log o truncamento será disparado. O limite de truncamento é determinado pelo MinLogSizeInMB multiplicado por TruncationThresholdFactor. TruncationThresholdFactor deve ser maior que 1. MinLogSizeInMB * TruncationThresholdFactor deve ser menor que MaxStreamSizeInMB. |
 | ThrottlingThresholdFactor |Fator |4 |Determina em que tamanho do log a réplica começará a ser limitada. O limite da limitação (em MB) é determinado por Max((MinLogSizeInMB * ThrottlingThresholdFactor),(CheckpointThresholdInMB * ThrottlingThresholdFactor)). O limite da limitação (em MB) deve ser maior que o limite de truncamento (em MB). O limite de truncamento (em MB) deve ser menor que MaxStreamSizeInMB. |
@@ -125,6 +125,7 @@ ReplicatorConfig
 | SharedLogPath |Nome de caminho totalmente qualificado |"" |Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado para esta réplica será criado. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado. |
 | SlowApiMonitoringDuration |Segundos |300 |Define o intervalo de monitoramento para as chamadas da API gerenciadas. Exemplo: o usuário fez o backup da função de callback. Após o intervalo, um relatório de integridade de aviso será enviado para o Gerenciador de Integridade. |
 | LogTruncationIntervalSeconds |Segundos |0 |Intervalo configurável no qual o truncamento de log será iniciado em cada réplica. Ele é usado para garantir que o log também seja truncado com base no tempo em vez de apenas no tamanho do log. Essa configuração também força a eliminação de entradas excluídas no dicionário confiável. Por isso, ele pode ser usado para garantir que os itens excluídos sejam removidos em tempo hábil. |
+| EnableStableReads |Booliano |False |A habilitação de leituras estáveis restringe as réplicas secundárias para retornar valores que foram confirmado de quorum. |
 
 ### <a name="sample-configuration-via-code"></a>Amostra de configuração via código
 ```csharp
@@ -190,7 +191,7 @@ A configuração MaxRecordSizeInKB define o tamanho máximo de um registro que p
 
 As configurações de SharedLogId e SharedLogPath são sempre usadas juntas para fazer um serviço usar um log compartilhado separado do log compartilhado padrão para o nó. Para obter maior eficiência, devem ser especificados o máximo de serviços possível para o mesmo log compartilhado. Arquivos de log compartilhados devem ser colocados em discos que são usados exclusivamente para que o arquivo de log compartilhado, para reduzir a contenção de movimentação do cabeçote. A expectativa é de que esse valor precise ser alterado somente em casos raros.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Depurar seu aplicativo do Service Fabric usando o Visual Studio](service-fabric-debugging-your-application.md)
 * [Referência do desenvolvedor para Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 

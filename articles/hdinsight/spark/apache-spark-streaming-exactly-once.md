@@ -1,5 +1,5 @@
 ---
-title: Trabalhos de streaming do Spark com processamento de eventos exatamente uma vez – Azure HDInsight
+title: Processamento de eventos de streaming do Spark & exatamente uma vez – Azure HDInsight
 description: Como configurar Apache Spark streaming para processar um evento apenas uma vez.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,20 +8,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 908c49a46fe7993bc20bcb63a3c15758e2de5343
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 34cb3f4cdcc5bfc11bba300ff1aa04422e0fcc57
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091016"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241140"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Crie tarefas do Apache Spark Streaming com processamento de eventos exatamente uma vez
 
 Os aplicativos de processamento de fluxo adotam abordagens diferentes sobre como manipulam mensagens de re-processamento após alguma falha no sistema:
 
-* Pelo menos uma vez: Cada mensagem tem a garantia de ser processada, mas pode ser processada mais de uma vez.
-* No máximo uma vez: Cada mensagem pode ou não ser processada. Se uma mensagem for processada, ela somente será processada uma vez.
-* Exatamente uma vez: Cada mensagem tem a garantia de ser processada uma vez, e apenas uma vez.
+* Pelo menos uma vez: cada mensagem é garantida para ser processada, mas pode ser processada mais de uma vez.
+* No máximo, uma vez: cada mensagem pode ou não ser processada. Se uma mensagem for processada, ela somente será processada uma vez.
+* Exatamente uma vez: cada mensagem é garantida para ser processada uma vez e apenas uma vez.
 
 Este artigo mostra como configurar o streaming do Spark para obter um processamento exatamente uma vez.
 
@@ -87,7 +87,7 @@ Por exemplo, é possível usar um procedimento armazenado com Banco de Dados SQL
 
 Outro exemplo é usar um sistema de arquivos particionado como blobs de armazenamento do Azure ou Azure Data Lake Storage. Nesse caso, a lógica do coletor não precisará verificar a existência de um arquivo. Se o arquivo que representa o evento existir, ele simplesmente será substituído pelos mesmos dados. Caso contrário, um novo arquivo será criado no caminho computado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral do Streaming do Apache Spark](apache-spark-streaming-overview.md)
 * [Criando trabalhos de Streaming do Apache Spark altamente disponíveis no Apache Hadoop YARN](apache-spark-streaming-high-availability.md)
