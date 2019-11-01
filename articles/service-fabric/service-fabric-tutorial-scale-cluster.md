@@ -866,7 +866,7 @@ Neste tutorial, você aprendeu como:
 > * Adicionar e remover tipos de nó (expandir e reduzir horizontalmente)
 > * Aumentar recursos de nó (escalar verticalmente)
 
-Em seguida, avance para o próximo tutorial para saber como atualizar o tempo de execução de um cluster.
+Em seguida, avance para o próximo tutorial para saber como atualizar o runtime de um cluster.
 > [!div class="nextstepaction"]
 > [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
 
@@ -878,7 +878,7 @@ Em seguida, avance para o próximo tutorial para saber como atualizar o tempo de
 > * Adicionar e remover tipos de nó (expandir e reduzir horizontalmente)
 > * Aumentar recursos de nó (escalar verticalmente)
 
-Em seguida, avance para o próximo tutorial para saber como atualizar o tempo de execução de um cluster.
+Em seguida, avance para o próximo tutorial para saber como atualizar o runtime de um cluster.
 > [!div class="nextstepaction"]
 > [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
 

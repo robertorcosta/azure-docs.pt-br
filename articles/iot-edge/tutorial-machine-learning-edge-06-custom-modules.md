@@ -225,7 +225,7 @@ Em seguida, adicionaremos o módulo Roteador à nossa solução. O módulo Rotea
 
 ### <a name="set-up-module-routes"></a>Configurar rotas de módulo
 
-Conforme mencionado acima, o tempo de execução do IoT Edge usa rotas configuradas no arquivo *deployment.template.json* para gerenciar a comunicação entre módulos fracamente acoplados. Nesta seção, analisaremos detalhadamente como configurar as rotas para o módulo turbofanRouter. Abordaremos as rotas de entrada primeiro e, em seguida, passaremos para as saídas.
+Conforme mencionado acima, o runtime do IoT Edge usa rotas configuradas no arquivo *deployment.template.json* para gerenciar a comunicação entre módulos fracamente acoplados. Nesta seção, analisaremos detalhadamente como configurar as rotas para o módulo turbofanRouter. Abordaremos as rotas de entrada primeiro e, em seguida, passaremos para as saídas.
 
 #### <a name="inputs"></a>Entradas
 
@@ -716,7 +716,7 @@ Agora que fizemos as alterações de configuração, estamos prontos para criar 
 
 * **Atraso na implantação:** como o tempo de execução do IoT Edge deve reconhecer a alteração em suas propriedades desejadas antes do começo da reconfiguração, pode levar algum tempo após você implantar seus módulos até que o tempo de execução os selecione e inicie a atualização do dispositivo IoT Edge.
 
-* **As versões do módulo importam:** se você publicar uma nova versão do contêiner de um módulo em seu registro de contêiner usando as mesmas marcas de versão que o módulo anterior, o tempo de execução não baixará a nova versão do módulo. Ele faz uma comparação da tag de versão da imagem local e da imagem desejada do manifesto de implantação. Se essas versões coincidirem, o tempo de execução não executará nenhuma ação. Portanto, será importante incrementar a versão do seu módulo sempre que você desejar implantar novas alterações. Incremente a versão alterando a propriedade **version** na propriedade **tag** no arquivo module.json para o módulo que você está alterando. Em seguida, crie e publique o módulo.
+* **As versões do módulo importam:** se você publicar uma nova versão do contêiner de um módulo em seu registro de contêiner usando as mesmas marcas de versão que o módulo anterior, o tempo de execução não baixará a nova versão do módulo. Ele faz uma comparação da tag de versão da imagem local e da imagem desejada do manifesto de implantação. Se essas versões coincidirem, o runtime não executará nenhuma ação. Portanto, será importante incrementar a versão do seu módulo sempre que você desejar implantar novas alterações. Incremente a versão alterando a propriedade **version** na propriedade **tag** no arquivo module.json para o módulo que você está alterando. Em seguida, crie e publique o módulo.
 
     ```json
     {

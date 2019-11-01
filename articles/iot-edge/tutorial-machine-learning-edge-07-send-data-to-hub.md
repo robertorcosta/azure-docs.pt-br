@@ -30,7 +30,7 @@ Esta etapa normalmente é executada por um desenvolvedor de nuvem ou de disposit
 
 Reutilize o [projeto DeviceHarness](tutorial-machine-learning-edge-03-generate-data.md) para simular o dispositivo downstream (ou folha). Conectar-se ao gateway transparente requer duas coisas adicionais:
 
-* Registrar o certificado para fazer o dispositivo downstream (neste caso, nosso computador de desenvolvimento) confiar na autoridade de certificado que está sendo usada pelo tempo de execução do IoT Edge.
+* Registrar o certificado para fazer o dispositivo downstream (neste caso, nosso computador de desenvolvimento) confiar na autoridade de certificado que está sendo usada pelo runtime do IoT Edge.
 * Adicione o FQDN (nome de domínio totalmente qualificado) do gateway de borda à cadeia de conexão do dispositivo.
 
 Examine o código para ver como esses dois itens são implementados.
