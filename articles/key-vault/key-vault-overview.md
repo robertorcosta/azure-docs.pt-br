@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cfaa2598d53fa57b4a628a7ad1b847a9b078bf2b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 6b59995dc09c0ecf1e5700d8337bd30074083f76
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598151"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73483917"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o Cofre da Chave do Azure?
 
@@ -73,7 +73,7 @@ Além disso, os Azure Key Vaults permitem que você separe os segredos do aplica
 Como um repositório seguro no Azure, o Key Vault tem sido usado para simplificar cenários como:
 -  [Criptografia de Disco do Azure](../security/fundamentals/encryption-overview.md)
 -  A funcionalidade [Always Encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) no SQL Server e no Banco de Dados SQL do Azure
-- [Serviço de Aplicativo do Azure]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). 
+- [Serviço de Aplicativo do Azure]( https://docs.microsoft.com/azure/app-service/configure-ssl-certificate). 
 
 O próprio Key Vault pode se integrar às contas de armazenamento, aos hubs de eventos e ao Log Analytics.
 

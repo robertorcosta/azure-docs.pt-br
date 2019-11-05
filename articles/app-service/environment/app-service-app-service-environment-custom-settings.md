@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: bf2441d5c0947ec94cbee247bdc4634ff9e53bfd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 768e354281aeb5e2143ddb0e190b0f27bf4f4e24
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070305"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470698"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Definições de configuração personalizadas para Ambientes de Serviço de Aplicativo
 ## <a name="overview"></a>Visão geral
@@ -66,7 +66,7 @@ Por exemplo, se um Ambiente de Serviço de Aplicativo tiver quatro front-ends, l
 
 ## <a name="disable-tls-10-and-tls-11"></a>Desabilitar o TLS 1.0 e TLS 1.1
 
-Se você deseja gerenciar as configurações de TLS em um aplicativo por aplicativo, é possível usar as orientações fornecidas com a documentação [Impor configurações de TLS](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#enforce-tls-versions). 
+Se você deseja gerenciar as configurações de TLS em um aplicativo por aplicativo, é possível usar as orientações fornecidas com a documentação [Impor configurações de TLS](../configure-ssl-bindings.md#enforce-tls-versions). 
 
 Se desejar desabilitar todo o tráfego de TLS 1.0 e TLS 1.1 para todos os aplicativos em um ASE, você poderá definir a seguinte entrada **clusterSettings**:
 

@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 1a0d0426904ef5f9f49a627120ff2cc65f630861
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9070c19c668529fac5edea5b4d233361043de16d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72785938"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469554"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análise de sentimento em dados de transmissão usando o Azure Databricks
 
@@ -43,7 +43,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 > [!Note]
 > Este tutorial não pode ser realizado usando a **Assinatura de avaliação gratuita do Azure**.
-> Se você tiver uma conta gratuita, acesse seu perfil e altere para uma assinatura **pré-paga**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/). Em seguida, [remova o limite de gastos](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center) e [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para as vCPUs da sua região. Quando você cria seu espaço de trabalho do Azure Databricks, pode selecionar o tipo de preço **Versão de avaliação (Premium - DBUs gratuitas por 14 dias)** para conceder ao espaço de trabalho acesso gratuito aos DBUs do Premium Azure Databricks por 14 dias.
+> Se você tiver uma conta gratuita, acesse seu perfil e altere para uma assinatura **pré-paga**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/). Em seguida, [remova o limite de gastos](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-azure-portal) e [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para as vCPUs da sua região. Quando você cria seu espaço de trabalho do Azure Databricks, pode selecionar o tipo de preço **Versão de avaliação (Premium - DBUs gratuitas por 14 dias)** para conceder ao espaço de trabalho acesso gratuito aos DBUs do Premium Azure Databricks por 14 dias.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -102,7 +102,7 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
     Aceite todos os outros valores padrão que não sejam o seguinte:
 
    * Insira um nome para o cluster.
-   * Neste artigo, crie um cluster com o tempo de execução **5.2**.
+   * Neste artigo, crie um cluster com o runtime **5.2**.
    * Verifique se você marcou a caixa de seleção **Terminar depois de \_\_ minutos de inatividade**. Forneça uma duração (em minutos) para encerrar o cluster caso ele não esteja sendo usado.
 
    Selecione o tamanho do nó do driver e do trabalho do cluster adequado para seus critérios técnicos e seu [orçamento](https://azure.microsoft.com/pricing/details/databricks/?WT.mc_id=sparkeventhubs-docs-alehall).
@@ -640,4 +640,4 @@ Neste tutorial, você aprendeu a usar o Azure Databricks para transmitir dados p
 Avance para o próximo tutorial a fim de saber mais sobre como executar tarefas de aprendizado de máquina usando o Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Aprendizado de máquina usando o Azure Databricks](https://docs.azuredatabricks.net/spark/latest/mllib/decision-trees.html)
+>[Aprendizado de máquina usando o Azure Databricks](https://docs.azuredatabricks.net/applications/machine-learning/index.html)

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: a0aa4d334dc5a42da8a3a8f269f70c874c9ad54d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: ac88931d79df6c2527a2a5fd72b440baeb463115
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375508"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499053"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: testar conjuntos de dados em lote
 
@@ -31,6 +31,8 @@ Requisitos para o teste em lotes:
 * Tipos de entidades permitidas: apenas entidades de aprendizado de máquina simples e composta. Teste em lotes é útil apenas para intenções e entidades de aprendizado de máquina.
 
 Ao usar um aplicativo diferente deste tutorial, *não* use os enunciados de exemplo já adicionados a uma intenção. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **Neste tutorial, você aprenderá a:**
 

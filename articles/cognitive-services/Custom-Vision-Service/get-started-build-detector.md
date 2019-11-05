@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: 40f30ddece9881f565f45f4ef6c9d0e2ad85fe95
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0ca849e75f01573bbb356105b281f03d267836e6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561123"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "73520455"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Início Rápido: Como criar um detector de objeto com a Visão Personalizada
 
@@ -29,7 +29,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Criar recursos de Visão Personalizada no portal do Azure
 
-Para usar o serviço de Visão Personalizada, você precisará criar recursos de treinamento e previsão de Visão Personalizada no portal do Azure. Preencha a janela da caixa de diálogo na página [Criar Visão Personalizada](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) para criar um recurso de treinamento e de previsão. 
+[!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="create-a-new-project"></a>Criar um novo projeto
 

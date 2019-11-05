@@ -9,19 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 7b95dcf6a93c9abdeab9520f0a0fd80eb17dccff
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 13a1589a6cc6ed48f159f361ff69a5a3ba8f0f80
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387635"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499441"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutorial: Extrair padrões relacionados contextualmente usando funções
 
 Neste tutorial, use um padrão para extrair dados de um enunciado de modelo bem formatado. O enunciado de modelo usa uma [entidade simples](luis-concept-entity-types.md#simple-entity) e [funções](luis-concept-roles.md) para extrair dados relacionados, como o local de origem e o local de destino.  Ao usar padrões, menos declarações de exemplo são necessárias para a intenção.
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **Neste tutorial, você aprenderá a:**
 

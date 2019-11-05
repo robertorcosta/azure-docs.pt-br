@@ -3,8 +3,8 @@ title: Tutorial para o uso da configuração dinâmica da Configuração de Apli
 description: Neste tutorial, você aprenderá a atualizar dinamicamente os dados de configuração de aplicativos ASP.NET Core
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
-manager: balans
+author: lisaguthrie
+manager: maiye
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 235b55bcd727e3e3ea947ce086209e0a94f70752
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 7fc7bd6fa0067857bde64d43be5799bd50712490
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076375"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469690"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Usar a configuração dinâmica em um aplicativo ASP.NET Core
 
@@ -45,7 +45,15 @@ Para realizar este tutorial, instale o [SDK do .NET Core](https://dotnet.microso
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+Antes de continuar, conclua [Criar um aplicativo ASP.NET Core com a Configuração de Aplicativo](./quickstart-aspnet-core-app.md) primeiro.
+
 ## <a name="reload-data-from-app-configuration"></a>Recarregar os dados da Configuração de Aplicativo
+
+1. Adicione uma referência ao pacote NuGet `Microsoft.Azure.AppConfiguration.AspNetCore`, executando o seguinte comando:
+
+    ```CLI
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
+    ```
 
 1. Abra *Program.cs* e atualize o método `CreateWebHostBuilder` para adicionar o método `config.AddAzureAppConfiguration()`.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a2e43b72bda65c5f1e7515888ac33b0ac806e64c
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: a66835d605b9005b8f94eb79a3c266f735f0a3b6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803237"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467205"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Início Rápido: converter texto em fala usando o Python
 
@@ -173,6 +173,6 @@ Remova todas as informações confidenciais do código-fonte do seu aplicativo d
 ## <a name="see-also"></a>Consulte também
 
 * [Referência de API de texto em fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
-* [Como usar o Python e o SDK de Fala para fazer a conversão de texto em fala](quickstart-text-to-speech-python.md)
+* [Como usar o Python e o SDK de Fala para fazer a conversão de texto em fala](quickstarts/speech-to-text-from-microphone.md)
 * [Criar fontes de voz personalizada](how-to-customize-voice-font.md)
 * [Grave amostras de voz para criar uma voz personalizada](record-custom-voice-samples.md)

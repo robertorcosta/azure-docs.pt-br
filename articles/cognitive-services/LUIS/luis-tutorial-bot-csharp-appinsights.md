@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 51860efdcc440d6b8a4ea57777ad31fa718657b5
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 036ecbbbd2ea562f3e809691a1b3af62578893f5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772817"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498965"
 ---
 # <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>Tutorial: Adicionar resultados do LUIS ao Application Insights de um Bot em C#
 
 Este tutorial adiciona informações de bot e de Reconhecimento vocal ao armazenamento de dados telemétricos do [Application Insights](https://azure.microsoft.com/services/application-insights/). Quando tiver esses dados, você poderá consultá-los usando a linguagem Kusto ou o Power BI para analisar, agregar e relatar intenções e entidades do enunciado em tempo real. Esta análise ajuda a determinar se você deve adicionar ou editar as intenções e as entidades do seu aplicativo LUIS.
+
+[!INCLUDE [Waiting for Bot refresh](./includes/wait-bot-upgrade.md)]
 
 Neste tutorial, você aprenderá como:
 
