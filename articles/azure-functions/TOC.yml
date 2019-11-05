@@ -238,7 +238,7 @@
         - name: Gerenciar um aplicativo de funções
           href: functions-how-to-use-azure-function-app-settings.md
           displayName: 'app setting, application setting'
-        - name: Defina a versão de tempo de execução
+        - name: Defina a versão de runtime
           href: set-runtime-version.md
         - name: Registrar manualmente uma extensão
           href: install-update-binding-extensions-manual.md
@@ -253,8 +253,8 @@
           href: functions-monitor-log-analytics.md
     - name: Segurança
       items:
-        - name: Comprar certificado SSL
-          href: ../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Adicionar certificado SSL
+          href: ../app-service/configure-ssl-certificate.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Autenticar usuários
           items:
             - name: Autenticar com o Azure AD

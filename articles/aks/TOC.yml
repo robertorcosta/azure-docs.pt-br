@@ -102,6 +102,8 @@
       href: supported-kubernetes-versions.md
     - name: Proteção de segurança no sistema operacional do host
       href: security-hardened-vm-host-image.md
+    - name: Visão geral de Diagnóstico do Serviço de Kubernetes do Azure
+      href: concepts-diagnostics.md
 - name: Guias de instruções
   items:
     - name: Operações de cluster
@@ -128,11 +130,11 @@
               href: virtual-nodes-portal.md
         - name: Usar Kubelet Virtual
           href: virtual-kubelet.md
-        - name: Usar o dimensionador automático de cluster (versão prévia)
+        - name: Usar o Autoscaler do cluster
           href: cluster-autoscaler.md
-        - name: Usar Zonas de Disponibilidade (versão prévia)
+        - name: Usar Zonas de Disponibilidade
           href: availability-zones.md
-        - name: Usar vários pools de nó (versão prévia)
+        - name: Usar vários pools de nós
           href: use-multiple-node-pools.md
         - name: Implantar AKS com Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
@@ -199,7 +201,7 @@
           href: use-network-policies.md
         - name: Usar políticas de segurança de pod (versão prévia)
           href: use-pod-security-policies.md
-        - name: Definir intervalos de IP autorizados do servidor de API (versão prévia)
+        - name: Definir intervalos de IP autorizados do servidor de API
           href: api-server-authorized-ip-ranges.md
         - name: Controlar implantações com a política do Azure (visualização)
           href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
@@ -225,8 +227,8 @@
           href: view-master-logs.md
         - name: Exibir os logs de kubelet
           href: kubelet-logs.md
-        - name: Exibir logs do contêiner em tempo real (versão prévia)
-          href: ../azure-monitor/insights/container-insights-live-logs.md
+        - name: Exibir dados de contêiner em tempo real
+          href: ../azure-monitor/insights/container-insights-livedata-overview.md
           maintainContext: true
     - name: Usar contêineres do Windows Server (versão prévia)
       items:

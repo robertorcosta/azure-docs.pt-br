@@ -1,0 +1,140 @@
+- name: Documentação do Firewall do Aplicativo Web do Azure
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é o Firewall do Aplicativo Web do Azure?
+      href: overview.md
+    - name: Gateway de Aplicativo
+      items:
+        - name: Firewall do Aplicativo Web no Gateway de Aplicativo
+          href: ./ag/ag-overview.md
+        - name: Novidades
+          href: ./ag/whats-new.md
+    - name: Front Door
+      items:
+        - name: Firewall do Aplicativo Web no Azure Front Door
+          href: ./afds/afds-overview.md
+- name: Tutoriais
+  items:
+    - name: Gateway de Aplicativo
+      items:
+        - name: Habilitar o Firewall do Aplicativo Web
+          href: ./ag/application-gateway-web-application-firewall-portal.md
+    - name: Front Door
+      items:
+        - name: Configurar a política do WAF – portal
+          href: ./afds/waf-front-door-create-portal.md
+- name: Exemplos
+  items:
+    - name: Azure PowerShell
+      href: ./ag/powershell-samples.md
+    - name: Modelos do Gerenciador de Recursos
+      href: ./ag/resource-manager-template-samples.md
+- name: Conceitos
+  items:
+    - name: Gateway de Aplicativo
+      items:
+        - name: Regras Gerenciadas
+          href: ./ag/application-gateway-crs-rulegroups-rules.md
+        - name: Visão geral de regras personalizadas
+          href: ./ag/custom-waf-rules-overview.md
+        - name: Solicitar limites de tamanho e listas de exclusões
+          href: ./ag/application-gateway-waf-configuration.md
+    - name: Front Door
+      items:
+        - name: Regras personalizadas
+          href: ./afds/waf-front-door-custom-rules.md
+        - name: Configurações de política
+          href: ./afds/waf-front-door-policy-settings.md
+        - name: Filtragem geográfica
+          href: ./afds/waf-front-door-geo-filtering.md
+        - name: Perguntas frequentes
+          href: ./afds/waf-faq.md
+- name: Guias de instruções
+  items:
+    - name: Gateway de Aplicativo
+      items:
+        - name: Criar a política de WAF
+          href: ./ag/create-waf-policy-ag.md
+        - name: Configurar Firewall de Aplicativo Web
+          items:
+            - name: Azure PowerShell
+              href: ./ag/tutorial-restrict-web-traffic-powershell.md
+            - name: CLI do Azure
+              href: ./ag/tutorial-restrict-web-traffic-cli.md
+        - name: Personalizar regras WAF
+          items:
+            - name: Portal do Azure
+              href: ./ag/application-gateway-customize-waf-rules-portal.md
+            - name: Azure PowerShell
+              href: ./ag/application-gateway-customize-waf-rules-powershell.md
+            - name: CLI do Azure
+              href: ./ag/application-gateway-customize-waf-rules-cli.md
+        - name: Configurar a regra personalizada do WAF v2 – PowerShell
+          href: ./ag/configure-waf-custom-rules.md
+        - name: Exemplos de regras personalizadas
+          href: ./ag/create-custom-waf-rules.md
+        - name: Proteção contra bots
+          href: ./ag/bot-protection.md
+        - name: Adicionar uma política a um Gateway de Aplicativo existente
+          href: ./ag/associate-waf-policy-existing-gateway.md
+        - name: Logs de diagnóstico
+          href: ./ag/web-application-firewall-logs.md
+        - name: Solucionar problemas do WAF
+          href: ./ag/web-application-firewall-troubleshoot.md
+    - name: Front Door
+      items:
+        - name: Configurar política do WAF – PowerShell
+          href: ./afds/waf-front-door-custom-rules-powershell.md
+        - name: Configurar a proteção contra bots
+          href: ./afds/waf-front-door-policy-configure-bot-protection.md
+        - name: Configurar o código de resposta personalizada
+          href: ./afds/waf-front-door-configure-custom-response-code.md
+        - name: Configurar restrições de IP
+          href: ./afds/waf-front-door-configure-ip-restriction.md
+        - name: Configurar limite de taxa – PowerShell
+          href: ./afds/waf-front-door-rate-limit-powershell.md
+        - name: Configurar uma política de WAF de filtragem geográfica
+          href: ./afds/waf-front-door-tutorial-geo-filtering.md
+        - name: Monitoramento e log
+          href: ./afds/waf-front-door-monitor.md
+- name: Solucionar problemas
+  items:
+    - name: Gateway de Aplicativo
+      items:
+        - name: Solucionar problemas do WAF
+          href: ./ag/web-application-firewall-troubleshoot.md
+        - name: Log Analytics
+          href: ./ag/log-analytics.md
+- name: Referência
+  items:
+    - name: Regras CRS
+      href: ./ag/application-gateway-crs-rulegroups-rules.md
+    - name: CLI do Azure
+      href: /cli/azure/ext/azure-firewall/network/firewall
+    - name: Azure PowerShell
+      href: /powershell/module/az.network/new-azfirewall
+    - name: .NET
+      href: /dotnet/api
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/firewall
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
+- name: Recursos
+  items:
+    - name: Modelos de autor
+      href: ../azure-resource-manager/resource-group-authoring-templates.md
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Modelos da comunidade
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/web-application-firewall/'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/regions/services/'

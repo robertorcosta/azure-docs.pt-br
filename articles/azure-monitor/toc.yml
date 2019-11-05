@@ -781,20 +781,32 @@
                   href: insights/container-insights-enable-new-cluster.md
                 - name: Habilitar para o cluster atual
                   href: insights/container-insights-enable-existing-clusters.md
+                - name: Habilitar para cluster híbrido
+                  href: insights/container-insights-hybrid-setup.md
                 - name: Mapeamentos de região
                   href: insights/container-insights-region-mapping.md
             - name: Analise
               href: insights/container-insights-analyze.md
             - name: Desabilitar o monitoramento
               href: insights/container-insights-optout.md
-            - name: Exibir logs em tempo real
-              href: insights/container-insights-live-logs.md
+            - name: Exibir dados dinâmicos
+              items:
+                - name: Visão geral de Dados Dinâmicos (versão prévia)
+                  href: insights/container-insights-livedata-overview.md
+                - name: Configuração
+                  href: insights/container-insights-livedata-setup.md
+                - name: Exibir métricas de cluster
+                  href: insights/container-insights-livedata-metrics.md
+                - name: Exibir implantações
+                  href: insights/container-insights-livedata-deployments.md
             - name: Analisar dados com consultas de log
               href: insights/container-insights-log-search.md
             - name: Alertas
               href: insights/container-insights-alerts.md
             - name: Gerenciamento de agentes
               href: insights/container-insights-manage-agent.md
+            - name: Configurar o recorte de métricas do Prometheus
+              href: insights/container-insights-prometheus-integration.md
             - name: Definir as configurações de coleta do agente
               href: insights/container-insights-agent-config.md
             - name: Atualizar para habilitar métricas

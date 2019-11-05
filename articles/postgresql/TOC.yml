@@ -92,6 +92,8 @@
               href: concepts-data-access-and-security-vnet.md
             - name: Arquitetura de conectividade
               href: concepts-connectivity-architecture.md
+            - name: Autenticação do Azure AD
+              href: concepts-aad-authentication.md
         - name: Continuidade dos negócios
           items:
             - name: Introdução à continuidade dos negócios
@@ -153,8 +155,14 @@
               href: concepts-hyperscale-firewall-rules.md
             - name: Configurar SSL
               href: concepts-hyperscale-ssl-connection-security.md
+        - name: Monitorar e ajustar
+          items:
+            - name: Monitorar e ajustar
+              href: concepts-hyperscale-monitoring.md
         - name: Extensões do PostgreSQL
           href: concepts-hyperscale-extensions.md
+        - name: Alta disponibilidade
+          href: concepts-hyperscale-high-availability.md
         - name: Recursos
           items:
             - name: Opções de configuração
@@ -163,8 +171,12 @@
   items:
     - name: Servidor único
       items:
-        - name: Criar usuários
-          href: howto-create-users.md
+        - name: Authentication
+          items:
+            - name: Criar usuários
+              href: howto-create-users.md
+            - name: Configurar a integração do Azure AD
+              href: howto-configure-sign-in-aad-authentication.md
         - name: Otimizar
           items:
             - name: Inserções em massa
@@ -245,12 +257,20 @@
               href: howto-read-replicas-cli.md
     - name: Hiperescala (Citus)
       items:
-        - name: Dimensionamento
+        - name: Criar usuários
+          href: howto-hyperscale-create-users.md
+        - name: Escala
           href: howto-hyperscale-scaling.md
         - name: Gerenciar o firewall
           items:
             - name: Portal do Azure
               href: howto-hyperscale-manage-firewall-using-portal.md
+        - name: Alta disponibilidade
+          href: howto-hyperscale-high-availability.md
+        - name: Monitoramento
+          items:
+            - name: Criar alertas nas métricas
+              href: howto-hyperscale-alert-on-metric.md
         - name: Solucionar problemas
           items:
             - name: Solucionar erros de conexão

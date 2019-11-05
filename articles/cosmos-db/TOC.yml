@@ -12,7 +12,9 @@
       items:
         - name: Portal do Azure
           href: create-cosmosdb-resources-portal.md
-        - name: Aplicativo .NET
+        - name: Aplicativo .NET – SDK V4
+          href: create-sql-api-dotnet-v4.md
+        - name: Aplicativo .NET – SDK V3
           href: create-sql-api-dotnet.md
         - name: Aplicativo Java
           href: create-sql-api-java.md
@@ -47,8 +49,11 @@
             - name: Xamarin
               href: mobile-apps-with-xamarin.md
     - name: 2 - Migrar dados
-      displayName: import
-      href: import-data.md
+      items:
+        - name: Usar a ferramenta de Migração de dados
+          href: import-data.md
+        - name: Usar o suporte em massa do .NET
+          href: tutorial-sql-api-dotnet-bulk-import.md
     - name: 3 - Consultar dados
       href: tutorial-query-sql-api.md
     - name: 4 – Criar um notebook
@@ -122,6 +127,8 @@
         - name: Aprovisionar a taxa de transferência para contêineres e bancos de dados
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
+        - name: Provisionar a taxa de transferência – modo Autopilot
+          href: provision-throughput-autopilot.md
     - name: Referência da consulta SQL
       items:
         - name: Introdução
@@ -953,6 +960,11 @@
           href: how-to-configure-firewall.md
         - name: Configurar acesso a partir das redes virtuais
           href: how-to-configure-vnet-service-endpoint.md
+        - name: Configurar o acesso de pontos de extremidade privados
+          href: how-to-configure-private-endpoints.md
+        - name: Conectar-se de modo privado a uma conta do Cosmos DB
+          href: /azure/private-link/create-private-endpoint-cosmosdb-portal
+          maintainContext: true
         - name: Configurar CORS (Compartilhamento de Recursos Entre Origens)
           href: how-to-configure-cross-origin-resource-sharing.md
         - name: Proteger chaves do Azure Cosmos usando o Key Vault

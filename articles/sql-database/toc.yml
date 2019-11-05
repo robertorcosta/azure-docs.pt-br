@@ -20,29 +20,34 @@
           items:
             - name: Visão geral
               href: sql-database-purchase-models.md
-            - name: Modelo baseado em vCore
-              href: sql-database-service-tiers-vcore.md
+            - name: Modelo vCore
               items:
-                - name: Camada de computação sem servidor
+                - name: Visão geral do modelo vCore
+                  href: sql-database-service-tiers-vcore.md
+                - name: Sem servidor
                   href: sql-database-serverless.md
-                - name: Pagar antecipadamente por capacidade reservada
+                - name: Benefício Híbrido do Azure
+                  href: sql-database-azure-hybrid-benefit.md
+                - name: Capacidade reservada
                   href: sql-database-reserved-capacity.md
-            - name: Camadas de serviço DTU
+            - name: Visão geral do modelo DTU
               href: sql-database-service-tiers-dtu.md
+            - name: Migrar do DTU para o vCore
+              href: sql-database-dtu-to-vcore.md
         - name: Computação e armazenamento
           items:
             - name: Visão geral
               href: sql-database-service-tiers-general-purpose-business-critical.md
               displayName: provisioned compute tier
-            - name: Camadas de serviço de Uso geral/Standard
+            - name: Uso geral/Standard
               href: sql-database-service-tier-general-purpose.md
-            - name: Camadas de serviço Comercialmente Crítico/Premium
+            - name: Comercialmente crítico/Premium
               href: sql-database-service-tier-business-critical.md
-            - name: Tipo de serviço de Hiperescala
+            - name: Hiperescala
               href: sql-database-service-tier-hyperscale.md
             - name: Perguntas frequentes de Hiperescala
               href: sql-database-service-tier-hyperscale-faq.md
-            - name: Migrar da camada de serviço Premium RS
+            - name: Migrar do Premium RS
               href: sql-database-service-tiers-prs.md
 - name: Guia de início rápido
   expanded: true
@@ -501,17 +506,17 @@
       items:
         - name: Recursos do banco de dados individual
           items:
-            - name: Limites do recurso baseados em vCore
+            - name: Limites de recurso do vCore
               href: sql-database-vcore-resource-limits-single-databases.md
-            - name: Limites do recurso baseados em DTU
+            - name: Limites de recurso da DTU
               href: sql-database-dtu-resource-limits-single-databases.md
             - name: Recursos de escala
               href: sql-database-single-database-scale.md
         - name: Recursos do pool elástico
           items:
-            - name: Limites do recurso baseados em vCore
+            - name: Limites de recurso do vCore
               href: sql-database-vcore-resource-limits-elastic-pools.md
-            - name: Limites do recurso baseados em DTU
+            - name: Limites de recurso da DTU
               href: sql-database-dtu-resource-limits-elastic-pools.md
             - name: Recursos de escala
               href: sql-database-elastic-pool-scale.md

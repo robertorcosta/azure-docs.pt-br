@@ -30,6 +30,8 @@
   items:
     - name: Conectar-se de modo privado a uma conta de armazenamento
       href: create-private-endpoint-storage-portal.md
+    - name: Conectar-se de modo privado a uma conta do Cosmos DB
+      href: create-private-endpoint-cosmosdb-portal.md
     - name: Desabilitar políticas de rede para um ponto de extremidade privado
       href: disable-private-endpoint-network-policy.md
     - name: Desabilitar políticas de rede para um serviço de Link Privado

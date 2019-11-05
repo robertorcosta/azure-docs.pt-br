@@ -45,7 +45,7 @@
           href: tutorial-deploy-function.md
         - name: Encontrar médias com o Azure Stream Analytics
           href: tutorial-deploy-stream-analytics.md
-        - name: Dados de pontuação com o Serviço do Azure Machine Learning
+        - name: Pontuar dados com o Azure Machine Learning
           href: tutorial-deploy-machine-learning.md
         - name: Classificar imagens com Visão Personalizada
           href: tutorial-deploy-custom-vision.md
@@ -69,7 +69,7 @@
           href: tutorial-machine-learning-edge-07-send-data-to-hub.md
 - name: Conceitos
   items:
-    - name: Tempo de execução do IoT Edge
+    - name: runtime do IoT Edge
       href: iot-edge-runtime.md
     - name: Módulos do IoT Edge
       items:

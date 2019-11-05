@@ -5,10 +5,12 @@
   items:
     - name: O que são Serviços Cognitivos?
       href: Welcome.md
-    - name: Subdomínios personalizados para Serviços Cognitivos
-      href: cognitive-services-custom-subdomains.md
     - name: Serviços Cognitivos e aprendizado de máquina
       href: cognitive-services-and-machine-learning.md
+    - name: Redes virtuais para Serviços Cognitivos
+      href: cognitive-services-virtual-networks.md
+    - name: Subdomínios personalizados para Serviços Cognitivos
+      href: cognitive-services-custom-subdomains.md
     - name: Suporte ao idioma
       href: language-support.md
 - name: Suporte a contêiner

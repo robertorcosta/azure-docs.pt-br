@@ -36,17 +36,7 @@
         - name: Obter a intenção
           href: luis-get-started-get-intent-from-rest.md
         - name: Alterar modelo
-          items:
-            - name: 'C#'
-              href: luis-get-started-cs-add-utterance.md
-            - name: Go
-              href: luis-get-started-go-add-utterance.md
-            - name: Java
-              href: luis-get-started-java-add-utterance.md
-            - name: Node.js
-              href: luis-get-started-node-add-utterance.md
-            - name: Python
-              href: luis-get-started-python-add-utterance.md
+          href: get-started-get-model-rest-apis.md
 - name: Tutoriais
   items:
     - name: Compilar aplicativo
@@ -103,49 +93,47 @@
               href: luis-tutorial-bot-nodejs-appinsights.md
 - name: Conceitos
   items:
-    - name: Práticas recomendadas
-      href: luis-concept-best-practices.md
-      displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
-    - name: Usar o LUIS e o QnA Maker
-      href: choose-natural-language-processing-service.md
-      displayName: 'nlp, qna maker'
+    - name: Ciclo de vida de desenvolvimento
+      href: luis-concept-app-iteration.md
     - name: Planejar seu aplicativo
       displayName: 'simple, composite, prebuilt, list, regex, regular expression'
       href: luis-how-plan-your-app.md
-    - name: Chaves de criação e de runtime
-      displayName: 'shared, transfer, ownership, author, access, import'
-      href: luis-concept-keys.md
-    - name: Criar modelo do aplicativo
+    - name: Modelos de aplicativos
       items:
-        - name: Ciclo de criação
-          href: luis-concept-app-iteration.md
-        - name: Controle de versão
-          href: luis-concept-version.md
-          displayName: import
-    - name: Modelo de design
-      items:
+        - name: Tipos
+          href: luis-concept-model.md
         - name: Intenções
           href: luis-concept-intent.md
+        - name: Declarações
+          href: luis-concept-utterance.md
         - name: Entidades
           displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles'
           href: luis-concept-entity-types.md
-        - name: Funções de entidade
-          href: luis-concept-roles.md
-        - name: Declarações
-          href: luis-concept-utterance.md
         - name: Modelos predefinidos
           href: luis-concept-prebuilt-model.md
-    - name: Melhorar o desempenho do aplicativo
-      items:
-        - name: Pontuação de previsão
-          href: luis-concept-prediction-score.md
-        - name: Examinar enunciados de ponto de extremidade
-          href: luis-concept-review-endpoint-utterances.md
-        - name: Listas de frase
-          href: luis-concept-feature.md
         - name: Padrões
           href: luis-concept-patterns.md
           displayName: roles
+        - name: Recursos
+          href: luis-concept-feature.md
+    - name: Pontuação de previsão
+      href: luis-concept-prediction-score.md
+    - name: Práticas recomendadas
+      href: luis-concept-best-practices.md
+      displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
+    - name: Melhorar o desempenho do aplicativo
+      items:
+        - name: Examinar declarações de ponto de extremidade
+          href: luis-concept-review-endpoint-utterances.md
+    - name: Teste
+      items:
+        - name: Teste interativo
+          href: luis-concept-test.md
+        - name: Teste em lote
+          href: luis-concept-batch-test.md
+    - name: Chaves de criação e de runtime
+      displayName: 'shared, transfer, ownership, author, access, import'
+      href: luis-concept-keys.md
     - name: Gerenciamento de dados
       items:
         - name: Alterando dados
@@ -157,12 +145,9 @@
           displayName: roles
         - name: Armazenamento de dados
           href: luis-concept-data-storage.md
-    - name: Teste
-      items:
-        - name: Teste interativo
-          href: luis-concept-test.md
-        - name: Teste em lote
-          href: luis-concept-batch-test.md
+    - name: Usar o LUIS e o QnA Maker
+      href: choose-natural-language-processing-service.md
+      displayName: 'nlp, qna maker'
     - name: Enterprise
       items:
         - name: Estratégias de design
@@ -183,13 +168,7 @@
           href: luis-how-to-add-entities.md
           displayName: 'roles, import'
         - name: Usar modelos predefinidos
-          items:
-            - name: Usar domínios
-              href: luis-prebuilt-domains.md
-            - name: Usar intenções
-              href: luis-prebuilt-intent.md
-            - name: Usar entidades
-              href: luis-prebuilt-entities.md
+          href: howto-add-prebuilt-models.md
         - name: Com APIs REST
           items:
             - name: Compilar aplicativo programaticamente usando o Node.js
@@ -218,6 +197,7 @@
           href: luis-how-to-model-intent-pattern.md
     - name: Treinar
       href: luis-how-to-train.md
+      displayName: 'negative sampling, nondeterministic, non-deterministic, UseAllTrainingData'
     - name: Teste
       items:
         - name: Teste interativo
@@ -246,13 +226,17 @@
           diplayName: 'import, export, container'
         - name: Com o Gerenciador de Tráfego
           href: luis-traffic-manager.md
-    - name: Migrar API
+    - name: Usar APIs
       items:
-        - name: Migrar para API REST V2
-          href: luis-migration-api-v1-to-v2.md
-        - name: Migrar para API REST V3
+        - name: Para desenvolvedores
+          href: developer-reference-resource.md
+        - name: APIs de criação
+          href: luis-migration-api-authoring.md
+        - name: Migração para a API V3
           href: luis-migration-api-v3.md
           displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override'
+        - name: Migrar para API V2
+          href: luis-migration-api-v1-to-v2.md
     - name: Usar contêineres
       items:
         - name: Instalar e executar contêineres
@@ -262,6 +246,9 @@
           href: luis-container-configuration.md
         - name: Usar instâncias de contêiner
           href: deploy-luis-on-container-instances.md
+        - name: Limitações do contêiner
+          href: luis-container-limitations.md
+          displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
 - name: Referência
   items:
     - name: Privacidade do usuário
@@ -325,6 +312,8 @@
           href: reference-entity-regular-expression.md
         - name: Entidade simples
           href: reference-entity-simple.md
+    - name: Sentimento
+      href: luis-reference-prebuilt-sentiment.md
     - name: Recursos para desenvolvedores
       href: developer-reference-resource.md
       displayName: 'SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot'
@@ -334,9 +323,15 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092157'
     - name: APIs REST
       items:
-        - name: Criação de APIs REST V2
+        - name: APIs REST de criação da V3 (versão prévia)
+          href: 'https://aka.ms/luis-apim-v3-authoring'
+        - name: APIs REST de previsão da V3
+          href: 'https://aka.ms/luis-apim-v3-prediction'
+        - name: APIs REST de criação da V2
           href: 'https://go.microsoft.com/fwlink/?linkid=2092087'
-        - name: Ponto de extremidade da API REST V2
+        - name: APIs REST de previsão da V2
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
+        - name: API REST do Ponto de extremidade V3
           href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
         - name: Códigos HTTP
           displayName: '400, 401, 403, 409, 410, 414, 429'
@@ -347,7 +342,7 @@
           items:
             - name: NuGet – criação
               href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/'
-            - name: NuGet – tempo de execução
+            - name: NuGet – runtime
               href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/'
             - name: Referência
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet'
@@ -357,7 +352,7 @@
           items:
             - name: SDK – criação
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/authoring'
-            - name: SDK – tempo de execução
+            - name: SDK – runtime
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/runtime'
             - name: Referência
               href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis/'
@@ -365,7 +360,7 @@
           items:
             - name: Maven – criação
               href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring'
-            - name: Maven – tempo de execução
+            - name: Maven – runtime
               href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime'
             - name: Referência
               href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable'
@@ -375,7 +370,7 @@
           items:
             - name: NPM – criação
               href: 'https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring'
-            - name: NPM – tempo de execução
+            - name: NPM – runtime
               href: 'https://www.npmjs.com/package/azure-cognitiveservices-luis-runtime'
             - name: Exemplos
               href: 'https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples/luis'
@@ -413,7 +408,7 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Suporte de idioma e região
       href: luis-language-support.md
-      displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, Germain, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+      displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
     - name: Roteiro do Azure
       href: 'https://go.microsoft.com/fwlink/?linkid=2092089'
     - name: Glossário

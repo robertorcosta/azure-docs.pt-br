@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Documentação do Gerenciador de Firewall do Azure
+summary: Saiba como implantar o Gerenciador de Firewall do Azure, um serviço de gerenciamento de segurança globalmente distribuído.
+metadata:
+  title: Documentação do Gerenciador de Firewall do Azure
+  description: Saiba como implantar o Gerenciador de Firewall do Azure, um serviço de gerenciamento de segurança globalmente distribuído.
+  services: firewall
+  ms.service: firewall-manager
+  ms.topic: landing-page
+  author: vhorne
+  ms.author: victorh
+  ms.date: 10/10/2019
+  ms.openlocfilehash: e3b98f3954ee70b5e002bb844147d4d51b1f6d9d
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508662"
+landingContent:
+- title: Saiba mais sobre o Gerenciador de Firewall do Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Gerenciador de Firewall do Azure?
+      url: overview.md
+    - text: Visão geral da implantação
+      url: deployment-overview.md
+- title: Saiba mais sobre hubs virtuais seguros
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: O que é um hub virtual seguro?
+      url: secured-virtual-hub.md
+- title: Parceiros de segurança confiáveis
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: O que são parceiros de segurança confiáveis (versão prévia)?
+      url: trusted-security-partners.md
+  - linkListType: how-to-guide
+    links:
+    - text: Implante um parceiro de segurança confiável (versão prévia)
+      url: deploy-trusted-security-partner.md
+- title: Proteja sua rede de nuvem do Azure
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Proteja sua rede de nuvem usando o portal do Azure
+      url: secure-cloud-network.md

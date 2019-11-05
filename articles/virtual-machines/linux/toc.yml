@@ -137,6 +137,8 @@
           href: disk-encryption.md
         - name: Projetando para alto desempenho
           href: premium-storage-performance.md
+        - name: Intermitência de disco
+          href: disk-bursting.md
         - name: Metas da escalabilidade para os discos
           href: disk-scalability-targets.md
         - name: Backup e recuperação de desastres para discos

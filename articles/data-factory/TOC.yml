@@ -80,8 +80,12 @@
           items:
             - name: Ferramenta Copiar Dados
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-    - name: Transformar dados com o fluxo de dados de mapeamento
-      href: tutorial-data-flow.md
+    - name: Transformar e preparar dados com fluxos de dados
+      items:
+        - name: Transformar dados com um fluxo de dados de mapeamento
+          href: tutorial-data-flow.md
+        - name: Preparar dados com um fluxo de dados de estruturação
+          href: wrangling-data-flow-tutorial.md
     - name: Transformações externas
       items:
         - name: HDInsight Spark
@@ -141,30 +145,38 @@
       href: concepts-datasets-linked-services.md
     - name: Gatilhos e execução do pipeline
       href: concepts-pipeline-execution-triggers.md
-    - name: Tempo de execução de integração
+    - name: runtime de integração
       href: concepts-integration-runtime.md
-    - name: Fluxos de dados de mapeamento
+    - name: Fluxos de dados
       items:
-        - name: Visão geral do Fluxo de Dados de Mapeamento
-          href: concepts-data-flow-overview.md
-        - name: Modo de depuração
-          href: concepts-data-flow-debug-mode.md
-        - name: Manuseio de JSON
-          href: concepts-data-flow-json.md
-        - name: Descompasso de esquema
-          href: concepts-data-flow-schema-drift.md
-        - name: Padrões de coluna
-          href: concepts-data-flow-column-pattern.md
-        - name: Monitoramento de fluxo de dados
-          href: concepts-data-flow-monitoring.md
-        - name: Desempenho de fluxo de dados
-          href: concepts-data-flow-performance.md
-        - name: Mover nós
-          href: concepts-data-flow-move-nodes.md
-        - name: Construtor de expressões
-          href: concepts-data-flow-expression-builder.md
-        - name: Linguagem de expressão
-          href: data-flow-expression-functions.md
+        - name: Transformar dados com os fluxos de dados de mapeamento
+          items:
+            - name: Visão geral do Fluxo de Dados de Mapeamento
+              href: concepts-data-flow-overview.md
+            - name: Modo de depuração
+              href: concepts-data-flow-debug-mode.md
+            - name: Manuseio de JSON
+              href: concepts-data-flow-json.md
+            - name: Descompasso de esquema
+              href: concepts-data-flow-schema-drift.md
+            - name: Padrões de coluna
+              href: concepts-data-flow-column-pattern.md
+            - name: Monitoramento de fluxo de dados
+              href: concepts-data-flow-monitoring.md
+            - name: Desempenho de fluxo de dados
+              href: concepts-data-flow-performance.md
+            - name: Mover nós
+              href: concepts-data-flow-move-nodes.md
+            - name: Construtor de expressões
+              href: concepts-data-flow-expression-builder.md
+            - name: Linguagem de expressão
+              href: data-flow-expression-functions.md
+        - name: Preparar dados com fluxos de dados de estruturação
+          items:
+            - name: Visão geral do fluxo de dados de estruturação
+              href: wrangling-data-flow-overview.md
+            - name: Funções compatíveis
+              href: wrangling-data-flow-functions.md
     - name: Funções e permissões
       href: concepts-roles-permissions.md
     - name: Noções básicas sobre preços
@@ -506,7 +518,7 @@
           href: data-movement-security-considerations.md
         - name: Armazenar credenciais no Azure Key Vault
           href: store-credentials-in-key-vault.md
-        - name: Criptografar credenciais de tempo de execução de integração auto-hospedado
+        - name: Criptografar credenciais de runtime de integração auto-hospedada
           href: encrypt-credentials-self-hosted-integration-runtime.md
         - name: Identidade gerenciada para o Data Factory
           href: data-factory-service-identity.md
@@ -518,23 +530,23 @@
           href: monitor-using-azure-monitor.md
         - name: Monitorar com SDKs
           href: monitor-programmatically.md
-        - name: Monitorar tempo de execução de integração
+        - name: Monitorar runtime de integração
           href: monitor-integration-runtime.md
-        - name: Monitorar tempo de execução de integração do Azure-SSIS
+        - name: Monitorar runtime de integração do Azure-SSIS
           href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
-        - name: Reconfigurar a execução de integração do Azure-SSIS
+        - name: Reconfigurar o runtime de integração do Azure-SSIS
           href: manage-azure-ssis-integration-runtime.md
         - name: Copiar ou clonar um data factory
           href: copy-clone-data-factory.md
-    - name: Criar tempo de execução de integração
+    - name: Criar runtime de integração
       items:
-        - name: Integration Runtime do Azure
+        - name: Azure Integration runtime
           href: create-azure-integration-runtime.md
-        - name: Tempo de execução de integração auto-hospedado
+        - name: runtime de integração auto-hospedada
           href: create-self-hosted-integration-runtime.md
-        - name: Tempo de execução de integração do Azure-SSIS
+        - name: runtime de integração do Azure-SSIS
           href: create-azure-ssis-integration-runtime.md
-        - name: Tempo de execução da integração auto-hospedada compartilhado
+        - name: runtime de integração auto-hospedada compartilhado
           href: create-shared-self-hosted-integration-runtime-powershell.md
     - name: Executar pacotes SSIS no Azure
       items:
@@ -546,7 +558,7 @@
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: Executar pacotes SSIS com a atividade de Procedimento Armazenado
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
-        - name: Agendar execução de integração do Azure-SSIS
+        - name: Agendar o runtime de integração do Azure-SSIS
           href: how-to-schedule-azure-ssis-integration-runtime.md
         - name: Unir o IR do Azure-SSIS a uma rede virtual
           href: join-azure-ssis-integration-runtime-virtual-network.md

@@ -1,0 +1,37 @@
+### YamlMime:Landing
+title: Azure Arc
+summary: O Azure Arc estende as funcionalidades do Azure Resource Manager para servidores Linux e Windows, bem como clusters Kubernetes em qualquer infraestrutura local, em várias nuvens e na borda. Com o Azure Arc, os clientes também podem executar serviços de dados do Azure em qualquer lugar, obtendo os benefícios da inovação de nuvem, incluindo funcionalidades de dados sempre atualizadas, implantação em segundos (em vez de em horas) e escalabilidade dinâmica em qualquer infraestrutura. No momento, o Azure Arc para servidores está em versão prévia pública.
+metadata:
+  title: Azure Arc para servidores
+  description: Aprenda a gerenciar computadores locais no Azure
+  author: bobbytreed
+  manager: carmonm
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 11/04/2019
+  ms.author: robreed
+  ms.openlocfilehash: 2ff0b9a194faf4d5a6b9e5181c52dc135208bdee
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508543"
+landingContent:
+- title: Visão geral do Azure Arc
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Saiba mais sobre o Azure Arc
+      url: https://aka.ms/Azure-Arc-Info
+- title: Conectar computadores ao Azure usando o Azure Arc para servidores
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure Arc para servidores?
+      url: ./servers/overview.md
+  - linkListType: quickstart
+    links:
+    - text: Conectar computadores ao Azure usando o Azure Arc para servidores – Portal
+      url: ./servers/quickstart-onboard-portal.md
+    - text: Conectar computadores ao Azure usando o Azure Arc para servidores – PowerShell
+      url: ./servers/quickstart-onboard-portal.md
