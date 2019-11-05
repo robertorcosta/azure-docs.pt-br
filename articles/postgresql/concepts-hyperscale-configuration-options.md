@@ -1,44 +1,56 @@
 ---
-title: Banco de dados do Azure para PostgreSQL – em hiperescala (Citus) (visualização) opções de desempenho
-description: Opções para um grupo de servidores em hiperescala (Citus), incluindo regiões, armazenamento e computação de nós.
+title: Banco de dados do Azure para PostgreSQL – opções de desempenho de Citus (hiperescala)
+description: Opções para um grupo de servidores de hiperescala (Citus), incluindo computação de nó, armazenamento e regiões.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: e8c1c2e51ca14ae9b17f0d7efb20552cdd55139b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/17/2019
+ms.openlocfilehash: 2b848827d3d2017e5e787989553c0bf1e26d48e7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65077284"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482636"
 ---
-# <a name="azure-database-for-postgresql--hyperscale-citus-preview-performance-options"></a>Banco de dados do Azure para PostgreSQL – em hiperescala (Citus) (visualização) opções de desempenho
+# <a name="azure-database-for-postgresql--hyperscale-citus-performance-options"></a>Banco de dados do Azure para PostgreSQL – opções de desempenho de Citus (hiperescala)
 
 ## <a name="compute-and-storage"></a>Computação e armazenamento
  
-Você pode selecionar as configurações de computação e armazenamento independentemente para nós de trabalho e o nó coordenador em um grupo de servidor em hiperescala (Citus).  Os recursos de computação são fornecidos como vCores, que representam a CPU lógica do hardware subjacente. O tamanho do armazenamento para o provisionamento se refere à capacidade disponível para os nós do coordenador e de trabalho em seu grupo de servidores em hiperescala (Citus). O armazenamento inclui arquivos de banco de dados, arquivos temporários, logs de transações e os logs do servidor Postgres. A quantidade total de armazenamento que você provisiona também define a capacidade de e/s disponível para cada nó coordenador e de trabalho.
+Você pode selecionar as configurações de computação e armazenamento independentemente para nós de trabalho e o nó de coordenador em um grupo de servidores de hiperescala (Citus).  Os recursos de computação são fornecidos como vCores, que representam a CPU lógica do hardware subjacente. O tamanho do armazenamento para provisionamento refere-se à capacidade disponível para os nós de coordenador e de trabalho em seu grupo de servidores de hiperescala (Citus). O armazenamento inclui arquivos de banco de dados, arquivos temporários, logs de transações e logs do servidor Postgres. A quantidade total de armazenamento que você provisiona também define a capacidade de e/s disponível para cada nó de trabalho e coordenador.
  
-|                       | Nó de trabalho           | Nó coordenador      |
+|                       | Nó de trabalho           | Nó de coordenador      |
 |-----------------------|-----------------------|-----------------------|
-| Computação, vCores       | 4, 8, 16, 32          | 4, 8, 16, 32          |
+| Computação, vCores       | 4, 8, 16, 32, 64      | 4, 8, 16, 32, 64      |
 | Memória por vCore, GiB | 8                     | 4                     |
-| Tamanho de armazenamento, TiB     | 0.5, 1, 2             | 0.5, 1, 2             |
+| Tamanho do armazenamento, TiB     | 0,5, 1, 2             | 0,5, 1, 2             |
 | Tipo de armazenamento          | Uso geral (SSD) | Uso geral (SSD) |
 | IOPS                  | Até 3 IOPS/GiB      | Até 3 IOPS/GiB      |
 
 
 ## <a name="regions"></a>Regiões
-Grupos de servidores em hiperescala (Citus) estão disponíveis nas seguintes regiões do Azure:
-* Leste dos EUA 2
-* Sudeste da Ásia
-* Europa Ocidental
-* Oeste dos EUA 2
+Os grupos de servidores de hiperescala (Citus) estão disponíveis nas seguintes regiões do Azure:
+
+* Américas:
+    * Centro-Canadá *
+    * Leste dos EUA
+    * Leste dos EUA 2
+    * EUA Central norte *
+    * Oeste dos EUA 2
+* Pacífico Asiático:
+    * Leste da Austrália *
+    * Sudeste Asiático
+* Européia
+    * Norte da Europa
+    * Sul do Reino Unido
+    * Europa Ocidental
+
+As regiões com um asterisco (\*) ainda não dão suporte à [alta disponibilidade](concepts-hyperscale-high-availability.md).
 
 ## <a name="pricing"></a>Preços
 Para as informações mais recentes sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) do serviço.
-Para ver o custo para a configuração desejada, o [portal do Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) mostra o custo mensal na **configurar** guia com base nas opções que você selecionar. Se você não tiver uma assinatura do Azure, poderá usar a calculadora de preços do Azure para obter um preço estimado. Sobre o [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) site, selecione **adicionar itens**, expanda o **bancos de dados** categoria e escolha **banco de dados do Azure para PostgreSQL – Hiperescala (Citus)** para personalizar as opções.
+Para ver o custo da configuração desejada, o [portal do Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) mostra o custo mensal na guia **Configurar** com base nas opções selecionadas. Se você não tem uma assinatura do Azure, pode a calculadora de preços do Azure para obter um preço estimado. No site da [calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) , selecione **Adicionar itens**, expanda a categoria **bancos** de dados e escolha **banco de dados do Azure para PostgreSQL – Citus (hiperescala)** para personalizar as opções.
  
 ## <a name="next-steps"></a>Próximas etapas
-Saiba como [criar um grupo de servidores em hiperescala (Citus) no portal do](quickstart-create-hyperscale-portal.md).
+Saiba como [criar um grupo de servidores do Citus (hiperescala) no portal](quickstart-create-hyperscale-portal.md).

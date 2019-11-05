@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c34f59c3e9f679adf8ae410f648cb7de6dba6447
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: daaced0aae595e839f2b2476562fc5caffb63640
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430046"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473930"
 ---
 #  <a name="adopting-azure-ad-conditional-access"></a>Adotando o acesso condicional do Azure AD
 
@@ -33,7 +33,7 @@ Os principais benefícios de usar o acesso condicional do Azure AD são:
 * **Atender à conformidade e governança:** A auditoria de solicitações de acesso e aprovações para o aplicativo e a compreensão do uso geral do aplicativo é mais fácil com o Azure AD, pois oferece suporte a logs de auditoria nativos para cada solicitação de acesso do aplicativo executada. A auditoria inclui a identidade do solicitante, a data solicitada, a justificativa de negócios, o status de aprovação e a identidade do aprovador. Esses dados também estão disponíveis em uma API, o que permitirá a importação desses dados em um sistema de opções de SIEM (monitoramento de eventos e incidentes de segurança) de sua escolha.
 * **Gerenciar custo:** Mover as políticas de acesso para o Azure AD reduz a dependência em soluções personalizadas ou locais, como o Serviços de Federação do Active Directory (AD FS) (ADFS) para acesso condicional, reduzindo o custo da execução dessa infraestrutura.
 
-## <a name="customer-case-studies"></a>Estudos de caso de clientes
+## <a name="customer-case-studies"></a>Estudos de caso de cliente
 
 Descubra como a maioria das organizações usa o acesso condicional do Azure AD para definir e implementar decisões de controle de acesso automatizadas para acessar aplicativos de nuvem com base em condições. As seguintes histórias em destaque demonstram como essas necessidades do cliente são atendidas.
 
@@ -43,7 +43,7 @@ Descubra como a maioria das organizações usa o acesso condicional do Azure AD 
 
 Para saber mais sobre as experiências de clientes e parceiros no acesso condicional do Azure AD, visite- [Veja as coisas incríveis que as pessoas estão fazendo com o Azure](https://azure.microsoft.com/case-studies/?service=active-directory).
 
-## <a name="announcements"></a>Comunicados
+## <a name="announcements"></a>Anúncios
 
 O Azure AD recebe melhorias de forma contínua. Para se manter atualizado com os desenvolvimentos mais recentes, consulte [o que há de novo na Azure Active Directory?](../fundamentals/whats-new.md)
 
@@ -104,7 +104,7 @@ Consulte os seguintes cursos de acesso condicional e muito mais em [pluralsight.
 * O ' Reilly- [implementando o Azure Solutions-Second Edition.](https://www.oreilly.com/library/view/implementing-azure-solutions/9781789343045/b7ead3db-eb1c-4ace-897e-86ee25ea86be.xhtml)
    * "Comece a executar com os serviços do Azure e saiba como implementá-los em sua organização. O acesso condicional do Azure AD é abordado no capítulo [Implantando e sincronizando Azure Active Directory](https://learning.oreilly.com/library/view/implementing-azure-solutions/9781789343045/02ca8bba-08cf-4691-a7d0-1b96e286e7ea.xhtml). "
 
-* Wiley [serviços de infraestrutura de Microsoft Azure de mestre](https://www.wiley.com/Mastering+Microsoft+Azure+Infrastructure+Services-p-9781119003298)
+* [Serviços de infraestrutura Wiley-Microsoft Azure para arquitetos: Projetando soluções de nuvem](https://www.wiley.com/Microsoft+Azure+Infrastructure+Services+for+Architects%3A+Designing+Cloud+Solutions-p-9781119596547)
    * "Aqui está tudo o que você precisa para entender, avaliar, implantar e manter ambientes que utilizam Microsoft Azure".
 
 ## <a name="white-papers"></a>White papers
@@ -154,6 +154,6 @@ Aqui estão links úteis para ajudá-lo a começar:
 
 O acesso condicional usa outros recursos do Azure AD que podem afetar a experiência do usuário final. Por exemplo, você pode usar a autenticação multifator do Azure para habilitar a autenticação forte para usuários. Nesse caso, você usará os modelos de usuário final do Azure MFA.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Inicie sua implantação com a [documentação de planejamento de implantação de acesso condicional](plan-conditional-access.md).

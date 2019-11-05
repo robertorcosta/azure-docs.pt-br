@@ -3,17 +3,17 @@ title: Gerenciar autenticação no Azure Mapas | Microsoft Docs
 description: Você pode usar o portal do Azure para gerenciar a autenticação no Azure Mapas.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/11/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2f4a3d791e6b5d6ff20c09408d1a0bf5995c32fd
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 496edb4f3528daa5bd06193383f0277922e8a93a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756571"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478774"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerenciar autenticação no Azure Mapas
 
@@ -32,7 +32,7 @@ Você pode exibir os detalhes de autenticação no portal do Azure. Vá para sua
 
 Depois de criar uma conta do Azure Maps, você precisa estabelecer um vínculo entre o locatário do Azure AD e o recurso do Azure Maps.
 
-1. Vá para a folha do Azure AD e crie um registro de aplicativo. Forneça um nome para o registro. Na caixa **URL de logon** , forneça o home page do aplicativo Web/API (por exemplo, https: \//localhost/). Se você já tiver um aplicativo registrado, vá para a etapa 2.
+1. Vá para a folha do Azure AD e crie um registro de aplicativo. Forneça um nome para o registro. Na caixa **URL de logon** , forneça o home page do aplicativo Web/API (por exemplo, https:\//localhost/). Se você já tiver um aplicativo registrado, vá para a etapa 2.
 
     ![Registro do aplicativo](./media/how-to-manage-authentication/app-registration.png)
 
@@ -65,7 +65,7 @@ Depois de associar uma conta do Azure Maps ao seu locatário do Azure AD, você 
 
     ![Conceder RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. Na janela **Adicionar atribuição de função** , em **função**, selecione **leitor de data do Azure Maps (versão prévia)** . Em **Atribuir acesso a**, selecione **Usuário, grupo ou entidade de serviço do Azure AD**. Em **selecionar**, selecione o usuário ou aplicativo. Clique em **Salvar**.
+2. Na janela **Adicionar atribuição de função** , em **função**, selecione **leitor de data do Azure Maps (versão prévia)** . Em **Atribuir acesso a**, selecione **Usuário, grupo ou entidade de serviço do Azure AD**. Em **selecionar**, selecione o usuário ou aplicativo. Selecione **Salvar**.
 
     ![Adicionar atribuição de função](./media/how-to-manage-authentication/add-role-assignment.png)
 
@@ -91,12 +91,17 @@ Depois de registrar seu aplicativo e associo-lo ao Azure Maps, você pode solici
 
 * Se seu aplicativo usar a autenticação de token de usuário com o SDK da Web do Azure Maps, você precisará configurar sua página HTML com a ID do cliente do Azure Maps e a ID do aplicativo do Azure AD.
 
-* Se seu aplicativo usar a autenticação de servidor/aplicativo, você precisará solicitar um token do ponto de extremidade de logon do Azure AD `https://login.microsoftonline.com` com a ID de recurso do Azure AD `https://atlas.microsoft.com/`, a ID do cliente do Azure Maps, a ID do aplicativo do Azure AD e a senha de registro do aplicativo do Azure AD ou Certificate.
+* Se seu aplicativo usar a autenticação de servidor/aplicativo, você precisará solicitar um token do ponto de extremidade de token do Azure AD `https://login.microsoftonline.com` com a ID de recurso do Azure AD `https://atlas.microsoft.com/`, a ID do cliente do Azure Maps, a ID do aplicativo do Azure AD e a senha de registro do aplicativo do Azure AD ou Certificate.
+
+| Azure Environment   | Ponto de extremidade de token do Azure AD | ID do recurso do Azure |
+| --------------------|-------------------------|-------------------|
+| Público do Azure        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
+| Azure Government    | https://login.microsoftonline.us  | https://atlas.microsoft.com/ | 
 
 Para obter mais informações sobre como solicitar tokens de acesso do Azure AD para usuários e entidades de serviço, consulte [cenários de autenticação do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a autenticação do Azure AD e o SDK da Web do Azure Mapas, consulte [Azure AD e o SDK da Web do Azure Mapas](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
 

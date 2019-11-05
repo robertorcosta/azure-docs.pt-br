@@ -1,5 +1,5 @@
 ---
-title: Migrar clusters de Apache Hadoop locais para o Azure HDInsight-Storage
+title: 'Armazenamento: migrar Apache Hadoop locais para o Azure HDInsight'
 description: Aprenda as práticas de armazenamento para migrar clusters do Hadoop locais para o Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9b246fe9b09f2939663b4fb74ee1da703264d533
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: b22c3c7e7dbbf7a93fff10ded1fbb7bef8fc5900
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028932"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494958"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrar clusters de Apache Hadoop locais para o Azure HDInsight
 
@@ -25,7 +25,7 @@ A estrutura do diretório do HDFS (Sistema de Arquivos do Apache Hadoop) local p
 
 ### <a name="azure-storage"></a>Armazenamento do Azure
 
-Os clusters do HDInsight podem usar o contêiner de blobs no Armazenamento do Azure como o sistema de arquivos padrão ou um sistema de arquivos adicional. A conta de armazenamento da camada Standard tem suporte para uso com clusters do HDInsight. A camada Premier não é compatível. O contêiner de blob padrão armazena informações específicas do cluster como logs e o histórico do trabalho. Não há suporte para o compartilhamento de um contêiner de blobs como o sistema de arquivos padrão para vários clusters.
+Os clusters do HDInsight podem usar o contêiner de blobs no Armazenamento do Azure como o sistema de arquivos padrão ou um sistema de arquivos adicional. A conta de armazenamento de camada Standard tem suporte para uso com clusters HDInsight. A camada Premier não é compatível. O contêiner de blob padrão armazena informações específicas do cluster como logs e o histórico do trabalho. Não há suporte para o compartilhamento de um contêiner de blob como o sistema de arquivos padrão para vários clusters.
 
 As contas de armazenamento definidas no processo de criação e suas respectivas chaves são armazenadas no `%HADOOP_HOME%/conf/core-site.xml` em nós de cluster. Também podem ser acessadas na seção "Site principal personalizado" na configuração do HDFS na interface do usuário do Ambari. A chave de conta de armazenamento é criptografada por padrão e um script personalizado de descriptografia é usado para descriptografar as chaves antes que elas sejam passadas para daemons do Hadoop. Os trabalhos incluindo Hive, MapReduce, streaming de Hadoop e Pig contêm uma descrição de contas de armazenamento e dos metadados com elas.
 
@@ -35,9 +35,9 @@ Um dos formatos a seguir pode ser usado para acessar dados armazenados no Armaze
 
 |Formato de Acesso a Dados |DESCRIÇÃO |
 |---|---|
-|`wasb:///`|Acessar o armazenamento padrão usando comunicação não criptografada.|
+|`wasb:///`|Acesse o armazenamento padrão usando comunicação não criptografada.|
 |`wasbs:///`|Acessar o armazenamento padrão usando comunicação criptografada.|
-|`wasb://<container-name>@<account-name>.blob.core.windows.net/`|Usado ao se comunicar com uma conta de armazenamento não padrão. |
+|`wasb://<container-name>@<account-name>.blob.core.windows.net/`|Usado ao comunicar-se com uma conta de armazenamento não padrão. |
 
 
 [Metas de Desempenho e Escalabilidade do Armazenamento do Azure](../../storage/common/storage-scalability-targets.md) lista os limites atuais em contas de Armazenamento do Azure. Se as necessidades do aplicativo excederem as metas de escalabilidade de uma única conta de armazenamento, o aplicativo poderá ser criado para usar múltiplas contas de armazenamento e fazer o particionamento dos objetos de dados nessas contas de armazenamento.
@@ -71,7 +71,7 @@ Verifique se o certificado adicionado está no repositório de confiança
 keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 ```
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 
 - [Usar o Armazenamento do Azure com clusters do Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 - [Metas de desempenho e escalabilidade do Armazenamento do Azure](../../storage/common/storage-scalability-targets.md)
@@ -83,7 +83,7 @@ Para obter mais informações, confira os seguintes artigos:
 
 O Azure Data Lake Storage implementa o modelo de controle de acesso estilo HDFS e POSIX. Ele fornece integração de primeira classe com o AAD para o controle de acesso refinado. Não há limite ao tamanho dos dados que ele pode armazenar nem à sua capacidade de executar análises massivamente paralelas.
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 
 - [Criar clusters HDInsight com o Data Lake Storage usando o portal do Azure](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Usar o Data Lake Storage com clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-store.md)
@@ -94,25 +94,25 @@ Azure Data Lake Storage Gen2 é a oferta de armazenamento mais recente. Ele unif
 
 O ADLS Gen 2 baseia-se na parte superior do [Armazenamento de Blobs do Azure](../../storage/blobs/storage-blobs-introduction.md) e permite que você faça interface com os dados usando os paradigmas de armazenamento de objeto e sistema de arquivos. Os recursos do [Azure Data Lake Storage Gen1](../../data-lake-store/index.md), como semântica do sistema de arquivos, segurança e escala em nível de arquivo, são combinados com armazenamento em camadas de baixo custo, alta disponibilidade/recursos de recuperação de desastre e um grande SDK/ecossistema de ferramentas do [Armazenamento de Blobs do Azure](../../storage/blobs/storage-blobs-introduction.md). No Data Lake Storage Gen2, todas as qualidades de armazenamento de objetos permanecem enquanto se adicionam as vantagens de uma interface de sistema de arquivos otimizada para cargas de trabalho de análise.
 
-Um recurso fundamental do Data Lake Storage Gen2 é a adição de um [namespace hierárquico](../../storage/data-lake-storage/namespace.md) ao serviço de Armazenamento de Blobs, que organiza objetos/arquivos em uma hierarquia de diretórios para acesso a dados de alto desempenho. A estrutura hierárquica permite que operações como renomear ou excluir um diretório sejam operações únicas de metadados atômicos no diretório, em vez de enumerar e processar todos os objetos que compartilham o prefixo de nome do diretório.
+Um recurso fundamental do Data Lake Storage Gen2 é a adição de um [namespace hierárquico](../../storage/data-lake-storage/namespace.md) ao serviço de Armazenamento de Blobs, que organiza objetos/arquivos em uma hierarquia de diretórios para acesso a dados de alto desempenho. A estrutura hierárquica permite que operações como renomear ou excluir um diretório sejam operações de metadados atômicas únicas no diretório, em vez de enumerar e processar todos os objetos que compartilham o prefixo de nome do diretório.
 
 No passado, a análise baseada na nuvem tinha que se comprometer em áreas de desempenho, gerenciamento e segurança. Os principais recursos do ADLS (Azure Data Lake Storage) Gen2 são os seguintes:
 
-- **Acesso compatível com Hadoop**: O Azure Data Lake Storage Gen2 permite gerenciar e acessar dados como faria com um  [HDFS (Sistema de Arquivos Distribuído) do Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). O novo [driver ABFS](../../storage/data-lake-storage/abfs-driver.md) está disponível em todos os ambientes Apache Hadoop incluídos no [Azure HDInsight](../index.yml). Esse driver permite que você acesse dados armazenados no Data Lake Storage Gen2.
+- **Acesso compatível com Hadoop**: O Azure Data Lake Storage Gen2 permite gerenciar e acessar dados como você faria com um [HDFS (Sistema de Arquivos Distribuído do Hadoop)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). O novo [driver ABFS](../../storage/data-lake-storage/abfs-driver.md) está disponível em todos os ambientes Apache Hadoop incluídos no [Azure HDInsight](../index.yml). Esse driver permite que você acesse dados armazenados no Data Lake Storage Gen2.
 
-- **Um superconjunto de permissões POSIX**: O modelo de segurança do Azure Data Lake Gen2 dá suporte pleno a permissões POSIX e ACL juntamente com alguma granularidade adicional específica para o Azure Data Lake Storage Gen2. As configurações podem ser definidas por meio de ferramentas de administração ou por meio de estruturas, como Hive e Spark.
+- **Um superconjunto de permissões POSIX**: o modelo de segurança para o Data Lake Gen2 é totalmente compatível com as permissões ACL e POSIX, juntamente com alguma granularidade extra específica para o Data Lake Storage Gen2. As configurações podem ser definidas por meio de ferramentas de administração ou por meio de estruturas, como Hive e Spark.
 
-- **Econômico**: Azure Data Lake Storage Gen2 apresenta capacidade de armazenamento e transações de baixo custo. Conforme os dados fazem a transição em todo o ciclo de vida, as taxas de cobrança mudam para minimizar os custos por meio de recursos internos, como [Ciclo de vida de Armazenamento de Blobs do Azure](../../storage/common/storage-lifecycle-management-concepts.md).
+- **Econômico**: Data Lake Storage O Gen2 apresenta capacidade de armazenamento e transações de baixo custo. Conforme os dados fazem a transição em todo o ciclo de vida, as taxas de cobrança mudam para minimizar os custos por meio de recursos internos, como [Ciclo de vida de Armazenamento de Blobs do Azure](../../storage/common/storage-lifecycle-management-concepts.md).
 
-- **Funciona com aplicativos, estruturas e ferramentas de armazenamento de Blob**: O Data Lake Storage Gen2 continua funcionando com uma ampla matriz de ferramentas, estruturas e aplicativos que atualmente existem para armazenamento de Blobs.
+- **Funciona com ferramentas, estruturas e aplicativos de armazenamento do Blob**: Data Lake Storage O Gen2 continua a trabalhar com uma grande variedade de ferramentas, estruturas e aplicativos que existem hoje para o armazenamento do Blob.
 
-- **Driver otimizado**: O driver ABFS (Sistema de Arquivos de Blob do Azure) é [otimizado especificamente](../../storage/data-lake-storage/abfs-driver.md) para análise de Big Data. As APIs REST correspondentes são exibidas por meio do ponto de extremidade DFS, dfs.core.windows.net.
+- **Driver otimizado**: o driver ABFS (Sistema de Arquivos de Blob do Azure) é [otimizado especificamente](../../storage/data-lake-storage/abfs-driver.md) para análise de Big Data. As APIs REST correspondentes são exibidas por meio do ponto de extremidade DFS, dfs.core.windows.net.
 
 Um dos formatos a seguir pode ser usado para acessar dados armazenados no ADLS Gen2:
-- `abfs:///`: Acessar o Data Lake Storage padrão para o cluster.
-- `abfs://file_system@account_name.dfs.core.windows.net`: Utilizado ao se comunicar com uma conta do Data Lake Storage não padrão.
+- `abfs:///`: acessar o Data Lake Storage padrão para o cluster.
+- `abfs://file_system@account_name.dfs.core.windows.net`: utilizado ao se comunicar com uma conta do Data Lake Storage não padrão.
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 
 - [Introdução ao Azure Data Lake Storage Gen2](../../storage/data-lake-storage/introduction.md)
 - [O driver do Sistema de Arquivos de Blobs do Azure (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
@@ -193,16 +193,16 @@ Para obter mais informações, confira [Usar Assinaturas de Acesso Compartilhado
 
 ## <a name="use-data-encryption-and-replication"></a>Usar criptografia de dados e replicação
 
-Todos os dados gravados no Armazenamento do Azure são criptografados automaticamente usando a [SSE (Criptografia do Serviço de Armazenamento)](../../storage/common/storage-service-encryption.md). Os dados na conta de Armazenamento do Azure sempre são replicados para alta disponibilidade. Ao criar uma conta de armazenamento, deve selecionar uma das seguintes opções de replicação:
+Todos os dados gravados no Armazenamento do Azure são criptografados automaticamente usando a [SSE (Criptografia do Serviço de Armazenamento)](../../storage/common/storage-service-encryption.md). Os dados na conta de Armazenamento do Azure sempre são replicados para alta disponibilidade. Ao criar uma conta de armazenamento, você pode escolher uma das seguintes opções de replicação:
 
 - [Armazenamento com redundância local (LRS)](../../storage/common/storage-redundancy-lrs.md)
 - [Armazenamento com redundância de zona (ZRS)](../../storage/common/storage-redundancy-zrs.md)
 - [Armazenamento com redundância geográfica (GRS)](../../storage/common/storage-redundancy-grs.md)
 - [Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
-O Azure Data Lake Storage fornece LRS (armazenamento com redundância local), mas você também deve copiar dados críticos para outra conta do Data Lake Storage em outra região com uma frequência alinhada às necessidades do plano de recuperação de desastres. Há uma variedade de métodos para copiar dados, incluindo [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), DistCp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md) ou [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). Também é recomendável impor políticas de acesso para a conta do Data Lake Storage para evitar exclusão acidental.
+O Azure Data Lake Storage fornece LRS (armazenamento com redundância local), mas você também deve copiar dados críticos para outra conta do Data Lake Storage em outra região com uma frequência alinhada às necessidades do plano de recuperação de desastres. Há uma variedade de métodos para copiar dados, incluindo [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), DistCp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md)ou [Azure data Factory](../../data-factory/connector-azure-data-lake-store.md). Também é recomendável impor políticas de acesso para Data Lake Storage conta para evitar a exclusão acidental.
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 
 - [Replicação do Armazenamento do Azure](../../storage/common/storage-redundancy.md)
 - [Orientação sobre desastres para o ADLS (Azure Data Lake Storage)](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
@@ -218,7 +218,7 @@ A conta de armazenamento extra pode ser adicionada das seguintes maneiras:
 > [!Note]
 > Em casos de uso válidos, os limites de Armazenamento do Azure podem ser aumentados por meio de uma solicitação feita ao [Suporte do Azure](https://azure.microsoft.com/support/faq/).
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 - [Adicionar outras contas de armazenamento ao HDInsight](../hdinsight-hadoop-add-storage.md)
 
 ## <a name="next-steps"></a>Próximas etapas

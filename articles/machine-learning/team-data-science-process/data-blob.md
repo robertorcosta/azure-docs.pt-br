@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a91c4d9f5dcdcee436f2dbf012eb5485b7a92192
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d056226ce8ade93e63d7bca49b975a6983dc126a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60398529"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492423"
 ---
 # <a name="heading"></a>Processar dados de blob do Azure com análises avançadas
 Este documento aborda a exploração de dados e a geração de recursos por meio dos dados armazenados no Armazenamento de Blob do Azure. 
@@ -48,7 +48,7 @@ Para explorar e manipular um conjunto de dados, ele deve ser baixado da fonte de
 
 Agora você está pronto para explorar os dados e gerar recursos neste conjunto de dados.
 
-## <a name="blob-dataexploration"></a>Exploração de Dados
+## <a name="blob-dataexploration"></a>Exploração de dados
 Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 
 1. Verificar o número de linhas e colunas 
@@ -131,7 +131,7 @@ Para gerar recursos compartimentalizados, faça o seguinte:
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no Azure Machine Learning
-Depois de explorar os dados e criar os recursos necessários, você pode carregar os dados (amostrados ou destacados) para um blob do Azure e consumi-los no Azure Machine Learning usando as seguintes etapas: Observe que os recursos adicionais também podem ser criados no Azure Machine Learning Studio. 
+Depois de explorar os dados e criar os recursos necessários, você pode carregar os dados (amostras ou destacados) em um blob do Azure e consumi-los em Azure Machine Learning usando as seguintes etapas: Observe que recursos adicionais podem ser criados no computador do Azure Learning Studio (clássico) também. 
 
 1. Grave o quadro de dados no arquivo local
    

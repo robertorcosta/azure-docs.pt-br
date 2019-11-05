@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab1caeb59cf7fc0a6baef5ba0001e734a75fccd2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 25d1aec836f66ae2ebc007e920cf6ef8a4450919
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72758228"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473337"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planejar uma implantação de provisionamento de usuário automático
 
@@ -63,20 +63,20 @@ Este artigo usa os seguintes termos:
 
 * Sistema de destino – o repositório de usuários ao qual o Azure AD provisiona. O sistema de destino é normalmente um aplicativo SaaS, como ServiceNow, Zscaler e margem de atraso. O sistema de destino também pode ser um sistema local, como o AD.
 
-* [Sistema para scim (gerenciamento de identidade entre domínios)](http://www.simplecloud.info/)) -Um padrão aberto que permite a automação do provisionamento do usuário. O SCIM comunica dados de identidade do usuário entre provedores de identidade, como a Microsoft, e provedores de serviço como o Salesforce ou outros aplicativos SaaS que exigem informações de identidade do usuário.
+* [Sistema para scim (gerenciamento de identidade entre domínios)](https://aka.ms/scimoverview) – um padrão aberto que permite a automação do provisionamento do usuário. O SCIM comunica dados de identidade do usuário entre provedores de identidade, como a Microsoft, e provedores de serviço como o Salesforce ou outros aplicativos SaaS que exigem informações de identidade do usuário.
 
 ### <a name="training-resources"></a>Recursos de treinamento
 
-| Implante| Link e descrição |
+| Recursos| Link e descrição |
 | - | - |
 | Webinars sob demanda| [Gerenciar seus aplicativos empresariais com o Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Saiba como o Azure AD pode ajudá-lo a obter o SSO para seus aplicativos SaaS corporativos e as práticas recomendadas para controlar o acesso. |
-| vídeos| [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Como implantar o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrando o Salesforce ao Azure AD: como automatizar o provisionamento de usuários](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| Vídeos| [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Como implantar o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrando o Salesforce ao Azure AD: como automatizar o provisionamento de usuários](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Cursos online| SkillUp online: [Gerenciando identidades](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Saiba como integrar o Azure AD com muitos aplicativos SaaS e proteger o acesso do usuário a esses aplicativos. |
 | Informática| [Autenticação moderna com Azure Active Directory para aplicativos Web (referência do desenvolvedor) 1ª edição](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Este é um guia autoritativo e aprofundado para a criação de soluções de autenticação Active Directory para esses novos ambientes. |
 | Tutoriais| Consulte a [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure ad](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list). |
-| Perguntas Frequentes| [Perguntas](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) frequentes sobre o provisionamento automatizado de usuários |
+| Perguntas frequentes| [Perguntas](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) frequentes sobre o provisionamento automatizado de usuários |
 
-### <a name="solution-architectures"></a>Arquiteturas para soluções
+### <a name="solution-architectures"></a>Arquiteturas de solução
 
 O serviço de provisionamento do Azure AD provisiona usuários para aplicativos SaaS e outros sistemas conectando-se aos pontos de extremidade da API de gerenciamento de usuários fornecidos por cada fornecedor de aplicativos. Esses pontos de extremidade de API de gerenciamento permitem que o Azure AD crie, atualize e remova usuários por meio de programação.
 
@@ -282,6 +282,8 @@ Após um [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manag
 
 Para examinar esses eventos e todas as outras atividades executadas pelo serviço de provisionamento, consulte [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context)do Azure AD.
 
+Para entender quanto tempo os ciclos de provisionamento levam e monitoram o progresso do trabalho de provisionamento, você pode [verificar o status do provisionamento do usuário](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
+
 ### <a name="gain-insights-from-reports"></a>Obter informações de relatórios
 
 O Azure AD pode fornecer [informações adicionais](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) sobre o uso de provisionamento de usuário da sua organização e a integridade operacional por meio de relatórios e logs de auditoria.
@@ -316,7 +318,7 @@ Consulte os links a seguir para solucionar quaisquer problemas que possam ser re
 
 * [Agente de provisionamento do Azure AD Connect: histórico de lançamento de versão](https://docs.microsoft.com/azure/active-directory/manage-apps/provisioning-agent-release-version-history)
 
-#### <a name="resources"></a>Implante
+#### <a name="resources"></a>Recursos
 
 * [Fornecer comentários sobre o produto](https://feedback.azure.com/forums/169401-azure-active-directory)
 
@@ -324,7 +326,7 @@ Consulte os links a seguir para solucionar quaisquer problemas que possam ser re
 
 * [Fórum do Azure AD com estouro de pilha](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Configurar o provisionamento automático de usuário](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal)
 
 * [Exportar ou importar sua configuração de provisionamento usando Microsoft Graph API](https://docs.microsoft.com/azure/active-directory/manage-apps/export-import-provisioning-configuration)

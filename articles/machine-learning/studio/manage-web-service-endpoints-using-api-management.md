@@ -1,6 +1,6 @@
 ---
 title: Gerenciar serviços Web usando o gerenciamento de API
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Um guia mostrando como gerenciar os serviços Web do AzureML usando o Gerenciamento de API. Gerencie seus pontos de extremidade da API REST definindo o acesso do usuário, a limitação de uso e o monitoramento por painel.
 services: machine-learning
 ms.service: machine-learning
@@ -10,26 +10,26 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 5b6ece20f67258391e31b941edfc1ec0aa5db98f
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 60f890912874cfda993ae45f84fa3d1c04503d00
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279258"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489256"
 ---
-# <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gerenciar serviços da web do Azure Machine Learning Studio usando o Gerenciamento de API
+# <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Gerenciar Azure Machine Learning Studio (clássico) serviços Web usando o gerenciamento de API
 ## <a name="overview"></a>Visão geral
-Este guia mostra como começar rapidamente a usar o Gerenciamento de API para gerenciar os serviços da Web do Azure Machine Learning Studio.
+Este guia mostra como começar rapidamente a usar o gerenciamento de API para gerenciar seus serviços da Web Azure Machine Learning Studio (clássico).
 
 ## <a name="what-is-azure-api-management"></a>O que é o Gerenciamento de API do Azure?
-O Gerenciamento de API do Azure é um serviço do Azure que permite que você gerencie seus pontos de extremidade da API REST, definindo o acesso do usuário, a limitação de uso e o monitoramento por painel. Clique em [aqui](https://azure.microsoft.com/services/api-management/) para obter detalhes sobre o Gerenciamento de API do Azure. Clique em [aqui](/azure/api-management/import-and-publish) para obter um guia sobre como começar a usar o Gerenciamento de API do Azure. Essa outra guia, na qual este guia se baseia, aborda mais tópicos, incluindo configurações de notificação, faixa de preços, manipulação de resposta, autenticação do usuário, criação de produtos, assinaturas de desenvolvedor e dashboarding de uso.
+O Gerenciamento de API do Azure é um serviço do Azure que permite que você gerencie seus pontos de extremidade da API REST, definindo o acesso do usuário, a limitação de uso e o monitoramento por painel. Consulte o [site de gerenciamento de API do Azure](https://azure.microsoft.com/services/api-management/) para obter mais detalhes. Para começar a usar o gerenciamento de API do Azure, consulte [o guia de importação e publicação](/azure/api-management/import-and-publish). Essa outra guia, na qual este guia se baseia, aborda mais tópicos, incluindo configurações de notificação, faixa de preços, manipulação de resposta, autenticação do usuário, criação de produtos, assinaturas de desenvolvedor e dashboarding de uso.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia, você precisa:
 
-* Uma conta do Azure. Se você não tiver uma conta do Azure, clique [aqui](https://azure.microsoft.com/pricing/free-trial/) para obter detalhes sobre como criar uma conta de avaliação gratuita.
-* Uma conta do AzureML. Se você não tiver uma conta do AzureML, clique [aqui](https://studio.azureml.net/) para obter detalhes sobre como criar uma conta de avaliação gratuita.
-* O workspace, o serviço e a api_key para um teste do AzureML implantado como um serviço Web. Clique [aqui](create-experiment.md) para obter detalhes sobre como criar um teste do AzureML. Clique [aqui](publish-a-machine-learning-web-service.md) para obter detalhes sobre como implantar um teste do AzureML como um serviço Web. Como alternativa, o Apêndice A traz instruções sobre como criar e testar um teste simples do AzureML e implantá-lo como um serviço Web.
+* Uma conta do Azure.
+* Uma conta do AzureML.
+* O workspace, o serviço e a api_key para um teste do AzureML implantado como um serviço Web. Para obter detalhes sobre como criar um experimento do AzureML, consulte o guia de [início rápido do estúdio](create-experiment.md). Para obter informações sobre como implantar um experimento do Studio (clássico) como um serviço Web, consulte o [instruções de implantação do estúdio](publish-a-machine-learning-web-service.md) para obter detalhes sobre como implantar um experimento do AzureML como um serviço Web. Como alternativa, o Apêndice A traz instruções sobre como criar e testar um teste simples do AzureML e implantá-lo como um serviço Web.
 
 ## <a name="create-an-api-management-instance"></a>Criar uma instância de Gerenciamento de API
 
@@ -55,7 +55,7 @@ Após criar a instância de serviço, a próxima etapa é criar a API. Uma API c
 
 Para criar a API:
 
-1. No portal do Azure, abra a instância de serviço que você acabou de criar.
+1. Na portal do Azure, abra a instância de serviço que você criou.
 2. No painel de navegação esquerdo, selecione **APIs**.
 
    ![api-management-menu](./media/manage-web-service-endpoints-using-api-management/api-management.png)
@@ -134,7 +134,7 @@ Primeiro, crie uma operação para o serviço RRS do AzureML:
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>Chamar uma operação no portal do Desenvolvedor
 
-As operações podem ser chamadas diretamente do Portal do Desenvolvedor, que fornece uma forma conveniente de exibir e testar as operações de uma API. Nesta etapa do guia, você chamará o método **RRS Execute** que foi adicionado à **API de demonstração do AzureML**. 
+As operações podem ser chamadas diretamente do Portal do Desenvolvedor, que fornece uma forma conveniente de exibir e testar as operações de uma API. Nesta etapa, você chamará o método **RRs execute** que foi adicionado à API de **demonstração do AzureML**. 
 
 1. Clique em **Portal do desenvolvedor**.
 
@@ -214,7 +214,7 @@ Clique em **Sim** para publicar o teste.
 ![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Testar o serviço Web
-Um serviço Web AzureML consiste em RSS (serviço de solicitação/resposta) e pontos de extremidade BES (serviço de execução em lotes). RSS é para execução síncrona. BES é para execução do trabalho assíncrono. Para testar o serviço Web com a fonte Python de exemplo abaixo, talvez seja necessário baixar e instalar o SDK do Azure para Python (confira: [Como instalar o Python](/azure/python/python-sdk-azure-install)).
+Um serviço Web AzureML consiste em RSS (serviço de solicitação/resposta) e pontos de extremidade BES (serviço de execução em lotes). RSS é para execução síncrona. BES é para execução do trabalho assíncrono. Para testar o serviço Web com a fonte Python de exemplo a seguir, talvez seja necessário baixar e instalar o SDK do Azure para Python (consulte: [Como instalar Python](/azure/python/python-sdk-azure-install)).
 
 Você também precisará do **workspace**, do **serviço** e da **api_key** do teste para a fonte de exemplo abaixo. Você pode encontrar o workspace e o serviço clicando em **Solicitação/resposta** ou **Execução em lote** para o teste no painel de serviço Web.
 
@@ -228,7 +228,7 @@ Você pode encontrar a **api_key** clicando no teste no painel de serviço Web.
 ##### <a name="test-button"></a>Botão de teste
 Uma maneira fácil de testar o ponto de extremidade RRS é clicar em **Testar** no painel de serviço Web.
 
-![teste](./media/manage-web-service-endpoints-using-api-management/test.png)
+![test](./media/manage-web-service-endpoints-using-api-management/test.png)
 
 Digite **Este é um bom dia** para **col2**. Clique na marca de seleção.
 

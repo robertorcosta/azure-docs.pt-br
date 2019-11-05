@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b6f122abff1ac75bb1cb836f3389c96dfcdf60e0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 07dbbb956dcf6f1204bef2af3a28a0af3eeb5226
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074113"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470090"
 ---
 # <a name="security-in-azure-app-service"></a>Segurança no Serviço de Aplicativo do Azure
 
@@ -40,16 +40,20 @@ As seções a seguir mostram como proteger ainda mais o aplicativo do Serviço d
 
 ## <a name="https-and-certificates"></a>HTTPS e certificados
 
-O Serviço de Aplicativo permite que você proteja os aplicativos com [HTTPS](https://wikipedia.org/wiki/HTTPS). Quando o aplicativo for criado, o nome do domínio padrão (\<app_name>.azurewebsites.net) já estará acessível usando HTTPS. Se você [configurar um domínio personalizado para o aplicativo](app-service-web-tutorial-custom-domain.md), também deverá [protegê-lo com um certificado personalizado](app-service-web-tutorial-custom-ssl.md) para que os navegadores do cliente possam estabelecer conexões HTTPS seguras com o domínio personalizado. Há duas maneiras de fazer isso:
+O Serviço de Aplicativo permite que você proteja os aplicativos com [HTTPS](https://wikipedia.org/wiki/HTTPS). Quando o aplicativo for criado, o nome do domínio padrão (\<app_name>.azurewebsites.net) já estará acessível usando HTTPS. Se você [configurar um domínio personalizado para seu aplicativo](app-service-web-tutorial-custom-domain.md), também deverá [protegê-lo com um certificado SSL](configure-ssl-bindings.md) para que os navegadores cliente possam fazer conexões HTTPS seguras com seu domínio personalizado. Há vários tipos de certificados com suporte pelo serviço de aplicativo:
 
-- **Certificado do Serviço de Aplicativo** - Crie um certificado diretamente no Azure. O certificado é protegido no [Azure Key Vault](/azure/key-vault/) e pode ser importado para o aplicativo do Serviço de Aplicativo. Para obter mais informações, consulte [Comprar e configurar um certificado SSL para seu Serviço de Aplicativo do Azure](web-sites-purchase-ssl-web-site.md).
-- **Certificado de terceiros** - Faça upload de um certificado SSL personalizado que você comprou de uma autoridade de certificação confiável e vincule-o ao aplicativo do Serviço de Aplicativo. O Serviço de Aplicativo dá suporte para certificados de domínio único e para certificados curinga. Também dá suporte para certificados autoassinados para fins de teste. Para obter mais informações, consulte [Associar um certificado SSL personalizado existente ao Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-ssl.md).
+- Serviço de Aplicativo Gratuito certificado gerenciado
+- Certificado do serviço de aplicativo
+- Certificado de terceiros
+- Certificado importado de Azure Key Vault
+
+Para obter mais informações, consulte [Adicionar um certificado SSL no serviço de Azure app](configure-ssl-certificate.md).
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>Protocolos não seguros (HTTP, TLS 1.0, FTP)
 
-Para proteger o aplicativo contra todas as conexões não criptografadas (HTTP), o Serviço de Aplicativo fornece configuração com um clique para impor o HTTPS. As solicitações não seguras serão recusadas antes mesmo de alcançarem o código do aplicativo. Para mais informações, consulte [Impor o HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https).
+Para proteger o aplicativo contra todas as conexões não criptografadas (HTTP), o Serviço de Aplicativo fornece configuração com um clique para impor o HTTPS. As solicitações não seguras serão recusadas antes mesmo de alcançarem o código do aplicativo. Para mais informações, consulte [Impor o HTTPS](configure-ssl-bindings.md#enforce-https).
 
-[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 não é mais considerado seguro pelos padrões do setor, como [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). O Serviço de Aplicativo permite desabilitar os protocolos desatualizados [impondo o TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions).
+[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 não é mais considerado seguro pelos padrões do setor, como [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). O Serviço de Aplicativo permite desabilitar os protocolos desatualizados [impondo o TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions).
 
 O Serviço de Aplicativo dá suporte ao FTP e FTPS para implantar os arquivos. No entanto, utilize FTPS em vez de FTP, se possível. Quando um ou ambos os protocolos não estiverem em uso será necessário [desabilitá-los](deploy-ftp.md#enforce-ftps).
 
@@ -57,7 +61,7 @@ O Serviço de Aplicativo dá suporte ao FTP e FTPS para implantar os arquivos. N
 
 Por padrão, o aplicativo do Serviço de Aplicativo aceita solicitações de todos os endereços IP da Internet, mas é possível limitar esse acesso a um pequeno subconjunto de endereços IP. O Serviço de Aplicativo no Windows permite definir uma lista de endereços IP com permissão para acessar o aplicativo. A lista permitida pode incluir endereços IP individuais ou um intervalo de endereços IP definidos por uma máscara de sub-rede. Para obter mais informações, consulte [Restrições de IP estático do Serviço de Aplicativo do Azure](app-service-ip-restrictions.md).
 
-Para o Serviço de Aplicativo no Windows, também é possível restringir endereços IP dinamicamente, configurando o _web.config_. Para obter mais informações, consulte [dynamicIpSecurity de \<segurança de IP dinâmico >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Para o serviço de aplicativo no Windows, você também pode restringir os endereços IP dinamicamente Configurando o _Web. config_. Para obter mais informações, consulte [segurança de IP dinâmico \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Autenticação e autorização do cliente
 

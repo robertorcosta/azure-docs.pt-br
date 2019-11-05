@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: 66f76a8a706f60df786786cbd1ce00b7eafd8d7e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 84e0af89e2b3247bc922ab84286a79a0934323a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097897"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473003"
 ---
 # <a name="migrate-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migrar do serviço de contêiner do Azure (ACS) para o serviço kubernetes do Azure (AKS)
 
@@ -26,9 +26,9 @@ O ACS e o AKS diferem em algumas áreas importantes que afetam a migração. Ant
 
 * Os nós AKS usam [Managed disks](../virtual-machines/windows/managed-disks-overview.md).
     * Discos não gerenciados devem ser convertidos antes que você possa anexá-los a nós AKS.
-    * Os `StorageClass` objetos personalizados para discos do Azure devem ser `unmanaged` alterados `managed`de para.
-    * Qualquer `PersistentVolumes` um deve `kind: Managed`usar.
-* O AKS dá suporte a [vários pools de nó](https://docs.microsoft.com/azure/aks/use-multiple-node-pools) (atualmente em visualização).
+    * Os objetos de `StorageClass` personalizados para discos do Azure devem ser alterados de `unmanaged` para `managed`.
+    * Qualquer `PersistentVolumes` deve usar `kind: Managed`.
+* O AKS dá suporte a [vários pools de nós](https://docs.microsoft.com/azure/aks/use-multiple-node-pools).
 * Os nós baseados no Windows Server estão atualmente em [Visualização no AKs](https://azure.microsoft.com/blog/kubernetes-on-azure/).
 * O AKS dá suporte a um conjunto limitado de [regiões](https://docs.microsoft.com/azure/aks/quotas-skus-regions).
 * O AKS é um serviço gerenciado com um plano de controle de Kubernetes hospedado. Talvez seja necessário modificar seus aplicativos se você tiver modificado anteriormente a configuração de seus mestres do ACS.
@@ -58,7 +58,7 @@ Para obter mais informações, consulte [limites de serviço e assinatura do Azu
 
 ### <a name="networking"></a>Rede
 
-Para aplicativos complexos, geralmente a migração ocorre ao longo do tempo em vez de uma só vez. Isso significa que os ambientes novos e antigos podem precisar se comunicar pela rede. Os aplicativos que usaram `ClusterIP` anteriormente serviços para comunicação podem precisar ser expostos como tipo `LoadBalancer` e ser protegidos adequadamente.
+Para aplicativos complexos, geralmente a migração ocorre ao longo do tempo em vez de uma só vez. Isso significa que os ambientes novos e antigos podem precisar se comunicar pela rede. Os aplicativos que usaram anteriormente `ClusterIP` serviços para comunicação podem precisar ser expostos como tipo `LoadBalancer` e ser protegidos adequadamente.
 
 Para concluir a migração, você desejará apontar os clientes para os novos serviços em execução no AKS. Recomendamos que você redirecione o tráfego atualizando o DNS para apontar para o Load Balancer que fica na frente do cluster AKS.
 
@@ -112,11 +112,11 @@ Se seu aplicativo puder hospedar várias réplicas que apontam para o mesmo comp
 4. Verifica.
 5. Aponte o tráfego para o cluster AKS.
 
-Se você quiser iniciar com um compartilhamento vazio e fazer uma cópia dos dados de origem, poderá usar os [`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) comandos para migrar seus dados.
+Se você quiser iniciar com um compartilhamento vazio e fazer uma cópia dos dados de origem, poderá usar os comandos [`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) para migrar seus dados.
 
 ### <a name="deployment-strategy"></a>Estratégia de implantação
 
-Recomendamos que você use seu pipeline de CI/CD existente para implantar uma configuração válida em AKS. Clone suas tarefas de implantação existentes e certifique `kubeconfig` -se de que aponta para o novo cluster AKs.
+Recomendamos que você use seu pipeline de CI/CD existente para implantar uma configuração válida em AKS. Clone suas tarefas de implantação existentes e verifique se `kubeconfig` aponta para o novo cluster AKS.
 
 Se isso não for possível, exporte as definições de recursos do ACS e aplique-as ao AKS. É possível usar `kubectl` para exportar objetos.
 
@@ -126,9 +126,9 @@ kubectl get deployment -o=yaml --export > deployments.yaml
 
 Várias ferramentas de código-fonte aberto podem ajudar, dependendo das suas necessidades de implantação:
 
-* [Velero](https://github.com/heptio/ark) (Essa ferramenta requer o kubernetes 1,7.)
+* [Velero](https://github.com/heptio/ark) (essa ferramenta requer o kubernetes 1,7.)
 * [Extensão da CLI do Azure Kube](https://github.com/yaron2/azure-kube-cli)
-* [ReShifter](https://github.com/mhausenblas/reshifter)
+* [Returno](https://github.com/mhausenblas/reshifter)
 
 ## <a name="migration-steps"></a>Etapas da migração
 
@@ -137,9 +137,9 @@ Várias ferramentas de código-fonte aberto podem ajudar, dependendo das suas ne
    > [!NOTE]
    > Encontre modelos de Azure Resource Manager de exemplo para AKS no repositório [do Azure/AKs](https://github.com/Azure/AKS/tree/master/examples/vnet) no github.
 
-2. Faça as alterações necessárias nas definições do YAML. Por exemplo, substitua `apps/v1beta1` `apps/v1` por para `Deployments`.
+2. Faça as alterações necessárias nas definições do YAML. Por exemplo, substitua `apps/v1beta1` por `apps/v1` para `Deployments`.
 
-3. [Migrar volumes](#migrating-persistent-volumes) (opcional) de seu cluster do ACS para o cluster AKS.
+3. [Migre volumes](#migrating-persistent-volumes) (opcional) do seu cluster do ACS para o cluster AKs.
 
 4. Use seu sistema de CI/CD para implantar aplicativos no AKS. Ou use kubectl para aplicar as definições de YAML.
 

@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7c851c2d865a7b553be2cd0f619ad09985115a3
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 949676c622c87831d22dcfc7e1bc6d920b622738
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336870"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473288"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implantação do Azure Active Directory
 Procurando orientação de ponta a ponta sobre a implantação de recursos do Azure Active Directory (Azure AD)? Os planos de implantação do Azure AD orientam você pelo valor de negócios, considerações de planejamento e procedimentos operacionais necessários para implantar com êxito recursos comuns do Azure AD.
@@ -29,7 +29,7 @@ Ao iniciar o planejamento da implantação para um novo recurso, é importante i
 
 As funções podem incluir o seguinte 
 
-|Role |Descrição |
+|Função |DESCRIÇÃO |
 |-|-|
 |Usuário final|Um grupo representativo de usuários para os quais a funcionalidade será implementada. Geralmente, visualiza as alterações em um programa piloto.
 |Gerente de suporte de ti|O departamento de ti oferece suporte à organização que pode fornecer informações sobre a compatibilidade dessa mudança de uma perspectiva de assistência técnica.  
@@ -59,15 +59,16 @@ Ampliar a distribuição para grupos maiores de usuários deve ser executado aum
 
 ## <a name="deploy-authentication"></a>Implantar autenticação
 
-| Funcionalidade | Descrição|
+| Recurso | DESCRIÇÃO|
 | -| -|
-| [Autenticação Multifator](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-getstarted)| A Autenticação Multifator do Azure é uma solução de verificação em duas etapas da Microsoft. Usando métodos de autenticação aprovados pelo administrador, o Azure MFA ajuda a proteger o acesso aos seus dados e aplicativos, ao mesmo tempo em que atende à demanda por um processo de entrada simples. |
+| [Autenticação Multifator](https://aka.ms/deploymentplans/mfa)| A Autenticação Multifator do Azure é uma solução de verificação em duas etapas da Microsoft. Usando métodos de autenticação aprovados pelo administrador, o Azure MFA ajuda a proteger o acesso aos seus dados e aplicativos, ao mesmo tempo em que atende à demanda por um processo de entrada simples. |
 | [Acesso condicional](https://aka.ms/deploymentplans/ca)| Com o acesso condicional, você pode implementar decisões de controle de acesso automatizadas para quem pode acessar seus aplicativos de nuvem, com base em condições. |
 | [Redefinição de senha de autoatendimento](https://aka.ms/deploymentplans/sspr)| A redefinição de senha de autoatendimento ajuda os usuários a redefinir suas senhas sem a intervenção do administrador, quando e onde eles precisam. |
+| [Sem senha](https://aka.ms/deploymentplans/passwordless) | Implementar a autenticação com senha usando o aplicativo Microsoft Authenticator ou as chaves de segurança FIDO2 em sua organização |
 
 ## <a name="deploy-application-management"></a>Implantar o gerenciamento de aplicativos
 
-| Funcionalidade | Descrição|
+| Recurso | DESCRIÇÃO|
 | -| - |
 | [Logon Único](https://aka.ms/deploymentplans/sso)| O logon único ajuda os usuários a acessar os aplicativos e recursos de que precisam para fazer negócios ao entrar apenas uma vez. Depois que eles tiverem entrado, eles poderão ir de Microsoft Office para o SalesForce para o box para aplicativos internos sem precisar inserir as credenciais uma segunda vez. |
 | [Painel de acesso](https://aka.ms/deploymentplans/accesspanel)| Oferece a seus usuários um hub simples para descobrir e acessar todos os seus aplicativos. Habilite-os a serem mais produtivos com recursos de autoatendimento, como solicitar acesso a aplicativos e grupos ou gerenciar o acesso a recursos em nome de outros. |
@@ -75,7 +76,7 @@ Ampliar a distribuição para grupos maiores de usuários deve ser executado aum
 
 ## <a name="deploy-hybrid-scenarios"></a>Implantar cenários híbridos
 
-| Funcionalidade | Descrição|
+| Recurso | DESCRIÇÃO|
 | -| -|
 | [ADFS para sincronização de hash de senha](https://aka.ms/deploymentplans/adfs2phs)| Com a sincronização de hash de senha, os hashes de senhas de usuário são sincronizados do Active Directory local para o Azure AD, permitindo que o Azure AD autentique usuários sem interação com o Active Directory local |
 | [ADFS para autenticação de passagem](https://aka.ms/deploymentplans/adfs2pta)| A autenticação de passagem do Azure AD ajuda os usuários a entrar em aplicativos locais e baseados em nuvem usando as mesmas senhas. Esse recurso fornece aos usuários uma experiência melhor-uma senha a menos para lembrar e reduz os custos de assistência técnica de ti, pois os usuários têm menos probabilidade de se esquecer de como entrar. Quando as pessoas entram usando o Azure AD, esse recurso valida as senhas dos usuários diretamente no Active Directory local. |
@@ -84,14 +85,14 @@ Ampliar a distribuição para grupos maiores de usuários deve ser executado aum
 
 ## <a name="deploy-user-provisioning"></a>Implantar provisionamento de usuário
 
-| Funcionalidade | Descrição|
+| Recurso | DESCRIÇÃO|
 | -| -|
-| [Provisionamento do usuário](https://aka.ms/UserProvisioningDPDownload)| O Azure AD ajuda a automatizar a criação, a manutenção e a remoção de identidades de usuário em aplicativos em nuvem (SaaS) como Dropbox, Salesforce, ServiceNow e outros. |
+| [Provisionamento do usuário](https://aka.ms/deploymentplans/userprovisioning)| O Azure AD ajuda a automatizar a criação, a manutenção e a remoção de identidades de usuário em aplicativos em nuvem (SaaS) como Dropbox, Salesforce, ServiceNow e outros. |
 | [Provisionamento de entrada de usuário controlada pelo Workday](https://aka.ms/WorkdayDeploymentPlan)| O provisionamento de entrada de usuário controlada pelo Workday cria uma base para a governança de identidade contínua e melhora a qualidade dos processos de negócios que dependem de dados de identidade autoritativos. Usando esse recurso, você pode gerenciar diretamente o ciclo de vida de identidade de funcionários e trabalhos contingentes Configurando regras que mapeiam processos de movimentação de portador de União (como novas contratações, término e transferência) para ações de provisionamento de ti (como criar, habilitar, Desativar |
 
 ## <a name="deploy-governance-and-reporting"></a>Implantar governança e relatórios
 
-| Funcionalidade | Descrição|
+| Recurso | DESCRIÇÃO|
 | -| -|
 | [Privileged Identity Management](https://aka.ms/deploymentplans/pim)| O Azure AD Privileged Identity Management (PIM) ajuda você a gerenciar funções administrativas com privilégios entre o Azure AD, recursos do Azure e outros Serviços Online da Microsoft. O PIM fornece soluções como acesso just-in-time, solicitação de fluxos de trabalho de aprovação e revisões de acesso totalmente integradas para que você possa identificar, descobrir e impedir atividades maliciosas de funções com privilégios em tempo real. |
 | [Relatórios e monitoramento](https://aka.ms/deploymentplans/reporting)| O design de sua solução de monitoramento e relatório do Azure AD depende dos seus requisitos legais, de segurança e operacionais, bem como do ambiente e dos processos existentes. Este artigo apresenta as várias opções de design e orienta você para a estratégia de implantação certa. |

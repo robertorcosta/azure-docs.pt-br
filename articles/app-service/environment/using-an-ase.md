@@ -13,21 +13,21 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cabefcc53106a53459975fc26513dc59ae7d3372
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 841271c474ba8e24bc352bcae1fa037cf382a8ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073204"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470591"
 ---
 # <a name="use-an-app-service-environment"></a>Usar um ambiente do Serviço de Aplicativo #
 
 O Ambiente do Serviço de Aplicativo do Azure é uma implantação do Serviço de Aplicativo do Azure em uma sub-rede em uma rede virtual do Azure do cliente. Ele consiste em:
 
-- **Front-ends**: Os front-ends estão onde termina o HTTP/HTTPS em um ASE (Ambiente do Serviço de Aplicativo).
-- **Trabalhos**: São os recursos que hospedam os aplicativos.
-- **Banco de dados**: O banco de dados contém informações que definem o ambiente.
-- **Armazenamento**: O armazenamento é usado para hospedar os aplicativos publicados pelo cliente.
+- **Front-ends**: os front-ends são onde terminam o HTTP/HTTPS em um ambiente de serviço de aplicativo (ASE).
+- **Funções de Trabalho**: são os recursos que hospedam os aplicativos.
+- **Banco de Dados**: contém informações que definem o ambiente.
+- **Armazenamento**: o armazenamento é usado para hospedar os aplicativos publicados pelo cliente.
 
 > [!NOTE]
 > Há duas versões do Ambiente do Serviço de Aplicativo: ASEv1 e ASEv2. No ASEv1, é necessário gerenciar os recursos antes de usá-los. Para saber como configurar e gerenciar o ASEv1, consulte [configurar um ambiente do serviço de aplicativo v1][ConfigureASEv1]. O restante deste artigo concentra-se em ASEv2.
@@ -179,7 +179,7 @@ Para excluir um ASE:
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

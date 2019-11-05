@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 9404888eadf94eaf86a6e8584b49595e10b34c69
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 36bd05940644b62bc3e58b642bfe6c00238383fa
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264175"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472475"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Serviço de Kubernetes do Azure (AKS)
 
@@ -22,7 +22,7 @@ Para clusters AKS que usam vários pools de nó ou nós do Windows Server (atual
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo requer que você esteja executando o CLI do Azure versão 2.0.65 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
+Este artigo requer que você esteja executando o CLI do Azure versão 2.0.65 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure][azure-cli-install].
 
 > [!WARNING]
 > Uma atualização do cluster AKS dispara um Cordon e dreno de seus nós. Se você tiver uma cota de computação baixa disponível, a atualização poderá falhar.  Consulte [aumentar cotas](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) para obter mais informações.
@@ -36,9 +36,9 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> Ao atualizar um cluster do AKS, as versões secundárias do Kubernetes não poderão ser ignoradas. Por exemplo, as atualizações entre *1.12. x* -> *1.13. x* ou *1.13. x* -> *1.14.* x são permitidas, no entanto *1.12. x* -> *1.14. x* não é.
+> Ao atualizar um cluster do AKS, as versões secundárias do Kubernetes não poderão ser ignoradas. Por exemplo, as atualizações *entre 1.12. x* -> *1.13.* x ou *1.13. x* -> *1.14. x* são permitidas; no entanto, *1.12. x* -> *1.14. x* não é.
 >
-> Para atualizar, de *1.12. x* -> *1.14.* x, primeiro atualize de *1.12. x* -> *1.13. x*e, em seguida, atualize de *1.13. x* -> *1.14. x*.
+> Para atualizar, de *1.12. x* -> *1.14. x*, primeiro atualize de *1.12. x* -> *1.13. x*e, em seguida, atualize de *1.13. x* -> *1.14. x*.
 
 A saída de exemplo a seguir mostra que o cluster pode ser atualizado para as versões *1.13.9* e *1.13.10*:
 
@@ -65,7 +65,7 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 O cluster demora alguns minutos para ser atualizado, dependendo de quantos nós que você tem. 
 
 > [!NOTE]
-> Há um tempo total permitido para a conclusão de uma atualização de cluster. Esse tempo é calculado por meio do produto do `10 minutes * total number of nodes in the cluster`. Por exemplo, em um cluster de 20 nós, as operações de atualização devem ter êxito em 200 minutos ou AKS falhará na operação para evitar um estado de cluster irrecuperável. Para recuperar em caso de falha de atualização, repita a operação de atualização depois que o tempo limite tiver sido atingido.
+> Há um tempo total permitido para a conclusão de uma atualização de cluster. Esse tempo é calculado por meio do produto de `10 minutes * total number of nodes in the cluster`. Por exemplo, em um cluster de 20 nós, as operações de atualização devem ter êxito em 200 minutos ou AKS falhará na operação para evitar um estado de cluster irrecuperável. Para recuperar em caso de falha de atualização, repita a operação de atualização depois que o tempo limite tiver sido atingido.
 
 Para confirmar que a atualização foi bem-sucedida, use o comando [AZ AKs show][az-aks-show] :
 

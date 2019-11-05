@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: bb9a9c1d67e52c21d2cb039832d27547a023da9f
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: a47d6014e51dce81c9caf82f8624896c439f050d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154677"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490878"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Pontuações de recompensa indicam o sucesso da personalização
 
@@ -71,48 +71,42 @@ Em seguida, você pode enviar a recompensa total para a API.
 
 ## <a name="calling-the-reward-api-multiple-times"></a>Como chamar a API de Recompensa várias vezes
 
-Também é possível chamar a API de Recompensa usando a mesma ID de evento, enviando diferentes pontuações de recompensa. Quando o Personalizador obtém essas recompensas, determina a recompensa final para o evento agregando-as conforme especificado nas configurações do Personalizador.
+Também é possível chamar a API de Recompensa usando a mesma ID de evento, enviando diferentes pontuações de recompensa. Quando o personalizador obtém essas recompensas, ele determina a recompensa final para esse evento, agregando-os conforme especificado na configuração do personalizador.
 
-Configurações de agregação:
+Valores de agregação:
 
-*  **Primeira**: usa a primeira pontuação de recompensa recebida para o evento e descarta o restante.
-* **Soma**: usa todas as pontuações de recompensa coletadas para a ID do Evento e as soma.
+*  **Primeiro**: usa a primeira pontuação de recompensa recebida para o evento e descarta o restante.
+* **Sum**: Obtém todas as pontuações de recompensa coletadas para o EventID e as adiciona.
 
 Todas as recompensas para um evento recebidas após o **Tempo de espera de recompensa** são descartadas e não afetam o treinamento de modelos.
 
 Ao adicionar pontuações de recompensa, sua recompensa final pode estar fora do intervalo de Pontuação esperado. Isso não causa falha no serviço.
 
-<!--
-@edjez - is the number ignored if it is outside the acceptable range?
--->
-
 ## <a name="best-practices-for-calculating-reward-score"></a>Melhores práticas para calcular a pontuação de recompensa
 
-* **Leve em conta indicadores reais de uma personalização bem-sucedida**: é fácil pensar em termos de cliques, mas uma boa recompensa baseia-se naquilo que você deseja que os usuários *alcancem*, em vez do que você quer que as pessoas *façam*.  Por exemplo, a recompensa por cliques pode levar à seleção de conteúdo sujeito a clickbait.
+* **Considere os indicadores verdadeiros de personalização bem-sucedida**: é fácil pensar em termos de cliques, mas um bom prêmio é baseado no que você deseja que os usuários *obtenham* em vez do que você deseja que as pessoas *façam*.  Por exemplo, a recompensa por cliques pode levar à seleção de conteúdo sujeito a clickbait.
 
-* **Use uma pontuação de recompensa que reflita o desempenho da personalização**: espera-se que a personalização de uma sugestão de filme faça com que o usuário assista ao filme e dê uma classificação alta. Como a classificação do filme provavelmente depende de muitos fatores (qualidade de atuação, humor do usuário), não é um bom sinal de recompensa para o desempenho da *personalização*. O usuário assistir aos primeiros minutos do filme, no entanto, pode ser um sinal melhor da eficácia da personalização, e enviar uma recompensa de 1 após 5 minutos será um sinal melhor.
+* **Use uma pontuação de recompensa para saber a qualidade da personalização**: personalizar uma sugestão de filme esperaria fazer com que o usuário Assista ao filme e dando a ele uma classificação alta. Como a classificação do filme provavelmente depende de muitos fatores (qualidade de atuação, humor do usuário), não é um bom sinal de recompensa para o desempenho da *personalização*. O usuário assistir aos primeiros minutos do filme, no entanto, pode ser um sinal melhor da eficácia da personalização, e enviar uma recompensa de 1 após 5 minutos será um sinal melhor.
 
-* **Recompensas se aplicam somente a RewardActionID**: o Personalizador aplica as recompensas para entender a eficácia da ação especificada em RewardActionID. Se você optar por exibir outras ações e o usuário clicar nelas, a recompensa deverá ser zero.
+* As **recompensas se aplicam somente a RewardActionID**: o personalizador aplica as recompensas para entender a eficácia da ação especificada em RewardActionID. Se você optar por exibir outras ações e o usuário clicar nelas, a recompensa deverá ser zero.
 
-* **Considere as consequências não intencionais**: crie funções de recompensa que levem a resultados responsáveis, com [ética e uso responsável](ethics-responsible-use.md).
+* **Considere consequências indesejadas**: Crie funções de recompensa que levam a resultados responsáveis com [ética e uso responsável](ethics-responsible-use.md).
 
-* **Use recompensas incrementais**: a adição de recompensas parciais para comportamentos menores do usuário ajuda o Personalizador a alcançar melhor recompensas. Essa recompensa incremental permite que o algoritmo saiba que está ficando mais perto de envolver o usuário no comportamento final desejado.
+* **Usar recompensas incrementais**: a adição de recompensas parciais para comportamentos menores de usuário ajuda a personalizar a obtenção de melhores recompensas. Essa recompensa incremental permite que o algoritmo saiba que está ficando mais perto de envolver o usuário no comportamento final desejado.
     * Se você estiver exibindo uma lista de filmes e o usuário passar o mouse sobre o primeiro por um tempo para ver mais informações, você poderá determinar que ocorreu algum envolvimento do usuário. O comportamento pode contar com uma pontuação de recompensa de 0,1. 
     * Se o usuário abriu a página e, em seguida, saiu, a pontuação de recompensa pode ser 0,2. 
 
-## <a name="reward-wait-time"></a>Tempo de espera de premiação
+## <a name="reward-wait-time"></a>Tempo de espera de recompensa
 
 O Personalizador correlacionará as informações de uma chamada de classificação com as recompensas enviadas em chamadas de recompensa para treinar o modelo. Elas podem ocorrer em diferentes momentos. O Personalizador aguarda um período limitado, a partir de quando ocorreu a chamada de classificação, mesmo se essa chamada tiver sido feita como um evento inativo e ativada mais tarde.
 
 Se o **Tempo de espera de recompensa** expirar e não houver nenhuma informação de recompensa, uma recompensa padrão será aplicado a esse evento para treinamento. A duração de espera máxima é de 6 dias.
 
-## <a name="best-practices-for-setting-reward-wait-time"></a>Melhores práticas para definir o tempo de espera de recompensa
+## <a name="best-practices-for-reward-wait-time"></a>Práticas recomendadas para recompensar o tempo de espera
 
 Siga estas recomendações para obter melhores resultados.
 
 * Defina o menor tempo de espera de recompensa possível, deixando tempo suficiente para obter comentários dos usuários. 
-
-<!--@Edjez - storage quota? -->
 
 * Não escolha uma duração menor do que o tempo necessário para receber comentários. Por exemplo, se alguma das suas recompensas ocorrer depois que um usuário tiver assistido a um minuto de um vídeo, a duração do experimento deverá ter pelo menos o dobro disso.
 

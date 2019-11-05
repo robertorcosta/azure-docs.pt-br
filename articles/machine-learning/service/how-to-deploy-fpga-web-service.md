@@ -7,18 +7,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: larryfr
-ms.author: tedway
-author: tedway
-ms.date: 07/25/2019
+ms.author: jordane
+author: jpe316
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c3c844ba7044f8e1c9c313f1ac63b94310ea322
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 5e8dc6181660f0c1545df0688e2749f8f0187027
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350543"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496904"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>O que são FPGA (matrizes de portão programável por campo) e como implantar
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Este artigo fornece uma introdução às FPGA (matrizes de portão programável por campo) e mostra como implantar seus modelos usando Azure Machine Learning em um FPGA do Azure. 
 
@@ -30,7 +31,7 @@ O diagrama e a tabela a seguir mostram uma comparação das FPGAs com outros pro
 
 ![Diagrama de Azure Machine Learning comparação de FPGA](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-|Processador||Descrição|
+|Processador||DESCRIÇÃO|
 |---|:-------:|------|
 |Circuitos integrados específicos do aplicativo|ASICs|Circuitos personalizados, como as Unidades de Processador (TPU) do TensorFlow da Google, fornecem a maior eficiência. Elas não podem ser reconfiguradas conforme suas necessidades mudam.|
 |Matrizes de portas programáveis em campo|FPGAs|As FPGAs, como aquelas disponíveis no Azure, fornecem desempenho aproximado ao dos ASICs. Eles também são flexíveis e reconfiguráveis ao longo do tempo, a fim de implementar a nova lógica.|
@@ -61,8 +62,8 @@ Esses modelos de DNN estão disponíveis no momento:
   - SSD-VGG
 
 FPGAs estão disponíveis nessas regiões do Azure:
-  - East US
-  - Sudeste da Ásia
+  - Leste dos EUA
+  - Sudeste Asiático
   - Europa Ocidental
   - Oeste dos EUA 2
 
@@ -82,14 +83,14 @@ Os cenários a seguir usam FPGAs:
 
 
 
-## <a name="example-deploy-models-on-fpgas"></a>Exemplo: Implantar modelos em FPGAs 
+## <a name="example-deploy-models-on-fpgas"></a>Exemplo: implantar modelos no FPGAs 
 
 Você pode implantar um modelo como um serviço Web no FPGAs com Azure Machine Learning Modelos de Aceleração de Hardware. O uso de FPGAs fornece inferência de latência ultra baixa, mesmo com um único tamanho de lote. A inferência, ou a Pontuação do modelo, é a fase em que o modelo implantado é usado para previsão, mais comumente em dados de produção.
 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura do Azure.  Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+- Uma assinatura do Azure.  Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
 
 - Cota de FPGA. Use o CLI do Azure para verificar se você tem cota:
 
@@ -121,7 +122,7 @@ Você pode implantar um modelo como um serviço Web no FPGAs com Azure Machine L
     ```
 
 
-## <a name="1-create-and-containerize-models"></a>1. Criar e colocar em contêineres modelos
+## <a name="1-create-and-containerize-models"></a>1. criar e colocar em contêineres modelos
 
 Este documento descreverá como criar um grafo TensorFlow para pré-processar a imagem de entrada, torná-la um featurizer usando ResNet 50 em um FPGA e, em seguida, executar os recursos por meio de um classificador treinado no conjunto de dados ImageNet.
 
@@ -315,11 +316,11 @@ for i in Image.list(workspace=ws):
         i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
 ```
 
-## <a name="2-deploy-to-cloud-or-edge"></a>2. Implantar na nuvem ou no Microsoft Edge
+## <a name="2-deploy-to-cloud-or-edge"></a>2. implantar na nuvem ou no Edge
 
 ### <a name="deploy-to-the-cloud"></a>Implantar na nuvem
 
-Para implantar o modelo como um serviço Web de produção em larga escala, use o AKS (Serviço de Kubernetes do Azure). Você pode criar um novo usando o SDK do Azure Machine Learning, a CLI, a página de aterrissagem do [portal do Azure](https://portal.azure.com) ou do [espaço de trabalho (versão prévia)](https://ml.azure.com).
+Para implantar o modelo como um serviço Web de produção em larga escala, use o AKS (Serviço de Kubernetes do Azure). Você pode criar um novo usando o SDK do Azure Machine Learning, a CLI ou o [Azure Machine Learning Studio](https://ml.azure.com).
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -420,8 +421,8 @@ converted_model.delete()
 
 ### <a name="deploy-to-a-local-edge-server"></a>Implantar em um servidor de borda local
 
-Todos [os dispositivos](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview
-) Azure data Box Edge contêm um FPGA para executar o modelo.  Somente um modelo pode ser executado em FPGA ao mesmo tempo.  Para executar um modelo diferente, basta implantar um novo contêiner. As instruções e o código de exemplo podem ser encontrados neste [exemplo do Azure](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
+Todos os [dispositivos Azure data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview
+) contêm um FPGA para executar o modelo.  Somente um modelo pode ser executado em FPGA ao mesmo tempo.  Para executar um modelo diferente, basta implantar um novo contêiner. As instruções e o código de exemplo podem ser encontrados neste [exemplo do Azure](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
 
 ## <a name="secure-fpga-web-services"></a>Proteger serviços web FPGA
 
@@ -433,7 +434,7 @@ Confira estes blocos de anotações, vídeos e Blogs:
 
 + Vários [blocos de anotações de exemplo](https://aka.ms/aml-accel-models-notebooks).
 
-+ [Hardware da Hiperescala: ML em escala no Azure + FPGA: Build 2018 (vídeo)](https://channel9.msdn.com/events/Build/2018/BRK3202)
++ [Hardware de Hiperescala: ML em escala em cima do Azure + FPGA: build 2018 (vídeo)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 
 + [Por dentro da nuvem configurável baseada em FPGA da Microsoft (vídeo)](https://channel9.msdn.com/Events/Build/2017/B8063)
 

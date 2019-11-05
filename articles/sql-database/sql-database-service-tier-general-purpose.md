@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
-ms.openlocfilehash: 1c6bb557c11cf32449b440b0007e1cef929a026f
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: b4c0f88a1a21b0734c1652d19f74dc662d0a7ce1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259405"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496214"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Camada de serviço de uso geral – Banco de Dados SQL do Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "70259405"
 
 O Banco de Dados SQL do Azure é baseado na arquitetura de mecanismo de banco de dados do SQL Server, que é adaptada ao ambiente de nuvem para garantir disponibilidade de 99,99%, até mesmo no caso de falhas de infraestrutura. Três camadas de serviço são usadas no Banco de Dados SQL do Azure, cada uma com diferentes modelos de arquitetura. Essas camadas de serviço são:
 
-- Uso geral
+- Propósito geral
 - Comercialmente crítico
 - Hiperescala
 
@@ -48,7 +48,7 @@ A camada de Uso Geral é uma camada de serviço padrão no Banco de Dados SQL do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Encontre características de recursos (número de núcleos, e/s, memória) da camada Uso Geral/Standard em [instância gerenciada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), banco de dados individual no modelo de [VCORE](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) ou [modelo de DTU](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)ou pool elástico em modelo de [VCORE](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) e [modelo de DTU](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits).
+- Encontre características de recursos (número de núcleos, e/s, memória) da camada Uso Geral/Standard em [instância gerenciada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), banco de dados individual no modelo de [VCORE](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) ou [modelo de DTU](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)ou pool elástico em modelo de [VCORE](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose---provisioned-compute---gen4) e [modelo de DTU](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits).
 - Saiba mais sobre camadas [Comercialmente Críticas](sql-database-service-tier-business-critical.md) e de [Hiperescala](sql-database-service-tier-hyperscale.md).
 - Saiba mais sobre o [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Para obter mais opções de alta disponibilidade e recuperação de desastres, consulte [Continuidade de Negócios](sql-database-business-continuity.md).

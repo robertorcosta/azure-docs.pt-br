@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: 2bd2510b3b7aa72ac5e66ac9910f1c941f276564
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 0bed9f96ce04fae313672f2fa627c2e20bea2f6f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259907"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496425"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Blueprint de segurança e conformidade do Azure - Data Analytics para NIST SP 800-171
 
@@ -27,7 +27,7 @@ Essa arquitetura de referência, o guia de implementação associado e o modelo 
 ## <a name="architecture-diagram-and-components"></a>Diagrama e componentes da arquitetura
 Esta solução fornece uma plataforma de análise na qual os clientes podem criar suas próprias ferramentas de análise. A arquitetura de referência descreve um caso de uso genérico. Os clientes podem usá-la para inserir dados por meio de importações de dados em massa pelo administrador de dados/SQL. Eles também podem usá-la para inserir dados por meio de atualizações de dados operacionais com um usuário operacional. Ambos os fluxos de trabalho incorporam o Azure Functions para importar dados para o Banco de Dados SQL do Azure. O Azure Functions precisa ser configurado pelo cliente por meio do Portal do Azure para lidar com as tarefas de importação exclusivas para os requisitos de análise do cliente.
 
-O Azure oferece uma variedade de serviços de relatórios e análises para o cliente. Essa solução usa os serviços do Azure Machine Learning e o Banco de Dados SQL do Azure para navegar rapidamente pelos dados e fornecer resultados mais rápidos por meio de uma modelagem de dados mais inteligente. O Machine Learning tem a finalidade de aumentar a velocidade das consultas descobrindo novas relações entre os conjuntos de dados. Inicialmente, os dados são treinados por meio de várias funções estatísticas. Depois disso, até sete pools de consultas adicionais podem ser sincronizados com os mesmos modelos tabulares para distribuir a carga de trabalho de consulta e reduzir os tempos de resposta. O servidor do cliente leva o total de pools de consulta a oito.
+O Azure oferece uma variedade de serviços de relatórios e análises para o cliente. Essa solução usa o Azure Machine Learning e o banco de dados SQL para navegar rapidamente por meio de data e fornecer resultados mais rápidos por meio da modelagem mais inteligente de dados. O Machine Learning tem a finalidade de aumentar a velocidade das consultas descobrindo novas relações entre os conjuntos de dados. Inicialmente, os dados são treinados por meio de várias funções estatísticas. Depois disso, até sete pools de consultas adicionais podem ser sincronizados com os mesmos modelos tabulares para distribuir a carga de trabalho de consulta e reduzir os tempos de resposta. O servidor do cliente leva o total de pools de consulta a oito.
 
 Para criação de relatórios e análise avançadas, o Banco de Dados SQL pode ser configurado com índices de repositório de coluna. O Machine Learning e o Banco de Dados SQL podem ser escalados ou reduzidos verticalmente ou desligados completamente em resposta ao uso do cliente. Todo o tráfego SQL é criptografado com SSL por meio da inclusão de certificados autoassinados. Como melhor prática, recomendamos o uso de uma autoridade de certificação confiável para aumentar a segurança.
 
@@ -39,21 +39,21 @@ Para maior segurança, todos os recursos nessa solução são gerenciados como u
 
 O Banco de Dados SQL geralmente é gerenciado por meio do SQL Server Management Studio. Ele é executado de um computador local configurado para acessar o Banco de Dados SQL por meio de uma conexão segura VPN ou do Azure ExpressRoute. *Recomendamos que você configure uma conexão VPN ou do ExpressRoute para o gerenciamento e a importação de dados para o grupo de recursos*.
 
-![Data Analytics para diagrama de arquitetura de referência do NIST SP 800-171](images/nist171-analytics-architecture.png "Data Analytics para diagrama de arquitetura de referência do NIST SP 800-171")
+![Diagrama de arquitetura de referência de análise de dados para NIST SP 800-171](images/nist171-analytics-architecture.png "Diagrama de arquitetura de referência de análise de dados para NIST SP 800-171")
 
 A solução usa os serviços do Azure a seguir. Para obter mais informações, confira a seção [Arquitetura de implantação](#deployment-architecture).
 
 - Application Insights
-- Active Directory do Azure
+- Azure Active Directory
 - Catálogo de Dados do Azure
-- Azure Disk Encryption
+- Criptografia de Disco do Azure
 - Grade de Eventos do Azure
-- Verificação de
-- Azure Key Vault
+- Funções do Azure
+- Cofre da Chave do Azure
 - Azure Machine Learning
 - Azure Monitor (logs)
 - Central de Segurança do Azure
-- Banco de Dados SQL do Azure
+- Banco de dados SQL do Azure
 - Armazenamento do Azure
 - Rede Virtual do Azure
     - (1) /16 rede
@@ -64,18 +64,18 @@ A solução usa os serviços do Azure a seguir. Para obter mais informações, c
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 A seção a seguir fornece detalhes sobre os elementos de implantação e implementação.
 
-**Grade de Eventos do Azure**: Com a [Grade de Eventos](https://docs.microsoft.com/azure/event-grid/overview), os clientes podem facilmente compilar aplicativos com arquiteturas baseadas em eventos. Os usuários selecionam o recurso do Azure que desejam assinar. Em seguida, eles fornecem ao manipulador de eventos ou webhook um ponto de extremidade para o qual enviar o evento. Os clientes podem proteger os pontos de extremidade do webhook adicionando parâmetros de consulta à URL do webhook ao criar uma assinatura de evento. A Grade de Eventos dá suporte apenas a pontos de extremidade do webhook HTTPS. Com a Grade de Eventos, os clientes podem controlar o nível de acesso concedido a diferentes usuários para fazer várias operações de gerenciamento. Os usuários podem listar assinaturas de evento, criar novas assinaturas e gerar chaves. A Grade de Eventos usa o RBAC do Azure.
+**Grade de Eventos do Azure**: a [Grade de Eventos](https://docs.microsoft.com/azure/event-grid/overview) permite que os clientes criem aplicativos facilmente com arquiteturas baseadas em evento. Os usuários selecionam o recurso do Azure que desejam assinar. Em seguida, eles fornecem ao manipulador de eventos ou webhook um ponto de extremidade para o qual enviar o evento. Os clientes podem proteger os pontos de extremidade do webhook adicionando parâmetros de consulta à URL do webhook ao criar uma assinatura de evento. A Grade de Eventos dá suporte apenas a pontos de extremidade do webhook HTTPS. Com a Grade de Eventos, os clientes podem controlar o nível de acesso concedido a diferentes usuários para fazer várias operações de gerenciamento. Os usuários podem listar assinaturas de evento, criar novas assinaturas e gerar chaves. A Grade de Eventos usa o RBAC do Azure.
 
-**Azure Functions**: O [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) é um serviço de computação sem servidor que executa código sob demanda. Você não precisa provisionar ou gerenciar a infraestrutura explicitamente. Use o Azure Functions para executar um script ou parte do código em resposta a uma variedade de eventos.
+**Azure Functions**: o [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) é um serviço de computação sem servidor que executa código sob demanda. Você não precisa provisionar ou gerenciar a infraestrutura explicitamente. Use o Azure Functions para executar um script ou parte do código em resposta a uma variedade de eventos.
 
-**Serviço do Azure Machine Learning**: O [Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) é uma técnica de ciência de dados que permite que os computadores usem os dados existentes para prever futuros comportamentos, resultados e tendências.
+**Azure Machine Learning**: o [Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) é uma técnica da ciência de dados que permite que os computadores usem os dados existentes para prever tendências, resultados e comportamentos futuros.
 
-**Catálogo de Dados do Azure**: O [Catálogo de Dados](../../data-catalog/overview.md) torna as fontes de dados facilmente identificáveis e compreensíveis para os usuários que gerenciam os dados. Fontes de dados comuns podem ser registradas, marcadas e pesquisadas por dados. Os dados permanecem no local existente, mas uma cópia de seus metadados é adicionada ao Catálogo de Dados. Uma referência ao local de fonte de dados é incluída. Os metadados são indexados para tornar cada fonte de dados fácil de descobrir por meio de pesquisa. A indexação também torna compreensível para os usuários que descobrirem.
+**Catálogo de Dados do Azure**: o [Catálogo de Dados](../../data-catalog/overview.md) torna fontes de dados facilmente identificáveis e compreensíveis para os usuários que gerenciam os dados. Fontes de dados comuns podem ser registradas, marcadas e pesquisadas por dados. Os dados permanecem no local existente, mas uma cópia de seus metadados é adicionada ao Catálogo de Dados. Uma referência ao local de fonte de dados é incluída. Os metadados são indexados para tornar cada fonte de dados fácil de descobrir por meio de pesquisa. A indexação também torna compreensível para os usuários que descobrirem.
 
 ### <a name="virtual-network"></a>Rede virtual
 Esta arquitetura de referência define uma rede virtual privada com um espaço de endereço de 10.0.0.0/16.
 
-**Grupo de segurança de rede**: Os [NSGs](../../virtual-network/virtual-network-vnet-plan-design-arm.md) (Grupo de Segurança de Rede) contêm listas de controle de acesso que permitem ou negam tráfego dentro de uma rede virtual. Os NSGs podem ser usados para proteger o tráfego no nível da sub-rede ou da máquina virtual individual. Os seguintes NSGs existem:
+**Grupos de segurança de rede**: [Os NSGs (grupos de segurança de rede)](../../virtual-network/virtual-network-vnet-plan-design-arm.md) contêm listas de controle de acesso que permitem ou negam tráfego dentro de uma rede virtual. Os NSGs podem ser usados para proteger o tráfego no nível da sub-rede ou da máquina virtual individual. Os seguintes NSGs existem:
   - Um NSG para o Active Directory
   - Um NSG para a carga de trabalho
 
@@ -83,7 +83,7 @@ Cada NSG tem portas e protocolos específicos abertos para que a solução possa
   - [Eventos e logs de diagnóstico](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) são habilitados e armazenados em uma conta de armazenamento
   - Os logs de Azure Monitor estão conectados ao [diagnóstico do NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
-**sub-redes**: Cada sub-rede está associada ao seu NSG correspondente.
+**Sub-redes**: cada sub-rede é associada ao seu NSG correspondente.
 
 ### <a name="data-in-transit"></a>Dados em trânsito
 O Azure criptografa todas as comunicações entre os data centers do Azure por padrão. Todas as transações para o Armazenamento por meio do portal do Azure ocorrem por HTTPS.
@@ -92,11 +92,11 @@ O Azure criptografa todas as comunicações entre os data centers do Azure por p
 
 A arquitetura protege dados em repouso usando criptografia, auditoria de banco de dados e outras medidas.
 
-**Armazenamento do Azure**: Para atender aos requisitos de dados em repouso criptografados, todo o [Armazenamento](https://azure.microsoft.com/services/storage/) usa [Criptografia do Serviço de Armazenamento](../../storage/common/storage-service-encryption.md). Esse recurso ajuda a proteger e preservar os dados em suporte aos compromissos da segurança organizacional e aos requisitos de conformidade definidos pelo NIST SP 800-171.
+**Armazenamento do Azure**: para atender aos requisitos de dados criptografados em repouso, todos os [Armazenamentos](https://azure.microsoft.com/services/storage/) usam a [Criptografia do Serviço de Armazenamento](../../storage/common/storage-service-encryption.md). Esse recurso ajuda a proteger e preservar os dados em suporte aos compromissos da segurança organizacional e aos requisitos de conformidade definidos pelo NIST SP 800-171.
 
-**Azure Disk Encryption**: O [Disk Encryption](../azure-security-disk-encryption-overview.md) usa o recurso BitLocker do Windows para fornecer criptografia de volume para discos de dados. A solução é integrada ao Azure Key Vault para ajudar a controlar e gerenciar as chaves de criptografia de disco.
+**Azure Disk Encryption**: o [Disk Encryption](../azure-security-disk-encryption-overview.md) usa o recurso BitLocker do Windows para fornecer criptografia de volume para discos de dados. A solução é integrada ao Azure Key Vault para ajudar a controlar e gerenciar as chaves de criptografia de disco.
 
-**Banco de Dados SQL do Azure**: A instância do Banco de Dados SQL usa as seguintes medidas de segurança do banco de dados:
+**Banco de Dados SQL do Azure**: a instância do Banco de Dados SQL usa as seguintes medidas de segurança de banco de dados:
 -   A [autenticação e a autorização do Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permitem o gerenciamento de identidade dos usuários de banco de dados e de outros serviços da Microsoft em uma única localização central.
 -   A [auditoria do banco de dados SQL](../../sql-database/sql-database-auditing.md) controla os eventos de banco de dados e grava-os em um log de auditoria em uma conta de armazenamento do Azure.
 -   O Banco de Dados SQL é configurado para usar a [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Ela executa criptografia e descriptografia em tempo real do banco de dados, dos backups associados e dos arquivos de log de transações para proteger as informações em repouso. A Transparent Data Encryption oferece a garantia de que os dados armazenados não estejam sujeitos a acesso não autorizado.
@@ -105,7 +105,7 @@ A arquitetura protege dados em repouso usando criptografia, auditoria de banco d
 -   As [colunas criptografadas](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) garantem que os dados confidenciais nunca sejam exibidos como texto sem formatação dentro do sistema de banco de dados. Depois que a criptografia de dados estiver habilitada, somente os aplicativos clientes ou servidores de aplicativos com acesso às chaves poderão acessar dados de texto sem formatação.
 - A [Máscara de Dados Dinâmicos do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limita a exposição de dados confidenciais mascarando os dados para usuários ou aplicativos não privilegiados. Ela pode descobrir automaticamente dados possivelmente confidenciais e sugerir as máscaras apropriadas a serem aplicadas. A Máscara de Dados Dinâmicos ajuda a reduzir o acesso para que os dados confidenciais não saiam do banco de dados por meio de acesso não autorizado. *Os clientes são responsáveis por ajustar as configurações para seguir seu próprio esquema de banco de dados.*
 
-### <a name="identity-management"></a>Gerenciamento de identidades
+### <a name="identity-management"></a>Gerenciamento de identidade
 As seguintes tecnologias oferecem funcionalidades para gerenciar o acesso a dados no ambiente do Azure:
 -   O [Azure AD](https://azure.microsoft.com/services/active-directory/) é o serviço multilocatário de gerenciamento de identidade e de diretório baseado em nuvem da Microsoft. Todos os usuários dessa solução são criados no Azure AD e incluem os usuários que acessam o Banco de Dados SQL.
 -   A autenticação para o aplicativo é executada por meio do Azure AD. Para obter mais informações, confira como [integrar aplicativos ao Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). A criptografia de coluna do banco de dados também usa o Azure AD para autenticar o aplicativo no Banco de Dados SQL. Para obter mais informações, veja como [proteger dados confidenciais no Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
@@ -114,7 +114,7 @@ As seguintes tecnologias oferecem funcionalidades para gerenciar o acesso a dado
 -   O [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) detecta possíveis vulnerabilidades que afetam as identidades da organização. Ele configura respostas automatizadas para detectar ações suspeitas relacionadas às identidades da organização. Ele também investiga incidentes suspeitos para tomar as devidas providências para resolvê-los.
 
 ### <a name="security"></a>Segurança
-**Gerenciamento de segredos**: A solução usa o [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para o gerenciamento de chaves e segredos. O Key Vault ajuda a proteger chaves de criptografia e segredos usados por aplicativos e serviços de nuvem. As seguintes funcionalidades do Key Vault ajudam os clientes a proteger os dados:
+**Gerenciamento de segredos**: a solução usa o [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para gerenciar chaves e segredos. O Key Vault ajuda a proteger chaves de criptografia e segredos usados por aplicativos e serviços de nuvem. As seguintes funcionalidades do Key Vault ajudam os clientes a proteger os dados:
 - Políticas de acesso avançadas são configuradas com base na necessidade.
 - As políticas de acesso do Key Vault são definidas com o mínimo de permissões necessárias para chaves e segredos.
 - Todas as chaves e segredos no Key Vault têm datas de validade.
@@ -123,7 +123,7 @@ As seguintes tecnologias oferecem funcionalidades para gerenciar o acesso a dado
 - Os Logs de diagnóstico para Key Vault são habilitados com um período de retenção de pelo menos 365 dias.
 - As operações criptográficas permitidas para chaves são restritas às necessárias.
 
-**Central de Segurança do Azure**: Com a [Central de Segurança](https://docs.microsoft.com/azure/security-center/security-center-intro), os clientes podem aplicar e gerenciar políticas de segurança em cargas de trabalho, limitar a exposição a ameaças e detectar e responder a ataques de forma centralizada. A Central de Segurança também acessa as configurações existentes dos serviços do Azure para fornecer recomendações de configuração e de serviço para ajudar a melhorar a situação de segurança e proteger os dados.
+**Central de Segurança do Azure**: com a [Central de Segurança](https://docs.microsoft.com/azure/security-center/security-center-intro), os clientes podem aplicar e gerenciar políticas de segurança em cargas de trabalho, limitar a exposição a ameaças e detectar e responder a ataques de forma centralizada. A Central de Segurança também acessa as configurações existentes dos serviços do Azure para fornecer recomendações de configuração e de serviço para ajudar a melhorar a situação de segurança e proteger os dados.
 
  A Central de Segurança usa uma variedade de funcionalidades de detecção para alertar os clientes sobre possíveis ataques direcionados a seus ambientes. Esses alertas contêm informações valiosas sobre o que disparou o alerta, os recursos de destino e a origem do ataque. A Central de Segurança tem um conjunto de [alertas de segurança predefinidos](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), que é disparado em caso de ameaça ou de atividade suspeita. Os clientes podem usar as [regras de alerta personalizadas](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) para definir novos alertas de segurança com base nos dados que já foram coletados do ambiente.
 
@@ -132,28 +132,28 @@ As seguintes tecnologias oferecem funcionalidades para gerenciar o acesso a dado
 ### <a name="logging-and-auditing"></a>Registro em log e auditoria
 
 Os serviços do Azure registram em log de forma extensiva as atividades do sistema e do usuário, bem como a integridade do sistema:
-- **Logs de atividades**: Os [logs de atividades](../../azure-monitor/platform/activity-logs-overview.md) fornecem insights sobre as operações executadas em recursos em uma assinatura. Os logs de atividade podem ajudar a determinar o iniciador, o horário da ocorrência e o status de uma operação.
-- **Logs de diagnóstico**: Os [Logs de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) incluem todos os registros emitidos por todos os recursos. Esses logs são logs do sistema de eventos do Windows, logs de armazenamento, logs de auditoria do Key Vault e logs de acesso e firewall do Gateway de Aplicativo do Azure. Todos os logs de diagnóstico são gravados em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. Os usuários podem configurar um período de retenção de até 730 dias para atender às suas necessidades específicas.
+- **Logs de atividades:** os [Logs de atividades](../../azure-monitor/platform/activity-logs-overview.md) fornecem insights sobre as operações executadas nos recursos de uma assinatura. Os logs de atividade podem ajudar a determinar o iniciador, o horário da ocorrência e o status de uma operação.
+- **Logs de diagnóstico**: os [Logs de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) incluem todos os logs emitidos por todos os recursos. Esses logs são logs do sistema de eventos do Windows, logs de armazenamento, logs de auditoria do Key Vault e logs de acesso e firewall do Gateway de Aplicativo do Azure. Todos os logs de diagnóstico são gravados em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. Os usuários podem configurar um período de retenção de até 730 dias para atender às suas necessidades específicas.
 
-**Logs do Azure Monitor**: Os logs são consolidados nos [logs de Azure monitor](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e relatórios de painel. Depois que os dados são coletados, eles são organizados em tabelas separadas para cada tipo de dados nos espaços de trabalho do Log Analytics. Dessa forma, todos os dados podem ser analisados juntos, independentemente de sua fonte original. A central de segurança se integra aos logs de Azure Monitor. Os clientes podem usar consultas Kusto para acessar seus dados de eventos de segurança e combiná-los com dados de outros serviços.
+**Logs de Azure monitor**: os logs são consolidados nos [logs de Azure monitor](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e relatórios de Dashboard. Depois que os dados são coletados, eles são organizados em tabelas separadas para cada tipo de dados nos espaços de trabalho do Log Analytics. Dessa forma, todos os dados podem ser analisados juntos, independentemente de sua fonte original. A central de segurança se integra aos logs de Azure Monitor. Os clientes podem usar consultas Kusto para acessar seus dados de eventos de segurança e combiná-los com dados de outros serviços.
 
 As seguintes [soluções de monitoramento](../../monitoring/monitoring-solutions.md) do Azure estão incluídas como parte dessa arquitetura:
--   [Avaliação do Active Directory](../../azure-monitor/insights/ad-assessment.md): A solução de Verificação de Integridade do Active Directory avalia o risco e a integridade dos ambientes de servidor em um intervalo regular. Ela fornece uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
-- [Avaliação do SQL](../../azure-monitor/insights/sql-assessment.md): A solução de Verificação de Integridade do SQL avalia o risco e a integridade dos ambientes do servidor em um intervalo regular. Ela fornece aos clientes uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
-- [Integridade do Agente](../../monitoring/monitoring-solution-agenthealth.md): A solução de Integridade do Agente informa quantos agentes estão implantados e sua distribuição geográfica. Ela também relata quantos agentes não estão respondendo e o número de agentes que enviam dados operacionais.
--   [Análise do Log de Atividades](../../azure-monitor/platform/collect-activity-logs.md): A solução de Análise do Log de Atividades auxilia na análise dos logs de atividades do Azure em todas as assinaturas do Azure para um cliente.
+-   [Avaliação do Active Directory](../../azure-monitor/insights/ad-assessment.md): a solução de Verificação de Integridade do Active Directory avalia o risco e a integridade dos ambientes de servidor em intervalos regulares. Ela fornece uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
+- [Avaliação do SQL](../../azure-monitor/insights/sql-assessment.md): a solução de Verificação de Integridade do SQL avalia o risco e a integridade dos ambientes de servidor em intervalos regulares. Ela fornece aos clientes uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
+- [Integridade do Agente](../../monitoring/monitoring-solution-agenthealth.md): a solução de Integridade do Agente relata quantos agentes estão implantados e sua distribuição geográfica. Ela também relata quantos agentes não estão respondendo e o número de agentes que enviam dados operacionais.
+-   [Análise do Log de Atividades](../../azure-monitor/platform/collect-activity-logs.md): a solução Análise do Log de Atividades ajuda com a análise dos logs de atividades do Azure em todas as assinaturas do Azure de um cliente.
 
-**Automação do Azure**: A [Automação](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) armazena, executa e gerencia runbooks. Nessa solução, os runbooks ajudam a coletar logs do Banco de Dados SQL. Os clientes podem usar a solução de [Controle de Alterações](../../automation/change-tracking.md) da Automação para identificar facilmente as alterações no ambiente.
+**Automação do Azure**: a [Automação](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) armazena, executa e gerencia runbooks. Nessa solução, os runbooks ajudam a coletar logs do Banco de Dados SQL. Os clientes podem usar a solução de [Controle de Alterações](../../automation/change-tracking.md) da Automação para identificar facilmente as alterações no ambiente.
 
-**Azure Monitor**: O [Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os usuários a acompanhar o desempenho, manter a segurança e identificar tendências. As organizações podem usá-lo para auditar, criar alertas e arquivar dados. Elas também podem acompanhar as chamadas à API em seus recursos do Azure.
+**Azure Monitor**: o [Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os usuários a acompanhar o desempenho, manter a segurança e identificar tendências. As organizações podem usá-lo para auditar, criar alertas e arquivar dados. Elas também podem acompanhar as chamadas à API em seus recursos do Azure.
 
-**Application Insights**: O [Application Insights](https://docs.microsoft.com/azure/application-insights/) é um serviço de Gerenciamento de Desempenho de Aplicativos extensível para desenvolvedores da Web em várias plataformas. Ele detecta anomalias de desempenho e inclui ferramentas de análise avançadas. As ferramentas ajudam a diagnosticar problemas e ajudam os clientes a entender o que os usuários fazem com o aplicativo. Ele foi projetado para ajudar os usuários a aprimorar continuamente o desempenho e a usabilidade.
+**Application Insights**: o [Application Insights](https://docs.microsoft.com/azure/application-insights/) é um serviço de gerenciamento de desempenho de aplicativos extensível indicado a desenvolvedores para Web em várias plataformas. Ele detecta anomalias de desempenho e inclui ferramentas de análise avançadas. As ferramentas ajudam a diagnosticar problemas e ajudam os clientes a entender o que os usuários fazem com o aplicativo. Ele foi projetado para ajudar os usuários a aprimorar continuamente o desempenho e a usabilidade.
 
 ## <a name="threat-model"></a>Modelo de ameaça
 
 O diagrama de fluxo de dados dessa arquitetura de referência está disponível para [download](https://aka.ms/nist171-analytics-tm) ou pode ser encontrado aqui. Esse modelo pode ajudar os clientes a entenderem os possíveis pontos de risco na infraestrutura do sistema ao fazer modificações.
 
-![Data Analytics para modelo de risco do NIST SP 800-171](images/nist171-analytics-threat-model.png "Data Analytics para modelo de risco do NIST SP 800-171")
+![Análise de dados para o modelo de ameaça NIST SP 800-171](images/nist171-analytics-threat-model.png "Análise de dados para o modelo de ameaça NIST SP 800-171")
 
 ## <a name="compliance-documentation"></a>Documentação de conformidade
 O [Blueprint de segurança e conformidade do Azure - Matriz de responsabilidade do cliente para NIST SP 800-171](https://aka.ms/nist171-crm) lista todos os controles de segurança exigidos pelo NIST SP 800-171. Essa matriz detalha se a implementação de cada controle é de responsabilidade da Microsoft, do cliente ou compartilhada entre os dois.

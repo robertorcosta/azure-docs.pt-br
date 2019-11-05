@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2172ac30cd5b4251933e5012affdb41a0202a344
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3f80169808b1e6420f04b786d2bb06bde9c96231
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784845"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479658"
 ---
 # <a name="text-split-cognitive-skill"></a>Habilidade cognitiva do Text Split
 
@@ -29,23 +29,23 @@ Microsoft.Skills.Text.SplitSkill
 
 Os parâmetros diferenciam maiúsculas de minúsculas.
 
-| Nome do parâmetro     | Descrição |
+| Nome do parâmetro     | DESCRIÇÃO |
 |--------------------|-------------|
 | textSplitMode      | "Páginas" ou "sentenças" | 
-| maximumPageLength | Se o textSplitMode for definido como "páginas", isso se refere ao comprimento máximo da página, conforme medido pelo `String.Length`. O valor mínimo é 100.  Se o textSplitMode for definido como "pages", o algoritmo tentará dividir o texto em partes com um tamanho de, no máximo, "maximumPageLength". Nesse caso, o algoritmo fará o melhor para quebrar a frase em um limite de orações, de modo que o tamanho da parte possa ser um pouco menor que "maximumPageLength". | 
-| defaultLanguageCode   | (opcional) Um dos seguintes códigos de idioma: `da, de, en, es, fi, fr, it, ko, pt`. O padrão é inglês (en). Algumas coisas para levar em consideração:<ul><li>Se você passar um formato languagecode-countrycode, somente a parte languagecode do formato é usada.</li><li>Se o idioma não estiver na lista anterior, a habilidade de divisão quebra o texto em limites de caractere.</li><li>Fornecer um código de idioma é útil para evitar recortar uma palavra na metade para idiomas sem espaço como chinês, japonês e coreano.</li></ul>  |
+| maximumPageLength | Se o textSplitMode for definido como "páginas", isso se refere ao comprimento máximo da página, conforme medido pelo `String.Length`. O valor mínimo é {1}100{2}.  Se o textSplitMode for definido como "pages", o algoritmo tentará dividir o texto em partes com um tamanho de, no máximo, "maximumPageLength". Nesse caso, o algoritmo fará o melhor para quebrar a frase em um limite de orações, de modo que o tamanho da parte possa ser um pouco menor que "maximumPageLength". | 
+| defaultLanguageCode   | (opcional) Um dos seguintes códigos de idioma: `da, de, en, es, fi, fr, it, ko, pt`. O padrão é inglês (en). Algumas coisas para levar em consideração:<ul><li>Se você passar um formato languagecode-countrycode, somente a parte languagecode do formato é usada.</li><li>Se o idioma não estiver na lista anterior, a habilidade de divisão quebra o texto em limites de caractere.</li><li>Fornecer um código de idioma é útil para evitar cortar uma palavra na metade para idiomas que não sejam espaços em branco, como chinês, japonês e coreano.</li><li>Se você não souber o idioma (ou seja, precisar dividir o texto para entrada no [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), o padrão de Inglês (EN) deve ser suficiente. </li></ul>  |
 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome do parâmetro       | Descrição      |
+| Nome do parâmetro       | DESCRIÇÃO      |
 |----------------------|------------------|
-| text  | O texto a ser dividido em subcadeias. |
-| languageCode  | (opcional) Código de idioma para o documento.  |
+| texto  | O texto a ser dividido em subcadeias. |
+| languageCode  | (opcional) Código de idioma para o documento. Se você não souber o idioma (ou seja, precisar dividir o texto para entrada no [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), será seguro remover essa entrada.  |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades 
 
-| Nome do parâmetro     | Descrição |
+| Nome do parâmetro     | DESCRIÇÃO |
 |--------------------|-------------|
 | textItems | Uma matriz de subcadeias de caracteres que foram extraídos. |
 
@@ -130,7 +130,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 ## <a name="error-cases"></a>Casos de erro
 Se não há suporte para um idioma, um aviso será gerado e o texto é dividido em limites de caractere.
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Confira também
 
 + [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)

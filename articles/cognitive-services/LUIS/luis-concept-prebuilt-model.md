@@ -9,36 +9,34 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: b88801ded3dea7c7514ff117361feba3e95444ed
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: d9cb86c1c19649052e4796fd0a8909ce08381d55
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264396"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487582"
 ---
-# <a name="prebuilt-domain-intent-and-entity-models"></a>Modelos de entidade, intenção e domínio predefinidos
+# <a name="prebuilt-models"></a>Modelos predefinidos
 
-Modelos predefinidos fornecem domínios, intenções, enunciados e entidades. Você pode iniciar o aplicativo com um domínio predefinido ou, posteriormente adicionar um domínio relevante ao aplicativo. 
+Modelos predefinidos fornecem domínios, intenções, enunciados e entidades. Você pode iniciar seu aplicativo com um modelo predefinido ou adicionar um modelo relevante ao seu aplicativo posteriormente. 
 
 ## <a name="types-of-prebuilt-models"></a>Tipos de modelos predefinidos
 
-Há 3 tipos de modelos predefinidos que o LUIS fornece. Cada modelo poderá ser adicionado ao aplicativo a qualquer momento. 
+O LUIS fornece três tipos de modelos pré-criados. Cada modelo poderá ser adicionado ao aplicativo a qualquer momento. 
 
 |Tipo de modelo|Inclui|
 |--|--|
-|Domínio|Intenções, enunciados, entidades|
+|[Domínio](luis-reference-prebuilt-domains.md)|Intenções, enunciados, entidades|
 |Intenções|Intenções, enunciados|
-|Entidades|Apenas entidades| 
+|[Contabilidade](luis-reference-prebuilt-entities.md)|Apenas entidades| 
 
 ## <a name="prebuilt-domains"></a>Domínios predefinidos
 
-O Reconhecimento vocal (LUIS) fornece *domínios predefinidos*, que são conjuntos predefinidos de [intenções](luis-how-to-add-intents.md) e [entidades](luis-concept-entity-types.md) que trabalham juntas para domínios ou categorias comuns de aplicativos clientes. 
+O Reconhecimento vocal (LUIS) fornece *domínios predefinidos*, que são modelos pretreinados de [tentativas](luis-how-to-add-intents.md) e [entidades](luis-concept-entity-types.md) que funcionam em conjunto para domínios ou categorias comuns de aplicativos cliente. 
 
-Os domínios predefinidos são treinados e prontos para serem adicionados ao aplicativo LUIS. As intenções e entidades em um domínio predefinido são totalmente personalizáveis quando você as adiciona ao aplicativo. 
-
-Se você começar personalizando um domínio predefinido inteiro, exclua as intenções e as entidades que seu aplicativo não precisa usar. Você também pode adicionar algumas intenções ou entidades ao conjunto que o domínio predefinido já fornece. Por exemplo, se você estiver usando o domínio predefinido **Eventos** para um aplicativo de evento esportivo, pode para adicionar entidades a times. Quando você começar a [fornecer declarações](luis-how-to-add-example-utterances.md) para o LUIS, inclua termos que sejam específicos ao seu aplicativo. O LUIS aprende a reconhecê-los e personaliza as intenções e entidades do domínio predefinido para as necessidades do seu aplicativo. 
+Os domínios predefinidos são treinados e prontos para serem adicionados ao aplicativo LUIS. As intenções e entidades de um domínio predefinido são totalmente personalizáveis depois de serem adicionadas ao seu aplicativo. 
 
 > [!TIP]
 > As intenções e as entidades em um domínio predefinido funcionam melhor juntas. É melhor combinar intenções e entidades do mesmo domínio, quando for possível.
@@ -46,13 +44,13 @@ Se você começar personalizando um domínio predefinido inteiro, exclua as inte
 
 ### <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>Alterando o comportamento de uma intenção de domínio predefinido
 
-Você pode achar que um domínio predefinido contém uma intenção que é semelhante a uma que você deseja ter em seu aplicativo do LUIS mas quer que tenha um comportamento diferente. Por exemplo, o domínio predefinido **Locais** compilada fornece uma intenção `MakeReservation` para fazer uma reserva de restaurante, mas você quer que seu aplicativo use essa intenção para fazer reservas de hotel. Nesse caso, você pode modificar o comportamento dessa intenção fornecendo declarações para o LUIS sobre fazer reservas de hotel e rotulá-los usando a intenção `MakeReservation`, de modo que o LUIS possa ser treinado novamente para reconhecer a intenção `MakeReservation` em uma solicitação para reservar um hotel.
+Você pode achar que um domínio predefinido contém uma intenção que é semelhante a uma que você deseja ter em seu aplicativo do LUIS mas quer que tenha um comportamento diferente. Por exemplo, o domínio predefinido **coloca** uma `MakeReservation` intenção de fazer uma reserva de restaurante, mas você deseja que seu aplicativo use essa intenção para fazer reservas de Hotel. Nesse caso, você pode modificar o comportamento dessa intenção adicionando o exemplo declarações à intenção de fazer reservas de Hotel. Em seguida, retreinado o aplicativo. 
 
 Você pode encontrar uma lista completa dos domínios predefinidos na [Referência de domínios predefinidos](./luis-reference-prebuilt-domains.md).
 
 ## <a name="prebuilt-intents"></a>Intenções predefinidas
 
-O LUIS fornece intenções predefinidas e seus enunciados. As intenções podem ser adicionadas sem adicionar todo o domínio. Adicionar uma intenção é o processo de adicionar uma intenção e seus enunciados. Tanto o nome da intenção como a lista de enunciados podem ser modificados.  
+O LUIS fornece intenções predefinidas e seus declarações, dos domínios predefinidos. As intenções podem ser adicionadas sem adicionar todo o domínio. Adicionar uma intenção é o processo de adicionar uma intenção e seu declarações ao seu aplicativo. Tanto o nome da intenção como a lista de enunciados podem ser modificados.  
 
 ## <a name="prebuilt-entities"></a>Entidades predefinidas
 

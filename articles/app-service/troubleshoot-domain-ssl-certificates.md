@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: a6c3b8485a3243d7c89ab409a2fb83b1b045c9ba
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 778836661ff15c334823f95fef42acadb3e8b649
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121991"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470136"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Solucionar problemas de domínio e de certificado SSL nos Serviço de Aplicativo do Azure
 
@@ -70,14 +70,14 @@ Remova a associação SSL para esse certificado dos aplicativos. Em seguida, ten
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>Não é possível comprar um certificado do Serviço de Aplicativo 
 
 #### <a name="symptom"></a>Sintoma
-Não é possível comprar um [certificado do Serviço de Aplicativo do Azure](./web-sites-purchase-ssl-web-site.md) pelo portal do Azure.
+Não é possível comprar um [certificado do Serviço de Aplicativo do Azure](./configure-ssl-certificate.md#import-an-app-service-certificate) pelo portal do Azure.
 
 #### <a name="cause-and-solution"></a>Causa e solução
 Esse problema pode ocorrer por qualquer um dos seguintes motivos:
 
 - O plano do Serviço de Aplicativo é Gratuito ou Compartilhado. Esses tipos de preços não dão suporte para SSL. 
 
-    **Solução**: Atualize o plano do Serviço de Aplicativo do aplicativo para Standard.
+    **Solução**: Atualize o plano do serviço de aplicativo para o aplicativo para Standard.
 
 - A assinatura não possui um cartão de crédito válido.
 
@@ -85,18 +85,18 @@ Esse problema pode ocorrer por qualquer um dos seguintes motivos:
 
 - A oferta de assinatura não dá suporte para compra de um certificado do Serviço de Aplicativo, como o Microsoft Student.  
 
-    **Solução**: Atualize sua assinatura. 
+    **Solução**: atualize sua assinatura. 
 
 - A assinatura alcançou o limite de compras permitidas em uma assinatura.
 
     **Solução**: certificados do Serviço de Aplicativo têm um limite de 10 compras de certificado para os tipos de assinatura EA e Pagamento Conforme o Uso. Para outros tipos de assinatura, o limite é 3. Para aumentar o limite, contate o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- O certificado de Serviço de Aplicativo foi marcado como fraude. Você recebeu a mensagem de erro a seguir: "Seu certificado foi sinalizado para uma possível fraude. A solicitação está sendo examinada. Se o certificado não se tornar utilizável dentro de 24 horas, entre em contato com o suporte do Azure.
+- O certificado de Serviço de Aplicativo foi marcado como fraude. Você recebeu mensagem de erro a seguir: "Seu certificado foi sinalizado para uma possível fraude. A solicitação está sendo examinada. Se o certificado não se tornar utilizável dentro de 24 horas, entre em contato com o suporte do Azure.
 
-    **Solução**: Se o certificado estiver marcado como fraude e não for resolvido após 24 horas, siga estas etapas:
+    **Solução**: se o certificado estiver marcado como fraude e não for resolvido após 24 horas, siga estas etapas:
 
     1. Entre no [Portal do Azure](https://portal.azure.com).
     2. Vá para **Certificados do Serviço de Aplicativo** e selecione o certificado.
-    3. Selecione **Configuração de Certificado** > **Etapa 2: Verificar** > **Verificação de Domínio**. Essa etapa envia uma notificação de email para o provedor de certificados do Azure para resolver o problema.
+    3. Selecione **Configuração de Certificado** > **Etapa 2: verificar** > **Verificação de domínio**. Essa etapa envia uma notificação de email para o provedor de certificados do Azure para resolver o problema.
 
 ## <a name="custom-domain-problems"></a>Problemas de domínio personalizado
 
@@ -167,7 +167,7 @@ O domínio não está mais visível no portal do Azure.
 O proprietário da assinatura pode ter excluído acidentalmente o domínio.
 
 #### <a name="solution"></a>Solução
-Se o domínio foi excluído há menos de sete dias, o domínio ainda não iniciou o processo de exclusão. Nesse caso, você poderá comprar o mesmo domínio novamente no portal do Azure com a mesma assinatura. (Certifique-se de digitar o nome de domínio exato na caixa de pesquisa.) Você não será cobrado novamente por esse domínio. Se o domínio tiver sido excluído há mais de sete dias, entre em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter ajuda com a restauração do domínio.
+Se o domínio foi excluído há menos de sete dias, o domínio ainda não iniciou o processo de exclusão. Nesse caso, você poderá comprar o mesmo domínio novamente no portal do Azure com a mesma assinatura. (Certifique-se de digitar o nome de domínio exato na caixa de pesquisa.) Você não será cobrado novamente para este domínio. Se o domínio tiver sido excluído há mais de sete dias, entre em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter ajuda com a restauração do domínio.
 
 ## <a name="domain-problems"></a>Problemas de domínio
 
@@ -197,8 +197,8 @@ O serviço de aplicativo sincroniza automaticamente seu certificado dentro de 48
 Você pode forçar uma sincronização do certificado:
 
 1. Entre no [Portal do Azure](https://portal.azure.com). Selecione os **Certificados do Serviço de Aplicativo** e, em seguida, selecione o certificado.
-2. Selecione **Rechaveamento e Sincronização** e, em seguida, selecione **Sincronizar**. A sincronização demora algum tempo para concluir. 
-3. Quando a sincronização for concluída, você verá a notificação a seguir: "Todos os recursos atualizados com o certificado mais recente com êxito."
+2. Selecione **rechaveamento e sincronização**e, em seguida, selecione **sincronizar**. A sincronização leva algum tempo para ser concluída. 
+3. Quando a sincronização for concluída, você verá a notificação a seguir: "Todos os recursos atualizados com êxito com o certificado mais recente."
 
 ### <a name="domain-verification-is-not-working"></a>A verificação de domínio não está funcionando 
 
@@ -244,7 +244,7 @@ Esse problema ocorre por um dos seguintes motivos:
     **Solução**: [atribua a função de Proprietário](../role-based-access-control/role-assignments-portal.md) à sua conta. Ou contate o administrador da assinatura para obter permissão para comprar um domínio.
 - Você atingiu o limite para comprar os domínios na sua assinatura. O limite atual é 20.
 
-    **Solução**: para solicitar um aumento até o limite, contate o [Suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+    **Solução**: para solicitar um aumento até o limite, contate o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - O tipo de assinatura do Azure não dá suporte para compra de um domínio do Serviço de Aplicativo.
 
     **Solução**: atualize a assinatura do Azure para outro tipo de assinatura, como uma assinatura de Pagamento Conforme o Uso.
@@ -268,15 +268,15 @@ Esse problema ocorre por um dos seguintes motivos:
 
     |Tipo de registro|Host|Apontar para|
     |------|------|-----|
-    |O|@|Endereço IP para um aplicativo|
+    |Uma|@|Endereço IP para um aplicativo|
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>Perguntas frequentes
 
 **É necessário configurar meu domínio personalizado para meu site depois de comprá-lo?**
 
-Quando você adquire um domínio do portal do Azure, o aplicativo do serviço de aplicativo é configurado automaticamente para usar esse domínio personalizado. Você não precisa executar nenhuma etapa adicional. Para obter mais informações, [Assista à auto ajuda do serviço de Azure App: Adicione um nome](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) de domínio personalizado em channel9.
+Quando você adquire um domínio do portal do Azure, o aplicativo do serviço de aplicativo é configurado automaticamente para usar esse domínio personalizado. Você não precisa executar nenhuma etapa adicional. Para obter mais informações, Assista à [auto-ajuda do serviço de Azure App: adicionar um nome de domínio personalizado](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) em channel9.
 
 **Posso usar um domínio adquirido no portal do Azure para apontar para uma VM do Azure em vez disso?**
 

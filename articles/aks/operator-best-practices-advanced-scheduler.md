@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: f260e019ffa6eb89e8a2c1e17d2bf239e74290c2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 798c368edb4a738124fce965f8990e6805fbdeba
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900121"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472610"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os recursos do agendador avançado no Serviço de Kubernetes do Azure (AKS)
 
-À medida que você gerencia clusters no Serviço de Kubernetes do Azure (AKS), geralmente é necessário isolar equipes e cargas de trabalho. O Agendador Kubernetes fornece recursos avançados que permitem controlar quais pods podem ser agendados em determinados nós, ou como o pod com vários aplicativos pode ser distribuído apropriadamente no cluster. 
+Ao gerenciar clusters no Serviço de Kubernetes do Azure (AKS), muitas vezes você precisa isolar as equipes e as carga de trabalho. O Agendador Kubernetes fornece recursos avançados que permitem controlar quais pods podem ser agendados em determinados nós, ou como o pod com vários aplicativos pode ser distribuído apropriadamente no cluster. 
 
 Este artigo sobre práticas recomendadas se concentra em recursos de agendamento de Kubernetes avançados para os operadores do cluster. Neste artigo, você aprenderá a:
 
@@ -31,7 +31,7 @@ Este artigo sobre práticas recomendadas se concentra em recursos de agendamento
 
 Quando você cria um cluster do AKS, você pode implantar nós com suporte de GPU ou um grande número de CPUs avançadas. Esses nós geralmente são usados para cargas de trabalho de processamento de dados grandes, como aprendizado de máquina (ML) ou a inteligência artificial (AI). Como esse tipo de hardware geralmente é um recurso de nó caro de implantar, limite as cargas de trabalho que podem ser agendadas em nós. Em vez disso, talvez você queira dedicar alguns nós do cluster para executar serviços de entrada e impedir outras cargas de trabalho.
 
-Esse suporte para nós diferentes é fornecido usando vários pools de nó. Um cluster AKS fornece um ou mais pools de nós. O suporte para vários pools de nós no AKS está atualmente em visualização.
+Esse suporte para nós diferentes é fornecido usando vários pools de nó. Um cluster AKS fornece um ou mais pools de nós.
 
 O Agendador Kubernetes pode usar taints e tolerations para restringir quais cargas de trabalho podem ser executados em nós.
 
@@ -81,16 +81,16 @@ Para obter mais informações sobre como usar vários pools de nós no AKS, cons
 
 Quando você atualiza um pool de nós em AKS, os tolerationss seguem um padrão definido à medida que são aplicados a novos nós:
 
-- **Clusters padrão sem suporte de escala de máquina virtual**
-  - Vamos supor que você tenha um cluster de dois nós- *Node1* e *NODE2*. Quando você atualiza, um nó adicional (*Node3*) é criado.
+- **Clusters padrão que usam conjuntos de dimensionamento de máquinas virtuais**
+  - Vamos supor que você tenha um cluster de dois nós- *Node1* e *NODE2*. Você atualiza o pool de nós.
+  - Dois nós adicionais são criados, *Node3* e *Nó4*, e os são passados em respectivamente.
+  - Os *Node1* e *NODE2* originais são excluídos.
+
+- **Clusters sem suporte ao conjunto de dimensionamento de máquinas virtuais**
+  - Novamente, vamos supor que você tenha um cluster de dois nós- *Node1* e *NODE2*. Quando você atualiza, um nó adicional (*Node3*) é criado.
   - Os de *Node1* são aplicados ao *Node3*, então *Node1* é excluído.
   - Outro novo nó é criado (chamado *Node1*, uma vez que o *Node1* anterior foi excluído) e *os* os seus Em seguida, *NODE2* é excluído.
   - Em essência, *Node1* se torna *Node3*e *NODE2* se torna *Node1*.
-
-- **Clusters que usam conjuntos de dimensionamento de máquinas virtuais**
-  - Novamente, vamos supor que você tenha um cluster de dois nós- *Node1* e *NODE2*. Você atualiza o pool de nós.
-  - Dois nós adicionais são criados, *Node3* e *Nó4*, e os são passados em respectivamente.
-  - Os *Node1* e *NODE2* originais são excluídos.
 
 Quando você dimensiona um pool de nós em AKS, os projetos e Tolerations não são transferidos por design.
 
@@ -181,9 +181,9 @@ Um bom exemplo é um aplicativo web que também usa um Azure Cache para Redis. V
 
 Este exemplo é uma implantação mais complexa do que o uso de seletores de nó ou afinidade de nó. A implantação fornece a você o controle sobre os pods de agendas Kubernetes em nós e pode isolar os recursos logicamente. Para obter um exemplo completo deste aplicativo Web com o cache do Azure para Redis exemplo, consulte [co-localizar pods no mesmo nó][k8s-pod-affinity].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Este artigo se concentra nos recursos avançados de agendador Kubernetes. Para obter mais informações sobre operações de cluster no AKS, consulte as seguintes práticas recomendadas:
+Este artigo se concentra nos recursos avançados de agendador Kubernetes. Para obter mais informações sobre as operações de cluster do AKS, consulte as seguintes práticas recomendadas:
 
 * [Multilocação e isolamento de cluster][aks-best-practices-scheduler]
 * [Recursos básicos do Agendador do kubernetes][aks-best-practices-scheduler]

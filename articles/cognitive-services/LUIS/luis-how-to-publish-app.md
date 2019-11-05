@@ -9,22 +9,24 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: f92776072038c5684e9334d2dda1690ebb7bcaa8
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 0d3a413249cb9058e4098f2836131494670a1727
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257804"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491327"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicar seu aplicativo ativo, treinado em um ponto de extremidade de preparo ou produção
 
 Quando terminar de compilar e testar seu aplicativo LUIS ativo, disponibilize-o ao seu aplicativo cliente publicando-o no ponto de extremidade. 
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 <a name="publish-your-trained-app-to-an-http-endpoint"></a>
 
-## <a name="publishing"></a>Publicando
+## <a name="publishing"></a>Publicação
 
 1. Para publicar no ponto de extremidade, selecione **Publicar** no painel superior direito. 
 
@@ -47,14 +49,14 @@ Usando os dois slots de publicação, isso permite que você tenha duas versões
 
 O aplicativo é publicado em todas as regiões associadas aos recursos de ponto de extremidade de previsão LUIS adicionados no portal do LUIS. 
 
-Por exemplo, para um aplicativo criado em [www.Luis.ai](https://www.luis.ai), se você criar um recurso de Luis em duas regiões , westuse lesteus, e adicioná-los ao aplicativo como recursos, o aplicativo será publicado em ambas as regiões. Para obter mais informações sobre as regiões do LUIS, consulte [Regiões](luis-reference-regions.md).
+Por exemplo, para um aplicativo criado em [www.Luis.ai](https://www.luis.ai), se você criar um recurso de Luis em duas regiões, **westus** e **lesteus**, e adicioná-los ao aplicativo como recursos, o aplicativo será publicado em ambas as regiões. Para obter mais informações sobre as regiões do LUIS, consulte [Regiões](luis-reference-regions.md).
 
 
 ## <a name="configuring-publish-settings"></a>Definindo configurações de publicação
 
 Depois de selecionar o slot, defina as configurações de publicação para:
 
-* Análise de Sentimento
+* Análise de sentimento
 * Correção ortográfica
 * Preparação da fala 
 
@@ -68,7 +70,7 @@ Quando seu aplicativo tiver sido publicado com êxito, uma notificação de êxi
 
 Se você precisar da URL do ponto de extremidade, selecione o link. Você também pode acessar as URLs do ponto de extremidade selecionando **gerenciar** no menu superior e, em seguida, selecione **recursos do Azure** no menu à esquerda. 
 
-## <a name="sentiment-analysis"></a>Análise de Sentimento
+## <a name="sentiment-analysis"></a>Análise de sentimento
 
 <a name="enable-sentiment-analysis"></a>
 

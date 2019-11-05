@@ -1,7 +1,7 @@
 ---
 title: Criar pontos de extremidade de serviço Web
-titleSuffix: Azure Machine Learning Studio
-description: Crie pontos de extremidade de serviço Web no Azure Machine Learning Studio. Cada ponto de extremidade no serviço Web é tratado, limitado e gerenciado de forma independente.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Crie pontos de extremidade de serviço Web no Azure Machine Learning Studio (clássico). Cada ponto de extremidade no serviço Web é tratado, limitado e gerenciado de forma independente.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: ac434a696f6e77e5ce61b430232166e7727eda38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d98df3e2dcc8112df9d56033bece069607380d9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751171"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493229"
 ---
-# <a name="create-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Criar pontos de extremidade para serviços Web implantados do Azure Machine Learning Studio
+# <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Criar pontos de extremidade para serviços Web Azure Machine Learning Studio (clássico) implantados
 
 > [!NOTE]
 > Este tópico descreve as técnicas aplicáveis a um Serviço Web do Machine Learning **Clássico**.
@@ -32,14 +32,14 @@ Você pode adicionar um ponto de extremidade a um serviço Web usando o portal d
 > [!NOTE]
 > Caso você tenha adicionado mais pontos de extremidade ao serviço Web, você não poderá excluir o ponto de extremidade padrão.
 
-1. No Estúdio de Machine Learning, clique em Serviços Web na coluna de navegação à esquerda.
+1. Em Machine Learning Studio (clássico), na coluna de navegação à esquerda, clique em serviços Web.
 2. Na parte inferior do painel do serviço Web, clique em **Gerenciar pontos de extremidade**. O portal de Serviços Web do Azure Machine Learning abre a página de pontos de extremidade do serviço Web.
 3. Clique em **Novo**.
 4. Digite um nome e uma descrição para o novo ponto de extremidade. Os nomes dos pontos de extremidade devem ter 24 caracteres ou menos e devem ser compostos de letras minúsculas ou números. Selecione o nível de log e se os dados de exemplo estão habilitados. Para obter mais informações sobre registro em log, consulte [Habilitar o log de serviços Web de Machine Learning](web-services-logging.md).
 
 ## <a id="scaling"></a> Dimensionar um serviço Web adicionando mais pontos de extremidade
 
-Por padrão, cada serviço Web publicado é configurado para oferecer suporte a 20 a 200 solicitações simultâneas. O Azure Machine Learning Studio otimiza essa configuração automaticamente para fornecer o melhor desempenho ao serviço Web, e o valor do portal é ignorado.
+Por padrão, cada serviço Web publicado é configurado para oferecer suporte a 20 a 200 solicitações simultâneas. A versão clássica do Azure Machine Learning Studio otimiza automaticamente a configuração para fornecer o melhor desempenho para o serviço Web e o valor do portal é ignorado.
 
 Se você planeja chamar a API com uma carga maior que o valor suportado de 200 para o Máximo de Chamadas Simultâneas, é preciso criar vários pontos de extremidade no mesmo serviço Web. Você pode, então, distribuir a carga aleatoriamente entre todos eles.
 

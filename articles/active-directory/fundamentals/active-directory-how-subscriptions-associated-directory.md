@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb4fa92d8b3c174cdf9b3695f8564cc11c1ad291
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f6bce05b99c14fb464cd1a17587d9cf254909d87
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851756"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473384"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory
 
@@ -29,7 +29,9 @@ Se a sua assinatura expirar, você perderá o acesso a todos os outros recursos 
 Todos os seus usuários têm um único diretório *base* para autenticação. No entanto, seus usuários também podem ser convidados em outros diretórios. Você pode ver os diretórios inicial e convidado de cada usuário no Azure AD.
 
 > [!Important]
-> Quando você associa uma assinatura a um diretório diferente, os usuários que têm funções atribuídas usando o [controle de acesso baseado em função (RBAC)](../../role-based-access-control/role-assignments-portal.md) perderão seu acesso. Os administradores de assinatura clássicos (administrador de serviços e coadministradores) também perderão o acesso.
+> Quando você associa uma assinatura a um diretório diferente, os usuários que têm funções atribuídas usando o [controle de acesso baseado em função (RBAC)](../../role-based-access-control/role-assignments-portal.md) perderão seu acesso. Os administradores de assinatura clássicos (administrador de serviços e coadministradores) também perderão o acesso. 
+>
+> As atribuições de política também são removidas de uma assinatura quando a assinatura é associada a um diretório diferente.
 > 
 > Além disso, mover o cluster AKS (serviço kubernetes do Azure) para uma assinatura diferente ou mover a assinatura proprietária do cluster para um novo locatário faz com que o cluster perca funcionalidade devido a atribuições de função perdidas e direitos de entidades de serviço. Para obter mais informações sobre AKS, consulte [serviço kubernetes do Azure (AKs)](https://docs.microsoft.com/azure/aks/).
 
@@ -70,7 +72,7 @@ Antes de associar ou adicionar sua assinatura, você deve executar as seguintes 
 
     ![Página de seletor de diretório, com informações de exemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-A alteração do diretório de assinatura é uma operação no nível do serviço, portanto, não afeta a propriedade do faturamento da assinatura. O administrador da conta ainda pode alterar o administrador do serviço do [Centro de contas](https://account.azure.com/subscriptions). Para excluir o diretório original, você deve transferir a propriedade de faturamento da assinatura para um novo Administrador de conta. Para saber mais sobre como transferir a propriedade da conta, confira [Transferir a propriedade de uma assinatura do Azure para outra conta](../../billing/billing-subscription-transfer.md).
+A alteração do diretório de assinatura é uma operação no nível do serviço, portanto, não afeta a propriedade do faturamento da assinatura. O administrador da conta ainda pode alterar o administrador do serviço do [Centro de contas](https://account.azure.com/subscriptions). Para excluir o diretório original, você deve transferir a propriedade de cobrança da assinatura para um novo administrador da conta. Para saber mais sobre como transferir a propriedade de cobrança, consulte [transferir a propriedade de uma assinatura do Azure para outra conta](../../billing/billing-subscription-transfer.md).
 
 ## <a name="post-association-steps"></a>Etapas de associação post
 Depois de associar uma assinatura a um diretório diferente, pode haver etapas adicionais que você deve executar para retomar as operações.

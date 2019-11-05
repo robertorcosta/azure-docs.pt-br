@@ -1,5 +1,5 @@
 ---
-title: Otimizar configurações de cluster com o Apache Ambari - Azure HDInsight
+title: Apache Ambari para otimizar as configurações de cluster – Azure HDInsight
 description: Use a interface do usuário da Web do Apache amAmbari para configurar e otimizar clusters do Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7261aad8f42168449f2c892fe8aaaa6667964654
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: e0d94a41febdba1bea6818309e05d287bef6d3a1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076951"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492511"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Use o Apache Ambari para otimizar as configurações de cluster do HDInsight
 
@@ -82,8 +82,8 @@ O Hive fornece dois mecanismos de execução: [Apache Hadoop MapReduce](https://
 
 O Hadoop tenta dividir (*mapear*) arquivos únicos em vários arquivos e processar os arquivos resultantes em paralelo. O número de mapeadores depende do número de divisões. Os dois parâmetros de configuração a seguir definem o número de divisões para o mecanismo de execução Tez:
 
-* `tez.grouping.min-size`: Limite inferior do tamanho de uma divisão agrupada, com um valor padrão de 16 MB (16.777.216 bytes).
-* `tez.grouping.max-size`: Limite superior do tamanho de uma divisão agrupada, com um valor padrão de 1 GB (1.073.741.824 bytes).
+* `tez.grouping.min-size`: limite inferior do tamanho de uma divisão agrupada, com um valor padrão de 16 MB (16.777.216 bytes).
+* `tez.grouping.max-size`: limite superior do tamanho de uma divisão agrupada, com um valor padrão de 1 GB (1.073.741.824 bytes).
 
 Como regra de desempenho geral, diminua esses dois parâmetros para melhorar a latência e aumente para aumentar a taxa de transferência.
 
@@ -123,9 +123,9 @@ O parâmetro `hive.exec.reducers.bytes.per.reducer` especifica o número de byte
 
 Uma consulta do Hive é executada em uma ou mais etapas. Se as etapas independentes puderem ser executadas em paralelo, o desempenho da consulta aumentará.
 
-1. Para habilitar a execução de consultas em paralelo, navegue até a guia **Configurações** do Hive e pesquise pela propriedade `hive.exec.parallel`. O valor padrão é false. Altere o valor para true e pressione **Enter** para salvá-lo.
+1. Para habilitar a execução de consultas em paralelo, navegue até a guia **Configurações** do Hive e pesquise pela propriedade `hive.exec.parallel`. O valor padrão é falso. Altere o valor para true e pressione **Enter** para salvá-lo.
 
-1. Para limitar o número de trabalhos a serem executados em paralelo, modifique `hive.exec.parallel.thread.number` a propriedade. O valor padrão é 8.
+1. Para limitar o número de trabalhos a serem executados em paralelo, modifique a propriedade `hive.exec.parallel.thread.number`. O valor padrão é 8.
 
     ![Exibição paralela Apache Hive exec](./media/hdinsight-changing-configs-via-ambari/apache-hive-exec-parallel.png)
 
@@ -135,7 +135,7 @@ O Hive processa dados linha por linha. A vetorização instrui o Hive a processa
 
 1. Para habilitar uma execução de consulta vetorizada, navegue até a guia **Configurações** do Hive e pesquise pelo parâmetro `hive.vectorized.execution.enabled`. O valor padrão é true para o Hive 0.13.0 ou posterior.
 
-1. Para habilitar a execução vetorizada para o lado de redução da consulta, defina o parâmetro `hive.vectorized.execution.reduce.enabled` como true. O valor padrão é false.
+1. Para habilitar a execução vetorizada para o lado de redução da consulta, defina o parâmetro `hive.vectorized.execution.reduce.enabled` como true. O valor padrão é falso.
 
     ![Apache Hive execução vetorizada](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
 
@@ -184,7 +184,7 @@ Os tipos de compactação disponíveis são:
 
 Como regra geral, é importante que o método de compactação seja divisível. Caso contrário, poucos mapeadores serão criados. Se os dados de entrada forem texto, `bzip2` será a melhor opção. Para o formato ORC, o Snappy é a opção de compactação mais rápida.
 
-1. Para habilitar a compactação intermediária, navegue até a guia **Configurações** do Hive e, em seguida, defina o parâmetro `hive.exec.compress.intermediate` como verdadeiro. O valor padrão é false.
+1. Para habilitar a compactação intermediária, navegue até a guia **Configurações** do Hive e, em seguida, defina o parâmetro `hive.exec.compress.intermediate` como verdadeiro. O valor padrão é falso.
 
     ![Compactação intermediária de execução do Hive](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
@@ -203,7 +203,7 @@ Como regra geral, é importante que o método de compactação seja divisível. 
 
     d. Na janela Adicionar Propriedade, digite `mapred.map.output.compression.codec` como a chave e `org.apache.hadoop.io.compress.SnappyCodec` como o valor.
 
-    e. Clique em **Adicionar** .
+    e. Clique em **Adicionar**.
 
     ![Adicionar Apache Hive propriedade personalizada](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
@@ -216,7 +216,7 @@ Como regra geral, é importante que o método de compactação seja divisível. 
 
 A saída final do Hive também pode ser compactada.
 
-1. Para compactar a saída final do Hive, navegue até a guia **Configurações** do Hive e, em seguida, defina o parâmetro `hive.exec.compress.output` como verdadeiro. O valor padrão é false.
+1. Para compactar a saída final do Hive, navegue até a guia **Configurações** do Hive e, em seguida, defina o parâmetro `hive.exec.compress.output` como verdadeiro. O valor padrão é falso.
 
 1. Para escolher o codec de compactação de saída, adicione a propriedade personalizada `mapred.output.compression.codec` ao painel hive-site personalizado, conforme descrito na etapa 3 da seção anterior.
 
@@ -228,7 +228,7 @@ A execução especulativa inicializa um determinado número de tarefas duplicada
 
 A execução especulativa não deve ser ativada para tarefas MapReduce de execução longa com grandes quantidades de entrada.
 
-* Para habilitar a execução especulativa, navegue até a guia **Configurações** do Hive e, em seguida, defina o parâmetro `hive.mapred.reduce.tasks.speculative.execution` como verdadeiro. O valor padrão é false.
+* Para habilitar a execução especulativa, navegue até a guia **Configurações** do Hive e, em seguida, defina o parâmetro `hive.mapred.reduce.tasks.speculative.execution` como verdadeiro. O valor padrão é falso.
 
     ![Execução especulativa de tarefas de redução mapred do Hive](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -278,7 +278,7 @@ O tipo de junção padrão no Hive é a *junção em ordem aleatória*. No Hive,
 
 Recomendações adicionais para otimizar o mecanismo de execução do Hive:
 
-| Configuração | Recomendado | Padrão do HDInsight |
+| Configuração | Recomendadas | Padrão do HDInsight |
 | -- | -- | -- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = mais seguro, mais lento; false = mais rápido | false |
 | `tez.am.resource.memory.mb` | limite superior de 4 GB para a maioria dos | Ajustado automaticamente |
@@ -313,7 +313,7 @@ Dois mecanismos de execução estão disponíveis para executar scripts de Pig: 
 
 De forma semelhante ao Hive, o modo local é usado para acelerar trabalhos com quantidades de dados relativamente menores.
 
-1. Para habilitar o modo local, defina `pig.auto.local.enabled` como **true**. O valor padrão é false.
+1. Para habilitar o modo local, defina `pig.auto.local.enabled` como **true**. O valor padrão é falso.
 
 1. Trabalhos com um tamanho de dados de entrada menor que o valor da propriedade `pig.auto.local.input.maxbytes` são considerados trabalhos pequenos. O valor padrão é 1 GB.
 
@@ -329,21 +329,21 @@ O Pig copia os arquivos JAR exigidos pelo UDFs para um cache distribuído para t
 
 As seguintes configurações de memória podem ajudar a otimizar o desempenho de script do Pig.
 
-* `pig.cachedbag.memusage`: A quantidade de memória alocada a um recipiente. Um recipiente é um conjunto de tuplas. Uma tupla é um conjunto ordenado de campos e um campo é uma parte dos dados. Se estiverem além da memória alocada, os dados em um recipiente serão despejados para o disco. O valor padrão é 0.2, que representa 20 por cento da memória disponível. Essa memória é compartilhada entre todos os recipientes em um aplicativo.
+* `pig.cachedbag.memusage`: a quantidade de memória alocada a um recipiente. Um recipiente é um conjunto de tuplas. Uma tupla é um conjunto ordenado de campos e um campo é uma parte dos dados. Se estiverem além da memória alocada, os dados em um recipiente serão despejados para o disco. O valor padrão é 0.2, que representa 20 por cento da memória disponível. Essa memória é compartilhada entre todos os recipientes em um aplicativo.
 
-* `pig.spill.size.threshold`: Recipientes maiores que esse limite de tamanho de despejo (em bytes) são despejados para o disco. O valor padrão é 5 MB.
+* `pig.spill.size.threshold`: recipientes maiores que esse limite de tamanho de despejo (em bytes) são despejados para o disco. O valor padrão é 5 MB.
 
 ### <a name="compress-temporary-files"></a>Compactar arquivos temporários
 
 O Pig gera arquivos temporários durante a execução do trabalho. Compactar os arquivos temporários resulta em uma melhoria do desempenho ao ler ou gravar arquivos no disco. As configurações a seguir podem ser usadas para compactar arquivos temporários.
 
-* `pig.tmpfilecompression`: Quando for true, habilitará a compactação de arquivos temporários. O valor padrão é false.
+* `pig.tmpfilecompression`: quando for true, habilitará a compactação de arquivos temporários. O valor padrão é falso.
 
-* `pig.tmpfilecompression.codec`: O codec de compactação a ser usado para compactar os arquivos temporários. Os codecs de compactação recomendados são o [LZO](https://www.oberhumer.com/opensource/lzo/) e o Snappy para menor utilização da CPU.
+* `pig.tmpfilecompression.codec`: o codec de compactação a ser usado para compactar os arquivos temporários. Os codecs de compactação recomendados são o [LZO](https://www.oberhumer.com/opensource/lzo/) e o Snappy para menor utilização da CPU.
 
 ### <a name="enable-split-combining"></a>Habilitar combinação de divisão
 
-Quando habilitada, pequenos arquivos são combinados para que haja menos tarefas de mapeamento. Isso aumenta a eficiência de trabalhos com muitos arquivos pequenos. Para habilitar, defina `pig.noSplitCombination` como true. O valor padrão é false.
+Quando habilitada, pequenos arquivos são combinados para que haja menos tarefas de mapeamento. Isso aumenta a eficiência de trabalhos com muitos arquivos pequenos. Para habilitar, defina `pig.noSplitCombination` como true. O valor padrão é falso.
 
 ### <a name="tune-mappers"></a>Ajustar mapeadores
 
@@ -355,7 +355,7 @@ O número de redutores é calculado com base no parâmetro `pig.exec.reducers.by
 
 ## <a name="apache-hbase-optimization-with-the-ambari-web-ui"></a>Otimização do Apache HBase com a interface do usuário da Web do Ambari
 
-A configuração do [Apache HBase](https://hbase.apache.org/) é modificada na guia **HBase Configs**. As seções a seguir descrevem algumas das definições de configuração importantes que afetam o desempenho do HBase.
+A configuração do [Apache HBase](https://hbase.apache.org/) é modificada na guia **configurações do HBase** . As seções a seguir descrevem algumas das definições de configuração importantes que afetam o desempenho do HBase.
 
 ### <a name="set-hbase_heapsize"></a>Definir HBASE_HEAPSIZE
 
@@ -385,9 +385,9 @@ O cache do bloco é o cache de leitura. Seu tamanho é controlado pelo parâmetr
 
 Todas as edições são armazenadas no buffer de memória, chamado de *Memstore*. Isso aumenta a quantidade total de dados que podem ser gravados em disco em uma única operação e acelera o acesso posterior às edições recentes. O tamanho do Memstore é definido pelos dois parâmetros a seguir:
 
-* `hbase.regionserver.global.memstore.UpperLimit`: Define o percentual máximo do servidor de região que o Memstore combinado pode usar.
+* `hbase.regionserver.global.memstore.UpperLimit`: define o percentual máximo do servidor de região que o Memstore combinado pode usar.
 
-* `hbase.regionserver.global.memstore.LowerLimit`: Define o percentual mínimo do servidor de região que o Memstore combinado pode usar.
+* `hbase.regionserver.global.memstore.LowerLimit`: define o percentual mínimo do servidor de região que o Memstore combinado pode usar.
 
 Para otimizar leituras aleatórias, você pode reduzir os limites superior e inferior do Memstore.
 

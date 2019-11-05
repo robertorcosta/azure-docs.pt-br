@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: a718a2335ed4928c6cd40ad4dc832eaf82bc6a2b
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 98f5c672e9da50f294df6da7d5abcb23b10fc1ba
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695304"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487003"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar os contêineres de docker LUIS
  
@@ -32,11 +32,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para executar o contêiner LUIS, observe os seguintes pré-requisitos:
 
-|Necessário|Finalidade|
+|Obrigatório|Finalidade|
 |--|--|
-|Mecanismo Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
+|Mecanismo Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres se conectem e enviem dados de faturamento para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.| 
-|Recurso `Cognitive Services` do Azure e arquivo de [aplicativo empacotado](luis-how-to-start-new-app.md#export-app-for-containers) Luis |Para usar o contêiner, você precisará ter:<br><br>* Um recurso do Azure de _Serviços cognitivas_ e a chave de cobrança associada ao URI do ponto de extremidade de cobrança. Ambos os valores estão disponíveis nas páginas visão geral e chaves para o recurso e são necessários para iniciar o contêiner. <br>* Um aplicativo publicado ou treinado empacotado como uma entrada montada para o contêiner com sua ID do aplicativo associado. Você pode obter o arquivo empacotado no portal do LUIS ou as APIs de criação. Se você estiver obtendo um aplicativo LUIS empacotado das [APIs de criação](#authoring-apis-for-package-file), também precisará da sua _chave de criação_.<br><br>Esses requisitos são usados para transmitir argumentos de linha de comando para as seguintes variáveis:<br><br>**{AUTHORING_KEY}** : Essa chave é usada para obter o aplicativo empacotado do serviço de LUIS na nuvem e carregar os logs de consulta novamente na nuvem. O formato é `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Essa ID é usada para selecionar o aplicativo. O formato é `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}** : Essa chave é usada para iniciar o contêiner. Você pode encontrar a chave do ponto de extremidade em dois locais. A primeira é a portal do Azure na lista de chaves do recurso de _Serviços cognitivas_ . A chave do ponto de extremidade também está disponível no portal do LUIS na página Configurações de chaves e de ponto de extremidade. Não use a chave de inicialização.<br><br>**{ENDPOINT_URI}** : O ponto de extremidade conforme fornecido na página Visão geral.<br><br>A [chave de criação e a chave do ponto de extremidade](luis-boundaries.md#key-limits) têm finalidades diferentes. Não use uma no lugar da outra. |
+|Recurso de `Cognitive Services` do Azure e arquivo de [aplicativo empacotado](luis-how-to-start-new-app.md#export-app-for-containers) Luis |Para usar o contêiner, você precisará ter:<br><br>* Um recurso do Azure de _Serviços cognitivas_ e a chave de cobrança associada ao URI do ponto de extremidade de cobrança. Ambos os valores estão disponíveis nas páginas visão geral e chaves para o recurso e são necessários para iniciar o contêiner. <br>* Um aplicativo publicado ou treinado empacotado como uma entrada montada para o contêiner com sua ID do aplicativo associado. Você pode obter o arquivo empacotado no portal do LUIS ou as APIs de criação. Se você estiver obtendo um aplicativo LUIS empacotado das [APIs de criação](#authoring-apis-for-package-file), também precisará da sua _chave de criação_.<br><br>Esses requisitos são usados para transmitir argumentos de linha de comando para as seguintes variáveis:<br><br>**{AUTHORING_KEY}** : essa chave é usada para obter o aplicativo empacotado do serviço Luis na nuvem e carregar os logs de consulta de volta para a nuvem. O formato é `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APP_ID}** : essa ID é usada para selecionar o aplicativo. O formato é `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{Api_key}** : essa chave é usada para iniciar o contêiner. Você pode encontrar a chave do ponto de extremidade em dois locais. A primeira é a portal do Azure na lista de chaves do recurso de _Serviços cognitivas_ . A chave do ponto de extremidade também está disponível no portal do LUIS na página Configurações de chaves e de ponto de extremidade. Não use a chave de inicialização.<br><br>**{ENDPOINT_URI}** : o ponto de extremidade conforme fornecido na página Visão geral.<br><br>A [chave de criação e a chave do ponto de extremidade](luis-boundaries.md#key-limits) têm finalidades diferentes. Não use uma no lugar da outra. |
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -55,7 +55,7 @@ Criando APIs para aplicativos empacotados:
 
 Esse contêiner dá suporte aos valores mínimos e recomendados para as configurações:
 
-|Contêiner| Mínimo | Recomendado | TPS<br>(Mínimo, máximo)|
+|Contêiner| Mínimo | Recomendadas | TPS<br>(Mínimo, máximo)|
 |-----------|---------|-------------|--|
 |LUIS|1 núcleo, 2 GB de memória|1 núcleo, 4 GB de memória|20, 40|
 
@@ -105,13 +105,13 @@ Coloque o arquivo de pacote em um diretório e faça referência a esse diretór
 
 ### <a name="package-types"></a>Tipos de pacote
 
-O diretório de montagem de entrada pode conter as versões de **Produção**, **Preparo** e **Treinada** do aplicativo simultaneamente. Todos os pacotes são montados. 
+O diretório de montagem de entrada pode conter os modelos de **produção**, de **preparo**e com **controle de versão** do aplicativo simultaneamente. Todos os pacotes são montados.
 
 |Tipo de pacote|API do ponto de extremidade de consulta|Disponibilidade de consulta|Formato do nome de arquivo do pacote|
 |--|--|--|--|
-|Treinamento concluído|GET, POST|Somente contêiner|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
-|Preparo|GET, POST|Azure e contêiner|`{APPLICATION_ID}_STAGING.gz`|
-|Produção|GET, POST|Azure e contêiner|`{APPLICATION_ID}_PRODUCTION.gz`|
+|Versão|GET, POST|Somente contêiner|`{APP_ID}_v{APP_VERSION}.gz`|
+|Staging|GET, POST|Azure e contêiner|`{APP_ID}_STAGING.gz`|
+|Produção|GET, POST|Azure e contêiner|`{APP_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
 > Não renomeie, altere, substitua ou descompacte os arquivos de pacote LUIS.
@@ -123,12 +123,12 @@ Antes de empacotar um aplicativo LUIS, você deverá ter o seguinte:
 |Requisitos de empacotamento|Detalhes|
 |--|--|
 |Instância de recurso de _Serviços cognitivas_ do Azure|As regiões com suporte incluem<br><br>Oeste dos EUA (`westus`)<br>Europa Ocidental (`westeurope`)<br>Leste da Austrália (`australiaeast`)|
-|Aplicativo LUIS treinado ou publicado|Sem [dependências sem suporte](#unsupported-dependencies). |
+|Aplicativo LUIS treinado ou publicado|Sem [dependências sem suporte][unsupported-dependencies]. |
 |Acesso ao sistema de arquivos do [computador host](#the-host-computer) |O computador host deve permitir uma [montagem de entrada](luis-container-configuration.md#mount-settings).|
   
 ### <a name="export-app-package-from-luis-portal"></a>Exportar pacote de aplicativo do portal do LUIS
 
-O [portal](https://www.luis.ai) do LUIS permite exportar o pacote do aplicativo publicado ou treinado. 
+O [portal](https://www.luis.ai) do LUIS permite exportar o pacote do aplicativo publicado ou treinado.
 
 ### <a name="export-published-apps-package-from-luis-portal"></a>Exportar o pacote do aplicativo publicado do portal do LUIS
 
@@ -143,9 +143,9 @@ O pacote do aplicativo publicado está disponível na página da lista **Meus ap
 
 ![Exportar o pacote publicado para o contêiner a partir do menu Exportar da página do aplicativo](./media/luis-container-how-to/export-published-package-for-container.png)
 
-### <a name="export-trained-apps-package-from-luis-portal"></a>Exportar o pacote do aplicativo treinado do portal do LUIS
+### <a name="export-versioned-apps-package-from-luis-portal"></a>Exportar pacote do aplicativo com versão do portal do LUIS
 
-O pacote do aplicativo treinado está disponível na página da lista **Versões**. 
+O pacote do aplicativo com versão está disponível na página de lista de **versões** .
 
 1. Entre no portal do [LUIS](https://www.luis.ai).
 1. Selecione o aplicativo na lista. 
@@ -163,44 +163,44 @@ O pacote do aplicativo treinado está disponível na página da lista **Versões
 Use o método de API REST a seguir para empacotar um aplicativo LUIS que você já [publicou](luis-how-to-publish-app.md). Substitua os espaços reservados por seus próprios valores apropriados na chamada à API, usando a tabela abaixo da especificação de HTTP.
 
 ```http
-GET /luis/api/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip HTTP/1.1
+GET /luis/api/v2.0/package/{APP_ID}/slot/{SLOT_NAME}/gzip HTTP/1.1
 Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Espaço reservado | Valor |
+| Placeholder | Valor |
 |-------------|-------|
-| **{APPLICATION_ID}** | A ID de aplicativo do aplicativo LUIS publicado. |
-| **{APPLICATION_ENVIRONMENT}** | O ambiente do aplicativo LUIS publicado. Use um dos seguintes valores:<br/>`PRODUCTION`<br/>`STAGING` |
+| **{APP_ID}** | A ID de aplicativo do aplicativo LUIS publicado. |
+| **{SLOT_NAME}** | O ambiente do aplicativo LUIS publicado. Use um dos seguintes valores:<br/>`PRODUCTION`<br/>`STAGING` |
 | **{AUTHORING_KEY}** | A chave de criação da conta do LUIS para o aplicativo LUIS publicado.<br/>Você pode obter sua chave de criação na página **Configurações do Usuário** no portal do LUIS. |
 | **{AZURE_REGION}** | A região do Azure apropriada:<br/><br/>`westus` – Oeste dos EUA<br/>`westeurope` – Europa Ocidental<br/>`australiaeast` – Leste da Austrália |
 
 Para baixar o pacote publicado, consulte a [documentação da API aqui][download-published-package]. Se for baixado com êxito, a resposta será um arquivo de pacote LUIS. Salve o arquivo no local de armazenamento especificado para a montagem de entrada do contêiner. 
 
-### <a name="export-trained-apps-package-from-api"></a>Exportar o pacote do aplicativo treinado da API
+### <a name="export-versioned-apps-package-from-api"></a>Exportar pacote do aplicativo com versão da API
 
 Use o método de API REST a seguir para empacotar um aplicativo LUIS que você já [treinou](luis-how-to-train.md). Substitua os espaços reservados por seus próprios valores apropriados na chamada à API, usando a tabela abaixo da especificação de HTTP.
 
 ```http
-GET /luis/api/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip HTTP/1.1
+GET /luis/api/v2.0/package/{APP_ID}/versions/{APP_VERSION}/gzip HTTP/1.1
 Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Espaço reservado | Valor |
+| Placeholder | Valor |
 |-------------|-------|
-| **{APPLICATION_ID}** | A ID de aplicativo do aplicativo LUIS treinado. |
-| **{APPLICATION_VERSION}** | A versão do aplicativo do aplicativo LUIS treinado. |
+| **{APP_ID}** | A ID de aplicativo do aplicativo LUIS treinado. |
+| **{APP_VERSION}** | A versão do aplicativo do aplicativo LUIS treinado. |
 | **{AUTHORING_KEY}** | A chave de criação da conta do LUIS para o aplicativo LUIS publicado.<br/>Você pode obter sua chave de criação na página **Configurações do Usuário** no portal do LUIS. |
 | **{AZURE_REGION}** | A região do Azure apropriada:<br/><br/>`westus` – Oeste dos EUA<br/>`westeurope` – Europa Ocidental<br/>`australiaeast` – Leste da Austrália |
 
-Para baixar o pacote treinado, consulte a [documentação da API aqui][download-trained-package]. Se for baixado com êxito, a resposta será um arquivo de pacote LUIS. Salve o arquivo no local de armazenamento especificado para a montagem de entrada do contêiner. 
+Para baixar o pacote com versão, consulte a [documentação da API aqui][download-versioned-package]. Se for baixado com êxito, a resposta será um arquivo de pacote LUIS. Salve o arquivo no local de armazenamento especificado para a montagem de entrada do contêiner. 
 
 ## <a name="run-the-container-with-docker-run"></a>Executar o contêiner com `docker run`
 
-Use o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para executar o contêiner. Consulte [coletando parâmetros necessários](#gathering-required-parameters) para obter detalhes sobre como obter os `{ENDPOINT_URI}` valores `{API_KEY}` e.
+Use o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para executar o contêiner. Consulte [coletando parâmetros necessários](#gathering-required-parameters) para obter detalhes sobre como obter os valores de `{ENDPOINT_URI}` e de `{API_KEY}`.
 
-[Exemplos](luis-container-configuration.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
+[Exemplos](luis-container-configuration.md#example-docker-run-commands) do comando `docker run` estão disponíveis.
 
 ```console
 docker run --rm -it -p 5000:5000 ^
@@ -214,79 +214,129 @@ Billing={ENDPOINT_URI} ^
 ApiKey={API_KEY}
 ```
 
-* Este exemplo usa o diretório fora da `C:` unidade para evitar conflitos de permissão no Windows. Se você precisar usar um diretório específico como o diretório de entrada, talvez seja necessário conceder ao Docker permissão de serviço. 
+* Este exemplo usa o diretório fora da unidade de `C:` para evitar conflitos de permissão no Windows. Se você precisar usar um diretório específico como o diretório de entrada, talvez seja necessário conceder ao Docker permissão de serviço. 
 * Não altere a ordem dos argumentos, a menos que você esteja familiarizado com contêineres do Docker.
-* Se você estiver usando um sistema operacional diferente, use o console/terminal correto, a sintaxe de pasta para montagens e o caractere de continuação de linha para o seu sistema. Esses exemplos pressupõem um console do Windows com um caractere `^`de continuação de linha. Como o contêiner é um sistema operacional Linux, a montagem de destino usa uma sintaxe de pasta em estilo Linux.
+* Se você estiver usando um sistema operacional diferente, use o console/terminal correto, a sintaxe de pasta para montagens e o caractere de continuação de linha para o seu sistema. Esses exemplos pressupõem um console do Windows com um caractere de continuação de linha `^`. Como o contêiner é um sistema operacional Linux, a montagem de destino usa uma sintaxe de pasta em estilo Linux.
 
 Esse comando:
 
 * Executa um contêiner da imagem de contêiner do LUIS
 * Carrega o aplicativo LUIS da montagem de entrada em *C:\input*, localizado no host do contêiner
 * Aloca dois núcleos de CPU e 4 GB (gigabytes) de memória
-* Expõe a porta TCP 5000 e aloca um pseudo-TTY para o contêiner
+* Expõe a porta TCP 5000 e aloca um PSEUDO-TTY para o contêiner
 * Salva os logs de contêiner e LUIS na montagem de saída em *C:\output*, localizado no host do contêiner
 * Remove automaticamente o contêiner depois que ele sai. A imagem de contêiner ainda fica disponível no computador host. 
 
 Há outros [exemplos](luis-container-configuration.md#example-docker-run-commands) do comando `docker run` disponíveis. 
 
 > [!IMPORTANT]
-> As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](#billing).
-> O valor ApiKey é a **chave** da página de **recursos do Azure** no portal do Luis e também está disponível na página `Cognitive Services` chaves de recurso do Azure.  
+> As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para obter mais informações, confira [Cobrança](#billing).
+> O valor ApiKey é a **chave** da página de **recursos do Azure** no portal do Luis e também está disponível na página chaves de recurso do `Cognitive Services` do Azure.  
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 ## <a name="endpoint-apis-supported-by-the-container"></a>APIs de ponto de extremidade com suporte no contêiner
 
-As versões V2 e [v3 (versão prévia)](luis-migration-api-v3.md) da API estão disponíveis com o contêiner. 
+As versões V2 e [v3](luis-migration-api-v3.md) da API estão disponíveis com o contêiner. 
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
 
-O contêiner fornece APIs de ponto de extremidade de previsão de consulta com base em REST. Os pontos de extremidade para aplicativos publicados (preparo ou produção) têm uma rota _diferente_ da dos pontos de extremidade para aplicativos treinados. 
+O contêiner fornece APIs de ponto de extremidade de previsão de consulta com base em REST. Os pontos de extremidade para aplicativos publicados (de preparo ou produção) têm uma rota _diferente_ de pontos de extremidade para aplicativos com controle de versão.
 
-Use o host, `http://localhost:5000`, para APIs de contêiner. 
+Use o host, `http://localhost:5000`, para APIs de contêiner.
 
-|Tipo de pacote|Método|Rota|Parâmetros de consulta|
+# <a name="v3-prediction-endpointtabv3"></a>[Ponto de extremidade de previsão v3](#tab/v3)
+
+|Tipo de pacote|Verbo HTTP|Rota|Parâmetros de consulta|
 |--|--|--|--|
-|Publicado|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>&staging<br>[&timezoneOffset]<br>[&verbose]<br>[&log]<br>|
-|Treinamento concluído|GET, POST|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[&verbose]<br>[&log]|
+|Publicado|GET, POST|`/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+|Versão|GET, POST|`/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
 
 Os parâmetros de consulta configuram como e o que é retornado na resposta da consulta:
 
 |Parâmetro de consulta|Tipo|Finalidade|
 |--|--|--|
-|`q`|cadeia de caracteres|A declaração do usuário.|
-|`timezoneOffset`|número|O timezoneOffset permite [alterar o fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usado pela datetimeV2 predefinida da entidade.|
-|`verbose`|boolean|Retorna todas as intenções e suas pontuações quando definido como true. O padrão é false, o que retorna apenas a intenção principal.|
-|`staging`|boolean|Retorna a consulta dos resultados do ambiente de preparo quando definido como true. |
-|`log`|boolean|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é true.|
+|`query`|string|A declaração do usuário.|
+|`verbose`|booleano|Um valor booliano que indica se todos os metadados para os modelos previstos devem ser retornados. O padrão é falso.|
+|`log`|booleano|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é falso.|
+|`show-all-intents`|booleano|Um valor booliano que indica se todas as tentativas ou a primeira tentativa de Pontuação devem ser retornadas. O padrão é falso.|
 
-### <a name="query-published-app"></a>Consultar aplicativo publicado
+# <a name="v2-prediction-endpointtabv2"></a>[Ponto de extremidade de previsão v2](#tab/v2)
+
+|Tipo de pacote|Verbo HTTP|Rota|Parâmetros de consulta|
+|--|--|--|--|
+|Publicado|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|`/luis/v2.0/apps/{appId}?`|`q={q}`<br>`&staging`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]<br>|
+|Versão|GET, POST|`/luis/v2.0/apps/{appId}/versions/{versionId}?`|`q={q}`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]|
+
+Os parâmetros de consulta configuram como e o que é retornado na resposta da consulta:
+
+|Parâmetro de consulta|Tipo|Finalidade|
+|--|--|--|
+|`q`|string|A declaração do usuário.|
+|`timezoneOffset`|número|O timezoneOffset permite [alterar o fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usado pela datetimeV2 predefinida da entidade.|
+|`verbose`|booleano|Retorna todas as intenções e suas pontuações quando definido como true. O padrão é false, o que retorna apenas a intenção principal.|
+|`staging`|booleano|Retorna a consulta dos resultados do ambiente de preparo quando definido como true. |
+|`log`|booleano|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é true.|
+
+***
+
+### <a name="query-the-luis-app"></a>Consultar o aplicativo LUIS
 
 Um exemplo de comando CURL para consultar o contêiner em relação a um aplicativo publicado é:
 
+# <a name="v3-prediction-endpointtabv3"></a>[Ponto de extremidade de previsão v3](#tab/v3)
+
+Para consultar um modelo em um slot, use a seguinte API:
+
+```bash
+curl -G \
+-d verbose=false \
+-d log=true \
+--data-urlencode "query=turn the lights on" \
+"http://localhost:5000/luis/prediction/v3.0/apps/{APP_ID}/slots/production/predict"
+```
+
+Para fazer consultas ao ambiente de **preparo** , substitua `production` na rota por `staging`:
+
+`http://localhost:5000/luis/prediction/v3.0/apps/{APP_ID}/slots/staging/predict`
+
+Para consultar um modelo com controle de versão, use a seguinte API:
+
+```bash
+curl -G \
+-d verbose=false \
+-d log=false \
+--data-urlencode "query=turn the lights on" \
+"http://localhost:5000/luis/prediction/v3.0/apps/{APP_ID}/versions/{APP_VERSION}/predict"
+```
+
+# <a name="v2-prediction-endpointtabv2"></a>[Ponto de extremidade de previsão v2](#tab/v2)
+
+Para consultar um modelo em um slot, use a seguinte API:
+
 ```bash
 curl -X GET \
-"http://localhost:5000/luis/v2.0/apps/{APPLICATION_ID}?q=turn%20on%20the%20lights&staging=false&timezoneOffset=0&verbose=false&log=true" \
+"http://localhost:5000/luis/v2.0/apps/{APP_ID}?q=turn%20on%20the%20lights&staging=false&timezoneOffset=0&verbose=false&log=true" \
 -H "accept: application/json"
 ```
 Para fazer consultas no ambiente de **Preparo**, altere o valor de parâmetro da cadeia de caracteres de consulta **staging** para true: 
 
 `staging=true`
 
-### <a name="query-trained-app"></a>Consultar aplicativo treinado
-
-Um exemplo de comando CURL para consultar o contêiner em relação a um aplicativo treinado é: 
+Para consultar um modelo com controle de versão, use a seguinte API:
 
 ```bash
 curl -X GET \
-"http://localhost:5000/luis/v2.0/apps/{APPLICATION_ID}/versions/{APPLICATION_VERSION}?q=turn%20on%20the%20lights&timezoneOffset=0&verbose=false&log=true" \
+"http://localhost:5000/luis/v2.0/apps/{APP_ID}/versions/{APP_VERSION}?q=turn%20on%20the%20lights&timezoneOffset=0&verbose=false&log=true" \
 -H "accept: application/json"
 ```
-O nome da versão tem no máximo 10 caracteres e contém apenas caracteres permitidos em uma URL. 
+O nome da versão tem no máximo 10 caracteres e contém apenas caracteres permitidos em uma URL.
+
+***
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>Importar os logs de ponto de extremidade para aprendizado ativo
 
-Se uma montagem de saída for especificada para o contêiner Luis, os arquivos de log de consulta de aplicativo serão salvos no `{INSTANCE_ID}` diretório de saída, em que é a ID do contêiner. O log de consulta do aplicativo contém a consulta, a resposta e os carimbos de data/hora para cada consulta de previsão enviada para o contêiner de LUIS. 
+Se uma montagem de saída for especificada para o contêiner LUIS, os arquivos de log de consulta de aplicativo serão salvos no diretório de saída, em que `{INSTANCE_ID}` é a ID do contêiner. O log de consulta do aplicativo contém a consulta, a resposta e os carimbos de data/hora para cada consulta de previsão enviada para o contêiner de LUIS. 
 
 O local a seguir mostra a estrutura de diretórios aninhados para os arquivos de log do contêiner.
 ```
@@ -307,7 +357,7 @@ Depois que o log é carregado, [examine as declarações do ponto de extremidade
 
 Para desligar o contêiner, no ambiente de linha de comando em que o contêiner estiver em execução, pressione **Ctrl+C**.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solucionar problemas
 
 Se você executar o contêiner com uma [montagem](luis-container-configuration.md#mount-settings) de saída e o registro em log habilitado, o contêiner gerará arquivos de log que são úteis para solucionar problemas que ocorrem durante a inicialização ou execução do contêiner.
 
@@ -319,30 +369,7 @@ O contêiner LUIS envia informações de cobrança para o Azure, usando um recur
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Para obter mais informações sobre essas opções, consulte [Configurar contêineres](luis-container-configuration.md).
-
-## <a name="supported-dependencies-for-latest-container"></a>Dependências com `latest` suporte para o contêiner
-
-O contêiner mais recente, lançado em 2019//Build, dará suporte a:
-
-* [Novos domínios pré-criados](luis-reference-prebuilt-domains.md): esses domínios voltados para a empresa incluem entidades, exemplos de declarações e padrões. Estenda esses domínios para seu próprio uso. 
-
-<a name="unsupported-dependencies"></a>
-
-## <a name="unsupported-dependencies-for-latest-container"></a>Dependências sem suporte para `latest` o contêiner
-
-Para [exportar para o contêiner](#export-packaged-app-from-luis), você deve remover dependências sem suporte do seu aplicativo Luis. Quando você tenta exportar para o contêiner, o portal do LUIS relata esses recursos sem suporte que você precisa remover.
-
-Você pode usar um aplicativo LUIS se ele **não inclui** nenhuma das seguintes dependências:
-
-Configurações de aplicativo sem suporte|Detalhes|
-|--|--|
-|Culturas de contêiner sem suporte| Holandês (nl-NL)<br>Japonês (ja-JP)<br>O alemão só tem suporte com o [criador 1.0.2](luis-language-support.md#custom-tokenizer-versions).|
-|Entidades sem suporte para todas as culturas|Entidade predefinida [KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) para todas as culturas|
-|Entidades sem suporte para a cultura Inglês (en-US)|Entidades predefinidas [GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2)|
-|Preparação da fala|Não há suporte para dependências externas no contêiner.|
-|Análise de Sentimento|Não há suporte para dependências externas no contêiner.|
-|Verificação Ortográfica do Bing|Não há suporte para dependências externas no contêiner.|
+Para obter mais informações sobre essas opções, confira [Configurar os contêineres](luis-container-configuration.md).
 
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
@@ -355,17 +382,20 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar
 * Imagens de contêiner são baixadas do Registro de Contêiner da Microsoft (MCR).
 * Imagens de contêiner são executadas no Docker.
 * Você pode usar a API REST para consultar os pontos de extremidade do contêiner especificando o URI de host do contêiner.
-* Você deve especificar informações de faturamento ao instanciar um contêiner.
+* Você deve especificar as informações de cobrança ao criar uma instância de um contêiner.
 
 > [!IMPORTANT]
 > Os contêineres dos Serviços Cognitivos não estão licenciados para execução sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Revise [Configurar contêineres](luis-container-configuration.md) para configurações
+* Revise [Configurar contêineres](luis-container-configuration.md) para configurações.
+* Consulte [limitações de contêiner Luis](luis-container-limitations.md) para obter restrições de funcionalidade conhecidas.
 * Consulte a [Solução de problemas](troubleshooting.md) para resolver problemas relacionados à funcionalidade LUIS.
 * Use mais [Contêineres de Serviços Cognitivos](../cognitive-services-container-support.md)
 
 <!-- Links - external -->
 [download-published-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip
-[download-trained-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip
+[download-versioned-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip
+
+[unsupported-dependencies]: luis-container-limitations.md#unsupported-dependencies-for-latest-container

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 49bab338f559b1b43389e12d98c75bbffbb25a85
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: a2f3665355cc2023aaf4b66c9207aaff4a3bc6db
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694760"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493929"
 ---
 # <a name="apply-math-operation"></a>Aplicar operação matemática
 
-Este artigo descreve um módulo de Azure Machine Learning interface visual.
+Este artigo descreve um módulo do designer de Azure Machine Learning (versão prévia).
 
 Use a operação aplicar matemática para criar cálculos que são aplicados a colunas numéricas no conjunto de dados de entrada. 
 
@@ -95,7 +95,7 @@ Se você gerar os resultados usando as opções **Append** ou **ResultOnly** , o
 -   **Equals (Col2_Col1)** , indicando que você testou o Col2 em relação a col1.  
 -   **Equals (Col2_ $10)** , indicando que você comparou a coluna 2 com a constante 10.  
 
-Mesmo que você use a opção de **local** , os dados de origem não são excluídos ou alterados; a coluna no DataSet original ainda está disponível na interface visual. Para exibir os dados originais, você pode conectar o módulo [adicionar colunas](add-columns.md) e associá-lo à saída de **aplicar operação matemática**.  
+Mesmo que você use a opção de **local** , os dados de origem não são excluídos ou alterados; a coluna no DataSet original ainda está disponível no designer. Para exibir os dados originais, você pode conectar o módulo [adicionar colunas](add-columns.md) e associá-lo à saída de **aplicar operação matemática**.  
     
 ## <a name="basic-math-operations"></a>Operações matemáticas básicas 
 
@@ -162,7 +162,7 @@ Retorna o logaritmo natural dos valores na coluna selecionada.
 
 Retorna o logaritmo natural mais um para os valores na coluna selecionada.  
 
-### <a name="log"></a>Log
+### <a name="log"></a>Registro
 
 Retorna o log dos valores na coluna selecionada, dada a base especificada.  
 
@@ -202,13 +202,13 @@ Retorna a raiz quadrada dos valores na coluna selecionada.
 
 Para cada valor na coluna selecionada, multiplica o valor por PI e, em seguida, retorna a raiz quadrada do resultado.  
 
-### <a name="square"></a>Quadrado
+### <a name="square"></a>Square
 
 Quadrados os valores na coluna selecionada.  
 
 ## <a name="comparison-operations"></a>Operações de comparação  
 
-Use as funções de comparação em Azure Machine Learning interface visual a qualquer momento que você precisar testar dois conjuntos de valores entre si. Por exemplo, em um pipeline, talvez seja necessário fazer essas operações de comparação:  
+Use as funções de comparação no Azure Machine Learning designer a qualquer momento que você precisar testar dois conjuntos de valores entre si. Por exemplo, em um pipeline, talvez seja necessário fazer essas operações de comparação:  
 
 - Avaliar uma coluna do modelo de Pontuação de probabilidade em relação a um valor limite.
 - Determine se dois conjuntos de resultados são os mesmos. Para cada linha diferente, adicione um sinalizador falso que pode ser usado para processamento adicional ou filtragem.  
@@ -253,12 +253,12 @@ A ordem na qual você escolhe as colunas para divisão e subtração pode parece
 
 Operação|Num1|Num2|Coluna de resultado|Valor do resultado|
 ----|----|----|----|----
-|Além|1|5|Adicionar (Num2_Num1)| 4|
+|Adição|1|5|Adicionar (Num2_Num1)| 4|
 |Multiplicação|1|5|Multiple (Num2_Num1)|5|
 |Subtração|1|5|Subtrair (Num2_Num1)|4|
 |Subtração|0|1|Subtrair (Num2_Num1)|0|
 |Divisão|1|5|Dividir (Num2_Num1)|5|
-|Divisão|0|1|Dividir (Num2_Num1)|Infinity|
+|Divisão|0|1|Dividir (Num2_Num1)|Infinito|
 
 ### <a name="add"></a>Adicionar
 
@@ -280,7 +280,7 @@ Especifique a coluna de valores para operar (o *minuendo*), escolhendo uma colun
 
 ##  <a name="rounding-operations"></a>Operações de arredondamento 
 
-Azure Machine Learning interface visual dá suporte a uma variedade de operações de arredondamento. Para muitas operações, você deve especificar a quantidade de precisão a ser usada ao arredondar. Você pode usar um nível de precisão estática, especificado como uma constante, ou pode aplicar um valor de precisão dinâmica obtido de uma coluna de valores.  
+O designer de Azure Machine Learning dá suporte a uma variedade de operações de arredondamento. Para muitas operações, você deve especificar a quantidade de precisão a ser usada ao arredondar. Você pode usar um nível de precisão estática, especificado como uma constante, ou pode aplicar um valor de precisão dinâmica obtido de uma coluna de valores.  
 
 - Se você usar uma constante, defina **tipo de precisão** como **constante** e digite o número de dígitos como um número inteiro na caixa de texto **precisão constante** . Se você digitar um não inteiro, o módulo não gerará um erro, mas os resultados poderão ser inesperados.  
 
@@ -294,7 +294,7 @@ Retorna o teto para os valores na **coluna definida**.
 
 Retorna o teto quadrado para os valores na **coluna definida**.  
 
-### <a name="floor"></a>Floor
+### <a name="floor"></a>Piso
 
 Retorna o piso para os valores na **coluna definida**, para a precisão especificada.  
 
@@ -536,7 +536,7 @@ Calcula a secante para os valores de coluna, em graus.
 
 Calcula a secante Hiperbólica dos valores de coluna.  
 
-### <a name="sign"></a>Assine
+### <a name="sign"></a>Assinar
 
 Retorna o sinal dos valores da coluna.  
 
@@ -568,7 +568,7 @@ Calcula a tangente do argumento, em graus.
 
 Calcula a tangente hiperbólica dos valores de coluna.  
   
-## <a name="technical-notes"></a>Notas técnicas
+## <a name="technical-notes"></a>Observações técnicas
 
 Tenha cuidado ao selecionar mais de uma coluna como o segundo operador. Os resultados são fáceis de entender se a operação for simples, como adicionar uma constante a todas as colunas. 
 
@@ -588,6 +588,6 @@ Como alternativa, use um dos seguintes módulos para fazer todos os cálculos de
 + [Executar script Python](execute-python-script.md)
 + [Aplicar transformação SQL](apply-sql-transformation.md)   
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

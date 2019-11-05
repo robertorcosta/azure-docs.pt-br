@@ -1,24 +1,24 @@
 ---
 title: 'Inserir dados manualmente: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo inserir dados manualmente no serviço de Azure Machine Learning para criar um pequeno DataSet digitando valores. O conjunto de linhas pode ter várias colunas.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo inserir dados manualmente em Azure Machine Learning para criar um pequeno conjunto digitando valores. O conjunto de linhas pode ter várias colunas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: bd5fb636dbf79534e84a21a461f8912ceb6d9633
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 7c4d62c19984e1316a01213f579c059b97f709c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693153"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497931"
 ---
 # <a name="enter-data-manually-module"></a>Inserir dados manualmente no módulo
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para criar um pequeno conjunto de pequena digitando valores. O conjunto de linhas pode ter várias colunas.
   
@@ -30,7 +30,7 @@ Esse módulo pode ser útil em cenários como estes:
   
 - Digitando uma lista de nomes de coluna para inserir em um conjunto de um DataSet
 
-## <a name="enter-data-manually"></a>Inserir dados manualmente 
+## <a name="enter-data-manually"></a>Inserir Dados Manualmente 
   
 1.  Adicione o módulo [inserir dados manualmente](./enter-data-manually.md) ao seu pipeline. Você pode encontrar esse módulo na categoria **entrada e saída de dados** em Azure Machine Learning. 
   
@@ -100,6 +100,6 @@ Esse módulo pode ser útil em cenários como estes:
 5.  Clique com o botão direito do mouse no módulo e selecione **executar selecionado** para analisar os dados e carregá-los em seu espaço de trabalho como um conjunto.  
   
      Para exibir o conjunto de resultados, clique na porta de saída e selecione **Visualizar**.  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

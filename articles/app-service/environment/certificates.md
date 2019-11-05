@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f40043b920fab4cb38f935618c7aaecc6bf40a87
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a8b8e7270851c71869b1a67f0f0f0ba2187f0e87
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069704"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470661"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados e o Ambiente do Serviço de Aplicativo 
 
@@ -32,8 +32,8 @@ Se você estiver usando um ASE externo, seus aplicativos serão acessados em [ap
 
 Há duas opções para configurar certificados com o ILB ASE.  Você pode definir um certificado padrão curinga para o ILB ASE ou definir certificados nos aplicativos Web individuais no ASE.  Independentemente da sua escolha, os seguintes atributos de certificado devem ser configurados corretamente:
 
-- **Entidade:** Esse atributo deve ser definido como *.[seu-domínio-raiz-aqui] para um certificado de ILB ASE curinga. Se estiver criando o certificado para seu aplicativo, então ele deverá ser [appname].[seu-domínio-raiz-aqui]
-- **Nome Alternativo da Entidade**: Esse atributo deve incluir *.[seu-domínio-raiz-aqui] e *.scm.[seu-domínio-raiz-aqui] para o certificado de ILB ASE curinga. Se estiver criando o certificado para seu aplicativo, então ele deverá ser [appname].[seu-domínio-raiz-aqui] e [appname].scm.[seu-domínio-raiz-aqui].
+- **Entidade:** esse atributo deve ser definido como *.[seu-domínio-raiz-aqui] para um certificado de ILB ASE curinga. Se estiver criando o certificado para seu aplicativo, então ele deverá ser [appname].[seu-domínio-raiz-aqui]
+- **Nome Alternativo da Entidade**: esse atributo deve incluir *.[seu-domínio-raiz-aqui] e *.scm.[seu-domínio-raiz-aqui] para o certificado de ILB ASE curinga. Se estiver criando o certificado para seu aplicativo, então ele deverá ser [appname].[seu-domínio-raiz-aqui] e [appname].scm.[seu-domínio-raiz-aqui].
 
 Como uma terceira variante, você pode criar um certificado de ILB ASE que inclua todos os nomes de aplicativo individuais na SAN do certificado em vez de usar uma referência de curinga. O problema com esse método é que você precisará saber com antecedência os nomes dos aplicativos que estiver colocando no ASE ou precisará ficar atualizando o certificado ILB ASE.
 
@@ -64,7 +64,7 @@ Aplicativos que são hospedados em um ASE podem usar os recursos de certificado 
 - SSL com base em IP, que só é compatível com um ASE externo.  Um ILB ASE não é compatível com SSL com base em IP.
 - Certificados hospedados no Key Vault 
 
-As instruções para carregar e gerenciar esses certificados estão disponíveis no tutorial SSL https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl do Serviço de Aplicativo.  Se você estiver simplesmente configurando certificados de acordo com um nome de domínio personalizado que você atribuiu ao seu aplicativo Web, essas instruções serão suficientes. Se você estiver carregando o certificado para um aplicativo Web de ILB ASE com o nome de domínio padrão, especifique o site SCM na SAN do certificado, conforme observado anteriormente. 
+As instruções para carregar e gerenciar esses certificados estão disponíveis em [Adicionar um certificado SSL no serviço de Azure app](../configure-ssl-certificate.md).  Se você estiver simplesmente configurando certificados de acordo com um nome de domínio personalizado que você atribuiu ao seu aplicativo Web, essas instruções serão suficientes. Se você estiver carregando o certificado para um aplicativo Web de ILB ASE com o nome de domínio padrão, especifique o site SCM na SAN do certificado, conforme observado anteriormente. 
 
 ## <a name="tls-settings"></a>Configurações de protocolo TLS 
 

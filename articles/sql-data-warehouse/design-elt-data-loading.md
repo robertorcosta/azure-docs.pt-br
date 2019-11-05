@@ -10,12 +10,12 @@ ms.subservice: load-data
 ms.date: 07/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c90deefba75cd8bbeda126c9da8a05e1069831d4
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c248a2e3e6724388fa6402a70ac3bcb51f0f9ef3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597474"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492250"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Criando um estratégia de carregamento de dados PolyBase para o SQL Data Warehouse do Azure
 
@@ -43,7 +43,7 @@ Para ver um tutorial de carregamento, consulte [Usar o PolyBase para carregar da
 Para obter mais informações, consulte [Blog de padrão de carga](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/). 
 
 
-## <a name="1-extract-the-source-data-into-text-files"></a>1. Extrair os dados de origem em arquivos de texto
+## <a name="1-extract-the-source-data-into-text-files"></a>1. Extraia os dados de origem em arquivos de texto
 
 Obter dados de fora do seu sistema de origem depende da localização de armazenamento.  A meta é mover os dados para os arquivos de texto delimitados compatíveis com PolyBase. 
 
@@ -57,26 +57,26 @@ O PolyBase carrega dados de arquivos de texto delimitados e codificados de UTF-8
 |       smallint        |                           smallint                           |
 |          int          |                             int                              |
 |        bigint         |                            bigint                            |
-|        boolean        |                             bit                              |
-|        duplo         |                            float                             |
-|         float         |                             real                             |
-|        duplo         |                            money                             |
-|        duplo         |                          smallmoney                          |
-|        cadeia de caracteres         |                            nchar                             |
-|        cadeia de caracteres         |                           nvarchar                           |
-|        cadeia de caracteres         |                             char                             |
-|        cadeia de caracteres         |                           varchar                            |
-|        binary         |                            binary                            |
-|        binary         |                          varbinary                           |
-|       timestamp       |                             date                             |
+|        booleano        |                             bit                              |
+|        double         |                            flutuante                             |
+|         flutuante         |                             real                             |
+|        double         |                            money                             |
+|        double         |                          smallmoney                          |
+|        string         |                            nchar                             |
+|        string         |                           nvarchar                           |
+|        string         |                             char                             |
+|        string         |                           varchar                            |
+|        binário         |                            binário                            |
+|        binário         |                          varbinary                           |
+|       timestamp       |                             data                             |
 |       timestamp       |                        smalldatetime                         |
 |       timestamp       |                          datetime2                           |
 |       timestamp       |                           datetime                           |
-|       timestamp       |                             time                             |
-|       date            |                             date                             |
-|        decimal        |                            decimal                           |
+|       timestamp       |                             tempo real                             |
+|       data            |                             data                             |
+|        Decimal        |                            Decimal                           |
 
-## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Descarregar os dados no Armazenamento de Blobs do Azure ou no Azure Data Lake Storage
+## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Pouse os dados no armazenamento de BLOBs do Azure ou Azure Data Lake Store
 
 Para descarregar dados para o armazenamento do Azure, você pode movê-los para o [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md) ou [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md). Em qualquer localização, os dados devem ser armazenados em arquivos de texto. O PolyBase pode carregar dessas localizações.
 
@@ -87,7 +87,7 @@ Ferramentas e serviços que você pode usar para mover dados para o Armazenament
 - O [Azure Data Factory (ADF)](../data-factory/introduction.md) tem um gateway que você pode instalar no seu servidor local. Em seguida, você pode criar um pipeline para mover os dados do seu servidor local para o Armazenamento do Microsoft Azure. Para usar o Data Factory com o SQL Data Warehouse, consulte [Carregar dados no SQL Data Warehouse](/azure/data-factory/load-azure-sql-data-warehouse).
 
 
-## <a name="3-prepare-the-data-for-loading"></a>3. Preparar os dados para o carregamento
+## <a name="3-prepare-the-data-for-loading"></a>3. preparar os dados para carregar
 
 Você pode precisar preparar e limpar os dados na sua conta de armazenamento antes de carregá-los no SQL Data Warehouse. A preparação de dados pode ser executada enquanto seus dados estiverem na origem, conforme você exporta os dados para arquivos de texto ou após os dados no Armazenamento do Microsoft Azure.  É mais fácil trabalhar com os dados o mais precocemente possível no processo.  
 
@@ -112,7 +112,7 @@ Para formatar os arquivos de texto:
 - Separar os campos no arquivo de texto com um terminador.  Certifique-se de usar um caractere ou uma sequência de caracteres que não sejam encontrados na fonte de dados. Use o terminador especificado com [CRIAR FORMATO DE ARQUIVO EXTERNO](/sql/t-sql/statements/create-external-file-format-transact-sql).
 
 
-## <a name="4-load-the-data-into-sql-data-warehouse-staging-tables-using-polybase"></a>4. Carregar os dados nas tabelas de preparo do SQL Data Warehouse usando o PolyBase
+## <a name="4-load-the-data-into-sql-data-warehouse-staging-tables-using-polybase"></a>4. carregar os dados em SQL Data Warehouse tabelas de preparo usando o polybase
 
 É uma melhor prática carregar dados em uma tabela de preparo. Tabelas de preparo permitem manipular erros sem interferir nas tabelas de produção. Uma tabela de preparo também oferece a oportunidade de usar o MPP do SQL Data Warehouse para transformações de dados antes da inserção deles em tabelas de produção.
 
@@ -123,21 +123,21 @@ Para carregar dados com o PolyBase, é possível usar qualquer uma destas opçõ
 - O [PolyBase com o T-SQL](load-data-from-azure-blob-storage-using-polybase.md) funciona bem quando os seus dados estiverem no armazenamento de Blobs do Azure ou no Azure Data Lake Store. Ele oferece mais controle sobre o processo de carregamento, mas também exige que você defina objetos de dados externos. Os outros métodos definem esses objetos em segundo plano, como mapear as tabelas de origem para as tabelas de destino.  Para coordenar as cargas de T-SQL, você pode usar o Azure Data Factory, SSIS ou as funções do Azure. 
 - O [PolyBase com o SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) funciona bem quando os seus dados de origem estiverem no SQL Server, no SQL Server local ou na nuvem. O SSIS define a origem para mapeamentos de tabela de destino e também coordena a carga. Se você já tiver pacotes SSIS, você pode modificar os pacotes para trabalhar com o novo destino do data warehouse. 
 - O [PolyBase com o Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) é outra ferramenta de orquestração.  Ele define um pipeline e agenda de trabalhos. 
-- O [polybase com o Azure](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) databricks transfere dados de uma tabela SQL data warehouse para um Dataframe do databricks e/ou grava dados de um dataframe do databricks em uma tabela SQL data warehouse usando o polybase.
+- O [polybase com Azure Databricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) transfere dados de uma tabela SQL data warehouse para um dataframe do databricks e/ou grava dados de um dataframe do databricks em uma tabela SQL data warehouse usando o polybase.
 
 ### <a name="non-polybase-loading-options"></a>Opções de carregamento que não sejam PolyBase
 
 Se os seus dados não forem compatíveis com o PolyBase, você pode usar [bcp](/sql/tools/bcp-utility) ou a [API do SQLBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). O bcp carrega diretamente para o SQL Data Warehouse sem passar pelo armazenamento de Blobs do Azure e é destinado somente para pequenas cargas. Note que o desempenho do carregamento dessas opções é significativamente mais lento do que o PolyBase. 
 
 
-## <a name="5-transform-the-data"></a>5. Transformar os dados
+## <a name="5-transform-the-data"></a>5. transformar os dados
 
 Enquanto os dados estão na tabela de preparo, execute as transformações que a sua carga de trabalho exige. Em seguida, mova os dados para uma tabela de produção.
 
 
-## <a name="6-insert-the-data-into-production-tables"></a>6. Inserir os dados nas tabelas de produção
+## <a name="6-insert-the-data-into-production-tables"></a>6. inserir os dados em tabelas de produção
 
-O INSERT INTO... A Instrução SELECT move os dados da tabela de preparo para a tabela permanente. 
+A instrução INSERT INTO... A instrução SELECT move os dados da tabela de preparo para a tabela permanente. 
 
 Ao criar um processo de ETL, tente executar o processo em uma amostra de teste pequena. Tente extrair 1000 linhas da tabela para um arquivo, movê-lo para o Azure e, em seguida, tente carregá-lo em uma tabela de preparo. 
 

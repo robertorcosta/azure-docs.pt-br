@@ -1,5 +1,5 @@
 ---
-title: Servidor de histórico do Spark estendido para depurar aplicativos Spark – Azure HDInsight
+title: Servidor de histórico do Spark estendido para depurar aplicativos – Azure HDInsight
 description: Uso estendido de servidor de histórico do Spark para depurar e diagnosticar aplicativos do Spark – Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 9398745cb240e7b7dff45ff5d6d9cdf064239bfd
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 1320764687f3eb2f033ca70703a9bcb16ab616ea
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130361"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494733"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Use o Apache Spark History Server estendido para depurar e diagnosticar aplicativos do Apache Spark
 
-Este artigo fornece orientação sobre como usar o Apache Spark History Server estendido para depurar e diagnosticar aplicativos Spark concluídos e em execução. A extensão inclui as guias de dados, gráfico e diagnóstico. Na guia **Dados**, os usuários podem verificar os dados de entrada e saída do trabalho do Spark. Na guia **Gráfico**, os usuários podem verificar o fluxo de dados e repetir o gráfico de trabalho. Na guia **Diagnóstico**, o usuário pode consultar **Distorção de Dados**, **Distorção de Tempo** e **Análise de Uso do Executor**.
+Este artigo fornece orientação sobre como usar o Apache Spark History Server estendido para depurar e diagnosticar aplicativos Spark concluídos e em execução. A extensão inclui a guia de dados e a guia gráfico e a guia diagnóstico. Na guia **dados** , os usuários podem verificar os dados de entrada e saída do trabalho do Spark. Na guia **Gráfico**, os usuários podem verificar o fluxo de dados e repetir o gráfico de trabalho. Na guia **Diagnóstico**, o usuário pode consultar **Distorção de Dados**, **Distorção de Tempo** e **Análise de Uso do Executor**.
 
 ## <a name="get-access-to-apache-spark-history-server"></a>Obtenha acesso ao Apache Spark History Server
 
@@ -28,7 +28,7 @@ O Apache Spark History Server é a interface do usuário da web para aplicativos
 1. No [portal do Azure](https://portal.azure.com/), abra o cluster Spark. Para obter mais informações, consulte [Listar e mostrar clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Em **Links Rápidos**, clique em **Painel do Cluster** e, em seguida, em **Servidor de Histórico do Spark**. Quando solicitado, insira as credenciais de administrador para o cluster Spark.
 
-    ![portal de inicialização do Spark servidor de histórico](./media/apache-azure-spark-history-server/launch-history-server.png "Servidor de histórico do Spark")
+    ![Portal de inicialização do Spark servidor de histórico](./media/apache-azure-spark-history-server/launch-history-server.png "Servidor de Histórico do Spark")
 
 ### <a name="open-the-spark-history-server-web-ui-by-url"></a>Abrir a Interface do Usuário da Web do Servidor de Histórico do Spark por URL
 
@@ -106,16 +106,16 @@ Selecione o ID do trabalho e clique em **dados** no menu de ferramenta para obte
 
 + Reproduzir o trabalho clicando no botão **reprodução** e parar a qualquer momento clicando no botão Parar. A exibição de tarefas na cor para mostrar o status diferentes quando a reprodução:
 
-  + Verde para bem-sucedido: O trabalho foi concluído com sucesso.
-  + Laranja para repetida: Instâncias de tarefas que falharam, mas não afetam o resultado final do trabalho. Essas tarefas tinham duplicar ou repita instâncias que podem ter êxito posteriormente.
+  + Verde para bem-sucedido: O trabalho foi concluído com êxito.
+  + Laranja para repetida: instâncias das tarefas que falharam, mas não afetam o resultado final do trabalho. Essas tarefas tinham duplicar ou repita instâncias que podem ter êxito posteriormente.
   + Azul para execução: A tarefa está em execução.
-  + Branco para aguardando ou ignorado: A tarefa está aguardando para ser executada ou o estágio foi ignorado.
-  + Vermelho para falha: Falha da tarefa.
+  + Branco para aguardando ou ignorado: a tarefa está esperando para ser executada ou o estágio foi ignorado.
+  + Vermelho para falha: A tarefa falhou.
 
     ![Exemplo de cor do grafo de aplicativo e trabalho do Spark, executando](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
 
     O estágio ignorado é exibido em branco.
-    ![Exemplo de cor do grafo de aplicativo e trabalho do Spark, ignorar](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+    ![amostra de cor do grafo de aplicativo e trabalho do Spark, ignorar](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
 
     ![Exemplo de cor de grafo de trabalho e aplicativo Spark, com falha](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
 
@@ -200,9 +200,9 @@ O Gráfico de Uso do Executor visualiza o status de execução e alocação do e
 
     ![gráfico de seleção de diagnóstico sparkui](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>Perguntas frequentes
 
-### <a name="1-revert-to-community-version"></a>1. Reverter para versão de comunidade
+### <a name="1-revert-to-community-version"></a>1. reverter para a versão da Comunidade
 
 Para reverter para a versão de comunidade, execute as seguintes etapas:
 
@@ -224,7 +224,7 @@ Para reverter para a versão de comunidade, execute as seguintes etapas:
     ![Reinicialização do histórico de Spark2 do Apache Ambari](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 9. Atualizar a web de servidor de histórico do Spark da interface do usuário, ele será revertido para a versão da comunidade.
 
-### <a name="2-upload-history-server-event"></a>2. Carregar eventos de servidor de histórico
+### <a name="2-upload-history-server-event"></a>2. carregar evento do servidor de histórico
 
 Se você encontrar erros de servidor de histórico, siga as etapas para fornecer o evento:
 
@@ -240,7 +240,7 @@ Se você encontrar erros de servidor de histórico, siga as etapas para fornecer
 
     ![exemplo de problema de arquivo do Apache Spark](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
 
-### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. Atualizar o arquivo jar para o cenário de hotfix
+### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. atualizar o arquivo JAR para o cenário de hotfix
 
 Se você quiser atualizar com o hotfix, use o script a seguir, que atualizará enhancement.jar* spark.
 
@@ -328,6 +328,6 @@ Se você quiser atualizar com o hotfix, use o script a seguir, que atualizará e
 * [Gerenciar recursos para um cluster do Apache Spark no HDInsight](apache-spark-resource-manager.md)
 * [Definir as configurações do Apache Spark](apache-spark-settings.md)
 
-## <a name="contact-us"></a>Contate-nos
+## <a name="contact-us"></a>Fale conosco
 
 Se você tiver comentários ou se você encontrar problemas ao usar essa ferramenta, envie um email em ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)).

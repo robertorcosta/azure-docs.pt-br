@@ -1,7 +1,7 @@
 ---
 title: Guia de solução de problemas
 titleSuffix: Microsoft Genomics
-description: Saiba mais sobre estratégias de solução de problemas para usar o Microsoft Genomics.
+description: Saiba mais sobre estratégias de solução de problemas para usar Microsoft Genomics, incluindo mensagens de erro e como resolvê-las.
 keywords: solução de problemas, erro, depuração
 services: genomics
 author: ruchir
@@ -11,26 +11,26 @@ ms.service: genomics
 ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
-ms.openlocfilehash: ce8af4d444e642a8f67f43f8cf403ce9b2cb08ab
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: f6ef56e4188a7541036db096e4ab35a1b95fc141
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248525"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486001"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 
 Confira algumas dicas de solução de problemas comuns que podem acontecer ao usar o serviço do MSGEN, o Microsoft Genomics.
 
  Para ver as perguntas frequentes não relacionadas com a solução de problemas, confira [Perguntas comuns](frequently-asked-questions-genomics.md).
-## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Etapa 1: Localizar códigos de erro associados ao fluxo de trabalho
+## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Etapa 1: localize os códigos de erro associados com o fluxo de trabalho
 
 É possível localizar as mensagens de erro associadas ao fluxo de trabalho destas formas:
 
 1. Usando a linha de comando e digitando `msgen status`
 2. Examinando o conteúdo de standardoutput.txt.
 
-### <a name="1-using-the-command-line-msgen-status"></a>1. Usando a linha de comando `msgen status`
+### <a name="1-using-the-command-line-msgen-status"></a>1. usando a linha de comando `msgen status`
 
 ```bash
 msgen status -u URL -k KEY -w ID 
@@ -82,7 +82,7 @@ Para o fluxo de trabalho ID 1001 e o arquivo config.txt localizado no mesmo cami
 msgen status -w 1001 -f "config.txt"
 ```
 
-### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2.  Examine o conteúdo de standardoutput.txt 
+### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. Examine o conteúdo de StandardOutput. txt 
 Localize o contêiner de saída do fluxo de trabalho em questão. O MSGEN cria uma pasta `[workflowfilename].logs.zip` após cada execução de fluxo de trabalho. Descompacte a pasta para exibir seu conteúdo:
 
 * outputFileList.txt - uma lista dos arquivos de saída produzida durante o fluxo de trabalho
@@ -93,16 +93,16 @@ Localize o contêiner de saída do fluxo de trabalho em questão. O MSGEN cria u
 Para solucionar o problema, examine o conteúdo de standardoutput.txt e observe todas as mensagens de erro exibidas.
 
 
-## <a name="step-2-try-recommended-steps-for-common-errors"></a>Etapa 2: Experimente as etapas recomendadas para erros comuns
+## <a name="step-2-try-recommended-steps-for-common-errors"></a>Etapa 2: experimente seguir as etapas recomendadas para erros comuns
 
 Esta seção descreve brevemente os erros comuns gerados pelo serviço do msgen (Microsoft Genomics) e as estratégias que você pode usar para resolvê-los. 
 
 O serviço do msgen (Microsoft Genomics) pode gerar dois tipos de erros:
 
-1. Erros de serviço interno: Erros que são internos ao serviço, que podem não ser resolvidos corrigindo parâmetros ou arquivos de entrada. Às vezes, enviar novamente o fluxo de trabalho pode corrigir esses erros.
-2. Erros de entrada: Erros que podem ser resolvidos usando os argumentos corretos ou corrigindo formatos de arquivo.
+1. Erros de serviço interno: erros internos do serviço que não podem ser resolvidos corrigindo parâmetros ou arquivos de entrada. Às vezes, enviar novamente o fluxo de trabalho pode corrigir esses erros.
+2. Erros de entrada: erros que podem ser resolvidos usando os argumentos corretos ou corrigindo os formatos dos arquivos.
 
-### <a name="1-internal-service-errors"></a>1. Erros de serviço interno
+### <a name="1-internal-service-errors"></a>1. erros de serviço interno
 
 Um erro de serviço interno não é acionável pelo usuário. Você pode reenviar o fluxo de trabalho, mas se isso não funcionar, entre em contato com o suporte do Microsoft Genomics
 
@@ -110,13 +110,13 @@ Um erro de serviço interno não é acionável pelo usuário. Você pode reenvia
 |------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ocorreu um erro interno. Tente enviar o fluxo de trabalho novamente. Se esse erro ocorrer novamente, entre em contato com o suporte da Microsoft Genomics para obter assistência | Envie o fluxo de trabalho novamente. Contate o suporte do Microsoft Genomics para obter assistência se o problema persistir criando um [tíquete](file-support-ticket-genomics.md ) de suporte. |
 
-### <a name="2-input-errors"></a>2. Erros de entrada
+### <a name="2-input-errors"></a>2. erros de entrada
 
 Esses erros são acionáveis pelo usuário. Com base no tipo de arquivo e o código de erro, o serviço do Microsoft Genomics gera códigos de erro distintos. Siga as etapas de solução de problemas recomendadas listadas abaixo.
 
 | Tipo de arquivo | Código do erro | Mensagem de erro                                                                           | Etapas de solução de problemas recomendadas                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Any          | 701        | A leitura [readId] tem [numberOfBases] bases, mas o limite é [maxReadLength]           | O motivo mais comum para esse erro é um arquivo corrompido, o que leva à concatenação de duas leituras. Verifique os arquivos de entrada. |
+| Qualquer          | 701        | A leitura [readId] tem [numberOfBases] bases, mas o limite é [maxReadLength]           | O motivo mais comum para esse erro é um arquivo corrompido, o que leva à concatenação de duas leituras. Verifique os arquivos de entrada. |
 | BAM          | 200        |   Não é possível ler o arquivo "[yourFileName]".                                                                                       | Verifique o formato do arquivo BAM. Envie o fluxo de trabalho novamente com um arquivo formatado corretamente.                                                                           |
 | BAM          | 201        |  Não é possível ler o arquivo BAM [File_name].                                                                                      |Verifique o formato do arquivo BAM.  Envie o fluxo de trabalho com um arquivo formatado corretamente.                                                                            |
 | BAM          | 202        | Não é possível ler o arquivo BAM [File_name]. Arquivo muito pequeno e cabeçalho ausente.                                                                                        | Verifique o formato do arquivo BAM.  Envie o fluxo de trabalho com um arquivo formatado corretamente.                                                                            |
@@ -137,7 +137,7 @@ Esses erros são acionáveis pelo usuário. Com base no tipo de arquivo e o cód
 | FASTQ        | 308        |  Erro de leitura do FASTQ. As leituras de ambas as extremidades tiveram respostas diferentes. Você escolheu os arquivos FASTQ corretos?                                                                                       | Corrija o formato do arquivo FASTQ e envie o fluxo de trabalho novamente.                                                                         |
 |        |       |                                                                                        |                                                                           |
 
-## <a name="step-3-contact-microsoft-genomics-support"></a>Etapa 3: Contatar Microsoft Genomics suporte
+## <a name="step-3-contact-microsoft-genomics-support"></a>Etapa 3: entre em contato com o suporte do Microsoft Genomics
 
 Se você continuar a ter falhas de trabalho, ou se você tiver outras dúvidas, contate o suporte do Microsoft Genomics a partir do portal do Azure. Informações adicionais sobre como enviar uma solicitação de suporte podem ser encontradas [aqui](file-support-ticket-genomics.md).
 

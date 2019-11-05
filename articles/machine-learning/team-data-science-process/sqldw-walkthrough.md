@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f9da031fd4b35c2fa9126f545eecacf6143b18a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc70e2e6475620bfb8842fc740772e326f8ee8d0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478846"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480336"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>O Processo de Ciência de Dados de Equipe em ação: usando o SQL Data Warehouse
 Neste tutorial, explicamos como criar e implantar de um modelo de Machine Learning usando o SQL DW (SQL Data Warehouse) para um conjunto de dados publicamente disponível – o conjunto de dados [Corridas de Táxi de NYC](https://www.andresmh.com/nyctaxitrips/). O modelo de classificação binária construído prevê se uma gorjeta foi paga ou não por uma corrida. Também discutimos os modelos de regressão e classificação multiclasse que preveem a distribuição das gorjetas pagas.
@@ -52,15 +52,15 @@ A **chave exclusiva** para unir trip\_data e trip\_fare é composta pelos três 
 ## <a name="mltasks"></a>Resolver três tipos de tarefas de previsão
 Formulamos três problemas de previsão com base em *tip\_amount* para ilustrar três tipos de tarefas de modelagem:
 
-1. **Classificação binária**: Prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount*maior que US$ 0 é um exemplo positivo, enquanto um *tip\_amount* de US$ 0 é um exemplo negativo.
-2. **Classificação multiclasse**: Prever o intervalo do valor da gorjeta pago pela corrida. Dividimos *tip\_amount* em cinco compartimentos ou classes:
+1. **Classificação binária**: para prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount* maior que US$ 0 é um exemplo positivo, enquanto um *tip\_amount* de US$ 0 é um exemplo negativo.
+2. **Classificação multiclasse**: prever o intervalo da gorjetas pagas pela corrida. Dividimos *tip\_amount* em cinco compartimentos ou classes:
 
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. **Tarefa de regressão**: Prever o valor da gorjeta pago por uma corrida.
+3. **Tarefa de regressão**: prever o valor da gorjeta paga por uma corrida.
 
 ## <a name="setup"></a>Configurar o ambiente de ciência de dados do Azure para análise avançada
 Para configurar o ambiente de Ciência de Dados do Azure, execute estas etapas:
@@ -77,7 +77,7 @@ Para configurar o ambiente de Ciência de Dados do Azure, execute estas etapas:
 **Provisione sua instância do Azure SQL DW.**
 Siga a documentação em [Criar um SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) para provisionar uma instância do SQL Data Warehouse. Lembre-se de fazer anotações sobre as seguintes credenciais do SQL Data Warehouse que serão usadas em etapas posteriores.
 
-* **Nome do servidor**: \<nome do servidor >. database.windows.net
+* **Nome do servidor**: \<nome do servidor >. Database. Windows. net
 * **Nome do SQLDW (Banco de Dados)**
 * **Nome de Usuário**
 * **Senha**
@@ -336,13 +336,13 @@ Após a execução bem-sucedida, você verá uma tela parecida com a seguinte:
 
 ![Saída de uma execução bem-sucedida do script][20]
 
-## <a name="dbexplore"></a>Exploração de dados e engenharia de recursos no SQL Data Warehouse do Azure
+## <a name="dbexplore"></a>Exploração de dados e engenharia de recursos no Azure SQL Data Warehouse
 Nesta seção, executamos a exploração de dados e a geração de recursos por meio da execução de consultas SQL no Azure SQL DW usando diretamente o **Visual Studio Data Tools**. Todas as consultas SQL usadas nesta seção podem ser encontradas no exemplo de script chamado *SQLDW_Explorations.sql*. Esse arquivo já foi baixado em seu diretório local pelo script do PowerShell. Você também pode recuperá-lo no [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Mas o arquivo no GitHub não tem as informações do Azure SQL DW conectadas.
 
 Conecte-se ao seu Azure SQL DW usando o Visual Studio com o nome e senha de logon do SQL DW e abra o **Pesquisador de Objetos do SQL** para confirmar se o banco de dados e as tabelas foram importados. Recupere o arquivo *SQLDW_Explorations.sql*.
 
 > [!NOTE]
-> Para abrir um editor de consultas do PDW (Parallel Data Warehouse), use o comando **Nova Consulta** com seu PDW selecionado no **Pesquisador de Objetos do SQL**. O editor de consulta SQL padrão não tem suporte do PDW.
+> Para abrir um editor de consultas do PDW (Parallel Data Warehouse), use o comando **Nova Consulta** com seu PDW selecionado no **Pesquisador de Objetos do SQL **. O editor de consulta SQL padrão não tem suporte do PDW.
 >
 >
 
@@ -363,9 +363,9 @@ Essas consultas fornecem uma verificação rápida do número de linhas e coluna
     -- Report number of columns in table <nyctaxi_trip>
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = '<nyctaxi_trip>' AND table_schema = '<schemaname>'
 
-**Saída:** O resultado deve ser 173.179.759 linhas e 14 colunas.
+**Saída:** o resultado deve ser 173.179.759 linhas e 14 colunas.
 
-### <a name="exploration-trip-distribution-by-medallion"></a>Exploração: Distribuição de corridas por licença
+### <a name="exploration-trip-distribution-by-medallion"></a>Exploração: distribuição de corridas por licença
 Este exemplo de consulta identifica os medalhões (números de táxi) com mais de 100 corridas dentro de um determinado período. A consulta aproveitaria o acesso à tabela particionada, já que é condicionada pelo esquema de partição de **pickup\_datetime**. Consultar o conjunto de dados completo também usará a tabela particionada e/ou a verificação de índice.
 
     SELECT medallion, COUNT(*)
@@ -374,9 +374,9 @@ Este exemplo de consulta identifica os medalhões (números de táxi) com mais d
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-**Saída:** A consulta deve retornar uma tabela com linhas especificando os 13.369 medalhões (táxis) e o número de viagens concluídas por eles em 2013. A última coluna contém o número de viagens concluídas.
+**Saída:** a consulta deve retornar uma tabela com linhas especificando os 13.369 medalhões (táxis) e o número de viagens concluídas por eles em 2013. A última coluna contém o número de viagens concluídas.
 
-### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploração: Distribuição de corridas por licença e carteira de habilitação
+### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Exploração: distribuição de corridas por medallion e hack_license
 Este exemplo identifica os medalhões (números de táxi) e números de hack_license (motoristas) com mais de 100 corridas dentro de um determinado período.
 
     SELECT medallion, hack_license, COUNT(*)
@@ -385,9 +385,9 @@ Este exemplo identifica os medalhões (números de táxi) e números de hack_lic
     GROUP BY medallion, hack_license
     HAVING COUNT(*) > 100
 
-**Saída:** A consulta deve retornar uma tabela com 13.369 linhas especificando as 13.369 IDs de carro/motoristas que concluíram mais que 100 corridas em 2013. A última coluna contém o número de viagens concluídas.
+**Saída:** a consulta deve retornar uma tabela com 13.369 linhas especificando as 13.369 IDs de carro/motoristas que concluíram mais que 100 corridas em 2013. A última coluna contém o número de viagens concluídas.
 
-### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Avaliação de qualidade de dados: Verificar registros com longitude e/ou latitude incorretos
+### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Avaliação de qualidade de dados: verificar registros com longitude e/ou latitude incorretos
 Este exemplo investiga se qualquer um dos campos longitude e/ou latitude contém um valor inválido (graus radianos devem estar entre -90 e 90), ou tiver coordenadas (0, 0).
 
     SELECT COUNT(*) FROM <schemaname>.<nyctaxi_trip>
@@ -399,9 +399,9 @@ Este exemplo investiga se qualquer um dos campos longitude e/ou latitude contém
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-**Saída:** A consulta retorna 837.467 corridas que têm campos de longitude e/ou latitude inválidos.
+**Saída:** a consulta retorna 837.467 corridas que têm campos de longitude e/ou latitude inválidos.
 
-### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploração: Distribuição de corridas com gorjeta versus sem gorjeta
+### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploração: distribuição de corridas com gorjeta versus sem gorjeta
 Este exemplo localiza o número de corridas que receberam gorjetas em comparação com aquelas que não receberam em um determinado período (ou no conjunto de dados completo, se envolver o ano inteiro conforme configurado aqui). Essa distribuição reflete a distribuição de rótulo binário a ser usado posteriormente para modelagem de classificação binária.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -410,9 +410,9 @@ Este exemplo localiza o número de corridas que receberam gorjetas em comparaç�
       WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tipped
 
-**Saída:** A consulta deve retornar as seguintes frequências de gorjeta para o ano de 2013 com gorjeta e 82.264.709 sem gorjeta: 90.447.622 com gorjeta e 82,264,709 sem gorjeta.
+**Saída:** a consulta deve retornar as seguintes frequências de gorjeta para o ano de 2013: 90.447.622 com gorjeta e 82.264.709 sem gorjeta.
 
-### <a name="exploration-tip-classrange-distribution"></a>Exploração: Distribuição de classe/intervalo de gorjetas
+### <a name="exploration-tip-classrange-distribution"></a>Exploração: distribuição de classe/intervalo de gorjetas
 Esse exemplo calcula a distribuição dos intervalos de gorjetas em um determinado período de tempo (ou no conjunto de dados completo se abrangendo todo o ano). Essa é a distribuição das classes de rótulo que serão usados posteriormente para a modelagem de classificação multiclasse.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
@@ -437,7 +437,7 @@ Esse exemplo calcula a distribuição dos intervalos de gorjetas em um determina
 | 0 |82264625 |
 | 4 |85765 |
 
-### <a name="exploration-compute-and-compare-trip-distance"></a>Exploração: Calcular e comparar a distância da corrida
+### <a name="exploration-compute-and-compare-trip-distance"></a>Exploração: calcular e comparar a distância da corrida
 Este exemplo converte a longitude e a latitude de pickup e dropoff em pontos de geografia SQL, calcula a distância da viagem usando a diferença de pontos de geografia SQL e retorna uma amostra aleatória dos resultados para comparação. O exemplo limita os resultados às coordenadas válidas apenas usando a consulta de avaliação de qualidade de dados abordada anteriormente.
 
     /****** Object:  UserDefinedFunction [dbo].[fnCalculateDistance] ******/
@@ -531,7 +531,7 @@ Veja um exemplo para chamar essa função a fim de gerar recursos em sua consult
     AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
     AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
-**Saída:** Esta consulta gera uma tabela (com 2.803.538 linhas) com latitudes e longitudes de saída e chegada e as distâncias diretas correspondentes em milhas. Estes são os resultados para as primeiras 3 linhas:
+**Saída:** esta consulta gera uma tabela (com 2.803.538 linhas) com latitudes e longitudes de saída e chegada e as distâncias diretas correspondentes em milhas. Estes são os resultados para as primeiras 3 linhas:
 
 |  | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
 | --- | --- | --- | --- | --- | --- |
@@ -540,7 +540,7 @@ Veja um exemplo para chamar essa função a fim de gerar recursos em sua consult
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Preparar dados para criação de modelo
-A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera um rótulo de classificação binária **tipped**, um rótulo de classificação de multiclasse **tip\_class** e extrai um exemplo do conjunto de dados totalmente unido. A amostragem é feita recuperando um subconjunto das viagens com base na hora de saída.  Essa consulta pode ser copiada e colada diretamente no módulo [Importar Dados][import-data] do [Azure Machine Learning Studio](https://studio.azureml.net) para ingestão de dados direta da instância do Banco de Dados SQL no Azure. A consulta exclui registros com coordenadas incorretas (0, 0).
+A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera um rótulo de classificação binária **tipped**, um rótulo de classificação de multiclasse **tip\_class** e extrai uma amostra do conjunto de dados totalmente unido. A amostragem é feita recuperando um subconjunto das viagens com base na hora de saída.  Essa consulta pode ser copiada e colada diretamente no módulo [Azure Machine Learning Studio](https://studio.azureml.net) [importar dados][import-data] para ingestão direta de dados da instância do banco de dados SQL no Azure. A consulta exclui registros com coordenadas incorretas (0, 0).
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -559,8 +559,8 @@ A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera u
 
 Quando você estiver pronto para prosseguir para o Azure Machine Learning, você pode:
 
-1. Salve a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo [Importar Dados][import-data] no Azure Machine Learning ou
-2. Mantenha os dados de amostra e projetados que você planeja usar para criar modelos em uma nova tabela do SQL DW e use a nova tabela no módulo [Importar Dados][import-data] no Azure Machine Learning. O script do PowerShell na etapa anterior fez isso para você. Você pode ler diretamente dessa tabela no módulo Importar Dados.
+1. Salve a consulta SQL final para extrair e obter amostras dos dados e copiar e colar a consulta diretamente em um módulo [importar dados][import-data] no Azure Machine Learning ou
+2. Persista os dados de amostra e projetados que você planeja usar para a criação de modelos em uma nova tabela do SQL DW e use a nova tabela no módulo [importar dados][import-data] no Azure Machine Learning. O script do PowerShell na etapa anterior fez isso para você. Você pode ler diretamente dessa tabela no módulo Importar Dados.
 
 ## <a name="ipnb"></a>Exploração de dados e engenharia de recursos no IPython Notebook
 Nesta seção, realizaremos a exploração de dados e a geração de recursos executando consultas SQL e Python no SQL DW criado anteriormente. Um exemplo de notebook IPython chamado **SQLDW_Explorations.ipynb** e um arquivo de script Python **SQLDW_Explorations_Scripts.py** foram baixados no diretório local. Eles também estão disponíveis no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). Esses dois arquivos são idênticos em scripts Python. O arquivo de script Python é fornecido a você caso você não tenha um servidor do Notebook IPython. Esses dois de exemplo de arquivo Python são criados no **Python 2.7**.
@@ -615,7 +615,7 @@ Veja a cadeia de conexão que cria a conexão com o banco de dados.
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-### <a name="report-number-of-rows-and-columns-in-table-nyctaxitrip"></a>Relatar o número de linhas e colunas na tabela <nyctaxi_trip>
+### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a>Relatar o número de linhas e colunas na tabela <nyctaxi_trip>
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_trip>')
@@ -633,7 +633,7 @@ Veja a cadeia de conexão que cria a conexão com o banco de dados.
 * Número total de linhas = 173179759
 * Número total de colunas = 14
 
-### <a name="report-number-of-rows-and-columns-in-table-nyctaxifare"></a>Relatar o número de linhas e colunas na tabela <nyctaxi_fare>
+### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_fare"></a>Relatar o número de linhas e colunas na tabela <nyctaxi_fare>
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_fare>')
@@ -679,14 +679,14 @@ Agora você está pronto para explorar os dados amostrados. Começamos observand
 
     df1['trip_distance'].describe()
 
-### <a name="visualization-box-plot-example"></a>Visualização: Exemplo de gráfico de caixa
+### <a name="visualization-box-plot-example"></a>Visualização: exemplo de gráfico da caixa
 Em seguida, analisamos a caixa para a distância de viagem para visualizar os quantis.
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
 ![Saída de plotagem da caixa][1]
 
-### <a name="visualization-distribution-plot-example"></a>Visualização: Exemplo de gráfico de distribuição
+### <a name="visualization-distribution-plot-example"></a>Visualização: exemplo de gráfico de distribuição
 Plotagens para visualização da distribuição e um histograma para os exemplos de distâncias de corridas.
 
     fig = plt.figure()
@@ -697,7 +697,7 @@ Plotagens para visualização da distribuição e um histograma para os exemplos
 
 ![Saída de gráfico de distribuição][2]
 
-### <a name="visualization-bar-and-line-plots"></a>Visualização: Gráficos de linhas e barras
+### <a name="visualization-bar-and-line-plots"></a>Visualização: gráficos de barra e linha
 Neste exemplo, podemos compartimentalizar a distância da viagem em cinco compartimentos e visualizar os resultados de compartimentalização.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -717,7 +717,7 @@ e
 
 ![Saída de plotagem de linha][4]
 
-### <a name="visualization-scatterplot-examples"></a>Visualização: Exemplo de dispersão
+### <a name="visualization-scatterplot-examples"></a>Visualização: exemplo de plotagem de dispersão
 Mostramos o gráfico de dispersão entre **trip\_time\_in\_secs** e **trip\_distance** para ver se há alguma correlação
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
@@ -733,14 +733,14 @@ Da mesma forma, é possível verificar a relação entre **rate\_code** e **trip
 ### <a name="data-exploration-on-sampled-data-using-sql-queries-in-ipython-notebook"></a>Exploração de dados em exemplos de dados usando consultas SQL no notebook IPython
 Nesta seção, exploraremos distribuições de dados usando os dados de amostra que são mantidos na nova tabela criada acima. Observe que explorações semelhantes podem ser executadas usando as tabelas originais.
 
-#### <a name="exploration-report-number-of-rows-and-columns-in-the-sampled-table"></a>Exploração: Relatar o número de linhas e colunas na tabela de exemplo
+#### <a name="exploration-report-number-of-rows-and-columns-in-the-sampled-table"></a>Exploração: relatar o número de linhas e colunas na tabela de exemplo
     nrows = pd.read_sql('''SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_sample>')''', conn)
     print 'Number of rows in sample = %d' % nrows.iloc[0,0]
 
     ncols = pd.read_sql('''SELECT count(*) FROM information_schema.columns WHERE table_name = ('<nyctaxi_sample>') AND table_schema = '<schemaname>'''', conn)
     print 'Number of columns in sample = %d' % ncols.iloc[0,0]
 
-#### <a name="exploration-tippednot-tripped-distribution"></a>Exploração: Distribuição de corridas com gorjeta e sem gorjeta
+#### <a name="exploration-tippednot-tripped-distribution"></a>Exploração: distribuição de corridas com gorjeta e sem gorjeta
     query = '''
         SELECT tipped, count(*) AS tip_freq
         FROM <schemaname>.<nyctaxi_sample>
@@ -749,7 +749,7 @@ Nesta seção, exploraremos distribuições de dados usando os dados de amostra 
 
     pd.read_sql(query, conn)
 
-#### <a name="exploration-tip-class-distribution"></a>Exploração: Distribuição de classe de teste
+#### <a name="exploration-tip-class-distribution"></a>Exploração: distribuição de classe de gorjetas
     query = '''
         SELECT tip_class, count(*) AS tip_freq
         FROM <schemaname>.<nyctaxi_sample>
@@ -758,12 +758,12 @@ Nesta seção, exploraremos distribuições de dados usando os dados de amostra 
 
     tip_class_dist = pd.read_sql(query, conn)
 
-#### <a name="exploration-plot-the-tip-distribution-by-class"></a>Exploração: Plotar a distribuição de gorjeta por classe
+#### <a name="exploration-plot-the-tip-distribution-by-class"></a>Exploração: plotar a distribuição de gorjetas por classe
     tip_class_dist['tip_freq'].plot(kind='bar')
 
 ![Plotar nº 26][26]
 
-#### <a name="exploration-daily-distribution-of-trips"></a>Exploração: Distribuição diária de corridas
+#### <a name="exploration-daily-distribution-of-trips"></a>Exploração: distribuição diária de corridas
     query = '''
         SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
         FROM <schemaname>.<nyctaxi_sample>
@@ -772,7 +772,7 @@ Nesta seção, exploraremos distribuições de dados usando os dados de amostra 
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-per-medallion"></a>Exploração: Distribuição de corridas por licença
+#### <a name="exploration-trip-distribution-per-medallion"></a>Exploração: distribuição de corridas por licença
     query = '''
         SELECT medallion,count(*) AS c
         FROM <schemaname>.<nyctaxi_sample>
@@ -781,20 +781,20 @@ Nesta seção, exploraremos distribuições de dados usando os dados de amostra 
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Exploração: Distribuição de corridas por licença e carteira de habilitação
+#### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Exploração: distribuição de corridas por medalhão e carteira de habilitação
     query = '''select medallion, hack_license,count(*) from <schemaname>.<nyctaxi_sample> group by medallion, hack_license'''
     pd.read_sql(query,conn)
 
 
-#### <a name="exploration-trip-time-distribution"></a>Exploração: Distribuição de horário das corridas
+#### <a name="exploration-trip-time-distribution"></a>Exploração: distribuição de horário das corridas
     query = '''select trip_time_in_secs, count(*) from <schemaname>.<nyctaxi_sample> group by trip_time_in_secs order by count(*) desc'''
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distance-distribution"></a>Exploração: Distribuição de distância das corridas
+#### <a name="exploration-trip-distance-distribution"></a>Exploração: distribuição da distância das corridas
     query = '''select floor(trip_distance/5)*5 as tripbin, count(*) from <schemaname>.<nyctaxi_sample> group by floor(trip_distance/5)*5 order by count(*) desc'''
     pd.read_sql(query,conn)
 
-#### <a name="exploration-payment-type-distribution"></a>Exploração: Distribuição de tipo de pagamento
+#### <a name="exploration-payment-type-distribution"></a>Exploração: distribuição do tipo de pagamento
     query = '''select payment_type,count(*) from <schemaname>.<nyctaxi_sample> group by payment_type'''
     pd.read_sql(query,conn)
 
@@ -805,11 +805,11 @@ Nesta seção, exploraremos distribuições de dados usando os dados de amostra 
 ## <a name="mlmodel"></a>Compilar modelos no Azure Machine Learning
 Agora estamos prontos para prosseguir com a criação e implantação de modelo no [Azure Machine Learning](https://studio.azureml.net). Os dados estão prontos para serem usados em qualquer um dos problemas de previsão identificados anteriormente, ou seja:
 
-1. **Classificação binária**: Prever se uma gorjeta foi ou não paga em uma corrida.
-2. **Classificação multiclasse**: Prever o intervalo da gorjeta paga, de acordo com as classes definidas anteriormente.
-3. **Tarefa de regressão**: Prever o valor da gorjeta pago por uma corrida.
+1. **Classificação binária**: para prever se uma gorjeta foi ou não paga em uma corrida.
+2. **Classificação multiclasse**: para prever o intervalo da gorjeta paga, de acordo com as classes definidas anteriormente.
+3. **Tarefa de regressão**: prever o valor da gorjeta paga por uma corrida.
 
-Para iniciar o exercício de modelagem, faça logon no seu workspace do **Azure Machine Learning**. Se ainda não tiver criado um workspace do Machine Learning, confira [Criar um workspace do Azure Machine Learning Studio](../studio/create-workspace.md).
+Para iniciar o exercício de modelagem, faça logon no seu espaço de trabalho **Azure Machine Learning (clássico)** . Se você ainda não criou um espaço de trabalho do Machine Learning, consulte [criar um Azure Machine Learning Studio (clássico) espaço de trabalho](../studio/create-workspace.md).
 
 1. Para ver os primeiros passos no Azure Machine Learning, consulte [O que é o Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
 2. Faça logon no [Azure Machine Learning Studio](https://studio.azureml.net).
@@ -830,7 +830,7 @@ Um teste de treinamento típico é formado pelas seguintes etapas:
 
 Neste exercício, já exploramos e engenhamos os dados no SQL Data Warehouse e escolhemos o tamanho da amostra para ingestão no Azure Machine Learning Studio. Este é o procedimento para compilar um ou mais dos modelos de previsão:
 
-1. Obtenha os dados no Azure Machine Learning Studio usando o módulo [Importar Dados][import-data], disponível na seção **Entrada e Saída de Dados**. Para saber mais, veja a página de referência do módulo [Importar Dados][import-data].
+1. Obtenha os dados em Azure Machine Learning Studio (clássico) usando o módulo [importar dados][import-data] , disponível na seção **entrada e saída de dados** . Para obter mais informações, consulte a página de referência do módulo [importar dados][import-data] .
 
     ![Dados de Importação de AM do Azure][17]
 2. Selecione **Banco de Dados SQL do Azure** como a **Fonte de dados** no painel **Propriedades**.
@@ -846,7 +846,7 @@ Veja na figura abaixo um exemplo de experimento de classificação binária que 
 > [!IMPORTANT]
 > Nos exemplos de modelagem de extração de dados e consulta de amostragem fornecidos nas seções anteriores, **todos os rótulos para os três exercícios de modelagem são incluídos na consulta**. Uma etapa importante (obrigatória) em cada um dos exercícios modelagem é **excluir** os rótulos desnecessários para os dois problemas e qualquer outro **vazamento de destino**. Por exemplo, ao usar a classificação binária, use o rótulo **tipped** e exclua os campos **tip\_class**, **tip\_amount** e **total\_amount**. Esses últimos são vazamentos de destino, já que eles indicam a gorjeta paga.
 >
-> Para excluir as colunas desnecessárias ou vazamentos de destino, você pode usar o módulo [Selecionar Colunas do Conjunto de Dados][select-columns] ou [Editar Metadados][edit-metadata]. Para saber mais, veja as páginas de referência [Selecionar Colunas no Conjunto de Dados][select-columns] e [Editar Metadados][edit-metadata].
+> Para excluir colunas desnecessárias ou vazamentos de destino, você pode usar o módulo [selecionar colunas no conjunto][select-columns] de módulos ou [Editar metadados][edit-metadata]. Para obter mais informações, consulte [selecionar colunas nas páginas de referência do conjunto][select-columns] de dados e [Editar metadados][edit-metadata] .
 >
 >
 
@@ -868,7 +868,7 @@ O Azure Machine Learning tentará criar um experimento de pontuação com base n
 2. Identificar uma **porta de entrada** lógica para representar o esquema de dados de entrada esperado.
 3. Identificar uma **porta de saída** lógica para representar o esquema de saída do serviço Web.
 
-Quando o experimento de pontuação é criado, analisá-lo e ajustar conforme necessário. Um ajuste típico é substituir o conjunto de dados de entrada e/ou a consulta por uma exclua os campos de rótulo, pois eles não estarão disponíveis quando o serviço for chamado. Também é uma prática recomendada reduzir o tamanho do conjunto de dados de entrada e/ou da consulta a apenas alguns registros, suficientes para indicar o esquema de entrada. Para a porta de saída, é comum excluir todos os campos de entrada e incluir apenas os **Rótulos Pontuados** e **Probabilidades Pontuadas** na saída usando o módulo [Selecionar Colunas do Conjunto de Dados][select-columns].
+Quando o experimento de pontuação é criado, analisá-lo e ajustar conforme necessário. Um ajuste típico é substituir o conjunto de dados de entrada e/ou a consulta por uma exclua os campos de rótulo, pois eles não estarão disponíveis quando o serviço for chamado. Também é uma prática recomendada reduzir o tamanho do conjunto de dados de entrada e/ou da consulta a apenas alguns registros, suficientes para indicar o esquema de entrada. Para a porta de saída, é comum excluir todos os campos de entrada e incluir apenas os **Rótulos pontuados** e as **probabilidades pontuadas** na saída usando o módulo [selecionar colunas no conjunto][select-columns] de dados.
 
 Veja na figura abaixo um exemplo de teste de pontuação. Quando estiver pronto para implantar, clique no botão **PUBLICAR SERVIÇO WEB** na barra de ação inferior.
 

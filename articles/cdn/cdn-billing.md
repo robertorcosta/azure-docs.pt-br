@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: magattus
-ms.openlocfilehash: 8704d715a20b94dc170f232b07a0acd54bb1e6f1
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e2827a11f4ec2a5c0467c3699cd9990aaf7ae97a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996803"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495476"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Noções básicas sobre a cobrança da rede de distribuição de conteúdo do Azure
 
@@ -81,7 +81,7 @@ Se o cliente usa solicitações de intervalo de bytes (independentemente do serv
 ## <a name="how-much-transfer-activity-occurs-to-support-the-cache"></a>Quantas atividades de transferência ocorrem para dar suporte ao cache?
 Cada vez que um POP da CDN precisa preencher seu cache, ele faz uma solicitação para a origem para o objeto que está sendo armazenado em cache. Como resultado, a origem incorre em uma transação faturável em todos os erros de cache. O número de erros de cache depende de vários fatores:
 
-- Quão armazenável em cache o conteúdo é: se o conteúdo tem alta TTL (vida útil)/valor de expiração e é acessado com frequência para que fique popular em cache, a vasta maioria da carga é manipulada pela CDN. Uma taxa de acertos de cache boa típica é bem acima de 90%, o que significa que menos de 10% das solicitações de clientes precisam retornar para a origem, para um objeto ou um erro de cache de atualização.
+- Quão armazenável em cache o conteúdo é: se o conteúdo tiver alta TTL (vida útil)/valor de expiração e for acessado com frequência para que fique popular em cache, a vasta maioria da carga é manipulada pela CDN. Uma taxa de acertos de cache boa típica é bem acima de 90%, o que significa que menos de 10% das solicitações de clientes precisam retornar para a origem, para um objeto ou um erro de cache de atualização.
 
 - Quantos nós precisam carregar o objeto: cada vez que um nó carrega um objeto de origem, ele incorre em uma transação faturável. Como resultado, mais conteúdo global (acessado a partir de outros nós) resulta em transações mais faturáveis.
 
@@ -94,9 +94,9 @@ Se você usar um dos seguintes serviços do Azure como sua origem de CDN, não s
 - Serviços de Mídia do Azure
 - Máquinas Virtuais do Azure
 - Rede Virtual
-- Load Balancer
-- Application Gateway
-- Azure DNS
+- Balanceador de carga
+- Gateway de Aplicativo
+- DNS do Azure
 - ExpressRoute
 - Gateway de VPN
 - Gerenciador de Tráfego
@@ -105,16 +105,16 @@ Se você usar um dos seguintes serviços do Azure como sua origem de CDN, não s
 - Azure Front Door Service
 - Azure Bastion
 - Serviço de Aplicativo do Azure
-- Verificação de
-- Azure Data Factory
+- Funções do Azure
+- Fábrica de dados do Azure
 - Gerenciamento de API do Azure
 - Lote do Azure 
 - Azure Data Explorer
 - HDInsight
 - Azure Cosmos DB
-- Azure Data Lake Store
-- Serviço do Azure Machine Learning 
-- Banco de dados SQL do Azure
+- Repositório Azure Data Lake
+- Azure Machine Learning 
+- Banco de Dados SQL do Azure
 - Cache Redis do Azure
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Como gerencio meus custos com mais eficiência?

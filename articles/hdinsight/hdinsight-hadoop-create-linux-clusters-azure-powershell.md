@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 51270f1fd7a662cdfd747bd0bfaf9ff03dd438a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6847e75a0a6dcf944b033054ac466841294d28b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257912"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494788"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Criar clusters baseados em Linux no HDInsight usando o Azure PowerShell
 
@@ -27,7 +27,7 @@ O Azure PowerShell é um ambiente de script poderoso que você pode usar para co
 
 Você deve ter o seguinte antes de iniciar este procedimento:
 
-* Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [PowerShell do Azure](/powershell/azure/install-Az-ps)
 
     > [!IMPORTANT]  
@@ -61,7 +61,7 @@ Os valores especificados para o usuário SSH são usados para criar o usuário S
 
 Pode levar até 20 minutos para criar um cluster.
 
-## <a name="create-cluster-configuration-object"></a>Criar cluster: Objeto de configuração
+## <a name="create-cluster-configuration-object"></a>Criar cluster: objeto de configuração
 
 Você também pode criar um objeto de configuração de HDInsight usando o cmdlet `New-AzHDInsightClusterConfig`. Será possível, então, modificar esse objeto de configuração para habilitar as opções de configuração adicionais para o cluster. Por fim, use o parâmetro `-Config` do cmdlet `New-AzHDInsightCluster` para usar a configuração.
 
@@ -102,7 +102,7 @@ Agora que você criou com êxito um cluster HDInsight, use os seguintes recursos
 
 ### <a name="storm-clusters"></a>Clusters Storm
 
-* [Desenvolvimento de aplicativos Java para Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Desenvolver topologias Java para Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
 * [Usar componentes de Python no Storm no HDInsight](storm/apache-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
@@ -110,6 +110,6 @@ Agora que você criou com êxito um cluster HDInsight, use os seguintes recursos
 
 * [Criar um aplicativo autônomo usando Scala](spark/apache-spark-create-standalone-application.md)
 * [Execute trabalhos remotamente em um cluster do Apache Spark usando o Apache Livy](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark com BI: Executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com BI: execute análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark com aprendizado de máquina: use o Spark no HDInsight para prever os resultados da inspeção de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
 

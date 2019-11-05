@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.openlocfilehash: 41cb27096782f525a531f38efda539c065fa4c72
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 44089ea4b997e06cb7654fc6665a1a9a59ae2658
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163608"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494120"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para o bloco de anotações do Jupyter em clusters do Apache Spark no Azure HDInsight
 
@@ -28,7 +28,7 @@ Neste artigo, você aprenderá como usar esses kernels e os benefícios de usá-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+Um cluster do Apache Spark no HDInsight. Para obter instruções, confira [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 ## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Criar um bloco de anotações do Jupyter no Spark HDInsight
 
@@ -69,7 +69,7 @@ Estes são alguns dos benefícios de usar os novos kernels com o bloco de anota�
 
     A tabela a seguir lista as diferentes palavras mágicas disponíveis por meio dos kernels.
 
-   | Mágica | Exemplo | Descrição |
+   | Mágica | Exemplo | DESCRIÇÃO |
    | --- | --- | --- |
    | ajuda |`%%help` |Gera uma tabela de todos os comandos mágicos disponíveis com exemplo e descrição |
    | informações |`%%info` |Envia informações de sessão para o ponto de extremidade Livy atual |
@@ -89,7 +89,7 @@ Estes são alguns dos benefícios de usar os novos kernels com o bloco de anota�
 
 A palavra mágica `%%sql` é compatível com diversos parâmetros que podem ser usados para controlar o tipo de saída que você recebe ao executar consultas. A tabela a seguir lista as saídas.
 
-| . | Exemplo | Descrição |
+| Parâmetro | Exemplo | DESCRIÇÃO |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |Use esse parâmetro para manter o resultado da consulta, no contexto Python %%local, como um dataframe [Pandas](https://pandas.pydata.org/) . O nome da variável dataframe é o nome da variável que você especificar. |
 | -q |`-q` |Use esta opção para desativar visualizações da célula. Se você não quiser autovisualizar o conteúdo de uma célula e apenas desejar capturá-la como um dataframe, use `-q -o <VARIABLE>`. Se desejar desativar as visualizações sem capturar os resultados (por exemplo, para executar uma consulta SQL, como uma instrução `CREATE TABLE`), use `-q` sem especificar um argumento `-o`. |
@@ -144,7 +144,7 @@ Os kernels novos estão evoluindo e amadurecerão com o tempo. Isso também pode
 
 - [Apache Spark com BI: execute análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
 - [Apache Spark com Machine Learning: use o Spark no HDInsight para analisar a temperatura do edifício usando dados de HVAC](apache-spark-ipython-notebook-machine-learning.md)
-- [Apache Spark com Machine Learning: use o Spark no HDInsight para prever os resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
+- [Apache Spark com aprendizado de máquina: use o Spark no HDInsight para prever os resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
 - [Análise de log do site usando o Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicativos

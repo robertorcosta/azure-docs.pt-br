@@ -1,24 +1,24 @@
 ---
 title: 'Converter em CSV: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo converter para CSV no serviço de Azure Machine Learning para converter um conjunto de um em um formato CSV que pode ser baixado, exportado ou compartilhado com módulos de script R ou Python.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo converter para CSV no Azure Machine Learning para converter um conjunto de um em um formato CSV que pode ser baixado, exportado ou compartilhado com módulos de script R ou Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 37c1653b31049dc0142cf8c0c6f6d405338b1d1f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 999f78ab08e1a2c9dd6b28d853e49fbb559fab83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693189"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493844"
 ---
 # <a name="convert-to-csv-module"></a>Converter em módulo CSV
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para converter um conjunto de um em um formato CSV que pode ser baixado, exportado ou compartilhado com módulos de script R ou Python.
 
@@ -36,7 +36,8 @@ Quando você converte um conjunto de um em CSV, o arquivo é salvo em seu espaç
 
 ## <a name="how-to-configure-convert-to-csv"></a>Como configurar converter em CSV
 
-1.  Adicione o módulo [converter em CSV](./convert-to-csv.md) ao seu pipeline. Você pode encontrar esse módulo no grupo de **conversões de formato de dados** na interface. 
+
+1.  Adicione o módulo [converter em CSV](./convert-to-csv.md) ao seu pipeline. Você pode encontrar esse módulo no grupo de **conversões de formato de dados** no designer. 
 
 2. Conecte-o a qualquer módulo que produza um conjunto de um DataSet.   
   
@@ -54,6 +55,6 @@ Clique duas vezes na saída de [converter em CSV](./convert-to-csv.md)e selecion
 
  + **Gerar código de acesso a dados**: o Azure ml gera dois conjuntos de código para você acessar os dados, usando Python ou o R. Para acessar os dados, copie o trecho de código para seu aplicativo. (*Gerar código de acesso a dados será colocado em breve.* )
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

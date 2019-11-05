@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: cfecea6a64301d86aa657420dc300c26d4ed6f1e
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 0b69c1fb070431ad61858322dce461f6496c35d7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663391"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490813"
 ---
 # <a name="exploration-and-exploitation"></a>Exploration e exploitation
 
@@ -25,22 +25,15 @@ Quando o Personalizador recebe uma chamada de classificação, ele retorna um Re
 * Usa a exploitation para fazer a correspondência com o comportamento mais provável do usuário com base no modelo de machine learning atual.
 * Usa a exploration, que não faz a correspondência com a ação que tem a probabilidade mais alta na classificação.
 
-<!--
-Returning the most probable action is called *exploit* behavior. Returning a different action is called *exploration*.
--->
 Atualmente, o Personalizador usa um algoritmo chamado *epsilon greedy* para explorar. 
 
 ## <a name="choosing-an-exploration-setting"></a>Como escolher a configuração de exploração
 
-Configure a porcentagem de tráfego a ser usada para exploração na página **Configurações** do portal do Azure para o Personalizador. Essa configuração determina a porcentagem de chamadas de classificação que realizam exploração. 
+Configure a porcentagem de tráfego a ser usada para exploração na página de **configuração** do portal do Azure para personalizador. Essa configuração determina a porcentagem de chamadas de classificação que realizam exploração. 
 
 O Personalizador determina se fará a exploration ou exploitation com essa probabilidade em cada chamada de classificação. Isso é diferente do comportamento de algumas estruturas A/B que bloqueiam um tratamento em IDs de usuário específicas.
 
 ## <a name="best-practices-for-choosing-an-exploration-setting"></a>Melhores práticas para escolher a configuração de exploração
-
-<!--
-@edjez - you say what not to do, but make no recommendations of what **to** do. 
--->
 
 Escolher uma configuração de exploração é uma decisão de negócios sobre a proporção de interações do usuário com a qual explorar, a fim de melhorar o modelo. 
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 10/15/2019
 ms.author: diberry
-ms.openlocfilehash: 3c3c54faa882a38fb6c55c9fc0476a569f25cb98
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 8069b3b9c9a226e29a3eae3261948ee92291726d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638318"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486634"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Reconheça quais são os enunciados ideais para o aplicativo LUIS
 
@@ -90,7 +90,7 @@ Os sinais diacríticos são marcas ou sinais dentro do texto, como:
 
 Se o aplicativo ativar a normalização, as pontuações no painel de **teste** , nos testes de lote e nas consultas de ponto de extremidade serão alterados para todos os declarações usando sinais diacríticos ou pontuação.
 
-Ative a `settings` normalização de expressão para diacríticos ou pontuação em seu arquivo de aplicativo JSON Luis no parâmetro.
+Ative a normalização de expressão para diacríticos ou pontuação em seu arquivo de aplicativo JSON LUIS no parâmetro `settings`.
 
 ```JSON
 "settings": [
@@ -101,7 +101,7 @@ Ative a `settings` normalização de expressão para diacríticos ou pontuação
 
 A normalização da **Pontuação** significa que, antes que seus modelos sejam treinados e antes de suas consultas de ponto de extremidade serem previstas, a pontuação será removida do declarações. 
 
-Normalizar **diacríticos** substitui os caracteres por sinais diacríticos em declarações por caracteres normais. Por exemplo: `Je parle français` torna `Je parle francais`-se. 
+Normalizar **diacríticos** substitui os caracteres por sinais diacríticos em declarações por caracteres normais. Por exemplo: `Je parle français` se torna `Je parle francais`. 
 
 A normalização não significa que você não verá Pontuação e sinais diacríticos em seu exemplo de declarações ou respostas de previsão, apenas que eles serão ignorados durante o treinamento e a previsão.
 
@@ -118,7 +118,7 @@ Se a pontuação não tiver um significado específico em seu aplicativo cliente
 
 ### <a name="ignoring-words-and-punctuation"></a>Ignorando palavras e pontuação
 
-Se você quiser ignorar palavras específicas ou pontuação em padrões, use um [padrão](luis-concept-patterns.md#pattern-syntax) com a sintaxe de _ignorar_ entre colchetes, `[]`. 
+Se você quiser ignorar palavras específicas ou pontuação em padrões, use um [padrão](luis-concept-patterns.md#pattern-syntax) com a sintaxe de _ignorar_ colchetes, `[]`. 
 
 ## <a name="training-utterances"></a>Treinando enunciados
 
@@ -128,13 +128,27 @@ O treinamento geralmente não é determinístico: a previsão de enunciado pode 
 
 Os desenvolvedores devem começar a testar o aplicativo LUIS com tráfego real, enviando enunciados para a URL do [ponto de extremidade de previsão](luis-how-to-azure-subscription.md). Esses enunciados são usados para melhorar o desempenho de intenções e entidades com [Examinar enunciados](luis-how-to-review-endpoint-utterances.md). Testes enviadas com o painel de teste de site do LUIS não são enviados por meio do ponto de extremidade e, portanto, não contribuem para aprendizado ativo. 
 
-## <a name="review-utterances"></a>Examinar enunciados
+## <a name="review-utterances"></a>Revisar declarações
 
 Depois que seu modelo estiver treinado, publicado e recebendo consultas de [ponto de extremidade](luis-glossary.md#endpoint), [examine os enunciados](luis-how-to-review-endpoint-utterances.md) sugeridos pelo LUIS. O LUIS seleciona enunciados de ponto de extremidade que têm pontuações baixas para intenção ou entidade. 
 
 ## <a name="best-practices"></a>Práticas recomendadas
 
 Revise as [melhores práticas](luis-concept-best-practices.md) e aplique-as como parte do ciclo de criação regular.
+
+## <a name="label-for-word-meaning"></a>Rótulo para o significado da palavra
+
+Se a escolha ou a disposição das palavras for a mesma, mas não significar a mesma coisa, não a rotule com a entidade. 
+
+Nas declarações a seguir, a palavra `fair` é um homógrafo. Sua ortografia é a mesma, mas tem um significado diferente:
+
+|Enunciado|
+|--|
+|Que tipos de festivais regionais estão acontecendo na área de Seattle neste verão?|
+|A classificação atual para a análise de Seattle é justa?|
+
+Se você quiser que uma entidade de evento localize todos os dados do evento, rotule a palavra `fair` na primeira declaração, mas não na segunda.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte [Adicionar enunciados de exemplo](luis-how-to-add-example-utterances.md) para obter informações sobre o treinamento de um aplicativo de LUIS para entender enunciados do usuário.

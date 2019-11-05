@@ -1,6 +1,6 @@
 ---
 title: Galeria de IA do Azure
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Compartilhe e descubra soluções de análise e muito mais na Galeria de IA do Azure. Aprenda com os outros e faça suas próprias contribuições à comunidade.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 382d05869a56dc0920d60bca55d99be4b46e3f52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 445ea2fa299e32d0ceae7b3eee9bbf0a82dd75af
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811506"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492928"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Compartilhar e descobrir recursos na Galeria de IA do Azure
 
@@ -24,12 +24,12 @@ A Galeria tem vários recursos que você pode usar para desenvolver suas própri
 
 ## <a name="what-can-i-find-in-the-gallery"></a>O que posso encontrar na Galeria?
 
-A Galeria de IA do Azure contém uma série de diferentes recursos contribuídos pela Microsoft e por membros da comunidade de ciência de dados. Estão incluídos:
+A Galeria de IA do Azure contém uma série de diferentes recursos contribuídos pela Microsoft e por membros da comunidade de ciência de dados. Estão incluídas:
 
-* **Experimentos** – a Galeria contém uma grande variedade de experimentos desenvolvidos no Azure Machine Learning Studio. Eles variam de testes de verificação de conceito rápidos que demonstram uma técnica de aprendizado de máquina específica a soluções totalmente desenvolvidas para problemas de aprendizado de máquina complexos.
+* **Experimentos** – a galeria contém uma ampla variedade de experimentos que foram desenvolvidos em Azure Machine Learning Studio (clássico). Eles variam de testes de verificação de conceito rápidos que demonstram uma técnica de aprendizado de máquina específica a soluções totalmente desenvolvidas para problemas de aprendizado de máquina complexos.
 * **Tutoriais** – uma série de tutoriais está disponível para orientá-lo por conceitos e tecnologias de aprendizado de máquina ou para descrever métodos avançados a fim de solucionar vários problemas de aprendizado de máquina.
 * **Coleções** – uma coleção permite agrupar experimentos, APIs e outros recursos da Galeria que abordam uma solução ou um conceito específico.
-* **Módulos Personalizados** – baixe módulos personalizados em seu workspace do Studio para usá-los em seus próprios experimentos.
+* **Módulos personalizados** – você pode baixar módulos personalizados em seu espaço de trabalho do estúdio (clássico) para usar em seus próprios experimentos.
 * **Jupyter Notebooks** – os Jupyter Notebooks incluem código, visualizações de dados e documentação em uma única tela interativa. Os notebooks na Galeria fornecem tutoriais e explicações detalhadas de técnicas e soluções avançadas de aprendizado de máquina.
 
 ## <a name="discover-and-contribute"></a>Descubra e contribua
@@ -50,7 +50,7 @@ Contribua com **experimentos**, **tutoriais** e **coleções** para a Galeria.
 
 ## <a name="download-experiments-modules-notebooks"></a>Baixar experimentos, módulos e notebooks
 
-Baixe **experimentos**, **módulos personalizados** e **Jupyter notebooks** em seu workspace do Machine Learning Studio para usá-los no desenvolvimento de suas próprias soluções.
+Você pode baixar **experimentos**, **módulos personalizados**e **notebooks Jupyter** em seu próprio espaço de trabalho Machine Learning Studio (clássico) para usar no desenvolvimento de suas próprias soluções.
 
 Para baixar um recurso na Galeria de IA:
 
@@ -59,15 +59,15 @@ Para baixar um recurso na Galeria de IA:
 
 ![Abrir um item na Galeria de IA](./media/gallery-how-to-use-contribute-publish/open-experiment-from-gallery.png)
 
-Para baixar um recurso no Studio:
+Para baixar um recurso de dentro da versão clássica do Studio:
 
-1. No Studio, selecione **NOVO**.
+1. Na versão clássica do Studio, selecione **novo**.
 1. Selecione **Módulo**, **Experimento** ou **Notebook**.
 1. Procure ou pesquise para encontrar um recurso da Galeria.
 1. Aponte o mouse para o recurso e, em seguida, selecione **Abrir no Studio**.
-    ![Abrir experimento da Galeria no Machine Learning Studio](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
+    ![abrir o experimento da Galeria de dentro Machine Learning Studio (clássico)](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
 
-Depois que o recurso estiver no workspace, você poderá personalizá-lo e usá-lo assim como qualquer item criado no Studio.
+Depois que o recurso estiver em seu espaço de trabalho, você poderá personalizá-lo e usá-lo como faria com qualquer coisa que criar na versão clássica do Studio.
 
 Para usar um módulo personalizado importado:
 
@@ -77,16 +77,16 @@ Para usar um módulo personalizado importado:
 
 ## <a name="contribute-experiments"></a>Contribuir com testes
 
-Para demonstrar técnicas de análise ou impulsionar soluções de outras pessoas, você pode contribuir com **experimentos** desenvolvidos no Studio.
+Para demonstrar técnicas de análise ou para dar a outras pessoas um começo sobre suas soluções, você pode contribuir com os **experimentos** desenvolvidos na versão clássica do estúdio.
 À medida que outras pessoas encontram sua contribuição na Galeria, você pode seguir o número de exibições e downloads de sua contribuição.
 Os usuários também podem adicionar comentários e compartilhar suas contribuições com outros membros da comunidade de ciência de dados.
 Além disso, você pode fazer logon com uma ferramenta de discussão, como o Disqus, para receber notificações de comentários em suas contribuições.
 
-1. Abra o experimento no Studio.
+1. Abra seu experimento na versão clássica do Studio.
 
 1. Na lista de ações abaixo da tela do experimento, selecione **Publicar na Galeria**.
 
-1. Na Galeria, insira um **Nome** e **Marcas** que sejam descritivas. Realce as técnicas usadas ou o problema do mundo real resolvido. Um exemplo de um título de experimento descritivo é "Classificação binária: Análise de Sentimento no Twitter".
+1. Na Galeria, insira um **Nome** e **Marcas** que sejam descritivas. Realce as técnicas usadas ou o problema do mundo real resolvido. Um exemplo de um título de experimento descritivo é “Classificação binária: Análise de Sentimento do Twitter”.
 
 1. Na caixa **RESUMO**, digite um resumo do seu experimento. Descreva resumidamente o problema que o experimento resolve e como você o abordou.
 
@@ -114,14 +114,14 @@ Além disso, você pode fazer logon com uma ferramenta de discussão, como o Dis
 
 ### <a name="update-your-experiment"></a>Atualize seu experimento
 
-Se necessário, você pode fazer alterações no fluxo de trabalho (módulos, parâmetros e assim por diante) em um experimento que você publicou na Galeria. No Machine Learning Studio, faça as alterações desejadas no experimento e publique-o novamente. Seu experimento publicado será atualizado com as alterações.
+Se necessário, você pode fazer alterações no fluxo de trabalho (módulos, parâmetros e assim por diante) em um experimento que você publicou na Galeria. No Machine Learning Studio (clássico), faça as alterações que você gostaria de fazer no experimento e, em seguida, publique novamente. Seu experimento publicado será atualizado com as alterações.
 
 Você pode alterar qualquer uma das seguintes informações para o seu experimento diretamente na Galeria:
 
 * Nome do experimento
 * Resumo ou descrição
-* tags
-* Image
+* Marcas
+* Imagem
 * Configuração de visibilidade (**Público** ou **Não listado**)
 
 Você também pode excluir o experimento da Galeria.
@@ -183,11 +183,11 @@ Edite os itens da coleção selecionando **Editar**.
 
 As imagens que você enviar com sua contribuição serão usadas para criar um bloco. Recomendamos que as imagens sejam menores do que 500 KB, com uma taxa de proporção de 3:2 e uma resolução de 960 &#215; 640.
 
-**O que acontece com o conjunto de dados que usei em um experimento? O conjunto de dados também é publicado na Galeria?**
+**O que acontece com o DataSet que usei em um experimento? O conjunto de um é também publicado na Galeria?**
 
 Se o conjunto de dados fizer parte do experimento e não estiver sendo importado por meio do módulo Importar Dados, ele será publicado na Galeria como parte do experimento. Verifique se o conjunto de dados publicado com o experimento contém os termos de licenciamento apropriados. Os termos de licenciamento devem permitir que qualquer pessoa compartilhe e baixe os dados. As contribuições à Galeria são tratadas nos [Termos de Uso](https://azure.microsoft.com/support/legal/website-terms-of-use/)do Azure.
 
-**Tenho um experimento que usa um módulo Importar Dados para obter dados do Azure HDInsight ou do SQL Server. Ele usa minhas credenciais para recuperar os dados. Posso publicar esse tipo de experimento? Como pode posso ter certeza de que minhas credenciais não serão compartilhadas?**
+**Tenho um experimento que usa um módulo importar dados para efetuar pull de dados do Azure HDInsight ou SQL Server. Ele usa minhas credenciais para recuperar os dados. Posso publicar esse tipo de experimento? Como é possível ter certeza de que minhas credenciais não serão compartilhadas?**
 
 No momento, não é possível publicar na Galeria um experimento que usa credenciais.
 

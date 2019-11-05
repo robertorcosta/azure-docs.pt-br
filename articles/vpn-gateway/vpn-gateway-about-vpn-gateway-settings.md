@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: fa08ea44722b2def684c269c3f9a0a30a4890a12
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 64a162b9d2f83b4bc703f5912116fd302fcb601c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970898"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495722"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre definições de configuração do Gateway de VPN
 
@@ -79,9 +79,9 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 Se você tiver um gateway de VPN e quer usar uma SKU de gateway diferente, suas opções serão redimensionar a SKU do gateway ou alterar para outra SKU. Ao alterar para outra SKU de gateway, você exclui o gateway existente e cria um novo. Um gateway pode levar até 45 minutos para ser criado. Em comparação, quando você redimensiona uma SKU de gateway, não há muito tempo de inatividade porque você não precisa excluir e recompilar o gateway. Se você tiver a opção de redimensionar a SKU do gateway, em vez de alterá-la, convém fazer isso. No entanto, há regras sobre o redimensionamento:
 
-1. Você pode redimensionar entre as SKUs VpnGw1, VpnGw2 e VpnGw3.
+1. Com exceção da SKU básica, você pode redimensionar um SKU de gateway de VPN para outro SKU de gateway de VPN dentro da mesma geração (Generation1 ou Generation2). Por exemplo, VpnGw1 de Generation1 pode ser redimensionado para VpnGw2 de Generation1, mas não para VpnGw2 de Generation2.
 2. Ao trabalhar com SKUs antigas, você ainda pode redimensionar entre SKUs Básicas, Standard e de Alto Desempenho.
-3. Você **não pode** redimensionar as SKUs Basic/Standard/Alto Desempenho para as novas SKUs VpnGw1/VpnGw2/VpnGw3. Em vez disso, você deve [alterar](#change) para as novas SKUs.
+3. **Não é possível** redimensionar de SKUs Basic/Standard/HighPerformance para SKUs VpnGw. Em vez disso, você deve [alterar](#change) para as novas SKUs.
 
 #### <a name="resizegwsku"></a>Para redimensionar um gateway
 
@@ -169,7 +169,7 @@ New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 Para obter recursos técnicos adicionais e requisitos de sintaxe específicos ao usar APIs REST, cmdlets do PowerShell na CLI do Azure para configurações do Gateway de VPN, veja as seguintes páginas:
 
-| **Clássico** | **Resource Manager** |
+| **Clássico** | **Gerenciador de Recursos** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [API REST](https://msdn.microsoft.com/library/jj154113) |[API REST](/rest/api/network/virtualnetworkgateways) |

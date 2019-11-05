@@ -11,98 +11,74 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: b5f4855c03c1c003df8f58b135cb809f1757e58f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 9777c62d97c70d4f6a0d0a4d912dea3fa8decd23
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677476"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499550"
 ---
 # <a name="personname-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida PersonName para um aplicativo LUIS
 A entidade personName pré-criada detecta nomes de pessoas. Como essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo personName nas intenções do aplicativo. A entidade personName tem suporte nas [culturas](luis-reference-prebuilt-entities.md) em inglês e em chinês.
 
 ## <a name="resolution-for-personname-entity"></a>Resolução da entidade personName
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão v2](#tab/V2)
+Os seguintes objetos de entidade são retornados para a consulta:
 
-O exemplo a seguir mostra a resolução da entidade **builtin.personName**.
+`Is Jill Jones in Cairo?`
 
-```json
-{
-  "query": "Is Jill Jones in Cairo?",
-  "topScoringIntent": {
-    "intent": "WhereIsEmployee",
-    "score": 0.762141049
-  },
-  "entities": [
-    {
-      "entity": "Jill Jones",
-      "type": "builtin.personName",
-      "startIndex": 3,
-      "endIndex": 12
-    }
-  ]
-}
-```
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão v3](#tab/V3)
+
+#### <a name="v3-responsetabv3"></a>[Resposta v3](#tab/V3)
 
 
 O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 
 ```json
-{
-    "query": "Is Jill Jones in Cairo?",
-    "prediction": {
-        "normalizedQuery": "is jill jones in cairo?",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.6544678
-            }
-        },
-        "entities": {
-            "personName": [
-                "Jill Jones"
-            ]
-        }
-    }
+"entities": {
+    "personName": [
+        "Jill Jones"
+    ]
 }
 ```
-
+#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3, resposta detalhada](#tab/V3-verbose)
 O JSON a seguir é com o parâmetro `verbose` definido como `true`:
 
 ```json
-{
-    "query": "Is Jill Jones in Cairo?",
-    "prediction": {
-        "normalizedQuery": "is jill jones in cairo?",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.6544678
-            }
-        },
-        "entities": {
-            "personName": [
-                "Jill Jones"
-            ],
-            "$instance": {
-                "personName": [
-                    {
-                        "type": "builtin.personName",
-                        "text": "Jill Jones",
-                        "startIndex": 3,
-                        "length": 10,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
+"entities": {
+    "personName": [
+        "Jill Jones"
+    ],
+    "$instance": {
+        "personName": [
+            {
+                "type": "builtin.personName",
+                "text": "Jill Jones",
+                "startIndex": 3,
+                "length": 10,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
                 ]
             }
-        }
+        ],
     }
 }
 ```
+#### <a name="v2-responsetabv2"></a>[Resposta v2](#tab/V2)
 
+O exemplo a seguir mostra a resolução da entidade **builtin.personName**.
+
+```json
+"entities": [
+{
+    "entity": "Jill Jones",
+    "type": "builtin.personName",
+    "startIndex": 3,
+    "endIndex": 12
+}
+]
+```
 * * * 
 
 ## <a name="next-steps"></a>Próximas etapas

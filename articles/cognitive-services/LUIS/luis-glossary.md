@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 0bf7fe649a5a604c610307b9be0717dce01cb238
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 22e8fa8fb6999828076ea5f8f34b1f601b920013
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638298"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499563"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de noções básicas de linguagem de conceitos e vocabulário comuns
 O glossário do LUIS (Reconhecimento vocal) explica os termos que você pode encontrar à medida que trabalha com o Serviço de API do LUIS.
@@ -36,19 +36,23 @@ Anteriormente denominada chave "programática". Usada para criar o aplicativo. N
 
 O teste em lotes é a capacidade de validar um modelo de aplicativo LUIS atual com um conjunto de teste consistente e conhecido de declarações de usuário. O teste em lotes é definido em um [arquivo formatado em JSON](luis-concept-batch-test.md#batch-file-format).
 
-Confira também: 
+Consulte também: 
 * [Conceitos](luis-concept-batch-test.md)
 * [Instruções](luis-how-to-batch-test.md)
-* [Tutorial] Luis-tutorial-batch-testing.md)
+* [Tutorial](luis-tutorial-batch-testing.md)
 
 
 ## <a name="collaborator"></a>Colaborador
 
-Um colaborador não é o [proprietário](#owner) do aplicativo, mas tem as mesmas permissões para adicionar, editar e excluir as intenções, entidades e declarações.
+Um colaborador/colaborador, não é o [proprietário](#owner) do aplicativo, mas tem as mesmas permissões para adicionar, editar e excluir as intenções, entidades, declarações.
 
-## <a name="currently-editing"></a>Editando no momento
+## <a name="contributor"></a>Simplifica
 
-O mesmo que [versão ativa](#active-version)
+Um colaborador é a mesma coisa que um [colaborador.](#collaborator)
+
+## <a name="descriptor"></a>Descritor
+
+Um descritor é um [recurso](#features) aplicado a um modelo no tempo de treinamento, incluindo [listas de frases](#phrase-list) e [entidades](#entity). 
 
 ## <a name="domain"></a>Domínio
 
@@ -57,18 +61,6 @@ No contexto do LUIS, um **domínio** é uma área de conhecimento. Seu domínio 
 ## <a name="endpoint"></a>Ponto de extremidade
 
 A URL do [ponto de extremidade LUIS](https://go.microsoft.com/fwlink/?linkid=2092356) é onde você envia consultas LUIS após o [aplicativo LUIS](#luis-app) ser criado e publicado. A URL de ponto de extremidade contém a região do aplicativo publicado, bem como a ID do aplicativo. Você pode encontrar o ponto de extremidade na página **[Chaves e pontos de extremidade](luis-how-to-azure-subscription.md)** do aplicativo ou obter a URL do ponto de extremidade na API [Obter Informações do Aplicativo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
-
-Um exemplo de ponto de extremidade tem a seguinte aparência:
-
-`https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionID>&verbose=true&timezoneOffset=0&q=<utterance>`
-
-|Parâmetro querystring|description|
-|--|--|
-|Região| [região publicada](luis-reference-regions.md#publishing-regions) |
-|appID | ID do aplicativo LUIS |
-|subscriptionID | Chave de ponto de extremidade (assinatura) de LUIS criada no portal do Azure |
-|q | utterance |
-|timezoneOffset| minutos|
 
 ## <a name="entity"></a>Entidade
 
@@ -100,7 +92,7 @@ Rotular, ou marcar, é o processo de associar uma palavra ou frase no [expressã
 
 ## <a name="luis-app"></a>Aplicativo LUIS
 
-Um aplicativo LUIS é um modelo de dados treinado para processamento de linguagem natural, incluindo [intenções](#intent), [entidades](#entity) e [declarações](#utterance) rotuladas.
+Um aplicativo LUIS é uma coleção de modelos de linguagem para processamento de linguagem natural, incluindo [intenções](#intent), [entidades](#entity)e rotulada [declarações](#utterance).
 
 ## <a name="owner"></a>Proprietário
 
@@ -111,7 +103,7 @@ O recurso Padrão anterior é substituído por [Padrões](luis-concept-patterns.
 
 ## <a name="phrase-list"></a>Lista de frases
 
-Uma [lista de frases](luis-concept-feature.md#what-is-a-phrase-list-feature) inclui um grupo de valores (palavras ou frases) que pertencem à mesma classe e devem ser tratadas de maneira semelhante (por exemplo, nomes de cidades ou produtos). Uma lista intercambiável é tratada como sinônimos.
+Uma [lista de frases](luis-concept-feature.md) inclui um grupo de valores (palavras ou frases) que pertencem à mesma classe e devem ser tratadas de maneira semelhante (por exemplo, nomes de cidades ou produtos). Uma lista intercambiável é tratada como sinônimos.
 
 ## <a name="prebuilt-domains"></a>Domínio predefinido
 
@@ -130,7 +122,7 @@ Renomeada para [chave de criação](#authoring-key).
 
 ## <a name="publish"></a>Publicar
 
-Publicar significa tornar uma [versão ativa](#active-version) do LUIS disponível no [ponto de extremidade](#endpoint) de preparo ou de produção.  
+Publicação significa tornar uma versão LUIS ativa disponível no [ponto de extremidade](#endpoint)de preparo ou de produção.  
 
 ## <a name="quota"></a>Cota
 
@@ -155,11 +147,15 @@ Habilite verificação ortográfica do Bing para corrigir as palavras com ortogr
 
 ## <a name="starter-key"></a>Chave de início
 
-O mesmo que [chave programática](#programmatic-key), renomeada para Chave de criação.
+Uma chave gratuita a ser usada ao iniciar pela primeira vez usando LUIS.
+
+## <a name="structure"></a>Estruturá
+
+Adicione estrutura a uma entidade aprendida por máquina para fornecer subcomponentes com descritores (recursos) e restrições (entidades regulares ou de lista).
 
 ## <a name="subscription-key"></a>Chave de assinatura
 
-A chave de assinatura é a chave de **ponto de extremidade** associada ao serviço de LUIS [criado no Azure](luis-how-to-azure-subscription.md). Essa chave não é a [chave de criação](#programmatic-key). Se você tiver uma chave de ponto de extremidade, ela deverá ser usada para qualquer solicitação de ponto de extremidade, em vez da chave de criação. É possível ver a chave de ponto de extremidade atual dentro da URL do ponto de extremidade na parte inferior da [**página Chaves e pontos de extremidade**](luis-how-to-azure-subscription.md) no site do [LUIS](luis-reference-regions.md). É o valor do par nome/valor de **subscription-key**.
+A chave de assinatura é a chave de **ponto de extremidade de previsão** associada ao serviço Luis [que você criou no Azure](luis-how-to-azure-subscription.md). Essa chave não é a [chave de criação](#programmatic-key). Se você tiver uma chave de ponto de extremidade, ela deverá ser usada para qualquer solicitação de ponto de extremidade, em vez da chave de criação. É possível ver a chave de ponto de extremidade atual dentro da URL do ponto de extremidade na parte inferior da [**página Chaves e pontos de extremidade**](luis-how-to-azure-subscription.md) no site do [LUIS](luis-reference-regions.md). É o valor do par nome/valor de **subscription-key**.
 
 ## <a name="test"></a>Testar
 
@@ -176,7 +172,7 @@ Um token é a menor unidade pode ser rotulada em uma entidade. A geração de to
 
 ## <a name="train"></a>Treinar
 
-Treinamento é o processo de ensinar ao LUIS as alterações na [versão ativa](#active-version) desde o último treinamento.
+O treinamento é o processo de ensinar LUIS sobre quaisquer alterações na versão ativa desde o último treinamento.
 
 ## <a name="true-negative"></a>Negativo verdadeiro (TN)
 

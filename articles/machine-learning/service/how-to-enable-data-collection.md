@@ -6,19 +6,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
-ms.author: marthalc
-author: marthalc
+ms.reviewer: laobri
+ms.author: copeters
+author: lostmygithubaccount
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 25017e6ea0be5d4320832298cdadbec7ec5a05cc
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: 845d271c60762177ea88912f2100f3b47aedde46
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929373"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489986"
 ---
 # <a name="collect-data-for-models-in-production"></a>Coletar dados para modelos em produção
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
 > Este SDK está sendo desativado em breve. Esse SDK ainda é apropriado para os desenvolvedores que monitoram a descompasso de dados em modelos, mas a maioria dos desenvolvedores deve usar o monitoramento de dados simplificado [com o Application insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
@@ -56,7 +57,7 @@ O caminho para os dados de saída no blob segue esta sintaxe:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+- Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
 
 - Um workspace do Azure Machine Learning, um diretório local contendo seus scripts e o SDK de Aprendizado de Máquina do Azure para Python instalado. Aprenda como obter esses pré-requisitos usando o documento [Como configurar um ambiente de desenvolvimento](how-to-configure-environment.md).
 
@@ -115,7 +116,7 @@ Para habilitá-lo, você precisa:
 
 Se você já tiver um serviço com as dependências instaladas no **arquivo de ambiente** e no **arquivo de pontuação**, ative a coleta de dados:
 
-1. Vá para [portal do Azure](https://portal.azure.com).
+1. Vá para [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Abra seu workspace.
 
@@ -129,14 +130,14 @@ Se você já tiver um serviço com as dependências instaladas no **arquivo de a
 
    Nesta janela, você também pode escolher "Ativar diagnósticos de Appinsights" para rastrear a integridade de seu serviço.  
 
-1. Selecione **Atualizar** para aplicar a alteração.
+1. Selecione **atualização** para aplicar a alteração.
 
 
 ## <a name="disable-data-collection"></a>Desativar coleta de dados
-Você pode parar de coletar dados a qualquer momento. Use o código Python ou o portal do Azure para desabilitar a coleta de dados.
+Você pode parar de coletar dados a qualquer momento. Use o código Python ou o Azure Machine Learning Studio para desabilitar a coleta de dados.
 
-+ Opção 1 - desabilitar no portal do Azure: 
-  1. Entre no [Portal do Azure](https://portal.azure.com).
++ Opção 1-desabilitar no Azure Machine Learning Studio: 
+  1. Entre no [Azure Machine Learning Studio](https://ml.azure.com).
 
   1. Abra seu workspace.
 
@@ -148,9 +149,9 @@ Você pode parar de coletar dados a qualquer momento. Use o código Python ou o 
 
      [![Desmarque a opção de coleta de dados](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
-  1. Selecione **Atualizar** para aplicar a alteração.
+  1. Selecione **atualização** para aplicar a alteração.
 
-  Você também pode acessar essas configurações na [página de aterrissagem do espaço de trabalho (versão prévia)](https://ml.azure.com).
+  Você também pode acessar essas configurações em seu espaço de trabalho no [Azure Machine Learning Studio](https://ml.azure.com).
 
 + Opção 2 - Use o Python para desabilitar a coleta de dados:
 
@@ -160,10 +161,10 @@ Você pode parar de coletar dados a qualquer momento. Use o código Python ou o 
   ```
 
 ## <a name="validate-your-data-and-analyze-it"></a>Validar seus dados e analisá-los
-Você pode escolher qualquer ferramenta de sua preferência para analisar os dados coletados para o Blob do Azure. 
+Você pode escolher qualquer ferramenta de sua preferência para analisar os dados coletados para o Blob do Azure.
 
 Para acessar rapidamente os dados do blob:
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Abra seu workspace.
 1. Clique em **Armazenamento**.
@@ -226,7 +227,7 @@ Para acessar rapidamente os dados do blob:
 
     [![Tabela de banco de dados](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
-1. Atualize o local dos seus dados. Veja um exemplo:
+1. Atualize o local dos seus dados. Aqui está um exemplo:
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 

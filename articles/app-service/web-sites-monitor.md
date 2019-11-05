@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: b9e910f24503f6bbf86e8ed8cdcb6f422d2490d9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1cfab9b065fd4e28a9ce11ac85682a298011200b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073988"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470127"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorar aplicativos no Serviço de Aplicativo do Azure
 O [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) fornece uma funcionalidade de monitoramento interno para aplicativos Web, back-ends móveis e aplicativos de API no [portal do Azure](https://portal.azure.com).
@@ -38,7 +38,7 @@ Se o aplicativo estiver hospedado em um plano *Básico*, *Standard* ou *Premium*
 
 As cotas para aplicativos Gratuitos ou Compartilhados são:
 
-| Cota | Descrição |
+| Cota | DESCRIÇÃO |
 | --- | --- |
 | **CPU (Curto)** | A quantidade de CPU permitida para esse aplicativo em um intervalo de cinco minutos. Essa cota é definida novamente a cada cinco minutos. |
 | **CPU (Dia)** | A quantidade total de CPU permitida para esse aplicativo em um dia. Essa cota é definida novamente a cada 24 horas, à meia-noite UTC. |
@@ -68,9 +68,9 @@ Métricas fornecem informações sobre o aplicativo ou sobre o comportamento do 
 
 Para um aplicativo, as métricas disponíveis são:
 
-| Métrica | Descrição |
+| Métrica | DESCRIÇÃO |
 | --- | --- |
-| **Tempo Médio de Resposta** | O tempo médio necessário para o aplicativo atender às solicitações em milissegundos. |
+| **Tempo Médio de Resposta** | O tempo médio necessário para o aplicativo atender solicitações, em segundos. |
 | **Conjunto de trabalho de memória média** | A quantidade média de memória usada pelo aplicativo em megabytes (MiB). |
 | **Conexões** | O número de soquetes associados existentes na área restrita (w3wp.exe e seus processos filho).  Um soquete associado é criado chamando APIs bind()/connect() e permanece até que seja fechado com CloseHandle()/closesocket(). |
 | **Tempo de CPU** | A quantidade de CPU consumida pelo aplicativo em segundos. Para saber mais sobre essa métrica, consulte: [Tempo de CPU versus percentual de CPU](#cpu-time-vs-cpu-percentage). |
@@ -110,7 +110,7 @@ Para um Plano do Serviço de Aplicativo, as métricas disponíveis são:
 > As métricas do Plano do Serviço de Aplicativo só estão disponíveis para os planos *Básico*, *Standard* e *Premium*.
 > 
 
-| Métrica | Descrição |
+| Métrica | DESCRIÇÃO |
 | --- | --- |
 | **Porcentagem de CPU** | A média de CPU usada em todas as instâncias do plano. |
 | **Porcentagem de Memória** | A média de memória usada em todas as instâncias do plano. |
@@ -124,9 +124,9 @@ Para um Plano do Serviço de Aplicativo, as métricas disponíveis são:
 
 Há duas métricas que refletem o uso da CPU:
 
-**Tempo de CPU**: Útil para aplicativos hospedados nos planos Gratuito ou Compartilhado, pois uma de suas cotas é definida em minutos de CPU usados pelo aplicativo.
+**Tempo de CPU**: útil para aplicativos hospedados em planos gratuitos ou compartilhados, pois uma de suas cotas é definida em minutos de CPU usados pelo aplicativo.
 
-**Percentual de CPU**: Útil para aplicativos hospedados nos planos Básico, Standard e Premium, pois podem ser dimensionados. A porcentagem de CPU é uma boa indicação do uso geral em todas as instâncias.
+**Percentual de CPU**: útil para aplicativos hospedados nos planos básico, Standard e Premium, pois eles podem ser escalados horizontalmente. A porcentagem de CPU é uma boa indicação do uso geral em todas as instâncias.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Granularidade de métricas e política de retenção
 As métricas de um aplicativo e de um plano do Serviço de Aplicativo são registradas e agregadas pelo serviço com as seguintes granularidades e políticas de retenção:
