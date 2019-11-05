@@ -55,7 +55,7 @@ Esta seção fornece instruções passo a passo para integrar um aplicativo .NET
 Este guia cria um aplicativo que exibe um botão que consulta a API do Graph e um botão para sair. Ele também exibe caixas de texto que contêm os resultados das chamadas.
 
 > [!NOTE]
-> Prefere baixar este projeto de exemplo do Visual Studio em vez de criá-lo? [Baixe um projeto](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) e vá para a etapa [registro de aplicativo](#register-your-application "a"Etapa de registro de aplicativo") para configurar o exemplo de código antes de executá-lo.
+> Prefere baixar este projeto de exemplo do Visual Studio em vez de criá-lo? [Baixe um projeto](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) e vá para a etapa [registro de aplicativo](#register-your-application "aregistro de aplicativo") para configurar o exemplo de código antes de executá-lo.
 
 ### <a name="create-your-application"></a>Criar o aplicativo
 
