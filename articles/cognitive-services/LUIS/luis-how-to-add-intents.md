@@ -8,21 +8,23 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: eb90a902b8f7fe8b37b81c2825cbdfc25ef5dc0d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1f2f001489552203f0157dd24356341eb3184c81
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932888"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467552"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicionar intenções para determinar a intenção do usuário de expressões
 
 Adicione [intents](luis-concept-intent.md) ao seu aplicativo LUIS para identificar grupos de perguntas ou comandos que tenham a mesma intenção. 
 
 Os objetivos são gerenciados a partir da seção **Compilação** da barra de navegação superior e, a seguir, das **solicitações** do painel esquerdo. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="add-intent"></a>Adicionar intenção
 
@@ -97,7 +99,7 @@ As seguintes ações podem ser executadas em uma declaração individual a parti
 
 * Editar: alterar o texto da declaração
 * Excluir: Remova a expressão a intenção. Se você ainda quer o enunciado, um método melhor é movê-lo para a intenção **Nenhum**. 
-* Adicionar um padrão: um padrão permite que você use uma declaração comum e marque texto substituível e texto ignorável, reduzindo assim a necessidade de mais declarações para a intenção. 
+* Adicionar um padrão: um padrão permite que você usar uma expressão comum e marcar texto e substituíveis texto ignorável, reduzindo assim a necessidade de mais declarações na intenção. 
 
 A coluna **Labeled intent** permite que você altere a intenção da expressão.
 

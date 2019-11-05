@@ -9,15 +9,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: ab510f7ee2f95a2c3373c0514c31554598451b27
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: b078c92d02c55080cb84c386b7bbdabf3e1f85bf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173325"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467885"
 ---
-# <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-preview"></a>Executar análise de sentimentos com Azure Stream Analytics e Azure Machine Learning Studio (visualização)
-Este artigo descreve como configurar rapidamente um trabalho simples de Azure Stream Analytics que integra Azure Machine Learning Studio. Você usa um modelo de análise de sentimento de Machine Learning da Galeria do Cortana Intelligence para analisar dados de texto de streaming e determinar a pontuação de sentimento em tempo real. Usar o Cortana Intelligence Suite permite realizar essa tarefa sem se preocupar com as complexidades de criar um modelo de análise de sentimento.
+# <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic-preview"></a>Executar análise de sentimentos com Azure Stream Analytics e Azure Machine Learning Studio (clássico) (visualização)
+Este artigo descreve como configurar rapidamente um trabalho simples de Azure Stream Analytics que integra Azure Machine Learning Studio (clássico). Você usa um modelo de análise de sentimento de Machine Learning da Galeria do Cortana Intelligence para analisar dados de texto de streaming e determinar a pontuação de sentimento em tempo real. Usar o Cortana Intelligence Suite permite realizar essa tarefa sem se preocupar com as complexidades de criar um modelo de análise de sentimento.
 
 Você pode aplicar o que aprendeu com este artigo a cenários como estes:
 
@@ -37,7 +37,7 @@ A figura a seguir demonstra essa configuração. Conforme observado, para um cen
 ![Visão geral de integração do Machine Learning do Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar, verifique se você tem:
+Antes de começar, verifique se você possui:
 
 * Uma assinatura ativa do Azure.
 * Um arquivo CSV com alguns dados. Você pode baixar o arquivo mostrado anteriormente do [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv) ou pode criar seu próprio arquivo. Neste artigo, supõe-se que você esteja usando o arquivo do GitHub.
@@ -45,7 +45,7 @@ Antes de começar, verifique se você tem:
 Em um nível alto, para concluir as tarefas demonstradas neste artigo, você fará o seguinte:
 
 1. Criar uma conta de armazenamento do Azure e um contêiner de armazenamento de blobs e carregar um arquivo de entrada formatado em CSV para o contêiner.
-3. Adicione um modelo de análise de sentimentos da Cortana Intelligence Gallery ao seu espaço de trabalho Azure Machine Learning Studio e implante esse modelo como um serviço Web no espaço de trabalho Machine Learning.
+3. Adicione um modelo de análise de sentimentos da Cortana Intelligence Gallery ao seu espaço de trabalho Azure Machine Learning Studio (clássico) e implante esse modelo como um serviço Web no espaço de trabalho Machine Learning.
 5. Criar um trabalho do Stream Analytics que chame esse serviço Web como uma função para determinar o sentimento da entrada de texto.
 6. Iniciar o trabalho do Stream Analytics e verificar a saída.
 
@@ -86,7 +86,7 @@ Agora que os dados de exemplo estão em um blob, você pode habilitar o modelo d
 
 2. Clique em **Abrir no Studio**.  
    
-   ![Stream Analytics Machine Learning, abrir o Machine Learning Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
+   ![Machine Learning do Stream Analytics, abrir o Machine Learning Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
 3. Entre para acessar o workspace. Selecione um local.
 
@@ -111,7 +111,7 @@ Agora que os dados de exemplo estão em um blob, você pode habilitar o modelo d
     ![Machine Learning do Stream Analytics, visão rápida](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
 
-## <a name="create-a-stream-analytics-job-that-uses-the-machine-learning-model"></a>Criar um trabalho do Stream Analytics que usa o modelo do Machine Learning
+## <a name="create-a-stream-analytics-job-that-uses-the-machine-learning-model"></a>Criar um trabalho do Stream Analytics que usa o modelo de Machine Learning
 
 Agora você pode criar um trabalho do Stream Analytics que leia os tweets de exemplo do arquivo CSV no armazenamento de blobs. 
 
@@ -239,11 +239,11 @@ Agora você pode iniciar o trabalho do Stream Analytics.
 
 3. Abra o arquivo CSV gerado. Você verá algo parecido com o exemplo a seguir:  
    
-   ![Stream Analytics Machine Learning, exibição de CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
+   ![Machine Learning do Stream Analytics, exibição de CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
 
 
 ### <a name="view-metrics"></a>Métricas de exibição
-Você também pode exibir as métricas relacionadas à função do Azure Machine Learning. As seguintes métricas relacionados à função são exibidas na caixa **Monitoramento** na folha de trabalho:
+Você também pode exibir as métricas relacionadas à função de Azure Machine Learning. As seguintes métricas relacionados à função são exibidas na caixa **Monitoramento** na folha de trabalho:
 
 * **Solicitações de Função** indica o número de solicitações enviadas para o serviço Web Machine Learning.  
 * **Eventos de função** indica o número de eventos na solicitação. Por padrão, cada solicitação para um serviço Web Machine Learning contém até 1.000 eventos.  

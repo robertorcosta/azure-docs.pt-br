@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: f51f5a8583a73219ffb419c76fcd009d102f6ffb
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0e3e4226eaaa0505eea96d8b3aca820f2327349e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932907"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467621"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Usar listas de frases para melhorar o sinal da lista de palavras
 
@@ -26,6 +26,10 @@ Uma [lista de frases](luis-concept-feature.md) inclui um grupo de valores (palav
 
 Uma lista de frase adiciona ao vocabulário do domínio de aplicativo como um segundo sinal ao LUIS sobre essas palavras.
 
+Examine os [conceitos de recurso](luis-concept-feature.md) para entender quando e por que usar uma lista de frases. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 ## <a name="add-phrase-list"></a>Adicionar lista de frases
 
 O LUIS permite até 10 listas de frase por aplicativo. 
@@ -34,7 +38,7 @@ O LUIS permite até 10 listas de frase por aplicativo.
 
 1. Na página **Lista de frases**, clique em **Criar nova lista de frases**. 
  
-1. Na caixa de diálogo **Adicionar lista de frases** , `Cities` digite como o nome da lista de frases. Na caixa de **Valor**, digite os valores da lista de frases. É possível digitar um valor por vez ou um conjunto de valores separados por vírgulas e, em seguida, pressionar **Enter**.
+1. Na caixa de diálogo **Adicionar lista de frases** , digite `Cities` como o nome da lista de frases. Na caixa de **Valor**, digite os valores da lista de frases. É possível digitar um valor por vez ou um conjunto de valores separados por vírgulas e, em seguida, pressionar **Enter**.
 
     ![Adicionar lista de frases Cidades](./media/luis-add-features/add-phrase-list-cities.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Criar um modelo de análise de sentimento
-titleSuffix: Azure Machine Learning Studio
-description: Como criar modelos de análise de texto no Azure Machine Learning Studio usando módulos de pré-processamento de texto, N-gramas ou hash de recursos
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Como criar modelos de análise de texto no Azure Machine Learning Studio (clássico) usando módulos para o pré-processamento de texto, N-gramas ou hash de recurso
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 08d62e7a6c9503d415fe144da57eee72ce3bfafd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d24e4f98e987cb911a8bc0ffcd1b49e1bed8b920
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60636534"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467152"
 ---
-# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Criar um modelo de análise de sentimento no Azure Machine Learning Studio
+# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Criar um modelo de análise de sentimentos no Azure Machine Learning Studio (clássico)
 
-Você pode usar o Azure Machine Learning Studio para criar e operacionalizar modelos de análise de texto. Esses modelos podem ajudá-lo a resolver, por exemplo, problemas de classificação de documento ou análise de sentimento.
+Você pode usar Azure Machine Learning Studio (clássico) para criar e colocar em operação modelos de análise de texto. Esses modelos podem ajudá-lo a resolver, por exemplo, problemas de classificação de documento ou análise de sentimento.
 
 Em um experimento de análise de texto, geralmente, você pode:
 
@@ -29,7 +29,7 @@ Em um experimento de análise de texto, geralmente, você pode:
 4. Pontuar e validar o modelo
 5. Implantar o modelo na produção
 
-Neste tutorial, você aprenderá essas etapas conforme examinamos um modelo de análise de sentimento usando o conjunto de dados do Amazon Book Reviews (consulte o artigo de pesquisa "Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification" de John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007.) Esse conjunto de dados consiste em pontuações de crítica (1-2 ou 4-5) e um texto de forma livre. O objetivo é prever a pontuação da crítica: baixa (1-2) ou alta (4-5).
+Neste tutorial, você aprende essas etapas à medida que percorremos um modelo de análise de sentimentos usando o conjunto de registros do Amazon Book Reviews (consulte este documento de pesquisa "biografias, Bollywood, caixas de entrada e misturadores: adaptação de domínio para classificação de sentimentos" por John Blitzer, Mark Dredze e Fernando Pereira; Associação de linguísticos computacionais (ACL), 2007.) Esse conjunto de informações consiste em pontuações de revisão (1-2 ou 4-5) e um texto de forma livre. O objetivo é prever a pontuação da crítica: baixa (1-2) ou alta (4-5).
 
 Você pode encontrar os experimentos abordados neste tutorial na Galeria de IA do Azure:
 
@@ -66,7 +66,7 @@ Como uma abordagem alternativa ao uso de Extrair Recursos de N-grama, você pode
 ## <a name="step-3-train-classification-or-regression-model"></a>Etapa 3: Treinar o modelo de classificação ou regressão
 Agora o texto foi transformado em colunas de recurso numérico. O conjunto de dados ainda contém colunas de cadeia de caracteres de estágios anteriores e, portanto, usamos Selecionar Colunas no Conjunto de Dados para excluí-las.
 
-Em seguida, usamos a [Regressão Logística de Duas Classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) para prever nosso destino: pontuação de crítica alta ou baixa. Neste ponto, o problema de análise de texto foi transformado em um problema de classificação regular. Você pode usar as ferramentas disponíveis no Azure Machine Learning Studio para melhorar o modelo. Por exemplo, você pode experimentar com diferentes classificadores para descobrir quão precisos são os resultados fornecidos ou usar o ajuste de hiperparâmetro para melhorar a precisão.
+Em seguida, usamos a [Regressão Logística de Duas Classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) para prever nosso destino: pontuação de crítica alta ou baixa. Neste ponto, o problema de análise de texto foi transformado em um problema de classificação regular. Você pode usar as ferramentas disponíveis na versão clássica do Azure Machine Learning Studio para melhorar o modelo. Por exemplo, você pode experimentar com diferentes classificadores para descobrir quão precisos são os resultados fornecidos ou usar o ajuste de hiperparâmetro para melhorar a precisão.
 
 ![Treinar e pontuar](./media/text-analytics-module-tutorial/scoring-text.png)
 

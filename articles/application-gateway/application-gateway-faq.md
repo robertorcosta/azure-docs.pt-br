@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d0cb5becd8375c393031892efb0b6c54786eeb8f
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 63c3f2080a74142f3f9a68852092cbc527c4483b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242233"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470081"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o gateway de aplicativo
 
@@ -107,7 +107,7 @@ A maioria das implantações que usam a SKU v2 leva cerca de 6 minutos para ser 
 
 Não. O gateway de aplicativo não dá suporte a protocolos de email como SMTP, IMAP e POP3. 
 
-## <a name="performance"></a>Performance
+## <a name="performance"></a>Desempenho
 
 ### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>Como o Application Gateway suporta alta disponibilidade e escalabilidade?
 
@@ -328,6 +328,19 @@ Sim. É possível habilitar a proteção contra DDoS na rede virtual em que o ga
 
 Sim. Para obter detalhes, consulte [migrar aplicativo Azure gateway e firewall do aplicativo Web da v1 para a v2](migrate-v1-v2.md).
 
+## <a name="configuration---ingress-controller-for-aks"></a>Configuração-controlador de entrada para AKS
+
+### <a name="what-is-an-ingress-controller"></a>O que é um controlador de entrada?
+
+Kubernetes permite a criação de `deployment` e `service` recurso para expor um grupo de pods internamente no cluster. Para expor o mesmo serviço externamente, um recurso de [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) é definido, o que fornece balanceamento de carga, término de SSL e hospedagem virtual baseada em nome.
+Para atender a esse recurso de `Ingress`, é necessário um controlador de entrada que escuta quaisquer alterações em `Ingress` recursos e configure as políticas do balanceador de carga.
+
+O controlador de entrada do gateway de aplicativo permite que [aplicativo Azure gateway](https://azure.microsoft.com/services/application-gateway/) seja usado como a entrada para um [serviço kubernetes do Azure](https://azure.microsoft.com/services/kubernetes-service/) também conhecido como um cluster AKs.
+
+### <a name="can-a-single-ingress-controller-instance-manage-multiple-application-gateways"></a>Uma única instância do controlador de entrada pode gerenciar vários gateways de aplicativo?
+
+Atualmente, uma instância do controlador de entrada só pode ser associada a um gateway de aplicativo.
+
 ## <a name="diagnostics-and-logging"></a>Diagnóstico e registro em log
 
 ### <a name="what-types-of-logs-does-application-gateway-provide"></a>Que tipos de logs o gateway de aplicativo fornece?
@@ -373,6 +386,6 @@ Sim. Se sua configuração corresponder ao cenário a seguir, você não verá o
 - Você tem um NSG na sub-rede do gateway de aplicativo
 - Você habilitou os logs de fluxo do NSG no NSG
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o gateway de aplicativo, consulte [o que é aplicativo Azure gateway?](overview.md).

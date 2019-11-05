@@ -1,9 +1,8 @@
 ---
-title: Códigos de erro da API REST – Azure Machine Learning Studio | Microsoft Docs
+title: Códigos de erro da API REST-Azure Machine Learning Studio (clássico) | Microsoft Docs
 description: Esses códigos de erro podem ser retornados por uma operação em um serviço Web do Machine Learning do Azure.
 keywords: ''
 services: machine-learning
-documentationcenter: ''
 author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
@@ -11,21 +10,18 @@ editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
 ms.subservice: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 8e91d0cd68997dee9bb00cceeaa6b697f6644ee5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15e73740f5d932d0fa4cfb9a56c9fe7b155555cc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736557"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468167"
 ---
-# <a name="azure-machine-learning-studio-rest-api-error-codes"></a>Códigos de erro da API REST do Azure Machine Learning Studio
+# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Códigos de erro da API REST do Azure Machine Learning Studio (clássico)
  
-Os seguintes códigos de erro podem ser retornados por uma operação em um serviço da web do Azure Machine Learning Studio.
+Os códigos de erro a seguir podem ser retornados por uma operação em um serviço Web Azure Machine Learning Studio (clássico).
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument (código de status HTTP 400)
  
@@ -69,7 +65,7 @@ Essa classe de erros significa que um argumento fornecido em algum lugar foi inv
 | MissingWebServicePackage | Nenhum pacote de Serviço Web fornecido. Forneça um pacote de serviço Web válido e tente novamente. |
 | MissingWorkspaceId | Nenhuma Id do workspace fornecida. Forneça uma Id do workspace válida e tente novamente. |
 | ModelConfigurationInvalid | Configuração do modelo inválida no pacote do modelo. Verifique se a configuração do modelo contém a definição do(s) ponto(s) de extremidade de saída, ponto de extremidade de erro padrão, ponto de extremidade de saída padrão e tente novamente. |
-| ModelPackageIdInvalid | Id do pacote do modelo inválida. Verifique se a Id do pacote do modelo está correta e tente novamente. |
+| ModelPackageIdInvalid | ID de pacote de modelo inválida. Verifique se a ID do pacote de modelo está correta e tente novamente. |
 | RequestBodyInvalid | Não há corpo de solicitação fornecido ou erro ao desserializar o corpo da solicitação. |
 | RequestIsEmpty | Nenhuma solicitação fornecida. Forneça uma solicitação válida e tente novamente. |
 | UnexpectedParameter | Parâmetros inesperados fornecidos. Verifique se todos os nomes de parâmetro estão escritos corretamente, somente os parâmetros esperados são passados e tente novamente. |

@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: dc648b30dc1236080be06044f510557ae0ce9476
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: b5e5df111b81cb60b6d194be190421bdb5ce2683
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638301"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467706"
 ---
-# <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Planeje seu aplicativo LUIS com o domínio do assunto, intenções e entidades
+# <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planejar o esquema do aplicativo LUIS com a extração de dados e domínio do assunto
 
-Para planejar seu aplicativo, identifique seu domínio de área de assunto. Isso inclui possíveis tentativas e entidades que são relevantes para seu aplicativo.  
+Um esquema de aplicativo LUIS contém intenções e entidades relevantes para seu domínio de assunto. As intenções classificam declarações do usuário e as entidades extraem dados do declarações do usuário. 
 
 ## <a name="identify-your-domain"></a>Identificar seu domínio
 
@@ -32,10 +32,16 @@ Um aplicativo LUIS gira em torno de um tópico específico do domínio.  Por exe
 
 ## <a name="identify-your-intents"></a>Identificar suas intenções
 
-Pense nas [intenções](luis-concept-intent.md) importantes para a tarefa do seu aplicativo. Vamos usar o exemplo de um aplicativo de viagem, com funções para reservar um voo e verificar o clima no destino do usuário. É possível definir as intenções "BookFlight" e "GetWeather" para essas ações. Em um aplicativo mais complexo com mais funções, você tem mais intenções e deve defini-las com cuidado para não serem muito específicas. Por exemplo, "BookFlight" e "BookHotel" podem precisar ser intenções separadas, mas "BookInternationalFlight" e "BookDomesticFlight" podem ser muito semelhantes.
+Pense nas [intenções](luis-concept-intent.md) importantes para a tarefa do seu aplicativo. 
+
+Vamos usar o exemplo de um aplicativo de viagem, com funções para reservar um voo e verificar o clima no destino do usuário. Você pode definir as tentativas de `BookFlight` e `GetWeather` para essas ações. 
+
+Em um aplicativo mais complexo com mais funções, você tem mais intenções e deve defini-las com cuidado para que as intenções não sejam muito específicas. Por exemplo, `BookFlight` e `BookHotel` talvez precisem de tentativas separadas, mas `BookInternationalFlight` e `BookDomesticFlight` podem ser muito semelhantes.
 
 > [!NOTE]
-> É uma melhor prática usar apenas as intenções de que você precisar para executar as funções do seu aplicativo. Se você definir intenções demais, ficará mais difícil para o LUIS classificar declarações corretamente. Se você definir poucas demais, elas podem ser tão genéricas que se sobrepõem.
+> É uma melhor prática usar apenas as intenções de que você precisar para executar as funções do seu aplicativo. Se você definir intenções demais, ficará mais difícil para o LUIS classificar declarações corretamente. Se você definir poucos, eles poderão ser tão gerais que se sobrepõem.
+
+Se você não precisar identificar a intenção geral do usuário, adicione todos os declarações de usuário de exemplo à intenção nenhum. Se seu aplicativo aumentar a necessidade de mais intenções, você poderá criá-los mais tarde. 
 
 ## <a name="create-example-utterances-for-each-intent"></a>Crie exemplos de declarações para cada intenção
 
@@ -51,7 +57,4 @@ Quando você determina quais entidades usar em seu aplicativo, tenha em mente qu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois que seu aplicativo for treinado, publicado e receber declarações de ponto final, planeje implementar melhorias de previsão com [aprendizado ativo](luis-how-to-review-endpoint-utterances.md), [listas de frases](luis-concept-feature.md) e [padrões](luis-concept-patterns.md). 
-
-
-* Consulte [Criar o primeiro aplicativo de LUIS (Serviço Inteligente de Reconhecimento Vocal)](luis-get-started-create-app.md) para obter um breve passo a passo sobre como criar um aplicativo de LUIS.
+Saiba mais sobre o [ciclo de desenvolvimento](luis-concept-app-iteration.md)típico.  

@@ -1,5 +1,5 @@
 ---
-title: Visualizar dados da consulta interativa do Hive com o Power BI no Azure HDInsight
+title: Consulte dados de hive de consulta interativa com Power BI no Azure HDInsight
 description: Usar o Microsoft Power BI para visualizar dados da consulta interativa do Hive do Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 0f273f75c33362bc99efbd7ac6bc46c3778ae88b
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: ea63b0784c0f8680e544179dfcd927f59336b3ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123028"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467141"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>Visualizar dados interativos Apache Hive de consulta com o Microsoft Power BI usando a consulta direta no HDInsight
 
-Este artigo descreve como conectar o Microsoft Power BI a clusters da consulta interativa do Azure HDInsight e visualizar os dados do Apache Hive usando a consulta direta. O exemplo fornecido carrega os dados de uma `hivesampletable` tabela do hive para Power bi. A `hivesampletable` tabela Hive contém alguns dados de uso de telefone celular. Em seguida, você cria gráficos com os dados de uso em um mapa mundial:
+Este artigo descreve como conectar o Microsoft Power BI a clusters da consulta interativa do Azure HDInsight e visualizar os dados do Apache Hive usando a consulta direta. O exemplo fornecido carrega os dados de uma tabela `hivesampletable` Hive para Power BI. A tabela `hivesampletable` Hive contém alguns dados de uso de telefone celular. Em seguida, você cria gráficos com os dados de uso em um mapa mundial:
 
 ![Relatório de mapa de Power BI do HDInsight](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
@@ -31,7 +31,7 @@ Antes de prosseguir com este artigo, você deve ter os seguintes itens:
 
 ## <a name="load-data-from-hdinsight"></a>Carregar dados do HDInsight
 
-A `hivesampletable` tabela Hive vem com todos os clusters HDInsight.
+A tabela `hivesampletable` Hive vem com todos os clusters HDInsight.
 
 1. Iniciar Power BI Desktop.
 
@@ -50,7 +50,7 @@ A `hivesampletable` tabela Hive vem com todos os clusters HDInsight.
     |Propriedade | Valor |
     |---|---|
     |Servidor |Insira o nome do cluster, por exemplo, *myiqcluster.azurehdinsight.net*.|
-    |Banco de Dados |Insira o **padrão** para este artigo.|
+    |Banco de dados |Insira o **padrão** para este artigo.|
     |Modo de conectividade de dados |Selecione **DirectQuery** para este artigo.|
 
     ![Consulta interativa do HDInsight, conexão com o DirectQuery do Power BI](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
@@ -81,7 +81,7 @@ Este artigo, você aprendeu como visualizar dados do HDInsight usando o Microsof
 * [Visualize os dados do Apache Hive com o Microsoft Power BI usando o ODBC no Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
 * [Use o Apache Zeppelin para executar consultas do Apache Hive no HDInsight do Azure](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Conectar o Excel ao HDInsight com o Driver ODBC do Microsoft Hive](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Conecte o Excel ao Apache Hadoop usando o Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md).
+* [Conectar o Excel ao Apache Hadoop com o Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md).
 * [Conecte-se ao Azure HDInsight e execute consultas do Apache Hive usando o Data Lake Tools para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 * [Use a Ferramenta do Azure HDInsight para Visual Studio Code](../hdinsight-for-vscode.md).
 * [Carregue os Dados no HDInsight](./../hdinsight-upload-data.md).

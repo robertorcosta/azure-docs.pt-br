@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 775b50c4735115dde8ae936c4d06b087d58683b1
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 25b360f90a0920aad2ea5e68cda31a68be5d37a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619789"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486685"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Testando os enunciados de exemplo no LUIS
 
 O teste é o processo de fornecer exemplo de declarações ao LUIS e obter uma resposta de intenções e entidades reconhecidas pelo LUIS. 
 
-É possível [testar](luis-interactive-test.md) o LUIS interativamente, uma declaração por vez ou fornecer um [lote](luis-concept-batch-test.md) de declarações. Com o teste, você compara o modelo [ativo](luis-concept-version.md#active-version) atual com o modelo publicado. 
+Você pode testar LUIS interativamente, um expressão por vez ou fornecer um de declarações. Durante o teste, você pode comparar a resposta de previsão do modelo ativo atual com a resposta de previsão do modelo publicado. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -32,7 +32,7 @@ O teste é o processo de fornecer exemplo de declarações ao LUIS e obter uma r
 Confira os conceitos [Pontuação de previsão](luis-concept-prediction-score.md) para saber mais sobre as pontuações de previsão.
 
 ## <a name="interactive-testing"></a>Teste interativo
-O teste interativo é feito no painel **Testar** do site. É possível inserir uma declaração para ver como as intenções e entidades são identificadas e pontuadas. Se o LUIS não estiver prevendo as intenções e as entidades conforme o esperado em uma declaração no painel de teste, copie-a para a página **Intenção** como uma nova declaração. Em seguida, rotule as partes dessa declaração e treine o LUIS. 
+O teste interativo é feito no painel de **teste** do portal do Luis. É possível inserir uma declaração para ver como as intenções e entidades são identificadas e pontuadas. Se LUIS não estiver prevendo as intenções e entidades esperadas em um expressão no painel de teste, copie-as para a página de **intenção** como um novo expressão. Em seguida, rotule as partes do expressão para entidades e treine o LUIS. 
 
 ## <a name="batch-testing"></a>Teste de lote
 Confira o [teste de lote](luis-concept-batch-test.md) se estiver testando mais de uma declaração por vez.
@@ -46,12 +46,10 @@ Todo o teste de ponto de extremidade conta para sua cota de uso.
 Se você fizer testes com relação a um ponto de extremidade e não quiser que a declaração fique registrada, lembre-se de usar a configuração da cadeia de caracteres de consulta `logging=false`.
 
 ## <a name="where-to-find-utterances"></a>Onde encontrar declarações
-O LUIS armazena todos os enunciados registrados em log de consulta, disponíveis para download no site do [LUIS](luis-reference-regions.md), página **Aplicativos**, assim como as [APIs de criação do LUIS](https://go.microsoft.com/fwlink/?linkid=2092087). 
+O LUIS armazena todos os declarações registrados no log de consultas, disponível para download no portal do LUIS na página de lista de **aplicativos** , bem como as [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087)do Luis. 
 
 Os enunciados que o LUIS não tiver certeza estarão listados na página **[Examinar enunciados de ponto de extremidade](luis-how-to-review-endpoint-utterances.md)** no site do [LUIS](luis-reference-regions.md). 
 
-![Examinar declarações de ponto de extremidade](./media/luis-concept-test/review-endpoint-utterances.png)
- 
 ## <a name="remember-to-train"></a>Lembrar-se de treinar
 Lembre-se de [treinar](luis-how-to-train.md) o LUIS após fazer alterações no modelo. As alterações no aplicativo LUIS não são vistas no teste até que o aplicativo seja treinado. 
 

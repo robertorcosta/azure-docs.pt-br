@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2019
+ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 91f07b8da2cbc9beaa24730f2ec9f2ddb4639f37
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
-ms.translationtype: MT
+ms.openlocfilehash: e6e4c0018f11e216afd5a8c295fc336036885e68
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302547"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468951"
 ---
-# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure Active Directory B2C: Perguntas frequentes (FAQ)
+# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
 
 Esta página responde às perguntas frequentes sobre o Azure Active Directory B2C (Azure AD B2C). Continue verificando as atualizações.
 
@@ -49,7 +49,7 @@ O Azure AD B2C também dá suporte a [políticas personalizadas](active-director
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Posso configurar escopos para saber mais sobre os consumidores de vários provedores de identidade sociais?
 
-Nº Os escopos de padrão usados para nosso conjunto com suporte de provedores de identidade social são:
+Não. Os escopos de padrão usados para nosso conjunto com suporte de provedores de identidade social são:
 
 * Facebook: email
 * Google +: email
@@ -69,8 +69,8 @@ Antes de abrir o “Azure AD B2C” no menu do lado esquerdo do portal do Azure,
 
 Você pode usar o [recurso de identidade visual da empresa](../active-directory/fundamentals/customize-branding.md) para personalizar o conteúdo dos emails de verificação. Especificamente, esses dois elementos do email podem ser personalizados:
 
-* **Logotipo de faixa**: Mostrado no canto inferior direito.
-* **Cor da tela de fundo**: Mostrado na parte superior.
+* **Logotipo de faixa**: mostrado na parte inferior direita.
+* **Cor da tela de fundo**: mostrada na parte superior.
 
     ![Captura de tela de um email de verificação personalizado](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
@@ -130,15 +130,20 @@ Não atualmente. Esse recurso está em nosso roteiro. Verificar seu domínio na 
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Como excluir o meu locatário do Azure AD B2C?
 
-Siga estas etapas para excluir seu locatário do Azure AD B2C:
+Siga estas etapas para excluir seu locatário Azure AD B2C.
 
+Você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada de **registros de aplicativo (versão prévia)** . [Saiba mais sobre a experiência de visualização](http://aka.ms/b2cappregintro).
+
+#### <a name="applicationstabapplications"></a>[Aplicativos](#tab/applications/)
+
+1. Entre no [portal do Azure](https://portal.azure.com/) como o administrador da *assinatura*. Use a mesma conta corporativa ou de estudante ou a mesma conta Microsoft que você usou para se inscrever no Azure.
+1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
+1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
 1. Exclua todos os **fluxos de usuário (políticas)** no locatário Azure ad B2C.
 1. Exclua todos os **aplicativos** que você registrou em seu locatário Azure ad B2C.
-1. Em seguida, entre no [portal do Azure](https://portal.azure.com/) como o administrador da assinatura. Use a mesma conta corporativa ou de estudante ou a mesma conta Microsoft que você usou para se inscrever no Azure.
-1. Mude para o locatário do Azure AD B2C que deseja excluir.
 1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Em **Gerenciar**, selecione **Usuários**.
-1. Selecione um usuário de cada vez (exclua o usuário Administrador de Assinatura com o qual você entrou). Selecione **excluir** na parte inferior da página e selecione **Sim** quando solicitado.
+1. Selecione cada usuário por vez (exclua o usuário *administrador de assinatura* no qual você está conectado no momento). Selecione **excluir** na parte inferior da página e selecione **Sim** quando solicitado.
 1. Em **gerenciar**, selecione **Registros de aplicativo** (ou **registros de aplicativo (Herdado)** ).
 1. Selecione **Exibir todos os aplicativos**
 1. Selecione o aplicativo chamado **B2C-Extensions-app**, selecione **excluir**e, em seguida, selecione **Sim** quando solicitado.
@@ -149,6 +154,28 @@ Siga estas etapas para excluir seu locatário do Azure AD B2C:
 1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.
 1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Na página **visão geral** , selecione **excluir diretório**. Siga as instruções na tela para concluir o processo.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+
+1. Entre no [portal do Azure](https://portal.azure.com/) como o administrador da *assinatura*. Use a mesma conta corporativa ou de estudante ou a mesma conta Microsoft que você usou para se inscrever no Azure.
+1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
+1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
+1. Exclua todos os **fluxos de usuário (políticas)** no locatário Azure ad B2C.
+1. Selecione **registros de aplicativo (versão prévia)** e, em seguida, selecione a guia **todos os aplicativos** .
+1. Exclua todos os aplicativos que você registrou.
+1. Exclua o **B2C-Extensions-app**.
+1. Em **Gerenciar**, selecione **Usuários**.
+1. Selecione cada usuário por vez (exclua o usuário *administrador de assinatura* no qual você está conectado no momento). Selecione **excluir** na parte inferior da página e selecione **Sim** quando solicitado.
+1. Selecione **Azure Active Directory** no menu à esquerda.
+1. Em **gerenciar**, selecione **configurações do usuário**.
+1. Se houver, em **conexões de conta do LinkedIn**, selecione **não**e, em seguida, selecione **salvar**.
+1. Em **gerenciar**, selecione **Propriedades**
+1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim**e, em seguida, selecione **salvar**.
+1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.
+1. Selecione **Azure Active Directory** no menu à esquerda.
+1. Na página **visão geral** , selecione **excluir diretório**. Siga as instruções na tela para concluir o processo.
+
+* * *
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Posso obter o AD B2C do Azure como parte do Enterprise Mobility Suite?
 

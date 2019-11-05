@@ -1,21 +1,21 @@
 ---
-title: Perguntas Frequentes de bastiões do Azure | Microsoft Docs
-description: As perguntas Frequentes para bastiões do Azure
+title: Perguntas frequentes sobre bastiões do Azure | Microsoft Docs
+description: As perguntas frequentes sobre a bastiões do Azure
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: cherylmc
-ms.openlocfilehash: d32541e63b0be8d2ef7c1ee8f9f8b2b817f826ef
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: a808513f2e7b1ef43c9a99826671182be008d61c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191649"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466250"
 ---
-# <a name="azure-bastion-faq-preview"></a>Perguntas Frequentes (visualização) de bastiões do Azure
+# <a name="azure-bastion-faq"></a>Perguntas frequentes sobre o Azure Bastion
 
-Isso é que as perguntas Frequentes para o Azure bastião.
+Estas são as perguntas frequentes para a bastiões do Azure.
 
 [!INCLUDE [Bastion FAQ](../../includes/bastion-faq-include.md)]

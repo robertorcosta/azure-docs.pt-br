@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: nitinme
-ms.openlocfilehash: 5694894a78a46ad658ec18f210c6a82fb82df23f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 00a20ac2d7f05c42be9e955eeb8f47c302db7885
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559605"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464580"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar da Fala do Bing para o Serviço de Fala
 
@@ -61,7 +61,7 @@ Os serviços de fala usam um modelo de preços baseado em tempo (em vez de um mo
 
 ## <a name="migration-strategies"></a>Estratégias de migração
 
-Se você ou sua organização tiver aplicativos em desenvolvimento ou produção que usam um API de Fala do Bing, você deverá atualizá-los para usar os serviços de fala assim que possível. Consulte a [documentação dos serviços de fala](index.yml) para ver SDKs disponíveis, exemplos de código e tutoriais.
+Se você ou sua organização tiver aplicativos em desenvolvimento ou produção que usam um API de Fala do Bing, você deverá atualizá-los para usar os serviços de fala assim que possível. Consulte a [documentação dos serviços de fala](index.md) para ver SDKs disponíveis, exemplos de código e tutoriais.
 
 As [APIs REST](rest-apis.md) dos serviços de fala são compatíveis com as apis de fala do Bing. Se você estiver usando o Fala do Bing APIs REST, precisará apenas alterar o ponto de extremidade REST e alternar para uma chave de assinatura de serviços de fala.
 
@@ -71,14 +71,14 @@ Se você estiver usando uma biblioteca de clientes de Fala do Bing para uma ling
 
 Atualmente, o SDK de fala C# dá suporte ([detalhes aqui](https://aka.ms/csspeech)), Java (dispositivos Android e personalizados), Objective C ( C++ Ios), (Windows e Linux) e JavaScript. As APIs em todas as plataformas são semelhantes, facilitando o desenvolvimento multiplataforma.
 
-Os serviços de fala não oferecem um ponto de extremidade global. Determine se o aplicativo funcionará de maneira eficiente usando um ponto de extremidade regional único para todo o tráfego. Caso contrário, use a geolocalização para determinar o ponto de extremidade mais eficiente. Você precisa de uma assinatura separada dos serviços de fala em cada região usada.
+Os serviços de fala não oferecem um ponto de extremidade global. Determine se seu aplicativo funcionará de maneira eficiente usando um ponto de extremidade regional único para todo o tráfego. Caso contrário, use a geolocalização para determinar o ponto de extremidade mais eficiente. Você precisa de uma assinatura separada dos serviços de fala em cada região usada.
 
 Se o aplicativo usar conexões de longa duração e não for possível usar os SDKs disponíveis, você poderá usar uma conexão WebSockets. Gerencie o limite de tempo limite de 10 minutos ao fazer a reconexão nos momentos apropriados.
 
 Como começar a usar o SDK de Fala:
 
-1. Faça o download do [SDK de Fala](speech-sdk.md).
-1. Trabalhe nos [guias de início rápido](quickstart-csharp-dotnet-windows.md) e [tutoriais](how-to-recognize-intents-from-speech-csharp.md)dos serviços de fala. Examine também os [exemplos de código](samples.md) para ter experiência com as novas APIs.
+1. Faça o download do [Speech SDK](speech-sdk.md).
+1. Trabalhe nos [guias de início rápido](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) e [tutoriais](how-to-recognize-intents-from-speech-csharp.md)dos serviços de fala. Examine também os [exemplos de código](samples.md) para ter experiência com as novas APIs.
 1. Atualize seu aplicativo para usar os serviços de fala.
 
 ## <a name="support"></a>Suporte
@@ -90,9 +90,9 @@ Para o suporte ao serviço de fala, ao SDK e à API, visite a [página de suport
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Experimente os serviços de fala gratuitamente](get-started.md)
-* [Início Rápido: reconhecer a fala em um aplicativo UWP usando o SDK de Fala](quickstart-csharp-uwp.md)
+* [Início Rápido: Reconhecimento de fala em um aplicativo UWP usando o SDK de Fala](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 * [Notas de versão do Speech Services](releasenotes.md)
 * [O que é o Serviço de Fala](overview.md)
 * [Documentação dos serviços de fala e do SDK de fala](speech-sdk.md#get-the-sdk)

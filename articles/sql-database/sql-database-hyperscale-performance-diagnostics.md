@@ -9,12 +9,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: 92a1fda85e5ee49f12a13123e8a296492fd9eb4b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: fa8b02cf5ee6f24bcc77aae057f41842da721981
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598182"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521150"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnóstico de solução de problemas de desempenho de hiperescala do SQL
 
@@ -29,7 +29,7 @@ Cada nível de serviço do banco de dados SQL do Azure tem limites de taxa de ge
 
 Os seguintes tipos de espera (em [Sys. dm _os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) descrevem os motivos pelos quais a taxa de log pode ser limitada na réplica de computação primária:
 
-|Tipo de espera    |Descrição                         |
+|Tipo de espera    |DESCRIÇÃO                         |
 |-------------          |------------------------------------|
 |RBIO_RG_STORAGE        | Ocorre quando uma taxa de geração de log do nó de computação primário do banco de dados de hiperescala está sendo limitada devido ao consumo de log atrasado no (s) servidor (es) de página.         |
 |RBIO_RG_DESTAGE        | Ocorre quando uma taxa de geração de log do nó de computação do banco de dados de hiperescala está sendo limitada devido ao consumo de log atrasado pelo armazenamento de log de longo prazo.         |
@@ -46,9 +46,9 @@ Quando uma leitura é emitida em uma réplica de computação, se os dados não 
 Várias DMVs e eventos estendidos têm colunas e campos que especificam o número de leituras remotas de um servidor de páginas que podem ser comparadas com o total de leituras. 
 
 - As leituras de colunas para o servidor de página de relatório estão disponíveis em DMVs de execução, como:
-    - [sys. dm _exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
-    - [sys. dm _ exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
-    - [sys. dm _exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
+    - [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
+    - [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
+    - [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
     - [sys. dm _exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
 - As leituras de servidor de página são adicionadas aos seguintes eventos estendidos:
     - sql_statement_completed
@@ -101,7 +101,7 @@ Uma taxa de leituras feitas em RBPEX para leituras agregadas feitas em todos os 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- Para limites de recursos vCore para um banco de dados individual de hiperescala, consulte [limites vCore da camada de serviço de hiperescala](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute)
+- Para limites de recursos vCore para um banco de dados individual de hiperescala, consulte [limites vCore da camada de serviço de hiperescala](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5)
 - Para ajuste de desempenho do banco de dados SQL do Azure, consulte [desempenho de consulta no banco de dados SQL do Azure](sql-database-performance-guidance.md)
 - Para ajuste de desempenho usando Repositório de Consultas, consulte [monitoramento de desempenho usando o repositório de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/)
 - Para scripts de monitoramento DMV, consulte [monitorando o desempenho do banco de dados SQL do Azure usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md)

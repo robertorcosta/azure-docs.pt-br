@@ -9,20 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1e170b86f573112cc5bc8dddd6f080921ef29d2d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ed6321963422cf17c858f43593092f8ffa4a1119
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932944"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467736"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Adicionar uma entidade a enunciados de exemplo 
 
 Enunciados de exemplo são exemplos de texto de comandos ou perguntas do usuário. Para ensinar o LUIS (Serviço Inteligente de Reconhecimento Vocal), você precisa adicionar [enunciados de exemplo](luis-concept-utterance.md) a uma [intenção](luis-concept-intent.md).
 
+
 Normalmente, você adiciona um exemplo expressão a uma intenção primeiro e, em seguida, cria entidades e o rótulo declarações na página de **tentativas** . Se você preferir criar entidades primeiro, veja [Adicionar entidades](luis-how-to-add-entities.md).
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="marking-entities-in-example-utterances"></a>Marcar entidades em enunciados de exemplo
 
@@ -49,7 +52,7 @@ Are there any SQL server jobs?
 
 1. Na caixa de pop-up **Que tipo de entidade você deseja criar?** , verifique o nome da entidade e selecione o tipo de entidade **Simples**, então selecione **Concluído**.
 
-    Uma [lista de frases](luis-concept-feature.md) normalmente é usada para melhorar o sinal de uma entidade simples.
+    Uma [lista de frases](luis-concept-feature.md) é comumente usada para aumentar o sinal de uma entidade simples.
 
 ## <a name="add-a-list-entity"></a>Adicionar uma entidade de lista
 
@@ -69,7 +72,7 @@ Para obter lista de departamentos da empresa, você pode ter valores normalizado
 
 As entidades compostas são criadas a partir de **entidades** existentes para formar uma entidade pai. 
 
-Supondo que expressão `Does John Smith work in Seattle?`,, um expressão composto possa retornar informações de entidade do nome `John Smith`do funcionário e o `Seattle` local em uma entidade composta. As entidades filho já devem existir no aplicativo e ser marcadas no exemplo expressão antes de criar a entidade composta.
+Supondo que expressão, `Does John Smith work in Seattle?`, um expressão composto possa retornar informações de entidade do nome do funcionário `John Smith`e o local `Seattle` em uma entidade composta. As entidades filho já devem existir no aplicativo e ser marcadas no exemplo expressão antes de criar a entidade composta.
 
 1. Para encapsular as entidades filho em uma entidade composta, selecione a **primeira** entidade rotulada (mais à esquerda) no expressão para a entidade composta. Uma lista suspensa é exibida para mostrar as opções para essa seleção.
 

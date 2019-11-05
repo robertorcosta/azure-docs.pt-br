@@ -1,19 +1,19 @@
 ---
-title: 'Conecte gateways de VPN do Azure a vários dispositivos VPN baseados em políticas locais: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: 'Conectar gateways VPN do Azure a vários dispositivos VPN com base em políticas locais: Azure Resource Manager: PowerShell | Microsoft Docs'
 description: Configure um gateway VPN do Azure com base em rotas para vários dispositivos VPN com base em políticas usando o Azure Resource Manager e o PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: 9085d5ee21b1e955b7d9416a379ee730ba26ad3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c753320b8d525e0c3ac031777bee15ba2050fcc0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150102"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495678"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Conectar gateways VPN do Azure a vários dispositivos VPN com base em políticas locais usando o PowerShell
 
@@ -39,12 +39,12 @@ Os diagramas a seguir realçam dois modelos:
 ### <a name="azure-support-for-policy-based-vpn"></a>Suporte do Azure para VPN com base em políticas
 Atualmente, o Azure oferece suporte a ambos os modos de gateways VPN: gateways VPN com base em rotas e gateways VPN com base em políticas. Eles são criados em diferentes plataformas internas que resultam em especificações diferentes:
 
-|                          | **Gateway de VPN PolicyBased** | **Gateway de VPN RouteBased**               |
-| ---                      | ---                         | ---                                      |
-| **SKU de gateway do Azure**    | Basic                       | Básico, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
-| **Versão IKE**          | IKEv1                       | IKEv2                                    |
-| **IOPS Conexões S2S** | **1**                       | Básico/Padrão: 10<br> HighPerformance: 30 |
-|                          |                             |                                          |
+|                          | **Gateway de VPN PolicyBased** | **Gateway de VPN RouteBased**       |**Gateway de VPN RouteBased**                          |
+| ---                      | ---                         | ---                              |---                                                 |
+| **SKU de gateway do Azure**    | Basic                       | Basic                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
+| **Versão IKE**          | IKEv1                       | IKEv2                            | IKEv1 e IKEv2                                    |
+| **Maximizar. Conexões S2S** | **1**                       | 10                               |Padrão: 10<br> Outros SKUs: 30                     |
+|                          |                             |                                  |                                                    |
 
 Com a política de IPsec/IKE personalizada, agora você pode configurar gateways VPN com base em rota do Azure para usar os seletores de tráfego com base no prefixo com a opção "**PolicyBasedTrafficSelectors**", para se conectar a dispositivos VPN baseados em políticas locais. Esse recurso permite a conexão de uma rede virtual do Azure e o gateway de VPN para vários dispositivos VPN/firewall com base em políticas locais, removendo o limite de conexão única dos gateways VPN com base em políticas atuais do Azure.
 
@@ -63,7 +63,7 @@ Conforme mostrado no diagrama, o gateway de VPN do Azure terá seletores de trá
 
 As instruções neste artigo seguem o mesmo exemplo, conforme descrito em [Configurar política de IPsec/IKE para conexões S2S ou VNet para VNet](vpn-gateway-ipsecikepolicy-rm-powershell.md), para estabelecer uma conexão VPN S2S. Isso é mostrado no diagrama a seguir:
 
-![política de S2S](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
+![s2s-policy](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
 
 O fluxo de trabalho para habilitar esta conectividade:
 1. Criar a rede virtual, o gateway de VPN e o gateway de rede local para suas conexões locais cruzadas
@@ -83,7 +83,7 @@ Verifique se você concluiu a [Parte 3 do artigo Configurar a política de IPsec
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>Etapa 1 - Criar a rede virtual, o gateway de VPN e o gateway de rede local
 
-#### <a name="1-connect-to-your-subscription-and-declare-your-variables"></a>1. Conectar a assinatura e declarar as variáveis
+#### <a name="1-connect-to-your-subscription-and-declare-your-variables"></a>1. Conecte-se à sua assinatura e declare suas variáveis
 
 [!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
@@ -114,9 +114,9 @@ $LNGPrefix62   = "10.62.0.0/16"
 $LNGIP6        = "131.107.72.22"
 ```
 
-#### <a name="2-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>2. Criar a rede virtual, o gateway de VPN e o gateway de rede local
+#### <a name="2-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>2. criar a rede virtual, o gateway de VPN e o gateway de rede local
 
-Crie um grupo de recursos.
+Crie um grupos de recursos.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $RG1 -Location $Location1
@@ -143,7 +143,7 @@ New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Loc
 
 ### <a name="step-2---create-a-s2s-vpn-connection-with-an-ipsecike-policy"></a>Parte 2 - Criar uma nova conexão de VPN S2S com a política de IPsec/IKE
 
-#### <a name="1-create-an-ipsecike-policy"></a>1. Criar uma política de IPsec/IKE
+#### <a name="1-create-an-ipsecike-policy"></a>1. criar uma política de IPsec/IKE
 
 > [!IMPORTANT]
 > Você precisa criar uma política de IPsec/IKE para habilitar a opção "UsePolicyBasedTrafficSelectors" na conexão.
@@ -156,7 +156,7 @@ O exemplo a seguir cria uma política de IPsec/IKE com esses algoritmos e parâm
 $ipsecpolicy6 = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
-#### <a name="2-create-the-s2s-vpn-connection-with-policy-based-traffic-selectors-and-ipsecike-policy"></a>2. Criar a conexão VPN S2S com seletores de tráfego com base em políticas e a política de IPsec/IKE
+#### <a name="2-create-the-s2s-vpn-connection-with-policy-based-traffic-selectors-and-ipsecike-policy"></a>2. criar a conexão VPN S2S com seletores de tráfego com base em políticas e política de IPsec/IKE
 Crie uma conexão VPN S2S e aplique a política de IPsec/IKE criada na etapa anterior. Observe o parâmetro adicional "-UsePolicyBasedTrafficSelectors $True", que habilita o seletor de tráfego baseado em políticas na conexão.
 
 ```azurepowershell-interactive
@@ -171,7 +171,7 @@ Depois de concluir as etapas, a conexão VPN S2S usará a política de IPsec/IKE
 ## <a name="update-policy-based-traffic-selectors-for-a-connection"></a>Atualizar seletores de tráfego com base em políticas para uma conexão
 A última seção mostra como atualizar a opção de seletores de tráfego com base em políticas para uma conexão VPN S2S existente.
 
-### <a name="1-get-the-connection"></a>1. Obtenha a conexão
+### <a name="1-get-the-connection"></a>1. obter a conexão
 Obtenha o recurso de conexão.
 
 ```azurepowershell-interactive
@@ -180,7 +180,7 @@ $Connection16 = "VNet1toSite6"
 $connection6  = Get-AzVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 ```
 
-### <a name="2-check-the-policy-based-traffic-selectors-option"></a>2. Marque a opção dos seletores de tráfego com base em políticas
+### <a name="2-check-the-policy-based-traffic-selectors-option"></a>2. Verifique a opção de seletores de tráfego com base em políticas
 A linha a seguir mostra se os seletores de tráfego com base em políticas são usados para a conexão:
 
 ```azurepowershell-interactive
@@ -189,7 +189,7 @@ $connection6.UsePolicyBasedTrafficSelectors
 
 Se a linha retornar "**True**", então os seletores de tráfego com base em políticas serão configurados na conexão; caso contrário, ela retorna "**False**".
 
-### <a name="3-enabledisable-the-policy-based-traffic-selectors-on-a-connection"></a>3. Habilitar/desabilitar os seletores de tráfego com base em políticas em uma conexão
+### <a name="3-enabledisable-the-policy-based-traffic-selectors-on-a-connection"></a>3. habilitar/desabilitar os seletores de tráfego com base em políticas em uma conexão
 Depois de obter o recurso de conexão, você pode habilitar ou desabilitar a opção.
 
 #### <a name="to-enable-usepolicybasedtrafficselectors"></a>Para habilitar UsePolicyBasedTrafficSelectors

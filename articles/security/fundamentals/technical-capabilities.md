@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: ac9a62a810a957c67d9c24063d01eff822c8294f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: dbc17cff2347cd86db3296f4aa2de76ef0f75460
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129290"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468083"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança no Azure que ajudam a proteger seus dados, recursos e aplicativos na nuvem e atender às necessidades de segurança de sua empresa.
@@ -51,7 +51,7 @@ O Microsoft Azure fornece serviços que ajudam a atender às suas necessidades d
 
 O Azure ajuda a proteger informações pessoais e de negócios, permitindo que você gerencie credenciais e identidades do usuário e controle o acesso.
 
-### <a name="azure-active-directory"></a>Active Directory do Azure
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 As soluções de gerenciamento de acesso e identidade da Microsoft ajudam a ti a proteger o acesso a aplicativos e recursos no datacenter corporativo e na nuvem, permitindo níveis adicionais de validação, como a autenticação multifator e o acesso condicional Policie. O monitoramento de atividade suspeita por meio de alertas, auditoria e relatórios de segurança avançados ajuda a reduzir potenciais problemas de segurança. O [Azure Active Directory Premium](../../active-directory/active-directory-whatis.md) fornece logon único para milhares de aplicativos de nuvem e acesso a aplicativos Web executados localmente.
 
@@ -67,7 +67,7 @@ Os benefícios de segurança do Microsoft Azure AD (Azure Active Directory) incl
 
 O [portal de Azure Active Directory](https://aad.portal.azure.com/) está disponível como parte do portal do Azure. Nesse painel, você pode obter uma visão geral do estado da sua organização e gerenciar facilmente o diretório, os usuários ou o acesso ao aplicativo.
 
-![Active Directory do Azure](./media/technical-capabilities/azure-security-technical-capabilities-fig2.png)
+![Azure Active Directory](./media/technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
 A seguir estão os principais recursos de gerenciamento de identidade do Azure:
 
@@ -97,7 +97,7 @@ Os usuários não precisam gerenciar vários conjuntos de nomes de usuário e se
 
 #### <a name="multi-factor-authentication"></a>Autenticação multifator
 
-A autenticação multifator do [Azure (MFA)](../../active-directory/authentication/multi-factor-authentication.md) é um método de autenticação que requer o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança a entradas e transações do usuário. A [MFA ajuda a proteger](../../active-directory/authentication/concept-mfa-howitworks.md) o acesso a dados e aplicativos, ao mesmo tempo em que atende à demanda dos usuários por um processo de entrada simples. Ela fornece autenticação forte por meio de uma variedade de opções de verificação – chamada telefônica, mensagem de texto, notificação de aplicativo móvel ou código de verificação e tokens OAuth de terceiros.
+A [autenticação multifator do Azure (MFA)](../../active-directory/authentication/multi-factor-authentication.md) é um método de autenticação que requer o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança a entradas e transações do usuário. A [MFA ajuda a proteger](../../active-directory/authentication/concept-mfa-howitworks.md) o acesso a dados e aplicativos, ao mesmo tempo em que atende à demanda dos usuários por um processo de entrada simples. Ela fornece autenticação forte por meio de uma variedade de opções de verificação – chamada telefônica, mensagem de texto, notificação de aplicativo móvel ou código de verificação e tokens OAuth de terceiros.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Relatórios baseados em aprendizado de máquina, alertas e monitoramento de segurança
 
@@ -151,7 +151,7 @@ O Gerenciamento de identidades com privilégios do AD do Azure:
 
 ## <a name="secure-resource-access"></a>Proteger o acesso a recursos
 
-O controle de acesso no Azure parte de uma perspectiva de cobrança. O proprietário de uma conta do Azure, acessada ao visitar o [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions), é o AA (Administrador da Conta). As assinaturas são um contêiner para cobrança, mas também atuam como um limite de segurança: cada assinatura tem um Administrador de Serviços (SA) que pode adicionar, remover e modificar recursos do Azure nessa assinatura usando o Portal do Azure. O SA padrão de uma nova assinatura é o AA, mas o AA pode alterar o SA no Centro de Contas do Azure.
+O controle de acesso no Azure parte de uma perspectiva de cobrança. O proprietário de uma conta do Azure, acessada ao visitar o [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions), é o AA (Administrador da Conta). As assinaturas são um contêiner para cobrança, mas também atuam como um limite de segurança: cada assinatura tem um Administrador de Serviços (SA) que pode adicionar, remover e modificar recursos do Azure nessa assinatura usando o Portal do Azure. O SA padrão de uma nova assinatura é o AA, mas o AA pode mudar a SA no Centro de Contas do Azure.
 
 ![Acesso a recursos protegidos no Azure](./media/technical-capabilities/azure-security-technical-capabilities-fig3.png)
 
@@ -169,9 +169,9 @@ Com o RBAC, você pode separar as tarefas dentro de sua equipe e conceder soment
 
 Uma das chaves de proteção de dados na nuvem é responsável por possíveis estados em que os dados podem ocorrer e quais controles estão disponíveis para esse estado. Com relação às práticas recomendadas de criptografia e segurança de dados no Azure, as recomendações são feitas para os seguintes estados de dados.
 
-- Em repouso: isso inclui todos os objetos, contêineres e tipos de armazenamento que existem estaticamente em mídia física, seja ela magnética ou disco óptico.
+- Em repouso: isso inclui todos os objetos de armazenamento, contêineres e tipos de informações que existem estaticamente em mídia física, seja ela magnética ou disco óptico.
 
-- Em trânsito: quando os dados estão sendo transferidos entre componentes, locais ou programas, como pela rede, por um barramento de serviço (do local para a nuvem e vice-versa, incluindo conexões híbridas, como o ExpressRoute) ou durante um processo de entrada/saída, considera-se que eles estão em trânsito.
+- Em trânsito: quando os dados estão sendo transferidos entre componentes, locais ou programas, como pela rede, em um barramento de serviço (do local para a nuvem e vice-versa, incluindo conexões híbridas, como ExpressRoute), ou durante um processo de entrada/saída , é considerado como estando em movimento.
 
 ### <a name="encryption-at-rest"></a>Criptografia em repouso
 
@@ -206,9 +206,9 @@ Considere quais repositórios você está usando para armazenar dados. Por exemp
 
 Para cada loja que você usar, aproveite o suporte de criptografia em repouso existente.
 
-- Armazenamento do Microsoft Azure: Confira [Criptografia do Serviço de Armazenamento do Azure para dados em repouso](../../storage/common/storage-service-encryption.md)
+- Armazenamento do Azure: consulte [Criptografia do Serviço de Armazenamento do Azure para dados em repouso](../../storage/common/storage-service-encryption.md),
 
-- SQL Azure: Confira [TDE (Transparent Data Encryption), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
+- SQL Azure: consulte [TDE (Transparent Data Encryption), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
 
 - Armazenamento em disco local ou em VM ([Azure Disk Encryption](../azure-security-disk-encryption-overview.md))
 
@@ -238,7 +238,7 @@ Se der suporte a chaves gerenciadas pelo cliente, você precisará fornecer uma 
 
 Como a criptografia em repouso envolve a criptografia de dados de locatário, infraestrutura e host, a perda das chaves devido a falhas no sistema ou a atividades mal-intencionadas poderia levar à perda de todos os dados criptografados. Portanto, é essencial que sua solução de criptografia em repouso tenha um amplo histórico de recuperação de desastre resiliente a falhas de sistema e a atividades mal-intencionadas.
 
-Normalmente, serviços que implementam criptografia em repouso ainda são suscetíveis a cenários em que dados ou chaves de criptografia são deixados sem criptografia na unidade host (por exemplo, no arquivo de paginação do sistema operacional host). Sendo assim, os serviços devem garantir que o volume host de seus serviços seja criptografado. Para facilitar isso, a equipe de computação habilitou a implantação da criptografia de host, que usa NKP e extensões do [Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) para o agente e o serviço de DCM criptografarem o volume de host.
+Os serviços que implementam a criptografia em repouso geralmente ainda são suscetíveis às chaves de criptografia ou aos dados deixados não criptografados na unidade do host (por exemplo, no arquivo de paginação do sistema operacional do host.) Portanto, os serviços devem garantir que o volume do host para seus serviços seja criptografado. Para facilitar isso, a equipe de computação habilitou a implantação da criptografia de host, que usa NKP e extensões do [Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) para o agente e o serviço de DCM criptografarem o volume de host.
 
 A maioria dos serviços são implementados em VMs padrão do Azure. Esses serviços devem receber a [Criptografia de host](../azure-security-disk-encryption-overview.md) automaticamente quando a computação habilitá-la. Para serviços executados em clusters gerenciados por computação, a criptografia de host será habilitada automaticamente conforme o Windows Server 2016 for distribuído.
 
@@ -281,7 +281,7 @@ As organizações que não priorizam a [classificação de dados](https://downlo
 ## <a name="secure-your-application"></a>Proteger seu aplicativo
 Enquanto o Azure é responsável por proteger a infraestrutura e a plataforma em que seu aplicativo é executado, é sua responsabilidade proteger o aplicativo em si. Em outras palavras, você precisa desenvolver, implantar e gerenciar o código e o conteúdo do aplicativo de maneira segura. Caso contrário, o código ou conteúdo do aplicativo pode ficar vulnerável a ameaças.
 
-### <a name="web-application-firewall"></a>Firewall de Aplicativo Web
+### <a name="web-application-firewall"></a>Firewall do aplicativo Web
 O [WAF (firewall do aplicativo Web)](../../application-gateway/waf-overview.md) é um recurso do [Gateway de Aplicativo](../../application-gateway/overview.md) que fornece proteção centralizada de seus aplicativos Web contra vulnerabilidades e explorações comuns.
 
 O firewall de aplicativo Web tem base em regras dos [conjuntos de regras principais do OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 ou 2.2.9. Os aplicativos Web cada vez mais são alvos de ataques mal-intencionados que exploram vulnerabilidades conhecidas comuns. Os ataques de injeção de SQL, os ataques de scripts entre sites, entre outros, são comuns entre essas explorações. Pode ser difícil impedir esses ataques no código do aplicativo e pode exigir manutenção rigorosa, aplicação de patches e monitoramento em várias camadas da topologia do aplicativo. Um firewall de aplicativo Web centralizado ajuda a simplificar bastante o gerenciamento de segurança e oferece mais garantia ao administrador do aplicativo contra ameaças ou invasões. Uma solução WAF também pode reagir a uma ameaça de segurança mais rapidamente ao aplicar um patch contra uma vulnerabilidade conhecida em um local central do que a proteção de cada um dos aplicativos Web individuais. Os gateways de aplicativos existentes podem ser facilmente convertidos em um gateway de aplicativo com firewall de aplicativo Web.
@@ -309,7 +309,7 @@ O Azure fornece vários recursos fáceis de usar para ajudar a proteger o tráfe
 
 - [Configurar a autenticação do Active Directory do Azure para seu aplicativo](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
-- [Proteger o tráfego para seu aplicativo, habilitando o protocolo TLS (TLS/SSL) - HTTPS](../../app-service/app-service-web-tutorial-custom-ssl.md)
+- [Proteger o tráfego para seu aplicativo, habilitando o protocolo TLS (TLS/SSL) - HTTPS](../../app-service/configure-ssl-bindings.md)
 
   - [Forçar todo o tráfego recebido por conexão HTTPS](http://microsoftazurewebsitescheatsheet.info/)
 
@@ -360,7 +360,7 @@ O [Backup do Azure](../../backup/backup-overview.md) é uma solução escalonáv
 
 O [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) ajuda a orquestrar a replicação, failover e recuperação dos aplicativos e cargas de trabalho para que eles estejam disponíveis a partir de um local secundário, caso o local principal fique inativo.
 
-## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>Garantir a conformidade: Lista de verificação de auditoria detalhada dos serviços de nuvem
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>Garantir a conformidade: lista de verificação de auditoria detalhada dos serviços de nuvem
 
 A Microsoft desenvolveu a [Lista de verificação de inspeção detalhada dos serviços de nuvem](https://aka.ms/cloudchecklist.download) para ajudar as organizações a realizarem inspeções detalhadas conforme elas consideram migrar para a nuvem. Ela fornece uma estrutura para organizações de qualquer tamanho e tipo — empresas privadas e organizações do setor público, incluindo organizações governamentais de todos os níveis e organizações sem fins lucrativos — identificarem seus próprios objetivos e requisitos de desempenho, serviço, gerenciamento de dados e governança. Isso permite comparar ofertas de diferentes provedores de serviços de nuvem, levando à formação de uma base para um contrato de serviço de nuvem.
 
@@ -388,7 +388,7 @@ A [Segurança Operacional do Azure](operational-security.md) refere-se a serviç
 
 A Segurança Operacional do Azure baseia-se em uma estrutura que incorpora o conhecimento adquirido por meio de várias funcionalidades que são exclusivas à Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center e uma conscientização profunda quanto ao cenário de ameaças à segurança cibernética.
 
-### <a name="microsoft-azure-monitor"></a>Microsoft Azure Monitor
+### <a name="microsoft-azure-monitor"></a>Monitor de Microsoft Azure
 
 [Azure monitor](../../azure-monitor/index.yml) é a solução de gerenciamento de ti para a nuvem híbrida. Usado sozinho ou para estender sua implantação existente do System Center, Azure Monitor logs oferece a você o máximo de flexibilidade e controle para o gerenciamento baseado em nuvem de sua infraestrutura.
 
@@ -410,7 +410,7 @@ A [Central de Segurança do Azure](../../security-center/security-center-intro.m
 
 A Central de Segurança analisa o estado de segurança de seus recursos do Azure para identificar possíveis vulnerabilidades na segurança. Uma lista de recomendações orienta você no processo de configuração dos controles necessários.
 
-Os exemplos incluem:
+Por exemplo:
 
 - Provisionamento de antimalware para ajudar a identificar e remover software mal-intencionado
 

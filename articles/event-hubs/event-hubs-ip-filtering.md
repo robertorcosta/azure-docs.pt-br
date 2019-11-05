@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f96c25dbb85ed92141636487f10d861a8c5e5f28
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821670"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468429"
 ---
 # <a name="use-firewall-rules"></a>Usar regras de firewall
 
@@ -24,7 +24,7 @@ Para cenários em que os Hubs de Eventos do Azure devem ser acessíveis apenas d
 
 ## <a name="when-to-use"></a>Quando usar
 
-Se você deseja configurar o seu namespace dos Hubs de Eventos para que receba tráfego apenas de um intervalo específico de endereços IP e rejeite todo o resto, você pode aproveitar uma *Regra de firewall* para bloquear os pontos de extremidade do Hub de Eventos de outros endereços IP. Por exemplo, se você usa os Hubs de Eventos com o [Azure ExpressRoute][express-route], você pode criar uma *Regra de firewall* para restringir o tráfego de seus endereços IP da infraestrutura local.
+Se você deseja configurar o seu namespace dos Hubs de Eventos para que receba tráfego apenas de um intervalo específico de endereços IP e rejeite todo o resto, você pode aproveitar uma *Regra de firewall* para bloquear os pontos de extremidade do Hub de Eventos de outros endereços IP. Por exemplo, se você usar hubs de eventos com o [Azure Express Route][express-route], poderá criar uma *regra de firewall* para restringir o tráfego de seus endereços IP de infraestrutura local.
 
 ## <a name="how-filter-rules-are-applied"></a>Como são aplicadas as regras de filtro
 
@@ -51,7 +51,6 @@ As regras de filtro IP são aplicadas na ordem e a primeira regra que correspond
 > - Integração com a Grade de Eventos do Azure
 > - Rotas do Hub IoT do Azure
 > - Device Explorer do Azure IoT
-> - Azure Data Explorer
 >
 > Os serviços da Microsoft abaixo devem estar em uma rede virtual
 > - Aplicativos Web do Azure
@@ -69,10 +68,10 @@ Parâmetros de modelo:
 - A **ipMask** é um endereço IPv4 único ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 70.37.104.0/24, representa os 256 endereços IPv4 de 70.37.104.0 a 70.37.104.255, em que 24 indica o número de bits de prefixo significativos para o intervalo.
 
 > [!NOTE]
-> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , que não restringe as conexões.
+> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , o que não restringe as conexões.
 > Ao criar as regras de rede virtual ou de firewalls, devemos alterar a ***"defaultAction"***
 > 
-> de
+> Da
 > ```json
 > "defaultAction": "Allow"
 > ```
@@ -143,13 +142,13 @@ Parâmetros de modelo:
   }
 ```
 
-Para implantar o modelo, siga as instruções para o [Azure Resource Manager][lnk-deploy].
+Para implantar o modelo, siga as instruções para [Azure Resource Manager][lnk-deploy].
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para restringir o acesso a Hubs de Eventos para redes virtuais do Azure, consulte o link a seguir:
 
-- [Pontos de extremidade de serviço de rede virtual para Hubs de Eventos][lnk-vnet]
+- [Pontos de extremidade de serviço de rede virtual para hubs de eventos][lnk-vnet]
 
 <!-- Links -->
 

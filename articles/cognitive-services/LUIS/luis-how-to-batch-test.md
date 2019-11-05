@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: bf8b2551390fa36736f678c756093a55d6ceb0c2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a99b2e7097f2abf36f184368b3b4fdaba8f2730b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932867"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467415"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testes em lote com um conjunto de exemplos de enunciados
 
  O teste de lote é um teste abrangente em seu modelo treinado atual para medir seu desempenho no LUIS. Os conjuntos de dados usados para teste em lotes não devem incluir exemplos de enunciados nas intenções ou enunciados recebidos do ponto de extremidade de tempo de execução de previsão. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="batch-testing"></a>
 
@@ -64,7 +66,7 @@ O conjunto de dados que pode ser baixado é o mesmo arquivo que foi carregado pa
 
 Para examinar os resultados de teste de lote, selecione **Ver resultados**.
 
-![Resultados do teste em lote](./media/luis-how-to-batch-test/run-test-results.png)
+![Resultados de teste de lote](./media/luis-how-to-batch-test/run-test-results.png)
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
 

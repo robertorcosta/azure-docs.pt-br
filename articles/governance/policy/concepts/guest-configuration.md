@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 82279e6937fccfbbef13f9580f76cd344593b0df
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
-ms.translationtype: MT
+ms.openlocfilehash: efe929a6ea38a8df7ad9fe37a92c181e3d409b25
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255841"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464067"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -75,9 +75,9 @@ O cliente de Configuração Convidado verifica o novo conteúdo a cada 5 minutos
 
 A tabela a seguir mostra uma lista de sistemas operacionais com suporte em imagens do Azure:
 
-|Publicador|NOME|Versões|
+|Editor|Nome|Versões|
 |-|-|-|
-|Canônico|Ubuntu Server|14.04, 16.04, 18.04|
+|Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 datacenter, 2012 R2 Datacenter, 2016 Data Center, 2019 datacenter|
 |Microsoft|Windows Client|Windows 10|
@@ -121,7 +121,30 @@ O Azure Policy usa a propriedade **complianceStatus** dos provedores de recursos
 > [!NOTE]
 > A política **DeployIfNotExists** é necessária para que a política **AuditIfNotExists** retorne os resultados. Sem o **DeployIfNotExists**, a política **AuditIfNotExists** mostra "0 de 0" recursos como status.
 
-Todas as políticas internas da Configuração de Convidado são incluídas em uma iniciativa para agrupar as definições a serem usadas em atribuições. A iniciativa interna chamada *[Versão Prévia]: As configurações de segurança de senha de auditoria dentro de computadores Linux e Windows @ no__t-0 contém 18 políticas. Há seis pares de **DeployIfNotExists** e **AuditIfNotExists** para o Windows e três para o Linux. A lógica de [definição de política](definition-structure.md#policy-rule) valida que apenas o sistema operacional de destino é avaliado.
+Todas as políticas internas da Configuração de Convidado são incluídas em uma iniciativa para agrupar as definições a serem usadas em atribuições. A iniciativa interna chamada *[Preview]: auditoria de configurações de segurança de senha dentro de computadores Linux e Windows* contém 18 políticas. Há seis pares de **DeployIfNotExists** e **AuditIfNotExists** para o Windows e três para o Linux. A lógica de [definição de política](definition-structure.md#policy-rule) valida que apenas o sistema operacional de destino é avaliado.
+
+#### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditando configurações do sistema operacional seguindo linhas de base do setor
+
+Uma das iniciativas disponíveis no Azure Policy fornece a capacidade de auditar configurações do sistema operacional dentro de máquinas virtuais após uma "linha de base" da Microsoft.  A definição, *[Preview]: auditar VMs do Windows que não correspondem às configurações de linha de base de segurança do Azure* inclui um conjunto completo de regras de auditoria com base nas configurações de Active Directory política de grupo.
+
+A maioria das configurações está disponível como parâmetros.  Essa funcionalidade permite que você personalize o que será auditado para alinhar a política com seus requisitos organizacionais ou para mapear a política para informações de terceiros, como padrões regulatórios do setor.
+
+Alguns parâmetros dão suporte a um intervalo de valores inteiros.  Por exemplo, o parâmetro duração máxima da senha pode ser definido usando um operador de intervalo para dar flexibilidade aos proprietários do computador.  Você pode auditar que a configuração de Política de Grupo efetiva que exige que o usuário altere suas senhas não deve ter mais de 70 dias, mas não deve ser inferior a 1 dia.  Conforme descrito na bolha de informações do parâmetro, para tornar esse o valor de auditoria efetivo, defina o valor como "1, 70".
+
+Se você atribuir a política usando um modelo de Azure Resource Manager dployment, poderá usar um arquivo de parâmetros para gerenciar essas configurações do controle do código-fonte.
+O uso de uma ferramenta como o Git para gerenciar as alterações nas políticas de auditoria com comentários em cada check-in, documentará as evidências quanto à razão pela qual uma atribuição deve estar em exceção ao valor esperado.
+
+#### <a name="applying-configurations-using-guest-configuration"></a>Aplicando configurações usando a configuração de convidado
+
+O recurso mais recente do Azure Policy define as configurações dentro de computadores.
+A definição *Configurar o fuso horário em computadores Windows* fará alterações no computador Configurando o fuso horário.
+
+Ao atribuir definições que começam com *Configure*, você também deve atribuir os pré-requisitos de implantação de definição *para habilitar a política de configuração de convidado em VMs do Windows.*
+Você pode combinar essas definições em uma iniciativa se escolher.
+
+#### <a name="assigning-policies-to-machines-outside-of-azure"></a>Atribuindo políticas a computadores fora do Azure
+
+As políticas de auditoria disponíveis para a configuração de convidado incluem o tipo de recurso **Microsoft. HybridCompute/Machines** .  Todos os computadores integrados ao arco do Azure que estão no escopo da atribuição serão incluídos automaticamente.
 
 ### <a name="multiple-assignments"></a>Várias atribuições
 

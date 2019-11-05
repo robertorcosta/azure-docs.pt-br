@@ -1,7 +1,7 @@
 ---
 title: Treinar novamente e implantar um serviço Web clássico
-titleSuffix: Azure Machine Learning Studio
-description: Saiba como treinar novamente um modelo e atualizar um serviço Web clássico para usar o modelo recém-treinado no Azure Machine Learning Studio.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Saiba como treinar novamente um modelo e atualizar um serviço Web clássico para usar o modelo treinado recentemente no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 477e099bb759e09402a245b693d95f3b3980699e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234056"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480210"
 ---
-# <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Treinar novamente e implantar um serviço Web clássico do Studio
+# <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Readaptação e implantação de um serviço Web clássico do Studio (clássico)
 
-Treinar novamente os modelos de machine learning é uma forma de fazer com que eles permaneçam precisos e baseados nos dados mais relevantes disponíveis. Este artigo mostra como treinar novamente um serviço Web clássico do Studio. Para obter um guia sobre como treinar novamente um novo serviço Web do Studio [exiba este artigo de instruções.](retrain-machine-learning-model.md)
+Treinar novamente os modelos de machine learning é uma forma de fazer com que eles permaneçam precisos e baseados nos dados mais relevantes disponíveis. Este artigo mostrará como readaptar um serviço Web clássico do Studio (clássico). Para obter um guia sobre como treinar novamente um novo serviço Web de estúdio (clássico), [Veja este artigo de instruções.](retrain-machine-learning-model.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ Há duas maneiras de adicionar um novo ponto de extremidade a um serviço Web:
 * Usar o portal dos serviços Web do Azure
 
 > [!NOTE]
-> Certifique-se de que você está adicionando o ponto de extremidade ao serviço Web de previsão e não ao serviço da Web de treinamento. Se você tiver implantado corretamente um serviço Web de previsão e um serviço da Web de treinamento, você verá dois serviços Web separados listados. O serviço Web de previsão deve terminar com "[predictive exp.]".
+> Certifique-se de que você está adicionando o ponto de extremidade ao serviço Web de previsão e não ao serviço da Web de treinamento. Se você tiver implantado corretamente um serviço Web de previsão e um serviço da Web de treinamento, você verá dois serviços Web separados listados. O serviço Web de previsão deve terminar com "[exp. preditivo]".
 >
 
 ### <a name="programmatically-add-an-endpoint"></a>Adicionar um ponto de extremidade programaticamente
@@ -44,7 +44,7 @@ Você pode adicionar pontos de extremidade de pontuação usando o código de ex
 
 ### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Usar o portal dos Serviços Web do Azure para adicionar um ponto de extremidade
 
-1. No Estúdio de Machine Learning, clique em Serviços Web na coluna de navegação à esquerda.
+1. Em Machine Learning Studio (clássico), na coluna de navegação à esquerda, clique em serviços Web.
 1. Na parte inferior do painel do serviço Web, clique em **Gerenciar visualização de pontos de extremidade**.
 1. Clique em **Adicionar**.
 1. Digite um nome e uma descrição para o novo ponto de extremidade. Selecione o nível de log e se os dados de exemplo estão habilitados. Para obter mais informações sobre registro em log, consulte [Habilitar o log de serviços Web de Machine Learning](web-services-logging.md).
@@ -53,7 +53,7 @@ Você pode adicionar pontos de extremidade de pontuação usando o código de ex
 
 ### <a name="retrieve-patch-url"></a>Recuperar a URL DO PATCH
 
-### <a name="option-1-programmatically"></a>Opção 1: Programaticamente
+### <a name="option-1-programmatically"></a>Opção 1: programaticamente
 
 Para obter a URL DO PATCH correta programaticamente, siga estas etapas:
 
@@ -64,7 +64,7 @@ Para obter a URL DO PATCH correta programaticamente, siga estas etapas:
 1. Cole a URL em um navegador para navegar até uma página que fornece links de ajuda para o serviço Web.
 1. Clique no link **Atualizar Recurso** para abrir a página de ajuda do patch.
 
-### <a name="option-2-use-the-azure-machine-learning-web-services-portal"></a>Opção 2: Usar o portal dos serviços Web do Azure Machine Learning
+### <a name="option-2-use-the-azure-machine-learning-web-services-portal"></a>Opção 2: usar o Azure Machine Learning Portal de serviços Web
 
 Siga estas etapas para obter a URL DO PATCH correta usando o portal da Web:
 
@@ -76,7 +76,7 @@ Siga estas etapas para obter a URL DO PATCH correta usando o portal da Web:
 1. No URL do **Patch**, clique em **Ajuda da API** para abrir a página de ajuda de aplicação de patch.
 
 > [!NOTE]
-> Se você tiver adicionado o ponto de extremidade ao serviço Web de treinamento e não ao serviço Web preditivo, receberá o seguinte erro ao clicar no link **Atualizar Recurso**: "Não há suporte para esse recurso ou ele não está disponível neste contexto. Este serviço Web não tem recursos atualizáveis. Pedimos desculpas pelo inconveniente e estamos trabalhando para melhorar esse fluxo de trabalho.”
+> Se você adicionou o ponto de extremidade ao serviço Web de treinamento em vez do serviço Web de previsão, receberá o seguinte erro ao clicar no link **Atualizar recurso** : "Desculpe, mas esse recurso não tem suporte ou está disponível neste contexto. Este serviço Web não tem recursos atualizáveis. Pedimos desculpas pelo inconveniente e estamos trabalhando para melhorar esse fluxo de trabalho.”
 >
 
 A página de ajuda do PATCH contém a URL do PATCH que você deve usar e fornece o código de exemplo que você pode usar para chamar.

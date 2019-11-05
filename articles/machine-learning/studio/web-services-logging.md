@@ -1,8 +1,7 @@
 ---
-title: Registro em log do serviço Web – Azure Machine Learning Studio | Microsoft Docs
-description: Saiba como habilitar o registro em log de serviços Web de Machine Learning Studio. O registro em log fornece informações adicionais para ajudar a solucionar problemas com as APIs.
+title: Log do serviço Web-Azure Machine Learning Studio (clássico) | Microsoft Docs
+description: Saiba como habilitar o registro em log para serviços da Web Machine Learning Studio (clássico). O registro em log fornece informações adicionais para ajudar a solucionar problemas com as APIs.
 services: machine-learning
-documentationcenter: ''
 author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
@@ -10,26 +9,23 @@ editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.subservice: studio
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 90ee036275e13b209d9f6c37aba6d16ed564cf5d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60345580"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466948"
 ---
-# <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Habilitar o registro em log de serviços Web do Azure Machine Learning Studio
-Este documento fornece informações sobre o recurso de logs de serviços Web do Machine Learning Studio. Os logs fornecem informações adicionais, além de apenas um número de erro e uma mensagem, o que pode ajudar a solucionar suas chamadas para as APIs de Machine Learning Studio.  
+# <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Habilitar o registro em log para serviços Web Azure Machine Learning Studio (clássico)
+Este documento fornece informações sobre o recurso de log dos serviços Web Machine Learning Studio (clássico). O registro em log fornece informações adicionais, além de apenas um número de erro e uma mensagem, que podem ajudá-lo a solucionar suas chamadas para as APIs de Machine Learning Studio (clássicas).  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Como habilitar o registro em log para um serviço Web
 
-Você habilita os registros de logs no portal de [serviços Web do Azure Machine Learning Studio](https://services.azureml.net). 
+Você habilita o registro em log no portal de [Serviços Web Azure Machine Learning Studio (clássico)](https://services.azureml.net) . 
 
-1. Entre no portal de Serviços Web do Azure Machine Learning Studio [https://services.azureml.net](https://services.azureml.net). Para um serviço Web Clássico, você também pode acessar o portal clicando em **Nova Experiência de Serviços Web** na página de Serviços Web do Machine Learning Studio no Machine Learning Studio.
+1. Entre no portal de serviços Web Azure Machine Learning Studio (clássico) em [https://services.azureml.net](https://services.azureml.net). Para um serviço Web clássico, você também pode acessar o portal clicando em **nova experiência de serviços Web** na página de serviços Web Machine Learning Studio (clássico) na versão clássica do Machine Learning Studio.
 
    ![Novo link de Experiência dos Serviços Web](./media/web-services-logging/new-web-services-experience-link.png)
 
@@ -61,7 +57,7 @@ Você habilita os registros de logs no portal de [serviços Web do Azure Machine
 
 > [!TIP]
 >
-> Para um serviço Web Clássico, o Painel de Serviços Web no Machine Learning Studio também tem uma opção para habilitar o log. No entanto, como os logs são gerenciados por meio do portal de serviços Web, você precisa habilitar os logs por meio do portal, conforme descrito neste artigo. Se você tiver habilitado os logs no Studio, no Portal de Serviços Web, desabilite os logs e habilite-os novamente.
+> Para um serviço Web clássico, o painel de serviços Web na versão clássica do Machine Learning Studio também tem uma opção para habilitar o registro em log. No entanto, como os logs são gerenciados por meio do portal de serviços Web, você precisa habilitar os logs por meio do portal, conforme descrito neste artigo. Se você já tiver habilitado o log no Studio (clássico), no portal de serviços Web, desabilite o registro em log e habilite-o novamente.
 
 
 ## <a name="the-effects-of-enabling-logging"></a>Os efeitos de habilitar o registro em log

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2019
 ms.author: barclayn
-ms.openlocfilehash: bcf66515fe24dda0d060a0b5c290bd05e46bf9d7
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 0fddabc7973fbea147de9f3b6e6da5556407030c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965688"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498465"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados em repouso no Azure
 
@@ -61,7 +61,7 @@ Conforme descrito anteriormente, a meta da criptografia em repouso é que os dad
 
 ![Componentes](./media/encryption-atrest/azure-security-encryption-atrest-fig1.png)
 
-### <a name="azure-key-vault"></a>Azure Key Vault
+### <a name="azure-key-vault"></a>Cofre da Chave do Azure
 
 O local de armazenamento das chaves de criptografia e controle de acesso a essas chaves é central para um modelo de criptografia em repouso. As chaves precisam ser altamente seguras, mas gerenciáveis por usuários especificados e disponíveis para serviços específicos. Para os serviços do Azure, o Azure Key Vault é a solução de armazenamento de chave recomendada e fornece uma experiência de gerenciamento comum em todos os serviços. As chaves são armazenadas e gerenciadas em cofres de chaves e o acesso a um cofre de chave pode ser fornecido para usuários ou serviços. O Azure Key Vault fornece suporte a criação de chaves do cliente ou importação de chaves do cliente para uso em cenários de chave de criptografia de cliente gerenciado.
 
@@ -262,64 +262,64 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Lado do servidor usando chave de serviço gerenciado**     | **Lado do servidor usando chave gerenciada pelo cliente**             | **Lado do cliente usando chave gerenciada pelo cliente**      |
 | **IA e Machine Learning**      |                    |                    |                    |
-| Azure Search                     | SIM                | Versão prévia            | -                  |
-| Serviço do Azure Machine Learning   | SIM                | -                  | -                  |
-| Azure Machine Learning Studio    | SIM                | Versão prévia, RSA de 2048 bits | -               |
-| Power BI                         | SIM                | Versão prévia, RSA de 2048 bits | -                  |
-| **Analytics**                    |                    |                    |                    |
-| Azure Stream Analytics           | SIM                | -                  | -                  |
-| Hubs de evento                       | SIM                | Versão prévia, todos os comprimentos RSA. | -                  |
-| Analysis Services do Azure          | SIM                | -                  | -                  |
-| Catálogo de Dados do Azure               | SIM                | -                  | -                  |
-| Apache Kafka no Azure HDInsight  | SIM                | Todos os comprimentos RSA.   | -                  |
-| Azure Data Explorer              | SIM                | -                  | -                  |
-| Fábrica de dados do Azure               | SIM                | SIM                | -                  |
-| Azure Data Lake Store            | SIM                | Sim, RSA 2048-bit  | -                  |
+| Azure Search                     | Sim                | Visualização            | -                  |
+| Azure Machine Learning   | Sim                | -                  | -                  |
+| Azure Machine Learning Studio    | Sim                | Versão prévia, RSA de 2048 bits | -               |
+| Power BI                         | Sim                | Versão prévia, RSA de 2048 bits | -                  |
+| **Análises**                    |                    |                    |                    |
+| Stream Analytics do Azure           | Sim                | -                  | -                  |
+| Hubs de Eventos                       | Sim                | Versão prévia, todos os comprimentos RSA. | -                  |
+| Azure Analysis Services          | Sim                | -                  | -                  |
+| Catálogo de Dados do Azure               | Sim                | -                  | -                  |
+| Apache Kafka no Azure HDInsight  | Sim                | Todos os comprimentos RSA.   | -                  |
+| Azure Data Explorer              | Sim                | -                  | -                  |
+| Fábrica de dados do Azure               | Sim                | Sim                | -                  |
+| Repositório Azure Data Lake            | Sim                | Sim, RSA 2048-bit  | -                  |
 | **Contêineres**                   |                    |                    |                    |
-| Serviço do Kubernetes do Azure         | SIM                | -                  | -                  |
-| Registro de contêiner               | SIM                | -                  | -                  |
+| Serviço de Kubernetes do Azure         | Sim                | -                  | -                  |
+| Registro de Contêiner               | Sim                | -                  | -                  |
 | **Computação**                      |                    |                    |                    |
-| Máquinas virtuais                 | SIM                | Sim, RSA 2048-bit  | -                  |
-| Conjunto de dimensionamento de máquinas virtuais        | SIM                | Sim, RSA 2048-bit  | -                  |
-| SAP HANA                         | SIM                | Sim, RSA 2048-bit  | -                  |
+| Máquinas Virtuais                 | Sim                | Sim, RSA 2048-bit  | -                  |
+| Conjunto de dimensionamento de máquinas virtuais        | Sim                | Sim, RSA 2048-bit  | -                  |
+| SAP HANA                         | Sim                | Sim, RSA 2048-bit  | -                  |
 | **Bancos de dados**                    |                    |                    |                    |
-| SQL Server em Máquinas Virtuais   | SIM                | Sim, RSA 2048-bit  | SIM                |
-| Banco de dados SQL do Azure               | SIM                | Sim, RSA 2048-bit  | SIM                |
-| Banco de dados SQL do Azure para MariaDB   | SIM                | -                  | -                  |
-| Banco de dados SQL do Azure para MySQL     | SIM                | -                  | -                  |
-| Banco de dados SQL do Azure para PostgreSQL | SIM                | -                  | -                  |
-| Azure SQL Data Warehouse         | SIM                | Sim, RSA 2048-bit  | SIM                |
-| SQL Server Stretch Database      | SIM                | Sim, RSA 2048-bit  | SIM                |
-| Armazenamento de Tabelas                    | SIM                | -                  | SIM                |
-| Azure Cosmos DB                  | SIM                | -                  | -                  |
+| SQL Server em máquinas virtuais   | Sim                | Sim, RSA 2048-bit  | Sim                |
+| Banco de dados SQL do Azure               | Sim                | Sim, RSA 2048-bit  | Sim                |
+| Banco de dados SQL do Azure para MariaDB   | Sim                | -                  | -                  |
+| Banco de dados SQL do Azure para MySQL     | Sim                | -                  | -                  |
+| Banco de dados SQL do Azure para PostgreSQL | Sim                | -                  | -                  |
+| SQL Data Warehouse do Azure         | Sim                | Sim, RSA 2048-bit  | Sim                |
+| SQL Server Stretch Database      | Sim                | Sim, RSA 2048-bit  | Sim                |
+| Armazenamento de Tabelas                    | Sim                | -                  | Sim                |
+| Azure Cosmos DB                  | Sim                | -                  | -                  |
 | **DevOps**                       |                    |                    |                    |
-| Azure DevOps                     | SIM                | -                  | SIM                |
-| Azure Repos                      | SIM                | -                  | SIM                |
+| Azure DevOps                     | Sim                | -                  | Sim                |
+| Azure Repos                      | Sim                | -                  | Sim                |
 | **Identidade**                     |                    |                    |                    |
-| Azure Active Directory           | SIM                | -                  | -                  |
-| Serviços de Domínio do Azure Active Directory | SIM          | Sim, RSA 2048-bit  | -                  |
+| Azure Active Directory           | Sim                | -                  | -                  |
+| Azure Active Directory Domain Services | Sim          | Sim, RSA 2048-bit  | -                  |
 | **Integração**                  |                    |                    |                    |
-| Service Bus                      | SIM                | -                  | SIM                |
-| Grade de Eventos                       | SIM                | -                  | -                  |
-| Gerenciamento de API                   | SIM                | -                  | -                  |
+| BARRAMENTO DE SERVIÇO                      | Sim                | -                  | Sim                |
+| Grade de Eventos                       | Sim                | -                  | -                  |
+| Gerenciamento da API                   | Sim                | -                  | -                  |
 | **Serviços de IoT**                 |                    |                    |                    |
-| Hub IoT                          | SIM                | -                  | SIM                |
+| Hub IoT                          | Sim                | -                  | Sim                |
 | **Gerenciamento e governança**    |                    |                    |                    |
-| Recuperação de Site do Azure              | SIM                | Sim, RSA 2048-bit  | SIM                |
+| Azure Site Recovery              | Sim                | Sim, RSA 2048-bit  | Sim                |
 | **Meio**                        |                    |                    |                    |
-| Serviços de Mídia                   | SIM                | -                  | SIM                |
+| Serviços de mídia                   | Sim                | -                  | Sim                |
 | **Armazenamento**                      |                    |                    |                    |
-| Armazenamento de Blobs                     | SIM                | Sim, RSA 2048-bit  | SIM                |
-| Armazenamento de Discos                     | SIM                | -                  | -                  |
-| Armazenamento em Managed Disks             | SIM                | -                  | -                  |
-| Armazenamento de arquivos                     | SIM                | Sim, RSA 2048-bit  | -                  |
-| Armazenamento de fila                    | SIM                | -                  | SIM                |
-| Avere vFXT                       | SIM                | -                  | -                  |
-| Azure NetApp Files               | SIM                | -                  | -                  |
-| Armazenamento de Arquivos                  | SIM                | Sim, RSA 2048-bit  | -                  |
-| StorSimple                       | SIM                | Sim, RSA 2048-bit  | SIM                |
-| Backup do Azure                     | SIM                | -                  | SIM                |
-| Data Box                         | SIM                | -                  | SIM                |
+| Armazenamento de Blob                     | Sim                | Sim, RSA 2048-bit  | Sim                |
+| Armazenamento em disco                     | Sim                | -                  | -                  |
+| Armazenamento em Managed Disks             | Sim                | -                  | -                  |
+| Armazenamento de arquivo                     | Sim                | Sim, RSA 2048-bit  | -                  |
+| Armazenamento de fila                    | Sim                | -                  | Sim                |
+| Avere vFXT                       | Sim                | -                  | -                  |
+| Azure NetApp Files               | Sim                | -                  | -                  |
+| Armazenamento de Arquivos                  | Sim                | Sim, RSA 2048-bit  | -                  |
+| StorSimple                       | Sim                | Sim, RSA 2048-bit  | Sim                |
+| Serviço de Backup do Azure                     | Sim                | -                  | Sim                |
+| Data Box                         | Sim                | -                  | Sim                |
 
 ## <a name="conclusion"></a>Conclusão
 

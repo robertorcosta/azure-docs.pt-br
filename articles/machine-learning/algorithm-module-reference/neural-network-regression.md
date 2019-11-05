@@ -1,20 +1,20 @@
 ---
 title: 'Regressão de rede neural: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo de regressão de rede neural no serviço Azure Machine Learning para criar um modelo de regressão usando um algoritmo de rede neural personalizável.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo de regressão de rede neural no Azure Machine Learning para criar um modelo de regressão usando um algoritmo de rede neural personalizável.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 54518d21db0c9b14cbb7b4fc4316d1db2b871573
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: d5cc0f06e9fb95894df30af1322d47337f51e314
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692745"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465999"
 ---
 # <a name="neural-network-regression-module"></a>Módulo de regressão de rede neural
 
@@ -24,7 +24,7 @@ ms.locfileid: "72692745"
   
 ## <a name="module-overview"></a>Visão geral do módulo  
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para criar um modelo de regressão usando um algoritmo de rede neural personalizável.
   
@@ -51,8 +51,8 @@ As redes neurais podem ser amplamente personalizadas. Esta seção descreve como
     Essa opção é melhor se você já estiver um pouco familiarizado com redes neurais. Você usa a linguagem net # para definir a arquitetura de rede.  
 
 ##  <a name="bkmk_DefaultArchitecture"></a>Criar um modelo de rede neural usando a arquitetura padrão
-  
-1.  Adicione o módulo de **regressão de rede neural** ao seu pipeline na interface. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **regressão** . 
+
+1.  Adicione o módulo de **regressão de rede neural** ao seu pipeline no designer. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **regressão** . 
   
 2. Indique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
@@ -96,6 +96,6 @@ Após a conclusão do treinamento:
 + Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do **modelo treinado** e selecione **salvar como modelo treinado**. Esse modelo não é atualizado em execuções sucessivas do mesmo pipeline.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

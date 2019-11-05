@@ -9,33 +9,53 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: dab4b4c6f41a95623a40e5d3fd859f9613afac27
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 08f78e4945b612a92d372c832490c380d3749811
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949607"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487517"
 ---
-# <a name="phrase-list-features-in-your-luis-app"></a>Recurso de lista de frases em seu aplicativo LUIS
+# <a name="machine-learned-features"></a>Recursos aprendidos por máquina 
 
-No aprendizado de máquina, um *recurso* é um traço ou atributo específico de dados que seu sistema observa. 
+No Machine Learning, um *recurso* é uma característica ou atributo diferenciado dos dados que seu sistema observa & aprende. No Reconhecimento vocal (LUIS), um recurso descreve e explica o que é significativo sobre suas intenções e entidades.
 
-Adicione recursos a um modelo de linguagem para fornecer dicas sobre como reconhecer a entrada que você deseja identificar ou classificar. Os recursos ajudam o LUIS a reconhecer intenções e entidades, mas não são intenções ou entidades em si. Em vez disso, os recursos podem fornecer exemplos de termos relacionados.  
+## <a name="features-in-language-understanding"></a>Recursos do Reconhecimento vocal
 
-## <a name="what-is-a-phrase-list-feature"></a>O que é um recurso de lista de frases?
-Uma lista de frases é uma lista de palavras ou frases significativas para seu aplicativo, mais que outras palavras em enunciados. Uma lista de frase adiciona ao vocabulário do domínio de aplicativo como um sinal adicional ao LUIS sobre essas palavras. O que o LUIS aprende sobre um deles é aplicado automaticamente aos outros também. Esta lista não é uma [entidade de lista](luis-concept-entity-types.md#types-of-entities) fechada de correspondências de texto exato.
+Recursos, também conhecidos como descritores, descrevem pistas para ajudar a Reconhecimento vocal a identificar o exemplo declarações. Os recursos incluem: 
 
-Listas de frases não ajudam com lematização, portanto, você precisará adicionar exemplos de enunciado que usem uma variedade de lematização para quaisquer palavras do vocabulário e frases significativas.
+* Lista de frases como um recurso para intenções ou entidades
+* Entidades como recursos para intenções ou entidades
 
-## <a name="phrase-lists-help-all-models"></a>Listas de frases ajudam todos os modelos
+Os recursos devem ser considerados como uma parte necessária do esquema para a decomposição do modelo. 
 
-Listas de frase não estão vinculadas a uma intenção ou entidade específico, mas são adicionadas como um aumento significativo para todas as intenções e entidades. Sua finalidade é melhorar a detecção de intenções e a classificação de entidades.
+## <a name="what-is-a-phrase-list"></a>O que é uma lista de frases
 
-## <a name="how-to-use-phrase-lists"></a>Como usar as listas de frase
+Uma lista de frases é uma lista de palavras, frases, números ou outros caracteres que ajudam a identificar o conceito que você está tentando identificar. A lista não diferencia maiúsculas de minúsculas. 
 
-[Crie uma lista de frases](luis-how-to-add-features.md) quando seu aplicativo tiver palavras ou frases que são importantes para o aplicativo, como:
+## <a name="when-to-use-a-phrase-list"></a>Quando usar uma lista de frases
+
+Com uma lista de frases, LUIS considera contexto e generalizações para identificar itens semelhantes a, mas não uma correspondência de texto exata. Se você precisar que seu aplicativo LUIS seja capaz de generalizar e identificar novos itens, use uma lista de frases. 
+
+Quando você quiser ser capaz de reconhecer novas instâncias, como um Agendador de reunião que deve reconhecer os nomes de novos contatos ou um aplicativo de inventário que deve reconhecer novos produtos, comece com uma entidade aprendida por computador. Em seguida, crie uma lista de frases que ajude a LUIS a localizar palavras com significado semelhante. Esta lista de frases orienta o LUIS a reconhecer exemplos adicionando um significado adicional ao valor dessas palavras. 
+
+Listas de frase são como um vocabulário específico ao domínio que ajudam a melhorar a qualidade da compreensão de intenções e entidades. 
+
+## <a name="considerations-when-using-a-phrase-list"></a>Considerações ao usar uma lista de frases
+
+Uma lista de frases é aplicada, por padrão, a todos os modelos no aplicativo. Isso funcionará para listas de frases que podem cruzar todas as intenções e entidades. Para desdação, você deve aplicar uma lista de frases apenas aos modelos aos quais ela é relevante. 
+
+Se você criar uma lista de frases (criada globalmente por padrão), aplique-a posteriormente como um descritor (recurso) a um modelo específico, ela será removida dos outros modelos. Essa remoção adiciona relevância à lista de frases para o modelo ao qual ela é aplicada, ajudando a melhorar a precisão que ela fornece no modelo. 
+
+O sinalizador `enabledForAllModels` controla esse escopo de modelo na API. 
+
+<a name="how-to-use-phrase-lists"></a>
+
+### <a name="how-to-use-a-phrase-list"></a>Como usar uma lista de frases
+
+[Crie uma lista de lista de frases](luis-how-to-add-features.md) quando sua intenção ou entidade tiver palavras ou frases importantes, como:
 
 * termos do setor
 * gírias
@@ -44,44 +64,25 @@ Listas de frase não estão vinculadas a uma intenção ou entidade específico,
 * o texto é de outro idioma, mas frequentemente usado em seu aplicativo
 * palavras-chave e frases em seus enunciados de exemplo
 
-Depois de inserir algumas palavras ou frases, use o recurso **Recomendado** para localizar valores relacionados. Examine os valores relacionados antes de adicionar a seus valores de lista de frase.
-
-Uma lista de frases é para valores que são sinônimos. Por exemplo, se você quiser encontrar todos os corpos de água e tiver enunciados de exemplo como: 
-
-* Que cidades estão próximas dos Grandes Lagos? 
-* Que estrada passa ao longo do Lago Havasu?
-* Onde o Nilo começa e termina? 
-
-Cada enunciado deve ser determinado para intenção e entidades, independentemente do corpo de água: 
-
-* Quais cidades estão próximas de [bodyOfWater]?
-* Quais estradas passam ao longo de [bodyOfWater]?
-* Onde o [bodyOfWater] começa e terminar? 
-
-Porque as palavras ou frases do corpo da água são sinônimos e podem ser usadas de forma intercambiável no declarações. 
+**Não** adicione todas as palavras ou frases possíveis. Em vez disso, adicione algumas palavras ou frases de cada vez e, em seguida, retreine e publique. À medida que a lista cresce ao longo do tempo, você pode achar que alguns termos têm muitas formas (sinônimos). Divida-os em outra lista. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Listas de frases ajudam a identificar entidades intercambiáveis simples
-Listas de frases intercambiáveis são uma boa maneira de ajustar o desempenho do aplicativo do LUIS. Se o seu aplicativo tiver problemas para prever declarações da intenção correta, ou reconhecer entidades, pense se a declaração contém palavras incomuns ou que podem ter significado ambíguo. Essas palavras são boas candidatas para inclusão em uma lista de frases.
+## <a name="when-to-use-an-entity-as-a-feature"></a>Quando usar uma entidade como um recurso 
 
-## <a name="phrase-lists-help-identify-intents-by-better-understanding-context"></a>Listas de frases ajudam a identificar intenções entendendo melhor o contexto
-Uma lista de frases não é uma instrução para o LUIS executar uma correspondência estrita ou sempre rotular todos os termos na lista de frases exatamente da mesma forma. Ela é simplesmente uma dica. Por exemplo, você poderia ter uma lista de frases que indica que "Patti" e "Selma" são nomes, mas o LUIS ainda pode usar as informações contextuais para reconhecer que eles significam algo diferente em "Fazer uma reserva de jantar para 2 no Patti's Diner" e "Localizar trajeto de automóvel até Selma, Geórgia". 
+Uma entidade pode ser adicionada como um recurso no nível de intenção ou de entidade. 
 
-Adicionar uma lista de frases é uma alternativa à adição de mais declarações de exemplo para uma intenção. 
+### <a name="entity-as-a-feature-to-an-intent"></a>Entidade como um recurso para uma intenção
 
-## <a name="when-to-use-phrase-lists-versus-list-entities"></a>Quando usar listas de frase versus entidades de lista
-Embora uma lista de frases e as [entidades de lista](reference-entity-list.md) possam afetar o declarações em todas as intenções, cada uma faz isso de uma maneira diferente. Use uma lista de frases para afetar a pontuação de previsão da intenção. Use uma entidade de lista para afetar a extração de entidade de uma correspondência exata do texto. 
+Adicione uma entidade como um descritor (recurso) a uma intenção quando a detecção dessa entidade for significativa para a intenção.
 
-### <a name="use-a-phrase-list"></a>Usar uma lista de frases
-Com uma lista de frases, o LUIS ainda pode levar o contexto em consideração e generalizar para identificar os itens que são semelhantes, mas que não são uma correspondência exata, como itens em uma lista. Se você precisar que o seu aplicativo LUIS generalize e identifique novos itens em uma categoria, use uma lista de frases. 
+Por exemplo, se a intenção é para reservar um vôo e a entidade são informações de tíquete (como o número de estações, origem e destino), localizar a entidade de informações de tíquete deve adicionar peso à previsão da tentativa de vôo do livro. 
 
-Quando você quiser ser capaz de reconhecer novas instâncias de uma entidade, como um Agendador de reunião que deve reconhecer os nomes de novos contatos ou um aplicativo de inventário que deve reconhecer novos produtos, use outro tipo de entidade aprendida por máquina, como uma entidade simples. Em seguida, crie uma lista de palavras e frases que ajuda o LUIS a encontrar outras palavras semelhantes para a entidade. Essa lista orienta o LUIS a reconhecer exemplos da entidade adicionando outro significado ao valor dessas palavras. 
+### <a name="entity-as-a-feature-to-another-entity"></a>Entidade como um recurso para outra entidade
 
-Listas de frase são como um vocabulário específico ao domínio que ajudam a melhorar a qualidade da compreensão de intenções e entidades. Um uso comum de uma lista de frases é para substantivos, como nomes de cidades. Um nome de cidade pode ter várias palavras, incluindo hifens ou apóstrofos.
- 
-### <a name="dont-use-a-phrase-list"></a>Não usar uma lista de frases 
-Uma entidade de lista define explicitamente cada valor que uma entidade pode assumir, e identifica somente os valores com correspondência exata. Uma entidade de lista pode ser apropriada para um aplicativo no qual todas as instâncias de uma entidade são conhecidas e não são alteradas com frequência. Exemplos são os itens do menu de um restaurante que muda com pouca frequência. Se você precisar de uma correspondência exata do texto de uma entidade, não use uma lista de frases. 
+Uma entidade (A) deve ser adicionada como um recurso a outra entidade (B) quando a detecção dessa entidade (A) for significativa para o (B).
+
+Por exemplo, se a entidade endereço (a) for detectada, a localização do endereço (A) adiciona peso à previsão para a entidade endereço de envio (B). 
 
 ## <a name="best-practices"></a>Práticas recomendadas
 Conheça as [práticas recomendadas](luis-concept-best-practices.md).

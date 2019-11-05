@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 80e1052cb7acbdcec2dcb94f1667cae3c554d18e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 54c9d79c62052daeee76de5dffb1099dc7d75180
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932933"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467723"
 ---
 # <a name="create-entities-without-utterances"></a>Criar entidades sem declarações
 
@@ -25,6 +25,8 @@ A entidade representa uma palavra ou frase dentro da declaração que você dese
 Você pode adicionar, editar ou excluir entidades em seu aplicativo LUIS por meio da lista **Entities** na página **Entities**. O LUIS oferece dois tipos principais de entidades: [entidades pré-construídas](luis-reference-prebuilt-entities.md) e suas próprias [entidades customizadas](luis-concept-entity-types.md#types-of-entities).
 
 Depois que uma entidade aprendida por máquina é criada, você precisa marcar essa entidade em todos os expressão de exemplo de todas as intenções em que ela se encontra.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="add-prebuilt-entity"></a>
 
@@ -64,7 +66,7 @@ Uma entidade de expressão regular é usada para extrair dados do enunciado com 
 
 1. Na caixa de diálogo pop-up, digite `Human resources form name` na caixa **Nome da entidade**, selecione **Expressão regular** na lista **Tipo de entidade**, insira a expressão regular `hrf-[0-9]{6}` e, em seguida, selecione **Concluído**. 
 
-    Essa expressão regular corresponde a caracteres `hrf-`literais, em seguida, 6 dígitos para representar um número de formulário para um formulário de recursos humanos.
+    Essa expressão regular corresponde a caracteres literais `hrf-`e, em seguida, seis dígitos para representar um número de formulário para um formulário de recursos humanos.
 
 <a name="add-composite-entities"></a>
 
@@ -114,7 +116,7 @@ No enunciado `Where is Request relocation from employee new to the company on th
 
 Uma função é um subtipo nomeado com base no contexto. Ele está disponível em todas as entidades, incluindo entidades predefinidas e não aprendidas por computador. 
 
-A sintaxe de uma função é **`{Entityname:Rolename}`** onde o nome da entidade é seguido por dois-pontos e, em seguida, o nome da função. Por exemplo, `Move {personName} from {Location:Origin} to {Location:Destination}`.
+A sintaxe para uma função é **`{Entityname:Rolename}`** em que o nome da entidade é seguido por dois-pontos e, em seguida, o nome da função. Por exemplo: `Move {personName} from {Location:Origin} to {Location:Destination}`.
 
 1. Na seção **Build**, selecione **Entities** no painel esquerdo.
 

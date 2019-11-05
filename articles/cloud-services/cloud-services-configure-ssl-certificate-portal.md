@@ -8,19 +8,19 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: gwallace
-ms.openlocfilehash: 9e7b7526f13fa6b9ae648c4ddb4004a627d85154
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: cc5b142558a21d1364254e555f3cf8f64bba0e58
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359737"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469024"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurando SSL para um aplicativo no Azure
 
 A criptografia SSL (Secure Socket Layer) é o método mais usado para proteger dados enviados pela Internet. Esta tarefa comum aborda como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo.
 
 > [!NOTE]
-> Os procedimentos descritos nesta tarefa se aplicam aos Serviços de Nuvem do Azure; para os Serviços de Aplicativos, veja [isto](../app-service/app-service-web-tutorial-custom-ssl.md).
+> Os procedimentos descritos nesta tarefa se aplicam aos Serviços de Nuvem do Azure; para os Serviços de Aplicativos, veja [isto](../app-service/configure-ssl-bindings.md).
 >
 
 Essa tarefa usa uma implantação de produção. Informações sobre o uso de uma implantação de preparo são fornecidas no final deste tópico.
@@ -43,7 +43,7 @@ Em seguida, você deve incluir informações sobre o certificado nos arquivos de
 
 <a name="modify"> </a>
 
-## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Etapa 2: Modificar os arquivos de configuração e definição de serviço
+## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Etapa 2: Modificar a definição de serviço e arquivos de configuração
 O aplicativo deve ser configurado para usar o certificado, e um ponto de extremidade HTTPS deve ser adicionado. Dessa forma, os arquivos de definição e configuração do serviço precisam ser atualizados.
 
 1. No ambiente de desenvolvimento, abra o arquivo de definição de serviço (CSDEF), adicione uma seção **Certificados** dentro da seção **WebRole** e inclua as seguintes informações sobre o certificado (e os certificados intermediários):
@@ -76,7 +76,7 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
 
    As permissões (atributo `permissionLevel`) podem ser definidas como um dos seguintes valores:
 
-   | Valor da permissão | Descrição |
+   | Valor da permissão | DESCRIÇÃO |
    | --- | --- |
    | limitedOrElevated |**(Padrão)** Todos os processos de função podem acessar a chave privada. |
    | elevado |Somente processos elevados podem acessar a chave privada. |
@@ -149,7 +149,7 @@ Conecte-se ao Portal do Azure e...
 
 4. Forneça o **Arquivo**, **Senha** e clique em **Carregar** na parte inferior da área de entrada de dados.
 
-## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Etapa 4: Conectar-se à instância de função usando HTTPS
+## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Etapa 4: Conectar-se à instância da função usando HTTPS
 Agora que sua implantação está ativa e em execução no Azure, você pode se conectar a ela usando HTTPS.
 
 1. Clique na **URL do Site** para abrir o navegador da Web.

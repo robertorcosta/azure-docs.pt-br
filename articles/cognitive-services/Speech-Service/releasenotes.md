@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 11/05/2019
 ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 0e4d0eb19da2485b689b1c5d5192e344153aef0b
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 353e0478172ed03cde848d8c5127d2ee41724963
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71799966"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481235"
 ---
 # <a name="release-notes"></a>Notas de versão
-## <a name="speech-sdk-170-2019-september-release"></a>1\.7.0 do SDK de fala: 2019 – versão de setembro
+## <a name="speech-sdk-170-2019-september-release"></a>SDK de fala 1.7.0:2019 – versão de setembro
 
 **Novos recursos**
 *   Adicionado suporte beta para Xamarin em Plataforma Universal do Windows (UWP), Android e iOS
@@ -48,7 +48,7 @@ ms.locfileid: "71799966"
 *   Atualizado o início rápido do CPP com as informações de ARM64 do Linux
 *   Guia de início rápido do Unity atualizado com informações do iOS
 
-## <a name="speech-sdk-160-2019-june-release"></a>1\.6.0 do SDK de fala: 2019 – versão de junho
+## <a name="speech-sdk-160-2019-june-release"></a>SDK de fala 1.6.0:2019 – versão de junho
 
 **Exemplos**
 *   Exemplos de início rápido para texto para fala sobre UWP e Unity
@@ -65,7 +65,7 @@ ms.locfileid: "71799966"
 * Atualizar o adaptador REST TTS para dar suporte a proxy, conexão persistente
 * Melhorar a mensagem de erro quando uma região inválida é passada
 * Swift/Objective-C:
-    * Relatório de erros aprimorado: Os métodos que podem resultar em um erro agora estão presentes em duas versões: Um que expõe um `NSError` objeto para tratamento de erros e outro que gera uma exceção. O primeiro é exposto a Swift. Essa alteração requer adaptações para o código Swift existente.
+    * Melhoria no relatório de erros: os métodos que podem resultar em um erro agora estão presentes em duas versões: uma que expõe um objeto `NSError` para tratamento de erros e outra que gera uma exceção. O primeiro é exposto a Swift. Essa alteração requer adaptações para o código Swift existente.
     * Manipulação de eventos aprimorada
 
 **Correções de bug**
@@ -76,7 +76,7 @@ ms.locfileid: "71799966"
 *   Correção de fechamento de soquete da Web confiável
 *   Correção de uma possível falha ao abrir uma conexão sob carga muito pesada no Linux
 *   Correção de metadados ausentes no pacote de estrutura para macOS
-*   Correção para problemas com `pip install --user` o no Windows
+*   Correção de problemas com o `pip install --user` no Windows
 
 
 ## <a name="speech-sdk-151"></a>1\.5.1 SDK de fala
@@ -86,17 +86,17 @@ Essa é uma liberação de correção de bug e afeta apenas o SDK nativo/gerenci
 **Correções de bug**
 
 * Corrigir o FromSubscription quando usado com a transcrição de conversa.
-* Corrija o bug na palavra-chave que está separando o assistente virtual de voz primeiro.
+* Correção de bug na palavra-chave para assistentes de voz.
 
 
-## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0: 2019-maio de lançamento
+## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0:2019-maio de lançamento
 
 **Novos recursos**
 
-* A funcionalidade ativar palavra (palavra-chave KWS) agora está disponível para Windows e Linux. A funcionalidade do KWS pode funcionar com qualquer tipo de microfone, o suporte oficial do KWS, no entanto, está limitado atualmente às matrizes de microfone encontradas no hardware do Azure Kinect DK ou no SDK dos dispositivos de fala.
+* A palavra-chave (KWS) está disponível agora para Windows e Linux. A funcionalidade do KWS pode funcionar com qualquer tipo de microfone, o suporte oficial do KWS, no entanto, está limitado atualmente às matrizes de microfone encontradas no hardware do Azure Kinect DK ou no SDK dos dispositivos de fala.
 * A funcionalidade de dica de frase está disponível por meio do SDK. Para saber mais, clique [aqui](how-to-phrase-lists.md).
 * A funcionalidade de transcrição de conversa está disponível por meio do SDK. Consulte [aqui](conversation-transcription-service.md).
-* Adicione suporte para assistentes virtuais primeiro de voz usando o canal de fala de linha direta.
+* Adicione suporte para assistentes de voz usando o canal de fala de linha direta.
 
 **Exemplos**
 
@@ -105,8 +105,8 @@ Essa é uma liberação de correção de bug e afeta apenas o SDK nativo/gerenci
 **Melhorias/Alterações**
 
 * Adicionada várias propriedades de reconhecedor para ajustar o comportamento do serviço ou os resultados do serviço (como mascarar profanação e outros).
-* Agora você pode configurar o reconhecedor por meio das propriedades de configuração padrão, mesmo que você tenha `FromEndpoint`criado o reconhecedor.
-* Objective-C `OutputFormat` : Property foi adicionado a SPXSpeechConfiguration.
+* Agora você pode configurar o reconhecedor por meio das propriedades de configuração padrão, mesmo que você tenha criado o reconhecedor `FromEndpoint`.
+* Objective-C: `OutputFormat` Propriedade foi adicionada a SPXSpeechConfiguration.
 * O SDK agora dá suporte a Debian 9 como uma distribuição do Linux.
 
 **Correções de bug**
@@ -122,16 +122,16 @@ Esta é uma versão somente em JavaScript. Nenhum recurso foi adicionado. Foram 
 
 * Impedir que o pacote da Web carregue HTTPS-proxy-Agent.
 
-## <a name="speech-sdk-140-2019-april-release"></a>1\.4.0 do SDK de fala: 2019 – versão de abril
+## <a name="speech-sdk-140-2019-april-release"></a>SDK de fala 1.4.0:2019 – versão de abril
 
 **Novos recursos** 
 
 * O SDK agora dá suporte ao serviço de conversão de texto em fala como uma versão beta. Ele tem suporte na área de trabalho do Windows C++ e C#do Linux de e. Para obter mais informações, consulte a [visão geral de conversão de texto em fala](text-to-speech.md#get-started-with-text-to-speech).
 * O SDK agora dá suporte a arquivos de áudio MP3 e Opus/OGG como arquivos de entrada de fluxo. Esse recurso está disponível apenas no Linux a C++ partir C# do e no, no momento, está em beta (mais detalhes [aqui](how-to-use-codec-compressed-audio-input-streams.md)).
 * O SDK de fala para Java, .NET Core C++ e Objective-C ganhou suporte para MacOS. O suporte a Objective-C para macOS está atualmente em beta.
-* iOS: O SDK de fala para iOS (Objective-C) agora também é publicado como um CocoaPod.
-* JavaScript: Suporte para microfone não padrão como um dispositivo de entrada.
-* JavaScript: Suporte de proxy para node. js.
+* iOS: o SDK de fala para iOS (Objective-C) agora também é publicado como um CocoaPod.
+* JavaScript: suporte para microfone não padrão como um dispositivo de entrada.
+* JavaScript: suporte de proxy para node. js.
 
 **Exemplos**
 
@@ -140,17 +140,17 @@ Esta é uma versão somente em JavaScript. Nenhum recurso foi adicionado. Foram 
 
 **Melhorias/Alterações**
 
-* Python: As propriedades adicionais dos resultados de reconhecimento agora são expostas por meio da `properties` propriedade.
+* Python: as propriedades adicionais dos resultados de reconhecimento agora são expostas por meio da propriedade `properties`.
 * Para obter suporte adicional para desenvolvimento e depuração, você pode redirecionar as informações de log e diagnóstico do SDK para um arquivo de log (mais detalhes [aqui](how-to-use-logging.md)).
-* JavaScript: Melhorar o desempenho de processamento de áudio.
+* JavaScript: melhorar o desempenho de processamento de áudio.
 
 **Correções de bug**
 
-* Mac/iOS: Um bug que levou a uma longa espera quando uma conexão com o serviço de fala não pôde ser estabelecida foi corrigida.
+* Mac/iOS: um bug que levou a uma longa espera quando uma conexão com o serviço de fala não pôde ser estabelecida foi corrigida.
 * Python: melhorar o tratamento de erros para argumentos em retornos de chamada do Python.
-* JavaScript: Corrigido o relatório de estado incorreto para fala encerrado em RequestSession.
+* JavaScript: o relatório de estado incorreto corrigido para a fala terminou em RequestSession.
 
-## <a name="speech-sdk-131-2019-february-refresh"></a>1\.3.1 do SDK de fala: 2019 – atualização de fevereiro
+## <a name="speech-sdk-131-2019-february-refresh"></a>SDK de fala 1.3.1:2019 – atualização de fevereiro
 
 Essa é uma liberação de correção de bug e afeta apenas o SDK nativo/gerenciado. Ele não está afetando a versão JavaScript do SDK.
 
@@ -158,12 +158,12 @@ Essa é uma liberação de correção de bug e afeta apenas o SDK nativo/gerenci
 
 * Foi corrigido um vazamento de memória ao usar a entrada do microfone. Baseada em fluxo ou entrada de arquivo não é afetada.
 
-## <a name="speech-sdk-130-2019-february-release"></a>SDK de Fala 1.3.0: Versão de fevereiro de 2019
+## <a name="speech-sdk-130-2019-february-release"></a>SDK de fala 1.3.0:2019 – versão de fevereiro
 
 **Novos recursos**
 
 * O Speech SDK dá suporte à seleção de entrada microfone por meio da classe AudioConfig. Isso permite que você transmita dados de áudio para os serviços de fala de um microfone não padrão. Para obter mais informações, consulte a documentação que descreve a [seleção de dispositivo de entrada de áudio](how-to-select-audio-input-devices.md). Esse recurso ainda não está disponível no JavaScript.
-* O Speech SDK agora dá suporte ao Unity em uma versão beta. Forneça comentários na seção de problemas no [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples). Essa versão dá suporte ao Unity no Windows x86 e x64 (área de trabalho ou aplicativos da Plataforma Universal do Windows) e Android (ARM32/64, x86). Mais informações estão disponíveis em nosso [início rápido do Unity](quickstart-csharp-unity.md).
+* O Speech SDK agora dá suporte ao Unity em uma versão beta. Forneça comentários na seção de problemas no [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples). Essa versão dá suporte ao Unity no Windows x86 e x64 (área de trabalho ou aplicativos da Plataforma Universal do Windows) e Android (ARM32/64, x86). Mais informações estão disponíveis em nosso [início rápido do Unity](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=unity).
 * O arquivo `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (fornecido em versões anteriores) não é mais necessário. A funcionalidade agora está integrada ao SDK do Core.
 
 
@@ -194,7 +194,7 @@ O novo conteúdo a seguir está disponível no nosso [repositório de exemplo](h
   * Suporte inicial e implementação para dicas de frase.
   * Retornar a coleção de propriedades com o serviço de JSON para reconhecimento
 * DLLs do Windows agora contêm um recurso de versão.
-* Se você criar um reconhecedor `FromEndpoint` , poderá adicionar parâmetros diretamente à URL do ponto de extremidade. Usando `FromEndpoint` o, você não pode configurar o reconhecedor por meio das propriedades de configuração padrão.
+* Se você criar um reconhecedor `FromEndpoint` poderá adicionar parâmetros diretamente à URL do ponto de extremidade. Usando `FromEndpoint` você não pode configurar o reconhecedor por meio das propriedades de configuração padrão.
 
 **Correções de bug**
 
@@ -214,7 +214,7 @@ Esta é uma versão somente em JavaScript. Nenhum recurso foi adicionado. Foram 
 * Correção de bug para diferentes reconhecedores/pontos de extremidade.
 * Melhorias na documentação.
 
-## <a name="speech-sdk-120-2018-december-release"></a>SDK dE Fala 1.2.0: Versão de dezembro de 2018
+## <a name="speech-sdk-120-2018-december-release"></a>SDK de fala 1.2.0:2018 – versão de dezembro
 
 **Novos recursos**
 
@@ -244,11 +244,11 @@ Esta é uma versão somente em JavaScript. Nenhum recurso foi adicionado. Foram 
 * Corrigindo o vazamento de memória em argumentos de evento de tradução.
 * Corrigido um problema de bloqueio na reconexão longa de sessões em execução.
 * Correção de um problema que poderia levar a um resultado final ausente para traduções com falha.
-* C#: Se uma operação assíncrona não foi colocada em espera no thread principal, era possível que o reconhecedor pudesse ser descartado antes que a tarefa assíncrona fosse concluída.
-* Java: Corrigido um problema que resultou em uma falha da máquina virtual Java.
-* Objective-C: Mapeamento enum fixo; RecognizedIntent foi retornado em vez de RecognizingIntent.
-* JavaScript: Formato de saída padrão definido em 'simples' no SpeechConfig.
-* JavaScript: Removendo a inconsistência entre as propriedades no objeto de configuração em JavaScript e outras linguagens.
+* C#: Se uma operação assíncrona não foi aguardada no thread principal, era possível que o reconhecedor pudesse ser descartado antes de a tarefa assíncrona ser concluída.
+* Java: Corrigido um problema que resulta em uma falha da VM Java.
+* Objective-C: mapeamento de enumeração fixo; RecognizedIntent foi retornado em vez de RecognizingIntent.
+* JavaScript: defina o formato de saída padrão como "simples" em SpeechConfig.
+* JavaScript: removendo a inconsistência entre as propriedades no objeto de configuração em JavaScript e em outras linguagens.
 
 **Exemplos**
 
@@ -260,7 +260,7 @@ Esta é uma versão somente em JavaScript. Nenhum recurso foi adicionado. Foram 
 **Novos recursos**
 
 * Suporte para Android x86/x64.
-* Suporte do proxy: No objeto SpeechConfig, agora você pode chamar uma função para definir as informações de proxy (nome do host, porta, nome de usuário e senha). Este recurso ainda não está disponível no iOS.
+* Suporte a proxy: no objeto SpeechConfig, agora você pode chamar uma função para definir as informações de proxy (nome do host, porta, nome de usuário e senha). Este recurso ainda não está disponível no iOS.
 * Melhor código de erro e mensagens. Se um reconhecimento retornou um erro, isso já definiu `Reason` (no evento cancelado) ou `CancellationDetails` (no resultado do reconhecimento) para `Error`. O evento cancelado agora contém dois membros adicionais, `ErrorCode` e `ErrorDetails`. Se o servidor retornou informações de erro adicionais com o erro relatado, agora ele estará disponível nos novos membros.
 
 **Melhorias**
@@ -295,7 +295,7 @@ Melhorias na confiabilidade e correções de bugs:
 * Adicionado erro adicional e verificação de parâmetros.
 * Objective-C: corrigido possível erro fatal causado por substituição de nome em NSString.
 * Objective-C: visibilidade ajustada da API
-* JavaScript: corrigido em relação a eventos e conteúdos.
+* JavaScript: corrigido em relação a eventos e cargas.
 * Melhorias na documentação.
 
 Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo exemplo para JavaScript foi adicionado.
@@ -304,7 +304,7 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 
 **Novos recursos**
 
-* Suporte para Objective-C no iOS. Confira nosso [Início Rápido do Objective-C para iOS](quickstart-objectivec-ios.md).
+* Suporte para Objective-C no iOS. Confira nosso [Início Rápido do Objective-C para iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 * Suporte para JavaScript no navegador. Confira nosso [Início Rápido do JavaScript](quickstart-js-browser.md).
 
 **Alterações da falha**
@@ -317,10 +317,10 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 **Novos recursos**
 
 * Os aplicativos UWP criados com o SDK de Fala agora podem ser aprovados pelo WACK (Kit de Certificação de Aplicativos Windows).
-  Confira o [Início Rápido do UWP](quickstart-csharp-uwp.md).
+  Confira o [Início Rápido do UWP](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp&tabs=uwp).
 * Suporte para .NET Standard 2.0 no Linux (Ubuntu 16.04 x64).
 * Experimental: dê suporte Java 8 no Windows (64 bits) e no Linux (Ubuntu 16.04 x64).
-  Confira o [Início Rápido do Java Runtime Environment](quickstart-java-jre.md).
+  Confira o [Início Rápido do Java Runtime Environment](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre).
 
 **Alteração funcional**
 
@@ -342,10 +342,10 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 
 **Novos recursos**
 
-* Suporte à plataforma Android (API 23: Android 6.0 Marshmallow ou superior). Confira o [Início Rápido para Android](quickstart-java-android.md).
-* Suporte para .NET Standard 2.0 no Windows. Confira o [Início Rápido para .NET Core](quickstart-csharp-dotnetcore-windows.md).
-* Experimental: suporte à UWP no Windows (versão 1709 ou posterior).
-  * Confira o [Início Rápido do UWP](quickstart-csharp-uwp.md).
+* Suporte a plataforma Android (API 23: Android 6.0 Marshmallow ou superior). Confira o [Início Rápido para Android](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=android).
+* Suporte para .NET Standard 2.0 no Windows. Confira o [Início Rápido para .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+* Experimental: Suporte a UWP no Windows (versão 1709 ou posterior).
+  * Confira o [Início Rápido do UWP](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp).
   * Observação: os aplicativos UWP compilados com o SDK de Fala ainda não são aprovados pelo WACK (Kit de Certificação de Aplicativos Windows).
 * Suporte ao reconhecimento de execução longa com reconexão automática.
 
@@ -375,7 +375,7 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 
 * O SDK de Fala para Android não relata os resultados da síntese de fala para tradução. Esse problema será corrigido na próxima versão.
 
-## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>SDK de Fala dos Serviços Cognitivos 0.4.0: versão de junho de 2018
+## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>SDK de Fala de Serviços Cognitivos 0.4.0: versão de junho de 2018
 
 **Alterações funcionais**
 
@@ -411,6 +411,6 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 
 Mais exemplos foram adicionados e são atualizados constantemente. Para obter o último conjunto de exemplos, confira o [Repositório GitHub de exemplos do SDK de Fala](https://aka.ms/csspeech/samples).
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>SDK de Fala dos Serviços Cognitivos 0.2.12733: versão de maio de 2018
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>SDK de Fala de Serviços Cognitivos 0.2.12733: versão de maio de 2018
 
 Esta versão é a primeira versão prévia pública do SDK de Fala dos Serviços Cognitivos.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: deb1ea8c7b41ad48bddebfbed1b15c667ee0071a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61369790"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73483943"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -61,7 +61,7 @@ Você pode usar este exemplo para monitorar os estados de informações e sensor
 
 1. Clique no menu suspenso **Tarefas** no Visual Studio Code e selecione **Executar Tarefa...**  - **cloud-deploy**.
 
-2. Aguarde o processo de upload do código do aplicativo de função ser concluído; a mensagem *implantações do aplicativo de funções: Concluída* é exibida.
+2. Aguarde o processo de upload do código do aplicativo de função ser concluído; a mensagem *implantações do aplicativo de funções: Concluídas* é exibida.
 
 ## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>Configurar a cadeia de conexão do dispositivo do Hub IoT no DevKit
 
@@ -77,7 +77,7 @@ Você pode usar este exemplo para monitorar os estados de informações e sensor
 
 Com o MXChip IoT DevKit conectado ao computador:
 
-1. Clique no menu suspenso **Tarefas** no Visual Studio Code e selecione **Executar Tarefa de Compilação...** O esboço do Arduino é compilado e carregado no DevKit.
+1. Clique no menu suspenso **tarefas** no Visual Studio Code e selecione **Executar tarefa de compilação...** O esboço Arduino é compilado e carregado no DevKit.
 
 2. Quando o esboço tiver sido carregado com êxito, uma mensagem *Compilar e Carregar Esboço: êxito* será exibida.
 
@@ -106,7 +106,7 @@ Com o MXChip IoT DevKit conectado ao computador:
 ![Exemplo de procedimento de teste](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Você pode ver os dados brutos do dispositivo gêmeo no portal do Azure: Hub IoT –\> Dispositivos IoT –\> *\<seu dispositivo\>*  -\> Dispositivo Gêmeo.
+> Você pode ver os dados brutos de dispositivos gêmeos no portal do Azure: IoT Hub -\> dispositivos IoT -\> *\<seu dispositivo\>*  -\>  Dispositivo gêmeo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -117,4 +117,4 @@ Você aprendeu como:
 Aqui estão sugestões para as próximas etapas:
 
 * [Visão geral do acelerador de solução de Monitoramento Remoto do Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Conectar um dispositivo MXChip IoT DevKit ao seu aplicativo Azure IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Conectar um dispositivo MXChip IoT DevKit ao seu aplicativo Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)

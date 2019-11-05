@@ -1,5 +1,5 @@
 ---
-title: Configurar a replicação de cluster HBase nas redes virtuais do Azure – Azure HDInsight
+title: Replicação de cluster HBase em redes virtuais – Azure HDInsight
 description: Saiba como configurar a replicação de HBase de uma versão do HDInsight para outra para balanceamento de carga, alta disponibilidade, migração sem tempo de inatividade, atualizações e recuperação de desastre.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 34b9993482d1036570805af7caba29361b231426
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 18c7a06e656cbd5c16151381a76ec7725eb2785e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077174"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468417"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster do Apache HBase em redes virtuais do Azure
 
@@ -68,7 +68,7 @@ Alguns dos valores embutidos em código no modelo:
 
 | Propriedade | Valor |
 |----------|-------|
-| Location | Oeste dos EUA |
+| Localização | Oeste dos EUA |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet1 |
 | Prefixo de espaço de endereço | 10.1.0.0/16 |
 | Nome da sub-rede | Sub-rede 1 |
@@ -85,7 +85,7 @@ Alguns dos valores embutidos em código no modelo:
 
 | Propriedade | Valor |
 |----------|-------|
-| Location | East US |
+| Localização | Leste dos EUA |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet2 |
 | Prefixo de espaço de endereço | 10.2.0.0/16 |
 | Nome da sub-rede | Sub-rede 1 |
@@ -262,9 +262,9 @@ Crie um cluster do [Apache HBase](https://hbase.apache.org/) em cada uma das dua
 - **Nome do grupo de recursos**: use o mesmo nome de grupo de recursos que você criou as redes virtuais.
 - **Tipo de cluster**: HBase
 - **Versão**: HBase 1.1.2 (HDI 3.6)
-- **Localização**: Use a mesmo localização da rede virtual.  Por padrão, vnet1 é *Oeste dos EUA*, e a vnet2 é *Leste dos EUA*.
-- **Armazenamento**: Crie uma nova conta de armazenamento para o cluster.
-- **Rede virtual** (nas Configurações avançadas no portal): Selecione vnet1, que você criou no último procedimento.
+- **Local**: use o mesmo local que a rede virtual.  Por padrão, vnet1 é *Oeste dos EUA*, e a vnet2 é *Leste dos EUA*.
+- **Armazenamento**: crie uma nova conta de armazenamento para o cluster.
+- **Rede virtual** (em Configurações Avançadas no portal): selecione vnet1 que você criou no último procedimento.
 - **Sub-rede**: O nome padrão usado no modelo é **subnet1**.
 
 Para garantir que o ambiente está configurado corretamente, você deve ser capaz de executar ping do FQDN do nó principal entre os dois clusters.
@@ -273,9 +273,9 @@ Para garantir que o ambiente está configurado corretamente, você deve ser capa
 
 Ao replicar um cluster, é necessário especificar as tabelas a serem replicadas. Nesta seção, você carrega alguns dados no cluster de origem. Na próxima seção, você habilitará a replicação entre os dois clusters.
 
-Para criar uma tabela de **Contatos** e inserir alguns dados na tabela, siga as instruções em [Tutorial Apache HBase: Introdução ao uso do Apache HBase no HDInsight](apache-hbase-tutorial-get-started-linux.md).
+Para criar uma tabela **Contatos** e inserir alguns dados na tabela, siga as instruções no tutorial [Apache HBase: Comece a usar o Apache HBase no HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
-## <a name="enable-replication"></a>Habilitar replicação
+## <a name="enable-replication"></a>Habilitar a replicação
 
 As etapas a seguir mostram como chamar o script de ação de script no Portal do Azure. Para obter informações de como executar uma ação de script usando o Azure PowerShell e a CLI Clássica do Azure, confira [Personalizar clusters do HDInsight usando a ação de script](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -287,10 +287,10 @@ As etapas a seguir mostram como chamar o script de ação de script no Portal do
 4. Na parte superior da página, selecione **Enviar Novo**.
 5. Selecione ou insira as seguintes informações:
 
-   1. **Nome**: Insira **Habilitar a replicação**.
-   2. **URL do script Bash**: Digite **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
-   3. **Cabeçalho**: Verifique se essa opção está selecionada. Desmarque os outros tipos de nós.
-   4. **Parâmetros**: Os seguintes parâmetros de exemplo habilitam a replicação de todas as tabelas existentes e copiam todos os dados do cluster de origem para o cluster de destino:
+   1. **Nome**: insira **Habilitar a replicação**.
+   2. **URI do script Bash**: Enter **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
+   3. **Cabeçalho**: verifique se essa opção está selecionada. Desmarque os outros tipos de nós.
+   4. **Parâmetros**: os seguintes parâmetros de exemplo habilitam a replicação de todas as tabelas existentes e copiam todos os dados do cluster de origem para o cluster de destino:
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
@@ -301,7 +301,7 @@ As etapas a seguir mostram como chamar o script de ação de script no Portal do
 
 Argumentos necessários:
 
-|Nome|Descrição|
+|Nome|DESCRIÇÃO|
 |----|-----------|
 |-s, --src-cluster | Especifica o nome DNS do cluster HBase de origem. Por exemplo: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | Especifica o nome DNS do cluster HBase de destino (réplica). Por exemplo: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -310,7 +310,7 @@ Argumentos necessários:
 
 Argumentos opcionais:
 
-|Nome|Descrição|
+|Nome|DESCRIÇÃO|
 |----|-----------|
 |-su, --src-ambari-user | Especifica o nome de usuário administrador para Ambari no cluster HBase de origem. O valor padrão é **admin**. |
 |-du, --dst-ambari-user | Especifica o nome de usuário administrador para Ambari no cluster HBase de destino. O valor padrão é **admin**. |
@@ -386,7 +386,7 @@ A seção `print_usage()` do [script](https://raw.githubusercontent.com/Azure/hb
 - **Desabilitar a replicação em todas as tabelas**:
 
         -m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all
-  ou
+  ou o
 
         --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 

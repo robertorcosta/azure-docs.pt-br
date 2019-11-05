@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: f9d4b933bc9c6e11dde8168d9797a1b6196e6f47
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 59f2db8ec4dd8affe1c87ca2bb85a7ff7b8a4d7c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170692"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485384"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciência de dados com uma Máquina Virtual de Ciência de Dados do Linux no Azure
 
@@ -31,8 +31,8 @@ Para poder usar um DSVM do Linux, você deve ter os seguintes pré-requisitos:
 * **Assinatura do Azure**. Para obter uma assinatura do Azure, consulte [criar sua conta gratuita do Azure hoje mesmo](https://azure.microsoft.com/free/).
 * [**Máquina virtual de ciência de dados Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Para obter informações sobre como provisionar a máquina virtual, consulte [provisionar o Linux máquina virtual de ciência de dados](linux-dsvm-intro.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) instalado em seu computador com uma sessão aberta do Xfce. Para obter mais informações, consulte [instalar e configurar o cliente X2Go](linux-dsvm-intro.md#x2go).
-* Para uma experiência de rolagem mais suave, no navegador da Web Firefox do DSVM, alterne `gfx.xrender.enabled` o `about:config`sinalizador para. [Saiba mais](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere também definir `mousewheel.enable_pixel_scrolling` como `False`. [Saiba mais](https://support.mozilla.org/questions/981140).
-* **Azure Machine Learning conta**. Se você ainda não tiver uma, Inscreva-se para uma nova conta no [Azure Machine Learning Home Page](https://studio.azureml.net/). Você pode experimentá-lo gratuitamente para ajudá-lo a começar.
+* Para uma experiência de rolagem mais suave, no navegador da Web Firefox do DSVM, alterne o sinalizador `gfx.xrender.enabled` em `about:config`. [Saiba mais](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Além disso, considere definir `mousewheel.enable_pixel_scrolling` como `False`. [Saiba mais](https://support.mozilla.org/questions/981140).
+* **Azure Machine Learning conta**. Se você ainda não tiver uma, Inscreva-se para uma nova conta no [Azure Machine Learning Home Page](https://azure.microsoft.com/free/services/machine-learning//).
 
 ## <a name="download-the-spambase-dataset"></a>Baixar o conjunto de dados baseado em spam
 
@@ -58,8 +58,8 @@ Em seguida, concatene os dois arquivos juntos:
 
 O conjunto de os vários tipos de estatísticas para cada email:
 
-* Colunas como **\_freq\_Word *Word*** indicam a porcentagem de palavras no email que correspondem à *palavra*. Por exemplo, se **Word\_freq\_Make** for **1**, 1% de todas as palavras no email foram *feitas*.
-* Colunas como **Char\_freq\_ *Char*** indicam a porcentagem de todos os caracteres no email que são *Char*.
+* Colunas como o **word\_freq\_* Word*** indicam a porcentagem de palavras no email que correspondem à *palavra*. Por exemplo, se o **word\_freq\_Make** for **1**, então 1% de todas as palavras no email foram *feitas*.
+* Colunas como **char\_freq\_* Char*** indicam a porcentagem de todos os caracteres no email que são *Char*.
 * **capital\_run\_length\_longest** é o maior comprimento de uma sequência de letras maiúsculas.
 * **capital\_run\_length\_average** é a duração média de todas as sequências de letras maiúsculas.
 * **capital\_run\_length\_total** é o comprimento total de todas as sequências de letras maiúsculas.
@@ -139,7 +139,7 @@ Em seguida, crie uma árvore de decisão para classificar os emails:
     plot(model.rpart)
     text(model.rpart)
 
-Aqui está o resultado:
+Eis o resultado:
 
 ![Um diagrama da árvore de decisão que é criada](./media/linux-dsvm-walkthrough/decision-tree.png)
 
@@ -172,11 +172,11 @@ Também tentaremos um modelo de floresta aleatória. As florestas aleatórias tr
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-machine-learning-studio"></a>Implantar um modelo para Azure Machine Learning Studio
+## <a name="deploy-a-model-to-azure-machine-learning-studio-classic"></a>Implantar um modelo para Azure Machine Learning Studio (clássico)
 
-O [Azure Machine Learning Studio](https://studio.azureml.net/) é um serviço de nuvem que facilita criar e implantar modelos de análise preditiva. Um bom recurso do Azure Machine Learning Studio é a sua capacidade de publicar qualquer função do R como um serviço Web. O pacote R Azure Machine Learning Studio facilita a implantação, diretamente da sessão do R no DSVM.
+[Azure Machine Learning Studio (clássico)](https://studio.azureml.net/) é um serviço de nuvem que torna mais fácil criar e implantar modelos de análise preditiva. Um recurso interessante da versão clássica do Azure Machine Learning Studio é sua capacidade de publicar qualquer função do R como um serviço Web. O pacote R Azure Machine Learning Studio facilita a implantação, diretamente da sessão do R no DSVM.
 
-Para implantar o código da árvore de decisão da seção anterior, entre no Azure Machine Learning Studio. Você precisa de sua ID do workspace e de um token de autorização para entrar. Para localizar esses valores e inicializar as variáveis de Azure Machine Learning com elas, conclua estas etapas:
+Para implantar o código da árvore de decisão da seção anterior, entre no Azure Machine Learning Studio (clássico). Você precisa de sua ID do workspace e de um token de autorização para entrar. Para localizar esses valores e inicializar as variáveis de Azure Machine Learning com elas, conclua estas etapas:
 
 1. No menu à esquerda, selecione **configurações**. Observe o valor da **ID do espaço de trabalho**.
 
@@ -229,13 +229,13 @@ Para implantar o código da árvore de decisão da seção anterior, entre no Az
 
 Além dos exemplos baseados em estrutura, um conjunto de orientações abrangentes também é fornecido. Essas orientações passo a passo ajudam a iniciar o desenvolvimento de aplicativos de aprendizagem profunda em domínios como reconhecimento vocal/texto e imagem.
 
-- [Executando redes neurais em estruturas diferentes](https://github.com/ilkarman/DeepLearningFrameworks): Uma explicação abrangente que mostra como migrar o código de uma estrutura para outra. Ele também demonstra como comparar o desempenho do modelo e do tempo de execução entre as estruturas. 
+- [Executando redes neurais em diferentes estruturas](https://github.com/ilkarman/DeepLearningFrameworks): uma explicação abrangente que mostra como migrar o código de uma estrutura para outra. Ele também demonstra como comparar o desempenho do modelo e do tempo de execução entre as estruturas. 
 
-- [Um guia de instruções para a criação de uma solução de ponta a ponta para detectar produtos em imagens](https://github.com/Azure/cortana-intelligence-product-detection-from-images): a detecção de imagens é uma técnica que pode localizar e classificar objetos em imagens. A tecnologia tem o potencial de trazer enormes recompensas em muitos domínios de negócios da vida real. Por exemplo, os varejistas podem usar essa técnica para determinar qual produto um cliente retirou da prateleira. Por sua vez, essas informações ajudam as lojas a gerenciar o estoque do produtos. 
+- [Um guia de instruções para a criação de uma solução de ponta a ponta para detectar produtos em imagens](https://github.com/Azure/cortana-intelligence-product-detection-from-images): A detecção de imagem é uma técnica que pode localizar e classificar objetos dentro de imagens. A tecnologia tem o potencial de trazer enormes recompensas em muitos domínios de negócios da vida real. Por exemplo, os varejistas podem usar essa técnica para determinar qual produto um cliente retirou da prateleira. Por sua vez, essas informações ajudam as lojas a gerenciar o estoque do produtos. 
 
 - [Aprendizado profundo de áudio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): Este tutorial mostra como treinar um modelo de aprendizado profundo para detecção de eventos de áudio no conjunto de informações de [sons urbanas](https://urbansounddataset.weebly.com/). O tutorial fornece uma visão geral de como trabalhar com dados de áudio.
 
-- [Classificação de documentos de texto](https://github.com/anargyri/lstm_han): Este passo a passo demonstra como criar e treinar duas arquiteturas de rede neural diferentes: Rede de atenção hierárquica e memória de longo prazo (LSTM). Essas redes neurais usam a API Keras para aprendizagem profunda para classificar documentos de texto. Keras é um front-end para três das estruturas de aprendizado profundo mais populares: Microsoft Cognitive Toolkit, TensorFlow e Theano.
+- [Classificação de documentos de texto](https://github.com/anargyri/lstm_han): Este tutorial demonstra como criar e treinar duas arquiteturas de rede neural diferentes: rede de atenção hierárquica e memória de longo prazo (LSTM). Essas redes neurais usam a API Keras para aprendizagem profunda para classificar documentos de texto. Keras é um front-end para três dentre as estruturas mais populares de aprendizagem profunda: Microsoft Cognitive Toolkit, TensorFlow e Theano.
 
 ## <a name="other-tools"></a>Outras ferramentas
 
@@ -322,17 +322,17 @@ Para publicar o modelo para Azure Machine Learning:
 
 ### <a name="jupyterhub"></a>JupyterHub
 
-A distribuição Anaconda no DSVM vem com um Jupyter Notebook, um ambiente de plataforma cruzada para compartilhar código e análise Python, R ou Julia. O Jupyter Notebook é acessado por meio de JupyterHub. Você entra usando seu nome de usuário e senha do Linux local em https://\<DSVM nome DNS ou endereço\>IP: 8000/. Todos os arquivos de configuração para JupyterHub são encontrados em/etc/jupyterhub.
+A distribuição Anaconda no DSVM vem com um Jupyter Notebook, um ambiente de plataforma cruzada para compartilhar código e análise Python, R ou Julia. O Jupyter Notebook é acessado por meio de JupyterHub. Você entra usando seu nome de usuário e senha do Linux local em https://\<DSVM nome DNS ou endereço IP\>: 8000/. Todos os arquivos de configuração para JupyterHub são encontrados em/etc/jupyterhub.
 
 > [!NOTE]
-> Para usar o Gerenciador de pacotes do Python ( `pip` por meio do comando) de um Jupyter Notebook no kernel atual, use este comando na célula de código:
+> Para usar o Gerenciador de pacotes do Python (por meio do comando `pip`) de um Jupyter Notebook no kernel atual, use este comando na célula de código:
 >
 >   ```python
 >    import sys
 >    ! {sys.executable} -m pip install numpy -y
 >   ```
 > 
-> Para usar o instalador Conda (por meio `conda` do comando) de um Jupyter Notebook no kernel atual, use este comando em uma célula de código:
+> Para usar o instalador Conda (por meio do comando `conda`) de um Jupyter Notebook no kernel atual, use este comando em uma célula de código:
 >
 >   ```python
 >    import sys
@@ -352,7 +352,7 @@ Vários blocos de anotações de exemplo já estão instalados no DSVM:
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A*njunto *t*ool *t*o *L*ganhe *E*Earn) é uma ferramenta gráfica do R para Data Mining. O Rattle tem uma interface intuitiva que torna mais fácil carregar, explorar e transformar dados e criar e avaliar modelos. [Rattle Uma GUI de mineração de dados](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) para R fornece instruções que demonstram os recursos do Rattle.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A*njunto *t*ool *t*o *L*ganhe *E*Earn) é uma ferramenta gráfica de R para Data Mining. O Rattle tem uma interface intuitiva que torna mais fácil carregar, explorar e transformar dados e criar e avaliar modelos. [Rattle: uma GUI de mineração de dados para R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fornece instruções que demonstram os recursos do Rattle.
 
 Instale e inicie o Rattle executando estes comandos:
 
@@ -375,7 +375,7 @@ Para carregar e configurar o conjunto de dados:
 Para explorar os dados:
 
 1. Selecione a guia **Explorar** .
-1. Para ver informações sobre os tipos de variáveis e algumas estatísticas de resumo, selecione**executar** **Resumo** > .
+1. Para ver informações sobre os tipos de variáveis e algumas estatísticas de resumo, selecione **resumo** > **executar**.
 1. Para exibir outros tipos de estatísticas sobre cada variável, selecione outras opções, como **descrever** ou **noções básicas**.
 
 Você também pode usar a guia **explorar** para gerar plotagens criteriosas. Para criar gráficos com um histograma dos dados:
@@ -423,12 +423,12 @@ Um recurso útil do Rattle é sua capacidade de executar vários métodos de apr
 1. Para **tipo**, selecione **tudo**.
 1. Selecione **Executar**.
 1. Quando o Rattle terminar de ser executado, você poderá selecionar qualquer valor de **tipo** , como **SVM**, e exibir os resultados.
-1. Você também pode comparar o desempenho dos modelos no conjunto de validação usando a guia **avaliar** . Por exemplo, a seleção **Matriz do Erro** mostra a matriz de confusão, erro geral e erro de classe média para cada modelo no conjunto de validação. Você também pode plotar curvas ROC, executar análise de sensibilidade e fazer outros tipos de avaliações de modelo.
+1. Você também pode comparar o desempenho dos modelos no conjunto de validação usando a guia **avaliar** . Por exemplo, a seleção **matriz de erros** mostra a matriz de confusão, o erro geral e o erro de classe média para cada modelo no conjunto de validação. Você também pode plotar curvas ROC, executar análise de sensibilidade e fazer outros tipos de avaliações de modelo.
 
 Quando terminar de criar modelos, selecione a guia **log** para exibir o código R que foi executado pelo Rattle durante a sessão. Você pode selecionar o botão **Exportar** para salvá-lo.
 
 > [!NOTE]
-> A versão atual do Rattle contém um bug. Para modificar o script ou usá-lo para repetir as etapas mais tarde, você deve inserir **#** um caractere na frente da *exportação deste log...* no texto do log.
+> A versão atual do Rattle contém um bug. Para modificar o script ou usá-lo para repetir as etapas mais tarde, você deve inserir um caractere de **#** na frente de *Exportar este log...* no texto do log.
 
 ### <a name="postgresql-and-squirrel-sql"></a>PostgreSQL e SQuirreL SQL
 
@@ -483,17 +483,17 @@ Agora, vamos explorar os dados e executar algumas consultas usando o SQuirreL SQ
 
 Para começar, no menu **aplicativos** , abra SQuirreL SQL. Para configurar o driver:
 
-1. Selecione**drivers de exibição**do **Windows** > .
+1. Selecione Drivers de **exibição**do **Windows** > .
 1. Clique com o botão direito do mouse em **PostgreSQL** e selecione **Modificar driver**.
-1. Selecione **caminho** > de classe extra**Adicionar**.
+1. Selecione **caminho de classe Extra** > **Adicionar**.
 1. Para **nome do arquivo**, insira **/usr/share/java/jdbcdrivers/PostgreSQL-9.4.1208.jre6.jar**.
 1. Selecione **Abrir**.
 1. Selecione **listar drivers**. Para **nome da classe**, selecione **org. PostgreSQL. Driver**e, em seguida, selecione **OK**.
 
 Para configurar a conexão com o servidor local:
 
-1. Selecione**aliases de exibição** do **Windows** > .
-1. Selecione o **+** botão para criar um novo alias. Para o novo nome de alias, insira **banco de dados de spam**. 
+1. Selecione aliases de **exibição** do **Windows** > .
+1. Selecione o botão **+** para criar um novo alias. Para o novo nome de alias, insira **banco de dados de spam**. 
 1. Para **Driver**, selecione **PostgreSQL**.
 1. Define a URL como **jdbc:postgresql://localhost/spam**.
 1. Insira seu nome de usuário e sua senha.

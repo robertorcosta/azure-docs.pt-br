@@ -1,7 +1,7 @@
 ---
 title: Perguntas comuns-perguntas frequentes
 titleSuffix: Microsoft Genomics
-description: Respostas a perguntas frequentes que os clientes fazem sobre o Genomics Microsoft.
+description: Obtenha respostas para perguntas comuns relacionadas ao uso do serviço de Microsoft Genomics, incluindo informações técnicas, SLA e cobrança.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,14 +9,14 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: 80a656ee687b71fcaf09a02d70d0a5a4300186bc
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 4a2b66f95467e7f6cb99f632548351f827e259c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249240"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476426"
 ---
-# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Perguntas comuns
+# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Perguntas frequentes
 
 Este artigo lista as principais dúvidas que você pode ter relacionadas ao Microsoft Genomics. Para obter mais informações sobre o serviço do Microsoft Genomics, consulte [O que é Microsoft Genomics?](overview-what-is-genomics.md). Para obter mais informações sobre Solução de problemas, consulte nosso [Guia de solução de problemas](troubleshooting-guide-genomics.md). 
 

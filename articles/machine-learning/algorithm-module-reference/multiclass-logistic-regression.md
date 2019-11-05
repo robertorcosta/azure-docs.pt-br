@@ -1,24 +1,24 @@
 ---
 title: 'Regressão logística multiclasse: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo regressão logística multiclasse no serviço Azure Machine Learning para criar um modelo de regressão logística que pode ser usado para prever vários valores.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo regressão logística multiclasse no Azure Machine Learning para criar um modelo de regressão logística que pode ser usado para prever vários valores.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: d31329d6d45fd9f137bd6d57a638915e0833ee4a
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 9d6e6c11f0e2a8fb7e08385f7abf26fb4a8d21c8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692749"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465974"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Módulo de regressão logística multiclasse
 
-Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
 Use este módulo para criar um modelo de regressão logística que pode ser usado para prever vários valores.
 
@@ -65,6 +65,6 @@ Em regressão logística multiclasse, o classificador pode ser usado para prever
 Após a conclusão do treinamento, você pode ver um resumo dos parâmetros do modelo, junto com os pesos do recurso aprendidos do treinamento, clique com o botão direito do mouse na saída do módulo [modelo](./train-model.md) de treinamento e selecione **Visualizar**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

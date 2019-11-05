@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: b962fc32cdcde0509cfa60d105022bb208633ae3
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e9ad7c52af20762633c710b39a64fbebf0cf6213
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639294"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487735"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Lote de teste com 1.000 declarações no portal do LUIS
 
-O teste em lote valida o modelo treinado [ativo](luis-concept-version.md#active-version) para medir a precisão da previsão. Um teste em lote ajuda a exibir a precisão de cada tentativa e entidade em seu modelo treinado atual, exibindo os resultados com um gráfico. Examine os resultados do teste em lote para tomar a devida ação para melhorar a precisão, como adicionar mais declarações de exemplo a uma intenção, caso seu aplicativo falhe com frequência em identificar a intenção correta.
+O teste em lotes valida sua versão treinada ativa para medir sua precisão de previsão. Um teste em lote ajuda a exibir a precisão de cada tentativa e entidade em sua versão ativa, exibindo os resultados com um gráfico. Examine os resultados do teste em lotes para tomar as medidas apropriadas para melhorar a precisão, como adicionar mais exemplos de declarações a uma intenção se seu aplicativo freqüentemente falhar ao identificar a intenção correta ou rotular entidades dentro do expressão.
 
 ## <a name="group-data-for-batch-test"></a>Agrupar dados para o teste em lote
 
@@ -110,7 +110,7 @@ LUIS rastreia o estado do último teste de cada conjunto de dados. Isso inclui o
 
 <a name="sections-of-the-results-chart"></a>
 
-## <a name="batch-test-results"></a>Resultados do teste em lote
+## <a name="batch-test-results"></a>Resultados de teste de lote
 
 O resultado do teste em lote é um gráfico de dispersão, conhecido como matriz de erro. Esse gráfico é uma comparação de 4 vias das declarações no arquivo de lote, intenção prevista do modelo atual e entidades. 
 
@@ -120,7 +120,7 @@ Os pontos de dados nas seções **Falso Positivo** e **Falso Negativo** indicam 
 
 Esse gráfico ajuda a encontrar as declarações que o LUIS prevê incorretamente com base em seu treinamento atual. Os resultados são exibidos por região do gráfico. Selecione os pontos individuais no gráfico para examinar as informações de declaração ou selecione o nome da região para examinar os resultados da declaração nessa região.
 
-![Teste em lote](./media/luis-concept-batch-test/batch-testing.png)
+![Teste de lote](./media/luis-concept-batch-test/batch-testing.png)
 
 ## <a name="errors-in-the-results"></a>Erros nos resultados
 

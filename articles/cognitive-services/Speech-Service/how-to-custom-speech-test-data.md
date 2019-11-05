@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b18e1b755b4e1339bf00380d8228fc28e355d3e1
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 577a76b628e40b7651345698a46cba255b16a828
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802505"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464550"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
@@ -27,9 +27,9 @@ Esta tabela lista os tipos de dados aceitos, quando cada tipo de dados deve ser 
 
 | Tipo de dados | Uso de testes | Quantidade | Usado para treinamento | Quantidade |
 |-----------|-----------------|----------|-------------------|----------|
-| [Áudio](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | N/a |
+| [Áudio](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | n/a |
 | [Áudio + transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5-5 horas de áudio | Sim | 1 a 1.000 horas de áudio |
-| [Texto relacionado](#related-text-data-for-training) | Não | N/a | Sim | 1-200 MB de texto relacionado |
+| [Texto relacionado](#related-text-data-for-training) | Não | n/a | Sim | 1-200 MB de texto relacionado |
 
 Os arquivos devem ser agrupados por tipo em um conjunto de um e carregados como um arquivo zip. Cada conjunto de dados só pode conter um único tipo de dado.
 
@@ -55,7 +55,7 @@ Use esta tabela para garantir que os arquivos de áudio estejam formatados corre
 | Propriedade | Valor |
 |----------|-------|
 | Formato de arquivo | RIFF (WAV) |
-| Taxa de amostra | 8\.000 Hz ou 16.000 Hz |
+| Taxa de amostragem | 8\.000 Hz ou 16.000 Hz |
 | Canais | 1 (mono) |
 | Comprimento máximo por áudio | 2 horas |
 | Formato de exemplo | PCM, 16 bits |
@@ -64,7 +64,7 @@ Use esta tabela para garantir que os arquivos de áudio estejam formatados corre
 
 Se o seu áudio não atender a essas propriedades ou se você quiser verificar se ele faz isso, sugerimos baixar o [Sox](http://sox.sourceforge.net) para verificar ou converter o áudio. Abaixo estão alguns exemplos de como cada uma dessas atividades pode ser feita por meio da linha de comando:
 
-| Atividade | Descrição | Comando Sox |
+| Atividade | DESCRIÇÃO | Comando Sox |
 |----------|-------------|-------------|
 | Verificar o formato de áudio | Use este comando para verificar o formato do arquivo de áudio. | `sox --i <filename>` |
 | Converter formato de áudio | Use este comando para converter o arquivo de áudio em um único canal, 16 bits, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
@@ -76,7 +76,7 @@ Para medir a precisão da precisão de fala para texto da Microsoft ao processar
 | Propriedade | Valor |
 |----------|-------|
 | Formato de arquivo | RIFF (WAV) |
-| Taxa de amostra | 8\.000 Hz ou 16.000 Hz |
+| Taxa de amostragem | 8\.000 Hz ou 16.000 Hz |
 | Canais | 1 (mono) |
 | Comprimento máximo por áudio | 60 s |
 | Formato de exemplo | PCM, 16 bits |
@@ -94,7 +94,7 @@ Para resolver problemas como exclusão ou substituição de palavras, uma quanti
 > [!NOTE]
 > A transcrição deve ser codificada como BOM (marca de ordem de byte) UTF-8.
 
-As transcrições são normalizadas para texto para processamento pelo sistema. No entanto, há algumas normalizações importantes que devem ser executadas pelo usuário _antes_ de carregar os dados para o Serviço de Fala Personalizado. Para o idioma apropriado a ser usado ao preparar suas transcrições, consulte [como criar uma transcrição rotulada por pessoas](how-to-custom-speech-human-labeled-transcriptions.md)
+As transcrições são normalizadas para texto para processamento pelo sistema. No entanto, há algumas normalizações importantes que devem ser feitas pelo usuário _antes_ de carregar os dados no Speech Studio. Para o idioma apropriado a ser usado ao preparar suas transcrições, consulte [como criar uma transcrição rotulada por pessoas](how-to-custom-speech-human-labeled-transcriptions.md)
 
 Depois de coletar os arquivos de áudio e as transcrições correspondentes, eles devem ser empacotados como um único arquivo. zip antes de carregar para o [portal de fala personalizada](https://speech.microsoft.com/customspeech). Este é um conjunto de exemplo com três arquivos de áudio e um arquivo de transcrição com rótulo humano:
 
@@ -148,10 +148,10 @@ O formulário falado é a seqüência fonética escrita. Ele pode ser composto p
 
 A pronúncia personalizada está disponível em inglês (en-US) e alemão (de-DE). Esta tabela mostra os caracteres com suporte por idioma:
 
-| Idioma | Localidade | Personagens |
+| idioma | Localidade | Caracteres |
 |----------|--------|------------|
-| Inglês | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
-| Alemão | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Inglês | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, p, r, s, t, u, v, w, x, y, z |
+| Alemão | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, p, r, s, t, u, v, w, x, y, z |
 
 Use esta tabela para garantir que o arquivo de dados relacionado para pronúncias esteja formatado corretamente. Os arquivos de pronúncia são pequenos e não devem exceder alguns KBs.
 

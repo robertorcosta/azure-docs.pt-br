@@ -1,5 +1,5 @@
 ---
-title: Tentativas-LUIS
+title: Intenções e entidades-LUIS
 titleSuffix: Azure Cognitive Services
 description: Uma única intenção representa uma tarefa ou ação que o usuário deseja executar. É uma finalidade ou uma meta expressa no enunciado de um usuário. Defina um conjunto de intenções que corresponda às ações que os usuários desejem executar em seu aplicativo.
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: bb7fa9d930f4c1ab3c241048804060e17fe5a8e4
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 3d2895fa8d45ad594963d3f26cbe04fd968f5fcc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619924"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487532"
 ---
-# <a name="concepts-about-intents-in-your-luis-app"></a>Conceitos sobre intenções em seu aplicativo LUIS
+# <a name="intents-in-your-luis-app"></a>Tentativas em seu aplicativo LUIS
 
 Uma intenção representa uma tarefa ou ação que o usuário deseja executar. É uma finalidade ou meta expressa na [declaração](luis-concept-utterance.md) de um usuário.
 
@@ -31,55 +31,45 @@ Intenções do aplicativo de viagem   |   Exemplo de enunciados   |
  CheckWeather | "Como está o clima em Boston?" <br/> "Mostre-me a previsão para este fim de semana" |
  Nenhum         | "Encontre uma receita de biscoitos para mim"<br>"Os Lakers venceram?" |
 
-Todos os aplicativos vêm com a intenção predefinida, "[None](#none-intent-is-fallback-for-app)", que é a tentativa de fallback. 
+Todos os aplicativos vêm com a intenção predefinida, "[None](#none-intent)", que é a tentativa de fallback. 
 
 ## <a name="prebuilt-domains-provide-intents"></a>Domínios predefinidos fornecem intenções
-Além das intenções que você define, é possível usar intenções predefinidas de um dos domínios predefinidos. Para obter mais informações, confira [Usar domínios predefinidos em aplicativos LUIS](luis-how-to-use-prebuilt-domains.md) para saber como personalizar as intenções de um domínio predefinido para uso em seu aplicativo.
+Além de tentativas que você define, você pode usar tentativas predefinidas de um dos [domínios predefinidos](luis-how-to-use-prebuilt-domains.md). 
 
 ## <a name="return-all-intents-scores"></a>Retornar pontuações de todas as intenções
-Atribua uma declaração a uma única intenção. Quando o LUIS recebe uma declaração no ponto de extremidade, ele retorna a intenção principal para essa declaração. Se desejar as pontuações de todas as intenções para a declaração, será possível fornecer o sinalizador `verbose=true` na cadeia de caracteres de consulta da [chamada de ponto de extremidade](https://aka.ms/v1-endpoint-api-docs) de API. 
+Atribua uma declaração a uma única intenção. Quando LUIS recebe um expressão no ponto de extremidade, por padrão, ele retorna a principal intenção desse expressão. 
+
+Se você quiser as pontuações para todas as intenções para o expressão, poderá fornecer um sinalizador na cadeia de caracteres de consulta da API de previsão. 
+
+|Versão da API de previsão|Sinalizador|
+|--|--|
+|V2|`verbose=true`|
+|V3|`show-all-intents=true`|
 
 ## <a name="intent-compared-to-entity"></a>Intenção comparada com a entidade
-A intenção representa a ação que o chatbot deve executar para o usuário e baseia-se na declaração inteira. A entidade representa palavras ou frases contidas dentro da declaração. Uma declaração pode ter apenas uma intenção de pontuação principal, mas pode ter muitas entidades. 
+A intenção representa a ação que o bot deve tomar para o usuário e se baseia em todo o expressão. Uma declaração pode ter apenas uma intenção de pontuação principal, mas pode ter muitas entidades. 
 
 <a name="how-do-intents-relate-to-entities"></a>
 
-Crie uma intenção quando a _intenção_ do usuário dispararia uma ação em seu aplicativo cliente, como uma chamada para a função checkweather (). Em seguida, crie uma entidade para representar os parâmetros necessários para executar a ação. 
+Crie uma intenção quando a _intenção_ do usuário dispararia uma ação em seu aplicativo cliente, como uma chamada para a função checkweather (). Em seguida, crie entidades para representar os parâmetros necessários para executar a ação. 
 
-|Intenção de exemplo   | Entidade | Entidade em declarações de exemplo   | 
+|Intenção   | Entidade | Declaração de exemplo   | 
 |------------------|------------------------------|------------------------------|
 | CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | Como está o clima em `Seattle` `tomorrow`? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Mostre-me a previsão para `this weekend` | 
 ||||
 
-## <a name="custom-intents"></a>Intenções personalizadas
-
-[Declarações](luis-concept-utterance.md) com intenções semelhantes correspondem a uma única intenção. As declarações em sua intenção podem usar qualquer [entidade](luis-concept-entity-types.md) no aplicativo, uma vez que as entidades não são específicas para a intenção. 
-
 ## <a name="prebuilt-domain-intents"></a>Intenções de domínio predefinidas
 
-[Domínios predefinidos](luis-how-to-use-prebuilt-domains.md) têm intenções com declarações.  
+[Domínios pré-criados](luis-how-to-use-prebuilt-domains.md) fornecem intenções com declarações. 
 
 ## <a name="none-intent"></a>Intenção None
 
-A intenção **None** é importante para todos os aplicativos e não deve ter nenhum declarações.
+A intenção **None** é criada, mas deixada vazia de propósito. A intenção **None** é uma intenção necessária e não pode ser excluída nem renomeada. Preencha-a com declarações que estejam fora de seu domínio.
 
-### <a name="none-intent-is-fallback-for-app"></a>A intenção Nenhum é fallback do aplicativo
-A intenção **Nenhum** é uma intenção de fallback ou que captura tudo. Ela é usada para ensinar ao LUIS declarações que não são importantes no domínio de aplicativo (área de assunto). A intenção **Nenhum** deve ter entre 10 e 20 por cento das declarações totais no aplicativo. Não deixe Nenhum vazio. 
+A intenção **None** é a intenção de fallback, importante em todos os aplicativos e deve ter 10% do total de declarações. Ela é usada para ensinar ao LUIS declarações que não são importantes no domínio de aplicativo (área de assunto). Se você não adicionar nenhuma declaração para a intenção **None**, o LUIS forçará uma declaração que está fora do domínio para uma das intenções do domínio. Isso distorcerá as pontuações de previsão ensinando ao LUIS a intenção incorreta para a declaração. 
 
-### <a name="none-intent-helps-conversation-direction"></a>A intenção Nenhum ajuda a direção da conversa
-Quando uma declaração é prevista como a intenção None e retornada para o chatbot com essa previsão, o bot pode fazer mais perguntas ou fornecer um menu para orientar o usuário em escolhas válidas no chatbot. 
-
-### <a name="no-utterances-in-none-intent-skews-predictions"></a>Nenhuma declaração na intenção None distorce as previsões
-Se você não adicionar nenhuma declaração para a intenção **None**, o LUIS forçará uma declaração que está fora do domínio para uma das intenções do domínio. Isso distorcerá as pontuações de previsão ensinando ao LUIS a intenção incorreta para a declaração. 
-
-### <a name="add-utterances-to-the-none-intent"></a>Adicionar declarações à intenção None
-A intenção **None** é criada, mas deixada vazia de propósito. Preencha-a com declarações que estejam fora de seu domínio. Uma boa declaração para **None** é algo completamente fora do aplicativo, assim como o setor ao qual o aplicativo atende. Por exemplo, um aplicativo de viagem não deve usar nenhuma declaração para **None** que pode se relacionar a viagem, como reservas, cobranças, alimentação, hospedagem, carga e entretenimento durante o voo. 
-
-Que tipo de declarações são deixadas para a intenção None? Comece com algo específico que seu bot não deve responder, como "Que tipo de dinossauro tem dentes azuis?" Essa é uma pergunta muito específica sem relação com um aplicativo de viagem. 
-
-### <a name="none-is-a-required-intent"></a>None é uma intenção necessária
-A intenção **None** é uma intenção necessária e não pode ser excluída nem renomeada.
+Quando um expressão é previsto como a intenção None, o aplicativo cliente pode fazer mais perguntas ou fornecer um menu para direcionar o usuário a opções válidas. 
 
 ## <a name="negative-intentions"></a>Intenções negativas 
 Se desejar determinar intenções negativas e positivas, como "Eu **quero** um carro" e "Eu **não** quero um carro", será possível criar duas intenções (uma positiva e uma negativa) e adicionar declarações adequadas para cada uma. Ou é possível criar uma única intenção e marcar os dois termos positivos e negativos diferentes como uma entidade.  
@@ -109,8 +99,6 @@ Saiba como combinar aplicativos LUIS e QnA Maker com o [modelo de expedição](l
 
 ### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Solicite ajuda para aplicativos com quantidades significativas de intenções
 Se a redução do número de intenções ou a divisão das suas intenções em vários aplicativos não funcionar para você, contate o suporte. Se a assinatura do Azure incluir serviços de suporte, contate o [suporte técnico do Azure](https://azure.microsoft.com/support/options/). 
-
-
 
 ## <a name="next-steps"></a>Próximas etapas
 
