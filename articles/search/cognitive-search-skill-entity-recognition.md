@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 08e9656e3b899cbb6d4de733696175e8f31b0e66
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 559d8cb25624c1d8bebb2969fbeeb80bdcc020e6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792003"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479754"
 ---
 #   <a name="entity-recognition-cognitive-skill"></a>Habilidades cognitivas de reconhecimento de entidade
 
@@ -35,37 +35,36 @@ O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido p
 
 Os parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
 
-| Nome do parâmetro     | Descrição |
+| Nome do parâmetro     | DESCRIÇÃO |
 |--------------------|-------------|
 | Categorias    | Matriz de categorias que devem ser extraídas.  Os tipos possíveis de categoria: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se nenhuma categoria for fornecida, todos os tipos são retornados.|
 |defaultLanguageCode |  Código de idioma do texto de entrada. Há suporte para vários idiomas: `de, en, es, fr, it`|
-|minimumPrecision | Não utilizado. Reservado para uso futuro. |
-|includeTypelessEntities | Quando configurado como verdadeiro, se o texto contiver uma entidade conhecida, mas não puder ser categorizado em uma das categorias compatíveis, ela será retornada como parte do campo de saída complexa `"entities"`. 
-Essas são entidades que são bem conhecidas, mas não classificadas como parte das "categorias" com suporte atual. Por exemplo, "Windows 10" é uma entidade bem conhecida (um produto), mas "produtos" não estão nas categorias com suporte atualmente. O padrão é `false` |
+|minimumPrecision | Um valor entre 0 e 1. Se a pontuação de confiança (na saída de `namedEntities`) for menor que esse valor, a entidade não será retornada. O padrão é 0. |
+|includeTypelessEntities | Defina como `true` se você quiser reconhecer entidades conhecidas que não se ajustam às categorias atuais. As entidades reconhecidas são retornadas no campo `entities` saída complexa. Por exemplo, "Windows 10" é uma entidade conhecida (um produto), mas como "produtos" não é uma categoria com suporte, essa entidade seria incluída no campo de saída de entidades. O padrão é `false` |
 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Descrição                   |
+| Nome de entrada      | DESCRIÇÃO                   |
 |---------------|-------------------------------|
 | languageCode  | Opcional. O padrão é `"en"`.  |
-| text          | O texto para analisar.          |
+| texto          | O texto para analisar.          |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
 > [!NOTE]
 > Não há suporte para todas as categorias de entidade em todos os idiomas. Somente _en_, _es_ dão suporte à extração dos tipos `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`.
 
-| Nome de saída     | Descrição                   |
+| Nome de saída     | DESCRIÇÃO                   |
 |---------------|-------------------------------|
 | pessoas      | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa o nome de uma pessoa. |
-| Locais  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa um local. |
+| locais  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa um local. |
 | organizações  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa uma organização. |
 | quantidades  | Um array de strings onde cada cadeia de caracteres representa uma quantidade. |
 | dateTimes  | Uma matriz de cadeia de caracteres onde cada cadeia de caracteres representa um valor DateTime (como aparece no texto). |
 | urls | Uma matriz de cadeia de caracteres onde cada cadeia de caracteres representa um URL |
 | e-mails | Uma matriz de cadeia de caracteres onde cada cadeia de caracteres representa um e-mail |
-| namedEntities | Uma matriz de tipos complexos que contêm os seguintes campos: <ul><li>category</li> <li>valor (o nome real da entidade)</li><li>deslocamento (o local onde ele foi encontrado no texto)</li><li>confiança (não usado por enquanto. Será definido como um valor de -1)</li></ul> |
+| namedEntities | Uma matriz de tipos complexos que contêm os seguintes campos: <ul><li>categoria</li> <li>valor (o nome real da entidade)</li><li>deslocamento (o local onde ele foi encontrado no texto)</li><li>confiança (maior valor significa que é mais uma entidade real)</li></ul> |
 | entidades | Uma matriz de tipos complexos que contém informações ricas sobre as entidades extraídas do texto, com os seguintes campos <ul><li> nome (o nome da entidade real. Isso representa um formulário "normalizado")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (um link para a página da Wikipedia para a entidade)</li><li>bingId</li><li>tipo (a categoria da entidade reconhecida)</li><li>subType (disponível apenas para algumas categorias; oferece uma exibição mais granular do tipo de entidade)</li><li> correspondências (uma coleção complexa que contém)<ul><li>texto (texto bruto para a entidade)</li><li>deslocamento (o local onde ele foi encontrado)</li><li>comprimento (o comprimento do texto bruto de entidade)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Definição de exemplo
@@ -76,6 +75,7 @@ Essas são entidades que são bem conhecidas, mas não classificadas como parte 
     "categories": [ "Person", "Email"],
     "defaultLanguageCode": "en",
     "includeTypelessEntities": true,
+    "minimumPrecision": 0.5,
     "inputs": [
       {
         "name": "text",
@@ -131,7 +131,7 @@ Essas são entidades que são bem conhecidas, mas não classificadas como parte 
             "category":"Person",
             "value": "John Smith",
             "offset": 35,
-            "confidence": -1
+            "confidence": 0.98
           }
         ],
         "entities":  
@@ -191,7 +191,7 @@ Essas são entidades que são bem conhecidas, mas não classificadas como parte 
 ## <a name="error-cases"></a>Casos de erro
 Se o código do idioma do documento não for suportado, um erro será retornado e nenhuma entidade será extraída.
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Confira também
 
 + [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)

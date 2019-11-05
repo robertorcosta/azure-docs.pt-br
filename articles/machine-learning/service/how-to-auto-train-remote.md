@@ -3,22 +3,24 @@ title: Destinos de computação remotos do ML automatizado
 titleSuffix: Azure Machine Learning
 description: Saiba como criar modelos usando o aprendizado de máquina automatizado em um Azure Machine Learning de destino de computação remota com Azure Machine Learning
 services: machine-learning
-author: nacharya1
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 7/12/2019
-ms.openlocfilehash: 9eab21fe6b5269229de186a7553e11a147c1033e
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: 4276a713e62f96cc5340fc7be0e8391939d32342
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034982"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497319"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Treinar modelos com o aprendizado de máquina automatizado na nuvem
+
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 No Azure Machine Learning, você treina seu modelo em diferentes tipos de recursos de computação que gerencia. O destino de computação pode ser um computador local ou um recurso na nuvem.
 
@@ -38,9 +40,9 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Criar recurso
 
-Crie o destino AmlCompute em seu espaço de`ws`trabalho () se ele ainda não existir.
+Crie o destino AmlCompute em seu espaço de trabalho (`ws`) se ele ainda não existir.
 
-**Tempo estimado**: A criação do destino AmlCompute leva aproximadamente 5 minutos.
+**Tempo estimado**: a criação do destino AmlCompute leva aproximadamente 5 minutos.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -68,9 +70,9 @@ As restrições de nome de cluster incluem:
 
 ## <a name="access-data-using-tabulardataset-function"></a>Acessar dados usando a função TabularDataset
 
-Os X e y definidos `TabularDataset`como s, que são passados para o ml automatizado no AutoMLConfig. `from_delimited_files`Por padrão, o `infer_column_types` define como true, o que inferirá o tipo de colunas automaticamente. 
+Os X e y definidos como `TabularDataset`s, que são passados para ML automatizado no AutoMLConfig. `from_delimited_files`, por padrão, define o `infer_column_types` como true, o que inferirá o tipo de colunas automaticamente. 
 
-Se você deseja definir manualmente os tipos de coluna, pode definir o `set_column_types` argumento para definir manualmente o tipo de cada coluna. No exemplo de código a seguir, os dados vêm do pacote sklearn.
+Se você quiser definir manualmente os tipos de coluna, poderá definir o argumento `set_column_types` para definir manualmente o tipo de cada coluna. No exemplo de código a seguir, os dados vêm do pacote sklearn.
 
 ```python
 # Create a project_folder if it doesn't exist
@@ -101,7 +103,7 @@ y = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/y_train.csv'))
 
 ## <a name="create-run-configuration"></a>Criar configuração de execução
 
-Para tornar as dependências disponíveis para o script get_data. py, `RunConfiguration` defina um objeto `CondaDependencies`com definido. Use esse objeto para o `run_configuration` parâmetro no `AutoMLConfig`.
+Para tornar as dependências disponíveis para o script get_data. py, defina um objeto `RunConfiguration` com `CondaDependencies`definido. Use este objeto para o parâmetro `run_configuration` no `AutoMLConfig`.
 
 ```python
 from azureml.core.runconfig import RunConfiguration
@@ -243,12 +245,12 @@ Localize os logs na DSVM em `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
 A recuperação dos dados de explicação do modelo permite que você visualize informações detalhadas sobre os modelos para aumentar a transparência sobre o que está sendo executado no back-end. Neste exemplo, você executa explicações de modelo apenas para o modelo de melhor ajuste. Se você executar todos os modelos no pipeline, isso resultará em um tempo de execução significativo. As informações da explicação do modelo incluem:
 
-* shap_values: As informações de explicação geradas pela shap lib.
-* expected_values: O valor esperado do modelo aplicado ao conjunto de dados X_train.
-* overall_summary: Os valores de importância do recurso de nível de modelo são classificados em ordem decrescente.
-* overall_imp: Os nomes de recurso classificados na mesma ordem que no overall_summary.
-* per_class_summary: Os valores de importância do recurso de nível de classe são classificados em ordem decrescente. Disponível somente para o caso de classificação.
-* per_class_imp: Os nomes dos recursos são classificados na mesma ordem em per_class_summary. Disponível somente para o caso de classificação.
+* shap_values: as informações de explicação geradas pela shap lib.
+* expected_values: o valor esperado do modelo aplicado ao conjunto de dados X_train.
+* overall_summary: os valores de importância do recurso de nível de modelo classificados em ordem decrescente.
+* overall_imp: os nomes de recurso classificados na mesma ordem que no overall_summary.
+* per_class_summary: os valores de importância do recurso de nível de classe classificados em ordem decrescente. Disponível somente para o caso de classificação.
+* per_class_imp: os nomes de recurso classificados na mesma ordem que no per_class_summary. Disponível somente para o caso de classificação.
 
 Use o código a seguir para selecionar o melhor pipeline das iterações. O método `get_output` retorna a melhor execução e o modelo ajustado para a última invocação de ajuste.
 
@@ -278,7 +280,7 @@ A impressão das variáveis de resumo da explicação `best_run` resulta na segu
 
 ![Saída do console de explicabilidade do modelo](./media/how-to-auto-train-remote/expl-print.png)
 
-Você também pode visualizar a importância do recurso por meio da interface do usuário do widget, da interface do usuário da Web no portal do Azure ou da [página inicial do espaço de trabalho (versão prévia)](https://ml.azure.com). 
+Você também pode visualizar a importância do recurso por meio da interface do usuário do widget ou em seu espaço de trabalho no [Azure Machine Learning Studio](https://ml.azure.com). 
 
 ![UI de explicabilidade do modelo](./media/how-to-auto-train-remote/model-exp.png)
 

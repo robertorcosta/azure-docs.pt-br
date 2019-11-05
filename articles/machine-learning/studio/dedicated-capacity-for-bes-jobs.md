@@ -1,23 +1,23 @@
 ---
 title: Trabalhos do serviço de lote do Azure
-titleSuffix: Azure Machine Learning Studio
-description: Visão geral dos serviços do lote do Azure para trabalhos do Machine Learning Studio. O processamento de Pool do Lote permite criar pools nos quais é possível enviar trabalhos em lotes.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Visão geral dos serviços do lote do Azure para trabalhos Machine Learning Studio (clássico). O processamento de Pool do Lote permite criar pools nos quais é possível enviar trabalhos em lotes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 24efa3caba3918a38c09b1c921c600b117dedbc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1de7ad10a54c34595f69a543843097cee1377067
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751138"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493028"
 ---
-# <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Serviço de Lote do Azure para trabalhos do Azure Machine Learning Studio
+# <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Serviço do lote do Azure para trabalhos Azure Machine Learning Studio (clássico)
 
 O processamento em Pool do Lote do Machine Learning fornece escala gerenciada pelo cliente para o Serviço de Execução em Lotes do Azure Machine Learning. O processamento em lote clássico para o machine learning ocorre em um ambiente multilocatário, que limita o número de trabalhos simultâneos que você pode enviar e no qual os trabalhos são enfileirados na ordem primeiro a entrar, primeiro a sair. Essa incerteza significa que você não pode prever com exatidão quando seu trabalho será executado.
 
@@ -111,4 +111,4 @@ Caso você crie um Pool do Lote com 4 máquinas virtuais e o exclua após 12 hor
 
 | **Use o Processamento Pool do Lote quando**    | **Use o processamento em lotes clássico quando**  |
 |---|---|
-|Você precisar executar um grande número de trabalhos<br>Ou<br/>Você precisar saber que seus trabalho serão executados imediatamente<br/>Ou<br/>Você precisar de taxa de transferência garantida. Por exemplo, você precisa executar vários trabalhos em um determinado intervalo e deseja expandir os recursos de computação para atender às suas necessidades.    | Você estiver executando apenas alguns trabalhos<br/>e<br/> Você não precisar que os trabalhos sejam executados imediatamente |
+|Você precisar executar um grande número de trabalhos<br>ou o<br/>Você precisar saber que seus trabalho serão executados imediatamente<br/>ou o<br/>Você precisar de taxa de transferência garantida. Por exemplo, você precisa executar vários trabalhos em um determinado intervalo e deseja expandir os recursos de computação para atender às suas necessidades.    | Você estiver executando apenas alguns trabalhos<br/>e<br/> Você não precisar que os trabalhos sejam executados imediatamente |

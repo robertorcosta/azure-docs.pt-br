@@ -11,14 +11,15 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: fda6c72504a75d600931185e224bb46db03e23ed
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e9d262380a8e0769b1191673a7e00eed770f7ab2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374302"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497088"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo de Azure Machine Learning implantado como um serviço web
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 A implantação de um modelo do Azure Machine Learning como um serviço da Web cria uma API REST. Você pode enviar dados para essa API e receber a previsão retornada pelo modelo. Neste documento, saiba como criar clientes para o serviço da Web usando C#, Go, Java e Python.
 
@@ -79,9 +80,9 @@ O Azure Machine Learning fornece duas maneiras de controlar o acesso aos serviç
 |Método de autenticação|ACI|AKS|
 |---|---|---|
 |Chave|Desabilitado por padrão| Habilitado por padrão|
-|restrição| Não disponível| Desabilitado por padrão |
+|Token| Não disponível| Desabilitado por padrão |
 
-Ao enviar uma solicitação para um serviço protegido com uma chave ou token, use o cabeçalho de __autorização__ para passar a chave ou o token. A chave ou o token deve ser formatado como `Bearer <key-or-token>`, em que `<key-or-token>` é a chave ou o valor do token.
+Ao enviar uma solicitação para um serviço protegido com uma chave ou token, use o cabeçalho de __autorização__ para passar a chave ou o token. A chave ou o token deve ser formatado como `Bearer <key-or-token>`, em que `<key-or-token>` é o valor da chave ou do token.
 
 #### <a name="authentication-with-keys"></a>Autenticação com chaves
 
@@ -498,6 +499,6 @@ Para gerar um serviço Web com suporte para consumo no Power BI, o esquema deve 
 
 Depois que o serviço Web for implantado, ele será consumível de Power BI fluxos de os. [Saiba como consumir um serviço web Azure Machine Learning do Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para exibir uma arquitetura de referência para a pontuação em tempo real dos modelos de aprendizado profundo e Python, vá para o [centro de arquitetura do Azure](/azure/architecture/reference-architectures/ai/realtime-scoring-python).

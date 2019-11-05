@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: c72de809dc5818cced95be2cbd6b47308bad4f22
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
-ms.translationtype: MT
+ms.openlocfilehash: 2d8bf44f5e5e7a3f8c328a47480599f9dd18b845
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045216"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489535"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitorar execuções e métricas de experimento do Azure ML
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Aprimore o processo de criação de modelo rastreando suas experiências e monitorando métricas de execução. Neste artigo, saiba como adicionar o código de registro em log ao script de treinamento, enviar uma execução de experimento, monitorar a execução e inspecionar os resultados em Azure Machine Learning.
 
@@ -30,7 +31,7 @@ Aprimore o processo de criação de modelo rastreando suas experiências e monit
 
 As métricas a seguir podem ser adicionadas a uma execução durante o treinamento de um experimento. Para exibir uma lista mais detalhada do que pode ser acompanhado em uma execução, veja a [Documentação de referência de classe de execução](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|Type| Função do Python | Notas|
+|Tipo| Função do Python | Observações|
 |----|:----|:----|
 |Valores escalares |Função:<br>`run.log(name, value, description='')`<br><br>Exemplo:<br>run.log("accuracy", 0.95) |Registre um valor numérico ou de string para a execução com o nome dado. Registrar uma métrica em log para uma execução faz essa métrica ser armazenada no registro de execução no experimento.  Você pode registrar em log a mesma métrica várias vezes dentro de uma execução, sendo o resultado considerado um vetor dessa métrica.|
 |Listas|Função:<br>`run.log_list(name, value, description='')`<br><br>Exemplo:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Faça uma lista de valores para a execução com o nome fornecido.|
@@ -261,7 +262,7 @@ print(run.get_portal_url())
    ![Widget do notebook Jupyter para Machine Learning automatizado](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
-Para exibir mais detalhes de um pipeline, clique naquele que você gostaria de explorar na tabela, em seguida, os gráficos serão renderizados em um pop-up do portal do Azure.
+Para exibir mais detalhes de um pipeline, clique no pipeline que você gostaria de explorar na tabela e os gráficos serão renderizados em um pop-up do Azure Machine Learning Studio.
 
 ### <a name="get-log-results-upon-completion"></a>Obter resultados de log após a conclusão
 
@@ -273,22 +274,19 @@ O treinamento e o monitoramento do modelo ocorrem em segundo plano para que voc�
 Você pode exibir as métricas de um modelo treinado usando ```run.get_metrics()```. Agora você pode obter todas as métricas registradas no exemplo anterior para determinar o melhor modelo.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## <a name="view-the-experiment-in-the-azure-portal-or-your-workspace-landing-page-previewhttpsmlazurecom"></a>Exibir o experimento no portal do Azure ou na [página de aterrissagem do espaço de trabalho (visualização)](https://ml.azure.com)
+## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studiohttpsmlazurecom"></a>Exibir o experimento em seu espaço de trabalho no [Azure Machine Learning Studio](https://ml.azure.com)
 
-Quando a execução de um experimento estiver concluída, você poderá navegar até o registro de execução do experimento gravado. Você pode acessar o histórico de duas maneiras:
+Quando a execução de um experimento estiver concluída, você poderá navegar até o registro de execução do experimento gravado. Você pode acessar o histórico do [Azure Machine Learning Studio](https://ml.azure.com).
 
-* Obter a URL para a execução diretamente ```print(run.get_portal_url())```
-* Exiba os detalhes de execução enviando o nome da execução (neste caso, ```run```). Esse modo leva você ao nome, ID, tipo, status, e página de detalhes do experimento, um link para o portal do Azure e um link para a documentação.
+Navegue até a guia experimentos e selecione seu experimento. Você é levado para o painel Executar teste, no qual você pode ver as métricas e os gráficos acompanhados que são registrados para cada execução. Neste caso, registramos em log MSE e os valores alfa.
 
-O link para a execução leva você diretamente para a página de detalhes de execução no portal do Azure. Aqui, você pode ver quaisquer propriedades, métricas controladas, imagens e gráficos registrados no experimento. Neste caso, registramos em log MSE e os valores alfa.
+  ![Detalhes da execução no Azure Machine Learning Studio](./media/how-to-track-experiments/experiment-dashboard.png)
 
-  ![Detalhes de execução no portal do Azure](./media/how-to-track-experiments/run-details-page.png)
-
-Você também pode exibir quaisquer saídas ou logs para a execução, ou baixar o instantâneo do experimento que você enviou para poder compartilhar a pasta de teste com outras pessoas.
+Você pode fazer uma busca detalhada em uma execução específica para exibir suas saídas ou logs ou baixar o instantâneo do teste enviado para que você possa compartilhar a pasta experimento com outras pessoas.
 
 ### <a name="viewing-charts-in-run-details"></a>Exibindo gráficos nos detalhes de execução
 
-Há várias maneiras de usar as APIs para tipos diferentes de registro de métricas de log durante uma execução e exibi-los como gráficos no portal do Azure. 
+Há várias maneiras de usar as APIs de log para registrar diferentes tipos de métricas durante uma execução e exibi-las como gráficos no Azure Machine Learning Studio.
 
 |Valor conectado|Código de exemplo| Visualizar no portal|
 |----|----|----|
@@ -306,7 +304,7 @@ Os seguintes blocos de anotações demonstram conceitos neste artigo:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Experimente estas próximas etapas para aprender a usar o SDK do Azure Machine Learning para Python:
 

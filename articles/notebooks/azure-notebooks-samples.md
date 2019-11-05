@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 8e4c817437c22d15e60cf48d5976c30433e83d75
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 715db36921427dc0ac5dcdad24c2c026b1ea1326
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970018"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496693"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Descubra e use notebooks de exemplo
 
@@ -30,7 +30,7 @@ Após identificar um notebook que você gostaria de explorar, aqui estão alguns
 
 ## <a name="great-sample-notebooks"></a>Excelentes notebooks de exemplo
 
-- O [conjunto inicial do Azure Notebooks](https://notebooks.azure.com/#sample-redirect) inclui introduções para Python, R e F#, em conjunto com notebooks demonstrando os Serviços do Microsoft Machine Learning, o acesso a dados e alguns exercícios de ciência de dados.
+- [Azure notebooks conjunto de início](https://notebooks.azure.com/#sample-redirect) inclui introduções para Python, R e F#, juntamente com notebooks que demonstram acesso a dados, Azure Machine Learning e alguns exercícios de ciência de dados.
 - [Introdução ao Jupyter Notebooks](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
 - [Introdução à Ciência de Dados](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/notebooks), por Jake Vanderplas.
 - [Galeria de notebooks interessantes](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (Projeto do Jupyter no GitHub)
@@ -40,7 +40,7 @@ Após identificar um notebook que você gostaria de explorar, aqui estão alguns
 
 ## <a name="next-steps"></a>Próximas etapas  
 
-- [Como: Configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: Trabalhar com arquivo de dados](work-with-project-data-files.md)
-- [Como: Acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Como: Usar os Serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Como: configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
+- [Como trabalhar com arquivos de dados](work-with-project-data-files.md)
+- [Como acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
+- [Como: usar Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

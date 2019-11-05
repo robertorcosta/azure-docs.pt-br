@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 10/09/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a8ebd0b36c6ee8bf6762a70af9f4a7c09f6b118d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
-ms.translationtype: MT
+ms.openlocfilehash: 15253e67283d1ad53bb1d4c018987dceaafac6c8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955146"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486746"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adicionar bate-papo à base de dados de conhecimento
 
@@ -26,7 +26,7 @@ Esse conjunto de informações tem cerca de 100 cenários de Chit-Chat na voz de
 
 Veja abaixo alguns exemplos dos diferentes personalidades. Você pode ver todos os [conjuntos](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) de informações de personalidade junto com os detalhes do personalidades.
 
-Para a consulta de usuário `When is your birthday?`do, cada personalidade tem uma resposta com estilo:
+Para a consulta do usuário de `When is your birthday?`, cada personalidade tem uma resposta com estilo:
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |Personalidade|Exemplo|
@@ -38,13 +38,26 @@ Para a consulta de usuário `When is your birthday?`do, cada personalidade tem u
 |Entusiasmado|Sou um bot, então eu não tenho uma idade.|
 ||
 
-> [!NOTE]
-> No momento, o bate-papo está disponível apenas em inglês. 
+
+## <a name="language-support"></a>Suporte ao idioma
+
+Chit-os conjuntos de dados de chat têm suporte nos seguintes idiomas:
+
+|idioma|
+|--|
+|Chinês, `zh-cn`|
+|Inglês, `en-us`|
+|Francês, `fr-fr`|
+|Alemanha, `de-de`|
+|Italiano, `it-it`|
+|Japonês, `ja-jp`|
+|Coreano, `ko-kr`|
+|Português, `pr-br`|
+|Espanhol, `es-es`|
+
 
 ## <a name="add-chit-chat-during-kb-creation"></a>Adicionar bate-papo durante a criação da KB
 Durante a criação da base de dados de conhecimento, depois de adicionar suas URLs e arquivos de origem, há uma opção para adicionar um bate-papo. Escolha a personalidade que você deseja como sua base de bate-papo. Se você não quiser adicionar um bate-papo ou se já tiver um bate-papo compatível nas suas fontes de dados, escolha **Nenhum**. 
-   
-![Adicionar bate-papo durante a criação](../media/qnamaker-how-to-chit-chat/create-kb-chit-chat.png)
 
 ## <a name="add-chit-chat-to-an-existing-kb"></a>Adicionar bate-papo a uma KB existente
 Selecione sua KB e, em seguida, navegue para a página **Configurações**. Há um link para todos os conjuntos de dados de bate-papo no formato **.tsv** apropriado. Baixe a personalidade que você desejar e, em seguida, carregue-a como uma fonte de arquivo. Não edite o formato ou os metadados ao baixar e carregar o arquivo. 
@@ -73,6 +86,6 @@ Selecione sua KB e, em seguida, navegue para a página **Configurações**. Sua 
 > [!div class="nextstepaction"]
 > [Importar uma base de dados de conhecimento](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Confira também 
 
 [Visão geral do QnA Maker](../Overview/overview.md)

@@ -1,6 +1,6 @@
 ---
 title: Gerenciar dados da Galeria de IA do Azure
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Você pode exportar e excluir seus dados de usuário do produto da Galeria de IA do Azure usando a interface ou a API de Catálogo da Galeria de IA. Este artigo mostra como fazer isso.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 44ff2a5b723c086604acf39e9f975deb53759ae1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0b0bd4b01056769d38179597e477ecb164fa9ab
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60752038"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493551"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Exibir e excluir dados de usuário do produto da Galeria de IA do Azure
 
@@ -59,7 +59,7 @@ Para obter um token de acesso, você precisa inspecionar o `DataLabAccessToken` 
 2.  Clique na imagem de perfil no canto superior direito e, em seguida, no nome da conta para carregar a página do seu perfil.
 3.  Abra o painel Ferramentas para Desenvolvedores do navegador pressionando F12, selecione a guia Rede e atualize a página. 
 4. Filtre solicitações na cadeia de caracteres *catálogo* digitando na caixa de texto Filtro.
-5.  Em solicitações para a URL `https://catalog.cortanaanalytics.com/entities`, localize uma solicitação GET e selecione a guia *Cabeçalhos*. Role para baixo até a seção *Cabeçalhos de Solicitação*.
+5.  Em solicitações para a URL `https://catalog.cortanaanalytics.com/entities`, localize uma solicitação GET e selecione a guia *cabeçalhos* . Role para baixo até a seção *cabeçalhos de solicitação* .
 6.  Sob o cabeçalho `DataLabAccessToken` está o token alfanumérico. Para ajudar a manter seus dados protegidos, não compartilhe este token.
 
 ### <a name="view-user-information"></a>Exibir informações do usuário

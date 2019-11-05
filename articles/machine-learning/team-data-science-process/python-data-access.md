@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bf0e679ab46752d71ba4f5ef2b014e0cb2b4c6ad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e9daf1be1f931bb13cda446cbb9d6e37acce3bcf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593796"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498098"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acessar os conjuntos de dados com o Python usando a biblioteca de cliente do Python de Azure Machine Learning
 A visualização da biblioteca de cliente do Python de Microsoft Azure Machine Learning pode habilitar o acesso seguro a seus conjuntos de dados de Azure Machine Learning em um ambiente Python local e habilita a criação e o gerenciamento de conjuntos de dados no workspace.
@@ -27,8 +27,6 @@ Este tópico fornece instruções sobre como:
 * acessar e carregar conjuntos de dados, incluindo instruções sobre como obter autorização para acessar conjuntos de dados de Azure Machine Learning no seu ambiente local do Python
 * acessar conjuntos de dados intermediários por meio de testes
 * usar a biblioteca de cliente do Python para enumerar os conjuntos de dados, acessar metadados, ler o conteúdo de um conjunto de dados, criar novos conjuntos de dados e atualizar conjuntos de dados existentes
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 A biblioteca de cliente do Python foi testada nos ambientes a seguir:
@@ -66,7 +64,7 @@ Na interface da Web do Studio, você pode gerar snippets de código que incluem 
 ### <a name="security"></a>Segurança para acesso a dados
 Os snippets de código fornecidos pelo Estúdio para uso com a biblioteca de cliente do Python incluem a ID do workspace e a autorização de token. Eles fornecem acesso completo ao workspace e devem ser protegidos, com uma senha, por exemplo.
 
-Por motivos de segurança, a funcionalidade do snippet de código está disponível somente para usuários que tenham a função definida como **Proprietário** no workspace. Sua função é exibida no Estúdio de Machine Learning do Azure na página **USUÁRIOS** em **Configurações**.
+Por motivos de segurança, a funcionalidade do snippet de código está disponível somente para usuários que tenham a função definida como **Proprietário** no workspace. Sua função é exibida no Azure Machine Learning Studio (clássico) na página **usuários** em **configurações**.
 
 ![Segurança][security]
 
@@ -112,11 +110,11 @@ Há suporte para os seguintes formatos (as constantes para eles estão na classe
 
 Você pode determinar o formato passando o mouse sobre um nó de saída do módulo. Ele é exibido com o nome do nó, em uma dica de ferramenta.
 
-Alguns módulos, tal como o módulo [Divisão][split], resultam em um formato chamado `Dataset`, que não tem suporte na biblioteca de cliente do Python.
+Alguns dos módulos, como o módulo [dividir][split] , geram uma saída para um formato chamado `Dataset`, que não tem suporte na biblioteca de cliente do Python.
 
 ![Formato de conjunto de dados][dataset-format]
 
-Você precisa usar um módulo de conversão, como [Converter para CSV][convert-to-csv], para obter uma saída em um formato com suporte.
+Você precisa usar um módulo de conversão, como [converter em CSV][convert-to-csv], para obter uma saída em um formato com suporte.
 
 ![Formato de GenericCSV][csv-format]
 
@@ -124,10 +122,10 @@ As etapas a seguir mostram um exemplo que cria um teste, executa-o e acessa o co
 
 1. Criar um novo teste.
 2. Inserir um módulo **Conjunto de dados de Classificação Binária de Renda de Censo de Adulto** .
-3. Inserir um módulo [Divisão][split] e conectá-lo à sua entrada para a saída de módulo do conjunto de dados.
-4. Inserir um módulo [Converter para CSV][convert-to-csv] e conectá-lo à sua entrada em uma das saídas do módulo [Divisão][split].
+3. Insira um módulo de [divisão][split] e conecte sua entrada à saída do módulo do conjunto de dados.
+4. Insira um módulo [converter para CSV][convert-to-csv] e conecte sua entrada a uma das saídas do módulo de [divisão][split] .
 5. Salve o teste, execute-o e aguarde o término da execução.
-6. Clique no nó de saída no módulo [Converter para CSV][convert-to-csv].
+6. Clique no nó saída no módulo [converter em CSV][convert-to-csv] .
 7. Quando o menu de contexto for exibido, selecione **Gerar Código de Acesso a Dados**.
    
     ![Menu de contexto][experiment]
@@ -193,7 +191,7 @@ Outros são valores atribuídos pelo Azure ML:
 Consulte a classe `SourceDataset` para saber mais sobre os metadados disponíveis.
 
 ### <a name="read-contents"></a>Ler conteúdo
-Os snippets de código fornecidos pelo Machine Learning Studio baixam e desserializam automaticamente o conjunto de dados para um objeto DataFrame do pandas. Isso é feito com o método `to_dataframe` :
+Os trechos de código fornecidos por Machine Learning Studio (clássico) baixam e desserializam automaticamente o conjunto de objetos para um objeto pandas dataframe. Isso é feito com o método `to_dataframe` :
 
     frame = ds.to_dataframe()
 

@@ -1,7 +1,7 @@
 ---
 title: Gerenciar serviços Web
-titleSuffix: Azure Machine Learning Studio
-description: Gerencie seus serviços Web clássicos e novos de aprendizado de máquina usando o portal de serviços Web do Microsoft Azure Machine Learning. Como os serviços Web clássicos e os novos serviços Web têm base em tecnologias subjacentes diferentes, você tem recursos de gerenciamento um pouco diferentes para cada um deles.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Gerencie seus Machine Learning serviços Web novos e clássicos usando o portal de serviços Web do Microsoft Azure Machine Learning. Como os serviços Web clássicos e os novos serviços Web têm base em tecnologias subjacentes diferentes, você tem recursos de gerenciamento um pouco diferentes para cada um deles.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 711cb674cb00a880eadda11b03da87631df90b0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0d31ce46ce185ad5bbcd736d9f45e62d7436d24
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861728"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489239"
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Gerenciar um serviço Studio Web usando o portal Microsoft Azure Machine Learning Studio
+# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gerenciar um serviço Web usando o portal de serviços Web Azure Machine Learning Studio (clássico)
 Com o portal de Serviços Web do Microsoft Azure Machine Learning, você pode gerenciar seus serviços Web novos e clássicos de Machine Learning. Como os serviços Web clássicos e os novos serviços Web têm base em tecnologias subjacentes diferentes, você tem recursos de gerenciamento um pouco diferentes para cada um deles.
 
 No portal de Serviços Web do Azure Machine Learning você pode:
@@ -29,7 +29,7 @@ No portal de Serviços Web do Azure Machine Learning você pode:
 * Adicionar e excluir pontos de extremidade (somente Clássico)
 
 >[!NOTE]
->Você também pode gerenciar serviços Web clássicos no [Machine Learning Studio](https://studio.azureml.net), na guia **Serviços Web**.
+>Você também pode gerenciar serviços Web clássicos no [Machine Learning Studio (clássico)](https://studio.azureml.net) na guia **Serviços Web** .
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Permissões para gerenciar os Novos serviços Web baseados no Resource Manager
 
@@ -37,9 +37,9 @@ Os Novos serviços Web são implantados como recursos do Azure. Assim, você dev
 
 Se o usuário não tiver as permissões corretas para acessar os recursos no portal dos Serviços Web do Azure Machine Learning, ele receberá o seguinte erro ao tentar implantar um serviço Web:
 
-*A implantação de serviço Web falhou. Essa conta não tem acesso suficiente à assinatura do Azure que contém o Workspace. Para implantar um serviço Web no Azure, a mesma conta deve ser convidada para o Workspace e receber acesso à assinatura do Azure que contém o Workspace.*
+*Falha na implantação do serviço Web. Essa conta não tem acesso suficiente à assinatura do Azure que contém o espaço de trabalho. Para implantar um serviço Web no Azure, a mesma conta deve ser convidada para o espaço de trabalho e receber acesso à assinatura do Azure que contém o espaço de trabalho.*
 
-Para saber mais sobre como criar um workspace, confira [Criar e compartilhar um workspace do Azure Machine Learning Studio](create-workspace.md).
+Para obter mais informações sobre como criar um espaço de trabalho, consulte [criar e compartilhar um Azure Machine Learning Studio (clássico) espaço de trabalho](create-workspace.md).
 
 Para obter mais informações sobre como definir permissões de acesso, confira [Gerenciar o acesso usando o RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -86,7 +86,7 @@ Você pode atualizar as seguintes propriedades:
 * **Título** permite inserir um título para o serviço Web
 * **Chaves** permite girar as chaves de API principais e secundárias.
 * **Chave da conta de armazenamento** permite atualizar a chave da conta de armazenamento associada às alterações de serviço Web. 
-* **Habilitar dados de Exemplo** permite que você forneça dados de exemplo que podem ser usados para testar o seu serviço de Solicitação-Resposta. Se você criou o serviço Web no Machine Learning Studio, os dados de exemplo são retirados dos dados usados para treinar seu modelo. Se você criou o serviço programaticamente, os dados foram extraídos dos dados de exemplo fornecidos como parte do pacote JSON.
+* **Habilitar dados de Exemplo** permite que você forneça dados de exemplo que podem ser usados para testar o seu serviço de Solicitação-Resposta. Se você criou o serviço Web no Machine Learning Studio (clássico), os dados de exemplo serão obtidos dos dados que você usou para treinar seu modelo. Se você criou o serviço programaticamente, os dados foram extraídos dos dados de exemplo fornecidos como parte do pacote JSON.
 
 ### <a name="managing-billing-plans"></a>Gerenciando planos de cobranças
 Clique na opção de menu **Planos** da página de início rápido de serviços Web. Você também pode clicar no plano associado com o serviço Web específico para gerenciar o plano.
@@ -108,7 +108,7 @@ O painel de plano fornece as seguintes informações:
 
 ## <a name="manage-classic-web-services"></a>Gerenciar Serviços Web clássicos
 > [!NOTE]
-> Os procedimentos nesta seção são relevantes para o gerenciamento de serviços Web clássicos no portal de Serviços Web do Azure Machine Learning. Para saber mais sobre como gerenciar serviços Web clássicos por meio do Machine Learning Studio e do Portal do Azure, consulte [Gerenciar um workspace do Azure Machine Learning Studio](manage-workspace.md).
+> Os procedimentos nesta seção são relevantes para o gerenciamento de serviços Web clássicos no portal de Serviços Web do Azure Machine Learning. Para obter informações sobre como gerenciar serviços Web clássicos por meio do Machine Learning Studio (clássico) e do portal do Azure, consulte [gerenciar um espaço de trabalho Azure Machine Learning Studio (clássico)](manage-workspace.md).
 > 
 > 
 
@@ -151,6 +151,6 @@ Você pode atualizar as seguintes propriedades:
 
 * **Descrição** permite inserir uma descrição para o serviço Web. Descrição é um campo obrigatório.
 * **Registrar em log** permite habilitar ou desabilitar o registro de erros em log no ponto de extremidade. Para obter mais informações sobre Registrar em Log, veja Habilitar [registro em log de serviços Web do Machine Learning](web-services-logging.md).
-* **Habilitar dados de Exemplo** permite que você forneça dados de exemplo que podem ser usados para testar o seu serviço de Solicitação-Resposta. Se você criou o serviço Web no Machine Learning Studio, os dados de exemplo são retirados dos dados usados para treinar seu modelo. Se você criou o serviço programaticamente, os dados foram extraídos dos dados de exemplo fornecidos como parte do pacote JSON.
+* **Habilitar dados de Exemplo** permite que você forneça dados de exemplo que podem ser usados para testar o seu serviço de Solicitação-Resposta. Se você criou o serviço Web no Machine Learning Studio (clássico), os dados de exemplo serão obtidos dos dados que você usou para treinar seu modelo. Se você criou o serviço programaticamente, os dados foram extraídos dos dados de exemplo fornecidos como parte do pacote JSON.
 
 

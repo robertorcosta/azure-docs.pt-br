@@ -1,5 +1,5 @@
 ---
-title: Banco de dados SQL do Azure sem servidor (versão prévia) | Microsoft Docs
+title: Banco de dados SQL do Azure sem servidor | Microsoft Docs
 description: Este artigo descreve a nova camada de computação sem servidor e a compara com a camada existente de computação provisionada
 services: sql-database
 ms.service: sql-database
@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 09/06/2019
-ms.openlocfilehash: 3b2cc5c0b5deab084c6fdae9435ea3a90b2dd8a6
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 11/04/2019
+ms.openlocfilehash: e8629baa3487795349844229b26d80321c1316ee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173411"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496245"
 ---
-# <a name="azure-sql-database-serverless-preview"></a>Banco de dados SQL do Azure sem servidor (visualização)
+# <a name="azure-sql-database-serverless"></a>Recurso sem servidor do Banco de Dados SQL do Azure
 
-O banco de dados SQL do Azure sem servidor (visualização) é uma camada de computação para bancos de dados individuais que dimensionam automaticamente a computação com base na demanda de carga de trabalho e cobra pela quantidade de computação usada por segundo. A camada de computação sem servidor também pausa automaticamente os bancos de dados durante períodos inativos quando apenas o armazenamento é cobrado e retoma automaticamente os bancos de dados quando a atividade retorna.
+O banco de dados SQL do Azure sem servidor é uma camada de computação para bancos únicos de dados que dimensionam automaticamente a computação com base na demanda de carga de trabalho e cobra pela quantidade de computação usada por segundo. A camada de computação sem servidor também pausa automaticamente os bancos de dados durante períodos inativos quando apenas o armazenamento é cobrado e retoma automaticamente os bancos de dados quando a atividade retorna.
 
 ## <a name="serverless-compute-tier"></a>Camada de computação sem servidor
 
@@ -115,7 +115,7 @@ Os recursos a seguir não oferecem suporte à autopausa.  Ou seja, se qualquer u
 
 - Replicação geográfica (replicação geográfica ativa e grupos de failover automático).
 - Retenção de backup de longo prazo (EPD).
-- O banco de dados de sincronização usado na sincronização de dados SQL.  Ao contrário dos bancos de dados de sincronização, os bancos de dados de Hub e de membros dão suporte à autopausa.
+- O banco de dados de sincronização usado no SQL Data Sync.  Ao contrário dos bancos de dados de sincronização, os bancos de dados de Hub e de membros dão suporte à autopausa.
 - O banco de dados de trabalho usado em trabalhos elásticos.
 
 A autopausa é temporariamente impedida durante a implantação de algumas atualizações de serviço que exigem que o banco de dados esteja online.  Nesses casos, a pausa automática é permitida novamente após a conclusão da atualização do serviço.
@@ -171,8 +171,8 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
    |Parâmetro|Opções de valor|Valor padrão|
    |---|---|---|---|
-   |VCores mín.|Depende do máximo de vCores configurado-consulte [limites de recursos](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|vCores de 0,5|
-   |Atraso de pausa automática|Mínimo: 60 minutos (1 hora)<br>Maior 10.080 minutos (7 dias)<br>Incrementos: 60 minutos<br>Desabilitar pausa automática: -1|60 minutos|
+   |VCores mín.|Depende do máximo de vCores configurado-consulte [limites de recursos](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|vCores de 0,5|
+   |Atraso de pausa automática|Mínimo: 60 minutos (1 hora)<br>Máximo: 10080 minutos (7 dias)<br>Incrementos: 60 minutos<br>Desabilitar pausa automática: -1|60 minutos|
 
 > [!NOTE]
 > Não há suporte para usar o T-SQL para mover um banco de dados existente para uma camada sem servidor ou alterar seu tamanho da computação, mas isso pode ser feito por meio do portal do Azure ou do PowerShell.
@@ -181,7 +181,7 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
 #### <a name="use-azure-portal"></a>Usar o portal do Azure
 
-Confira [Início Rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure](sql-database-single-database-get-started.md).
+Consulte [início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure](sql-database-single-database-get-started.md).
 
 #### <a name="use-powershell"></a>Usar o PowerShell
 
@@ -235,7 +235,7 @@ Modificar o vCores máximo é executado usando o comando [set-AzSqlDatabase](htt
 
 #### <a name="use-powershell"></a>Usar o PowerShell
 
-Modificar o mínimo de vCores é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o argumento `MinVcore`.
+Modificar o vCores mínimo é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o argumento `MinVcore`.
 
 ### <a name="autopause-delay"></a>Atraso de pausa automática
 
@@ -257,14 +257,14 @@ O pacote do aplicativo é o limite externo de gerenciamento de recursos de um ba
 
 O pool de recursos do usuário é o limite interno de gerenciamento de recursos de um banco de dados, independentemente de se o banco de dados está em uma camada de computação sem servidor ou provisionada. O pool de recursos do usuário tem como escopo a CPU e a e/s para a carga de trabalho do usuário gerada por consultas DDL, como criar e alterar e consultas DML, como selecionar, inserir, atualizar e excluir. Essas consultas geralmente representam a proporção mais substancial de utilização dentro do pacote do aplicativo.
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>Métricas
 
 As métricas para monitorar o uso de recursos do pacote do aplicativo e do pool de usuários de um banco de dados sem servidor são listadas na tabela a seguir:
 
 |Entidade|Métrica|DESCRIÇÃO|Unidades|
 |---|---|---|---|
 |Pacote do Aplicativo|app_cpu_percent|Percentual de vCores usados pelo aplicativo em relação ao máximo de vCores permitido para o aplicativo.|Percentual|
-|Pacote do Aplicativo|app_cpu_billed|A quantidade de computação cobrada para o aplicativo durante o período do relatório. O valor pago durante esse período é o produto dessa métrica e o preço unitário de vCore. <br><br>Os valores dessa métrica são determinados pela agregação ao longo do tempo do máximo de CPU usado e a memória usada por segundo. Se o valor usado for menor que a quantidade mínima provisionada conforme definido pelo mínimo de vCores e de memória, a quantidade mínima provisionada será cobrada. Para comparar CPU com memória para fins de cobrança, a memória é normalizada em unidades de vCores ao redimensionar a quantidade de memória em GB por 3 GB por vCore.|Segundos de vCore|
+|Pacote do Aplicativo|app_cpu_billed|A quantidade de computação cobrada para o aplicativo durante o período do relatório. O valor pago durante esse período é o produto dessa métrica e o preço unitário de vCore. <br><br>Os valores dessa métrica são determinados pela agregação ao longo do tempo do máximo de CPU usado e a memória usada por segundo. Se o valor usado for menor que a quantidade mínima provisionada conforme definido pelo mínimo de vCores e de memória, a quantidade mínima provisionada será cobrada. Para comparar a CPU com a memória para fins de cobrança, a memória é normalizada em unidades de vCores, redimensionando a quantidade de memória em GB por 3 GB por vCore.|Segundos de vCore|
 |Pacote do Aplicativo|app_memory_percent|Percentual de memória usada pelo aplicativo em relação ao máximo de memória permitida para o aplicativo.|Percentual|
 |Pool de usuários|cpu_percent|Percentual de vCores usados pela carga de trabalho do usuário em relação ao máximo de vCores permitido para a carga de trabalho do usuário.|Percentual|
 |Pool de usuários|data_IO_percent|Percentual de IOPS de dados usados pela carga de trabalho do usuário em relação ao máximo de IOPS de dados permitido para a carga de trabalho do usuário.|Percentual|
@@ -288,7 +288,7 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>Limites de recursos
 
-Para limites de recursos, consulte [camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+Para limites de recursos, consulte [camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
 
 ## <a name="billing"></a>Cobrança
 
@@ -296,7 +296,7 @@ A quantidade de computação cobrada é a quantidade máxima de uso de CPU e mem
 
 - **Recurso cobrado**: CPU e memória
 - **Valor cobrado**: preço unitário vCore * máx (min vCores, vCores usado, min memory gb * 1/3, GB de memória usado * 1/3) 
-- **Frequência de cobrança**: Por segundo
+- **Frequência de cobrança**: por segundo
 
 O preço unitário vCore é o custo por vCore por segundo. Consulte a [página de preços do Banco de Dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/single/) para obter os preços unitários específicos em uma determinada região.
 
@@ -304,7 +304,7 @@ A quantidade de computação cobrada é exposta pela métrica a seguir:
 
 - **Métrica**: app_cpu_billed (segundos de vCore)
 - **Definição**: máx. (mínimo de vCores, vCores usados, GB de memória mín. * 1/3, GB de memória usados * 1/3)
-- **Frequência de relatórios**: Por minuto
+- **Frequência de relatórios**: por minuto
 
 Essa quantidade é calculada a cada segundo e agregada a cada 1 minuto.
 
@@ -330,5 +330,5 @@ A camada de computação sem servidor está disponível em todo o mundo, exceto 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para começar, confira [Início rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure](sql-database-single-database-get-started.md).
-- Para limites de recursos, consulte [Limites de recursos de camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+- Para começar, consulte [início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure](sql-database-single-database-get-started.md).
+- Para limites de recursos, consulte [Limites de recursos de camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).

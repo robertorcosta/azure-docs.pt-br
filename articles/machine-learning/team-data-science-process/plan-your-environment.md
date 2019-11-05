@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d8eed4f2425cdbfec7d3addad11ddaba57e5370e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46d0e8aa1fa934f778e950f0187a853ba46772d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704495"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495043"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Como identificar cenários e planejar o processamento de dados analíticos avançados
 
@@ -30,8 +30,6 @@ Responda a perguntas-chave nas áreas a seguir para identificar seu cenário:
 * características de dados
 * qualidade do conjunto de dados
 * ferramentas e linguagens preferidas
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="logistic-questions-data-locations-and-movement"></a>Perguntas sobre logística: locais e movimentação de dados
 
@@ -68,7 +66,7 @@ Onde seus dados precisam estar para processamento ou modelagem?
 Para os procedimentos e os recursos para a ingestão ou o carregamento de dados em uma variedade de ambientes de armazenamento e de processamento diferentes, confira:
 
 * [Carregar dados em ambientes de armazenamento para análise](ingest-data.md)
-* [Importar os dados de treinamento para o Azure Machine Learning Studio de diferentes fontes de dados](../studio/import-data.md)
+* [Importe seus dados de treinamento para Azure Machine Learning Studio (clássico) de várias fontes de dados](../studio/import-data.md)
 
 ### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>Os dados precisam ser movidos em um cronograma regular ou ser modificados durante a migração?
 
@@ -81,7 +79,7 @@ Para saber mais, confira [Mover dados de um SQL Server local para o SQL Azure co
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>Quanto dos dados será movido para o Azure?
 
-Conjuntos de dados extremamente grandes podem exceder a capacidade de armazenamento de determinados ambientes. Para obter um exemplo, confira a discussão sobre os limites de tamanho do Machine Learning Studio na próxima seção. Nesses casos, você pode usar uma amostra dos dados durante a análise. Para obter detalhes sobre como reduzir a amostra de um conjunto de dados em vários ambientes do Azure, confira [Sample data in the Team Data Science Process](sample-data.md)(Dados de exemplo no Processo de Ciência de Dados de Equipe).
+Conjuntos de dados extremamente grandes podem exceder a capacidade de armazenamento de determinados ambientes. Para obter um exemplo, consulte a discussão sobre limites de tamanho para Machine Learning Studio (clássico) na próxima seção. Nesses casos, você pode usar uma amostra dos dados durante a análise. Para obter detalhes sobre como reduzir a amostra de um conjunto de dados em vários ambientes do Azure, confira [Sample data in the Team Data Science Process](sample-data.md)(Dados de exemplo no Processo de Ciência de Dados de Equipe).
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Perguntas sobre características de dados: tipo, formato e tamanho
 
@@ -92,7 +90,7 @@ Essas perguntas são essenciais para planejar os ambientes de armazenamento e pr
 * Numérico
 * Categóricos
 * Cadeias de caracteres
-* Binary
+* Binário
 
 ### <a name="how-is-your-data-formatted"></a>Como seus dados estão formatados?
 
@@ -104,11 +102,11 @@ Essas perguntas são essenciais para planejar os ambientes de armazenamento e pr
 
 ### <a name="how-large-is-your-data"></a>Qual o tamanho dos seus dados?
 
-* Pequeno: Menor que 2 GB
-* Médio: Maior que 2 GB e menor que 10 GB
-* Grande: Maior que 10 GB
+* Pequeno: menor que 2 GB
+* Médio: maior que 2 GB e menor que 10 GB
+* Grande: maior que 10 GB
 
-Tome o ambiente do Azure Machine Learning Studio como exemplo:
+Considere o ambiente Azure Machine Learning Studio (clássico), por exemplo:
 
 * Para obter uma lista dos formatos e dos tipos de dados com suporte no Azure Machine Learning Studio, confira a seção [Formatos de dados e tipos de dados com suporte](../studio/import-data.md#supported-data-formats-and-data-types) .
 * Para obter informações sobre as limitações de outros serviços do Azure usados no processo de análise, confira [Assinatura do Azure e Limites de Serviço, Cotas e Restrições](../../azure-subscription-service-limits.md).
@@ -133,7 +131,7 @@ As técnicas úteis para a inspeção de dados incluem gráficos de visualizaç�
 
 ### <a name="does-the-data-require-preprocessing-or-cleaning"></a>Os dados exigem pré-processamento ou limpeza?
 
-Talvez você precise pré-processar e limpar seus dados antes de poder usar o conjunto de dados com eficiência para o aprendizado de máquina. Dados brutos geralmente contém ruídos e não são confiáveis. Eles podem ter valores ausentes. Usar esses dados para a modelagem pode produzir resultados incorretos. Para obter uma descrição, confira [Tarefas para preparar dados para o aprendizado de máquina avançado](prepare-data.md).
+Talvez você precise pré-processar e limpar seus dados antes de poder usar o conjunto de dados com eficiência para o aprendizado de máquina. Dados brutos geralmente contém ruídos e não são confiáveis. Eles podem ter valores ausentes. Usar esses dados para a modelagem pode produzir resultados incorretos. Para obter uma descrição, consulte [Tarefas para preparar dados para o aprendizado de máquina avançado](prepare-data.md).
 
 ## <a name="tools-and-languages-questions"></a>Perguntas sobre ferramentas e linguagens
 
@@ -151,7 +149,7 @@ Há muitas opções para ferramentas, ambientes de desenvolvimento e linguagens.
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
-* [Python Tools para Visual Studio](https://aka.ms/ptvsdocs)
+* [Ferramentas Python para Visual Studio](https://aka.ms/ptvsdocs)
 * [Anaconda](https://www.continuum.io/why-anaconda)
 * [Notebooks Jupyter](https://jupyter.org/)
 * [Microsoft Power BI](https://powerbi.microsoft.com)

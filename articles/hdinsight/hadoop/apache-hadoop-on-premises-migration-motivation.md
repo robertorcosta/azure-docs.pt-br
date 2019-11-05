@@ -1,5 +1,5 @@
 ---
-title: Migrar Apache Hadoop locais para o Azure HDInsight-motivação e benefícios
+title: 'Benefícios: migrar Apache Hadoop locais para o Azure HDInsight'
 description: Aprenda a motivação e os benefícios de migrar clusters do Hadoop local para o Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: a65b775a516bfccac2dee5ce00bc7d6495df256d
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 7f67b85b66748ae98cbb520bf4ebc11a2eef9efb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718372"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494941"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – motivação e benefícios
 
@@ -53,12 +53,12 @@ O Azure HDInsight é uma distribuição de nuvem dos componentes do Hadoop. O Az
 
 - **Extensibilidade com ferramentas personalizadas ou aplicativos de terceiros** – clusters do HDInsight podem ser estendidos com componentes instalados e também podem ser integrados com outras soluções de Big Data usando implantações com [um único clique](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) do Azure Marketplace.
 
-- **Gerenciamento, administração e monitoramento fáceis** – o Azure HDInsight integra-se aos [logs de Azure monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) To fornecem uma única interface com a qual você pode monitorar todos os seus clusters.
+- **Gerenciamento, administração e monitoramento fáceis** – o Azure HDInsight integra-se com [os logs de Azure monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) para fornecer uma única interface com a qual você pode monitorar todos os seus clusters.
 
 - **Integração com outros serviços do Azure** – o HDInsight pode ser facilmente integrado a outros serviços populares do Azure, como os seguintes:
 
     - ADF (Azure Data Factory)
-    - Armazenamento de Blob do Azure
+    - Armazenamento do Blobs do Azure
     - Azure Data Lake Storage Gen2
     - Azure Cosmos DB
     - Banco de dados SQL do Azure
@@ -89,7 +89,7 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 
 | **Pergunta** | **Exemplo** | **Resposta** |
 |---|---|---|
-|**Tópico**: **Ambiente**|||
+|**Tópico**: **ambiente**|||
 |Versão de Distribuição do Cluster|HDP 2.6.5, CDH 5.7|
 |Componentes do ecossistema de Big Data|HDFS, YARN, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, ZooKeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |Tipos de cluster|Hadoop, Spark, Confluent Kafka, Storm, Solr|
@@ -106,13 +106,13 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Recuperação de Desastres/Backup|Realizar backup do cluster?|  
 |Sistemas que dependem do Cluster|SQL Server, Teradata, Power BI, MongoDB|
 |Integrações com terceiros|Tableau, GridGain, Qubole, Informatica, Splunk|
-|**Tópico**: **Segurança**|||
+|**Tópico**: **segurança**|||
 |Segurança de perímetro|Firewalls|
 |Autenticação e autorização de cluster|Active Directory, Ambari, Cloudera Manager, Sem autenticação|
 |Controle de Acesso do HDFS|  Manual, usuários de SSH|
 |Autenticação e autorização do Hive|Sentry, LDAP, AD com Kerberos, Ranger|
 |Auditoria|Ambari, Cloudera Navigator, Ranger|
-|Monitorando|Graphite, collectd, statsd, Telegraf, InfluxDB|
+|Monitoramento|Graphite, collectd, statsd, Telegraf, InfluxDB|
 |Alertas|Kapacitor, Prometheus, Datadog|
 |Duração da Retenção de Dados| 3 anos, 5 anos|
 |Administradores de Cluster|Administrador Único, Vários Administradores|
@@ -121,7 +121,7 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 
 |**Pergunta**|**Exemplo**|**Resposta**|
 |---|---|---|
-|**Tópico**: **Cargas de trabalho e frequência**|||
+|**Tópico**: **cargas de trabalho e frequência**|||
 |Trabalhos do MapReduce|10 trabalhos – duas vezes por dia||
 |Trabalhos do Hive|100 trabalhos – a cada hora||
 |Trabalhos em lote do Spark|50 trabalhos – a cada 15 minutos||
@@ -129,54 +129,54 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Trabalhos de Streaming estruturados|5 trabalhos – a cada minuto||
 |Trabalhos de treinamento do Modelo de ML|2 trabalhos – uma vez por semana||
 |Linguagens de Programação|Python, Scala, Java||
-|Script|Shell do Python||
-|**Tópico**: **Dados**|||
+|Scripting|Shell do Python||
+|**Tópico**: **dados**|||
 |Fontes de dados|Arquivos simples, JSON, Kafka, RDBMS||
 |Orquestração de dados|Fluxos de trabalho do Oozie, Airflow||
 |Em pesquisas de memória|Apache Ignite, Redis||
 |Destinos de dados|HDFS, RDBMS, Kafka, MPP ||
-|**Tópico**: **Metadados**|||
+|**Tópico**: **metadados**|||
 |Tipo de banco de dados do Hive|Mysql, Postgres||
 |Número de metastores do hive|2||
 |Número de tabelas do hive|100||
 |Número de políticas de Ranger|20||
 |Número de fluxos de trabalho do Oozie|100||
-|**Tópico**: **Escala**|||
+|**Tópico**: **escala**|||
 |Volume de dados incluindo Replicação|100 TB||
 |Volume diário de ingestão|50 GB||
 |Taxa de crescimento de dados|10% ao ano||
 |Taxa de crescimento de Nós de Cluster|5% ao ano
-|**Tópico**: **Utilização do cluster**|||
+|**Tópico**: **utilização do cluster**|||
 |% média de CPU usada|60%||
 |% média de memória usada|75%||
 |Espaço em disco usado|75%||
 |% média de rede usada|25%
-|**Tópico**: **Equipe**|||
+|**Tópico**: **equipe**|||
 |Número de administradores|2||
 |Número de desenvolvedores|10||
 |Número de usuários finais|100||
 |Habilidades|Hadoop, Spark||
 |Número de recursos disponíveis para os esforços de migração|2||
-|**Tópico**: **Limitações**|||
+|**Tópico**: **limitações**|||
 |Limitações atuais|A latência é alta||
 |Desafios atuais|Problema de simultaneidade||
 
 ### <a name="azure-requirements-questionnaire"></a>Questionário de requisitos do Azure
 
-|**Tópico**: **Infraestrutura** |||
+|**Tópico**: **infraestrutura** |||
 |---|---|---|
 |**Pergunta**|**Exemplo**|**Resposta**|
-| Região Preferida|Leste dos EUA||
+| Região preferida|Leste dos EUA||
 |Rede virtual preferida?|Sim||
 |HA/DR necessárias?|Sim||
 |Integração com outros serviços de nuvem?|ADF, CosmosDB||
-|**Tópico**:   **Movimentação de dados**  |||
+|**Tópico**: **movimentação de dados**  |||
 |Preferência de carregamento inicial|DistCp, Data Box, ADF, WANDisco||
 |Delta de transferência de dados|DistCp, AzCopy||
 |Transferência de dados incremental em andamento|DistCp, Sqoop||
-|**Tópico**:   **Monitoramento e alertas** |||
+|**Tópico**:   **monitoramento e alertas** |||
 |Usar Monitoramento e Alertas do Azure vs. integrar monitoramento de terceiros|Usar Monitoramento e Alertas do Azure||
-|**Tópico**:   **Preferências de segurança** |||
+|**Tópico**: **preferências de segurança** |||
 |Pipeline de dados privados e protegidos?|Sim||
 |Cluster de domínio ingressado (ESP)?|     Sim||
 |Sincronização do AD Local com a Nuvem?|     Sim||
@@ -189,7 +189,7 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Auditoria necessária?|                  Sim||
 |Criptografia de dados em repouso?|          Sim||
 |Criptografia de dados em trânsito?|       Sim||
-|**Tópico**:   **Preferências de redefinição de arquitetura** |||
+|**Tópico**: **preferências de redefinição de arquitetura** |||
 |Único cluster vs. tipos específicos de cluster|Tipos específicos de cluster||
 |Armazenamento Colocalizados vs. Armazenamento Remoto?|Armazenamento Remoto||
 |Menor tamanho de cluster já que os dados são armazenados remotamente?|Menor tamanho de cluster||

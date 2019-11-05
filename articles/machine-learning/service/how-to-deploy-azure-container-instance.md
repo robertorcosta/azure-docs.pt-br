@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/08/2019
-ms.openlocfilehash: 27988edaf9d6fe70288352b0ba45945e32976d4d
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 10/25/2019
+ms.openlocfilehash: 6590b6c3ecf1efc43822a4fefab79cdc7f624dcd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034642"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496980"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implantar um modelo em instâncias de contêiner do Azure
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Saiba como usar Azure Machine Learning para implantar um modelo como um serviço Web em ACI (instâncias de contêiner do Azure). Use as instâncias de contêiner do Azure se uma das seguintes condições for verdadeira:
 
@@ -36,13 +37,13 @@ Para obter informações sobre a disponibilidade de cota e região para ACI, con
 
 - Os trechos de código __Python__ neste artigo pressupõem que as seguintes variáveis sejam definidas:
 
-    * `ws`-Defina para seu espaço de trabalho.
-    * `model`-Defina para o modelo registrado.
-    * `inference_config`– Defina para a configuração de inferência para o modelo.
+    * `ws`-definir para seu espaço de trabalho.
+    * `model`-definido para seu modelo registrado.
+    * `inference_config`-definido como a configuração de inferência para o modelo.
 
     Para obter mais informações sobre como definir essas variáveis, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
-- Os trechos de código da __CLI__ neste artigo pressupõem que você `inferenceconfig.json` criou um documento. Para obter mais informações sobre como criar este documento, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
+- Os trechos de código da __CLI__ neste artigo pressupõem que você criou um documento `inferenceconfig.json`. Para obter mais informações sobre como criar este documento, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
 ## <a name="deploy-to-aci"></a>Implantar no ACI
 
@@ -68,7 +69,7 @@ Para obter mais informações sobre as classes, os métodos e os parâmetros usa
 
 ### <a name="using-the-cli"></a>Usando a CLI
 
-Para implantar usando a CLI, use o comando a seguir. Substituir `mymodel:1` pelo nome e versão do modelo registrado. Substitua `myservice` pelo nome para fornecer este serviço:
+Para implantar usando a CLI, use o comando a seguir. Substitua `mymodel:1` pelo nome e versão do modelo registrado. Substitua `myservice` pelo nome para fornecer este serviço:
 
 ```azurecli-interactive
 az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
@@ -78,7 +79,7 @@ az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploy
 
 Para obter mais informações, consulte a referência de [implantação do modelo AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) . 
 
-## <a name="using-vs-code"></a>Usar o VS Code
+## <a name="using-vs-code"></a>Usando VS Code
 
 Consulte [implantar seus modelos com vs Code](how-to-vscode-tools.md#deploy-and-manage-models).
 

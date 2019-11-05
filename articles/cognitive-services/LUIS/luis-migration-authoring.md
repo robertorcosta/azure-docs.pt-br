@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 19852fe3a6925ada3dea141a1472683ee264f6d5
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 86a7575c173b4515eaf0f690bcd00c6fb70ee581
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973307"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492723"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de criação de recursos do Azure
 
 A autenticação de criação de Reconhecimento vocal (LUIS) mudou de uma conta de email para um recurso do Azure. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="why-migrate"></a>Por que migrar?
 
@@ -65,7 +67,7 @@ Você pode atrasar o processo de migração cancelando a janela. Periodicamente,
 * **Opcionalmente**, salve a lista de collaborator's de cada aplicativo. Essa lista de emails é fornecida como parte do processo de migração.
 * **Necessário**, você precisa ter uma [assinatura do Azure](https://azure.microsoft.com/free/). Uma parte do processo de assinatura requer informações de cobrança. No entanto, você pode usar o tipo de preço gratuito (`F0`) ao usar o LUIS. 
 
-A **criação de seu aplicativo Luis é gratuita**, indicada pela camada `F0`. Saiba [mais sobre os tipos de preço](luis-boundaries.md#key-limits).
+A **criação de seu aplicativo Luis é gratuita**, indicada pela camada de `F0`. Saiba [mais sobre os tipos de preço](luis-boundaries.md#key-limits).
 
 Se você não tiver uma assinatura do Azure, [Inscreva-](https://azure.microsoft.com/free/)se. 
 
@@ -100,7 +102,7 @@ O proprietário do aplicativo precisa [Adicionar seu email ao recurso de criaç�
 
 Após o processo de migração, todos os aplicativos que você possui estão disponíveis na página **meus aplicativos** do portal do Luis.  
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solucionar problemas
 
 As chaves de criação do LUIS só ficam visíveis no portal do LUIS após a conclusão do processo de migração. Se você criar as chaves de criação, como com a CLI do LUIS, o usuário ainda precisará concluir o processo de migração. 
 

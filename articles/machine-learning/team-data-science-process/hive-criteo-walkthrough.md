@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eca19b3774ad285cb143ffc2b6c53360bec85fa4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60305533"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492360"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O Processo de Ciência de Dados de Equipe em ação - usando um cluster Hadoop do Azure HDInsight em um conjunto de dados de 1 TB
 
@@ -33,7 +33,7 @@ Cada registro deste conjunto de dados contém 40 colunas:
 * as 13 colunas seguintes são numéricas e
 * as últimas 26 colunas são colunas categóricas
 
-As colunas são anônimas e usam uma série de nomes enumerados: "Col1" (para a coluna de rótulo) a "Col40" (para a última coluna categórica).
+As colunas são anônimas e usam uma série de nomes enumerados: "Col1" (para a coluna de rótulos) a "Col40" (para a última coluna categórica).
 
 Este é um trecho das 20 primeiras colunas de duas observações (linhas) desse conjunto de dados:
 
@@ -44,28 +44,28 @@ Este é um trecho das 20 primeiras colunas de duas observações (linhas) desse 
 
 Há valores ausentes nas colunas numéricas e categóricas do conjunto de dados. É descrito um método simples para lidar com os valores ausentes. Detalhes adicionais dos dados são explorados aos armazená-los em tabelas do Hive.
 
-**Definição:** *Taxa de Clickthrough (CTR):* É o percentual de cliques nos dados. Neste conjunto de dados da Criteo, a CTR é de cerca de 3,3% ou 0,033.
+**Definição:** *CTR (taxa de clickthrough):* é o percentual de cliques nos dados. Neste conjunto de dados da Criteo, a CTR é de cerca de 3,3% ou 0,033.
 
 ## <a name="mltasks"></a>Exemplos de tarefas de previsão
 Dois exemplos de problemas de previsão são abordados neste passo a passo:
 
 1. **Classificação binária**: prevê se um usuário clicou em um anúncio:
 
-   * Classe 0: Nenhum clique
-   * Classe 1: Clique em
+   * Classe 0: não clicou
+   * Classe 1: clicou
 2. **Regressão**: prevê a probabilidade de um clique no anúncio por meio de características do usuário.
 
 ## <a name="setup"></a>Configurar um cluster Hadoop do HDInsight para ciência de dados
-**Observação:** Essa normalmente é uma tarefa **Admin** .
+**Observação:** normalmente, esta é uma tarefa para o **Administrador**.
 
 Configure seu ambiente de Ciência de dados do Azure para a criação de soluções analíticas de previsão com clusters do HDInsight em três etapas:
 
-1. [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md): essa conta de armazenamento é usada para armazenar dados no Armazenamento de Blobs do Azure. Os dados usados em clusters do HDInsight são armazenados aqui.
-2. [Personalizar os Clusters do Azure HDInsight Hadoop para Ciência de Dados](customize-hadoop-cluster.md): Esta etapa cria um cluster do Hadoop do Azure HDInsight com Anaconda Python 2.7 de 64 bits instalado em todos os nós. Há duas etapas importantes (descritas neste tópico) a serem executadas para personalizar o cluster do HDInsight.
+1. [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md): esta conta de armazenamento é usada para armazenar dados no Armazenamento de Blob do Azure. Os dados usados em clusters do HDInsight são armazenados aqui.
+2. [Personalizar clusters Hadoop do Azure HDInsight para ciência de dados](customize-hadoop-cluster.md): esta etapa cria um cluster Hadoop do Azure HDInsight com o Anaconda Python 2.7 de 64 bits instalado em todos os nós. Há duas etapas importantes (descritas neste tópico) a serem executadas para personalizar o cluster do HDInsight.
 
    * Você deve vincular a conta de armazenamento criada na etapa 1 ao cluster do HDInsight quando ele é criado. Essa conta de armazenamento é usada para acessar dados que podem ser processados dentro do cluster.
    * Você deve habilitar o Acesso Remoto ao nó principal do cluster após sua criação. Lembre das credenciais de acesso remoto que você especificar aqui (diferentes daqueles especificadas para o cluster durante sua criação): você precisa delas para concluir os procedimentos a seguir.
-3. [Criar um workspace do Azure Machine Learning Studio](../studio/create-workspace.md): este workspace do Azure Machine Learning é usado para criar modelos de machine learning após uma exploração de dados inicial e para reduzir a amostragem no cluster do HDInsight.
+3. [Criar um espaço de trabalho Azure Machine Learning Studio (clássico)](../studio/create-workspace.md): este Azure Machine Learning espaço de trabalho é usado para criar modelos de aprendizado de máquina após uma exploração inicial de dados e uma amostragem inativa no cluster HDInsight.
 
 ## <a name="getdata"></a>Obter e consumir dados de uma fonte de pública
 O conjunto de dados da [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) pode ser acessado clicando no link, aceitando os termos de uso e fornecendo um nome. Um instantâneo desse processo é mostrado aqui:
@@ -435,13 +435,13 @@ Para o módulo **Importar Dados**, os valores dos parâmetros que são fornecido
 
 1. Escolha "Consulta de Hive" para **Fonte de dados**
 2. Na caixa **Consulta de banco de dados Hive**, um simples SELECT * FROM <your\_database\_name.your\_table\_name> é suficiente.
-3. **URI do servidor Hcatalog**: se o cluster for "abc", ele será simplesmente: https://abc.azurehdinsight.net
+3. **URI do servidor Hcatalog**: se o cluster for "abc", isso é simplesmente: https://abc.azurehdinsight.net
 4. **Nome da conta de usuário do Hadoop**: o nome de usuário escolhido no momento da programação do cluster. (NÃO o nome de usuário do Acesso Remoto!)
 5. **Senha da conta de usuário do Hadoop**: a senha para o nome de usuário escolhido no momento da programação do cluster. (NÃO a senha de Acesso Remoto!)
 6. **Local dos dados de saída**: escolha "Azure"
-7. **Nome da conta de armazenamento do Microsoft Azure**: a conta de armazenamento adicional associada ao cluster.
-8. **Chave de conta de armazenamento do Azure**: a chave da conta de armazenamento adicional associada ao cluster.
-9. **Nome do contêiner do Azure**: se o nome do cluster é "abc", costuma ser apenas "abc".
+7. **Nome da conta de armazenamento do Azure**: a conta de armazenamento associada ao cluster
+8. **Chave da conta de armazenamento do Azure**: a chave da conta de armazenamento associada ao cluster.
+9. **Nome do contêiner do Azure**: se o nome do cluster for "abc", normalmente costuma ser apenas "abc".
 
 Após **Importar Dados** terminar de obter os dados (você verá a marca de seleção verde no Módulo), salve os dados como um Conjunto de Dados (com um nome da sua preferência). A aparência é a seguinte:
 
@@ -451,7 +451,7 @@ Clique com o botão direito do mouse na porta de saída do módulo **Importar Da
 
 Para selecionar o conjunto de dados salvo para uso em um teste de aprendizado de máquina, localize os conjuntos de dados usando a caixa **Pesquisa** mostrada abaixo. Em seguida, basta digitar parcialmente o nome do conjunto de dados para acessá-lo e arrastar o conjunto de dados para o painel principal. Soltá-lo no painel principal o seleciona para uso na modelagem do aprendizado de máquina.
 
-![Arraste o conjunto de dados para o painel principal](./media/hive-criteo-walkthrough/cl5tpGw.png)
+![Arraste DataSet para o painel principal](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Faça isso para os conjuntos de dados de treinamento e de teste. Além disso, lembre-se de usar o nome do banco de dados e das tabelas que você atribuiu para essa finalidade. Os valores usados na figura são somente para fins de ilustração.\*\*
@@ -459,7 +459,7 @@ Para selecionar o conjunto de dados salvo para uso em um teste de aprendizado de
 >
 
 ### <a name="step2"></a> Etapa 2: criar um experimento simples no Estúdio de Azure Machine Learning para predizer cliques/nenhum clique
-Nosso experimento do Azure Machine Learning Studio fica com esta aparência:
+Nosso experimento Azure Machine Learning Studio (clássico) é semelhante ao seguinte:
 
 ![Teste do Machine Learning](./media/hive-criteo-walkthrough/xRpVfrY.png)
 
@@ -535,7 +535,7 @@ Esse trecho mostra que, para as colunas contadas, você recebe as chances de log
 
 Você agora está pronto para criar um modelo de Azure Machine Learning usando esses conjuntos de dados transformados. A próxima seção mostra como isso pode ser feito.
 
-### <a name="step3"></a> Etapa 3: Criar, treinar e pontuar o modelo
+### <a name="step3"></a>Etapa 3: Criar, treinar e pontuar o modelo
 
 #### <a name="choice-of-learner"></a>Opção do aprendiz
 Primeiro, você precisa escolher um aprendiz. Use uma árvore de decisão aprimorada de duas classes como nosso aprendiz. Aqui estão as opções padrão para esse aprendiz:
@@ -554,7 +554,7 @@ Assim que você tiver um modelo treinado, estará pronto para avaliar o conjunto
 
 ![Módulo de Modelo de Pontuação](./media/hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="step4"></a> Etapa 4: Avalie o modelo
+### <a name="step4"></a> Etapa 4: Avaliar o modelo
 Por fim, você deve analisar o desempenho do modelo. Normalmente, para problemas de classificação de duas classes (binária), uma boa medida é o AUC. Para visualizar isso, vincule o módulo **Modelo de Pontuação** a um módulo **Modelo de Avaliação**. Clicar em **Visualizar** no módulo **Modelo de avaliação** produz um gráfico semelhante ao seguinte exemplo:
 
 ![Avaliar o modelo de BDT do módulo](./media/hive-criteo-walkthrough/0Tl0cdg.png)
@@ -563,7 +563,7 @@ Em problemas de classificação binária (ou de duas classes), uma boa medida da
 
 ![Módulo Visualizar modelo de avaliação](./media/hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="step5"></a> Etapa 5: Publicar o modelo como um serviço Web
+### <a name="step5"></a> Etapa 5: Publicar o modelo como um serviço Web a ser consumido
 A capacidade de publicar um modelo de Azure Machine Learning como serviços Web com um nível mínimo de confusão é um recurso valioso para torná-lo amplamente disponível. Depois disso, qualquer pessoa pode fazer chamadas para o serviço Web com dados de entrada para os quais precisem de previsões, e o serviço Web usa o modelo para retornar as previsões.
 
 Para fazer isso, primeiro salve o modelo treinado como um objeto de Modelo Treinado. Isso é feito clicando com o botão direito do mouse no módulo **Modelo de treinamento** e usando a opção **Salvar como um Modelo Treinado**.

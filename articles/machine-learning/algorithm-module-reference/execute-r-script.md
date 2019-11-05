@@ -1,7 +1,7 @@
 ---
 title: 'Executar script R: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo executar script R no serviço de Azure Machine Learning para executar o código R.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo executar script R no Azure Machine Learning para executar o código R.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,25 +9,25 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: 01d4e3a06b8c6a95374b9ee246864167e6d2ac85
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: f9aae1302f0d83c27d5d8f01745ddecbaeea9467
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693779"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497886"
 ---
 # <a name="execute-r-script"></a>Executar script R
 
-Este artigo descreve como usar o módulo **Executar script r** para executar o código r em seu pipeline de interface visual.
+Este artigo descreve como usar o módulo **Executar script r** para executar o código r em seu pipeline do Azure Machine Learning designer (versão prévia).
 
 Com o R, você pode executar tarefas que atualmente não são suportadas por módulos existentes, como: 
 - Criar transformações de dados personalizadas
 - Use suas próprias métricas para avaliar previsões
-- Criar modelos usando algoritmos que não são implementados como módulos autônomos na interface visual
+- Crie modelos usando algoritmos que não são implementados como módulos autônomos no designer
 
 ## <a name="r-version-support"></a>Suporte à versão do R
 
-A interface visual do serviço de Azure Machine Learning usa a distribuição CRAN (ampla rede de arquivos R) de R. A versão atualmente usada é CRAN 3.5.1.
+O designer de Azure Machine Learning usa a distribuição CRAN (rede de arquivos R abrangente) de R. A versão atualmente usada é CRAN 3.5.1.
 
 ## <a name="supported-r-packages"></a>Pacotes de R com suporte
 
@@ -43,7 +43,7 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-## <a name="installing-r-packages"></a>Instalando pacotes do R
+## <a name="installing-r-packages"></a>Instalando pacotes R
 Para instalar pacotes de R adicionais, use o método `install.packages()`. Certifique-se de especificar o repositório CRAN. Os pacotes são instalados para cada módulo **Executar script r** e não são compartilhados entre outros módulos **Executar script r** .
 
 Este exemplo mostra como instalar o Zoo:
@@ -73,7 +73,7 @@ O módulo **Executar script R** contém um código de exemplo que você pode usa
 
 ![Módulo R](media/module/execute-r-script.png)
 
-Os conjuntos de dados armazenados na interface visual são automaticamente convertidos em um quadro de data do R quando carregados com esse módulo.
+Os conjuntos de dados armazenados no designer são convertidos automaticamente em um quadro do R data quando carregados com esse módulo.
 
 1.  Adicione o módulo **Executar script R** ao seu pipeline.
 
@@ -116,10 +116,10 @@ azureml_main <- function(dataframe1, dataframe2){
  * A função de ponto de entrada pode conter até dois argumentos de entrada: `Param<dataframe1>` e `Param<dataframe2>`
  
    > [!NOTE]
-    > Os dados passados para o módulo **Executar script R** são referenciados como `dataframe1` e `dataframe2`, que é diferente do Azure Machine Learning Studio (referência do estúdio como `dataset1`, `dataset2`). Verifique se os dados de entrada estão referneced corretamente em seu script.  
+    > Os dados passados para o módulo **Executar script R** são referenciados como `dataframe1` e `dataframe2`, que é diferente do designer de Azure Machine Learning (a referência de designer como `dataset1`, `dataset2`). Verifique se os dados de entrada estão referneced corretamente em seu script.  
  
     > [!NOTE]
-    >  O código R existente pode precisar de alterações secundárias para ser executado em um pipeline de interface visual. Por exemplo, os dados de entrada que você fornecer no formato CSV devem ser explicitamente convertidos em um DataSet antes que você possa usá-lo em seu código. Os tipos de dados e colunas usados na linguagem R também são diferentes de algumas maneiras dos tipos de dados e colunas usados na interface visual.
+    >  O código R existente pode precisar de alterações secundárias para ser executado em um pipeline de designer. Por exemplo, os dados de entrada que você fornecer no formato CSV devem ser explicitamente convertidos em um DataSet antes que você possa usá-lo em seu código. Os tipos de dados e colunas usados na linguagem R também são diferentes de algumas maneiras dos tipos de dados e colunas usados no designer.
 
 1.  **Semente aleatória**: digite um valor a ser usado dentro do ambiente de R como o valor de semente aleatória. Esse parâmetro é equivalente a chamar `set.seed(value)` no código R.  
 
@@ -127,11 +127,11 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="results"></a>Resultados
 
-Os módulos **Executar script r** podem retornar várias saídas, mas devem ser fornecidas como quadros de dados do r. Os quadros de dados são convertidos automaticamente em conjuntos de elementos de interface visual para compatibilidade com outros módulos.
+Os módulos **Executar script r** podem retornar várias saídas, mas devem ser fornecidas como quadros de dados do r. Os quadros de dados são convertidos automaticamente em conjuntos de dados no designer para compatibilidade com outros módulos.
 
 Mensagens e erros padrão do R são retornados para o log do módulo.
 
-## <a name="sample-scripts"></a>Scripts de exemplo
+## <a name="sample-scripts"></a>Exemplos de scripts
 
 Há várias maneiras pelas quais você pode estender seu pipeline usando o script R personalizado.  Esta seção fornece código de exemplo para tarefas comuns.
 
@@ -150,7 +150,7 @@ O módulo **Executar script r** dá suporte a arquivos de script r arbitrários 
 
     Se o arquivo de pacote de script contiver uma estrutura de diretório, a estrutura será preservada. No entanto, você deve alterar seu código para preceder o **pacote Directory./script** para o caminho.
 
-### <a name="process-data"></a>Processamento de dados
+### <a name="process-data"></a>Processar dados
 
 O exemplo a seguir mostra como dimensionar e normalizar dados de entrada:
 
@@ -235,7 +235,7 @@ Você pode passar objetos R entre instâncias do módulo **Executar script r** u
     }
     ```
 
-    A conversão explícita para o tipo de inteiro é feita porque a função de serialização gera dados no formato R `Raw`, que não tem suporte da interface visual.
+    A conversão explícita para o tipo de inteiro é feita porque a função de serialização gera dados no formato R `Raw`, que não tem suporte do designer.
 
 1. Adicione uma segunda instância do módulo **Executar script R** e conecte-a à porta de saída do módulo anterior.
 
@@ -272,23 +272,23 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | acento        | 6.0-84     | 
 | caTools      | 1.17.1.2   | 
 | cellranger   | 1.1.0      | 
-| classes        | 7.3-15     | 
+| class        | 7.3-15     | 
 | CLI          | 1.1.0      | 
 | clipe        | 0.6.0      | 
-| em      | 2.0.7-1    | 
+| cluster      | 2.0.7-1    | 
 | codetools    | 0.2-16     | 
 | colorspace   | 1.4-1      | 
 | Compiler     | 3.0      | 
 | lápis       | 1.3.4      | 
-| Curl         | 3,3        | 
+| Curl         | 3.3        | 
 | Data. tabela   | 1.12.2     | 
-| Conjuntos     | 3.0      | 
+| conjuntos de dados     | 3.0      | 
 | DBI          | 1.0.0      | 
 | dbplyr       | 1.4.1      | 
-| Digest       | 0.6.19     | 
+| digest       | 0.6.19     | 
 | dplyr        | 0.7.6      | 
 | e1071        | 1.7-2      | 
-| avaliado     | 0,14       | 
+| avaliar     | 0,14       | 
 | ventiladores        | 0.4.0      | 
 | forcats      | 0.3.0      | 
 | foreach      | 1.4.4      | 
@@ -307,21 +307,21 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1      | 
 | foram        | 2.1.0      | 
-| mais alto        | 0,8        | 
+| mais alto        | 0.8        | 
 | hms          | 0.4.2      | 
 | htmltools    | 0.3.6      | 
 | httr         | 1.4.0      | 
 | ipred        | 0,9-9      | 
 | iteradores    | 1.0.10     | 
-| jsonlite     | 1,6        | 
+| jsonlite     | 1.6        | 
 | KernSmooth   | -2, 23E-15    | 
 | knitr        | 1,23       | 
-| rotulagem     | 0,3        | 
+| rotulagem     | 0.3        | 
 | malha      | 0,20-38    | 
 | lava         | 1.6.5      | 
 | lazyeval     | 0.2.2      | 
 | lubridate    | -hadoop2      | 
-| magrittr     | 1,5        | 
+| magrittr     | 1.5        | 
 | Markdown     | 1          | 
 | EM massa         | 7.3-51.4   | 
 | Tabela       | 1.2-17     | 
@@ -334,7 +334,7 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | nlme         | 3.1-140    | 
 | nnet         | 7.3-12     | 
 | numDeriv     | 2016.8-1.1 | 
-| OpenSSL      | 1,4        | 
+| openssl      | 1.4        | 
 | completa     | 3.0      | 
 | pilares       | 1.4.1      | 
 | pkgconfig    | 2.0.2      | 
@@ -371,17 +371,17 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | espacial      | 7.3-11     | 
 | linhas      | 3.0      | 
 | QUADRADO      | 2017.10-1  | 
-| Estatísticas        | 3.0      | 
+| stats        | 3.0      | 
 | stats4       | 3.0      | 
 | Cadeia de caracteres      | 1.4.3      | 
 | Cadeia de caracteres      | 1.3.1      | 
 | sobrevivência     | 2,44-1.1   | 
-| sistema          | 3,2        | 
+| sys          | 3.2        | 
 | tcltk        | 3.0      | 
 | tibble       | 2.1.3      | 
 | limpar        | 0.8.3      | 
 | tidyselect   | 0.2.5      | 
-| tidyverse    | 1.2      | 
+| tidyverse    | 1.2.1      | 
 | Data de início     | 3043,102   | 
 | tinytex      | 0,13       | 
 | ferramentas        | 3.0      | 
@@ -393,13 +393,13 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | viridisLite  | 0.3.0      | 
 | caixa estreita      | 0.3-2      | 
 | com        | 2.1.2      | 
-| xfun         | 0,8        | 
+| xfun         | 0.8        | 
 | xml2         | 1.2.0      | 
 | XTS          | 0.11-2     | 
 | YAML         | 2.2.0      | 
 | zeallot      | 0.1.0      | 
-| Zoo          | 1.8-6      | 
+| zoológico          | 1.8-6      | 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

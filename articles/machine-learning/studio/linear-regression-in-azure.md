@@ -1,7 +1,7 @@
 ---
 title: Migrando a análise do Excel
-titleSuffix: Azure Machine Learning Studio
-description: Uma comparação dos modelos de regressão linear no Excel e no Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Uma comparação de modelos de regressão linear no Excel e no Azure Machine Learning Studio (clássico)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,48 +10,48 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 7db66f6f4efa5e48f2af9380115de8bcfb75cb86
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 533d58508f4788e90b0a3daa800e1149f5cba8b1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67786680"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492870"
 ---
-# <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Migrar a análise do Excel para o Azure Machine Learning Studio
+# <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio-classic"></a>Migrar a análise do Excel para Azure Machine Learning Studio (clássico)
 
-> *Kate Baroni* e *Ben Boatman* são arquitetos de soluções corporativas no Data Insights Center of Excellence da Microsoft. Neste artigo, eles descrevem suas experiências de migração de um pacote existente de análise de regressão para uma solução baseada em nuvem usando o Azure Machine Learning Studio.
+> *Kate Baroni* e *Ben Boatman* são arquitetos de soluções corporativas no Data Insights Center of Excellence da Microsoft. Neste artigo, eles descrevem sua experiência de migração de um pacote de análise de regressão existente para uma solução baseada em nuvem usando Azure Machine Learning Studio (clássico).
 
-## <a name="goal"></a>Meta
+## <a name="goal"></a>Objetivo
 
 Nosso projeto começou com dois objetivos: 
 
 1. Usar a análise preditiva para melhorar a precisão das projeções de receita mensal de nossa organização 
-2. Usar o Azure Machine Learning Studio para confirmar, otimizar e aumentar a velocidade e a escala de nossos resultados. 
+2. Use a versão clássica do Azure Machine Learning Studio para confirmar, otimizar, aumentar a velocidade e dimensionar nossos resultados. 
 
-Como muitas empresas, nossa organização passa por uma processo de previsão de receita mensal. Nossa pequena equipe de analistas de negócios foi encarregada de usar o Azure Machine Learning Studio para dar suporte ao processo e melhorar a precisão da previsão. A equipe passou vários meses coletando dados de várias fontes e submetendo os atributos de dados à análise estatística, identificando os principais atributos relevantes à previsão de vendas de serviços. A etapa seguinte foi iniciar a criação de protótipos de modelos de regressão estatística com os dados no Excel. Em poucas semanas, tínhamos um modelo de regressão do Excel que superava os processos atuais de previsão de campo e finanças. Esse se tornou o resultado de previsão de linha de base. 
+Como muitas empresas, nossa organização passa por uma processo de previsão de receita mensal. Nossa pequena equipe de analistas de negócios foi tarefa com o uso da versão clássica do Azure Machine Learning Studio para dar suporte ao processo e melhorar a precisão da previsão. A equipe passou vários meses coletando dados de várias fontes e submetendo os atributos de dados à análise estatística, identificando os principais atributos relevantes à previsão de vendas de serviços. A etapa seguinte foi iniciar a criação de protótipos de modelos de regressão estatística com os dados no Excel. Em poucas semanas, tínhamos um modelo de regressão do Excel que superava os processos atuais de previsão de campo e finanças. Esse se tornou o resultado de previsão de linha de base. 
 
-Em seguida, realizamos a próxima etapa de mover nossa análise preditiva para o Studio e descobrir como ele poderia melhorar o desempenho preditivo.
+Seguimos a próxima etapa para mover nossa análise preditiva para a versão clássica do Studio para descobrir como a versão clássica do estúdio poderia melhorar o desempenho de previsão.
 
 ## <a name="achieving-predictive-performance-parity"></a>Obtendo a paridade de desempenho preditivo
-Nossa maior prioridade era obter a paridade entre os modelos de regressão do Studio e do Excel. Considerando os mesmos dados e a mesma divisão para dados de treinamento e de teste, queríamos obter a paridade de desempenho preditivo entre o Excel e o Studio. Inicialmente, falhamos. O modelo do Excel superou o modelo do Studio. A falha ocorreu devido à falta de compreensão da configuração da ferramenta base no Studio. Após uma sincronização com a equipe de produto do Studio, obtivemos uma melhor compreensão da configuração base necessária para nossos conjuntos de dados e obtivemos a paridade entre os dois modelos. 
+Nossa primeira prioridade era obter a paridade entre a versão clássica do Studio e os modelos de regressão do Excel. Considerando os mesmos dados e a mesma divisão para dados de treinamento e teste, queríamos obter a paridade de desempenho preditiva entre o Excel e a versão clássica do Studio. Inicialmente, falhamos. O modelo do Excel supera o modelo de estúdio (clássico). A falha ocorreu devido à falta de compreensão da configuração da ferramenta base na versão clássica do Studio. Após uma sincronização com a versão clássica da equipe do produto Studio, obtivemos uma melhor compreensão da configuração básica necessária para nossos conjuntos de dados e alcançamos a paridade entre os dois modelos. 
 
 ### <a name="create-regression-model-in-excel"></a>Criar um modelo de regressão no Excel
 Nossa Regressão do Excel usou o modelo de regressão linear padrão encontrado nas Ferramentas de Análise do Excel. 
 
-Calculamos o *Erro de Média Absoluta %* e o usamos como a medida de desempenho para o modelo. Levamos três meses para chegar a um modelo de trabalho usando o Excel. Aproveitamos muito o aprendizado para o experimento do Studio, que, em última análise, foi útil para entender os requisitos.
+Calculamos o *Erro de Média Absoluta %* e o usamos como a medida de desempenho para o modelo. Levamos três meses para chegar a um modelo de trabalho usando o Excel. Trouxemos muito do aprendizado para a versão clássica do experimento do estúdio, que, por fim, era benéfico na compreensão dos requisitos.
 
-### <a name="create-comparable-experiment-in-studio"></a>Criar um experimento comparável no Studio
-Seguimos estas etapas para criar nosso experimento no Studio: 
+### <a name="create-comparable-experiment-in-studio-classic"></a>Criar experimento comparável no estúdio (clássico)
+Seguimos estas etapas para criar nosso experimento na versão clássica do Studio: 
 
-1. Carregamos o conjunto de dados como um arquivo CSV no Studio (um arquivo muito pequeno)
+1. Carregou o conjunto de um arquivo CSV para a versão clássica do Studio (arquivo muito pequeno)
 2. Criou um novo experimento e utilizou o módulo [selecionar colunas no conjunto][select-columns] de dados para selecionar os mesmos recursos usados no Excel 
 3. Usou o módulo [dividir dados][split] (com o modo de *expressão relativa* ) para dividir os dados nos mesmos conjuntos de dado de treinamento que foram feitos no Excel 
 4. Experimentamos o módulo de [regressão linear][linear-regression] (somente opções padrão), documentados e comparamos os resultados ao nosso modelo de regressão do Excel
 
 ### <a name="review-initial-results"></a>Examinar os resultados iniciais
-A princípio, o modelo do Excel superou claramente o modelo do Studio: 
+A princípio, o modelo do Excel desempenhou claramente o modelo de estúdio (clássico): 
 
-|  | Excel | Estúdio |
+|  | Excel | Estúdio (clássico) |
 | --- |:---:|:---:|
 | Desempenho | | |
 | <ul style="list-style-type: none;"><li>Quadrado R Ajustado</li></ul> |0,96 |N/D |
@@ -61,22 +61,22 @@ A princípio, o modelo do Excel superou claramente o modelo do Studio:
 
 Quando apresentamos nosso processo e os resultados aos desenvolvedores e cientistas de dados à equipe do Machine Learning, eles forneceram rapidamente algumas dicas úteis. 
 
-* Quando você usa o módulo [regressão linear][linear-regression] no estúdio, dois métodos são fornecidos:
-  * Gradiente Online Descendente: Talvez seja mais adequado para problemas de maior escala
-  * Mínimos Quadrados Comuns: Esse é o método em que muitas pessoas pensam quando ouvem falar em regressão linear. Para conjuntos de dados pequenos, Mínimos Quadrados Comuns pode ser uma opção melhor.
+* Quando você usa o módulo [regressão linear][linear-regression] na versão clássica do Studio, dois métodos são fornecidos:
+  * Gradiente Online Descendente: talvez seja mais adequado para problemas de maior escala
+  * Mínimos Quadrados Comuns: esse é o método em que muitas pessoas pensam quando ouvem falar em regressão linear. Para conjuntos de dados pequenos, Mínimos Quadrados Comuns pode ser uma opção melhor.
 * Considere a possibilidade de ajustar o parâmetro L2 de Regularização de Peso para melhorar o desempenho. Ele é definido como 0,001 por padrão e, para nosso pequeno conjunto de dados, o definimos como 0,005 para melhorar o desempenho. 
 
 ### <a name="mystery-solved"></a>Mistério resolvido!
-Quando aplicamos as recomendações, atingimos o mesmo desempenho de linha de base no Studio que obtivemos no Excel: 
+Quando aplicamos as recomendações, atingimos o mesmo desempenho de linha de base na versão clássica do Studio como com o Excel: 
 
-|  | Excel | Estúdio (inicial) | Estúdio c/ quadrados mínimos |
+|  | Excel | Studio (clássico) (inicial) | Estúdio (clássico) w/mínimo de quadrados |
 | --- |:---:|:---:|:---:|
 | Valor rotulado |Dados reais (numéricos) |mesmo |mesmo |
 | Aprendiz |Excel -> Dados da Análise -> Regressão |Regressão Linear. |Regressão Linear |
 | Opções de aprendiz |N/D |Padrões |quadrados mínimos comuns<br />L2 = 0,005 |
 | Conjunto de dados |26 linhas, 3 recursos, 1 rótulo. Todos numéricos. |mesmo |mesmo |
-| Divisão: Treinar |Excel treinado nas primeiras 18 linhas e testado nas últimas 8 linhas. |mesmo |mesmo |
-| Divisão: Teste |Fórmula de regressão do Excel aplicada às últimas 8 linhas |mesmo |mesmo |
+| Divisão: treinamento |Excel treinado nas primeiras 18 linhas e testado nas últimas 8 linhas. |mesmo |mesmo |
+| Divisão: teste |Fórmula de regressão do Excel aplicada às últimas 8 linhas |mesmo |mesmo |
 | **Desempenho** | | | |
 | Quadrado R Ajustado |0,96 |N/D | |
 | Coeficiente de Determinação |N/D |0,78 |0,952049 |
@@ -95,7 +95,7 @@ Além disso, os coeficientes do Excel saíram-se bem em comparação com os peso
 ## <a name="next-steps"></a>Próximas etapas
 Queríamos usar o serviço Web do Machine Learning no Excel. Nossos analistas de negócios usam o Excel, e precisávamos de um modo para chamar o serviço Web do Machine Learning com uma linha de dados do Excel e fazer com que ele retornasse ao Excel o valor previsto. 
 
-Também queríamos otimizar nosso modelo usando as opções e os algoritmos disponíveis no Studio.
+Também queríamos otimizar nosso modelo, usando as opções e os algoritmos disponíveis na versão clássica do Studio.
 
 ### <a name="integration-with-excel"></a>Integração com o Excel
 A solução foi operacionalizar nosso modelo de regressão do Machine Learning criando um serviço Web com base no modelo treinado. Em alguns minutos, o serviço Web foi criado e pudemos chamá-lo diretamente no Excel para retornar um valor de receita prevista. 
@@ -113,7 +113,7 @@ Agora que tínhamos uma linha de base com nosso modelo do Excel, otimizamos noss
 
 Em seguida, planejamos incluir algoritmos adicionais, como [Bayesiana][bayesian-linear-regression] ou [árvores de decisão aumentadas][boosted-decision-tree-regression] em nosso experimento para comparar o desempenho. 
 
-Se você quiser experimentar a regressão, um bom conjunto de dados para tentar é o conjunto de dados de exemplo de Regressão de Eficiência de Energia, que tem muitos atributos numéricos. O conjunto de dados é fornecido como parte dos conjuntos de dados de exemplo no Studio. Você pode usar diversos módulos de aprendizado para prever a Carga de Aquecimento ou a Carga de Resfriamento. O gráfico abaixo é uma comparação de desempenho de diferentes aprendizados de regressão em relação ao conjunto de dados de Eficiência Energética, prevendo a Carga de Resfriamento de variável de destino: 
+Se você quiser experimentar a regressão, um bom conjunto de dados para tentar é o conjunto de dados de exemplo de Regressão de Eficiência de Energia, que tem muitos atributos numéricos. O conjunto de valores é fornecido como parte dos conjuntos de exemplos de exemplo na versão clássica do Studio. Você pode usar diversos módulos de aprendizado para prever a Carga de Aquecimento ou a Carga de Resfriamento. O gráfico abaixo é uma comparação de desempenho de diferentes aprendizados de regressão em relação ao conjunto de dados de Eficiência Energética, prevendo a Carga de Resfriamento de variável de destino: 
 
 | Modelo | Erro Absoluto Médio | Erro Quadrado Médio de Raiz | Erro Absoluto Relativo | Erro Quadrado Relativo | Coeficiente de Determinação |
 | --- | --- | --- | --- | --- | --- |
@@ -123,18 +123,18 @@ Se você quiser experimentar a regressão, um bom conjunto de dados para tentar 
 | Regressão Linear (Quadrados Mínimos Comuns) |1,428273 |1,984461 |0,163767 |0,042074 |0,957926 |
 
 ## <a name="key-takeaways"></a>Principais observações
-Aprendemos muito executando os experimentos do Studio e a regressão do Excel em paralelo. Criar o modelo de linha de base no Excel e compará-lo a modelos usando Machine Learning [regressão linear][linear-regression] nos ajudou a aprender o estúdio e descobrimos oportunidades para melhorar a seleção de dados e o desempenho do modelo. 
+Aprendemos muito por meio da execução da regressão do Excel e da versão clássica dos experimentos do estúdio em paralelo. Criar o modelo de linha de base no Excel e compará-lo a modelos usando Machine Learning [regressão linear][linear-regression] nos ajudou a aprender o Studio (clássico) e descobrimos oportunidades para melhorar a seleção de dados e o desempenho do modelo. 
 
-Também descobrimos que é aconselhável usar a seleção de [recursos baseada em filtro][filter-based-feature-selection] para acelerar projetos de previsão futuros. Aplicando a seleção de recursos aos dados, você pode criar um modelo aprimorado no Studio com melhor desempenho geral. 
+Também descobrimos que é aconselhável usar a seleção de [recursos baseada em filtro][filter-based-feature-selection] para acelerar projetos de previsão futuros. Ao aplicar a seleção de recursos aos seus dados, você pode criar um modelo aprimorado na versão clássica do Studio com melhor desempenho geral. 
 
-A capacidade de transferir a previsão de análise preditiva do Studio para o Excel permite sistematicamente um aumento significativo na capacidade de fornecer resultados com êxito para um amplo público de usuários empresariais. 
+A capacidade de transferir a previsão analítica preditiva da versão clássica do Studio para o Excel sistematicamente permite um aumento significativo na capacidade de fornecer resultados com êxito a um grande público de usuários de negócios. 
 
 ## <a name="resources"></a>Recursos
 Estes são alguns recursos que ajudam a trabalhar com a regressão: 
 
 * Regressão no Excel. Se você nunca tentou regressão no Excel, este tutorial torna mais fácil: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
 * Regressão versus previsão. Tyler Chessman escreveu um artigo no blog explicando como realizar a previsão de série temporal no Excel, que contém uma boa descrição para iniciantes sobre a regressão linear. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
-* Regressão Linear de Quadrados Mínimos Comuns: Falhas, problemas e armadilhas. Para uma introdução e uma discussão sobre Regressão: [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Regressão linear de quadrados mínimos simples: falhas, problemas e armadilhas. Para uma introdução e uma discussão sobre Regressão: [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->
 [bayesian-linear-regression]: https://msdn.microsoft.com/library/azure/ee12de50-2b34-4145-aec0-23e0485da308/

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/07/2019
-ms.openlocfilehash: 309cef6ec058d8192bc7a6341b49a59c0000a305
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: e834c55ec35195ff627176603c7611abbf6adf1c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035551"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497507"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança corporativa para Azure Machine Learning
 
@@ -31,7 +31,7 @@ A autenticação multifator terá suporte se o Azure Active Directory (Azure AD)
 1. O cliente apresenta o token para Azure Resource Manager e todos os Azure Machine Learning.
 1. O serviço de Machine Learning fornece um token de serviço de Machine Learning para o destino de computação do usuário (por exemplo, Computação do Machine Learning). Esse token é usado pelo destino de computação do usuário para retornar ao serviço de Machine Learning após a execução ser concluída. O escopo é limitado ao espaço de trabalho.
 
-[![Autenticação no Azure Machine Learning](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
+[![autenticação no Azure Machine Learning](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
 
 ### <a name="authentication-for-web-service-deployment"></a>Autenticação para implantação de serviço Web
 
@@ -49,9 +49,9 @@ Ao habilitar a autenticação de chave para uma implantação, você cria automa
 * A autenticação é habilitada por padrão quando você implanta no AKS (serviço kubernetes do Azure).
 * A autenticação é desabilitada por padrão quando você implanta em instâncias de contêiner do Azure.
 
-Para habilitar a autenticação de chave, `auth_enabled` use o parâmetro ao criar ou atualizar uma implantação.
+Para habilitar a autenticação de chave, use o parâmetro `auth_enabled` ao criar ou atualizar uma implantação.
 
-Se a autenticação de chave estiver habilitada, você `get_keys` poderá usar o método para recuperar uma chave de autenticação primária e secundária:
+Se a autenticação de chave estiver habilitada, você poderá usar o método `get_keys` para recuperar uma chave de autenticação primária e secundária:
 
 ```python
 primary, secondary = service.get_keys()
@@ -68,9 +68,9 @@ Quando você habilita a autenticação de token para um serviço Web, os usuári
 * A autenticação de token é desabilitada por padrão quando você implanta no serviço kubernetes do Azure.
 * Não há suporte para autenticação de token quando você implanta em instâncias de contêiner do Azure.
 
-Para controlar a autenticação de tokens `token_auth_enabled` , use o parâmetro ao criar ou atualizar uma implantação.
+Para controlar a autenticação de tokens, use o parâmetro `token_auth_enabled` ao criar ou atualizar uma implantação.
 
-Se a autenticação de token estiver habilitada, você `get_token` poderá usar o método para recuperar um token Web JSON (JWT) e o tempo de expiração desse token:
+Se a autenticação de token estiver habilitada, você poderá usar o método `get_token` para recuperar um token Web JSON (JWT) e o tempo de expiração desse token:
 
 ```python
 token, refresh_by = service.get_token()
@@ -78,7 +78,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Você precisará solicitar um novo token após a hora do `refresh_by` token.
+> Você precisará solicitar um novo token após o tempo de `refresh_by` do token.
 >
 > É altamente recomendável que você crie seu espaço de trabalho do Azure Machine Learning na mesma região que o cluster do serviço kubernetes do Azure. 
 >
@@ -91,15 +91,16 @@ print(token)
 Você pode criar vários workspaces, e cada workspace pode ser compartilhado por várias pessoas. Ao compartilhar um espaço de trabalho, você pode controlar o acesso a ele atribuindo essas funções aos usuários:
 
 * Proprietário
-* Contribuidor
+* Colaborador
 * Leitor
 
 A tabela a seguir lista algumas das principais operações de Azure Machine Learning e as funções que podem executá-las:
 
-| Azure Machine Learning operação | Proprietário | Contribuidor | Leitor |
+| Azure Machine Learning operação | Proprietário | Colaborador | Leitor |
 | ---- |:----:|:----:|:----:|
 | Criar workspace | ✓ | ✓ | |
 | Compartilhar o workspace | ✓ | |  |
+| Atualizar espaço de trabalho para Enterprise Edition | ✓ | |
 | Criar destino de computação | ✓ | ✓ | |
 | Anexar destino de computação | ✓ | ✓ | |
 | Anexar armazenamentos de dados | ✓ | ✓ | |
@@ -121,14 +122,14 @@ Cada espaço de trabalho também tem uma identidade gerenciada atribuída pelo s
 
 Para obter mais informações sobre identidades gerenciadas, consulte [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-| Recurso | Permissões |
+| Grupos | Permissões |
 | ----- | ----- |
-| Workspace | Contribuidor |
-| Conta de armazenamento | Colaborador de Dados do Storage Blob |
+| Workspace | Colaborador |
+| Conta de armazenamento | Colaborador de dados do blob de armazenamento |
 | Cofre de chaves | Acesso a todas as chaves, segredos, certificados |
-| Registro de Contêiner do Azure | Contribuidor |
-| Grupo de recursos que contém o espaço de trabalho | Contribuidor |
-| Grupo de recursos que contém o cofre de chaves (se for diferente daquele que contém o espaço de trabalho) | Contribuidor |
+| Registro de Contêiner do Azure | Colaborador |
+| Grupo de recursos que contém o espaço de trabalho | Colaborador |
+| Grupo de recursos que contém o cofre de chaves (se for diferente daquele que contém o espaço de trabalho) | Colaborador |
 
 Não recomendamos que os administradores revoguem o acesso da identidade gerenciada aos recursos mencionados na tabela anterior. Você pode restaurar o acesso usando a operação de ressincronização de chaves.
 
@@ -144,7 +145,7 @@ Para obter mais informações, consulte [como executar experimentos e inferênci
 
 ### <a name="encryption-at-rest"></a>Criptografia em repouso
 
-#### <a name="azure-blob-storage"></a>Armazenamento de Blob do Azure
+#### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
 O Azure Machine Learning armazena instantâneos, saída e logs na conta de armazenamento de BLOBs do Azure que está vinculada ao espaço de trabalho Azure Machine Learning e à sua assinatura. Todos os dados armazenados no armazenamento de BLOBs do Azure são criptografados em repouso com chaves gerenciadas pela Microsoft.
 
@@ -187,25 +188,25 @@ As senhas e chaves SSH para computar destinos como o Azure HDInsight e VMs são 
 
 Cada espaço de trabalho tem uma identidade gerenciada atribuída pelo sistema associada que tem o mesmo nome que o espaço de trabalho. Essa identidade gerenciada tem acesso a todas as chaves, segredos e certificados no cofre de chaves.
 
-## <a name="monitoring"></a>Monitorando
+## <a name="monitoring"></a>Monitoramento
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>Métricas
 
 Você pode usar Azure Monitor métricas para exibir e monitorar as métricas de seu espaço de trabalho Azure Machine Learning. No [portal do Azure](https://portal.azure.com), selecione seu espaço de trabalho e, em seguida, selecione **métricas**:
 
-[![Captura de tela mostrando métricas de exemplo para um espaço de trabalho](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
+[Captura de tela de ![mostrando métricas de exemplo para um espaço de trabalho](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
 
 As métricas incluem informações sobre execuções, implantações e registros.
 
 Para obter mais informações, consulte [métricas em Azure monitor](/azure/azure-monitor/platform/data-platform-metrics).
 
-### <a name="activity-log"></a>Log de atividades
+### <a name="activity-log"></a>Logs de atividades
 
 Você pode exibir o log de atividades de um espaço de trabalho para ver várias operações executadas no espaço de trabalho. O log inclui informações básicas, como o nome da operação, o iniciador do evento e o carimbo de data/hora.
 
 Esta captura de tela mostra o log de atividades de um espaço de trabalho:
 
-[![Captura de tela mostrando o log de atividades de um espaço de trabalho](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
+[Captura de tela ![mostrando o log de atividades de um espaço de trabalho](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
 
 Os detalhes da solicitação de pontuação são armazenados em Application Insights. Application Insights é criado em sua assinatura quando você cria um espaço de trabalho. As informações registradas incluem campos como HTTPMethod, UserAgent, computable, RequestUrl, StatusCode, RequestId e Duration.
 
@@ -233,7 +234,7 @@ Recursos adicionais são criados na assinatura do usuário durante a criação d
 
 O usuário também pode provisionar outros destinos de computação anexados a um espaço de trabalho (como o serviço kubernetes do Azure ou VMs), conforme necessário.
 
-[![Criar fluxo de trabalho](./media/enterprise-readiness/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
+[fluxo de trabalho criar ![](./media/enterprise-readiness/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
 
 ### <a name="save-source-code-training-scripts"></a>Salvar código-fonte (scripts de treinamento)
 
@@ -241,7 +242,7 @@ O diagrama a seguir mostra o fluxo de trabalho de instantâneo de código.
 
 Associado a um espaço de trabalho Azure Machine Learning são os diretórios (experimentos) que contêm o código-fonte (scripts de treinamento). Esses scripts são armazenados em seu computador local e na nuvem (no armazenamento de BLOBs do Azure para sua assinatura). Os instantâneos de código são usados para execução ou inspeção para auditoria histórica.
 
-[![Fluxo de trabalho de instantâneo de código](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
+[fluxo de trabalho de instantâneo de código ![](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
 
 ### <a name="training"></a>Treinamento
 
@@ -268,13 +269,13 @@ Como Computação do Machine Learning é um destino de computação gerenciado (
 
 No diagrama de fluxo abaixo, essa etapa ocorre quando o destino de computação de treinamento grava as métricas de execução de volta para Azure Machine Learning do armazenamento no banco de dados Cosmos DB. Os clientes podem chamar Azure Machine Learning. Machine Learning, por sua vez, transformará as métricas de pull do banco de dados Cosmos DB e as retornará ao cliente.
 
-[![Fluxo de trabalho de treinamento](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
+[fluxo de trabalho de treinamento ![](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
 
 ### <a name="creating-web-services"></a>Criando Serviços Web
 
 O diagrama a seguir mostra o fluxo de trabalho de inferência. A inferência, ou a Pontuação do modelo, é a fase em que o modelo implantado é usado para previsão, mais comumente em dados de produção.
 
-Aqui estão os detalhes:
+Estes são os detalhes:
 
 * O usuário registra um modelo usando um cliente como o SDK do Azure Machine Learning.
 * O usuário cria uma imagem usando um modelo, um arquivo de Pontuação e outras dependências de modelo.
@@ -283,7 +284,7 @@ Aqui estão os detalhes:
 * Os detalhes da solicitação de pontuação são armazenados em Application Insights, que está na assinatura do usuário.
 * A telemetria também é enviada por push para a assinatura do Microsoft/Azure.
 
-[![Fluxo de trabalho de inferência](./media/enterprise-readiness/inferencing.png)](./media/enterprise-readiness/inferencing-expanded.png)
+[fluxo de trabalho de inferência de ![](./media/enterprise-readiness/inferencing.png)](./media/enterprise-readiness/inferencing-expanded.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: eb792034e49b0f8f663eb9ee968ea6fac1372373
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: e74277af8bf0912c418bc169209180195ceb8d8f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278618"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492385"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Executar tarefas de ciência de dados: exploração, modelagem e implantação
 
@@ -26,11 +26,11 @@ Em geral, entre as tarefas de ciência de dados, temos: exploração, modelagem 
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
-## 1. <a name='DataQualityReportUtility-1'></a> Exploração 
+## 1. <a name='DataQualityReportUtility-1'></a> exploração 
 
 Um cientista de dados pode realizar exploração e geração de relatórios de várias maneiras: usando bibliotecas e pacotes disponíveis para Python (matplotlib, por exemplo) ou com R (ggplot ou malha, por exemplo). Os cientistas de dados podem personalizar esse código para atender às necessidades de exploração de dados para cenários específicos. As necessidades de lidar com dados estruturados são diferentes daquelas de dados não estruturados, como texto ou imagens. 
 
-Produtos como o serviço do Azure Machine Learning também fornecem [ preparação avançada de dados ](../service/how-to-transform-data.md) para disputa e exploração de dados, incluindo a criação de recursos. O usuário deve decidir quais ferramentas, bibliotecas e pacotes se ajustam melhor às suas necessidades. 
+Produtos como Azure Machine Learning também fornecem [preparação de dados avançada](../service/how-to-transform-data.md) para Wrangling e exploração de dados, incluindo a criação de recursos. O usuário deve decidir quais ferramentas, bibliotecas e pacotes se ajustam melhor às suas necessidades. 
 
 A entrega ao final dessa fase é um relatório de exploração de dados. O relatório deve fornecer uma exibição bastante abrangente dos dados a serem usados para modelagem e uma avaliação de se os dados são adequados para prosseguir para a etapa de modelagem. Os utilitários do Processo de ciência de dados de equipe (TDSP) discutidos nas seções a seguir para exploração, modelagem e geração de relatórios semiautomatizadas também oferecem exploração de dados e modelagem de relatórios padronizadas. 
 
@@ -41,7 +41,7 @@ Esse utilitário com base em R Markdown ou Python com base em bloco de notas for
 Neste momento, a ferramenta só funciona em estruturas de dados na memória. Um arquivo YAML é necessário para especificar os parâmetros do conjunto de dados a ser explorado. Para obter mais informações, consulte [IDEAR em utilitários de Ciência de Dados de TDSP](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
 
-## 2. <a name='ModelingUtility-2'></a> Modelagem
+## 2. <a name='ModelingUtility-2'></a> modelagem
 
 Há vários kits de ferramentas e pacotes para treinar modelos em diversas linguagens. Os cientistas de dados devem ficar à vontade para usar aqueles com os quais estão acostumados, desde que as considerações de desempenho em relação à precisão e latência sejam atendidas para os casos de uso nos negócios e cenários de produção relevantes.
 
@@ -78,7 +78,7 @@ Depois de vários modelos terem sido compilados, geralmente é necessário ter u
 3. [SQL-Server como um sistema de gerenciamento de modelos](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
-## 3. <a name='Deployment-3'></a> Implantação
+## 3. <a name='Deployment-3'></a> implantação
 
 A implantação de produção permite que um modelo execute uma função ativa em uma empresa. Previsões de um modelo implantado podem ser usadas para decisões de negócios.
 
@@ -86,7 +86,7 @@ A implantação de produção permite que um modelo execute uma função ativa e
 Há várias abordagens e plataformas para colocar modelos em produção. Veja algumas opções:
 
 
-- [Implantação de modelo no serviço do Azure Machine Learning](../service/how-to-deploy-and-where.md)
+- [Implantação de modelo no Azure Machine Learning](../service/how-to-deploy-and-where.md)
 - [Implantação de um modelo no SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
@@ -95,7 +95,7 @@ Há várias abordagens e plataformas para colocar modelos em produção. Veja al
 >
 >
 
-Outros exemplos estão disponíveis em instruções passo a passo completas que demonstram todas as etapas do processo para **cenários específicos**. Eles estão listados e vinculados a descrições em miniatura no artigo [Instruções passo a passo de exemplo](walkthroughs.md). Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente.
+Outros exemplos estão disponíveis em instruções passo a passo completas que demonstram todas as etapas do processo para **cenários específicos**. Eles serão listados e vinculados a descrições em miniatura no artigo [Instruções passo a passo de exemplo](walkthroughs.md). Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente.
 
 > [!NOTE]
 > Para implantações que usam o Azure Machine Learning Studio, consulte [Implantar um serviço Web do Machine Learning](../studio/publish-a-machine-learning-web-service.md).

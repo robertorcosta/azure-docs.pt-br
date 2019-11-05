@@ -1,33 +1,34 @@
 ---
 title: Exportar ou excluir dados do workspace
 titleSuffix: Azure Machine Learning
-description: Saiba como exportar ou excluir seu workspace com o portal do Azure, a CLI, o SDK e as APIs REST autenticadas.
+description: Saiba como exportar ou excluir seu espaço de trabalho com o Azure Machine Learning Studio, CLI, SDK e APIs REST autenticadas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: ph-com
-ms.author: pahusban
+author: lobrien
+ms.author: laobri
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18e2ab18dac214e73eaf6ad7dfcb9dbbab0b5cf5
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: d653d1cd719ac59bf6c98bee588c41858052bc61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002834"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489843"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportar ou excluir dados do workspace no serviço do Machine Learning 
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-No Azure Machine Learning, você pode exportar ou excluir seus dados de workspace com a API REST autenticada. Este artigo informa como fazer isso.
+No Azure Machine Learning, você pode exportar ou excluir seus dados de workspace com a API REST autenticada. Este artigo mostra como fazer isso.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="control-your-workspace-data"></a>Controlar seus dados de workspace
-Os dados no produto armazenados por Azure Machine Learning estão disponíveis para exportação e exclusão por meio do portal do Azure, da CLI, do SDK e das APIs REST autenticadas. É possível acessar os dados telemétricos por meio do Portal de Privacidade do Azure. 
+Os dados no produto armazenados por Azure Machine Learning estão disponíveis para exportação e exclusão por meio do Azure Machine Learning Studio, CLI, SDK e APIs REST autenticadas. Os dados de telemetria podem ser acessados através do portal de Privacidade do Azure. 
 
 No Azure Machine Learning, os dados pessoais são formados por informações do usuário em documentos de histórico de execução e registros telemétricos de algumas interações do usuário com o serviço.
 
@@ -232,28 +233,27 @@ Fontes de Dados podem ser obtidas por:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
 
-## <a name="delete-visual-interface-assets"></a>Excluir ativos de interface visual
+## <a name="delete-assets-in-the-designer"></a>Excluir ativos no designer
 
-Na interface visual em que você criou seu experimento, exclua ativos individuais:
+No designer em que você criou seu experimento, exclua ativos individuais:
 
-1. À esquerda, selecione o tipo de ativo que você deseja excluir.
+1. Ir para o designer
 
     ![Excluir ativos](media/how-to-export-delete-data.md/delete-experiment.png)
 
-1. Na lista, selecione os ativos individuais a serem excluídos.
+1. Na lista, selecione o rascunho de pipeline individual a ser excluído.
 
 1. Na parte inferior, selecione **excluir**.
 
-## <a name="export-visual-interface-data"></a>Exportar dados da interface visual
+## <a name="unregister-data-in-the-designer"></a>Cancelar o registro de dados no designer
 
-Na interface visual em que você criou o experimento, exporte os dados que adicionou:
+No designer em que você criou seu experimento, exporte os dados que adicionou:
 
-1. À esquerda, selecione **dados**.
+1. À esquerda, selecione **conjuntos de valores**.
 
-1. Na parte superior, selecione **meus conjuntos** de dados ou **amostras** para localizar o dado que você deseja exportar.
 
-    ![Baixar dados](media/how-to-export-delete-data.md/download-data.png)
 
-1. Na lista, selecione os conjuntos de valores individuais a serem exportados.
+    ![Baixar dados](media/how-to-export-delete-data.md/unregister-dataset.png)
 
-1. Na parte inferior, selecione **baixar**.
+1. Na lista, selecione o conjunto de registros individual e clique em cancelar registro
+

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/15/2019
 ms.author: diberry
-ms.openlocfilehash: bad3bdc2b4508c082ca50647d5de5e7265c763a1
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 4ca3a27a63f84eccb66b24d5046e2ae7d751387d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639187"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487553"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões aumentam a precisão da previsão
 Os padrões são definidos para aumentar a precisão quando várias expressões são muito similares.  Um padrão permite que você alcance maior precisão para uma intenção sem fornecer muitos enunciados a mais. 
@@ -68,9 +68,9 @@ A sintaxe de padrão oferece suporte à seguinte sintaxe:
 |Função|Sintaxe|Nível de aninhamento|Exemplo|
 |--|--|--|--|
 |entidade| {}-chaves|2|Onde é o formato {Entity-Name}?|
-|optional|[]-colchetes<BR><BR>Há um limite de 3 em níveis de aninhamento de qualquer combinação de opcional e agrupamento |2|O ponto de interrogação é opcional [?]|
+|opcional|[]-colchetes<BR><BR>Há um limite de 3 em níveis de aninhamento de qualquer combinação de opcional e agrupamento |2|O ponto de interrogação é opcional [?]|
 |Agrupamento|()-parênteses|2|é (a \| b)|
-|ou| \|-barra vertical (pipe)<br><br>Há um limite de 2 nas barras verticais (ou) em um grupo |-|Onde é formulário ({Form-Name-Short} &#x7c; {formulário-nome-longo} &#x7c; {formulário-número})| 
+|ou o| \|-barra vertical (pipe)<br><br>Há um limite de 2 nas barras verticais (ou) em um grupo |-|Onde é formulário ({Form-Name-Short} &#x7c; {formulário-nome-longo} &#x7c; {formulário-número})| 
 |início e/ou fim de expressão|^-cursor|-|^ iniciar o expressão<br>o expressão é concluído ^<br>^ correspondência literal estrita de expressão inteira com {Number} entidade ^|
 
 ## <a name="nesting-syntax-in-patterns"></a>Sintaxe de aninhamento em padrões
@@ -99,8 +99,8 @@ Uma combinação de **agrupamento** com sintaxe **opcional** tem um limite de 3 
 
 |Permitido|Exemplo|
 |--|--|
-|Sim|( [ ( test1 &#x7c; test2 ) ] &#x7c; test3 )|
-|Não|( [ ( [ test1 ] &#x7c; test2 ) ] &#x7c; test3 )|
+|Sim|([(Test1 &#x7c; test2)] &#x7c; test3)|
+|Não|([([Test1] &#x7c; test2)] &#x7c; test3)|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Limites de aninhamento para grupos com sintaxe or-ing
 
@@ -160,7 +160,7 @@ Nas expressões a seguir, as entidades **assunto** e **pessoa** são extraídas 
 |email sobre cachorros de Chris|assunto=cachorros<br>pessoa=Chris|✔|
 |email sobre o homem de La Mancha|assunto=o homem<br>pessoa=La Mancha|X|
 
-Na tabela anterior, o assunto deve ser `the man from La Mancha` (um título de livro), mas como o assunto inclui a palavra `from`opcional, o título é previsto incorretamente. 
+Na tabela anterior, o assunto deve ser `the man from La Mancha` (um título de livro), mas como o assunto inclui a palavra opcional `from`, o título é incorretamente previsto. 
 
 Para corrigir esta expressão no padrão, adicione `the man from la mancha` como uma correspondência de lista explícita para a entidade {assunto} usando a [API de criação para lista explícita](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
@@ -169,10 +169,10 @@ Marque texto opcional na expressão usando a sintaxe colchete de expressão regu
 
 |Padrão com texto opcional|Significado|
 |--|--|
-|`[find] email about {subject} [from {person}]`|`find`e `from {person}` são opcionais|
+|`[find] email about {subject} [from {person}]`|`find` e `from {person}` são opcionais|
 |' Você pode me ajudar a [?]|A marca de pontuação é opcional|
 
-As marcas de`?`Pontuação `!`( `.`,,) devem ser ignoradas e você precisa ignorá-las usando a sintaxe de colchetes em padrões. 
+As marcas de Pontuação (`?`, `!`, `.`) devem ser ignoradas e você precisa ignorá-las usando a sintaxe de colchetes em padrões. 
 
 ## <a name="pattern-only-apps"></a>Aplicativos somente de padrão
 Você pode criar um aplicativo com tentativas que não têm nenhum exemplo de declarações, contanto que haja um padrão para cada tentativa. Para um aplicativo somente de padrão, o padrão não deve conter entidades aprendidas por computador, pois elas exigem um exemplo de declarações. 

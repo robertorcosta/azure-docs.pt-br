@@ -1,5 +1,5 @@
 ---
-title: Pré-requisitos do contêiner visualização pública
+title: Pré-requisitos de visualização pública do contêiner
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 7/5/2019
 ms.author: dapine
 ms.openlocfilehash: e5d40c9ffd32320ba685e2bdbd3095b4eeec3484
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717076"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73522233"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Use uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][free-account] antes de começar.
-* Instalar o [CLI do Azure][azure-cli] (az).
+* Instale o [CLI do Azure][azure-cli] (AZ).
 * [Mecanismo do Docker][docker-engine] e valide se a CLI do Docker funciona em uma janela do console.
 
 [free-account]: https://azure.microsoft.com/free

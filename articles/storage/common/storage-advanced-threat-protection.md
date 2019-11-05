@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: c19b64441d7afbe7544a4401314078b807a8c939
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: b9413807cda096adf1056c07e026373ea19359b9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673248"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495960"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Proteção avançada contra ameaças para o armazenamento do Azure
 
@@ -30,7 +30,7 @@ A proteção avançada contra ameaças para o armazenamento do Azure ingere logs
 
 A proteção avançada contra ameaças é habilitada para sua conta de armazenamento por padrão. Você pode configurar a proteção avançada contra ameaças de várias maneiras, descritas nas seções a seguir.
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 1. Inicie o [Portal do Azure](https://portal.azure.com/).
 1. Navegue até sua conta de armazenamento do Azure. Em **configurações**, selecione **segurança avançada**.
@@ -40,7 +40,7 @@ A proteção avançada contra ameaças é habilitada para sua conta de armazenam
 
     ![Ativar a proteção avançada contra ameaças do Armazenamento do Azure](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
-### <a name="using-azure-security-center"></a>Como usar a Central de Segurança do Azure
+### <a name="azure-security-centertabazure-security-center"></a>[Central de Segurança do Azure](#tab/azure-security-center)
 
 Quando você assina a camada Standard na central de segurança do Azure, a proteção avançada contra ameaças é configurada automaticamente em todas as suas contas de armazenamento. Você pode habilitar ou desabilitar a proteção avançada contra ameaças para suas contas de armazenamento em uma assinatura específica da seguinte maneira:
 
@@ -48,7 +48,7 @@ Quando você assina a camada Standard na central de segurança do Azure, a prote
 1. No menu principal, clique em **preços & configurações**.
 1. Clique na assinatura que você deseja habilitar ou desabilitar a proteção contra ameaças para suas contas de armazenamento.
 
-    ![Selecionar assinatura](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
+    ![Escolha a assinatura](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
 
 1. Clique em **Tipo de preço**.
 1. Na seção **selecionar camada de preços por tipo de recurso** , na **linha contas de armazenamento** , clique em **habilitado** ou **desabilitado**.
@@ -56,11 +56,11 @@ Quando você assina a camada Standard na central de segurança do Azure, a prote
     ![Habilitar ATP na central de segurança](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
 1. Clique em **Salvar**.
 
-### <a name="using-azure-resource-manager-templates"></a>Usando modelos do Gerenciador de Recursos do Azure
+### <a name="templatetabtemplate"></a>[Modelo](#tab/template)
 
 Use um modelo de Azure Resource Manager para implantar uma conta de armazenamento do Azure com a proteção avançada contra ameaças habilitada. Para obter mais informações, consulte [conta de armazenamento com proteção avançada contra ameaças](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
 
-### <a name="using-an-azure-policy"></a>Usando um Azure Policy
+### <a name="azure-policytabazure-policy"></a>[Azure Policy](#tab/azure-policy)
 
 Use um Azure Policy para habilitar a proteção avançada contra ameaças em contas de armazenamento em uma assinatura ou grupo de recursos específico.
 
@@ -78,20 +78,22 @@ Use um Azure Policy para habilitar a proteção avançada contra ameaças em con
 
     ![Página Definições de política](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="using-the-rest-api"></a>Usando a API REST
+### <a name="rest-apitabrest-api"></a>[API REST](#tab/rest-api)
 
 Use comandos da API REST para criar, atualizar ou obter a configuração de proteção avançada contra ameaças para uma conta de armazenamento específica.
 
 * [Proteção avançada contra ameaças – criar](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
 * [Proteção avançada contra ameaças-obter](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="using-azure-powershell"></a>Usando o PowerShell do Azure
+### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Use os seguintes cmdlets do PowerShell:
 
 * [Habilitar a proteção avançada contra ameaças](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
 * [Obtenha proteção avançada contra ameaças](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
 * [Desabilitar a proteção avançada contra ameaças](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+
+---
 
 ## <a name="explore-security-anomalies"></a>Explorar anomalias de segurança
 

@@ -1,5 +1,5 @@
 ---
-title: Criar um pipeline de Machine Learning do Apache Spark - Microsoft Azure HDInsight
+title: Criar Apache Spark pipeline do Machine Learning-Azure HDInsight
 description: Use a biblioteca de aprendizado de máquina Apache Spark para criar pipelines de dados no Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 22583d82d8e422d8176fdb7cd70a98d229e8b6bb
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: b0de9103fd022dc74e7c75017a602eb6701686fe
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736375"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494660"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Criar um pipeline de machine learning do Apache Spark
 
@@ -132,6 +132,6 @@ only showing top 20 rows
 
 O objeto `model` agora pode ser usado para fazer previsões. Para obter um exemplo completo desse aplicativo de Machine Learning e as instruções passo a passo para executá-lo, consulte [Criar aplicativos de Machine Learning do Apache Spark no Azure HDInsight](apache-spark-ipython-notebook-machine-learning.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Ciência de Dados usando o Scala e o Apache Spark no Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)

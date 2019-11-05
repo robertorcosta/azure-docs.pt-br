@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de um trabalho lento ou com falha em um cluster HDInsight – Azure HDInsight
+title: Solucionar problemas de um trabalho lento ou com falha no cluster HDInsight do Azure
 description: Diagnostique e solucione problemas de um trabalho lento ou com falha em um cluster do Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: efb2ac4be074508107bb31ae321c27a3d1263d9e
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 69711f7ac20882617de175b1b90d8df4f2858c4d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105341"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498079"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solucionar problemas de um trabalho lento ou com falha em um cluster HDInsight
 
@@ -21,13 +21,13 @@ Se um aplicativo processando dados em um cluster HDInsight estiver sendo executa
 
 Para diagnosticar um cluster lento ou falhando, colete informações sobre todos os aspectos do ambiente, como Serviços do Azure associados, configuração de cluster e informações de execução do trabalho. Um diagnóstico útil é tentar reproduzir o estado de erro em outro cluster.
 
-* Etapa 1: Reúna dados sobre o problema.
-* Etapa 2: Validar o ambiente de cluster HDInsight.
-* Etapa 3: Exiba a integridade do cluster.
-* Etapa 4: Examine a pilha e as versões do ambiente.
-* Etapa 5: Examine os arquivos de log do cluster.
-* Etapa 6: Verifique as definições de configuração.
-* Etapa 7: Reproduza a falha em um cluster diferente.
+* Etapa 1: coletar dados sobre o problema.
+* Etapa 2: validar o ambiente de cluster HDInsight.
+* Etapa 3: exibir a integridade do cluster.
+* Etapa 4: examinar a pilha e as versões do ambiente.
+* Etapa 5: examinar os arquivos de log do cluster.
+* Etapa 6: verificar as definições de configuração.
+* Etapa 7: reproduzir a falha em um cluster diferente.
 
 ## <a name="step-1-gather-data-about-the-issue"></a>Etapa 1: Coletar dados sobre o problema
 
@@ -43,7 +43,7 @@ Para ajudar a identificar o problema, considere as seguintes perguntas:
 * Quando este problema ocorreu pela primeira vez? Com que frequência isso tem ocorrido?
 * Houve alguma alteração na minha configuração do cluster?
 
-### <a name="cluster-details"></a>Detalhes do cluster
+### <a name="cluster-details"></a>Detalhes do Cluster
 
 Informações importantes do cluster incluem:
 
@@ -76,13 +76,13 @@ Cada cluster HDInsight baseia-se em vários serviços do Azure e em softwares de
 * Verifique os limites de uso do serviço do Azure. 
 * Verifique a configuração de sub-rede da rede virtual do Azure.  
 
-### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Exibir definições de configuração do cluster com a interface de usuário do Ambari
+### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Exibir definições de configuração de cluster com o Ambari UI
 
-O Apache Ambari fornece gerenciamento e monitoramento de um cluster HDInsight com uma interface do usuário da Web e uma API REST. O Ambari está incluído nos clusters HDInsight com base em Linux. Selecione o **Painel do Cluster** na página do HDInsight no Portal do Azure.  Selecione o **painel do cluster HDInsight** para abrir a interface de usuário do Ambari e insira as credenciais de logon do cluster.  
+O Apache Ambari fornece gerenciamento e monitoramento de um cluster HDInsight com uma interface do usuário da Web e uma API REST. Ambari está incluído nos clusters HDInsight baseados em Linux. Selecione o **Painel do Cluster** na página do HDInsight no Portal do Azure.  Selecione o **painel do cluster HDInsight** para abrir a interface de usuário do Ambari e insira as credenciais de logon do cluster.  
 
 ![Visão geral do painel do Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png)
 
-Para abrir uma lista de modos de exibição do serviço, selecione **Modos de exibição do Ambari** na página do Portal do Azure.  Essa lista depende de quais bibliotecas estão instaladas. Por exemplo, você poderá ver o Gerenciador de Fila do YARN, o Modo de Exibição do Hive e o Modo de Exibição do Tez.  Selecione um link de serviço para ver informações de configuração e serviço.
+Para abrir uma lista de modos de exibição do serviço, selecione **Modos de exibição do Ambari** na página do Portal do Azure.  Essa lista depende de quais bibliotecas estão instaladas. Por exemplo, você poderá ver YARN Queue Manager, o Hive View e o Tez View.  Selecione um link de serviço para ver informações de configuração e serviço.
 
 #### <a name="check-for-azure-service-outages"></a>Verificar interrupções de serviço do Azure
 
@@ -184,7 +184,7 @@ No nível do YARN, há dois tipos de tempos limite:
 
     * Listar todos os trabalhos: Essa é uma chamada demorada. Essa chamada enumera os aplicativos do ResourceManager do YARN e para cada aplicativo concluído, obtém o status do JobHistoryServer do YARN. Com números maiores de trabalhos, essa chamada pode expirar o tempo limite.
 
-    * Listar trabalhos com mais de sete dias: O HDInsight do JobHistoryServer do YARN está configurado para reter informações de trabalhos concluídos por sete dias (`mapreduce.jobhistory.max-age-ms` valor). Tentar enumerar resultados de trabalhos limpos em um tempo limite.
+    * Listar trabalhos com mais de sete dias: o HDInsight do JobHistoryServer do YARN está configurado para reter informações de trabalhos concluídos por sete dias (`mapreduce.jobhistory.max-age-ms` valor). Tentar enumerar resultados de trabalhos limpos em um tempo limite.
 
 Para diagnosticar esses problemas:
 
