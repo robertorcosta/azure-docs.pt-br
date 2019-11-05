@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 92844f0fe3a851802836015a1340983eb4633ed2
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 5288c3025e523e767082f4ab7cfbb08805a74eaf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900543"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500098"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade no banco de dados do Azure para PostgreSQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para PostgreSQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para PostgreSQL de clientes dentro e fora do Azure.
@@ -33,7 +33,7 @@ A tabela a seguir lista os IPs primários e secundários do gateway do banco de 
 | Sul do Brasil | 104.41.11.5 | |
 | Canadá Central | 40.85.224.249 | |
 | Leste do Canadá | 40.86.226.166 | |
-| EUA Central | 23.99.160.139 | 13.67.215.62 |
+| Centro dos EUA | 23.99.160.139 | 13.67.215.62 |
 | Leste da China 1 | 139.219.130.35 | |
 | Leste da China 2 | 40.73.82.1 | |
 | Norte da China 1 | 139.219.15.17 | |
@@ -41,19 +41,22 @@ A tabela a seguir lista os IPs primários e secundários do gateway do banco de 
 | Ásia Oriental | 191.234.2.139 | 52.175.33.150 |
 | Leste dos EUA 1 | 191.238.6.43 | 40.121.158.30 |
 | Leste dos EUA 2 | 191.239.224.107 | 40.79.84.180 * |
-| Centro da França | 40.79.137.0 | 40.79.129.1 |
+| França Central | 40.79.137.0 | 40.79.129.1 |
 | Alemanha Central | 51.4.144.100 | |
-| Índia Central | 104.211.96.159 | |
-| Índia do Sul | 104.211.224.146 | |
-| Índia Ocidental | 104.211.160.80 | |
+| Centro da Índia | 104.211.96.159 | |
+| Sul da Índia | 104.211.224.146 | |
+| Oeste da Índia | 104.211.160.80 | |
 | Leste do Japão | 191.237.240.43 | 13.78.61.196 |
 | Oeste do Japão | 191.238.68.11 | 104.214.148.156 |
 | Coreia Central | 52.231.32.42 | |
 | Sul da Coreia | 52.231.200.86 |  |
 | Centro-Norte dos EUA | 23.98.55.75 | 23.96.178.199 |
-| Europa Setentrional | 191.235.193.75 | 40.113.93.91 |
-| Centro-Sul dos EUA | 23.98.162.75 | 13.66.62.124 |
-| Sudeste Asiático | 23.100.117.95 | 104.43.15.0 |
+| Norte da Europa | 191.235.193.75 | 40.113.93.91 |
+| Centro-Sul dos Estados Unidos | 23.98.162.75 | 13.66.62.124 |
+| Sudeste da Ásia | 23.100.117.95 | 104.43.15.0 |
+| Norte da África do Sul | 102.133.152.0 | |
+| Oeste da África do Sul | 102.133.24.0 | |
+| Norte dos EAU | 65.52.248.0 | |
 | Sul do Reino Unido | 51.140.184.11 | |
 | Oeste do Reino Unido | 51.141.8.11| |
 | Europa Ocidental | 191.237.232.75 | 40.68.37.158 |

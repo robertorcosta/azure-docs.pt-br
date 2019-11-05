@@ -9,27 +9,28 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: c617e4aa62ce2ff468545bef0b2ebe2c4d0e4f03
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: d5652857f2f35e392d3f512001044fd06bc0a0c9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382350"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499065"
 ---
 # <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Como examinar o ponto de extremidade declarações no LUIS portal for active Learning
 
 O [aprendizado ativo](luis-concept-review-endpoint-utterances.md) captura consultas de ponto de extremidade e seleciona o ponto de extremidade do usuário declarações que não tem certeza de. Revise essas declarações para selecionar as entidades de intenção e marca para essas declarações de leitura do mundo. Aceite essas alterações em seu exemplo declarações, em seguida, treine e publique. LUIS, em seguida, identifica declarações com mais precisão.
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="enable-active-learning"></a>Habilitar o aprendizado ativo
 
-Para habilitar o aprendizado ativo, faça log de consultas de usuário. Isso é feito definindo a [consulta de ponto](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) de extremidade `log=true` com o parâmetro e o valor de QueryString.
+Para habilitar o aprendizado ativo, faça log de consultas de usuário. Isso é feito definindo a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) com o `log=true` parâmetro e valor de QueryString.
 
 ## <a name="disable-active-learning"></a>Desabilitar o aprendizado ativo
 
-Para desabilitar o aprendizado ativo, não faça log de consultas de usuário. Isso é feito definindo a [consulta de ponto](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) de extremidade `log=false` com o parâmetro e o valor de QueryString.
+Para desabilitar o aprendizado ativo, não faça log de consultas de usuário. Isso é feito definindo a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) com o `log=false` parâmetro e valor de QueryString.
 
 ## <a name="filter-utterances"></a>Filtrar declarações
 

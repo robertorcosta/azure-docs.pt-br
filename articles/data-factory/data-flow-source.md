@@ -6,16 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: c7d18ab6e9018511915e9b77ea02ac60b1277c12
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: fb11b785cecbd021c0b894754e31d226edfe72f2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72596490"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519298"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformação de origem para mapeamento de fluxo de dados 
-
-
 
 Uma transformação de origem configura sua fonte de dados para o fluxo de dados. Ao criar fluxos de dados, sua primeira etapa sempre estará configurando uma transformação de origem. Para adicionar uma origem, clique na caixa **Adicionar origem** na tela fluxo de dados.
 
@@ -27,11 +25,12 @@ Cada transformação de origem é associada a exatamente um conjunto de Data Fac
 
 O mapeamento de fluxo de dados segue uma abordagem de extração, carregamento, transformação (ELT) e funciona com conjuntos de dados de *preparo* que estão todos no Azure. Atualmente, os seguintes conjuntos de valores podem ser usados em uma transformação de origem:
     
-* Armazenamento de Blobs do Azure
-* Azure Data Lake Storage Gen1
-* Azure Data Lake Store Gen2
-* Azure SQL Data Warehouse
+* Armazenamento de BLOBs do Azure (JSON, Avro, texto, parquet)
+* Azure Data Lake Storage Gen1 (JSON, Avro, texto, parquet)
+* Azure Data Lake Storage Gen2 (JSON, Avro, texto, parquet)
+* SQL Data Warehouse do Azure
 * Banco de dados SQL do Azure
+* Azure CosmosDB
 
 Azure Data Factory tem acesso a mais de 80 conectores nativos. Para incluir dados dessas outras fontes em seu fluxo de dados, use a atividade de cópia para carregar esses dados em uma das áreas de preparo com suporte.
 
@@ -79,9 +78,9 @@ Exemplos de curinga:
 
 * ```/data/sales/**/*.csv``` obtém todos os arquivos CSV em/data/Sales
 * ```/data/sales/20??/**``` obtém todos os arquivos no século 20
-* ```/data/sales/2004/*/12/[XY]1?.csv``` Obtém todos os arquivos CSV em 2004 em dezembro, começando com X ou Y prefixados por um número de dois dígitos
+* ```/data/sales/2004/*/12/[XY]1?.csv``` obtém todos os arquivos CSV em 2004 em dezembro, começando com X ou Y prefixados por um número de dois dígitos
 
-**Caminho raiz da partição:** Se você tiver pastas particionadas em sua fonte de arquivo com um formato ```key=value``` (por exemplo, Year = 2019), poderá atribuir o nível superior dessa árvore de pastas de partição a um nome de coluna no fluxo de dados do fluxo de dados.
+**Caminho raiz da partição:** Se você tiver pastas particionadas em sua fonte de arquivo com um formato de ```key=value``` (por exemplo, Year = 2019), poderá atribuir o nível superior dessa árvore de pastas de partição a um nome de coluna no fluxo de dados do fluxo de dados.
 
 Primeiro, defina um curinga para incluir todos os caminhos que são as pastas particionadas mais os arquivos folha que você deseja ler.
 
@@ -122,7 +121,7 @@ Nesse caso, todos os arquivos que foram originados em/data/Sales são movidos pa
 
 Todas as configurações de origem podem ser especificadas como expressões usando a [linguagem de expressão de transformação mapear fluxo de dados](data-flow-expression-functions.md). Para adicionar conteúdo dinâmico, clique ou focalize dentro dos campos no painel configurações. Clique no hiperlink para **adicionar conteúdo dinâmico**. Isso iniciará o construtor de expressões, no qual você pode definir valores dinamicamente usando expressões, valores literais estáticos ou parâmetros.
 
-![Parâmetro](media/data-flow/params6.png "parameters")
+![Parâmetros](media/data-flow/params6.png "parâmetros")
 
 ## <a name="sql-source-options"></a>Opções de origem do SQL
 
@@ -130,7 +129,7 @@ Se sua fonte estiver no banco de dados SQL ou SQL Data Warehouse, configuraçõe
 
 **Entrada:** Selecione se você apontar sua fonte em uma tabela (equivalente a ```Select * from <table-name>```) ou inserir uma consulta SQL personalizada.
 
-**Consulta**: se você selecionar consulta no campo de entrada, insira uma consulta SQL para sua origem. Essa configuração substitui qualquer tabela que você tenha escolhido no conjunto de um. Não há suporte para cláusulas **ordenar por** aqui, mas você pode definir uma instrução SELECT FROM completa. Você também pode usar funções de tabela definidas pelo usuário. **Select * de udfGetData ()** é um UDF no SQL que retorna uma tabela. Essa consulta produzirá uma tabela de origem que você pode usar em seu fluxo de dados.
+**Consulta**: se você selecionar consulta no campo de entrada, insira uma consulta SQL para sua origem. Essa configuração substitui qualquer tabela que você tenha escolhido no conjunto de um. Não há suporte para cláusulas **ordenar por** aqui, mas você pode definir uma instrução SELECT FROM completa. Você também pode usar funções de tabela definidas pelo usuário. **Select * de udfGetData ()** é um UDF no SQL que retorna uma tabela. Essa consulta produzirá uma tabela de origem que você pode usar em seu fluxo de dados. O uso de consultas também é uma ótima maneira de reduzir linhas para teste ou pesquisas. Exemplo: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
 **Tamanho do lote**: Insira um tamanho de lote para dividir dados grandes em leituras.
 
@@ -153,11 +152,24 @@ Se o arquivo de texto não tiver um esquema definido, selecione **detectar tipo 
 
 Você pode modificar os tipos de dados de coluna em uma transformação de coluna derivada de fluxo inferior. Use uma transformação selecionar para modificar os nomes de coluna.
 
+### <a name="import-schema"></a>Importar esquema
+
+Conjuntos de dados, como Avro e CosmosDB, que dão suporte a estruturas de dado complexas, não exigem que definições de esquema existam no DataSet. Portanto, você poderá clicar no botão "importar esquema" na guia projeção desses tipos de fontes.
+
+## <a name="cosmosdb-specific-settings"></a>Configurações específicas do CosmosDB
+
+Ao usar CosmosDB como um tipo de origem, há algumas opções a serem consideradas:
+
+* Incluir colunas do sistema: se você marcar isso, ```id```, ```_ts```e outras colunas do sistema serão incluídas em seus metadados de fluxo de dados do CosmosDB. Ao atualizar as coleções, é importante incluí-las para que você possa obter a ID de linha existente.
+* Tamanho da página: o número de documentos por página do resultado da consulta. O padrão é "-1", que usa a página dinâmica do serviço até 1000.
+* Taxa de transferência: defina um valor opcional para o número de RUs que você gostaria de aplicar à sua coleção CosmosDB para cada execução desse fluxo de dados durante a operação de leitura. O mínimo é 400.
+* Regiões preferenciais: você pode escolher as regiões de leitura preferenciais para esse processo.
+
 ## <a name="optimize-the-source-transformation"></a>Otimizar a transformação de origem
 
 Na guia **otimizar** da transformação origem, você poderá ver um tipo de partição de **origem** . Essa opção só está disponível quando sua origem é o banco de dados SQL do Azure. Isso ocorre porque Data Factory tenta fazer conexões paralelas para executar consultas grandes em sua origem do banco de dados SQL.
 
-![Configurações de partição de origem](media/data-flow/sourcepart3.png "Particionamento")
+![Configurações de partição de origem](media/data-flow/sourcepart3.png "particionamento")
 
 Você não precisa Particionar dados em sua origem do banco do dados SQL, mas as partições são úteis para consultas grandes. Você pode basear sua partição em uma coluna ou em uma consulta.
 
@@ -171,6 +183,6 @@ Você pode optar por particionar as conexões com base em uma consulta. Insira o
 
 Para obter mais informações sobre a otimização no fluxo de dados de mapeamento, consulte a [guia otimizar](concepts-data-flow-overview.md#optimize).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Comece a criar uma [transformação de coluna derivada](data-flow-derived-column.md) e uma [transformação selecionar](data-flow-select.md).

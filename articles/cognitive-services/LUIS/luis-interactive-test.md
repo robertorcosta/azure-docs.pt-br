@@ -11,27 +11,28 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 5736667acfa510d89e549afd4d0f5c61a833dd1c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ebc86d1cf91cf79ab83b0f49d9898a91d8be8a75
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932747"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500273"
 ---
-<a name="train-your-app"></a>
-
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
 
-[Testar](luis-concept-test.md) um aplicativo é um processo iterativo. Após treinar seu aplicativo LUIS, teste-o com declarações de exemplo para ver se as intenções e as entidades são reconhecidas corretamente. Caso contrário, faça atualizações no aplicativo LUIS, treine e teste novamente. 
+[Testar](luis-concept-test.md) um aplicativo é um processo iterativo. Após treinar seu aplicativo LUIS, teste-o com declarações de exemplo para ver se as intenções e as entidades são reconhecidas corretamente. Caso não sejam, faça atualizações ao aplicativo de LUIS, treine e teste novamente. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <!-- anchors for H2 name changes -->
+<a name="train-your-app"></a>
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
 
 ## <a name="test-an-utterance"></a>Testar uma declaração
 
-1. Acesse seu aplicativo selecionando seu nome na página **Meus aplicativos**. 
+1. Acesse seu aplicativo selecionando seu nome na página **Meus Aplicativos**. 
 
 1. Para acessar o painel extensível **Testar**, selecione **Testar** no painel superior do seu aplicativo.
 
@@ -125,7 +126,7 @@ Use o seguinte procedimento para incluir o serviço [Verificação Ortográfica 
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
 
-## <a name="batch-testing"></a>Teste em lote
+## <a name="batch-testing"></a>Teste de lote
 Confira os [conceitos](luis-concept-batch-test.md) de teste do lote e saiba [como](luis-how-to-batch-test.md) testar um lote de declarações.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -133,4 +134,4 @@ Confira os [conceitos](luis-concept-batch-test.md) de teste do lote e saiba [com
 Se o teste indica que seu aplicativo LUIS não reconhece as intenções e entidades corretas, é possível trabalhar para melhorar a precisão do seu aplicativo LUIS rotulando mais declarações ou adicionando recursos. 
 
 * [Declarações sugeridas de rótulo com o LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Usar recursos para melhorar o desempenho do aplicativo de LUIS](luis-how-to-add-features.md) 
+* [Usar recursos para melhorar o desempenho do aplicativo LUIS](luis-how-to-add-features.md) 

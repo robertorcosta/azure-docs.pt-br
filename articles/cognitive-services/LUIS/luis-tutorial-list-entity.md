@@ -10,15 +10,17 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: a722ce39a679fa13e1fe849c46b44f786ea5ee42
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f3c99856eaffc454754618a1eac34630b985a77e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390282"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499487"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Usar uma entidade de lista para aumentar a detecção de entidade 
 Este artigo demonstra o uso de uma [entidade List](luis-concept-entity-types.md) para aumentar a detecção de entidades. Entidades de lista não precisam ser rotuladas já que elas são uma correspondência exata de termos.  
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 Neste artigo, você aprenderá a:
 
@@ -35,7 +37,7 @@ Neste artigo, você aprenderá a:
 > * [AuthoringKey](luis-concept-keys.md#authoring-key), [EndpointKey](luis-concept-keys.md#endpoint-key) (se estiver consultando várias vezes), ID do aplicativo, ID de versão e [região](luis-reference-regions.md) para o aplicativo LUIS.
 
 > [!Tip]
-> Se você ainda não tiver uma assinatura, poderá se inscrever para uma [conta gratuita](https://azure.microsoft.com/free/).
+> Se você ainda não tem uma assinatura, é possível se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/).
 
 Todo o código deste artigo está disponível no [repositório GitHub Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
 
@@ -46,7 +48,7 @@ Um sistema que possui muitos nomes em diferentes culturas e regiões é o termos
 
 Idealmente as expressões a seguir resolverão para a entidade pré-compilada **HomeAutomation.Device**:
 
-|#|enunciado|entidade identificada|para seu app&#39;s|
+|#|utterance|entidade identificada|para seu app&#39;s|
 |--|--|--|--|
 |1|ligue o ac|HomeAutomation.Device - "ac"|0.8748562|
 |2|ativar o aquecimento|HomeAutomation.Device - "aquecimento"|0.784990132|
@@ -212,7 +214,7 @@ O dispositivo específico de **termostato** é identificado com uma consulta ori
 
 Tente as outras duas expressões para ver o que eles também retornaram como termostato. 
 
-|#|enunciado|entidade|type|value|
+|#|utterance|entidade|Tipo|valor|
 |--|--|--|--|--|
 |1|ligue o ac| ac | DevicesList | Termostato|
 |2|ativar o aquecimento|calor| DevicesList |Termostato|

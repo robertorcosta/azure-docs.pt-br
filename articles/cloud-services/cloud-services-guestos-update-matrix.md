@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/7/2019
+ms.date: 11/1/2019
 ms.author: raiye
-ms.openlocfilehash: 1a3945569002ea0ec88a9e23a6f02e7833d7690a
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: fa6f3e77a49afc5b16d11cb0c7d434f967c7cd53
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035154"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500253"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -41,6 +41,9 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 Você não tem certeza de como atualizar o SO convidado? Verifique [isso][cloud updates] .
 
 ## <a name="news-updates"></a>Notícias atualizadas
+
+###### <a name="november-1-2019"></a>**1º de novembro de 2019**
+O SO convidado de outubro foi lançado.
 
 ###### <a name="october-7-2019"></a>**7 de outubro de 2019**
 O SO convidado de setembro foi lançado.
@@ -89,7 +92,7 @@ O SO convidado de setembro foi lançado.
 ## <a name="family-6-releases"></a>Lançamentos do Family 6
 **Windows Server 2019**
 
-.NET Framework instalado: 3.5, 4.7.2
+.NET Framework instalado: 3,5, 4.7.2
 
 > [!NOTE]
 > O SDK do Windows Azure para .NET-3,0 pode ser baixado [aqui][Windows Azure SDK].
@@ -104,18 +107,19 @@ O SO convidado de setembro foi lançado.
 >
 
 
-| Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
+| Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
-| WA-GUEST-OS-6.11 _201909-01 | 7 de outubro de 2019 |  Post 6,13  |  
-| WA-GUEST-OS-6.10 _201908-01 | 4 de agosto de 2019 |  Post 6,12  |  
+| WA-GUEST-OS-6.12 _201910-01 | 1º de novembro de 2019 | Post 6,14 |  
+| WA-GUEST-OS-6.11 _201909-01 | 7 de outubro de 2019 | Post 6,13 |  
+|~~WA-GUEST-OS-6.10 _201908-01~~| 4 de agosto de 2019 | 1º de novembro de 2019  |  
 |~~WA-GUEST-OS-6,9 _201907-0~~|26 de julho de 2019 | 7 de outubro de 2019 |
 |~~WA-GUEST-OS-6.8 _201906-01~~|8 de julho de 2019 |4 de agosto de 2019 |
 |~~WA-GUEST-OS-6.7 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
-|~~WA-GUEST-OS-6.6_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
-|~~WA-GUEST-OS-6.5_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
-|~~WA-GUEST-OS-6.4_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
-|~~WA-GUEST-OS-6.3_201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
-|~~WA-GUEST-OS-6.2_201812-01~~ |24 de janeiro de 2019 |12 de março de 2019 |
+|~~WA-GUEST-OS-6.6 _201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
+|~~WA-GUEST-OS-6.5 _201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
+|~~WA-GUEST-OS-6.4 _201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
+|~~WA-GUEST-OS-6.3 _201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
+|~~WA-GUEST-OS-6.2 _201812-01~~ |24 de janeiro de 2019 |12 de março de 2019 |
 |~~WA-GUEST-OS-6.1_201811-01~~ |24 de janeiro de 2019 |5 de fevereiro de 2019 |
 
 ## <a name="family-5-releases"></a>Versões da Família 5
@@ -128,18 +132,19 @@ O SO convidado de setembro foi lançado.
 >
 
 
-| Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
+| Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-5.36 _201910-01 | 1º de novembro de 2019 | Post 5,38 |  
 | WA-GUEST-OS-5.35 _201909-01 | 7 de outubro de 2019 | Post 5,37 |  
-| WA-GUEST-OS-5.34 _201908-01  |  4 de agosto de 2019  |  Post 5,36 |  
+|~~WA-GUEST-OS-5.34 _201908-01~~|  4 de agosto de 2019  |  Post 5,36 |  
 |~~WA-GUEST-OS-5.33 _201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |  
 |~~WA-GUEST-OS-5.32 _201906-01~~|8 de julho de 2019 |4 de agosto de 2019 |
 |~~WA-GUEST-OS-5.31 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
-|~~WA-GUEST-OS-5.30_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
-|~~WA-GUEST-OS-5.29_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
-|~~WA-GUEST-OS-5.28_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
-|~~WA-GUEST-OS-5.27_201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
-|~~WA-GUEST-OS-5.26_201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
+|~~WA-GUEST-OS-5.30 _201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
+|~~WA-GUEST-OS-5.29 _201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
+|~~WA-GUEST-OS-5.28 _201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
+|~~WA-GUEST-OS-5.27 _201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
+|~~WA-GUEST-OS-5.26 _201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
 |~~WA-GUEST-OS-5.25_201811-01~~ |14 de dezembro de 2018 |5 de fevereiro de 2019 |
 |~~WA-GUEST-OS-5.24_201810-01~~ |8 de novembro de 2018 |7 de janeiro de 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |
@@ -147,20 +152,21 @@ O SO convidado de setembro foi lançado.
 ## <a name="family-4-releases"></a>Versões da Família 4
 **Windows Server 2012 R2**
 
-.NET Framework instalado: 3.5, 4.5.1, 4.5.2
+.NET Framework instalado: 3,5, 4.5.1, 4.5.2
 
-| Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
+| Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-4.71 _201910-01 | 1º de novembro de 2019 | Post 4,73 |  
 | WA-GUEST-OS-4.70 _201909-01 | 7 de outubro de 2019 | Post 4,72 |  
-| WA-GUEST-OS-4.69 _201908-01 | 4 de agosto de 2019 | Post 4,71 |  
+|~~WA-GUEST-OS-4.69 _201908-01~~| 4 de agosto de 2019 | 1º de novembro de 2019 |  
 |~~WA-GUEST-OS-4.68 _201907-01~~| 26 de julho de 2019  | 7 de outubro de 2019 |
 |~~WA-GUEST-OS-4.67 _201906-01~~| 8 de julho de 2019 |4 de agosto de 2019 |
 |~~WA-GUEST-OS-4.66 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
-|~~WA-GUEST-OS-4.65_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
-|~~WA-GUEST-OS-4.64_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
-|~~WA-GUEST-OS-4.63_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
-|~~WA-GUEST-OS-4.62_201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
-|~~WA-GUEST-OS-4.61_201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
+|~~WA-GUEST-OS-4.65 _201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
+|~~WA-GUEST-OS-4.64 _201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
+|~~WA-GUEST-OS-4.63 _201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
+|~~WA-GUEST-OS-4.62 _201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
+|~~WA-GUEST-OS-4.61 _201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
 |~~WA-GUEST-OS-4.60_201811-01~~ |14 de dezembro de 2018 |5 de fevereiro de 2019 |
 |~~WA-GUEST-OS-4.59_201810-01~~ |8 de novembro de 2018 |7 de janeiro de 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |
@@ -170,18 +176,19 @@ O SO convidado de setembro foi lançado.
 
 .NET Framework instalado: 3.5, 4.5
 
-| Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
+| Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-3.78 _201910-01 | 1º de novembro de 2019 | Post 3,80 |  
 | WA-GUEST-OS-3.77 _201909-01 | 7 de outubro de 2019 | Post 3,79 |  
-| WA-GUEST-OS-3.76 _201908-01 |  4 de agosto de 2019  |  Post 3,78  |  
+|~~WA-GUEST-OS-3.76 _201908-01~~|  4 de agosto de 2019  |  1º de novembro de 2019  |  
 |~~WA-GUEST-OS-3,75 _201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |
 |~~WA-GUEST-OS-3.74 _201906-01~~| 8 de julho de 2019 |4 de agosto de 2019 |
 |~~WA-GUEST-OS-3.73 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
-|~~WA-GUEST-OS-3.72_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
-|~~WA-GUEST-OS-3.71_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
-|~~WA-GUEST-OS-3.70_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
-|~~WA-GUEST-OS-3.69_201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
-|~~WA-GUEST-OS-3.68_201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
+|~~WA-GUEST-OS-3.72 _201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
+|~~WA-GUEST-OS-3.71 _201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
+|~~WA-GUEST-OS-3.70 _201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
+|~~WA-GUEST-OS-3.69 _201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
+|~~WA-GUEST-OS-3.68 _201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
 |~~WA-GUEST-OS-3.67_201811-01~~ |14 de dezembro de 2018 |5 de fevereiro de 2019 |
 |~~WA-GUEST-OS-3.66_201810-01~~ |8 de novembro de 2018 |7 de janeiro de 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |
@@ -191,18 +198,19 @@ O SO convidado de setembro foi lançado.
 
 .NET Framework instalado: 3,5 (inclui 2,0 e 3,0), 4,5
 
-| Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
+| Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-2.91 _201910-01 | 1º de novembro de 2019 | Post 2,93 |  
 | WA-GUEST-OS-2.90 _201909-01 | 7 de outubro de 2019 | Post 2,92 |  
-| WA-GUEST-OS-2.89 _201908-01 | 4 de agosto de 2019 | Post 2,91 |  
+|~~WA-GUEST-OS-2.89 _201908-01~~| 4 de agosto de 2019 | 1º de novembro de 2019 |  
 |~~WA-GUEST-OS-2,88 _201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |
 |~~WA-GUEST-OS-2.87 _201906-01~~|8 de julho de 2019 | 4 de agosto de 2019 |
 |~~WA-GUEST-OS-2.86 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
-|~~WA-GUEST-OS-2.85_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
-|~~WA-GUEST-OS-2.84_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
-|~~WA-GUEST-OS-2.83_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
-|~~WA-GUEST-OS-2.82_201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
-|~~WA-GUEST-OS-2.81_201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
+|~~WA-GUEST-OS-2,85 _201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
+|~~WA-GUEST-OS-2.84 _201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
+|~~WA-GUEST-OS-2.83 _201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
+|~~WA-GUEST-OS-2.82 _201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
+|~~WA-GUEST-OS-2.81 _201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
 |~~WA-GUEST-OS-2.80_201811-01~~ |14 de dezembro de 2018 |5 de fevereiro de 2019 |
 |~~WA-GUEST-OS-2.79_201810-01~~ |8 de novembro de 2018 |7 de janeiro de 2019 |
 |~~WA-GUEST-OS-2.78_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |

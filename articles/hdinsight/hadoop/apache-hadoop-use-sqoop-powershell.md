@@ -8,29 +8,31 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: hrasheed
-ms.openlocfilehash: f178d07666eda3552c18f581a926305e76ecb697
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6cb3e91bed4f16cf1e30c535b5ed667fc690dd53
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450138"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499272"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Saiba como executar trabalhos do Apache Sqoop usando o Azure PowerShell para Apache Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Saiba como usar o Azure PowerShell para executar trabalhos do Apache Sqoop no HDInsight do Azure para importar e exportar dados entre um cluster HDInsight e um banco de dados SQL do Azure ou o banco de dados do SQL Server. Este exemplo exporta dados do `/tutorials/usesqoop/data/sample.log` da conta de armazenamento padrão e, em seguida, importa-o para uma tabela chamada `log4jlogs` em um banco de dados do SQL Server. Este artigo é uma continuação da [usar o Apache Sqoop com Hadoop no HDInsight](./hdinsight-use-sqoop.md).
+Saiba como usar Azure PowerShell para executar trabalhos do Apache Sqoop no Azure HDInsight para importar e exportar dados entre um cluster HDInsight e um banco de dados SQL do Azure ou SQL Server Este exemplo exporta dados de `/tutorials/usesqoop/data/sample.log` da conta de armazenamento padrão e, em seguida, importa-os para uma tabela chamada `log4jlogs` em um banco de dados SQL Server. Este artigo é uma continuação do [uso do Apache Sqoop com Hadoop no HDInsight](./hdinsight-use-sqoop.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Antes de começar este artigo, você deve ter os seguintes itens:
 
-* Uma estação de trabalho com o Azure PowerShell [AZ módulo](https://docs.microsoft.com/powershell/azure/overview) instalado.
+* Uma estação de trabalho com Azure PowerShell [módulo AZ](https://docs.microsoft.com/powershell/azure/overview) instalado.
 
-* Conclusão da [configurar o ambiente de teste](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) partir [usar o Apache Sqoop com Hadoop no HDInsight](./hdinsight-use-sqoop.md).
+* Conclusão da [configuração do ambiente de teste](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) de [usar o Apache Sqoop com o Hadoop no HDInsight](./hdinsight-use-sqoop.md).
 
 
 ## <a name="run-apache-sqoop-by-using-powershell"></a>Execute o Apache Sqoop usando o PowerShell
-O seguinte script PowerShell processa previamente o arquivo de origem e, em seguida, exporta para um banco de dados SQL do Azure à tabela `log4jlogs`. Substitua `CLUSTERNAME`, `CLUSTERPASSWORD`, e `SQLPASSWORD` com os valores usados do pré-requisito.
+O seguinte script do PowerShell processa previamente o arquivo de origem e, em seguida, exporta-o para um banco de dados SQL do Azure para a tabela `log4jlogs`. Substitua `CLUSTERNAME`, `CLUSTERPASSWORD`e `SQLPASSWORD` pelos valores que você usou do pré-requisito.
 
 ```powershell 
 <#------ BEGIN USER INPUT ------#>
@@ -172,14 +174,14 @@ Get-AzHDInsightJobOutput `
 ## <a name="limitations"></a>Limitações
 O HDInsight baseado em Linux tem as seguintes limitações:
 
-* Exportação em massa: O conector Sqoop usado para exportar dados no Microsoft SQL Server ou no Banco de Dados SQL do Azure não permite inserções em massa atualmente.
+* Exportação em massa: o conector Sqoop usado para exportar dados no Microsoft SQL Server ou no Banco de Dados SQL do Azure não permite inserções em massa atualmente.
 
-* Envio em lote: Ao usar o comutador `-batch` para executar inserções, o Sqoop realizará várias inserções em vez de enviar em lote as operações de inserção. 
+* Envio em lote: ao usar o comutador `-batch` para executar inserções, o Sqoop realizará várias inserções em vez de enviar em lote as operações de inserção. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
-* [Usar o Apache Oozie com o HDInsight](../hdinsight-use-oozie-linux-mac.md): Use a ação Sqoop em um fluxo de trabalho do Oozie.
-* [Carregar dados para HDInsight](../hdinsight-upload-data.md): Encontre outros métodos para fazer upload de dados para HDInsight ou armazenamento de Blob do Azure.
+* [Usar o Apache Oozie com o HDInsight](../hdinsight-use-oozie-linux-mac.md): Use a ação Sqoop em um fluxo de trabalho Oozie.
+* [Carregar dados no HDInsight](../hdinsight-upload-data.md): localize outros métodos de carregamento de dados no HDInsight ou no Armazenamento de Blobs do Azure.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

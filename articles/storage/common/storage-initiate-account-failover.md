@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d94f6297f27eb3ea130b443ccf94052d391eb46d
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2bac51a86c8acdba0f6c2f03e5a24ab2b133aa8e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985333"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521000"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Iniciar um failover de conta de armazenamento (versão prévia)
 
@@ -32,7 +32,7 @@ Este artigo mostra como iniciar um failover de conta para sua conta de armazenam
 Antes de executar um failover de conta em sua conta de armazenamento, verifique se você executou as seguintes etapas:
 
 - Registre-se para a versão prévia do failover da conta. Para obter informações sobre como se registrar, confira [Sobre a versão prévia](storage-disaster-recovery-guidance.md#about-the-preview).
-- Verifique se a conta de armazenamento está configurada para usar GRS (armazenamento com redundância geográfica) ou RA-GRS (armazenamento com redundância geográfica com acesso de leitura). Para obter mais informações sobre o armazenamento com redundância geográfica, veja [GRS (armazenamento com redundância geográfica): Replicação inter-regional para Armazenamento do Microsoft Azure](storage-redundancy-grs.md). 
+- Verifique se a conta de armazenamento está configurada para usar GRS (armazenamento com redundância geográfica) ou RA-GRS (armazenamento com redundância geográfica com acesso de leitura). Para obter mais informações sobre o armazenamento com redundância geográfica, consulte [armazenamento com redundância geográfica (GRS): replicação entre regiões para o armazenamento do Azure](storage-redundancy-grs.md). 
 
 ## <a name="important-implications-of-account-failover"></a>Implicações importantes de failover da conta
 
@@ -44,7 +44,7 @@ Após o failover, o tipo de conta de armazenamento é automaticamente convertido
 
 Depois de habilitar novamente o GRS para sua conta de armazenamento, a Microsoft começa a replicar os dados em sua conta para a nova região secundária. O tempo de replicação depende da quantidade de dados sendo replicados.  
 
-## <a name="azure-portal"></a>Portal do Azure
+## <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Para iniciar um failover da conta do portal do Azure, siga estas etapas:
 
@@ -60,14 +60,14 @@ Para iniciar um failover da conta do portal do Azure, siga estas etapas:
 
     ![Caixa de diálogo de confirmação de que mostra a captura de tela de um failover de conta](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para usar o PowerShell para iniciar um failover de conta, você deve primeiro instalar o módulo de versão prévia 6.0.1. Para instalar o módulo, siga estas etapas:
 
 1. Desinstale as instalações anteriores do Azure PowerShell:
 
     - Remova as instalações anteriores do Azure PowerShell do Windows usando a configuração **Aplicativos e recursos** em **Configurações**.
-    - Remova todos os módulos do `%Program Files%\WindowsPowerShell\Modules`Azure de.
+    - Remova todos os módulos do **Azure** de `%Program Files%\WindowsPowerShell\Modules`.
 
 1. Verifique se tem a versão mais recente do PowerShellGet instalado. Abra uma janela do Windows PowerShell e execute o seguinte comando para instalar a versão mais recente:
 
@@ -97,7 +97,7 @@ Para iniciar um failover de conta do PowerShell, execute o seguinte comando:
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para usar a CLI do Azure para iniciar um failover de conta, execute os seguintes comandos:
 
@@ -106,8 +106,10 @@ az storage account show \ --name accountName \ --expand geoReplicationStats
 az storage account failover \ --name accountName
 ```
 
+---
+
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Recuperação de desastre e failover de conta (versão prévia) no Armazenamento do Azure](storage-disaster-recovery-guidance.md)
 - [Criando aplicativos altamente disponíveis usando RA-GRS](storage-designing-ha-apps-with-ragrs.md)
-- [Tutorial: Criar um aplicativo altamente disponível com o armazenamento de Blobs](../blobs/storage-create-geo-redundant-storage.md) 
+- [Tutorial: criar um aplicativo altamente disponível com o armazenamento de BLOBs](../blobs/storage-create-geo-redundant-storage.md) 
