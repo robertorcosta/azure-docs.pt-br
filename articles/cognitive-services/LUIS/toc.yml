@@ -42,7 +42,7 @@
     - name: Compilar aplicativo
       items:
         - name: Determinar as intenções do usuário
-          href: luis-quickstart-intents-only.md
+          href: tutorial-intents-only.md
         - name: Identificar dados de usuário comuns com modelos predefinidos
           href: luis-tutorial-prebuilt-intents-entities.md
         - name: Obter sentimento das declarações de usuário
@@ -116,6 +116,7 @@
           displayName: roles
         - name: Recursos
           href: luis-concept-feature.md
+          displayName: 'descriptor, phrase list'
     - name: Pontuação de previsão
       href: luis-concept-prediction-score.md
     - name: Práticas recomendadas
