@@ -1,5 +1,5 @@
 ---
-title: Chamar pacote do SSIS usando o Azure Data Factory - Atividade de Procedimento Armazenado | Microsoft Docs
+title: Invocar pacote SSIS usando Azure Data Factory atividade de procedimento armazenado
 description: Este artigo descreve como chamar um pacote do SQL Server Integration Services (SSIS) de um pipeline do Azure Data Factory usando a Atividade de Procedimento Armazenado.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 030617d3afd73c68793ca0a1d6185264c92b791f
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: f0a63db95d0948951ec98159af381e0a04ac91ff
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839892"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666392"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Chamar um pacote do SSIS usando o Azure Data Factory - Atividade de Procedimento Armazenado | Microsoft Docs
 Este artigo descreve como chamar um pacote do SSIS a partir de um pipeline do Azure Data Factory usando uma atividade de procedimento armazenado. 
@@ -32,7 +32,7 @@ Este artigo descreve como chamar um pacote do SSIS a partir de um pipeline do Az
 Este artigo passo a passo usa um banco de dados SQL do Azure que hospeda o catálogo do SSIS. Você também pode usar uma Instância Gerenciada do Banco de Dados SQL do Azure.
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Criar um Integration Runtime do Azure-SSIS
-Crie um Azure-SSIS Integration Runtime, caso não tenha um, seguindo as instruções passo a passo do [Tutorial: Implantar pacotes do SSIS](../tutorial-create-azure-ssis-runtime-portal.md). Você não pode usar uma versão 1 do Data Factory para criar um Integration Runtime do Azure-SSIS. 
+Crie um Integration Runtime do Azure-SSIS, caso você não tenha um, seguindo as instruções passo a passo do [Tutorial: Implantar pacotes SSIS](../tutorial-create-azure-ssis-runtime-portal.md). Você não pode usar uma versão 1 do Data Factory para criar um Integration Runtime do Azure-SSIS. 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 Nesta seção, você usa a interface do usuário do Azure PowerShell para criar um pipeline do Data Factory com uma atividade de procedimento armazenado que invoca um pacote SSIS.
@@ -66,7 +66,7 @@ O procedimento a seguir fornece as etapas para criar uma fábrica de dados. Voc�
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. Para criar o data factory, execute o seguinte **New-AzDataFactory** cmdlet, usando a propriedade Location e ResourceGroupName da variável $ResGrp: 
+5. Para criar o data factory, execute o seguinte cmdlet **New-AzDataFactory** , usando a propriedade Location e ResourceGroupName da variável $ResGrp: 
     
     ```powershell       
     $df = New-AzDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
@@ -82,7 +82,7 @@ Observe os seguintes pontos:
 * Para criar instâncias de Data Factory, a conta de usuário usada para fazer logon no Azure deve ser um membro das funções **colaborador** ou **proprietário**, ou um **administrador** da assinatura do Azure.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Criar um serviço vinculado do Banco de Dados SQL do Azure
-Crie um serviço vinculado para vincular o seu banco de dados SQL do Azure que hospeda o catálogo do SSIS para sua fábrica de dados. O Data Factory usa informações nesse serviço vinculado para se conectar ao banco de dados SSISDB, e executa um procedimento armazenado para executar um pacote do SSIS. 
+Crie um serviço vinculado para vincular seu banco de dados SQL do Azure que hospeda o catálogo do SSIS para sua fábrica de dados. O Data Factory usa informações nesse serviço vinculado para se conectar ao banco de dados SSISDB, e executa um procedimento armazenado para executar um pacote do SSIS. 
 
 1. Crie um arquivo JSON denominado **AzureSqlDatabaseLinkedService.json** na pasta **C:\ADF\RunSSISPackage** com o seguinte conteúdo: 
 
@@ -100,7 +100,7 @@ Crie um serviço vinculado para vincular o seu banco de dados SQL do Azure que h
         }
         }
     ```
-2. No **Azure PowerShell**, mude para a pasta **C:\ADF\RunSSISPackage**.
+2. No **Azure PowerShell**, alterne para a pasta **C:\ADF\RunSSISPackage**.
 3. Execute o cmdlet **New-AzDataFactoryLinkedService** para criar o serviço vinculado: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
@@ -126,7 +126,7 @@ Este conjunto de dados de saída é um conjunto de dados fictício que orienta a
         }
     }
     ```
-2. Execute o **New-AzDataFactoryDataset** para criar um conjunto de dados. 
+2. Execute o cmdlet **New-AzDataFactoryDataset** para criar um conjunto de um DataSet. 
 
     ```powershell
     New-AzDataFactoryDataset $df -File ".\OutputDataset.json"
@@ -168,7 +168,7 @@ Nesta etapa, você cria um pipeline com uma atividade de procedimento armazenado
     }    
     ```
 
-2. Para criar o pipeline: **RunSSISPackagePipeline**, execute o **AzDataFactoryPipeline New** cmdlet.
+2. Para criar o pipeline: **RunSSISPackagePipeline**, execute o cmdlet **New-AzDataFactoryPipeline** .
 
     ```powershell
     $DFPipeLine = New-AzDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -176,7 +176,7 @@ Nesta etapa, você cria um pipeline com uma atividade de procedimento armazenado
 
 ### <a name="monitor-the-pipeline-run"></a>Monitorar a execução de pipeline
 
-1. Execute **Get-AzDataFactorySlice** para obter detalhes sobre todas as fatias da saída conjunto de dados * *, que é a tabela de saída do pipeline.
+1. Execute **Get-AzDataFactorySlice** para obter detalhes sobre todas as fatias do conjunto de informações de saída * *, que é a tabela de saída do pipeline.
 
     ```powershell
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
