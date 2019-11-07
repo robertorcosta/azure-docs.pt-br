@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 10/11/2019
 ms.author: hamusa
-ms.openlocfilehash: 04162f074dba05ac6492c16acb446912296cd673
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 46bf756a729441bd3bc4b2b00aaa2c79fa06c0b8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952093"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521251"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Avalie as VMs do VMware com as Migrações para Azure: Avaliação de Servidor
 
@@ -104,7 +104,7 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo.
 2. Execute o seguinte comando para gerar o hash para o arquivo OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Para a versão 2.19.07.30, o hash gerado deve corresponder a esses valores. 
+3. Para a versão 2.19.07.30, o hash gerado deve corresponder a esses valores.
 
   **Algoritmo** | **Valor de hash**
   --- | ---
@@ -166,17 +166,30 @@ Configure o dispositivo usando as etapas a seguir.
 3. Especifique um nome para o dispositivo. O nome deve ser alfanumérico com 14 caracteres ou menos.
 4. Clique em **Registrar**.
 
-
 ## <a name="start-continuous-discovery"></a>Iniciar a descoberta contínua
 
-Agora, conecte-se por meio do dispositivo ao vCenter Server e inicie a descoberta de VM.
+O dispositivo precisa se conectar ao vCenter Server para descobrir a configuração e os dados de desempenho das VMs.
 
+### <a name="specify-vcenter-server-details"></a>Especificar detalhes do vCenter Server
 1. Em **Especificar detalhes do vCenter Server**, especifique o nome (FQDN) ou o endereço IP do vCenter Server. Você pode manter a porta padrão ou especificar uma porta personalizada na qual o vCenter Server escutará.
 2. Em **Nome de usuário** e **Senha**, especifique as credenciais de conta somente leitura que o dispositivo usará para descobrir VMs no vCenter Server. Verifique se a conta tem as [permissões necessárias para a descoberta](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Você pode definir o escopo da descoberta limitando o acesso à conta do vCenter de forma adequada; saiba mais sobre como definir o escopo da descoberta [aqui](tutorial-assess-vmware.md#scoping-discovery).
 3. Clique em **Validar conexão** para garantir que o dispositivo possa se conectar ao vCenter Server.
-4. Depois que a conexão for estabelecida, clique em **Salvar e iniciar a descoberta**.
 
-Isso iniciará a descoberta. São necessários cerca de 15 minutos para que os metadados das VMs descobertas sejam exibidos no portal.
+### <a name="specify-vm-credentials"></a>Especificar credenciais de VM
+Para a descoberta de aplicativos, funções e recursos e visualização de dependências das VMs, você pode fornecer uma credencial de VM que tenha acesso às VMs VMware. Você pode adicionar uma credencial para VMs do Windows e uma credencial para VMs do Linux. [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sobre os privilégios de acesso necessários.
+
+> [!NOTE]
+> Essa entrada é opcional e é necessária para habilitar a descoberta de aplicativos e a visualização de dependência sem agente.
+
+1. Em **Descobrir aplicativos e dependências em VMs**, clique em **Adicionar credenciais**.
+2. Selecione o **Sistema operacional**.
+3. Informar um nome amigável para a credencial.
+4. Em **Nome de usuário** e **Senha**, especifique uma conta que tenha pelo menos acesso de convidado nas VMs.
+5. Clique em **Adicionar**.
+
+Depois de especificar o vCenter Server e as credenciais da VM (opcional), clique em **Salvar e iniciar a descoberta** para iniciar a descoberta do ambiente local.
+
+São necessários cerca de 15 minutos para que os metadados das VMs descobertas sejam exibidos no portal. A descoberta de aplicativos, funções e recursos instalados leva algum tempo, a duração depende do número de VMs que estão sendo descobertas. Para as VMs 500, leva aproximadamente 1 hora para o inventário de aplicativos aparecer no portal de Migrações para Azure.
 
 ### <a name="scoping-discovery"></a>Como definir o escopo da descoberta
 
@@ -205,18 +218,18 @@ Para definir o escopo, você precisa executar as seguintes etapas:
 **Atribuir permissões em objetos do vCenter**
 
 Há duas abordagens para atribuir permissões em objetos de inventário no vCenter à conta de usuário do vCenter com uma função atribuída a ela.
-- Para a Avaliação do Servidor, a função **Somente leitura** deve ser aplicada à conta de usuário do vCenter para todos os objetos pai em que as VMs a serem descobertas estão hospedadas. Todos os objetos pai – host, pasta de hosts, cluster, pasta de clusters – na hierarquia até o datacenter devem ser incluídos. Essas permissões devem ser propagadas para objetos filho na hierarquia. 
+- Para a Avaliação do Servidor, a função **Somente leitura** deve ser aplicada à conta de usuário do vCenter para todos os objetos pai em que as VMs a serem descobertas estão hospedadas. Todos os objetos pai – host, pasta de hosts, cluster, pasta de clusters – na hierarquia até o datacenter devem ser incluídos. Essas permissões devem ser propagadas para objetos filho na hierarquia.
 
     Da mesma forma para a Migração do Servidor, uma função definida pelo usuário (pode ser denominada  <em>Azure _Migrate</em>) com esses [privilégios](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) atribuídos deve ser aplicada à conta de usuário do vCenter para todos os objetos pai em que as VMs a serem migradas são hospedadas.
 
 ![Atribuir permissões](./media/tutorial-assess-vmware/assign-perms.png)
 
 - A abordagem alternativa deve receber a conta e a função do usuário no nível do datacenter e propagá-las para os objetos filho. Depois, forneça à conta uma função **Sem acesso** para todo objeto (como VMs) que você não deseja descobrir/migrar. Essa configuração é complicada. Ela expõe controles de acesso acidentais, pois cada novo objeto filho também recebe automaticamente o acesso herdado do pai. Portanto, é recomendável usar a primeira abordagem.
- 
+
 > [!NOTE]
 > Hoje, a Avaliação de Servidor não poderá descobrir VMs se a conta do vCenter tiver acesso concedido no nível de pasta da VM do vCenter. Se você pretende definir o escopo da descoberta por pastas de VM, faça isso verificando se a conta do vCenter tem acesso somente leitura atribuído em um nível de VM.  Estas são as instruções sobre como você pode fazer isso:
 >
-> 1. Atribua permissões somente leitura em todas as VMs nas pastas de VM em que você deseja definir o escopo da descoberta. 
+> 1. Atribua permissões somente leitura em todas as VMs nas pastas de VM em que você deseja definir o escopo da descoberta.
 > 2. Permita acesso somente leitura a todos os objetos pai nos quais as VMs estão hospedadas. Todos os objetos pai – host, pasta de hosts, cluster, pasta de clusters – na hierarquia até o data center devem ser incluídos. Não é necessário propagar as permissões para todos os objetos filho.
 > 3. Use as credenciais para a descoberta selecionando datacenter como *Escopo da Coleção*. A configuração do RBAC garante que o usuário correspondente do vCenter tenha acesso apenas às VMs específicas do locatário.
 >
