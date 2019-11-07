@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Teradata privilegiando usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do Teradata privilegiando usando Azure Data Factory
 description: O conector Teradata do serviço de Data Factory permite copiar dados de um privilegiando Teradata para armazenamentos de dados com suporte do Data Factory como coletores.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 923e248ff7b793d5187faeabdbf073ca90d9efc2
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4074c50aa17bf804696060134e37055a18bd0137
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930979"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680101"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiar dados do Teradata privilegiando usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -64,19 +64,19 @@ As seções a seguir fornecem detalhes sobre as propriedades que são usadas par
 
 O serviço vinculado do Teradata dá suporte às seguintes propriedades:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type deve ser definida como **Teradata**. | SIM |
-| connectionString | Especifica as informações necessárias para se conectar à instância Teradata. Consulte os exemplos a seguir.<br/>Você também pode colocar uma senha em Azure Key Vault e extrair a configuração de `password` da cadeia de conexão. Consulte [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | SIM |
+| Tipo | A propriedade Type deve ser definida como **Teradata**. | Sim |
+| connectionString | Especifica as informações necessárias para se conectar à instância Teradata. Consulte os exemplos a seguir.<br/>Você também pode colocar uma senha em Azure Key Vault e extrair a configuração de `password` da cadeia de conexão. Consulte [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
 | Nome de Usuário | Especifique um nome de usuário para se conectar ao Teradata. Aplica-se quando você está usando a autenticação do Windows. | Não |
 | Senha | Especifique uma senha para a conta de usuário que você especificou para o nome de usuário. Você também pode optar por [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). <br>Aplica-se quando você estiver usando a autenticação do Windows ou fazendo referência a uma senha em Key Vault para autenticação básica. | Não |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |SIM |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Sim |
 
 Mais propriedades de conexão que você pode definir na cadeia de conexão por seu caso:
 
-| Propriedade | Descrição | Valor padrão |
+| Propriedade | DESCRIÇÃO | Valor padrão |
 |:--- |:--- |:--- |
-| CharacterSet | O conjunto de caracteres a ser usado para a sessão. Por exemplo, `CharacterSet=UTF16`.<br><br/>Esse valor pode ser um conjunto de caracteres definido pelo usuário ou um dos seguintes conjuntos de caracteres predefinidos: <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>-Shift-JIS (Windows, compatível com DOS, KANJISJIS_0S)<br/>-EUC (compatível com UNIX, KANJIEC_0U)<br/>-IBM Mainframe (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | O valor padrão é `ASCII`. |
+| CharacterSet | O conjunto de caracteres a ser usado para a sessão. Por exemplo, `CharacterSet=UTF16`.<br><br/>Esse valor pode ser um conjunto de caracteres definido pelo usuário ou um dos seguintes conjuntos de caracteres predefinidos: <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, compatível com DOS, KANJISJIS_0S)<br/>-EUC (compatível com UNIX, KANJIEC_0U)<br/>-IBM Mainframe (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | O valor padrão é `ASCII`. |
 | MaxRespSize |O tamanho máximo do buffer de resposta para solicitações SQL, em kilobytes (KBs). Por exemplo, `MaxRespSize=‭10485760‬`.<br/><br/>Para o banco de dados Teradata versão 16, 0 ou posterior, o valor máximo é 7361536. Para conexões que usam versões anteriores, o valor máximo é 1048576. | O valor padrão é `65536`. |
 
 **Exemplo usando a autenticação básica**
@@ -147,13 +147,13 @@ Mais propriedades de conexão que você pode definir na cadeia de conexão por s
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Esta seção fornece uma lista das propriedades com suporte pelo conjunto de e do Teradata. Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte [DataSets](concepts-datasets-linked-services.md).
+Esta seção fornece uma lista das propriedades com suporte pelo conjunto de e do Teradata. Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de DataSets, consulte [DataSets](concepts-datasets-linked-services.md) .
 
 Para copiar dados do Teradata, há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como `TeradataTable`. | SIM |
+| Tipo | A propriedade Type do conjunto de conjuntos deve ser definida como `TeradataTable`. | Sim |
 | database | O nome da instância Teradata. | Não (se "query" na fonte da atividade for especificada) |
 | tabela | O nome da tabela na instância Teradata. | Não (se "query" na fonte da atividade for especificada) |
 
@@ -205,9 +205,9 @@ Esta seção fornece uma lista das propriedades com suporte pela origem do Terad
 
 Para copiar dados do Teradata, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como `TeradataSource`. | SIM |
+| Tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como `TeradataSource`. | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Ao habilitar a carga particionada, você precisa vincular quaisquer parâmetros de partição internos correspondentes em sua consulta. Para obter exemplos, consulte a seção [cópia paralela da Teradata](#parallel-copy-from-teradata) . | Não (se a tabela no DataSet for especificada) |
 | PartitionOptions | Especifica as opções de particionamento de dados usadas para carregar dados do Teradata. <br>Permitir valores são: **nenhum** (padrão), **hash** e **DynamicRange**.<br>Quando uma opção de partição é habilitada (ou seja, não `None`), o grau de paralelismo para carregar dados simultaneamente do Teradata é controlado pela configuração de [`parallelCopies`](copy-activity-performance.md#parallel-copy) na atividade de cópia. | Não |
 | partitionSettings | Especifique o grupo de configurações para o particionamento de dados. <br>Aplicar quando a opção de partição não estiver `None`. | Não |
@@ -305,11 +305,11 @@ Quando você copia dados do Teradata, os mapeamentos a seguir se aplicam. Para s
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |string |
-| Clob |string |
+| Char |Cadeia de caracteres |
+| Clob |Cadeia de caracteres |
 | Data |DateTime |
 | Decimal |Decimal |
-| DOUBLE |DOUBLE |
+| Duplo |Duplo |
 | Graphic |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Número inteiro |Int32 |
 | Intervalo - dia |Sem suporte. Aplicar conversão explícita na consulta de origem. |
@@ -325,21 +325,21 @@ Quando você copia dados do Teradata, os mapeamentos a seguir se aplicam. Para s
 | Interval Second |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Interval Year |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Interval Year To Month |Sem suporte. Aplicar conversão explícita na consulta de origem. |
-| NUMBER |DOUBLE |
+| Número |Duplo |
 | Período (Data) |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Período (hora) |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Período (hora com fuso horário) |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Período (carimbo de data/hora) |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Período (carimbo de data/hora com fuso horário) |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | SmallInt |Int16 |
-| Tempo |timespan |
-| Hora com fuso horário |timespan |
+| Hora |TimeSpan |
+| Hora com fuso horário |TimeSpan |
 | Timestamp |DateTime |
 | Timestamp With Time Zone |DateTime |
 | VarByte |Byte[] |
-| VarChar |string |
+| VarChar |Cadeia de caracteres |
 | VarGraphic |Sem suporte. Aplicar conversão explícita na consulta de origem. |
-| xml |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Xml |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 
 
 ## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
@@ -347,5 +347,5 @@ Quando você copia dados do Teradata, os mapeamentos a seguir se aplicam. Para s
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: d93c3599bb4a52a03d4ac436ca664ce6be1c55b9
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200821"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682198"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Selecionando o tamanho correto da VM para o cluster HDInsight do Azure
 
@@ -38,14 +38,14 @@ O tamanho e o tipo da VM são determinados pelo poder de processamento da CPU, p
 
 As famílias de máquinas virtuais no Azure são otimizadas para atender a diferentes casos de uso. Na tabela a seguir, você pode encontrar alguns dos casos de uso mais populares e as famílias de VMs que correspondem a eles.
 
-| Type                     | Tamanhos           |    Descrição       |
+| Tipo                     | Tamanhos           |    DESCRIÇÃO       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Nível de entrada](../virtual-machines/linux/sizes-general.md)          | A, Av2  | Ter configurações de desempenho e memória da CPU mais adequadas para cargas de trabalho de nível de entrada, como desenvolvimento e teste. Elas são econômicas e fornecem uma opção de baixo custo para começar com o Azure. |
-| [Propósito geral](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | Relação equilibrada de CPU/memória. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores web de tráfego pequeno a médio. |
+| [Propósito geral](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | Relação equilibrada de CPU/memória. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. |
 | [Computação otimizada](../virtual-machines/linux/sizes-compute.md)        | F           | Alta relação de CPU/memória. Boa para servidores web de tráfego médio, dispositivos de rede, processos de lote e servidores de aplicativo.        |
 | [Memória otimizada](../virtual-machines/linux/sizes-memory.md)         | Esv3, Ev3  | Alta relação de memória/CPU. Ótima para servidores de banco de dados relacionais, caches médios a grandes e análises na memória.                 |
 
-- Para obter informações sobre os preços das instâncias de VM disponíveis em regiões com suporte do HDInsight, consulte [preços do hdinsight](https://azure.microsoft.com/en-us/pricing/details/hdinsight/).
+- Para obter informações sobre os preços das instâncias de VM disponíveis em regiões com suporte do HDInsight, consulte [preços do hdinsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="cost-saving-vm-types-for-light-workloads"></a>Tipos de VM de economia para cargas de trabalho leves
 
@@ -55,10 +55,10 @@ A tabela a seguir descreve os tipos de cluster e tipos de nó, que podem ser cri
 
 | Tipo de cluster | Versão | Nó de Trabalho | Nó de Cabeçalho | Nó do Zookeeper |
 |---|---|---|---|---|
-| Spark | Tudo | F4 e acima | não | não |
-| Hadoop | Tudo | F4 e acima | não | não |
-| Kafka | Tudo | F4 e acima | não | não |
-| HBase | Tudo | F4 e acima | não | não |
+| Spark | Todos | F4 e acima | não | não |
+| O Hadoop | Todos | F4 e acima | não | não |
+| Kafka | Todos | F4 e acima | não | não |
+| HBase | Todos | F4 e acima | não | não |
 | LLAP | desabilitado | não | não | não |
 | Storm | desabilitado | não | não | não |
 | Serviço do Machine Learning | SOMENTE HDI 3,6 | F4 e acima | não | não |
@@ -71,7 +71,7 @@ O benchmark é o processo de execução de cargas de trabalho simuladas em difer
 
 Para obter mais informações sobre o benchmarking para SKUs de VM e tamanhos de cluster, consulte [planejamento de capacidade de cluster no Azure HDInsight ](hdinsight-capacity-planning.md#choose-the-vm-size-and-type).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Configurações de nó com suporte do Azure HDInsight](hdinsight-supported-node-configuration.md)
 - [Tamanhos das máquinas virtuais do Linux no Azure](../virtual-machines/linux/sizes.md)

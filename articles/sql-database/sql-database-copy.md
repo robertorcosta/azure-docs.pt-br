@@ -1,5 +1,5 @@
 ---
-title: Copiar um banco de dados SQL do Azure | Microsoft Docs
+title: Copiar um Banco de Dados SQL do Azure
 description: Crie uma cópia consistente transacionalmente de um banco de dados SQL do Azure existente no mesmo servidor ou em um servidor diferente.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 09/04/2019
-ms.openlocfilehash: de56e66046bb61ac31c1842ae6ce7a9c6720760d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d49896d8088ae1352cb2785d061cde6c8647cb89
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934213"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690809"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Fazer uma cópia consistente transicionalmente de um banco de dados SQL do Azure
 
@@ -86,16 +86,16 @@ Para cancelar uma cópia de banco de dados, você precisará estar nas seguintes
    
 Para gerenciar a cópia de banco de dados usando portal do Azure, você também precisará das seguintes permissões:
 
-&nbsp;&nbsp; Microsoft.Resources/subscriptions/&nbsp; Resources/Read   
-&nbsp;&nbsp; Microsoft.Resources/subscriptions/&nbsp; Resources/Write   
-&nbsp;&nbsp; Microsoft.Resources/&nbsp; implantações/leitura   
-&nbsp;&nbsp; Microsoft.Resources/&nbsp; Implantations/Write   
-&nbsp;&nbsp; Microsoft.Resources/Implantations&nbsp; /operationstatuses/Read    
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/subscriptions/Resources/Read   
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/subscriptions/Resources/Write   
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/Implantations/Read   
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/Implantations/Write   
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/Implantations/operationstatuses/Read    
 
 Se você quiser ver as operações em implantações no grupo de recursos no portal, operações em vários provedores de recursos, incluindo operações SQL, você precisará dessas funções RBAC adicionais: 
 
-&nbsp;&nbsp; Microsoft.Resources/subscriptions/resourcegroups/Implantations&nbsp; /Operations/Read   
-&nbsp;&nbsp; Microsoft.Resources/subscriptions/resourcegroups/Implantations&nbsp; /operationstatuses/Read
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/subscriptions/resourcegroups/Implantations/Operations/Read   
+&nbsp; &nbsp; &nbsp; Microsoft. Resources/subscriptions/resourcegroups/Implantations/operationstatuses/Read
 
 
 

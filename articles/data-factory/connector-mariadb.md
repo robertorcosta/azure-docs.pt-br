@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do MariaDB usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do MariaDB usando o Azure Data Factory
 description: Saiba como copiar dados do MariaDB para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: b58617281094973e2705c34fdd4e4f6ccb2e8d8c
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 853d39545d099f43cd5769eadae974e20c977e53
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090128"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680720"
 ---
 # <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Copiar dados do MariaDB usando o Azure Data Factory
 
@@ -50,10 +50,10 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do MariaDB:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **MariaDB** | Sim |
-| connectionString | Uma cadeia de conexão ODBC para conectar-se ao MariaDB. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha no Azure Key Vault e extrair a configuração `pwd` da cadeia de conexão. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) que oferece mais detalhes. | Sim |
+| Tipo | A propriedade type deve ser definida como: **MariaDb** | Sim |
+| connectionString | Uma cadeia de conexão ODBC para conectar-se ao MariaDB. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha no Azure Key Vault e extrair a configuração `pwd` da cadeia de conexão. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 **Exemplo:**
@@ -110,7 +110,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do MariaDB:
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do MariaDB.
 
-Para copiar dados do MariaDB, defina a propriedade type do conjunto de dados como **MariaDBTable**. Não há nenhuma propriedade adicional específica do type nesse tipo de conjunto de dados.
+Para copiar dados do MariaDB, defina a propriedade type do conjunto de dados como **MariaDBTable**. Não há nenhuma propriedade adicional de tipo específico nesse tipo de conjunto de dados.
 
 **Exemplo**
 
@@ -137,9 +137,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do MariaDB, defina o tipo de fonte na atividade de cópia como **MariaDbSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **MariaDBSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **MariaDbSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

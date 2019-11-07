@@ -1,5 +1,5 @@
 ---
-title: Criar pipelines de dados de previsão usando o Azure Data Factory | Microsoft Docs
+title: Criar pipelines de dados de previsão usando Azure Data Factory
 description: Descreve como criar pipelines de previsão usando o Azure Data Factory e o Azure Machine Learning
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: e7c48c1d91ae08be29531f4a99ea75ab7a928f34
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: eba5df587d6bd6dda6083314cfb94836c6669393
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140479"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683135"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Criar pipelines de previsão usando Azure Machine Learning e o Azure Data Factory
 
@@ -44,7 +44,7 @@ O [Azure Machine Learning](https://azure.microsoft.com/documentation/services/ma
 2. **Convertê-lo em um teste preditivo**. Quando o modelo foi treinado com dados existentes e você estiver pronto para usá-lo para pontuar novos dados, você preparará e simplificará seu teste para a pontuação.
 3. **Implantá-lo como um serviço da Web**. Você pode publicar seu experimento de pontuação como um serviço Web do Azure. Você pode enviar dados ao seu modelo por desse ponto de extremidade de serviço Web e receber previsões de resultado do modelo.
 
-### <a name="azure-data-factory"></a>Azure Data Factory
+### <a name="azure-data-factory"></a>Fábrica de dados do Azure
 O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a **movimentação** e a **transformação** dos dados. Você pode criar soluções de integração de dados usando o Azure Data Factory que podem ingerir dados de vários repositórios de dados, transformar/processar os dados e publicar os dados resultantes nos repositórios de dados.
 
 O serviço Data Factory permite criar pipelines de dados que movem e transformam dados e depois executar os pipelines em um agendamento especificado (por hora, diariamente, semanalmente, etc.). Ele também fornece visualizações avançadas para exibir a linhagem e as dependências entre os pipelines de dados e monitorar todos os seus pipelines de dados em uma única exibição unificada, a fim de identificar os problemas e configurar alertas de monitoramento facilmente.
@@ -74,7 +74,7 @@ Você usa o Azure Data Factory para orquestrar o processamento e movimentação 
 
       ![URI do lote](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
 
-### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Cenário: Experimentos usando entradas/saídas de serviço Web que consultam dados no Armazenamento de Blobs do Azure
+### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Cenário: Experimentos usando entradas/saídas de serviço Web que se referem aos dados no armazenamento de Blob do Azure
 Nesse cenário, o serviço Web de Azure Machine Learning faz previsões usando dados de um arquivo em um armazenamento de blob do Azure e armazena os resultados de previsão no armazenamento de blob. O JSON a seguir define um pipeline do Data Factory com uma atividade AzureMLBatchExecution. A atividade contém o conjunto de dados **DecisionTreeInputBlob** como entrada e **DecisionTreeResultBlob** como a saída. O **DecisionTreeInputBlob** é passado como uma entrada para o serviço Web usando a propriedade JSON **webServiceInput**. O **DecisionTreeResultBlob** é passado como uma saída para o serviço Web usando a propriedade JSON **webServiceOutputs**.
 
 > [!IMPORTANT]
@@ -192,7 +192,7 @@ Recomendamos que você passe pelo tutorial [criar seu primeiro pipeline com data
     }
     ```
 
-    Se o arquivo csv não tem a linha de cabeçalho, você poderá ver o seguinte erro: **Erro na Atividade: Erro ao ler a cadeia de caracteres. Token inesperado: StartObject. Caminho '', linha 1, posição 1**.
+    Se o arquivo csv não tem a linha de cabeçalho, você poderá ver o seguinte erro: **Erro na atividade: erro ao ler a cadeia de caracteres. Token inesperado: StartObject. Caminho '', linha 1, posição 1**.
 3. Criar a **saída** do **conjunto de dados** da Azure Data Factory. Este exemplo usa o particionamento para criar um caminho de saída exclusivo para cada execução de divisão. Sem o particionamento, a atividade substituiria o arquivo.
 
     ```JSON
@@ -234,7 +234,7 @@ Recomendamos que você passe pelo tutorial [criar seu primeiro pipeline com data
       }
     }
     ```
-4. Crie um **serviço vinculado** do tipo: **AzureMLLinkedService**, fornecendo a chave de API e a URL de execução de lote do modelo.
+4. Crie um **serviço vinculado** do tipo **AzureMLLinkedService**, fornecendo a chave de API e a URL de execução de lote do modelo.
 
     ```JSON
     {
@@ -308,7 +308,7 @@ Recomendamos que você passe pelo tutorial [criar seu primeiro pipeline com data
       >
       >
 
-### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Cenário: Experimentos usando módulos de leitura/gravação para referenciar dados em vários armazenamentos
+### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Cenário: Experimentos usando módulos Leitor/Gravador para fazer referência a dados em vários armazenamentos
 Outro cenário comum durante a criação de experimentos do Azure Machine Learning Studio é usar módulos de Leitor e Gravador. O módulo leitor é usado para carregar dados em um experimento e o módulo gravador é usado para salvar os dados dos experimentos. Para obter detalhes sobre os módulos de leitor e gravador, consulte os tópicos [Leitor](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [Gravador](https://msdn.microsoft.com/library/azure/dn905984.aspx) na biblioteca MSDN.
 
 Ao usar os módulos leitor e gravador, é recomendável usar um parâmetro de serviço Web para cada propriedade desses módulos leitor/gravador. Esses parâmetros da Web permitem que você configure os valores durante o tempo de execução. Por exemplo, você poderia criar um experimento com um módulo leitor que usa um banco de dados SQL do Azure: XXX.database.windows.net. Depois que o serviço web tiver sido implantado, você precisa habilitar os consumidores do serviço Web para especificar outro servidor SQL do Azure chamado YYY.database.windows.net. Você pode usar um parâmetro de serviço Web para permitir que esse valor seja configurado.
@@ -347,7 +347,7 @@ Você também pode usar [Funções do Data Factory](data-factory-functions-varia
 ### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Uso de um módulo Leitor para ler dados de vários arquivos no Blob do Azure
 Pipelines de Big Data com atividades como Pig e Hive podem produzir um ou mais arquivos de saída sem extensão. Por exemplo, quando você especifica uma tabela externa do Hive, os dados para a tabela externa do Hive podem ser armazenados no armazenamento de blob do Azure com o seguinte nome 000000_0. É possível usar o módulo leitor em um experimento para ler vários arquivos e usá-los para previsões.
 
-Ao usar o módulo de leitor em uma experiência de Azure Machine Learning, é possível especificar o Blob do Azure como uma entrada. Os arquivos no Armazenamento de Blobs do Azure podem ser arquivos de saída (exemplo: 000000_0) que são produzidos por um script Pig e Hive em execução no HDInsight. O módulo de leitor permite que você leia arquivos (sem extensões), configurando o **Caminho para o contêiner, blob/diretório**. O **Caminho para o contêiner** aponta para o contêiner e o **diretório/blob** aponta para a pasta que contém os arquivos, conforme mostra a imagem a seguir. O asterisco, \*), **especifica que todos os arquivos no contêiner/pasta (ou seja, data/aggregateddata/year=2014/month-6/\*)** são lidos como parte do teste.
+Ao usar o módulo de leitor em uma experiência de Azure Machine Learning, é possível especificar o Blob do Azure como uma entrada. Os arquivos no Armazenamento de Blobs do Azure podem ser os arquivos de saída (Exemplo: 000000_0) que são produzidos por um script de Pig e Hive em execução no HDInsight. O módulo de leitor permite que você leia arquivos (sem extensões), configurando o **Caminho para o contêiner, blob/diretório**. O **Caminho para o contêiner** aponta para o contêiner e o **diretório/blob** aponta para a pasta que contém os arquivos, conforme mostra a imagem a seguir. O asterisco, \*), **especifica que todos os arquivos no contêiner/pasta (ou seja, data/aggregateddata/year=2014/month-6/\*)** são lidos como parte do teste.
 
 ![Propriedades de Blob do Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -404,7 +404,7 @@ Ao usar o módulo de leitor em uma experiência de Azure Machine Learning, é po
 
 No exemplo JSON acima:
 
-* O serviço Web implantado de Azure Machine Learning usa um modulo leitor e gravador para ler/gravar dados de/para um banco de dados SQL do Azure. Este serviço Web expõe os quatro parâmetros a seguir:  Nome do servidor de banco de dados, Nome do banco de dados, Nome de conta de usuário do servidor e Senha de conta de usuário do servidor.
+* O serviço Web implantado de Azure Machine Learning usa um modulo leitor e gravador para ler/gravar dados de/para um banco de dados SQL do Azure. Este serviço Web expõe os seguintes quatro parâmetros: Nome do servidor de banco de dados, Nome do banco de dados, Nome de conta de usuário do servidor e Senha de conta de usuário do servidor.
 * Ambos os valores de data/hora de **início** e de **término** devem estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O tempo **final** é opcional. Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas**" Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**. Consulte a [Referência de script JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter detalhes sobre as propriedades JSON.
 
 ### <a name="other-scenarios"></a>Outros cenários
@@ -628,7 +628,7 @@ Você também pode usar [Funções do Data Factory](data-factory-functions-varia
 >
 
 ## <a name="see-also"></a>Consulte também
-* [Postagem no blog do Azure: Introdução ao Azure Data Factory e Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
+* [Postagem do blog do Azure: Introdução ao Azure Data Factory e Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 

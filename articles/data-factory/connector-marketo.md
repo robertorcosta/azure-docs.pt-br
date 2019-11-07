@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Marketo usando Azure Data Factory (versão prévia) | Microsoft Docs
+title: Copiar dados do Marketo usando Azure Data Factory (versão prévia)
 description: Saiba como copiar dados do Marketo para armazenamentos de dados de coletor compatível usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: fbe299088a7a2edb5319d217defb7c7c00ecfa22
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 173cd477aaf257eab7c5130e12bbd7417b6f073d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090054"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680710"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copiar dados do Marketo usando Azure Data Factory (versão prévia)
 
@@ -38,7 +38,7 @@ Você pode copiar dados de um Marketo para qualquer armazenamento de dados de co
 Azure Data Factory fornece um driver interno para habilitar a conectividade, portanto, não é necessário instalar manualmente qualquer driver usando esse conector.
 
 >[!NOTE]
->Esse conector do Marketo é criado sobre a API REST do Marketo. Lembre-se de que o Marketo tem [limite de solicitações simultâneas](https://developers.marketo.com/rest-api/) no lado do serviço. Se você encontrar erros informando "Erro ao tentar usar a API REST: Máximo de taxa limite '100' excedido com '20' segundos (606) "ou" Erro ao tentar usar a API REST: Limite de acesso simultâneo '10' atingido (615) ", considere reduzir as execuções de atividade de cópia simultânea para reduzir o número de solicitações para o serviço.
+>Esse conector do Marketo é criado sobre a API REST do Marketo. Lembre-se de que o Marketo tem [limite de solicitações simultâneas](https://developers.marketo.com/rest-api/) no lado do serviço. Se você encontrar erros dizendo "Erro ao tentar usar a API REST: limite máximo de taxa de '100' excedido com '20' segundos (606)" ou "Erro ao tentar usar a API REST: atingido o limite de acesso simultâneo de '10' (615)", considere reduzir as execuções de atividade de cópia simultânea para reduzir o número de solicitações ao serviço.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -50,10 +50,10 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir são compatíveis com o serviço vinculado do Marketo:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Marketo** | Sim |
-| ponto de extremidade | O ponto de extremidade do servidor do Marketo. (ou seja, 123-ABC-321.mktorest.com)  | Sim |
+| Tipo | A propriedade type deve ser definida como: **Marketo** | Sim |
+| endpoint | O ponto de extremidade do servidor do Marketo. (ou seja, 123-ABC-321.mktorest.com)  | Sim |
 | clientId | A ID do cliente do serviço Marketo.  | Sim |
 | clientSecret | O segredo do cliente do serviço Marketo. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não |
@@ -85,9 +85,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Marketo, defina a propriedade type do conjunto de dados como **MarketoObject**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **MarketoObject** | Sim |
+| Tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **MarketoObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -115,9 +115,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Marketo, defina o tipo de origem na atividade de cópia como **MarketoSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **MarketoSource** | Sim |
+| Tipo | A propriedade type da origem da atividade de cópia deve ser definida como: **MarketoSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Activitiy_Types"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

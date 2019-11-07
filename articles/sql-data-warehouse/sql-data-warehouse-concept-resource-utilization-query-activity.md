@@ -1,5 +1,5 @@
 ---
-title: Capacidade de gerenciamento e monitoramento do SQL Data Warehouse do Azure – atividade de consulta e utilização de recursos | Microsoft Docs
+title: Gerenciabilidade e monitoramento – atividade de consulta, utilização de recursos
 description: Saiba quais recursos estão disponíveis para gerenciar e monitorar o SQL Data Warehouse do Azure. Use o portal do Azure e DMVs (Exibições de Gerenciamento Dinâmico) para entender a atividade de consulta e a utilização de recursos do data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 08/09/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 786ae1f18d52c6763b60f5019ecfe365f1cd540a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 1a210e2622212ed59dfa12f9f9a108c6ffe08714
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71334097"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692903"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Monitorando a atividade de consulta e a utilização de recursos no SQL Data Warehouse do Azure
 O SQL Data Warehouse do Azure oferece uma rica experiência de monitoramento no portal do Azure para gerar insights para sua carga de trabalho do data warehouse. O portal do Azure é a ferramenta recomendada ao monitorar seu data warehouse, pois ele fornece períodos de retenção configuráveis, alertas, recomendações e gráficos e painéis personalizáveis para métricas e logs. O portal também permite que você integre com outros serviços de monitoramento do Azure, como o OMS (Operations Management Suite) e Azure Monitor (logs) para fornecer uma experiência de monitoramento holística para não apenas seus data warehouse, mas também toda a análise do Azure plataforma para uma experiência de monitoramento integrada. Esta documentação descreve quais recursos de monitoramento estão disponíveis para otimizar e gerenciar sua plataforma de análise com o SQL Data Warehouse. 
@@ -24,14 +25,14 @@ O SQL Data Warehouse do Azure oferece uma rica experiência de monitoramento no 
 As seguintes métricas estão disponíveis no portal do Azure para SQL Data Warehouse. Essas métricas são exibidas no [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
 
 
-| Nome da Métrica             | Descrição                                                  | Tipo de agregação |
+| Nome da métrica             | DESCRIÇÃO                                                  | Tipo de agregação |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
 | Percentual de CPU          | Utilização da CPU em todos os nós para o data warehouse      | Máximo          |
-| Percentual de E/S de dados      | Utilização de E/S em todos os nós para o data warehouse       | Máximo          |
-| Percentual de memória       | Utilização de memória (SQL Server) em todos os nós para o data warehouse | Máximo          |
-| Conexões Bem-sucedidas  | Número de conexões bem-sucedidas com os dados                 | Total            |
-| Falha de Conexões      | Número de conexões com falha com o data warehouse           | Total            |
-| Bloqueado por Firewall     | Número de logons para o data warehouse que foram bloqueados     | Total            |
+| Porcentagem de E/S de dados      | Utilização de E/S em todos os nós para o data warehouse       | Máximo          |
+| Porcentagem de memória       | Utilização de memória (SQL Server) em todos os nós para o data warehouse | Máximo          |
+| Conexões bem sucedidas  | Número de conexões bem-sucedidas com os dados                 | Total            |
+| Conexões com falha      | Número de conexões com falha com o data warehouse           | Total            |
+| Bloqueado pelo firewall     | Número de logons para o data warehouse que foram bloqueados     | Total            |
 | Limite de DWU               | Objetivo de nível de serviço do data warehouse                | Máximo          |
 | Porcentagem de DWU          | Máximo entre o percentual de CPU e o percentual de E/S de dados        | Máximo          |
 | DWU usado                | Limite de DWU * percentual de DWU                                   | Máximo          |

@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Concur usando o Azure Data Factory (Visualizar) | Microsoft Docs
+title: Copiar dados do Concur usando o Azure Data Factory (visualização)
 description: Saiba como copiar dados do Concur para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 89c497286b8fcb7650bac2ed9c4eff6a2a500c1d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 403373324d32024c5559358563ee4025b3a3e1db
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092148"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681079"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Copiar dados do Concur usando o Azure Data Factory (visualização)
 
@@ -50,12 +50,12 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do Concur:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Concur** | Sim |
+| Tipo | A propriedade type deve ser definida como: **Concur** | Sim |
 | clientId | Client_id do aplicativo fornecido pelo Concur App Management.  | Sim |
-| username | O nome de usuário que você usa para acessar o Serviço Concur.  | Sim |
-| password | A senha correspondente ao nome de usuário fornecido no campo de nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| Nome de Usuário | O nome de usuário que você usa para acessar o Serviço Concur.  | Sim |
+| Senha | A senha correspondente ao nome de usuário fornecido no campo de nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não |
 | useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não |
 | usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não |
@@ -83,11 +83,11 @@ As propriedades a seguir têm suporte para o serviço vinculado do Concur:
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do Concur.
 
-Para copiar dados do Concur, defina a propriedade type do conjunto de dados como **ConcurObject**. Não há nenhuma propriedade adicional específica do type nesse tipo de conjunto de dados. Há suporte para as seguintes propriedades:
+Para copiar dados do Concur, defina a propriedade type do conjunto de dados como **ConcurObject**. Não há nenhuma propriedade adicional de tipo específico nesse tipo de conjunto de dados. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **ConcurObject** | Sim |
+| Tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **ConcurObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 
@@ -116,9 +116,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Concur, defina o tipo de origem na atividade de cópia como **ConcurSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **ConcurSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **ConcurSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Opportunities where Id = xxx "`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

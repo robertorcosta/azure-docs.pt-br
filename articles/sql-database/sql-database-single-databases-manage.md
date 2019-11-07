@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar servidores do Banco de Dados SQL do Azure e bancos de dados individuais | Microsoft Docs
+title: Criar, gerenciar servidores de banco de dados SQL do Azure e bancos de dados individuais
 description: Saiba como criar e gerenciar servidores do Banco de Dados SQL e bancos de dados individuais.
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: ecbfc8cee75da5bdf78bcc2d4ed426bc5193808c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 91a5ca6ef842b364ada24aa4ede5768cf205c776
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566507"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687118"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Criar e gerenciar servidores do Banco de Dados SQL e bancos de dados individuais no Banco de Dados SQL do Azure
 
 Você pode criar e gerenciar servidores do Banco de Dados SQL e bancos de dados individuais usando o portal do Azure, o PowerShell, a CLI do Azure, a API REST e o Transact-SQL.
 
-## <a name="azure-portal-manage-sql-database-servers-and-single-databases"></a>Portal do Azure: Gerenciar servidores do Banco de Dados SQL e bancos de dados individuais
+## <a name="azure-portal-manage-sql-database-servers-and-single-databases"></a>Portal do Azure: gerenciar servidores e bancos de dados individuais
 
 Você pode criar um grupo de recursos do banco de dados SQL do Azure antecipadamente ou ao criar o próprio servidor. Há vários métodos para obter um novo formulário de servidor SQL, seja criando um novo servidor SQL ou como parte da criação de um novo banco de dados.
 
@@ -54,7 +54,7 @@ Para gerenciar um banco de dados existente, navegue até a página **bancos de d
 > [!TIP]
 > Para um início rápido do Portal do Azure, consulte [Criar um Banco de Dados SQL do Azure no Portal do Azure](sql-database-single-database-get-started.md).
 
-## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell: Gerenciar servidores do Banco de Dados SQL e bancos de dados individuais
+## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell: gerenciar servidores e bancos de dados individuais
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ Para criar e gerenciar os servidores de Banco de Dados SQL do Azure, bancos de d
 > [!TIP]
 > Para scripts de exemplo do PowerShell, confira [Usar o PowerShell para criar um Banco de Dados SQL do Azure individual e configurar uma regra de firewall de servidor do Banco de Dados SQL](scripts/sql-database-create-and-configure-database-powershell.md) e [Monitorar e escalar um Banco de Dados SQL individual usando o PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
-| Cmdlet | Descrição |
+| Cmdlet | DESCRIÇÃO |
 | --- | --- |
 |[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|Cria um banco de dados |
 |[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|Obtém um ou mais bancos de dados|
@@ -82,7 +82,7 @@ Para criar e gerenciar os servidores de Banco de Dados SQL do Azure, bancos de d
 |[Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule)|Exclui uma regra de firewall de um servidor.|
 | New-AzSqlServerVirtualNetworkRule | Cria um [*regra da rede virtual*](sql-database-vnet-service-endpoint-rule-overview.md), com base em uma sub-rede que é um ponto de extremidade de serviço de rede virtual. |
 
-## <a name="azure-cli-manage-sql-database-servers-and-single-databases"></a>CLI do Azure: Gerenciar servidores do Banco de Dados SQL e bancos de dados individuais
+## <a name="azure-cli-manage-sql-database-servers-and-single-databases"></a>CLI do Azure: gerenciar servidores e bancos de dados individuais
 
 Para criar e gerenciar servidores, bancos de dados e firewalls do SQL Azure com a [CLI do Azure](/cli/azure), use os comandos do [Banco de Dados SQL da CLI do Azure](/cli/azure/sql/db). Use o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu navegador ou [instale-o](/cli/azure/install-azure-cli) no macOS, Linux ou Windows. Para criar e gerenciar pools elásticos, consulte [Pools elásticos](sql-database-elastic-pool.md).
 
@@ -90,7 +90,7 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do SQL Azure com 
 > Para um início rápido da CLI do Azure, consulte [Criar um Banco de Dados SQL do Azure individual usando a CLI do Azure](sql-database-cli-samples.md). Para ver scripts de exemplo da CLI do Azure, consulte [Usar a CLI para criar um Banco de Dados SQL do Azure individual e configurar uma regra de firewall do Banco de Dados SQL](scripts/sql-database-create-and-configure-database-cli.md) e [Usar a CLI para monitorar e escalar um único Banco de Dados SQL do Azure](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
-| Cmdlet | Descrição |
+| Cmdlet | DESCRIÇÃO |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Cria um banco de dados|
 |[az sql db list](/cli/azure/sql/db#az-sql-db-list)|Lista todos os bancos de dados e data warehouses em um servidor, ou todos os bancos de dados em um pool elástico|
@@ -112,16 +112,16 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do SQL Azure com 
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Atualiza uma regra de firewall|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Exclui uma regra de firewall|
 
-## <a name="transact-sql-manage-sql-database-servers-and-single-databases"></a>Transact-SQL: Gerenciar servidores do Banco de Dados SQL e bancos de dados individuais
+## <a name="transact-sql-manage-sql-database-servers-and-single-databases"></a>Transact-SQL: gerenciar servidores e bancos de dados únicos
 
 Para criar e gerenciar servidores, bancos de dados e firewalls do Azure SQL com o Transact-SQL, use os comandos T-SQL a seguir. Você pode emitir esses comandos usando o Portal do Azure, o [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), o [Visual Studio Code](https://code.visualstudio.com/docs) ou qualquer outro programa que pode se conectar a um servidor de Banco de Dados SQL do Azure e passar comandos Transact-SQL. Para gerenciar pools elásticos, consulte [Pools elásticos](sql-database-elastic-pool.md).
 
 > [!TIP]
-> Para um início rápido no uso do SQL Server Management Studio no Microsoft Windows, confira [Banco de Dados SQL do Azure: Use o SQL Server Management Studio para conectar e consultar dados](sql-database-connect-query-ssms.md). Para um início rápido no uso do Visual Studio Code no macOS, Linux ou Windows, confira [Banco de Dados SQL do Azure: Usar o Visual Studio Code para se conectar e consultar dados](sql-database-connect-query-vscode.md).
+> Para um início rápido que usa o SQL Server Management Studio no Microsoft Windows, consulte [Banco de Dados SQL do Azure: usar o SQL Server Management Studio para conectar e consultar dados](sql-database-connect-query-ssms.md). Para um início rápido que usa o Visual Studio Code no macOS, Linux ou Windows, consulte [Banco de Dados SQL do Azure: usar o Visual Studio Code para se conectar e consultar dados](sql-database-connect-query-vscode.md).
 > [!IMPORTANT]
 > Não é possível criar ou excluir um servidor usando o Transact-SQL.
 
-| Comando | Descrição |
+| Command | DESCRIÇÃO |
 | --- | --- |
 |[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Cria um novo banco de dados individual. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
 | [ALTER DATABASE (Banco de Dados SQL do Azure)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica um Banco de Dados SQL do Azure. |
@@ -138,11 +138,11 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do Azure SQL com 
 |[sys.database_firewall_rules (Banco de Dados SQL do Azure)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Retorna informações sobre as configurações de firewall no nível do banco de dados associadas ao seu Banco de Dados SQL do Microsoft Azure. |
 |[sp_delete_database_firewall_rule (Banco de Dados SQL do Azure)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Remove a configuração de firewall no nível do banco de dados para o Banco de Dados SQL do Azure ou o SQL Data Warehouse. |
 
-## <a name="rest-api-manage-sql-database-servers-and-single-databases"></a>API REST: Gerenciar servidores do Banco de Dados SQL e bancos de dados individuais
+## <a name="rest-api-manage-sql-database-servers-and-single-databases"></a>API REST: gerenciar servidores e bancos de dados individuais
 
 Para criar e gerenciar servidores, bancos de dados e firewalls do SQL Server do Azure, use estas solicitações de API REST.
 
-| Comando | Descrição |
+| Command | DESCRIÇÃO |
 | --- | --- |
 |[Servidores – criar ou atualizar](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Cria ou atualiza um novo servidor.|
 |[Servidores - Excluir](https://docs.microsoft.com/rest/api/sql/servers/delete)|Exclui um servidor SQL.|
@@ -150,7 +150,7 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do SQL Server do 
 |[Servidores - Listar](https://docs.microsoft.com/rest/api/sql/servers/list)|Retorna uma lista de servidores em uma assinatura.|
 |[Servidores – listar por grupo de recursos](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Retorna uma lista de servidores em um grupo de recursos.|
 |[Servidores - Atualizar](https://docs.microsoft.com/rest/api/sql/servers/update)|Atualiza um servidor existente.|
-|[Bancos de dados – criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Cria um novo banco de dados ou atualiza um banco de dados existente.|
+|[Banco de dados – criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Cria um novo banco de dados ou atualiza um banco de dados existente.|
 |[Bancos de dados - Delete](https://docs.microsoft.com/rest/api/sql/databases/delete)|Exclui um banco de dados.|
 |[Bancos de Dados – Obter](https://docs.microsoft.com/rest/api/sql/databases/get)|Obtém um banco de dados.|
 |[Bancos de dados – listar por pool elástico](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Retorna uma lista de bancos de dados em um pool elástico.|

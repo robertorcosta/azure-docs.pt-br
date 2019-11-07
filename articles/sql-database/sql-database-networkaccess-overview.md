@@ -1,5 +1,5 @@
 ---
-title: Banco de dados SQL do Azure e controles de acesso à rede data warehouse | Microsoft Docs
+title: Controles de acesso à rede do banco de dados SQL do Azure e do data warehouse
 description: Visão geral dos controles de acesso à rede para o banco de dados SQL do Azure e data warehouse para gerenciar o acesso e configurar um banco de dados único ou em pool.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: b2c1f01e53cfe41b72e3e079059c66e4e2409012
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: deee668c3597047a5d5f0fd153626916c3fd8517
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703266"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687706"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controles de acesso à rede do banco de dados SQL do Azure e do data warehouse
 
@@ -81,14 +81,14 @@ Esteja atento aos seguintes termos de rede do Azure ao explorar as regras de fir
 
 **Rede virtual:** Você pode ter redes virtuais associadas à sua assinatura do Azure 
 
-**Sub-rede:** Uma rede virtual contém **sub-redes**. Todas as máquinas virtuais do Azure (VMs) que você tem são atribuídas a sub-redes. Uma sub-rede pode conter várias VMs ou outros nós de computadores. Nós de computadores que estão fora da sua rede virtual não podem acessar sua rede virtual, a menos que você configure a segurança para permitir o acesso.
+**Sub-rede:** uma rede virtual contém **sub-redes**. Todas as máquinas virtuais do Azure (VMs) que você tem são atribuídas a sub-redes. Uma sub-rede pode conter várias VMs ou outros nós de computadores. Nós de computadores que estão fora da sua rede virtual não podem acessar sua rede virtual, a menos que você configure a segurança para permitir o acesso.
 
-**Ponto de extremidade de serviço de Rede Virtual:** Um [ponto de extremidade de serviço de rede virtual] [VM-Virtual-Network-Service-Endpoint-Overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço do Azure. Neste artigo, estamos interessados no nome do tipo de **Microsoft.Sql**, que faz referência ao serviço do Azure chamado banco de dados SQL.
+**Ponto de extremidade de serviço de rede virtual:** Um [ponto de extremidade de serviço de rede virtual] [VM-Virtual-Network-Service-Endpoint-Overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço do Azure. Neste artigo, estamos interessados no nome do tipo de **Microsoft.Sql**, que faz referência ao serviço do Azure chamado banco de dados SQL.
 
-**Regra da rede virtual:** uma regra da rede virtual para o servidor de Banco de Dados SQL do Microsoft Azure é uma sub-rede listada na lista de controle de acesso (ACL) do seu servidor de Banco de dados SQL do Microsoft Azure. Para estar na ACL do seu banco de dados SQL, a sub-rede deve conter o nome do tipo **Microsoft.Sql**. Uma regra da rede virtual informa o servidor de Banco de dados SQL do Microsoft Azure para aceitar comunicações de cada nó que está na sub-rede.
+**Regra da rede virtual:** uma regra da rede virtual para o servidor de Banco de dados SQL do Microsoft Azure é uma sub-rede listada na lista de controle de acesso (ACL) do seu servidor de Banco de dados SQL do Microsoft Azure. Para estar na ACL do seu banco de dados SQL, a sub-rede deve conter o nome do tipo **Microsoft.Sql**. Uma regra da rede virtual informa o servidor de Banco de dados SQL do Microsoft Azure para aceitar comunicações de cada nó que está na sub-rede.
 
 
-## <a name="ip-vs-virtual-network-firewall-rules"></a>IP vs. Regras de firewall de rede virtual
+## <a name="ip-vs-virtual-network-firewall-rules"></a>IP versus regras de firewall de rede virtual
 
 O Firewall do Azure SQL Server permite que você especifique os intervalos de endereços IP dos quais as comunicações são aceitas no banco de dados SQL. Essa abordagem é adequada para endereços IP estáveis que estão fora da rede privada do Azure. No entanto, as máquinas virtuais (VMs) na rede privada do Azure são configuradas com endereços IP *dinâmicos* . Os endereços IP dinâmicos podem mudar quando sua VM é reiniciada e, por sua vez, invalidar a regra de firewall baseada em IP. Seria ilusório especificar um endereço IP dinâmico em uma regra de firewall, em um ambiente de produção.
 
@@ -107,7 +107,7 @@ As regras de rede virtual são uma alternativa mais fácil de estabelecer e gere
 
 - Para obter ajuda com a conexão com um banco de dados SQL do Azure de software livre ou aplicativos de terceiros, consulte [exemplos de código de início rápido do cliente para banco de dados SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 
-- Para obter informações sobre as portas adicionais que talvez você precise abrir, consulte a seção **Banco de Dados SQL: Fora versus dentro** de [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md)
+- Para obter mais informações sobre as portas adicionais que você pode precisar abrir, consulte a seção **Banco de Dados SQL: fora versus dentro** de [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 - Para obter uma visão geral da conectividade do banco de dados SQL do Azure, consulte [arquitetura de conectividade do SQL do Azure](sql-database-connectivity-architecture.md)
 

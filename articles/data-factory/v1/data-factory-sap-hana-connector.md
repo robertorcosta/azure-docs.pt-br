@@ -1,5 +1,5 @@
 ---
-title: Mover dados do SAP HANA usando o Azure Data Factory | Microsoft Docs
+title: Mover dados de SAP HANA usando Azure Data Factory
 description: Saiba mais sobre como mover dados do SAP HANA usando o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 159e10354726e86ff04cb12bff33b6a83bd1fa70
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: ebd1cf22bffc6a136845672cedcefa7936eeece5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836097"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682364"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Mover dados do SAP HANA usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -26,11 +26,11 @@ ms.locfileid: "67836097"
 > * [Versão 2 (versão atual)](../connector-sap-hana.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do SAP HANA na V2](../connector-sap-business-warehouse.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do SAP HANA na V2](../connector-sap-business-warehouse.md).
 
 Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de um SAP HANA local. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
-Você pode copiar dados de um armazenamento de dados local do SAP HANA para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, o Data Factory dá suporte apenas à movimentação de dados de um SAP HANA para outros armazenamentos de dados, mas não à movimentação de dados de outros armazenamentos de dados para um SAP HANA.
+Você pode copiar dados de um armazenamento de dados local do SAP HANA para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, o Data Factory dá suporte apenas à movimentação de dados de um SAP HANA para outros armazenamentos de dados, mas não à movimentação de dados de outros armazenamentos de dados para um SAP HANA.
 
 ## <a name="supported-versions-and-installation"></a>Instalação e versões com suporte
 Esse conector oferece suporte a qualquer versão do banco de dados SAP HANA. Ele oferece suporte à cópia de dados dos modelos de informações do HANA (como os modos de exibição de Análise e de Cálculo) e às tabelas Linha/Coluna usando consultas SQL.
@@ -42,8 +42,8 @@ Para habilitar a conectividade com a instância do SAP HANA, instale os seguinte
 ## <a name="getting-started"></a>Introdução
 Você pode criar um pipeline com atividade de cópia que mova dados de um armazenamento de dados local SAP HANA usando diferentes ferramentas/APIs. 
 
-- A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Consulte [Tutorial: criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados. 
-- Você também pode usar as ferramentas abaixo para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo do Resource Manager**, **.NET API**, e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. 
+- A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados. 
+- Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. 
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -51,7 +51,7 @@ Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um 
 2. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. 
 3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. 
 
-Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são usadas para copiar dados do SAP HANA local, consulte a seção [Exemplo de JSON: copiar dados do SAP HANA para o Blob do Azure](#json-example-copy-data-from-sap-hana-to-azure-blob) neste artigo. 
+Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são usadas para copiar dados de um SAP HANA local, confira a seção [Exemplo de JSON: Copiar dados do SAP HANA para o Blob do Azure](#json-example-copy-data-from-sap-hana-to-azure-blob) deste artigo. 
 
 As seções que se seguem fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades do Data Factory específicas para um repositório de dados do SAP HANA:
 
@@ -60,12 +60,12 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 
 Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-server | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver usando uma porta personalizada, especifique `server:port`. | cadeia de caracteres | Sim
+server | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver usando uma porta personalizada, especifique `server:port`. | string | Sim
 authenticationType | Tipo de autenticação. | cadeia de caracteres. "Básico" ou "Windows" | Sim 
-Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | cadeia de caracteres | Sim
-password | Senha do usuário. | cadeia de caracteres | Sim
-gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP HANA. | cadeia de caracteres | Sim
-encryptedCredential | A cadeia de caracteres de credencial criptografada. | cadeia de caracteres | Não
+Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | string | Sim
+Senha | Senha do usuário. | string | Sim
+gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP HANA. | string | Sim
+encryptedCredential | A cadeia de caracteres de credencial criptografada. | string | Não
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
@@ -84,8 +84,8 @@ Quando a fonte na atividade de cópia for do tipo **RelationalSource** (que incl
 | --- | --- | --- | --- |
 | query | Especifica a consulta SQL para ler dados da instância do SAP HANA. | Consulta SQL. | Sim |
 
-## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>Exemplo JSON: copiar dados do SAP HANA para o Blob do Azure
-O exemplo a seguir fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [do Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Este exemplo mostra como copiar dados de um SAP HANA local para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer um dos coletores listados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.  
+## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>Exemplo de JSON: copiar dados do SAP HANA para o Blob do Azure
+O exemplo a seguir fornece exemplos de definições de JSON que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Este exemplo mostra como copiar dados de um SAP HANA local para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer um dos coletores listados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.  
 
 > [!IMPORTANT]
 > Este exemplo fornece snippets de JSON. Ele não inclui instruções passo a passo para criar o data factory. Confira o artigo [Mover dados entre fontes locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções passo a passo.
@@ -164,7 +164,7 @@ As propriedades de frequência e intervalo definem a agenda. Nesse caso, os dado
 ```
 
 ### <a name="azure-blob-output-dataset"></a>Conjunto de dados de saída de Blob do Azure
-Esse conjunto de dados define o conjunto de dados de saída do Blob do Azure. A propriedade type é definida como AzureBlob. A seção typeProperties fornece o local onde os dados copiados da instância do SAP HANA serão armazenados. Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
+Esse conjunto de dados define o conjunto de dados de saída do Blob do Azure. A propriedade type é definida como AzureBlob. A seção typeProperties fornece o local onde os dados copiados da instância do SAP HANA serão armazenados. Os dados são gravados em um novo blob a cada hora (frequency: hora, interval: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
 
 ```json
 {
@@ -288,14 +288,14 @@ TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-REAL | Simples
-DOUBLE | Simples
-Decimal | Decimal
-Boolean | Byte
-VARCHAR | string
-NVARCHAR | string
+REAL | Single
+DOUBLE | Single
+DECIMAL | Decimal
+BOOLEAN | Byte
+VARCHAR | Cadeia de caracteres
+NVARCHAR | Cadeia de caracteres
 CLOB | Byte[]
-ALPHANUM | string
+ALPHANUM | Cadeia de caracteres
 BLOB | Byte[]
 DATE | DateTime
 TIME | TimeSpan

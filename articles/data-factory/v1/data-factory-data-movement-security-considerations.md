@@ -1,5 +1,5 @@
 ---
-title: Considerações sobre segurança para movimentação de dados no Azure Data Factory | Microsoft Docs
+title: Considerações sobre segurança para movimentação de dados no Azure Data Factory
 description: Saiba mais sobre como proteger a movimentação de dados no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b425db761375c705d3c810002234a937bac46d78
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 7f18505e02c5d65d21e93759eb5da480c20e2eb3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610174"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682632"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory – Considerações sobre segurança para movimentação de dados
 
@@ -67,7 +67,7 @@ A TDE (Transparent Data Encryption) do SQL Data Warehouse do Azure ajuda a prote
 #### <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
 O Banco de Dados SQL do Azure também dá suporte à TDE (Transparent Data Encryption), que ajuda a proteger contra ameaças de atividades mal-intencionadas por meio da execução de criptografia e descriptografia em tempo real dos dados, sem a necessidade de alterações no aplicativo. Esse comportamento é transparente para o cliente. Para obter mais informações, consulte [Transparent Data Encryption com o Banco de Dados SQL do Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
 
-#### <a name="azure-data-lake-store"></a>Azure Data Lake Store
+#### <a name="azure-data-lake-store"></a>Repositório Azure Data Lake
 O Azure Data Lake Store também fornece criptografia para os dados armazenados na conta. Quando está habilitado, o Data Lake Store criptografa os dados automaticamente antes de persisti-los e descriptografá-los antes da recuperação, tornando-os transparentes para o cliente que acessa os dados. Para obter mais informações, consulte [Segurança no Azure Data Lake Store](../../data-lake-store/data-lake-store-security-overview.md). 
 
 #### <a name="azure-blob-storage-and-azure-table-storage"></a>Armazenamento de Blobs do Azure e Armazenamento de Tabelas do Azure
@@ -127,11 +127,11 @@ Uma rede virtual é uma representação lógica de sua rede na nuvem. Você pode
 
 A tabela a seguir resume as recomendações de configuração de rede e de gateway de acordo com diferentes combinações dos locais de origem e de destino para a movimentação de dados híbridos.
 
-| Origem | Destino | Configuração de rede | Instalação do gateway |
+| Fonte | Destino | Configuração de rede | Instalação do gateway |
 | ------ | ----------- | --------------------- | ------------- | 
-| Local | Máquinas virtuais e serviços de nuvem implantados em redes virtuais | VPN IPsec (ponto a site ou site a site) | O gateway pode ser instalado localmente ou em uma VM (máquina virtual) do Azure na VNet | 
-| Local | Máquinas virtuais e serviços de nuvem implantados em redes virtuais | ExpressRoute (Emparelhamento Privado) | O gateway pode ser instalado localmente ou em uma VM do Azure na VNet | 
-| Local | Serviços baseados no Azure que têm um ponto de extremidade público | ExpressRoute (Emparelhamento Público) | O gateway deve ser instalado localmente | 
+| Configuração local | Máquinas virtuais e serviços de nuvem implantados em redes virtuais | VPN IPsec (ponto a site ou site a site) | O gateway pode ser instalado localmente ou em uma VM (máquina virtual) do Azure na VNet | 
+| Configuração local | Máquinas virtuais e serviços de nuvem implantados em redes virtuais | ExpressRoute (Emparelhamento Privado) | O gateway pode ser instalado localmente ou em uma VM do Azure na VNet | 
+| Configuração local | Serviços baseados no Azure que têm um ponto de extremidade público | ExpressRoute (Emparelhamento Público) | O gateway deve ser instalado localmente | 
 
 As imagens a seguir mostram o uso do Gateway de Gerenciamento de Dados para mover dados entre um banco de dados local e os serviços do Azure usando o ExpressRoute e a VPN IPsec (com a Rede Virtual):
 
@@ -150,7 +150,7 @@ Em uma empresa, um **firewall corporativo** é executado no roteador central da 
 
 A tabela a seguir fornece os requisitos de **porta de saída** e de domínio do **firewall corporativo**.
 
-| Nomes de domínio | Portas de saída | Descrição |
+| Nomes de domínio | Portas de saída | DESCRIÇÃO |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Necessárias para que o gateway se conecte aos serviços de movimentação de dados no Data Factory |
 | `*.core.windows.net` | 443 | Usada pelo gateway para se conectar à Conta de Armazenamento do Azure ao usar o recurso [cópia em etapas](data-factory-copy-activity-performance.md#staged-copy). | 
@@ -163,7 +163,7 @@ A tabela a seguir fornece os requisitos de **porta de saída** e de domínio do 
 
 A tabela a seguir fornece os requisitos de **porta de entrada** do **firewall do Windows**.
 
-| Portas de entrada | Descrição | 
+| Portas de entrada | DESCRIÇÃO | 
 | ------------- | ----------- | 
 | 8050 (TCP) | Necessária para que o aplicativo gerenciador de credenciais defina com segurança as credenciais de armazenamentos de dados locais no gateway. | 
 
@@ -183,7 +183,7 @@ Os armazenamentos de dados na nuvem exige a lista de permissões do endereço IP
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **Pergunta:** O Gateway pode ser compartilhado entre diferentes data factories?
-**Resposta:** Ainda não oferecemos suporte a essa funcionalidade. No entanto, estamos trabalhando de forma ativa para implementá-lo.
+**Resposta:** Ainda não damos suporte a esse recurso. No entanto, estamos trabalhando de forma ativa para implementá-lo.
 
 **Pergunta:** Quais são os requisitos de porta para o funcionamento do gateway?
 **Resposta:** O Gateway faz conexões baseadas em HTTP com a Internet aberta. As **portas de saída 443 e 80** devem estar abertas para que o gateway estabeleça essa conexão. Abra a **Porta de Entrada 8050** somente no nível do computador (não no nível de firewall corporativo) para o aplicativo Gerenciador de Credenciais. Se o Banco de Dados SQL do Azure ou o SQL Data Warehouse do Azure for usado como a origem ou o destino, você precisará abrir a porta **1433** também. Para obter mais informações, consulte a seção [Configurações de firewall e endereços IP na lista de permissões](#firewall-configurations-and-whitelisting-ip-address-of gateway). 

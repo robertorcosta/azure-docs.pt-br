@@ -1,5 +1,5 @@
 ---
-title: Atualizar modelos de Machine Learning usando o Azure Data Factory | Microsoft Docs
+title: Atualizar modelos de Machine Learning usando Azure Data Factory
 description: Descreve como criar pipelines de previsão usando o Azure Data Factory e o Azure Machine Learning
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: a980f269c8b88618ffa3311c05310a88ade379ed
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 190a4e704b002a4d6d4876d048c693a5fffe0114
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140466"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683131"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Atualizando os modelos do Machine Learning do Azure usando a Atividade de Recurso de Atualização
 
@@ -36,7 +36,7 @@ ms.locfileid: "70140466"
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [atualizar modelos de aprendizado de máquina no Data Factory](../update-machine-learning-models.md).
 
-Este artigo complementa o artigo principal sobre o Azure Data Factory - integração do Azure Machine Learning: [Criar pipelines de previsão usando Azure Machine Learning e o Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Se você ainda não fez isso, leia o artigo principal antes de ler este. 
+Este artigo complementa o principal Azure Data Factory - Artigo de integração do Azure Machine Learning: [Criar pipelines de previsão usando o Azure Machine Learning e o Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Se você ainda não fez isso, leia o artigo principal antes de ler este. 
 
 ## <a name="overview"></a>Visão geral
 Ao longo do tempo, os modelos de previsão nos experimentos de pontuação do AM do Azure precisam ser treinados novamente usando novos conjuntos de dados de entrada. Depois de concluir o novo treinamento, você deseja atualizar o serviço Web de pontuação com o modelo do AM treinado novamente. As etapas típicas para habilitar novos treinamentos e a atualização de modelos do AM do Azure por meio de serviços Web são:

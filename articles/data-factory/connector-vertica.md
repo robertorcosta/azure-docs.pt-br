@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Vertica utilizando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do Vertica utilizando o Azure Data Factory
 description: Saiba como copiar dados do Vertica para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: d33540aa60bdb86294c386314055a4c21c698902
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: bf3fd0a6a68575ecbfaa5738cd7ad5655dd6b1ba
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089103"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680056"
 ---
 # <a name="copy-data-from-vertica-using-azure-data-factory"></a>Copiar dados do Vertica utilizando o Azure Data Factory 
 
@@ -48,10 +48,10 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do Vertica:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Vertica** | Sim |
-| connectionString | Uma cadeia de conexão ODBC para conectar-se ao Vertica.<br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha no Azure Key Vault e extrair a configuração `pwd` da cadeia de conexão. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) que oferece mais detalhes. | Sim |
+| Tipo | A propriedade type deve ser definida como: **Vertica** | Sim |
+| connectionString | Uma cadeia de conexão ODBC para conectar-se ao Vertica.<br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha no Azure Key Vault e extrair a configuração `pwd` da cadeia de conexão. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 **Exemplo:**
@@ -110,12 +110,12 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Vertica, defina a propriedade type do conjunto de dados como **VerticaTable**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **VerticaTable** | Sim |
+| Tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **VerticaTable** | Sim |
 | schema | Nome do esquema. |Não (se "query" na fonte da atividade for especificada)  |
-| table | Nome da tabela. |Não (se "query" na fonte da atividade for especificada)  |
-| tableName | Nome da tabela com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Use `schema` e`table` para uma nova carga de trabalho. | Não (se "query" na fonte da atividade for especificada) |
+| tabela | Nome da tabela. |Não (se "query" na fonte da atividade for especificada)  |
+| tableName | Nome da tabela com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Use `schema` e `table` para uma nova carga de trabalho. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
 
@@ -142,9 +142,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Vertica, defina o tipo de origem na atividade de cópia como **VerticaSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **VerticaSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **VerticaSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

@@ -1,5 +1,5 @@
 ---
-title: Recomendações de desempenho - Banco de dados SQL do Azure | Microsoft Docs
+title: Recomendações de desempenho-banco de dados SQL do Azure
 description: O Banco de Dados SQL do Azure fornece recomendações para seus Bancos de Dados SQL que podem melhorar o desempenho de consulta atual.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 08def3ac2fd94f01586bc690d867c04758b8856b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: de6ddd8886f8cadafa57724a5d5e33a3ba4e3c74
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569525"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691254"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recomendações de desempenho do Banco de Dados SQL
 
@@ -76,7 +76,7 @@ Recomendações para **Corrigir problemas do esquema** aparecem quando o serviç
 
 A recomendação para “Corrigir problemas do esquema” aparece quando o serviço de Banco de Dados SQL do Azure observa uma anomalia no número erros de SQL relacionados ao esquema ocorrendo no Banco de Dados SQL. A tabela a seguir mostra os erros relacionados a problemas de esquema:
 
-| Código de erro do SQL | Mensagem |
+| Código do erro SQL | Mensagem |
 | --- | --- |
 | 201 |Procedimento ou função ' *' espera o parâmetro '* ', que não foi fornecido. |
 | 207 |Nome de coluna inválido '*'. |

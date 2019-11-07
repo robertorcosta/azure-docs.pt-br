@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando o script U-SQL - Azure | Microsoft Docs
+title: Transformar dados usando o script U-SQL-Azure
 description: Saiba como processar ou transformar dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: d5b074fcf182bcc9bf4dc17ba21215d27e13cbdd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53fb6773becff9f76c9658171965fbd148e94bc8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60888428"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683864"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transforme dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -36,7 +36,7 @@ A tabela a seguir apresenta as descrições das propriedades genéricas usadas n
 
 | Propriedade                 | DESCRIÇÃO                              | Obrigatório                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | A propriedade de tipo deve ser configurada como: **AzureDataLakeAnalytics**. | Sim                                      |
+| **tipo**                 | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | Sim                                      |
 | **accountName**          | Nome da conta da Análise Azure Data Lake.  | Sim                                      |
 | **dataLakeAnalyticsUri** | URI da Análise Azure Data Lake.           | Não                                       |
 | **subscriptionId**       | ID de assinatura do Azure                    | Não                                       |
@@ -57,9 +57,9 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Especifique a ID do cliente do aplicativo.     | Sim      |
 | **servicePrincipalKey** | Especifique a chave do aplicativo.           | Sim      |
-| **tenant**              | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Sim      |
+| **locatário**              | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Sim      |
 
-**Exemplo: Autenticação de entidade de serviço**
+**Exemplo: autenticação de entidade de serviço**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -119,17 +119,17 @@ A tabela a seguir descreve os nomes e as descrições de propriedades que são e
 
 | Propriedade            | DESCRIÇÃO                              | Obrigatório |
 | :------------------ | :--------------------------------------- | :------- |
-| name                | Nome da atividade no pipeline     | Sim      |
-| description         | Texto que descreve o que a atividade faz.  | Não       |
-| type                | Para a atividade do U-SQL do Data Lake Analytics, o tipo de atividade é **DataLakeAnalyticsU-SQL**. | Sim      |
+| Nome                | Nome da atividade no pipeline     | Sim      |
+| Descrição         | Texto que descreve o que a atividade faz.  | Não       |
+| Tipo                | Para a atividade do U-SQL do Data Lake Analytics, o tipo de atividade é **DataLakeAnalyticsU-SQL**. | Sim      |
 | linkedServiceName   | Serviço vinculado ao Azure Data Lake Analytics. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados).  |Sim       |
 | scriptPath          | Caminho para a pasta que contém o script U-SQL. O nome do arquivo diferencia maiúsculas de minúsculas. | Sim      |
 | scriptLinkedService | Serviço vinculado que vincula o **Azure Data Lake Store** ou **Armazenamento do Azure** que contém o script para o Data Factory | Sim      |
 | degreeOfParallelism | O número máximo de nós usados simultaneamente para executar o trabalho. | Não       |
 | prioridade            | Determina quais trabalhos de todos os que estão na fila devem ser selecionados para serem executados primeiro. Quanto menor o número, maior a prioridade. | Não       |
-| parameters          | Parâmetros para passar para o script U-SQL.    | Não       |
+| parâmetros          | Parâmetros para passar para o script U-SQL.    | Não       |
 | runtimeVersion      | Versão de tempo de execução do mecanismo U-SQL a ser usado. | Não       |
-| compilationMode     | <p>Modo de compilação do U-SQL. Deve ser um destes valores: **Semantic:** realiza apenas as verificações de semântica e as verificações de integridade necessárias; **Full:** realiza a compilação completa, incluindo verificação de sintaxe, otimização, geração de código, etc.; **SingleBox:** executa a compilação completa com a configuração TargetType definida como SingleBox. Se você não especificar um valor para essa propriedade, o servidor determinará o modo de compilação ideal. | Não |
+| compilationMode     | <p>Modo de compilação do U-SQL. Deve ser um destes valores: **Semantic:** apenas realizar verificações de semântica e as verificações de integridade necessárias, **Full:** executar a compilação completa, incluindo verificação de sintaxe, otimização, geração de código, etc., **SingleBox:** executar a compilação completa, com configuração de TargetType para SingleBox. Se você não especificar um valor para essa propriedade, o servidor determinará o modo de compilação ideal. | Não |
 
 Consulte [SearchLogProcessing.txt](#sample-u-sql-script) para ver a definição do script. 
 
@@ -162,7 +162,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-No exemplo de script acima a entrada e saída para o script é definido em  **\@na** e  **\@out** parâmetros. Os valores para  **\@na** e  **\@out** parâmetros no script U-SQL são passados dinamicamente pelo Data Factory usando a seção 'parameters'. 
+No exemplo de script acima, a entrada e a saída para o script são definidas em\@e\@parâmetros **de** **saída** . Os valores para **\@** os parâmetros in e **\@out** no script U-SQL são passados dinamicamente pelo data Factory usando a seção ' Parameters '. 
 
 Você pode especificar outras propriedades, por exemplo, degreeOfParallelism e prioridade, bem como em sua definição de pipeline para os trabalhos executados no serviço Data Lake Analytics.
 
