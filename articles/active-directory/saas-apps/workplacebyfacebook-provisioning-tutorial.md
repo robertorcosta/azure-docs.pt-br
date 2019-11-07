@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Workplace do Facebook para o provisionamento automático de usuários com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: configurar o Workplace by Facebook para o provisionamento automático de usuários com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Workplace by Facebook.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f040ff4c8e59f764676aa6fdd9460ec94641684a
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 7ee091d1c8f0f477354f6bb422d041278ec5668e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881788"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574260"
 ---
-# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workplace do Facebook para provisionamento automático de usuários
+# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: configurar o Workplace by Facebook para provisionamento automático de usuários
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no Workplace by Facebook e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Workplace by Facebook.
 
@@ -30,7 +30,7 @@ O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no Wo
 
 Para configurar a integração do Azure AD com o Workplace by Facebook, são necessários os seguintes itens:
 
-- Uma assinatura do Azure AD
+- Uma assinatura do AD do Azure
 - Uma assinatura do Workplace by Facebook habilitada para logon único
 
 > [!NOTE]
@@ -99,7 +99,7 @@ Para obter mais informações sobre como configurar o provisionamento automátic
 Agora você pode criar uma conta de teste. Aguarde até 20 minutos para verificar se a conta foi sincronizada com o Workplace by Facebook.
 
 > [!NOTE]
-> Estamos trabalhando junto com a equipe do workplace by Facebook para garantir que o aplicativo do Azure AD seja aprovado e atenda às suas novas diretrizes.   
+> Estamos trabalhando junto com a equipe do workplace by Facebook para garantir que o aplicativo do Azure AD seja aprovado e atenda às suas novas diretrizes. O local de trabalho dos prazos do Facebook é 16 de dezembro e esperamos atendê-lo. Nenhum trabalho é esperado para os clientes nesse momento. Em 28 de fevereiro de 2020, os clientes precisarão fazer a transição para a nova integração. Postaremos aqui assim que o caminho de migração estiver disponível.    
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

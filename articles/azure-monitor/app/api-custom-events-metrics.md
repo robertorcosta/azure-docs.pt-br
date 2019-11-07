@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: 515d1da5333bb29237baa4bd941275f32ba754d3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 8bb144c78c5346f3351a6ada779a808410dbb30d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161582"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667995"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -22,7 +22,7 @@ Insira algumas linhas de código em seu aplicativo para descobrir o que os usuá
 
 A API principal é uniforme em todas as plataformas, além de algumas variações como `GetMetric` (somente .NET).
 
-| Método | Usado para |
+| Método | Usadas para |
 | --- | --- |
 | [`TrackPageView`](#page-views) |Páginas, telas, folhas ou formulários. |
 | [`TrackEvent`](#trackevent) |Ações de usuário e outros eventos. Usado para acompanhar o comportamento do usuário ou para monitorar o desempenho. |
@@ -569,12 +569,12 @@ telemetry.trackTrace({
 *JavaScript do lado do cliente/navegador*
 
 ```javascript
-trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.SeverityLevel)
+trackTrace(message: string, properties?: {[string]:string}, severityLevel?: SeverityLevel)
 ```
 
 Registrar um evento de diagnóstico, como entrar ou sair de um método.
 
- . | Descrição
+ Parâmetro | DESCRIÇÃO
 ---|---
 `message` | Dados de diagnóstico. Pode ser muito mais longo do que um nome.
 `properties` | Mapa de cadeia de caracteres para cadeia de caracteres: dados adicionais usados para [Filtrar exceções](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) no Portal. O padrão é vazio.
@@ -1176,7 +1176,7 @@ Para evitar atingir o limite de taxa de dados, use [amostragem](../../azure-moni
 
 Para determinar por quanto tempo os dados são mantidos, confira [Retenção e privacidade de dados](../../azure-monitor/app/data-retention-privacy.md).
 
-## <a name="reference-docs"></a>Documentos de referência
+## <a name="reference-docs"></a>Documentos de Referência
 
 * [Referência do ASP.NET](https://docs.microsoft.com/dotnet/api/overview/azure/insights?view=azure-dotnet)
 * [Referência do Java](https://docs.microsoft.com/java/api/overview/azure/appinsights?view=azure-java-stable/)
@@ -1197,7 +1197,7 @@ Para determinar por quanto tempo os dados são mantidos, confira [Retenção e p
 
 * *Que exceções podem ser lançadas por chamadas Track_()?*
 
-    Nenhuma. Você não precisa encapsulá-las em cláusulas try-catch. Se o SDK encontrar problemas, ele registrará mensagens em log na saída do console de depuração e (se elas passarem despercebidas) na Pesquisa de Diagnóstico.
+    Nenhum. Você não precisa encapsulá-las em cláusulas try-catch. Se o SDK encontrar problemas, ele registrará mensagens em log na saída do console de depuração e (se elas passarem despercebidas) na Pesquisa de Diagnóstico.
 * *Há uma API REST para obter dados do portal?*
 
     Sim, a [API de acesso a dados](https://dev.applicationinsights.io/). Outras maneiras de extrair dados incluem [exportar do Analytics para o Power BI](../../azure-monitor/app/export-power-bi.md ) e a [exportação contínua](../../azure-monitor/app/export-telemetry.md).

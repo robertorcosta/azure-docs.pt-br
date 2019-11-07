@@ -1,5 +1,5 @@
 ---
-title: Instância Gerenciada do Banco de Dados SQL do Azure determina o tamanho da sub-rede/VNet | Microsoft Docs
+title: Instância Gerenciada do Banco de Dados SQL do Azure determinar o tamanho da VNet/sub-rede
 description: Este tópico descreve como calcular o tamanho da sub-rede na qual as Instâncias Gerenciadas do Banco de Dados SQL do Azure serão implantadas.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
-ms.openlocfilehash: 167e243b1fe4ea5ba9403ac3ca1fcea42f02f59a
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: fb0d79a82553349d5dad547a2d78a460301cbd6d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273550"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688126"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Determinar o tamanho da sub-rede da VNet para o banco de dados da Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -39,7 +39,7 @@ Se você planeja implantar múltiplas instâncias gerenciadas dentro da sub-rede
 - Cada instância de Uso Geral precisa de dois endereços
 - Cada instância Comercialmente Crítica precisa de quatro endereços
 
-**Exemplo**: você planeja ter três instâncias de Uso Geral e duas Gerenciadas Comercialmente Críticas. Isso significa que você precisa de 5 + 3 * 2 + 2 * 4 = 19 endereços IP. Como os intervalos de IP são definidos em potência de 2, você precisa do intervalo de IP de 32 (2^5) endereços IP. Portanto, é necessário reservar a sub-rede com a máscara de sub-rede de /27.
+**Exemplo**: Você planeja ter três Usos Gerais e duas instâncias Gerenciadas Comercialmente Críticas. Isso significa que você precisa de 5 + 3 * 2 + 2 * 4 = 19 endereços IP. Como os intervalos de IP são definidos em potência de 2, você precisa do intervalo de IP de 32 (2^5) endereços IP. Portanto, é necessário reservar a sub-rede com a máscara de sub-rede de /27.
 
 > [!IMPORTANT]
 > O cálculo exibido acima se tornará obsoleto com as melhorias futuras.

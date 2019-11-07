@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do PayPal utilizando o Azure Data Factory (versão prévia) | Microsoft Docs
+title: Copiar dados do PayPal utilizando o Azure Data Factory (versão prévia)
 description: Saiba como copiar dados do PayPal para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 9c15f942d10b0535540bdd03ec6d64aa4d99f528
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 106fa42fc7c9feb51ab6bf7f1be5a13a08d234a0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089806"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680487"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Copiar dados do PayPal utilizando o Azure Data Factory (versão prévia)
 
@@ -47,9 +47,9 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do PayPal:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **PayPal** | Sim |
+| Tipo | A propriedade type deve ser definida como: **PayPal** | Sim |
 | host | A URL da instância PayPal. (ou seja, api.sandbox.paypal.com)  | Sim |
 | clientId | A ID de cliente associada ao seu aplicativo PayPal.  | Sim |
 | clientSecret | O segredo de cliente associado ao seu aplicativo PayPal. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -82,9 +82,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do PayPal, defina a propriedade type do conjunto de dados como **PayPalObject**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **PayPalObject** | Sim |
+| Tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **paypalobject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -112,9 +112,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do PayPal, defina o tipo de origem na atividade de cópia como **PayPalSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **PayPalSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **PayPalSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Payment_Experience"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

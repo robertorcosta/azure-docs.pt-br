@@ -6,20 +6,20 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: 00d4911c0f2541ea5c64eccca3ab1b1505e06390
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 63e61844ddb5bd0f0ed52b67e26ea5bf1857fd2b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608534"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579917"
 ---
 # <a name="azure-blockchain-service-security"></a>Segurança do serviço Blockchain do Azure
 
-O serviço Blockchain do Azure usa vários recursos do Azure para manter seus dados seguros e disponíveis. Os dados são protegidos usando isolamento, criptografia e autenticação.
+O Azure Blockchain Service usa várias funcionalidades do Azure para manter seus dados seguros e disponíveis. Os dados são protegidos usando isolamento, criptografia e autenticação.
 
 ## <a name="isolation"></a>Isolamento
 
@@ -29,7 +29,7 @@ Os recursos do serviço Blockchain do Azure são isolados em uma rede virtual pr
 
 ## <a name="encryption"></a>Criptografia
 
-Os dados do usuário são armazenados no armazenamento do Azure. Os dados do usuário são criptografados em movimento e em repouso para segurança e confidencialidade. Para obter mais informações, consulte: [Guia de segurança do Armazenamento do Azure](../../storage/common/storage-security-guide.md).
+Os dados do usuário são armazenados no armazenamento do Azure. Os dados do usuário são criptografados em movimento e em repouso para segurança e confidencialidade. Para obter mais informações, consulte: [Guia de segurança do armazenamento do Azure](../../storage/common/storage-security-guide.md).
 
 ## <a name="authentication"></a>Autenticação
 
@@ -47,7 +47,7 @@ A autenticação básica usa um cabeçalho de autenticação HTTP que contém o 
 
 As chaves de acesso usam uma cadeia de caracteres gerada aleatoriamente incluída na URL do ponto de extremidade. Duas chaves de acesso ajudam a habilitar a rotação de chaves. As chaves podem ser geradas novamente a partir do portal do Azure e da CLI.
 
-### <a name="azure-active-directory"></a>Active Directory do Azure
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 O Azure Active Directory (AD do Azure) usa um mecanismo de autenticação baseado em declaração em que o usuário é autenticado pelo Azure AD usando as credenciais de usuário do Azure AD. O Azure AD fornece gerenciamento de identidade baseado em nuvem e permite que os clientes usem uma única identidade em toda a empresa e acessem aplicativos na nuvem. O serviço Blockchain do Azure integra-se ao Azure AD habilitando a Federação de ID, logon único e autenticação multifator. Você pode atribuir usuários, grupos e funções de aplicativo em sua organização para acesso de membro e nó do blockchain.
 

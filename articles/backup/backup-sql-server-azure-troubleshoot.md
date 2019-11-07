@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: c456dfec72f98dc4ae06f1d7d5d9fb461182d579
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: e4683547a7c305da3d3a3bc7a7d6a50f21ad46f2
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018990"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614393"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solucionar problemas SQL Server backup de banco de dados usando o backup do Azure
 
@@ -29,10 +29,9 @@ Para configurar a proteção para um banco de dados SQL Server em uma máquina v
 
 ### <a name="backup-type-unsupported"></a>Tipo de Backup Sem Suporte
 
-| Severidade | Descrição | Causas possíveis | Ação recomendada |
+| Severity | DESCRIÇÃO | Possíveis causas | Ação recomendada |
 |---|---|---|---|
 | Aviso | As configurações atuais deste banco de dados não dão suporte a determinados tipos de backup presentes na política associada. | <li>Somente uma operação de backup de banco de dados completa pode ser executada no banco de dados mestre. Nenhum backup diferencial nem backup de log de transações é possível. </li> <li>Qualquer banco de dados no modelo de recuperação simples não permite o backup de logs de transações.</li> | Modifica as configurações de banco de dados, de modo que todos os tipos na política de backup têm suporte. Ou altere a política atual para incluir apenas os tipos de backup com suporte. Caso contrário, os tipos de backup sem suporte serão ignorados durante o backup agendado, ou o trabalho de backup falhará para backup ad hoc.
-
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -83,7 +82,7 @@ Para configurar a proteção para um banco de dados SQL Server em uma máquina v
 |---|---|---|
 | A restauração falhou porque o banco de dados não pôde ficar offline. | Enquanto você estiver fazendo uma restauração, o banco de dados de destino precisará ser colocado offline. O backup do Azure não pode colocar esses dados offline. | Use os detalhes adicionais no menu portal do Azure erro para restringir as causas raiz. Para obter mais informações, consulte a [documentação do SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
-###  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
+### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
@@ -94,7 +93,6 @@ Para configurar a proteção para um banco de dados SQL Server em uma máquina v
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
 | O backup de log usado para a recuperação contém alterações bulk-logged. Ele não pode ser usado para parar em um ponto arbitrário de acordo com as diretrizes do SQL. | Quando um banco de dados está no modo de recuperação bulk-logged, os dados entre uma transação bulk-logged e a próxima transação de log não podem ser recuperados. | Escolha um ponto diferente no tempo para a recuperação. [Saiba mais](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105)).
-
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -124,25 +122,24 @@ Para configurar a proteção para um banco de dados SQL Server em uma máquina v
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-A operação está bloqueada porque o limite de certos recursos permitidos em 24 horas foi atingido. | Quando você atingir o limite máximo permitido para uma operação em um intervalo de 24 horas, esse erro será fornecido. <br> Por exemplo:  Se você tiver atingido o limite do número de trabalhos de backup de configuração que podem ser disparados por dia e tentar configurar o backup em um novo item, você verá esse erro. | Normalmente, repetir a operação após 24 horas resolve esse problema. No entanto, se o problema persistir, você poderá entrar em contato com o suporte da Microsoft para obter ajuda.
+A operação está bloqueada, pois você atingiu o limite de número de operações permitidas em 24 horas. | Quando você atingir o limite máximo permitido para uma operação em um intervalo de 24 horas, esse erro será fornecido. <br> Por exemplo: se você atingiu o limite do número de trabalhos de backup de configuração que podem ser disparados por dia e tentar configurar o backup em um novo item, você verá esse erro. | Normalmente, repetir a operação após 24 horas resolve esse problema. No entanto, se o problema persistir, você poderá entrar em contato com o suporte da Microsoft para obter ajuda.
 
 ### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-A operação está bloqueada porque o cofre atingiu seu limite máximo para essas operações permitidas em um intervalo de 24 horas. | Quando você atingir o limite máximo permitido para uma operação em um intervalo de 24 horas, esse erro será fornecido. Esse erro geralmente é fornecido em caso de operações em escala, como modificar política ou proteção automática. Ao contrário do caso do CloudDosAbsoluteLimitReached, não há muito que você possa fazer para resolver esse estado. na verdade, o serviço de backup do Azure tentará novamente as operações internamente para todos os itens em questão.<br> Por exemplo:  Se você tiver um grande número de fontes de trabalho protegidas por uma política e tentar modificar essa política, ela irá disparar configurar trabalhos de proteção para cada um dos itens protegidos e, às vezes, poderá atingir o limite máximo permitido para essas operações por dia.| O serviço de backup do Azure repetirá essa operação automaticamente após 24 horas. 
-
+A operação está bloqueada porque o cofre atingiu seu limite máximo para essas operações permitidas em um intervalo de 24 horas. | Quando você atingir o limite máximo permitido para uma operação em um intervalo de 24 horas, esse erro será fornecido. Esse erro geralmente é exibido quando há operações em escala, como modificar política ou proteção automática. Ao contrário do caso do CloudDosAbsoluteLimitReached, não há muito que você possa fazer para resolver esse estado. na verdade, o serviço de backup do Azure tentará novamente as operações internamente para todos os itens em questão.<br> Por exemplo: se você tiver um grande número de fontes de fonte protegidas por uma política e tentar modificar essa política, ela irá disparar configurar trabalhos de proteção para cada um dos itens protegidos e, às vezes, poderá atingir o limite máximo permitido para essas operações por dia.| O serviço de backup do Azure repetirá essa operação automaticamente após 24 horas.
 
 ## <a name="re-registration-failures"></a>Falhas de novo registro
 
 Verifique se há um ou mais dos seguintes sintomas antes de disparar a operação de novo registro:
 
-* Todas as operações (como backup, restauração e backup de configuração) estão falhando na VM com um dos seguintes códigos de erro: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+* Todas as operações (como backup, restauração e configuração de backup) estão falhando na VM com um dos seguintes códigos de erro: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent** , **WorkloadExtensionDidntDequeueMsg**.
 * A área de **status de backup** para o item de backup está mostrando **não acessível**. Regra para todas as outras causas que podem resultar no mesmo status:
 
   * Falta de permissão para executar operações relacionadas ao backup na VM  
   * Desligamento da VM, para que os backups não ocorram
-  * Problemas de Rede  
+  * Problemas de rede  
 
   ![Status "não acessível" ao registrar novamente uma VM](./media/backup-azure-sql-database/re-register-vm.png)
 
@@ -150,14 +147,14 @@ Verifique se há um ou mais dos seguintes sintomas antes de disparar a operaçã
 
 Esses sintomas podem surgir por um ou mais dos seguintes motivos:
 
-* Uma extensão foi excluída ou desinstalada do Portal. 
+* Uma extensão foi excluída ou desinstalada do Portal.
 * Uma extensão foi desinstalada do **painel de controle** na VM em **desinstalar ou alterar um programa**.
 * A VM foi restaurada de volta no tempo por meio da restauração de disco in-loco.
 * A VM foi desligada por um período estendido, portanto, a configuração de extensão nela expirou.
 * A VM foi excluída e outra VM foi criada com o mesmo nome e no mesmo grupo de recursos que a VM excluída.
 * Um dos nós do grupo de disponibilidade não recebeu a configuração de backup completa. Isso pode acontecer quando o grupo de disponibilidade é registrado no cofre ou quando um novo nó é adicionado.
 
-Nos cenários anteriores, recomendamos que você dispare uma operação de novo registro na VM. Por enquanto, essa opção está disponível somente por meio do PowerShell.
+Nos cenários anteriores, recomendamos que você dispare uma operação de novo registro na VM. Consulte [aqui](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) para obter instruções sobre como executar essa tarefa no PowerShell.
 
 ## <a name="size-limit-for-files"></a>Limite de tamanho para arquivos
 
@@ -175,7 +172,7 @@ Agora, organize-os no seguinte formato:
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 ```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
@@ -185,9 +182,10 @@ Se o tamanho da cadeia de caracteres do conteúdo exceder 20.000 bytes, os arqui
 
 ### <a name="override-the-default-target-restore-file-path"></a>Substituir o caminho de arquivo de restauração de destino padrão
 
-Você pode substituir o caminho do arquivo de restauração de destino durante a operação de restauração, colocando um arquivo JSON que contém o mapeamento do arquivo de banco de dados para o caminho de restauração de destino. Crie um `database_name.json` arquivo e coloque-o no local *C:\Program programas\azure Workload Backup\bin\plugins\SQL*.
+Você pode substituir o caminho do arquivo de restauração de destino durante a operação de restauração, colocando um arquivo JSON que contém o mapeamento do arquivo de banco de dados para o caminho de restauração de destino. Crie um arquivo de `database_name.json` e coloque-o no local *C:\Program Programas\azure Workload Backup\bin\plugins\SQL*.
 
 O conteúdo do arquivo deve estar neste formato:
+
 ```json
 [
   {
@@ -203,7 +201,7 @@ O conteúdo do arquivo deve estar neste formato:
 ]
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 ```json
 [
@@ -227,7 +225,6 @@ SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"
   ```
-
 
 Esse arquivo deve ser colocado antes de você disparar a operação de restauração.
 

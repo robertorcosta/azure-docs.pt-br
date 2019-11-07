@@ -1,5 +1,5 @@
 ---
-title: Excluir uma sub-rede depois de excluir uma instância gerenciada do banco de dados SQL do Azure | Microsoft Docs
+title: Excluir uma sub-rede depois de excluir uma instância gerenciada do banco de dados SQL do Azure
 description: Saiba como excluir uma rede virtual do Azure depois de excluir uma instância gerenciada do banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 7ad09682275b5cc2311b792899a85c1c47eafc0d
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 84298e49de2de2ac43c33ec38c22846fd8d1e968
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72431294"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688145"
 ---
 # <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>Excluir uma sub-rede depois de excluir uma instância gerenciada do banco de dados SQL do Azure
 
@@ -48,7 +48,7 @@ Portal do Azure notificações mostrarão uma confirmação de que a solicitaç�
 
 Para excluir um cluster virtual por meio da API, use os parâmetros de URI especificados no [método de exclusão de clusters virtuais](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral, confira [O que é uma Instância Gerenciada?](sql-database-managed-instance.md).
 - Saiba mais sobre [arquitetura de conectividade na Instância Gerenciada](sql-database-managed-instance-connectivity-architecture.md).

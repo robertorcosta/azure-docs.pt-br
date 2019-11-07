@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: vinigam
-ms.openlocfilehash: ce59b46667f9139157a751d7d7b0205504d71ab0
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 831e75ba2d3f6af62496d437da3d1413dc612594
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695647"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686560"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -45,15 +45,15 @@ As redes virtuais do Azure têm logs de fluxo do NSG, que fornecem informações
 
 ## <a name="key-components"></a>Principais componentes
 
-- **NSG (Grupo de Segurança de Rede)** : Contém uma lista de regras de segurança que permitem ou negam o tráfego de rede a recursos conectados a uma Rede Virtual do Azure. Os NSGs podem ser associados a sub-redes, VMs individuais (clássicas) ou interfaces de rede individuais (NIC) anexadas a VMs (Resource Manager). Para obter mais informações, confira [Visão geral do Grupo de Segurança de Rede](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Logs de fluxo do NSG (Grupo de Segurança de Rede)** : Permitem que você exiba informações sobre o tráfego IP de entrada e saída por meio de um grupo de segurança de rede. Os logs de fluxo do NSG são gravados no formato json e mostram os fluxos de entrada e de saída por regra, a NIC à qual o fluxo se aplica, as informações de cinco tuplas sobre o fluxo (IP de origem/destino, porta de origem/destino, e protocolo) e se o tráfego foi permitido ou negado. Para obter mais informações sobre os logs de fluxo do NSG, consulte [logs de fluxo do NSG](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: Um serviço do Azure que coleta dados de monitoramento e armazena os dados em um repositório central. Esses dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos pela API do Azure. Depois de coletados, os dados ficam disponíveis para alertas, análise e exportação. Os aplicativos de monitoramento, como o monitor de desempenho de rede e a análise de tráfego, são criados usando logs de Azure Monitor como base. Para obter mais informações, consulte [Azure monitor logs](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Espaço de Trabalho do Log Analytics**: Uma instância de logs de Azure Monitor, onde os dados pertencentes a uma conta do Azure são armazenados. Para obter mais informações sobre espaços de trabalho do Log Analytics, consulte [criar um espaço de trabalho do log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Observador de Rede**: Um serviço regional que permite monitorar e diagnosticar condições em um nível de cenário de rede no Azure. Você pode ativar e desativar os logs de fluxo do NSG com o Observador de Rede. Para obter mais informações, consulte [Observador de Rede](network-watcher-monitoring-overview.md).
+- **NSG (grupo de segurança de rede)** : contém uma lista de regras de segurança que permitem ou negam o tráfego de rede aos recursos conectados à Rede Virtual do Azure. Os NSGs podem ser associados a sub-redes, VMs individuais (clássicas) ou interfaces de rede individuais (NIC) anexadas a VMs (Resource Manager). Para obter mais informações, confira [Visão geral do Grupo de Segurança de Rede](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Logs de fluxo do NSG (Grupo de Segurança de Rede)** : permitem que você exiba informações sobre o tráfego IP de entrada e saída por meio de um grupo de segurança de rede. Os logs de fluxo do NSG são gravados no formato json e mostram os fluxos de entrada e de saída por regra, a NIC à qual o fluxo se aplica, as informações de cinco tuplas sobre o fluxo (IP de origem/destino, porta de origem/destino, e protocolo) e se o tráfego foi permitido ou negado. Para obter mais informações sobre os logs de fluxo do NSG, consulte [logs de fluxo do NSG](network-watcher-nsg-flow-logging-overview.md).
+- **Log Analytics**: um serviço do Azure que coleta dados de monitoramento e armazena os dados em um repositório central. Esses dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos pela API do Azure. Depois de coletados, os dados ficam disponíveis para alertas, análise e exportação. Os aplicativos de monitoramento, como o monitor de desempenho de rede e a análise de tráfego, são criados usando logs de Azure Monitor como base. Para obter mais informações, consulte [Azure monitor logs](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics espaço de trabalho**: uma instância de Azure monitor logs, em que os dados pertencentes a uma conta do Azure são armazenados. Para obter mais informações sobre espaços de trabalho do Log Analytics, consulte [criar um espaço de trabalho do log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Observador de Rede**: um serviço regional que permite monitorar e diagnosticar as condições em um nível de cenário de rede no Azure. Você pode ativar e desativar os logs de fluxo do NSG com o Observador de Rede. Para obter mais informações, consulte [Observador de Rede](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Como funciona a Análise de Tráfego
 
-A Análise de Tráfego examina os logs de fluxo NSG brutos e captura logs reduzidos agregando fluxos comuns entre o mesmo endereço IP de origem, o endereço IP de destino, a porta de destino e o protocolo. Por exemplo, o Host 1 (endereço IP: 10.10.10.10) em comunicação com Host 2 (endereço IP: 10.10.20.10), 100 vezes durante um período de 1 hora usando porta (por exemplo, 80) e protocolo (por exemplo, http). O log reduzido tem uma entrada, que o Host 1 e o Host 2 se comunicaram 100 vezes em um período de 1 hora usando a porta *80* e o protocolo *HTTP*, em vez de ter 100 entradas. Logs reduzidos são aprimorados com informações de região, segurança e topologia e armazenados em um espaço de trabalho do Log Analytics. A figura a seguir mostra o fluxo de dados:
+A Análise de Tráfego examina os logs de fluxo NSG brutos e captura logs reduzidos agregando fluxos comuns entre o mesmo endereço IP de origem, o endereço IP de destino, a porta de destino e o protocolo. Por exemplo, o Host 1 (endereço IP: 10.10.10.10) se comunica com o Host 2 (endereço IP: 10.10.20.10), 100 vezes em um período de 1 hora usando a porta (por exemplo, 80) e o protocolo (por exemplo, http). O log reduzido tem uma entrada, que o Host 1 e o Host 2 se comunicaram 100 vezes em um período de 1 hora usando a porta *80* e o protocolo *HTTP*, em vez de ter 100 entradas. Logs reduzidos são aprimorados com informações de região, segurança e topologia e armazenados em um espaço de trabalho do Log Analytics. A figura a seguir mostra o fluxo de dados:
 
 ![Fluxo de dados para processamento de logs de fluxo NSG](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
@@ -62,54 +62,56 @@ A Análise de Tráfego examina os logs de fluxo NSG brutos e captura logs reduzi
 Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes regiões com suporte:
 
 * Canadá Central
-* Centro-oeste dos EUA
-* East US
+* Centro-Oeste dos EUA
+* Leste dos EUA
 * Leste dos EUA 2
 * Centro-Norte dos EUA
-* Centro-Sul dos EUA
-* EUA Central
+* Centro-Sul dos Estados Unidos
+* Centro dos EUA
 * Oeste dos EUA
 * Oeste dos EUA 2
-* Centro da França
+* França Central
 * Europa Ocidental
-* Europa Setentrional
+* Norte da Europa
 * Sul do Brasil
 * Oeste do Reino Unido
 * Sul do Reino Unido
 * Leste da Austrália
 * Sudeste da Austrália
-* Leste da Ásia
-* Sudeste da Ásia
+* Ásia Oriental
+* Sudeste Asiático
 * Coreia Central
 * Índia Central
 * Sul da Índia
 * Leste do Japão 
 * Oeste do Japão
-* US Gov - Virgínia
+* Gov. dos EUA – Virgínia
+* Leste da China 2
 
-## <a name="supported-regions-log-analytics-workspaces"></a>Regiões com suporte: Workspaces do Log Analytics
+## <a name="supported-regions-log-analytics-workspaces"></a>Regiões com suporte: espaços de trabalho do Log Analytics
 
 O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 * Canadá Central
-* Centro-oeste dos EUA
-* East US
+* Centro-Oeste dos EUA
+* Leste dos EUA
 * Leste dos EUA 2
-* Centro-Sul dos EUA
+* Centro-Sul dos Estados Unidos
 * Oeste dos EUA
 * Oeste dos EUA 2
-* EUA Central
-* Centro da França
-* Europa Setentrional
+* Centro dos EUA
+* França Central
+* Norte da Europa
 * Europa Ocidental
 * Sul do Reino Unido
 * Leste da Austrália
 * Sudeste da Austrália
-* Leste da Ásia
-* Sudeste da Ásia
+* Ásia Oriental
+* Sudeste Asiático
 * Coreia Central
 * Índia Central
 * Leste do Japão
-* US Gov - Virgínia
+* Gov. dos EUA – Virgínia
+* Leste da China 2
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -117,12 +119,12 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 
 A conta deve ser um membro de uma das [funções internas](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) a seguir do Azure:
 
-|Modelo de implantação   | Role                   |
+|Modelo de implantação   | Função                   |
 |---------          |---------               |
-|Resource Manager   | Proprietário                  |
-|                   | Contribuidor            |
+|Gerenciador de Recursos   | Proprietário                  |
+|                   | Colaborador            |
 |                   | Leitor                 |
-|                   | Colaborador de Rede    |
+|                   | Colaborador de rede    |
 
 Se a conta não estiver atribuída a uma das funções internas, ela deverá ser atribuída a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) à qual são atribuídas as ações a seguir, no nível da assinatura:
 
@@ -190,11 +192,11 @@ Selecione as opções a seguir, conforme mostrado na imagem:
 > [!NOTE]
 >O espaço de trabalho do Log Analytics que hospeda a solução de Análise de Tráfego e os NSGs não precisa estar na mesma região. Por exemplo, você pode ter Análise de Tráfego em um workspace na região Europa Ocidental e ter os NSGs no Leste dos EUA e Oeste dos EUA. Podem ser configurados vários NSGs no mesmo workspace.
 
-8. Clique em **Salvar**.
+8. Selecione **Salvar**.
 
     ![Seleção de conta de armazenamento, espaço de trabalho do Log Analytics e habilitação da Análise de Tráfego](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Repita as etapas anteriores para quaisquer outros NSGs para os quais você deseja habilitar a Análise de Tráfego. Os dados de logs de fluxo são enviados para o workspace, portanto, certifique-se de que as leis e regulamentações locais em seu país permitem o armazenamento de dados na região onde está o workspace. Se você tiver definido diferentes intervalos de processamento para NSGs diferentes, os dados serão coletados em intervalos diferentes. Por exemplo: Você pode optar por habilitar o intervalo de processamento de 10 minutos para VNETs crítico e 1 hora para VNETs não crítico.
+Repita as etapas anteriores para quaisquer outros NSGs para os quais você deseja habilitar a Análise de Tráfego. Os dados de logs de fluxo são enviados para o workspace, portanto, certifique-se de que as leis e regulamentações locais em seu país permitem o armazenamento de dados na região onde está o workspace. Se você tiver definido diferentes intervalos de processamento para NSGs diferentes, os dados serão coletados em intervalos diferentes. Por exemplo: você pode optar por habilitar o intervalo de processamento de 10 minutos para VNETs crítico e 1 hora para VNETs não crítico.
 
 Você também pode configurar a análise de tráfego usando o cmdlet do PowerShell [set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) no Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -311,7 +313,7 @@ Algumas das informações que talvez você pode querer obter depois que a Análi
     ![Painel mostrando a distribuição de rede virtual](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - A Topologia de Rede Virtual mostra a faixa de opções para seleção de parâmetros, como de uma rede virtual (rede virtual entre conexões/ativa/inativa), conexões externas, fluxos ativos e fluxos mal-intencionado da rede virtual.
-- É possível filtrar a Topologia de Rede Virtual com base em assinaturas, workspaces, grupos de recursos e intervalo de tempo. Filtros adicionais que ajudam a reconhecer o fluxo são: Tipo de fluxo (InterVNet, IntraVNET e assim por diante), direção do fluxo (entrada, saída), status do fluxo (permitido, bloqueado), VNETs (direcionado e conectado), tipo de conexão (emparelhamento ou gateway-P2S e S2S) e NSG. Use esses filtros para concentrar-se nas VNets que você quer examinar em detalhes.
+- É possível filtrar a Topologia de Rede Virtual com base em assinaturas, workspaces, grupos de recursos e intervalo de tempo. Filtros adicionais que ajudam você a entender o fluxo são: tipo de fluxo (InterVNet, IntraVNET e assim por diante), direção do fluxo (entrada, saída), status do fluxo (permitido, bloqueado), VNETs (direcionado e conectado), tipo de conexão (emparelhamento ou gateway-P2S e S2S) e NSG. Use esses filtros para concentrar-se nas VNets que você quer examinar em detalhes.
 - A Topologia de Rede Virtual mostra a distribuição de tráfego a uma rede virtual com relação aos fluxos (permitidos/bloqueados/entrada/saída/benignos/mal-intencionado), protocolo de aplicativo e grupos de segurança de rede, por exemplo:
 
     ![Topologia de rede virtual mostrando a distribuição de tráfego e detalhes de fluxo](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
