@@ -1,18 +1,18 @@
 ---
 title: Fontes de dados com suporte no Azure Analysis Services | Microsoft Docs
-description: Descreve as fontes de fonte de dados com suporte para modelos de dados no Azure Analysis Services.
+description: Descreve as fontes de dados e conectores com suporte para os modelos de dados tabulares 1200 e superiores no Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cc47ff50aa7bb6dce58ed83f75f69fb600ad040b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5539d290ea182e24a50a103a762f011202ebf33a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146931"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572954"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -22,14 +22,14 @@ Fontes de dados e conectores mostrados no Get Data ou no Assistente de Importaç
 
 |Fonte de dados  |Na memória  |DirectQuery  |
 |---------|---------|---------|
-|Banco de Dados SQL do Azure<sup>[2](#azsqlmanaged)</sup>     |   SIM      |    SIM      |
-|Azure SQL Data Warehouse     |   SIM      |   SIM       |
-|Armazenamento de Blobs do Azure<sup>[1](#tab1400a)</sup>     |   SIM       |    Não      |
-|Armazenamento de tabelas do Azure<sup>[1](#tab1400a)</sup>    |   SIM       |    Não      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  SIM        |  Não        |
-|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   SIM       |    Não      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     SIM     |   Não       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   SIM       |   Não       |
+|Banco de Dados SQL do Azure<sup>[2](#azsqlmanaged)</sup>     |   Sim      |    Sim      |
+|SQL Data Warehouse do Azure     |   Sim      |   Sim       |
+|Armazenamento de Blobs do Azure<sup>[1](#tab1400a)</sup>     |   Sim       |    Não      |
+|Armazenamento de tabelas do Azure<sup>[1](#tab1400a)</sup>    |   Sim       |    Não      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sim        |  Não        |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sim       |    Não      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sim     |   Não       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sim       |   Não       |
 ||||
 
 <a name="tab1400a">1</a> - Tabular 1.400 e modelos superiores somente.   
@@ -71,7 +71,7 @@ Conectar a fontes de dados locais e ao servidor de AS do Azure requer um gateway
 |IBM Informix<sup>[1](#tab1400b)</sup> (Beta) |
 |Documento JSON<sup>[1](#tab1400b)</sup>     |  
 |Linhas de binário<sup>[1](#tab1400b)</sup>     | 
-|Banco de dados MySQL     | 
+|Banco de Dados MySQL     | 
 |OData Feed<sup>[1](#tab1400b)</sup>     |  
 |Consulta ODBC     | 
 |OLE DB     |   
@@ -117,7 +117,7 @@ Para fontes de dados de nuvem:
 
 Para modelos de tabela no nível de compatibilidade 1400 e superior, o banco de dados SQL do Azure, o Azure SQL Data Warehouse, o Dynamics 365 e a lista do SharePoint dão suporte a credenciais OAuth. Azure Analysis Services gerencia a atualização de token para fontes de dados OAuth para evitar tempos limite para operações de atualização de execução longa. Para gerar tokens válidos, defina as credenciais usando o SSMS.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Gateway Local](analysis-services-gateway.md)   
 [Gerenciar seu serviço](analysis-services-manage.md)   
 

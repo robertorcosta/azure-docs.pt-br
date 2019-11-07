@@ -1,18 +1,18 @@
 ---
-title: Implantar em Azure Analysis Services usando o Visual Studio | Microsoft Docs
+title: Implantar um modelo para Azure Analysis Services usando o Visual Studio | Microsoft Docs
 description: Saiba como implantar um modelo de tabela em um servidor Azure Analysis Services usando o Visual Studio.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 60681739854515078a521a4ff795e52aa7d74183
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 71b3b7815d2a4b0b4de3afdca9db93156f505445
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146957"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572891"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Implantar um modelo no Visual Studio
 
@@ -53,13 +53,13 @@ No **Portal do Azure** > servidor > **Visão geral** > **Nome do servidor**, cop
 Isso é tudo!
 
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solucionar problemas
 
 Se a implantação falhar durante a implantação de metadados, é provável que o Visual Studio não tenha se conectado ao servidor. Verifique se você consegue se conectar ao servidor usando o SSMS. Em seguida, verifique se a propriedade do Servidor de Implantação do projeto está correta.
 
 Se a implantação falhar em uma tabela, provavelmente o servidor não conseguiu se conectar a uma fonte de dados. Se a sua fonte de dados for local, na rede da sua organização, instale um [Gateway de dados local](analysis-services-gateway.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que seu modelo de tabela foi implantado em seu servidor, você está pronto para se conectar a ele. Você pode [se conectar a ele com o SQL Server Management Studio (SSMS)](analysis-services-manage.md) para gerenciá-lo. E, você pode [conectar-se a ele usando uma ferramenta de cliente](analysis-services-connect.md) como o Power BI, o Power BI Desktop ou o Excel, e começar a criar relatórios.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17a99a522c6ab960c2ccd0cc2729076c54ed07f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 8c8bfa5fc31ce8500d1ed339ba28afeed21e25a0
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151854"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603500"
 ---
 # <a name="passwordless-authentication-options"></a>Opções de autenticação com senha
 
@@ -52,7 +52,7 @@ Ele transforma qualquer telefone iOS ou Android em uma credencial forte e sem se
 
 As chaves de segurança FIDO2 são um método de autenticação de senha com base em padrões não Phish que pode ser fornecido em qualquer fator forma. A FIDO (Fast Identity online) é um padrão aberto para autenticação com senha. Ele permite que usuários e organizações aproveitem o padrão para entrar em seus recursos sem nome de usuário ou senha usando uma chave de segurança externa ou uma chave de plataforma incorporada a um dispositivo.
 
-Para a visualização pública, os funcionários podem usar as chaves de segurança para entrar em seus dispositivos Windows 10 do Azure AD ou híbridos ingressados no Azure AD e obter logon único em seus recursos locais e de nuvem. Eles também podem entrar em navegadores com suporte.
+Para a visualização pública, os funcionários podem usar as chaves de segurança para entrar em seus dispositivos Windows 10 ingressados no Azure AD e obter logon único em seus recursos locais e de nuvem. Eles também podem entrar em navegadores com suporte.
 
 ![Entrar no Microsoft Edge com uma chave de segurança](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -81,7 +81,7 @@ Os provedores a seguir oferecem chaves de segurança FIDO2 de fatores forma dife
 > [!NOTE]
 > Se você comprar e planejar usar as chaves de segurança com base em NFC, precisará de um leitor NFC com suporte.
 
-Se você for um fornecedor e quiser obter seu dispositivo na lista, entre em contato com [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com).
+Se você for um fornecedor e quiser obter seu dispositivo nesta lista, entre em contato com [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com).
 
 As chaves de segurança do FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou que têm cenários ou funcionários que não estão dispostos ou podem usar seus telefones como um segundo fator.
 
@@ -94,7 +94,7 @@ As chaves de segurança do FIDO2 são uma ótima opção para empresas que são 
    - Microsoft Authenticator aplicativo: funcionará em cenários em que a autenticação do Azure AD é usada, inclusive em todos os navegadores, durante a instalação do OOBE (Windows 10) e com aplicativos móveis integrados em qualquer sistema operacional.
    - Chaves de segurança: funcionarão na tela de bloqueio para o Windows 10 e a Web em navegadores com suporte, como o Microsoft Edge.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Habilitar as opções de passwordlesss de chave de segurança do FIDO2 em sua organização](howto-authentication-passwordless-security-key.md)
 

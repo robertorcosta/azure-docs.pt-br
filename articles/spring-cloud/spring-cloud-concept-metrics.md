@@ -1,61 +1,58 @@
 ---
-title: Noções básicas sobre métricas do Azure Spring Cloud
-description: Saiba como examinar métricas no Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+title: Noções básicas sobre métricas para o Azure Spring Cloud
+description: Saiba como examinar as métricas na nuvem do Azure Spring
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/06/2019
-ms.author: v-vasuke
-ms.openlocfilehash: d9c6f14b7ecfc2929dc48c11e0df1fe80303c8b1
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
-ms.translationtype: HT
+ms.author: jeconnoc
+ms.openlocfilehash: 952dfc1c707df3b7fa61443ea6ea18630352f0dc
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038495"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607803"
 ---
-# <a name="metrics-for-azure-spring-cloud"></a>Métricas do Azure Spring Cloud
+# <a name="metrics-for-azure-spring-cloud"></a>Métricas para o Azure Spring Cloud
 
-O Azure Monitor Metrics Explorer é um componente do portal do Microsoft Azure que permite plotar gráficos, correlacionar tendências visualmente e investigar picos e quedas nas métricas. Use o Metrics Explorer para investigar a integridade e o uso dos recursos. No Azure Spring Cloud, oferecemos duas opções para exibir métricas: gráficos na página **Visão Geral do Aplicativo** e a página Métricas do nível de serviço.
+Azure Monitor métricas Explorer é um componente do portal do Microsoft Azure que permite plotar gráficos, correlacionar visualmente tendências e investigar picos e quedas em métricas. Use o Metrics Explorer para investigar a integridade e a utilização de seus recursos. No Azure Spring Cloud, oferecemos duas opções para a exibição de métricas: gráficos na página **visão geral do aplicativo** e a página métricas de nível de serviço.
 
-## <a name="application-overview-page"></a>Página Visão Geral do Aplicativo
+## <a name="application-overview-page"></a>Página Visão geral do aplicativo
 
-A página **Visão Geral do Aplicativo** de cada aplicativo apresenta um gráfico de métricas que permite que você realize uma rápida verificação de status do seu aplicativo.  Acesse a página de serviço do Azure Spring Cloud e selecione o **Painel do Aplicativo**; em seguida, selecione um aplicativo na lista.  
+A página **visão geral do aplicativo** de cada aplicativo apresenta um gráfico de métricas que permite que você execute uma verificação rápida de status do seu aplicativo.  Acesse a página do serviço de nuvem do Azure Spring e selecione **painel do aplicativo**e, em seguida, selecione um aplicativo na lista.  
 
-Fornecemos cinco gráficos com métricas atualizadas a cada minuto para o seguinte:
+Fornecemos 5 gráficos com métricas atualizadas a cada minuto para o seguinte:
 
-* **Erros de servidor HTTP**: contagem de erros para solicitações HTTP para seu aplicativo.
-* **Entrada de dados**: bytes recebidos pelo seu aplicativo.
-* **Saída de dados**: bytes enviados para seu aplicativo.
+* **Erros do servidor http**: contagem de erros para solicitações HTTP para seu aplicativo.
+* **Dados em**: bytes recebidos pelo seu aplicativo.
+* **Saída de dados**: bytes enviados ao seu aplicativo.
 * **Solicitações**: solicitações recebidas pelo seu aplicativo.
 * **Tempo médio de resposta**: tempo médio de resposta do seu aplicativo.
 
 Você pode selecionar um intervalo de tempo para o gráfico entre 1 hora e até 7 dias.
 
-## <a name="service-level-metric-queries"></a>Consultas de métricas de nível de serviço
+## <a name="service-level-metric-queries"></a>Consultas de métrica de nível de serviço
 
-O Azure Spring Cloud permite que você monitore uma variedade de métricas de aplicativo. Leia o [guia de introdução](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) ao Azure Monitor Metrics para saber mais sobre este serviço.
+O Azure Spring Cloud permite que você monitore uma variedade de métricas de aplicativo. Examine o [guia para introdução](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) às métricas de Azure monitor para saber mais sobre esse serviço.
 
-Para examinar os dados de métricas, você selecionará sua métrica, sua **Agregação** e seu intervalo de tempo.  Esses conceitos são explicados abaixo.
+Para examinar os dados de métrica, você selecionará sua métrica, sua **agregação**e seu intervalo de tempo.  Esses conceitos são explicados abaixo.
 
 ### <a name="aggregation"></a>Agregação 
 
-O Azure sonda e atualiza métricas a cada minuto. O Azure oferece três maneiras de agregar dados para um período escolhido:
+O Azure sonda e atualiza as métricas a cada minuto. O Azure fornece três maneiras de agregar dados por um período de tempo escolhido:
 
-* **Total**: somar todas as métricas como a saída de destino.
-* **Average**: usar o valor médio no período como a saída de destino.
-* **Max/Min**: usar o valor Máx./Mín. no período como o destino de saída.
+* **Total**: soma todas as métricas como saída de destino.
+* **Média**: Use o valor médio no período como saída de destino.
+* **Max/min**: Use o valor max/min no período como saída de destino.
 
 ### <a name="time-range"></a>Intervalo de tempo
 
 Selecione um intervalo de tempo padrão ou defina o seu próprio.
 
-### <a name="modifying-the-granularity-of-your-metric-query"></a>Modificar a granularidade de sua consulta de métrica
+### <a name="modifying-the-granularity-of-your-metric-query"></a>Modificando a granularidade da sua consulta de métricas
 
-Por padrão, o Azure agrega métricas para todos os aplicativos do serviço do Azure Spring Cloud. Para examinar métricas no nível do aplicativo ou da instância, use a função de filtro.  
-Selecione **Adicionar filtro**, defina a propriedade como **Aplicativo** e selecione o aplicativo de destino que você deseja monitorar. Opcionalmente, use a opção **Aplicar divisão** para desenhar linhas separadas para cada aplicativo no gráfico.
+Por padrão, o Azure agrega métricas para todos os aplicativos de um serviço de nuvem do Azure Spring. Para examinar as métricas no nível do aplicativo ou da instância, use a função de filtro.  
+Selecione **Adicionar filtro**, defina a propriedade como **aplicativo** e selecione o aplicativo de destino que você deseja monitorar. Opcionalmente, use a opção **aplicar divisão** para desenhar linhas separadas para cada aplicativo no gráfico.
 
 >[!TIP]
-> Você pode criar seus próprios gráficos na página de métricas e fixá-los em seu **Painel**. Comece nomeando seu gráfico.  Em seguida, selecione **Fixar no painel no canto superior direito**. Agora você pode verificar seu aplicativo no **Painel** do Portal.
+> Você pode criar seus próprios gráficos na página de métricas e fixá-los em seu **painel**. Comece nomeando seu gráfico.  Em seguida, selecione **fixar no painel no canto superior direito**. Agora você pode verificar seu aplicativo no **painel**do Portal.

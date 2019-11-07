@@ -3,23 +3,23 @@ title: Selecione um tipo de disco para VMs do Windows do Azure IaaS-discos geren
 description: Saiba mais sobre os tipos de disco do Azure disponíveis para máquinas virtuais do Windows, incluindo ultra discos, SSDs Premium, SSDs padrão e HDDs padrão.
 author: roygara
 ms.author: rogarana
-ms.date: 08/15/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 634ff02b216403788c1ded9223909e2cce230207
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 5f06af41f2ad75d704836944e9d8d8d180aed730
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512677"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606578"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 
-Se você quiser começar a usar o ultra disks, consulte nosso artigo sobre o assunto: [Usando os ultra discos do Azure](disks-enable-ultra-ssd.md).
+Se você quiser começar a usar o ultra disks, consulte nosso artigo sobre o assunto: [usando os ultra discos do Azure](disks-enable-ultra-ssd.md).
 
 [!INCLUDE [virtual-machines-managed-disks-types-ga](../../../includes/virtual-machines-managed-disks-types-ga.md)]
 
-Para obter mais informações sobre instantâneos, confira a seção sobre instantâneos [Visão geral de discos gerenciados](managed-disks-overview.md).
+Para obter mais informações sobre instantâneos, confira a seção sobre instantâneos [Visão geral dos discos gerenciados](managed-disks-overview.md).
 
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-billing-and-fees.md)]

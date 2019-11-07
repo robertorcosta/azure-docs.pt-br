@@ -1,6 +1,6 @@
 ---
 title: Gerenciar serviços Web usando o gerenciamento de API
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Um guia mostrando como gerenciar os serviços Web do AzureML usando o Gerenciamento de API. Gerencie seus pontos de extremidade da API REST definindo o acesso do usuário, a limitação de uso e o monitoramento por painel.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 60f890912874cfda993ae45f84fa3d1c04503d00
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 227a7205788194cc507dcd9dab7e5cad57abc7f9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489256"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671586"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Gerenciar Azure Machine Learning Studio (clássico) serviços Web usando o gerenciamento de API
 ## <a name="overview"></a>Visão geral
@@ -29,7 +29,7 @@ Para concluir este guia, você precisa:
 
 * Uma conta do Azure.
 * Uma conta do AzureML.
-* O workspace, o serviço e a api_key para um teste do AzureML implantado como um serviço Web. Para obter detalhes sobre como criar um experimento do AzureML, consulte o guia de [início rápido do estúdio](create-experiment.md). Para obter informações sobre como implantar um experimento do Studio (clássico) como um serviço Web, consulte o [instruções de implantação do estúdio](publish-a-machine-learning-web-service.md) para obter detalhes sobre como implantar um experimento do AzureML como um serviço Web. Como alternativa, o Apêndice A traz instruções sobre como criar e testar um teste simples do AzureML e implantá-lo como um serviço Web.
+* O workspace, o serviço e a api_key para um teste do AzureML implantado como um serviço Web. Para obter detalhes sobre como criar um experimento do AzureML, consulte o guia de [início rápido do estúdio](create-experiment.md). Para obter informações sobre como implantar um experimento do Studio (clássico) como um serviço Web, consulte o [instruções de implantação do estúdio](deploy-a-machine-learning-web-service.md) para obter detalhes sobre como implantar um experimento do AzureML como um serviço Web. Como alternativa, o Apêndice A traz instruções sobre como criar e testar um teste simples do AzureML e implantá-lo como um serviço Web.
 
 ## <a name="create-an-api-management-instance"></a>Criar uma instância de Gerenciamento de API
 

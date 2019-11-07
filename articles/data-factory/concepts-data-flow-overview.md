@@ -1,5 +1,5 @@
 ---
-title: Mapeando fluxos de dados em Azure Data Factory | Microsoft Docs
+title: Mapeando fluxos de dados em Azure Data Factory
 description: Uma visão geral do mapeamento de fluxos de dados no Azure Data Factory
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/7/2019
-ms.openlocfilehash: 7f6c131737ca63d120e111b3ef4504a36dbd7fc1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ed2502ffebbacf5e66e3e4738e2e88ce7fb8a562
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754705"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681553"
 ---
 # <a name="what-are-mapping-data-flows"></a>O que são os fluxos de dados de mapeamento?
 
@@ -32,13 +32,13 @@ Isso levará você para a tela de fluxo de dados, na qual você pode criar a ló
 
 A tela de fluxo de dados é separada em três partes: a barra superior, o grafo e o painel de configuração. 
 
-![Canvas](media/data-flow/canvas1.png "Tela")
+![Tela](media/data-flow/canvas1.png "Canvas")
 
-### <a name="graph"></a>Graph
+### <a name="graph"></a>Grafo
 
 O grafo exibe o fluxo de transformação. Ele mostra a linhagem dos dados de origem conforme eles fluem em um ou mais coletores. Para adicionar uma nova origem, selecione **Adicionar origem**. Para adicionar uma nova transformação, selecione o sinal de adição no canto inferior direito de uma transformação existente.
 
-![Canvas](media/data-flow/canvas2.png "Tela")
+![Tela](media/data-flow/canvas2.png "Canvas")
 
 ### <a name="azure-integration-runtime-data-flow-properties"></a>Propriedades de fluxo de dados do Azure Integration Runtime
 
@@ -84,11 +84,11 @@ A primeira guia em cada painel de configuração de transformação contém as c
 
 ![Guia Configurações de origem](media/data-flow/source1.png "Guia Configurações de origem")
 
-#### <a name="optimize"></a>Otimize
+#### <a name="optimize"></a>Otimizar
 
 A guia **otimizar** contém configurações para configurar esquemas de particionamento.
 
-![Otimizar](media/data-flow/optimize1.png "Otimize")
+![Otimizar](media/data-flow/optimize1.png "Otimizar")
 
 A configuração padrão é **usar particionamento atual**, o que instrui Azure data Factory a usar o esquema de particionamento nativo para fluxos de dados em execução no Spark. Na maioria dos cenários, recomendamos essa configuração.
 
@@ -144,7 +144,7 @@ Se você ocultar o grafo, poderá navegar pelos nós de transformação posterio
 
 ![Botões anterior e próximo](media/data-flow/showhide.png "botões anterior e próximo")
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como criar uma [transformação de origem](data-flow-source.md).
 * Saiba como criar fluxos de dados no [modo de depuração](concepts-data-flow-debug-mode.md).

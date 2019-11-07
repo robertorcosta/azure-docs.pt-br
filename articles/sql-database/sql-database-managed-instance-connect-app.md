@@ -1,5 +1,5 @@
 ---
-title: Aplicativo de conexão da Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
+title: Aplicativo Instância Gerenciada do Banco de Dados SQL do Azure Connect
 description: Este artigo descreve como conectar seu aplicativo à Instância Gerenciada do Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 133110d015ac7a26f18f14f6ff957729a4f079b5
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 5dc287ab58636b4921c14ae71f9a62ab36d9c596
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060663"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688231"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conectar seu aplicativo à instância gerenciada do banco de dados SQL do Azure
 
@@ -137,7 +137,7 @@ Para solucionar problemas de conectividade, examine o seguinte:
 
 As seguintes versões mínimas das ferramentas e drivers são recomendadas se você deseja se conectar à Instância Gerenciada:
 
-| Driver/ferramenta | Version |
+| Driver/ferramenta | Versão |
 | --- | --- |
 |.NET Framework | 4.6.1 (ou .NET Core) |
 |Driver ODBC| v17 |

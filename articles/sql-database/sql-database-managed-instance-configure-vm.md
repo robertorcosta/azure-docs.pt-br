@@ -1,5 +1,5 @@
 ---
-title: Conectar-se à VM cliente – Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
+title: 'Conectar VM do cliente-Instância Gerenciada do Banco de Dados SQL do Azure '
 description: Conecte-se a uma Instância Gerenciada do Banco de Dados SQL do Azure usando o SQL Server Management Studio de uma máquina virtual do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: ddcac56671e145728f02d31bf23c657ea172e4c0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fb45df869bc9ecbe6584837894844c29bafa6223
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567649"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689401"
 ---
-# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Início Rápido: Configurar a VM do Azure para se conectar a uma Instância Gerenciada do Banco de Dados SQL do Azure
+# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Guia de início rápido: configurar a VM do Azure para se conectar a uma Instância Gerenciada do Banco de Dados SQL do Azure
 
 Este início rápido demonstra como configurar uma máquina virtual do Azure para se conectar a uma Instância Gerenciada do Banco de Dados SQL do Azure usando o SSMS (SQL Server Management Studio). Para ver um início rápido que mostra como se conectar de um computador cliente local usando uma conexão ponto a site, confira [Configurar uma conexão ponto a site](sql-database-managed-instance-configure-p2s.md)
 
@@ -26,7 +26,7 @@ Este início rápido demonstra como configurar uma máquina virtual do Azure par
 
 Este início rápido usa os recursos criados em [Criar uma Instância Gerenciada](sql-database-managed-instance-get-started.md) como um ponto de partida.
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
 
 Entre no [Portal do Azure](https://portal.azure.com/).
 
@@ -44,7 +44,7 @@ As etapas a seguir criam uma sub-rede na VNet da Instância Gerenciada para uma 
 
 3. Preencha o formulário usando as informações nesta tabela:
 
-   | Configuração| Valor sugerido | Descrição |
+   | Configuração| Valor sugerido | DESCRIÇÃO |
    | ---------------- | ----------------- | ----------- |
    | **Nome** | Qualquer nome válido|Para ver os nomes válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    | **Intervalo de endereços (bloco CIDR)** | Um intervalo válido | O valor padrão é bom para este início rápido.|
@@ -67,13 +67,13 @@ Uma vez que a Instância Gerenciada do SQL é colocada na sua Rede Virtual priva
 
 A maneira mais fácil de criar uma máquina virtual cliente com todas as ferramentas necessárias é usar os modelos do Azure Resource Manager.
 
-1. Verifique se você está conectado ao portal do Azure em outra guia do navegador. Em seguida, selecione o botão a seguir para criar uma máquina virtual de cliente e instale o SQL Server Management Studio:
+1. Verifique se você está conectado ao portal do Azure em outra guia do navegador. Em seguida, selecione o seguinte botão para criar uma máquina virtual do cliente e instalar SQL Server Management Studio:
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 2. Preencha o formulário usando as informações na tabela a seguir:
 
-   | Configuração| Valor sugerido | Descrição |
+   | Configuração| Valor sugerido | DESCRIÇÃO |
    | ---------------- | ----------------- | ----------- |
    | **Assinatura** | Uma assinatura válida | Precisa ser uma assinatura na qual você tem permissão para criar novos recursos. |
    | **Grupo de recursos** |O grupo de recursos que você especificou no início rápido [Criar Instância Gerenciada](sql-database-managed-instance-get-started.md).|Esse grupo de recursos precisa ser aquele no qual a VNet existe.|

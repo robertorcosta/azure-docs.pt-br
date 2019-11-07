@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 5e8dc6629cfbbc3e42aeeb4dc94f33d13867ca9f
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 8c9258f099587ba4dbdfe3a7e46f72cd7a825024
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024804"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603832"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Fontes de eventos na Grade de Eventos do Azure
 
@@ -24,7 +24,7 @@ Este artigo fornece links para conteúdo de cada fonte de eventos.
 
 Assine eventos de Assinaturas do Azure para responder a alterações em recursos em uma assinatura do Azure.
 
-|Title |Descrição  |
+|Title |DESCRIÇÃO  |
 |---------|---------|
 | [Tutorial: Automação do Azure com Grade de Eventos e Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Crie uma máquina virtual, que envia um evento. O evento dispara um runbook de Automação que marca a máquina virtual e dispara uma mensagem que é enviada para um canal do Microsoft Teams. |
 | [Como: assinar eventos por meio do portal](subscribe-through-portal.md) | Use o portal para assinar eventos de uma assinatura do Azure. |
@@ -32,11 +32,11 @@ Assine eventos de Assinaturas do Azure para responder a alterações em recursos
 | [PowerShell: assinar eventos de uma assinatura do Azure](./scripts/event-grid-powershell-azure-subscription.md)| Script de exemplo que cria uma assinatura de Grade de Eventos para uma assinatura do Azure e envia eventos para um WebHook. |
 | [Esquema do evento](event-schema-subscriptions.md) | Mostra campos nos eventos de assinatura do Azure. |
 
-## <a name="container-registry"></a>Registro de contêiner
+## <a name="container-registry"></a>Registro de Contêiner
 
 Assine eventos de Registro de Contêiner para responder a alterações nas imagens.
 
-|Title |Descrição  |
+|Title |DESCRIÇÃO  |
 |---------|---------|
 | [Início Rápido: enviar eventos de registro de contêiner](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar a CLI do Azure para enviar eventos de Registro de Contêiner. |
 | [Esquema do evento](event-schema-container-registry.md) | Mostra campos nos eventos do Registro de Contêiner. |
@@ -45,7 +45,7 @@ Assine eventos de Registro de Contêiner para responder a alterações nas image
 
 Assine os tópicos personalizados para responder a eventos do aplicativo.
 
-|Title  |Descrição  |
+|Title  |DESCRIÇÃO  |
 |---------|---------|
 | [Início Rápido: como criar e encaminhar eventos personalizados com a CLI do Azure](custom-event-quickstart.md) | Mostra como usar a CLI do Azure para enviar eventos personalizados. |
 | [Início Rápido: como criar e encaminhar eventos personalizados com o Azure PowerShell](custom-event-quickstart-powershell.md) | Mostra como usar o Azure PowerShell para enviar eventos personalizados. |
@@ -61,11 +61,11 @@ Assine os tópicos personalizados para responder a eventos do aplicativo.
 | [Modelo do Gerenciador de Recursos: tópico personalizado e ponto de extremidade de Hubs de Eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Um modelo do Gerenciador de Recursos que cria uma assinatura para um tópico personalizado. Envia eventos para os Hubs de Eventos do Azure. |
 | [Esquema do evento](event-schema.md) | Mostra campos em eventos personalizados. |
 
-## <a name="event-hubs"></a>Hubs de evento
+## <a name="event-hubs"></a>Hubs de Eventos
 
 Assine eventos de Hubs de Eventos para responder a eventos de arquivo e Captura. Os Hubs de Eventos podem agir como uma fonte de evento ou um manipulador de eventos. Os artigos a seguir mostram como usar os Hubs de Eventos como uma fonte.
 
-|Title  |Descrição  |
+|Title  |DESCRIÇÃO  |
 |---------|---------|
 | [Tutorial: transmitir Big Data para um data warehouse](event-grid-event-hubs-integration.md) | Quando os Hubs de Eventos criam um arquivo de Captura, a Grade de Eventos envia um evento para um aplicativo de função. O aplicativo recupera o arquivo de Captura e migra dados para um data warehouse. |
 | [Esquema do evento](event-schema-event-hubs.md) | Mostra campos nos eventos de Hubs de Eventos. |
@@ -76,7 +76,7 @@ Para obter exemplos de Hubs de Eventos como um manipulador, consulte [manipulado
 
 Assine eventos do Hub IoT para responder a eventos criados, excluídos, conectados, desconectados e de telemetria do dispositivo.
 
-|Title  |Descrição  |
+|Title  |DESCRIÇÃO  |
 |---------|---------|
 | [Enviar notificações por email sobre os eventos do Hub IoT usando Aplicativos Lógicos](publish-iot-hub-events-to-logic-apps.md) | Um aplicativo lógico envia um email de notificação sempre que um dispositivo é adicionado ao seu Hub IoT. |
 | [Reagir aos eventos do Hub IoT usando a Grade de Eventos para acionar ações](../iot-hub/iot-hub-event-grid.md) | Visão geral da integração do Hub IoT com a Grade de Eventos. |
@@ -89,17 +89,17 @@ A integração do Key Vault com a grade de eventos está atualmente em visualiza
 
 Assine Key Vault eventos a serem notificados quando um segredo está prestes a expirar, um segredo expira ou um segredo tem uma nova versão disponível. 
 
-|Title  |Descrição  |
+|Title  |DESCRIÇÃO  |
 |---------|---------|
 | [Monitorando Key Vault eventos com a grade de eventos do Azure](../key-vault/event-grid-overview.md) | Visão geral da integração de Key Vault com a grade de eventos. |
 | [Tutorial: criar e monitorar eventos de Key Vault com a grade de eventos](../key-vault/event-grid-tutorial.md) | Saiba como configurar notificações de grade de eventos para Key Vault. |
 | [Esquema do evento](event-schema-key-vault.md) | Mostra os campos em eventos de Key Vault. |
 
-## <a name="media-services"></a>Serviços de Mídia
+## <a name="media-services"></a>Serviços de mídia
 
 Assine eventos de Serviços de Mídia para responder a eventos de estado de trabalho.
 
-|Title  |Descrição  |
+|Title  |DESCRIÇÃO  |
 |---------|---------|
 | [Visão geral: reagir aos eventos dos Serviços de Mídia](../media-services/latest/reacting-to-media-services-events.md) | Visão geral da integração de Serviços de Mídia com Grade de Eventos. |
 | [Tutorial: rotear eventos de Serviços de Mídia do Azure para um ponto de extremidade da Web personalizado usando a CLI](../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como enviar eventos de Serviços de Mídia. |
@@ -109,7 +109,7 @@ Assine eventos de Serviços de Mídia para responder a eventos de estado de trab
 
 Assine eventos de grupo de recursos para responder a alterações em recursos em um grupo de recursos.
 
-|Title  |Descrição  |
+|Title  |DESCRIÇÃO  |
 |---------|---------|
 | [Tutorial: como monitorar alterações de máquina virtual com a Grade de Eventos do Azure e os aplicativos lógicos](monitor-virtual-machine-changes-event-grid-logic-app.md) | Um aplicativo lógico monitora as alterações feitas em uma máquina virtual e envia emails sobre essas alterações. |
 | [CLI do Azure: assinar eventos para um grupo de recursos com a CLI do Azure](./scripts/event-grid-cli-resource-group.md)| Script de exemplo que assina eventos para um grupo de recursos. Envia eventos para um WebHook. |
@@ -119,11 +119,11 @@ Assine eventos de grupo de recursos para responder a alterações em recursos em
 | [Modelo do Resource Manager: assinatura do recurso](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Assina eventos para uma assinatura do Azure ou grupo de recursos. Envia eventos para um WebHook. |
 | [Esquema do evento](event-schema-resource-groups.md) | Mostra campos em eventos de grupo de recursos. |
 
-## <a name="service-bus"></a>Service Bus
+## <a name="service-bus"></a>BARRAMENTO DE SERVIÇO
 
 Assine eventos de Barramento de Serviço para responder às mensagens sem um ouvinte de ativo.
 
-|Title  |Descrição  |
+|Title  |DESCRIÇÃO  |
 |---------|---------|
 | [Tutorial: exemplos do Barramento de Serviço do Azure para a integração da Grade de Eventos do Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | A Grade de Eventos envia mensagens do tópico do Barramento de Serviço para o aplicativo de função e o aplicativo lógico. |
 | [Visão geral: integração do Barramento de Serviço do Azure com a Grade de Eventos](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Visão geral da integração do Barramento de Serviço com a Grade de Eventos. |
@@ -133,7 +133,7 @@ Assine eventos de Barramento de Serviço para responder às mensagens sem um ouv
 
 Assine os eventos de Armazenamento de Blobs para responder aos eventos criados e excluídos de blob.
 
-|Title  |Descrição  |
+|Title  |DESCRIÇÃO  |
 |---------|---------|
 | [Início Rápido: encaminhar eventos de armazenamento de Blob para um ponto de extremidade da Web personalizado com a CLI do Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar a CLI do Azure para enviar eventos de armazenamento de blob para um WebHook. |
 | [Início Rápido: encaminhar eventos de armazenamento de Blobs para um ponto de extremidade da Web personalizado com PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar o Azure PowerShell para enviar eventos de armazenamento de blobs para um WebHook. |
@@ -147,16 +147,16 @@ Assine os eventos de Armazenamento de Blobs para responder aos eventos criados e
 ## <a name="maps"></a>Mapas
 Assine eventos do Azure Mapas para responder a eventos de cerca geográfica. Por exemplo, um aplicativo poderia enviar uma notificação por email sempre que um dispositivo entra ou sai de uma cerca geográfica.
 
-|Title  |Descrição  |
+|Title  |DESCRIÇÃO  |
 |---------|---------|
 | [Reagir a eventos do Azure Mapas usando a Grade de Eventos](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visão geral da integração do Azure Mapas com a Grade de Eventos. |
-| [Tutorial: configurar uma cerca geográfica](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Este tutorial orienta você pelas etapas básicas para configurar um limite geográfico usando o Azure Mapas. Você usa a Grade de Eventos do Azure para transmitir os resultados da cerca geográfica e configurar uma notificação de acordo com os resultados desse limite. |
+| [Tutorial: configurar uma cerca geográfica](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Este tutorial orienta você pelas etapas básicas para configurar uma cerca geográfica usando o Azure Mapas. Você usa a Grade de Eventos do Azure para transmitir os resultados da cerca geográfica e configurar uma notificação de acordo com os resultados desse limite. |
 | [Esquema do evento](event-schema-azure-maps.md) | Mostra campos nos eventos do Azure Mapas. |
 
-## <a name="app-configuration"></a>Configuração de Aplicativos
+## <a name="app-configuration"></a>Configuração de aplicativos
 Assine Azure App eventos de configuração para responder a eventos de modificação de chave-valor.
 
-|Title | Descrição |
+|Title | DESCRIÇÃO |
 |---------|---------|
 | [Reagir a Azure App eventos de configuração usando a grade de eventos](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visão geral da integração da configuração de Azure App com a grade de eventos. |
 | [Início rápido: rotear Azure App eventos de configuração para um ponto de extremidade da Web personalizado com CLI do Azure](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar CLI do Azure para enviar Azure App eventos de configuração para um webhook. |
@@ -165,15 +165,22 @@ Assine Azure App eventos de configuração para responder a eventos de modifica�
 ## <a name="azure-signalr"></a>Azure SignalR
 Assine os eventos do serviço de Signaler do Azure para responder aos eventos de conexão do cliente.
 
-|Title | Descrição |
+|Title | DESCRIÇÃO |
 |---------|---------|
 | [Reagir aos eventos do serviço de Signaler do Azure usando a grade de eventos](../azure-signalr/signalr-concept-event-grid-integration.md) | Visão geral da integração do serviço de Signaler do Azure com a grade de eventos. |
 | [Como enviar eventos do serviço de Signaler do Azure para a grade de eventos](../azure-signalr/signalr-howto-event-grid-integration.md) | Mostra como enviar eventos do serviço de Signaler do Azure para um aplicativo por meio da grade de eventos. |
 | [Esquema do evento](event-schema-azure-signalr.md) | Mostra os campos nos eventos do serviço de Signaler do Azure. |
 
+## <a name="azure-machine-learning"></a>Azure Machine Learning
 
+Assine Azure Machine Learning eventos de espaço de trabalho para responder ao registro de modelo.
 
-## <a name="next-steps"></a>Próximos passos
+| Title | DESCRIÇÃO |
+| ----- | ----- |
+| [Consumir Azure Machine Learning eventos](../machine-learning/service/concept-event-grid-integration.md) | Visão geral da integração de Azure Machine Learning com a grade de eventos. |
+| [Esquema de evento da grade de eventos do Azure para Azure Machine Learning](event-schema-machine-learning.md) | Mostra os campos na Azure Machine Learning eventos. |
+
+## <a name="next-steps"></a>Próximas etapas
 
 * Para ver uma introdução à Grade de Eventos, confira [About Event Grid](overview.md) (Sobre a Grade de Eventos).
 * Para começar a usar rapidamente a Grade de Eventos, confira [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Criar e rotear eventos personalizados com a Grade de Eventos do Azure).

@@ -1,23 +1,20 @@
 ---
 title: Automatizar a implantação de recursos para um aplicativo de funções do Azure Functions | Microsoft Docs
 description: Aprenda a criar um modelo do Azure Resource Manager que implanta o aplicativo de funções.
-services: Functions
-documtationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, funções, arquitetura sem servidores, infraestrutura como código, azure resource manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.service: azure-functions
-ms.server: functions
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: ff5b104c9fa1bedf1f710c06761b6449b20bbf05
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 8435aab65d26627de26fb8b5ad0510fcd7c57c33
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263202"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575944"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções do Azure Functions
 
@@ -29,18 +26,15 @@ Para modelos de exemplo, consulte:
 - [Aplicativo de funções no Plano de Consumo]
 - [Aplicativo de funções no Plano do Serviço de Aplicativo do Azure]
 
-> [!NOTE]
-> O plano Premium para hospedagem de Azure Functions está atualmente em visualização. Para obter mais informações, consulte [Azure Functions plano Premium](functions-premium-plan.md).
-
 ## <a name="required-resources"></a>Recursos necessários
 
 Uma implantação Azure Functions normalmente consiste nesses recursos:
 
-| Resource                                                                           | Requisito | Referência de sintaxe e propriedades                                                         |   |
+| Recurso                                                                           | Requisito | Referência de sintaxe e propriedades                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | Um aplicativo de funções                                                                     | Obrigatório    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
 | Uma conta de [Armazenamento do Azure](../storage/index.yml)                                   | Obrigatório    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| Um componente [Application insights](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
+| Um componente [Application insights](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft. insights/Components](/azure/templates/microsoft.insights/components)         |   |
 | Um [plano de hospedagem](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
 <sup>1</sup> Um plano de hospedagem só é necessário quando você opta por executar seu aplicativo de funções em um [plano Premium](./functions-premium-plan.md) (em versão prévia) ou em um [plano do serviço de aplicativo](../app-service/overview-hosting-plans.md).
@@ -314,7 +308,7 @@ No Linux, o aplicativo de funções deve ter seu `kind` definido como `functiona
 
 ## <a name="deploy-on-premium-plan"></a>Implantar no plano Premium
 
-O plano Premium oferece o mesmo dimensionamento do plano de consumo, mas inclui recursos dedicados e recursos adicionais. Para saber mais, confira [Azure Functions plano Premium (versão prévia)](./functions-premium-plan.md).
+O plano Premium oferece o mesmo dimensionamento do plano de consumo, mas inclui recursos dedicados e recursos adicionais. Para saber mais, confira [Azure Functions plano Premium](./functions-premium-plan.md).
 
 ### <a name="create-a-premium-plan"></a>Criar um plano Premium
 

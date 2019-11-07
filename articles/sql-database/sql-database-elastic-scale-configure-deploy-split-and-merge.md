@@ -1,5 +1,5 @@
 ---
-title: Implantar um serviço de divisão e mesclagem | Microsoft Docs
+title: Implantar um serviço de divisão e mesclagem
 description: Use a ferramenta de divisão e mesclagem também para mover dados entre bancos de dados fragmentados.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: a8c50f492c28bf1e009d15d6332e939959190a49
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 009fb4be61aad5c700c7520764e9414ed9422721
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568502"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690320"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implantar um serviço de mesclagem dividida para mover dados entre bancos de dados compartilhados
 
@@ -61,7 +61,7 @@ Para obter instruções detalhadas configurar a segurança do serviço, consulte
 
 Para fins de implantação de teste simples para este tutorial, um conjunto mínimo de etapas de configuração será executado para colocar o serviço em operação. Essas etapas permite que somente o computador/conta que as executa se comunique com o serviço.
 
-### <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
+### <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 Crie um novo diretório e, nesse diretório, execute o seguinte comando usando uma janela de [Prompt de comando do desenvolvedor para o Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) :
 
    ```
@@ -142,7 +142,7 @@ Se sua função de trabalho não fica online, mas sua função web tiver êxito,
    ```
 
 * Verifique se o nome do servidor não começa com **https://** .
-* Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. Para fazer isso, abra o banco de dados no portal e verifique se a configuração **Permitir acesso aos serviços do Azure** está definida como **Habilitada** **.
+* Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. Para fazer isso, abra o banco de dados no portal e verifique se a configuração **Permitir acesso aos serviços do Azure** está definida como **Habilitada****.
 
 ## <a name="test-the-service-deployment"></a>Testar a implantação do serviço
 ### <a name="connect-with-a-web-browser"></a>Conectar-se com um navegador da Web
@@ -310,7 +310,7 @@ Um exemplo disso pode ser visto no script SetupSampleSplitMergeEnvironment.ps1.
 
 O serviço de Divisão-Mesclagem não cria para você o banco de dados de destino (ou o esquema para todas as tabelas no banco de dados). Eles devem ser criados previamente antes de enviar uma solicitação ao serviço.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solucionar problemas
 Você pode ver a mensagem abaixo ao executar os scripts do powershell de exemplo:
 
    ```

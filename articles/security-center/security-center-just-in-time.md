@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: a6326b2ea9b4c2247df4f93eba904b7527666131
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: fb092a3c6b473680480c3bba0ad6f437176833de
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996383"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576396"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerenciar o acesso à máquina virtual usando JIT
 
@@ -61,12 +61,12 @@ Há três maneiras de configurar uma política JIT em uma VM:
 - [Configurar o acesso JIT em uma folha de VM do Azure](#jit-vm)
 - [Configurar uma política JIT em uma VM programaticamente](#jit-program)
 
-## <a name="configure-jit-in-asc"></a>Configurar o JIT no ASC
+## <a name="configure-jit-in-security-center"></a>Configurar o JIT na central de segurança
 
-De ASC, você pode configurar uma política JIT e solicitar o acesso a uma VM usando uma política JIT
+Na central de segurança, você pode configurar uma política JIT e solicitar o acesso a uma VM usando uma política JIT
 
 
-### Configurar o acesso JIT em uma VM em ASC<a name="jit-asc"></a>
+### Configurar o acesso JIT em uma VM na central de segurança<a name="jit-asc"></a>
 
 1. Abra o painel **Central de Segurança**.
 
@@ -99,7 +99,7 @@ De ASC, você pode configurar uma política JIT e solicitar o acesso a uma VM us
       - 5986: WinRM
 6. Você também pode configurar portas personalizadas:
 
-      1. Clique em **Adicionar** . A janela **Adicionar configuração de porta** é aberta.
+      1. Clique em **Adicionar**. A janela **Adicionar configuração de porta** é aberta.
       2. Para cada porta que você optar por configurar, tanto padrão quanto personalizada, você pode personalizar as seguintes configurações:
 
     - **Tipo de protocolo**: o protocolo permitido nesta porta quando uma solicitação for aprovada.
@@ -114,9 +114,9 @@ De ASC, você pode configurar uma política JIT e solicitar o acesso a uma VM us
 >Quando o acesso à VM JIT está habilitado para uma VM, a central de segurança do Azure cria as regras "negar todo o tráfego de entrada" para as portas selecionadas nos grupos de segurança de rede associados e no firewall do Azure com ele. Se outras regras tiverem sido criadas para as portas selecionadas, as regras existentes têm prioridade sobre as novas regras "negar todo o tráfego de entrada". Se não houver nenhuma regra existente nas portas selecionadas, a nova regra "negar todo o tráfego de entrada" assumirá a prioridade mais alta nos grupos de segurança de rede e no firewall do Azure.
 
 
-## <a name="request-jit-access-via-asc"></a>Solicitar acesso JIT via ASC
+## <a name="request-jit-access-via-security-center"></a>Solicitar acesso JIT por meio da central de segurança
 
-Para solicitar acesso a uma VM por meio de ASC:
+Para solicitar acesso a uma VM por meio da central de segurança:
 
 1. Em **Acesso à VM Just-In-Time**, selecione a guia **Configurado**.
 
@@ -140,7 +140,7 @@ Para solicitar acesso a uma VM por meio de ASC:
 > [!NOTE]
 > Se um usuário que está solicitando acesso estiver atrás de um proxy, a opção **Meu IP** pode não funcionar. Pode ser que você precise definir o intervalo completo de endereços IP da organização.
 
-## <a name="edit-a-jit-access-policy-via-asc"></a>Editar uma política de acesso JIT por meio do ASC
+## <a name="edit-a-jit-access-policy-via-security-center"></a>Editar uma política de acesso JIT por meio da central de segurança
 
 Você pode alterar a política Just-In-Time existente de uma VM adicionando e configurando uma nova porta a ser aberta para essa VM ou alterando qualquer outro parâmetro relacionado a uma porta já protegida.
 
@@ -151,7 +151,7 @@ Para editar a política Just-In-Time existente de uma VM:
 1. Em **Configuração de acesso JIT à VM**, você pode editar as configurações existentes de uma porta já protegida ou pode adicionar uma nova porta personalizada. 
   ![Acesso JIT à VM](./media/security-center-just-in-time/edit-policy.png)
 
-## <a name="audit-jit-access-activity-in-asc"></a>Auditar atividade de acesso JIT em ASC
+## <a name="audit-jit-access-activity-in-security-center"></a>Auditar atividade de acesso JIT na central de segurança
 
 Você pode obter informações sobre as atividades de VM usando a pesquisa de logs. Para exibir os logs:
 
@@ -168,11 +168,11 @@ Modifique os filtros e clique em **aplicar** para criar uma pesquisa e um log.
 
 
 
-## Configurar o acesso JIT em uma folha de VM do Azure<a name="jit-vm"></a>
+## Configurar o acesso JIT na página de uma VM do Azure<a name="jit-vm"></a>
 
-Para sua conveniência, é possível se conectar a uma VM usando JIT diretamente de dentro da folha da VM no Azure.
+Para sua conveniência, você pode se conectar a uma VM usando o JIT diretamente de dentro da página da VM na central de segurança.
 
-### <a name="configure-jit-access-on-a-vm-via-the-azure-vm-blade"></a>Configurar o acesso JIT em uma VM por meio da folha de VM do Azure
+### <a name="configure-jit-access-on-a-vm-via-the-azure-vm-page"></a>Configurar o acesso JIT em uma VM por meio da página VM do Azure
 
 Para tornar mais fácil distribuir acesso Just-In-Time entre suas VMs, você pode definir uma VM para permitir apenas o acesso Just-In-Time diretamente de dentro da VM.
 
@@ -206,8 +206,8 @@ No portal do Azure, ao tentar se conectar a uma VM, o Azure verifica se você co
 
   O acesso é solicitado com os seguintes parâmetros padrão:
 
-  - **IP de origem**: ' Any ' (*) (não pode ser alterado)
-  - **intervalo de tempo**: Três horas (não podem ser alteradas) <!--Isn't this set in the policy-->
+  - **IP de origem**: ' any ' (*) (não pode ser alterado)
+  - **intervalo de tempo**: três horas (não pode ser alterado) <!--Isn't this set in the policy-->
   - **número da porta** Porta RDP 3389 para Windows/porta 22 para Linux (pode ser alterada)
 
     > [!NOTE]

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 24ce6de63d06402e24abdeb33996a3853175ce91
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4e04ae7d9594ac064c9f3707c797fb2709a79cb6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954403"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582941"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo MXChip IoT DevKit ao aplicativo Azure IoT Central
 
@@ -25,7 +25,7 @@ Este artigo descreve como um desenvolvedor de dispositivos conecta um dispositiv
 
 Para concluir as etapas neste artigo, você precisa dos seguintes recursos:
 
-1. Um aplicativo Azure IoT Central criado a partir do modelo de aplicativo de **Devkits de Exemplo**. Para obter mais informações, consulte [criar um início rápido de aplicativo](quick-deploy-iot-central.md).
+1. Um aplicativo Azure IoT Central criado a partir do modelo de aplicativo de **Devkits de Exemplo**. Para obter mais informações, consulte o [criar um início rápido de aplicativo](quick-deploy-iot-central.md).
 1. Um dispositivo DevKit. Para adquirir um dispositivo DevKit, visite [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/).
 
 ## <a name="sample-devkits-application"></a>Aplicativo Devkits de exemplo
@@ -119,7 +119,7 @@ Agite o dispositivo para enviar uma propriedade relatada. O dispositivo envia um
 
 É possível exibir as medidas de telemetria e os valores das propriedades relatadas e definir as configurações no Azure IoT Central:
 
-1. Use **Device Explorer** para navegar até a página **Medidas** do dispositivo MXChip real que você adicionou:
+1. Use **dispositivos** para navegar até a página de **medidas** do dispositivo real MXChip que você adicionou:
 
     ![Navegue para o dispositivo real](media/howto-connect-devkit/realdevicenew.png)
 
@@ -129,7 +129,7 @@ Agite o dispositivo para enviar uma propriedade relatada. O dispositivo envia um
 
 1. Na página **Propriedades**, é possível ver o último número impresso e a localização do dispositivo relatados pelo dispositivo:
 
-    ![Exibir propriedades do dispositivo](media/howto-connect-devkit/devicepropertynew.png)
+    ![Exibir propriedades de dispositivo](media/howto-connect-devkit/devicepropertynew.png)
 
 1. Na página **Configurações**, é possível atualizar as configurações no dispositivo MXChip:
 
@@ -162,7 +162,7 @@ O comando anterior baixa o código-fonte para uma pasta chamada `iot-central-fir
 
 Use Visual Studio Code para abrir a pasta `MXCHIP/mxchip_advanced` na pasta `iot-central-firmware`:
 
-![Código do Visual Studio](media/howto-connect-devkit/vscodeview.png)
+![Visual Studio Code](media/howto-connect-devkit/vscodeview.png)
 
 Para ver como a telemetria é enviada ao aplicativo de IoT Central do Azure, abra o arquivo **telemetria. cpp** na pasta `src`:
 
@@ -199,9 +199,9 @@ Um aplicativo criado com base no modelo de aplicativo de Devkits de Exemplo incl
 | umidade       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
 | pressão       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | -1000   | 1\.000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1\.000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1\.000    | 0              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
 | accelerometerX | mg     | -2000   | 2000    | 0              |
 | accelerometerY | mg     | -2000   | 2000    | 0              |
 | accelerometerZ | mg     | -2000   | 2000    | 0              |
@@ -210,12 +210,12 @@ Um aplicativo criado com base no modelo de aplicativo de Devkits de Exemplo incl
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>Estados 
-| name          | Nome de exibição   | NORMAL | CUIDADO | PERIGO | 
+| Nome          | Nome de exibição   | NORMAL | CUIDADO | PERIGO | 
 | ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Estado do dispositivo   | Verde  | Orange  | Vermelho    | 
+| DeviceState   | Estado do dispositivo   | Verde  | Laranja  | Vermelho    | 
 
 #### <a name="events"></a>Eventos 
-| name             | Nome de exibição      | 
+| Nome             | Nome de exibição      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Botão B Pressionado  | 
 
@@ -227,17 +227,17 @@ Configurações numéricas
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltagem      | setVoltage | Volts | 0              | 0       | 240     | 0       |
 | Atual      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
-| Velocidade da ventoinha    | fanSpeed   | RPM   | 0              | 0       | 1\.000    | 0       |
+| Velocidade da ventoinha    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 Configurações de alternância
 
 | Nome de exibição | Nome do campo | Texto ativado | Texto desativado | Inicial |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ATIVADO      | DESATIVADO      | Desligar     |
+| IR           | activateIR | ATIVADO      | DESATIVADO      | Desativar     |
 
-### <a name="properties"></a>propriedades
+### <a name="properties"></a>Propriedades
 
-| Type            | Nome de exibição | Nome do campo | Tipo de dados |
+| Tipo            | Nome de exibição | Nome do campo | Tipo de dados |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade de dispositivo | Número impresso   | dieNumber  | número    |
 | Propriedade de dispositivo | Localização do dispositivo   | location  | location    |
@@ -247,9 +247,9 @@ Configurações de alternância
 
 | Nome de exibição | Nome do campo | Tipo de retorno | Nome de exibição do campo de entrada | Nome do campo de entrada | Tipo de campo de entrada |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
-| Eco         | echo       | text        | valor a ser exibido         | disreproduçãovalue   | text             |
+| Eco         | echo       | texto        | valor a ser exibido         | disreproduçãovalue   | texto             |
 | Contagem regressiva    | Contagem regressiva  | número      | Contar de               | countFrom        | número           |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu como conectar um MXChip IoT DevKit ao seu aplicativo IoT Central do Azure, a próxima etapa sugerida é aprender como [configurar um modelo de dispositivo personalizado](howto-set-up-template.md) para seu próprio dispositivo IOT.

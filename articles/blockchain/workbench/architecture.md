@@ -6,16 +6,16 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 09/05/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: d50ee0fa06f34167cd4be9e787f6e351d3ef7e3b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 4613d441fd0d363654073d4832de19139a7781e7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845202"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579733"
 ---
 # <a name="azure-blockchain-workbench-preview-architecture"></a>Arquitetura de visualização do Azure Blockchain Workbench
 
@@ -99,7 +99,7 @@ Os eventos refletem as informações relevantes para indivíduos e sistemas. Por
 
 Por exemplo, o consumidor SQL monitora os eventos, consome e preenche o banco de dados do SQL com os valores incluídos. A cópia permite que a recriação de uma réplica dos dados em cadeia em um repositório fora de cadeia.
 
-## <a name="azure-sql-database"></a>Banco de dados SQL do Azure
+## <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
 
 O banco de dados SQL do Azure anexado ao Blockchain Workbench armazena as definições de contrato, metadados de configuração e uma réplica SQL acessível dos dados armazenados no blockchain. Esses dados poderão ser facilmente consultados, visualizados ou analisados acessando diretamente o banco de dados. Os desenvolvedores e outros usuários podem usar o banco de dados para relatórios, análise ou outras integrações centradas em dados. Por exemplo, os usuários podem visualizar dados de transações usando o Power BI.
 
@@ -113,7 +113,7 @@ Desde ordens de compra e documentos de embarque, a imagens usadas nas notícias 
 
 O Blockchain Workbench oferece suporte a capacidade de adicionar documentos ou outro conteúdo de mídia com a lógica de negócios blockchain. Um hash do documento ou conteúdo de mídia é armazenado no blockchain e o documento real ou conteúdo de mídia é armazenado no Armazenamento do Azure. As informações de transação associadas são entregues ao agente de mensagem de entrada, empacotadas, assinadas e roteadas para o blockchain. Esse processo aciona eventos que são compartilhados por meio do agente de mensagens de saída. O banco de dados SQL consome essas informações e as envia para o banco de dados para consultas posteriores. Os sistemas downstream também podem consumir esses eventos para agir conforme apropriado.
 
-## <a name="monitoring"></a>Monitorando
+## <a name="monitoring"></a>Monitoramento
 
 O Workbench fornece o log de aplicativo usando o Application Insights e o Azure Monitor. O Application Insights é usado para armazenar todas as informações registradas no Blockchain Workbench e inclui erros, avisos e operações bem-sucedidas. O Application Insights pode ser usado por desenvolvedores para depurar problemas com Blockchain Workbench. 
 

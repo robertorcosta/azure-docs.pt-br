@@ -1,5 +1,5 @@
 ---
-title: Usando o Gerenciador de Recuperação para corrigir problemas do mapa de fragmentos | Microsoft Docs
+title: Usando o Gerenciador de recuperação para corrigir problemas de mapa de fragmentos
 description: Use a classe RecoveryManager para resolver problemas com mapas de fragmentos
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: cbc4985f032c228db7a9ddf719390bbf2d0166b9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5920f0a3f08d83b1300956ca830b3b9b827fa5e2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568691"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690476"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Usando a classe RecoveryManager para corrigir problemas do mapa de fragmentos
 
@@ -42,7 +42,7 @@ O GSM e o LSM podem ficar fora de sincronia pelos seguintes motivos:
 
 Para saber mais sobre as ferramentas do Banco de dados elástico do Banco de dados SQL do Azure, a Restauração e a Replicação geográfica, consulte os artigos a seguir:
 
-* [Visão geral: Continuidade de negócios em nuvem e recuperação de desastre do banco de dados com o Banco de Dados SQL](sql-database-business-continuity.md)
+* [Visão geral: continuidade de negócios em nuvem e recuperação de desastre do banco de dados com o banco de dados SQL](sql-database-business-continuity.md)
 * [Comece com ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md)  
 * [Gerenciamento de ShardMap](sql-database-elastic-scale-shard-map-management.md)
 
@@ -76,7 +76,7 @@ Este exemplo remove fragmentos do mapa do fragmento.
    rm.DetachShard(s.Location, customerMap);
    ```
 
-O mapa de fragmento reflete a localização do fragmento no GSM antes de sua exclusão. Como o fragmento foi excluído, é pressuposto que isso foi intencional, e o intervalo de chaves de fragmentação não está mais em uso. Se esse não for o caso, você poderá executar a restauração pontual. para recuperar o fragmento de um ponto no tempo anterior. (Nesse caso, examine a seção a seguir para detectar inconsistências de fragmento.) Para recuperar, consulte [Recuperação pontual](sql-database-recovery-using-backups.md).
+O mapa de fragmento reflete a localização do fragmento no GSM antes de sua exclusão. Como o fragmento foi excluído, é pressuposto que isso foi intencional, e o intervalo de chaves de fragmentação não está mais em uso. Se esse não for o caso, você poderá executar a restauração pontual. para recuperar o fragmento de um ponto no tempo anterior. (Nesse caso, examine a seção a seguir para detectar inconsistências de fragmentos.) Para recuperar, consulte [recuperação pontual](sql-database-recovery-using-backups.md).
 
 Uma vez que é pressuposto que a exclusão do banco de dados foi intencional, a ação de limpeza administrativa final é excluir a entrada para o fragmento no gerenciador de mapas de fragmentos. Isso impede que o aplicativo grave informações inadvertidamente em um intervalo não esperado.
 

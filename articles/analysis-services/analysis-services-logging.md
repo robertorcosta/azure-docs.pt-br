@@ -1,18 +1,18 @@
 ---
 title: Log de diagnósticos do Azure Analysis Services | Microsoft Docs
-description: Saiba mais sobre como configurar o log de diagnósticos do Azure Analysis Services.
+description: Descreve como configurar o log de diagnóstico de recursos do Azure para monitorar seu servidor de Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a9684042a76c9c906a75334c319b4ca8ee0b727b
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b8ae2c529bebebae4ebc2d7b0b8a7e420fe9bcc7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298616"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572782"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar o log de diagnósticos
 
@@ -53,7 +53,7 @@ Selecionar **Mecanismo** registra todos [xEvents](https://docs.microsoft.com/ana
 |Processamento de consulta     |   Início de consulta direta      |
 |Processamento de consulta     |  Término de consulta direta       |
 
-### <a name="service"></a>Serviço
+### <a name="service"></a>O Barramento de
 
 |Nome da operação  |Ocorre quando  |
 |---------|---------|
@@ -164,7 +164,7 @@ No construtor de consultas, expanda **LogManagement** > **AzureDiagnostics**. O 
 
 #### <a name="example-1"></a>Exemplo 1
 
-A consulta a seguir retorna durações para cada evento end/atualizar end da consulta para um banco de dados modelo e um servidor. Se for expandido, os resultados serão divididos por réplica porque o número da réplica está incluído em ServerName_s. O agrupamento por RootActivityId_g reduz a contagem de linhas recuperadas da API REST Diagnóstico do Azure e ajuda a permanecer dentro dos limites, conforme descrito em [limites de taxa de log Analytics](https://dev.loganalytics.io/documentation/Using-the-API/Limits).
+A consulta a seguir retorna durações para cada evento end/atualizar end da consulta para um banco de dados modelo e um servidor. Se for expandido, os resultados serão divididos por réplica porque o número da réplica está incluído no ServerName_s. O agrupamento por RootActivityId_g reduz a contagem de linhas recuperadas da API REST Diagnóstico do Azure e ajuda a permanecer dentro dos limites, conforme descrito em [limites de taxa de log Analytics](https://dev.loganalytics.io/documentation/Using-the-API/Limits).
 
 ```Kusto
 let window = AzureDiagnostics
@@ -179,7 +179,7 @@ window
 
 #### <a name="example-2"></a>Exemplo 2
 
-A consulta a seguir retorna a memória e o consumo de QPU para um servidor. Se for expandido, os resultados serão divididos por réplica porque o número da réplica está incluído em ServerName_s.
+A consulta a seguir retorna a memória e o consumo de QPU para um servidor. Se for expandido, os resultados serão divididos por réplica porque o número da réplica está incluído no ServerName_s.
 
 ```Kusto
 let window = AzureDiagnostics

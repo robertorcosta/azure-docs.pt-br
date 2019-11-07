@@ -1,5 +1,5 @@
 ---
-title: Pools de instâncias do banco de dados SQL do Azure (visualização) | Microsoft Docs
+title: Pools de instâncias do banco de dados SQL do Azure (visualização)
 description: Este artigo descreve os pools da instância do banco de dados SQL do Azure (versão prévia).
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 34e779f04f59b23733c6fbfa3450931fccb442b1
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 7d8c316d5c78cfe09bcf134b5a5c513e1c007d74
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70294250"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689776"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>O que são os pools de instâncias do banco de dados SQL (versão prévia)?
 
@@ -31,7 +31,7 @@ Além disso, os pools de instância dão suporte à integração VNet nativa par
 
 Os pools de instância oferecem os seguintes benefícios:
 
-1. Capacidade de hospedar duas instâncias vCore. *Somente para instâncias em pools de instância. \**
+1. Capacidade de hospedar duas instâncias vCore. *\*apenas para instâncias em pools de instância*.
 2. Tempo de implantação previsível e de instância rápida (até 5 minutos).
 3. Alocação mínima de endereço IP.
 
@@ -59,7 +59,7 @@ A lista a seguir fornece os principais casos de uso em que os pools de instânci
 
 ## <a name="architecture-of-instance-pools"></a>Arquitetura de pools de instâncias
 
-Os pools de instância têm arquitetura semelhante a instâncias gerenciadas regulares (*instâncias únicas*). Para dar suporte a implantações [em redes virtuais do Azure (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) e fornecer isolamento e segurança para clientes, os pools de instância também dependem de [clusters virtuais](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Os clusters virtuais representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro da sub-rede da rede virtual do cliente.
+Os pools de instância têm arquitetura semelhante a instâncias gerenciadas regulares (*instâncias únicas*). Para dar suporte a [implantações nas redes virtuais do Azure (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) e fornecer isolamento e segurança para clientes, os pools de instância também dependem de [clusters virtuais](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Os clusters virtuais representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro da sub-rede da rede virtual do cliente.
 
 A principal diferença entre os dois modelos de implantação é que os pools de instância permitem várias implantações de processo de SQL Server no mesmo nó de máquina virtual, que são recursos controlados com o uso de [objetos de trabalho do Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), enquanto as instâncias únicas sempre são sozinhas um nó de máquina virtual.
 
@@ -112,7 +112,7 @@ Recursos opcionais ou recursos que exigem a escolha de valores específicos (com
 
 Embora as instâncias gerenciadas nos pools tenham vCore e RAM dedicados, elas compartilham o disco local (para uso de tempdb) e os recursos de rede. Não é provável, mas é possível experimentar o efeito *vizinho ruidosa* se várias instâncias no pool tiverem alto consumo de recursos ao mesmo tempo. Se você observar esse comportamento, considere implantar essas instâncias em um pool maior ou como instâncias únicas.
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
 Como as instâncias implantadas em um pool compartilham a mesma máquina virtual, convém considerar a desabilitação de recursos que introduzem riscos mais altos de segurança ou a controlar firmemente as permissões de acesso a esses recursos. Por exemplo, integração CLR, backup e restauração nativos, email de banco de dados, etc.
 
@@ -120,7 +120,7 @@ Como as instâncias implantadas em um pool compartilham a mesma máquina virtual
 
 Crie e gerencie solicitações de suporte para pools de instância no [portal do Azure](https://portal.azure.com).
 
-Se você estiver tendo problemas relacionados à implantação do pool de instâncias (criação ou exclusão), certifique-se de especificar pools de **instância** no campo subtipo de **problema** .
+Se você estiver tendo problemas relacionados à implantação do pool de instâncias (criação ou exclusão), certifique-se de especificar **pools de instância** no campo **subtipo de problema** .
 
 ![solicitação de suporte a pools de instâncias](./media/sql-database-instance-pools/support-request.png)
 
@@ -136,8 +136,8 @@ o preço vCore de um pool é cobrado independentemente de quantas instâncias s�
 
 Para o preço de computação (medido em vCores), há duas opções de preço disponíveis:
 
-  1. *Licença incluída*: Aplique licenças de SQL Server existentes com o Software Assurance.
-  2. *Benefício Híbrido do Azure*: Um preço reduzido que inclui Benefício Híbrido do Azure para SQL Server. Os clientes podem optar por esse preço usando suas licenças de SQL Server existentes com o Software Assurance. Para elegibilidade e outros detalhes, consulte [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
+  1. *Licença incluída*: aplicar licenças de SQL Server existentes com o Software Assurance.
+  2. *Benefício híbrido do Azure*: um preço reduzido que inclui Benefício Híbrido do Azure para SQL Server. Os clientes podem optar por esse preço usando suas licenças de SQL Server existentes com o Software Assurance. Para elegibilidade e outros detalhes, consulte [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 A definição de diferentes opções de preço não é possível para instâncias individuais em um pool. Todas as instâncias no pool pai devem estar no preço ou Benefício Híbrido do Azure preço incluído na licença. O modelo de licença para o pool pode ser alterado após a criação do pool.
 
@@ -146,7 +146,7 @@ A definição de diferentes opções de preço não é possível para instância
 
 Se você criar pools de instância em [assinaturas qualificadas para o benefício de desenvolvimento/teste](https://azure.microsoft.com/pricing/dev-test/), receberá automaticamente taxas com desconto de até 55% na instância gerenciada do SQL do Azure.
 
-Para obter detalhes completos sobre o preço do pool de instâncias, consulte a seção pools de *instâncias* na [página de preços da instância gerenciada](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+Para obter detalhes completos sobre o preço do pool de instâncias, consulte a seção *pools de instâncias* na [página de preços da instância gerenciada](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

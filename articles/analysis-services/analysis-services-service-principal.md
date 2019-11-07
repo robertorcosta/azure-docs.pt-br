@@ -1,18 +1,18 @@
 ---
-title: Automatize as tarefas do Azure Analysis Services com entidades de serviço | Microsoft Docs
-description: Saiba como criar entidades de serviço para automatizar tarefas do Azure Analysis Services.
+title: Automatizar tarefas de Azure Analysis Services com entidades de serviço | Microsoft Docs
+description: Saiba como criar uma entidade de serviço para automatizar Azure Analysis Services tarefas administrativas.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a590590faa422d47306e697a7c90bb635ea8c6e9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5078fcc1ba5c581aca475025b286d0319d6024a6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146368"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572597"
 ---
 # <a name="automation-with-service-principals"></a>Automação com entidades de serviço
 
@@ -48,7 +48,7 @@ AppID de entidade de serviço e senha ou certificado podem ser usados em cadeias
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />usando o módulo AZ. AnalysisServices
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a>módulo <a name="azmodule" />Using AZ. AnalysisServices
 
 Ao usar uma entidade de serviço para operações de gerenciamento de recursos com o módulo [AZ. AnalysisServices](/powershell/module/az.analysisservices) , use `Connect-AzAccount` cmdlet. 
 
@@ -108,6 +108,6 @@ tbl.RequestRefresh(RefreshType.Full);
 db.Model.SaveChanges();
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Entrar com o Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
 [Adicionar uma entidade de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)   

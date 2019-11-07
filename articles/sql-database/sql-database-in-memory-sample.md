@@ -1,5 +1,5 @@
 ---
-title: Exemplo de In-Memory do Banco de Dados SQL do Azure | Microsoft Docs
+title: Exemplo na memória do banco de dados SQL do Azure
 description: Experimente o Banco de Dados SQL do Azure de tecnologias In-Memory com OLTP e exemplo de columnstore.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: e3e819fc90e8900219ebc7809adb293369084a72
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8526236afdb0a312879cb3c1635a7fd85985278f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828203"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689827"
 ---
 # <a name="in-memory-sample"></a>Exemplo de In-Memory
 
@@ -34,7 +34,7 @@ Para obter mais informações, consulte:
 
 &nbsp;
 
-## <a name="1-install-the-in-memory-oltp-sample"></a>1. Instalar o exemplo de OLTP Na Memória.
+## <a name="1-install-the-in-memory-oltp-sample"></a>1. instalar o exemplo de OLTP na memória
 
 Você pode criar o banco de dados de exemplo AdventureWorksLT com alguns cliques no [Portal do Azure](https://portal.azure.com/). Em seguida, as etapas desta seção explicam como você pode aprimorar seu banco de dados AdventureWorksLT com objetos OLTP in-memory e demonstram os benefícios de desempenho.
 
@@ -78,7 +78,7 @@ Um resultado **0** significa que não há suporte para In-Memory e **1** signifi
 
 #### <a name="about-the-created-memory-optimized-items"></a>Sobre os itens criados com otimização de memória
 
-**Tabelas**: O exemplo contém as seguintes tabelas com otimização de memória:
+**Tabelas**: o exemplo contém as seguintes tabelas com otimização de memória:
 
 - SalesLT.Product_inmem
 - SalesLT.SalesOrderHeader_inmem
@@ -100,7 +100,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 ```
 
 
-**Procedimentos armazenados compilados nativamente**: Você pode inspecionar SalesLT.usp_InsertSalesOrder_inmem por meio de uma consulta de exibição de catálogo:
+**Procedimento armazenado compilado nativamente**: você pode inspecionar SalesLT.usp_InsertSalesOrder_inmem por meio de uma consulta de exibição de catálogo:
 
 
 ```sql
@@ -262,7 +262,7 @@ Os testes In-Memory mostraram uma melhoria de desempenho de **nove vezes** para 
 
 &nbsp;
 
-## <a name="2-install-the-in-memory-analytics-sample"></a>2. Instalar o exemplo de Análise Na Memória
+## <a name="2-install-the-in-memory-analytics-sample"></a>2. instalar o exemplo de análise na memória
 
 
 Nesta seção, você vai comparar os resultados de E/S e de estatísticas ao usar um índice columnstore versus um índice b-tree tradicional.
@@ -382,7 +382,7 @@ Em um banco de dados com o tipo de preço P2, você pode esperar um ganho de des
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Início Rápido 1: Tecnologias OLTP In-Memory para um desempenho mais rápido do T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Início rápido 1: tecnologias OLTP em memória para um desempenho mais rápido do T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
 
 - [Usar o OLTP In-Memory em um aplicativo existente do SQL Azure](sql-database-in-memory-oltp-migration.md)
 
@@ -417,4 +417,4 @@ Em um banco de dados com o tipo de preço P2, você pode esperar um ganho de des
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
-- [SSDT (Ferramentas de Dados do SQL Server)](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SSDT - Ferramentas de Dados do SQL Server](https://msdn.microsoft.com/library/mt204009.aspx)
