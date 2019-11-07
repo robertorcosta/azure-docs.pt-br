@@ -1,5 +1,5 @@
 ---
-title: Tutorial de SaaS multilocatário- Banco de Dados SQL do Azure | Microsoft Docs
+title: Tutorial de SaaS de vários locatários-banco de dados SQL do Azure
 description: Provisionar e catalogar novos locatários usando o padrão de aplicativo autônomo
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/24/2018
-ms.openlocfilehash: f9087ff33bccb54497ec8d781a47469553683d65
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: de1007aac3988f2ea78b9d1b7b1de19b862f196a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570270"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691941"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Provisionar e catalogar novos locatários usando o padrão de aplicativo autônomo
 
@@ -76,7 +76,7 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 
 ## <a name="provision-the-catalog"></a>Provisionar o catálogo
 
-Nesta tarefa, você aprenderá como provisionar o catálogo usado para registrar todos os bancos de dados de locatário. Você vai: 
+Nesta tarefa, você aprenderá como provisionar o catálogo usado para registrar todos os bancos de dados de locatário. Você irá: 
 
 * **Provisionar o banco de dados do catálogo** usando um modelo de gerenciamento de recursos do Azure. O banco de dados é inicializado, importando um arquivo bacpac.  
 * **Registre os aplicativos de locatário de exemplo** que você implantou anteriormente.  Cada locatário é registrado usando uma chave construída a partir de um hash do nome do locatário.  O nome do locatário também é armazenado em uma tabela de extensão no catálogo.
@@ -98,7 +98,7 @@ Quando o script for concluído, o catálogo existirá e todos os locatários de 
 Agora, analise os recursos que você criou.
 
 1. Abra o [Portal do Azure](https://portal.azure.com/) e navegue pelos grupos de recursos.  Abra o grupo de recursos **wingtip-sa-catalog-\<do usuário \>** anote o servidor de catálogo e o banco de dados.
-1. Abra o banco de dados no portal e selecione *Data Explorer* no menu à esquerda.  Clique no comando de logon e insira a senha = **P\@ssword1**.
+1. Abra o banco de dados no portal e selecione *Data Explorer* no menu à esquerda.  Clique no comando de logon e digite a senha = **P\@ssword1**.
 
 
 1. Explore o esquema do banco de dados *tenantcatalog*.  
@@ -115,7 +115,7 @@ Agora, analise os recursos que você criou.
 
 ## <a name="provision-a-new-tenant-application"></a>Provisionar uma nova solicitação de aplicativo de locatário
 
-Nesta tarefa, você aprenderá como provisionar um aplicativo de locatário único. Você vai:  
+Nesta tarefa, você aprenderá como provisionar um aplicativo de locatário único. Você irá:  
 
 * **Criar um novo grupo de recursos** para o locatário. 
 * **Provisione o aplicativo e o banco de dados** no novo grupo de recursos, utilizando um modelo de gerenciamento de recursos do Azure.  Esta ação inclui a inicialização do banco de dados com dados de referência e esquema comuns, importando um arquivo bacpac. 

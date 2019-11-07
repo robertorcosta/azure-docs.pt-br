@@ -1,5 +1,5 @@
 ---
-title: Analisar sua carga de trabalho no Azure SQL Data Warehouse | Microsoft Docs
+title: Analisar sua carga de trabalho
 description: Técnicas para analisar a priorização de consulta para sua carga de trabalho no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,12 +10,13 @@ ms.subservice: workload-management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 54652ba573fb2ec2d064b7a85ad5728b73e71db3
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 14e53c1ebe63fac0f7c8e29f66ee5aa0cb3b9526
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588742"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693121"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analisar sua carga de trabalho no Azure SQL Data Warehouse
 
@@ -23,7 +24,7 @@ Técnicas para analisar sua carga de trabalho no Azure SQL Data Warehouse.
 
 ## <a name="resource-classes"></a>Classes de recursos
 
-SQL Data Warehouse fornece classes de recursos para atribuir recursos de sistema para consultas.  Para obter mais informações sobre classes de recursos, consulte [gerenciamento de carga de trabalho e classes de recursos](resource-classes-for-workload-management.md).  Consultas aguardará se a classe de recursos atribuída a uma consulta precisa de mais recursos que estão disponíveis no momento.
+SQL Data Warehouse fornece classes de recurso para atribuir recursos do sistema a consultas.  Para obter mais informações sobre classes de recursos, consulte [classes de recursos & gerenciamento de carga de trabalho](resource-classes-for-workload-management.md).  As consultas aguardarão se a classe de recurso atribuída a uma consulta precisar de mais recursos do que o disponível no momento.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Detecção de consulta enfileirada e outros DMVs
 
@@ -64,10 +65,10 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 
 O SQL Data Warehouse tem os seguintes tipos de espera:
 
-* **LocalQueriesConcurrencyResourceType**: Consultas que ficam fora da estrutura de slot de simultaneidade. Consultas DMV e funções de sistema, como `SELECT @@VERSION` , são exemplos de consultas de locais.
-* **UserConcurrencyResourceType**: Consultas que ficam dentro da estrutura de slot de simultaneidade. Consultas em tabelas do usuário final representam exemplos que usariam esse tipo de recurso.
-* **DmsConcurrencyResourceType**: Esperas resultantes de operações de movimentação de dados.
-* **BackupConcurrencyResourceType**: Essa espera indica que o backup de um banco de dados está sendo realizado. O valor máximo para esse tipo de recurso é 1. Se vários backups forem solicitados ao mesmo tempo, os outros serão colocados em fila. Em geral, é recomendável um tempo mínimo entre instantâneos consecutivos de 10 minutos. 
+* **LocalQueriesConcurrencyResourceType**: consultas que ficam fora da estrutura de slot de simultaneidade. Consultas DMV e funções de sistema, como `SELECT @@VERSION` , são exemplos de consultas de locais.
+* **UserConcurrencyResourceType**: consultas que ficam dentro da estrutura de slot de simultaneidade. Consultas em tabelas do usuário final representam exemplos que usariam esse tipo de recurso.
+* **DmsConcurrencyResourceType**: esperas resultantes de operações de movimentação de dados.
+* **BackupConcurrencyResourceType**: essa espera indica que está sendo feito backup de um banco de dados. O valor máximo para esse tipo de recurso é 1. Se vários backups forem solicitados ao mesmo tempo, os outros serão colocados em fila. Em geral, recomendamos um tempo mínimo entre os instantâneos consecutivos de 10 minutos. 
 
 O DMV `sys.dm_pdw_waits` pode ser usado para ver quais recursos uma solicitação está aguardando.
 
@@ -106,7 +107,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-O `sys.dm_pdw_resource_waits` DMV mostra as informações de espera para uma determinada consulta. Recurso tempo de espera medidas de tempo o aguardar recursos para ser fornecido. Tempo de espera de sinal é o tempo necessário para o SQL Server subjacente agendar a consulta para a CPU.
+A DMV `sys.dm_pdw_resource_waits` mostra as informações de espera de uma determinada consulta. O tempo de espera do recurso mede o tempo aguardando que os recursos sejam fornecidos. O tempo de espera do sinal é o tempo que leva para os SQL Servers subjacentes agendarem a consulta na CPU.
 
 ```sql
 SELECT  [session_id]

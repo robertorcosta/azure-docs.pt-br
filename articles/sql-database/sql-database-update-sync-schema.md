@@ -1,5 +1,5 @@
 ---
-title: Automatize a replicação de alterações de esquema no Azure SQL Data Sync | Microsoft Docs
+title: Automatize a replicação de alterações de esquema no Azure SQL Data Sync
 description: Saiba como automatizar a replicação das alterações de esquema na sincronização de dados do SQL Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 11/14/2018
-ms.openlocfilehash: b1c3f49808a59576f02178dee1107b4019e34b5e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 01cc82a2ada1f4ac8f26b223b7168b2cca157793
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566258"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686871"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatize a replicação de alterações de esquema no Azure SQL Data Sync
 
@@ -31,7 +31,7 @@ Este artigo apresenta uma solução para replicar automaticamente as alteraçõe
 Este artigo usa ALTER TABLE como um exemplo de uma alteração de esquema, mas essa solução também funciona para outros tipos de alterações de esquema.
 
 > [!IMPORTANT]
-> É recomendável que você leia este artigo com cuidado, especialmente as seções sobre [solução de problemas](#troubleshoot) e [outras considerações](#other), antes de começar a implementar a replicação de alteração de esquema automatizada em seu ambiente de sincronização. Também recomendamos que você leia [ Sincronizar dados em vários bancos de dados locais e na nuvem com o SQL Data Sync ](sql-database-sync-data.md). Algumas operações de banco de dados podem quebrar a solução descrita neste artigo. Conhecimento de domínio adicional do SQL Server e Transact-SQL talvez seja necessário para solucionar esses problemas.
+> É recomendável que você leia este artigo com cuidado, especialmente as seções sobre [solução de problemas](#troubleshoot) e [outras considerações](#other), antes de começar a implementar a replicação de alteração de esquema automatizada em seu ambiente de sincronização. Também recomendamos que você leia [dados de sincronização em vários bancos de dados locais e de nuvem com sincronização de dados SQL](sql-database-sync-data.md). Algumas operações de banco de dados podem interromper a solução descrita neste artigo. Conhecimento de domínio adicional do SQL Server e Transact-SQL talvez seja necessário para solucionar esses problemas.
 
 ![Automatizar a replicação de alterações de esquema](media/sql-database-update-sync-schema/automate-schema-changes.png)
 
@@ -223,7 +223,7 @@ Para saber mais sobre a Sincronização de Dados SQL, veja:
 
 -   Visão geral - [Sincronize dados em vários bancos de dados locais e na nuvem com o Azure SQL Data Sync](sql-database-sync-data.md)
 -   Configurar sincronização de dados
-    - No portal - [Tutorial: Configurar sincronização de dados SQL para sincronizar dados entre o banco de dados SQL do Azure e SQL Server local](sql-database-get-started-sql-data-sync.md)
+    - No portal - [Tutorial: configure o SQL Data Sync para sincronizar dados entre o Banco de Dados SQL do Azure e o SQL Server local](sql-database-get-started-sql-data-sync.md)
     - Com o PowerShell
         -  [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)

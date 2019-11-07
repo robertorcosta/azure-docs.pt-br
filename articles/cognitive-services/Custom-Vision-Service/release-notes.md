@@ -1,6 +1,7 @@
 ---
 title: Notas de versão – Serviço de Visão Personalizada
 titleSuffix: Azure Cognitive Services
+description: Obtenha as informações mais recentes sobre novas versões da equipe de Visão Personalizada.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -9,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 79f3f2a5545b8cdcee86e52f35bd22a31e93d387
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b9606c63ec7b53fb0b69918c21bdd9206f34c555
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564089"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647568"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notas de versão do Serviço de Visão Personalizada
 
@@ -53,7 +54,7 @@ ms.locfileid: "68564089"
 
 ## <a name="january-22-2019"></a>22 janeiro de 2019
 
-- Suporte adicionado para novas regiões do Azure: Oeste dos EUA 2, Leste dos EUA, Leste dos EUA 2, Europa Ocidental, Norte da Europa, Sudeste Asiático, Leste da Austrália, Índia Central, Sul do Reino Unido, Leste do Japão e Centro-Norte dos EUA. O suporte continua para o Centro-Sul dos EUA.
+- Suporte adicionado para novas regiões do Azure: oeste dos EUA 2, leste dos EUA, leste dos EUA 2, Europa Ocidental, Europa Setentrional, Sudeste Asiático, leste da Austrália, Índia central, Sul do Reino Unido, leste do Japão e EUA Central do Norte. O suporte continua para o Centro-Sul dos EUA.
 
 ## <a name="december-12-2018"></a>12 de dezembro de 2018
 
@@ -70,7 +71,7 @@ ms.locfileid: "68564089"
 ## <a name="october-9-2018"></a>9 de outubro de 2018
 
 - A Detecção de Objetos entra em visualização paga. Agora você pode criar projetos da Detecção de Objetos com um recurso do Azure.
-- Adicionado ao site o recurso "Mover para o Azure", a fim de facilitar a atualização de um projeto de Avaliação Limitada para vincular-se a um Azure. projeto de recursos vinculados (F0 ou S0.) Você pode encontrar isso na página de configurações do seu produto.  
+- Adicionado ao site o recurso "Mover para o Azure", a fim de facilitar a atualização de um projeto de Avaliação Limitada para vincular-se a um Azure. projeto vinculado de recursos (F0 ou S0) Você pode encontrá-lo na página Configurações do seu produto.  
 - Adicionada a exportação para ONNX 1.2, para dar suporte à versão de atualização de outubro de 2018 da ML do Windows.
 Correções de bugs, incluindo para ONNX a exportação com caracteres especiais.
 
@@ -107,7 +108,7 @@ Correções de bugs, incluindo para ONNX a exportação com caracteres especiais
 
 ## <a name="december-19-2017"></a>19 de dezembro de 2017
 
-- Adicionada a exportação para o Android (TensorFlow), além de uma exportação lançada anteriormente para iOS (CoreML). Isso permite a exportação de um modelo compacto treinado para ser executado offline em um aplicativo.
+- Exportação para Android (TensorFlow) adicionada, além da exportação lançada anteriormente para iOS (do coreml.) Isso permite que a exportação de um modelo compacto treinado seja executada offline em um aplicativo.
 - Adicionados os domínios “compactos” Varejo e Ponto de referência para habilitar a exportação de modelo para esses domínios.
 - Lançamento das versões [API de Treinamento 1.2](https://southcentralus.dev.cognitive.microsoft.com/docs/services/f2d62aa3b93843d79e948fe87fa89554/operations/5a3044ee08fa5e06b890f11f) e [API de Previsão 1.1](https://southcentralus.dev.cognitive.microsoft.com/docs/services/57982f59b5964e36841e22dfbfe78fc1/operations/5a3044f608fa5e06b890f164). As APIs atualizadas oferecem suporte à exportação de modelo, uma nova operação de Previsão que não salva as imagens em “Previsões” e introdução das operações em lote para a API de Treinamento.
 - Ajustes de experiência do usuário, incluindo a capacidade de ver qual domínio foi usado para treinar uma iteração.

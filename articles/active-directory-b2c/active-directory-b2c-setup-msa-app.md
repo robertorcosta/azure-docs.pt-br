@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 134ca92671a41eb53201101a3622215466a60c09
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a921d6110fd0294012e2e59542ba2c82d63ffcde
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065106"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73642070"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta da Microsoft usando o Azure Active Directory B2C
 
@@ -30,8 +30,8 @@ Para usar um conta Microsoft como um [provedor de identidade](active-directory-b
 1. Insira um **Nome** para seu aplicativo. Por exemplo, *MSAapp1*.
 1. Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** . Essa opção visa o conjunto mais amplo de identidades da Microsoft.
 
-   Para obter mais informações sobre as diferentes seleções de tipo de conta [, consulte início rápido: Registre um aplicativo com a plataforma](../active-directory/develop/quickstart-register-app.md)de identidade da Microsoft.
-1. Em **URI de redirecionamento (opcional)** , selecione `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` **Web** e insira na caixa de texto. Substitua `your-tenant-name` pelo nome do locatário do Azure ad B2C.
+   Para obter mais informações sobre as diferentes seleções de tipo de conta, consulte [início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft](../active-directory/develop/quickstart-register-app.md).
+1. Em **URI de redirecionamento (opcional)** , selecione **Web** e insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` na caixa de texto. Substitua `your-tenant-name` pelo nome do locatário do Azure AD B2C.
 1. Selecionar **registro**
 1. Registre a **ID do aplicativo (cliente)** mostrada na página Visão geral do aplicativo. Você precisará disso quando configurar o provedor de identidade na próxima seção.
 1. Selecionar **certificados & segredos**
@@ -48,4 +48,4 @@ Para usar um conta Microsoft como um [provedor de identidade](active-directory-b
 1. Insira um **Nome**. Por exemplo, *MSA*.
 1. Para a **ID do cliente**, insira a ID do aplicativo (cliente) do aplicativo do Azure AD que você criou anteriormente.
 1. Para o **segredo do cliente**, insira o segredo do cliente que você registrou.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.

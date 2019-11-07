@@ -1,5 +1,5 @@
 ---
-title: Conectar-se ao sqlcmd do SQL Data Warehouse do Azure | Microsoft Docs
+title: Conectar-se com o sqlcmd
 description: Use o utilitário de linha de comando sqlcmd para conectar-se ao SQL Data Warehouse do Azure e fazer uma consulta.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f3b93660fb9f8f3b0bfdddc37105b9e998ed9eee
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: e4b432e0be0cdded5089965b9d272aa82e31bd36
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479498"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685743"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Conecte-se ao SQL Data Warehouse com sqlcmd
 > [!div class="op_single_selector"]
@@ -29,12 +30,12 @@ ms.locfileid: "68479498"
 
 Use o utilitário de linha de comando [sqlcmd][sqlcmd] para se conectar e consultar um SQL data warehouse do Azure.  
 
-## <a name="1-connect"></a>1. Conectar
+## <a name="1-connect"></a>1. conectar
 Para começar com o [sqlcmd][sqlcmd], abra o prompt de comando e digite **sqlcmd** seguido da cadeia de conexão do banco de dados SQL Data Warehouse. A cadeia de conexão precisará dos seguintes parâmetros:
 
-* **Servidor (-S):** servidor no formato `<`Nome do Servidor`>`.database.windows.net
+* **Servidor (-S):** Servidor no formato `<`Nome do Servidor`>`.database.windows.net
 * **Banco de dados (-d):** nome do banco de dados.
-* **Habilitar identificadores entre aspas (-I):** os identificadores entre aspas devem ser habilitados para conectarem uma instância do SQL Data Warehouse.
+* **Habilitar Identificadores com Cotas (-I):** os identificadores com cotas devem ser habilitados para conectarem uma instância do SQL Data Warehouse.
 
 Para usar a Autenticação do SQL Server, você precisa adicionar os parâmetros do nome de usuário/senha:
 
@@ -62,7 +63,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > 
 > 
 
-## <a name="2-query"></a>2. Consulta
+## <a name="2-query"></a>2. consulta
 Após a conexão, você pode executar quaisquer instruções Transact-SQL compatíveis com a instância.  Neste exemplo, as consultas são enviadas no modo interativo.
 
 ```sql

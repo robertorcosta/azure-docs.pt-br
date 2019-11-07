@@ -1,5 +1,5 @@
 ---
-title: Configurar recuperação de desastre para uma implantação do Dynamics AX de várias camada usando o Azure Site Recovery | Microsoft Docs
+title: Recuperação de desastre para uma implantação de várias camadas do Dynamics AX com o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como configurar a recuperação de desastres para o Dynamics AX com o Azure Site Recovery
 author: asgang
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: b97bf56c23dfa96acf7cb5af5ac28b4270de117d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b8aaff3a3418177f92c3b54fb3bb3e99f93810e
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61281380"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620749"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurar a recuperação de desastre para um aplicativo do Dynamics AX de várias camadas   
 
@@ -53,7 +53,7 @@ Para a finalidade de criação deste artigo, usamos as máquinas virtuais do VMw
 ### <a name="protect-your-dynamics-ax-application"></a>Proteger o aplicativo Dynamics AX
 Para habilitar a replicação e a recuperação completas do aplicativo, cada componente do Dynamics AX deve ser protegido.
 
-### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Configurar o Active Directory e a replicação do DNS
+### <a name="1-set-up-active-directory-and-dns-replication"></a>1. configurar Active Directory e replicação de DNS
 
 O Active Directory é necessário no site de recuperação de desastre para que o aplicativo Dynamics AX funcione. Recomendamos as duas opções a seguir, de acordo com a complexidade do ambiente local do cliente.
 
@@ -67,10 +67,10 @@ O cliente tem um grande número de aplicativos e executa uma floresta do Active 
 
  Para obter mais informações, consulte [Disponibilizar um controlador de domínio em um site de recuperação de desastre](site-recovery-active-directory.md). Para o restante deste documento, vamos pressupor que um controlador de domínio esteja disponível no site de recuperação de desastre.
 
-### <a name="2-set-up-sql-server-replication"></a>2. Configurar a replicação do SQL Server
+### <a name="2-set-up-sql-server-replication"></a>2. configurar a replicação do SQL Server
 Para obter diretrizes técnicas sobre a opção recomendada para proteger a camada do SQL, consulte [Replicar aplicativos com o SQL Server e o Azure Site Recovery](site-recovery-sql.md).
 
-### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. Habilitar a proteção para o cliente do Dynamics AX e as VMs do Servidor de Objetos de Aplicativo
+### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. habilitar a proteção para as VMs do cliente do Dynamics AX e do servidor de objetos de aplicativo
 Execute a configuração relevante do Site Recovery de acordo com se as VMs são implantadas no [Hyper-V](site-recovery-hyper-v-site-to-azure.md) ou no [VMware](site-recovery-vmware-to-azure.md).
 
 > [!TIP]
@@ -81,7 +81,7 @@ O instantâneo a seguir mostra o status de proteção de VMs de componentes do D
 
 ![Itens protegidos](./media/site-recovery-dynamics-ax/protecteditems.png)
 
-### <a name="4-configure-networking"></a>4. Configurar a rede
+### <a name="4-configure-networking"></a>4. configurar a rede
 **Definir as configurações de rede e de computação da VM**
 
 Para o cliente do Dynamics AX e as VMs do Servidor de Objetos de Aplicativo, defina as configurações de rede no Site Recovery, de modo que as redes VM sejam anexadas à rede de recuperação de desastre correta após o failover. Garanta que a rede de recuperação de desastre para essas camadas seja roteável para a camada do SQL.
@@ -95,7 +95,7 @@ Você pode selecionar a VM nos itens replicados para definir as configurações 
     ![Configurações de rede](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
-### <a name="5-create-a-recovery-plan"></a>5. Criar um plano de recuperação
+### <a name="5-create-a-recovery-plan"></a>5. criar um plano de recuperação
 
 Crie um plano de recuperação no Site Recovery para automatizar o processo de failover. Adicione uma camada de aplicativos e uma camada da Web ao plano de recuperação. Ordene-as em grupos diferentes, de modo que o front-end seja desligado antes da camada de aplicativos.
 
@@ -105,7 +105,7 @@ Crie um plano de recuperação no Site Recovery para automatizar o processo de f
 
 3. Selecione a **Origem** e o **Destino**. O destino pode ser o Azure ou um site secundário. Caso você escolha o Azure, deverá especificar o modelo de implantação.
 
-    ![Criar Plano de Recuperação](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
+    ![Criar plano de recuperação](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
 
 4. Selecione o Servidor de Objetos de Aplicativo e as VMs do cliente para o plano de recuperação e selecione o ✓.
 
@@ -118,15 +118,15 @@ Crie um plano de recuperação no Site Recovery para automatizar o processo de f
 Personalize o plano de recuperação para o aplicativo Dynamics AX adicionando as etapas a seguir. O instantâneo anterior mostra o plano de recuperação completo depois de adicionar todas as etapas.
 
 
-* **Etapas de failover do SQL Server**: Para obter informações sobre as etapas de recuperação específicas para SQL server, consulte [Aplicativos de replicação com SQL Server e Azure Site Recovery](site-recovery-sql.md).
+* **Etapas de failover do SQL Server**: para obter informações sobre as etapas de recuperação específicas ao SQL server, consulte [Aplicativos de replicação com o SQL Server e o Azure Site Recovery](site-recovery-sql.md).
 
-* **Grupo de failover 1**: Fazer failover de VMs do Servidor de Objetos de Aplicativo.
+* **Grupo de Failover 1**: faça failover das VMs do Servidor de Objetos de Aplicativo.
 Verifique se o ponto de recuperação selecionado está tão próximo quanto possível do PIT do banco de dados, mas não à frente dele.
 
-* **Script**: Adicione balanceador de carga (somente E-A).
+* **Script**: adicione o balanceador de carga (somente E-A).
 Adicione um script (por meio da Automação do Azure) depois que o grupo de VMs do Servidor de Objetos de Aplicativo for exibido para adicionar um balanceador de carga a ele. Você pode usar um script para realizar essa tarefa. Para obter mais informações, consulte [Como adicionar um balanceador de carga para a recuperação de desastre de aplicativos de várias camadas](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/).
 
-* **Grupo de failover 2**: Fazer failover de VMs do cliente do Dynamics AX. Faça failover das VMs da camada da Web como parte do plano de recuperação.
+* **Grupo de Failover 2**: faça failover das VMs cliente do Dynamics AX. Faça failover das VMs da camada da Web como parte do plano de recuperação.
 
 
 ### <a name="perform-a-test-failover"></a>Executar um failover de teste

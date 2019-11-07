@@ -1,5 +1,5 @@
 ---
-title: Personalizando a política de proteção de informações SQL na Central de Segurança do Azure | Microsoft Docs
+title: Personalizar a proteção de informações do SQL – central de segurança do Azure
 description: Aprenda a personalizar as políticas de proteção de informações na Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: f9b161bbb692c1336083640250b93f9d87f1e0d9
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
-ms.translationtype: HT
+ms.openlocfilehash: d37333c0ca3f8acab7a35c23bbab67beef056b72
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520799"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664383"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizar a política de proteção de informações do SQL na Central de Segurança do Azure (Visualizar)
  
-Uma política de proteção de informações do SQL pode ser definida e personalizada para todo o seu locatário do Azure, na Central de Segurança do Azure.
+Você pode definir e personalizar uma política de proteção de informações do SQL para todo o seu locatário do Azure, na central de segurança do Azure.
 
-A proteção de informações é um recurso de segurança avançado para descobrir, classificar, rotular e proteger dados confidenciais em seus recursos de dados do Azure. Descobrir e classificar seus dados mais confidenciais (negócios, financeiros, de saúde, dados pessoais etc.) pode desempenhar uma função dinâmica em sua estatura de proteção de informações organizacionais. Pode servir como infraestrutura para:
+A proteção de informações é uma funcionalidade de segurança avançada para descobrir, classificar, rotular e proteger dados confidenciais em seus recursos de dados do Azure. Descobrir e classificar seus dados mais confidenciais (negócios, financeiros, de saúde, dados pessoais etc.) pode desempenhar uma função dinâmica em sua estatura de proteção de informações organizacionais. Pode servir como infraestrutura para:
 - Ajudando a atender aos padrões de privacidade de dados e requisitos de conformidade regulamentar
-- Vários cenários de segurança, como monitoramento (auditoria) e alerta sobre acesso anômalo a dados confidenciais
+- Cenários de segurança, como monitoramento (auditoria) e alertas de acesso anormal a dados confidenciais
 - Controlando o acesso e fortalecendo a segurança dos armazenamentos de dados que contêm dados altamente confidenciais
  
-[A Proteção de Informações SQL](../sql-database/sql-database-data-discovery-and-classification.md) implementa esse paradigma para seus armazenamentos de dados SQL, atualmente suportados pelo Banco de Dados SQL do Azure. O SQL Information Protection descobre e classifica automaticamente dados potencialmente confidenciais, fornece um mecanismo de rotulagem para marcar persistentemente os dados confidenciais com atributos de classificação e fornece um painel detalhado mostrando o estado de classificação do banco de dados. Além disso, calcula a sensibilidade do conjunto de resultados das consultas SQL, para que as consultas que extraem dados confidenciais possam ser explicitamente auditadas e os dados possam ser protegidos. Para obter mais detalhes sobre o SQL Information Protection, consulte [Descoberta e Classificação de Dados do Banco de Dados SQL do Azure](../sql-database/sql-database-data-discovery-and-classification.md).
+[A Proteção de Informações SQL](../sql-database/sql-database-data-discovery-and-classification.md) implementa esse paradigma para seus armazenamentos de dados SQL, atualmente suportados pelo Banco de Dados SQL do Azure. O SQL Information Protection descobre e classifica automaticamente dados potencialmente confidenciais, fornece um mecanismo de rotulagem para marcar persistentemente os dados confidenciais com atributos de classificação e fornece um painel detalhado mostrando o estado de classificação do banco de dados. Além disso, calcula a sensibilidade do conjunto de resultados das consultas SQL, para que as consultas que extraem dados confidenciais possam ser explicitamente auditadas e os dados possam ser protegidos. Para obter mais informações sobre a proteção de informações do SQL, consulte [classificação e descoberta de dados do banco de dados SQL do Azure](../sql-database/sql-database-data-discovery-and-classification.md).
  
 O mecanismo de classificação é baseado em duas construções principais que compõem a taxonomia de classificação - **Labels** e **Information Types**.
 - **Labels** - Os principais atributos de classificação, usados para definir o nível de sensibilidade dos dados armazenados na coluna. 
 - **Tipos de informações** – fornece uma granularidade adicional para o tipo de dados armazenados na coluna.
  
-A Proteção de Informações vem com um conjunto integrado de rótulos e tipos de informações, que são usados por padrão. Para personalizá-los, você pode personalizar a política de proteção de informações na Central de Segurança do Azure.
+A Proteção de Informações vem com um conjunto integrado de rótulos e tipos de informações, que são usados por padrão. Para personalizar esses rótulos e tipos, você pode personalizar a política de proteção de informações na central de segurança.
  
 ## <a name="customize-the-information-protection-policy"></a>Personalizar a política de proteção de informações
 Para personalizar a política de proteção de informações do seu locatário do Azure, você precisa ter [privilégios administrativos no grupo de gerenciamento de raiz do locatário](security-center-management-groups.md). 

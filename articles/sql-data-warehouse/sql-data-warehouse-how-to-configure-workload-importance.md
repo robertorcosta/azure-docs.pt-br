@@ -1,6 +1,6 @@
 ---
-title: Configure a importância de carga de trabalho no Azure SQL Data Warehouse | Microsoft Docs
-description: Saiba como definir a prioridade de nível de solicitação.
+title: Configurar a importância da carga de trabalho
+description: Saiba como definir a importância do nível de solicitação.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -10,26 +10,27 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e4d410f32068b4d3035dcab0c61b7b9205103690
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 59ba4b936f6098b0d0b3f5e571f107af088206e0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588673"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692701"
 ---
-# <a name="configure-workload-importance-in-azure-sql-data-warehouse"></a>Configure a importância de carga de trabalho no Azure SQL Data Warehouse
+# <a name="configure-workload-importance-in-azure-sql-data-warehouse"></a>Configurar a importância da carga de trabalho no Azure SQL Data Warehouse
 
-Defina a importância no SQL Data Warehouse permite que você influenciam o agendamento de consultas. Consultas com importância mais alta serão agendadas para ser executado antes de consultas com prioridade mais baixa. Para atribuir importância às consultas, você precisará criar um classificador de carga de trabalho.
+A definição da importância no SQL Data Warehouse permite que você influencie o agendamento de consultas. As consultas com maior importância serão agendadas para serem executadas antes das consultas com menor importância. Para atribuir importância a consultas, você precisa criar um classificador de carga de trabalho.
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Criar um classificador de carga de trabalho com importância
 
-Muitas vezes em um cenário de depósito de dados você tiver usuários que precisam de suas consultas sejam executadas rapidamente.  O usuário poderia ser executivos da empresa que precisam para executar relatórios ou o usuário pode ser um analista executando uma consulta ad hoc. Você cria um classificador de carga de trabalho para atribuir importância para uma consulta.  Os exemplos abaixo usam o novo [criar um classificador de carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) sintaxe para criar dois classificadores.  Nome do membro pode ser um único usuário ou um grupo. Classificações de usuário individuais têm precedência sobre as classificações de função. Para localizar os usuários existentes do depósito de dados, execute:
+Geralmente, em um cenário de data warehouse, você tem usuários que precisam de suas consultas para serem executados rapidamente.  O usuário poderia ser executivos da empresa que precisam executar relatórios ou o usuário pode ser um analista executando uma consulta adhoc. Você cria um classificador de carga de trabalho para atribuir importância a uma consulta.  Os exemplos a seguir usam a nova sintaxe [criar classificação de carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) para criar dois classificadores.  MemberName pode ser um único usuário ou um grupo. As classificações de usuário individuais têm precedência sobre as classificações de função. Para localizar usuários existentes do data warehouse, execute:
 
 ```sql
 Select name from sys.sysusers
 ```
 
-Para criar um classificador de carga de trabalho, para um usuário com importância mais alta execute:
+Para criar um classificador de carga de trabalho, para um usuário com maior importância de execução:
 
 ```sql
 CREATE WORKLOAD CLASSIFIER ExecReportsClassifier  
@@ -39,7 +40,7 @@ CREATE WORKLOAD CLASSIFIER ExecReportsClassifier 
 
 ```
 
-Para criar um classificador de carga de trabalho para um usuário executar consultas ad hoc com menos importância executar:  
+Para criar um classificador de carga de trabalho para um usuário executando consultas adhoc com menor importância de execução:  
 
 ```sql
 CREATE WORKLOAD CLASSIFIER AdhocClassifier  
@@ -49,8 +50,8 @@ CREATE WORKLOAD CLASSIFIER AdhocClassifier 
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para obter mais informações sobre o gerenciamento de carga de trabalho, consulte [classificação da carga de trabalho](sql-data-warehouse-workload-classification.md)
-- Para obter mais informações sobre a importância, consulte [importância da carga de trabalho](sql-data-warehouse-workload-importance.md)
+- Para obter mais informações sobre o gerenciamento de carga de trabalho, consulte [classificação de carga de trabalho](sql-data-warehouse-workload-classification.md)
+- Para obter mais informações sobre importância, consulte [importância da carga de trabalho](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
-> [Vá para gerenciar e monitorar a importância da carga de trabalho](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)
+> [Ir para gerenciar e monitorar a importância da carga de trabalho](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)

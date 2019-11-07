@@ -1,5 +1,5 @@
 ---
-title: Configurar Sincronização de Dados SQL do Azure | Microsoft Docs
+title: Configurar a Sincronização de Dados SQL do Azure
 description: Este tutorial mostra como configurar a Sincronização de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 37b8f64360e871236be7a8623460bbe75bd1d8b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 082721ef1436d0b6668016aca29870016038af86
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568174"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689984"
 ---
-# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configurar a sincronização de dados SQL entre o banco de dados SQL do Azure e SQL Server local
+# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configurar Sincronização de Dados SQL entre o banco de dados SQL do Azure e o SQL Server local
 
 Neste tutorial, você aprenderá a configurar a Sincronização de Dados SQL do Azure criando um grupo de sincronização que contém as instâncias de Banco de Dados SQL do Azure e do SQL Server. O grupo de sincronização é configurado de forma personalizada e sincronizado no agendamento que você definir.
 
@@ -48,7 +48,7 @@ Para obter exemplos do PowerShell sobre como configurar a Sincronização de Dad
 
    Na página **Criar Grupo de Sincronização de Dados**, altere as seguintes configurações:
 
-   | Configuração                        | Descrição |
+   | Configuração                        | DESCRIÇÃO |
    | ------------------------------ | ------------------------------------------------- |
    | **Nome do Grupo de Sincronização** | Insira um nome para o novo grupo de sincronização. Esse nome é diferente do nome do banco de dados. |
    | **Sincronizar Banco de Dados de Metadados** | Escolha criar um banco de dados (recomendado) ou usar um banco de dados existente.<br/><br/>Se você escolher **Novo banco de dados**, selecione **Criar novo banco de dados**. Em seguida, na página **Banco de Dados SQL**, nomeie e configure o novo banco de dados e selecione **OK**.<br/><br/>Se você escolher **Usar banco de dados existente**, selecione o banco de dados na lista. |
@@ -76,7 +76,7 @@ Na seção **Banco de Dados Membro**, opcionalmente, adicione um Banco de Dados 
 
   Na página **Configurar Banco de Dados SQL do Azure**, altere as seguintes configurações:
 
-  | Configuração                       | Descrição |
+  | Configuração                       | DESCRIÇÃO |
   | ----------------------------- | ------------------------------------------------- |
   | **Sincronizar Nome do Membro** | Forneça um nome para o novo membro de sincronização. Esse nome é diferente do nome do banco de dados. |
   | **Assinatura** | Selecione a assinatura associada do Azure para fins de cobrança. |
@@ -119,7 +119,7 @@ Na seção **Banco de Dados Membro**, opcionalmente, adicione um SQL Server loca
 
     1. No aplicativo do agente de sincronização, selecione **Enviar Chave do Agente**. A caixa de diálogo **Configuração de Banco de Dados de Metadados de Sincronização** é aberta.
 
-    1. Na caixa de diálogo **Configuração de Banco de Dados de Metadados de sincronização**, cole a chave do agente copiada do portal do Azure. Insira também as credenciais existentes para o servidor do Banco de Dados SQL do Azure em que o banco de dados de metadados está localizado. (Se você criou um banco de dados de metadados, esse banco de dados está no mesmo servidor que o banco de dados hub.) Selecione **OK** e aguarde até que a configuração seja concluída.
+    1. Na caixa de diálogo **Configuração de Banco de Dados de Metadados de sincronização**, cole a chave do agente copiada do portal do Azure. Insira também as credenciais existentes para o servidor do Banco de Dados SQL do Azure em que o banco de dados de metadados está localizado. (Se você criou um banco de dados de metadados, esse banco de dados está no mesmo servidor que o banco de dados de Hub.) Selecione **OK** e aguarde a conclusão da configuração.
 
         ![Insira as credenciais de chave e servidor do agente](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
@@ -155,15 +155,15 @@ Depois que os novos membros do grupo de sincronização forem criados e implanta
 
 1. Na página **Tabelas**, selecione um banco de dados na lista de membros do grupo de sincronização e selecione **Atualizar esquema**.
 
-1. Na lista, selecione a tabela que deseja sincronizar. Por padrão, todas as colunas estão selecionadas, portanto, desative a caixa de seleção das colunas que você não deseja sincronizar. Deixe a coluna de chave primária selecionada.
+1. Na lista, selecione as tabelas que você deseja sincronizar. Por padrão, todas as colunas são selecionadas, portanto, desabilite a caixa de seleção das colunas que você não deseja sincronizar. Certifique-se de deixar a coluna de chave primária selecionada.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 1. Por padrão, os bancos de dados não são sincronizados até que ocorra uma execução agendada ou manual. Para executar uma sincronização manual, acesse o banco de dados SQL no portal do Azure, selecione **Sincronizar com outros bancos de dados** e escolha o grupo de sincronização. A página **Sincronização de Dados** abre. Selecione **Sincronizar**.
 
     ![Sincronização manual](media/sql-database-get-started-sql-data-sync/datasync-sync.png)
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>Perguntas frequentes
 
 **Com que frequência a Sincronização de Dados pode sincronizar meus dados?**
 

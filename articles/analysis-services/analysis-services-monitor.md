@@ -1,18 +1,18 @@
 ---
 title: Monitorar métricas do servidor do Azure Analysis Services | Microsoft Docs
-description: Saiba como monitorar as métricas do servidor do Analysis Services no portal do Azure.
+description: Saiba como Analysis Services usar o Metrics Explorer do Azure, uma ferramenta gratuita no portal, para ajudá-lo a monitorar o desempenho e a integridade de seus servidores.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 57bcffad2634ea556cc0dd53763011f921acc5e0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 9e6eab38e0f7bd55fa671aa8c1e99693eeb54c84
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146805"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572728"
 ---
 # <a name="monitor-server-metrics"></a>Monitorar métricas do servidor
 
@@ -37,7 +37,7 @@ Para executar diagnóstico mais detalhado, rastrear o desempenho e identificar t
 
 Use essa tabela para determinar quais métricas são melhores para o seu cenário de monitoramento. Apenas as métricas da mesma unidade podem ser mostradas no mesmo gráfico.
 
-|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
+|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|DESCRIÇÃO|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Comprimento da fila de trabalho do pool de comando|Contagem|Média|Número de trabalhos na fila do pool de threads de comando.|
 |CurrentConnections|Conexão: conexões atuais|Contagem|Média|Número atual de conexões de cliente estabelecidas.|
@@ -87,7 +87,7 @@ Use essa tabela para determinar quais métricas são melhores para o seu cenári
 |TotalConnectionFailures|Falhas de conexão totais|Contagem|Média|Total de falhas em tentativas de conexão.|
 |TotalConnectionRequests|Solicitações de conexão totais|Contagem|Média|Solicitações de conexão totais. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Visão geral de Azure Monitor](../azure-monitor/overview.md)      
 [Introdução ao Metrics Explorer do Azure](../azure-monitor/platform/metrics-getting-started.md)      
 [Métricas na API REST do Azure Monitor](/rest/api/monitor/metrics)

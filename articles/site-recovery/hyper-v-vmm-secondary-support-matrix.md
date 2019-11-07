@@ -1,18 +1,18 @@
 ---
-title: Matriz de suporte para recuperação de desastre de VMs do Hyper-V em nuvens do VMM para um site secundário com Azure Site Recovery
+title: Suporte à matriz-recuperação de desastre do Hyper-V em um site secundário do VMM com Azure Site Recovery
 description: Resume o suporte para a replicação de VM do Hyper-V em nuvens VMM para um site secundário com Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 46d6cba1d702773639420a3bc5ac74b9c16ce706
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7711ebaaddccd68d4322c1d3ebdd049a57bc709b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933822"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686175"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastres de VMs do Hyper-V para um site secundário
 
@@ -56,15 +56,15 @@ Somente computadores Linux com o armazenamento a seguir podem ser replicados:
 
 **Configuração** | **Com suporte**  
 --- | --- 
-Host - Agrupamento NIC | SIM 
-Host - VLAN | SIM 
-Host - IPv4 | SIM 
+Host - Agrupamento NIC | Sim 
+Host - VLAN | Sim 
+Host - IPv4 | Sim 
 Host - IPv6 | Não 
 VM Convidada - Agrupamento NIC | Não
-VM Convidada - IPv4 | SIM
+VM Convidada - IPv4 | Sim
 VM Convidada - IPv6 | Não
-VM convidada – Windows/Linux – Endereço IP estático | SIM
-VM Convidada - Multi-NIC | SIM
+VM convidada – Windows/Linux – Endereço IP estático | Sim
+VM Convidada - Multi-NIC | Sim
 
 
 ## <a name="storage"></a>Armazenamento
@@ -74,9 +74,9 @@ VM Convidada - Multi-NIC | SIM
 **Armazenamento (host)** | **Com suporte**
 --- | --- 
 NFS | N/D
-SMB 3.0 |  SIM
-SAN (ISCSI) | SIM
-Múltiplos caminhos (MPIO) | SIM
+SMB 3.0 |  Sim
+SAN (ISCSI) | Sim
+Múltiplos caminhos (MPIO) | Sim
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento do servidor físico ou convidado
 
@@ -84,19 +84,19 @@ Múltiplos caminhos (MPIO) | SIM
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sim (até 16 discos)
-VM ger 2 | SIM
+VM ger 2 | Sim
 Disco de cluster compartilhado | Não
 Disco criptografado | Não
 UEFI| N/D
 NFS | Não
 SMB 3.0 | Não
 RDM | N/D
-Disco > 1 TB | SIM
-Volume com discos distribuídos > 1 TB<br/><br/> LVM | SIM
-Espaços de Armazenamento | SIM
+Disco > 1 TB | Sim
+Volume com discos distribuídos > 1 TB<br/><br/> LVM | Sim
+Espaços de Armazenamento | Sim
 Adição/remoção de disco a quente | Não
-Exclusão de disco | SIM
-Múltiplos caminhos (MPIO) | SIM
+Exclusão de disco | Sim
+Múltiplos caminhos (MPIO) | Sim
 
 ## <a name="vaults"></a>Cofres
 
@@ -115,7 +115,7 @@ O Provedor coordena as comunicações entre os servidores VMM.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Replicar as VMs do Hyper-V em nuvens de VMM para um site secundário](tutorial-vmm-to-vmm.md)
 

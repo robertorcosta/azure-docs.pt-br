@@ -4,7 +4,7 @@ description: Este artigo fornece uma visão geral da segurança operacional do A
 services: security
 documentationcenter: na
 author: unifycloud
-manager: barbkess
+manager: rkarlin
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 52d74983458a2c6a4de27ec91bc23a8dd9bee387
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: c5ab994ce7b4e3d195ec3a4c83094974c5767e66
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899819"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643781"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral de segurança operacional do Azure
 
@@ -34,7 +34,7 @@ Uma equipe de operações de TI é responsável por gerenciar a infraestrutura d
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-O [Azure Monitor](/azure/azure-monitor/overview) coleta dados de fontes gerenciadas em armazenamentos de dados centrais. Esses dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos por meio da API. Depois de coletados, os dados ficam disponíveis para alertas, análise e exportação. 
+O [Azure Monitor](/azure/azure-monitor/overview) coleta dados de fontes gerenciadas em armazenamentos de dados centrais. Esses dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos por meio da API. Depois de coletados, os dados ficam disponíveis para alertas, análise e exportação.
 
 Consolide os dados de uma variedade de fontes e combine os dados de seus serviços do Azure com o ambiente local existente. Os logs de Azure Monitor também separam claramente a coleta dos dados da ação executada nesses dados, para que todas as ações estejam disponíveis para todos os tipos de dados.
 
@@ -44,17 +44,17 @@ A [Automação do Azure](/azure/automation/automation-intro) fornece uma maneira
 
 ### <a name="backup"></a>Backup
 
-O [Backup do Azure](/azure/backup/backup-introduction-to-azure-backup) é o serviço baseado no Azure que você pode usar para fazer backup (ou proteger) e restaurar seus dados no Microsoft Cloud. O Backup do Azure substitui a solução de backup local ou externa existente por uma solução confiável, segura e econômica baseada em nuvem. 
+O [Backup do Azure](/azure/backup/backup-introduction-to-azure-backup) é o serviço baseado no Azure que você pode usar para fazer backup (ou proteger) e restaurar seus dados no Microsoft Cloud. O Backup do Azure substitui a solução de backup local ou externa existente por uma solução confiável, segura e econômica baseada em nuvem.
 
-O Backup do Azure oferece componentes que você pode baixar e implantar no computador ou servidor apropriado, ou na nuvem. O componente ou o agente que você implanta depende daquilo que deseja proteger. Todos os componentes do Backup do Azure (independentemente de você estar protegendo os dados localmente ou na nuvem) podem ser usados para fazer backup de dados em um cofre dos Serviços de Recuperação do Azure no Azure. 
+O Backup do Azure oferece componentes que você pode baixar e implantar no computador ou servidor apropriado, ou na nuvem. O componente ou o agente que você implanta depende daquilo que deseja proteger. Todos os componentes do Backup do Azure (independentemente de você estar protegendo os dados localmente ou na nuvem) podem ser usados para fazer backup de dados em um cofre dos Serviços de Recuperação do Azure no Azure.
 
 Para obter mais informações, veja a [tabela de componentes do Backup do Azure](/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use).
 
-### <a name="site-recovery"></a>Site Recovery
+### <a name="site-recovery"></a>Recuperação de Site
 
 O [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) fornece continuidade dos negócios por meio da orquestração da replicação de máquinas virtuais e computadores físicos locais no Azure ou em um site secundário. Caso o site primário não esteja disponível, faça failover para o local secundário, de modo que os usuários possam continuar trabalhando. Faça failback quando os sistemas voltarem a funcionar corretamente. Use a Central de Segurança do Azure para executar uma detecção de ameaças mais inteligente e eficaz.
 
-## <a name="azure-active-directory"></a>Active Directory do Azure
+## <a name="azure-active-directory"></a>Azure Active Directory
 
 O [Azure AD (Azure Active Directory)](/azure/active-directory/active-directory-enable-sso-scenario) é um serviço de identidade abrangente que:
 
@@ -64,7 +64,7 @@ O [Azure AD (Azure Active Directory)](/azure/active-directory/active-directory-e
 
 O Azure AD também inclui um pacote completo de [funcionalidades de gerenciamento de identidades](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), incluindo as seguintes:
 
-- [Autenticação multifator](/azure/multi-factor-authentication/multi-factor-authentication)
+- [Autenticação Multifator](/azure/multi-factor-authentication/multi-factor-authentication)
 - [Gerenciamento de senhas de autoatendimento](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Gerenciamento de grupo de autoatendimento](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Gerenciamento de contas com privilégios](/azure/active-directory/active-directory-privileged-identity-management-configure)
@@ -102,7 +102,7 @@ Problemas de desempenho em seu aplicativo de nuvem podem afetar seus negócios. 
 
 O [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) é uma ferramenta básica para monitorar serviços em execução no Azure. Ele fornece dados de nível da infraestrutura sobre a taxa de transferência de um serviço e o ambiente em redor. Se você está gerenciando todos os seus aplicativos no Azure e está decidindo se deseja escalar ou reduzir verticalmente os recursos, o Azure Monitor é o lugar ideal para você começar.
 
-Use também os dados de monitoramento para obter mais insights sobre seu aplicativo. Esse conhecimento pode ajudá-lo a melhorar o desempenho ou a capacidade de manutenção do aplicativo ou automatizar ações que normalmente exigiriam intervenção manual. 
+Use também os dados de monitoramento para obter mais insights sobre seu aplicativo. Esse conhecimento pode ajudá-lo a melhorar o desempenho ou a capacidade de manutenção do aplicativo ou automatizar ações que normalmente exigiriam intervenção manual.
 
 O Azure Monitor inclui os componentes a seguir.
 
@@ -118,7 +118,7 @@ Os logs do sistema de eventos do Windows são uma categoria de logs de diagnóst
 
 Os logs de diagnóstico são diferentes do [Log de Atividades](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). O Log de Atividades fornece informações sobre as operações executadas em recursos em sua assinatura. Os logs de diagnóstico fornecem insights sobre as operações que o recurso executou por conta própria.
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>Métricas
 
 O Azure Monitor fornece a telemetria que proporciona a você a visibilidade do desempenho e da integridade de suas cargas de trabalho no Azure. O tipo mais importante de dados telemétricos do Azure são as [métricas](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (também chamadas de contadores de desempenho) emitidas pela maioria dos recursos do Azure. O Azure Monitor fornece várias maneiras de configurar e consumir essas métricas para monitorar e solucionar problemas.
 
@@ -141,31 +141,33 @@ O Observador de Rede simplifica o monitoramento e o diagnóstico da rede do Azur
 O Observador de Rede tem atualmente os seguintes recursos:
 
 - [Topologia](/azure/network-watcher/network-watcher-topology-overview): fornece uma exibição das várias interconexões e associações entre os recursos de rede em um grupo de recursos.
-- [Captura de Pacote Variável](/azure/network-watcher/network-watcher-packet-capture-overview): Captura os dados do pacote dentro e fora de uma máquina virtual. As opções avançadas de filtragem e os controles ajustados, como o recurso de definir o tempo e as limitações de tamanho, fornecem versatilidade. Os dados do pacote podem ser armazenados em um armazenamento de blobs ou no disco local no formato .cap.
-- [Verificação de fluxo de IP](/azure/network-watcher/network-watcher-ip-flow-verify-overview): verifica se um pacote é permitido ou negado com base nos parâmetros do pacote de cinco tuplas das informações do fluxo (IP de destino, IP de origem, porta de destino, porta de origem e protocolo). Se um grupo de segurança nega o pacote, a regra e o grupo que negaram o pacote são retornados.
-- [Próximo salto](/azure/network-watcher/network-watcher-next-hop-overview): determina o próximo salto para os pacotes encaminhados na malha de rede do Azure, para que você possa diagnosticar as rotas definidas pelo usuário configuradas incorretamente.
-- [Vista de grupo de segurança](/azure/network-watcher/network-watcher-security-group-view-overview): Obtém as regras de segurança efetivas e aplicadas que são usadas em uma VM.
-- [Logs de fluxo de NSG para grupos de segurança de rede](/azure/network-watcher/network-watcher-nsg-flow-logging-overview): permitem capturar logs relacionados ao tráfego que é permitido ou negado pelas regras de segurança no grupo. O fluxo é definido por informações de 5 tuplas: IP de origem, IP de destino, porta de origem, porta de destino e protocolo.
-- [Solução de problemas de conexão e do gateway de rede virtual](/azure/network-watcher/network-watcher-troubleshoot-manage-rest): fornece a capacidade de solucionar problemas em conexões e gateways de rede virtual.
-- [Limites de assinatura da rede](/azure/network-watcher/network-watcher-monitoring-overview): Permite exibir o uso dos recursos de rede em relação aos limites.
+- [Captura de pacote variável](/azure/network-watcher/network-watcher-packet-capture-overview): captura os dados do pacote dentro e fora de uma máquina virtual. As opções avançadas de filtragem e os controles ajustados, como o recurso de definir o tempo e as limitações de tamanho, fornecem versatilidade. Os dados do pacote podem ser armazenados em um armazenamento de blobs ou no disco local no formato .cap.
+- [Verificação de fluxo de IP](/azure/network-watcher/network-watcher-ip-flow-verify-overview): verifica se um pacote é permitido ou negado com base nos parâmetros do pacote de 5 tuplas das informações do fluxo (IP de destino, IP de origem, porta de destino, porta de origem e protocolo). Se um grupo de segurança nega o pacote, a regra e o grupo que negaram o pacote são retornados.
+- [Próximo salto](/azure/network-watcher/network-watcher-next-hop-overview): determina o próximo salto para os pacotes encaminhados na malha de rede do Azure, de modo que você possa diagnosticar as rotas definidas pelo usuário configuradas incorretamente.
+- [Exibição do grupo de segurança](/azure/network-watcher/network-watcher-security-group-view-overview): obtém as regras de segurança em vigor e aplicadas que são aplicadas em uma VM.
+- [Logs de fluxo do NSG para grupos de segurança de rede](/azure/network-watcher/network-watcher-nsg-flow-logging-overview): permitem capturar os logs relacionados ao tráfego que é permitido ou negado pelas regras de segurança no grupo. O fluxo é definido por informações de 5 tuplas: IP de origem, IP de destino, porta de origem, porta de destino e protocolo.
+- [Solução de problemas de conexão e de gateway de rede virtual](/azure/network-watcher/network-watcher-troubleshoot-manage-rest): fornece a capacidade de resolver problemas de conexões e de gateways de rede virtual.
+- [Limites de assinatura da rede](/azure/network-watcher/network-watcher-monitoring-overview): permite exibir o uso dos recursos de rede em relação aos limites.
 - [Logs de diagnóstico](/azure/network-watcher/network-watcher-monitoring-overview): fornece um só painel para habilitar ou desabilitar os logs de diagnóstico para os recursos de rede em um grupo de recursos.
 
 Para obter mais informações, confira [Configurar o Observador de Rede](/azure/network-watcher/network-watcher-create).
 
 ## <a name="cloud-service-provider-access-transparency"></a>Transparência de acesso de provedor de serviço de nuvem
 
-O [Sistema de Proteção de Dados do Cliente para Microsoft Azure](https://azure.microsoft.com/blog/approve-audit-support-access-requests-to-vms-using-customer-lockbox-for-azure/) é um serviço integrado ao portal do Azure que fornece controle explícito no caso raro em que um engenheiro do Suporte da Microsoft precisa de acesso aos seus dados para resolver um problema. Isso ocorre em pouquíssimos casos, como quando há um problema de acesso remoto de depuração, quando um engenheiro do Suporte da Microsoft precisa de permissões elevadas para resolver esse problema. Nesses casos, os engenheiros da Microsoft usam o serviço de acesso Just-In-Time que fornece autorização limitada, com limite de tempo e acesso limitado ao serviço.  
+O [Sistema de Proteção de Dados do Cliente para Microsoft Azure](customer-lockbox-overview.md) é um serviço integrado ao portal do Azure que fornece controle explícito no caso raro em que um engenheiro do Suporte da Microsoft precisa de acesso aos seus dados para resolver um problema.
+Isso ocorre em pouquíssimos casos, como quando há um problema de acesso remoto de depuração, quando um engenheiro do Suporte da Microsoft precisa de permissões elevadas para resolver esse problema. Nesses casos, os engenheiros da Microsoft usam o serviço de acesso Just-In-Time que fornece autorização limitada, com limite de tempo e acesso limitado ao serviço.  
 Embora a Microsoft sempre tenha solicitado consentimento do cliente para ter acesso, agora o Sistema de Proteção de Dados do Cliente possibilita examinar e aprovar ou negar essas solicitações no Portal do Azure. Os engenheiros do Suporte da Microsoft não terão acesso até que você aprove a solicitação.
 
 ## <a name="standardized-and-compliant-deployments"></a>Implantações padronizadas e em conformidade
 
 O [Azure Blueprints](/azure/governance/blueprints/overview) permite que arquitetos de nuvem e grupos centrais de tecnologia da informação definam um conjunto repetitivo de recursos do Azure que implementa e adere aos padrões, padrões e requisitos de uma organização.  
-Isso possibilita que equipes do DevOps criem e configurem rapidamente novos ambientes e saibam que os estão criando com uma infraestrutura que mantém a conformidade organizacional. O Blueprints é uma maneira declarativa de orquestrar a implantação de vários modelos de recursos e outros artefatos, como: 
+Isso possibilita que equipes do DevOps criem e configurem rapidamente novos ambientes e saibam que os estão criando com uma infraestrutura que mantém a conformidade organizacional.
+O Blueprints é uma maneira declarativa de orquestrar a implantação de vários modelos de recursos e outros artefatos, como:
 
-- Atribuições de função
+- Atribuições de Funções
 - Atribuições de Políticas
-- Modelos do Azure Resource Manager
-- Grupos de Recursos
+- Modelos do Gerenciador de Recursos do Azure
+- Grupos de recursos
 
 ## <a name="devops"></a>DevOps
 
@@ -189,6 +191,6 @@ Os profissionais de DevOps experientes adotam várias das práticas a seguir. Es
 
 Para saber mais sobre a solução de Segurança e Auditoria, consulte os seguintes artigos:
 
-- [Segurança e conformidade](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Segurança e conformidade](https://azure.microsoft.com/overview/trusted-cloud/)
 - [Central de Segurança do Azure](/azure/security-center/security-center-intro)
 - [Azure Monitor](/azure/azure-monitor/overview)

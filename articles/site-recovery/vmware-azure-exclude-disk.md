@@ -1,5 +1,5 @@
 ---
-title: Excluir discos da replicação para recuperação de desastre do VMware para o Azure usando o Azure Site Recovery | Microsoft Docs
+title: Excluir discos de VM do VMware da recuperação de desastre para o Azure com Azure Site Recovery
 description: Descreve por que e como excluir discos de VM da replicação para recuperação de desastre do VMware para o Azure.
 author: mayurigupta13
 manager: rochakm
@@ -8,14 +8,14 @@ ms.workload: storage-backup-recovery
 ms.date: 3/3/2019
 ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: 105074892cc6dfa4da1e7c8ddd0a0aad9f1b60a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c003620420611f3416e6481c575f987fbd1bd05f
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60921825"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622381"
 ---
-# <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Excluir discos da replicação de VMs VMware para o Azure
+# <a name="exclude-disks-from-vmware-vm-replication-to-azure"></a>Excluir discos da replicação de VM do VMware para o Azure
 
 Este artigo descreve como excluir discos ao replicar as VMware VMs ao Azure. Essa exclusão pode otimizar a largura de banda de replicação consumida ou otimizar os recursos de destino que esses discos utilizam. Se você precisar de informações sobre a exclusão de discos do Hyper-V, leia [neste artigo](hyper-v-exclude-disk.md)
 
@@ -56,8 +56,8 @@ Execute o fluxo de trabalho [Habilitar replicação](vmware-azure-enable-replica
 > * Apenas discos básicos podem ser excluídos da replicação. Você não pode excluir o sistema operacional ou discos dinâmicos.
 > * Depois de habilitar a replicação, você não pode adicionar ou remover discos para replicação. Se desejar adicionar ou excluir um disco, você precisará desabilitar a proteção do computador e habilitá-la novamente.
 > * Se excluir um disco necessário para um aplicativo operar, após o failover no Azure você precisará criá-lo manualmente no Azure para que possa executar o aplicativo replicado. Como alternativa, você pode integrar a automação do Azure em um plano de recuperação para criar o disco durante o failover do computador.
-> * Máquina virtual do Windows: Os discos que você criar manualmente no Azure não sofrerão failback. Por exemplo, se você executar failover de três discos e criar dois diretamente em VMs do Azure, apenas os três discos com failover serão enviados por failback. Não é possível incluir discos criados manualmente em failback ou em nova proteção do local para o Azure.
-> * Máquina Virtual do Linux: Os discos que você criar manualmente no Azure sofrerão failback. Por exemplo, se você executar o failover em três discos e criar dois discos diretamente em máquinas virtuais do Azure, todos os cinco serão submetidos a failback. Você não pode excluir do failback discos que foram criados manualmente.
+> * Máquina virtual de janela: discos que você cria manualmente no Azure não são submetidos a failback. Por exemplo, se você executar failover de três discos e criar dois diretamente em VMs do Azure, apenas os três discos com failover serão enviados por failback. Não é possível incluir discos criados manualmente em failback ou em nova proteção do local para o Azure.
+> * Máquina virtual Linux: discos que você cria manualmente no Azure são submetidos a failback. Por exemplo, se você executar o failover em três discos e criar dois discos diretamente em máquinas virtuais do Azure, todos os cinco serão submetidos a failback. Você não pode excluir do failback discos que foram criados manualmente.
 >
 
 
@@ -67,7 +67,7 @@ Vamos considerar dois cenários para entender o recurso de disco de exclusão:
 - Disco tempdb do SQL Server
 - Disco (pagefile.sys) de arquivo de paginação
 
-## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exemplo 1: Excluir disco tempdb do SQL Server
+## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exemplo 1: Excluir o disco tempdb do SQL Server
 Vamos considerar uma máquina virtual do SQL Server que tenha um tempdb que possa ser excluído.
 
 O nome do disco virtual é SalesDB.
@@ -90,7 +90,7 @@ Os discos na máquina virtual do Azure após o failover são os seguintes:
 **Sistema operacional convidado - disco nº** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | ---
 DISK0 | C:\ | Disco do sistema operacional
-Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona este disco e atribui a primeira letra de unidade disponível.
+Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona esse disco e atribui a primeira letra da unidade disponível.
 Disk2 | D:\ | Banco de dados do sistema SQL e User Database1
 Disk3 | G:\ | User Database2
 
@@ -154,7 +154,7 @@ No exemplo anterior, a configuração de disco de máquina virtual do Azure é a
 **Sistema operacional convidado - disco nº** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | ---
 DISK0 | C:\ | Disco do sistema operacional
-Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona este disco e atribui a primeira letra de unidade disponível.
+Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona esse disco e atribui a primeira letra da unidade disponível.
 Disk2 | D:\ | Banco de dados do sistema SQL e User Database1
 Disk3 | G:\ | User Database2
 
@@ -168,12 +168,12 @@ DISK0 | C:\ | Disco do sistema operacional
 Disk1 | D:\ | Banco de dados do sistema SQL e User Database1
 Disk2 | G:\ | User Database2
 
-## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Exemplo 2: Excluir o disco (pagefile.sys) do arquivo de paginação
+## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Exemplo 2: excluir o disco (pagefile.sys) do arquivo de paginação
 
 Vamos considerar uma máquina virtual que tem um disco de arquivo de paginação que pode ser excluído.
 Existem dois casos.
 
-### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Caso 1: O arquivo de paginação está configurado na unidade D:
+### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Caso 1: o arquivo de paginação é configurado na unidade D:
 Aqui está a configuração de disco:
 
 **Nome do disco** | **Sistema operacional convidado - disco nº** | **Letra da unidade** | **Tipo de dados no disco**
@@ -203,7 +203,7 @@ Aqui estão as configurações de arquivo de paginação na máquina virtual do 
 
 ![Configurações do arquivo de paginação na máquina virtual do Azure](./media/vmware-azure-exclude-disk/pagefile-on-azure-vm-after-failover.png)
 
-### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Caso 2: O arquivo de paginação está configurado em outra unidade (diferente da unidade D:)
+### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Caso 2: o arquivo de paginação é configurado em outra unidade (que não seja a unidade D:)
 
 Aqui está a configuração de disco de máquina virtual de origem:
 

@@ -1,35 +1,38 @@
 ---
-title: Visão geral das contas de usuários no Azure Active Directory B2C | Microsoft Docs
-description: Saiba mais sobre contas de usuários no Azure Active Directory B2C.
+title: Visão geral das contas de usuários no Azure Active Directory B2C
+description: Saiba mais sobre os tipos de contas de usuário que podem ser usados no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 11/05/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0ef4bca3a2b08271b3623a346df6613b5ad16995
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a627b0eebc3aa4a19b0670f899d3032d8df58da4
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063151"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620464"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas de usuários no Azure Active Directory B2C
 
-Em Azure Active Directory B2C (Azure AD B2C), você pode usar diferentes tipos de contas. O Azure Active Directory, o Azure Active Directory B2B e o Azure Active Directory B2C compartilham os tipos de contas de usuários que podem ser usados.
+No Azure Active Directory B2C (Azure AD B2C), há vários tipos de contas que podem ser criadas. Azure Active Directory, Active Directory B2B e Active Directory B2C compartilhamento nos tipos de contas de usuário que podem ser usados.
 
 Os seguintes tipos de contas estão disponíveis:
 
 - **Conta corporativa** - Uma conta corporativa pode acessar recursos em um locatário e, com uma função de administrador, pode gerenciar locatários.
 - **Conta Convidado** - Uma conta convidado pode ser apenas uma conta Microsoft ou um usuário do Azure Active Directory que pode ser usado para acessar aplicativos ou gerenciar locatários.
-- **Conta Consumidor** - Uma conta consumidor é criada por meio de um fluxo de usuário de inscrição em um aplicativo do Azure AD B2C, ou usando a API do Graph do Azure AD, e é usada por usuários dos aplicativos registrados no Azure AD B2C.
+- **Conta de consumidor** -uma conta de consumidor é usada por um usuário dos aplicativos que você registrou com Azure ad B2C. As contas de consumidor podem ser criadas por:
+  - O usuário que está passando por um fluxo de usuário de inscrição em um aplicativo Azure AD B2C
+  - Usando o Azure AD API do Graph
+  - Usando o portal do Azure
 
 ## <a name="work-account"></a>Conta corporativa
 
-Uma conta corporativa é criada da mesma maneira para todos os locatários com base no Azure AD. Para criar uma conta corporativa, é possível usar as informações em [Início rápido: Adicionar novos usuários ao Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Uma conta corporativa é criada usando a opção **Novo usuário** no portal do Azure.
+Uma conta corporativa é criada da mesma maneira para todos os locatários com base no Azure AD. Para criar uma conta corporativa, você pode usar as informações em [Início rápido: Adicionar novos usuários ao Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Uma conta corporativa é criada usando a opção **Novo usuário** no portal do Azure.
 
 Ao adicionar uma nova conta corporativa, será necessário considerar as seguintes configurações:
 
@@ -63,7 +66,7 @@ Ao adicionar uma nova conta corporativa, será necessário considerar as seguint
 - [Portal do Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
-## <a name="guest-user"></a>Usuário convidado
+## <a name="guest-user"></a>Usuário Convidado
 
 É possível convidar usuários externos para o locatário como usuário convidado. Um cenário típico para convidar um usuário convidado para o locatário do Azure AD B2C é compartilhar responsabilidades de administração. Para um exemplo de uso de uma conta Convidado, consulte [Propriedades de um usuário de colaboração do Azure Active Directory B2C](../active-directory/b2b/user-properties.md).
 
@@ -73,7 +76,7 @@ Também é possível usar a [API do Microsoft Graph](https://docs.microsoft.com/
 
 ## <a name="consumer-user"></a>Usuário Consumidor
 
-O usuário consumidor pode entrar em aplicativos protegidos pelo Azure AD B2C, mas não pode acessar recursos do Azure, como o portal do Azure.  O usuário consumidor pode usar uma conta local ou contas federadas como Facebook ou Twitter. Uma conta Consumidor é criada, usando um [fluxo de usuário de inscrição ou de entrada](../active-directory-b2c/active-directory-b2c-reference-policies.md).
+O usuário consumidor pode entrar em aplicativos protegidos pelo Azure AD B2C, mas não pode acessar recursos do Azure, como o portal do Azure. O usuário consumidor pode usar uma conta local ou contas federadas como Facebook ou Twitter. Uma conta de consumidor é criada usando um [fluxo de usuário de inscrição ou de entrada](../active-directory-b2c/active-directory-b2c-reference-policies.md), usando o API do Graph do Azure ad ou usando o portal do Azure.
 
 É possível especificar os dados que são coletados quando uma conta de usuário Consumidor é criada, usando atributos de usuário personalizados. Para obter mais informações, consulte [Definir atributos personalizados no Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Formatos de arquivo com suporte no Azure Data Factory| Microsoft Docs
+title: Formatos de arquivo com suporte no Azure Data Factory
 description: Este tópico descreve os formatos de arquivo e os códigos de compactação com suporte nos conectores baseados em arquivo no Azure Data Factory.
 author: linda33wj
 manager: craigg
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 00d8fb69abb6ce74a36ff017f3f356cb86114d99
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d0183e991a3cbc0481aff44b5b0f03eaa9d43103
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930924"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683967"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de arquivo e codecs de compactação com suporte no Azure Data Factory
 
@@ -39,7 +39,7 @@ Se você quiser **copiar arquivos no estado em que se encontram** entre reposit�
 
 Se você quiser ler um arquivo de texto ou gravar em um arquivo de texto, defina a propriedade `type` na seção `format` do conjunto de dados para **TextFormat**. Você também pode especificar as seguintes propriedades **opcionais** na seção `format`. Veja a seção [Exemplo de TextFormat](#textformat-example) sobre a configuração.
 
-| Propriedade | Descrição | Valores permitidos | obrigatórios |
+| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | columnDelimiter |O caractere usado para separar as colunas em um arquivo. Você pode considerar o uso de um caractere não imprimível raro que não exista em seus dados. Por exemplo, especifique "\u0001", que representa o SOH (início do título). |Somente um caractere é permitido. O valor **padrão** é **vírgula (‘,’)** . <br/><br/>Para usar um caractere Unicode, consulte [Caracteres Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obter o código correspondente. |Não |
 | rowDelimiter |O caractere usado para separar as linhas em um arquivo. |Somente um caractere é permitido. O valor **padrão** é um dos seguintes valores na leitura: **["\r\n", "\r" e "\n"]** e **"\r\n"** na gravação. |Não |
@@ -49,7 +49,7 @@ Se você quiser ler um arquivo de texto ou gravar em um arquivo de texto, defina
 | encodingName |Especifique o nome de codificação. |Um nomes de codificação válido. Consulte [Propriedade Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por exemplo: windows-1250 ou shift_jis. O valor **padrão** é **UTF-8**. |Não |
 | firstRowAsHeader |Especifica se a primeira linha será considerada como cabeçalho. Para um conjunto de dados de entrada, o Data Factory lê a primeira linha como cabeçalho. Para um conjunto de dados de saída, o Data Factory lê a primeira linha como cabeçalho. <br/><br/>Veja [Cenários para usar o `firstRowAsHeader` e o `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para cenários de exemplo. |True<br/><b>False (padrão)</b> |Não |
 | skipLineCount |Indica o número de linhas **não vazias** a serem ignoradas ao ler dados de arquivos de entrada. Se skipLineCount e firstRowAsHeader forem especificados, as linhas serão ignoradas pela primeira vez e, em seguida, as informações de cabeçalho serão lidas do arquivo de entrada. <br/><br/>Veja [Cenários para usar o `firstRowAsHeader` e o `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para cenários de exemplo. |Número inteiro |Não |
-| treatEmptyAsNull |Especifica se uma cadeia de caracteres nula ou vazia será ou não tratada como um valor nulo ao ler dados de um arquivo de entrada. |**True (padrão)**<br/>False |Não |
+| treatEmptyAsNull |Especifica se uma cadeia de caracteres nula ou vazia será ou não tratada como um valor nulo ao ler dados de um arquivo de entrada. |**True (padrão)**<br/>Falso |Não |
 
 ### <a name="textformat-example"></a>Exemplo de TextFormat
 
@@ -95,7 +95,7 @@ Para **importar/exportar um arquivo JSON no estado em que se encontra de/para o 
 
 Se você quiser analisar os arquivos de JSON ou gravar os dados no formato JSON, defina a propriedade `type` na seção `format` como **JsonFormat**. Você também pode especificar as seguintes propriedades **opcionais** na seção `format`. Veja a seção [Exemplo de JsonFormat](#jsonformat-example) sobre como configurar.
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
 | filePattern |Indique o padrão de dados armazenados em cada arquivo JSON. Os valores permitidos são: **setOfObjects** e **arrayOfObjects**. O valor **padrão** é **setOfObjects**. Veja a seção [Padrões de arquivo JSON](#json-file-patterns) para obter detalhes sobre esses padrões. |Não |
 | jsonNodeReference | Se você quiser fazer uma iteração e extrair dados de objetos dentro de um campo de matriz com o mesmo padrão, especifique o caminho JSON da matriz. Esta propriedade só terá suporte na cópia de dados **de** arquivos JSON. | Não |
@@ -461,15 +461,15 @@ Exemplo: defina a variável `_JAVA_OPTIONS` com o valor `-Xms256m -Xmx16g`. O si
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
 | UInt64 | Int64/Binário | UInt64 | Decimal |
-| Individual | Float | N/D | N/D |
-| DOUBLE | DOUBLE | N/D | N/D |
+| Single | Float | N/D | N/D |
+| Duplo | Duplo | N/D | N/D |
 | Decimal | Binário | Decimal | Decimal |
-| string | Binário | Utf8 | Utf8 |
+| Cadeia de caracteres | Binário | Utf8 | Utf8 |
 | DateTime | Int96 | N/D | N/D |
-| timespan | Int96 | N/D | N/D |
-| DateTimeOffset | Int96 | N/D | N/D |
+| TimeSpan | Int96 | N/D | N/D |
+| Datetimeoffset | Int96 | N/D | N/D |
 | ByteArray | Binário | N/D | N/D |
-| GUID | Binário | Utf8 | Utf8 |
+| Guid | Binário | Utf8 | Utf8 |
 | Char | Binário | Utf8 | Utf8 |
 | CharArray | Sem suporte | N/D | N/D |
 
@@ -511,18 +511,18 @@ Para cópia em execução no IR auto-hospedado com serialização/desserializaç
 | Int16 | Curto |
 | UInt16 | Int |
 | Int32 | Int |
-| UInt32 | Longo |
-| Int64 | Longo |
-| UInt64 | string |
-| Individual | Float |
-| DOUBLE | DOUBLE |
+| UInt32 | long |
+| Int64 | long |
+| UInt64 | Cadeia de caracteres |
+| Single | Float |
+| Duplo | Duplo |
 | Decimal | Decimal |
-| string | string |
+| Cadeia de caracteres | Cadeia de caracteres |
 | DateTime | Timestamp |
-| DateTimeOffset | Timestamp |
-| timespan | Timestamp |
+| Datetimeoffset | Timestamp |
+| TimeSpan | Timestamp |
 | ByteArray | Binário |
-| GUID | string |
+| Guid | Cadeia de caracteres |
 | Char | Char(1) |
 
 ## <a name="avro-format"></a>Formato AVRO
@@ -606,7 +606,7 @@ Você pode ver um exemplo que usa uma função do Azure para [extrair o conteúd
 
 Você também pode criar essa funcionalidade usando uma atividade dotnet personalizada. Mais informações estão disponíveis [aqui](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte os artigos a seguir para armazenamentos de dados baseados em arquivo com suporte pelo Azure Data Factory:
 

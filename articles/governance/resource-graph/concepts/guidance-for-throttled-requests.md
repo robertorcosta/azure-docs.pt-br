@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 1bbfd2a64de0b42da19d0a978874d564f1755c59
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 2dea1c160b07ac08075dad3a1ca1f6fc753e3481
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387623"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622646"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Diretrizes para solicitações limitadas no grafo de recursos do Azure
 
@@ -31,12 +31,12 @@ O grafo de recursos do Azure aloca o número da cota para cada usuário com base
 Em cada resposta de consulta, o grafo de recursos do Azure adiciona dois cabeçalhos de limitação:
 
 - `x-ms-user-quota-remaining` (int): a cota de recursos restante para o usuário. Esse valor é mapeado para a contagem de consultas.
-- `x-ms-user-quota-resets-after` (hh: mm: SS): a duração de tempo até que o consumo de cota do usuário seja redefinido.
+- `x-ms-user-quota-resets-after` (hh: mm: SS): a duração de tempo até que o consumo de cota de um usuário seja redefinido.
 
 Para ilustrar como os cabeçalhos funcionam, vamos examinar uma resposta de consulta que tem o cabeçalho e os valores de `x-ms-user-quota-remaining: 10` e `x-ms-user-quota-resets-after: 00:00:03`.
 
 - Nos próximos 3 segundos, no máximo 10 consultas podem ser enviadas sem limitação.
-- Em 3 segundos, os valores de `x-ms-user-quota-remaining` e `x-ms-user-quota-resets-after` serão redefinidos para `15` e `00:00:05`, respectivamente.
+- Em 3 segundos, os valores de `x-ms-user-quota-remaining` e `x-ms-user-quota-resets-after` serão redefinidos para `15` e `00:00:05` respectivamente.
 
 Para ver um exemplo de como usar os cabeçalhos para _retirada_ em solicitações de consulta, consulte o exemplo em [consulta em paralelo](#query-in-parallel).
 
@@ -236,8 +236,8 @@ Forneça estes detalhes:
 - Em que tipos de recursos você está interessado?
 - Qual é seu padrão de consulta? X consultas por Y segundos etc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Consulte o idioma em uso em [consultas de início](../samples/starter.md).
 - Consulte usos avançados em [consultas avançadas](../samples/advanced.md).
-- Aprenda a [explorar os recursos](explore-resources.md).
+- Saiba mais sobre como [explorar recursos](explore-resources.md).

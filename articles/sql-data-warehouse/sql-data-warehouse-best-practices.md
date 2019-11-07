@@ -1,5 +1,5 @@
 ---
-title: Práticas recomendadas para análise de SQL no Azure Synapse Analytics (antigo SQL DW) | Microsoft Docs
+title: Práticas recomendadas para análise de SQL no Azure Synapse Analytics (antigo SQL DW)
 description: Recomendações e práticas recomendadas para o desenvolvimento de soluções para análise de SQL no Azure Synapse Analytics (anteriormente conhecido como SQL DW).
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: bafa4088ee413e28ec6adee3df20f253aeebb861
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6a9d7c4ed020f447e9512c7bc2edd0caecf3400d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499831"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646168"
 ---
 # <a name="best-practices-for-sql-analytics-in-azure-synapse-analytics-formerly-sql-dw"></a>Práticas recomendadas para análise de SQL no Azure Synapse Analytics (antigo SQL DW)
 
@@ -26,7 +26,7 @@ Este artigo é uma coleção de práticas recomendadas para ajudá-lo a obter o 
 Para obter mais informações sobre como reduzir os custos por meio de pausa e dimensionamento, confira [Gerenciar computação](sql-data-warehouse-manage-compute-overview.md). 
 
 ## <a name="maintain-statistics"></a>Manter as estatísticas
-Os SQL Data Warehouse do Azure podem ser configurados para detectar e criar estatísticas automaticamente em colunas.  Os planos de consulta criados pelo otimizador são tão bons quanto as estatísticas disponíveis.  Recomendamos que você habilite o AUTO_CREATE_STATISTICS para seus bancos de dados e mantenha as estatísticas atualizadas diariamente ou após cada carga para garantir que as estatísticas nas colunas usadas em suas consultas estejam sempre atualizadas. 
+Os SQL Data Warehouse do Azure podem ser configurados para detectar e criar estatísticas automaticamente em colunas.  Os planos de consulta criados pelo otimizador são tão bons quanto as estatísticas disponíveis.  Recomendamos que você habilite AUTO_CREATE_STATISTICS para seus bancos de dados e mantenha as estatísticas atualizadas diariamente ou após cada carga para garantir que as estatísticas nas colunas usadas em suas consultas estejam sempre atualizadas. 
 
 Se você achar que está demorando muito para atualizar todas as suas estatísticas, convém tentar ser mais seletivos sobre quais colunas precisam de atualizações de estatísticas frequentes. Por exemplo, convém atualizar as colunas de data, onde novos valores podem ser adicionados, diariamente. **Você obterá mais benefícios com a atualização de estatísticas em colunas envolvidas em junções, colunas usadas na cláusula WHERE e colunas encontradas em GROUP BY.**
 
@@ -135,7 +135,7 @@ Veja também [Classes de recursos para gerenciamento de carga de trabalho](resou
 ## <a name="use-smaller-resource-class-to-increase-concurrency"></a>Usar uma Classe de Recurso Menor para Aumentar a Simultaneidade
 Se você estiver percebendo que as consultas do usuário parecem ter um longo atraso, pode ser que os usuários estejam executando em classes de recursos maiores e consumam muitos slots de simultaneidade, fazendo com que outras consultas sejam enfileiradas.  Para saber se as consultas dos usuários estão em fila, execute `SELECT * FROM sys.dm_pdw_waits` para ver se alguma linha é retornada.
 
-Consulte também [classes de recurso para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md), [Sys. dm _pdw_waits][sys.dm_pdw_waits]
+Consulte também [classes de recursos para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md), [Sys. dm_pdw_waits][sys.dm_pdw_waits]
 
 ## <a name="other-resources"></a>Outros recursos
 Confira também nosso artigo de [Solução de problemas][Troubleshooting] para conhecer os problemas e as soluções comuns.

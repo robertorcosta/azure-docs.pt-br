@@ -1,5 +1,5 @@
 ---
-title: Restaurar um banco de dados SQL do Azure em um aplicativo SaaS multilocatário | Microsoft Docs
+title: Restaurar um banco de dados SQL do Azure em um aplicativo SaaS multilocatário
 description: Saiba como restaurar um banco de dados do SQL de locatário único após a exclusão acidental de dados
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 12/04/2018
-ms.openlocfilehash: 0776935215b608211ad4f6cd66112fb92e33a34b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0719fc5482e583218d42e808a4d94045a497f33c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570386"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692095"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restaurar um único locatário com um aplicativo de banco de dados por locatário SaaS
 
@@ -45,7 +45,7 @@ Há dois padrões simples para restaurar dados de um locatário individual. Como
 
 * **Restaurar em paralelo**: no primeiro padrão, um novo banco de dados paralelo é criado junto com o banco de dados atual do locatário. O locatário recebe acesso somente leitura para o banco de dados restaurado. Os dados restaurados podem ser revisados e possivelmente usados para substituir os valores de dados atuais. Cabe ao designer do aplicativo determinar como o locatário acessa o banco de dados restaurado e quais opções de recuperação são fornecidas. Simplesmente permitir que o locatário revise seus dados em um ponto anterior pode ser suficiente em alguns cenários.
 
-* **Restaurar no local**: o segundo padrão será útil se os dados tiverem sido perdidos ou corrompidos e locatário deseja reverter para um ponto anterior. O locatário fica offline enquanto o banco de dados é restaurado. O banco de dados original é excluído e o banco de dados restaurado é renomeado. A cadeia de backup do banco de dados original permanece acessível após a exclusão, permitindo que você restaure o banco de dados para um ponto anterior, se necessário.
+* **Restaurar no local**: o segundo padrão é útil se os dados tiverem sido perdidos ou corrompidos e locatário deseja reverter para um ponto anterior. O locatário fica offline enquanto o banco de dados é restaurado. O banco de dados original é excluído e o banco de dados restaurado é renomeado. A cadeia de backup do banco de dados original permanece acessível após a exclusão, permitindo que você restaure o banco de dados para um ponto anterior, se necessário.
 
 Se o banco de dados usa a [replicação geográfica ativa](sql-database-active-geo-replication.md) e a restauração em paralelo, recomendamos copiar os dados necessários da cópia restaurada para o banco de dados original. Se substituir o banco de dados original pelo banco de dados restaurado, reconfigure e ressincronize a replicação geográfica.
 
@@ -53,7 +53,7 @@ Se o banco de dados usa a [replicação geográfica ativa](sql-database-active-g
 
 Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) do GitHub. Para obter as etapas para fazer o download e desbloquear os scripts SaaS do Wingtip Tickets, veja as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md).
 
-## <a name="before-you-start"></a>Antes de iniciar
+## <a name="before-you-start"></a>Antes de começar
 
 Quando um banco de dados é criado, ele pode levar 10 a 15 minutos para disponibilizar o primeiro backup completo para restauração. Se você acabou de instalar o aplicativo, talvez seja necessário aguardar alguns minutos antes de tentar esse cenário.
 

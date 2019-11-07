@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: ff35c5e23c5d8a448d62a3eeb8d15ba8d5a531e4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 081e1db4df0d77fa600e132a5585172d44f1196a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814541"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663036"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurar a recuperação de desastres para VMs do Azure após a migração para o Azure 
 
@@ -29,8 +29,8 @@ Antes de configurar a recuperação de desastres, certifique-se de que a migraç
 
 Cada VM do Azure deve ter o [agente de VM do Azure](../virtual-machines/extensions/agent-windows.md) instalado. Para replicar VMs do Azure, Site Recovery instala uma extensão no agente.
 
-- Se o computador estiver executando a versão 9.7.0.0 ou posterior do serviço de mobilidade Site Recovery, o agente de VM do Azure será instalado automaticamente pelo serviço de mobilidade em VMs do Windows. Em versões anteriores do serviço de mobilidade, você precisa instalar o agente automaticamente.
-- Para VMs do Linux, você deve instalar o agente de VM do Azure manualmente. Você só precisa instalar o agente de VM do Azure se o serviço de mobilidade instalado no computador migrado for v 9,6 ou anterior.
+- Se o computador estiver executando a versão 9.7.0.0 ou posterior do serviço de mobilidade Site Recovery, o agente de VM do Azure será instalado automaticamente pelo serviço de mobilidade em VMs do Windows. Em versões anteriores do serviço de mobilidade, você precisa instalar o agente manualmente.
+- Para VMs do Linux, você deve instalar o agente de VM do Azure manualmente. Você só precisa instalar o agente da VM do Azure se o serviço de Mobilidade instalado no computador migrado for versão 9.6 ou anterior.
 
 
 ### <a name="install-the-agent-on-windows-vms"></a>Instalar o agente em VMs do Windows

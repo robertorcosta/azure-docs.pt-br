@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2aa2ed6fe4d8218737c42bb3d76084c5d677623f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a221d55d942e6140c12f2ebfb64428b8ec7be74b
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71826940"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643568"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar login com uma conta do Azure Active Directory usando políticas personalizadas no Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
 1. Selecione **Novo registro**.
 1. Insira um **Nome** para seu aplicativo. Por exemplo: `Azure AD B2C App`.
 1. Aceite a seleção padrão de **contas neste diretório organizacional somente** para este aplicativo.
-1. Para o **URI de redirecionamento**, aceite o valor de **Web**e insira a URL a seguir em todas as letras `your-B2C-tenant-name` minúsculas, onde é substituído pelo nome do seu locatário de Azure ad B2C.
+1. Para o **URI de redirecionamento**, aceite o valor de **Web**e insira a URL a seguir em todas as letras minúsculas, em que `your-B2C-tenant-name` é substituído pelo nome do seu locatário Azure ad B2C.
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -49,18 +49,18 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
 1. Selecione **certificados & segredos**e, em seguida, selecione **novo segredo do cliente**.
 1. Insira uma **Descrição** para o segredo, selecione uma expiração e, em seguida, selecione **Adicionar**. Registre o **valor** do segredo para uso em uma etapa posterior.
 
-## <a name="create-a-policy-key"></a>Criar uma chave de política
+## <a name="create-a-policy-key"></a>Crie uma chave de política
 
 Você precisa armazenar a chave do aplicativo que criou em seu locatário do Azure AD B2C.
 
 1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório + filtro de assinatura** no menu superior e escolha o diretório que contém seu locatário de Azure ad B2C.
-1. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
+1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Azure AD B2C**.
 1. Em **políticas**, selecione **estrutura de experiência de identidade**.
 1. Selecione **chaves de política** e, em seguida, selecione **Adicionar**.
 1. Para **Opções**, escolha `Manual`.
-1. Insira um **Nome** para a chave de política. Por exemplo: `ContosoAppSecret`.  O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave quando ele é criado, portanto, sua referência no XML na seção a seguir é *B2C_1A_ContosoAppSecret*.
+1. Digite um **Nome** para a chave de política. Por exemplo: `ContosoAppSecret`.  O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave quando ele é criado, portanto, sua referência no XML na seção a seguir é *B2C_1A_ContosoAppSecret*.
 1. Em **segredo**, insira o segredo do cliente que você registrou anteriormente.
-1. Para **Uso de chave**, selecione `Signature`.
+1. Para **uso de chave**, selecione `Signature`.
 1. Selecione **Criar**.
 
 ## <a name="add-a-claims-provider"></a>Adicionar um provedor de declarações
@@ -71,7 +71,7 @@ Você pode definir o Azure AD como um provedor de declarações adicionando o Az
 
 1. Abra o arquivo *TrustFrameworkExtensions.xml*.
 2. Localize o elemento **ClaimsProviders**. Se ele não existir, adicione-o sob o elemento raiz.
-3. Adicione um novo **ClaimsProvider** da seguinte forma:
+3. Adicione um novo **ClaimsProvider** da seguinte maneira:
 
     ```XML
     <ClaimsProvider>
@@ -145,7 +145,7 @@ A essa altura, você já terá configurado a política, de forma que o Azure AD 
 
 Neste ponto, o provedor de identidade foi configurado, mas ele ainda não está disponível em nenhuma das páginas de inscrição/entrada. Para disponibilizá-lo, crie uma duplicata de um percurso de usuário de modelo existente e, em seguida, modifique-o para que ele também tenha o provedor de identidade do Azure AD:
 
-1. Abra o arquivo *TrustFrameworkBase.xml* do starter pack.
+1. Abra o arquivo *TrustFrameworkBase.xml* do pacote de início.
 1. Localize e copie todo o conteúdo do elemento **UserJourney** que inclui `Id="SignUpOrSignIn"`.
 1. Abra o *TrustFrameworkExtensions.xml* e localize o elemento **UserJourneys**. Se o elemento não existir, adicione um.
 1. Cole todo o conteúdo do elemento **UserJourney** que você copiou como filho do elemento **UserJourneys**.
@@ -166,7 +166,7 @@ O elemento **ClaimsProviderSelection** é análogo a um botão de provedor de id
 
 Agora que implementou um botão, você precisará vinculá-lo a uma ação. Nesse caso, a ação destina-se a que o Azure AD B2C se comunique com o Azure AD para receber um token. Vincule o botão a uma ação vinculando o perfil técnico ao provedor de declarações do Azure AD:
 
-1. Localize o **OrchestrationStep** que inclui `Order="2"` no percurso do usuário.
+1. Localize o **OrchestrationStep**, que inclui `Order="2"` no percurso do usuário.
 1. Adicione o seguinte elemento **ClaimsExchange** usando o mesmo valor de **ID** usado para **TargetClaimsExchangeId**:
 
     ```XML
@@ -187,7 +187,7 @@ A comunicação com Azure AD B2C ocorre por meio de um aplicativo que você regi
 
 Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do usuário que você criou.
 
-1. Faça uma cópia do *SignUpOrSignIn.xml* no diretório de trabalho e renomeie-a. Por exemplo, renomeie-o para *SignUpSignInContoso.xml*.
+1. Faça uma cópia de *SignUpOrSignIn.xml* no seu diretório de trabalho e renomeie-o. Por exemplo, renomeie-o para *SignUpSignInContoso.xml*.
 1. Abra o novo arquivo e atualize o valor do atributo **PolicyId** para **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo: `SignUpSignInContoso`.
 1. Atualize o valor de **PublicPolicyUri** com o URI da política. Por exemplo: `http://contoso.com/B2C_1A_signup_signin_contoso`.
 1. Atualize o valor do atributo **referenceid** em **DefaultUserJourney** para corresponder à ID da jornada do usuário que você criou anteriormente. Por exemplo, *SignUpSignInContoso*.
@@ -197,10 +197,10 @@ Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do
 1. Copie o **ponto de extremidade executar agora** e abra-o em uma janela de navegador privada, por exemplo, o modo Incognito no Google Chrome ou uma janela InPrivate no Microsoft Edge. Abrir em uma janela privada do navegador permite que você teste o percurso completo do usuário não usando nenhuma credencial do Azure AD atualmente armazenada em cache.
 1. Selecione o botão entrar do Azure AD, por exemplo, *funcionário contoso*e, em seguida, insira as credenciais para um usuário em seu locatário organizacional do Azure AD. Você será solicitado a autorizar o aplicativo e, em seguida, a inserir informações para seu perfil.
 
-Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms`, que exibe o conteúdo do token retornado por Azure ad B2C.
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms`, que exibe o conteúdo do token retornado por Azure AD B2C.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Ao trabalhar com políticas personalizadas, às vezes você pode precisar de informações adicionais ao solucionar problemas de uma política durante seu desenvolvimento.
 
-Para ajudar a diagnosticar problemas, você pode colocar temporariamente a política em "modo de desenvolvedor" e coletar logs com o Aplicativo Azure insights. Descubra como [Azure Active Directory B2C: Coletando](active-directory-b2c-troubleshoot-custom.md)logs.
+Para ajudar a diagnosticar problemas, você pode colocar temporariamente a política em "modo de desenvolvedor" e coletar logs com o Aplicativo Azure insights. Descubra como [Azure Active Directory B2C: coletando logs](active-directory-b2c-troubleshoot-custom.md).

@@ -1,5 +1,5 @@
 ---
-title: Gerenciar bancos de dados individuais e em pool após a migração - Banco de Dados SQL do Azure | Microsoft Docs
+title: Gerenciar bancos de dados individuais e em pool após a migração – banco de dados SQL do Azure
 description: Saiba como gerenciar o banco de dados após a migração para o Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 36e48e86ed3cf7138f7ff5efe89d08c07df87f25
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d92b4b99e6ae6a7a07174e59d7cf3c9766c0eabf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028261"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689528"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>DBA novo na nuvem – gerenciamento de bancos de dados individuais e em pool no Banco de Dados SQL do Azure
 
@@ -85,7 +85,7 @@ Se um grupo de failover automático não estiver configurado, seu aplicativo pre
 
 Em resumo, a instalação do SQL Server local tradicional requer que você gerencie ativamente sua disponibilidade usando recursos como clustering de failover, espelhamento de banco de dados, replicação de transação ou envio de logs e mantenha e gerencie os backups para garantir a Continuidade dos Negócios. Com o Banco de Dados SQL, a plataforma gerencia isso para você, para que você possa se concentrar no desenvolvimento e otimização do seu aplicativo de banco de dados e não se preocupe tanto com o gerenciamento de desastres. É possível ter planos de recuperação de desastres e backup configurados e funcionando com apenas alguns cliques no Portal do Azure (ou alguns comandos usando as APIs do PowerShell).
 
-Para saber mais sobre a Recuperação de desastre, consulte: [Recuperação de Desastre do Azure SQL DB 101](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/)
+Para saber mais sobre a recuperação de desastres, consulte: [Azure SQL Db Disaster Recovery 101](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/)
 
 ## <a name="security-and-compliance"></a>Segurança e conformidade
 
@@ -130,7 +130,7 @@ Há várias técnicas à sua disposição que podem ser usadas para obter a orga
 
 Um firewall impede o acesso ao seu servidor de uma entidade externa, permitindo somente acesso de entidades específicas a seu servidor do Banco de Dados SQL. Por padrão, todas as conexões e bancos de dados dentro do servidor do Banco de Dados SQL são rejeitadas, exceto as conexões de outros serviços do Azure. Com uma regra de firewall, você pode abrir o acesso ao seu servidor somente para entidades (por exemplo, uma máquina de desenvolvedor) que você aprovar, concedendo permissão a esse endereço IP do computador por meio do firewall. Ele também permite que você especifique um intervalo de endereços IP para os quais deseja permitir o acesso ao servidor do Banco de Dados SQL. Por exemplo, endereços IP de computador de desenvolvedor na sua organização podem ser adicionados de uma só vez especificando-se um intervalo na página de configurações Firewall.
 
-Você pode criar regras de firewall no nível de servidor ou no nível de banco de dados. Regras de firewall de IP no nível do servidor podem ser criadas usando o portal do Azure ou com o SSMS. Para saber mais sobre como configurar uma regra de firewall no nível de servidor e no nível de banco de dados, consulte: [Criar regras de firewall de IP no Banco de Dados SQL](sql-database-security-tutorial.md#create-firewall-rules).
+Você pode criar regras de firewall no nível de servidor ou no nível de banco de dados. Regras de firewall de IP no nível do servidor podem ser criadas usando o portal do Azure ou com o SSMS. Para saber mais sobre como definir uma regra de firewall no nível de servidor e de banco de dados, consulte: [criar regras de firewall de IP no banco de dados SQL](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Pontos de extremidade de serviço
 
@@ -152,11 +152,11 @@ Porta 1433. O Banco de Dados SQL se comunica por essa porta. Para se conectar de
 
 #### <a name="sql-database-auditing"></a>Auditoria do Banco de Dados SQL
 
-Com o Banco de Dados SQL, você pode ativar ON Auditing para controlar eventos de banco de dados. A [Auditoria do Banco de Dados SQL](sql-database-auditing.md) registra eventos de banco de dados e grava-os em um arquivo de log de auditoria em sua Conta de Armazenamento do Microsoft Azure. A auditoria é especialmente útil se você pretende ter uma noção de possíveis violações de segurança e política, manter a conformidade normativa etc. Ela permite definir e configurar certas categorias de eventos que você acha que precisa de auditoria e com base no que você pode obter relatórios pré-configurados e um painel para obter uma visão geral de eventos que ocorrem em seu banco de dados. Você pode aplicar essas políticas de auditoria no nível do banco de dados ou no nível do servidor. Um guia sobre como ativar a auditoria para o servidor/banco de dados, consulte: [Habilitar a Auditoria do Banco de Dados SQL](sql-database-security-tutorial.md#enable-security-features).
+Com o Banco de Dados SQL, você pode ativar ON Auditing para controlar eventos de banco de dados. A [Auditoria do Banco de Dados SQL](sql-database-auditing.md) registra eventos de banco de dados e grava-os em um arquivo de log de auditoria em sua Conta de Armazenamento do Microsoft Azure. A auditoria é especialmente útil se você pretende obter informações sobre possíveis violações de segurança e política, manter a conformidade regulatória etc. Ele permite que você defina e configure determinadas categorias de eventos que você imagina que precisam de auditoria e com base no que você pode obter relatórios pré-configurados e um painel para obter uma visão geral dos eventos que ocorrem no banco de dados. Você pode aplicar essas políticas de auditoria no nível do banco de dados ou no nível do servidor. Um guia sobre como ativar a auditoria para o servidor/banco de dados, consulte: [Habilitar a auditoria de Banco de Dados SQL do Microsoft Azure](sql-database-security-tutorial.md#enable-security-features).
 
 #### <a name="threat-detection"></a>Detecção de ameaças
 
-Com a [detecção de ameaças](sql-database-threat-detection.md), você tem a capacidade de agir facilmente sobre violações de segurança ou política descobertas por auditoria. Não é preciso ser um especialista em segurança para tratar potenciais ameaças ou violações no seu sistema. A detecção de ameaças também tem alguns recursos internos, como detecção de SQL Injection. SQL Injection é uma tentativa de alterar ou comprometer os dados e uma maneira muito comum de ataque a um aplicativo de banco de dados em geral. A detecção de ameaças é executada em vários conjuntos de algoritmos que detectam possíveis vulnerabilidades e ataques de injeção de SQL, bem como padrões de acesso anormais do banco de dados (como o acesso de um local fora do comum ou por uma entidade desconhecida). Os agentes de segurança ou outros administradores designados recebem uma notificação por email se uma ameaça é detectada no banco de dados. Cada notificação fornece detalhes da atividade suspeita e recomendações sobre como investigar e minimizar a ameaça. Para saber como ativar a Detecção de ameaças, consulte: [Habilitar detecção de ameaças](sql-database-security-tutorial.md#enable-security-features).
+Com a [detecção de ameaças](sql-database-threat-detection.md), você tem a capacidade de agir facilmente sobre violações de segurança ou política descobertas por auditoria. Não é preciso ser um especialista em segurança para tratar potenciais ameaças ou violações no seu sistema. A detecção de ameaças também tem alguns recursos internos, como detecção de SQL Injection. SQL Injection é uma tentativa de alterar ou comprometer os dados e uma maneira muito comum de ataque a um aplicativo de banco de dados em geral. A detecção de ameaças é executada em vários conjuntos de algoritmos que detectam possíveis vulnerabilidades e ataques de injeção de SQL, bem como padrões de acesso anormais do banco de dados (como o acesso de um local fora do comum ou por uma entidade desconhecida). Os agentes de segurança ou outros administradores designados recebem uma notificação por email se uma ameaça é detectada no banco de dados. Cada notificação fornece detalhes da atividade suspeita e recomendações sobre como investigar e minimizar a ameaça. Para saber como ativar a detecção de ameaças, consulte: [habilitar a detecção de ameaças](sql-database-security-tutorial.md#enable-security-features).
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>Como fazer para proteger meus dados em geral no Banco de Dados SQL?
 
@@ -181,7 +181,7 @@ Para proteger dados confidenciais em trânsito e em repouso, o Banco de Dados SQ
 
 Cada aplicativo tem uma determinado quantidade de dados confidenciais no banco de dados que precisam ser protegidos de ficarem visíveis para todos. Uma determinada equipe dentro da organização precisa visualizar esses dados, porém outras não devem ser capazes de visualizá-los. Um exemplo é os salários de funcionários. Um gerente precisaria de acesso às informações salariais para seus subordinados diretos, no entanto, os membros individuais da equipe não deveriam ter acesso às informações salariais de seus colegas. Outro cenário é os desenvolvedores de dados que podem interagir com dados confidenciais durante as fases de desenvolvimento ou teste, por exemplo, CPFs de clientes. Essas informações, novamente, não precisam ser expostas para o desenvolvedor. Nesses casos, dados confidenciais precisam ser mascarados ou não serem expostos de forma alguma. O Banco de Dados SQL oferece duas abordagens para impedir que usuários não autorizados possam visualizar dados confidenciais:
 
-A [Máscara de Dados Dinâmicos](sql-database-dynamic-data-masking-get-started.md) é um recurso de mascaramento de dados que permite que você limite a exposição de dados confidenciais mascarando-os para usuários sem privilégios na camada de aplicativo. Defina uma regra de mascaramento que pode criar um padrão de mascaramento (por exemplo, para mostrar apenas os quatro últimos dígitos de um SSN de ID nacional: XXX-XX-0000 e marque a maior parte dele como Xs) e identifique quais usuários devem ser excluídos da regra de mascaramento. O mascaramento ocorre durante a execução e várias funções de mascaramento estão disponíveis para várias categorias de dados. O mascaramento de dados dinâmicos permite automaticamente detectar dados confidenciais no banco de dados e aplicar mascaramento a eles.
+A [Máscara de Dados Dinâmicos](sql-database-dynamic-data-masking-get-started.md) é um recurso de mascaramento de dados que permite que você limite a exposição de dados confidenciais mascarando-os para usuários sem privilégios na camada de aplicativo. Defina uma regra de mascaramento que pode criar um padrão de mascaramento (por exemplo, mostrar apenas os últimos quatro dígitos de uma identificação nacional, CPF: XXX-XXX-000-0, e marcar a maior parte dele como X) e identificar quais usuários devem ser excluídos da regra de mascaramento. O mascaramento ocorre durante a execução e várias funções de mascaramento estão disponíveis para várias categorias de dados. O mascaramento de dados dinâmicos permite automaticamente detectar dados confidenciais no banco de dados e aplicar mascaramento a eles.
 
 A [segurança em nível de linha](/sql/relational-databases/security/row-level-security) permite que você controle o acesso no nível de linha. Ou seja, determinadas linhas em uma tabela de banco de dados com base no usuário que executa a consulta (uma associação de grupo ou um contexto de execução) são ocultadas. A restrição de acesso é feita no nível do banco de dados em vez de em uma camada de aplicativo, para simplificar a lógica do aplicativo. Comece criando um predicado de filtro, filtrando linhas que não devem ser expostas e a política de segurança e, em seguida, definindo quem tem acesso a essas linhas. Por fim, o usuário final executa sua consulta e, dependendo do privilégio de usuário, ele visualiza essas linhas restritas ou não pode vê-las de forma alguma.
 
@@ -218,7 +218,7 @@ O tráfego de rede entre sua organização e o Banco de Dados SQL geralmente ser
 - [De qualquer ponto a qualquer ponto](../expressroute/expressroute-connectivity-models.md#IPVPN)
 - [Ponto a ponto](../expressroute/expressroute-connectivity-models.md#Ethernet)
 
-A Rota Expressa permite aumentar até 2 vezes o limite da largura de banda adquirida sem custos adicionais. Também é possível configurar conectividade entre regiões usando a Rota expressa. Para ver uma lista de provedores de conectividade de ER, consulte: [Localizações de Emparelhamento e Parceiros do ExpressRoute](../expressroute/expressroute-locations.md). Os artigos abaixo descrevem a Rota Expressa em mais detalhes:
+A Rota Expressa permite aumentar até 2 vezes o limite da largura de banda adquirida sem custos adicionais. Também é possível configurar conectividade entre regiões usando a Rota expressa. Para ver uma lista de provedores de conectividade ER, consulte: [Locais de parceiros e emparelhamento de Rota Expressa](../expressroute/expressroute-locations.md). Os artigos abaixo descrevem a Rota Expressa em mais detalhes:
 
 - [Introdução à Rota Expressa](../expressroute/expressroute-introduction.md)
 - [Pré-requisitos](../expressroute/expressroute-prerequisites.md)
@@ -274,17 +274,17 @@ Nesse gráfico, você também pode configurar alertas por recurso. Esses alertas
 
 É possível consultar o modo de exibição de gerenciamento dinâmico [sys.DM db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) para retornar o histórico de estatísticas de consumo de recursos na última hora e o modo de exibição de catálogo do sistema [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) para retornar o histórico dos últimos 14 dias.
 
-#### <a name="query-performance-insight"></a>Análise de Desempenho de Consultas
+#### <a name="query-performance-insight"></a>Análise de desempenho de consultas
 
 A [Análise de Desempenho de Consultas](sql-database-query-performance.md) permite visualizar um histórico das principais consultas de consumo de recursos e consultas de longa execução para um banco de dados específico. Você pode identificar rapidamente as PRINCIPAIS consultas por utilização de recursos, duração e frequência de execução. Você pode acompanhar as consultas e detectar de regressão. Este recurso requer que o [Repositório de Consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) esteja habilitado e ativo para o banco de dados.
 
-![Análise de Desempenho de Consultas](./media/sql-database-manage-after-migration/query-performance-insight.png)
+![Análise de desempenho de consultas](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
 #### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Análise de SQL do Azure (versão prévia) nos logs do Azure Monitor
 
 [Os logs de Azure monitor](../azure-monitor/insights/azure-sql.md) permitem coletar e visualizar as principais métricas de desempenho do banco de dados SQL do Azure, dando suporte a até 150.000 bancos de dados sql e 5.000 pools elásticos do SQL por espaço de trabalho. Você pode usá-lo para monitorar e receber notificações. Você pode monitorar métricas do Banco de Dados SQL e de pool elástico em várias assinaturas do Azure e pools elásticos, e isso pode ser usado para identificar problemas em cada camada da pilha de um aplicativo.
 
-### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Estou tendo problemas de desempenho: Como a minha metodologia de solução de problemas do Banco de Dados SQL difere do SQL Server?
+### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Estou percebendo problemas de desempenho: como a minha metodologia de solução de problemas do banco de dados SQL difere da SQL Server
 
 Uma parte importante das técnicas de solução de problemas que você deseja usar para diagnosticar a consulta e problemas de desempenho do banco de dados permanecem as mesmas. Afinal, o mesmo mecanismo do SQL Server aciona a nuvem. No entanto, a plataforma – DB do SQL Azure tem “inteligência” incorporada. Ela pode ajudá-lo a solucionar e diagnosticar problemas de desempenho ainda mais facilmente. Ela pode também executar algumas dessas ações corretivas em seu nome e, em alguns casos, proativamente corrigi-los – automaticamente.
 
@@ -294,7 +294,7 @@ Com a solução de problemas do desempenho, é importante identificar se é apen
 
 Além disso, se observar uma degradação no desempenho geral de seu banco de dados, você pode monitorar as exibições de gerenciamento dinâmico [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) para compreender o consumo de CPU, E/S e memória. Seu desempenho pode estar sendo afetado porque o banco de dados está sem recursos. Talvez seja necessário alterar o tamanho da computação e/ou a camada de serviço com base nas demandas de carga de trabalho crescentes e decrescentes.
 
-Para obter um conjunto abrangente de recomendações de ajuste dos problemas de desempenho, consulte: [Ajustar seu banco de dados](sql-database-performance-guidance.md#tune-your-database).
+Para um conjunto abrangente de recomendações de ajuste dos problemas de desempenho, confira: [Ajustar seu desempenho](sql-database-performance-guidance.md#tune-your-database).
 
 ### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>Como fazer para garantir que estou usando o tamanho da computação e a camada de serviço apropriados?
 
@@ -309,7 +309,7 @@ O Banco de Dados SQL oferece várias camadas de serviço: Básica, Standard e Pr
 
 Para assegurar-se de que está usando o tamanho da computação adequado, você pode monitorar o consumo de recursos de consulta e banco de dados de uma das maneiras mencionadas acima em "Como fazer para monitorar o desempenho e a utilização de recursos no Banco de Dados SQL". Se perceber que suas consultas/bancos de dados frequentemente têm escassez de CPU/memória etc., considere passar para um tamanho da computação maior. Da mesma forma, se você observar que, mesmo durante horários de pico, não parece que você está usando tanto os recursos, considere reduzir o tamanho da computação atual.
 
-Se tiver um cenário de padrão de aplicativo SaaS ou de consolidação de banco de dados, considere o uso de um Pool elástico para otimizar os custos. O pool elástico é uma ótima maneira de obter a consolidação de banco de dados e a otimização de custoa. Para ler mais sobre o gerenciamento de vários bancos de dados usando o pool elástico, confira: [Gerenciar pools e bancos de dados](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
+Se tiver um cenário de padrão de aplicativo SaaS ou de consolidação de banco de dados, considere o uso de um Pool elástico para otimizar os custos. O pool elástico é uma ótima maneira de obter a consolidação de banco de dados e a otimização de custoa. Para ler mais sobre como gerenciar vários bancos de dados usando o pool elástico, confira: [gerenciar pools e bancos de dados](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>Com que frequência preciso executar verificações de integridade do banco de dados para o meu banco de dados?
 
@@ -319,11 +319,11 @@ O Banco de Dados SQL usa algumas técnicas inteligentes que permitem manipular d
 
 ### <a name="how-do-i-export-and-import-data-as-bacpac-files-from-sql-database"></a>Como fazer para exportar e importar dados como arquivos BACPAC do Banco de Dados SQL?
 
-- **Exportar**: É possível exportar o Banco de Dados SQL do Azure como um arquivo BACPAC no portal do Azure
+- **Exportar**: você pode exportar seu Banco de Dados SQL do Azure como um arquivo BACPAC no Portal do Azure
 
    ![exportação de banco de dados](./media/sql-database-export/database-export1.png)
 
-- **Importar**: Também é possível importar dados em um arquivo BACPAC para o banco de dados usando o portal do Azure.
+- **Importar**: você também pode importar dados como um arquivo BACPAC para o banco de dados usando o Portal do Azure.
 
    ![importação de dados](./media/sql-database-import/import1.png)
 
@@ -332,7 +332,7 @@ O Banco de Dados SQL usa algumas técnicas inteligentes que permitem manipular d
 Há várias maneiras fazer isso:
 
 - **[Sincronização de Dados](sql-database-sync-data.md)** – Esse recurso ajuda a sincronizar dados bidirecionalmente entre vários bancos de dados locais do SQL Server e do Banco de Dados SQL. Para sincronizar com bancos de dados do SQL Server local, você precisa instalar e configurar o agente de sincronização em um computador local e abrir a porta TCP de saída 1433.
-- **[Replicação de Transação](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – Com replicação de transação, você pode sincronizar os dados do local para o Azure SQL DB com o local que está sendo o publicador e o Azure SQL DB que está sendo o assinante. Por ora, apenas há suporte apenas para esta configuração. Para obter mais informações sobre como migrar seus dados do local para o Azure SQL com o mínimo tempo de inatividade, consulte: [Usar Replicação da Transação](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
+- **[Replicação de Transação](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – Com replicação de transação, você pode sincronizar os dados do local para o Azure SQL DB com o local que está sendo o publicador e o Azure SQL DB que está sendo o assinante. Por ora, apenas há suporte apenas para esta configuração. Para obter mais informações sobre como migrar os dados do local para o Azure SQL com um mínimo tempo de inatividade, consulte: [Usar replicação de transação](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>Próximas etapas
 

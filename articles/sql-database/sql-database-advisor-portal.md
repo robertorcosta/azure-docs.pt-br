@@ -1,5 +1,5 @@
 ---
-title: Aplicar recomendações de desempenho - Banco de Dados SQL do Azure | Microsoft Docs
+title: Aplicar recomendações de desempenho-banco de dados SQL do Azure
 description: Use o portal do Azure para localizar as recomendações de desempenho que podem otimizar o desempenho do Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: b6bcb2650cd11ed97b6e81fda6aaafe7fca61202
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 24a590a80e768bba2e9b102bdf200e0cd96858f8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569589"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691280"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 
@@ -38,11 +38,11 @@ As recomendações de desempenho são exibidas na tabela semelhante à exibida n
 
 As recomendações são classificadas de acordo com seu impacto em potencial no desempenho nas seguintes categorias:
 
-| Impacto | Descrição |
+| Impacto | DESCRIÇÃO |
 |:--- |:--- |
 | Alto |Recomendações de alto impacto devem fornecer o impacto mais significativo no desempenho. |
-| Médio |Recomendações de médio impacto devem melhorar o desempenho, mas não substancialmente. |
-| Baixa |Recomendações de baixo impacto devem fornecer um desempenho melhor do que seria obtido sem elas, mas as melhorias podem não ser significativas. |
+| Média |Recomendações de médio impacto devem melhorar o desempenho, mas não substancialmente. |
+| Baixo |Recomendações de baixo impacto devem fornecer um desempenho melhor do que seria obtido sem elas, mas as melhorias podem não ser significativas. |
 
 
 > [!NOTE]
@@ -127,12 +127,12 @@ Recomendações que estão com status **Pendente**, **Validando** ou **Êxito** 
 
 A aplicação de uma recomendação pode não acontecer instantaneamente. O portal fornece detalhes sobre o status da recomendação. Um índice pode estar em um dos estados a seguir:
 
-| Status | Descrição |
+| Status | DESCRIÇÃO |
 |:--- |:--- |
 | Pendente |O comando Aplicar recomendação foi recebido e está programado para execução. |
 | Executando |A recomendação está sendo aplicada. |
 | Validando |A recomendação foi aplicada com êxito e o serviço está medindo os benefícios. |
-| Êxito |A recomendação foi aplicada com êxito e benefícios foram calculados. |
+| Sucesso |A recomendação foi aplicada com êxito e benefícios foram calculados. |
 | Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Este pode ser um problema temporário ou, possivelmente, uma alteração de esquema na tabela, tornando o script inválido. |
 | Revertendo |A recomendação foi aplicada, mas foi considerada não funcional e está sendo revertida automaticamente. |
 | Revertida |A recomendação foi revertida. |

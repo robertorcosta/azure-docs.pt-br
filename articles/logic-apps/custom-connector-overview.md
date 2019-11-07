@@ -9,16 +9,16 @@ ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 1/30/2018
-ms.openlocfilehash: 6b02954f9f89074c5eff7e3b7fad2bc6afb29540
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4cc0201b8ac61c54aadcc59b549877238b95e54
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689771"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574472"
 ---
 # <a name="custom-connectors-in-logic-apps"></a>Conectores Personalizados nos Aplicativos Lógicos
 
-Sem gravar nenhum código, você pode criar fluxos de trabalho e aplicativos com [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps), [Microsoft Flow](https://flow.microsoft.com) e [PowerApps](https://powerapps.microsoft.com). Para ajudá-lo a integrar aplicativos, processos de negócios e dados, esses serviços oferecem [aproximadamente 200 conectores](https://docs.microsoft.com/connectors/), para serviços e produtos da Microsoft, assim como para outros serviços, como GitHub, Salesforce, Twitter e muito mais.
+Sem escrever nenhum código, você pode criar fluxos de trabalho e aplicativos com [aplicativos lógicos do Azure](https://azure.microsoft.com/services/logic-apps), [automatização](https://flow.microsoft.com)e Power [apps](https://powerapps.microsoft.com). Para ajudá-lo a integrar aplicativos, processos de negócios e dados, esses serviços oferecem [aproximadamente 200 conectores](https://docs.microsoft.com/connectors/), para serviços e produtos da Microsoft, assim como para outros serviços, como GitHub, Salesforce, Twitter e muito mais.
 
 Às vezes, porém, convém chamar APIs, serviços e sistemas que não estão disponíveis como conectores pré-compilados. Para dar suporte a mais cenários personalizados, você pode criar *conectores personalizados* com seus próprios gatilhos e ações. O site de documentação de conectores possui tutoriais básicos e avançados completos sobre conectores personalizados. Você pode iniciar com a [visão geral do conector personalizado](https://docs.microsoft.com/connectors/custom-connectors/), mas você também pode ir diretamente para esses tópicos para obter detalhes sobre uma área específica:
 

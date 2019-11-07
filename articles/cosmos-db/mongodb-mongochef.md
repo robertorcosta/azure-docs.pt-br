@@ -1,41 +1,42 @@
 ---
 title: Conectar-se à API do Azure Cosmos DB para o MongoDB usando o Studio 3T
-titleSuffix: Azure Cosmos DB
-description: Saiba como se conectar ao Cosmos DB usando o Studio 3T e a API do Azure Cosmos DB para MongoDB.
+description: Saiba como se conectar à API de um Azure Cosmos DB para MongoDB usando o Studio 3T.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 11/01/2019
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 46cac6720bbef133d6b3f7a269cf97a81cddd0c5
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: c9be9893d28439fdcff9f33f0303a816bd94c7b8
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70062127"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584434"
 ---
-# <a name="connect-to-cosmos-account-using-studio-3t"></a>Conectar-se à conta do Cosmos usando o Studio 3T
+# <a name="connect-to-an-azure-cosmos-account-using-studio-3t"></a>Conectar-se a uma conta do Azure Cosmos usando o Studio 3T
 
-Para se conectar a uma conta do Cosmos usando a API do Cosmos DB para MongoDB, é necessário:
+Para se conectar à API de um Azure Cosmos DB para MongoDB usando o Studio 3T, você deve:
 
-* Fazer o download e instalar o [Studio 3T](https://studio3t.com/)
-* Obtenha informações da [cadeia de conexão](connect-mongodb-account.md) do Cosmos DB
+* Baixe e instale o [Studio 3T](https://studio3t.com/).
+* Tenha as informações da cadeia de [conexão](connect-mongodb-account.md) da sua conta do Azure Cosmos.
 
 > [!NOTE]
-> Atualmente, o Robo 3T v 1.2 e inferior tem suporte com a API de Cosmos DB para MongoDB. 
+> Atualmente, Robo 3T v 1.2 e versões inferiores têm suporte com a API de Cosmos DB para MongoDB.
 
 ## <a name="create-the-connection-in-studio-3t"></a>Criar a conexão no Studio 3T
-Para adicionar sua conta do Cosmos ao gerenciador de conexões do Studio 3T, execute as seguintes etapas:
 
-1. Recupere as informações de conexão para sua conta do Cosmos configurada com a API do Azure Cosmos DB para MongoDB usando as instruções no artigo [Conectar um aplicativo MongoDB ao Azure Cosmos DB](connect-mongodb-account.md).
+Para adicionar sua conta do Azure Cosmos ao Gerenciador de conexões do 3T Studio, use as seguintes etapas:
+
+1. Recupere as informações de conexão para a conta da API para MongoDB do Azure Cosmos DB usando as instruções no artigo [conectar um aplicativo do MongoDB ao Azure Cosmos DB](connect-mongodb-account.md) .
 
     ![Captura de tela da página cadeia de conexão](./media/mongodb-mongochef/ConnectionStringBlade.png)
+
 2. Clique em **Conectar** para abrir o Gerenciador de Conexões e clique em **Nova Conexão**
 
     ![Captura de tela do Gerenciador de conexões do Studio 3T](./media/mongodb-mongochef/ConnectionManager.png)
-3. Na janela **Nova Conexão**, na guia **Servidor**, insira o HOST (FQDN) da conta do Azure Cosmos DB e a PORTA.
+3. Na janela **nova conexão** , na guia **servidor** , insira o host (FQDN) da conta do Azure Cosmos e da porta.
 
     ![Captura de tela da guia servidor do Gerenciador de conexões do Studio 3T](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
 4. Na janela **Nova Conexão**, na guia **Autenticação**, escolha o Modo de Autenticação **(MONGODB-CR ou SCARM-SHA-1) Básico** e insira NOME DE USUÁRIO e SENHA.  Aceite o banco de dados de autenticação padrão (admin) ou forneça seu próprio valor.
@@ -114,5 +115,5 @@ Para criar um banco de dados, coleta e documentos usando o Studio 3T, execute as
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [usar o Robo 3T](mongodb-robomongo.md) com uma API do Azure Cosmos DB para o MongoDB.
+- Saiba como [usar o Robo 3T](mongodb-robomongo.md) com a API do Azure Cosmos DB para MongoDB.
 - Explore [exemplos](mongodb-samples.md) do MongoDB com a API do Azure Cosmos DB para MongoDB.

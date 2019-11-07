@@ -1,5 +1,5 @@
 ---
-title: Mover dados entre bancos de dados na nuvem escalados horizontalmente | Microsoft Docs
+title: Mover dados entre bancos de dados na nuvem escalados horizontalmente
 description: Explica como manipular fragmentos e mover os dados por meio de um serviço auto-hospedado usando APIs de banco de dados elástico.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 841794dcbb41249ea25f615524150df4bd257b45
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b2203b7fb9e168b251eda16a9505ae2004b0460
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568379"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690200"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bancos de dados na nuvem escalados horizontalmente
 
@@ -179,7 +179,7 @@ A implementação atual do serviço de divisão/mesclagem está sujeita aos requ
 
 O serviço de divisão/mesclagem é executado como um serviço de nuvem em sua assinatura do Microsoft Azure. Portanto, os encargos para serviços de nuvem se aplicam à sua instância do serviço. A menos que você execute operações de divisão/mesclagem/movimentação com frequência, recomendamos que você exclua seu serviço de nuvem de divisão/mesclagem. Isso reduz os custos de execução ou de instâncias de serviço de nuvem implantadas. Você pode implantar novamente e iniciar sua configuração prontamente executável sempre que desejar executar operações de divisão/mesclagem.
 
-## <a name="monitoring"></a>Monitorando
+## <a name="monitoring"></a>Monitoramento
 
 ### <a name="status-tables"></a>Tabelas de status
 
@@ -211,7 +211,7 @@ O Serviço de divisão/mesclagem fornece a tabela **RequestStatus** no banco de 
 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 
-O serviço de divisão/mesclagem usa o diagnóstico do Azure com base no SDK do Azure 2.5 para monitoramento e diagnóstico. Você controla a configuração de diagnóstico conforme explicado aqui: [Habilitar o Diagnóstico nos Serviços de Nuvem do Azure e Máquinas virtuais](../cloud-services/cloud-services-dotnet-diagnostics.md). O pacote de download inclui duas configurações de diagnóstico: uma para a função web e outra para a função de trabalho. Inclui as definições para registrar os Contadores de desempenho, logs do IIS, Logs de Eventos do Windows e logs de eventos do aplicativo de divisão/mesclagem.
+O serviço de divisão/mesclagem usa o diagnóstico do Azure com base no SDK do Azure 2.5 para monitoramento e diagnóstico. Você controla a configuração de diagnóstico conforme explicado aqui: [Habilitando diagnóstico nos Serviços de Nuvem e Máquinas Virtuais do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). O pacote de download inclui duas configurações de diagnóstico: uma para a função web e outra para a função de trabalho. Inclui as definições para registrar os Contadores de desempenho, logs do IIS, Logs de Eventos do Windows e logs de eventos do aplicativo de divisão/mesclagem.
 
 ## <a name="deploy-diagnostics"></a>Implantar Diagnósticos
 
@@ -233,7 +233,7 @@ Para habilitar o monitoramento e diagnóstico usando a configuração de diagnó
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
 ```
 
-Você pode encontrar mais informações sobre como configurar e implantar as configurações de diagnóstico aqui: [Habilitar o Diagnóstico nos Serviços de Nuvem do Azure e Máquinas virtuais](../cloud-services/cloud-services-dotnet-diagnostics.md).
+Você pode encontrar mais informações sobre como configurar e implantar configurações de diagnóstico aqui: [Habilitando o diagnóstico nos Serviços de Nuvem e nas Máquinas Virtuais do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## <a name="retrieve-diagnostics"></a>Recuperar diagnósticos
 

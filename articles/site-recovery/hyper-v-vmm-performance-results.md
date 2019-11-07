@@ -1,5 +1,5 @@
 ---
-title: Testar resultados para replicação de VMs Hyper-V de nuvens VMM em um site secundário com o Azure Site Recovery | Microsoft Docs
+title: Testar a replicação de VM do Hyper-V em um site secundário com o VMM usando Azure Site Recovery
 description: Este artigo fornece informações sobre os testes de desempenho para a replicação de VMs do Hyper-V em nuvens de VMM para um site secundário usando o Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: a7413b2dcb24a42092eb2af9816b1d29a8306e19
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68377218"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663181"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Testar resultados para replicação do Hyper-V para um site secundário
 
@@ -145,7 +145,7 @@ Os resultados mostram claramente que o Site Recovery, junto com a Réplica do Hy
 * Todas as VMs com disco VHDX.
 * VMs executando cargas de trabalho resumidas na tabela. Todas foram criadas com modelos do VMM.
 
-| Carga de Trabalho | Nº de VMs | RAM mínima (GB) | RAM máxima (GB) | Tamanho de disco lógico (GB) por VM | IOPS máximo |
+| Carga de trabalho | Nº de VMs | RAM mínima (GB) | RAM máxima (GB) | Tamanho de disco lógico (GB) por VM | IOPS máximo |
 | --- | --- | --- | --- | --- | --- |
 | SQL Server |51 |1 |4 |167 |10 |
 | Exchange Server |71 |1 |4 |552 |10 |
@@ -175,10 +175,10 @@ A tabela resume as métricas e os contadores de desempenho medidos na implantaç
 | CPU |\Processador(_Total)\% Tempo do processador |
 | Memória disponível |\Memória\MBytes disponíveis |
 | IOPS |\Disco físico(_Total)\Transferências do disco/seg |
-| Operações de leitura da VM (IOPS)/seg |\Dispositivo do dispositivo de armazenamento\<virtual (VHD >) \ operações/s |
-| Operações de gravação da VM (IOPS)/seg |\Dispositivo do dispositivo de armazenamento\<virtual (VHD >) \ operações/S |
-| Taxa de transferência de leitura da VM |Dispositivo de armazenamento virtual \dispositivo\<(VHD >) \ Bytes/s |
-| Taxa de transferência de gravação da VM |Dispositivo de armazenamento virtual \dispositivo\<(VHD >) \ Bytes/s |
+| Operações de leitura da VM (IOPS)/seg |Dispositivo de armazenamento virtual \Dispositivo (\<VHD >) operações \/s |
+| Operações de gravação da VM (IOPS)/seg |\Dispositivo do dispositivo de armazenamento virtual (\<VHD >) operações de \/S |
+| Taxa de transferência de leitura da VM |Dispositivo de armazenamento virtual \Dispositivo (\<VHD >) \ Bytes/s |
+| Taxa de transferência de gravação da VM |Dispositivo de armazenamento virtual \Dispositivo (\<VHD >) \ Bytes/s |
 
 ## <a name="next-steps"></a>Próximas etapas
 

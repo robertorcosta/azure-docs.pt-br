@@ -1,5 +1,5 @@
 ---
-title: Transformação de junção no fluxo de dados de mapeamento de Azure Data Factory | Microsoft Docs
+title: Transformação de junção no fluxo de dados de mapeamento de Azure Data Factory
 description: Combinar dados de duas fontes de dados usando a transformação de junção no fluxo de dados de mapeamento Azure Data Factory
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 78de9f2bedfc36add567053e1de47e8893bfaf3c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4680804017a9b08248bb41ff999c6ba6371e99c8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596996"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675922"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformação de junção no fluxo de dados de mapeamento
 
@@ -32,13 +32,13 @@ A junção externa esquerda retorna todas as linhas do fluxo à esquerda e os re
 
 ### <a name="right-outer"></a>Externa direita
 
-A junção externa esquerda retorna todas as linhas do fluxo à direita e os registros correspondentes do fluxo à esquerda. Se uma linha do fluxo à direita não tiver correspondência, as colunas de saída do fluxo à direita serão definidas como NULL. A saída será as linhas retornadas por uma junção interna mais as linhas não correspondentes do fluxo à direita.
+A junção externa direita retorna todas as linhas do fluxo à direita e os registros correspondentes do fluxo à esquerda. Se uma linha do fluxo à direita não tiver correspondência, as colunas de saída do fluxo à esquerda serão definidas como NULL. A saída será as linhas retornadas por uma junção interna mais as linhas não correspondentes do fluxo à direita.
 
-### <a name="full-outer"></a>Externo completo
+### <a name="full-outer"></a>Externa completa
 
 A junção externa completa gera todas as colunas e linhas de ambos os lados com valores nulos para colunas que não são correspondentes.
 
-### <a name="cross-join"></a>Junção cruzada
+### <a name="cross-join"></a>União cruzada
 
 A junção cruzada gera o produto cruzado dos dois fluxos com base em uma condição. Se você estiver usando uma condição que não seja de igualdade, especifique uma expressão personalizada como condição de junção cruzada. O fluxo de saída será todas as linhas que atendem à condição de junção. Para criar um produto cartesiano que produza todas as combinações de linhas, especifique `true()` como sua condição de junção.
 
@@ -48,7 +48,7 @@ A junção cruzada gera o produto cruzado dos dois fluxos com base em uma condi�
 1. Selecione seu **tipo de junção**
 1. Escolha em quais colunas de chave você deseja fazer a correspondência para a condição de junção. Por padrão, o fluxo de dados procura igualdade entre uma coluna em cada fluxo. Para comparar por meio de um valor calculado, passe o mouse sobre a lista suspensa coluna e selecione **coluna computada**.
 
-![Transformação de junção](media/data-flow/join.png "Join")
+![Transformação de junção](media/data-flow/join.png "Ingressar")
 
 ## <a name="optimizing-join-performance"></a>Otimizando o desempenho da junção
 
@@ -58,7 +58,7 @@ Ao contrário da junção de mesclagem em ferramentas como o SSIS, a transforma�
 
 Se um ou ambos os fluxos de dados couberem na memória do nó de trabalho, otimize ainda mais seu desempenho habilitando a **difusão** na guia otimizar. Você também pode reparticionar seus dados na operação de junção para que eles se adaptem melhor à memória por trabalhador.
 
-## <a name="self-join"></a>Auto-associação
+## <a name="self-join"></a>Autojunção
 
 Para unir automaticamente um fluxo de dados com ele mesmo, faça um alias de um fluxo existente com uma transformação selecionar. Crie uma nova ramificação clicando no ícone de adição ao lado de uma transformação e selecionando **nova ramificação**. Adicione uma transformação selecionar para alias do fluxo original. Adicione uma transformação de junção e escolha o fluxo original como o **fluxo à esquerda** e a transformação selecionar como o **fluxo à direita**.
 
@@ -83,7 +83,7 @@ Ao testar as transformações de junção com a visualização de dados no modo 
 
 ### <a name="inner-join-example"></a>Exemplo de junção interna
 
-O exemplo abaixo é uma transformação de junção chamada `JoinMatchedData` que usa fluxo à esquerda `TripData` e `TripFare` de fluxo à direita.  A condição de junção é a expressão `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` que retorna true se as colunas `hack_license`, `medallion`, `vendor_id` e `pickup_datetime` em cada fluxo correspondem. O `joinType` é `'inner'`. Estamos habilitando a difusão somente no fluxo à esquerda para que `broadcast` tenha o valor `'left'`.
+O exemplo abaixo é uma transformação de junção chamada `JoinMatchedData` que usa fluxo à esquerda `TripData` e `TripFare`de fluxo à direita.  A condição de junção é a expressão `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` que retorna true se as colunas `hack_license`, `medallion`, `vendor_id`e `pickup_datetime` em cada fluxo correspondem. O `joinType` é `'inner'`. Estamos habilitando a difusão somente no fluxo à esquerda para que `broadcast` tenha o valor `'left'`.
 
 No Data Factory UX, essa transformação é semelhante à imagem abaixo:
 
@@ -105,7 +105,7 @@ TripData, TripFare
 
 ### <a name="cross-join-example"></a>Exemplo de junção cruzada
 
-O exemplo abaixo é uma transformação de junção chamada `CartesianProduct` que usa fluxo à esquerda `TripData` e `TripFare` de fluxo à direita. Essa transformação usa dois fluxos e retorna um produto cartesiano de suas linhas. A condição de junção é `true()` porque gera um produto cartesiano completo. O `joinType` em `cross`. Estamos habilitando a difusão somente no fluxo à esquerda para que `broadcast` tenha o valor `'left'`.
+O exemplo abaixo é uma transformação de junção chamada `CartesianProduct` que usa fluxo à esquerda `TripData` e `TripFare`de fluxo à direita. Essa transformação usa dois fluxos e retorna um produto cartesiano de suas linhas. A condição de junção é `true()` porque gera um produto cartesiano completo. O `joinType` em `cross`. Estamos habilitando a difusão somente no fluxo à esquerda para que `broadcast` tenha o valor `'left'`.
 
 No Data Factory UX, essa transformação é semelhante à imagem abaixo:
 
@@ -122,6 +122,6 @@ TripData, TripFare
     )~> CartesianProduct
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de unir os dados, crie uma [coluna derivada](data-flow-derived-column.md) e [coletar](data-flow-sink.md) seus dados para um armazenamento de dados de destino.

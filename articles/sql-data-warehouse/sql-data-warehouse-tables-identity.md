@@ -1,5 +1,5 @@
 ---
-title: Usando IDENTITY para criar chaves substitutas - SQL Data Warehouse do Azure | Microsoft Docs
+title: Usando a identidade para criar chaves substitutas
 description: Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves substitutas em tabelas no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 4c65bf7cc8edfa246508bb22001aed40c34414f3
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 0ee15b975b5513077b26cceeb80ea3fb8c02456b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515583"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692478"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Usando IDENTITY para criar chaves substitutas no SQL Data Warehouse do Azure
 
@@ -76,7 +77,7 @@ FROM dbo.T1;
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-No exemplo anterior, duas linhas foram descarregadas na distribuição 1. A primeira linha tem o valor substituto de 1 na coluna `C1`, e a segunda linha tem o valor substituto 61. Ambos os valores foram gerados pela propriedade IDENTITY. No entanto, a alocação dos valores não é contígua. Esse comportamento é padrão.
+No exemplo anterior, duas linhas foram descarregadas na distribuição 1. A primeira linha tem o valor substituto de 1 na coluna `C1`, e a segunda linha tem o valor substituto 61. Ambos os valores foram gerados pela propriedade IDENTITY. No entanto, a alocação dos valores não é contígua. Este comportamento ocorre por design.
 
 ### <a name="skewed-data"></a>Dados distorcidos
 

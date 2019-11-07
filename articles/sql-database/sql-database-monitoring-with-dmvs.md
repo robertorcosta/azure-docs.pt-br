@@ -1,5 +1,5 @@
 ---
-title: Banco de Dados SQL do Azure de desempenho de monitoramento Usando DMVs | Microsoft Docs
+title: Monitorando o desempenho do banco de dados SQL do Azure usando DMVs
 description: Saiba como detectar e diagnosticar problemas de desempenho comuns usando exibições de gerenciamento dinâmico para monitorar o Banco de Dados SQL do Microsoft Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: a630ceb1748f38dc169a4ebabcbb4e021de4273c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c7eed3fc8e9d0328a3e793e1ff4b3652ab86e2bc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881567"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687743"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Desempenho de monitoramento do Banco de Dados SQL do Azure usando exibições de gerenciamento dinâmico
 
@@ -237,7 +237,7 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>Identificar `tempdb` problemas de desempenho
 
-Ao identificar problemas de desempenho de e/s, os principais tipos de espera de associado `tempdb` é de problemas `PAGELATCH_*` (não `PAGEIOLATCH_*`). No entanto, `PAGELATCH_*` esperas sempre significam que você tem `tempdb` contenção.  Essa espera também pode significar que você tenha a contenção de página de dados de objeto de usuário devido a solicitações simultâneas, visando a mesma página de dados. Para confirmar `tempdb` ainda mais a contenção, use [Sys. dm _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para confirmar que o valor de `2:x:y` wait_resource começa com `tempdb` onde 2 é a ID `x` do banco de dados, é `y` a ID do arquivo e é a ID da página.  
+Ao identificar problemas de desempenho de e/s, os principais tipos de espera de associado `tempdb` é de problemas `PAGELATCH_*` (não `PAGEIOLATCH_*`). No entanto, `PAGELATCH_*` esperas sempre significam que você tem `tempdb` contenção.  Essa espera também pode significar que você tenha a contenção de página de dados de objeto de usuário devido a solicitações simultâneas, visando a mesma página de dados. Para confirmar ainda mais a contenção de `tempdb`, use [Sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para confirmar que o valor de wait_resource começa com `2:x:y`, em que 2 é `tempdb` é a ID do banco de dados, `x` é a ID do arquivo e `y` é a ID da página.  
 
 Contenção de tempdb, de um método comum é reduzir ou reescrever o código do aplicativo que se baseia em `tempdb`.  Áreas de uso comum `tempdb` incluem:
 
@@ -732,6 +732,6 @@ Um plano de consulta ineficiente também pode aumentar o consumo de CPU. O exemp
     ORDER BY highest_cpu_queries.total_worker_time DESC;
     ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 [Introdução ao Banco de Dados SQL](sql-database-technical-overview.md)

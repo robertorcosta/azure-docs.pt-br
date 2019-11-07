@@ -1,7 +1,7 @@
 ---
 title: Como carregar um documento - conversor personalizado
 titleSuffix: Azure Cognitive Services
-description: Usando o recurso de upload de documentos, você pode carregar documento paralelo para seu treinamentos. Documentos paralelos são pares de documentos em que um é a tradução do outro. Um documento no par contém sentenças no idioma de origem e o outro documento contém essas frases traduzidas no idioma de destino.
+description: O recurso de upload de documento carrega documentos paralelos (dois documentos em que um é a origem e o outro é a tradução) no serviço.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f2bd6103c27d455265ee967554fb27513f78a472
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b2a249a40d8c782d54a12df43d33655f3409753c
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595636"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647379"
 ---
 # <a name="upload-a-document"></a>Upload de um documento
 
@@ -37,25 +37,25 @@ No portal [ Custom Translator ](https://portal.customtranslator.azure.ai), cliqu
 
     a.  Tipo de documento:
 
-    -  Treinamento: Esses documentos serão usados para o conjunto de treinamento.
-    -  Ajuste: Esses documentos serão usados para o conjunto de ajuste.
-    -  Teste: Esses documentos serão usados para o conjunto de teste.
-    -  Dicionário de Frases: Esses documentos serão usados para o dicionário de frases.
-    -  Dicionário de Sentenças: Esses documentos serão usados para o dicionário de sentenças
+    -  Treinamento: Estes documentos serão usados para o conjunto de treinamento.
+    -  Sintonia: Estes documentos serão usados para o ajuste do ajuste.
+    -  Teste: Estes documentos serão usados para o conjunto de testes.
+    -  Dicionário de Frases: Estes documentos serão usados para o dicionário de frases.
+    -  Dicionário de sentença: Esses documentos serão usados para o dicionário de frase
 
     b.  Par de idiomas
 
-    c.  Substituir o documento se existir: Marque essa caixa de seleção se desejar substituir os documentos existentes com o mesmo nome.
+    c.  Substituir documento, se existir: Marque essa caixa de seleção se desejar substituir documentos existentes com o mesmo nome.
 
     d.  Preencha a seção relevante para dados paralelos ou dados de combinação.
 
     -  Dados em paralelo:
-        -  Arquivo de origem: Selecione o arquivo do idioma de origem no computador local.
-        -  Arquivo de destino: Selecione o arquivo do idioma de destino no computador local.
-        -  Nome do documento: Usado somente se você estiver carregando arquivos paralelos.
+        -  Arquivo de origem: selecione o arquivo de idioma de origem em seu computador local.
+        -  Arquivo de destino: selecione o arquivo de idioma de destino do seu computador local.
+        -  Nome do documento: usado somente se você estiver carregando arquivos paralelos.
 
     - Dados de caixa de combinação:
-        -  Arquivo de Combinação: Selecione o arquivo de combinação no computador local. Seu arquivo de combinação tem ambas as suas sentenças de origem e de destino. [Convenção de nomenclatura](document-formats-naming-convention.md) é importante para os arquivos de caixa de combinação.
+        -  Combo de Arquivo: Selecione o arquivo de combinação do seu computador local. Seu arquivo de combinação tem ambas as suas sentenças de origem e de destino. [Convenção de nomenclatura](document-formats-naming-convention.md) é importante para os arquivos de caixa de combinação.
 
     e.  Clique em carregar
 

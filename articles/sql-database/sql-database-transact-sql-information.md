@@ -1,5 +1,5 @@
 ---
-title: Resolvendo diferenças do T-SQL durante migração para o Banco de Dados SQL do Azure | Microsoft Docs
+title: Resolvendo diferenças de T-SQL-migração-banco de dados SQL do Azure
 description: Instruções Transact-SQL que têm suporte menor que o total pelo Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: fbc4628ff3d3d7d90f7ec2c47c87f7afa3e9cd43
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: edb978e27621cbc0df66ab32ba7472629c3f8bd1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028826"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686937"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolvendo diferenças de Transact-SQL durante a migração para o Banco de Dados SQL
 
@@ -45,35 +45,35 @@ As principais instruções de DDL (linguagem de definição de dados) estão dis
 Além das instruções Transact-SQL relacionadas aos recursos não suportados descritos na  [comparação de recursos do Banco de Dados SQL do Azure](sql-database-features.md), as seguintes declarações e grupos de instruções não são suportadas. Assim, se o banco de dados a ser migrado usa qualquer um dos recursos a seguir, faça a reengenharia de seu T-SQL para eliminar essas instruções e recursos do T-SQL.
 
 - Ordenação de objetos do sistema
-- Conexão relacionada: Instruções de ponto de extremidade. O Banco de dados SQL não dá suporte à autenticação do Windows, mas dá suporte à autenticação do Azure Active Directory semelhante. Alguns tipos de autenticação exigem a versão mais recente do SSMS. Para obter mais informações, consulte [Conectar-se ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory](sql-database-aad-authentication.md).
+- Relacionado à conexão: instruções de ponto de extremidade. O Banco de dados SQL não dá suporte à autenticação do Windows, mas dá suporte à autenticação do Azure Active Directory semelhante. Alguns tipos de autenticação exigem a versão mais recente do SSMS. Para obter mais informações, consulte [Conectar-se ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory](sql-database-aad-authentication.md).
 - Consultas cruzadas de banco de dados usando nomes de três ou quatro partes. (As consultas de bancos de dados somente leitura têm suporte por meio de [consulta de banco de dados elástico](sql-database-elastic-query-overview.md).)
 - encadeamento de propriedades de bancos de dados, configuração `TRUSTWORTHY`
 - `EXECUTE AS LOGIN` Use “EXECUTE AS USER”.
 - Há suporte para criptografia, exceto para o gerenciamento extensível de chaves
-- Eventos: eventos, notificações de eventos, notificações de consulta
-- Posicionamento do arquivo: Sintaxe relacionada ao posicionamento de arquivos de banco de dados, ao tamanho e aos arquivos de banco de dados que são gerenciados automaticamente pelo Microsoft Azure.
-- Alta disponibilidade: Sintaxe relacionada à alta disponibilidade, gerenciada por meio de sua conta do Microsoft Azure. Isso inclui a sintaxe de backup, restauração, do AlwaysOn, espelhamento de banco de dados, envio de logs e dos modos de recuperação.
-- Leitor de logs: sintaxe que se baseia no leitor de logs, que não está disponível no Banco de Dados SQL: replicação push, captura de dados de alterações. O Banco de Dados SQL pode ser um assinante de um artigo de replicação de push.
+- Criação de eventos: eventos, notificações de eventos, notificações de consulta
+- Localização de arquivos: sintaxe relacionada ao posicionamento de arquivos de banco de dados, ao tamanho e aos arquivos de banco de dados que são gerenciados automaticamente pelo Microsoft Azure.
+- Alta disponibilidade: sintaxe relacionada à alta disponibilidade, gerenciada por meio de sua conta do Microsoft Azure. Isso inclui a sintaxe de backup, restauração, do AlwaysOn, espelhamento de banco de dados, envio de logs e dos modos de recuperação.
+- Leitor de log: sintaxe que se baseia no leitor de log, que não está disponível no Banco de Dados SQL: Replicação por Push, Captura de Dados de Alteração. O Banco de Dados SQL pode ser um assinante de um artigo de replicação de push.
 - Funções: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
 - Hardware: sintaxe relacionada às configurações de servidor relacionadas ao hardware como memória, threads de trabalho, afinidade da CPU, sinalizadores de rastreamento. Use as camadas de serviço e os tamanhos da computação em vez disso.
 - `KILL STATS JOB`
 - `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` e nomes de quatro partes
 - .NET Framework: integração CLR com o SQL Server
 - Pesquisa semântica
-- Credenciais do servidor: Em vez disso, use [credenciais no escopo do banco de dados](https://msdn.microsoft.com/library/mt270260.aspx).
-- Itens de nível de servidor: Funções de servidor, `sys.login_token`. `GRANT`, `REVOKE` e `DENY` das permissões no nível do servidor não estão disponíveis, embora algumas delas sejam substituídas por permissões no nível do banco de dados. Algumas DMVs úteis no nível do servidor têm DMVs equivalentes no nível do banco de dados.
+- Credenciais do Servidor: em vez disso, use [credenciais no escopo do banco de dados](https://msdn.microsoft.com/library/mt270260.aspx).
+- Itens no nível do servidor: funções de servidor, `sys.login_token`. `GRANT`, `REVOKE` e `DENY` das permissões no nível do servidor não estão disponíveis, embora algumas delas sejam substituídas por permissões no nível do banco de dados. Algumas DMVs úteis no nível do servidor têm DMVs equivalentes no nível do banco de dados.
 - `SET REMOTE_PROC_TRANSACTIONS`
 - `SHUTDOWN`
 - `sp_addmessage`
 - Opções `sp_configure` e `RECONFIGURE`. Algumas opções estão disponíveis usando [ALTERAR CONFIGURAÇÃO DE ESCOPO DO BANCO DE DADOS](https://msdn.microsoft.com/library/mt629158.aspx).
 - `sp_helpuser`
 - `sp_migrate_user_to_contained`
-- SQL Server Agent: Sintaxe que se baseia no SQL Server Agent ou no banco de dados MSDB: alertas, operadores, servidores de gerenciamento central. Em vez disso, use scripts, como o Azure PowerShell.
-- Auditoria do SQL Server: Em vez disso, use a auditoria do Banco de Dados SQL.
+- SQL Server Agent: sintaxe que se baseia no SQL Server Agent ou no banco de dados MSDB: alertas, operadores, servidores de gerenciamento central. Em vez disso, use scripts, como o Azure PowerShell.
+- Auditoria do SQL Server: (use auditoria de Banco de Dados SQL em vez disso).
 - Rastreamento do SQL Server
-- Sinalizadores de rastreamento: Alguns itens do sinalizador de rastreamento foram movidos para os modos de compatibilidade.
+- Sinalizadores de rastreamento: alguns itens do sinalizador de rastreamento foram movidos para os modos de compatibilidade.
 - Depuração de Transact-SQL
-- Gatilhos: com escopo do servidor ou gatilhos de logon
+- Disparadores: no escopo do servidor ou gatilhos de logon
 - Instrução `USE`: para alterar o contexto do banco de dados para um banco de dados diferente, é necessário estabelecer uma nova conexão com o novo banco de dados.
 
 ## <a name="full-transact-sql-reference"></a>Referência completa do Transact-SQL
@@ -82,7 +82,7 @@ Para obter mais informações sobre a gramática, uso e exemplos do Transact-SQL
 
 ### <a name="about-the-applies-to-tags"></a>Sobre as marcas "Aplica-se a"
 
-A referência do Transact-SQL inclui artigos relacionados a versões do SQL Server da 2008 à atual. Abaixo do título do artigo, há um ícone de barra, listando as quatro plataformas do SQL Server e que indica a aplicabilidade. Por exemplo, grupos de disponibilidade foram introduzidos no SQL Server 2012. O [grupo de disponibilidade CREATE](https://msdn.microsoft.com/library/ff878399.aspx) article indica que a instrução se aplica a **SQL Server (começando com 2012)** . A instrução não se aplica ao SQL Server 2008, ao SQL Server 2008 R2, ao Banco de Dados SQL do Azure, ao SQL Data Warehouse ou ao Parallel Data Warehouse.
+A referência do Transact-SQL inclui artigos relacionados a versões do SQL Server da 2008 à atual. Abaixo do título do artigo, há um ícone de barra, listando as quatro plataformas do SQL Server e que indica a aplicabilidade. Por exemplo, grupos de disponibilidade foram introduzidos no SQL Server 2012. O artigo criar do [grupo de disponibilidade](https://msdn.microsoft.com/library/ff878399.aspx) indica que a instrução se aplica a **SQL Server (começando com 2012)** . A instrução não se aplica ao SQL Server 2008, ao SQL Server 2008 R2, ao Banco de Dados SQL do Azure, ao SQL Data Warehouse ou ao Parallel Data Warehouse.
 
 Em alguns casos, o assunto geral de um artigo pode ser usado em um produto, mas há pequenas diferenças entre os produtos. As diferenças são indicadas em pontos médios no artigo, conforme apropriado. Em alguns casos, o assunto geral de um artigo pode ser usado em um produto, mas há pequenas diferenças entre os produtos. As diferenças são indicadas em pontos médios no artigo, conforme apropriado. Por exemplo, o artigo CREATE TRIGGER está disponível no Banco de Dados SQL. No entanto, a opção **ALL SERVER** para gatilhos de nível de servidor indica que os gatilhos de nível de servidor não podem ser usados no Banco de Dados SQL. Use gatilhos de nível de banco de dados em vez disso.
 

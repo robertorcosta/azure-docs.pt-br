@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de HubSpot utilizando o Azure Data Factory (versão prévia) | Microsoft Docs
+title: Copiar dados de HubSpot utilizando o Azure Data Factory (versão prévia)
 description: Saiba como copiar dados do HubSpot para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 066c80f7791bb9699494a09dec12f43dfb383ac6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: e59d281ee492a1e926acc25cd812054f84c11f72
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090209"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680805"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copiar dados de HubSpot utilizando o Azure Data Factory (versão prévia)
 
@@ -48,9 +48,9 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado de HubSpot:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Hubspot** | Sim |
+| Tipo | A propriedade type deve ser definida como: **HubSpot** | Sim |
 | clientId | A ID de cliente associada ao seu aplicativo Hubspot.  | Sim |
 | clientSecret | O segredo do cliente associado ao seu aplicativo Hubspot. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | accessToken | O token de acesso obtido ao autenticar inicialmente sua integração do OAuth. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -91,9 +91,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de HubSpot, defina a propriedade type do conjunto de dados como **HubspotObject**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **HubspotObject** | Sim |
+| Tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **HubspotObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -121,9 +121,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de HubSpot, defina o tipo de fonte na atividade de cópia como **HubspotSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **HubspotSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **HubspotSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Companies where Company_Id = xxx"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

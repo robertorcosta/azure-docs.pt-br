@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Zoho usando Azure Data Factory (versão prévia) | Microsoft Docs
+title: Copiar dados do Zoho usando Azure Data Factory (versão prévia)
 description: Saiba como copiar dados do Zoho para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: e87ec0f24c07cc703b623043080d8968d08e0817
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 525599dcc262b8250e96d02707c0baa29d973196
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089064"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679991"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Copiar dados do Zoho usando Azure Data Factory (versão prévia)
 
@@ -48,9 +48,9 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do Zoho:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Zoho** | Sim |
+| Tipo | A propriedade type deve ser definida como: **Zoho** | Sim |
 | endpoint | O endpoint do servidor do Zoho (`crm.zoho.com/crm/private`). | Sim |
 | accessToken | O token de acesso para autenticação Zoho. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não |
@@ -81,9 +81,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Zoho, defina a propriedade type do conjunto de dados como **ZohoObject**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **ZohoObject** | Sim |
+| Tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **ZohoObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -111,9 +111,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de Zoho, defina o tipo de fonte na atividade de cópia como **ZohoSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da origem da atividade de cópia deve ser definida como: **ZohoSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **ZohoSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Accounts"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
