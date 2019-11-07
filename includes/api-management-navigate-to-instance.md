@@ -4,29 +4,20 @@ ms.service: api-management
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: vlvinogr
-ms.openlocfilehash: 3a46462f761e7608ae7554604577a1e9d7f88b15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52c2768605fa50f82029511b50bfd313fe325026
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238098"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471968"
 ---
 ## <a name="go-to-your-api-management-instance"></a>Navegar até a instância de Gerenciamento de API
 
-![Navegar até a instância de Gerenciamento de API](./media/api-management-navigate-to-instance/00-FindResource-01.png)
+1. No portal do Azure, pesquise e selecione **Serviços de Gerenciamento de API**.
 
-1. Entre no [Portal do Azure](https://portal.azure.com). 
+   ![Selecione Serviços de Gerenciamento de API](media/api-management-navigate-to-instance/view-apim1.png)
 
-2. Selecione **Todos os serviços**.  
+1. Na tela **Gerenciamento de API**, selecione a sua instância de Gerenciamento de API.
 
-3. Na caixa de pesquisa, insira `api management`.
-
-4. Nos resultados da pesquisa, selecione **Serviços de Gerenciamento de API**.
-
-5. Selecione uma instância do Serviço de Gerenciamento de API.
-
-> [!TIP]
-> Para adicionar o Gerenciamento de API em seus favoritos no portal do Azure, selecione a estrela.
->
-> O ícone de Gerenciamento de API (![ícone de Gerenciamento de API](./media/api-management-navigate-to-instance/apim-icon.png)) agora aparece no menu à esquerda no portal.
+   ![Selecione a sua instância de Gerenciamento de API](media/api-management-navigate-to-instance/view-apim2.png)
 

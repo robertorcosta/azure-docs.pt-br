@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: ee647668e8b5826706e8d9bb8a82acaf53fd3d8c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: f7667ce99ceaa713332ad9419ffab9d57aa0f075
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515211"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494462"
 ---
 # <a name="quickstart-personalizer-client-library-for-nodejs"></a>Início Rápido: Biblioteca de clientes do Personalizador para Node.js
 
@@ -39,7 +39,7 @@ Introdução à biblioteca de clientes do Personalizador para Node.js. Siga essa
 Há várias etapas para usar este início rápido:
 
 * No portal do Azure, crie um recurso do Personalizador
-* No portal do Azure, para o recurso do Personalizador, na página **Configurações**, altere a frequência de atualização do modelo
+* No portal do Azure, para o recurso do Personalizador, na página **Configuração**, altere a frequência de atualização do modelo
 * Em um editor de códigos, crie um arquivo de código e edite-o
 * Na linha de comando ou no terminal, instale o SDK usando a linha de comando
 * Na linha de comando ou no terminal, execute o arquivo de código
@@ -90,7 +90,7 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 
 ## <a name="change-the-model-update-frequency"></a>Alterar a frequência de atualização do modelo
 
-No portal do Azure, no recurso do Personalizador na página **Configurações**, altere a **Frequência de atualização do modelo** para 10 segundos. Isso treinará o serviço rapidamente, permitindo que você veja como a ação superior é alterada a cada iteração.
+No portal do Azure, no recurso do Personalizador na página **Configuração**, altere a **Frequência de atualização de modelo** para 10 segundos. Isso treinará o serviço rapidamente, permitindo que você veja como a ação superior é alterada a cada iteração.
 
 ![Alterar a frequência de atualização do modelo](./media/settings/configure-model-update-frequency-settings.png)
 

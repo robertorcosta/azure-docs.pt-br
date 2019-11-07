@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 0a2bf306ccfa3a4a4fc80d0d55493f284185bba9
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 26793c91c85ba4cc33a07358ab8ff318becb325f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648562"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490665"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,7 +23,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ### <a name="azure-roles"></a>Funções do Azure
 Para criar instâncias de Data Factory, a conta de usuário usada para entrar no Azure deve ser um membro das funções *colaborador* ou *proprietário*, ou um *administrador* da assinatura do Azure. Para exibir as permissões que você tem na assinatura, acesse o [portal do Azure](https://portal.azure.com), selecione seu nome de usuário no canto superior direito e selecione **Mais opções** (...) e, em seguida, selecione **Minhas permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada.
 
-Para criar e gerenciar recursos filho para o Data Factory – incluindo conjuntos de dados, serviços vinculados, pipelines, gatilhos e tempos de execução de integração –, os requisitos a seguir são aplicáveis:
+Para criar e gerenciar recursos filho para o Data Factory – incluindo conjuntos de dados, serviços vinculados, pipelines, gatilhos e runtimes de integração –, os requisitos a seguir são aplicáveis:
 
 - Para criar e gerenciar recursos filho no portal do Azure, você precisa pertencer à função **Colaborador do Data Factory** no nível do grupo de recursos ou superior.
 - Para criar e gerenciar recursos filho com o PowerShell ou o SDK, a função de **colaborador** no nível do recurso ou superior é suficiente.
@@ -42,8 +42,10 @@ Use uma Conta de Armazenamento do Azure de uso geral (especificamente o Armazena
 Você precisará do nome da sua conta de armazenamento do Azure neste início rápido. O procedimento a seguir fornece as etapas para obter o nome da sua conta de armazenamento: 
 
 1. Em um navegador da Web, vá para o [portal do Azure](https://portal.azure.com) e entre usando seu nome de usuário e senha do Azure.
-2. Selecione **Todos os serviços** > **Armazenamento** > **Contas de armazenamento**.
+2. No menu do portal do Azure, selecione **Todos os serviços**, em seguida, selecione **Armazenamento** > **Contas de armazenamento**. Você também pode pesquisar e selecionar *Contas de armazenamento* de qualquer página.
 3. Na página **Contas de armazenamento**, filtre pela sua conta de armazenamento (se necessário) e selecione a sua conta de armazenamento. 
+
+Você também pode pesquisar e selecionar *Contas de armazenamento* de qualquer página.
 
 #### <a name="create-a-blob-container"></a>Criar um contêiner de blob
 Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no armazenamento de Blobs do Azure.
@@ -64,7 +66,12 @@ Jane, Doe
 
 Salve o arquivo na pasta **C:\ADFv2QuickStartPSH**. (Se a pasta ainda não existir, crie-a.) Então volte ao portal do Azure e siga estas etapas:
 
-1. Na página *\<Nome da conta>*  - **Blobs** em que você parou, selecione **adftutorial** na lista atualizada de contêineres. (Se você tiver fechado a janela ou passado para outra página, entre no [portal do Azure](https://portal.azure.com) novamente, selecione **Todos os serviços** > **Armazenamento** > **Contas de armazenamento**, selecione sua conta de armazenamento e, em seguida, selecione **Blobs** > **adftutorial**.)
+1. Na página *\<Nome da conta>*  - **Blobs** em que você parou, selecione **adftutorial** na lista atualizada de contêineres.
+
+   1. Se você fechou a janela ou foi para outra página, entre no [portal do Azure](https://portal.azure.com) novamente.
+   1. No menu do portal do Azure, selecione **Todos os serviços**, em seguida, selecione **Armazenamento** > **Contas de armazenamento**. Você também pode pesquisar e selecionar *Contas de armazenamento* de qualquer página.
+   1. Selecione a sua conta de armazenamento e, em seguida, selecione **Blobs** > **adftutorial**.
+
 2. Na barra de ferramentas da página de contêiner do **adftutorial**, selecione **Carregar**.
 3. Na página **Carregar blob**, selecione a caixa **Arquivos** e, em seguida, navegue até o arquivo **emp.txt** e selecione-o.
 4. Expanda o título **Avançado**. A página agora será exibida como mostrado:

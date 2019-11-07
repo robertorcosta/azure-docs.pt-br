@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 90f83e3e6fa1910641b3e384460cf4aa14016c1a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 386229bc272a520ec8093c95bc861704ce9ea7eb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067322"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471445"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Criar um aplicativo Web do PHP no Azure
 
@@ -79,7 +79,7 @@ Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
 
 No Cloud Shell, crie um aplicativo Web no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). 
 
-No exemplo a seguir, substitua `<app_name>` por um nome do aplicativo exclusivo globalmente (os caracteres válidos são `a-z`, `0-9` e `-`). A execução é predefinida para `PHP|7.0`. Para ver todos os tempos de execução com suporte, execute [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
+No exemplo a seguir, substitua `<app_name>` por um nome do aplicativo exclusivo globalmente (os caracteres válidos são `a-z`, `0-9` e `-`). A execução é predefinida para `PHP|7.0`. Para ver todos os runtimes com suporte, execute [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
 
 ```azurecli-interactive
 # Bash
@@ -182,17 +182,19 @@ Depois que a implantação for concluída, retorne para a janela do navegador qu
 
 ## <a name="manage-your-new-azure-app"></a>Gerenciar seu novo aplicativo do Azure
 
-Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo Web que você criou.
+1. Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo Web que você criou. Pesquise e selecione **Serviços de Aplicativos**.
 
-No menu à esquerda, clique em **Serviços de Aplicativos** e, em seguida, clique no nome do aplicativo do Azure.
+    ![Pesquisar Serviços de Aplicativos, portal do Azure, criar aplicativo Web PHP](media/app-service-web-get-started-php/navigate-to-app-services-in-the-azure-portal.png)
 
-![Navegação no Portal para o aplicativo do Azure](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
+2. Selecione o nome do seu aplicativo do Azure.
 
-A página Visão Geral do seu aplicativo Web será exibida. Aqui você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir.
+    ![Navegação no Portal para o aplicativo do Azure](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-![Página Serviço de Aplicativo no portal do Azure](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+    A página **Visão Geral** do seu aplicativo Web será exibida. Aqui você pode executar tarefas básicas de gerenciamento como **Procurar**, **Parar**, **Reiniciar** e **Excluir**.
 
-O menu à esquerda fornece opções diferentes para configurar seu aplicativo. 
+    ![Página Serviço de Aplicativo no portal do Azure](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+
+    O menu do aplicativo Web fornece opções diferentes para configurar seu aplicativo. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
