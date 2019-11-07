@@ -1,5 +1,5 @@
 ---
-title: Banco de dados SQL do Azure - uso geral e negócios críticos | Microsoft Docs
+title: 'Banco de dados SQL do Azure-uso geral e comercialmente crítico '
 description: O artigo discute as camadas de serviço de uso geral e crítico para os negócios no modelo de compra baseado em vCore.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 10/01/2019
-ms.openlocfilehash: a971b428da72028bcabd874e848d53bc2392a0f6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c6af083c4b3d16fa695da0ccc968c90b5480b6c4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496119"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687277"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Camadas de serviço do Banco de Dados SQL do Azure
 

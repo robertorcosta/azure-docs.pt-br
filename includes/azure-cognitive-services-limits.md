@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 07/30/2019
 ms.author: erhopf
 ms.openlocfilehash: ffefde7d692950fc272ab2502ad8afe254bf48f1
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68703103"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73590326"
 ---
 Os limites a seguir são para o número de recursos de serviços cognitivas por assinatura do Azure. Cada um dos serviços cognitivas pode ter limitações adicionais, para obter mais informações, consulte [Serviços cognitivas do Azure](https://docs.microsoft.com/azure/cognitive-services/).
 

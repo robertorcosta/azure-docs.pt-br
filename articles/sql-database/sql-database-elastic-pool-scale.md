@@ -1,5 +1,5 @@
 ---
-title: Dimensionar os recursos de pool elástico – banco de dados SQL do Azure | Microsoft Docs
+title: Dimensionar recursos do pool elástico-banco de dados SQL do Azure
 description: Esta página descreve os recursos de escala para pools elásticos no Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 3/14/2019
-ms.openlocfilehash: c96be7930a33185077134d051b49cba0695327e3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 812de89b43d1cb2bc7f9b5c5c619f3860344d5dd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568638"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690424"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Dimensionar os recursos de pool elástico no banco de dados SQL do Azure
 
@@ -47,9 +47,9 @@ A latência estimada para alterar a camada de serviço ou redimensionar o tamanh
 
 |Camada de serviço|Banco de dados individual básico,</br>Padrão (S0-S1)|Pool elástico básico,</br>Standard (S2-S12), </br>Em hiperescala </br>Uso Geral banco de dados individual ou pool elástico|Banco de dados único ou pool elástico Premium ou Comercialmente Crítico|
 |:---|:---|:---|:---|
-|**Banco de dados individual</br> básico, Standard (S0-S1)**|&bull;&nbsp;Latência de tempo constante independente do espaço usado</br>&bull;&nbsp;Normalmente, menos de 5 minutos|&bull;&nbsp;Latência proporcional ao espaço de banco de dados usado devido à cópia do dado</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de banco de dados usado devido à cópia do dado</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|
-|**Pool elástico básico, </br>Standard (S2-S12), </br>hiperescala, </br>uso geral banco de dados individual ou pool elástico**|&bull;&nbsp;Latência proporcional ao espaço de banco de dados usado devido à cópia do dado</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência de tempo constante independente do espaço usado</br>&bull;&nbsp;Normalmente, menos de 5 minutos|&bull;&nbsp;Latência proporcional ao espaço de banco de dados usado devido à cópia do dado</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|
-|**Banco de dados único ou pool elástico Premium ou Comercialmente Crítico**|&bull;&nbsp;Latência proporcional ao espaço de banco de dados usado devido à cópia do dado</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de banco de dados usado devido à cópia do dado</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de banco de dados usado devido à cópia do dado</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|
+|**Banco de dados individual básico,</br> Standard (S0-S1)**|&bull; &nbsp;latência de tempo constante independente do espaço usado</br>&bull; &nbsp;normalmente, menos de 5 minutos|&bull; &nbsp;latência proporcional ao espaço de banco de dados usado devido à cópia de dado</br>&bull; &nbsp;normalmente, menos de 1 minuto por GB de espaço usado|&bull; &nbsp;latência proporcional ao espaço de banco de dados usado devido à cópia de dado</br>&bull; &nbsp;normalmente, menos de 1 minuto por GB de espaço usado|
+|**Pool elástico básico, </br>Standard (S2-S12), </br>hiperescala </br>Uso Geral banco de dados individual ou pool elástico**|&bull; &nbsp;latência proporcional ao espaço de banco de dados usado devido à cópia de dado</br>&bull; &nbsp;normalmente, menos de 1 minuto por GB de espaço usado|&bull; &nbsp;latência de tempo constante independente do espaço usado</br>&bull; &nbsp;normalmente, menos de 5 minutos|&bull; &nbsp;latência proporcional ao espaço de banco de dados usado devido à cópia de dado</br>&bull; &nbsp;normalmente, menos de 1 minuto por GB de espaço usado|
+|**Banco de dados único ou pool elástico Premium ou Comercialmente Crítico**|&bull; &nbsp;latência proporcional ao espaço de banco de dados usado devido à cópia de dado</br>&bull; &nbsp;normalmente, menos de 1 minuto por GB de espaço usado|&bull; &nbsp;latência proporcional ao espaço de banco de dados usado devido à cópia de dado</br>&bull; &nbsp;normalmente, menos de 1 minuto por GB de espaço usado|&bull; &nbsp;latência proporcional ao espaço de banco de dados usado devido à cópia de dado</br>&bull; &nbsp;normalmente, menos de 1 minuto por GB de espaço usado|
 
 > [!NOTE]
 >
@@ -57,7 +57,7 @@ A latência estimada para alterar a camada de serviço ou redimensionar o tamanh
 > - No caso de mover um banco de dados para/de um pool elástico, somente o espaço usado pelo banco de dados afeta a latência, não o espaço usado pelo pool elástico.
 >
 > [!TIP]
-> Para monitorar operações em andamento, consulte: [Gerenciar operações usando a API REST SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Gerenciar operações usando a CLI](/cli/azure/sql/db/op), [Monitorar operações usando T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e esses dois comandos do PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> Para monitorar as operações em andamento, consulte: [gerenciar operações usando a API REST do SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [gerenciar operações usando a CLI](/cli/azure/sql/db/op), [monitorar operações usando o T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois comandos do PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [ Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Considerações adicionais ao alterar a camada de serviço ou redimensionar o tamanho da computação
 

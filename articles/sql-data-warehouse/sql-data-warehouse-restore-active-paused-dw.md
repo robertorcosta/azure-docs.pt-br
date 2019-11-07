@@ -1,5 +1,5 @@
 ---
-title: Restaurar um SQL Data Warehouse do Azure existente | Microsoft Docs
+title: Restaurar um data warehouse existente
 description: Guia de instruções para restaurar um SQL Data Warehouse do Azure existente.
 services: sql-data-warehouse
 author: anumjs
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 7470dd96109823057a174d2ecf097583dcb51898
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: a73658510111df44c522d88ed5eceb7dcfa80d0d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575279"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685540"
 ---
 # <a name="restore-an-existing-azure-sql-data-warehouse"></a>Restaurar um SQL Data Warehouse do Azure existente
 
@@ -94,9 +95,9 @@ $RestoredDatabase.status
 
     ![ Visão Geral de Restauração](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Selecione **Pontos de Restauração Automática** ou **Pontos de Restauração Definido Pelo Usuário**. Se o data warehouse não tiver pontos de restauração automáticos, aguarde algumas horas ou crie um ponto de restauração definido pelo usuário antes de restaurar. Para pontos de restauração definidos pelo usuário, selecione um existente ou crie um novo. Para o **servidor**, você pode escolher um servidor lógico em um grupo de recursos e uma região diferentes ou criar um novo. Depois de fornecer todos os parâmetros, clique em revisar **+ restaurar**.
+4. Selecione **Pontos de Restauração Automática** ou **Pontos de Restauração Definido Pelo Usuário**. Se o data warehouse não tiver pontos de restauração automáticos, aguarde algumas horas ou crie um ponto de restauração definido pelo usuário antes de restaurar. Para pontos de restauração definidos pelo usuário, selecione um existente ou crie um novo. Para o **servidor**, você pode escolher um servidor lógico em um grupo de recursos e uma região diferentes ou criar um novo. Depois de fornecer todos os parâmetros, clique em **revisar + restaurar**.
 
-    ![Pontos de Restauração Automática](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
+    ![Pontos de restauração automática](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Restaurar um data warehouse excluído][Restore a deleted data warehouse]

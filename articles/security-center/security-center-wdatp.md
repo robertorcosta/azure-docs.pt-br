@@ -1,5 +1,5 @@
 ---
-title: Proteção avançada contra ameaças do Microsoft defender com a central de segurança do Azure
+title: Proteção avançada contra ameaças do Microsoft defender – central de segurança do Azure
 description: Este documento apresenta a integração entre a central de segurança do Azure e a proteção avançada contra ameaças do Microsoft defender.
 services: security-center
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 6ceed914d1c69ccdfce5d7acb6dcfc1afc9ef868
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 46b9fe5c6a038aa98cf8df64c40bf8ea1747efec
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819895"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663602"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada contra ameaças do Microsoft defender com a central de segurança do Azure
 
@@ -95,7 +95,7 @@ Se você tiver um proxy ou firewall que esteja bloqueando o tráfego anônimo, c
 
 Para gerar um alerta de teste benigno do Microsoft defender ATP:
 
-1. Use a Área de Trabalho Remota para acessar uma VM do Windows Server 2012 R2 ou uma VM do Windows Server 2016.  Abra uma janela de Prompt de Comando.
+1. Use a Área de Trabalho Remota para acessar uma VM do Windows Server 2012 R2 ou uma VM do Windows Server 2016. Abra uma janela de Prompt de Comando.
 
 2. No prompt, copie e execute o comando a seguir. A janela do prompt de comando será fechada automaticamente.
 
@@ -107,11 +107,11 @@ Para gerar um alerta de teste benigno do Microsoft defender ATP:
 
 3. Se o comando for bem-sucedido, você verá um novo alerta no painel da central de segurança do Azure e no portal do Microsoft defender ATP. Esse alerta pode levar alguns minutos para aparecer.
 
-4. Para examinar o alerta na Central de Segurança, acesse **Alertas de segurança** >  **Linha de Comando do PowerShell Suspeita**.
+4. Para examinar o alerta na Central de Segurança, acesse **Alertas de segurança** > **Linha de Comando do PowerShell Suspeita**.
 
 5. Na janela investigação, selecione o link para acessar o portal do Microsoft defender ATP.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Plataformas e recursos compatíveis com a Central de Segurança do Azure](security-center-os-coverage.md)
 - [Como configurar políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.

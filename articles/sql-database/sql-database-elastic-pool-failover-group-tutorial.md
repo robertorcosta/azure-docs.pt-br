@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: adicionar um pool elástico do banco de dados SQL do Azure a um grupo de failover | Microsoft Docs'
+title: 'Tutorial: adicionar um pool elástico do banco de dados SQL do Azure a um grupo de failover '
 description: Adicione um pool elástico do banco de dados SQL do Azure a um grupo de failover usando o portal do Azure, o PowerShell ou o CLI do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: 838bdd2aeba18ebeaa964cb329939931419c588c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 980740c4417d1085d7c367b172005b10ce828e0e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933409"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690510"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Tutorial: adicionar um pool elástico do banco de dados SQL do Azure a um grupo de failover
 
@@ -118,7 +118,7 @@ Crie seus pools elásticos e o servidor secundário usando o PowerShell.
 
 Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 
-| Command | Notas |
+| Command | Observações |
 |---|---|
 | [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Cria um pool de banco de dados elástico para um banco de dados SQL do Azure.| 
 | [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Define propriedades para um banco de dados ou move um banco de dados existente para um pool, elástico. | 
@@ -236,7 +236,7 @@ Crie seu grupo de failover usando o PowerShell.
 
 Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 
-| Command | Notas |
+| Command | Observações |
 |---|---|
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor do Banco de Dados SQL que hospeda bancos de dados individuais e pools elásticos. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Cria uma regra de firewall para um servidor lógico. | 
@@ -344,7 +344,7 @@ Falhe o grupo de failover para o servidor secundário e, em seguida, faça o fai
 
 Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 
-| Command | Notas |
+| Command | Observações |
 |---|---|
 | [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Obtém ou lista os grupos de failover do Banco de Dados SQL do Azure. |
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Executa um failover de um grupo de failover do Banco de Dados SQL do Azure. |
@@ -382,11 +382,11 @@ Limpe seus recursos usando o PowerShell.
 
 Esta parte do tutorial usa o seguinte cmdlet do PowerShell:
 
-| Command | Notas |
+| Command | Observações |
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos | 
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando na tabela redireciona para a documentação específica do comando.
 
 ## <a name="full-script"></a>Script completo
 
@@ -394,9 +394,9 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic pool to a failover group")]
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Command | Notas |
+| Command | Observações |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor do Banco de Dados SQL que hospeda bancos de dados individuais e pools elásticos. |
@@ -417,7 +417,7 @@ Não há nenhum script disponível para o portal do Azure.
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você adicionou um pool elástico do banco de dados SQL do Azure a um grupo de failover e testou o failover. Você aprendeu como:
 

@@ -1,5 +1,5 @@
 ---
-title: Gerenciar dados de usuário encontrados em uma investigação da Central de Segurança do Azure | Microsoft Docs
+title: Gerenciar dados de usuário encontrados em uma investigação da Central de Segurança do Azure
 description: " Saiba como gerenciar dados de usuário encontrados no recurso de investigação da Central de Segurança do Azure. "
 services: operations-management-suite
 documentationcenter: na
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
-ms.openlocfilehash: 8b6bde69f233fee9fe20b260e392966298f13a9a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 059ca2a26e50128d6bc4313dad9f995e97c06378
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202041"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686397"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gerenciar dados de usuário encontrados em uma investigação da Central de Segurança do Azure
 Este artigo fornece informações sobre como gerenciar dados de usuário encontrados no recurso de investigação da Central de Segurança do Azure. Os dados de investigação são armazenados em [logs de Azure monitor](../log-analytics/log-analytics-overview.md) e expostos na central de segurança. O gerenciamento de dados de usuário inclui a capacidade de excluir dados ou exportar dados.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="searching-for-and-identifying-personal-data"></a>Pesquisando e identificando dados pessoais
+## <a name="searching-for-and-identifying-personal-data"></a>Pesquisar e identificar dados pessoais
 No portal do Azure, você pode usar o [recurso de investigação](../security-center/security-center-investigation.md) da Central de Segurança para pesquisar dados pessoais. O recurso de investigação está disponível em **alertas de segurança**.
 
 O recurso de investigação mostra todas as entidades, informações de usuário e dados na guia **Entidades**.
 
 ## <a name="securing-and-controlling-access-to-personal-information"></a>Protegendo e controlando o acesso a informações pessoais
-Um usuário da Central de Segurança atribuídos à função de Leitor, Proprietário, Colaborador ou Administrador da Conta pode acessar os dados do cliente dentro da ferramenta.
+Um usuário da Central de Segurança com a função de Leitor, Proprietário, Colaborador ou Administrador da Conta pode acessar os dados do cliente dentro da ferramenta.
 
 Confira [Funções internas para o controle de acesso baseado em função do Azure](../role-based-access-control/built-in-roles.md) para saber mais sobre as funções Leitor, Proprietário e Colaborador. Confira [Administradores da assinatura do Azure](../billing/billing-add-change-azure-subscription-administrator.md) para saber mais sobre a função Administrador da Conta.
 

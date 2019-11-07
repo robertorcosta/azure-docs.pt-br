@@ -1,5 +1,5 @@
 ---
-title: Arquitetura de conectividade para uma instância gerenciada no banco de dados SQL do Azure | Microsoft Docs
+title: Arquitetura de conectividade para uma instância gerenciada no banco de dados SQL do Azure
 description: Saiba mais sobre a arquitetura de conectividade e comunicação da instância gerenciada do banco de dados SQL do Azure, bem como os componentes direcionam o tráfego para a instância gerenciada.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 7e32cb302322f7a80154a3f2a246d7d4f1743c09
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 881f116988ae0c9a6a33c8454cd1e4012580bfab
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249363"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688210"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerenciada no banco de dados SQL do Azure
 
@@ -86,7 +86,7 @@ Quando as conexões são iniciadas dentro da instância gerenciada (como com bac
 Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtual. A sub-rede deve ter estas características:
 
 - **Sub-rede dedicada:** A sub-rede da instância gerenciada não pode conter nenhum outro serviço de nuvem associado a ela e não pode ser uma sub-rede de gateway. A sub-rede não pode conter nenhum recurso, mas a instância gerenciada, e você não pode adicionar outros tipos de recursos na sub-rede posteriormente.
-- **NSG (Grupo de Segurança de Rede):** Um NSG associado à rede virtual deve definir [regras de segurança de entrada](#mandatory-inbound-security-rules) e de [saída](#mandatory-outbound-security-rules) antes de qualquer outra regra. Você pode usar um NSG para controlar o acesso ao ponto de extremidade de dados da instância gerenciada filtrando o tráfego na porta 1433 e as portas 11000-11999 quando a instância gerenciada estiver configurada para conexões de redirecionamento.
+- **NSG (grupo de segurança de rede):** Um NSG associado à rede virtual deve definir [regras de segurança de entrada](#mandatory-inbound-security-rules) e de [saída](#mandatory-outbound-security-rules) antes de qualquer outra regra. Você pode usar um NSG para controlar o acesso ao ponto de extremidade de dados da instância gerenciada filtrando o tráfego na porta 1433 e as portas 11000-11999 quando a instância gerenciada estiver configurada para conexões de redirecionamento.
 - **Tabela de rota definida pelo usuário (UDR):** Uma tabela UDR associada à rede virtual deve incluir [entradas](#user-defined-routes)específicas.
 - **Nenhum ponto de extremidade de serviço:** Nenhum ponto de extremidade de serviço deve ser associado à sub-rede da instância gerenciada. Verifique se a opção pontos de extremidade de serviço está desabilitada quando você cria a rede virtual.
 - **Endereços IP suficientes:** A sub-rede da instância gerenciada deve ter pelo menos 16 endereços IP. O mínimo recomendado é 32 endereços IP. Para obter mais informações, consulte [determinar o tamanho da sub-rede para instâncias gerenciadas](sql-database-managed-instance-determine-size-vnet-subnet.md). Você pode implantar instâncias gerenciadas na [rede existente](sql-database-managed-instance-configure-vnet-subnet.md) depois de configurá-las para atender aos [requisitos de rede para instâncias gerenciadas](#network-requirements). Caso contrário, crie uma [nova rede e sub-rede](sql-database-managed-instance-create-vnet-subnet.md).
@@ -96,18 +96,18 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 
 ### <a name="mandatory-inbound-security-rules"></a>Regras de segurança de entrada obrigatórias
 
-| NOME       |Porta                        |Protocol|Origem           |Destination|Ação|
+| Nome       |Port                        |Protocolo|Fonte           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |SUB-REDE DA MI  |Allow |
-|mi_subnet   |Any                         |Any     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
-|health_probe|Any                         |Any     |AzureLoadBalancer|SUB-REDE DA MI  |Allow |
+|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE DA MI  |Permitir |
+|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Permitir |
+|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DA MI  |Permitir |
 
 ### <a name="mandatory-outbound-security-rules"></a>Regras de segurança de saída obrigatórias
 
-| NOME       |Porta          |Protocol|Origem           |Destination|Ação|
+| Nome       |Port          |Protocolo|Fonte           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Allow |
-|mi_subnet   |Any           |Any     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
+|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Permitir |
+|mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Permitir |
 
 > [!IMPORTANT]
 > Verifique se há apenas uma regra de entrada para as portas 9000, 9003, 1438, 1440, 1452 e uma regra de saída para as portas 80, 443, 12000. Instância Gerenciada provisionamento por meio de implantações de Azure Resource Manager falhará se as regras de entrada e saída forem configuradas separadamente para cada porta. Se essas portas estiverem em regras separadas, a implantação falhará com o código de erro `VnetSubnetConflictWithIntendedPolicy`
@@ -121,78 +121,78 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 
 ### <a name="user-defined-routes"></a>rotas definidas pelo usuário
 
-|NOME|Prefixo de endereço|Próximo salto|
+|Nome|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |subnet_to_vnetlocal|SUB-REDE DA MI|Rede virtual|
 |Mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|
 |Mi-13-96-13-nexthop-Internet|13.96.0.0/13|Internet|
 |Mi-13-104-14-nexthop-Internet|13.104.0.0/14|Internet|
-|mi-20-8-nexthop-internet|20.0.0.0/8|Internet|
+|Mi-20-8-nexthop-Internet|20.0.0.0/8|Internet|
 |Mi-23-96-13-nexthop-Internet|23.96.0.0/13|Internet|
 |Mi-40-64-10-nexthop-Internet|40.64.0.0/10|Internet|
 |Mi-42-159-16-nexthop-Internet|42.159.0.0/16|Internet|
-|mi-51-8-nexthop-internet|51.0.0.0/8|Internet|
-|mi-52-8-nexthop-internet|52.0.0.0/8|Internet|
+|Mi-51-8-nexthop-Internet|51.0.0.0/8|Internet|
+|Mi-52-8-nexthop-Internet|52.0.0.0/8|Internet|
 |Mi-64-4-18-nexthop-Internet|64.4.0.0/18|Internet|
-|mi-65-52-14-nexthop-internet|65.52.0.0/14|Internet|
+|Mi-65-52-14-nexthop-Internet|65.52.0.0/14|Internet|
 |Mi-66-119-144-20-nexthop-Internet|66.119.144.0/20|Internet|
 |Mi-70-37-17-nexthop-Internet|70.37.0.0/17|Internet|
-|mi-70-37-128-18-nexthop-internet|70.37.128.0/18|Internet|
+|Mi-70-37-128-18-nexthop-Internet|70.37.128.0/18|Internet|
 |Mi-91-190-216-21-nexthop-Internet|91.190.216.0/21|Internet|
-|mi-94-245-64-18-nexthop-internet|94.245.64.0/18|Internet|
+|Mi-94-245-64-18-nexthop-Internet|94.245.64.0/18|Internet|
 |Mi-103-9-8-22-nexthop-Internet|103.9.8.0/22|Internet|
-|mi-103-25-156-22-nexthop-internet|103.25.156.0/22|Internet|
+|Mi-103-25-156-22-nexthop-Internet|103.25.156.0/22|Internet|
 |Mi-103-36-96-22-nexthop-Internet|103.36.96.0/22|Internet|
-|mi-103-255-140-22-nexthop-internet|103.255.140.0/22|Internet|
+|Mi-103-255-140-22-nexthop-Internet|103.255.140.0/22|Internet|
 |Mi-104-40-13-nexthop-Internet|104.40.0.0/13|Internet|
 |Mi-104-146-15-nexthop-Internet|104.146.0.0/15|Internet|
 |Mi-104-208-13-nexthop-Internet|104.208.0.0/13|Internet|
 |Mi-111-221-16-20-nexthop-Internet|111.221.16.0/20|Internet|
-|mi-111-221-64-18-nexthop-internet|111.221.64.0/18|Internet|
+|Mi-111-221-64-18-nexthop-Internet|111.221.64.0/18|Internet|
 |Mi-129-75-16-nexthop-Internet|129.75.0.0/16|Internet|
-|mi-131-253-16-nexthop-internet|131.253.0.0/16|Internet|
-|mi-132-245-16-nexthop-internet|132.245.0.0/16|Internet|
-|mi-134-170-16-nexthop-internet|134.170.0.0/16|Internet|
-|mi-134-177-16-nexthop-internet|134.177.0.0/16|Internet|
-|mi-137-116-15-nexthop-internet|137.116.0.0/15|Internet|
-|mi-137-135-16-nexthop-internet|137.135.0.0/16|Internet|
-|mi-138-91-16-nexthop-internet|138.91.0.0/16|Internet|
+|Mi-131-253-16-nexthop-Internet|131.253.0.0/16|Internet|
+|Mi-132-245-16-nexthop-Internet|132.245.0.0/16|Internet|
+|Mi-134-170-16-nexthop-Internet|134.170.0.0/16|Internet|
+|Mi-134-177-16-nexthop-Internet|134.177.0.0/16|Internet|
+|Mi-137-116-15-nexthop-Internet|137.116.0.0/15|Internet|
+|Mi-137-135-16-nexthop-Internet|137.135.0.0/16|Internet|
+|Mi-138-91-16-nexthop-Internet|138.91.0.0/16|Internet|
 |Mi-138-196-16-nexthop-Internet|138.196.0.0/16|Internet|
 |Mi-139-217-16-nexthop-Internet|139.217.0.0/16|Internet|
 |Mi-139-219-16-nexthop-Internet|139.219.0.0/16|Internet|
-|mi-141-251-16-nexthop-internet|141.251.0.0/16|Internet|
-|mi-146-147-16-nexthop-internet|146.147.0.0/16|Internet|
-|mi-147-243-16-nexthop-internet|147.243.0.0/16|Internet|
-|mi-150-171-16-nexthop-internet|150.171.0.0/16|Internet|
-|mi-150-242-48-22-nexthop-internet|150.242.48.0/22|Internet|
-|mi-157-54-15-nexthop-internet|157.54.0.0/15|Internet|
-|mi-157-56-14-nexthop-internet|157.56.0.0/14|Internet|
-|mi-157-60-16-nexthop-internet|157.60.0.0/16|Internet|
-|mi-167-220-16-nexthop-internet|167.220.0.0/16|Internet|
+|Mi-141-251-16-nexthop-Internet|141.251.0.0/16|Internet|
+|Mi-146-147-16-nexthop-Internet|146.147.0.0/16|Internet|
+|Mi-147-243-16-nexthop-Internet|147.243.0.0/16|Internet|
+|Mi-150-171-16-nexthop-Internet|150.171.0.0/16|Internet|
+|Mi-150-242-48-22-nexthop-Internet|150.242.48.0/22|Internet|
+|Mi-157-54-15-nexthop-Internet|157.54.0.0/15|Internet|
+|Mi-157-56-14-nexthop-Internet|157.56.0.0/14|Internet|
+|Mi-157-60-16-nexthop-Internet|157.60.0.0/16|Internet|
+|Mi-167-220-16-nexthop-Internet|167.220.0.0/16|Internet|
 |Mi-168-61-16-nexthop-Internet|168.61.0.0/16|Internet|
-|mi-168-62-15-nexthop-internet|168.62.0.0/15|Internet|
-|mi-191-232-13-nexthop-internet|191.232.0.0/13|Internet|
-|mi-192-32-16-nexthop-internet|192.32.0.0/16|Internet|
-|mi-192-48-225-24-nexthop-internet|192.48.225.0/24|Internet|
-|mi-192-84-159-24-nexthop-internet|192.84.159.0/24|Internet|
-|mi-192-84-160-23-nexthop-internet|192.84.160.0/23|Internet|
-|mi-192-100-102-24-nexthop-internet|192.100.102.0/24|Internet|
-|mi-192-100-103-24-nexthop-internet|192.100.103.0/24|Internet|
-|mi-192-197-157-24-nexthop-internet|192.197.157.0/24|Internet|
+|Mi-168-62-15-nexthop-Internet|168.62.0.0/15|Internet|
+|Mi-191-232-13-nexthop-Internet|191.232.0.0/13|Internet|
+|Mi-192-32-16-nexthop-Internet|192.32.0.0/16|Internet|
+|Mi-192-48-225-24-nexthop-Internet|192.48.225.0/24|Internet|
+|Mi-192-84-159-24-nexthop-Internet|192.84.159.0/24|Internet|
+|Mi-192-84-160-23-nexthop-Internet|192.84.160.0/23|Internet|
+|Mi-192-100-102-24-nexthop-Internet|192.100.102.0/24|Internet|
+|Mi-192-100-103-24-nexthop-Internet|192.100.103.0/24|Internet|
+|Mi-192-197-157-24-nexthop-Internet|192.197.157.0/24|Internet|
 |Mi-193-149-64-19-nexthop-Internet|193.149.64.0/19|Internet|
-|mi-193-221-113-24-nexthop-internet|193.221.113.0/24|Internet|
+|Mi-193-221-113-24-nexthop-Internet|193.221.113.0/24|Internet|
 |Mi-194-69-96-19-nexthop-Internet|194.69.96.0/19|Internet|
 |Mi-194-110-197-24-nexthop-Internet|194.110.197.0/24|Internet|
 |Mi-198-105-232-22-nexthop-Internet|198.105.232.0/22|Internet|
-|mi-198-200-130-24-nexthop-internet|198.200.130.0/24|Internet|
-|mi-198-206-164-24-nexthop-internet|198.206.164.0/24|Internet|
-|mi-199-60-28-24-nexthop-internet|199.60.28.0/24|Internet|
-|mi-199-74-210-24-nexthop-internet|199.74.210.0/24|Internet|
+|Mi-198-200-130-24-nexthop-Internet|198.200.130.0/24|Internet|
+|Mi-198-206-164-24-nexthop-Internet|198.206.164.0/24|Internet|
+|Mi-199-60-28-24-nexthop-Internet|199.60.28.0/24|Internet|
+|Mi-199-74-210-24-nexthop-Internet|199.74.210.0/24|Internet|
 |Mi-199-103-90-23-nexthop-Internet|199.103.90.0/23|Internet|
 |Mi-199-103-122-24-nexthop-Internet|199.103.122.0/24|Internet|
-|mi-199-242-32-20-nexthop-internet|199.242.32.0/20|Internet|
-|mi-199-242-48-21-nexthop-internet|199.242.48.0/21|Internet|
-|mi-202-89-224-20-nexthop-internet|202.89.224.0/20|Internet|
+|Mi-199-242-32-20-nexthop-Internet|199.242.32.0/20|Internet|
+|Mi-199-242-48-21-nexthop-Internet|199.242.48.0/21|Internet|
+|Mi-202-89-224-20-nexthop-Internet|202.89.224.0/20|Internet|
 |Mi-204-13-120-21-nexthop-Internet|204.13.120.0/21|Internet|
 |Mi-204-14-180-22-nexthop-Internet|204.14.180.0/22|Internet|
 |Mi-204-79-135-24-nexthop-Internet|204.79.135.0/24|Internet|
@@ -203,12 +203,12 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 |Mi-204-79-196-23-nexthop-Internet|204.79.196.0/23|Internet|
 |Mi-204-79-252-24-nexthop-Internet|204.79.252.0/24|Internet|
 |Mi-204-152-18-23-nexthop-Internet|204.152.18.0/23|Internet|
-|mi-204-152-140-23-nexthop-internet|204.152.140.0/23|Internet|
+|Mi-204-152-140-23-nexthop-Internet|204.152.140.0/23|Internet|
 |Mi-204-231-192-24-nexthop-Internet|204.231.192.0/24|Internet|
 |Mi-204-231-194-23-nexthop-Internet|204.231.194.0/23|Internet|
 |Mi-204-231-197-24-nexthop-Internet|204.231.197.0/24|Internet|
 |Mi-204-231-198-23-nexthop-Internet|204.231.198.0/23|Internet|
-|mi-204-231-200-21-nexthop-internet|204.231.200.0/21|Internet|
+|Mi-204-231-200-21-nexthop-Internet|204.231.200.0/21|Internet|
 |Mi-204-231-208-20-nexthop-Internet|204.231.208.0/20|Internet|
 |Mi-204-231-236-24-nexthop-Internet|204.231.236.0/24|Internet|
 |Mi-205-174-224-20-nexthop-Internet|205.174.224.0/20|Internet|
@@ -219,9 +219,9 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 |Mi-208-68-136-21-nexthop-Internet|208.68.136.0/21|Internet|
 |Mi-208-76-44-22-nexthop-Internet|208.76.44.0/22|Internet|
 |Mi-208-84-21-nexthop-Internet|208.84.0.0/21|Internet|
-|mi-209-240-192-19-nexthop-internet|209.240.192.0/19|Internet|
-|mi-213-199-128-18-nexthop-internet|213.199.128.0/18|Internet|
-|mi-216-32-180-22-nexthop-internet|216.32.180.0/22|Internet|
+|Mi-209-240-192-19-nexthop-Internet|209.240.192.0/19|Internet|
+|Mi-213-199-128-18-nexthop-Internet|213.199.128.0/18|Internet|
+|Mi-216-32-180-22-nexthop-Internet|216.32.180.0/22|Internet|
 |Mi-216-220-208-20-nexthop-Internet|216.220.208.0/20|Internet|
 ||||
 
@@ -240,8 +240,8 @@ Com o usuário de configuração de sub-rede auxiliada por serviço está no con
 Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtual. A sub-rede deve ter estas características:
 
 - **Sub-rede dedicada:** A sub-rede da instância gerenciada não pode conter nenhum outro serviço de nuvem associado a ela e não pode ser uma sub-rede de gateway. A sub-rede não pode conter nenhum recurso, mas a instância gerenciada, e você não pode adicionar outros tipos de recursos na sub-rede posteriormente.
-- **Delegação de sub-rede:** A sub-rede da instância gerenciada precisa ser delegada para o provedor de recursos `Microsoft.Sql/managedInstances`.
-- **NSG (Grupo de Segurança de Rede):** Um NSG precisa ser associado à sub-rede da instância gerenciada. Você pode usar um NSG para controlar o acesso ao ponto de extremidade de dados da instância gerenciada filtrando o tráfego na porta 1433 e as portas 11000-11999 quando a instância gerenciada estiver configurada para conexões de redirecionamento. O serviço adicionará automaticamente [as regras](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) necessárias para permitir o fluxo ininterrupto do tráfego de gerenciamento.
+- **Delegação de sub-rede:** A sub-rede da instância gerenciada precisa ser delegada para `Microsoft.Sql/managedInstances` provedor de recursos.
+- **NSG (grupo de segurança de rede):** Um NSG precisa ser associado à sub-rede da instância gerenciada. Você pode usar um NSG para controlar o acesso ao ponto de extremidade de dados da instância gerenciada filtrando o tráfego na porta 1433 e as portas 11000-11999 quando a instância gerenciada estiver configurada para conexões de redirecionamento. O serviço adicionará automaticamente [as regras](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) necessárias para permitir o fluxo ininterrupto do tráfego de gerenciamento.
 - **Tabela de rota definida pelo usuário (UDR):** Uma tabela UDR precisa ser associada à sub-rede da instância gerenciada. Você pode adicionar entradas à tabela de rotas para rotear o tráfego que tem intervalos IP privados locais como um destino por meio do gateway de rede virtual ou do NVA (dispositivo de rede virtual). O serviço adicionará automaticamente [as entradas](#user-defined-routes-with-service-aided-subnet-configuration) necessárias para permitir o fluxo ininterrupto do tráfego de gerenciamento.
 - **Pontos de extremidade de serviço:** Os pontos de extremidade de serviço podem ser usados para configurar regras de rede virtual em contas de armazenamento que mantêm backups/logs de auditoria.
 - **Endereços IP suficientes:** A sub-rede da instância gerenciada deve ter pelo menos 16 endereços IP. O mínimo recomendado é 32 endereços IP. Para obter mais informações, consulte [determinar o tamanho da sub-rede para instâncias gerenciadas](sql-database-managed-instance-determine-size-vnet-subnet.md). Você pode implantar instâncias gerenciadas na [rede existente](sql-database-managed-instance-configure-vnet-subnet.md) depois de configurá-las para atender aos [requisitos de rede para instâncias gerenciadas](#network-requirements). Caso contrário, crie uma [nova rede e sub-rede](sql-database-managed-instance-create-vnet-subnet.md).
@@ -251,24 +251,24 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança de entrada obrigatórias com configuração de sub-rede auxiliada pelo serviço 
 
-| NOME       |Porta                        |Protocol|Origem           |Destination|Ação|
+| Nome       |Port                        |Protocolo|Fonte           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |SUB-REDE DA MI  |Allow |
-|            |9000, 9003                  |TCP     |CorpnetSaw       |SUB-REDE DA MI  |Allow |
-|            |9000, 9003                  |TCP     |65.55.188.0/24, 167.220.0.0/16, 131.107.0.0/16|SUB-REDE DA MI  |Allow |
-|mi_subnet   |Any                         |Any     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
-|health_probe|Any                         |Any     |AzureLoadBalancer|SUB-REDE DA MI  |Allow |
+|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |SUB-REDE DA MI  |Permitir |
+|            |9000, 9003                  |TCP     |CorpnetSaw       |SUB-REDE DA MI  |Permitir |
+|            |9000, 9003                  |TCP     |65.55.188.0/24, 167.220.0.0/16, 131.107.0.0/16|SUB-REDE DA MI  |Permitir |
+|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Permitir |
+|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DA MI  |Permitir |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança de saída obrigatórias com configuração de sub-rede auxiliada por serviço 
 
-| NOME       |Porta          |Protocol|Origem           |Destination|Ação|
+| Nome       |Port          |Protocolo|Fonte           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Allow |
-|mi_subnet   |Any           |Any     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
+|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Permitir |
+|mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Permitir |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Rotas definidas pelo usuário com configuração de sub-rede auxiliada por serviço 
 
-|NOME|Prefixo de endereço|Próximo salto|
+|Nome|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |sub-rede para vnetlocal|SUB-REDE DA MI|Rede virtual|
 |Mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|
@@ -317,23 +317,23 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 |Mi-52-160-11-nexthop-Internet|52.160.0.0/11|Internet|
 |Mi-52-224-11-nexthop-Internet|52.224.0.0/11|Internet|
 |Mi-64-4-18-nexthop-Internet|64.4.0.0/18|Internet|
-|mi-65-52-14-nexthop-internet|65.52.0.0/14|Internet|
+|Mi-65-52-14-nexthop-Internet|65.52.0.0/14|Internet|
 |Mi-66-119-144-20-nexthop-Internet|66.119.144.0/20|Internet|
 |Mi-70-37-17-nexthop-Internet|70.37.0.0/17|Internet|
-|mi-70-37-128-18-nexthop-internet|70.37.128.0/18|Internet|
+|Mi-70-37-128-18-nexthop-Internet|70.37.128.0/18|Internet|
 |Mi-91-190-216-21-nexthop-Internet|91.190.216.0/21|Internet|
-|mi-94-245-64-18-nexthop-internet|94.245.64.0/18|Internet|
+|Mi-94-245-64-18-nexthop-Internet|94.245.64.0/18|Internet|
 |Mi-103-9-8-22-nexthop-Internet|103.9.8.0/22|Internet|
 |Mi-103-25-156-24-nexthop-Internet|103.25.156.0/24|Internet|
 |Mi-103-25-157-24-nexthop-Internet|103.25.157.0/24|Internet|
 |Mi-103-25-158-23-nexthop-Internet|103.25.158.0/23|Internet|
 |Mi-103-36-96-22-nexthop-Internet|103.36.96.0/22|Internet|
-|mi-103-255-140-22-nexthop-internet|103.255.140.0/22|Internet|
+|Mi-103-255-140-22-nexthop-Internet|103.255.140.0/22|Internet|
 |Mi-104-40-13-nexthop-Internet|104.40.0.0/13|Internet|
 |Mi-104-146-15-nexthop-Internet|104.146.0.0/15|Internet|
 |Mi-104-208-13-nexthop-Internet|104.208.0.0/13|Internet|
 |Mi-111-221-16-20-nexthop-Internet|111.221.16.0/20|Internet|
-|mi-111-221-64-18-nexthop-internet|111.221.64.0/18|Internet|
+|Mi-111-221-64-18-nexthop-Internet|111.221.64.0/18|Internet|
 |Mi-129-75-16-nexthop-Internet|129.75.0.0/16|Internet|
 |Mi-131-253-1-24-nexthop-Internet|131.253.1.0/24|Internet|
 |Mi-131-253-3-24-nexthop-Internet|131.253.3.0/24|Internet|
@@ -351,48 +351,48 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 |Mi-131-253-62-23-nexthop-Internet|131.253.62.0/23|Internet|
 |Mi-131-253-64-18-nexthop-Internet|131.253.64.0/18|Internet|
 |Mi-131-253-128-17-nexthop-Internet|131.253.128.0/17|Internet|
-|mi-132-245-16-nexthop-internet|132.245.0.0/16|Internet|
-|mi-134-170-16-nexthop-internet|134.170.0.0/16|Internet|
-|mi-134-177-16-nexthop-internet|134.177.0.0/16|Internet|
-|mi-137-116-15-nexthop-internet|137.116.0.0/15|Internet|
-|mi-137-135-16-nexthop-internet|137.135.0.0/16|Internet|
-|mi-138-91-16-nexthop-internet|138.91.0.0/16|Internet|
+|Mi-132-245-16-nexthop-Internet|132.245.0.0/16|Internet|
+|Mi-134-170-16-nexthop-Internet|134.170.0.0/16|Internet|
+|Mi-134-177-16-nexthop-Internet|134.177.0.0/16|Internet|
+|Mi-137-116-15-nexthop-Internet|137.116.0.0/15|Internet|
+|Mi-137-135-16-nexthop-Internet|137.135.0.0/16|Internet|
+|Mi-138-91-16-nexthop-Internet|138.91.0.0/16|Internet|
 |Mi-138-196-16-nexthop-Internet|138.196.0.0/16|Internet|
 |Mi-139-217-16-nexthop-Internet|139.217.0.0/16|Internet|
 |Mi-139-219-16-nexthop-Internet|139.219.0.0/16|Internet|
-|mi-141-251-16-nexthop-internet|141.251.0.0/16|Internet|
-|mi-146-147-16-nexthop-internet|146.147.0.0/16|Internet|
-|mi-147-243-16-nexthop-internet|147.243.0.0/16|Internet|
-|mi-150-171-16-nexthop-internet|150.171.0.0/16|Internet|
-|mi-150-242-48-22-nexthop-internet|150.242.48.0/22|Internet|
-|mi-157-54-15-nexthop-internet|157.54.0.0/15|Internet|
-|mi-157-56-14-nexthop-internet|157.56.0.0/14|Internet|
-|mi-157-60-16-nexthop-internet|157.60.0.0/16|Internet|
-|mi-167-220-16-nexthop-internet|167.220.0.0/16|Internet|
+|Mi-141-251-16-nexthop-Internet|141.251.0.0/16|Internet|
+|Mi-146-147-16-nexthop-Internet|146.147.0.0/16|Internet|
+|Mi-147-243-16-nexthop-Internet|147.243.0.0/16|Internet|
+|Mi-150-171-16-nexthop-Internet|150.171.0.0/16|Internet|
+|Mi-150-242-48-22-nexthop-Internet|150.242.48.0/22|Internet|
+|Mi-157-54-15-nexthop-Internet|157.54.0.0/15|Internet|
+|Mi-157-56-14-nexthop-Internet|157.56.0.0/14|Internet|
+|Mi-157-60-16-nexthop-Internet|157.60.0.0/16|Internet|
+|Mi-167-220-16-nexthop-Internet|167.220.0.0/16|Internet|
 |Mi-168-61-16-nexthop-Internet|168.61.0.0/16|Internet|
-|mi-168-62-15-nexthop-internet|168.62.0.0/15|Internet|
-|mi-191-232-13-nexthop-internet|191.232.0.0/13|Internet|
-|mi-192-32-16-nexthop-internet|192.32.0.0/16|Internet|
-|mi-192-48-225-24-nexthop-internet|192.48.225.0/24|Internet|
-|mi-192-84-159-24-nexthop-internet|192.84.159.0/24|Internet|
-|mi-192-84-160-23-nexthop-internet|192.84.160.0/23|Internet|
-|mi-192-100-102-24-nexthop-internet|192.100.102.0/24|Internet|
-|mi-192-100-103-24-nexthop-internet|192.100.103.0/24|Internet|
-|mi-192-197-157-24-nexthop-internet|192.197.157.0/24|Internet|
+|Mi-168-62-15-nexthop-Internet|168.62.0.0/15|Internet|
+|Mi-191-232-13-nexthop-Internet|191.232.0.0/13|Internet|
+|Mi-192-32-16-nexthop-Internet|192.32.0.0/16|Internet|
+|Mi-192-48-225-24-nexthop-Internet|192.48.225.0/24|Internet|
+|Mi-192-84-159-24-nexthop-Internet|192.84.159.0/24|Internet|
+|Mi-192-84-160-23-nexthop-Internet|192.84.160.0/23|Internet|
+|Mi-192-100-102-24-nexthop-Internet|192.100.102.0/24|Internet|
+|Mi-192-100-103-24-nexthop-Internet|192.100.103.0/24|Internet|
+|Mi-192-197-157-24-nexthop-Internet|192.197.157.0/24|Internet|
 |Mi-193-149-64-19-nexthop-Internet|193.149.64.0/19|Internet|
-|mi-193-221-113-24-nexthop-internet|193.221.113.0/24|Internet|
+|Mi-193-221-113-24-nexthop-Internet|193.221.113.0/24|Internet|
 |Mi-194-69-96-19-nexthop-Internet|194.69.96.0/19|Internet|
 |Mi-194-110-197-24-nexthop-Internet|194.110.197.0/24|Internet|
 |Mi-198-105-232-22-nexthop-Internet|198.105.232.0/22|Internet|
-|mi-198-200-130-24-nexthop-internet|198.200.130.0/24|Internet|
-|mi-198-206-164-24-nexthop-internet|198.206.164.0/24|Internet|
-|mi-199-60-28-24-nexthop-internet|199.60.28.0/24|Internet|
-|mi-199-74-210-24-nexthop-internet|199.74.210.0/24|Internet|
+|Mi-198-200-130-24-nexthop-Internet|198.200.130.0/24|Internet|
+|Mi-198-206-164-24-nexthop-Internet|198.206.164.0/24|Internet|
+|Mi-199-60-28-24-nexthop-Internet|199.60.28.0/24|Internet|
+|Mi-199-74-210-24-nexthop-Internet|199.74.210.0/24|Internet|
 |Mi-199-103-90-23-nexthop-Internet|199.103.90.0/23|Internet|
 |Mi-199-103-122-24-nexthop-Internet|199.103.122.0/24|Internet|
-|mi-199-242-32-20-nexthop-internet|199.242.32.0/20|Internet|
-|mi-199-242-48-21-nexthop-internet|199.242.48.0/21|Internet|
-|mi-202-89-224-20-nexthop-internet|202.89.224.0/20|Internet|
+|Mi-199-242-32-20-nexthop-Internet|199.242.32.0/20|Internet|
+|Mi-199-242-48-21-nexthop-Internet|199.242.48.0/21|Internet|
+|Mi-202-89-224-20-nexthop-Internet|202.89.224.0/20|Internet|
 |Mi-204-13-120-21-nexthop-Internet|204.13.120.0/21|Internet|
 |Mi-204-14-180-22-nexthop-Internet|204.14.180.0/22|Internet|
 |Mi-204-79-135-24-nexthop-Internet|204.79.135.0/24|Internet|
@@ -403,12 +403,12 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 |Mi-204-79-196-23-nexthop-Internet|204.79.196.0/23|Internet|
 |Mi-204-79-252-24-nexthop-Internet|204.79.252.0/24|Internet|
 |Mi-204-152-18-23-nexthop-Internet|204.152.18.0/23|Internet|
-|mi-204-152-140-23-nexthop-internet|204.152.140.0/23|Internet|
+|Mi-204-152-140-23-nexthop-Internet|204.152.140.0/23|Internet|
 |Mi-204-231-192-24-nexthop-Internet|204.231.192.0/24|Internet|
 |Mi-204-231-194-23-nexthop-Internet|204.231.194.0/23|Internet|
 |Mi-204-231-197-24-nexthop-Internet|204.231.197.0/24|Internet|
 |Mi-204-231-198-23-nexthop-Internet|204.231.198.0/23|Internet|
-|mi-204-231-200-21-nexthop-internet|204.231.200.0/21|Internet|
+|Mi-204-231-200-21-nexthop-Internet|204.231.200.0/21|Internet|
 |Mi-204-231-208-20-nexthop-Internet|204.231.208.0/20|Internet|
 |Mi-204-231-236-24-nexthop-Internet|204.231.236.0/24|Internet|
 |Mi-205-174-224-20-nexthop-Internet|205.174.224.0/20|Internet|
@@ -419,9 +419,9 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 |Mi-208-68-136-21-nexthop-Internet|208.68.136.0/21|Internet|
 |Mi-208-76-44-22-nexthop-Internet|208.76.44.0/22|Internet|
 |Mi-208-84-21-nexthop-Internet|208.84.0.0/21|Internet|
-|mi-209-240-192-19-nexthop-internet|209.240.192.0/19|Internet|
-|mi-213-199-128-18-nexthop-internet|213.199.128.0/18|Internet|
-|mi-216-32-180-22-nexthop-internet|216.32.180.0/22|Internet|
+|Mi-209-240-192-19-nexthop-Internet|209.240.192.0/19|Internet|
+|Mi-213-199-128-18-nexthop-Internet|213.199.128.0/18|Internet|
+|Mi-216-32-180-22-nexthop-Internet|216.32.180.0/22|Internet|
 |Mi-216-220-208-20-nexthop-Internet|216.220.208.0/20|Internet|
 ||||
 
@@ -436,4 +436,4 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
   - No [portal do Azure](sql-database-managed-instance-get-started.md).
   - Usando o [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - Usando [um modelo de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - Usando [um modelo de Azure Resource Manager (usando Jumpbox, com o SSMS incluído)](https://azure.microsoft.com/en-us/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 
+  - Usando [um modelo de Azure Resource Manager (usando Jumpbox, com o SSMS incluído)](https://azure.microsoft.com/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 

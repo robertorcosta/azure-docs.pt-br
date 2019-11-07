@@ -4,14 +4,14 @@ description: Saiba como definir procedimentos armazenados, gatilhos e funções 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: bec28874bbd67ece4b29f6975e8c7fdcea457bd5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cdac8321ec4ac7b2e13c5545a2483527118daae3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092829"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606268"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
 
@@ -21,6 +21,9 @@ Para chamar um procedimento armazenado, um gatilho e uma função definida pelo 
 
 > [!NOTE]
 > Para contêineres particionados, ao executar um procedimento armazenado, um valor de chave de partição deve ser fornecido nas opções de solicitação. O escopo dos procedimentos armazenados sempre é uma chave de partição. Itens que têm um valor de chave de partição diferente não estarão visíveis para o procedimento armazenado. Isso também aplica-se a gatilhos.
+
+> [!Tip]
+> O cosmos dá suporte à implantação de contêineres com procedimentos armazenados, gatilhos e funções definidas pelo usuário. Para obter mais informações, consulte [criar um contêiner de Azure Cosmos DB com a funcionalidade do lado do servidor.](manage-sql-with-resource-manager.md#create-sproc)
 
 ## <a id="stored-procedures"></a>Como escrever procedimentos armazenados
 
@@ -48,11 +51,11 @@ Uma vez escrito, o procedimento armazenado deve ser registrado com uma coleção
 
 ### <a id="create-an-item"></a>Criar um item usando o procedimento armazenado
 
-Quando você cria um item usando um procedimento armazenado, ele é inserido no contêiner do Azure Cosmos e uma ID para o item recém-criado é retornada. A criação de um item é uma operação assíncrona e depende das funções de retorno de chamada do JavaScript. A função de retorno de chamada tem dois parâmetros – um para o objeto de erro, caso a operação falhe, e outro para um valor retornado; nesse caso, o objeto criado. Dentro da chamada de retorno, é possível lidar com a exceção ou gerar um erro. Caso uma chamada de retorno não seja fornecida e haja um erro, o tempo de execução do Azure Cosmos DB gerará um erro. 
+Quando você cria um item usando o procedimento armazenado, o item é inserido no contêiner Cosmos do Azure e uma ID para o item recém-criado é retornada. A criação de um item é uma operação assíncrona e depende das funções de retorno de chamada do JavaScript. A função de retorno de chamada tem dois parâmetros – um para o objeto de erro, caso a operação falhe, e outro para um valor retornado; nesse caso, o objeto criado. Dentro da chamada de retorno, é possível lidar com a exceção ou gerar um erro. Caso uma chamada de retorno não seja fornecida e haja um erro, o tempo de execução do Azure Cosmos DB gerará um erro. 
 
 O procedimento armazenado também inclui um parâmetro para definir a descrição; é um valor booliano. Quando o parâmetro é definido como true e a descrição está ausente, o procedimento armazenado gerará uma exceção. Caso contrário, o restante do procedimento armazenado continuará em execução.
 
-O procedimento armazenado de exemplo a seguir usa um novo item do Azure Cosmos como entrada, insere-o no contêiner do Azure Cosmos e retorna a ID do item recém-criado. Neste exemplo, estamos usando o exemplo ToDoList da [API do SQL .NET do Início Rápido](create-sql-api-dotnet.md)
+O procedimento armazenado de exemplo a seguir usa um novo item Cosmos do Azure como entrada, insere-o no contêiner Cosmos do Azure e retorna a ID para o item recém-criado. Neste exemplo, estamos usando o exemplo ToDoList da [API do SQL .NET do Início Rápido](create-sql-api-dotnet.md)
 
 ```javascript
 function createToDoItem(itemToCreate) {

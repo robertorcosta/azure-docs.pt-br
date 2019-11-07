@@ -1,6 +1,6 @@
 ---
-title: Conectar-se ao SQL Data Warehouse do Azure - VSTS | Microsoft Docs
-description: Consultar o SQL Data Warehouse com o Visual Studio.
+title: Conectar-se com o VSTS
+description: Consulte o Azure SQL Data Warehouse com o Visual Studio.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e6c3de1714d363eb1481bcea5f470d04125b96b9
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: e2d37b2d71f605077903197d25b5da2803e34ad3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575301"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685578"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Conectar-se ao SQL Data Warehouse com o Visual Studio e o SSDT
 > [!div class="op_single_selector"]
@@ -36,7 +37,7 @@ Para usar este tutorial, você precisará de:
 * SSDT para Visual Studio. Se você tiver o Visual Studio, provavelmente já terá isso. Para obter instruções e opções de instalação, consulte [Instalar o Visual Studio e o SSDT][Installing Visual Studio and SSDT].
 * O nome de servidor SQL totalmente qualificado. Para encontrar isso, confira [Conectar-se ao SQL Data Warehouse][Connect to SQL Data Warehouse].
 
-## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Conectar-se ao SQL Data Warehouse
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Conecte-se ao seu SQL Data Warehouse
 1. Abra o Visual Studio 2019.
 2. Abra o Pesquisador de Objetos do SQL Server. Para fazer isso, selecione **Exibir** > **Pesquisador de Objetos do SQL Server**.
    
@@ -56,13 +57,13 @@ Para usar este tutorial, você precisará de:
    
     ![Explorar o AdventureWorksWeb][4]
 
-## <a name="2-run-a-sample-query"></a>2. Executar uma consulta de exemplo
+## <a name="2-run-a-sample-query"></a>2. executar uma consulta de exemplo
 Agora que uma conexão foi estabelecida com o banco de dados, escreveremos uma consulta.
 
 1. Clique com o botão direito do mouse em seu banco de dados no Gerenciador de Objetos do SQL Server.
 2. Selecione **Nova Consulta**. Uma nova janela de consulta é aberta.
    
-    ![Nova Consulta][5]
+    ![Nova consulta][5]
 3. Copie esta consulta TSQL na janela de consulta:
    
     ```sql

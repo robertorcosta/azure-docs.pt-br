@@ -1,5 +1,5 @@
 ---
-title: Ajuste de desempenho com o Azure SQL Data Warehouse índice columnstore clusterizado ordenado | Microsoft Docs
+title: Ajuste de desempenho com o índice columnstore clusterizado ordenado
 description: Recomendações e considerações que você deve saber ao usar o índice columnstore clusterizado ordenado para melhorar o desempenho da consulta.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 37d8f17e825daa3a1c160509b1a38f8c70256d1c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 3cc2f140eeed0a4667a01aa8c5ccbad7e4411521
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595362"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685995"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ajuste de desempenho com o índice columnstore clusterizado ordenado  
 
@@ -43,9 +44,9 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> Em uma tabela CCI ordenada, novos dados resultantes de DML ou operações de carregamento de dados não são classificados automaticamente.  Os usuários podem recriar o CCI ordenado para classificar todos os dados na tabela.  No Azure SQL Data Warehouse, a recompilação do índice columnstore é uma operação offline.  Para uma tabela particionada, a recompilação é feita uma partição por vez.  Os dados na partição que está sendo recriada são "offline" e indisponíveis até que a recompilação seja concluída para essa partição. 
+> Em uma tabela de CCI ordenada, os novos dados resultantes do mesmo lote de operações DML ou de carregamento de dados são classificados dentro desse lote, não há nenhuma classificação global em todos os dados na tabela.  Os usuários podem recriar o CCI ordenado para classificar todos os dados na tabela.  No Azure SQL Data Warehouse, a recompilação do índice columnstore é uma operação offline.  Para uma tabela particionada, a recompilação é feita uma partição por vez.  Os dados na partição que está sendo recriada são "offline" e indisponíveis até que a recompilação seja concluída para essa partição. 
 
-## <a name="query-performance"></a>Desempenho da consulta
+## <a name="query-performance"></a>Desempenho de consultas
 
 O lucro de desempenho de uma consulta de um CCI ordenado depende dos padrões de consulta, do tamanho dos dados, da forma como os dados são classificados, da estrutura física dos segmentos e do DWU e da classe de recursos escolhidos para a execução da consulta.  Os usuários devem revisar todos esses fatores antes de escolher as colunas de ordenação ao criar uma tabela de CCI ordenada.
 
@@ -63,7 +64,7 @@ ORDER (Col_C, Col_B, Col_A)
 
 ```
 
-O desempenho da consulta 1 pode se beneficiar mais do CCI ordenado do que as outras 3 consultas. 
+O desempenho da consulta 1 pode se beneficiar mais do CCI ordenado do que as outras três consultas. 
 
 ```sql
 -- Query #1: 
@@ -124,7 +125,7 @@ A criação de um CCI ordenado é uma operação offline.  Para tabelas sem part
 3.  Mude uma partição da tabela A para a tabela B.
 4.  Execute ALTER INDEX < Ordered_CCI_Index > em < Table_B > REBUILD PARTITION = < Partition_ID > na tabela B para recompilar a partição alternada.  
 5.  Repita as etapas 3 e 4 para cada partição em Table_A.
-6.  Depois que todas as partições forem alternadas de Table_A para Table_B e tiverem sido recriadas, solte Table_A e renomeie Table_B para Table_A. 
+6.  Depois que todas as partições forem alternadas de Table_A para Table_B e tiverem sido recriadas, descartar Table_A e renomear Table_B para Table_A. 
 
 ## <a name="examples"></a>Exemplos
 
@@ -143,5 +144,5 @@ ORDER (ProductKey, SalesAmount)
 WITH (DROP_EXISTING = ON)
 ```
 
-## <a name="next-steps"></a>Próximos passos
-Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL Data Warehouse](sql-data-warehouse-overview-develop.md).
+## <a name="next-steps"></a>Próximas etapas
+Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvolvimento no SQL Data Warehouse](sql-data-warehouse-overview-develop.md).

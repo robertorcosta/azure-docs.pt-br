@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 85a3a9f7afac8250b225d42462f6b29042e34a2a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 91469f27e1ca86650cf94fde5cff5d1864300183
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330433"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606339"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerenciar laboratórios de sala de aula no Azure Lab Services 
 Este artigo descreve como criar e excluir um laboratório de sala de aula. Isso também mostra como exibir todos os laboratórios de sala de aula em uma conta de laboratório. 
@@ -26,19 +26,19 @@ Este artigo descreve como criar e excluir um laboratório de sala de aula. Isso 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para configurar um laboratório de sala de aula em uma conta de laboratório, você deve ser um membro da função **Criador de Laboratório** na conta de laboratório. A conta que você usou para criar uma conta de laboratório é adicionada automaticamente a essa função. Um proprietário de laboratório pode adicionar outros usuários à função de Criador de Laboratório seguindo as etapas neste artigo: [Adicionar um usuário à função de Criador de Laboratório](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
-## <a name="create-a-classroom-lab"></a>Crie um laboratório de sala de aula
+## <a name="create-a-classroom-lab"></a>Criar um laboratório de sala de aula
 
-1. Navegue até [Site do Azure Lab Services](https://labs.azure.com). Observe que ainda não há suporte para o Internet Explorer 11. 
+1. Navegue até [Site do Azure Lab Services](https://labs.azure.com). O Internet Explorer 11 ainda não tem suporte. 
 2. Selecione **Iniciar sessão** e insira suas credenciais. Selecione ou insira uma **ID de usuário** que é um membro da função **Criador de laboratório** na conta do laboratório e insira a senha. O Azure Lab Services oferece suporte a contas organizacionais e contas Microsoft. 
 3. Selecione **novo laboratório**. 
     
-    ![Crie um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-button.png)
+    ![Criar um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-button.png)
 3. Na janela **Novo laboratório**, execute as seguintes ações: 
     1. Especifique um **nome** para o laboratório. 
     2. Selecione o **tamanho das máquinas virtuais** que você precisa para a classe. Para obter a lista de tamanhos disponíveis, consulte a seção [tamanhos de VM](#vm-sizes) . 
     3. Selecione a **imagem de máquina virtual** que você deseja usar para o laboratório de sala de aula. Se você selecionar uma imagem do Linux, verá uma opção para habilitar a conexão de área de trabalho remota para ela. Para obter detalhes, veja [Habilitar conexão de área de trabalho remota para Linux](how-to-enable-remote-desktop-linux.md).
     4. Examine o **preço total por hora** exibido na página. 
-    6. Clique em **Salvar**.
+    6. Selecione **Salvar**.
 
         ![Nova janela de laboratório](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Na página **credenciais da máquina virtual** , especifique as credenciais padrão para todas as VMs no laboratório.
@@ -92,7 +92,7 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
 
 ### <a name="vm-sizes"></a>Tamanhos de VM  
 
-| Tamanho | Núcleos | RAM | Descrição | 
+| Tamanho | Núcleos | RAM | DESCRIÇÃO | 
 | ---- | ----- | --- | ----------- | 
 | Pequena | 2 | 3,5 GB | Esse tamanho é mais adequado para linha de comando, abertura de navegador da Web, servidores Web de tráfego baixo, bancos de dados pequenos a médios. |
 | Média | 4 | 7 GB | Esse tamanho é mais adequado para bancos de dados relacionais, cache na memória e análise | 
@@ -123,8 +123,12 @@ Para alternar do atual laboratório de sala de aula para outro, selecione a list
 
 Você também pode criar um novo laboratório usando o **novo laboratório** nesta lista suspensa. 
 
+> [!NOTE]
+> Você também pode usar o módulo do PowerShell AZ. LabServices (versão prévia) para gerenciar laboratórios. Para obter mais informações, consulte [AZ. LabServices Home Page no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
 
-## <a name="next-steps"></a>Próximos passos
+Para alternar para uma conta de laboratório diferente, selecione a lista suspensa ao lado da conta de laboratório e selecione a outra conta de laboratório. 
+
+## <a name="next-steps"></a>Próximas etapas
 Confira os seguintes artigos:
 
 - [Como um proprietário de laboratório, configure e publique modelos](how-to-create-manage-template.md)

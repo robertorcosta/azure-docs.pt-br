@@ -1,5 +1,5 @@
 ---
-title: Gerenciar bancos de dados SQL do Azure usando a Automação do Azure | Microsoft Docs
+title: Gerenciar bancos de dados SQL do Azure usando a automação do Azure
 description: Saiba mais sobre como o serviço de Automação do Azure pode ser usado para gerenciar bancos de dados SQL do Azure em grande escala.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: bb195d5809ef0e2af2a4975a263a9739db1cdfa6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0e29cd85c63bb2f6e083f9cda9abd48fa6d9975a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567747"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689441"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Gerenciando bancos de dados SQL do Azure usando a Automação do Azure
 
@@ -49,4 +49,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode 
 
 - [Visão geral da Automação](../automation/automation-intro.md)
 - [Meu primeiro runbook](../automation/automation-first-runbook-graphical.md)
-- [Automação do Azure: Seu Agente SQL na nuvem](https://azure.microsoft.com/blog/20../../azure-automation-your-sql-agent-in-the-cloud/) 
+- [Automação do Azure: seu Agente SQL na nuvem](https://azure.microsoft.com/blog/20../../azure-automation-your-sql-agent-in-the-cloud/) 

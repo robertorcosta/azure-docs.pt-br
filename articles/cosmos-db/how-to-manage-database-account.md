@@ -4,14 +4,14 @@ description: Aprender a gerenciar contas de banco de dados no Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: f67487f6da5c9be028703d7890e16ffab0c858c6
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 049be390403fe984ed4f8f38a4cdc86e24060e49
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812521"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582631"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerenciar uma conta do Azure Cosmos
 
@@ -33,13 +33,13 @@ Consulte [criar uma conta de Azure Cosmos DB com o PowerShell](manage-with-power
 
 ### <a id="create-database-account-via-arm-template"></a>Modelo do Azure Resource Manager
 
-Este modelo do Azure Resource Manager criará uma conta do Azure Cosmos para qualquer API compatível configurada com duas regiões e as opções para selecionar o nível de consistência, o failover automático e vários mestres. Para implantar esse modelo, clique em Implantar no Azure na página do arquivo Leiame, [Criar uma conta do Azure Cosmos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
+Este modelo de Azure Resource Manager criará uma conta do Azure Cosmos para a API do SQL configurada com duas regiões e opções para selecionar nível de consistência, failover automático e vários mestres. Para implantar esse modelo, clique em Implantar no Azure na página do arquivo Leiame, [Criar uma conta do Azure Cosmos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Adicionar ou remover regiões de sua conta de banco de dados
 
 ### <a id="add-remove-regions-via-portal"></a>Portal do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com). 
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 1. Vá até sua conta do Azure Cosmos e abra o menu **Replicar dados globalmente**.
 
@@ -113,7 +113,7 @@ Uma conta pode ser migrada de mestre único para vários mestres com a implanta�
             "type": "Microsoft.DocumentDb/databaseAccounts",
             "kind": "GlobalDocumentDB",
             "name": "[parameters('name')]",
-            "apiVersion": "2015-04-08",
+            "apiVersion": "2019-08-01",
             "location": "[parameters('location')]",
             "tags": {},
             "properties": {
@@ -123,11 +123,13 @@ Uma conta pode ser migrada de mestre único para vários mestres com a implanta�
                 [
                     {
                         "locationName": "[parameters('primaryRegion')]",
-                        "failoverPriority": 0
+                        "failoverPriority": 0,
+                        "isZoneRedundant": false
                     },
                     {
                         "locationName": "[parameters('secondaryRegion')]",
-                        "failoverPriority": 1
+                        "failoverPriority": 1,
+                        "isZoneRedundant": false
                     }
                 ],
                 "enableMultipleWriteLocations": true
@@ -151,7 +153,7 @@ A opção Failover automático permite que o Azure Cosmos DB faça failover para
 
 3. No painel **Failover Automático**, verifique se a opção **Habilitar Failover Automático** está definida como **ATIVADO**. 
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
    ![Menu do portal Failover automático](./media/how-to-manage-database-account/automatic-failover.png)
 
@@ -182,7 +184,7 @@ Depois que uma conta do Cosmos for configurada para failover automático, a prio
 
 4. Para modificar a prioridade de failover, arraste as regiões de leitura nos três pontos à esquerda da linha que aparecem quando o mouse é passado sobre ela.
 
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 
    ![Menu do portal Failover automático](./media/how-to-manage-database-account/automatic-failover.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Agendamento e execução com o Data Factory | Microsoft Docs
+title: Agendamento e execução com Data Factory
 description: Aprenda sobre os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6ea8a03f45a3655c5761e0011876c6232b5bf36b
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 15a2d6ae5d8b80468ffcdd00d60b1f36843ed677
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135301"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666126"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Agendamento e execução com o Data Factory
 > [!NOTE]
@@ -29,7 +29,7 @@ Este artigo explica os aspectos de agendamento e execução do modelo de aplicat
 * [Conjunto de dados](data-factory-create-datasets.md) 
 
 ## <a name="start-and-end-times-of-pipeline"></a>Horas de início e término do pipeline
-Um pipeline está ativo somente entre suas horas de **início** e **término**. Ele não é executado antes da hora de início ou após a hora de término. Se o pipeline estiver em pausa, ele não será executado, independentemente de suas horas de início e término. Para um pipeline ser executado, ele não deve estar pausado. É possível encontrar essas configurações (início, término, em pausa) na definição do pipeline: 
+Um pipeline está ativo somente entre sua hora de **início** e de **término**. Ele não é executado antes da hora de início ou após a hora de término. Se o pipeline estiver em pausa, ele não será executado, independentemente de suas horas de início e término. Para um pipeline ser executado, ele não deve estar pausado. É possível encontrar essas configurações (início, término, em pausa) na definição do pipeline: 
 
 ```json
 "start": "2017-04-01T08:00:00Z",
@@ -172,7 +172,7 @@ O diagrama mostra as fatias de dados por hora para o conjunto de dados de entrad
 
 É possível acessar o intervalo de tempo associado à fatia atual no conjunto de dados JSON usando estas variáveis: [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) e [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables). Da mesma forma, é possível acessar o intervalo de tempo associado a uma janela de atividades usando WindowStart e WindowEnd. O agendamento de uma atividade deve corresponder ao agendamento do conjunto de dados de saída da atividade. Portanto, os valores de SliceStart e SliceEnd são iguais aos valores de WindowStart e WindowEnd, respectivamente. Para obter mais informações sobre essas variáveis, consulte os artigos [Funções e variáveis de sistema do Data Factory](data-factory-functions-variables.md#data-factory-system-variables).  
 
-Você pode usar essas variáveis para finalidades diferentes em sua atividade JSON. Por exemplo, você pode usá-las para selecionar dados em conjuntos de dados de entrada e de saída que representam dados de série temporal (por exemplo: das 8h às 9h). Este exemplo também usa **WindowStart** e **WindowEnd** para selecionar dados relevantes para uma execução de atividade e copia-os para um blob com o **folderPath** apropriado. O **folderPath** é parametrizado para ter uma pasta separada para cada hora.  
+Você pode usar essas variáveis para finalidades diferentes em sua atividade JSON. Por exemplo, você pode usá-las para selecionar dados em conjuntos de dados de entrada e saída que representam dados de série temporal (por exemplo: 8h às 9h). Este exemplo também usa **WindowStart** e **WindowEnd** para selecionar dados relevantes para uma execução de atividade e copia-os para um blob com o **folderPath** apropriado. O **folderPath** é parametrizado para ter uma pasta separada para cada hora.  
 
 No exemplo anterior, o agendamento especificado para conjuntos de dados de entrada e saída é o mesmo (por hora). Se o conjunto de dados de entrada da atividade estiver disponível em uma frequência diferente, digamos, a cada 15 minutos, a atividade que produz esse conjunto de dados de saída ainda será executada uma vez por hora, pois o conjunto de dados de saída é o que conduz o agendamento da atividade. Para obter mais informações, consulte [Modelar conjuntos de dados com frequências diferentes](#model-datasets-with-different-frequencies).
 
@@ -182,13 +182,13 @@ Você já viu o uso da frequência e das propriedades de intervalo na seção de
 ### <a name="dataset-availability"></a>Disponibilidade do conjunto de dados 
 A tabela a seguir descreve as propriedades que você pode usar na seção de **availability**:
 
-| Propriedade | Descrição | Necessário | Padrão |
+| Propriedade | DESCRIÇÃO | Obrigatório | Padrão |
 | --- | --- | --- | --- |
-| frequency |Especifica a unidade de tempo para a produção da fatia de conjunto de dados.<br/><br/><b>Frequência compatível</b>: Minuto, Hora, Dia, Semana, Mês |Sim |N/A |
-| intervalo |Especifica um multiplicador para frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se você precisa que o conjunto de dados seja dividido por hora, defina <b>Frequência</b> como <b>Hora</b> e <b>intervalo</b> como <b>1</b>.<br/><br/><b>Observação</b>: Caso você especifique a frequência como Minuto, recomendamos que defina o intervalo não sendo inferior a 15 |Sim |N/A |
+| frequência |Especifica a unidade de tempo para a produção da fatia de conjunto de dados.<br/><br/><b>Frequência com suporte</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
+| intervalo |Especifica um multiplicador para frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se você precisa que o conjunto de dados seja dividido por hora, defina <b>Frequência</b> como <b>Hora</b> e <b>intervalo</b> como <b>1</b>.<br/><br/><b>Observação:</b>: caso você especifique a frequência como minuto, recomendamos que defina o intervalo como não inferior a 15 |Sim |ND |
 | estilo |Especifica se a fatia deve ser produzida no início/término do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a frequência for definida como Mês e o estilo como EndOfInterval, a fatia será produzida no último dia do mês. Se o estilo for definido como StartOfInterval, a fatia será produzida no primeiro dia do mês.<br/><br/>Se a frequência for definida como Dia e o estilo como EndOfInterval, a fatia será produzida na última hora do dia.<br/><br/>Se a Frequência for definida como Hora e o estilo como EndOfInterval, a fatia será produzida ao final da hora. Por exemplo, para uma fatia de período 13h – 14h, a fatia é produzida às 14h. |Não |EndOfInterval |
-| anchorDateTime |Define a posição absoluta no tempo usada pelo agendador para computar limites de fatia do conjunto de dados. <br/><br/><b>Observação</b>: Se AnchorDateTime tiver partes de datas mais granulares do que a frequência, as partes mais granulares serão ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> for <b>por hora</b> (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contiver <b>minutos e segundos</b>, as partes <b>minutos e segundos</b> do AnchorDateTime serão ignoradas. |Não |01/01/0001 |
-| offset |O período de tempo no qual o início e o término de todas as fatias de conjunto de dados são deslocados. <br/><br/><b>Observação</b>: Se anchorDateTime e o deslocamento forem especificados, o resultado será um deslocamento combinado. |Não |N/A |
+| anchorDateTime |Define a posição absoluta no tempo usada pelo agendador para computar limites de fatia do conjunto de dados. <br/><br/><b>Observação:</b> se AnchorDateTime tiver partes de datas mais granulares do que a frequência, as partes mais granulares serão ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> for <b>por hora</b> (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contiver <b>minutos e segundos</b>, as partes <b>minutos e segundos</b> do AnchorDateTime serão ignoradas. |Não |01/01/0001 |
+| deslocamento |O período de tempo no qual o início e o término de todas as fatias de conjunto de dados são deslocados. <br/><br/><b>Observação:</b> se anchorDateTime e o deslocamento forem especificados, o resultado será um deslocamento combinado. |Não |ND |
 
 ### <a name="offset-example"></a>exemplo de deslocamento
 Por padrão, fatias (`"frequency": "Day", "interval": 1`) diárias começam em hora UTC de 12: 00 (meia-noite). Se desejar que a hora de início para hora UTC de 6 horas em vez disso, define o deslocamento, conforme mostrado no snippet a seguir: 
@@ -230,10 +230,10 @@ Um conjunto de dados pode ter uma política de validação definida que especifi
 
 A seção **política** na definição do conjunto de dados define os critérios ou a condição que as divisões de conjunto de dados devem atender. A seguinte tabela descreve as propriedades que você pode usar na seção **política**:
 
-| Nome da política | Descrição | Aplicado a | Necessário | Padrão |
+| Nome da política | DESCRIÇÃO | Aplicado a | Obrigatório | Padrão |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB | Valida que os dados em um **blob do Azure** atendem aos requisitos de tamanho mínimo (em megabytes). |blob do Azure |Não |N/A |
-| minimumRows | Valida que os dados em um **Banco de Dados SQL do Azure** ou uma **tabela do Azure** contêm o número mínimo de linhas. |<ul><li>Banco de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |Não |N/A |
+| minimumSizeMB | Valida que os dados em um **blob do Azure** atendem aos requisitos de tamanho mínimo (em megabytes). |Blob do Azure |Não |ND |
+| minimumRows | Valida que os dados em um **Banco de Dados SQL do Azure** ou uma **tabela do Azure** contêm o número mínimo de linhas. |<ul><li>Banco de Dados SQL do Azure</li><li>tabela do Azure</li></ul> |Não |ND |
 
 #### <a name="examples"></a>Exemplos
 **minimumSizeMB:**
@@ -266,14 +266,14 @@ Para obter mais informações sobre essas propriedades e exemplos, consulte o ar
 ## <a name="activity-policies"></a>Políticas de atividades
 As políticas afetam o comportamento de tempo de execução de uma atividade, especialmente quando a divisão de uma tabela é processada. A tabela a seguir fornece os detalhes.
 
-| Propriedade | Valores permitidos | Valor padrão | Descrição |
+| Propriedade | Valores permitidos | Valor Padrão | DESCRIÇÃO |
 | --- | --- | --- | --- |
-| concurrency |Inteiro <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de atividade paralela que podem ocorrer em divisões diferentes. Por exemplo, se uma atividade precisa passar por um grande conjunto de dados disponíveis, ter um valor de concorrência maior acelera o processamento de dados. |
+| simultaneidade |Número inteiro <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de atividade paralela que podem ocorrer em divisões diferentes. Por exemplo, se uma atividade precisa passar por um grande conjunto de dados disponíveis, ter um valor de concorrência maior acelera o processamento de dados. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordem das divisões de dados que estão sendo processadas.<br/><br/>Por exemplo, se houver duas fatias (uma ocorre às 16h e a outra às 17h),e ambas estiverem com a execução pendente. Se você definir executionPriorityOrder como NewestFirst, a divisão às 17h será processada primeiro. De modo semelhante, se você definir executionPriorityORder como OldestFIrst, a fatia às 16h será processada. |
-| retry novamente |Inteiro<br/><br/>O valor máximo pode ser 10 |0 |Número de novas tentativas antes do processamento de dados da divisão ser marcado como Com falha. A execução da atividade para uma divisão de dados é repetida até a contagem de repetição especificada. A nova tentativa é feita logo após a falha. |
-| timeout |TimeSpan |00:00:00 |Tempo limite para a atividade. Exemplo: 00:10:00 (pressupõe um tempo de limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite será infinito.<br/><br/>Se o tempo de processamento de dados em uma divisão exceder o valor de tempo limite, ele será cancelado e o sistema tentará repetir o processamento. O número de repetições depende da propriedade de repetição. Quando atingir o tempo limite, o status será TimedOut. |
-| delay |TimeSpan |00:00:00 |Especifique o atraso antes do processamento de dados da divisão começar.<br/><br/>A execução da atividade de uma fatia de dados será iniciada após o atraso passar do tempo de execução esperado.<br/><br/>Exemplo: 00:10:00 (pressupõe um atraso de 10 minutos) |
-| longRetry |Inteiro<br/><br/>Valor máximo: 10 |1 |O número de tentativas repetidas longas antes que a execução da divisão falhe.<br/><br/>Tentativas de longRetry são espaçadas por longRetryInterval. Portanto, se você precisar especificar um tempo entre tentativas de repetição, use longRetry. Se Retry e longRetry forem especificados, cada tentativa de longRetry incluirá tentativas de Retry, e o número máximo de tentativas será Retry * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes configurações na política de atividade:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Presumindo que haja apenas uma fatia para execução (o status é Aguardando) e a execução da atividade sempre falhe. Inicialmente haveria três tentativas consecutivas de execução. Após cada tentativa, o status de divisão seria Retry. Depois das três primeiras tentativas, o status da divisão seria LongRetry.<br/><br/>Depois de uma hora (ou seja, valor de longRetryInteval), deve haver outro conjunto de três tentativas consecutivas de execução. Depois disso, o status da divisão seria Com falha e não haveria nova tentativa. Portanto, em geral, foram feitas seis tentativas.<br/><br/>Se qualquer execução for bem-sucedida, o status da fatia seria Ready e não haverá mais nenhuma tentativa.<br/><br/>longRetry pode ser usado em situações em que dados dependentes chegam em horários não determinísticos ou o ambiente geral está instável onde o processamento de dados ocorre. Nesses casos, fazer novas tentativas uma após a outra pode não ajudar e fazer isso após um intervalo de tempo resulta na saída desejada.<br/><br/>Advertência: não defina valores altos para longRetry ou longRetryInterval. Normalmente, os valores mais altos implicam outros problemas sistêmicos. |
+| tentar novamente |Número inteiro<br/><br/>O valor máximo pode ser 10 |0 |Número de novas tentativas antes do processamento de dados da divisão ser marcado como Com falha. A execução da atividade para uma divisão de dados é repetida até a contagem de repetição especificada. A nova tentativa é feita logo após a falha. |
+| Tempo limite |TimeSpan |00:00:00 |Tempo limite para a atividade. Exemplo: 00:10:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite será infinito.<br/><br/>Se o tempo de processamento de dados em uma divisão exceder o valor de tempo limite, ele será cancelado e o sistema tentará repetir o processamento. O número de repetições depende da propriedade de repetição. Quando atingir o tempo limite, o status será TimedOut. |
+| atrasar |TimeSpan |00:00:00 |Especifique o atraso antes do processamento de dados da divisão começar.<br/><br/>A execução da atividade de uma fatia de dados será iniciada após o atraso passar do tempo de execução esperado.<br/><br/>Exemplo: 00:10:00 (implica um atraso de 10 minutos) |
+| longRetry |Número inteiro<br/><br/>Valor máximo: 10 |1 |O número de tentativas repetidas longas antes que a execução da divisão falhe.<br/><br/>Tentativas de longRetry são espaçadas por longRetryInterval. Portanto, se você precisar especificar um tempo entre tentativas de repetição, use longRetry. Se Retry e longRetry forem especificados, cada tentativa de longRetry incluirá tentativas de Retry, e o número máximo de tentativas será Retry * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes configurações na política de atividade:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Presumindo que haja apenas uma fatia para execução (o status é Aguardando) e a execução da atividade sempre falhe. Inicialmente haveria três tentativas consecutivas de execução. Após cada tentativa, o status de divisão seria Retry. Depois das três primeiras tentativas, o status da divisão seria LongRetry.<br/><br/>Depois de uma hora (ou seja, valor de longRetryInteval), deve haver outro conjunto de três tentativas consecutivas de execução. Depois disso, o status da divisão seria Com falha e não haveria nova tentativa. Portanto, em geral, foram feitas seis tentativas.<br/><br/>Se qualquer execução for bem-sucedida, o status da fatia seria Ready e não haverá mais nenhuma tentativa.<br/><br/>longRetry pode ser usado em situações em que dados dependentes chegam em horários não determinísticos ou o ambiente geral está instável onde o processamento de dados ocorre. Nesses casos, fazer novas tentativas uma após a outra pode não ajudar e fazer isso após um intervalo de tempo resulta na saída desejada.<br/><br/>Advertência: não defina valores altos para longRetry ou longRetryInterval. Normalmente, os valores mais altos implicam outros problemas sistêmicos. |
 | longRetryInterval |TimeSpan |00:00:00 |O intervalo entre tentativas de repetição longa |
 
 Para obter mais informações, consulte o artigo [Pipelines](data-factory-create-pipelines.md). 
@@ -443,14 +443,14 @@ O diagrama a seguir mostra o cenário de um ponto de vista de dependência de da
 
 A fatia de saída para cada dia depende de 24 fatias horárias do conjunto de dados de entrada. O Data Factory calcula essas dependências automaticamente descobrindo as fatias de dados de entrada que equivalem ao mesmo período de tempo utilizado para a produção da fatia de saída. Se qualquer uma das 24 fatias de entrada não estiver disponível, o Data Factory aguardará até que a fatia de entrada esteja pronta antes de iniciar a execução da atividade diária.
 
-### <a name="sample-2-specify-dependency-with-expressions-and-data-factory-functions"></a>Exemplo 2: especificar a dependência com expressões e funções do Data Factory
+### <a name="sample-2-specify-dependency-with-expressions-and-data-factory-functions"></a>Exemplo 2: especificar dependência com expressões e funções do Data Factory
 Vamos considerar outro cenário. Suponha que você tenha uma atividade de hive que processa dois conjuntos de dados de entrada. Um deles tem novos dados diariamente, mas o outro obtém novos dados toda semana. Suponha que você queira fazer uma associação entre as duas entradas e produzir uma saída diariamente.
 
 A abordagem simples, na qual o Data Factory detecta automaticamente as fatias de entrada certas a serem processadas alinhando-se ao período de tempo da fatia de dados de saída, não funciona.
 
 Você precisa especificar isso para cada execução de atividade, o Data Factory deve usar a fatia de dados da semana passada para o conjunto de dados de entrada semanal. Use as funções do Azure Data Factory conforme mostrado no snippet a seguir para implementar esse comportamento.
 
-**Entrada1: Blob do Azure**
+**Saída1: blob do Azure**
 
 A primeira entrada é blob do Azure que está sendo atualizado diariamente.
 
@@ -480,7 +480,7 @@ A primeira entrada é blob do Azure que está sendo atualizado diariamente.
 }
 ```
 
-**Entrada2: Blob do Azure**
+**Entrada2: blob do Azure**
 
 Entrada2 é o blob do Azure que está sendo atualizado semanalmente.
 
@@ -510,9 +510,9 @@ Entrada2 é o blob do Azure que está sendo atualizado semanalmente.
 }
 ```
 
-**Saída: Blob do Azure**
+**Saída: blob do Azure**
 
-Um arquivo de saída é criado diariamente na pasta para o dia. A disponibilidade de saída é definida por **Dia** (frequência: Dia, intervalo: 1).
+Um arquivo de saída é criado diariamente na pasta para o dia. A disponibilidade de saída é definida como **dia** (frequência: Dia, intervalo: 1).
 
 ```json
 {
@@ -597,7 +597,7 @@ A atividade de hive usa as duas entradas e produz uma fatia de saída todos os d
 
 Veja [Funções e variáveis do sistema do Data Factory](data-factory-functions-variables.md) para obter uma lista das funções e variáveis às quais o Azure Data Factory dá suporte.
 
-## <a name="appendix"></a>Anexo
+## <a name="appendix"></a>Apêndice
 
 ### <a name="example-copy-sequentially"></a>Exemplo: copiar sequencialmente
 É possível executar várias operações de cópia, uma após a outra de maneira sequencial/ordenada. Por exemplo, você pode ter duas atividades de cópia em um pipeline (CopyActivity1 e CopyActivity2) com os seguintes conjuntos de dados de saída dos dados de entrada:   

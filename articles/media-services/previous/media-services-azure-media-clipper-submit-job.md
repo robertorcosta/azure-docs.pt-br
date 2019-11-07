@@ -2,25 +2,25 @@
 title: Enviar trabalhos de recorte do Azure Media Clipper | Microsoft Docs
 description: Etapas para enviar trabalhos de recorte do Azure Media Clipper
 services: media-services
-keywords: clipe;subclipe;codificação;mídia
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+keywords: clipe; subclipe; codificação; mídia
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: f0dc6879ccbb22dbebd57de98e4610cd593318db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 04d0d2bb8939c8036ec6817c58f9ac2fbb3acd72
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61242830"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684972"
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Enviar trabalhos de recorte do Azure Media Clipper 
 
 O Azure Media Clipper exige que um método **submitSubclipCallback** seja implementado para manipular o envio de trabalhos de recorte. Essa função serve para implementar um HTTP POST da saída do Clipper para um serviço Web. Esse serviço Web é o local em que você pode enviar o trabalho de codificação. A saída do Clipper é uma predefinição de codificação do Media Encoder Standard dos trabalhos renderizados ou o conteúdo da API REST para chamadas de filtro de manifesto dinâmico. Esse modelo de passagem é necessário porque as credenciais da conta dos serviços de mídia não são seguras no navegador do cliente.
 
-O seguinte diagrama de sequência ilustra o fluxo de trabalho entre o cliente do navegador, o seu serviço Web e os Serviços de Mídia do Azure: ![Diagrama de sequência do Azure Media Clipper](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)
+O diagrama de sequência a seguir ilustra o fluxo de trabalho entre o cliente de navegador, o seu serviço Web e os Serviços de Mídia do Azure: ![Diagrama de Sequência do Azure Media Clipper](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)
 
 No diagrama anterior, as quatro entidades são: o navegador do usuário final, o seu serviço Web, o ponto de extremidade CDN hospedando os recursos Clipper e os Serviços de Mídia do Azure. Quando o usuário final navega para a sua página da Web, a página obtém os recursos do Clipper JavaScript e do CSS no ponto de extremidade CDN de hospedagem. O usuário final configura o trabalho de recorte ou a chamada de criação de filtro de manifesto dinâmico em seu navegador. Quando o usuário final envia a chamada de criação de trabalho ou filtro, o navegador coloca a carga de trabalho em um serviço da Web que você deve implantar. Esse serviço da Web, por fim, envia o trabalho de recorte ou a ligação de criação de filtro para o Serviço de Mídia do Azure usando suas credenciais de conta dos serviços de mídia.
 

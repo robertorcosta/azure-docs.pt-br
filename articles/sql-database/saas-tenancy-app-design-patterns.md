@@ -1,5 +1,5 @@
 ---
-title: Padrões de SaaS multilocatário- Banco de Dados SQL do Azure | Microsoft Docs
+title: 'Padrões de SaaS multilocatário-banco de dados SQL do Azure '
 description: Aprenda sobre os requisitos e os padrões da arquitetura de dados comuns de aplicativos de banco de dados SaaS (software como serviço) multilocatários executados no ambiente de nuvem do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 8cbf0e45ac368f0d2dd1678984bd14392452e63a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ecbcf2cdfea2714e46d0c9cff4066befabddeeb8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570181"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691934"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de locatário de banco de dados de SaaS multilocatários
 
@@ -32,8 +32,8 @@ Em troca de pagamento de aluguel, cada locatário recebe acesso aos componentes 
 
 O termo *modelo de locação* refere-se a como os dados armazenados dos locatários são organizados:
 
-- *Monolocação:* &nbsp; Cada banco de dados armazena dados de apenas um locatário.
-- *Multilocação*&nbsp;: Cada banco de dados armazena dados de vários locatários separados (com mecanismos para proteger a privacidade de dados).
+- *Single-aluguel:* &nbsp; cada banco de dados armazena dados de apenas um locatário.
+- *Multilocação:* &nbsp; cada banco de dados armazena dados de vários locatários separados (com mecanismos para proteger a privacidade de dados).
 - Modelos de aluguel híbridos também estão disponíveis.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Como escolher o modelo apropriado de aluguel
@@ -46,9 +46,9 @@ Em geral, o modelo de aluguel não afeta a função de um aplicativo, mas provav
     - Armazenamento em agregação.
     - Carga de trabalho.
 
-- **Isolamento de locatário:** &nbsp; O isolamento de dados e desempenho (se a carga de trabalho de um locatário afeta outras pessoas).
+- **Isolamento de locatários:** &nbsp; Isolamento de dados e desempenho (se cargas de trabalho de um locatário afeta outras pessoas).
 
-- **Custo por locatário:** &nbsp; Custos do banco de dados.
+- **Custo por locatário:** &nbsp; Os custos de banco de dados.
 
 - **Complexidade de desenvolvimento:**
     - Alterações para esquema.
@@ -56,11 +56,11 @@ Em geral, o modelo de aluguel não afeta a função de um aplicativo, mas provav
 
 - **Complexidade operacional:**
     - Monitoramento e ajuste de desempenho.
-    - Gerenciamento do Esquema.
+    - Gerenciamento do esquema.
     - Restaurando um locatário.
     - Recuperação de desastre.
 
-- **Capacidade de personalização:** &nbsp; Facilidade de dar suporte às personalizações de esquema que são específicas a um locatário ou específicas à uma classe de locatário.
+- **Personalização:** &nbsp; Facilidade de suportar as personalizações de esquema que são específicas de locatário ou específicos de classe de locatário.
 
 A discussão de aluguel enfoca na camada de *dados*.  Mas considere por um momento a camada de *aplicativo*.  A camada de aplicativo é tratada como uma entidade monolítica.  Se você dividir o aplicativo em vários componentes pequenos, a escolha do modelo de aluguel pode ser alterada.  Você pode tratar alguns componentes diferentemente de outras pessoas sobre tanto aluguel e a tecnologia de armazenamento quanto a plataforma usada.
 
@@ -125,9 +125,9 @@ Por exemplo, você pode automatizar a recuperação de um único locatário em u
 
 #### <a name="tenant-isolation-is-sacrificed"></a>No entanto, o isolamento de locatários é limitado
 
-*Dados:* &nbsp; Um banco de dados multilocatário necessariamente sacrifica isolamento de locatários.  Os dados de vários locatários são armazenados juntos em um banco de dados.  Durante o desenvolvimento, certifique-se de que consultas nunca exponham dados de mais de um locatário.  O banco de dados SQL dá suporte à [segurança em nível de linha][docu-sql-svr-db-row-level-security-947w], o que pode impor que os dados retornados de uma consulta sejam delimitados para um único locatário.
+*Dados:* &nbsp; um banco de dados multilocatário necessariamente sacrifica isolamento de locatários.  Os dados de vários locatários são armazenados juntos em um banco de dados.  Durante o desenvolvimento, certifique-se de que consultas nunca exponham dados de mais de um locatário.  O banco de dados SQL dá suporte à [segurança em nível de linha][docu-sql-svr-db-row-level-security-947w], o que pode impor que os dados retornados de uma consulta sejam delimitados para um único locatário.
 
-*Processamento:* &nbsp; Um banco de dados multilocatário compartilha os recursos de computação e armazenamento entre todos os seus locatários.  O banco de dados como um todo pode ser monitorado para garantir desempenho aceitável.  No entanto, o sistema do Azure não tem interno como monitorar ou gerenciar o uso desses recursos por um locatário individual.  Portanto, o banco de dados multilocatário traz um risco maior de encontrar vizinhos ruídos, onde a carga de trabalho de um locatário overactive afeta a experiência de desempenho de outros locatários no mesmo banco de dados.  Monitoramento adicional de nível de aplicativo pode monitorar o desempenho do nível de locatário.
+*Processamento:* &nbsp; um banco de dados multilocatário compartilha os recursos de computação e armazenamento em todos os seus locatários.  O banco de dados como um todo pode ser monitorado para garantir desempenho aceitável.  No entanto, o sistema do Azure não tem interno como monitorar ou gerenciar o uso desses recursos por um locatário individual.  Portanto, o banco de dados multilocatário traz um risco maior de encontrar vizinhos ruídos, onde a carga de trabalho de um locatário overactive afeta a experiência de desempenho de outros locatários no mesmo banco de dados.  Monitoramento adicional de nível de aplicativo pode monitorar o desempenho do nível de locatário.
 
 #### <a name="lower-cost"></a>Menor custo
 
@@ -185,11 +185,11 @@ A tabela a seguir resume as diferenças entre o Functions e o WebJobs.
 
 | Medida | Aplicativo independente | Banco de dados por locatário | Multilocatário fragmentado |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Dimensionar | Médio<br />1-100s | Muito alta<br />1-100.000s | Ilimitado<br />1-1.000.000s |
-| Isolamento de locatário | Muito alto | Alto | Baixo, exceto para qualquer locatário único (ou seja, sozinho em um banco de dados de MT). |
+| Escala | Média<br />1-100s | Muito alta<br />1-100.000s | Ilimitado<br />1-1.000.000s |
+| Isolamento de locatário | Muito alta | Alto | Baixo, exceto para qualquer locatário único (ou seja, sozinho em um banco de dados de MT). |
 | Banco de dados por locatário | Alta; é dimensionado para picos. | Baixo; pools usados. | Mais baixo, para locatários pequenos em MT bancos de dados. |
 | Monitoramento e gerenciamento de desempenho | Por locatário somente | Agregação + por locatário | Agregação, embora seja por locatário somente para únicos. |
-| Complexidade de desenvolvimento | Baixa | Baixa | Médio; devido à fragmentação. |
+| Complexidade de desenvolvimento | Baixo | Baixo | Médio; devido à fragmentação. |
 | Complexidade operacional | Alta-baixa. Individualmente simples e complexas em escala. | Média-baixa. Padrões de endereço complexidade em escala. | Alta-baixa. Gerenciamento de locatário individual é complexo. |
 | &nbsp; ||||
 

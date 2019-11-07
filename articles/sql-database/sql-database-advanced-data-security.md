@@ -1,5 +1,5 @@
 ---
-title: Segurança de Dados Avançada – Banco de Dados SQL do Azure | Microsoft Docs
+title: Segurança de dados avançada-banco de dado SQL do Azure
 description: Saiba sobre a funcionalidade para descobrir e classificar dados sensíveis, gerenciando suas vulnerabilidades do banco de dados e detectando atividades anômalas que podem indicar uma ameaça ao banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: 40e556b5d0fe22629eeca9a088d10ea5fc9b95ac
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: ce9cfa7e4b08dac878de52ba9765bcc204ed8196
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965493"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691302"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Segurança de Dados Avançada para Banco de Dados SQL do Azure
 
-A segurança de dados avançada é um pacote unificado de funcionalidades avançadas de segurança do SQL. Ele inclui a funcionalidade para descobrir e classificar dados confidenciais, identificando e atenuante banco de dados vulnerabilidades potenciais e detectar atividades anormais que podem indicar uma ameaça para seu banco de dados. Fornece um local único para habilitar e gerenciar esses recursos.
+A Segurança de Dados Avançada do SQL é um pacote unificado de funcionalidades avançadas de segurança do SQL. Ele inclui a funcionalidade para descobrir e classificar dados confidenciais, identificando e atenuante banco de dados vulnerabilidades potenciais e detectar atividades anormais que podem indicar uma ameaça para seu banco de dados. Fornece um local único para habilitar e gerenciar esses recursos.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O ADS (Advanced Data Security) fornece um conjunto de recursos avançados de segurança do SQL, incluindo a descoberta de dados & classificação, avaliação de vulnerabilidade e proteção avançada contra ameaças.
 
@@ -72,9 +72,9 @@ As configurações de Segurança de Dados Avançada para seu servidor de banco d
 
 ![Configurações de banco de dados](./media/sql-advanced-protection/database_settings.png) 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 
-- Saiba mais sobre a [descoberta e classificação de dados](sql-database-data-discovery-and-classification.md) 
+- Saiba mais sobre [descoberta e classificação de dados](sql-database-data-discovery-and-classification.md) 
 - Saiba mais sobre [avaliação de vulnerabilidade](sql-vulnerability-assessment.md) 
 - Saiba mais sobre a [proteção avançada contra ameaças](sql-database-threat-detection.md)
-- Saiba mais sobre a [Central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Saiba mais sobre a [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)

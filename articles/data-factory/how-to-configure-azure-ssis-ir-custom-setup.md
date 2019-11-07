@@ -1,6 +1,6 @@
 ---
-title: Personalizar a configuração para o runtime de integração do Azure-SSIS | Microsoft Docs
-description: Este artigo descreve como usar a interface de instalação personalizada para o runtime de integração do Azure SSIS para instalar componentes adicionais ou alterar as configurações
+title: 'Personalizar configuração do tempo de execução de integração do Azure-SSIS '
+description: Este artigo descreve como usar a interface de instalação personalizada para o tempo de execução de integração do Azure SSIS para instalar componentes adicionais ou alterar as configurações
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -12,16 +12,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: f7b09dcbd474debc08b79599e9e2dfaaca52285a
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 222672a93ccde7464ec1f37212f18996033a1460
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754697"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674856"
 ---
-# <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizar configuração do runtime de integração do Azure-SSIS
+# <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizar configuração do tempo de execução de integração do Azure-SSIS
 
-A interface de configuração personalizada do Azure-SSIS Integration Runtime fornece uma interface para adicionar suas próprias etapas de instalação durante o provisionamento ou reconfigurar o IR do Azure-SSIS. A configuração personalizada permite alterar a configuração ou o ambiente operacional padrão (por exemplo, para iniciar serviços adicionais do Windows ou credenciais de acesso para compartilhamentos de arquivo) ou instalar componentes adicionais (por exemplo, assemblies, drivers ou extensões) em cada nó do IR do Azure-SSIS.
+A interface de configuração personalizada do tempo de execução de integração do Azure-SSIS fornece uma interface para adicionar suas próprias etapas de instalação durante o provisionamento ou reconfigurar o IR do Azure-SSIS. A configuração personalizada permite alterar a configuração ou o ambiente operacional padrão (por exemplo, para iniciar serviços adicionais do Windows ou credenciais de acesso para compartilhamentos de arquivo) ou instalar componentes adicionais (por exemplo, assemblies, drivers ou extensões) em cada nó do IR do Azure-SSIS.
 
 Você configura a configuração personalizada preparando um script e seus arquivos associados e carregando-os em um contêiner de blob em sua conta de Armazenamento do Azure. Você fornece uma assinatura de acesso compartilhado (SAS) URI (Uniform Resource Identifier) para seu contêiner quando provisiona ou reconfigura o IR do Azure-SSIS. Cada nó de IR do Azure-SSIS, em seguida, baixa o script e seus arquivos associados do seu contêiner e executa a configuração personalizada com privilégios elevados. Quando a instalação personalizada é concluída, cada nó carrega a saída padrão de execução e outros logs em seu contêiner.
 
@@ -168,7 +168,7 @@ Para personalizar o IR do Azure-SSIS, você precisa do seguinte:
 
    e. Para testar esses exemplos de instalação personalizada, copie e cole o conteúdo da pasta selecionada em seu contêiner. Quando você provisionar ou reconfigurar o IR do Azure-SSIS com o PowerShell, execute o cmdlet `Set-AzDataFactoryV2IntegrationRuntime` com o URI de SAS do seu contêiner como o valor para o novo parâmetro `SetupScriptContainerSasUri`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 -   [Enterprise Edition do Tempo de Execução de Integração do Azure-SSIS](how-to-configure-azure-ssis-ir-enterprise-edition.md)
 

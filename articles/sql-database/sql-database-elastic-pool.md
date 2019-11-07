@@ -1,5 +1,5 @@
 ---
-title: Gerenciar vários bancos de dados SQL com pools elásticos – Azure | Microsoft Docs
+title: Gerenciar vários bancos de dados SQL com pools elásticos – Azure
 description: Gerenciar e dimensionar vários Bancos de Dados SQL – centenas de milhares – usando pools elásticos. Um preço para os recursos que você pode distribuir quando necessário.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 0b0a6bec7916c056c187ed9e588dd3ac8fea8d84
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 68bb68b47ca240d6c20153af3ed4b0eb42475282
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876422"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690446"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure
 
@@ -101,7 +101,7 @@ Observe que esse exemplo não considera a utilização de outros bancos de dados
 
 Uma grande diferença entre o máximo e média de utilização de um banco de dados indica longos períodos de baixa utilização e curtos períodos de alta utilização. Esse padrão de utilização é ideal para compartilhar recursos entre bancos de dados. Um banco de dados deve ser considerado para um pool quando seu pico de utilização for aproximadamente 1,5 vez maior que sua utilização média.
 
-**Exemplo de modelo de compra baseado em DTU**:  um banco de dados S3 com picos de 100 DTUs e que usa em média 67 DTUs, ou menos, é um bom candidato para o compartilhamento de eDTUs em um pool. Outra opção de bom candidato para um pool elástico seria um banco de dados S1 com pico de 20 DTUs e média de uso de 13 DTUs ou menos.
+**Exemplo de modelo de compra baseado em DTU**: um banco de dados S3 que atinge picos de 100 DTUs e em média usa 67 DTUs ou menos é um bom candidato para compartilhar eDTUs em um pool. Outra opção de bom candidato para um pool elástico seria um banco de dados S1 com pico de 20 DTUs e média de uso de 13 DTUs ou menos.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>Como fazer para escolher o tamanho de pool correto
 
@@ -116,10 +116,10 @@ Em casos em que você não pode usar as ferramentas, os procedimentos passo a pa
 
 1. Faça estimativa de eDTUs ou vCores necessários para o pool, conforme a seguir:
 
-   Para modelos de compra baseados em DTU: MAX (<*Número total de bancos de dados* X *utilização média de DTU por banco de dados*>,<br>  
+   Para o modelo de compra baseado em DTU: MAX(<*Número total de BDs* X *utilização média de DTU por BD* >,<br>  
    <*Número de bancos de dados em pico simultaneamente* X *Utilização de DTU em pico por banco de dados*)
 
-   Para o modelo de compra baseado em vCore: MAX (<*Número total de BDs* X *utilização média de vCore por BD*>,<br>  
+   Para o modelo de compra baseado em vCore: MAX(<*Número total de DBs* X *utilização média de vCore por BD*>,<br>  
    <*Número de BDs em pico simultaneamente* X *Utilização máxima de vCore por BD*)
 
 2. Estime o espaço de armazenamento necessário para o pool adicionando o número de bytes necessários para todos os bancos de dados no pool. Determine o tamanho do pool em eDTU que fornece essa quantidade de armazenamento.
@@ -155,8 +155,8 @@ Os bancos de dados em pool normalmente dão suporte aos mesmos [recursos de cont
 
 Há duas maneiras de criar um pool elástico no Portal do Azure.
 
-1. Selecione **SQL do Azure** no menu à esquerda da portal do Azure. Se o SQL do Azure não estiver na lista, selecione **todos os serviços**e, em seguida, digite *SQL do Azure* na caixa de pesquisa.
-2. Selecione **+ Adicionar** para abrir a página **selecionar opção de implantação do SQL** . Você pode exibir informações adicionais sobre pools elásticos selecionando **Mostrar detalhes** no bloco **bancos de dados** .
+1. Selecione **SQL do Azure** no menu à esquerda do portal do Azure. Se o SQL do Azure não estiver na lista, selecione **Todos os serviços** e, em seguida, digite *SQL do Azure* na caixa de pesquisa.
+2. Selecione **+Adicionar** para abrir a página **Selecionar opção de implantação do SQL**. Você pode exibir informações adicionais sobre pools elásticos selecionando **Mostrar detalhes** no bloco **bancos de dados** .
 3. No bloco **bancos de dados** , selecione **pool elástico** na lista suspensa **tipo de recurso** e, em seguida, selecione **criar**:
 
    ![Criar um pool elástico](./media/sql-database-elastic-pool/create-elastic-pool.png)

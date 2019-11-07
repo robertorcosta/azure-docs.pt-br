@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0bac6f9105d505bdfc1492b6966c2352771e73b0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4b4e82acbd3037c70b87731c0661605041090435
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791303"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614523"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Controle de Versão nas Funções Duráveis (Azure Functions)
 
@@ -32,7 +32,7 @@ Por exemplo, suponha que tenhamos a seguinte função de orquestrador.
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -43,16 +43,19 @@ Essa função simples obtém os resultados de **Foo** e os transmite para **Bar*
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     int result = await context.CallActivityAsync<int>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
 ```
 
-Essa alteração funciona bem para todas as novas instâncias da função de orquestrador, mas interrompe todas as instâncias em curso. Por exemplo, considere o caso em que uma instância de orquestração chama **Foo**, obtém de volta um valor booliano e, em seguida, faz uma verificação pontual. Se a alteração da assinatura for implantada nesse ponto, a instância que passou pela verificação falhará imediatamente quando for retomada e reproduzir a chamada para `context.CallActivityAsync<int>("Foo")`. Isso acontece porque o resultado na tabela de histórico é `bool`, mas o novo código tenta desserializá-lo para `int`.
+> [!NOTE]
+> Os exemplos C# anteriores têm como alvo Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
-Esta é apenas uma das várias maneiras diferentes que uma alteração de assinatura pode interromper instâncias existentes. De modo geral, se um orquestrador precisar alterar a forma como chama uma função, provavelmente a alteração será um problema.
+Essa alteração funciona bem para todas as novas instâncias da função de orquestrador, mas interrompe todas as instâncias em curso. Por exemplo, considere o caso em que uma instância de orquestração chama uma função chamada `Foo`, retorna um valor booliano e, em seguida, pontos de verificação. Se a alteração da assinatura for implantada nesse ponto, a instância que passou pela verificação falhará imediatamente quando for retomada e reproduzir a chamada para `context.CallActivityAsync<int>("Foo")`. Essa falha ocorre porque o resultado na tabela de histórico é `bool`, mas o novo código tenta desserializá-la em `int`.
+
+Este exemplo é apenas uma das várias maneiras diferentes pelas quais uma alteração de assinatura pode interromper instâncias existentes. De modo geral, se um orquestrador precisar alterar a forma como chama uma função, provavelmente a alteração será um problema.
 
 ### <a name="changing-orchestrator-logic"></a>Alterando a lógica do orquestrador
 
@@ -62,7 +65,7 @@ Considere a seguinte função de orquestrador:
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -73,7 +76,7 @@ Agora, vamos supor que você queira fazer uma alteração aparentemente inocente
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     if (result)
@@ -85,7 +88,10 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-Essa alteração adiciona uma nova chamada de função a **SendNotification**, entre **Foo** e **Bar**. Não há nenhuma alteração de assinatura. O problema surge quando uma instância existente é retomada da chamada para **Bar**. Durante a reprodução, se a chamada original para **Foo** retornar `true`, a reprodução do orquestrador chamará **SendNotification**, que não está em seu histórico de execução. Como resultado, o Framework de Tarefa Durável falhará com um `NonDeterministicOrchestrationException`, porque encontrou uma chamada para **SendNotification** quando esperava encontrar uma chamada para **Bar**. O mesmo tipo de problema pode ocorrer ao adicionar qualquer chamada a APIs "duráveis", incluindo `CreateTimer`, `WaitForExternalEvent`, etc.
+> [!NOTE]
+> Os exemplos C# anteriores têm como alvo Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+
+Essa alteração adiciona uma nova chamada de função a **SendNotification**, entre **Foo** e **Bar**. Não há nenhuma alteração de assinatura. O problema surge quando uma instância existente é retomada da chamada para **Bar**. Durante a repetição, se a chamada original para **foo** retornou `true`, a reprodução do orquestrador chamará **SendNotification**, que não está em seu histórico de execução. Como resultado, o Framework de Tarefa Durável falhará com um `NonDeterministicOrchestrationException`, porque encontrou uma chamada para **SendNotification** quando esperava encontrar uma chamada para **Bar**. O mesmo tipo de problema pode ocorrer ao adicionar qualquer chamada a APIs "duráveis", incluindo `CreateTimer`, `WaitForExternalEvent`, etc.
 
 ## <a name="mitigation-strategies"></a>Estratégias de mitigação
 
@@ -99,11 +105,11 @@ Veja algumas das estratégias para lidar com desafios de controle de versão:
 
 A maneira mais fácil de lidar com uma alteração que causa interrupção é deixar que as instâncias de orquestração em curso falhem. Novas instâncias executarão com êxito o código alterado.
 
-O quanto isso é um problema depende da importância de suas instâncias em curso. Se você estiver em um desenvolvimento ativo e não se preocupar com instâncias em curso, isso pode ser suficiente. No entanto, você precisará lidar com exceções e erros em seu pipeline de diagnóstico. Se quiser evitar essas coisas, considere as outras opções de controle de versão.
+Se esse tipo de falha é um problema, depende da importância de suas instâncias em andamento. Se você estiver em um desenvolvimento ativo e não se preocupar com instâncias em curso, isso pode ser suficiente. No entanto, você precisará lidar com exceções e erros em seu pipeline de diagnóstico. Se quiser evitar essas coisas, considere as outras opções de controle de versão.
 
 ### <a name="stop-all-in-flight-instances"></a>Parar todas as instâncias em curso
 
-Outra opção é parar todas as instâncias em curso. Isso pode ser feito limpando o conteúdo da **fila de controle** e da **fila de item de trabalho** internas. As instâncias ficarão para sempre presas onde estão, mas não poluirão sua telemetria com mensagens de falha. Isso é ideal no desenvolvimento rápido de protótipos.
+Outra opção é parar todas as instâncias em curso. A interrupção de todas as instâncias pode ser feita limpando o conteúdo das filas de fila de **controle** interno e de filas **de trabalho** . As instâncias ficarão paralisadas para sempre onde estiverem, mas elas não obstruirão seus logs com mensagens de falha. Essa abordagem é ideal no desenvolvimento rápido de protótipos.
 
 > [!WARNING]
 > Os detalhes dessas filas podem mudar ao longo do tempo, portanto, não use essa técnica para cargas de trabalho de produção.
@@ -114,7 +120,7 @@ A maneira mais infalível de garantir que alterações que causam interrupção 
 
 * Implante todas as atualizações como funções totalmente novas, deixando as funções existentes como estão. Isso pode ser complicado porque os chamadores das novas versões de função devem ser atualizados e seguir as mesmas diretrizes.
 * Implantar todas as atualizações como um novo aplicativo de funções com uma conta de armazenamento diferente.
-* Implante uma nova cópia do aplicativo de funções com a mesma conta de armazenamento, mas com um nome de `taskHub` atualizado. Essa é a técnica recomendada.
+* Implante uma nova cópia do aplicativo de funções com a mesma conta de armazenamento, mas com um nome de `taskHub` atualizado. Implantações lado a lado é a técnica recomendada.
 
 ### <a name="how-to-change-task-hub-name"></a>Como alterar o nome do hub de tarefas
 
@@ -130,7 +136,7 @@ O hub de tarefas pode ser configurado no arquivo *host.json* da seguinte forma:
 }
 ```
 
-#### <a name="functions-2x"></a>Funções 2.x
+#### <a name="functions-20"></a>Funções 2,0
 
 ```json
 {
@@ -151,7 +157,7 @@ Todas as entidades do Armazenamento do Azure são nomeadas com base no valor de 
 > [!NOTE]
 > Essa estratégia funciona melhor quando você usa gatilhos de webhook e HTTP para funções de orquestrador. Para gatilhos não HTTP, como filas ou hubs de eventos, a definição do gatilho deve [derivar de uma configuração de aplicativo](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) que é atualizada como parte da operação de permuta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Saiba como lidar com problemas de desempenho e escala](durable-functions-perf-and-scale.md)

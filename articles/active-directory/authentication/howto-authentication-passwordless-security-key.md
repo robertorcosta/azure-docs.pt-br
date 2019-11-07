@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66102a92ce279b594d61c8b2d484c89a8532057a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 50af82e79e7ba8b979ab28a1b3f608ec7e41bfb2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172007"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603442"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilitar entrada de chave de segurança sem senha (visualização)
 
@@ -26,7 +26,7 @@ Este documento se concentra na habilitação da autenticação com senha baseada
 
 |     |
 | --- |
-| As chaves de segurança do FIDO2 são um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre visualizações, consulte [Termos de Uso Suplementares para as Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| As chaves de segurança do FIDO2 são um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="requirements"></a>Requisitos
@@ -50,7 +50,7 @@ Os recursos de registro para métodos de autenticação com senha contam com a v
 
 ### <a name="enable-fido2-security-key-method"></a>Habilitar o método de chave de segurança FIDO2
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 1. Navegue até **Azure Active Directory** > **segurança** > **métodos de autenticação** > **diretiva de método de autenticação (versão prévia)** .
 1. Na chave de **segurança**do método FIDO2, escolha as seguintes opções:
    1. **Habilitar** -Sim ou não
@@ -68,7 +68,7 @@ Os recursos de registro para métodos de autenticação com senha contam com a v
 1. Escolha **dispositivo USB** ou **dispositivo NFC**.
 1. Prepare sua chave e escolha **Avançar**.
 1. Uma caixa será exibida e solicitará que o usuário crie/Insira um PIN para sua chave de segurança e, em seguida, execute o gesto necessário para a chave, biométrica ou toque.
-1. O usuário será devolvido à experiência de registro combinada e será solicitado a fornecer um nome significativo para a chave para que o usuário possa identificar qual delas tem várias. Clique em \\**Próximo**.
+1. O usuário será devolvido à experiência de registro combinada e será solicitado a fornecer um nome significativo para a chave para que o usuário possa identificar qual delas tem várias. Clique em **Avançar**.
 1. Clique em **concluído** para concluir o processo.
 
 ## <a name="sign-in-with-passwordless-credential"></a>Entrar com credencial sem senha
@@ -95,9 +95,9 @@ O provisionamento e desprovisionamento de chaves de segurança do administrador 
 
 ### <a name="upn-changes"></a>Alterações de UPN
 
-Estamos trabalhando para dar suporte a um recurso que permita a alteração de UPN em dispositivos ingressados no Azure AD híbrido e no Azure AD. Se o UPN de um usuário for alterado, você não poderá mais modificar as chaves de segurança FIDO2 para considerar a alteração. A resolução é redefinir o dispositivo e o usuário precisa registrá-lo novamente.
+Se o UPN de um usuário for alterado, você não poderá mais modificar as chaves de segurança FIDO2 para considerar a alteração. A resolução é redefinir o dispositivo e o usuário precisa registrar novamente suas chaves de segurança do FIDO2.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Entrada da chave de segurança do FIDO2 do Windows 10](howto-authentication-passwordless-security-key-windows.md)
 

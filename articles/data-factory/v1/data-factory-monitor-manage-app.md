@@ -1,5 +1,5 @@
 ---
-title: Monitorar e gerenciar pipelines de dados - Azure | Microsoft Docs
+title: Monitorar e gerenciar pipelines de dados – Azure
 description: Saiba como usar o aplicativo de Monitoramento e Gerenciamento para monitorar e gerenciar data factories e pipelines do Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 052ea99f0489458269adf4dca2c6713535933638
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139584"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666939"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o aplicativo de Monitoramento e Gerenciamento
 > [!div class="op_single_selector"]
@@ -58,7 +58,7 @@ Na lista Janelas de Atividades no painel central, você vê uma janela de ativid
 Se você não tiver um aplicativo do Data Factory para ser testado com essas etapas, siga o tutorial [Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL usando o Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="understand-the-monitoring-and-management-app"></a>Noções básicas sobre o aplicativo de Monitoramento e Gerenciamento
-Há três guias à esquerda: **Gerenciador de Recursos**, **Exibições de Monitoramento** e **Alertas**. A primeira guia (**Gerenciador de Recursos**) é selecionada por padrão.
+Há três guias à esquerda: **Gerenciador de Recursos**, **Exibição de monitoramento** e **Alertas**. A primeira guia (**Gerenciador de Recursos**) é selecionada por padrão.
 
 ### <a name="resource-explorer"></a>Gerenciador de Recursos
 Você verá o seguinte:
@@ -108,7 +108,7 @@ Clique na opção **Abrir pipeline** para ver todas as atividades no pipeline.
 
 ![Menu do pipeline aberto](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-Na exibição aberta do pipeline, você verá todas as atividades no pipeline. Neste exemplo, há apenas uma atividade: Atividade de cópia. 
+Na exibição aberta do pipeline, você verá todas as atividades no pipeline. Neste exemplo, há apenas uma atividade: Copiar Atividade. 
 
 ![Pipeline aberto](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
@@ -144,7 +144,7 @@ No pop-up Janelas de Atividades e no Gerenciador de Janelas de Atividades, você
 
 ![Setas para a direita/esquerda do Gerenciador de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-Na parte inferior da exibição de Diagrama, você deve ver estes botões: Aplicar Zoom, Reduzir, Ajustar Nível de Zoom, Zoom 100% e Bloquear Layout. O botão **Bloquear layout** impede que você mova acidentalmente tabelas e pipelines na Exibição de Diagrama. Ele está ligado por padrão. Você pode desativá-lo e mover entidades pelo diagrama. Ao desativá-lo, você poderá usar o último botão para posicionar as tabelas e os pipelines automaticamente. Você também pode ampliar ou reduzir o zoom usando a roda do mouse.
+Na parte inferior da Exibição de Diagrama, você deve ver os botões Ampliar, Reduzir, Ajustar Nível de Zoom, Zoom 100% e Bloquear layout. O botão **Bloquear layout** impede que você mova acidentalmente tabelas e pipelines na Exibição de Diagrama. Ele está ligado por padrão. Você pode desativá-lo e mover entidades pelo diagrama. Ao desativá-lo, você poderá usar o último botão para posicionar as tabelas e os pipelines automaticamente. Você também pode ampliar ou reduzir o zoom usando a roda do mouse.
 
 ![Comandos de zoom da Exibição de Diagrama](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
@@ -159,7 +159,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 
 <table>
 <tr>
-    <th align="left">Status</th><th align="left">Substatus</th><th align="left">Descrição</th>
+    <th align="left">Status</th><th align="left">Substatus</th><th align="left">DESCRIÇÃO</th>
 </tr>
 <tr>
     <td rowspan="8">Aguardando</td><td>ScheduleTime</td><td>Não chegou a hora de a janela de atividades ser executada.</td>
@@ -187,16 +187,16 @@ As janelas de atividades podem estar em um dos seguintes status:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">EmAndamento</td><td>Validando</td><td>Validação em andamento.</td>
+<td rowspan="2">InProgress</td><td>Validando</td><td>Validação em andamento.</td>
 </tr>
 <td>-</td>
 <td>A janela de atividades está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Falhou</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Falha</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
-<td>Cancelada</td><td>A janela de atividade foi cancelada por ação do usuário.</td>
+<td>Cancelado</td><td>A janela de atividade foi cancelada por ação do usuário.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação falhou.</td>
@@ -204,7 +204,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 <tr>
 <td>-</td><td>Falha ao gerar e/ou validar a janela de atividades.</td>
 </tr>
-<td>Pronto</td><td>-</td><td>A janela de atividades está pronta para consumo.</td>
+<td>Ready</td><td>-</td><td>A janela de atividades está pronta para consumo.</td>
 </tr>
 <tr>
 <td>Ignorado</td><td>-</td><td>A janela de atividades não foi processada.</td>
@@ -238,7 +238,7 @@ Você pode mudar para outra janela de atividades clicando nela na exibição de 
 
 Você pode usar os botões da barra de ferramentas no painel inferior para executar novamente a janela de atividades ou para atualizar os detalhes no painel.
 
-### <a name="script"></a>script
+### <a name="script"></a>Script
 Você pode usar a guia **Script** para exibir a definição de JSON da entidade selecionada do Data Factory (serviço vinculado, conjunto de dados ou pipeline).
 
 ![Guia Script](./media/data-factory-monitor-manage-app/ScriptTab.png)
@@ -266,7 +266,7 @@ Altere as configurações da **hora de início** e **hora de término** na barra
 >
 >
 
-Na **lista de Janelas de Atividades**, clique no nome de uma coluna (por exemplo: Status).
+Na **lista Janelas de Atividades**, clique no nome de uma coluna (por exemplo: Status).
 
 ![Menu da coluna da lista de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
@@ -289,7 +289,7 @@ Você pode usar a mesma janela pop-up para limpar filtros. Para limpar todos os 
 Escolha uma janela de atividades, clique na seta para baixo do primeiro botão da barra de comandos e selecione **Executar novamente** / **Executar novamente com upstream no pipeline**. Quando você escolhe a opção **Executar novamente com upstream no pipeline**, todas as janelas de atividades upstream também são executadas novamente.
     ![Executar novamente uma janela de atividades](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-Também é possível escolher várias janelas de atividades na lista e executá-las novamente ao mesmo tempo. Você pode querer filtrar janelas de atividades com base no status (por exemplo: **Com falha**) e executar novamente as janelas de atividades com falha após corrigir o problema que faz com que as janelas de atividades falhem. Confira a seção a seguir para obter os detalhes sobre como filtrar janelas de atividades na lista.  
+Também é possível escolher várias janelas de atividades na lista e executá-las novamente ao mesmo tempo. Talvez você queira filtrar as janelas de atividades com base no status (por exemplo: **Com falha**) e executar novamente as janelas de atividades com falha após corrigir o problema que faz com que as janelas de atividades falhem. Confira a seção a seguir para obter os detalhes sobre como filtrar janelas de atividades na lista.  
 
 ### <a name="pauseresume-multiple-pipelines"></a>Pausar/retomar vários pipelines
 Você pode fazer uma seleção múltipla de dois ou mais pipelines usando a tecla Ctrl. Você pode usar os botões de barra de comandos (que são realçados no retângulo vermelho na imagem a seguir) para pausar/retomá-los.

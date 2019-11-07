@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ee1168c32cf4d8797b3957340e0acee5605ccc0f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eb7319d665f228c552423a60a3b1529dc9b1143f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951881"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583221"
 ---
 # <a name="what-are-application-templates"></a>O que são modelos de aplicativos?
 
@@ -37,16 +37,15 @@ O Azure IoT Central é uma plataforma de aplicativo independente do setor. Os mo
   - Análise na loja-check-out
   - Gerenciamento de inventário inteligente
 - [Energia](../energy/overview-iot-central-energy.md)
-  - Logística conectada
   - Monitoramento do medidor inteligente
   - Monitoramento do painel solar
 - [Instituições](../government/overview-iot-central-government.md)
-  - Gerenciamento de resíduos conectado
-  - Monitoramento de consumo de água
-  - Monitoramento de qualidade da água
+  - Gestão de resíduos conectada
+  - Monitoramento do consumo de água
+  - Monitoramento da qualidade da água
 - [Saúde](../healthcare/overview-iot-central-healthcare.md).
   - Monitoramento contínuo do paciente
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você sabe o que são os modelos de aplicativo IoT Central, comece [criando um aplicativo IOT central](quick-deploy-iot-central-pnp.md).

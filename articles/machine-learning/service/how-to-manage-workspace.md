@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1985c596b9f4b9b78b0055bfe1eab9888c30e201
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9e3915a2f55680fc2e24ac63d5e7170ada026c2e
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489729"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615209"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerenciar espaços de trabalho de Azure Machine Learning no portal do Azure
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,13 +30,13 @@ Para criar um workspace, você precisa de uma assinatura do Azure. Se você não
 
 1. No canto superior esquerdo do portal do Azure, selecione **+ Criar um recurso**.
 
-      ![Criar um novo recurso](../../../includes/media/aml-create-in-portal/portal-create-resource.png)
+      ![Criar um novo recurso](../../../includes/media/aml-create-in-portal/create-workspace.gif)
 
-1. Use a barra de pesquisa para localizar o **Workspace de serviço do Machine Learning**.
+1. Use a barra de pesquisa para localizar **Machine Learning**.
 
-1. Selecione **Workspace de serviço do Machine Learning**.
+1. Selecione **Machine Learning**.
 
-1. No painel **Workspace de serviço do Machine Learning**, selecione **Criar** para começar.
+1. No painel **Machine Learning** , selecione **criar** para começar.
 
 1. Forneça as seguintes informações para configurar seu novo espaço de trabalho:
 
@@ -45,7 +45,7 @@ Para criar um workspace, você precisa de uma assinatura do Azure. Se você não
    Nome do workspace |Insira um nome único que identifique seu workspace. Para este exemplo, usamos **docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferenciar de workspaces criados por outras pessoas.  
    Assinatura |Selecione a assinatura do Azure que você deseja usar.
    Grupo de recursos | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. 
-   Localização | Selecione a localização mais próxima aos usuários e recursos de dados para criar o workspace.
+   Local | Selecione a localização mais próxima aos usuários e recursos de dados para criar o workspace.
    Edição do espaço de trabalho | Selecione **básico** ou **Enterprise**.  Essa edição de espaço de trabalho determina os recursos aos quais você terá acesso e preços. Saiba mais sobre as [ofertas Basic e Enterprise Edition](overview-what-is-azure-ml.md#sku). 
 
     ![Configurar seu novo workspace](media/how-to-manage-workspace/select-edition.png)
@@ -89,18 +89,15 @@ Você pode atualizar seu espaço de trabalho de edição básica para Enterprise
 
 ## <a name="view"></a>Localizar um espaço de trabalho
 
-1. No canto superior esquerdo do portal, selecione **Todos os serviços**.
+1. No campo de pesquisa superior, digite **Machine Learning**.  
 
-1. No campo filtro **todos os serviços** , digite **Machine Learning**.  
+1. Selecione **Machine Learning**.
 
-1. Selecione **Azure Machine Learning**.
-
-   ![Procurar Azure Machine Learning espaço de trabalho](media/how-to-manage-workspace/all-services.png)
+   ![Procurar Azure Machine Learning espaço de trabalho](media/how-to-manage-workspace/find-workspaces.png)
 
 1. Examine a lista de workspaces encontrada. É possível filtrar com base na assinatura, grupos de recursos e locais.  
 
 1. Selecione um espaço de trabalho para exibir suas propriedades.
-   Propriedades do espaço de trabalho ![](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>Excluir um workspace
 

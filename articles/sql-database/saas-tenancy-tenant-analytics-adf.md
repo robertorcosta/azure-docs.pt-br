@@ -1,5 +1,5 @@
 ---
-title: Executar consultas de análise em bancos de dados de locatário usando o SQL Data Warehouse do Azure | Microsoft Docs
+title: 'Executar consultas de análise em bancos de dados de locatário usando o Azure SQL Data Warehouse '
 description: Consultas de análise entre locatários usando dados extraídos do Banco de Dados SQL do Azure, SQL Data Warehouse, Azure Data Factory ou Power BI.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: b22a9cf8c79530fd931cbe944ef5bfc876a02243
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f4a89029d7ed90f1a2406dcf0f8046a1c651353f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570142"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691885"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Explore a análise de SaaS com o Banco de Dados SQL do Azure, o SQL Data Warehouse, o Data Factory e o Power BI
 
@@ -93,7 +93,7 @@ Nesta etapa, você implanta os recursos adicionais usados no tutorial: um SQL Da
 
 Agora, examine os recursos do Azure implantados:
 #### <a name="tenant-databases-and-analytics-store"></a>Bancos de dados de locatário e repositório de análise
-Use o [SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para se conectar aos servidores **tenants1-dpt-&lt;usuário&gt;** e **catalog-dpt-&lt;usuário&gt;** . Substitua &lt;usuário&gt; pelo valor usado quando você implantou o aplicativo. Use login = *Developer* e password *=\@P ssword1*. Veja o [tutorial introdutório](saas-dbpertenant-wingtip-app-overview.md) para obter instruções.
+Use o [SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para se conectar aos servidores **tenants1-dpt-&lt;usuário&gt;** e **catalog-dpt-&lt;usuário&gt;** . Substitua &lt;usuário&gt; pelo valor usado quando você implantou o aplicativo. Use login = *Developer* e password = *P\@ssword1*. Veja o [tutorial introdutório](saas-dbpertenant-wingtip-app-overview.md) para obter instruções.
 
 ![Conectar-se ao servidor do Banco de Dados SQL do SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
@@ -109,7 +109,7 @@ No Pesquisador de Objetos:
 
 ![DWtables](media/saas-tenancy-tenant-analytics/DWtables.JPG)
 
-#### <a name="blob-storage"></a>Armazenamento de Blob
+#### <a name="blob-storage"></a>Armazenamento de blob
 1. No [portal do Azure](https://ms.portal.azure.com), navegue até o grupo de recursos que você usou para implantar o aplicativo. Verifique se uma conta de armazenamento chamada **wingtipstaging\<usuário\>** foi adicionada.
 
    ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
@@ -145,7 +145,7 @@ Os três pipelines aninhados são: SQLDBToDW, DBCopy e TableCopy.
 
 O **Pipeline 1 – SQLDBToDW** pesquisa os nomes dos bancos de dados de locatário armazenados no banco de dados de Catálogo (nome da tabela: [__ShardManagement].[ShardsGlobal]) e, para cada banco de dados de locatário, executa o pipeline **DBCopy**. Após a conclusão, o esquema do procedimento armazenado **sp_TransformExtractedData** fornecido será executado. Esse procedimento armazenado transforma os dados carregados nas tabelas de preparo e preenche as tabelas de esquema em estrela.
 
-O **Pipeline 2 – DBCopy** pesquisa os nomes das tabelas e colunas de origem de um arquivo de configuração armazenado no Armazenamento de Blobs.  O pipeline de **TableCopy** é executado para cada um dos quatro tabelas: TicketFacts, CustomerFacts, EventFacts e VenueFacts. A atividade **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** é executada em paralelo para os 20 bancos de dados. O ADF permite que um máximo de 20 iterações de loop sejam executadas em paralelo. Considere criar vários pipelines para mais bancos de dados.    
+O **Pipeline 2 – DBCopy** pesquisa os nomes das tabelas e colunas de origem de um arquivo de configuração armazenado no Armazenamento de Blobs.  Em seguida, o pipeline **TableCopy** é executado para cada uma das quatro tabelas: TicketFacts, CustomerFacts, EventFacts e VenueFacts. A atividade **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** é executada em paralelo para os 20 bancos de dados. O ADF permite que um máximo de 20 iterações de loop sejam executadas em paralelo. Considere criar vários pipelines para mais bancos de dados.    
 
 O **Pipeline 3 – TableCopy** usa números de versão de linha no Banco de Dados SQL (_rowversion_) para identificar linhas que foram alteradas ou atualizadas. Essa atividade pesquisa as versões de linha inicial e final para extrair linhas das tabelas de origem. A tabela **CopyTracker** armazenada em cada banco de dados de locatário rastreia a última linha extraída de cada tabela de origem em cada execução. Linhas novas ou alteradas são copiadas para as tabelas de preparo correspondentes no data warehouse: **raw_Tickets**, **raw_Customers**, **raw_Venues** e **raw_Events**. Por fim, a última versão de linha é salva na tabela **CopyTracker** para ser usada como a versão de linha inicial para a próxima extração. 
 
@@ -158,7 +158,7 @@ Há três conjuntos de dados correspondentes aos três serviços vinculados, que
 ### <a name="data-warehouse-pattern-overview"></a>Visão geral do padrão do data warehouse
 O SQL Data Warehouse é usado como repositório de análise para executar a agregação dos dados de locatário. Neste exemplo, o PolyBase é usado para carregar dados no SQL Data Warehouse. Dados brutos são carregados em tabelas de preparo que têm uma coluna de identidade para controlar as linhas que foram transformadas em tabelas da esquema em estrela. A imagem a seguir mostra o padrão de carga: ![loadingpattern](media/saas-tenancy-tenant-analytics/loadingpattern.JPG)
 
-Tabelas de dimensão SCD (Dimensão de Alteração Lenta) tipo 1 são usadas neste exemplo. Cada dimensão tem uma chave alternativa definida usando uma coluna de identidade. Como melhor prática, a tabela de dimensão de data é preenchida previamente para economizar tempo. Para as outras tabelas de dimensão, uma instrução CTAS (CREATE TABLE AS SELECT)... é usada para criar uma tabela temporária que contém as linhas existentes modificadas e não modificadas, em conjunto com as chaves alternativas. Isso é feito com IDENTITY_INSERT = ON. Em seguida, novas linhas são inseridas na tabela com IDENTITY_INSERT = OFF. Para reverter facilmente, a tabela de dimensões existente é renomeada e a tabela temporária é renomeada para se tornar a nova tabela de dimensões. Antes de cada execução, a tabela de dimensões antiga é excluída.
+Tabelas de dimensão SCD (Dimensão de Alteração Lenta) tipo 1 são usadas neste exemplo. Cada dimensão tem uma chave alternativa definida usando uma coluna de identidade. Como melhor prática, a tabela de dimensão de data é preenchida previamente para economizar tempo. Para as outras tabelas de dimensões, uma CREATE TABLE como SELECT... (CTAS) é usada para criar uma tabela temporária contendo as linhas existentes modificadas e não modificadas, juntamente com as chaves substitutas. Isso é feito com IDENTITY_INSERT = ON. Em seguida, novas linhas são inseridas na tabela com IDENTITY_INSERT = OFF. Para reverter facilmente, a tabela de dimensões existente é renomeada e a tabela temporária é renomeada para se tornar a nova tabela de dimensões. Antes de cada execução, a tabela de dimensões antiga é excluída.
 
 Tabelas de dimensões são carregadas antes da tabela de fatos. Essa sequência garante que para cada fato que chegar, todas as dimensões referenciadas já existam. Conforme os fatos são carregados, é feita a correspondência da chave de negócio de cada dimensão respectiva e as chaves alternativas correspondentes são adicionadas a cada fato.
 

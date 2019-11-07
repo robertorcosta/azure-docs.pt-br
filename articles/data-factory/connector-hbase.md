@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do HBase usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do HBase usando o Azure Data Factory
 description: Saiba como copiar dados do HBase para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 56d2750257748ab69a2f42385441b1ce12805d34
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4768a3fbe30cf338628be44cb003e8aab527c946
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090283"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680886"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copiar dados do HBase usando o Azure Data Factory 
 
@@ -48,23 +48,23 @@ As seções que a seguir fornecem detalhes sobre as propriedades usadas para def
 
 As propriedades a seguir têm suporte para o serviço vinculado do HBase:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **HBase** | Sim |
-| host | O endereço IP ou nome do host do servidor HBase. ,.  `[clustername].azurehdinsight.net`, )`192.168.222.160`  | Sim |
-| port | A porta TCP que a instância HBase usa para escutar as conexões de clientes. O valor padrão é 9090. Se você conectar ao Microsoft Azure HDInsights, especifique a porta como 443. | Não |
+| Tipo | A propriedade type deve ser definida como: **HBase** | Sim |
+| host | O endereço IP ou nome do host do servidor HBase. ,.  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Sim |
+| porta | A porta TCP que a instância HBase usa para escutar as conexões de clientes. O valor padrão é 9090. Se você conectar ao Microsoft Azure HDInsights, especifique a porta como 443. | Não |
 | httpPath | A URL parcial correspondente ao servidor do HBase, por exemplo, `/hbaserest0` ao usar cluster HDInsights. | Não |
-| authenticationType | O mecanismo de autenticação a ser usado para se conectar ao servidor do HBase. <br/>Valores permitidos são: **Anônimo**, **Básico** | Sim |
-| username | O nome de usuário usado para se conectar à instância do HBase.  | Não |
-| password | A senha correspondente ao nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
-| enableSsl | Especifica se as conexões com o servidor são criptografadas usando SSL. O valor padrão é false.  | Não |
+| authenticationType | O mecanismo de autenticação a ser usado para se conectar ao servidor do HBase. <br/>Os valores permitidos são: **Anônimo**, **Básico** | Sim |
+| Nome de Usuário | O nome de usuário usado para se conectar à instância do HBase.  | Não |
+| Senha | A senha correspondente ao nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| enableSsl | Especifica se as conexões com o servidor são criptografadas usando SSL. O valor padrão é falso.  | Não |
 | trustedCertPath | O caminho completo do arquivo .pem que contém certificados de autoridade de certificação confiáveis para verificar o servidor ao se conectar via SSL. Essa propriedade só pode ser definida ao usar o SSL em IR auto-hospedado. O valor padrão é o arquivo de cacerts.pem instalado com o IR.  | Não |
-| allowHostNameCNMismatch | Especifica se é necessário o nome do certificado SSL emitido pela autoridade de certificação para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é false.  | Não |
-| allowSelfSignedServerCert | Especifica se deve permitir os certificados autoassinados do servidor. O valor padrão é false.  | Não |
+| allowHostNameCNMismatch | Especifica se é necessário o nome do certificado SSL emitido pela autoridade de certificação para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é falso.  | Não |
+| allowSelfSignedServerCert | Especifica se deve permitir os certificados autoassinados do servidor. O valor padrão é falso.  | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 >[!NOTE]
->Se o cluster não der suporte para sessão temporária, p. ex., HDInsight, inclua explicitamente o índice do nó no final da configuração do caminho http, p. ex. especifique `/hbaserest0`em vez de`/hbaserest`.
+>Se o seu cluster não suportar sessão aderente, por ex. HDInsight, inclua explicitamente o índice do nó no final da configuração do caminho http, por ex. especifique `/hbaserest0`em vez de`/hbaserest`.
 
 **Exemplo de HBase no HDInsights:**
 
@@ -129,9 +129,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de HBase, defina a propriedade type do conjunto de dados como **HBaseObject**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **HBaseObject** | Sim |
+| Tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **HBaseObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -159,9 +159,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de HBase, defina o tipo de fonte na atividade de cópia como **HBaseSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **HBaseSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **HBaseSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

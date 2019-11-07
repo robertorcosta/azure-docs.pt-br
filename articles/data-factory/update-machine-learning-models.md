@@ -1,5 +1,5 @@
 ---
-title: Atualizar modelos do Machine Learning usando o Azure Data Factory | Microsoft Docs
+title: Atualizar modelos de Machine Learning usando o Azure Data Factory
 description: Descreve como criar pipelines de previsão usando o Azure Data Factory e o Machine Learning
 services: data-factory
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 56d0ce6668c1077b99c980c2bc5b16998a3a41c1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 3313c9c362a9b82cf7ed8db63479aaa5cf0c777e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140540"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683249"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Atualizar modelos do Azure Machine Learning usando a atividade de atualização de recursos
-Este artigo complementa o artigo principal sobre o Azure Data Factory - integração do Azure Machine Learning: [Criar pipelines de previsão usando Azure Machine Learning e o Azure Data Factory](transform-data-using-machine-learning.md). Se você ainda não fez isso, leia o artigo principal antes de ler este.
+Este artigo complementa o principal Azure Data Factory - Artigo de integração do Azure Machine Learning: [Criar pipelines de previsão usando o Azure Machine Learning e o Azure Data Factory](transform-data-using-machine-learning.md). Se você ainda não fez isso, leia o artigo principal antes de ler este.
 
 ## <a name="overview"></a>Visão geral
 Como parte do processo de operacionalização de modelos do Azure Machine Learning, o modelo é treinado e salvo. Em seguida, será possível utilizá-lo para criar um serviço Web preditivo. O serviço Web pode ser consumido nos sites, painéis e aplicativos móveis.
@@ -56,11 +56,11 @@ O snippet JSON a seguir define uma atividade de execução em lotes do Azure Mac
 }
 ```
 
-| Propriedade                      | Descrição                              | Obrigatório |
+| Propriedade                      | DESCRIÇÃO                              | Obrigatório |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | Nome da atividade no pipeline     | Sim      |
-| description                   | Texto que descreve o que a atividade faz.  | Não       |
-| type                          | Para a atividade de atualização de recursos do Azure Machine Learning, o tipo de atividade é **AzureMLUpdateResource**. | Sim      |
+| Nome                          | Nome da atividade no pipeline     | Sim      |
+| Descrição                   | Texto que descreve o que a atividade faz.  | Não       |
+| Tipo                          | Para a atividade de atualização de recursos do Azure Machine Learning, o tipo de atividade é **AzureMLUpdateResource**. | Sim      |
 | linkedServiceName             | O serviço vinculado do Azure Machine Learning que contém a propriedade updateResourceEndpoint. | Sim      |
 | trainedModelName              | O nome do módulo de modelo treinado no teste do serviço Web a ser atualizado | Sim      |
 | trainedModelLinkedServiceName | Nome do serviço vinculado do Armazenamento do Azure mantendo o arquivo ilearner que é carregado pela operação de atualização | Sim      |
@@ -94,7 +94,7 @@ Você pode obter valores para espaços reservados na URL ao consultar o serviço
 
 O novo tipo de ponto de extremidade do recurso de atualização requer a autenticação da entidade de serviço. Para usar a autenticação da entidade de serviço, registre uma entidade de aplicativo no Azure Active Directory (Azure AD) e atribua a ela a função **Colaborador** ou **Proprietário** da assinatura ou do grupo de recursos ao qual o serviço Web pertence. Consulte [como criar entidade de serviço e atribuir permissões para gerenciar recursos do Azure](../active-directory/develop/howto-create-service-principal-portal.md). Anote os seguintes valores, que são usados para definir o serviço vinculado:
 
-- ID do Aplicativo
+- ID do aplicativo
 - Chave do aplicativo
 - ID do locatário
 
@@ -127,7 +127,7 @@ Aqui está uma definição do serviço vinculado de exemplo:
 O cenário a seguir fornece mais detalhes. Há um exemplo de readaptação e atualização de modelos do Azure Machine Learning Studio de um pipeline do Azure Data Factory.
 
 
-## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>Amostra: Como treinar novamente e atualizar um modelo do Azure Machine Learning
+## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>Exemplo: treinando novamente e atualizando um modelo do Azure Machine Learning
 
 Esta seção fornece um pipeline de exemplo que usa a **atividade de Execução em lote do Azure Machine Learning Studio** para treinar novamente um modelo. O pipeline também usa a **atividade do Recurso de atualização do Azure Machine Learning Studio** para atualizar o modelo no serviço Web de pontuação. A seção também fornece snippets de JSON para todos os serviços vinculados, conjuntos de dados e pipeline no exemplo.
 

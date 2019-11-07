@@ -1,5 +1,5 @@
 ---
-title: Backups do SQL Data Warehouse do Azure e restauração - instantâneos, redundância geográfica | Microsoft Docs
+title: Backup e restauração-instantâneos, com redundância geográfica
 description: Aprenda a fazer backup e restauração do banco de dados no SQL Data Warehouse do Azure. Use backups de data warehouse para restaurar o data warehouse para um ponto de restauração na região primária. Use backups com redundância geográfica para restaurar para uma região geográfica diferente.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 10/21/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 1cf6444b155830326f4876d2d65bcdaa5923fc35
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.custom: seo-lt-2019"
+ms.openlocfilehash: f37ca56f7875dcb6ab254a11b859c3e85f6a1dd0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72788808"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686155"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Faça o backup e restauração no SQL Data Warehouse
 
@@ -104,6 +105,6 @@ Você pode [restaurar seu data warehouse](https://docs.microsoft.com/azure/sql-d
 > [!NOTE]
 > Para executar uma restauração com redundância geográfica, você não deve ter recusado esse recurso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre planejamento de desastre, consulte [Visão geral sobre a continuidade dos negócios](../sql-database/sql-database-business-continuity.md)

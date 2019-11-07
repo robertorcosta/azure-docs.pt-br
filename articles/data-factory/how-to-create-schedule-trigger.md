@@ -1,5 +1,5 @@
 ---
-title: Criar gatilhos de agendamento no Azure Data Factory | Microsoft Docs
+title: Criar gatilhos de agendamento no Azure Data Factory
 description: Saiba como criar um gatilho no Azure Data Factory que execute um pipeline em um agendamento.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.openlocfilehash: f693b04cb2a7166436497239dc7a874bdc5cbf46
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 127db8a484b9624586dea70c44af3bc84b3fc84e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141615"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673782"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um gatilho que executa um pipeline com base em um agendamento
 Este artigo fornece informações sobre o gatilho de agendamento e as etapas para criar, iniciar e monitorar um gatilho de agendamento. Para outros tipos de gatilhos, consulte [Execução de pipeline e gatilhos](concepts-pipeline-execution-triggers.md).
@@ -68,7 +68,7 @@ Crie um **gatilho de agendamento** para agendar a execução periódica de um pi
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Esta seção mostra como usar o Azure PowerShell para criar, iniciar e monitorar um gatilho de agendamento. Para visualizar esse exemplo funcionando, primeiro acompanhe o [Início Rápido: Criar um data factory usando o Azure PowerShell](quickstart-create-data-factory-powershell.md). Em seguida, adicione o seguinte código ao método principal, que cria e inicia um gatilho de agenda que é executado a cada 15 minutos. O gatilho é associado a um pipeline chamado **Adfv2QuickStartPipeline** que você cria como parte do Início Rápido.
+Esta seção mostra como usar o Azure PowerShell para criar, iniciar e monitorar um gatilho de agendamento. Para ver essa amostra funcionando, primeiro acompanhe o [Início Rápido: Criar um data factory usando o Azure PowerShell](quickstart-create-data-factory-powershell.md). Em seguida, adicione o seguinte código ao método principal, que cria e inicia um gatilho de agenda que é executado a cada 15 minutos. O gatilho é associado a um pipeline chamado **Adfv2QuickStartPipeline** que você cria como parte do Início Rápido.
 
 1. Crie um arquivo JSON chamado **MyTrigger.json** na pasta C:\ADFv2QuickStartPSH\ com o seguinte conteúdo:
 
@@ -144,7 +144,7 @@ Esta seção mostra como usar o Azure PowerShell para criar, iniciar e monitorar
 
 
 ## <a name="net-sdk"></a>SDK .NET
-Esta seção mostra como usar o SDK do .NET para criar, iniciar e monitorar um gatilho. Para visualizar esse exemplo funcionando, primeiro acompanhe o [Início Rápido: Criar um data factory usando o SDK do .NET](quickstart-create-data-factory-dot-net.md). Em seguida, adicione o seguinte código ao método principal, que cria e inicia um gatilho de agenda que é executado a cada 15 minutos. O gatilho é associado a um pipeline chamado **Adfv2QuickStartPipeline** que você cria como parte do Início Rápido.
+Esta seção mostra como usar o SDK do .NET para criar, iniciar e monitorar um gatilho. Para ver essa amostra funcionando, primeiro acompanhe o [Início Rápido: Criar um data factory usando o SDK do .NET](quickstart-create-data-factory-dot-net.md). Em seguida, adicione o seguinte código ao método principal, que cria e inicia um gatilho de agenda que é executado a cada 15 minutos. O gatilho é associado a um pipeline chamado **Adfv2QuickStartPipeline** que você cria como parte do Início Rápido.
 
 Para criar e iniciar um gatilho de agendamento que é executado a cada 15 minutos, adicione o seguinte código ao método principal:
 
@@ -224,7 +224,7 @@ Para monitorar as execuções de gatilho e de pipeline no portal do Azure, consu
 
 
 ## <a name="python-sdk"></a>SDK do Python
-Esta seção mostra como usar o SDK do Python para criar, iniciar e monitorar um gatilho. Para visualizar esse exemplo funcionando, primeiro acompanhe o [Início Rápido: Criar um data factory usando o SDK do Python](quickstart-create-data-factory-python.md). Em seguida, adicione o bloco de código a seguir após o bloco de código “monitorar a execução do pipeline” no script do Python. Esse código cria um gatilho de agenda que é executado a cada 15 minutos entre os horários de início e término especificados. Atualize a variável **start_time** para a hora UTC atual e a variável **end_time** para uma hora após a hora UTC atual.
+Esta seção mostra como usar o SDK do Python para criar, iniciar e monitorar um gatilho. Para ver essa amostra funcionando, primeiro acompanhe o [Início Rápido: Criar um data factory usando o SDK do Python](quickstart-create-data-factory-python.md). Em seguida, adicione o bloco de código a seguir após o bloco de código “monitorar a execução do pipeline” no script do Python. Esse código cria um gatilho de agenda que é executado a cada 15 minutos entre os horários de início e término especificados. Atualize a variável **start_time** para a hora UTC atual e a variável **end_time** para uma hora após a hora UTC atual.
 
 ```python
     # Create a trigger
@@ -247,7 +247,7 @@ Para monitorar as execuções de gatilho e de pipeline no portal do Azure, consu
 Você pode usar um modelo do Azure Resource Manager para criar um gatilho. Para obter instruções passo a passo, consulte [Criar um Azure Data Factory usando um modelo do Resource Manager](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Passe a hora de início do gatilho para um pipeline
-O Azure Data Factory versão 1 dá suporte para leitura ou gravação de dados particionados usando as variáveis do sistema: **SliceStart**, **SliceEnd**, **WindowStart**, e **WindowEnd**. Na versão atual do Azure Data Factory, é possível obter esse comportamento usando um parâmetro de pipeline. A hora de início e a hora agendada para o gatilho estão definidos com o valor para o parâmetro do pipeline. No seguinte exemplo, o horário agendado para o gatilho é passado como um valor para o parâmetro **scheduledRunTime** do pipeline:
+O Azure Data Factory versão 1 é compatível com leitura ou gravação de dados particionados usando as variáveis do sistema **SliceStart**, **SliceEnd**, **WindowStart** e **WindowEnd**. Na versão atual do Azure Data Factory, é possível obter esse comportamento usando um parâmetro de pipeline. A hora de início e a hora agendada para o gatilho estão definidos com o valor para o parâmetro do pipeline. No seguinte exemplo, o horário agendado para o gatilho é passado como um valor para o parâmetro **scheduledRunTime** do pipeline:
 
 ```json
 "parameters": {
@@ -322,13 +322,13 @@ A seguinte tabela fornece uma visão geral de alto nível dos principais element
 
 ### <a name="schema-defaults-limits-and-examples"></a>Padrões, limites e exemplos de esquema
 
-| Propriedade JSON | type | Obrigatório | Valor padrão | Valores válidos | Exemplo |
+| Propriedade JSON | Tipo | Obrigatório | Valor padrão | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | Cadeia | Sim | Nenhum | Data e hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Object | Sim | Nenhum | Objeto de recorrência | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | Cadeia de caracteres | Sim | Nenhum | Data e hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | Objeto | Sim | Nenhum | Objeto de recorrência | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Número | Não | 1 | 1 a 1.000 | `"interval":10` |
-| **endTime** | Cadeia | Sim | Nenhum | Um valor de Data/Hora que representa uma hora no futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | Object | Não | Nenhum | Objeto Agendamento | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **endTime** | Cadeia de caracteres | Sim | Nenhum | Um valor de Data/Hora que representa uma hora no futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **schedule** | Objeto | Não | Nenhum | Objeto Agendamento | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propriedade startTime
 A seguinte tabela mostra como a propriedade **startTime** controla uma execução de gatilho:
@@ -338,7 +338,7 @@ A seguinte tabela mostra como a propriedade **startTime** controla uma execuçã
 | Hora de início no passado | Calcula a primeira hora de execução futura após a hora de início e executa nessa hora.<br/><br/>Executa as execuções seguintes com base no cálculo do tempo da última execução.<br/><br/>Consulte o exemplo após esta tabela. | O gatilho é iniciado _não antes da_ hora de início especificada. A primeira ocorrência baseia-se no agendamento calculado com base na hora de início.<br/><br/>Executa as execuções seguintes com base no agendamento de recorrência. |
 | Hora de início no futuro ou no momento | É executado uma vez na hora de início especificada.<br/><br/>Executa as execuções seguintes com base no cálculo do tempo da última execução. | O gatilho é iniciado _não antes da_ hora de início especificada. A primeira ocorrência baseia-se no agendamento calculado com base na hora de início.<br/><br/>Executa as execuções seguintes com base no agendamento de recorrência. |
 
-Vejamos um exemplo do que acontece quando a hora de início está no passado, com uma recorrência, mas sem agendamento. Suponha que a hora atual seja `2017-04-08 13:00`, a hora de início seja `2017-04-07 14:00` e a recorrência seja a cada dois dias. (O valor de **recurrence** é definido pela configuração da propriedade **frequency** como "day" e a propriedade **interval** como 2.) Observe que o valor de **startTime** está no passado e ocorre antes da hora atual.
+Vejamos um exemplo do que acontece quando a hora de início está no passado, com uma recorrência, mas sem agendamento. Suponha que a hora atual seja `2017-04-08 13:00`, a hora de início seja `2017-04-07 14:00` e a recorrência seja a cada dois dias. (O valor de **recorrência** é definido definindo a propriedade **Frequency** como "Day" e a propriedade **Interval** como 2.) Observe que o valor **StartTime** está no passado e ocorre antes da hora atual.
 
 Sob essas condições, a primeira execução será em `2017-04-09 at 14:00`. O mecanismo do Agendador calcula as ocorrências de execução desde a hora de início. As instâncias no passado serão descartadas. O mecanismo usa a próxima instância que ocorrer no futuro. Neste cenário, a hora de início é `2017-04-07 at 2:00pm` e, portanto, a próxima instância ocorrerá dois dias depois dessa hora, que será em `2017-04-09 at 2:00pm`.
 
@@ -358,8 +358,8 @@ A seguinte tabela descreve elementos **schedule** em detalhes:
 
 | Elemento JSON | DESCRIÇÃO | Valores válidos |
 |:--- |:--- |:--- |
-| **minutos** | Minutos da hora em que o gatilho será executado. | <ul><li>Inteiro</li><li>Matriz de inteiros</li></ul>
-| **horas** | As horas do dia em que o gatilho será executado. | <ul><li>Inteiro</li><li>Matriz de inteiros</li></ul> |
+| **minutos** | Minutos da hora em que o gatilho será executado. | <ul><li>Número inteiro</li><li>Matriz de inteiros</li></ul>
+| **horas** | As horas do dia em que o gatilho será executado. | <ul><li>Número inteiro</li><li>Matriz de inteiros</li></ul> |
 | **Dias da semana** | Dias da semana em que o gatilho é executado. O valor pode ser especificado apenas com uma frequência semanal. | <ul><li>Segunda-feira, Terça-feira, Quarta-feira, Quinta-feira, Sexta-feira, Sábado e Domingo</li><li>Matriz de valores de dia (o tamanho máximo da matriz é 7)</li><li>Os valores de dia não diferenciam maiúsculas de minúsculas</li></ul> |
 | **monthlyOccurences** | Dias do mês em que o gatilho é executado. O valor pode ser especificado apenas com uma frequência mensal. | <ul><li>Matriz de objetos **monthlyOccurrence** : `{ "day": day,  "occurrence": occurrence }`.</li><li>O atributo **day** é o dia da semana no qual o gatilho é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor de **day** igual a `{Sunday}` significa todo domingo do mês. O atributo **day** é obrigatório.</li><li>O atributo **occurrence** é a ocorrência de **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores de **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.</li></ul> |
 | **Dias do mês** | Dia do mês em que o gatilho é executado. O valor pode ser especificado apenas com uma frequência mensal. | <ul><li>Qualquer valor <= -1 e >= -31</li><li>Qualquer valor >= 1 e <= 31</li><li>Matriz de valores</li></ul> |

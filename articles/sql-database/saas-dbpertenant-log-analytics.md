@@ -1,5 +1,5 @@
 ---
-title: Usar logs de Azure Monitor com um aplicativo de multilocatário do banco de dados SQL | Microsoft Docs
+title: Usar logs de Azure Monitor com um aplicativo de multilocatário do banco de dados SQL
 description: Configurar e usar logs de Azure Monitor com um aplicativo SaaS multilocatário do banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: 6b9b2239cfdf0f214ed2f2b179978fe2828d1be3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d7b568424d5e33c19efc9d9d9c21d0023459b6c7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570515"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692157"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Configurar e usar logs de Azure Monitor com um aplicativo SaaS de banco de dados SQL multilocatário
 
@@ -128,7 +128,7 @@ Neste exercício, abra Log Analytics espaço de trabalho no portal do Azure para
 
 1. Voltando para o espaço de trabalho do Log Analytics, selecione **Portal do OMS** para abrir o espaço de trabalho nele.
 
-    ![Workspace do Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+    ![Espaço de trabalho do Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
 No espaço de trabalho do Log Analytics, você poderá explorar ainda mais os dados de métrica e log. 
 

@@ -1,5 +1,5 @@
 ---
-title: Recursos de multimodelos do Banco de Dados SQL do Azure | Microsoft Docs
+title: Funcionalidades de vários modelos do banco de dados SQL do Azure
 description: O Banco de Dados SQL do Azure permite que você trabalhe com vários modelos de dados no mesmo banco de dados.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: e319daf322d688828c7d05d78dacd2359273223f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7156b9923c9cb98ae3dde143c98eb32a6eb11a9c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567137"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687735"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Recursos de multimodelos do Banco de Dados SQL do Azure
 
@@ -29,7 +29,7 @@ Você deve considerar o uso de recursos de vários modelos do banco de dados SQL
 - Você tem algumas informações ou estruturas que são mais adequadas para modelos NoSQL e não deseja usar um banco de dados NoSQL separado.
 - A maioria dos seus dados é adequada para o modelo relacional e você precisa modelar algumas partes de seus dados no estilo NoSQL.
 - Você deseja aproveitar a rica linguagem Transact-SQL para consultar e analisar dados relacionais e NoSQL e integrá-los a uma variedade de ferramentas e aplicativos que podem usar a linguagem SQL.
-- Você deseja aplicar recursos de banco de dados, como [tecnologias na memória](sql-database-in-memory.md) , para melhorar o desempenho de seu processo analítico ou de processamento de seus data strucutress NoSQL, usar a [replicação](sql-database-managed-instance-transactional-replication.md) transacional ou [réplicas legíveis](sql-database-read-scale-out.md) para criar uma cópia dos dados em o outro local e descarregar algumas cargas de trabalho analíticas do banco de dados primário.
+- Você deseja aplicar recursos de banco de dados, como [tecnologias na memória](sql-database-in-memory.md) , para melhorar o desempenho de seu processo analítico ou de processamento de seus data strucutress NoSQL, usar a [replicação transacional](sql-database-managed-instance-transactional-replication.md) ou [réplicas legíveis](sql-database-read-scale-out.md) para criar uma cópia dos dados em o outro local e descarregar algumas cargas de trabalho analíticas do banco de dados primário.
 
 ## <a name="overview"></a>Visão geral
 

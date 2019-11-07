@@ -1,5 +1,5 @@
 ---
-title: Copiar arquivos novos e alterados incrementalmente com base em LastModifiedDate usando a ferramenta de Copiar Dados | Microsoft Docs
+title: Copiar arquivos novos e alterados incrementalmente com base em LastModifiedDate usando a ferramenta de Copiar Dados
 description: Crie um data factory do Azure e, em seguida, use a ferramenta Copiar Dados para carregar incrementalmente novos arquivos com base em LastModifiedDate.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 9f6fd57586603d0d987faa674d40a7e4678530a1
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 09a9fa4515913470c86bbafe293add007a3117ea
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933875"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683468"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copiar arquivos novos e alterados incrementalmente com base em LastModifiedDate usando a ferramenta de Copiar Dados
 
@@ -32,14 +32,14 @@ Ao fazer isso, o ADF examinará todos os arquivos do repositório de origem, apl
 Neste tutorial, você executará as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Criar um data factory.
+> * Criar uma fábrica de dados.
 > * Usar a ferramenta Copy Data para criar um pipeline.
 > * Monitore as execuções de pipeline e de atividade.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de Armazenamento do Azure**: Use o armazenamento de BLOBs como o armazenamento de dados de _origem_ e de _coletor_ . Se você não tiver uma conta de armazenamento do Azure, confira as instruções em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
+* **Assinatura do Azure**: caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Conta de armazenamento do Azure**: Use o armazenamento de BLOBs como o armazenamento de dados de _origem_ e de _coletor_ . Se você não tiver uma conta de armazenamento do Azure, confira as instruções em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
 
 ### <a name="create-two-containers-in-blob-storage"></a>Criar dois contêineres no armazenamento de BLOBs
 
@@ -49,7 +49,7 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 
 2. Crie um contêiner chamado **destino**. 
 
-## <a name="create-a-data-factory"></a>Criar um data factory
+## <a name="create-a-data-factory"></a>Criar uma data factory
 
 1. No menu à esquerda, selecione **Criar um recurso** > **Dados + Análise** > **Data Factory**: 
    
@@ -75,17 +75,17 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 6. Em **local**, selecione o local para o data factory. Somente os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (por exemplo, o armazenamento do Azure e o SQL Database) e as computações (por exemplo, Azure HDInsight) que seu data factory usa podem estar em outros locais e regiões.
 7. Selecione **Fixar no painel**. 
 8. Selecione **Criar**.
-9. No painel, consulte o bloco implantando **Data Factory** para ver o status do processo.
+9. No painel, consulte o bloco **Implantando data Factory** para ver o status do processo.
 
     ![Implantando Data Factory bloco](media/tutorial-copy-data-tool/deploying-data-factory.png)
 10. Depois de finalizada a criação, a home page do **Data Factory** é exibida.
    
-    ![Página inicial do data factory](./media/doc-common-process/data-factory-home-page.png)
+    ![Página inicial da data factory](./media/doc-common-process/data-factory-home-page.png)
 11. Para abrir a interface do usuário do Azure Data Factory (IU) em uma guia separada, selecione o bloco **criar & monitor** . 
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Use a ferramenta Copy Data para criar um pipeline
 
-1. Na página introdução, selecione o título de **copiar dados** para abrir a ferramenta de copiar dados. 
+1. Na página **introdução** , selecione o título de **copiar dados** para abrir a ferramenta de copiar dados. 
 
    ![Bloco Ferramenta Copy Data](./media/doc-common-process/get-started-page.png)
    
@@ -129,7 +129,7 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
     
     ![Escolha o arquivo ou a pasta de entrada](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-input-file-folder.png)
     
-    b. Em **comportamento de carregamento**de arquivo **, selecione carga incremental: LastModifiedDate**.
+    b. Em **comportamento de carregamento de arquivo**, selecione **carga incremental: LastModifiedDate**.
     
     ![Escolha o arquivo ou a pasta de entrada](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-loading-behavior.png)
     

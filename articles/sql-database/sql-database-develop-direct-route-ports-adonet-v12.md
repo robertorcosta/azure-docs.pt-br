@@ -1,5 +1,5 @@
 ---
-title: Portas além de 1433 para o Banco de Dados SQL | Microsoft Docs
+title: Portas além de 1433 para o banco de dados SQL
 description: As conexões cliente do ADO.NET para o Banco de Dados SQL do Azure pode ignorar o proxy e interagir diretamente com o banco de dados usando portas que não a 1433.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 04/03/2019
-ms.openlocfilehash: a39cfd1981041c807a91a08c198378d238f0846e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 38ab3b6b0c64ad17311d15fd12e7625e8aa728ce
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568910"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690693"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portas além da 1433 para ADO.NET 4.5
 
@@ -30,11 +30,11 @@ Este tópico descreve o comportamento de conexão do Banco de Dados SQL do Azure
 
 Para conexões com o Banco de Dados SQL do Azure, devemos perguntar primeiro se o programa cliente é executado *fora* ou *dentro* do limite de nuvem do Azure. As subseções discutem dois cenários comuns.
 
-### <a name="outside-client-runs-on-your-desktop-computer"></a>*Externo:* O cliente é executado em seu computador desktop
+### <a name="outside-client-runs-on-your-desktop-computer"></a>*Fora:* o cliente é executado em seu computador desktop
 
 A porta 1433 é a única porta que deve estar aberta no computador desktop que hospeda o aplicativo cliente do Banco de Dados SQL.
 
-### <a name="inside-client-runs-on-azure"></a>*Interno:* O cliente é executado no Azure
+### <a name="inside-client-runs-on-azure"></a>*Dentro:* o cliente é executado no Azure
 
 Quando o cliente é executado dentro do limite de nuvem do Azure, ele usa o que podemos chamar de *rota direta* para interagir com o servidor do Banco de Dados SQL. Após o estabelecimento de uma conexão, as próximas interações entre o cliente e o banco de dados não envolvem nenhum Gateway de Banco de Dados SQL do Azure.
 
@@ -83,6 +83,6 @@ Esta seção explica os identificadores que se referem a versões do produto. El
 * [Lista de versões do protocolo TDS](https://www.freetds.org/userguide/tdshistory.htm)
 * [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md)
 * [Firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md)
-* [Como: definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md)
+* [Como definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md)
 
 

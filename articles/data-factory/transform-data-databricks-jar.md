@@ -1,5 +1,5 @@
 ---
-title: Transformar dados com o Jar do Databricks - Azure | Microsoft Docs
+title: Transformar dados com o data Bricks jar – Azure
 description: Saiba como processar ou transformar dados executando um Jar do Databricks.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.date: 03/15/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 924367c6bb85b64bafbcb8feb546eeb490e07a34
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 982f00b5de9fd3e84233e5fe3b68e22fa6f7fe2a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812778"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683964"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformar dados executando uma atividade de Jar no Azure Databricks
 
-A atividade de Jar do Azure Databricks em um [pipeline do Data Factory](concepts-pipelines-activities.md) executa um Spark Jar em seu cluster do Azure Databricks. Este documento baseia-se no artigo sobre  [atividades de transformação de dados](transform-data.md) , que apresenta uma visão geral da transformação de dados e das atividades de transformação permitidas. O Azure Databricks é uma plataforma gerenciada para executar o Apache Spark.
+A atividade de Jar do Azure Databricks em um [pipeline do Data Factory](concepts-pipelines-activities.md) executa um Spark Jar em seu cluster do Azure Databricks. Este documento se baseia no artigo sobre as  [atividades de transformação de dados](transform-data.md) , que apresenta uma visão geral da transformação de dados e das atividades de transformação permitidas. Azure Databricks é uma plataforma gerenciada para executar o Apache Spark.
 
 Para ver uma introdução de 11 minutos e uma demonstração desse recurso, assista ao seguinte vídeo:
 
@@ -56,14 +56,14 @@ A seguir está a definição JSON de exemplo de uma Atividade de Jar do Databric
 
 A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 
-|Propriedade|Descrição|Obrigatório|
+|Propriedade|DESCRIÇÃO|Obrigatório|
 |:--|---|:-:|
-|name|Nome da atividade no pipeline.|Sim|
-|description|Texto que descreve o que a atividade faz.|Não|
-|type|Para a Atividade do Databricks Jar, o tipo de atividade é DatabricksSparkJar.|Sim|
-|linkedServiceName|Nome do serviço vinculado ao Databricks no qual a atividade de Jar é executado. Para saber mais sobre esse serviço vinculado, consulte o artigo  [Serviços de computação vinculados](compute-linked-services.md) .|Sim|
+|Nome|Nome da atividade no pipeline.|Sim|
+|Descrição|Texto que descreve o que a atividade faz.|Não|
+|Tipo|Para a Atividade do Databricks Jar, o tipo de atividade é DatabricksSparkJar.|Sim|
+|linkedServiceName|Nome do serviço vinculado ao Databricks no qual a atividade de Jar é executado. Saiba mais sobre esse serviço vinculado no artigo  [Serviços de computação vinculados](compute-linked-services.md) .|Sim|
 |mainClassName|O nome completo da classe que contém o método principal a ser executado. Essa classe deve estar contida em um JAR fornecido como uma biblioteca.|Sim|
-|parameters|Parâmetros que serão passados ao método principal.  Isto é uma matriz de cadeias de caracteres.|Não|
+|parâmetros|Parâmetros que serão passados ao método principal.  Isto é uma matriz de cadeias de caracteres.|Não|
 |bibliotecas|Uma lista de bibliotecas a serem instaladas no cluster, que executará o trabalho. Ele pode ser uma matriz de <string, object>|Sim (pelo menos um contendo o método mainClassName)|
 
 > [!NOTE]

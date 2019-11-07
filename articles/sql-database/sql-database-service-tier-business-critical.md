@@ -1,5 +1,5 @@
 ---
-title: Camada Comercialmente Crítico - Serviço do Banco de Dados SQL do Azure | Microsoft Docs
+title: Camada de Comercialmente Crítico-serviço de banco de dados SQL do Azure
 description: Saiba mais sobre a camada Comercialmente Crítico do Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: ef1f420e4c4dbd38ad703eb0573fae36af078edb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1d5a51e956f7dab85e1a591a08b472313e569776
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496225"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687376"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Camada Comercialmente Crítico - Banco de Dados SQL do Azure
 

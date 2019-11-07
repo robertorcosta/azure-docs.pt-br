@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: 436ab0a561349185de58c3783f334ea1dce9001d
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: f9b1af14bd986f1fa6fb5feb398a7f1fdf982f77
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720123"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669106"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
@@ -43,7 +43,7 @@ O aplicativo precisa estar em execução na camada **Standard**, **Premium** ou 
 
 1. No [Portal do Azure](https://portal.azure.com/), abra a [página de recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources) do seu aplicativo.
 
-2. No painel esquerdo, selecione **Slots** > de implantação**Adicionar slot**.
+2. No painel esquerdo, selecione **Slots de implantação** > **Adicionar slot**.
    
     ![Adicionar um novo slot de implantação](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
@@ -188,7 +188,7 @@ A troca automática simplifica os cenários de DevOps do Azure em que você dese
 
 Para configurar a troca automática:
 
-1. Vá para a página de recursos do aplicativo. Selecione **Slots** >  >  > de implantação desejados slot de origem > configurações gerais de configuração. *\<*
+1. Vá para a página de recursos do aplicativo. Selecione os **Slots de implantação** >  *\<slot de origem desejado >* configurações de > **configuração** de > **geral**.
    
 2. Para a **troca automática habilitada**, selecione **ativado**. Em seguida, selecione o slot de destino desejado para o **slot de implantação de permuta automática**e selecione **salvar** na barra de comandos. 
    
@@ -202,7 +202,7 @@ Se você tiver problemas, consulte [solucionar problemas de trocas](#troubleshoo
 
 ## <a name="specify-custom-warm-up"></a>Especificar aquecimento personalizado
 
-Alguns aplicativos podem exigir ações de aquecimento personalizadas antes da troca. O `applicationInitialization` elemento de configuração no Web. config permite que você especifique ações de inicialização personalizadas. A [operação de permuta](#AboutConfiguration) aguarda que esse aquecimento personalizado seja concluído antes de alternar com o slot de destino. Aqui está um fragmento Web. config de exemplo.
+Alguns aplicativos podem exigir ações de aquecimento personalizadas antes da troca. O elemento de configuração `applicationInitialization` no Web. config permite que você especifique ações de inicialização personalizadas. A [operação de permuta](#AboutConfiguration) aguarda que esse aquecimento personalizado seja concluído antes de alternar com o slot de destino. Aqui está um fragmento Web. config de exemplo.
 
     <system.webServer>
         <applicationInitialization>
@@ -211,15 +211,15 @@ Alguns aplicativos podem exigir ações de aquecimento personalizadas antes da t
         </applicationInitialization>
     </system.webServer>
 
-Para obter mais informações sobre como personalizar `applicationInitialization` o elemento, consulte [falhas de permuta de slot de implantação mais comuns e como corrigi-los](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+Para obter mais informações sobre como personalizar o elemento `applicationInitialization`, consulte [falhas de permuta de slot de implantação mais comuns e como corrigi-los](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
 Você também pode personalizar o comportamento de aquecimento com uma ou ambas as seguintes configurações de [aplicativo](configure-common.md):
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`: O caminho para o ping para aquecimento do seu site. Adicione essa configuração de aplicativo especificando um caminho personalizado que começa com uma barra (“/”) como o valor. Um exemplo é `/statuscheck`. O valor padrão é `/`. 
-- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Códigos de resposta HTTP válidos para a operação de aquecimento. Adicione essa configuração de aplicativo com uma lista separada por vírgulas dos códigos HTTP. Um exemplo é `200,202` . Se o código de status retornado não estiver na lista, as operações aquecimento e swap serão interrompidas. Por padrão, todos os códigos de resposta são válidos.
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: o caminho para o ping para aquecimento do seu site. Adicione essa configuração de aplicativo especificando um caminho personalizado que começa com uma barra (“/”) como o valor. Um exemplo é `/statuscheck`. O valor padrão é `/`. 
+- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: códigos de resposta HTTP válidos para a operação de aquecimento. Adicione essa configuração de aplicativo com uma lista separada por vírgulas dos códigos HTTP. Um exemplo é `200,202`. Se o código de status retornado não estiver na lista, as operações aquecimento e swap serão interrompidas. Por padrão, todos os códigos de resposta são válidos.
 
 > [!NOTE]
-> `<applicationInitialization>`faz parte de cada aplicativo de inicialização, onde essas duas configurações de aplicativo se aplicam somente a trocas de slot.
+> O elemento de configuração `<applicationInitialization>` faz parte de cada inicialização de aplicativo, enquanto as duas configurações de aplicativo de comportamento de aquecimento se aplicam somente a trocas de slot.
 
 Se você tiver problemas, consulte [solucionar problemas de trocas](#troubleshoot-swaps).
 
@@ -241,7 +241,7 @@ Para rotear o tráfego de produção automaticamente:
 
 1. Vá para a página de recursos do aplicativo e selecione **Slots de implantação**.
 
-2. Na coluna **% do Tráfego** do slot para o qual você deseja rotear, especifique um percentual (entre 0 e 100) para representar a quantidade de tráfego total que deseja rotear. Clique em **Salvar**.
+2. Na coluna **% do Tráfego** do slot para o qual você deseja rotear, especifique um percentual (entre 0 e 100) para representar a quantidade de tráfego total que deseja rotear. Selecione **Salvar**.
 
     ![Definindo um percentual de tráfego](./media/web-sites-staged-publishing/RouteTraffic.png)
 
@@ -261,19 +261,19 @@ Para permitir que os usuários recusem seu aplicativo beta, por exemplo, você p
 
 A cadeia de caracteres `x-ms-routing-name=self` especifica o local de produção. Depois que o navegador do cliente acessa o link, ele é redirecionado para o slot de produção. Cada solicitação subsequente tem o `x-ms-routing-name=self` cookie que fixa a sessão ao slot de produção.
 
-Para permitir que os usuários aceitem seu aplicativo beta, defina o mesmo parâmetro de consulta como o nome do slot de não produção. Veja um exemplo:
+Para permitir que os usuários aceitem seu aplicativo beta, defina o mesmo parâmetro de consulta como o nome do slot de não produção. Aqui está um exemplo:
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
 
-Por padrão, novos slots recebem uma regra de `0%`roteamento, mostrada em cinza. Quando você define esse valor explicitamente como `0%` (mostrado em texto preto), os usuários podem acessar o slot de preparo manualmente usando o parâmetro `x-ms-routing-name` de consulta. Mas eles não serão roteados para o slot automaticamente porque a porcentagem de roteamento é definida como 0. Esse é um cenário avançado em que você pode "Ocultar" o slot de preparo do público, permitindo que as equipes internas testem as alterações no slot.
+Por padrão, novos slots recebem uma regra de roteamento de `0%`, mostrados em cinza. Quando você define explicitamente esse valor como `0%` (mostrado em texto preto), os usuários podem acessar o slot de preparo manualmente usando o parâmetro de consulta `x-ms-routing-name`. Mas eles não serão roteados para o slot automaticamente porque a porcentagem de roteamento é definida como 0. Esse é um cenário avançado em que você pode "Ocultar" o slot de preparo do público, permitindo que as equipes internas testem as alterações no slot.
 
 <a name="Delete"></a>
 
 ## <a name="delete-a-slot"></a>Excluir um slot
 
-Vá para a página de recursos do aplicativo. Selecione o slot dos **Slots** >  *\<de implantação para excluir >*  > **visão geral**. Selecione **excluir** na barra de comandos.  
+Vá para a página de recursos do aplicativo. Selecione **Slots de implantação** > *slot de\<para excluir >* **visão geral**de > . Selecione **excluir** na barra de comandos.  
 
 ![Excluir um slot de implantação](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -315,7 +315,7 @@ Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType M
 ```
 
 ---
-### <a name="swap-deployment-slots"></a>Trocar slots de implantação
+### <a name="swap-deployment-slots"></a>Permute slots de implantação
 ```powershell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
@@ -334,14 +334,14 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## <a name="automate-with-arm-templates"></a>Automatizar com modelos ARM
 
-Os [modelos do ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-deployment-overview) são arquivos JSON declarativos usados para automatizar a implantação e a configuração dos recursos do Azure. Para trocar os slots usando modelos ARM, você definirá duas propriedades nos recursos *Microsoft. Web/sites/Slots* e *Microsoft. Web/sites* :
+Os [modelos do ARM](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) são arquivos JSON declarativos usados para automatizar a implantação e a configuração dos recursos do Azure. Para trocar os slots usando modelos ARM, você definirá duas propriedades nos recursos *Microsoft. Web/sites/Slots* e *Microsoft. Web/sites* :
 
 - `buildVersion`: essa é uma propriedade de cadeia de caracteres que representa a versão atual do aplicativo implantado no slot. Por exemplo: "v1", "1.0.0.1" ou "2019-09-20T11:53:25.2887393-07:00".
-- `targetBuildVersion`: essa é uma propriedade de cadeia de caracteres que especifica o que `buildVersion` o slot deve ter. Se o targetBuildVersion não for igual ao `buildVersion` atual, isso disparará a operação de permuta localizando o slot que tem o @no__t especificado-1.
+- `targetBuildVersion`: essa é uma propriedade de cadeia de caracteres que especifica o que `buildVersion` o slot deve ter. Se o targetBuildVersion não for igual ao `buildVersion`atual, isso disparará a operação de permuta encontrando o slot que tem o `buildVersion`especificado.
 
 ### <a name="example-arm-template"></a>Exemplo de modelo ARM
 
-O modelo ARM a seguir atualizará o `buildVersion` do slot de preparo e definirá o `targetBuildVersion` no slot de produção. Isso mudará os dois slots. O modelo pressupõe que você já tenha um webapp criado com um slot chamado "preparo".
+O modelo ARM a seguir atualizará a `buildVersion` do slot de preparo e definirá o `targetBuildVersion` no slot de produção. Isso mudará os dois slots. O modelo pressupõe que você já tenha um webapp criado com um slot chamado "preparo".
 
 ```json
 {
@@ -385,7 +385,7 @@ O modelo ARM a seguir atualizará o `buildVersion` do slot de preparo e definir�
 }
 ```
 
-Esse modelo de ARM é idempotente, o que significa que ele pode ser executado repetidamente e produzir o mesmo estado dos slots. Após a primeira execução, `targetBuildVersion` corresponderá à @no__t atual-1, portanto, uma troca não será disparada.
+Esse modelo de ARM é idempotente, o que significa que ele pode ser executado repetidamente e produzir o mesmo estado dos slots. Após a primeira execução, `targetBuildVersion` corresponderá à `buildVersion`atual, de modo que uma troca não será disparada.
 
 <!-- ======== Azure CLI =========== -->
 
@@ -422,9 +422,9 @@ Aqui estão alguns erros de permuta comuns:
       ...
     </conditions>
     ```
-- Algumas [regras de restrição de IP](app-service-ip-restrictions.md) podem impedir que a operação de permuta envie solicitações HTTP para seu aplicativo. Os intervalos de endereços IPv4 que `10.` começam `100.` com e são internos à sua implantação. Você deve permitir que eles se conectem ao seu aplicativo.
+- Algumas [regras de restrição de IP](app-service-ip-restrictions.md) podem impedir que a operação de permuta envie solicitações HTTP para seu aplicativo. Os intervalos de endereços IPv4 que começam com `10.` e `100.` são internos à sua implantação. Você deve permitir que eles se conectem ao seu aplicativo.
 
-- Após trocas de slot, o aplicativo pode experimentar reinicializações inesperadas. Isso ocorre porque, após uma troca, a configuração de associação de nome de host fica fora de sincronia, o que por si só não causa reinicializações. No entanto, determinados eventos de armazenamento subjacentes (como failovers de volume de armazenamento) podem detectar essas discrepâncias e forçar a reinicialização de todos os processos de trabalho. Para minimizar esses tipos de reinicializações, defina a [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` configuração do aplicativo](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) em *todos os slots*. No entanto, essa configuração de aplicativo *não funciona com* aplicativos Windows Communication Foundation (WCF).
+- Após trocas de slot, o aplicativo pode experimentar reinicializações inesperadas. Isso ocorre porque, após uma troca, a configuração de associação de nome de host fica fora de sincronia, o que por si só não causa reinicializações. No entanto, determinados eventos de armazenamento subjacentes (como failovers de volume de armazenamento) podem detectar essas discrepâncias e forçar a reinicialização de todos os processos de trabalho. Para minimizar esses tipos de reinicializações, defina a [configuração do aplicativo`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1`](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) em *todos os slots*. No entanto, essa configuração de aplicativo *não funciona com* aplicativos Windows Communication Foundation (WCF).
 
 ## <a name="next-steps"></a>Próximas etapas
 [Bloquear o acesso aos slots de não produção](app-service-ip-restrictions.md)

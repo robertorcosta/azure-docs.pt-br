@@ -1,5 +1,5 @@
 ---
-title: Restaurar um banco de dados SQL do Azure de um backup | Microsoft Docs
+title: Restaurar um banco de dados SQL do Azure de um backup
 description: Saiba mais sobre a restauração pontual, que permite reverter um banco de dados SQL do Azure até 35 dias.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: b858776d8309be94a0dd64f994a9e34e589d3c49
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 799926eeb6a508ea04b879231625cf321e95d043
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750454"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687548"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados
 
@@ -145,7 +145,7 @@ No portal do Azure, você cria um novo banco de dados de instância única ou ge
 
 Para restaurar geograficamente um único banco de dados SQL do portal do Azure na região e no servidor de sua escolha, siga estas etapas:
 
-1. No **painel**, selecione **Adicionar**  > **criar banco de dados SQL**. Na guia **noções básicas** , insira as informações necessárias.
+1. No **painel**, selecione **Adicionar** > **criar banco de dados SQL**. Na guia **noções básicas** , insira as informações necessárias.
 2. Selecione **configurações adicionais**.
 3. Para **usar dados existentes**, selecione **backup**.
 4. Para **backup**, selecione um backup na lista de backups de restauração geográfica disponíveis.
@@ -198,7 +198,7 @@ Você também pode usar Azure PowerShell ou a API REST para recuperação. As ta
 
 Para restaurar um banco de dados autônomo ou em pool, consulte [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
-  | Cmdlet | Descrição |
+  | Cmdlet | DESCRIÇÃO |
   | --- | --- |
   | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |Obtém um ou mais bancos de dados. |
   | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | Obtém um banco de dados excluído que você pode restaurar. |
@@ -212,7 +212,7 @@ Para restaurar um banco de dados autônomo ou em pool, consulte [Restore-AzSqlDa
 
 Para restaurar um banco de dados de instância gerenciada, consulte [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
-  | Cmdlet | Descrição |
+  | Cmdlet | DESCRIÇÃO |
   | --- | --- |
   | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |Obtém uma ou mais instâncias gerenciadas. |
   | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Obtém um banco de dados de instância. |
@@ -222,12 +222,12 @@ Para restaurar um banco de dados de instância gerenciada, consulte [Restore-AzS
 
 Para restaurar um banco de dados individual ou em pool usando a API REST:
 
-| API | Descrição |
+| API | DESCRIÇÃO |
 | --- | --- |
 | [REST (createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Restaura um banco de dados. |
 | [Obter, Criar ou Atualizar o Status de um Banco de Dados](https://docs.microsoft.com/rest/api/sql/operations) |Retorna o status durante uma operação de restauração. |
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI do Azure
 
 #### <a name="single-azure-sql-database"></a>Banco de dados SQL do Azure individual
 
@@ -241,7 +241,7 @@ Para restaurar um banco de dados de instância gerenciada usando o CLI do Azure,
 
 Backups automáticos protegem seus bancos de dados contra erros de usuário e de aplicativo, exclusão acidental do banco de dados e interrupções prolongadas. Essa funcionalidade interna está disponível para todas as camadas de serviço e tamanhos da computação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 - [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)

@@ -1,5 +1,5 @@
 ---
-title: Guia de instruções do banco de dados SQL do Azure (visualização) | Microsoft Docs
+title: Guia de instruções do banco de dados SQL do Azure (versão prévia)
 description: Este artigo descreve como criar e gerenciar pools de instâncias do banco de dados SQL do Azure (visualização).
 services: sql-database
 ms.service: sql-database
@@ -11,22 +11,22 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 5862a54c92de7395ce42865ae32d453e926048d8
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 461de4da35905ed860fb2ed9d2c655b55b777683
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70294263"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689740"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Guia de instruções do banco de dados SQL do Azure (visualização)
 
-Este artigo fornece detalhes sobre como criar e gerenciar pools de [instância](sql-database-instance-pools.md).
+Este artigo fornece detalhes sobre como criar e gerenciar [pools de instância](sql-database-instance-pools.md).
 
 ## <a name="instance-pool-operations"></a>Operações de pool de instâncias
 
 A tabela a seguir mostra as operações disponíveis relacionadas a pools de instância e sua disponibilidade no portal do Azure e no PowerShell.
 
-|Comando|Portal do Azure|PowerShell|
+|Command|Portal do Azure|PowerShell|
 |:---|:---|:---|
 |Criar pool de instâncias|Não|Sim|
 |Atualizar o pool de instâncias (número limitado de propriedades)|Não |Sim |
@@ -41,7 +41,7 @@ A tabela a seguir mostra as operações disponíveis relacionadas a pools de ins
 
 Comandos disponíveis do [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/)
 
-|Cmdlet |Descrição |
+|Cmdlet |DESCRIÇÃO |
 |:---|:---|
 |[New-AzSqlInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | Cria um pool de instâncias do banco de dados SQL do Azure. |
 |[Get-AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Retorna informações sobre o pool de instâncias do SQL do Azure. |
@@ -92,7 +92,7 @@ As seguintes restrições se aplicam a pools de instância:
 
 - Somente Uso Geral e Gen5 estão disponíveis em visualização pública.
 - O nome do pool pode conter apenas letras minúsculas, números e hífens e não pode começar com um hífen.
-- Para obter a ID de sub-rede, `Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork`use.
+- Para obter a ID de sub-rede, use `Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork`.
 - Se você quiser usar AHB (Benefício Híbrido do Azure), ele será aplicado no nível do pool de instâncias. Você pode definir o tipo de licença durante a criação do pool ou atualizá-lo a qualquer momento após a criação.
 
 > [!IMPORTANT]

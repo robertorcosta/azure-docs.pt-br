@@ -1,5 +1,5 @@
 ---
-title: Diretrizes de design para tabelas distribuídas – SQL Data Warehouse do Azure | Microsoft Docs
+title: Diretrizes de design de tabelas distribuídas
 description: Recomendações para a criação de tabelas distribuídas por hash e round-robin no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,17 +10,18 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 4b322415592a7202387cb6776d2c040cda765b27
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f05e732e11fb9cd88d4671528d551c68e448a8d7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479346"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685472"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Diretrizes de design para tabelas distribuídas no SQL Data Warehouse do Azure
 Recomendações para a criação de tabelas distribuídas por hash e round-robin no SQL Data Warehouse do Azure.
 
-Este artigo pressupõe que você esteja familiarizado com os conceitos de movimentação e distribuição de dados no SQL Data Warehouse.  Para obter mais informações, consulte [SQL Data Warehouse do Azure – Arquitetura MPP (processamento paralelo massivo)](massively-parallel-processing-mpp-architecture.md). 
+Este artigo pressupõe que você esteja familiarizado com os conceitos de movimentação e distribuição de dados no SQL Data Warehouse.  Para obter mais informações, consulte [arquitetura de processamento paralelo maciço (MPP) do Azure SQL data warehouse](massively-parallel-processing-mpp-architecture.md). 
 
 ## <a name="what-is-a-distributed-table"></a>O que é uma tabela distribuída?
 Uma tabela distribuída é exibida como uma única tabela, mas as linhas são armazenadas em 60 distribuições. As linhas são distribuídas com um algoritmo round-robin ou hash.  

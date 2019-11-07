@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando a Atividade de Hive - Azure | Microsoft Docs
+title: Transformar dados usando a atividade do hive – Azure
 description: Saiba como usar a atividade de Hive em uma Azure Data Factory para executar consultas de Hive em um cluster sob demanda/próprio de HDInsight.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 8a7e6748f450ae398a05097ac6b192d074f5f1f7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f159f672c999d7877ef89cd78d23c4a608ccf1ab
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139526"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666989"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade de Hive no Azure Data Factory 
 > [!div class="op_single_selector" title1="Atividades de transformação"]
@@ -38,7 +38,7 @@ ms.locfileid: "70139526"
 A atividade de Hive do HDInsight em um [pipeline](data-factory-create-pipelines.md) do Data Factory executa consultas de Hive em [seu próprio cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou no [cluster sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) do HDInsight baseado em Windows/Linux. Este artigo se baseia no artigo sobre [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas.
 
 > [!NOTE] 
-> Se você é novo no Azure Data Factory, leia a [Introdução ao Azure Data Factory](data-factory-introduction.md) e siga o tutorial: [Criar seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
+> Se você estiver conhecendo o Azure Data Factory agora, leia a [Introdução ao Azure Data Factory](data-factory-introduction.md) e siga o tutorial [Criar seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -72,11 +72,11 @@ A atividade de Hive do HDInsight em um [pipeline](data-factory-create-pipelines.
 }
 ```
 ## <a name="syntax-details"></a>Detalhes da sintaxe
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| name |Nome da atividade |Sim |
-| description |Texto que descreve qual a utilidade da atividade |Não |
-| type |HDInsightHive |Sim |
+| Nome |Nome da atividade |Sim |
+| Descrição |Texto que descreve qual a utilidade da atividade |Não |
+| Tipo |HDInsightHive |Sim |
 | inputs |Entradas consumidas pela atividade de Hive |Não |
 | outputs |Saídas produzidas pela atividade de Hive |Sim |
 | linkedServiceName |Referência ao cluster HDInsight registrado como um serviço vinculado na Data Factory |Sim |
@@ -127,7 +127,7 @@ FROM HiveSampleIn Group by ProfileID
 Para executar o script do Hive em um pipeline do Data Factory, você precisa fazer o seguinte
 
 1. Criar um serviço vinculado para registrar [seu próprio cluster de cálculo HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurar o [cluster de cálculo HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Vamos chamar esse serviço vinculado de "HDInsightLinkedService".
-2. Criar um [serviço vinculado](data-factory-azure-blob-connector.md) para configurar a conexão com o Armazenamento de Blob do Azure que está hospedando os dados. Vamos chamar esse serviço vinculado de "StorageLinkedService".
+2. Criar um [serviço vinculado](data-factory-azure-blob-connector.md) para configurar a conexão com o armazenamento de blob do Azure que está hospedando os dados. Vamos chamar esse serviço vinculado de "StorageLinkedService".
 3. Criar [conjuntos de dados](data-factory-create-datasets.md) apontando para os dados de entrada e de saída. Vamos chamar o conjunto de dados de entrada de "HiveSampleIn" e o conjunto de dados de saída de "HiveSampleOut"
 4. Copie a consulta do Hive como um arquivo para o Armazenamento de Blobs do Azure configurado na etapa 2. Se o armazenamento para hospedar os dados for diferente daquele que hospeda o arquivo de consulta, crie um serviço vinculado do Armazenamento do Azure separado e refira-o na atividade. Use **scriptPath** para especificar o caminho para o arquivo de consulta do Hive e **scriptLinkedService** para especificar o armazenamento do Azure que contém o arquivo de script. 
    

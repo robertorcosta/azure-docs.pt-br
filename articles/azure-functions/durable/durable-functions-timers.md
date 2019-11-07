@@ -7,39 +7,39 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/08/2018
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 11edfc11fc1e54684a99774c21517d4c322348b1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a24d6e96df3abf385b0a64ec4bc7e1f1c248998b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087052"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614633"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores nas Funções Duráveis (Azure Functions)
 
 As [Funções Duráveis](durable-functions-overview.md) fornecem *temporizadores duráveis* para uso em funções de orquestrador para implementar atrasos ou para configurar tempos limite em ações assíncronas. Temporizadores duráveis devem ser usados em funções de orquestrador em vez de `Thread.Sleep` ou `Task.Delay` (C#) ou `setTimeout()` e `setInterval()` (JavaScript).
 
-Crie um temporizador durável chamando o método [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) em [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) in .NET, ou o`createTimer` método do `DurableOrchestrationContext` no JavaScript. O método retorna uma tarefa que é retomada em uma data e hora especificadas.
+Você cria um temporizador durável chamando o método `CreateTimer` (.NET) ou o método `createTimer` (JavaScript) da [Associação de gatilho de orquestração](durable-functions-bindings.md#orchestration-trigger). O método retorna uma tarefa que é concluída em uma data e hora especificadas.
 
 ## <a name="timer-limitations"></a>Limitações do temporizador
 
-Quando você cria um temporizador que expira às 4:30 pm, o Framework de Tarefa Durável subjacente enfileira uma mensagem que se torna visível apenas às 4:30 pm. Ao executar usando um plano de consumo do Azure Functions, a mensagem do temporizador recém-visível garantirá que o aplicativo de funções seja ativado em uma VM apropriada.
+Quando você cria um temporizador que expira às 4:30 PM, o Framework de tarefa durável subjacente enfileira uma mensagem que se torna visível somente às 4:30 PM. Ao executar no plano de consumo de Azure Functions, a mensagem de temporizador recentemente visível garantirá que o aplicativo de funções seja ativado em uma VM apropriada.
 
 > [!NOTE]
-> * Temporizadores duráveis não podem durar mais de 7 dias devido a limitações no Armazenamento do Azure. Estamos trabalhando em uma [solicitação de recurso para estender os temporizadores para além de 7 dias](https://github.com/Azure/azure-functions-durable-extension/issues/14).
-> * Sempre use [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) em vez de `DateTime.UtcNow` in .NET e `currentUtcDateTime` em vez de `Date.now` ou `Date.UTC` no JavaScript, conforme mostrado nos exemplos a seguir, ao calcular o prazo relativo de um temporizador durável.
+> * Temporizadores duráveis atualmente estão limitados a 7 dias. Se forem necessários atrasos maiores, eles poderão ser simulados usando as APIs do temporizador em um loop de `while`.
+> * Sempre use `CurrentUtcDateTime` em vez de `DateTime.UtcNow` no .NET ou `currentUtcDateTime` em vez de `Date.now` ou `Date.UTC` em JavaScript ao calcular o tempo de acionamento para temporizadores duráveis. Para obter mais informações, consulte o artigo [restrições de código de função do Orchestrator](durable-functions-code-constraints.md) .
 
 ## <a name="usage-for-delay"></a>Uso para atrasos
 
-O exemplo a seguir ilustra como usar temporizadores duráveis para atrasar a execução. O exemplo está emitindo uma notificação de cobrança diariamente por dez dias.
+O exemplo a seguir ilustra como usar temporizadores duráveis para atrasar a execução. O exemplo está emitindo uma notificação de cobrança todos os dias por 10 dias.
 
 ### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BillingIssuer")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     for (int i = 0; i < 10; i++)
     {
@@ -50,7 +50,10 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (apenas Funções 2.x)
+> [!NOTE]
+> O exemplo C# anterior tem como alvo Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+
+### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
 
 ```js
 const df = require("durable-functions");
@@ -78,7 +81,7 @@ Este exemplo ilustra como usar temporizadores duráveis para implementar tempos 
 ```csharp
 [FunctionName("TryGetQuote")]
 public static async Task<bool> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     TimeSpan timeout = TimeSpan.FromSeconds(30);
     DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
@@ -104,7 +107,10 @@ public static async Task<bool> Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (apenas Funções 2.x)
+> [!NOTE]
+> O exemplo C# anterior tem como alvo Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+
+### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
 
 ```js
 const df = require("durable-functions");
@@ -131,11 +137,11 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Use um `CancellationTokenSource` para cancelar um temporizador durável (C#) ou chamar `cancel()` no `TimerTask` retornado (JavaScript) se seu código não aguardar a conclusão. O Framework de tarefa durável não alterará o status de uma orquestração para "concluído" até que todas as tarefas pendentes sejam concluídas ou canceladas.
+> Use um `CancellationTokenSource` para cancelar um temporizador durável (.NET) ou chamar `cancel()` no `TimerTask` retornado (JavaScript) se seu código não aguardar a conclusão. O Framework de tarefa durável não alterará o status de uma orquestração para "concluído" até que todas as tarefas pendentes sejam concluídas ou canceladas.
 
-Esse mecanismo não encerra a execução de funções de atividade em andamento. Em vez disso, ele simplesmente permite que a função de orquestrador ignore o resultado e prossiga. Se seu aplicativo de funções usar o Plano de Consumo, você ainda será cobrado pelo tempo e pela memória consumida pela função de atividade abandonada. Por padrão, funções em execução pelo Plano de Consumo têm um tempo limite de cinco minutos. Se esse limite for ultrapassado, o host do Azure Functions será reciclado para interromper toda a execução e evitar uma situação de cobrança sem controle. O [tempo limite da função é configurável](../functions-host-json.md#functiontimeout).
+Esse mecanismo de cancelamento não encerra as execuções da função de atividade em andamento ou da suborquestração. Em vez disso, ele simplesmente permite que a função de orquestrador ignore o resultado e prossiga. Se seu aplicativo de funções usar o plano de consumo, você ainda será cobrado por qualquer tempo e memória consumida pela função de atividade abandonada. Por padrão, funções em execução pelo Plano de Consumo têm um tempo limite de cinco minutos. Se esse limite for ultrapassado, o host do Azure Functions será reciclado para interromper toda a execução e evitar uma situação de cobrança sem controle. O [tempo limite da função é configurável](../functions-host-json.md#functiontimeout).
 
-Para obter um exemplo mais detalhado de como implementar tempos limite em funções de orquestrador, consulte o passo a passo [Interação humana e tempos limite – verificação por telefone](durable-functions-phone-verification.md).
+Para obter um exemplo mais detalhado de como implementar tempos limite em funções de orquestrador, consulte o artigo sobre a [interação humana & tempos limite-verificação de telefone](durable-functions-phone-verification.md) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,5 +1,5 @@
 ---
-title: Instalar componentes licenciados para o tempo de execução de integração do Azure-SSIS | Microsoft Docs
+title: 'Instalar componentes licenciados para o tempo de execução de integração do Azure-SSIS '
 description: Saiba como um ISV pode desenvolver e instalar componentes personalizados pagos ou licenciados para o tempo de execução de integração do Azure-SSIS
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 1c574578e6ed6ee032be01718eb3e8afd27fdf6f
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: f1f8a017153d95beed4979b6059383a41cd6a972
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708017"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673591"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Instalar componentes personalizados pagos ou licenciados para o tempo de execução de integração do Azure-SSIS
 
@@ -40,7 +40,7 @@ O diagrama a seguir mostra a instalação, a ativação e a associação típica
 ![Instalação de componentes licenciados](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
 
 ## <a name="instructions"></a>Instruções
-1. Os ISVs podem oferecer seus componentes licenciados em várias SKUs ou níveis (por exemplo, único nó, até 5 nós, até 10 nós e assim por diante). O ISV fornece a chave do produto (Product Key) correspondente quando clientes adquirem um produto. O ISV também pode fornecer um contêiner de blob de Armazenamento do Azure que contém um script de instalação do ISV e arquivos associados. Os clientes podem copiar esses arquivos em seu próprio contêiner de armazenamento e modificá-los com sua própria chave do produto (Product Key) (por exemplo, executando `IsvSetup.exe -pid xxxx-xxxx-xxxx`). Os clientes podem, então, provisionar ou reconfigurar o IR do Azure-SSIS com o URI de SAS do contêiner como parâmetro. Para obter mais informações, confira [Configuração personalizada para o tempo de execução de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
+1. Os ISVs podem oferecer seus componentes licenciados em várias SKUs ou níveis (por exemplo, único nó, até 5 nós, até 10 nós e assim por diante). O ISV fornece a chave do produto (Product Key) correspondente quando clientes adquirem um produto. O ISV também pode fornecer um contêiner de blob de Armazenamento do Azure que contém um script de instalação do ISV e arquivos associados. Os clientes podem copiar esses arquivos em seu próprio contêiner de armazenamento e modificá-los com sua própria chave do produto (Product Key) (por exemplo, executando `IsvSetup.exe -pid xxxx-xxxx-xxxx`). Os clientes podem, então, provisionar ou reconfigurar o IR do Azure-SSIS com o URI de SAS do contêiner como parâmetro. Para obter mais informações, consulte [Configuração personalizada para o tempo de execução de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 2. Quando o IR do Azure-SSIS é provisionado ou reconfigurado, a instalação do ISV é executada em cada nó para consultar as variáveis de ambiente do Windows, `SSIS_CLUSTERID` e `SSIS_CLUSTERNODECOUNT`. Em seguida, o IR do Azure-SSIS envia sua ID de Cluster e a chave do produto (Product Key) licenciado para o servidor de ativação do ISV para gerar uma chave de ativação.
 

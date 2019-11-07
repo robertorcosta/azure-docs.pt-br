@@ -7,27 +7,17 @@ ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 8f7349310f72c8cccc7b1906239ece3038dd7861
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.date: 11/04/2019
+ms.openlocfilehash: d8707e2edccf144cbe58a530bcfe2c176e656915
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249208"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582412"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Perguntas frequentes sobre o Azure Red Hat OpenShift
 
 Este artigo aborda perguntas frequentes (FAQs) sobre Microsoft Azure Red Hat OpenShift.
-
-## <a name="how-do-i-get-started"></a>Como começar?
-
-Antes de usar o Azure Red Hat OpenShift, você precisará comprar um mínimo de 4 nós de aplicativos reservados para o Red Hat OpenShift do Azure.
-
-Se você for um cliente do Azure,[adquira as instâncias reservadas do Red Hat OpenShift do Azure](https://aka.ms/openshift/buy) por meio do portal do Azure. Após a compra, sua assinatura será ativada dentro de 24 horas, após a qual você poderá provisionar clusters.
-
-Se você não for um cliente do Azure, [entre em contato com as vendas](https://aka.ms/openshift/contact-sales) e preencha o formulário de vendas na parte inferior da página para iniciar o processo.
-
-Consulte a [página de preços do Azure Red Hat OpenShift](https://aka.ms/openshift/pricing) para obter mais informações.
 
 ## <a name="which-azure-regions-are-supported"></a>Quais regiões do Azure têm suporte?
 
@@ -35,7 +25,7 @@ Consulte [recursos com suporte](supported-resources.md#azure-regions) para obter
 
 ## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Posso implantar um cluster em uma rede virtual existente?
 
-Nº Mas você pode conectar um cluster do Azure Red Hat OpenShift a uma VNET existente por meio de emparelhamento. Consulte [conectar a rede virtual de um cluster a uma rede virtual existente](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) para obter detalhes.
+Não. Mas você pode conectar um cluster do Azure Red Hat OpenShift a uma VNET existente por meio de emparelhamento. Consulte [conectar a rede virtual de um cluster a uma rede virtual existente](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) para obter detalhes.
 
 ## <a name="what-cluster-operations-are-available"></a>Quais operações de cluster estão disponíveis?
 
@@ -71,15 +61,15 @@ Sim. Um administrador do Azure Red Hat OpenShift pode gerenciar usuários e cota
 
 ## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>Posso restringir um cluster a apenas determinados usuários do AD do Azure?
 
-Sim. Você pode restringir quais usuários do Azure AD podem entrar em um cluster Configurando o aplicativo do Azure AD. Para obter detalhes, consulte [How para: Restringir seu aplicativo a um conjunto de usuários @ no__t-0
+Sim. Você pode restringir quais usuários do Azure AD podem entrar em um cluster Configurando o aplicativo do Azure AD. Para obter detalhes, consulte [como: restringir seu aplicativo a um conjunto de usuários](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
 
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>Um cluster pode ter nós de computação em várias regiões do Azure?
 
-Nº Todos os nós em um cluster do Azure Red Hat OpenShift devem se originar da mesma região do Azure.
+Não. Todos os nós em um cluster do Azure Red Hat OpenShift devem se originar da mesma região do Azure.
 
 ## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>Os nós mestre e de infraestrutura são abstratos como estão com o AKS (serviço kubernetes do Azure)?
 
-Nº Todos os recursos, incluindo o mestre de cluster, são executados na sua assinatura de cliente. Esses tipos de recursos são colocados em um grupo de recursos somente leitura.
+Não. Todos os recursos, incluindo o mestre de cluster, são executados na sua assinatura de cliente. Esses tipos de recursos são colocados em um grupo de recursos somente leitura.
 
 ## <a name="is-open-service-broker-for-azure-osba-supported"></a>Há suporte para o Service Broker aberto para Azure (OSBA)?
 
@@ -191,7 +181,7 @@ Cada cluster do Azure Red Hat OpenShift é dedicado a um determinado cliente e r
 
 ## <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>Podemos escolher qualquer solução de armazenamento persistente, como o OCS? 
 
-Duas classes de armazenamento estão disponíveis para seleção: Disco do Azure e arquivo do Azure.
+Duas classes de armazenamento estão disponíveis para seleção: disco do Azure e arquivo do Azure.
 
 ## <a name="how-is-a-cluster-updated-including-majors-and-minors-due-to-vulnerabilities"></a>Como um cluster é atualizado (incluindo grandes e menores devido a vulnerabilidades)?
 

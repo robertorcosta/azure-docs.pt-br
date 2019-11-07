@@ -1,6 +1,6 @@
 ---
 title: Configurar a CLI da Malha do Azure Service Fabric | Microsoft Docs
-description: Saiba como configurar a CLI da Malha do Azure Service Fabric.
+description: A Interface de linha de comando (CLI) da Malha do Service Fabric é necessária para implantar e gerenciar recursos localmente e na Malha do Azure Service Fabric. Veja como configurá-lo.
 services: service-fabric-mesh
 keywords: ''
 author: dkkapur
@@ -9,23 +9,23 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 46b2a9a0c4d8a1d9e0fa069d512670dffb94fc28
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5c9733a5fc5aec337a326fe39e78c3e5c0b8ca4f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173773"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686296"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurar CLI da Malha do Service Fabric
-A Interface de linha de comando (CLI) da Malha do Service Fabric é necessária para implantar e gerenciar recursos localmente e na Malha do Azure Service Fabric. 
+A Interface de linha de comando (CLI) da Malha do Service Fabric é necessária para implantar e gerenciar recursos localmente e na Malha do Azure Service Fabric. Veja como configurá-lo.
 
-Há três tipos de CLI que podem ser usados e eles estão resumidos na tabela a seguir. 
+Há três tipos de CLI que podem ser usados e eles estão resumidos na tabela a seguir.
 
-| Módulo de CLI | Ambiente de destino |  Descrição | 
+| Módulo de CLI | Ambiente de destino |  DESCRIÇÃO | 
 |---|---|---|
 | malha do az | Malha do Microsoft Azure Service Fabric | A CLI principal que permite implantar seus aplicativos e gerenciar recursos no ambiente da Malha do Azure Service Fabric. 
 | sfctl | Clusters locais | CLI do Service Fabric que permite a implantação e o teste de recursos do Service Fabric em clusters locais.  
-| CLI do Maven | Clusters locais e a Malha do Azure Service Fabric | Um wrapper `az mesh` e `sfctl` que permite aos desenvolvedores de Java usar uma experiência de linha de comando familiar para a experiência de desenvolvimento local e do Azure.  
+| CLI do Maven | Clusters locais e a Malha do Azure Service Fabric | Um wrapper em torno de `az mesh` e `sfctl` que permite aos desenvolvedores de Java usar uma experiência de linha de comando familiar para a experiência de desenvolvimento local e do Azure.  
 
 Para a versão prévia, a CLI da Malha do Azure Service Fabric é gravada como uma extensão da CLI do Azure. Você pode instalá-lo no Azure Cloud Shell ou uma instalação local da CLI do Azure. 
 

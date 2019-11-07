@@ -1,5 +1,5 @@
 ---
-title: Armazenar credenciais no Azure Key Vault | Microsoft Docs
+title: Armazenar credenciais no Azure Key Vault
 description: Saiba como armazenar as credenciais para os armazenamentos de dados usados em um Azure Key Vault, de modo que o Azure Data Factory possa recuperá-las automaticamente em tempo de execução.
 services: data-factory
 author: linda33wj
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f46c54edff2bc765e75742848f83d30e7aa7c09
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1e2458fa125ee4d223ef46001534fb7ae72b805e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003399"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684013"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Armazenar credencial no Azure Key Vault
 
@@ -41,9 +41,9 @@ Para referenciar uma credencial armazenada no Azure Key Vault, você precisa:
 
 As propriedades a seguir têm suporte no serviço vinculado do Azure Key Vault:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **AzureKeyVault**. | Sim |
+| Tipo | A propriedade type deve ser definida como: **AzureKeyVault**. | Sim |
 | baseUrl | Especifique a URL (nome DNS) do Azure Key Vault. | Sim |
 
 **Usando a criação da interface do usuário:**
@@ -74,9 +74,9 @@ Selecione o Azure Key Vault provisionado onde as credenciais são armazenadas. V
 
 As propriedades a seguir têm suporte quando você configura um campo no serviço vinculado, referenciando um segredo do cofre de chaves:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo do campo deve ser definida como: **AzureKeyVaultSecret**. | Sim |
+| Tipo | A propriedade type do campo deve ser definida como: **AzureKeyVaultSecret**. | Sim |
 | secretName | O nome do segredo no Azure Key Vault. | Sim |
 | secretVersion | A versão do segredo no Azure Key Vault.<br/>Se não for especificada, a versão mais recente do segredo será sempre usada.<br/>Se especificada, a versão especificada será sempre usada.| Não |
 | store | Refere-se a um serviço vinculado do Azure Key Vault que você usa para armazenar a credencial. | Sim |

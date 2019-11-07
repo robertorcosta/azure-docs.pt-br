@@ -1,6 +1,6 @@
 ---
 title: Galeria de IA do Azure
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Compartilhe e descubra soluções de análise e muito mais na Galeria de IA do Azure. Aprenda com os outros e faça suas próprias contribuições à comunidade.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 445ea2fa299e32d0ceae7b3eee9bbf0a82dd75af
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3f02c7377242dc031cd2d21d2b57bbd5f839eec3
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492928"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619137"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Compartilhar e descobrir recursos na Galeria de IA do Azure
 
@@ -24,7 +24,7 @@ A Galeria tem vários recursos que você pode usar para desenvolver suas própri
 
 ## <a name="what-can-i-find-in-the-gallery"></a>O que posso encontrar na Galeria?
 
-A Galeria de IA do Azure contém uma série de diferentes recursos contribuídos pela Microsoft e por membros da comunidade de ciência de dados. Estão incluídas:
+A Galeria de IA do Azure contém uma série de diferentes recursos contribuídos pela Microsoft e por membros da comunidade de ciência de dados. Estão incluídos:
 
 * **Experimentos** – a galeria contém uma ampla variedade de experimentos que foram desenvolvidos em Azure Machine Learning Studio (clássico). Eles variam de testes de verificação de conceito rápidos que demonstram uma técnica de aprendizado de máquina específica a soluções totalmente desenvolvidas para problemas de aprendizado de máquina complexos.
 * **Tutoriais** – uma série de tutoriais está disponível para orientá-lo por conceitos e tecnologias de aprendizado de máquina ou para descrever métodos avançados a fim de solucionar vários problemas de aprendizado de máquina.

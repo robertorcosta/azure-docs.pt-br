@@ -1,5 +1,5 @@
 ---
-title: Migrar bancos de dados existentes para escalar horizontalmente | Microsoft Docs
+title: Migrar bancos de dados existentes para escalar horizontalmente
 description: Converter bancos de dados fragmentados para usar ferramentas de banco de dados elástico criando um gerenciador de mapa de fragmentos
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 2d6d5c51cb381c089633ba010a1d64c8486ddcd8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b88c56872408a7ffe127a4e96d2313301d44c892
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568727"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690539"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar bancos de dados existentes para escalar horizontalmente
 Gerencie com facilidade seus bancos de dados fragmentados e escalonados horizontalmente existentes, usando as ferramentas de banco de dados do Banco de Dados SQL do Azure (como a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). Primeiro converta um conjunto existente de bancos de dados para usar o [gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). 
@@ -97,10 +97,10 @@ Para utilizar esse padrão de mapeamento, os valores de ID do locatário precisa
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-an-individual-database"></a>Opção 3: Mapeamentos de lista em um banco de dados individual
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Opção 3: listar mapeamentos em um banco de dados individual
 A configuração desse padrão também exige a criação de um mapa de lista conforme mostrado na etapa 2, opção 1.
 
-## <a name="step-3-prepare-individual-shards"></a>Etapa 3: Preparar os fragmentos individuais
+## <a name="step-3-prepare-individual-shards"></a>Etapa 3: preparar os fragmentos individuais
 Adicione cada fragmento (banco de dados)ao gerenciador de mapa de fragmentos. Isso prepara os bancos de dados individuais para armazenar informações de mapeamento. Execute esse método em cada fragmento.
 
     Add-Shard 

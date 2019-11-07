@@ -1,5 +1,5 @@
 ---
-title: Tecnologias In-Memory do Banco de Dados SQL do Azure | Microsoft Docs
+title: Tecnologias em memória do banco de dados SQL do Azure
 description: As tecnologias In-Memory do Banco de Dados SQL do Azure melhoram muito o desempenho de cargas de trabalho transacionais e analíticas.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: 325dda3695e796bc0814954d3bd69b9b340133b8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7ee643c10c61368ee91692cbddf326ba488f81e6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567959"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689778"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho usando tecnologias In-Memory no Banco de Dados SQL
 
@@ -51,8 +51,8 @@ Estes são dois exemplos de como o OLTP In-Memory ajudou a melhorar significativ
 - Usando o OLTP In-Memory, a [Quorum Business Solutions foi capaz de duplicar a carga de trabalho, melhorando as DTUs em 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
 
   - DTU significa *unidade de transmissão de dados* e inclui uma medida de consumo de recursos.
-- O vídeo a seguir demonstra uma melhoria significativa no consumo de recursos com uma carga de trabalho de exemplo: [Vídeo sobre OLTP In-Memory no Banco de Dados SQL do Azure](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
-  - Para obter mais informações, veja a postagem no blog: [Postagem de Blog de OLTP na memória do Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
+- O vídeo a seguir demonstra uma melhoria significativa no consumo de recursos com uma carga de trabalho de exemplo: [OLTP In-Memory no Vídeo do Banco de Dados SQL do Azure](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
+  - Para obter mais informações, confira a postagem no blog [OLTP in-memory no Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 > [!NOTE]  
 > Tecnologias In-Memory estão disponíveis em bancos de dados SQL do Azure de camada Comercialmente Crítico e Premium e pools elásticos Premium.
@@ -88,12 +88,12 @@ A tecnologia OLTP in-memory fornece operações de acesso de dados, extremamente
 > [!Note]
 > A tecnologia de OLTP In-Memory foi projetada para as estruturas de dados que podem residir totalmente na memória. Como os dados na memória não podem ser descarregados para o disco, certifique-se de estar usando um banco de dados que tenha memória suficiente. Consulte [Tamanho dos dados e limite de armazenamento do OLTP In-Memory](#data-size-and-storage-cap-for-in-memory-oltp) para obter mais informações.
 
-Uma rápida introdução sobre o OLTP In-Memory: [Início rápido 1: Tecnologias OLTP In-Memory para um desempenho mais rápido do T-SQL](https://msdn.microsoft.com/library/mt694156.aspx) (outro artigo para ajudá-lo com a introdução)
+Uma rápida introdução sobre OLTP na memória: início rápido [1: tecnologias OLTP em memória para um desempenho mais rápido do T-SQL](https://msdn.microsoft.com/library/mt694156.aspx) (outro artigo para ajudá-lo a começar)
 
 Vídeos detalhados sobre as tecnologias:
 
 - [OLTP In-Memory no Banco de Dados SQL do Azure](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (que contém uma demonstração dos benefícios de desempenho e as etapas para você mesmo reproduzir esses resultados)
-- [Vídeos sobre OLTP In-Memory: O que é e quando/como usá-lo](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
+- [Vídeos sobre o OLTP in-memory: O que é e quando e como usá-lo](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
 
 Há uma maneira programática de entender se determinado banco de dados dá suporte ao OLTP in-memory. Execute a seguinte consulta Transact-SQL:
 ```
@@ -140,7 +140,7 @@ Porém, fazer downgrade da camada pode afetar negativamente o banco de dados. O 
 
 Antes de fazer o downgrade do banco de dados para Standard/Básico, remova todas as tabelas com otimização de memória e os tipos de tabela, bem como todos os módulos do T-SQL compilados nativamente. 
 
-*Redução de recursos na camada Comercialmente Crítico*: Os dados em tabelas com otimização de memória devem ajustar-se ao armazenamento OLTP In-Memory associado à camada do banco de dados ou instância gerenciada, ou estar disponíveis no pool elástico. Se você tentar reduzir a camada ou mover o banco de dados para um pool que não tem armazenamento OLTP In-Memory suficiente disponível, a operação falhará.
+*Recursos de dimensionamento na camada de comercialmente crítico*: os dados em tabelas com otimização de memória devem se ajustar ao armazenamento OLTP na memória que está associado à camada do banco de dados ou instância gerenciada, ou está disponível no pool elástico. Se você tentar reduzir a camada ou mover o banco de dados para um pool que não tem armazenamento OLTP In-Memory suficiente disponível, a operação falhará.
 
 ## <a name="in-memory-columnstore"></a>Columnstore In-memory
 
@@ -155,7 +155,7 @@ Há dois tipos de modelos de columnstore que você pode usar para organizar seus
 
 Vídeo detalhado sobre a tecnologia:
 
-- [Índice columnstore: Vídeos sobre Análise In-Memory do Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
+- [Índice Columnstore: vídeos sobre a análise em memória do Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Tamanho dos dados e armazenamento para índices columnstore
 
@@ -180,7 +180,7 @@ Se você tiver um índice columnstore **clusterizado**, a tabela inteira ficará
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Início Rápido 1: Tecnologias OLTP In-Memory para um desempenho mais rápido do T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Início rápido 1: tecnologias OLTP em memória para um desempenho mais rápido do T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
 - [Usar o OLTP In-Memory em um aplicativo existente do SQL Azure](sql-database-in-memory-oltp-migration.md)
 - [Monitorar o armazenamento do OLTP In-Memory](sql-database-in-memory-oltp-monitoring.md) para o OLTP In-Memory
 - [Experimente os recursos In-memory no Banco de Dados SQL do Azure](sql-database-in-memory-sample.md)
@@ -205,4 +205,4 @@ Se você tiver um índice columnstore **clusterizado**, a tabela inteira ficará
 
 - [Portal do Azure](https://portal.azure.com/)
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-- [SSDT (Ferramentas de Dados do SQL Server)](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SSDT - Ferramentas de Dados do SQL Server](https://msdn.microsoft.com/library/mt204009.aspx)

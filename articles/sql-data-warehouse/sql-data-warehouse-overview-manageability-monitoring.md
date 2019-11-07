@@ -1,6 +1,6 @@
 ---
-title: Gerenciabilidade e Monitoramento de Data Warehouse SQL - Visão Geral | Microsoft Docs
-description: Visão geral de monitoramento e gerenciamento para utilização de recursos, atividade de log e consulta, recomendações e proteção de dados (backup e restauração).
+title: Gerenciabilidade e monitoramento-visão geral
+description: Visão geral de monitoramento e capacidade de gerenciamento para utilização de recursos, atividade de log e consulta, recomendações e proteção de dados (backup e restauração) no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e9fb06b8ba34566689f769ca9a69328eee37e3c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 3bacd77f49f97bd98a5e1bee844bc80c595f5cbe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60747567"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685607"
 ---
 # <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Gerenciabilidade e monitoramento com o SQL Data Warehouse do Azure
 
@@ -24,11 +25,11 @@ Dê uma olhada no que está disponível para ajudá-lo a gerenciar e monitorar o
 ## <a name="overview"></a>Visão geral
 
 * [Saiba mais sobre o gerenciamento de computação e a elasticidade][manage compute]
-* [Entender quais logs e métricas estão disponíveis no portal do Azure][resource utilization]
-* [Saiba mais sobre o backup e restaurar recursos][data protection]
-* [Saiba mais sobre recomendações e a inteligência interna][recommendations]
-* [Saiba mais sobre os períodos de manutenção e o que está disponível para minimizar o tempo de inatividade do data warehouse][maintenance]
-* [Encontre orientações de solução de problemas comuns][troubleshoot]
+* [Entenda quais métricas e logs estão disponíveis no portal do Azure][resource utilization]
+* [Saiba mais sobre os recursos de backup e restauração][data protection]
+* [Saiba mais sobre inteligência interna e recomendações][recommendations]
+* [Saiba mais sobre os períodos de manutenção e o que está disponível para minimizar o tempo de inatividade de seus data warehouse][maintenance]
+* [Encontre diretrizes comuns de solução de problemas][troubleshoot]
 
 
 ## <a name="next-steps"></a>Próximas etapas

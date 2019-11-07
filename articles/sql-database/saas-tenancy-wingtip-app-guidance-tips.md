@@ -1,5 +1,5 @@
 ---
-title: Diretrizes para o exemplo de aplicativo de multilocatário do Banco de Dados SQL - Wingtip SaaS | Microsoft Docs
+title: 'Diretrizes para exemplo de aplicativo multilocatário do banco de dados SQL – Wingtip SaaS '
 description: Fornece diretrizes e etapas para instalar e executar o aplicativo de multilocatário de exemplo que usa o Banco de Dados SQL do Azure, o exemplo de SaaS do Wingtip Tickets.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 6c14fd69521be85dbda5ec4ceda991dfdff54ae0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9258e1e8219300c47e77ea8164e54edd5855bb39
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570095"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691815"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Diretrizes gerais para trabalhar com aplicativos SaaS de exemplo do Wingtip Tickets
 
@@ -56,7 +56,7 @@ Definir esses valores aqui simplesmente impede que você precise atualizar esses
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Execute os scripts pressionando F5
 
-Vários scripts usam *$PSScriptRoot* para permitir a navegação em pastas e *$PSScriptRoot* é avaliada somente quando o script é executado, ao pressionar **F5**.  Realçar e executar uma seleção (**F8**) pode resultar em erros, então pressione **F5** ao executar scripts.
+Vários scripts usam *$PSScriptRoot* para permitir a navegação em pastas e *$PSScriptRoot* é avaliada somente quando o script é executado, ao pressionar **F5**.  Realçar e executar uma seleção (**F8**) pode resultar em erros; portanto, pressione **F5** ao executar scripts.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Percorrer os scripts para examinar a implementação
 
@@ -93,7 +93,7 @@ Para garantir uma conexão de demonstração bem-sucedida, todos os servidores t
 
    ![servidor catalog](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. As credenciais de demonstração são: Logon = *desenvolvedor*, senha = *P\@ssword1*
+3. As credenciais de demonstração são: login = *Developer*, password = *P\@ssword1*
 
     A imagem abaixo demonstra o logon para o padrão *Banco de dados por locatário*. 
     ![conexão](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: e5dc913d682088296f84fb6bd7595a09d9d3fe7b
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 0d73f40c77c1b73a52522eafdb3c093b691d3e14
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609859"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583464"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas que podem ser chamadas dos Aplicativos Lógicos do Azure
 
@@ -53,7 +53,7 @@ APIs personalizadas permitem que você chame APIs que não são conectores e for
 * Aparecem com ícones ao lado de conectores gerenciados pela Microsoft no Designer de Aplicativos Lógicos.
 * Disponível somente para usuários de aplicativos lógicos e autores de conectores que têm o mesmo locatário do Azure Active Directory e a assinatura do Azure na região em que os aplicativos lógicos são implantados.
 
-Você também pode nominar conectores registrados para certificação da Microsoft. Esse processo verifica se os conectores registrados atendem aos critérios para uso público e disponibiliza os conectores para usuários no Microsoft Flow e Microsoft PowerApps.
+Você também pode nominar conectores registrados para certificação da Microsoft. Esse processo verifica se os conectores registrados atendem aos critérios de uso público e disponibilizam esses conectores para os usuários na energia automatizada e no Microsoft Power apps.
 
 Para obter mais informações sobre conectores personalizados, consulte 
 
@@ -104,9 +104,9 @@ Aqui estão as etapas específicas que sua API deve seguir, descritas da perspec
    
    A resposta `202 ACCEPTED` deve incluir estes cabeçalhos:
    
-   * *Obrigatório*: Um cabeçalho `location` que especifica o caminho absoluto para uma URL onde o mecanismo dos Aplicativos Lógicos pode verificar o status do trabalho da API
+   * *Obrigatório*: um cabeçalho `location` que especifica o caminho absoluto para uma URL onde o mecanismo dos Aplicativos Lógicos pode verificar o status do trabalho da API
 
-   * *Opcional*: Um cabeçalho `retry-after` que especifica o número de segundos que o mecanismo deve aguardar antes de verificar a URL `location` em relação ao status do trabalho. 
+   * *Opcional*: um cabeçalho `retry-after` que especifica o número de segundos que o mecanismo deve aguardar antes de verificar a URL `location` em relação ao status do trabalho. 
 
      Por padrão, o mecanismo verifica a cada 20 segundos. Para especificar um intervalo diferente, inclua o cabeçalho `retry-after` e o número de segundos até o próximo intervalo de sondagem.
 
@@ -134,9 +134,9 @@ Quando o trabalho está pronto, sua API usa a URL para notificar o mecanismo e r
 
 Para esse padrão, configure dois pontos de extremidade em seu controlador: `subscribe` e `unsubscribe`
 
-*  Ponto de extremidade `subscribe`: Quando a execução atinge a ação da API no fluxo de trabalho, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `subscribe`. Esta etapa faz com que o aplicativo lógico crie uma URL de retorno de chamada que a API armazena e, em seguida, aguarda o retorno de chamada da API quando o trabalho é concluído. Sua API retorna a chamada com um HTTP POST para a URL e transmite o conteúdo retornado e os cabeçalhos como entrada para o aplicativo lógico.
+*  Ponto de extremidade `subscribe`: quando a execução atinge a ação da API no fluxo de trabalho, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `subscribe`. Esta etapa faz com que o aplicativo lógico crie uma URL de retorno de chamada que a API armazena e, em seguida, aguarda o retorno de chamada da API quando o trabalho é concluído. Sua API retorna a chamada com um HTTP POST para a URL e transmite o conteúdo retornado e os cabeçalhos como entrada para o aplicativo lógico.
 
-* Ponto de extremidade `unsubscribe`: Se a execução do aplicativo lógico for cancelada, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `unsubscribe`. Sua API pode cancelar o registro da URL de retorno de chamada e parar todos os processos conforme a necessidade.
+* Ponto de extremidade `unsubscribe`: se a execução do aplicativo lógico for cancelada, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `unsubscribe`. Sua API pode cancelar o registro da URL de retorno de chamada e parar todos os processos conforme a necessidade.
 
 ![Padrão de ação do Webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
@@ -196,9 +196,9 @@ Por exemplo, para verificar periodicamente novos arquivos no serviço, você pod
 Um gatilho de webhook é um *gatilho de envio por push* que aguarda e escuta novos dados ou eventos em seu ponto de extremidade de serviço. Se novos dados ou um evento atendem à condição especificada, o gatilho será acionado e criará uma instância de aplicativo lógico que processa os dados como entrada.
 Os gatilhos de webhook atuam como as [ações de webhook](#webhook-actions) descritas anteriormente neste tópico e são configuradas com pontos de extremidade `subscribe` e `unsubscribe`. 
 
-* Ponto de extremidade `subscribe`: Quando você adiciona e salva um gatilho de webhook em seu aplicativo lógico, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `subscribe`. Esta etapa faz com que o aplicativo lógico crie uma URL de retorno de chamada que é armazenada pela API. Quando há novos dados ou um evento que atenda à condição especificada, sua API retorna a chamada com um HTTP POST para a URL. A carga de conteúdo e os cabeçalhos são transmitidos como entrada para o aplicativo lógico.
+* Ponto de extremidade `subscribe`: quando você adiciona e salva um gatilho de webhook em seu aplicativo lógico, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `subscribe`. Esta etapa faz com que o aplicativo lógico crie uma URL de retorno de chamada que é armazenada pela API. Quando há novos dados ou um evento que atenda à condição especificada, sua API retorna a chamada com um HTTP POST para a URL. A carga de conteúdo e os cabeçalhos são transmitidos como entrada para o aplicativo lógico.
 
-* Ponto de extremidade `unsubscribe`: Se o gatilho de webhook ou o aplicativo lógico inteiro for excluído, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `unsubscribe`. Sua API pode cancelar o registro da URL de retorno de chamada e parar todos os processos conforme a necessidade.
+* Ponto de extremidade `unsubscribe`: se o gatilho de webhook ou o aplicativo lógico inteiro for excluído, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `unsubscribe`. Sua API pode cancelar o registro da URL de retorno de chamada e parar todos os processos conforme a necessidade.
 
 ![Padrão de gatilho de webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
@@ -222,9 +222,9 @@ Depois de configurar a autenticação, configure a implantação para suas APIs.
 
 Para disponibilizar seu APIs personalizadas para outros usuários de aplicativos lógicos no Azure, você deve adicionar a segurança e registrá-los como conectores do Aplicativo Lógico. Para obter mais informações, consulte [Visão geral de conectores personalizados](../logic-apps/custom-connector-overview.md). 
 
-Para disponibilizar suas APIs personalizadas para todos os usuários em Aplicativos Lógicos, Microsoft Flow e Microsoft PowerApps, você deve adicionar a segurança, registrar suas APIs como conectores de Aplicativos Lógicos e designar os conectores para o [programa Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
+Para disponibilizar suas APIs personalizadas para todos os usuários em aplicativos lógicos, Power Automate e Microsoft Power apps, você deve adicionar segurança, registrar suas APIs como conectores de aplicativos lógicos e indicar seus conectores para o [programa Microsoft Azure certificado](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
 * Para obter ajuda específica com APIs personalizadas, entre em contato com [ customapishelp@microsoft.com ](mailto:customapishelp@microsoft.com).
 

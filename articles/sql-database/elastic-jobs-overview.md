@@ -1,5 +1,5 @@
 ---
-title: Trabalhos de banco de dados elástico do SQL do Azure (visualização) | Microsoft Docs
+title: Trabalhos de banco de dados elástico do SQL do Azure (visualização)
 description: Configurar trabalhos de banco de dados elástico (versão prévia) para executar scripts Transact-SQL (T-SQL) em um conjunto de um ou mais bancos de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 3a0aa6e28ea4c40d5cad5ba99edec344c7979acf
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 2afe7d5c9667002c97d354cd1e94f292c6302558
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935089"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685300"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Criar, configurar e gerenciar trabalhos elásticos
 
@@ -75,7 +75,7 @@ Atualmente, a versão prévia está limitada a 100 trabalhos simultâneos.
 
 Para que os recursos não fiquem sobrecarregados ao executar trabalhos em bancos de dados em um pool elástico do SQL, os trabalhos podem ser configurados para limitar o número de bancos de dados em que o trabalho pode ser executado simultaneamente.
 
-Defina o número de bancos de dados simultâneos em que um trabalho é executado definindo `sp_add_jobstep` o parâmetro do `@max_parallelism` procedimento armazenado no T-SQL ou `Add-AzSqlElasticJobStep -MaxParallelism` no PowerShell.
+Defina o número de bancos de dados simultâneos em que um trabalho é executado definindo o parâmetro `@max_parallelism` do procedimento armazenado `sp_add_jobstep` no T-SQL ou `Add-AzSqlElasticJobStep -MaxParallelism` no PowerShell.
 
 ## <a name="best-practices-for-creating-jobs"></a>Melhores práticas para a criação de trabalhos
 

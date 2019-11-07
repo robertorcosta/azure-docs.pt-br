@@ -1,6 +1,6 @@
 ---
-title: Tabelas temporárias no SQL Data Warehouse | Microsoft Docs
-description: Guia essencial para usar as tabelas temporárias e destaca os princípios das tabelas temporárias no nível da sessão.
+title: Tabelas temporárias
+description: Diretrizes essenciais para o uso de tabelas temporárias no Azure SQL Data Warehouse, destacando os princípios das tabelas temporárias em nível de sessão.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: e43e52e56ec7abbf5d8eb879defef54bd7d50658
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 23a5825a32c602f70aff1d9f577ce13d3e9f2260
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479822"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685440"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tabelas temporárias no SQL Data Warehouse
 Este artigo contém as diretrizes essenciais de como usar as tabelas temporárias e destaca os princípios das tabelas temporárias no nível da sessão. Usar as informações neste artigo pode ajudá-lo a modularizar seu código, melhorando a reutilização e a facilidade de manutenção do seu código.

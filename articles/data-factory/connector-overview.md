@@ -1,5 +1,5 @@
 ---
-title: Visão geral do conector de Azure Data Factory | Microsoft Docs
+title: Visão geral do conector do Azure Data Factory
 description: Conheça os conectores com suporte no Data Factory.
 services: data-factory
 author: linda33wj
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 8/26/2019
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 14efe4d71ef11f0a4d32266368f0eefa167dff4b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 386372b73940c4917305d89f2e4d16759797bb87
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129881"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680474"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Visão geral do conector do Azure Data Factory
 

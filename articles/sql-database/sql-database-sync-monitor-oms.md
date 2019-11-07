@@ -1,5 +1,5 @@
 ---
-title: Monitorar Sincronização de Dados SQL do Azure com logs de Azure Monitor | Microsoft Docs
+title: 'Monitorar Sincronização de Dados SQL do Azure com logs de Azure Monitor '
 description: Saiba como monitorar Sincronização de Dados SQL do Azure usando logs de Azure Monitor
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 26dc1ebef1c627ed2b20eb0fda68b2ca2d01b82a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9e89ad8e6ac556df87a674efdf2d3bbc2041c38b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791753"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687038"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitorar Sincronização de Dados SQL com logs de Azure Monitor 
 
@@ -27,7 +27,7 @@ Para verificar o log de atividades da Sincronização de Dados SQL e detectar er
 Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> No momento, a Sincronização de Dados SQL do Azure **não** dá suporte à Instância Gerenciada do Banco de Dados SQL do Azure.
+> Atualmente, a Sincronização de Dados SQL **não** dá suporte para Instância Gerenciada do Banco de Dados SQL do Azure.
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Painel de Monitoramento para todos os Grupos de Sincronização 
 
@@ -85,7 +85,7 @@ Para obter mais informações sobre como criar um runbook, consulte [Meu primeir
 
 4.  Em **Arquivo de runbook**, use o determinado arquivo `DataSyncLogPowerShellRunbook`. Defina o **Tipo de runbook** como `PowerShell`. Forneça um nome para o runbook.
 
-5.  Clique em **Criar**. Agora você tem um runbook.
+5.  Selecione **Criar**. Agora você tem um runbook.
 
 6.  Em sua Conta da Automação do Azure, selecione a guia **Variáveis** em Recursos Compartilhados.
 
@@ -123,7 +123,7 @@ Para agendar o runbook:
 
 5.  Defina **Recorrência** como Recorrente e defina o intervalo desejado. Use o mesmo intervalo aqui, no script e em logs de Azure Monitor.
 
-6.  Clique em **Criar**.
+6.  Selecione **Criar**.
 
 ### <a name="check-the-automation"></a>Verificar a automação
 
@@ -149,7 +149,7 @@ Para criar um alerta que usa logs de Azure Monitor, faça o seguinte. Como pré-
 
 5.  Em **Ações**, defina **Notificação por email** como “Sim." Insira os destinatários de email desejados.
 
-6.  Clique em **Save** (Salvar). Agora, os destinatários especificados recebem notificações por email quando ocorrem erros.
+6.  Clique em **Salvar**. Agora, os destinatários especificados recebem notificações por email quando ocorrem erros.
 
 ## <a name="create-an-azure-monitor-view-for-monitoring"></a>Criar uma exibição de Azure Monitor para monitoramento
 
@@ -197,7 +197,7 @@ Baixe os exemplos de código descritos neste artigo nos seguintes locais:
 
 -   [Exibição de Azure Monitor de sincronização de dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a Sincronização de Dados SQL, veja:
 
 -   Visão geral - [Sincronize dados em vários bancos de dados locais e na nuvem com o Azure SQL Data Sync](sql-database-sync-data.md)

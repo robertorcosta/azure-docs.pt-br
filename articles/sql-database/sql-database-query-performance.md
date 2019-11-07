@@ -1,5 +1,5 @@
 ---
-title: Análise de Desempenho de Consultas para Banco de Dados SQL do Azure  | Microsoft Docs
+title: Análise de Desempenho de Consultas para Banco de Dados SQL do Azure
 description: O monitoramento do desempenho de consultas identifica as consultas que consumem mais CPU de um Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/03/2019
-ms.openlocfilehash: 659022f625604fe31c2ce47978d1132b20b7ffc8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: eb6827669829dc7aeeb6758a07218a29955b3682
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567028"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687585"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Análise de Desempenho de Consultas para Banco de Dados SQL do Azure
 
@@ -27,7 +27,7 @@ Gerenciar e ajustar o desempenho de bancos de dados relacionais requer conhecime
 * A capacidade de fazer busca detalhada de uma consulta para exibir o texto da consulta e o histórico de utilização de recursos.
 * Anotações que mostram as recomendações de desempenho do [Assistente do Banco de Dados SQL](sql-database-advisor.md).
 
-![Análise de Desempenho de Consultas](./media/sql-database-query-performance/opening-title.png)
+![Análise de desempenho de consultas](./media/sql-database-query-performance/opening-title.png)
 
 > [!TIP]
 > Para monitoramento básico de desempenho com Banco de Dados SQL do Azure, é recomendável a Análise de Desempenho de Consultas. Observe as limitações do produto publicadas neste artigo. Para monitoramento avançado do desempenho do banco de dados em escala, é recomendável a [Análise de SQL do Azure](../azure-monitor/insights/azure-sql.md). Ela possui inteligência interna para solução automatizada de problemas de desempenho. Para ajustar automaticamente alguns dos problemas mais comuns de desempenho do banco de dados, é recomendável o [Ajuste Automático](sql-database-automatic-tuning.md).
@@ -236,14 +236,14 @@ O segundo caso ocorre quando o Repositório de Consultas não está habilitado o
 
 Há dois tipos de política de retenção:
 
-* **Com base no tamanho**: Se essa política estiver configurada para **AUTO**, ela limpará os dados automaticamente quando o tamanho máximo for alcançado.
-* **Com base no tempo**: Por padrão, essa política está definida para 30 dias. Se o Repositório de Consultas ficar sem espaço, ele excluirá informações de consulta com mais de 30 dias.
+* **Baseado em tamanho**: se essa política for definida como **automática**, ela limpará os dados automaticamente quando o tamanho máximo for atingido.
+* **Baseado em tempo**: por padrão, essa política é definida como 30 dias. Se o Repositório de Consultas ficar sem espaço, ele excluirá informações de consulta com mais de 30 dias.
 
 É possível definir a política de captura para:
 
-* **Todas**: O Repositório de Consultas captura todas as consultas.
-* **Automática**: O Repositório de Consultas ignora consultas infrequentes e consultas com duração de execução e compilação insignificantes. Limites para contagem de execuções, duração de compilação e duração de tempo de execução são determinados internamente. Essa é a opção padrão.
-* **Nenhum**: O Repositório de Consultas para de capturar novas consultas, mas as estatísticas de tempo de execução para consultas já capturadas ainda são coletadas.
+* **Todos**: repositório de consultas captura todas as consultas.
+* **Automático**: repositório de consultas ignora consultas e consultas incomuns com duração de compilação e execução insignificante. Limites para contagem de execuções, duração de compilação e duração de tempo de execução são determinados internamente. Essa é a opção padrão.
+* **Nenhum**: repositório de consultas interrompe a captura de novas consultas, mas as estatísticas de tempo de execução para consultas já capturadas ainda são coletadas.
 
 É recomendável que você defina todas as políticas para **AUTO** e a política de limpeza para 30 dias, executando os seguintes comandos do [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou do portal do Azure. (Substitua `YourDB` pelo nome do banco de dados.)
 

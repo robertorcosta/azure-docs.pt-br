@@ -1,5 +1,5 @@
 ---
-title: Início Rápido do Striim com o SQL Data Warehouse do Azure | Microsoft Docs
+title: Início rápido do Striim
 description: Comece rapidamente a usar o Striim e o SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,13 @@ ms.subservice: integration
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 8ed9936884a648d736942caecade2ac3c2980e67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 65dc0b8fcece4364f3828fee09221612b999df4e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873406"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685355"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Guia de instalação da oferta do Marketplace do Striim Azure SQL DW
 
@@ -29,7 +30,7 @@ Configurar a VM do Striim com as propriedades especificadas, anotando o nome do 
 
 ![Configurar o Striim][configure]
 
-Uma vez implantado, clique em \<nome da VM >-masternode no portal do Azure, clique em conectar e copiar o logon usando a conta local da VM 
+Depois de implantado, clique em \<nome da VM >-masternode no portal do Azure, clique em conectar e copie o logon usando a conta local da VM 
 
 ![Conectar o Striim ao SQL Data Warehouse][connect]
 

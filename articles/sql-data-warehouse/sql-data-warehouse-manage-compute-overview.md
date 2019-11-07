@@ -1,5 +1,5 @@
 ---
-title: Gerenciar recursos de computação no SQL Data Warehouse do Microsoft Azure | Microsoft Docs
+title: Gerenciar recurso de computação
 description: Saiba mais sobre os recursos de escala horizontal de desempenho no SQL Data Warehouse do Azure. Escalar horizontalmente ajustando DWUs, ou reduzir os custos pausando o data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: f0935ccc4c4274bfab0c589ef158d4ea0bef455c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f93996d834ab805f2228543a833c4ce601042dc4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575330"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692620"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gerenciar computação no SQL Data Warehouse do Azure
 Saiba mais sobre como gerenciar recursos de computação no SQL Data Warehouse do Azure. Reduzir os custos pausando o data warehouse, ou dimensionar o data warehouse para atender às demandas de desempenho. 

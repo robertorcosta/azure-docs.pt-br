@@ -1,5 +1,5 @@
 ---
-title: Monitorar e melhorar o desempenho - Banco de Dados SQL do Azure | Microsoft Docs
+title: Monitorar e melhorar o desempenho-banco de dados SQL do Azure
 description: O Banco de Dados SQL do Azure fornece ferramentas de desempenho para ajudá-lo a identificar áreas em que é possível melhorar o desempenho de consulta atual.
 ms.service: sql-database
 ms.subservice: performance
@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 39a100c487588fb717c642036c7713150a95e047
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 483cd9f185cfa626d21fe0a5b86ba782ebb2f612
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567082"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687654"
 ---
 # <a name="monitor-and-improve-performance"></a>Monitorar e melhorar o desempenho
 
@@ -44,7 +44,7 @@ Essa exibição fornece um resumo do desempenho de seu banco de dados e lhe ajud
 * O bloco **Ajuste automático** mostra a[configuração de ajuste automático](sql-database-automatic-tuning-enable.md) para o banco de dados (opções de ajuste que são aplicadas automaticamente ao banco de dados). Clicar nesse bloco abre a caixa de diálogo de configuração de automação.
 * O bloco **Consultas de banco de dados** mostra o resumo do desempenho de consulta do banco de dados (uso geral de DTU e consultas com maior consumo de recursos). Ao clicar nesse bloco, será direcionado para **[Análise de Desempenho de Consultas](#query-performance-insight)** .
 
-## <a name="performance-recommendations"></a>Recomendações de desempenho
+## <a name="performance-recommendations"></a>Recomendações do desempenho
 
 Esta página fornece [recomendações de ajuste](sql-database-advisor.md) inteligente que podem melhorar o desempenho do banco de dados. Os seguintes tipos de recomendações são mostrados nesta página:
 
@@ -62,7 +62,7 @@ Saiba como localizar recomendações de desempenho de aplicativo no artigo [Loca
 
 Os bancos de dados SQL do Azure podem ajustar o desempenho do banco de dados automaticamente, aplicando as [recomendações de desempenho](sql-database-advisor.md). Para saber mais, leia o artigo de [Ajuste automático](sql-database-automatic-tuning.md). Para habilitá-lo, leia [como habilitar o ajuste automático](sql-database-automatic-tuning-enable.md).
 
-## <a name="query-performance-insight"></a>Análise de Desempenho de Consultas
+## <a name="query-performance-insight"></a>Análise de desempenho de consultas
 
 [Análise de Desempenho de Consultas](sql-database-query-performance.md) permite que você gaste menos tempo solucionando problemas de desempenho de banco de dados, fornecendo o seguinte:
 

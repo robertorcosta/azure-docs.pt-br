@@ -1,5 +1,5 @@
 ---
-title: Mapear colunas de conjunto de dados no Azure Data Factory | Microsoft Docs
+title: Mapeando colunas do conjunto de linhas no Azure Data Factory
 description: Saiba como mapear colunas de origem para colunas de destino.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1b009ac2ca42e9804b88989b55b2e73524732550
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 80ba7dc48da7cb5c43aae209c4e76c54948b8f88
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60238124"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666781"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mapear colunas de conjunto de dados de origem para colunas de conjunto de dados de destino
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory. 
+> Este artigo aplica-se à versão 1 do Data Factory. 
 
 O mapeamento de coluna pode ser usado para definir como colunas especificadas na "estrutura" da tabela de origem estão correlacionadas a colunas especificada na "estrutura" da tabela de coletor. A propriedade **columnMapping** está disponível na seção **typeProperties** da atividade Copiar.
 

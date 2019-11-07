@@ -1,5 +1,5 @@
 ---
-title: Criação de locatário de área de trabalho virtual do Windows e pool de hosts-Azure
+title: Criação do pool de hosts do locatário do Windows Virtual Desktop-Azure
 description: Como solucionar e resolver problemas de locatário e pool de hosts durante a instalação de um ambiente de locatário de área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: e2d2da5e2c8c0236a4f42bc69a521891616df0d4
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b53bf80774a0715c7a02d837975284e985958635
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163294"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607429"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação do pool de host e de locatário
 
@@ -342,7 +342,7 @@ Se você estiver executando o modelo de Azure Resource Manager do GitHub, forne�
 - IsServicePrincipal: **true**
 - AadTenantId: a ID de locatário do Azure AD da entidade de serviço que você criou
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
 - Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).
