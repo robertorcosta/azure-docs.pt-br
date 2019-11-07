@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f010e7564f097f28269070d85e2895e73f454054
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2f815d99c32c2dcaa1fd35d00110b27a90f53ab4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415567"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471206"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutorial: Compilar um aplicativo ASP.NET no Azure com Banco de Dados SQL
 
@@ -201,7 +201,7 @@ Quando o Visual Studio terminar de criar a configuração de firewall para a ins
 
 Aqui, você pode executar as operações de banco de dados mais comuns, como executar consultas, criar exibições, procedimentos armazenados e, muito mais. 
 
-Expanda sua conexão > **Bancos de dados** > **&lt;seu banco de dados>** > **Tabelas**. Clique com o botão direito do mouse na tabela `Todoes` e selecione **Exibir Dados**. 
+Expanda sua conexão > **Bancos de dados** >  **&lt;seu banco de dados>**  > **Tabelas**. Clique com o botão direito do mouse na tabela `Todoes` e selecione **Exibir Dados**. 
 
 ![Explorar objetos do Banco de Dados SQL](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
@@ -311,7 +311,7 @@ Clique em **Configurar** para abrir as configurações de publicação.
 
 No assistente, clique em **Avançar**.
 
-Certifique-se de que a cadeia de conexão do banco de dados SQL está preenchida em **MyDatabaseContext (MyDbConnection)**. Talvez seja necessário selecionar o banco de dados **myToDoAppDb** da lista suspensa. 
+Certifique-se de que a cadeia de conexão do banco de dados SQL está preenchida em **MyDatabaseContext (MyDbConnection)** . Talvez seja necessário selecionar o banco de dados **myToDoAppDb** da lista suspensa. 
 
 Selecione **Executar o Migrations do Code First (executado na inicialização do aplicativo)** e, em seguida, clique em **Salvar**.
 
@@ -364,7 +364,7 @@ Para alterar os níveis de rastreamento e exibir outras mensagens de rastreament
 
 Clique com o botão direito do mouse no aplicativo do Azure novamente e selecione **Exibir Configurações**.
 
-Na lista suspensa **Log de Aplicativo (Sistema de Arquivos)**, selecione **detalhado**. Clique em **Save** (Salvar).
+Na lista suspensa **Log de Aplicativo (Sistema de Arquivos)** , selecione **detalhado**. Clique em **Save** (Salvar).
 
 ![Alterar nível de rastreamento para Detalhado](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
@@ -392,11 +392,11 @@ Para interromper o serviço de streaming de log, clique no botão **Parar Monito
 
 ## <a name="manage-your-azure-app"></a>Gerenciar o aplicativo do Azure
 
-Acesse o [portal do Azure](https://portal.azure.com) para ver o aplicativo que você criou. 
+Acesse o [portal do Azure](https://portal.azure.com) para gerenciar o aplicativo Web. Pesquise e selecione **Serviços de Aplicativos**. 
 
+![Pesquise por Serviços de Aplicativos do Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
 
-
-No menu à esquerda, clique em **Serviço de Aplicativo**, em seguida, clique no nome do seu aplicativo do Azure.
+Selecione o nome do seu aplicativo do Azure.
 
 ![Navegação no Portal para o aplicativo do Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 

@@ -84,6 +84,14 @@
               href: entitlement-management-request-access.md
     - name: Análises de acesso
       items:
+        - name: Pacotes de acesso
+          items:
+            - name: Criar uma análise de acesso
+              href: entitlement-management-access-reviews-create.md
+            - name: Examinar acesso
+              href: entitlement-management-access-reviews-review-access.md
+            - name: Examinar o acesso para si mesmo
+              href: entitlement-management-access-reviews-self-review.md
         - name: Grupos e aplicativos
           items:
             - name: Criar uma análise de acesso

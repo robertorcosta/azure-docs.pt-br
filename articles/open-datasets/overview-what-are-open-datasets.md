@@ -1,22 +1,22 @@
 ---
 title: Quais são os conjuntos de dados abertos? Conjuntos de dados públicos coletados
-titleSuffix: Azure Open Datasets (preview)
-description: Saiba mais sobre os Conjuntos de dados abertos do Azure (versão prévia), conjuntos de dados coletados do domínio público que estão prontos para uso em soluções de aprendizado de máquina e análises. Os conjuntos de dados incluem dados públicos, como clima, censo, feriados e localização, para ajudá-lo a aprimorar as soluções de previsão.
+titleSuffix: Azure Open Datasets
+description: Saiba mais sobre os conjuntos de dados abertos do Azure, conjuntos de dados organizados do domínio público, como clima, censo, feriados e local para enriquecer soluções preditivas.
 ms.service: open-datasets
 ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 0c4bf3143bbf1ceb2f2f3c4a22477daa03690a0e
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
+ms.date: 11/04/2019
+ms.openlocfilehash: b8633bd91abc1f336870158f54d75829ed5cf6a0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70213585"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496592"
 ---
-# <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>O que são Conjuntos de dados abertos do Azure (versão prévia) e como você pode usá-los?
+# <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>O que são Conjuntos de dados abertos do Azure e como você pode usá-los?
 
-Os [Conjuntos de dados abertos do Azure](https://azure.microsoft.com/services/open-datasets/) são conjuntos de dados públicos coletados que você pode usar para adicionar recursos específicos do cenário para soluções de aprendizado de máquina para obter modelos mais precisos. Os Conjuntos de dados abertos estão na nuvem no Microsoft Azure e estão prontamente disponíveis para o Azure Databricks, o serviço de Machine Learning e o Machine Learning Studio. Você também pode acessar os conjuntos de dados por meio de APIs e usá-los em outros produtos, como o Power BI e o Azure Data Factory.
+Os [Conjuntos de dados abertos do Azure](https://azure.microsoft.com/services/open-datasets/) são conjuntos de dados públicos coletados que você pode usar para adicionar recursos específicos do cenário para soluções de aprendizado de máquina para obter modelos mais precisos. Os Conjuntos de dados abertos estão na nuvem no Microsoft Azure e são integrados ao Azure Machine Learning e estão prontamente disponíveis para o Azure Databricks e o Machine Learning Studio (clássico). Você também pode acessar os conjuntos de dados por meio de APIs e usá-los em outros produtos, como o Power BI e o Azure Data Factory.
 
 Os conjuntos de dados incluem dados de domínio público de clima, censo, feriados, segurança pública e localização que ajudam você a treinar os modelos de machine learning e aprimorar as soluções de previsão. Você também pode compartilhar seus conjuntos de dados públicos em Conjuntos de dados abertos do Azure. 
 
@@ -47,7 +47,7 @@ Estes são exemplos de conjuntos de dados disponíveis.
 ## <a name="access-to-datasets"></a>Acesso ao conjuntos de dados  
 Com uma conta do Azure, você pode acessar os conjuntos de dados abertos usando o código ou por meio da interface de serviço do Azure. Os dados são colocados em uso na sua solução de aprendizado de máquina por meio dos recursos de computação em nuvem do Azure.  
 
-Os Conjuntos de dados abertos fornecem notebooks do Azure Notebooks e do Azure Databricks que você pode usar para conectar os dados ao Serviço do Azure Machine Learning e do Azure Databricks. Os Conjuntos de dados também podem ser acessados por meio de um SDK de Python. 
+Os Conjuntos de dados abertos estão disponíveis por meio da interface do usuário e do SDK do Azure Machine Learning. Os Conjuntos de dados abertos fornecem notebooks do Azure Notebooks e do Azure Databricks que você pode usar para conectar os dados ao Azure Machine Learning e ao Azure Databricks. Os Conjuntos de dados também podem ser acessados por meio de um SDK de Python. 
 
 No entanto, você não precisa de uma conta do Azure para acessar o Conjunto de Dados em Aberto no Azure. Você pode acessá-lo em qualquer ambiente do Python com ou sem Spark.
 

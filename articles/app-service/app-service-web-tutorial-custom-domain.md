@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bbb064c358eba2dd64ba9ae86540a30cb56adb66
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 52394eb150a4206b7fb31cdf4b801762511e1a8c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595025"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471353"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure
 
@@ -60,9 +60,13 @@ Para mapear um nome DNS personalizado para um aplicativo Web, o [plano do Servi�
 
 Abra o [portal do Azure](https://portal.azure.com) e entre com sua conta do Azure.
 
-### <a name="navigate-to-the-app-in-the-azure-portal"></a>Navegar para o aplicativo no portal do Azure
+### <a name="select-the-app-in-the-azure-portal"></a>Selecionar o aplicativo no Portal do Microsoft Azure
 
-No menu à esquerda, selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do aplicativo.
+Pesquise e selecione **Serviços de Aplicativos**.
+
+![Selecionar Serviços de Aplicativos](./media/app-service-web-tutorial-custom-domain/app-services.png)
+
+Na página **Serviços de Aplicativos**, selecione o nome do seu aplicativo do Azure.
 
 ![Navegação no Portal para o aplicativo do Azure](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
@@ -156,7 +160,7 @@ Pode levar algum tempo para que o novo domínio personalizado seja refletido na 
 ![Registro CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> Um rótulo **Não seguro** para o domínio personalizado significa que ele ainda não está associado a um certificado SSL, e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para adicionar uma associação SSL, confira [Associar um certificado SSL personalizado existente ao Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-ssl.md).
+> Um rótulo **Não seguro** para o domínio personalizado significa que ele ainda não está associado a um certificado SSL, e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para adicionar uma associação de SSL, consulte [Proteger um nome DNS personalizado com uma associação SSL no Serviço de Aplicativo do Azure](configure-ssl-bindings.md).
 
 Se você perdeu uma etapa ou cometeu um erro de digitação em algum lugar anteriormente, você verá um erro de verificação na parte inferior da página.
 
@@ -240,7 +244,7 @@ Pode levar algum tempo para que o novo domínio personalizado seja refletido na 
 ![Registro A adicionado](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> Um rótulo **Não seguro** para o domínio personalizado significa que ele ainda não está associado a um certificado SSL, e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para adicionar uma associação SSL, confira [Associar um certificado SSL personalizado existente ao Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-ssl.md).
+> Um rótulo **Não seguro** para o domínio personalizado significa que ele ainda não está associado a um certificado SSL, e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para adicionar uma associação de SSL, consulte [Proteger um nome DNS personalizado com uma associação SSL no Serviço de Aplicativo do Azure](configure-ssl-bindings.md).
 
 Se você perdeu uma etapa ou cometeu um erro de digitação em algum lugar anteriormente, você verá um erro de verificação na parte inferior da página.
 
@@ -295,7 +299,7 @@ Selecione o ícone **+** novamente para adicionar outro domínio personalizado q
 ![Registro CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> Um rótulo **Anotação Segura** para o domínio personalizado significa que ele ainda não está associado a um certificado SSL, e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para adicionar uma associação SSL, confira [Associar um certificado SSL personalizado existente ao Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-ssl.md).
+> Um rótulo **Anotação Segura** para o domínio personalizado significa que ele ainda não está associado a um certificado SSL, e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para adicionar uma associação de SSL, consulte [Proteger um nome DNS personalizado com uma associação SSL no Serviço de Aplicativo do Azure](configure-ssl-bindings.md).
 
 ## <a name="test-in-browser"></a>Testar no navegador
 
@@ -374,4 +378,4 @@ Neste tutorial, você aprendeu como:
 Vá para o próximo tutorial para saber como associar um certificado SSL personalizado a um aplicativo Web.
 
 > [!div class="nextstepaction"]
-> [Associar um certificado SSL personalizado existente ao Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-ssl.md)
+> [Proteger um nome DNS personalizado com uma associação SSL no Serviço de Aplicativo do Azure](configure-ssl-bindings.md)

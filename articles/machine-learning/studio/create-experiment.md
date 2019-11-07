@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Criar um experimento de ciência de dados'
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Este início rápido de aprendizado de máquina percorre um teste de ciência de dados. Vamos prever o preço de um carro usando um algoritmo de regressão.
 services: machine-learning
 ms.service: machine-learning
@@ -10,16 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: e5c004b69f24b50ed2eb3a10dbd0a7915c0773ce
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: c95954bbe96b947312a952ebaab4e6bfc2b2f5a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515107"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493287"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Início Rápido: crie seu primeiro experimento no de ciência de dados no Azure Machine Learning Studio
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Início Rápido: Crie seu primeiro experimento no de ciência de dados no Azure Machine Learning Studio (clássico)
 
-Neste início rápido, você cria um teste de machine learning no [do Azure Machine Learning Studio](what-is-ml-studio.md) que prevê o preço de um carro com base em variáveis diferentes, tais como marca e especificações técnicas.
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
+Neste início rápido, você cria um teste de machine learning no [Azure Machine Learning Studio (clássico)](what-is-ml-studio.md) que prevê o preço de um carro com base em variáveis diferentes, tais como marca e especificações técnicas.
 
 Se você nunca teve contato com o aprendizado de máquina, a série de vídeo [Ciência de dados para iniciantes](data-science-for-beginners-the-5-questions-data-science-answers.md) é uma excelente introdução ao aprendizado de máquina usando linguagem e conceitos do dia a dia.
 
@@ -40,20 +42,18 @@ Este início rápido segue o fluxo de trabalho padrão para um experimento:
 [Escolher e aplicar um algoritmo]: #choose-and-apply-an-algorithm
 [Prever novos preços de automóveis]: #predict-new-automobile-prices
 
-Se você não tiver uma conta do Studio, vá para a [Home page do Studio](https://studio.azureml.net) e selecione **Inscreva-se aqui** para criar uma conta gratuita. O workspace gratuito terá todos os recursos necessários para este início rápido.
-
 ## <a name="get-the-data"></a>Obter os dados
 
 A primeira coisa que você precisa para executar o aprendizado de máquina são dados.
-Há uma série de conjuntos de dados de exemplo incluídos no Studio que você pode usar ou você pode importar dados de várias fontes. Neste exemplo, usaremos o conjunto de dados de exemplo **Dados de preço de automóvel (Brutos)** , que está incluído no seu workspace.
+Há uma série de conjuntos de dados de exemplo incluídos na versão clássica do Studio que você pode usar ou você pode importar dados de várias fontes. Neste exemplo, usaremos o conjunto de dados de exemplo **Dados de preço de automóvel (Brutos)** , que está incluído no seu workspace.
 Esse conjunto de dados inclui entradas para vários automóveis individuais, incluindo informações como marca, modelo, especificações técnicas e preço.
 
 > [!TIP]
-> Você pode encontrar uma cópia funcional do seguinte experimento na [Galeria de IA do Azure](https://gallery.azure.ai). Vá para **[Seu primeiro experimento de ciência de dados – previsão de preço de automóvel](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** e clique em **Abrir no Studio** para baixar uma cópia do experimento no seu workspace do Machine Learning Studio.
+> Você pode encontrar uma cópia funcional do seguinte experimento na [Galeria de IA do Azure](https://gallery.azure.ai). Vá para **[Seu primeiro experimento de ciência de dados – previsão de preço de automóvel](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** e clique em **Abrir no Studio** para baixar uma cópia do experimento no seu espaço de trabalho do Machine Learning Studio (clássico).
 
 Aqui está a explicação de como colocar o conjunto de dados no seu experimento.
 
-1. Crie um novo experimento clicando em **+NOVO** na parte inferior da janela do Machine Learning Studio. Selecione **EXPERIMENTO** >  **Experimento em Branco**.
+1. Crie um novo experimento clicando em **+NOVO** na parte inferior da janela do Machine Learning Studio (clássico). Selecione **EXPERIMENTO** >  **Experimento em Branco**.
 
 1. O teste recebe um nome padrão que você pode ver na parte superior da tela. Selecione este texto e renomeie para algo que tenha sentido, por exemplo, **Previsão de preço de automóvel**. O nome não precisa ser exclusivo.
 
@@ -240,7 +240,7 @@ Para cada estatística de erro, menos é melhor. Um valor menor indica que as pr
 Neste início rápido, você criou um teste simples usando um conjunto de dados de exemplo. Para explorar o processo de criação e implantação de um modelo mais detalhadamente, continue o tutorial de solução preditiva.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Desenvolver uma solução preditiva no Studio](tutorial-part1-credit-risk.md)
+> [Tutorial: Desenvolver uma solução preditiva no Studio (clássico)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

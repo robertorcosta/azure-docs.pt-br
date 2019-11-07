@@ -141,6 +141,8 @@
       href: how-to-legacy-device-symm-key.md
     - name: Usar as ferramentas do SDK para desenvolvimento
       href: how-to-use-sdk-tools.md
+    - name: Como enviar dados adicionais por meio de dispositivos
+      href: how-to-send-additional-data.md
     - name: solução de problemas
       href: how-to-troubleshoot-dps.md
 - name: Referência

@@ -84,9 +84,6 @@
     - name: Machine Learning automatizado
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
-    - name: Instância de computação
-      displayName: 'resource, dsvm, Data Science Virtual Machine'
-      href: concept-compute-instance.md
     - name: Destino de computação
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
@@ -115,6 +112,8 @@
     - name: Aprendizado
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
+    - name: Integração da Grade de Eventos
+      href: concept-event-grid-integration.md
     - name: Integração do Git
       displayName: git github gitlab
       href: concept-train-model-git-integration.md
@@ -163,6 +162,12 @@
         - name: Controlar a versão de conjuntos de dados e acompanhá-los
           displayName: 'data, data set'
           href: how-to-version-track-datasets.md
+        - name: Rotular dados
+          displayName: 'data, dataset, labeling'
+          href: how-to-create-labeling-projects.md
+        - name: Rotular imagens
+          displayName: 'data, dataset, labeling'
+          href: how-to-label-images.md
     - name: Treinar modelos
       items:
         - name: Usar o designer
@@ -227,11 +232,14 @@
         - name: Usar ML automatizado (Python)
           displayName: SDK automl
           href: how-to-configure-auto-train.md
-        - name: Usar o ML automatizado (página de aterrissagem do workspace)
+        - name: Usar o ML automatizado (interface)
           href: how-to-create-portal-experiments.md
         - name: Usar destinos de computação remota
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
+        - name: Definir tarefas do ML
+          displayName: 'machine learning, task type'
+          href: how-to-define-task-type.md
         - name: Autotreinar um modelo de previsão
           displayName: time series
           href: how-to-auto-train-forecast.md
@@ -270,7 +278,7 @@
         - name: Serviço de aplicativo do Azure
           displayName: web app
           href: how-to-deploy-app-service.md
-        - name: Instâncias de computação
+        - name: VMs do Notebook
           href: how-to-deploy-local-container-notebook-vm.md
         - name: Usar imagem personalizada do Docker
           href: how-to-deploy-custom-docker-image.md
@@ -317,6 +325,9 @@
     - name: Exportar e excluir dados
       displayName: GDPR
       href: how-to-export-delete-data.md
+    - name: Criar fluxos de trabalho orientados a eventos
+      displayName: event grid
+      href: how-to-use-event-grid.md
 - name: Referência
   items:
     - name: SDK do ML (Python)
@@ -328,6 +339,8 @@
     - name: CLI do Machine Learning
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
+    - name: API REST
+      href: 'https://docs.microsoft.com/rest/api/azureml/'
     - name: Monitorar a referência de dados
       href: monitor-resource-reference.md
     - name: Referência YAML do pipeline de aprendizado de máquina

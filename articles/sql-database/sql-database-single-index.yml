@@ -3,7 +3,7 @@ documentType: LandingData
 title: 'Banco de Dados SQL do Azure: Banco de dados individual'
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: 'Documentação do Banco de Dados SQL do Azure – tutoriais, referência de API'
+  title: Documentação do Banco de dados SQL do Azure – banco de dados individual
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
   requires-business-manager-approval: false

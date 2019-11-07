@@ -5,15 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
-ms.custom: mvc
-ms.openlocfilehash: d1c90e61890ee98dc5371faed872d03409aaf31f
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: bfec1493492fb1e8e9bd7394aae3db8983f4cff9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489556"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495661"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Tutorial: Criar e gerenciar um gateway de VPN usando o PowerShell
 
@@ -128,7 +127,7 @@ New-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 Valores de parâmetros de execução:
 * GatewayType: use **Vpn** para conexões site a site e VNet a VNet
 * VpnType: use **RouteBased** para interagir com um intervalo mais amplo de dispositivos VPN e mais recursos de roteamento
-* GatewaySku: **VpnGw1** é o padrão; altere-o para VpnGw2 ou VpnGw3 se precisar de taxas de transferência mais altas ou mais conexões. Para obter mais informações, confira [SKUs de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+* GatewaySku: **VpnGw1** é o padrão; altere-o para outra SKU de VpnGw se precisar de taxas de transferência mais altas ou mais conexões. Para obter mais informações, confira [SKUs de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 Se você estiver usando o TryIt, sua sessão poderá atingir o tempo limite. Não se preocupe. O gateway ainda será criado.
 

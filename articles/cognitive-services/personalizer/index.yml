@@ -12,12 +12,12 @@ metadata:
   title: Documentação do Personalizador
   titleSuffix: Azure Cognitive Services
   description: O Personalizador do Azure é um serviço de API baseado em nuvem que permite que você escolha a melhor experiência a ser mostrada aos usuários, aprendendo com o comportamento deles em tempo real.
-  ms.openlocfilehash: f3ba5f5eef7885896d774fd8aab35784cfb6465e
-  ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+  ms.openlocfilehash: 19736d881400a311964920f5669a0e9423891f9e
+  ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/04/2019
-  ms.locfileid: "71950052"
+  ms.lasthandoff: 11/05/2019
+  ms.locfileid: "73604213"
 landingContent:
 - title: Sobre o Personalizador
   linkLists:
@@ -97,7 +97,7 @@ landingContent:
       url: concepts-exploration.md
     - text: Recursos, ação e contexto
       url: concepts-features.md
-    - text: Aprendizado ativo
+    - text: Eventos ativos e inativos
       url: concept-active-learning.md
     - text: Recompensas
       url: concept-rewards.md
@@ -107,7 +107,7 @@ landingContent:
     links:
     - text: Aprimorar o loop com avaliações offline
       url: concepts-offline-evaluation.md
-    - text: Aprendizado ativo
+    - text: Eventos ativos e inativos
       url: concept-active-learning.md
     - text: Desempenho e escalabilidade
       url: concepts-scalability-performance.md

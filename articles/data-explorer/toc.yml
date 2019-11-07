@@ -88,10 +88,6 @@
           href: ingest-data-logstash.md
         - name: Copiar dados usando o Azure Data Factory
           href: data-factory-load-data.md
-    - name: Implantar
-      items:
-        - name: Tarefa do DevOps
-          href: devops.md
     - name: Consultar dados
       items:
         - name: Gravar consultas
@@ -136,6 +132,8 @@
           href: tableau.md
         - name: Sisense
           href: sisense.md
+        - name: Redash
+          href: redash.md
     - name: Gerenciar
       items:
         - name: HDInsight
@@ -166,6 +164,10 @@
               href: delete-data.md
             - name: Lidar com dados duplicados
               href: dealing-with-duplicates.md
+    - name: Implantar
+      items:
+        - name: Implantar o cluster em sua VNet
+          href: vnet-deployment.md
     - name: Monitoramento
       items:
         - name: Usar logs de diagnóstico para monitorar a ingestão
@@ -186,6 +188,8 @@
           href: connect-from-databricks.md
         - name: Analisar dados em Jupyter Notebooks e no Kqlmagic
           href: kqlmagic.md
+        - name: Azure Pipelines
+          href: devops.md
     - name: Solucionar problemas
       items:
         - name: Criar um cluster
@@ -220,9 +224,13 @@
           href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto'
     - name: Comentários sobre o produto
       href: 'https://aka.ms/adefeedback'
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/data-explorer/'
-    - name: Estimativa de Custo
-      href: 'https://aka.ms/adecostestimator'
+    - name: Preços e cobrança
+      items:
+        - name: Página de preços
+          href: 'https://azure.microsoft.com/pricing/details/data-explorer/'
+        - name: Avaliador de custos
+          href: 'https://aka.ms/adecostestimator'
+        - name: Capacidade reservada
+          href: pricing-reserved-capacity.md
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=data-explorer'

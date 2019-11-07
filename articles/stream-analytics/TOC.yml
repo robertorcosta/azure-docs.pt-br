@@ -97,6 +97,8 @@
           href: stream-analytics-power-bi-dashboard.md
         - name: Interromper ou excluir um trabalho
           href: stream-analytics-clean-up-your-job.md
+        - name: Copiar ou fazer backup de um trabalho
+          href: copy-job.md
         - name: Emparelhar trabalhos para confiabilidade
           href: stream-analytics-job-reliability.md
         - name: Autenticar com identidade gerenciada – saída do ADLS Gen 1

@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 08/09/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 0c33c0832590fdfd4fe78a1645ef1b0e3e391163
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: bf4b79dbb3da15605dc4362b5f0578a457886316
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200575"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581366"
 ---
 # <a name="overview-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Visão geral do exemplo de blueprint do CIS Microsoft Azure Foundations Benchmark
 
@@ -19,16 +19,16 @@ O exemplo de blueprint do CIS Microsoft Azure Foundations Benchmark fornece dire
 
 ## <a name="recommendation-mapping"></a>Mapeamento de recomendação
 
-A seção mapeamento de recomendação fornece detalhes sobre as políticas incluídas neste blueprint e como essas políticas abordam várias recomendações no CIS Microsoft Azure Foundations Benchmark.
-Quando atribuídos a uma arquitetura, os recursos são avaliados pelo Azure Policy para verificar a não conformidade com políticas atribuídas. Para saber mais, veja [Azure Policy](../../../policy/overview.md).
+A seção mapeamento de recomendação fornece detalhes sobre as políticas incluídas neste blueprint e como essas políticas abordam várias recomendações no CIS Microsoft Azure Foundations Benchmark v.1.1.0. Quando atribuídos a uma arquitetura, os recursos são avaliados pelo Azure Policy para verificar a não conformidade com políticas atribuídas. Para saber mais, veja [Azure Policy](../../../policy/overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Você examinou a visão geral e o exemplo de blueprint do CIS Microsoft Azure Foundations Benchmark.
-Em seguida, visite o próximo artigo para saber mais sobre o mapeamento de recomendação:
+Em seguida, visite os próximos artigos para saber mais sobre o mapeamento de recomendação:
 
 > [!div class="nextstepaction"]
 > [Blueprint do CIS Microsoft Azure Foundations Benchmark – mapeamento de recomendação](./control-mapping.md)
+> [Blueprint do CIS Microsoft Azure Foundations Benchmark – etapas de implantação](./deploy.md)
 
 Outros artigos sobre blueprints e como usá-los:
 

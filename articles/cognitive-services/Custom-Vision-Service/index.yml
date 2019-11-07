@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação da Visão Personalizada
-summary: A Visão Personalizada é um serviço cognitivo que permite compilar, implantar e aprimorar seus próprios classificadores de imagens. Um classificador de imagens é um serviço de IA que aplica rótulos (que representam classes) a imagens, de acordo com suas características visuais.
+summary: A Visão Personalizada permite criar, implantar e aprimorar seus próprios classificadores de imagens. Um classificador de imagens é um serviço de IA que aplica rótulos (que representam classes) a imagens, de acordo com suas características visuais.
 metadata:
   title: Documentação da Visão Personalizada – Inícios rápidos, tutoriais, referência de API – Serviços Cognitivos do Azure | Microsoft Docs
-  description: A Visão Personalizada é um serviço cognitivo que permite criar, implantar e aprimorar seus próprios classificadores de imagens. Um classificador de imagens é um serviço de IA que aplica rótulos (que representam classes) a imagens, de acordo com suas características visuais.
+  description: A Visão Personalizada permite criar, implantar e aprimorar seus próprios classificadores de imagens. Um classificador de imagens é um serviço de IA que aplica rótulos (que representam classes) a imagens, de acordo com suas características visuais.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: custom-vision
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 21e4c324b947cb863614f50bb2ee0bfe09246372
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: 2ef22176b64638dc43a4a45096cf072a7c79931e
+  ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72931632"
+  ms.lasthandoff: 11/06/2019
+  ms.locfileid: "73647587"
 landingContent:
 - title: Sobre a Visão Personalizada
   linkLists:
@@ -80,7 +80,7 @@ landingContent:
       url: test-your-model.md
     - text: Melhorar o modelo
       url: getting-started-improving-your-classifier.md
-    - text: Usar marcas sugeridas
+    - text: Usar o Rotulador Inteligente
       url: suggested-tags.md
 - title: Exportar modelos
   linkLists:

@@ -7,15 +7,15 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 0c5541d7a80c3b6157ccadd979412163122ca8a2
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 9e6206e6f7e09ebe03659eb6e515a9b26d3469bd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300741"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475939"
 ---
 # <a name="what-is-azure-private-link-preview"></a>O que é o Link Privado do Azure? (Visualização)
-O Link Privado do Azure te habilita a acessar os serviços de PaaS do Azure (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e serviços de parceiros/clientes hospedados no Azure em um [Ponto de Extremidade Privado](private-endpoint-overview.md) em sua rede virtual. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Também é possível criar seu próprio [Serviço de Link Privado](private-link-service-overview.md) em sua VNet (rede virtual) e fornecê-lo de forma privada aos seus clientes. A experiência de configuração e consumo usando o Link Privado do Azure é consistente entre os serviços de parceiro de PaaS do Azure, de propriedade do cliente e de parceiros compartilhados.
+O Link Privado do Azure te habilita a acessar os serviços de PaaS do Azure (por exemplo, Armazenamento do Azure e Banco de Dados SQL e Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um [Ponto de Extremidade Privado](private-endpoint-overview.md) em sua rede virtual. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Também é possível criar seu próprio [Serviço de Link Privado](private-link-service-overview.md) em sua VNet (rede virtual) e fornecê-lo de forma privada aos seus clientes. A experiência de configuração e consumo usando o Link Privado do Azure é consistente entre os serviços de parceiro de PaaS do Azure, de propriedade do cliente e de parceiros compartilhados.
 
 > [!IMPORTANT]
 > Essa versão prévia pública é fornecida sem um SLA e não deve ser usada para cargas de trabalho de produção. Determinados recursos podem não ter suporte, podem ter restrição ou podem não estar disponíveis em todos os locais do Azure. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes. Para conhecer as limitações conhecidas, confira [Ponto de Extremidade Privado](private-endpoint-overview.md#limitations) e [Serviço de Link Privado](private-link-service-overview.md#limitations).
@@ -45,8 +45,9 @@ O Link Privado do Azure fornece os seguintes benefícios:
 |  | Azure Data Lake Storage Gen2        |  Leste dos EUA, Oeste dos EUA, Centro-oeste dos EUA       | Visualização         |
 |  |  Banco de Dados SQL do Azure         | Centro-oeste dos EUA; Oeste dos EUA; Centro-Sul dos EUA; Leste dos EUA; Centro-Norte dos EUA      |   Visualização      |
 ||SQL Data Warehouse do Azure| Centro-oeste dos EUA; Oeste dos EUA; Centro-Sul dos EUA; Leste dos EUA; Centro-Norte dos EUA |Visualização|
+||Azure Cosmos DB| Centro-oeste dos EUA; Oeste dos EUA; Leste dos EUA; Centro-norte dos EUA; Leste dos EUA 2; Oeste dos EUA 2 |Visualização|
 
-Para obter as notificações mais recentes, confira a página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network). 
+Para obter as notificações mais recentes, confira a página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="logging-and-monitoring"></a>Log e monitoramento
 
@@ -71,6 +72,7 @@ Para limites, confira [Limites do Link Privado do Azure](../azure-subscription-s
 - [Criar um Ponto de Extremidade Privado para o Servidor do Banco de Dados SQL usando o PowerShell](create-private-endpoint-powershell.md)
 - [Criar um Ponto de Extremidade Privado para o Servidor do Banco de Dados SQL usando a CLI ](create-private-endpoint-cli.md)
 - [Criar um Ponto de Extremidade Privado para a conta de Armazenamento usando o portal ](create-private-endpoint-storage-portal.md)
+- [Criar um Ponto de Extremidade Privado para a conta do Azure Cosmos usando o portal ](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Criar seu próprio serviço de Link Privado usando o Azure PowerShell](create-private-link-service-powershell.md)
 
 

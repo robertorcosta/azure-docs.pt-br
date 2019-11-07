@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3c0b9ad774d336da9bc60d2ef9f7ff2645602b6c
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 2530fb0bd27cd98b702d804b0cb5a1dc60419f2f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259213"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490405"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: definir e recuperar um segredo do Azure Key Vault usando o portal do Azure
 
@@ -29,14 +29,12 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Criar um cofre
 
-1. Selecione a opção **Criar um recurso** no canto superior esquerdo do portal do Azure
-
-    ![Saída após a conclusão da criação do Key Vault](./media/quick-create-portal/search-services.png)
+1. No menu do portal do Azure ou na página **Início**, selecione **Criar um recurso**.
 2. Digite **Key Vault** na caixa Pesquisar.
 3. Na lista de resultados, escolha **Key Vault**.
 4. Na seção Key Vault, escolha **Criar**.
 5. A seção **Criar cofre de chaves** fornece as seguintes informações:
-    - **Nome**: um nome exclusivo é necessário. Neste início rápido, usamos **Contoso-vault2**. 
+    - **Nome**: um nome exclusivo é necessário. Para este início rápido, usamos **Contoso-vault2**. 
     - **Assinatura**: Escolha uma assinatura.
     - Em **Grupo de Recursos**, escolha **Criar novo** e digite um nome para o grupo de recursos.
     - No menu suspenso **Local**, escolha um local.

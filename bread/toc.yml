@@ -714,6 +714,9 @@
     - name: Stream Analytics
       tocHref: /azure/stream-analytics/
       topicHref: /azure/stream-analytics/
+    - name: Analisador de Internet
+      tocHref: /azure/internet-analyzer/
+      topicHref: /azure/internet-analyzer/
     - name: Gerenciador de Tráfego
       tocHref: /azure/traffic-manager/
       topicHref: /azure/traffic-manager/

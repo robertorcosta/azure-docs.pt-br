@@ -8,6 +8,8 @@
   items:
     - name: Criar serviço – Portal
       href: quickstart-create-data-migration-service-portal.md
+    - name: Criar serviço no modo híbrido – portal
+      href: quickstart-create-data-migration-service-hybrid-portal.md
 - name: Tutoriais
   items:
     - name: Migrar o SQL Server para o banco de dados individual do BD SQL do Azure offline

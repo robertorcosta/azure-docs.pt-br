@@ -10,14 +10,15 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 988f91d9ab644df4ecb375114abf4245440cbf13
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: ae657daca86c979495ca14d9df845e2a7a769e0a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162521"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476163"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implantar um modelo de classificação de imagem em Instâncias de Contêiner do Azure
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Este tutorial é **parte dois de uma série de tutoriais de duas partes**. No [tutorial anterior](tutorial-train-models-with-aml.md), você treinou modelos de machine learning e, depois, registrou um modelo no workspace na nuvem.  
 
@@ -39,9 +40,15 @@ Instâncias de Contêiner são uma ótima solução para testar e compreender o 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar o notebook, primeiro conclua o treinamento de modelo no [Tutorial (parte 1): treinar um modelo de classificação de imagem](tutorial-train-models-with-aml.md).   Em seguida, abra o notebook **tutorials/img-classification-part2-deploy.ipynb** usando o mesmo servidor do notebook.
+Para executar o notebook, primeiro conclua o treinamento de modelo no [Tutorial (parte 1): treinar um modelo de classificação de imagem](tutorial-train-models-with-aml.md).   Em seguida, abra o notebook **img-classification-part2-deploy.ipynb** na pasta **tutoriais** clonada.
 
 Este tutorial também estará disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) caso você deseje usá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local).  Verifique se você instalou o `matplotlib` e o `scikit-learn` em seu ambiente. 
+
+> [!Important]
+> O restante deste artigo contém o mesmo conteúdo que você vê no notebook.  
+>
+> Alterne para o Jupyter Notebook agora se quiser ler enquanto executa o código.
+> Para executar uma única célula de código em um notebook, clique na célula de código e pressione **Shift + Enter**. Ou execute o notebook inteiro escolhendo a **Executar tudo** na barra de ferramentas superior.
 
 ## <a name="start"></a>Configurar o ambiente
 

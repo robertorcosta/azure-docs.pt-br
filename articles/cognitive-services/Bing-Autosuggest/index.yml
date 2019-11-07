@@ -1,9 +1,9 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação da Sugestão Automática do Bing
+summary: A API de Sugestão Automática do Bing permite que você envie consultas de pesquisa parciais para o Bing e obtenha uma lista de sugestões com base na intenção do usuário e em pesquisas anteriores. Chame a API para preencher caixas de pesquisa e listas suspensas em seu aplicativo com sugestões, conforme os usuários digitam.
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: 'Documentação da Sugestão Automática do Bing – Tutoriais, guias de início rápido e referências de API'
+  title: Documentação da Sugestão Automática do Bing – Tutoriais, guias de início rápido e referências de API
   titleSuffix: Azure Cognitive Services
   description: Saiba como usar a API de Sugestão Automática do Bing para obter consultas sugeridas com base em uma consulta parcial. Os tutoriais mostram como criar aplicativos que usam o serviço.
   services: cognitive-services
@@ -12,80 +12,56 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: bing-autosuggest
   ms.topic: landing-page
-  ms.date: 07/25/2019
+  ms.date: 10/28/2019
   ms.author: aahi
-abstract:
-  description: 'A API de Sugestão Automática do Bing permite enviar um termo de consulta de pesquisa parcial ao Bing e recuperar uma lista de consultas sugeridas pelas quais outros usuários pesquisaram.  Por exemplo, conforme os usuários digitam cada caractere do termo de pesquisa, você pode chamar essa API para preencher a lista suspensa da caixa de pesquisa com sugestões. Saiba como usar a API de Sugestão Automática com nossos guias rápidos, tutoriais e exemplos.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/bing-autosuggest/get-suggested-search-terms
-            html: <p>Saiba mais sobre a API de Sugestão Automática do Bing</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: O que é a API de Sugestão Automática do Bing?
-          - href: /azure/cognitive-services/bing-autosuggest/concepts/get-suggestions
-            html: <p>Saiba como obter sugestões de pesquisa em tempo real</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Obtendo sugestões da API de Sugestão Automática do Bing
-          - href: /azure/cognitive-services/bing-autosuggest/language-support
-            html: <p>Descubra quais idiomas são compatíveis com a API.</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Idiomas com suporte
-  - title: Guia de início rápido de 5 minutos
-    items:
-      - type: paragraph
-        text: 'Comece a usar a API de Sugestão Automática do Bing, fazendo uma consulta e exibindo a resposta JSON:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/logo_csharp.svg
-            href: quickstarts/csharp
-            text: 'C&#35;'
-          - image:
-              src: media/index/logo_java.svg
-            href: quickstarts/java
-            text: Java
-          - image:
-              src: media/index/logo_nodejs.svg
-            href: quickstarts/nodejs
-            text: Node.js
-          - image:
-              src: media/index/logo_php.svg
-            href: quickstarts/php
-            text: PHP
-          - image:
-              src: media/index/logo_python.svg
-            href: quickstarts/python
-            text: Python
-          - image:
-              src: media/index/logo_ruby.svg
-            href: quickstarts/ruby
-            text: Ruby
-  - title: Tutoriais Passo a Passo
-    items:
-      - type: paragraph
-        text: 'Saiba como desenvolver aplicativos usando a API de Sugestão Automática do Bing:'
-      - type: paragraph
-        text: <a href="tutorials/autosuggest.md">Aplicativo Web de página única</a>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: APIs
-            html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference">API de Sugestão Automática do Bing v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference">API de Sugestão Automática do Bing v5</p>'
-          - title: SDKs
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet">.NET</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable">Java</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">PowerShell do Azure</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI do Azure</a></p>'
+  ms.openlocfilehash: 3e7126b4f98ecc7729afd5abd003caffc2644d75
+  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73580131"
+landingContent:
+- title: Sobre a API de Sugestão Automática do Bing
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a API de Sugestão Automática do Bing?
+      url: get-suggested-search-terms.md
+    - text: Comparar as APIs de Pesquisa do Bing
+      url: ../bing-web-search/bing-api-comparison.md
+- title: Obter termos de pesquisa sugeridos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Usando C#
+      url: quickstarts/csharp.md
+    - text: Usando Python
+      url: quickstarts/python.md
+    - text: Usando Java
+      url: quickstarts/java.md
+    - text: Usando o Node.js
+      url: quickstarts/nodejs.md
+  - linkListType: tutorial
+    links:
+    - text: Criar um aplicativo Web de página única
+      url: tutorials/autosuggest.md
+  - linkListType: how-to-guide
+    links:
+    - text: Usar os termos sugeridos
+      url: concepts/get-suggestions.md
+    - text: Enviar solicitações da API
+      url: quickstarts/csharp.md
+- title: Referência
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API REST de sugestão automática v7
+      url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference
+    - text: API REST de sugestão automática v5
+      url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v5-reference
+    - text: SDK .NET
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet
+    - text: Java SDK
+      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable
+    - text: SDK do Go
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest

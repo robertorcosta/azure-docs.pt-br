@@ -52,6 +52,8 @@
       items:
         - name: Criar e gerenciar laboratórios de sala de aula
           href: how-to-manage-classroom-labs.md
+        - name: Usar o dashboard
+          href: use-dashboard.md
         - name: 'Configurar, personalizar e publicar modelos'
           href: how-to-create-manage-template.md
         - name: Configurar e gerenciar o pool de máquinas virtuais
@@ -80,6 +82,8 @@
   items:
     - name: API REST
       href: 'https://docs.microsoft.com/rest/api/labservices/'
+    - name: Módulo Az.LabServices do PowerShell (versão prévia)
+      href: reference-powershell-module.md
 - name: Recursos
   items:
     - name: Atualizações do Azure

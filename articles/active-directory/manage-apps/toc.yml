@@ -5,7 +5,7 @@
   items:
     - name: O que são o gerenciamento de aplicativos de nuvem e o logon único?
       href: what-is-application-management.md
-    - name: O que é o provisionamento automático de usuários?
+    - name: O que é o provisionamento de aplicativo?
       href: user-provisioning.md
     - name: O que é o proxy de aplicativo para aplicativos locais?
       href: what-is-application-proxy.md
@@ -17,7 +17,7 @@
       href: view-applications-portal.md
 - name: Tutoriais
   items:
-    - name: Tutoriais de aplicativos SaaS
+    - name: 'Aplicativos integrados da galeria (por exemplo, ServiceNow, Salesforce, Dropbox)'
       href: /azure/active-directory/saas-apps/
     - name: Adicionar um aplicativo local por meio do Proxy de Aplicativo
       href: application-proxy-add-on-premises-application.md
@@ -66,12 +66,12 @@
               href: howto-saml-token-encryption.md
             - name: Portais do usuário final
               href: end-user-experiences.md
-    - name: Provisionamento automático do usuário
+    - name: Provisionamento de aplicativo (SCIM)
       items:
-        - name: Planejar uma implantação de provisionamento do usuário automática
-          href: plan-auto-user-provisioning.md
         - name: Provisionamento automático de aplicativos habilitados para SCIM
           href: use-scim-to-provision-users-and-groups.md
+        - name: Planejar uma implantação de provisionamento do usuário automática
+          href: plan-auto-user-provisioning.md
     - name: Proxy de aplicativo para aplicativos locais
       items:
         - name: Proxy de Aplicativo
@@ -223,23 +223,21 @@
                   href: access-panel-extension-problem-installing.md
                 - name: Erro ao usar o acesso ao aplicativo de autoatendimento
                   href: access-panel-troubleshoot-self-service-access.md
-    - name: Provisionamento automático do usuário
+    - name: Provisionamento de aplicativo (SCIM)
       items:
         - name: Configurar provisionamento do usuário
           items:
-            - name: Provisionamento de usuário para aplicativos da galeria
+            - name: Provisionamento manual versus automático
               href: application-provisioning-config-how-to.md
-            - name: Habilitar provisionamento automático de usuário para aplicativos multilocatários
-              href: isv-automatic-provisioning-multi-tenant-apps.md
             - name: Configurar o provisionamento automático de usuário
               href: configure-automatic-user-provisioning-portal.md
-            - name: Personalizar atributos de aplicativo
+            - name: Personalizar mapeamentos do atributo
               href: Customize-application-attributes.md
-            - name: Filtros de escopo
+            - name: Definir o escopo de usuários ou grupos a serem provisionados
               href: define-conditional-rules-for-provisioning-user-accounts.md
             - name: Ignorar a exclusão de usuários fora do escopo
               href: skip-out-of-scope-deletions.md
-            - name: Verificar status do provisionamento
+            - name: Monitorar o desempenho e o status de provisionamento
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
             - name: Relatório sobre provisionamento automático do usuário
               href: check-status-user-account-provisioning.md
@@ -249,20 +247,20 @@
           items:
             - name: Solucionar problemas de provisionamento do usuário
               href: application-provisioning-config-problem.md
-            - name: Status de quarentena
+            - name: Problema de autorização (não é possível salvar as credenciais de administrador)
+              href: application-provisioning-config-problem-storage-limit.md
+            - name: Os usuários não estão provisionados
+              href: application-provisioning-config-problem-no-users-provisioned.md
+            - name: Os usuários errados foram provisionados
+              href: application-provisioning-config-problem-wrong-users-provisioned.md
+            - name: Trabalho de provisionamento em quarentena
               href: application-provisioning-quarantine-status.md
+            - name: Atributo de origem ausente
+              href: user-provisioning-sync-attributes-for-mapping.md
+            - name: O trabalho de provisionamento está lento
+              href: application-provisioning-when-will-provisioning-finish.md
             - name: Provisionando logs
               href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Sincronizar um atributo para mapeamento – aplicativo de galeria
-              href: user-provisioning-sync-attributes-for-mapping.md
-            - name: Demorando horas - aplicativo da galeria
-              href: application-provisioning-when-will-provisioning-finish.md
-            - name: Problema ao salvar credenciais do administrador ao configurar o aplicativo da galeria de aprovisionamento de usuário
-              href: application-provisioning-config-problem-storage-limit.md
-            - name: Os usuários não são provisionados - aplicativo da galeria
-              href: application-provisioning-config-problem-no-users-provisioned.md
-            - name: Usuários incorretos provisionados - aplicativo da galeria
-              href: application-provisioning-config-problem-wrong-users-provisioned.md
     - name: Proxy de aplicativo para aplicativos locais
       items:
         - name: Configurar conectores
@@ -357,10 +355,12 @@
               href: application-proxy-understand-cors-issues.md
 - name: Referência
   items:
-    - name: Provisionamento automático do usuário
+    - name: Provisionamento de aplicativo (SCIM)
       items:
         - name: Escrever expressões para mapeamentos de atributo
           href: functions-for-customizing-application-data.md
+        - name: Escolher um método de provisionamento
+          href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: Agente de provisionamento do Azure AD Connect
       items:
         - name: Histórico de versões do agente de provisionamento

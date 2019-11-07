@@ -30,6 +30,8 @@
                   href: hpc-cache-ingest-msrsync.md
                 - name: Popular o cache por cópia de arquivo manual
                   href: hpc-cache-ingest-manual.md
+        - name: Editar destinos de armazenamento
+          href: hpc-cache-edit-storage.md
     - name: Conectar-se ao cache
       href: hpc-cache-mount.md
     - name: Gerenciar o cache

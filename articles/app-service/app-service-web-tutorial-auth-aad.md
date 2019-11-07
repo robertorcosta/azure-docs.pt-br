@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad0c510244c78fa3bdba41690c2284d0650c4b55
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: c82cad30fcc2aa80eea52ab13f60fc0c4da33cd1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019337"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471334"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure
 
-O [Serviço de Aplicativo do Azure](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches. Além disso, o Serviço de Aplicativo tem suporte interno para [autenticação e autorização de usuário](overview-authentication-authorization.md). Este tutorial mostra como proteger seus aplicativos com os recursos de autenticação e autorização do Serviço de Aplicativo. Ele usa um aplicativo ASP.NET Core com um front-end Angular.js, mas é usado apenas como exemplo. O recurso de autorização e autenticação do Serviço de Aplicativo dá suporte a tempos de execução de todas as linguagens, e você pode aprender como aplicá-lo à sua linguagem preferida seguindo o tutorial.
+O [Serviço de Aplicativo do Azure](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches. Além disso, o Serviço de Aplicativo tem suporte interno para [autenticação e autorização de usuário](overview-authentication-authorization.md). Este tutorial mostra como proteger seus aplicativos com os recursos de autenticação e autorização do Serviço de Aplicativo. Ele usa um aplicativo ASP.NET Core com um front-end Angular.js, mas é usado apenas como exemplo. O recurso de autorização e autenticação do Serviço de Aplicativo dá suporte a runtimes de todas as linguagens, e você pode aprender como aplicá-lo à sua linguagem preferida seguindo o tutorial.
 
 O tutorial usa o aplicativo de exemplo para mostrar como proteger um aplicativo autocontido (em [Habilitar autenticação e autorização para o aplicativo de back-end](#enable-authentication-and-authorization-for-back-end-app)).
 
@@ -218,29 +218,31 @@ Use o Azure Active Directory como o provedor de identidade. Para saber mais, con
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Habilitar autenticação e autorização para o aplicativo de back-end
 
-No [portal do Azure](https://portal.azure.com), abra a página de gerenciamento do aplicativo de back-end clicando no menu à esquerda: **Grupos de recursos** > **myAuthResourceGroup** >  **_\<back-end-app-name>_** .
+1. No menu do [portal do Azure](https://portal.azure.com), selecione **Grupos de recursos** ou pesquise e selecione *Grupos de recursos* em qualquer página.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
+1. Clique em **grupos de recursos** e selecione o grupo de recursos. Em **Visão geral**, selecione a página de gerenciamento do aplicativo de back-end.
 
-No menu esquerdo do aplicativo de back-end, clique em **Autenticação/Autorização** e habilite a autenticação do Serviço de Aplicativo clicando em **Ativo**.
+   ![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 
-Em **Ação a tomar quando a solicitação não está autenticada**, selecione **Entrar com o Azure Active Directory**.
+1. No menu esquerdo do aplicativo de back-end, selecione **Autenticação/Autorização** e habilite a autenticação do Serviço de Aplicativo selecionando **Ativo**.
 
-Em **Provedores de Autenticação**, clique em **Azure Active Directory** 
+1. Em **Ação a tomar quando a solicitação não está autenticada**, selecione **Entrar com o Azure Active Directory**.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-auth-aad/configure-auth-back-end.png)
+1. Em **Provedores de Autenticação**, selecione **Azure Active Directory** 
 
-Clique em **Expresso**, aceite as configurações padrão para criar um novo aplicativo AD e clique em **OK**.
+   ![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-auth-aad/configure-auth-back-end.png)
 
-Na página **Autenticação/Autorização**, clique em **Salvar**. 
+1. Selecione **Expresso**, aceite as configurações padrão para criar um novo aplicativo AD e selecione **OK**.
 
-Quando você vir a notificação com a mensagem `Successfully saved the Auth Settings for <back-end-app-name> App`, atualize a página.
+1. Na página **Autenticação/Autorização**, selecione **Salvar**.
 
-Clique em **Azure Active Directory** novamente e clique em **Aplicativo Azure AD**.
+   Quando você vir a notificação com a mensagem `Successfully saved the Auth Settings for <back-end-app-name> App`, atualize a página.
 
-Copie a **ID do Cliente** do aplicativo do Azure AD para um bloco de notas. Você precisará desse valor mais tarde.
+1. Selecione **Azure Active Directory** novamente e selecione **Aplicativo Azure AD**.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
+1. Copie a **ID do Cliente** do aplicativo do Azure AD para um bloco de notas. Você precisará desse valor mais tarde.
+
+   ![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>Habilitar autenticação e autorização para o aplicativo de front-end
 
@@ -259,15 +261,17 @@ Se desejar, navegue até `http://<front-end-app-name>.azurewebsites.net`. Ele ag
 
 Agora que você habilitou o recurso de autenticação e autorização para ambos os aplicativos, cada um tem suporte de um aplicativo AD. Nesta etapa, você deve fornecer as permissões ao aplicativo de front-end para acessar o back-end em nome do usuário. (Tecnicamente, você concede ao _aplicativo AD_ de front-end as permissões para acessar o _aplicativo AD_ de back-end em nome do usuário.)
 
-No menu à esquerda no portal, selecione **Azure Active Directory** > **Registros de aplicativo** > **Aplicativos próprios** >  **\<front-end-app-name>**  > **Permissões da API**.
+1. No menu [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory** ou pesquise e selecione *Azure Active Directory* em qualquer página.
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-auth-aad/add-api-access-front-end.png)
+1. Selecione **Registros de aplicativo** > **aplicativos de propriedade**. Selecione o nome do aplicativo front-end e, em seguida, **permissões de API**.
 
-Selecione **Adicionar uma permissão** e, em seguida, selecione **Minhas APIs** >  **\<back-end-app-name>** .
+   ![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-auth-aad/add-api-access-front-end.png)
 
-Na página **Solicitar permissões de API** para o aplicativo de back-end, selecione **Permissões delegadas** e **user_impersonation**, então selecione **Adicionar permissões**.
+1. Selecione **Adicionar uma permissão** e, em seguida, selecione **Minhas APIs** >  **\<back-end-app-name>** .
 
-![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
+1. Na página **Solicitar permissões de API** para o aplicativo de back-end, selecione **Permissões delegadas** e **user_impersonation**, então selecione **Adicionar permissões**.
+
+   ![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>Configurar o Serviço de Aplicativo para retornar um token de acesso utilizável
 

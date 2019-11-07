@@ -10,13 +10,13 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 09/16/2019
-  ms.openlocfilehash: f360150a06bd7cf0d41ebb193ab91823ea815dfc
-  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 4f9c17fabdcb333d172e7a983921ef89d879fce7
+  ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73466220"
+  ms.lasthandoff: 11/05/2019
+  ms.locfileid: "73622738"
 highlightedContent:
   items:
   - title: O que são Serviços Cognitivos?
@@ -25,15 +25,21 @@ highlightedContent:
   - title: Serviços Cognitivos e aprendizado de máquina
     itemType: concept
     url: ./cognitive-services-and-machine-learning.md
-  - title: Criar um recurso dos Serviços Cognitivos
-    itemType: how-to-guide
-    url: ./cognitive-services-apis-create-account.md
   - title: Suporte para idiomas nos Serviços Cognitivos
     itemType: reference
     url: ./language-support.md
-  - title: Usando Serviços Cognitivos em Contêineres
+  - title: Criar um recurso dos Serviços Cognitivos
+    itemType: how-to-guide
+    url: ./cognitive-services-apis-create-account.md
+  - title: Usar Serviços Cognitivos em Contêineres
     itemType: concept
     url: ./cognitive-services-container-support.md
+  - title: Redes virtuais para Serviços Cognitivos
+    itemType: architecture
+    url: cognitive-services-virtual-networks.md
+  - title: Subdomínios personalizados para Serviços Cognitivos
+    itemType: how-to-guide
+    url: cognitive-services-custom-subdomains.md
   - title: Autenticar uma solicitação
     itemType: how-to-guide
     url: ./authentication.md
@@ -101,7 +107,7 @@ conceptualContent:
       text: Content Moderator
     - url: ./personalizer/index.yml
       itemType: overview
-      text: Personalizador (versão prévia)
+      text: Personalizador
   - title: Search
     summary: Adicione APIs de Pesquisa do Bing aos aplicativos e aproveite a capacidade para vasculhar bilhões de páginas da Web, imagens, vídeos e notícias com uma única chamada à API.
     links:

@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 25882f2aaa5d32dfb594d5f8fdb9cdc46f2ad958
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9531e86e63fa8d944aa216fddd0c8215b73038a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307607"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492707"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutorial: Obter dados de correspondência de texto exata de uma expressão
 
 Neste tutorial, entenda como obter dados de entidade que correspondam a uma lista predefinida de itens. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **Neste tutorial, você aprenderá a:**
 
@@ -78,7 +80,7 @@ Uma entidade de lista é uma boa escolha para esse tipo de dados quando:
     |Steve Standish para 1234|
     |Tanner Thompson para 3456|
 
-    [![Captura de tela de intenção com declarações de exemplo](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "Captura de tela de intenção com declarações de exemplo")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
+    [![Captura de tela de intenção com exemplos de enunciados](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "Captura de tela de intenção com exemplos de enunciados")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
@@ -104,7 +106,7 @@ O nome primário _canônico_ para cada item é o nome do departamento. Exemplos 
 
 1. No diálogo pop-up da entidade, insira `Department` como o nome de entidade e **List** como o tipo de entidade. Selecione **Concluído**.  
 
-    [![Captura de tela da caixa de diálogo pop-up de criação de nova entidade](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "Captura de tela da caixa de diálogo pop-up de criação de nova entidade")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
+    [![Captura de tela do diálogo pop-up de criação de nova entidade](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "Captura de tela do diálogo pop-up de criação de nova entidade")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
 
 1. Na página da entidade Departamento, digite `Accounting` como o novo valor.
 

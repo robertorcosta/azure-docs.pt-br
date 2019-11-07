@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 27578e50c56a9c7dac3d74b88e14d0f8fbe9d402
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 97622df578b6c1357601b32a22c806e9eef77c96
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784988"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466863"
 ---
-# <a name="introduction-to-ai-enrichment-in-azure-cognitive-search"></a>Introdução ao enriquecimento de IA na Pesquisa Cognitiva do Azure
+# <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introdução à IA na Pesquisa Cognitiva do Azure
 
-O enriquecimento de IA é uma funcionalidade da indexação da Pesquisa Cognitiva do Azure, usada para extrair texto de imagens, blobs e outras fontes de dados não estruturadas – enriquecendo o conteúdo, a fim de torná-lo mais pesquisável em um índice ou um repositório de conhecimento. A extração e o enriquecimento são implementados por meio de *habilidades cognitivas* anexadas a um pipeline de indexação. As habilidades cognitivas se enquadram nestas categorias: 
+O enriquecimento de IA é uma funcionalidade da indexação da Pesquisa Cognitiva do Azure, usada para extrair texto de imagens, blobs e outras fontes de dados não estruturadas – enriquecendo o conteúdo, a fim de torná-lo mais pesquisável em um índice ou um repositório de conhecimento. A extração e o enriquecimento são implementados por meio de *habilidades cognitivas* anexadas a um pipeline de indexação. As habilidades cognitivas incorporadas ao serviço se enquadram nessas categorias: 
 
 + As habilidades de **Processamento de linguagem natural** incluem [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), [detecção de idioma](cognitive-search-skill-language-detection.md), [extração de frases-chave](cognitive-search-skill-keyphrases.md), manipulação de texto e [detecção de sentimento](cognitive-search-skill-sentiment.md). Com essas habilidades, o texto não estruturado pode assumir novas formas e ser mapeado como campos pesquisáveis e filtráveis em um índice.
 
@@ -36,6 +36,12 @@ O processamento de imagens e em idioma natural é aplicada durante a fase de ing
 
 ## <a name="when-to-use-cognitive-skills"></a>Quando usar as habilidades cognitivas
 
+Você deve considerar o uso de habilidades cognitivas incorporadas se o conteúdo bruto for texto não estruturado, conteúdo de imagem ou conteúdo que precise de detecção e tradução de idioma. A aplicação de IA por meio de habilidades cognitivas incorporadas pode desbloquear esse conteúdo, aumentando seu valor e utilitário em seus aplicativos de pesquisa e ciência de dados. 
+
+Além disso, você pode considerar adicionar uma habilidade personalizada se tiver código de software livre, de terceiros ou de clientes diretos que deseja integrar ao pipeline. Os modelos de classificação que identificam as características de destaque de vários tipos de documento se enquadram nessa categoria, mas qualquer pacote que adiciona valor ao seu conteúdo também pode ser usado.
+
+### <a name="more-about-built-in-skills"></a>Mais informações sobre habilidades incorporadas
+
 Um conjunto de habilidades que é montado usando habilidades internas é adequado para os seguintes cenários de aplicativo:
 
 + Documentos digitalizados (JPEG) que você deseja tornar susceptíveis a pesquisas de texto completo. Você pode anexar uma habilidade de OCR (reconhecimento de caractere óptico) para identificar, extrair e ingerir textos de arquivos JPEG.
@@ -49,6 +55,8 @@ Um conjunto de habilidades que é montado usando habilidades internas é adequad
   Os BLOBs em particular geralmente contêm um grande corpo de conteúdo empacotado em um "campo" único. Ao anexar habilidades de processamento de imagem e de linguagem natural a um indexador, você pode criar novas informações que estavam contidas no conteúdo bruto, mas não eram destacadas como campos distintos. Algumas habilidades cognitivas internas prontas para uso que podem ajudar: extração de frases-chave, análise de sentimentos e reconhecimento de entidades (pessoas, organizações e locais).
 
   Além disso, as habilidades internas podem ser usadas para reestruturar o conteúdo por meio de operações de divisão de texto, mesclagem e modelagem.
+
+### <a name="more-about-custom-skills"></a>Saiba mais sobre habilidades incorporadas
 
 As habilidades personalizadas podem dar suporte a cenários mais complexos, como o reconhecimento de formulários ou a detecção de entidades personalizadas usando um modelo que você fornece e encapsula na [interface da Web de habilidades personalizadas](cognitive-search-custom-skill-interface.md). Vários exemplos de habilidades personalizadas incluem o [Reconhecimento de Formulários](/azure/cognitive-services/form-recognizer/overview), a integração da [API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) e o [reconhecimento de entidades personalizadas](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
