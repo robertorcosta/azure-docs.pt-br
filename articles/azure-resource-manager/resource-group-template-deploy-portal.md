@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: 249afcaad85d9031e0972d4fcfc185b5ff890f65
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 197bd14c425d80a814f370a2050c085b1eef143d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390341"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579027"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implantar recursos com modelos do Resource Manager e o portal do Azure
 
@@ -26,7 +26,7 @@ Além disso, você também pode implantar um modelo de Azure Resource Manager pa
 
 Este artigo mostra os dois métodos.
 
-## <a name="create-a-resource-group"></a>Criar um grupos de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 1. Para criar um novo grupo de recursos, selecione **grupos de recursos** no [portal do Azure](https://portal.azure.com).
 
@@ -85,7 +85,7 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
 
    ![Pesquisar implantação de modelo](./media/resource-group-template-deploy-portal/search-template.png)
 
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 1. Você verá várias opções para criar um modelo:
 
     - Crie **seu próprio modelo no editor**: Crie um modelo usando o editor de modelos de Portal.  O editor é capaz de adicionar um esquema de modelo de recurso.
@@ -113,7 +113,7 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
     "storageAccountName": "[concat('azstore', uniquestring(resourceGroup().id))]"
     ```
 
-1. Clique em **Salvar**. Agora você vê a interface de implantação de modelo do Portal. Observe os dois parâmetros que você definiu no modelo.
+1. Selecione **Salvar**. Agora você vê a interface de implantação de modelo do Portal. Observe os dois parâmetros que você definiu no modelo.
 1. Insira ou selecione os valores de propriedade:
 
     - **Assinatura**: selecione uma assinatura do Azure.
@@ -125,7 +125,7 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
 
 1. Selecione **Comprar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para exibir os logs de auditoria, confira [Operações de auditoria com o Gerenciador de Recursos](./resource-group-audit.md).
 - Para solucionar erros de implantação, confira [View deployment operations](./resource-manager-deployment-operations.md) (Exibir operações de implantação).

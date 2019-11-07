@@ -1,24 +1,24 @@
 ---
 title: Perguntas Frequentes do Log Analytics | Microsoft Docs
-description: Respostas para perguntas frequentes sobre o serviço Azure Log Analytics.
+description: Respostas para perguntas frequentes sobre o serviço de análise de logs de Azure Monitor.
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 11/13/2018
-ms.openlocfilehash: e3ebb87a7a5f6200d860c1c79591719c32313e11
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 11/01/2019
+ms.openlocfilehash: 9eb921fc8ea19486db0fc3311764931f09e11464
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932224"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579302"
 ---
 # <a name="log-analytics-faq"></a>Perguntas frequentes do Log Analytics
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Essas Perguntas frequentes da Microsoft são uma lista de perguntas frequentes sobre o Log Analytics no Microsoft Azure. Se você tiver alguma pergunta adicional sobre o Log Analytics, vá para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
+Esta FAQ da Microsoft é uma lista de perguntas frequentes sobre o Azure Monitor Log Analytics espaço de trabalho. Se você tiver alguma pergunta adicional sobre o Log Analytics, vá para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
 
 
 ## <a name="new-logs-experience"></a>Nova experiência de Logs
@@ -62,11 +62,13 @@ R: Para exibir os Logs da VM, você precisará receber permissão de leitura par
 
 R: Para acessar um workspace no Azure, você deve ter recebido permissões no Azure. Há alguns casos em que talvez você não tenha as permissões de acesso apropriadas. Nesses casos, seu administrador deve conceder a você as permissões no Azure. Confira [Portal do OMS migrando para o Azure](oms-portal-transition.md) para saber mais.
 
-### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>P. Por que não consigo ver a entrada do Designer de Exibição nos Logs? 
+### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>P. Por que não consigo ver a entrada do Designer de Exibição nos Logs?
+
 R: O Designer de Exibição só está disponível nos Logs para os usuários que receberam permissões de Colaborador ou superior.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>P. Ainda posso usar o portal da Análise fora do Azure?
-R. Sim, a página Logs no Azure e o portal do Advanced Analytics são baseados no mesmo código. O Log Analytics está sendo integrado como um recurso no Azure Monitor a fim de fornecer uma experiência de monitoramento mais unificada. Você ainda pode acessar o portal de análise usando a URL: https:\/\/Portal. loganalytics. Io/inscrições/{SubscriptionId}/resourcegroups/{resourceGroupName}/espaços de trabalho/{WorkspaceName}.
+
+a. Sim, a página Logs no Azure e o portal do Advanced Analytics são baseados no mesmo código. O Log Analytics está sendo integrado como um recurso no Azure Monitor a fim de fornecer uma experiência de monitoramento mais unificada. Você ainda pode acessar o portal de análise usando a URL: https:\/\/Portal. loganalytics. Io/inscrições/{SubscriptionId}/resourcegroups/{resourceGroupName}/espaços de trabalho/{WorkspaceName}.
 
 
 
@@ -103,30 +105,7 @@ A atualização de cadeia de caracteres de texto para *OMS* está incluída em u
 
 ### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>P: Há uma versão local do Log Analytics?
 
-R: Não. O Log Analytics é um serviço de nuvem escalonável que processa e armazena grandes quantidades de dados. 
-
-### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>P. Como fazer para solucionar problemas se o Log Analytics não está mais coletando dados?
-
-R: Para uma assinatura e um workspace criados antes de 2 de abril de 2018, que estejam no nível de preços *Gratuito*, se mais de 500 MB de dados forem enviados em um dia, a coleta de dados será interrompida pelo restante do dia. Alcançar o limite diário é um motivo comum para o Log Analytics parar de coletar dados ou para dados parecerem estar ausentes.  
-
-O Log Analytics cria um evento de tipo *Pulsação* e pode ser usado para determinar se a coleta de dados será interrompida. 
-
-Execute a seguinte consulta na pesquisa para verificar se você está alcançando o limite diário e perdendo dados: `Heartbeat | summarize max(TimeGenerated)`
-
-Para verificar um computador específico, execute a seguinte consulta: `Heartbeat | where Computer=="contosovm" | summarize max(TimeGenerated)`
-
-Quando a coleta de dados for interrompida, dependendo do período de tempo selecionado, você não verá nenhum registro retornado.   
-
-A tabela a seguir descreve os motivos pelos quais a coleta de dados é interrompida e uma ação é sugerida para retomar a coleta de dados:
-
-| Motivo para a coleta de dados ser interrompida                       | Para retomar a coleta de dados |
-| -------------------------------------------------- | ----------------  |
-| Limite de dados gratuito atingido<sup>1</sup>       | Aguarde até o mês seguinte para a coleta reiniciar automaticamente ou<br> Mude para um tipo de preço pago |
-| Assinatura do Azure está em um estado suspenso devido a: <br> A avaliação gratuita terminou <br> O Azure Pass expirou <br> Limite de gastos mensal atingido (por exemplo, em uma assinatura do MSDN ou do Visual Studio)                          | Converter para uma assinatura paga <br> Converter para uma assinatura paga <br> Remova o limite ou espere o limite ser redefinido |
-
-<sup>1</sup> Se o workspace estiver no nível de preço *Gratuito*, você estará limitado a enviar 500 MB de dados por dia ao serviço. Ao alcançar o limite diário, a coleta de dados será interrompida até o próximo dia. Dados enviados enquanto a coleta de dados está interrompida não são indexados e não ficam disponíveis para pesquisa. Quando a coleta de dados é retomada, o processamento ocorre apenas para os novos dados enviados. 
-
-O Log Analytics usa o horário UTC e cada dia inicia à meia-noite UTC. Se o workspace atingir o limite diário, o processamento será retomado durante a primeira hora do dia seguinte UTC.
+R: não. O Log Analytics é um serviço de nuvem escalonável que processa e armazena grandes quantidades de dados. 
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>P. Como posso ser notificado quando a coleta de dados for interrompida?
 
@@ -147,25 +126,26 @@ Ao criar o alerta para quando a coleta de dados for interrompida, defina:
 Especifique um [Grupo de Ações](../../azure-monitor/platform/action-groups.md) existente ou crie um novo para que, quando o alerta do log corresponder aos critérios, você seja notificado se tiver uma pulsação ausente por mais de 15 minutos.
 
 ## <a name="configuration"></a>Configuração
+
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>P. Posso alterar o nome do contêiner de blob/tabela usado para ler do WAD (Diagnóstico do Azure)?
 
-R. Não, não é possível ler de contêineres nem de tabelas arbitrárias no armazenamento do Azure no momento.
+a. Não, não é possível ler de contêineres nem de tabelas arbitrárias no armazenamento do Azure no momento.
 
 ### <a name="q-what-ip-addresses-does-the-log-analytics-service-use-how-do-i-ensure-that-my-firewall-only-allows-traffic-to-the-log-analytics-service"></a>P. Quais endereços IP é o serviço Log Analytics usa? Como fazer para garantir que meu firewall permita apenas tráfego para o serviços Log Analytics?
 
-R. O serviço Log Analytics é baseado no Azure. Os endereços IP do Log Analytics estão nos [Intervalos IP do Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+a. O serviço Log Analytics é baseado no Azure. Os endereços IP do Log Analytics estão nos [Intervalos IP do Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 Conforme as implantações de serviço são feitas, os endereços IP reais do serviço de Log Analytics mudam. Os nomes DNS a permitir através do firewall são documentados em [requisitos da rede](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>P. Eu uso o ExpressRoute para me conectar ao Azure. O meu tráfego do Log Analytics usará minha conexão ExpressRoute?
 
-R. Os diferentes tipos de tráfego de ExpressRoute estão descritos na [Documentação de ExpressRoute](../../expressroute/expressroute-faqs.md#supported-services).
+a. Os diferentes tipos de tráfego de ExpressRoute estão descritos na [Documentação de ExpressRoute](../../expressroute/expressroute-faqs.md#supported-services).
 
 O tráfego para o Log Analytics usa o circuito de ExpressRoute de emparelhamento público.
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>P. Há alguma maneira simples e fácil de mover um espaço de trabalho existente do Log Analytics para outra assinatura do Azure/espaço de trabalho do Log Analytics?
 
-R. O cmdlet `Move-AzResource` permite que você mova um espaço de trabalho do Log Analytics, além de uma conta de automação de uma assinatura do Azure para outra. Para obter mais informações, consulte [move-AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
+a. O cmdlet `Move-AzResource` permite que você mova um espaço de trabalho do Log Analytics, além de uma conta de automação de uma assinatura do Azure para outra. Para obter mais informações, consulte [move-AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 Essa alteração também pode ser feita no portal do Azure.
 
@@ -180,7 +160,7 @@ R: Atualizar para o pacote cumulativo de atualizações mais recente e importar 
 
 ### <a name="q-how-can-i-confirm-that-an-agent-is-able-to-communicate-with-log-analytics"></a>P: como posso confirmar que um agente consiga se comunicar com o Log Analytics?
 
-R: Para garantir que o agente possa se comunicar com o OMS, vá para: Painel de Controle, Segurança e Configurações, **Microsoft Monitoring Agent**.
+R: para garantir que o agente possa se comunicar com o espaço de trabalho Log Analytics, acesse: painel de controle, configurações de & de segurança **Microsoft Monitoring Agent**.
 
 Sob a guia **Azure Log Analytics (OMS)** , procure por uma marca de seleção verde. Um ícone de marca de seleção verde confirma que o agente é capaz de se comunicar com o serviço do Azure.
 
@@ -188,7 +168,7 @@ Um ícone de aviso amarelo significa que o agente está tendo problemas de comun
 
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>P: Como fazer para impedir que um agente de se comunicar com o Log Analytics?
 
-R: No System Center Operations Manager, remova o computador da lista de computadores gerenciados do OMS. O Operations Manager atualiza a configuração do agente para não relatar mais para o Log Analytics. Para agentes conectados diretamente ao Log Analytics, você pode impedi-los de comunicar-se por meio de: Painel de Controle, Segurança e Configurações, **Microsoft Monitoring Agent**.
+R: em System Center Operations Manager, remova o computador da lista Log Analytics computadores gerenciados. O Operations Manager atualiza a configuração do agente para não relatar mais para o Log Analytics. Para agentes conectados diretamente ao Log Analytics, você pode impedi-los de comunicar-se por meio de: Painel de Controle, Segurança e Configurações, **Microsoft Monitoring Agent**.
 Em **Azure Log Analytics (OMS)** , remova todos os workspaces listados.
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>P: Por que estou recebendo um erro ao tentar mover meu workspace de uma assinatura do Azure para outra?
@@ -212,25 +192,25 @@ R: Você precisa adicionar 'etag' no corpo da API ou nas propriedades do modelo 
 
 ## <a name="agent-data"></a>Dados do agente
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>P. Que quantidade de dados posso enviar por meio do agente para o Log Analytics? Existe uma quantidade máxima de dados por cliente?
-R. R. O plano gratuito define um limite diário de 500 MB por workspace. Os planos standard e premium não têm limite para a quantidade de dados carregados. Como um serviço de nuvem, o Log Analytics é projetado para ser escalado verticalmente de modo automático para lidar com o volume recebido de um cliente, mesmo que sejam terabytes por dia.
+a. Não há nenhum limite para a quantidade de dados que é carregada, ela se baseia na opção de preço que você seleciona-reserva de capacidade ou pré-pago. Um espaço de trabalho Log Analytics foi projetado para escalar verticalmente para lidar com o volume proveniente de um cliente, mesmo que ele seja de terabytes por dia. Para obter mais informações, consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/monitor/).
 
 O agente do Log Analytics foi projetado para garantir que ele tenha uma superfície pequena. O volume de dados varia de acordo com as soluções que você habilita. Você pode encontrar informações detalhadas sobre o volume de dados e ver a divisão por solução na página [Uso](../../azure-monitor/platform/data-usage.md).
 
-Para obter mais informações, é possível ler um [blog do cliente](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) mostrando os resultados após avaliar a utilização de recursos (superfície) do Agente do OMS.
+Para obter mais informações, você pode ler um [blog do cliente](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) mostrando seus resultados depois de avaliar a utilização de recursos (superfície) do agente de log Analytics.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>P. Quanta largura de banda de rede é usada pelo MMA (Agente de Gerenciamento da Microsoft) ao enviar dados para o Log Analytics?
 
-R. A largura de banda é uma função na quantidade de dados enviados. Dados são compactados conforme eles são enviados pela rede.
+a. A largura de banda é uma função na quantidade de dados enviados. Dados são compactados conforme eles são enviados pela rede.
 
 ### <a name="q-how-much-data-is-sent-per-agent"></a>P. Qual a quantidade de dados enviada por agente?
 
-R. A quantidade de dados enviados por agente depende:
+a. A quantidade de dados enviados por agente depende:
 
 * Das soluções que você habilitou
 * Do número de logs e contadores de desempenho sendo coletados
 * Do volume de dados nos logs
 
-O tipo de preço gratuito é uma boa maneira de integrar vários servidores e medir o volume de dados típico. O uso geral é mostrado na página [Uso](../../azure-monitor/platform/data-usage.md) .
+O uso geral é mostrado na página [Uso](../../azure-monitor/platform/data-usage.md) .
 
 Para computadores capazes de executar o agente WireData, use a seguinte consulta para ver quantos dados estão sendo enviados:
 
@@ -238,5 +218,6 @@ Para computadores capazes de executar o agente WireData, use a seguinte consulta
 Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe") (Direction=Outbound) | measure Sum(TotalBytes) by Computer
 ```
 
-## <a name="next-steps"></a>Próximos passos
-* [Introdução ao Log Analytics](../../azure-monitor/overview.md) para saber mais sobre o Log Analytics e colocá-lo em funcionamento em minutos.
+## <a name="next-steps"></a>Próximas etapas
+
+Comece a [usar o Azure monitor](../../azure-monitor/overview.md) para saber mais sobre log Analytics e entrar em funcionamento em minutos.

@@ -1,21 +1,19 @@
 ---
 title: Tecnologias de implantação no Azure Functions | Microsoft Docs
 description: Conheça as diferentes maneiras como você pode implantar código para Azure Functions.
-services: functions
-documentationcenter: .net
 author: ColbyTresness
-manager: dariac
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 4d32a652219d48a2cc101259ea6b76fbfa910821
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: ce8287626b390d6eac4a3461d928c24f515f4023
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674958"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576138"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação no Azure Functions
 
@@ -31,7 +29,7 @@ O Azure Functions dá suporte ao desenvolvimento local de plataforma cruzada e �
 
 Cada plano tem comportamentos diferentes. Nem todas as tecnologias de implantação estão disponíveis para cada tipo de Azure Functions. O gráfico a seguir mostra quais tecnologias de implantação têm suporte para cada combinação de sistema operacional e plano de hospedagem:
 
-| Tecnologia de implantação | Consumo do Windows | Windows Premium (versão prévia) | Windows dedicado  | Consumo do Linux | Linux Premium (versão prévia) | Linux dedicado |
+| Tecnologia de implantação | Consumo do Windows | Windows Premium | Windows dedicado  | Consumo do Linux | Linux Premium | Linux dedicado |
 |-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
 | URL do pacote externo<sup>1</sup> |✔|✔|✔|✔|✔|✔|
 | Implantação de zip |✔|✔|✔|✔|✔|✔|
@@ -46,7 +44,7 @@ Cada plano tem comportamentos diferentes. Nem todas as tecnologias de implantaç
 <sup>1</sup> tecnologia de implantação que requer [sincronização de gatilho manual](#trigger-syncing).  
 <sup>2</sup> a edição do portal é habilitada apenas para gatilhos http e de temporizador para funções no Linux usando planos Premium e dedicados.
 
-## <a name="key-concepts"></a>Conceitos principais
+## <a name="key-concepts"></a>Principais conceitos
 
 Alguns conceitos importantes são essenciais para entender como as implantações funcionam em Azure Functions.
 
@@ -86,7 +84,7 @@ Quando os aplicativos são criados remotamente no Linux, eles são [executados a
 
 Os aplicativos de funções do Linux em execução no plano de consumo não têm um site SCM/kudu, que limita as opções de implantação. No entanto, os aplicativos de funções no Linux em execução no plano de consumo oferecem suporte a compilações remotas.
 
-##### <a name="dedicated-and-premium-preview-plans"></a>Planos dedicado e Premium (visualização)
+##### <a name="dedicated-and-premium-plans"></a>Planos dedicado e Premium
 
 Os aplicativos de funções em execução no Linux no [plano dedicado (serviço de aplicativo)](functions-scale.md#app-service-plan) e no [plano Premium](functions-scale.md#premium-plan) também têm um site do SCM/kudu limitado.
 
@@ -118,7 +116,7 @@ Use a implantação de zip para enviar por push um arquivo. zip que contém seu 
 
 Você pode implantar uma imagem de contêiner do Linux que contém seu aplicativo de funções.
 
->__Como usá-lo:__ Crie um aplicativo de funções do Linux no plano Premium ou dedicado e especifique a imagem de contêiner a ser executada. Você pode fazer isso de duas maneiras:
+>__Como usá-lo:__ Crie um aplicativo de funções do Linux no plano Premium ou dedicado e especifique a imagem de contêiner a ser executada. É possível fazer isso de duas formas:
 >
 >* Crie um aplicativo de funções do Linux em um plano de serviço Azure App no portal do Azure. Para **publicar**, selecione **imagem do Docker**e configure o contêiner. Insira o local onde a imagem está hospedada.
 >* Crie um aplicativo de funções do Linux em um plano do serviço de aplicativo usando o CLI do Azure. Para saber como, consulte [criar uma função no Linux usando uma imagem personalizada](functions-create-function-linux-custom-image.md#create-a-premium-plan).
@@ -141,7 +139,7 @@ Implantação da Web pacotes e implanta seus aplicativos do Windows em qualquer 
 
 Use o controle do código-fonte para conectar seu aplicativo de funções a um repositório git. Uma atualização de código nesse repositório dispara a implantação. Para obter mais informações, consulte o [wiki do kudu](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
 
->__Como usá-lo:__ Use a central de implantação na área funções do portal para configurar a publicação do controle do código-fonte. Para obter mais informações, consulte [implantação contínua para Azure Functions](functions-continuous-deployment.md).
+>__Como usá-lo:__ Use a central de implantação na área funções do portal para configurar a publicação do controle do código-fonte. Para saber mais, confira [Implantação contínua do Azure Functions](functions-continuous-deployment.md).
 
 >__Quando usá-lo:__ Usar o controle do código-fonte é a melhor prática para as equipes que colaboram com seus aplicativos de funções. O controle do código-fonte é uma boa opção de implantação que permite pipelines de implantação mais sofisticados.
 
@@ -183,13 +181,13 @@ No editor baseado em portal, você pode editar diretamente os arquivos que estã
 
 A tabela a seguir mostra os sistemas operacionais e idiomas que dão suporte à edição do portal:
 
-| | Consumo do Windows | Windows Premium (versão prévia) | Windows dedicado | Consumo do Linux | Linux Premium (versão prévia)| Linux dedicado |
-|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
+| | Consumo do Windows | Windows Premium | Windows dedicado | Consumo do Linux | Linux Premium | Linux dedicado |
+|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
-| C#Prescritiva |✔|✔|✔| |✔<sup> \*</sup> |✔<sup> \*</sup>|
+| Script do C# |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
 | F# | | | | | | |
 | Java | | | | | | |
-| JavaScript (Node. js) |✔|✔|✔| |✔<sup> \*</sup>|✔<sup> \*</sup>|
+| JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
 | Python (versão prévia) | | | | | | |
 | PowerShell (visualização) |✔|✔|✔| | | |
 | TypeScript (Node. js) | | | | | | |
@@ -200,7 +198,7 @@ A tabela a seguir mostra os sistemas operacionais e idiomas que dão suporte à 
 
 Ao implantar seu aplicativo de funções no Azure, você pode implantar em um slot de implantação separado em vez de diretamente na produção. Para obter mais informações sobre slots de implantação, consulte a documentação dos [Slots de implantação do Azure Functions](../app-service/deploy-staging-slots.md) para obter detalhes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Leia estes artigos para saber mais sobre como implantar seus aplicativos de funções: 
 

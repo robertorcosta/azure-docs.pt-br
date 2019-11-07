@@ -1,5 +1,5 @@
 ---
-title: Copiar dados para o índice do Search usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados para o índice de pesquisa usando Azure Data Factory
 description: Saiba mais sobre como enviar por push ou copiar dados de um índice do Azure Search usando a atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 703dcb5fee0c31328eee91c9673e62653d7aa698
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: f4e9e9f66d9bf1fecd4565d5eb469703e7a83d0d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286350"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681179"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiar dados em um índice do Azure Search usando o Azure Data Factory
 
@@ -41,11 +41,11 @@ As seções que se seguem fornecem detalhes sobre as propriedades que são usada
 
 As propriedades a seguir têm suporte no serviço vinculado do Azure Search:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **AzureSearch** | Sim |
+| Tipo | A propriedade type deve ser definida como: **AzureSearch** | Sim |
 | url | URL para o serviço Azure Search. | Sim |
-| key | Chave de administração para o serviço Azure Search. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| chave | Chave de administração para o serviço Azure Search. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 > [!IMPORTANT]
@@ -79,9 +79,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados para o Azure Search, há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **AzureSearchIndex** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **AzureSearchIndex** | Sim |
 | indexName | Nome do índice do Azure Search. O Data Factory não cria o índice. O índice deve existir no Azure Search. | Sim |
 
 **Exemplo:**
@@ -111,10 +111,10 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar no Azure Search, defina o tipo de fonte na atividade de cópia como **AzureSearchIndexSink**. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureSearchIndexSink** | Sim |
-| writeBehavior | Especifica se deve mesclar ou substituir quando já existe um documento no índice. Veja a [propriedade WriteBehavior](#writebehavior-property).<br/><br/>Valores permitidos são: **Mesclar** (padrão) e **Carregar**. | Não |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureSearchIndexSink** | Sim |
+| writeBehavior | Especifica se deve mesclar ou substituir quando já existe um documento no índice. Veja a [propriedade WriteBehavior](#writebehavior-property).<br/><br/>Os valores permitidos são: **Merge** (padrão) e **Upload**. | Não |
 | writeBatchSize | Carrega dados para o índice do Azure Search quando o tamanho do buffer atinge writeBatchSize. Veja a [propriedade WriteBatchSize](#writebatchsize-property) para obter detalhes.<br/><br/>Os valores permitidos são: inteiros de 1 a 1.000; o valor padrão é 1.000. | Não |
 
 ### <a name="writebehavior-property"></a>Propriedade WriteBehavior
@@ -124,7 +124,7 @@ Upsert do AzureSearchSink ao gravar dados. Em outras palavras, ao escrever um do
 O AzureSearchSink fornece estes dois comportamentos de upsert (usando o SDK da AzureSearch):
 
 - **Mesclar**: combine todas as colunas no novo documento com a existente. Para colunas com valor nulo no novo documento, o valor existente é preservado.
-- **Carregar**: O novo documento substituirá o existente. Para colunas não especificadas no novo documento, o valor será definido como nulo se houver um valor não nulo no documento existente ou não.
+- **Carregar**: o novo documento substituirá o existente. Para colunas não especificadas no novo documento, o valor será definido como nulo se houver um valor não nulo no documento existente ou não.
 
 O comportamento padrão é **Mesclar**.
 
@@ -170,13 +170,13 @@ A tabela a seguir especifica se um tipo de dados do Azure Search tem suporte ou 
 
 | Tipo de dados do Azure Search | Suporte no coletor do Azure Search |
 | ---------------------- | ------------------------------ |
-| String | S |
+| Cadeia de caracteres | S |
 | Int32 | S |
 | Int64 | S |
 | Duplo | S |
-| Boolean | S |
+| Booliano | S |
 | DataTimeOffset | S |
-| String Array | N |
+| Matriz de cadeia de caracteres | N |
 | GeographyPoint | N |
 
 Atualmente, outros tipos de dados, por exemplo, complexType, não são suportados. Para obter uma lista completa de Azure Search tipo de dados com suporte, consulte [tipos de dados com suporte (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).

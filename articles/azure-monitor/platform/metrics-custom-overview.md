@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: d52cb4d7b8e29838338baddd45a175661801b19b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 744958fc44a8d10bbc8ca5d44af8c473548ae5ca
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844664"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669175"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas no Azure Monitor
 
@@ -38,7 +38,7 @@ Para autenticar a solicitação, o Monitor do Azure valida o token do aplicativo
 > [!NOTE]  
 > Quando você solicita que um token do Azure AD emita métricas personalizadas, verifique se o público ou recurso para o qual o token é solicitado é https://monitoring.azure.com/. Certifique-se de incluir à direita '/'.
 
-### <a name="subject"></a>Subject
+### <a name="subject"></a>Assunto
 Essa propriedade indica a ID de recurso do Azure para a qual a métrica personalizada é relatada. Essas informações serão codificadas na URL da chamada à API que está sendo feita. Cada API só pode enviar valores de métrica para um único recurso do Azure.
 
 > [!NOTE]  
@@ -54,11 +54,11 @@ Essa propriedade captura em que região do Azure o recurso para o qual você est
 >
 >
 
-### <a name="timestamp"></a>Carimbo de data/hora
+### <a name="timestamp"></a>Timestamp
 Cada ponto de dados enviado ao Azure Monitor deve estar marcado com um carimbo de data/hora. Esse registro de data e hora captura o DateTime no qual o valor da métrica é medido ou coletado. O Monitor do Azure aceita dados de métricas com registros de data e hora em até 20 minutos no passado e 5 minutos no futuro. O carimbo de data/hora deve estar no formato ISO 8601.
 
 ### <a name="namespace"></a>Namespace
-Namespaces são uma maneira de categorizar ou agrupar métricas semelhantes. Ao usar namespaces, você pode obter isolamento entre grupos de métricas que podem coletar diferentes insights ou indicadores de desempenho. Por exemplo, você pode ter um namespace chamado **ContosoMemoryMetrics**, que monitora as métricas de uso da memória que formam o perfil do seu aplicativo. Outro namespace chamado **ContosoAppTransaction** pode rastrear todas as métricas sobre transações do usuário em seu aplicativo.
+Namespaces são uma maneira de categorizar ou agrupar métricas semelhantes. Ao usar namespaces, você pode obter isolamento entre grupos de métricas que podem coletar diferentes insights ou indicadores de desempenho. Por exemplo, você pode ter um namespace chamado **contosomemorymetrics** que controla as métricas de uso de memória cujo perfil é seu aplicativo. Outro namespace chamado **contosoapptransaction** pode rastrear todas as métricas sobre transações de usuário em seu aplicativo.
 
 ### <a name="name"></a>Nome
 **Nome** é o nome da métrica que está sendo relatada. Normalmente, o nome é descritivo para ajudar a identificar o que está sendo medido. Um exemplo é uma métrica que mede o número de bytes de memória usados em uma determinada VM. Pode ter um nome de métrica como **Memory Bytes In Use**.
@@ -80,10 +80,10 @@ As dimensões são opcionais, nem todas as métricas podem ter dimensões. Se um
 ### <a name="metric-values"></a>Valores métricos
 O Azure Monitor armazena todas as métricas em intervalos com granularidade de um minuto. Entendemos que, durante um determinado minuto, uma métrica pode precisar ser amostrada várias vezes. Um exemplo é a utilização da CPU. Ou talvez precise ser medido para muitos eventos distintos. Um exemplo é latências de transações de entrada. Para limitar o número de valores brutos que você precisa emitir e pagar no Azure Monitor, é possível pré-agregar os valores localmente e emiti-los:
 
-* **Mín.** : O valor mínimo observado de todas os exemplos e medições durante o minuto.
-* **Máx.** : O valor máximo observado de todas os exemplos e medições durante o minuto.
-* **Soma**: A soma de todos os valores observados de todos os exemplos e medições durante o minuto.
-* **Contagem**: O número de exemplos e medições feitas durante o minuto.
+* **Mín.** : O valor mínimo observado de todas as amostras e medições durante o minuto.
+* **Máx**: O valor máximo observado de todas as amostras e medições durante o minuto.
+* **Sum**: A soma de todos os valores observados de todas as amostras e medições durante o minuto.
+* **Contar**: o número de amostras e medições feitas durante o minuto.
 
 Por exemplo, se houver 4 transações de login em seu aplicativo durante um determinado minuto, as latências medidas resultantes para cada um podem ser as seguintes:
 
@@ -171,27 +171,27 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 |Região do Azure |Prefixo de ponto de extremidade regional|
 |---|---|
 | **EUA e Canadá** | |
-|Centro-oeste dos EUA | https:\//westcentralus.Monitoring.Azure.com/ |
-|Oeste dos EUA 2       | https:\//westus2.Monitoring.Azure.com/ |
-|Centro-Norte dos EUA | https:\//northcentralus.Monitoring.Azure.com
-|Centro-Sul dos EUA| https:\//southcentralus.Monitoring.Azure.com/ |
-|EUA Central      | https:\//centralus.Monitoring.Azure.com |
+|Centro-Oeste dos EUA | https:\//westcentralus.monitoring.azure.com/ |
+|Oeste dos EUA 2       | https:\//westus2.monitoring.azure.com/ |
+|Centro-Norte dos EUA | https:\//northcentralus.monitoring.azure.com
+|Centro-Sul dos Estados Unidos| https:\//southcentralus.monitoring.azure.com/ |
+|Centro dos EUA      | https:\//centralus.monitoring.azure.com |
 |Canadá Central | https:\//canadacentral.Monitoring.Azure.comc
-|East US| https:\//eastus.Monitoring.Azure.com/ |
+|Leste dos EUA| https:\//eastus.monitoring.azure.com/ |
 | **Europa** | |
-|Europa Setentrional    | https:\//northeurope.Monitoring.Azure.com/ |
-|Europa Ocidental     | https:\//westeurope.Monitoring.Azure.com/ |
-|Sul do Reino Unido | https:\//uksouth.Monitoring.Azure.com
-|Centro da França | https:\//francecentral.Monitoring.Azure.com |
+|Norte da Europa    | https:\//northeurope.monitoring.azure.com/ |
+|Europa Ocidental     | https:\//westeurope.monitoring.azure.com/ |
+|Sul do Reino Unido | https:\//uksouth.monitoring.azure.com
+|França Central | https:\//francecentral.monitoring.azure.com |
 | **África** | |
-|Norte da África do Sul | https:\//southafricanorth.Monitoring.Azure.com
+|Norte da África do Sul | https:\//southafricanorth.monitoring.azure.com
 | **Ásia** | |
-|Índia Central | https:\//centralindia.Monitoring.Azure.com
-|Leste da Austrália | https:\//australiaeast.Monitoring.Azure.com
-|Leste do Japão | https:\//japaneast.Monitoring.Azure.com
-|Sudeste da Ásia  | https:\//southeastasia.Monitoring.Azure.com |
-|Ásia Oriental | https:\//eastasia.Monitoring.Azure.com
-|Coreia Central   | https:\//koreacentral.Monitoring.Azure.com
+|Índia Central | https:\//centralindia.monitoring.azure.com
+|Leste da Austrália | https:\//australiaeast.monitoring.azure.com
+|Leste do Japão | https:\//japaneast.monitoring.azure.com
+|Sudeste Asiático  | https:\//southeastasia.monitoring.azure.com |
+|Ásia Oriental | https:\//eastasia.monitoring.azure.com
+|Coreia Central   | https:\//koreacentral.monitoring.azure.com
 
 
 ## <a name="quotas-and-limits"></a>Cotas e limites
@@ -207,7 +207,7 @@ Uma série temporal ativa é definida como qualquer combinação exclusiva de m�
 
 ## <a name="next-steps"></a>Próximas etapas
 Use métricas personalizadas de diferentes serviços: 
- - [Máquinas Virtuais](collect-custom-metrics-guestos-resource-manager-vm.md)
+ - [Máquinas virtuais](collect-custom-metrics-guestos-resource-manager-vm.md)
  - [Conjunto de dimensionamento de máquinas virtuais](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Máquinas virtuais do Azure (clássico)](collect-custom-metrics-guestos-vm-classic.md)
  - [Linux Virtual Machine usando o agente Telegraf](collect-custom-metrics-linux-telegraf.md)

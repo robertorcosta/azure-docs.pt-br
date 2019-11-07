@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/07/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 094ae511337556ef0c67c86f6d8692cae005430a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: ad2b1b9236f88f99542f8705372af664cc299ee0
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033959"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614814"
 ---
 # <a name="http-api-reference"></a>Referência de API HTTP
 
@@ -22,13 +22,13 @@ A extensão Durable Functions expõe um conjunto de APIs HTTP internas que podem
 
 Todas as APIs HTTP implementadas pela extensão exigem os seguintes parâmetros. O tipo de dados de todos os parâmetros é `string`.
 
-| Parâmetro        | Tipo de Parâmetro  | Descrição |
+| Parâmetro        | Tipo de Parâmetro  | DESCRIÇÃO |
 |------------------|-----------------|-------------|
-| **`taskHub`**    | Cadeia de caracteres de consulta    | O nome do [hub de tarefas](durable-functions-task-hubs.md). Se não for especificado, o nome do hub de tarefas do aplicativo de funções será presumido. |
-| **`connection`** | Cadeia de caracteres de consulta    | O **nome** da cadeia de conexão para a conta de armazenamento. Se não for especificada, a cadeia de conexão padrão do aplicativo de funções será presumida. |
-| **`systemKey`**  | Cadeia de caracteres de consulta    | A chave de autorização necessária para invocar a API. |
+| **`taskHub`**    | Cadeia de consulta    | O nome do [hub de tarefas](durable-functions-task-hubs.md). Se não for especificado, o nome do hub de tarefas do aplicativo de funções será presumido. |
+| **`connection`** | Cadeia de consulta    | O **nome** da cadeia de conexão para a conta de armazenamento. Se não for especificada, a cadeia de conexão padrão do aplicativo de funções será presumida. |
+| **`systemKey`**  | Cadeia de consulta    | A chave de autorização necessária para invocar a API. |
 
-`systemKey`é uma chave de autorização gerada automaticamente pelo host Azure Functions. Ela concede acesso especificamente às APIs da extensão de Tarefas Duráveis e pode ser gerenciada da mesma maneira que as [outras chaves de autorização](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Você pode gerar URLs que contêm os valores `taskHub`corretos, `systemKey` `connection`e de cadeia de caracteres de consulta usando APIs de associação de cliente `CreateCheckStatusResponse` de `CreateHttpManagementPayload` [orquestração](durable-functions-bindings.md#orchestration-client) , como as APIs `createCheckStatusResponse` e no .net, ou o e o `createHttpManagementPayload` APIs em JavaScript.
+`systemKey` é uma chave de autorização gerada automaticamente pelo host Azure Functions. Ela concede acesso especificamente às APIs da extensão de Tarefas Duráveis e pode ser gerenciada da mesma maneira que as [outras chaves de autorização](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Você pode gerar URLs que contêm os valores corretos de cadeia de caracteres de consulta `taskHub`, `connection`e `systemKey` usando APIs de [Associação de cliente de orquestração](durable-functions-bindings.md#orchestration-client) , como as APIs `CreateCheckStatusResponse` e `CreateHttpManagementPayload` no .net, ou as APIs `createCheckStatusResponse` e `createHttpManagementPayload` em JavaScript.
 
 As próximas seções tratam das APIs HTTP específicas com suporte da extensão e fornecem exemplos de como elas podem ser usadas.
 
@@ -36,7 +36,7 @@ As próximas seções tratam das APIs HTTP específicas com suporte da extensão
 
 Inicia a execução de uma nova instância da função de orquestrador especificada.
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
 Para a versão 1. x do tempo de execução do functions, a solicitação é formatada da seguinte maneira (várias linhas são mostradas para maior clareza):
 
@@ -58,7 +58,7 @@ POST /runtime/webhooks/durabletask/orchestrators/{functionName}/{instanceId?}
 
 Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado anteriormente, bem como o parâmetro exclusivo a seguir:
 
-| Campo              | Tipo de parâmetro  | Descrição |
+| Campo              | Tipo de parâmetro  | DESCRIÇÃO |
 |--------------------|-----------------|-------------|
 | **`functionName`** | URL             | O nome da função de orquestrador a ser iniciada. |
 | **`instanceId`**   | URL             | Parâmetro opcional. A ID da instância de orquestração. Se não for especificado, a função de orquestrador será iniciada com uma ID de instância aleatória. |
@@ -68,10 +68,10 @@ Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado
 
 Vários valores de código de status possíveis podem ser retornados.
 
-* **HTTP 202 (Aceito)** : A função de orquestrador especificada foi agendada para iniciar a execução. O `Location` cabeçalho de resposta contém uma URL para sondar o status de orquestração.
-* **HTTP 400 (Solicitação Incorreta)** : A função de orquestrador especificada não existe, a ID de instância especificada não era válida ou o conteúdo da solicitação não era um JSON válido.
+* **HTTP 202 (aceito)** : a função de orquestrador especificada foi agendada para iniciar a execução. O cabeçalho de resposta `Location` contém uma URL para sondar o status de orquestração.
+* **HTTP 400 (solicitação inválida)** : a função de orquestrador especificada não existe, a ID de instância especificada não era válida ou o conteúdo da solicitação não era um JSON válido.
 
-Veja a seguir um exemplo de solicitação que inicia `RestartVMs` uma função de orquestrador e inclui a carga do objeto JSON:
+Veja a seguir um exemplo de solicitação que inicia uma função de orquestrador `RestartVMs` e inclui a carga do objeto JSON:
 
 ```http
 POST /runtime/webhooks/durabletask/orchestrators/RestartVMs?code=XXX
@@ -86,7 +86,7 @@ Content-Length: 83
 
 A carga de resposta para os casos **HTTP 202** é um objeto JSON com os seguintes campos:
 
-| Campo                       | Descrição                          |
+| Campo                       | DESCRIÇÃO                          |
 |-----------------------------|--------------------------------------|
 | **`id`**                    |A ID da instância de orquestração. |
 | **`statusQueryGetUri`**     |A URL de status da instância de orquestração. |
@@ -97,7 +97,7 @@ A carga de resposta para os casos **HTTP 202** é um objeto JSON com os seguinte
 
 O tipo de dados de todos os campos é `string`.
 
-Aqui está um exemplo de carga de resposta para uma instância de `abc123` orquestração com como sua ID (formatada para legibilidade):
+Aqui está um exemplo de carga de resposta para uma instância de orquestração com `abc123` como sua ID (formatada para legibilidade):
 
 ```http
 {
@@ -111,8 +111,8 @@ Aqui está um exemplo de carga de resposta para uma instância de `abc123` orque
 
 A resposta http é destinada a ser compatível com o *padrão de consumidor de sondagem*. Ele também inclui os seguintes cabeçalhos de resposta notáveis:
 
-* **Localização**: A URL do ponto de extremidade de status. Essa URL contém o mesmo valor que o `statusQueryGetUri` campo.
-* **Tentar novamente**: O número de segundos de espera entre as operações de sondagem. O valor padrão é `10`.
+* **Location**: a URL do ponto de extremidade de status. Essa URL contém o mesmo valor que o campo `statusQueryGetUri`.
+* **Tentar novamente**: o número de segundos de espera entre as operações de sondagem. O valor padrão é `10`.
 
 Para obter mais informações sobre o padrão de sondagem HTTP assíncrona, consulte a documentação de [rastreamento de operação](durable-functions-http-features.md#async-operation-tracking) assíncrona http.
 
@@ -120,7 +120,7 @@ Para obter mais informações sobre o padrão de sondagem HTTP assíncrona, cons
 
 Obtém o status de uma instância de orquestração especificada.
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
 Para a versão 1. x do tempo de execução do functions, a solicitação é formatada da seguinte maneira (várias linhas são mostradas para maior clareza):
 
@@ -148,36 +148,36 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado anteriormente, bem como o parâmetro exclusivo a seguir:
 
-| Campo                   | Tipo de parâmetro  | Descrição |
+| Campo                   | Tipo de parâmetro  | DESCRIÇÃO |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | A ID da instância de orquestração. |
-| **`showInput`**         | Cadeia de caracteres de consulta    | Parâmetro opcional. Se definido como `false`, a entrada da função não será incluída na carga de resposta.|
-| **`showHistory`**       | Cadeia de caracteres de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução da orquestração será incluído na carga da resposta.|
-| **`showHistoryOutput`** | Cadeia de caracteres de consulta    | Parâmetro opcional. Se definido como `true`, as saídas de função serão incluídas no histórico de execução de orquestração.|
-| **`createdTimeFrom`**   | Cadeia de caracteres de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas que foram criadas no ou após o carimbo de data/hora ISO8601 fornecido.|
-| **`createdTimeTo`**     | Cadeia de caracteres de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas que foram criadas no ou antes do carimbo de data/hora ISO8601 fornecido.|
-| **`runtimeStatus`**     | Cadeia de caracteres de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas com base em seu status de tempo de execução. Para ver a lista de possíveis valores de status de tempo de execução, consulte o artigo [instâncias de consulta](durable-functions-instance-management.md) . |
+| **`showInput`**         | Cadeia de consulta    | Parâmetro opcional. Se definido como `false`, a entrada da função não será incluída na carga de resposta.|
+| **`showHistory`**       | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução da orquestração será incluído na carga da resposta.|
+| **`showHistoryOutput`** | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, as saídas de função serão incluídas no histórico de execução de orquestração.|
+| **`createdTimeFrom`**   | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas que foram criadas no ou após o carimbo de data/hora ISO8601 fornecido.|
+| **`createdTimeTo`**     | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas que foram criadas no ou antes do carimbo de data/hora ISO8601 fornecido.|
+| **`runtimeStatus`**     | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas com base em seu status de tempo de execução. Para ver a lista de possíveis valores de status de tempo de execução, consulte o artigo [instâncias de consulta](durable-functions-instance-management.md) . |
 
 ### <a name="response"></a>Resposta
 
 Vários valores de código de status possíveis podem ser retornados.
 
-* **HTTP 200 (OK)** : A instância especificada está em um estado concluído.
-* **HTTP 202 (Aceito)** : A instância especificada está em andamento.
-* **HTTP 400 (Solicitação Incorreta)** : A instância especificada falhou ou foi encerrada.
-* **HTTP 404 (Não Encontrado)** : A instância especificada não existe ou não começou a ser executada.
-* **HTTP 500 (Erro Interno do Servidor)** : A instância especificada falhou com uma exceção sem tratamento.
+* **HTTP 200 (OK)** : a instância especificada está em um estado concluído.
+* **HTTP 202 (Aceito)** : a instância especificada está em andamento.
+* **HTTP 400 (Solicitação incorreta)** : a instância especificada falhou ou foi encerrada.
+* **HTTP 404 (Não encontrado)** : a instância especificada não existe ou não começou a ser executada.
+* **HTTP 500 (erro interno do servidor)** : A instância especificada falhou com uma exceção sem tratamento.
 
 A carga de resposta para os casos de **HTTP 200** e **HTTP 202** é um objeto JSON com os campos a seguir:
 
-| Campo                 | Tipo de dados | Descrição |
+| Campo                 | Tipo de dados | DESCRIÇÃO |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | cadeia de caracteres    | O status de tempo de execução da instância. Os valores incluem *Em execução*, *Pendente*, *Falha*, *Cancelado*, *Encerrado*, *Concluído*. |
+| **`runtimeStatus`**   | string    | O status de tempo de execução da instância. Os valores incluem *Em execução*, *Pendente*, *Falha*, *Cancelado*, *Encerrado*, *Concluído*. |
 | **`input`**           | JSON      | Os dados JSON usados para inicializar a instância. Este campo é `null` se o `showInput` parâmetro da cadeia de caracteres de consulta for definido para `false`.|
 | **`customStatus`**    | JSON      | Os dados JSON usados para status de orquestração personalizado. Este campo é `null` se não for definido. |
 | **`output`**          | JSON      | A saída JSON da instância. Este campo será `null` se a instância não estiver no estado concluído. |
-| **`createdTime`**     | cadeia de caracteres    | A hora em que a instância foi criada. Usa a notação estendida ISO 8601. |
-| **`lastUpdatedTime`** | cadeia de caracteres    | A hora em que a instância foi persistida pela última vez. Usa a notação estendida ISO 8601. |
+| **`createdTime`**     | string    | A hora em que a instância foi criada. Usa a notação estendida ISO 8601. |
+| **`lastUpdatedTime`** | string    | A hora em que a instância foi persistida pela última vez. Usa a notação estendida ISO 8601. |
 | **`historyEvents`**   | JSON      | Uma matriz JSON contendo o histórico de execução da orquestração. Esse campo é `null`, exceto se o parâmetro da cadeia de caracteres de consulta `showHistory` estiver definido como `true`. |
 
 Aqui está um exemplo de carga de resposta, incluindo o histórico de execução de orquestração e saídas de atividades (formatado para legibilidade):
@@ -239,12 +239,12 @@ A resposta **HTTP 202** também inclui um cabeçalho de resposta **Local** que f
 
 ## <a name="get-all-instances-status"></a>Obter status de todas as instâncias
 
-Você também pode consultar o status de todas as instâncias removendo `instanceId` o da solicitação ' obter status da instância '. Nesse caso, os parâmetros básicos são os mesmos que o ' obter status da instância '. Também há suporte para parâmetros de cadeia de caracteres de consulta para filtragem.
+Você também pode consultar o status de todas as instâncias removendo o `instanceId` da solicitação ' obter status da instância '. Nesse caso, os parâmetros básicos são os mesmos que o ' obter status da instância '. Também há suporte para parâmetros de cadeia de caracteres de consulta para filtragem.
 
 Uma coisa a lembrar é que `connection` e `code` são opcionais. Se você tiver a autenticação anônima na função, `code` não será necessário.
 Se você não quiser usar uma cadeia de conexão de armazenamento diferente da definida na configuração de aplicativo AzureWebJobsStorage, poderá ignorar com segurança o parâmetro de cadeia de caracteres de consulta de conexão.
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
 Para a versão 1. x do tempo de execução do functions, a solicitação é formatada da seguinte maneira (várias linhas são mostradas para maior clareza):
 
@@ -276,16 +276,16 @@ GET /runtime/webhooks/durableTask/instances?
 
 Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado anteriormente, bem como o parâmetro exclusivo a seguir:
 
-| Campo                   | Tipo de parâmetro  | Descrição |
+| Campo                   | Tipo de parâmetro  | DESCRIÇÃO |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | A ID da instância de orquestração. |
-| **`showInput`**         | Cadeia de caracteres de consulta    | Parâmetro opcional. Se definido como `false`, a entrada da função não será incluída na carga de resposta.|
-| **`showHistory`**       | Cadeia de caracteres de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução da orquestração será incluído na carga da resposta.|
-| **`showHistoryOutput`** | Cadeia de caracteres de consulta    | Parâmetro opcional. Se definido como `true`, as saídas de função serão incluídas no histórico de execução de orquestração.|
-| **`createdTimeFrom`**   | Cadeia de caracteres de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas que foram criadas no ou após o carimbo de data/hora ISO8601 fornecido.|
-| **`createdTimeTo`**     | Cadeia de caracteres de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas que foram criadas no ou antes do carimbo de data/hora ISO8601 fornecido.|
-| **`runtimeStatus`**     | Cadeia de caracteres de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas com base em seu status de tempo de execução. Para ver a lista de possíveis valores de status de tempo de execução, consulte o artigo [instâncias de consulta](durable-functions-instance-management.md) . |
-| **`top`**               | Cadeia de caracteres de consulta    | Parâmetro opcional. Quando especificado, limita o número de instâncias retornadas pela consulta. |
+| **`showInput`**         | Cadeia de consulta    | Parâmetro opcional. Se definido como `false`, a entrada da função não será incluída na carga de resposta.|
+| **`showHistory`**       | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução da orquestração será incluído na carga da resposta.|
+| **`showHistoryOutput`** | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, as saídas de função serão incluídas no histórico de execução de orquestração.|
+| **`createdTimeFrom`**   | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas que foram criadas no ou após o carimbo de data/hora ISO8601 fornecido.|
+| **`createdTimeTo`**     | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas que foram criadas no ou antes do carimbo de data/hora ISO8601 fornecido.|
+| **`runtimeStatus`**     | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas com base em seu status de tempo de execução. Para ver a lista de possíveis valores de status de tempo de execução, consulte o artigo [instâncias de consulta](durable-functions-instance-management.md) . |
+| **`top`**               | Cadeia de consulta    | Parâmetro opcional. Quando especificado, limita o número de instâncias retornadas pela consulta. |
 
 ### <a name="response"></a>Resposta
 
@@ -346,13 +346,13 @@ Aqui está um exemplo de cargas de resposta, incluindo o status de orquestraçã
 
 Se houver mais resultados, um token de continuação será retornado no cabeçalho de resposta.  O nome do cabeçalho `x-ms-continuation-token`.
 
-Se você definir o valor do token de continuação no próximo cabeçalho de solicitação, poderá obter a próxima página de resultados. O nome do cabeçalho da solicitação também `x-ms-continuation-token`é.
+Se você definir o valor do token de continuação no próximo cabeçalho de solicitação, poderá obter a próxima página de resultados. O nome do cabeçalho da solicitação também é `x-ms-continuation-token`.
 
 ## <a name="purge-single-instance-history"></a>Limpar o histórico de instância única
 
 Exclui o histórico e os artefatos relacionados para uma instância de orquestração especificada.
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
 Para a versão 1. x do tempo de execução do functions, a solicitação é formatada da seguinte maneira (várias linhas são mostradas para maior clareza):
 
@@ -374,7 +374,7 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 
 Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado anteriormente, bem como o parâmetro exclusivo a seguir:
 
-| Campo             | Tipo de parâmetro  | Descrição |
+| Campo             | Tipo de parâmetro  | DESCRIÇÃO |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | A ID da instância de orquestração. |
 
@@ -382,14 +382,14 @@ Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado
 
 Os valores de código de status HTTP a seguir podem ser retornados.
 
-* **HTTP 200 (OK)** : O histórico de instâncias foi limpo com êxito.
-* **HTTP 404 (Não Encontrado)** : A instância especificada não existe.
+* **HTTP 200 (OK)** : o histórico de instância foi limpo com êxito.
+* **HTTP 404 (não encontrado)** : a instância especificada não existe.
 
 A carga de resposta para o caso de **HTTP 200** é um objeto JSON com o seguinte campo:
 
-| Campo                  | Tipo de dados | Descrição |
+| Campo                  | Tipo de dados | DESCRIÇÃO |
 |------------------------|-----------|-------------|
-| **`instancesDeleted`** | integer   | O número de instâncias excluídas. Para o caso de instância única, esse valor sempre deve `1`ser. |
+| **`instancesDeleted`** | inteiro   | O número de instâncias excluídas. Para o caso de instância única, esse valor sempre deve ser `1`. |
 
 Veja um exemplo de carga de resposta (formatada para facilitar a leitura):
 
@@ -401,9 +401,9 @@ Veja um exemplo de carga de resposta (formatada para facilitar a leitura):
 
 ## <a name="purge-multiple-instance-histories"></a>Limpar históricos de várias instâncias
 
-Você também pode excluir o histórico e os artefatos relacionados para várias instâncias em um hub de tarefas `{instanceId}` removendo o da solicitação ' limpar o histórico de instância única '. Para limpar seletivamente o histórico de instância, use os mesmos filtros descritos na solicitação "obter status de todas as instâncias".
+Você também pode excluir o histórico e os artefatos relacionados para várias instâncias em um hub de tarefas removendo a `{instanceId}` da solicitação ' limpar o histórico de instância única '. Para limpar seletivamente o histórico de instância, use os mesmos filtros descritos na solicitação "obter status de todas as instâncias".
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
 Para a versão 1. x do tempo de execução do functions, a solicitação é formatada da seguinte maneira (várias linhas são mostradas para maior clareza):
 
@@ -431,11 +431,11 @@ DELETE /runtime/webhooks/durabletask/instances
 
 Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado anteriormente, bem como o parâmetro exclusivo a seguir:
 
-| Campo                 | Tipo de parâmetro  | Descrição |
+| Campo                 | Tipo de parâmetro  | DESCRIÇÃO |
 |-----------------------|-----------------|-------------|
-| **`createdTimeFrom`** | Cadeia de caracteres de consulta    | Filtra a lista de instâncias limpas que foram criadas no ou após o carimbo de data/hora ISO8601 fornecido.|
-| **`createdTimeTo`**   | Cadeia de caracteres de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias limpas que foram criadas no ou antes do carimbo de data/hora ISO8601 fornecido.|
-| **`runtimeStatus`**   | Cadeia de caracteres de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias limpas com base em seu status de tempo de execução. Para ver a lista de possíveis valores de status de tempo de execução, consulte o artigo [instâncias de consulta](durable-functions-instance-management.md) . |
+| **`createdTimeFrom`** | Cadeia de consulta    | Filtra a lista de instâncias limpas que foram criadas no ou após o carimbo de data/hora ISO8601 fornecido.|
+| **`createdTimeTo`**   | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias limpas que foram criadas no ou antes do carimbo de data/hora ISO8601 fornecido.|
+| **`runtimeStatus`**   | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias limpas com base em seu status de tempo de execução. Para ver a lista de possíveis valores de status de tempo de execução, consulte o artigo [instâncias de consulta](durable-functions-instance-management.md) . |
 
 > [!NOTE]
 > Essa operação pode ser muito cara em termos de e/s do armazenamento do Azure se houver muitas linhas nas tabelas de instâncias e/ou de histórico. Mais detalhes sobre essas tabelas podem ser encontrados na documentação de [desempenho e escala na Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) .
@@ -444,14 +444,14 @@ Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado
 
 Os valores de código de status HTTP a seguir podem ser retornados.
 
-* **HTTP 200 (OK)** : O histórico de instâncias foi limpo com êxito.
-* **HTTP 404 (Não Encontrado)** : Não foram encontradas instâncias que correspondam à expressão de filtro.
+* **HTTP 200 (OK)** : o histórico de instância foi limpo com êxito.
+* **HTTP 404 (não encontrado)** : nenhuma instância encontrada corresponde à expressão de filtro.
 
 A carga de resposta para o caso de **HTTP 200** é um objeto JSON com o seguinte campo:
 
-| Campo                   | Tipo de dados | Descrição |
+| Campo                   | Tipo de dados | DESCRIÇÃO |
 |-------------------------|-----------|-------------|
-| **`instancesDeleted`**  | integer   | O número de instâncias excluídas. |
+| **`instancesDeleted`**  | inteiro   | O número de instâncias excluídas. |
 
 Veja um exemplo de carga de resposta (formatada para facilitar a leitura):
 
@@ -465,7 +465,7 @@ Veja um exemplo de carga de resposta (formatada para facilitar a leitura):
 
 Envia uma mensagem de notificação de evento para uma instância de orquestração em execução.
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
 Para a versão 1. x do tempo de execução do functions, a solicitação é formatada da seguinte maneira (várias linhas são mostradas para maior clareza):
 
@@ -487,7 +487,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
 
 Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado anteriormente, bem como o parâmetro exclusivo a seguir:
 
-| Campo             | Tipo de parâmetro  | Descrição |
+| Campo             | Tipo de parâmetro  | DESCRIÇÃO |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | A ID da instância de orquestração. |
 | **`eventName`**   | URL             | O nome do evento que a instância de orquestração de destino está esperando. |
@@ -497,10 +497,10 @@ Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado
 
 Vários valores de código de status possíveis podem ser retornados.
 
-* **HTTP 202 (Aceito)** : O evento gerado foi aceito para processamento.
-* **HTTP 400 (Solicitação Incorreta)** : O conteúdo da solicitação não era do tipo `application/json` ou não era um JSON válido.
-* **HTTP 404 (Não Encontrado)** : A instância especificada não foi encontrada.
-* **HTTP 410 (Não existe mais)** : A instância especificada foi concluída ou falhou e não pode processar os eventos gerados.
+* **HTTP 202 (Aceito)** : o evento gerado foi aceito para processamento.
+* **HTTP 400 (Solicitação incorreta)** : o conteúdo da solicitação não era do tipo `application/json` ou não era um JSON válido.
+* **HTTP 404 (Não encontrado)** : a instância especificada não foi encontrada.
+* **HTTP 410 (Não existe mais)** : a instância especificada foi concluída ou falhou e não pode processar os eventos gerados.
 
 Veja um exemplo de solicitação que envia a cadeia de caracteres JSON `"incr"` para uma instância que aguarda um evento nomeado **operation**:
 
@@ -518,7 +518,7 @@ As respostas para esta API não têm nenhum conteúdo.
 
 Encerra uma instância de orquestração em execução.
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
 Para a versão 1. x do tempo de execução do functions, a solicitação é formatada da seguinte maneira (várias linhas são mostradas para maior clareza):
 
@@ -542,18 +542,18 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado anteriormente, bem como o seguinte parâmetro exclusivo.
 
-| Campo             | Tipo de Parâmetro  | Descrição |
+| Campo             | Tipo de Parâmetro  | DESCRIÇÃO |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | A ID da instância de orquestração. |
-| **`reason`**      | Cadeia de caracteres de consulta    | Opcional. O motivo para encerrar a instância de orquestração. |
+| **`reason`**      | Cadeia de consulta    | Opcional. O motivo para encerrar a instância de orquestração. |
 
 ### <a name="response"></a>Resposta
 
 Vários valores de código de status possíveis podem ser retornados.
 
-* **HTTP 202 (Aceito)** : A solicitação de encerramento foi aceita para processamento.
-* **HTTP 404 (Não Encontrado)** : A instância especificada não foi encontrada.
-* **HTTP 410 (Não existe mais)** : A instância especificada foi concluída ou falhou.
+* **HTTP 202 (Aceito)** : a solicitação de encerramento foi aceita para processamento.
+* **HTTP 404 (Não encontrado)** : a instância especificada não foi encontrada.
+* **HTTP 410 (Não existe mais)** : a instância especificada foi concluída ou falhou.
 
 Veja um exemplo de solicitação que encerra uma instância em execução e especifica o motivo **buggy**:
 
@@ -567,7 +567,7 @@ As respostas para esta API não têm nenhum conteúdo.
 
 Restaura uma instância de orquestração com falha em um estado de execução ao reproduzir novamente as operações com falha mais recentes.
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
 Para a versão 1. x do tempo de execução do functions, a solicitação é formatada da seguinte maneira (várias linhas são mostradas para maior clareza):
 
@@ -591,18 +591,18 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado anteriormente, bem como o seguinte parâmetro exclusivo.
 
-| Campo             | Tipo de Parâmetro  | Descrição |
+| Campo             | Tipo de Parâmetro  | DESCRIÇÃO |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | A ID da instância de orquestração. |
-| **`reason`**      | Cadeia de caracteres de consulta    | Opcional. O motivo para retroceder a instância de orquestração. |
+| **`reason`**      | Cadeia de consulta    | Opcional. O motivo para retroceder a instância de orquestração. |
 
 ### <a name="response"></a>Resposta
 
 Vários valores de código de status possíveis podem ser retornados.
 
-* **HTTP 202 (Aceito)** : A solicitação de retroceder foi aceita para processamento.
-* **HTTP 404 (Não Encontrado)** : A instância especificada não foi encontrada.
-* **HTTP 410 (Não existe mais)** : A instância especificada foi concluída ou encerrada.
+* **HTTP 202 (Aceito)** : a solicitação de retroceder foi aceita para processamento.
+* **HTTP 404 (Não encontrado)** : a instância especificada não foi encontrada.
+* **HTTP 410 (Não existe mais)** : a instância especificada foi concluída ou falhou.
 
 Veja um exemplo de solicitação que retrocede uma instância com falha e especifica o motivo **corrigido**:
 
@@ -619,7 +619,7 @@ Envia uma mensagem de operação unidirecional para uma [entidade durável](dura
 > [!NOTE]
 > As entidades duráveis estão disponíveis a partir do Durable Functions 2,0.
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
 A solicitação HTTP é formatada da seguinte maneira (várias linhas são mostradas para maior clareza):
 
@@ -633,14 +633,14 @@ POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
 
 Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado anteriormente, bem como o parâmetro exclusivo a seguir:
 
-| Campo             | Tipo de parâmetro  | Descrição |
+| Campo             | Tipo de parâmetro  | DESCRIÇÃO |
 |-------------------|-----------------|-------------|
 | **`entityType`**  | URL             | O tipo da entidade. |
 | **`entityKey`**   | URL             | O nome exclusivo da entidade. |
-| **`op`**          | Cadeia de caracteres de consulta    | Opcional. O nome da operação definida pelo usuário a ser invocada. |
+| **`op`**          | Cadeia de consulta    | Opcional. O nome da operação definida pelo usuário a ser invocada. |
 | **`{content}`**   | Conteúdo da solicitação | A carga do evento em formato JSON. |
 
-Aqui está uma solicitação de exemplo que envia uma mensagem de "adição" definida pelo usuário `Counter` a uma `steps`entidade chamada. O conteúdo da mensagem é o valor `5`. Se a entidade ainda não existir, ela será criada por essa solicitação:
+Aqui está uma solicitação de exemplo que envia uma mensagem de "adição" definida pelo usuário a uma entidade `Counter` chamada `steps`. O conteúdo da mensagem é o valor `5`. Se a entidade ainda não existir, ela será criada por essa solicitação:
 
 ```http
 POST /runtime/webhooks/durabletask/entities/Counter/steps?op=Add
@@ -653,9 +653,9 @@ Content-Type: application/json
 
 Esta operação tem várias respostas possíveis:
 
-* **HTTP 202 (Aceito)** : A operação de sinal foi aceita para processamento assíncrono.
-* **HTTP 400 (Solicitação Incorreta)** : O conteúdo da solicitação não era do `application/json`tipo, não era um JSON válido ou tinha um `entityKey` valor inválido.
-* **HTTP 404 (Não Encontrado)** : O especificado `entityType` não foi encontrado.
+* **HTTP 202 (aceito)** : a operação de sinal foi aceita para processamento assíncrono.
+* **HTTP 400 (solicitação inválida)** : o conteúdo da solicitação não era do tipo `application/json`, não era um JSON válido ou tinha um valor de `entityKey` inválido.
+* **HTTP 404 (não encontrado)** : o `entityType` especificado não foi encontrado.
 
 Uma solicitação HTTP bem-sucedida não contém nenhum conteúdo na resposta. Uma solicitação HTTP com falha pode conter informações de erro formatadas em JSON no conteúdo da resposta.
 
@@ -663,7 +663,7 @@ Uma solicitação HTTP bem-sucedida não contém nenhum conteúdo na resposta. U
 
 Obtém o estado da entidade especificada.
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
 A solicitação HTTP é formatada da seguinte maneira (várias linhas são mostradas para maior clareza):
 
@@ -678,19 +678,19 @@ GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
 
 Esta operação tem duas respostas possíveis:
 
-* **HTTP 200 (OK)** : A entidade especificada existe.
-* **HTTP 404 (Não Encontrado)** : A entidade especificada não foi encontrada.
+* **HTTP 200 (OK)** : a entidade especificada existe.
+* **HTTP 404 (não encontrado)** : a entidade especificada não foi encontrada.
 
 Uma resposta bem-sucedida contém o estado serializado em JSON da entidade como seu conteúdo.
 
 ### <a name="example"></a>Exemplo
-A solicitação HTTP de exemplo a seguir obtém o estado de `Counter` uma entidade `steps`existente chamada:
+A solicitação HTTP de exemplo a seguir obtém o estado de uma entidade de `Counter` existente chamada `steps`:
 
 ```http
 GET /runtime/webhooks/durabletask/entities/Counter/steps
 ```
 
-Se a `Counter` entidade contiver simplesmente uma série de etapas salvas `currentValue` em um campo, o conteúdo da resposta poderá ser semelhante ao seguinte (formatado para facilitar a leitura):
+Se a entidade `Counter` simplesmente contivesse várias etapas salvas em um campo `currentValue`, o conteúdo da resposta poderá ser semelhante ao seguinte (formatado para facilitar a leitura):
 
 ```json
 {

@@ -1,5 +1,5 @@
 ---
-title: Controle do código-fonte no Azure Data Factory | Microsoft Docs
+title: Controle do código-fonte no Azure Data Factory
 description: Saiba como configurar o controle do código-fonte no Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: f3d443eed43cc1e131cd3dc47407ce2dfb023ce8
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 46c983fcf863c6948c6107b2213879c65396ed39
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326392"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684035"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle do código-fonte no Azure Data Factory
 
@@ -71,10 +71,10 @@ Ambos os métodos abrem o painel de configuração configurações do repositór
 
 O painel de configuração mostra as seguintes configurações de Azure Repos repositório de código:
 
-| Configuração | Descrição | Value |
+| Configuração | DESCRIÇÃO | Valor |
 |:--- |:--- |:--- |
 | **Tipo de repositório** | O tipo do repositório de código do Azure Repos.<br/> | Azure DevOps git ou GitHub |
-| **Azure Active Directory** | Seu nome de locatário do Microsoft Azure AD. | `<your tenant name>` |
+| **Active Directory do Azure** | Seu nome de locatário do Microsoft Azure AD. | `<your tenant name>` |
 | **Organização do Azure Repos** | O nome da organização do Azure Repos. Localize o nome de organização do Azure Repos em `https://{organization name}.visualstudio.com`. Você pode [entrar na sua organização do Azure Repos](https://www.visualstudio.com/team-services/git/) para acessar seu perfil do Visual Studio e ver seus repositórios e projetos. | `<your organization name>` |
 | **ProjectName** | O nome do projeto do Azure Repos. Localize o nome do projeto do Azure Repos em `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **RepositoryName** | O nome do seu repositório de código do Azure Repos. Os projetos do Azure Repos contêm repositórios Git para gerenciar seu código-fonte à medida que o projeto aumenta. Você pode criar um novo repositório ou usar um existente que já esteja no projeto. | `<your Azure Repos code repository name>` |
@@ -143,7 +143,7 @@ O painel de configuração mostra as seguintes configurações do repositório d
 | **Tipo de repositório** | O tipo do repositório de código do Azure Repos. | GitHub |
 | **Usar GitHub Enterprise** | Caixa de seleção para selecionar o GitHub Enterprise | não selecionado (padrão) |
 | **URL do GitHub Enterprise** | A URL raiz do GitHub Enterprise. Por exemplo: https://github.mydomain.com. Necessário somente se **usar o GitHub Enterprise** estiver selecionado | `<your GitHub enterprise url>` |                                                           
-| **Conta do GitHub** | Seu nome de conta do GitHub. Esse nome pode ser encontrado em https: \//github. com/{nome da conta}/{Repository Name}. Navegar até essa página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub. | `<your GitHub account name>` |
+| **Conta do GitHub** | Seu nome de conta do GitHub. Esse nome pode ser encontrado em https:\/nome do/github.com/{Account}/{Repository Name}. Navegar até essa página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub. | `<your GitHub account name>` |
 | **Nome do repositório**  | O nome do repositório de código do GitHub. As contas do GitHub contêm repositórios Git para gerenciar seu código-fonte. Você pode criar um novo repositório ou usar um existente que já esteja na conta. | `<your repository name>` |
 | **Ramificação de colaboração** | Sua ramificação de colaboração do GitHub usada para publicação. Por padrão, seu mestre. Altere essa configuração se você desejar publicar recursos de outra ramificação. | `<your collaboration branch>` |
 | **Pasta raiz** | Sua pasta raiz em sua ramificação de colaboração GitHub. |`<your root folder name>` |
@@ -256,7 +256,7 @@ Selecione **Feedback** para comentar sobre os recursos ou notificar a Microsoft 
 
 ![Comentários](media/author-visually/provide-feedback.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre o monitoramento e o gerenciamento de pipelines, c [Monitorar e gerenciar os pipelines programaticamente](monitor-programmatically.md).
 * Para implementar a integração e a implantação contínuas, consulte [integração e entrega contínuas (CI/CD) em Azure data Factory](continuous-integration-deployment.md).

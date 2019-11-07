@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 730ccd7c64ac9ca87fb6da5add130feb3b6ce502
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73b99b9ebcd18e1eb5b670d0809d1f0f6cbf8f9a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201962"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582920"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade de todo o locatário para o Centro de Segurança do Azure
 Este artigo ajuda você a começar fazendo várias ações que maximizam os benefícios que o Centro de Segurança do Azure oferece. A execução dessas ações permite que você obtenha visibilidade de todas as assinaturas do Azure vinculadas ao locatário do Azure Active Directory e gerencie com eficiência a postura de segurança da organização em escala, aplicando políticas de segurança em várias assinaturas de maneira agregada.
@@ -49,7 +49,7 @@ Você organiza assinaturas em grupos de gerenciamento e aplica as políticas de 
     - **ID do Grupo de Gerenciamento** é o identificador exclusivo do diretório usado para enviar comandos nesse grupo de gerenciamento. Esse identificador não é editável após a criação, visto que é usado em todo o sistema do Azure para identificar esse grupo. 
     - O campo de nome de exibição é o nome exibido no portal do Azure. Um nome de exibição separado é um campo opcional ao criar o gerenciamento de grupo e pode ser alterado a qualquer momento.  
 
-      ![Criar](./media/security-center-management-groups/create_context_menu.png)  
+      ![Criação](./media/security-center-management-groups/create_context_menu.png)  
 5.  Selecione **Salvar**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Exibir grupos de gerenciamento no Portal do Azure
@@ -168,7 +168,7 @@ Uma vez que as funções RBAC tenham sido designadas aos usuários, o administra
 
 
 
-## <a name="adding-subscriptions-to-a-management-groups"></a>Adicionando assinaturas a grupos de gerenciamento
+## <a name="adding-subscriptions-to-a-management-group"></a>Adicionando assinaturas a um grupo de gerenciamento
 Você consegue adicionar assinaturas a um grupo de gerenciamento que você criou. Estes passos não são obrigatórios para ganhar visibilidade a nível de locatário e política global e gerenciamento de acesso.
 
 1. Em **Grupos de Gerenciamento**, selecione um grupo de gerenciamento para adicionar sua assinatura.

@@ -1,5 +1,5 @@
 ---
-title: Como configurar o Banco de Dados SQL do Azure – individual | Microsoft Docs
+title: Como configurar o banco de dados SQL do Azure-único
 description: Saiba como configurar e gerenciar o Banco de Dados SQL do Azure – banco de dados individual
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 02/08/2019
-ms.openlocfilehash: 2117a811f977230dd9c9eecf6ea09b9b7deda3be
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 45e25641092fae36cd58a59400cea025f74cbc1f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568044"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689907"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Como usar um banco de dados individual no Banco de Dados SQL do Azure
 

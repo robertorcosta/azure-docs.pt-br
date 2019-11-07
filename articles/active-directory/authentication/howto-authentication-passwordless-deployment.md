@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aab9d8c2b7993598c602ae6b730baff06d807e1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 9b6f07e1dd8e9252d2b6e00b85a47ba2e19f8bd8
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151638"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603464"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Concluir uma implantação de autenticação com senha
 
@@ -110,15 +110,6 @@ Habilitar a entrada do Windows 10 usando chaves de segurança FIDO2 requer a hab
    - Se a implantação do Intune não for possível, os administradores deverão implantar um pacote em cada computador para habilitar a funcionalidade do provedor de credenciais. A instalação do pacote pode ser executada por uma das seguintes opções:
       - Política de Grupo ou System Center Configuration Manager (SCCM)
       - Instalação local em um computador com Windows 10
-- [Habilitar provedor de credenciais com Política de Grupo](howto-authentication-passwordless-security-key-windows.md#enable-with-group-policy)
-   - Somente com suporte para dispositivos ingressados no Azure AD híbrido.
-
-#### <a name="enable-on-premises-integration"></a>Habilitar a integração local
-
-Siga as etapas no artigo [habilitar a entrada de chave de segurança sem senha para recursos locais (versão prévia)](howto-authentication-passwordless-security-key-on-premises.md) para habilitar o acesso a recursos locais.
-
-> [!IMPORTANT]
-> Essas etapas também devem ser concluídas para qualquer dispositivo ingressado no Azure AD híbrido para utilizar as chaves de segurança do FIDO2 para entrar no Windows 10.
 
 ### <a name="register-security-keys"></a>Registrar chaves de segurança
 
@@ -134,11 +125,11 @@ Não há nenhum custo adicional para autenticação sem senha, embora alguns pr�
 
 Considere suas necessidades de negócios e os casos de uso para cada método de autenticação. Em seguida, selecione o método que melhor atenda às suas necessidades.
 
-### <a name="use-cases"></a>Use casos
+### <a name="use-cases"></a>Casos de uso
 
 A tabela a seguir descreve os casos de uso a serem implementados durante este projeto.
 
-| Área | Descrição |
+| Área | DESCRIÇÃO |
 | --- | --- |
 | **Acessar** | A conexão sem senha está disponível em um dispositivo corporativo ou pessoal dentro ou fora da rede corporativa. |
 | **Auditoria** | Os dados de uso estão disponíveis para que os administradores sejam auditados quase em tempo real. <br> Os dados de uso são baixados em sistemas corporativos pelo menos a cada 29 dias ou a ferramenta SIEM é usada. |
@@ -163,7 +154,7 @@ Suas comunicações com os usuários finais precisarão incluir:
 - [Registrando no aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 - [Entrar com seu telefone](../user-help/user-help-auth-app-sign-in.md)
 
-A Microsoft fornece [modelos de comunicação](https://aka.ms/mfatemplates)MFA, [modelos de comunicação](https://www.microsoft.com/download/details.aspx?id=56768)de autoatendimento de redefinição de senha (SSPR) e [documentação do usuário final](../user-help/security-info-setup-signin.md) para ajudar a rascunhar suas comunicações. Você pode enviar os usuários para [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) para registrar-se diretamente, selecionando os links de informações de segurança nessa página.
+A Microsoft fornece [modelos de comunicação](https://aka.ms/mfatemplates)MFA, [modelos de comunicação](https://www.microsoft.com/download/details.aspx?id=56768)de autoatendimento de redefinição de senha (SSPR) e [documentação do usuário final](../user-help/security-info-setup-signin.md) para ajudar a rascunhar suas comunicações. Você pode enviar usuários para [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) registrar-se diretamente, selecionando os links de informações de segurança nessa página.
 
 ### <a name="testing-passwordless"></a>Testando com senha
 
@@ -254,7 +245,7 @@ Siga as etapas alinhadas ao método escolhido abaixo.
 
 ### <a name="required-administrative-roles"></a>Funções administrativas necessárias
 
-| Função do Azure AD | Descrição |
+| Função do Azure AD | DESCRIÇÃO |
 | --- | --- |
 | Administrador de Autenticação | Função menos privilegiada capaz de implementar e gerenciar métodos de autenticação |
 | Usuário | Função com privilégios mínimos para configurar o aplicativo autenticador no dispositivo ou para registrar o dispositivo de chave de segurança para entrada na Web ou no Windows 10. |
@@ -287,7 +278,7 @@ Siga as etapas no artigo habilitar a [entrada de chave de segurança sem senha p
 | O usuário não pode gerenciar minha chave de segurança no Windows 10 versão 1809 | A versão 1809 requer que você use o software de gerenciamento de chaves de segurança fornecido pelo fornecedor de chave FIDO2. Contate o fornecedor para obter suporte. |
 | Acho que minha chave de segurança do FIDO2 pode estar com defeito — como posso testá-la | Navegue até [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/), insira as credenciais para uma conta de teste, conecte a chave de segurança suspeita, clique no botão "+" na parte superior direita da tela, clique em criar e passe pelo processo de criação. Se esse cenário falhar, o dispositivo poderá estar com defeito. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Habilitar chaves de segurança sem senha para entrar no Azure AD](howto-authentication-passwordless-security-key.md)
 - [Habilitar a entrada sem senha com o aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md)

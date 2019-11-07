@@ -1,18 +1,18 @@
 ---
 title: Escala horizontal do Azure Analysis Services | Microsoft Docs
-description: Replicar os servidores do Azure Analysis Services com escala horizontal
+description: Replicar servidores Azure Analysis Services com escala horizontal. As consultas de cliente podem ser distribuídas entre várias réplicas de consulta em um pool de consulta de expansão.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: af1a0db397510014301a58aea7238b695a6c0740
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1b40238dfc579e42d0389ae14fdea4b5692ede06
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146453"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572631"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
 
@@ -30,7 +30,7 @@ Independentemente do número de réplicas de consulta que você tem em um pool d
 
 Ao escalar horizontalmente, pode levar até cinco minutos para que novas réplicas de consulta sejam adicionadas incrementalmente ao pool de consulta. Quando todas as novas réplicas de consulta estiverem em funcionamento, novas conexões de cliente serão balanceadas com carga entre os recursos no pool de consultas. As conexões de clientes existentes não são alteradas a partir do recurso ao qual elas estão conectadas atualmente. Ao dimensionar, quaisquer conexões de cliente existentes para um recurso de pool de consulta que está sendo removido do pool de consulta são finalizadas. Os clientes podem se reconectar a um recurso do pool de consultas restante.
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Ao configurar a expansão na primeira vez, os bancos de dados de modelo em seu servidor primário são sincronizados *automaticamente* com novas réplicas em um novo pool de consulta. A sincronização automática ocorre apenas uma vez. Durante a sincronização automática, os arquivos de dados do servidor primário (criptografados em repouso no armazenamento de BLOB) são copiados para um segundo local, também criptografados em repouso no armazenamento de BLOBs. As réplicas no pool de consultas são então *alimentadas* com dados do segundo conjunto de arquivos. 
 
@@ -44,7 +44,7 @@ Ao executar uma operação de expansão subsequente, por exemplo, aumentar o nú
 
 * A sincronização é permitida mesmo quando não há réplicas no pool de consultas. Se você estiver expandindo de zero para uma ou mais réplicas com novos dados de uma operação de processamento no servidor primário, execute a sincronização primeiro sem réplicas no pool de consultas e, em seguida, expanda horizontalmente. A sincronização antes de escalar horizontalmente evita hidratação redundantes das réplicas adicionadas recentemente.
 
-* Ao excluir um banco de dados modelo do servidor primário, ele não é excluído automaticamente das réplicas no pool de consultas. Você deve executar uma operação de sincronização usando o comando do PowerShell [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) que remove os arquivos do banco de dados do local de armazenamento de blob compartilhado da réplica e, em seguida, exclui o banco de dados modelo nas réplicas no pool de consultas. Para determinar se um banco de dados modelo existe em réplicas no pool de consultas, mas não no servidor primário, certifique-se de que a configuração **separar o servidor de processamento da consulta do pool** seja **Sim**. Em seguida, use o SSMS para se conectar ao servidor primário usando o qualificador `:rw` para ver se o banco de dados existe. Em seguida, conecte-se às réplicas no pool de consulta conectando-se sem o qualificador `:rw` para ver se o mesmo banco de dados também existe. Se o banco de dados existir em réplicas no pool de consultas, mas não no servidor primário, execute uma operação de sincronização.   
+* Ao excluir um banco de dados modelo do servidor primário, ele não é excluído automaticamente das réplicas no pool de consultas. Você deve executar uma operação de sincronização usando o comando do PowerShell [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) que remove os arquivos do banco de dados do local de armazenamento de blob compartilhado da réplica e, em seguida, exclui o banco de dados modelo nas réplicas no pool de consultas. Para determinar se um banco de dados modelo existe em réplicas no pool de consultas, mas não no servidor primário, certifique-se de que a configuração **separar o servidor de processamento da consulta do pool** seja **Sim**. Em seguida, use o SSMS para se conectar ao servidor primário usando o qualificador `:rw` para ver se o banco de dados existe. Em seguida, conecte-se às réplicas no pool de consultas conectando-se sem o qualificador `:rw` para ver se o mesmo banco de dados também existe. Se o banco de dados existir em réplicas no pool de consultas, mas não no servidor primário, execute uma operação de sincronização.   
 
 * Ao renomear um banco de dados no servidor primário, há uma etapa adicional necessária para garantir que o banco de dados seja sincronizado corretamente com as réplicas. Após a renomeação, execute uma sincronização usando o comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) especificando o parâmetro `-Database` com o nome antigo do banco de dados. Essa sincronização remove o banco de dados e os arquivos com o nome antigo de qualquer réplica. Em seguida, execute outra sincronização especificando o parâmetro `-Database` com o novo nome do banco de dados. A segunda sincronização copia o banco de dados nomeado recentemente para o segundo conjunto de arquivos e hidratam quaisquer réplicas. Essas sincronizações não podem ser executadas usando o comando sincronizar modelo no Portal.
 
@@ -107,13 +107,13 @@ Use a operação de **sincronização**.
 Códigos de status de retorno:
 
 
-|Codificar  |Descrição  |
+|Código  |DESCRIÇÃO  |
 |---------|---------|
 |-1     |  Inválido       |
 |0     | Replicando        |
 |1     |  Reidratar       |
 |2     |   Concluído       |
-|3     |   Com falha      |
+|3     |   Falha      |
 |4     |    Finalizando     |
 |||
 
@@ -128,11 +128,11 @@ Para executar a sincronização, use [Sync-AzAnalysisServicesInstance](https://d
 
 Para definir o número de réplicas de consulta, use [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique o parâmetro `-ReadonlyReplicaCount` opcional.
 
-Para separar o servidor de processamento do pool de consulta, use [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique o parâmetro de `-DefaultConnectionMode` opcional para usar `Readonly`.
+Para separar o servidor de processamento do pool de consulta, use [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique o parâmetro `-DefaultConnectionMode` opcional para usar `Readonly`.
 
 Para saber mais, consulte [usando uma entidade de serviço com o módulo AZ. AnalysisServices](analysis-services-service-principal.md#azmodule).
 
-## <a name="connections"></a>conexões
+## <a name="connections"></a>Conexões
 
 Na página Visão Geral do servidor, há dois nomes de servidor. Se você ainda não tiver configurado a escala horizontal para um servidor, os dois nomes de servidor funcionam da mesma forma. Depois de configurar a expansão para um servidor, você precisará especificar o nome do servidor adequado dependendo do tipo de conexão. 
 

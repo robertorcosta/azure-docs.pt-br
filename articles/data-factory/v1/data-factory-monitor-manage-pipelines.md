@@ -1,5 +1,5 @@
 ---
-title: Monitorar e gerenciar pipelines usando o Portal do Azure e o PowerShell | Microsoft Docs
+title: Monitorar e gerenciar pipelines usando o portal do Azure e o PowerShell
 description: Saiba como usar o Portal do Azure e o Azure PowerShell para monitorar e gerenciar as data factories e os pipelines do Azure que você criou.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 8e8215d9737087cf1a5632dc8514c12988ff999f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139651"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666974"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o Portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ Esta seção também descreve como uma fatia do conjunto de dados faz a transiç
 #### <a name="diagram-view-of-your-data-factory"></a>Modo de exibição de diagrama de uma data factory
 O modo de exibição de **Diagrama** de uma data factory fornece um único painel onde você pode monitorar e gerenciar o data factory e seus ativos. Para ver o modo de exibição de **Diagrama** de seu data factory, clique em **Diagrama** na home page do data factory.
 
-![Exibição de Diagrama](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
+![Modo de Exibição de Diagrama](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
 Você pode ampliar, reduzir, ajustar o nível de zoom, aplicar zoom para 100%, bloquear o layout do diagrama e posicionar pipelines e conjuntos de dados automaticamente. Você também pode ver as informações de linhagem de dados (ou seja, mostrar itens upstream e downstream dos itens selecionados).
 
@@ -87,7 +87,7 @@ As fatias do conjunto de dados no data factory podem ter um dos seguintes status
 
 <table>
 <tr>
-    <th align="left">Estado</th><th align="left">Subestado</th><th align="left">Descrição</th>
+    <th align="left">Estado</th><th align="left">Subestado</th><th align="left">DESCRIÇÃO</th>
 </tr>
 <tr>
     <td rowspan="8">Aguardando</td><td>ScheduleTime</td><td>Não chegou o momento de execução da fatia.</td>
@@ -105,7 +105,7 @@ As fatias do conjunto de dados no data factory podem ter um dos seguintes status
 <td>ActivityResume</td><td>A atividade está em pausa e não pode executar as fatias até que a atividades seja retomada.</td>
 </tr>
 <tr>
-<td>Tentar novamente</td><td>A execução da atividade está sendo repetida.</td>
+<td>Retry</td><td>A execução da atividade está sendo repetida.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação ainda não foi iniciada.</td>
@@ -115,16 +115,16 @@ As fatias do conjunto de dados no data factory podem ter um dos seguintes status
 </tr>
 <tr>
 <tr>
-<td rowspan="2">EmAndamento</td><td>Validando</td><td>Validação em andamento.</td>
+<td rowspan="2">InProgress</td><td>Validando</td><td>Validação em andamento.</td>
 </tr>
 <td>-</td>
 <td>A fatia está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Falhou</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Falha</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
-<td>Cancelada</td><td>A fatia foi cancelada por ação do usuário.</td>
+<td>Cancelado</td><td>A fatia foi cancelada por ação do usuário.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação falhou.</td>
@@ -132,7 +132,7 @@ As fatias do conjunto de dados no data factory podem ter um dos seguintes status
 <tr>
 <td>-</td><td>Não foi possível gerar e/ou validar a fatia.</td>
 </tr>
-<td>Pronto</td><td>-</td><td>A fatia está pronta para consumo.</td>
+<td>Ready</td><td>-</td><td>A fatia está pronta para consumo.</td>
 </tr>
 <tr>
 <td>Ignorado</td><td>Nenhum</td><td>A fatia não está sendo processada.</td>
@@ -150,7 +150,7 @@ Veja os detalhes de uma fatia clicando em uma entrada de fatia na folha **Fatias
 
 Se a fatia tiver sido executada várias vezes, você verá várias linhas na lista **Execuções de atividade** . Você pode exibir detalhes sobre uma execução de atividade clicando na entrada da execução na lista **Execuções de atividade** . A lista mostra todos os arquivos de log, junto com uma mensagem de erro, se houver. Esse recurso é útil para exibir e depurar logs sem precisar sair de sua data factory.
 
-![Detalhes da execução de atividade](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
+![Detalhes da execução da atividade](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
 Quando a fatia não está no estado **Pronto**, você pode ver as fatias upstream que não estão prontas e estão impedindo a execução da fatia atual na lista **Fatias upstream que não estão prontas**. Esse recurso é útil quando a fatia estiver no estado **Aguardando** e você quiser entender as dependências de upstream em que a fatia está aguardando.
 
@@ -161,7 +161,7 @@ Após a implantação de uma data factory e a atribuição de um período de ati
 
 ![Diagrama de estado](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-O fluxo de transição de estado do conjunto de dados no data factory é o seguinte: Aguardando -> Em Andamento/Em Andamento (Validando) -> Pronto/Falha.
+O fluxo de transição de estado do conjunto de dados no data factory é o seguinte: Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed.
 
 A fatia começa em um estado de **Aguardando**, esperando pelo atendimento de pré-condições antes da execução. Depois disso, a atividade começa a ser executada e a fatia passa para um estado **Em Andamento** . A execução da atividade pode ser bem-sucedida ou falhar. A fatia é marcada como **Pronta** ou **Falha** com base no resultado da execução.
 
@@ -309,7 +309,7 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Criar um novo alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
 
-3.  Definir a **Condição de alerta**. (Certifique-se de selecionar **Data factories** no campo **Filtrar por tipo de recurso**.) Você também pode especificar valores para **Dimensões**.
+3.  Definir a **Condição de alerta**. (Certifique-se de selecionar **Data factories** no campo **Filtrar por tipo de recurso** .) Você também pode especificar valores para **dimensões**.
 
     ![Definir a condição de alerta - Selecionar destino](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
 

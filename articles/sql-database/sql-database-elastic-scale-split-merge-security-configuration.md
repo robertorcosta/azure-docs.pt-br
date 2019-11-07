@@ -1,5 +1,5 @@
 ---
-title: Configuração de segurança da divisão e mesclagem | Microsoft Docs
+title: Configuração de segurança da divisão e mesclagem
 description: Configurar certificados x409 para criptografia com o serviço de divisão/mesclagem para escala elástica.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: ada794807f980854c203b56874e452713ecef6ea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 98d645fc76010d96bc016a63b4882979f3489698
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568360"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690148"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança da divisão e mesclagem
 
@@ -47,7 +47,7 @@ Se essas opções não estiverem disponíveis, você pode gerar **certificados a
     Se instalado, vá para:
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Obter o WDK do [Windows 8.1: Fazer o download de kits e ferramentas](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Obter o WDK do [Windows 8.1: baixar kits e ferramentas](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Para configurar o certificado SSL
 
@@ -120,7 +120,7 @@ A configuração padrão nega todo os acessos ao ponto de extremidade HTTP. Esta
 A configuração padrão permite todo os acessos ao ponto de extremidade HTTPS. Essa configuração pode ser mais restrita.
 
 ### <a name="changing-the-configuration"></a>Alterando a configuração
-O grupo de regras de controle de acesso que se aplicam ao e ao ponto de extremidade são configurados na  **\<seção EndpointAcls >** no **arquivo de configuração de serviço**.
+O grupo de regras de controle de acesso que se aplicam ao e ao ponto de extremidade são configurados na seção **\<EndpointAcls >** no **arquivo de configuração de serviço**.
 
 ```xml
 <EndpointAcls>
@@ -129,7 +129,7 @@ O grupo de regras de controle de acesso que se aplicam ao e ao ponto de extremid
 </EndpointAcls>
 ```
 
-As regras em um grupo de controle de acesso são configuradas em um \<nome de AccessControl = "" > seção do arquivo de configuração de serviço. 
+As regras em um grupo de controle de acesso são configuradas em uma seção \<AccessControl Name = "" > do arquivo de configuração de serviço. 
 
 O formato é explicado na documentação de listas de controle de acesso à rede.
 Por exemplo, para permitir que apenas IPs no intervalo 100.100.0.0 para 100.100.255.255 acessem o ponto de extremidade HTTPS, as regras teriam esta aparência:
@@ -420,9 +420,9 @@ Siga estas etapas:
 1. Execute mmc.exe.
 2. Arquivo -> Adicionar/Remover Snap-in...
 3. Selecione **Certificados**.
-4. Clique em **Adicionar** .
+4. Clique em **Adicionar**.
 5. Escolha o local do repositório de certificados.
-6. Clique em **Finalizar**.
+6. Clique em **Concluir**.
 7. Clique em **OK**.
 8. Expanda **Certificados**.
 9. Expanda o nó do repositório de certificados.
@@ -442,7 +442,7 @@ No **Assistente para Exportação de Certificados**:
 8. Clique em **Avançar**.
 9. Digite ou procure um nome de arquivo onde o certificado deverá ser armazenado (use uma extensão .PFX).
 10. Clique em **Avançar**.
-11. Clique em **Finalizar**.
+11. Clique em **Concluir**.
 12. Clique em **OK**.
 
 ## <a name="import-certificate"></a>Importar certificado
@@ -460,12 +460,12 @@ No Assistente para importação de certificados:
 5. Selecione para “Colocar” os certificados no repositório a seguir
 6. Clique em **Procurar**.
 7. Selecione o repositório desejado.
-8. Clique em **Finalizar**.
+8. Clique em **Concluir**.
    
    * Se o repositório da autoridade de certificação raiz confiável foi escolhido, clique em **Sim**.
 9. Clique em **OK** em todas as janelas de diálogo.
 
-## <a name="upload-certificate"></a>Carregar certificado
+## <a name="upload-certificate"></a>Carregar um certificado
 No [Portal do Azure](https://portal.azure.com/)
 
 1. Selecione os **Serviços de nuvem**.
