@@ -11,12 +11,12 @@ ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bf87b1709c355faf6f06ff2d23b2c819f88750cd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b1070314767f280ec9d15390dc838fa80b5508e2
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475214"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643592"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acessando os logs de auditoria do Microsoft Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ A categoria **B2C** nos logs de auditoria contém os seguintes tipos de atividad
 |Diretório |Atividades relacionadas aos atributos de diretório recuperados quando um administrador entra usando o portal do Azure. |
 |Aplicativo | Operações CRUD (criar, ler, atualizar e excluir) em aplicativos B2C. |
 |Chave |Operações CRUD em chaves armazenadas em um contêiner de chave B2C. |
-|Grupos |Operações CRUD em recursos do B2C. Por exemplo, políticas e provedores de identidade.
+|Recurso |Operações CRUD em recursos do B2C. Por exemplo, políticas e provedores de identidade.
 |Autenticação |Validação de credenciais de usuário e emissão de tokens.|
 
 Para atividades CRUD do objeto de usuário, consulte a categoria **Diretório Principal**.

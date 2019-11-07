@@ -1,17 +1,17 @@
 ---
-title: Mapeando o guia de desempenho e ajuste do fluxo de dados no Azure Data Factory | Microsoft Docs
+title: Mapeando o guia de desempenho e ajuste do fluxo de dados no Azure Data Factory
 description: Saiba mais sobre os principais fatores que afetam o desempenho do mapeamento de fluxos de dados em Azure Data Factory.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 10/07/2019
-ms.openlocfilehash: 24b0deb60f1047228dc3ff6000d423e7cb6939ca
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 20a08345d8335b4857ca9777efb55f953ee63e9f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387315"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681545"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeando o guia de desempenho e ajuste do fluxo de dados
 
@@ -66,13 +66,13 @@ Em **Opções de origem** na transformação origem, as configurações a seguir
 * A definição de uma consulta pode permitir que você filtre linhas na origem antes que elas cheguem ao fluxo de dados para processamento. Isso pode tornar a aquisição de dados inicial mais rápida. Se você usar uma consulta, poderá adicionar dicas de consulta opcionais para seu banco de BD SQL do Azure, como leitura não confirmada.
 * A leitura não confirmada fornecerá resultados de consulta mais rápidos na transformação de origem
 
-![Origem](media/data-flow/source4.png "Origem")
+![Origem](media/data-flow/source4.png "Fonte")
 
 ### <a name="sink-batch-size"></a>Tamanho do lote do coletor
 
 Para evitar o processamento de linha por linha de seus fluxos de dados, defina o **tamanho do lote** na guia Configurações para o BD SQL do Azure e coletores do Azure SQL DW. Se o tamanho do lote for definido, o ADF processará gravações de banco de dados em lotes com base no tamanho fornecido.
 
-![Coletar](media/data-flow/sink4.png "Coletar")
+![Coletor](media/data-flow/sink4.png "Coletor")
 
 ### <a name="partitioning-on-sink"></a>Particionamento no coletor
 
@@ -121,7 +121,7 @@ Por exemplo, se você tiver uma lista de arquivos de dados de julho de 2019 que 
 
 Usando o curinga, seu pipeline conterá apenas uma atividade de fluxo de dados. Isso terá um desempenho melhor do que uma pesquisa no repositório de BLOB que, em seguida, itera em todos os arquivos correspondentes usando um ForEach com uma atividade executar fluxo de dados dentro do.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte outros artigos de fluxo de dados relacionados ao desempenho:
 
