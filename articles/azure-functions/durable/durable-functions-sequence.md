@@ -9,16 +9,18 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ee5b18ddc734335ddac2a7d3352de0e4388f445d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 133169c659328fa4f713eb4b75bc460dee7a3f76
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933266"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614680"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Encadeamento de funções nas Funções Duráveis – Exemplo se sequência Hello
 
 Encadeamento de funções é o padrão de executar uma sequência de funções em uma ordem específica. Frequentemente, a saída de uma função precisa ser aplicada à entrada de outra função. Este artigo descreve a sequência de encadeamento que você cria quando você conclui o guia de início rápido Durable Functions ([C#](durable-functions-create-first-csharp.md) ou [JavaScript](quickstart-js-vscode.md)). Para obter mais informações sobre as funções duráveis, consulte [visão geral das funções duráveis](durable-functions-overview.md).
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -29,10 +31,10 @@ Este artigo explica as seguintes funções no aplicativo de exemplo:
 * `E1_HelloSequence`: uma função de orquestrador que chama `E1_SayHello` várias vezes em uma sequência. Ela armazena as saídas das chamadas `E1_SayHello` e registra os resultados.
 * `E1_SayHello`: uma função de atividade que precede uma cadeia de caracteres com "Hello".
 
-As seções a seguir explicam a configuração e o código utilizados para o script C# e Javascript. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
+As seções a seguir explicam a configuração e o código que C# é usado para script e JavaScript. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
 
 > [!NOTE]
-> As Durable Functions do JavaScript estão disponíveis apenas para o tempo de execução do Functions 2.x.
+> Durable Functions de JavaScript estão disponíveis apenas para o Functions 2,0 Runtime.
 
 ## <a name="e1_hellosequence"></a>E1_HelloSequence
 
@@ -45,7 +47,7 @@ Se você usa o Visual Studio Code ou o portal do Azure para desenvolvimento, est
 O importante é o tipo de associação de `orchestrationTrigger`. Todas as funções de orquestrador devem usar esse tipo de gatilho.
 
 > [!WARNING]
-> Para obedecer a regra de "não fazer E/S" das funções de orquestrador, não use nenhuma associação de entrada ou saída ao usar a associação de gatilho `orchestrationTrigger`.  Se outras associações de entrada ou de saída forem necessárias, elas deverão ser usadas no contexto das funções `activityTrigger`, que são chamadas pelo orquestrador.
+> Para obedecer a regra de "não fazer E/S" das funções de orquestrador, não use nenhuma associação de entrada ou saída ao usar a associação de gatilho `orchestrationTrigger`.  Se outras associações de entrada ou de saída forem necessárias, elas deverão ser usadas no contexto das funções `activityTrigger`, que são chamadas pelo orquestrador. Para obter mais informações, consulte o artigo [restrições de código de função do Orchestrator](durable-functions-code-constraints.md) .
 
 ### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Script C# (código de exemplo do Visual Studio Code e do portal do Azure)
 
@@ -53,7 +55,7 @@ Este é o código-fonte:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/run.csx)]
 
-Todas as funções de orquestração em C# devem ter um parâmetro do tipo `DurableOrchestrationContext`, que existe no assembly `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Se você estiver usando o script C#, o assembly poderá ser referenciado usando a notação `#r`. Esse objeto de contexto permite chamar outras funções de *atividade* e passar parâmetros de entrada usando seu método [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
+Todas as funções de orquestração em C# devem ter um parâmetro do tipo `DurableOrchestrationContext`, que existe no assembly `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Se você estiver usando o script C#, o assembly poderá ser referenciado usando a notação `#r`. Esse objeto de contexto permite chamar outras funções de *atividade* e passar parâmetros de entrada usando seu método `CallActivityAsync`.
 
 O código chama `E1_SayHello` três vezes seguidas com valores de parâmetros diferentes. O valor retornado de cada chamada é adicionado à lista `outputs`, que é retornada ao final da função.
 
@@ -63,10 +65,10 @@ Este é o código-fonte:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-Todas as funções de orquestração de JavaScript devem incluir o [módulo `durable-functions`](https://www.npmjs.com/package/durable-functions). Essa é uma biblioteca que permite escrever Durable Functions em JavaScript. Há três diferenças significativas entre uma função de orquestração e outras funções de JavaScript:
+Todas as funções de orquestração de JavaScript devem incluir o [módulo `durable-functions`](https://www.npmjs.com/package/durable-functions). É uma biblioteca que permite que você escreva Durable Functions em JavaScript. Há três diferenças significativas entre uma função de orquestração e outras funções de JavaScript:
 
 1. A função é uma [função de gerador.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
-2. A função é encapsulada em uma chamada para o método `orchestrator` do módulo `durable-functions` (aqui `df`).
+2. A função é encapsulada em uma chamada para o método `durable-functions` do módulo `orchestrator` (aqui `df`).
 3. A função deve ser síncrona. Como o método "orchestrator" lida com a chamada "context.done", a função deve simplesmente "return".
 
 O objeto `context` contém um objeto `df`, permite chamar outras funções de *atividade* e passa parâmetros de entrada usando seu método `callActivity`. O código chama `E1_SayHello` três vezes em sequência com valores de parâmetros diferentes, usando `yield` para indicar que a execução deve aguardar as chamadas de função de atividade assíncrona serem retornadas. O valor retornado de cada chamada é adicionado à lista `outputs`, que é retornada ao final da função.
@@ -88,7 +90,7 @@ A implementação de `E1_SayHello` é uma operação de formatação de cadeia d
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
-Essa função tem um parâmetro do tipo [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), que ela usa para obter a entrada que lhe foi passada pela chamada da função de orquestrador para [`CallActivityAsync<T>`](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
+Essa função tem um parâmetro do tipo `DurableActivityContext`, que ele usa para obter a entrada passada para ela pela chamada da função de orquestrador para `CallActivityAsync<T>`.
 
 ### <a name="javascript"></a>JavaScript
 
@@ -115,7 +117,7 @@ O resultado é uma resposta HTTP 202, como esta (resumido para fins de brevidade
 HTTP/1.1 202 Accepted
 Content-Length: 719
 Content-Type: application/json; charset=utf-8
-Location: http://{host}/admin/extensions/DurableTaskExtension/instances/96924899c16d43b08a536de376ac786b?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+Location: http://{host}/runtime/webhooks/durabletask/instances/96924899c16d43b08a536de376ac786b?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 
 (...trimmed...)
 ```
@@ -123,7 +125,7 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/96924899
 Neste ponto, a orquestração é enfileirada e começa a ser executada imediatamente. A URL no cabeçalho `Location` pode ser usada para verificar o status da execução.
 
 ```
-GET http://{host}/admin/extensions/DurableTaskExtension/instances/96924899c16d43b08a536de376ac786b?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+GET http://{host}/runtime/webhooks/durabletask/instances/96924899c16d43b08a536de376ac786b?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
 
 O resultado é o status da orquestração. Ela é executada e concluída rapidamente e você a verá com estado *Concluído*, com uma resposta semelhante esta (resumida para fins de brevidade):
@@ -141,7 +143,7 @@ Como você pode ver, o `runtimeStatus` da instância é *Concluído* e o `output
 > [!NOTE]
 > O ponto de extremidade HTTP POST que iniciou a função de orquestrador é implementado no aplicativo de exemplo como uma função de gatilho HTTP chamada "HttpStart". Você pode implementar uma lógica inicial semelhante a outros tipos de gatilho, como `queueTrigger`, `eventHubTrigger` ou `timerTrigger`.
 
-Examine os logs de execução da função. A `E1_HelloSequence` função foi iniciada e concluída várias vezes devido ao comportamento de reprodução descrito no tópico de [confiabilidade da orquestração](durable-functions-orchestrations.md#reliability) . Por outro lado, houve apenas três execuções de `E1_SayHello`, uma vez que as execuções dessas funções não são repetidas.
+Examine os logs de execução da função. A função `E1_HelloSequence` iniciada e concluída várias vezes devido ao comportamento de reprodução descrito no tópico de [confiabilidade da orquestração](durable-functions-orchestrations.md#reliability) . Por outro lado, houve apenas três execuções de `E1_SayHello`, uma vez que as execuções dessas funções não são repetidas.
 
 ## <a name="visual-studio-sample-code"></a>Código de exemplo do Visual Studio
 

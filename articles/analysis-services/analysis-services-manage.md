@@ -1,18 +1,18 @@
 ---
 title: Gerenciar o Azure Analysis Services | Microsoft Docs
-description: Saiba como gerenciar um servidor do Analysis Services no Azure.
+description: Este artigo descreve as ferramentas usadas para gerenciar tarefas de administração e gerenciamento para um servidor Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6846eaedc7f20f5a7597ee889193e977e86a5ed6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 28d7b2955c84833841760e441cd2919181e22bc7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146833"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572792"
 ---
 # <a name="manage-analysis-services"></a>Gerenciar o Analysis Services
 Depois de criar um servidor do Analysis Services no Azure, talvez seja necessário executar algumas tarefas de administração e gerenciamento imediatamente ou em algum momento no futuro. Por exemplo, executar o processamento nos dados atualizados, controlar quem pode acessar os modelos em seu servidor ou monitorar a integridade do servidor. Algumas tarefas de gerenciamento só podem ser executadas no Portal do Azure, outras no SQL Server Management Studio (SSMS) e algumas tarefas podem ser executadas em ambos.
@@ -62,7 +62,7 @@ Nos Azure Analysis Services, há dois tipos de usuários, administradores de ser
 ## <a name="troubleshooting-connection-problems"></a>Solucionar problemas de conexão
 Ao conectar usando o SSMS, se você tiver problemas, talvez seja necessário limpar o cache de logon. Nada é armazenado em cache no disco. Para limpar o cache, feche e reinicie o processo de conexão. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Se você ainda não tiver implantado um modelo de tabela em seu novo servidor, agora é um bom momento. Para saber mais, confira [Implantar no Azure Analysis Services](analysis-services-deploy.md).
 
 Se você tiver implantado um modelo de tabela para seu servidor, você estará pronto para se conectar usando um cliente ou navegador. Para saber mais, confira [Obter dados do servidor do Azure Analysis Services](analysis-services-connect.md).

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 6a01999eff6accf1b8d7f56729d9dce77fbedb0a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 49ed6eedf55a8a3c0faa2fa1ff60b9894af78285
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988749"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580864"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais dos Aplicativos Lógicos do Azure
 
@@ -28,8 +28,8 @@ Este artigo mostra como criar seu recurso de gateway do Azure para um [Gateway i
 Para obter informações sobre como usar o gateway com outros serviços, consulte estes artigos:
 
 * [Gateway de dados local do Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Gateway de dados local do Microsoft Flow](https://flow.microsoft.com/documentation/gateway-manage/)
-* [Gateway de dados local do Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Automatizar o gateway de dados local de energia](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Gateway de dados local do Microsoft Power apps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Gateway de dados local do Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
 <a name="supported-connections"></a>
@@ -81,7 +81,7 @@ Depois de instalar o gateway em um computador local, crie o recurso do Azure par
 
 1. Em **criar gateway de conexão**, forneça essas informações para o recurso de gateway. Quando terminar, selecione **Criar**.
 
-   | Propriedade | Descrição |
+   | Propriedade | DESCRIÇÃO |
    |----------|-------------|
    | **Nome do recurso** | Forneça um nome para o recurso de gateway que contém apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) ou pontos (`.`). |
    | **Assinatura** | Selecione a assinatura do Azure para a conta do Azure que foi usada para a instalação do gateway. A assinatura padrão baseia-se na conta do Azure utilizada para entrar. |
@@ -96,7 +96,7 @@ Depois de instalar o gateway em um computador local, crie o recurso do Azure par
 
 <a name="connect-logic-app-gateway"></a>
 
-## <a name="connect-to-on-premises-data"></a>Conecte-se a dados no local
+## <a name="connect-to-on-premises-data"></a>Conectar-se a dados locais
 
 Após criar o recurso de gateway e associar a assinatura do Azure a esse recurso, será possível criar uma conexão entre o aplicativo lógico e a fonte de dados local usando o gateway.
 
@@ -117,7 +117,7 @@ Após criar o recurso de gateway e associar a assinatura do Azure a esse recurso
 
    Um nome de conexão exclusivo ajuda a localizar facilmente essa conexão mais tarde, especialmente se você criar várias conexões. Se aplicável, também inclua o domínio qualificado para seu nome de usuário.
 
-   Veja um exemplo:
+   Aqui está um exemplo:
 
    ![Criar a conexão entre o aplicativo lógico e o gateway de dados](./media/logic-apps-gateway-connection/logic-app-gateway-connection.png)
 
@@ -172,7 +172,7 @@ Para criar um recurso de gateway diferente, vincule a instalação do gateway a 
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Proteja seus aplicativos lógicos](./logic-apps-securing-a-logic-app.md)
 * [Exemplos comuns e cenários de aplicativos lógicos](./logic-apps-examples-and-scenarios.md)

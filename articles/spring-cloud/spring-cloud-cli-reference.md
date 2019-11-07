@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 10/03/2019
 ms.author: jeconnoc
-ms.openlocfilehash: c0694bf53f4a0644c8da2b50660dbfd6a5b339c7
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: a1f82d4efa7756b44ca5ed9859aa872c1f55b565
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038854"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607833"
 ---
 # <a name="az-spring-cloud"></a>AZ Spring-Cloud
 
@@ -1040,4 +1040,4 @@ az spring-cloud test-endpoint renew-key --name -n
 | --- | ---: |
 | --nome | Nome da nuvem do Azure Spring. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --tipo | Tipo de chave de ponto de extremidade de teste.  Valores permitidos:  Primário, secundário. |
+| --tipo | Tipo de chave de ponto de extremidade de teste.  Valores permitidos: primário, secundário. |

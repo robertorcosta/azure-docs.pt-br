@@ -1,5 +1,5 @@
 ---
-title: Introdução às Ferramentas de Banco de Dados Elástico – Azure | Microsoft Docs
+title: Introdução às ferramentas de banco de dados elástico – Azure
 description: A explicação básica do recurso das Ferramentas de Banco de Dados Elástico do Banco de Dados SQL do Azure, incluindo um exemplo de aplicativo fácil de executar.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: aa0827bdf6deb388123ed701013ee95f5493eee3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8f5d5bbf6509dd908f94f1500e585913cbb34e41
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568470"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690233"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introdução às ferramentas do Banco de Dados Elástico
 
@@ -87,7 +87,7 @@ Para baixar e executar a amostra, siga estas etapas:
 
 3. Na solução para o exemplo de projeto, abra o arquivo *app.config*. Siga as instruções no arquivo para adicionar o nome de seu servidor de Banco de Dados SQL do Azure e suas informações de entrada (nome de usuário e senha).
 
-4. Crie e execute o aplicativo. Quando você receber a solicitação, permita que o Visual Studio restaure os pacotes NuGet da solução. Essa ação faz o download da versão mais recente das bibliotecas de clientes do banco de dados elástico do NuGet.
+4. Compile e execute o aplicativo. Quando você receber a solicitação, permita que o Visual Studio restaure os pacotes NuGet da solução. Essa ação faz o download da versão mais recente das bibliotecas de clientes do banco de dados elástico do NuGet.
 
 5. Para saber mais sobre os recursos da biblioteca de clientes, experimente com as diferentes opções. Observe as etapas que o aplicativo realiza na saída do console e fique à vontade para explorar o código nos bastidores.
    
@@ -100,19 +100,19 @@ Parabéns! Você criou e executou com sucesso seu primeiro aplicativo fragmentad
 
 ## <a name="key-pieces-of-the-code-sample"></a>Principais partes do exemplo de código
 
-* **Gerenciamento de fragmentos e mapas de fragmento**: O código ilustra como trabalhar com fragmentos, intervalos e mapeamentos no arquivo *ShardManagementUtils.cs*. Para saber mais, confira [Escale horizontalmente os bancos de dados com o gerenciador do mapa de fragmentos](https://go.microsoft.com/?linkid=9862595).  
+* **Gerenciamento de fragmentos e mapas de fragmentos**: o código ilustra como trabalhar com fragmentos, intervalos e mapeamentos no arquivo *ShardManagementUtils.cs*. Para saber mais, confira [Escale horizontalmente os bancos de dados com o gerenciador do mapa de fragmentos](https://go.microsoft.com/?linkid=9862595).  
 
-* **Roteamento dependente de dados**: O roteamento de transações para o fragmento correto é mostrado no arquivo *DataDependentRoutingSample.cs*. Para obter mais detalhes, veja [Roteamento dependente de dados](https://go.microsoft.com/?linkid=9862596). 
+* **Roteamento dependente de dados**: o roteamento de transações para o fragmento correto é mostrado no arquivo *DataDependentRoutingSample.cs*. Para obter mais detalhes, veja [Roteamento dependente de dados](https://go.microsoft.com/?linkid=9862596). 
 
-* **Consulta em vários fragmentos**: A consulta entre os fragmentos é ilustrada no arquivo *MultiShardQuerySample.cs*. Para saber mais, confira [Consulta de vários fragmentos](https://go.microsoft.com/?linkid=9862597).
+* **Consulta em vários fragmentos**: a consulta entre os fragmentos é ilustrada no arquivo *MultiShardQuerySample.cs*. Para saber mais, confira [Consulta de vários fragmentos](https://go.microsoft.com/?linkid=9862597).
 
-* **Adicionar fragmentos vazios**: A adição iterativa de novos fragmentos vazios é realizada pelo código no arquivo *CreateShardSample.cs*. Para saber mais, confira [Escale horizontalmente os bancos de dados com o gerenciador do mapa de fragmentos](https://go.microsoft.com/?linkid=9862595).
+* **Consulta em vários fragmentos**: a adição iterativa de novos fragmentos vazios é realizada pelo código no arquivo *CreateShardSample.cs*. Para saber mais, confira [Escale horizontalmente os bancos de dados com o gerenciador do mapa de fragmentos](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Outras operações da escala elástica
 
-* **Divisão de um fragmento existente**: A capacidade de dividir fragmentos é fornecida pela ferramenta de divisão e mesclagem. Para saber mais, confira [Mover dados entre bancos de dados na nuvem escalados horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md).
+* **Divisão de um fragmento existente**: a capacidade de dividir fragmentos é fornecida pela ferramenta de divisão e mesclagem. Para saber mais, confira [Mover dados entre bancos de dados na nuvem escalados horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md).
 
-* **Mesclagem de fragmentos existentes**: A mesclagem de fragmentos também é realizada usando a ferramenta de divisão e mesclagem. Para saber mais, confira [Mover dados entre bancos de dados na nuvem escalados horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md).   
+* **Mesclagem de fragmentos existentes**: a mesclagem de fragmentos também é realizada usando a ferramenta de divisão e mesclagem. Para saber mais, confira [Mover dados entre bancos de dados na nuvem escalados horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 ## <a name="cost"></a>Custo
 
@@ -131,9 +131,9 @@ Para saber mais sobre as Ferramentas de Banco de Dados Elástico, confira os arq
   * [Ferramentas de Banco de Dados Elástico para SQL Azure – Integração ao Entity Framework](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Elasticidade do fragmento no Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Anúncio da escala elástica](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
-* Canal 9: [Vídeo de visão geral da Escala Elástica](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Fórum de discussão: [Fórum de banco de dados SQL do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
-* Medir o desempenho: [Contadores de desempenho do gerenciador de mapa de fragmentos](sql-database-elastic-database-client-library.md)
+* Channel 9: [Visão geral da Escala Elástica](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
+* Fórum de discussão: [Fórum do Banco de Dados SQL do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
+* Para medir o desempenho: [Contadores de desempenho do gerenciador de mapas do fragmento](sql-database-elastic-database-client-library.md)
 
 <!--Anchors-->
 [The Elastic Scale Sample Application]: #The-Elastic-Scale-Sample-Application

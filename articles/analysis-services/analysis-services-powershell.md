@@ -1,18 +1,18 @@
 ---
 title: Gerenciar o Azure Analysis Services com o PowerShell | Microsoft Docs
-description: O gerenciamento do Azure Analysis Services com o PowerShell.
+description: Descreve Azure Analysis Services cmdlets do PowerShell para tarefas administrativas comuns, como criar servidores, suspender operações ou alterar o nível de serviço.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: reference
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 329ea51895c45c8cdf50a323328fac3c580ffc16
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 2c8f4c0541d97a189087af692658cfe794eaaf7e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146229"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572701"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gerenciar o Azure Analysis Services com PowerShell
 
@@ -44,7 +44,7 @@ Documentação- [referência do SqlServer](/powershell/module/sqlserver)
 
 ### <a name="supported-cmdlets"></a>Cmdlets com suporte
 
-|Cmdlet|Descrição|
+|Cmdlet|DESCRIÇÃO|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Adicionar um membro a uma função de banco de dados.| 
 |[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Fazer backup de um banco de dados do Analysis Services.|  

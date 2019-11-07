@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 035a559f27d11a89dba1983f1bcaf406ef6a0d05
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: cab67a9a50d8e9d91897c170ef2cb0884f169c64
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331939"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606665"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Escolha a opção de servidor MySQL correta no Azure
 
@@ -38,12 +38,12 @@ As diferenças principais entre essas opções estão listadas na tabela a segui
 | Aplicação de patch do MySQL     | Automático  | Gerenciado por clientes |
 | Alta disponibilidade | O modelo de alta disponibilidade (HA) é baseado em mecanismos de failover internos para quando ocorre uma interrupção no nível do nó. Nesses casos, o serviço cria automaticamente uma nova instância e anexa o armazenamento a essa instância. | Os clientes arquitetam, implementam, testam e mantêm a alta disponibilidade. Os recursos podem incluir clustering de failover Always on, replicação de grupo Always on, envio de logs ou replicação transacional.|
 | Redundância de zona | Não há suporte no momento | As VMs do Azure podem ser configuradas para serem executadas em diferentes zonas de disponibilidade. Para uma solução local, os clientes devem criar, gerenciar e manter seus próprios data center secundários.|
-| Cenários híbridos | Com o [replicação de dados](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication), você pode sincronizar dados de um servidor MySQL externo no banco de dados do Azure para o serviço mysql. O servidor externo pode ser local, em máquinas virtuais ou um serviço de banco de dados hospedado por outros provedores de nuvem.<br/><br/> Com o recurso de [réplica de leitura](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) , você pode replicar dados de um servidor mestre do banco de dados do Azure para MySQL para até cinco servidores de réplica somente leitura. As réplicas estão dentro da mesma região do Azure ou entre regiões. Réplicas somente leitura são atualizadas de forma assíncrona usando a tecnologia de replicação binlog.<br/><br/>A replicação de leitura entre regiões está atualmente em visualização pública.| Gerenciado por clientes
+| Cenários híbridos | Com o [replicação de dados](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication), você pode sincronizar dados de um servidor MySQL externo no banco de dados do Azure para o serviço mysql. O servidor externo pode ser local, em máquinas virtuais ou um serviço de banco de dados hospedado por outros provedores de nuvem.<br/><br/> Com o recurso de [réplica de leitura](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) , você pode replicar dados de um servidor mestre do banco de dados do Azure para MySQL para até cinco servidores de réplica somente leitura. As réplicas estão dentro da mesma região do Azure ou entre regiões. Réplicas somente leitura são atualizadas de forma assíncrona usando a tecnologia de replicação binlog.| Gerenciado por clientes
 | Backup e restauração | O cria automaticamente [backups de servidor](https://docs.microsoft.com/azure/mysql/concepts-backup#backups) e os armazena em um armazenamento configurado pelo usuário que seja localmente redundante ou com redundância geográfica. O serviço usa backups completos, diferenciais e de log de transações | Gerenciado por clientes |
 | Operações de banco de dados de monitoramento | Oferece aos clientes a capacidade de [definir alertas](https://docs.microsoft.com/azure/mysql/concepts-monitoring) na operação de banco de dados e agir sobre o alcance de limites. | Gerenciado por clientes |
 | Proteção Avançada contra Ameaças | Fornece [proteção avançada contra ameaças](https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal). Essa proteção detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados. | Os clientes devem criar essa proteção para si mesmos.
 | Recuperação de desastre | Armazena backups automatizados em armazenamento com redundância [local ou](https://docs.microsoft.com/azure/mysql/howto-restore-server-portal)com redundância geográfica configurado pelo usuário. Os backups também podem restaurar um servidor para um ponto no tempo. O período de retenção é de 7 a 35 dias. A restauração é realizada usando o portal do Azure. | Totalmente gerenciado pelos clientes. As responsabilidades incluem, mas não se limitam a agendamento, teste, arquivamento, armazenamento e retenção. Uma opção adicional é usar um cofre dos serviços de recuperação do Azure para fazer backup de VMs e bancos de dados do Azure em VMs. Esta opção está em visualização. |
-| Recomendações de desempenho | Fornece aos clientes [recomendações de desempenho](https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) com base em arquivos de log de uso gerados pelo sistema. As recomendações ajudam a otimizar as cargas de trabalho. | Gerenciado por clientes |
+| Recomendações do desempenho | Fornece aos clientes [recomendações de desempenho](https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) com base em arquivos de log de uso gerados pelo sistema. As recomendações ajudam a otimizar as cargas de trabalho. | Gerenciado por clientes |
 
 ## <a name="business-motivations-for-choosing-paas-or-iaas"></a>Motivações de negócios para escolher PaaS ou IaaS
 
@@ -99,7 +99,7 @@ A lista a seguir descreve as considerações administrativas para cada opção:
 
   Como não há necessidade de alterar as camadas de apresentação, aplicativo e dados, você economiza tempo e orçamento na rearquitetura de sua solução existente. Em vez disso, você pode se concentrar em migrar todas as suas soluções para o Azure e abordar algumas otimizações de desempenho que a plataforma do Azure pode exigir.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Consulte [preços do banco de dados do Azure para MySQL](https://azure.microsoft.com/pricing/details/MySQL/).
 * Comece com a [criação do seu primeiro servidor](https://review.docs.microsoft.com/azure/MySQL/quickstart-create-MySQL-server-database-using-azure-portal).

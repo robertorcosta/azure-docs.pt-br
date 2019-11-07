@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f5d214d58c1d2123acabda797b576e8ad961d3f2
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 1fcad7d3d0cc45f0cfdc0d6523d5fdbc8f573fe2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990815"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577002"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Cobertura de mobilidade do Azure Maps
 
@@ -30,7 +30,7 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 
 ## <a name="americas"></a>Américas
 
-| País/região |  Cidade (área de metrô) |
+| País/Região |  Cidade (área de metrô) |
 |----------------|---------|
 | Argentina       | <p>Bahía Blanca, Buenos Aires, Caleta Olivia, Chivilcoy, comcheiroe Rivadavia, nicaraguense, Corrientes, General RsFilter, La Rioja, Mar del Plata, Mendoza, Miramar, Neuquén, Oberá, Olavarría, Paraná, Posadas, Rio Tercero, Rosario, salta, San Carlos de Bariloche, San Luis, San Pedro, Santa Fe, Tandil, Ushuaia, Victoria, Villa María</p>|
 | Barbados       |  Barbados |
@@ -52,19 +52,19 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 
 ## <a name="asia-pacific"></a>Pacífico Asiático
 
-| País/região |  Cidade (área de metrô) |
+| País/Região |  Cidade (área de metrô) |
 |--------|---------|
 | Austrália      | <p>Adelaide, Alice molas, Bowen, Brisbane, Bundaberg QLD, Burne, Cairns, Camberra, Darwin, Gladstone, Hobart, Innisfail, Launceston, Mackay nesta, ilha magnética, Maryborough-Hervey Bay, Melbourne, novo Sul Gales, Perth, RockHampton, sudeste do Sul Queensland, Sydney, Toowoomba, Townsville, Victoria, Warwick, Yeppoon</p> |
 | China | <p> Changchun, Changsha, Chengdu, Chonquim, Dalian, Datong, Dongguan, Hangzhou, Jiangyin, Jinan, Nanquim, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, Xangai, Pequim, Guangzhou, Shenzhen, Zhengzhou</P>| 
 | RAE de Hong Kong | Rae de Hong Kong *|
-| Rae de Macau | Rae de Macau *|
+| RAE de Macau | Rae de Macau *|
 | Índia | Ahmedabad, Bengaluru, Délhi, Mumbai, Mysuru|
 | Indonésia | Bandung, Banyuwangi, batam, Denpasar, Jacarta, Kediri, Malang, Palembang, Semarang, Surabaya, Surakarta, Yogyakarta |
 | Japão | Shizuoka prefeitura Saitama, Tóquio, Wakkanai, Yamanashi prefeitura Saitama |
 | Malásia | Ipoh, Johar Bahru, Kuala Lumpur, Penang |
 | Nova Zelândia | Auckland, Christchurch, Dunedin, Queenstown, Timaru, Wellington|
 | Filipinas | Manila |
-| Cingapura | Cingapura |
+| Singapura | Cingapura |
 | Coreia do Sul | Busan, Seul |
 | Taiwan | Condado de Changhua, Taipé | 
 | Tailândia | Bancoc, Chiang Mai | 
@@ -73,7 +73,7 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 
 ## <a name="europe"></a>Europa
 
-| País/região |  Cidade (área de metrô) |
+| País/Região |  Cidade (área de metrô) |
 |----------------|---------|
 | Andorra        | Andorra la Vella |
 | Atenas         | Chios | 
@@ -104,7 +104,7 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 | Luxemburgo | Luxemburgo |
 | Moldova | Chisinau |
 | Montenegro | Podgorica |
-| Holanda | Países Baixos |
+| Países Baixos | Países Baixos |
 | Noruega | Noruega | 
 | Polônia | <p>Wrocław, Białystok, Bydgoszcz, Elbląg, Gorzow, Kętrzyna, Krakow, Leszno, Lodz, Lublin, Mrągowo, Olsztyn, Poznań, Rzeszów, Sanok, Starachowice, Świonujście, Szczecin, Tricity, Varsóvia, Wodzisław Śląski, Wrocław, Zakopane</p> |
 | Portugal | Bragança, Coimbra, Funchal, Leiria, Lisboa, Portimao, Porto|
@@ -124,7 +124,7 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 
 ## <a name="middle-east-and-africa"></a>Oriente Médio e África
 
-| País/região |  Cidade (área de metrô) |
+| País/Região |  Cidade (área de metrô) |
 |---------|---------|
 | Bahrein | Bahrein |
 | Egito | Cairo    |
@@ -138,7 +138,7 @@ A tabela a seguir fornece informações de cobertura para o serviço de mobilida
 | Emirados Árabes Unidos  | Abu Dhabi, Dubai |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como solicitar dados de trânsito usando o serviço de mobilidade:
 

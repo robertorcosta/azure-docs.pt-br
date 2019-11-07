@@ -1,5 +1,5 @@
 ---
-title: 'Aplicativos SaaS: backups com redundância geográfica do Banco de Dados SQL do Azure para recuperação de desastre | Microsoft Docs'
+title: 'Aplicativos SaaS: backups com redundância geográfica do banco de dados SQL do Azure para recuperação de desastre '
 description: Aprenda a usar backups com redundância geográfica do Banco de Dados SQL do Azure para recuperar um aplicativo SaaS multilocatário no caso de uma interrupção
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/14/2019
-ms.openlocfilehash: c8990e5183d09e8f530fdef952a80a09104d3617
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2f058a5cd20fff845a1feafe42b66beb1afef766
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570493"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692205"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usar a restauração geográfica para recuperar um aplicativo SaaS multilocatário de backups de banco de dados
 
@@ -57,7 +57,7 @@ A recuperação de desastre (DR) é uma consideração importante para muitos ap
  * Repatrie bancos de dados para a região original deles com impacto mínimo nos locatários quando a interrupção for resolvida.  
 
 > [!NOTE]
-> O aplicativo é recuperado para a região emparelhada da região em que o aplicativo é implantado. Para obter mais informações, consulte [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).   
+> O aplicativo é recuperado para a região emparelhada da região em que o aplicativo é implantado. Para saber mais, veja [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).   
 
 Este tutorial usa recursos do Banco de Dados SQL do Azure e a plataforma do Azure para endereçar estes desafios:
 
@@ -79,7 +79,7 @@ Os scripts de DR usados neste tutorial estão disponíveis no [banco de dados Sa
 ## <a name="review-the-healthy-state-of-the-application"></a>Examinar o estado de integridade do aplicativo
 Antes de iniciar o processo de recuperação, examine o estado de integridade normal do aplicativo.
 
-1. No navegador da Web, abra o hub de Eventos da Wingtip Tickets (http://events.wingtip-dpt.&lt ;usuário&gt;.trafficmanager.net – substitua &lt; usuário&gt; pelo valor do usuário da sua implantação).
+1. No navegador da Web, abra o hub de Eventos da Wingtip Tickets (http://events.wingtip-dpt.&lt;usuário&gt;.trafficmanager.net – substitua &lt;usuário&gt; pelo valor do usuário da sua implantação).
     
    Role até a parte inferior da página e observe o nome do servidor de catálogo e a localização no rodapé. A localização é a região em que você implantou o aplicativo.    
 
@@ -179,7 +179,7 @@ Imagine que há uma interrupção na região em que o aplicativo é implantado e
 
     * O script é aberto em uma nova janela do PowerShell e, em seguida, inicia um conjunto de trabalhos do PowerShell executados em paralelo. Esses trabalhos restauram servidores, pools e bancos de dados para a região de recuperação.
 
-    * A região de recuperação é a região emparelhada associada à região do Azure na qual você implantou o aplicativo. Para obter mais informações, consulte [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+    * A região de recuperação é a região emparelhada associada à região do Azure na qual você implantou o aplicativo. Para saber mais, veja [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 3. Monitore o status do processo de recuperação na janela do PowerShell.
 
@@ -199,7 +199,7 @@ Enquanto o ponto de extremidade do aplicativo estiver desabilitado no Gerenciado
  
     ![Processo de recuperação](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * Se você abrir a página de eventos de um locatário diretamente enquanto o locatário estiver offline, a página exibirá uma notificação de locatário offline. Por exemplo, se Contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall.
+  * Se você abrir a página de eventos de um locatário diretamente enquanto o locatário estiver offline, a página exibirá uma notificação de locatário offline. Por exemplo, se Contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Processo de recuperação](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -208,7 +208,7 @@ Antes mesmo da restauração dos bancos de dados de locatário, você poderá pr
 
 1. No ISE do PowerShell, no script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina esta propriedade:
 
-    $DemoScenario = 3: provisionar um novo locatário na região de recuperação.
+    $DemoScenario = 3: provisione um novo locatário na região de recuperação.
 
 2. Para executar o script, selecione F5.
 
@@ -238,7 +238,7 @@ Quando o processo de recuperação for concluído, o aplicativo e todos os locat
 
     ![Contoso na região de recuperação](media/saas-dbpertenant-dr-geo-restore/contoso-recovery-location.png)
 
-3. No [Portal do Azure](https://portal.azure.com), abra a lista de grupos de recursos.  
+3. No [portal do Azure](https://portal.azure.com), abra a lista de grupos de recursos.  
 
     Observe o grupo de recursos que você implantou, mais o grupo de recursos de recuperação, com o sufixo -recovery. O grupo de recursos de recuperação contém todos os recursos criados durante o processo de recuperação, além de novos recursos criados durante a interrupção. 
 
@@ -261,18 +261,18 @@ Nesta tarefa, você atualiza bancos de dados de locatário restaurados. O proces
 
 2. No ISE do PowerShell, nos scripts ...\Learning Modules\Business Continuity e Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina o seguinte valor:
 
-    $DemoScenario = 4: excluir um evento de um locatário na região de recuperação.
+    $DemoScenario = 4: exclua um evento de um locatário na região de recuperação.
 
 3. Para executar o script, selecione F5.
 
-4. Atualize a página de eventos do Contoso Concert Hall (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall) e observe que o evento Seriously Strauss está ausente.
+4. Atualize a página de eventos do Contoso Concert Hall (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall) e observe que o evento Seriously Strauss está ausente.
 
 Nesse ponto no tutorial, você recuperou o aplicativo, que está em execução na região de recuperação. Você provisionou um novo locatário na região de recuperação e modificou dados de um dos locatários restaurados.  
 
 > [!NOTE]
 > Outros tutoriais no exemplo não são projetados para funcionar com o aplicativo no estado de recuperação. Se você quiser explorar outros tutoriais, repatrie o aplicativo primeiro.
 
-## <a name="repatriation-process-overview"></a>Visão geral do processo de repatriação
+## <a name="repatriation-process-overview"></a>Visão geral do processo repatriação
 
 O processo de repatriação reverte o aplicativo e seus bancos de dados para sua região original após uma interrupção for resolvida.
 
@@ -312,24 +312,24 @@ Quando um banco de dados é repatriado, o banco de dados secundário na região 
 
 Na etapa 8, os recursos na região de recuperação, incluindo os servidores de recuperação e pools, são excluídos.
 
-## <a name="run-the-repatriation-script"></a>Executar o script repatriação
+## <a name="run-the-repatriation-script"></a>Executar o script de repatriação
 Vamos imaginar que a interrupção foi resolvida e executar o script de repatriação.
 
 Se você seguiu o tutorial, o script reativa imediatamente o Fabrikam Jazz club e o Dogwood Dojo na região original porque eles não foram modificados. Em seguida, ele repatria o novo locatário, Hawthorn Hall, e o Contoso Concert Hall porque ele foi modificado. O script também repatria o catálogo, que foi atualizado quando Hawthorn Hall foi provisionado.
   
 1. No ISE do PowerShell, no script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, verifique se o processo de Sincronização do catálogo ainda está em execução em sua instância do PowerShell. Se necessário, reinicie-o ao definir:
 
-    $DemoScenario = 1: iniciar a sincronização do servidor de locatário, do pool e de informações de configuração do banco de dados com o catálogo.
+    $DemoScenario = 1: inicie a sincronização do servidor de locatário, o pool e informações de configuração do banco de dados com o catálogo.
 
     Para executar o script, selecione F5.
 
 2.  Então, para iniciar o processo de repatriação, defina:
 
-    $DemoScenario = 5: repatriar o aplicativo para sua região original.
+    $DemoScenario = 5: repatrie o aplicativo para sua região original.
 
     Para executar o script de recuperação em uma nova janela do PowerShell, selecione F5. A repatriação leva vários minutos e pode ser monitorada na janela do PowerShell.
 
-3. Durante a execução do script, atualize a página do hub de eventos (http://events.wingtip-dpt.&lt ;usuário&gt;.trafficmanager.net).
+3. Durante a execução do script, atualize a página do hub de eventos (http://events.wingtip-dpt.&lt;usuário&gt;.trafficmanager.net).
 
     Observe que todos os locatários estão online e acessíveis durante este processo.
 
@@ -351,7 +351,7 @@ O processo de restauração cria todos os recursos de recuperação em um grupo 
 
 1. No ISE do PowerShell, no script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina:
     
-    $DemoScenario = 6: excluir recursos obsoletos da região de recuperação.
+    $DemoScenario = 6: exclua recursos obsoletos da região de recuperação.
 
 2. Para executar o script, selecione F5.
 

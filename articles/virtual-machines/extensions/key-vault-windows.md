@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 43c4b363f223c61bac3d3f7dbd272519a0cd014d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 7c730ad3f14cc26cd1251b497ef2d146fe99e448
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899035"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584363"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual de Key Vault para Windows
 
@@ -28,7 +28,7 @@ A extensão de VM Key Vault dá suporte a versões anteriores do Windows:
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensão não requer configurações protegidas. todas as suas configurações são consideradas informações públicas. A extensão requer uma lista de certificados monitorados, a frequência de sondagem e o repositório de certificados de destino. Mais especificamente:  
+O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensão não requer configurações protegidas. todas as suas configurações são consideradas informações públicas. A extensão requer uma lista de certificados monitorados, a frequência de sondagem e o repositório de certificados de destino. Especificamente:  
 
 ```json
     {
@@ -61,21 +61,21 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 > [!NOTE]
 > Suas URLs de certificados observadas devem estar no formato `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Isso ocorre porque o caminho `/secrets` retorna o certificado completo, incluindo a chave privada, enquanto o caminho de `/certificates` não faz isso. Mais informações sobre certificados podem ser encontradas aqui: [Key Vault certificados](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Isso ocorre porque o caminho `/secrets` retorna o certificado completo, incluindo a chave privada, enquanto o caminho `/certificates` não faz isso. Mais informações sobre certificados podem ser encontradas aqui: [Key Vault certificados](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| name | Valor/Exemplo | Tipo de Dados |
+| Nome | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2019-07-01 | data |
 | publicador | Microsoft.Azure.KeyVault.Edp | string |
-| type | KeyVaultForWindows | string |
+| Tipo | KeyVaultForWindows | string |
 | typeHandlerVersion | 1.0 | int |
-| pollingIntervalInS | 3600 | int |
+| pollingIntervalInS | 3600 | string |
 | certificateStoreName | MY | string |
-| linkOnRenewal | falso | Booliano |
+| linkOnRenewal | false | booleano |
 | certificateStoreLocation  | LocalMachine | string |
-| requiredInitialSync | true | Booliano |
+| requiredInitialSync | verdadeiro | booleano |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matriz de cadeia de caracteres
 
 
@@ -200,7 +200,7 @@ Os dados sobre o estado das implantações de extensão podem ser recuperados no
 Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI do Azure
 ```azurecli
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```

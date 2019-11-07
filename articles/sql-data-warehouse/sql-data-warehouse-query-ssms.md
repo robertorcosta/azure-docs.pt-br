@@ -1,5 +1,5 @@
 ---
-title: Conectar-se ao SQL Data Warehouse do Azure – SSMS | Microsoft Docs
+title: Conectar com SSMS
 description: Use o SQL Server Management Studio (SSMS) para conectar e consultar o SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: b96896c0366c6fba2548480b166bdb9cf6ca692c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d5c903a24ea47cb152555330688dd0bc515c625b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575337"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692588"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Conectar-se ao SQL Data Warehouse com o SSMS (SQL Server Management Studio)
 > [!div class="op_single_selector"]
@@ -36,7 +37,7 @@ Para usar este tutorial, você precisará de:
 * SSMS (SQL Server Management Studio) instalado. [Instale o SSMS][Install SSMS] gratuitamente se você ainda não o tiver.
 * O nome de servidor SQL totalmente qualificado. Para encontrar isso, confira [Conectar-se ao SQL Data Warehouse][Connect to SQL Data Warehouse].
 
-## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Conectar-se ao SQL Data Warehouse
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Conecte-se ao seu SQL Data Warehouse
 1. Abra o SSMS.
 2. Abrir Pesquisador de Objetos. Para fazer isso, selecione **Arquivo** > **Conectar Pesquisador de Objetos**.
    
@@ -53,13 +54,13 @@ Para usar este tutorial, você precisará de:
    
     ![Explorar o AdventureWorksWeb][3]
 
-## <a name="2-run-a-sample-query"></a>2. Executar uma consulta de exemplo
+## <a name="2-run-a-sample-query"></a>2. executar uma consulta de exemplo
 Agora que uma conexão foi estabelecida com o banco de dados, escreveremos uma consulta.
 
 1. Clique com o botão direito do mouse em seu banco de dados no Gerenciador de Objetos do SQL Server.
 2. Selecione **Nova Consulta**. Uma nova janela de consulta é aberta.
    
-    ![Nova Consulta][4]
+    ![Nova consulta][4]
 3. Copie esta consulta TSQL na janela de consulta:
    
     ```sql

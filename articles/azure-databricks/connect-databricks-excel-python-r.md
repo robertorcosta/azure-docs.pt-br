@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
-ms.openlocfilehash: 1805f04d7833dea180847defadd865cb23e9df62
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: f7494d36cf9b16ac6c7a1287a6ff96dd2285c6e2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340847"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601941"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Conecte-se ao Azure Databricks do Excel, Python ou R
 
@@ -26,7 +26,7 @@ Neste artigo, você aprenderá a usar o driver ODBC Databricks para conectar o A
 
 * Baixar o driver ODBC Databricks da [Página de download do driver de Databricks](https://databricks.com/spark/odbc-driver-download). Instale a versão de 32 bits ou 64 bits dependendo do aplicativo de onde você deseja se conectar com o Azure Databricks. Por exemplo, para se conectar do Excel, instale a versão de 32 bits do driver. Para se conectar do R e Python, instale a versão de 64 bits do driver.
 
-* Configure um token de acesso pessoal no Databricks. Para obter instruções, consulte o [Gerenciamento de Token](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
+* Configurar um token de acesso pessoal no Databricks. Para obter instruções, consulte o [Gerenciamento de Token](/azure/databricks/dev-tools/api/latest/authentication).
 
 ## <a name="set-up-a-dsn"></a>Definir um DSN
 
@@ -34,19 +34,19 @@ Um nome de fonte de dados (DSN) contém as informações sobre uma fonte de dado
 
 1. No workspace do Azure Databricks, navegue até o cluster do Databricks.
 
-    ![Abrir o cluster do Databricks](./media/connect-databricks-excel-python-r/open-databricks-cluster.png "Abrir o cluster do Databricks")
+    ![Abrir cluster do databricks](./media/connect-databricks-excel-python-r/open-databricks-cluster.png "Abrir cluster do databricks")
 
 2. Sob o guia **Configuração**, clique no guia **JDBC/ODBC** e copie os valores para o **Nome do host do servidor** e **Caminho HTTP**. Você precisa desses valores para concluir as etapas neste artigo.
 
-    ![Obter a configuração do Databricks](./media/connect-databricks-excel-python-r/get-databricks-jdbc-configuration.png "Obter a configuração do Databricks")
+    ![Obter configuração do databricks](./media/connect-databricks-excel-python-r/get-databricks-jdbc-configuration.png "Obter configuração do databricks")
 
 3. Em seu computador, inicie o aplicativo **Fontes de dados ODBC** (32 bits ou 64 bits), dependendo do aplicativo. Para se conectar do Excel, use a versão de 32 bits. Para se conectar do R e Python, use a versão de 64 bits.
 
-    ![Inicialize o ODBC](./media/connect-databricks-excel-python-r/launch-odbc-app.png "Inicialize o aplicativo ODBC")
+    ![Iniciar ODBC](./media/connect-databricks-excel-python-r/launch-odbc-app.png "Iniciar aplicativo ODBC")
 
 4. Sob o guia **DSN do usuário**, clique em **Adicionar**. Na caixa de diálogo **Criar Nova Fonte de Dados**, selecione **Driver ODBC do Simba Spark** e clique em **Concluir**.
 
-    ![Inicialize o ODBC](./media/connect-databricks-excel-python-r/add-new-user-dsn.png "Inicialize o aplicativo ODBC")
+    ![Iniciar ODBC](./media/connect-databricks-excel-python-r/add-new-user-dsn.png "Iniciar aplicativo ODBC")
 
 5. Na caixa de diálogo **Driver ODBC Simba Spark**, forneça os valores a seguir:
 
@@ -54,7 +54,7 @@ Um nome de fonte de dados (DSN) contém as informações sobre uma fonte de dado
 
     A tabela a seguir fornece informações sobre os valores a fornecer na caixa de diálogo.
     
-    |Campo  | Value  |
+    |Campo  | Valor  |
     |---------|---------|
     |**Nome da fonte de dados**     | Forneça um nome para a fonte de dados.        |
     |**Host(s)**     | Forneça o valor que você copiou do workspace do Databricks para *nome do host do servidor*.        |
@@ -78,26 +78,26 @@ Nesta seção, você extrairá dados do Azure Databricks para o Microsoft Excel 
 
 1. Abra uma pasta de trabalho em branco no Microsoft Excel. Da faixa de opções de **Dados**, clique em **Obter dados**. Clique em **De Outras Fontes** e em **Do ODBC**.
 
-    ![Inicie o ODBC do Excel](./media/connect-databricks-excel-python-r/launch-odbc-from-excel.png "Inicie o ODBC do Excel")
+    ![Iniciar ODBC do Excel](./media/connect-databricks-excel-python-r/launch-odbc-from-excel.png "Iniciar ODBC do Excel")
 
 2. Na caixa de diálogo **Do ODBC**, selecione o DSN que você criou anteriormente e clique em **OK**.
 
-    ![Selecione o DSN](./media/connect-databricks-excel-python-r/excel-select-dsn.png "Selecione o DSN")
+    ![Selecionar DSN](./media/connect-databricks-excel-python-r/excel-select-dsn.png "Selecionar DSN")
 
 3. Se as credenciais forem solicitadas a você, para o nome de usuário, digite **token**. Para a senha, forneça o valor do token que você recuperou do workspace de Databricks.
 
-    ![Forneça as credenciais para o Databricks](./media/connect-databricks-excel-python-r/excel-databricks-token.png "Selecione DSN")
+    ![Fornecer credenciais para databricks](./media/connect-databricks-excel-python-r/excel-databricks-token.png "Selecionar DSN")
 
 4. Na janela do navegador, selecione a tabela no Databricks que você deseja carregar para o Excel e, em seguida, clique em **Carregar**. 
 
-    ![Carregar dta no Excel](./media/connect-databricks-excel-python-r/excel-load-data.png "Carregar dta no Excel")
+    ![Carregar o dta no Excel](./media/connect-databricks-excel-python-r/excel-load-data.png "Carregar o dta no Excel")
 
 Uma vez que você tiver os dados na sua pasta de trabalho do Excel, você pode realizar operações analíticas nela.
 
 ## <a name="connect-from-r"></a>Conecte-se do R
 
 > [!NOTE]
-> Esta seção fornece informações sobre como integrar um cliente do R Studio em execução na área de trabalho com o Azure Databricks. Para obter instruções sobre como usar o Studio R no próprio cluster do Azure Databricks, consulte [R Studio no Azure Databricks](https://docs.azuredatabricks.net/spark/latest/sparkr/rstudio.html).
+> Esta seção fornece informações sobre como integrar um cliente do R Studio em execução na área de trabalho com o Azure Databricks. Para obter instruções sobre como usar o Studio R no próprio cluster do Azure Databricks, consulte [R Studio no Azure Databricks](/azure/databricks/spark/latest/sparkr/rstudio).
 
 Nesta seção, você deve usar uma linguagem R IDE para os dados de referência disponíveis no Azure Databricks. Antes de começar, você deve ter os itens a seguir instalados no seu computador.
 
@@ -165,6 +165,6 @@ for row in cursor.fetchall():
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre as fontes de onde você pode importar dados para o Azure Databricks, consulte [Fontes de dados para o Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html#)
+* Para saber mais sobre as fontes de onde você pode importar dados para o Azure Databricks, consulte [Fontes de dados para o Azure Databricks](/azure/databricks/data/data-sources/index)
 
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: f0fc1e143ce7d271d5faaa8dda0eb40cdfc9e006
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: fd3396a98359aef966cd8bb2f984e556fc6abcc7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332790"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584849"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Criar e gerenciar um modelo de sala de aula no Azure Lab Services
 Um modelo em um laboratório é uma imagem básica da máquina virtual a partir do qual todas as máquinas virtuais de todos os usuários são criadas. Configure a máquina virtual do modelo para que ela seja configurada exatamente com o que você deseja fornecer aos usuários de laboratório. Você pode fornecer um nome e uma descrição do modelo exibido para os usuários do laboratório. Em seguida, publique o modelo para tornar as instâncias do modelo de VM disponíveis para os usuários do laboratório. Quando você publicar um modelo, o Azure Lab Services criará VMs no laboratório usando o modelo. O número de VMs criadas neste processo é o mesmo que o número máximo de usuários permitidos em um laboratório, que você pode definir na política de uso do laboratório. Todas as máquinas virtuais têm a mesma configuração que o modelo.
@@ -40,12 +40,10 @@ Use as etapas a seguir para definir o título e descrição para a primeira vez 
 Use as etapas a seguir para atualizar uma VM de modelo.  
 
 1. Na página **modelo** , selecione **Personalizar modelo** na barra de ferramentas. 
-
-    ![Botão Personalizar modelo](../media/how-to-create-manage-template/customize-template-button.png)
 2. Na caixa de diálogo **Personalizar modelo** , selecione **continuar**. Depois de iniciar o modelo e fazer alterações, ele não terá mais a mesma configuração que as máquinas virtuais publicadas pela última vez para os usuários. As alterações de modelo não serão refletidas nas máquinas virtuais existentes de seus usuários até que você publique novamente.
 
     ![Caixa de diálogo Personalizar](../media/how-to-create-manage-template/customize-template-dialog.png)
-1. Selecione o botão **conectar ao modelo** na barra de ferramentas para se conectar à VM do modelo e siga as instruções. Se for um computador Windows, você verá uma opção para baixar o arquivo RDP. 
+1. Aguarde até que a VM de modelo seja iniciada e, em seguida, selecione **conectar ao modelo** na barra de ferramentas para se conectar à VM de modelo e siga as instruções. Se for um computador Windows, você verá uma opção para baixar o arquivo RDP. 
 
     ![Conectar à VM modelo](../media/how-to-create-manage-template/connect-template-vm.png)
 1. Instale o software necessário para que os alunos façam o laboratório (por exemplo, Visual Studio, Gerenciador de Armazenamento do Azure etc.). 
@@ -71,7 +69,7 @@ Se você não publique o modelo ao criar o laboratório, você pode publicá-lo 
     ![Máquinas virtuais no estado parado](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Confira os seguintes artigos:
 
 - [Como administrador, crie e gerencie contas de laboratório](how-to-manage-lab-accounts.md)

@@ -8,12 +8,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 4f1b8b116cf2a8411a90946dd5801dd1e541323c
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: bcdc6633980ec3684217c8c19b4799befe2af3a3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063971"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576866"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -168,7 +168,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>Habilitar o suporte ao rastreamento distribuído W3C para aplicativos Web
 
-Este recurso está em `Microsoft.ApplicationInsights.JavaScript`. Isso está desabilitado por padrão. Para habilitá-lo, use `distributedTracingMode` config. O AI_AND_W3C é fornecido para compatibilidade com os serviços instrumentados Application Insightss herdados:
+Este recurso está em `Microsoft.ApplicationInsights.JavaScript`. Isso está desabilitado por padrão. Para habilitá-lo, use `distributedTracingMode` config. AI_AND_W3C é fornecida para compatibilidade com os serviços instrumentados Application Insightss herdados:
 
 - **Configuração do NPM (ignorar se estiver usando a configuração de trecho de código)**
 
@@ -203,7 +203,7 @@ Este recurso está em `Microsoft.ApplicationInsights.JavaScript`. Isso está des
 
 A [especificação do modelo de dados do OpenTracing](https://opentracing.io/) e os modelos de dados do Application Insights são mapeados da seguinte maneira:
 
-| Percepções sobre o Aplicativo                  | OpenTracing                                       |
+| Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
 | `Request`, `PageView`                 | `Span` com `span.kind = server`                  |
 | `Dependency`                          | `Span` com `span.kind = client`                  |
@@ -334,27 +334,24 @@ Para correlacionar a telemetria no aplicativo de Spring boot assíncrono, siga [
 
 Às vezes, convém personalizar a maneira como os nomes de componentes são exibidos no [Mapa do Aplicativo](../../azure-monitor/app/app-map.md). Para fazer isso, você pode definir manualmente `cloud_RoleName`seguindo um destes procedimentos:
 
+- A partir do Application Insights SDK do Java 2.5.0, você pode especificar o nome da função de nuvem adicionando `<RoleName>` ao arquivo de `ApplicationInsights.xml`, por exemplo,
+
+  ```XML
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+     <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+     <RoleName>** Your role name **</RoleName>
+     ...
+  </ApplicationInsights>
+  ```
+
 - Se você usar o Spring Boot com o iniciador do Spring Boot do Application Insights, a única alteração necessária é definir seu nome personalizado para o aplicativo no arquivo application.properties.
 
   `spring.application.name=<name-of-app>`
 
   O iniciador do Spring Boot atribui automaticamente `cloudRoleName` ao valor inserido para a propriedade `spring.application.name`.
 
-- Se você está usando `WebRequestTrackingFilter`, `WebAppNameContextInitializer` define o nome do aplicativo automaticamente. Adicione o seguinte ao arquivo de configuração (ApplicationInsights.xml):
-
-  ```XML
-  <ContextInitializers>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
-  </ContextInitializers>
-  ```
-
-- Se você usar a classe de contexto de nuvem:
-
-  ```Java
-  telemetryClient.getContext().getCloud().setRole("My Component Name");
-  ```
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Gravar a [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md).
 - Para cenários de correlação avançada em ASP.NET Core e ASP.NET, consulte o artigo [rastrear operações personalizadas](custom-operations-tracking.md) .

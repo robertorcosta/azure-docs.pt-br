@@ -1,18 +1,18 @@
 ---
-title: Permissões de usuário e autenticação no Azure Analysis Services | Microsoft Docs
-description: Saiba mais sobre as permissões de usuário e autenticação no Azure Analysis Services.
+title: Azure Analysis Services autenticação e permissões de usuário | Microsoft Docs
+description: Este artigo descreve como o Azure Analysis Services usa o Azure Active Directory (AD do Azure) para gerenciamento de identidade e autenticação de usuário.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a48292b7600d8b9e400bf1e2d61aec313ce29f4b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4a054c3c042e18f1679acd75e5ba5ad74f66edff
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146864"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572759"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de usuário
 
@@ -22,7 +22,7 @@ O Azure Analysis Services dá suporte à [Colaboração B2B do Azure AD](../acti
 
 ![Arquitetura de autenticação do Azure Analysis Services](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 Todas as ferramentas e aplicativos cliente usam uma ou mais das [bibliotecas de cliente](analysis-services-data-providers.md) do Analysis Services (AMO, MSOLAP, ADOMD) para se conectar a um servidor. 
 
@@ -76,7 +76,7 @@ As funções nesse nível se aplicam a usuários ou contas que precisam executar
   
  Por padrão, quando você cria um novo projeto de modelo tabular, o projeto de modelo não tem nenhuma função. As funções podem ser definidas usando a caixa de diálogo Gerenciador de funções no Visual Studio. Quando as funções são definidas durante a criação do projeto de modelo, elas são aplicadas apenas ao banco de dados de workspace do modelo. Quando o modelo é implantado, as mesmas funções são aplicadas ao modelo implantado. Depois que um modelo foi implantado, os administradores de servidor e de banco de dados podem gerenciar funções e membros usando o SSMS. Para obter mais informações, consulte [Gerenciar usuários e funções de banco de dados](analysis-services-database-users.md).
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Gerenciar o acesso a recursos com grupos do Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Gerenciar usuários e funções de banco de dados](analysis-services-database-users.md)  
