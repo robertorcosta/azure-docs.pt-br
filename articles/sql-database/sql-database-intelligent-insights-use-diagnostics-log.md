@@ -1,5 +1,5 @@
 ---
-title: Log de diagnóstico de desempenho do Insights inteligentes – Banco de dados SQL do Azure|Microsoft Docs
+title: Log de diagnóstico de desempenho do Intelligent Insights-banco de dados SQL do Azure
 description: O recurso Insights inteligentes fornece um log de diagnóstico de problemas de desempenho do banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: c25d37a4d1695ab94cc0667a13e36e4da640e12a
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 86381f5670f09b5e6a215793dc1ea4eab7ecbb8e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262143"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689707"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Use o log de diagnóstico de desempenho do Banco de Dados SQL do Azure com Intelligent Insights
 
@@ -113,7 +113,7 @@ No exemplo de log a seguir, a consulta com o hash 0x9102EXZ4 foi detectada como 
 }]
 ```
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>Métricas
 
 A unidade de medida para cada métrica relatada é fornecida na propriedade de métrica (metric) com os valores possíveis de segundos, número e percentual. O valor de uma métrica de medida é relatado na propriedade de valor (value).
 

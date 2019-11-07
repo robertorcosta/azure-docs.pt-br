@@ -1,5 +1,5 @@
 ---
-title: Código do Arquivo de Evento de XEvent para o Banco de Dados SQL | Microsoft Docs
+title: Código do arquivo de evento XEvent para o banco de dados SQL
 description: Fornece PowerShell e Transact-SQL para um exemplo de código de duas fases que demonstra o destino de Arquivo de evento em um evento estendido no Banco de Dados SQL do Azure. O Armazenamento do Azure é uma parte obrigatória deste cenário.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
-ms.openlocfilehash: f0994f92444da338b18447eb1b248c74df9aa2d2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ea5c90433a4d2928e5fb88df149631c80df9dacf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566112"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686825"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Código de destino do Arquivo de evento para eventos estendidos no Banco de Dados SQL
 
@@ -53,7 +53,7 @@ Este tópico apresenta um exemplo de código em duas fases:
   
   * Os módulos fornecem comandos como- **New-AzStorageAccount**.
 
-## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: Código do PowerShell para contêiner de Armazenamento do Azure
+## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: código do PowerShell para o contêiner de Armazenamento do Azure
 
 Esse PowerShell é a fase 1 do exemplo de código de duas fases.
 
@@ -233,7 +233,7 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 
 Anote os valores nomeados que o script do PowerShell imprime quando termina. Você deve editar esses valores no script Transact-SQL na fase 2.
 
-## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fase 2: Código Transact-SQL que usa o contêiner de Armazenamento do Azure
+## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fase 2: código Transact-SQL que usa o contêiner de Armazenamento do Azure
 
 * Na fase 1 deste exemplo de código, você executou um script PowerShell para criar um contêiner de Armazenamento do Azure.
 * Em seguida na fase 2, o script Transact-SQL a seguir deverá usar o contêiner.
@@ -463,9 +463,9 @@ GO
 
 ## <a name="output"></a>Saída
 
-Após a conclusão do script Transact-SQL, clique em uma célula sob o cabeçalho da coluna **event_data_XML**. É exibido um  **\<evento >** elemento que mostra uma instrução UPDATE.
+Após a conclusão do script Transact-SQL, clique em uma célula sob o cabeçalho da coluna **event_data_XML**. Um **\<elemento > de evento** é exibido, que mostra uma instrução UPDATE.
 
-Aqui está um  **\<evento >** elemento que foi gerado durante o teste:
+Aqui está um **\<** elemento de > de evento que foi gerado durante o teste:
 
 
 ```xml

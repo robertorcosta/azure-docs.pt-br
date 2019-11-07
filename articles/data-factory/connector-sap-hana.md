@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do SAP HANA usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do SAP HANA usando o Azure Data Factory
 description: Saiba como copiar dados do SAP HANA para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 9a5592c0c5fa06d8319b91c6d624a74c83bdeb1f
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 6b7f41f53ea743f8e3914512b40d3f69f595b7c8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010440"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680245"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiar dados do SAP HANA usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -64,12 +64,12 @@ As seções que a seguir fornecem detalhes sobre as propriedades usadas para def
 
 As propriedades a seguir têm suporte para o serviço vinculado do SAP HANA:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **SapHana** | Sim |
+| Tipo | A propriedade type deve ser definida como: **SapHana** | Sim |
 | connectionString | Especifique as informações necessárias para se conectar ao SAP HANA usando a **autenticação básica** ou a **autenticação do Windows**. Consulte os exemplos a seguir.<br>Na cadeia de conexão, servidor/porta é obrigatório (a porta padrão é 30015) e o nome de usuário e a senha são obrigatórios ao usar a autenticação básica. Para obter configurações avançadas adicionais, consulte [SAP Hana Propriedades de conexão ODBC](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>Você também pode colocar a senha em Azure Key Vault e extrair a configuração de senha da cadeia de conexão. Consulte [armazenar credenciais no artigo Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
 | userName | Especifique o nome de usuário ao usar a autenticação do Windows. Exemplo: `user@domain.com` | Não |
-| password | Especifique a senha para a conta de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| Senha | Especifique a senha para a conta de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |Sim |
 
 **Exemplo: usar autenticação básica**
@@ -145,11 +145,11 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de SAP HANA, há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **SapHanaTable** | Sim |
+| Tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **SapHanaTable** | Sim |
 | schema | Nome do esquema no banco de dados de SAP HANA. | Não (se "query" na fonte da atividade for especificada) |
-| table | Nome da tabela no banco de dados SAP HANA. | Não (se "query" na fonte da atividade for especificada) |
+| tabela | Nome da tabela no banco de dados SAP HANA. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo:**
 
@@ -181,11 +181,11 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de SAP HANA, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **SapHanaSource** | Sim |
+| Tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como: **SapHanaSource** | Sim |
 | query | Especifica a consulta SQL para ler dados da instância do SAP HANA. | Sim |
-| packetSize | Especifica o tamanho do pacote de rede (em kilobytes) para dividir os dados em vários blocos. Se você tiver uma grande quantidade de dados a serem copiados, aumentar o tamanho do pacote poderá aumentar a velocidade de leitura de SAP HANA na maioria dos casos. O teste de desempenho é recomendado ao ajustar o tamanho do pacote. | Nº<br>O valor padrão é 2048 (2MB). |
+| packetSize | Especifica o tamanho do pacote de rede (em kilobytes) para dividir os dados em vários blocos. Se você tiver uma grande quantidade de dados a serem copiados, aumentar o tamanho do pacote poderá aumentar a velocidade de leitura de SAP HANA na maioria dos casos. O teste de desempenho é recomendado ao ajustar o tamanho do pacote. | Não.<br>O valor padrão é 2048 (2MB). |
 
 **Exemplo:**
 
@@ -219,7 +219,7 @@ Para copiar dados de SAP HANA, as propriedades a seguir têm suporte na seção 
 ]
 ```
 
-Se você estivesse usando `RelationalSource` a fonte de cópia digitada, ainda há suporte para ela, embora seja recomendável usar a nova no futuro.
+Se você estivesse usando `RelationalSource` fonte de cópia digitada, ela ainda tem suporte como está, enquanto você é sugerido para usar a nova no futuro.
 
 ## <a name="data-type-mapping-for-sap-hana"></a>Mapeamento de tipo de dados para SAP HANA
 
@@ -227,31 +227,31 @@ Ao copiar dados do SAP HANA, os seguintes mapeamentos são usados de tipos de da
 
 | Tipo de dados do SAP HANA | Tipo de dados provisório do Data Factory |
 | ------------------ | ------------------------------ |
-| ALPHANUM           | String                         |
+| ALPHANUM           | Cadeia de caracteres                         |
 | BIGINT             | Int64                          |
 | BINÁRIO             | Byte[]                         |
-| BINTEXT            | Cadeia                         |
+| Bintext            | Cadeia de caracteres                         |
 | BLOB               | Byte[]                         |
 | BOOL               | Byte                           |
-| CLOB               | String                         |
+| CLOB               | Cadeia de caracteres                         |
 | DATE               | DateTime                       |
-| DECIMAL            | DECIMAL                        |
-| DOUBLE             | DOUBLE                         |
-| FLOAT              | Double                         |
+| DECIMAL            | Decimal                        |
+| DOUBLE             | Duplo                         |
+| FLOAT              | Duplo                         |
 | INTEGER            | Int32                          |
-| NCLOB              | String                         |
-| NVARCHAR           | String                         |
+| NCLOB              | Cadeia de caracteres                         |
+| NVARCHAR           | Cadeia de caracteres                         |
 | REAL               | Single                         |
 | SECONDDATE         | DateTime                       |
-| SHORTTEXT          | Cadeia                         |
-| SMALLDECIMAL       | DECIMAL                        |
+| SHORTTEXT          | Cadeia de caracteres                         |
+| SMALLDECIMAL       | Decimal                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte[]                         |
 | STPOINTTYPE        | Byte[]                         |
-| TEXT               | String                         |
+| TEXT               | Cadeia de caracteres                         |
 | TIME               | TimeSpan                       |
 | TINYINT            | Byte                           |
-| VARCHAR            | Cadeia                         |
+| VARCHAR            | Cadeia de caracteres                         |
 | TIMESTAMP          | DateTime                       |
 | VARBINARY          | Byte[]                         |
 

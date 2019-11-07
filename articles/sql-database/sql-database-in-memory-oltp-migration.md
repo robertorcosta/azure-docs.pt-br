@@ -1,5 +1,5 @@
 ---
-title: O OLTP in-memory melhora o desempenho de transações do SQL | Microsoft Docs
+title: O OLTP na memória melhora o desempenho do SQL TXN
 description: Adote o OLTP Na Memória para melhorar o desempenho transacional em um banco de dados SQL existente.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
-ms.openlocfilehash: e869b2bba3bd64b58d9063e9445889ef709efdc3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 82b24b51a103d31bf20bbb7a9fc304095be523d5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567943"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689831"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Usar o OLTP in-memory para melhorar o desempenho do aplicativo no Banco de Dados SQL
 
@@ -28,7 +28,7 @@ O [OLTP in-memory](sql-database-in-memory.md) pode ser usado para melhorar o des
 
 Siga estas etapas para adotar o in-memory OLTP no banco de dados existente.
 
-## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Etapa 1: verificar se você está usando um banco de dados de camada Premium e Comercialmente Crítico
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Etapa 1: Verifique se que você estivá usando um banco de dados de camada Premium e Comercialmente Crítico
 
 Há suporte para o OLTP in-memory apenas em bancos de dados de camada Premium e Comercialmente Crítico. Na Memória terá suporte se o resultado retornado for 1 (e não 0):
 
@@ -40,7 +40,7 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 
 
-## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Etapa 2: identificar os objetos para migrar ao OLTP Na Memória
+## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Etapa 2: Identificar os objetos para migrar para o OLTP Na Memória
 O SSMS inclui um relatório **Visão Geral da Análise do Desempenho da Transação** que pode ser executado em um banco de dados com uma carga de trabalho ativa. O relatório identifica as tabelas e os procedimentos armazenados candidatos à migração para OLTP Na Memória.
 
 No SSMS, para gerar o relatório:
@@ -50,7 +50,7 @@ No SSMS, para gerar o relatório:
 
 Para saber mais, confira [Determinando se uma tabela ou um procedimento armazenado deve ser transportado para o OLTP Na Memória](https://msdn.microsoft.com/library/dn205133.aspx).
 
-## <a name="step-3-create-a-comparable-test-database"></a>Etapa 3: criar um banco de dados de teste comparável
+## <a name="step-3-create-a-comparable-test-database"></a>Etapa 3: Criar um banco de dados de teste comparável
 Suponha que o relatório indique que o banco de dados tem uma tabela que pode se beneficiar do que está sendo convertido em uma tabela com otimização de memória. É recomendável que você primeiro teste para confirmar a indicação.
 
 Você precisa de uma cópia de teste do seu banco de dados de produção. O banco de dados de teste deve estar no mesmo nível da camada de serviço que o banco de dados de produção.
@@ -162,7 +162,7 @@ Para ajustar e executar a carga de trabalho de teste, considere usar a ferrament
 
 Para minimizar a latência de rede, execute o teste na mesma região geográfica do Azure onde está o banco de dados.
 
-## <a name="step-7-post-implementation-monitoring"></a>Etapa 7: n=monitoramento pós-implementação
+## <a name="step-7-post-implementation-monitoring"></a>Etapa 7: Monitoramento pós-implementação
 Considere monitorar os efeitos de desempenho de  suas implementações de Na Memória em produção:
 
 * [Monitorar o armazenamento na memória](sql-database-in-memory-oltp-monitoring.md).

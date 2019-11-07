@@ -1,5 +1,5 @@
 ---
-title: Limites de recursos do Banco de Dados SQL do Azure - instância gerenciada | Microsoft Docs
+title: Limites de recursos do banco de dados SQL do Azure – instância gerenciada
 description: Este artigo fornece uma visão geral dos limites de recursos do Banco de Dados SQL do Azure para instâncias gerenciadas.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 10/02/2019
-ms.openlocfilehash: 17ffc07bb5632b1b56b7bff1e843e5955d396089
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 723704b6b81aacf086ff42b02c32259d0e2f1c6d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372207"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687922"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral dos limites de recursos de instância gerenciada do banco de dados SQL
 
@@ -134,7 +134,7 @@ A tabela a seguir mostra os **limites regionais padrão** para os tipos de assin
 
 |Tipo de assinatura| Número máximo de sub-redes de instância gerenciada | Número máximo de unidades vCore * |
 | :---| :--- | :--- |
-|Pós-pago|3|320|
+|Pago conforme o uso|3|320|
 |CSP |8 (15 em algumas regiões * *)|960 (1440 em algumas regiões * *)|
 |Desenvolvimento/Teste pago conforme o uso|3|320|
 |Desenvolvimento/Teste Enterprise|3|320|
@@ -144,7 +144,7 @@ A tabela a seguir mostra os **limites regionais padrão** para os tipos de assin
 
 \* em implantações de planejamento, leve em consideração que a camada de serviço Comercialmente Crítico (BC) requer quatro (4) vezes mais capacidade de vCore que a camada de serviço de Uso Geral (GP). Por exemplo: 1 GP vCore = 1 unidade vCore e 1 BC vCore = 4 unidades vCore. Para simplificar a análise de consumo em relação aos limites padrão, resuma as unidades vCore em todas as sub-redes na região em que as instâncias gerenciadas são implantadas e compare os resultados com os limites de unidade de instância para o tipo de assinatura. O limite **máximo de unidades vCore** aplica-se a cada assinatura em uma região. Não há limite por sub-redes individuais, exceto que a soma de todos os vCores implantados em várias sub-redes deve ser menor ou igual ao **número máximo de unidades vCore**.
 
-\* @ no__t-1 a sub-rede maior e os limites de vCore estão disponíveis nas seguintes regiões: leste da Austrália, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental, oeste dos EUA 2.
+\*\* maiores limites de sub-rede e vCore estão disponíveis nas seguintes regiões: leste da Austrália, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental, oeste dos EUA 2.
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtendo uma cota maior para a instância gerenciada do SQL
 
@@ -162,7 +162,7 @@ Para iniciar o processo de obtenção de uma cota maior:
 
      ![Cota de tipo de problema](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
-3. Clique em \\**Próximo**.
+3. Clique em **Avançar**.
 4. Na **guia problema** da nova solicitação de suporte:
    - Para **Gravidade**, selecione o nível de gravidade do problema.
    - Para **Detalhes**, forneça informações adicionais sobre o seu problema, incluindo mensagens de erro.
@@ -176,11 +176,11 @@ Para iniciar o processo de obtenção de uma cota maior:
      > - Número necessário de vCores, por camada de serviço em sub-redes existentes após o aumento da cota (se qualquer uma das sub-redes existentes precisar ser expandida.
      > - Número necessário de novas sub-redes e número total de vCores por camada de serviço nas novas sub-redes (se você precisar implantar instâncias gerenciadas em novas sub-redes).
 
-5. Clique em \\**Próximo**.
+5. Clique em **Avançar**.
 6. Na guia Informações de contato da nova solicitação de suporte, insira o método de contato preferencial (email ou telefone) e os detalhes de contato.
 7. Clique em **Criar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre a instância gerenciada, consulte [o que é uma instância gerenciada?](sql-database-managed-instance.md).
 - Para saber mais sobre preços, veja [Preços de instância gerenciada do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).

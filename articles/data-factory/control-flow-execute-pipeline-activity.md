@@ -1,5 +1,5 @@
 ---
-title: Atividade de execução de pipeline no Azure Data Factory | Microsoft Docs
+title: Atividade de execução de pipeline no Azure Data Factory
 description: Saiba como você pode usar a atividade de execução de pipeline para invocar um pipeline do Data Factory de outro pipeline do Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 1611f740f6b55ecf9f15ecd234d63b5e95baeba1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 093050952ed826a540c35b2b73acd107fafc45ab
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141715"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679929"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Atividade de execução de pipeline no Azure Data Factory
 A atividade de execução de pipeline permite que um pipeline do Data Factory invoque outro pipeline.
@@ -59,13 +59,13 @@ A atividade de execução de pipeline permite que um pipeline do Data Factory in
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-name | Nome da atividade de execução de pipeline. | Cadeia | Sim
-type | Precisa ser definido como: **ExecutePipeline**. | Cadeia | Sim
+Nome | Nome da atividade de execução de pipeline. | Cadeia de caracteres | Sim
+Tipo | Deve ser definido como: **ExecutePipeline**. | Cadeia de caracteres | Sim
 pipeline | Referência de pipeline para o pipeline dependente que invoca esse pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **type**. A propriedade referenceName especifica o nome do pipeline de referência. A propriedade type deve ser definida como PipelineReference. | PipelineReference | Sim
-parameters | Parâmetros a serem passados para o pipeline invocado | Um objeto JSON que mapeia os nomes de parâmetro para os valores de argumento | Não
-waitOnCompletion | Define se a atividade de execução aguarda a execução do pipeline dependente ser concluída. O padrão é falso. | Boolean | Não
+parâmetros | Parâmetros a serem passados para o pipeline invocado | Um objeto JSON que mapeia os nomes de parâmetro para os valores de argumento | Não
+waitOnCompletion | Define se a atividade de execução aguarda a execução do pipeline dependente ser concluída. O padrão é falso. | Booliano | Não
 
 ## <a name="sample"></a>Amostra
 Este cenário tem dois pipelines:

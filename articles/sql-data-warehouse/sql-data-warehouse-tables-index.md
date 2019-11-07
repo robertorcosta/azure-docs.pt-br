@@ -1,5 +1,5 @@
 ---
-title: Indexando tabelas no SQL Data Warehouse do Azure | Microsoft Azure
+title: Indexando tabelas
 description: Recomendações e exemplos para indexação de tabelas no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,13 +10,13 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seoapril2019
-ms.openlocfilehash: 4d51bd6906a8299a25fe50ca817b1a2b6082ab91
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 079891824bf71caf1ebfa575833de650a55ed5be
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479853"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685459"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexando tabelas no SQL Data Warehouse
 
@@ -171,7 +171,7 @@ Depois de executar a consulta, você poderá começar a analisar os dados e seus
 | [OPEN_rowgroup_rows_MAX] |Como acima |
 | [OPEN_rowgroup_rows_AVG] |Como acima |
 | [CLOSED_rowgroup_rows] |Analise as linhas do grupo de linhas fechado como uma verificação de integridade. |
-| [CLOSED_rowgroup_count] |O número de grupos de linhas fechados deverá ser baixo se algum for visto. Os grupos de linhas fechados podem ser convertidos em grupos de linhas compactados usando a instrução ALTER INDEX... Comando REORGANIZE. No entanto, normalmente isso não é obrigatório. Os grupos fechados são convertidos automaticamente em grupos de linhas columnstore pelo processo em segundo plano "motor de tupla". |
+| [CLOSED_rowgroup_count] |O número de grupos de linhas fechados deverá ser baixo se algum for visto. Os grupos de linhas fechados podem ser convertidos em grupos de linhas compactados usando a instrução ALTER INDEX... Comando reorganizar. No entanto, normalmente isso não é obrigatório. Os grupos fechados são convertidos automaticamente em grupos de linhas columnstore pelo processo em segundo plano "motor de tupla". |
 | [CLOSED_rowgroup_rows_MIN] |Os grupos de linhas fechados devem ter uma taxa de preenchimento alta. Se a taxa de preenchimento de um grupo de linhas fechado for baixa, será necessário fazer outra análise do columnstore. |
 | [CLOSED_rowgroup_rows_MAX] |Como acima |
 | [CLOSED_rowgroup_rows_AVG] |Como acima |
@@ -216,7 +216,7 @@ Quando as tabelas tiverem sido carregadas com alguns dados, siga as etapas abaix
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Recriando índices para melhorar a qualidade de segmento
 
-### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Etapa 1: Identificar ou criar o usuário que usa a classe de recurso correta
+### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Etapa 1: identificar ou criar o usuário que usa a classe de recurso correta
 
 Uma maneira rápida de melhorar a qualidade do segmento imediatamente é recriar o índice.  O SQL retornado pela exibição acima retorna uma instrução ALTER INDEX REBUILD, que pode ser usada para recriar os índices. Ao recriar os índices, não deixe de alocar memória suficiente para a sessão que recria o índice.  Para fazer isso, aumente a classe de recurso de um usuário que tem permissões para recriar o índice nessa tabela para o mínimo recomendado.
 
@@ -226,7 +226,7 @@ Abaixo está um exemplo de como alocar mais memória para um usuário aumentando
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
-### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Etapa 2: Recompilar índices columnstore clusterizados com usuário de classe de recurso superior
+### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Etapa 2: recriar índices columnstore clusterizados com usuário de classe de recurso superior
 
 Entre como o usuário da etapa 1 (por exemplo, loaduser), que agora está usando uma classe de recurso mais alta e execute as instruções ALTER INDEX. Verifique se esse usuário tem a permissão ALTER para as tabelas em que o índice está sendo recriado. Estes exemplos mostram como recriar todo o índice columnstore e como recriar uma partição única. Em tabelas grandes, é mais prático recriar índices, uma partição por vez.
 
@@ -254,7 +254,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 
 A recriação de um índice no SQL Data Warehouse é uma operação offline.  Para obter mais informações sobre como recompilar índices, consulte a seção ALTER INDEX REBUILD em [Desfragmentação dos índices columnstore](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
-### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Etapa 3: Verificar se melhorou a qualidade do segmento columnstore clusterizado
+### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Etapa 3: verificar se melhorou a qualidade do segmento columnstore clusterizado
 
 Execute novamente a consulta que identificou a tabela com segmentos de má qualidade e verifique se a qualidade melhorou.  Se a qualidade do segmento não melhorou, é possível que as linhas da tabela sejam muito amplas.  Considere usar uma classe de recurso maior ou mais DWU durante a recriação de índices.
 

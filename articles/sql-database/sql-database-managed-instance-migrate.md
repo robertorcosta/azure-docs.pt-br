@@ -1,5 +1,5 @@
 ---
-title: Migrar banco de dados da instância SQL Server para a instância gerenciada do banco de dados SQL do Azure | Microsoft Docs
+title: Migrar banco de dados da instância SQL Server para a instância gerenciada do banco de dados SQL do Azure
 description: Saiba como migrar um banco de dados de SQL Server instância para instância gerenciada do banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: f877306170b45d65a52a4c76afd7f064e83f240a
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 228b22d9d283fe8c23cbf7a82036b7f3782cbf25
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937301"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688003"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração de uma Instância do SQL Server para uma Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -68,7 +68,7 @@ A linha de base de desempenho é um conjunto de parâmetros como o uso médio/m�
 Alguns dos parâmetros que você precisa medir em sua instância de SQL Server são: 
 - [Monitore o uso da CPU em sua instância do SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) e registre o uso médio e máximo da CPU.
 - [Monitore o uso de memória em sua instância do SQL Server](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) e determine a quantidade de memória usada por diferentes componentes, como pool de buffers, cache de planos, pool de repositório de coluna, [OLTP na memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. Além disso, você deve encontrar os valores médio e de pico do contador de desempenho de memória expectativa de vida da página.
-- Monitore o uso de e/s do disco na instância de SQL Server de origem usando a exibição [Sys. dm _io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) ou [contadores de desempenho](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
+- Monitore o uso de e/s do disco na instância de SQL Server de origem usando a exibição [Sys. dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) ou os [contadores de desempenho](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Monitore a carga de trabalho e o desempenho de consulta ou sua instância de SQL Server examinando exibições de gerenciamento dinâmico ou Repositório de Consultas se você estiver migrando da versão SQL Server 2016 +. Identifique a duração média e o uso da CPU das consultas mais importantes em sua carga de trabalho para compará-las com as consultas em execução no Instância Gerenciada.
 
 > [!Note]
@@ -147,7 +147,7 @@ Para obter um Início Rápido que mostra como restaurar um backup de banco de da
 
 Depois de concluir a migração para Instância Gerenciada, você deve acompanhar o comportamento do aplicativo e o desempenho da carga de trabalho. Esse processo inclui as seguintes atividades:
 - [Compare o desempenho da carga de trabalho em execução no instância gerenciada](#compare-performance-with-the-baseline) com a [linha de base de desempenho que você criou no SQL Server de origem](#create-performance-baseline).
-- Monitore continuamente [o desempenho da sua carga de trabalho](#monitor-performance) para identificar possíveis problemas e melhorias.
+- [Monitore continuamente o desempenho da sua carga de trabalho](#monitor-performance) para identificar possíveis problemas e melhorias.
 
 ### <a name="compare-performance-with-the-baseline"></a>Comparar o desempenho com a linha de base
 
@@ -181,7 +181,7 @@ Faça a alteração dos parâmetros ou atualize as camadas de serviço para conv
 Instância Gerenciada fornece muitas ferramentas avançadas para monitoramento e solução de problemas, e você deve usá-las para monitorar o desempenho em sua instância do. Alguns dos parâmetros que precisam ser monitorados são:
 - O uso da CPU na instância para determinar o número de vCores que você provisionou é a correspondência correta para sua carga de trabalho.
 - Expectativa de vida da página em seu Instância Gerenciada para determinar [se você precisa de memória adicional](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
-- Aguarde estatísticas como `INSTANCE_LOG_GOVERNOR` ou `PAGEIOLATCH` que dirá que você tem problemas de e/s de armazenamento, especialmente na camada de uso geral em que talvez seja necessário alocar previamente os arquivos para obter um desempenho de e/s melhor.
+- Estatísticas de espera como `INSTANCE_LOG_GOVERNOR` ou `PAGEIOLATCH` que conterão problemas de e/s de armazenamento, especialmente na camada de Uso Geral onde você pode precisar alocar previamente os arquivos para obter um desempenho de e/s melhor.
 
 ## <a name="leverage-advanced-paas-features"></a>Aproveite os recursos avançados de PaaS
 

@@ -1,5 +1,5 @@
 ---
-title: Carregar dados do Office 365 usando o Azure Data Factory | Microsoft Docs
+title: Carregar dados do Office 365 usando o Azure Data Factory
 description: Usar o Azure Data Factory para copiar dados do Office 365
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: da3d407b39ef00154b717b54213a3b40d2d110bb
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0c938caef81063409d3c8d6632cd7e8df99f1ea1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754651"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672613"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carregar dados do Office 365 usando o Azure Data Factory
 
@@ -38,14 +38,14 @@ Este artigo mostra como usar o Data Factory para _carregar dados do Office 365 n
     * **Versão**: selecione **V2**.
     * **Local**: selecione um local para o data factory. Somente os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados que são usados pela data factory podem estar em outros locais e regiões. Esses armazenamentos de dados incluem Azure Data Lake Store, Azure Storage, Banco de Dados SQL do Azure e assim por diante.
 
-3. Clique em **Criar**.
+3. Selecione **Criar**.
 4. Após a conclusão da criação, vá para o seu data factory. Você verá a home page **Data Factory** conforme mostrado na imagem a seguir:
    
-   ![Página inicial do data factory](./media/load-office-365-data/data-factory-home-page.png)
+   ![Página inicial da data factory](./media/load-office-365-data/data-factory-home-page.png)
 
 5. Selecione o bloco **Autor & Monitor** para iniciar o aplicativo de integração de dados em uma guia separada.
 
-## <a name="create-a-pipeline"></a>Criar um pipeline
+## <a name="create-a-pipeline"></a>Criar uma pipeline
 
 1. Na página "Introdução", selecione **Criar pipeline**.
  
@@ -73,11 +73,11 @@ Este artigo mostra como usar o Data Factory para _carregar dados do Office 365 n
 
     ![Novo serviço vinculado do Office 365](./media/load-office-365-data/new-office-365-linked-service.png)
  
-7. Depois que o serviço vinculado for criado, você retornará para as configurações do conjunto de dados. Ao lado de **tabela**, escolha a seta para baixo para expandir a lista de conjuntos de itens do Office 365 disponíveis e escolha "BasicDataSet_v0. Message_v0 "na lista suspensa:
+7. Depois que o serviço vinculado for criado, você retornará para as configurações do conjunto de dados. Ao lado de **tabela**, escolha a seta para baixo para expandir a lista de conjuntos de datadisponíveis do Office 365 e escolha "BasicDataSet_v0. Message_v0 "na lista suspensa:
 
     ![Configurar conjunto de dados do Office 365 – Tabela](./media/load-office-365-data/edit-dataset.png)
 
-8. Agora, volte para a**guia origem** do **pipeline**  >  para continuar Configurando propriedades adicionais para extração de dados do Office 365.  O escopo do usuário e o filtro de escopo do usuário são predicados opcionais que você pode definir para restringir os dados que deseja extrair do Office 365. Consulte a seção [Propriedades do conjunto de banco de 365 do Office](https://docs.microsoft.com/azure/data-factory/connector-office-365#dataset-properties) para saber como definir essas configurações.
+8. Agora, volte para a **guia origem** do **pipeline** > para continuar Configurando propriedades adicionais para extração de dados do Office 365.  O escopo do usuário e o filtro de escopo do usuário são predicados opcionais que você pode definir para restringir os dados que deseja extrair do Office 365. Consulte a seção [Propriedades do conjunto de banco de 365 do Office](https://docs.microsoft.com/azure/data-factory/connector-office-365#dataset-properties) para saber como definir essas configurações.
 
 9. É necessário escolher um dos filtros de data e fornecer os valores de hora de início e hora de término.
 
@@ -143,7 +143,7 @@ Depois que o consentimento for fornecido, a extração de dados continuará e, a
 
 Agora, acesse o armazenamento de BLOBs do Azure de destino e verifique se os dados do Office 365 foram extraídos em formato binário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Ir para o seguinte artigo para saber mais sobre o suporte do SQL Data Warehouse do Azure: 
 

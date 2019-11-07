@@ -1,5 +1,5 @@
 ---
-title: Sincronização de Dados SQL do Azure | Microsoft Docs
+title: Sincronização de Dados SQL do Azure
 description: Esta visão geral apresenta a Sincronização de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 7ff7712130372dcfd277750e881cccce23b36465
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 925977edf267510399dc631f0d0efe5fc1941803
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648355"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687041"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL
 
@@ -29,15 +29,15 @@ Sincronização de Dados SQL é um serviço baseado no Banco de Dados SQL do Azu
 
 A Sincronização de Dados é útil nos casos em que os dados precisam ser mantidos atualizados em vários bancos de dados SQL do Azure ou bancos de dados do SQL Server. Estes são os casos de uso principais para Sincronização de Dados:
 
-- **Sincronização de Dados Híbrida:** Com a Sincronização de Dados, você pode manter os dados sincronizados entre os bancos de dados locais e os bancos de dados SQL do Azure para habilitar aplicativos híbridos. Esse recurso pode ser atraente para clientes que estejam avaliando a mudança para a nuvem e gostariam de colocar alguns dos seus aplicativos no Azure.
+- **Sincronização de Dados Híbrida:** com a Sincronização de Dados, você pode manter os dados sincronizados entre os bancos de dados locais e os bancos de dados SQL do Azure para habilitar aplicativos híbridos. Esse recurso pode ser atraente para clientes que estejam avaliando a mudança para a nuvem e gostariam de colocar alguns dos seus aplicativos no Azure.
 - **Aplicativos Distribuídos:** Em muitos casos, é útil separar diferentes cargas de trabalho em bancos de dados diferentes. Por exemplo, se você tiver um banco de dados de produção grande, mas você também precisa executar uma carga de trabalho de relatório ou análise de dados, é útil ter um segundo banco de dados para essa carga de trabalho adicional. Essa abordagem minimiza o impacto no desempenho da sua carga de trabalho de produção. Você pode usar a Sincronização de Dados para manter esses dois bancos de dados sincronizados.
-- **Aplicativos Distribuídos Globalmente:** Muitas empresas abrangem várias regiões e até mesmo vários países/regiões. Para minimizar a latência de rede, é melhor ter seus dados em uma região perto de você. Com a sincronização de dados, você pode facilmente manter os bancos de dados em regiões de todo o mundo sincronizados.
+- **Aplicativos distribuídos globalmente:** Muitas empresas abrangem várias regiões e até mesmo vários países/regiões. Para minimizar a latência de rede, é melhor ter seus dados em uma região perto de você. Com a sincronização de dados, você pode facilmente manter os bancos de dados em regiões de todo o mundo sincronizados.
 
 A Sincronização de Dados não é a solução preferencial para os cenários a seguir:
 
 | Cenário | Algumas soluções recomendadas |
 |----------|----------------------------|
-| Recuperação de Desastres | [Backups com redundância geográfica do Azure](sql-database-automated-backups.md) |
+| Recuperação de desastre | [Backups com redundância geográfica do Azure](sql-database-automated-backups.md) |
 | Escala de Leitura | [Usar réplicas somente leitura para balancear a carga de cargas de trabalho de consulta somente leitura (versão prévia)](sql-database-read-scale-out.md) |
 | ETL (OLTP para OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
 | Migração do SQL Server local para um Banco de Dados SQL do Azure | [Serviço de Migração de Banco de Dados do Azure](https://azure.microsoft.com/services/database-migration/) |
@@ -51,7 +51,7 @@ A Sincronização de Dados usa uma topologia hub-spoke para sincronizar os dados
 
 - O **Banco de Dados Hub** deve ser um Banco de Dados SQL do Azure.
 - Os **bancos de dados de membro** podem ser Bancos de Dados SQL, bancos de dados locais do SQL Server ou instâncias do SQL Server em máquinas virtuais do Azure.
-- O **Banco de Dados de Sincronização** contém os metadados e o log de Sincronização de Dados. O Banco de Dados de Sincronização deve ser um Banco de Dados SQL do Azure localizado na mesma região do Banco de Dados Hub. O Banco de Dados de Sincronização é criado pelo cliente e é propriedade do cliente.
+- O **banco** de dados de sincronização contém os metadados e o log para sincronização de data. O banco de dados de sincronização deve ser um banco de dados SQL do Azure localizado na mesma região que o banco de dados de Hub. O Banco de Dados de Sincronização é criado pelo cliente e é propriedade do cliente.
 
 > [!NOTE]
 > Se você usando um banco de dados local como um banco de dados de membro, você terá que [instalar e configurar um agente de sincronização local](sql-database-get-started-sql-data-sync.md#add-on-prem).
@@ -67,8 +67,8 @@ Um Grupo de Sincronização tem as seguintes propriedades:
 
 ## <a name="how-does-data-sync-work"></a>Como a Sincronização de Dados funciona?
 
-- **Acompanhamento de dados:** A Sincronização de Dados controla alterações usando os gatilhos inserir, atualizar e excluir. As alterações são registradas em uma tabela secundária do banco de dados do usuário. Observe que o BULK INSERT não dispara gatilhos por padrão. Se FIRE_TRIGGERS não for especificado, nenhum gatilho de inserção será executado. Adicionar a opção de FIRE_TRIGGERS para a Sincronização de dados rastrear essas inserções. 
-- **Sincronização de dados:** A Sincronização de Dados é criada em um modelo Hub-Spoke. O Hub é sincronizado com cada membro individualmente. As alterações do Hub são baixadas para o membro e, em seguida, as alterações do membro são carregadas para o Hub.
+- **Controle de alterações de dados:** A Sincronização de Dados controla alterações usando os gatilhos inserir, atualizar e excluir. As alterações são registradas em uma tabela secundária do banco de dados do usuário. Observe que o BULK INSERT não dispara gatilhos por padrão. Se FIRE_TRIGGERS não for especificado, nenhum gatilho de inserção será executado. Adicionar a opção de FIRE_TRIGGERS para a Sincronização de dados rastrear essas inserções. 
+- **Sincronização de dados:** a Sincronização de Dados é criada em um modelo Hub-Spoke. O Hub é sincronizado com cada membro individualmente. As alterações do Hub são baixadas para o membro e, em seguida, as alterações do membro são carregadas para o Hub.
 - **Resolução de conflitos:** A Sincronização de Dados fornece duas opções para a resolução de conflito, *Hub ganha* ou *Membro ganha*.
   - Se você selecionar *Hub ganha*, as alterações no hub sempre substituem as alterações no membro.
   - Se você selecionar *Membro ganha*, as alterações no membro sempre substituem as alterações no hub. Se houver mais de um membro, o valor final depende de qual membro será sincronizado pela primeira vez.
@@ -85,7 +85,7 @@ Um Grupo de Sincronização tem as seguintes propriedades:
 
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Configurar a Sincronização de Dados no Portal do Azure
 
-- [Configurar a Sincronização de Dados SQL do Azure](sql-database-get-started-sql-data-sync.md)
+- [Configurar a Sincronização de Dados SQL Azure](sql-database-get-started-sql-data-sync.md)
 - Agente de Sincronização de Dados - [Agente de Sincronização de Dados para Sincronização de Dados SQL do Azure](sql-database-data-sync-agent.md)
 
 ### <a name="set-up-data-sync-with-powershell"></a>Configurar a Sincronização de Dados com o PowerShell
@@ -103,7 +103,7 @@ Um Grupo de Sincronização tem as seguintes propriedades:
 
 ## <a name="consistency-and-performance"></a>Consistência e desempenho
 
-#### <a name="eventual-consistency"></a>Coerência eventual
+#### <a name="eventual-consistency"></a>Consistência eventual
 
 Como a Sincronização de Dados é baseada no gatilho, a consistência transacional não é garantida. A Microsoft garante que todas as alterações são feitas, eventualmente, e que a Sincronização de Dados não causa perda de dados.
 

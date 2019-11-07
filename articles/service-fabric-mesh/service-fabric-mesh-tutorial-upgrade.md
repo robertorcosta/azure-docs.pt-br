@@ -1,6 +1,6 @@
 ---
 title: Tutorial- Atualizar um aplicativo de Malha de malha de serviço do Azure | Microsoft Docs
-description: Aprenda como atualizar um aplicativo do Service Fabric usando o Visual Studio
+description: Este tutorial é a parte quatro de uma série e mostra como atualizar um aplicativo do Azure Service Fabric Mesh diretamente do Visual Studio.
 services: service-fabric-mesh
 documentationcenter: .net
 author: dkkapur
@@ -14,12 +14,12 @@ ms.workload: NA
 ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 20aa65f0a8e47485e71fd03d73ff144f5290bcb7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 81f155d5708a2fca2fc1145feb20af12d2fd151e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036083"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686205"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutorial: Aprenda como atualizar um aplicativo do Service Fabric usando o Visual Studio
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a:
 Nesta série de tutoriais, você aprenderá a:
 > [!div class="checklist"]
 > * [Criar um aplicativo da Malha do Service Fabric no Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * [Depure um aplicativo Service Fabric Mesh em execução no cluster de desenvolvimento local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Depurar um aplicativo da Malha do Service Fabric em execução no cluster de desenvolvimento local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * [Implantar uma malha de serviço do Fabric aplicativo](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
 > * Uma malha de malha do serviço de atualização do aplicativo
 > * [Limpar os recursos da Malha do Service Fabric](service-fabric-mesh-tutorial-cleanup-resources.md)
@@ -43,7 +43,7 @@ Nesta série de tutoriais, você aprenderá a:
 
 Antes de começar este tutorial:
 
-* Se você não tiver implantado o aplicativo de tarefas, siga as instruções em [Publicar um aplicativo Web da Malha do Service Fabric](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
+* Se você não tiver implantado o aplicativo de tarefas, siga as instruções em [Publicar um aplicativo da Web do Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
 
 ## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Atualizar um serviço de malha de malha de serviço usando o Visual Studio
 
@@ -69,7 +69,7 @@ Vamos atualizar o parâmetro `WebFrontEnd_cpu` para atualizar os recursos de CPU
 > Por padrão, o arquivo de parâmetros que é um par do arquivo profile.yaml será usado para fornecer os valores para esse arquivo profile.yaml.
 > Por exemplo, Ambientes > Nuvem > parameters.yaml fornece os valores do parâmetro para Ambientes > Nuvem > profile.yaml.
 >
-> É possível substituir isso adicionando o seguinte ao arquivo profile.yaml:`parametersFilePath=”relative or full path to the parameters file”` Por exemplo,  ou `parametersFilePath=”..\CommonParameters.yaml”`
+> Você pode substituir isso adicionando o seguinte ao arquivo Profile. YAML:`parametersFilePath=”relative or full path to the parameters file”` por exemplo, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` ou `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Modificar o modelo
 

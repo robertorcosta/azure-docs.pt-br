@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do MongoDB usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do MongoDB usando o Azure Data Factory
 description: Saiba como copiar dados do MongoDB para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 77d0f632c763651004efa46edf027719040f4760
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0c2c2d9ad78bb09a37faaa5825f8dae3e27370ea
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967477"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680683"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados do MongoDB usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -54,18 +54,18 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do MongoDB:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type |A propriedade type deve ser definida como: **MongoDb** |Sim |
+| Tipo |A propriedade type deve ser definida como: **MongoDb** |Sim |
 | server |Endereço IP ou nome do host do servidor MongoDB. |Sim |
-| port |A porta TCP usada pelo servidor MongoDB para ouvir conexões de cliente. |Não (o padrão é 27017) |
+| porta |A porta TCP usada pelo servidor MongoDB para ouvir conexões de cliente. |Não (o padrão é 27017) |
 | databaseName |Nome do banco de dados MongoDB que você deseja acessar. |Sim |
-| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados MongoDB.<br/>Valores permitidos são: **Básico** e **Anônimo**. |Sim |
-| username |Conta de usuário para acessar o MongoDB. |Sim (se a autenticação básica for usada). |
-| password |Senha do usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim (se a autenticação básica for usada). |
-| authSource |Nome do banco de dados MongoDB que você deseja usar para verificar suas credenciais para autenticação. |Nº Para a autenticação Básica, o padrão é usar a conta do administrador e o banco de dados especificado, usando a propriedade databaseName. |
-| enableSsl | Especifica se as conexões com o servidor são criptografadas usando SSL. O valor padrão é false.  | Não |
-| allowSelfSignedServerCert | Especifica se deve permitir os certificados autoassinados do servidor. O valor padrão é false.  | Não |
+| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados MongoDB.<br/>Os valores permitidos são: **Básica** e **Anônima**. |Sim |
+| Nome de Usuário |Conta de usuário para acessar o MongoDB. |Sim (se a autenticação básica for usada). |
+| Senha |Senha do usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim (se a autenticação básica for usada). |
+| authSource |Nome do banco de dados MongoDB que você deseja usar para verificar suas credenciais para autenticação. |Não. Para a autenticação Básica, o padrão é usar a conta do administrador e o banco de dados especificado, usando a propriedade databaseName. |
+| enableSsl | Especifica se as conexões com o servidor são criptografadas usando SSL. O valor padrão é falso.  | Não |
+| allowSelfSignedServerCert | Especifica se deve permitir os certificados autoassinados do servidor. O valor padrão é falso.  | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 **Exemplo:**
@@ -97,9 +97,9 @@ As propriedades a seguir têm suporte para o serviço vinculado do MongoDB:
 
 Para obter uma lista completa de seções e propriedades disponíveis para definição de conjuntos de dados, consulte [Conjuntos de dados e serviços vinculados](concepts-datasets-linked-services.md). As propriedades a seguir têm suporte para o conjunto de dados do MongoDB:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **MongoDbCollection** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **MongoDbCollection** | Sim |
 | collectionName |Nome da coleção no banco de dados MongoDB. |Sim |
 
 **Exemplo:**
@@ -128,9 +128,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **MongoDbSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **MongoDbSource** | Sim |
 | query |Utiliza a consulta SQL-92 personalizada para ler os dados. Por exemplo: select * from MyTable. |Não (se "collectionName" no conjunto de dados for especificada) |
 
 **Exemplo:**
@@ -178,21 +178,21 @@ Ao copiar dados do MongoDB, os seguintes mapeamentos são usados de tipos de dad
 
 | Tipo de dados do MongoDB | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
-| Binary |Byte[] |
-| Boolean |Boolean |
-| Date |DateTime |
+| Binário |Byte[] |
+| Booliano |Booliano |
+| Data |DateTime |
 | NumberDouble |Duplo |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |String |
-| String |String |
+| ObjectID |Cadeia de caracteres |
+| Cadeia de caracteres |Cadeia de caracteres |
 | UUID |Guid |
 | Objeto |Renormalizado para colunas simples com “_" como separador aninhado |
 
 > [!NOTE]
 > Para saber mais sobre o suporte para matrizes usando tabelas virtuais, consulte a seção [Suporte para tipos complexos usando tabelas virtuais](#support-for-complex-types-using-virtual-tables).
 >
-> Atualmente, não há suporte para os seguintes tipos de dados do MongoDB: DBPointer, JavaScript, Max/Min key, Regular Expression, Symbol, Timestamp, Undefined.
+> Atualmente, os seguintes tipos de dados do MongoDB não têm suporte: DBPointer, JavaScript, chave de Máx./Mín., expressão regular, símbolo, carimbo de data/hora e indefinido.
 
 ## <a name="support-for-complex-types-using-virtual-tables"></a>Suporte para tipos complexos usando tabelas virtuais
 
@@ -209,14 +209,14 @@ Por exemplo, a ExampleTable mostrada aqui é uma tabela do MongoDB contendo uma 
 
 | _id | Nome do Cliente | Faturas | Nível de Serviço | Classificações |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", desconto: "0.2"}] |Prata |[5,6] |
-| 2222 |XYZ |[{invoice_id:"135", item:"fridge", price: "12543", desconto: "0.0"}] |Ouro |[1,2] |
+| 1111 |ABC |[{invoice_id:"123", item:"torradeira", price:"456", discount:"0,2"}, {invoice_id:"124", item:"forno",price: "1235",discount: "0,2"}] |Silver |[5,6] |
+| 2222 |XYZ |[{invoice_id:"135", item:"geladeira", price: "12543", discount: "0,0"}] |Gold |[1,2] |
 
 O driver geraria várias tabelas virtuais para representar essa tabela única. A primeira tabela virtual é a tabela base chamada "ExampleTable", mostrada no exemplo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foram omitidos e são expandidos nas tabelas virtuais.
 
 | _id | Nome do Cliente | Nível de Serviço |
 | --- | --- | --- |
-| 1111 |ABC |Prata |
+| 1111 |ABC |Silver |
 | 2222 |XYZ |Gold |
 
 As tabelas a seguir mostram as tabelas virtuais que representam as matrizes originais no exemplo. Essas tabelas contém o seguinte:
@@ -229,9 +229,9 @@ As tabelas a seguir mostram as tabelas virtuais que representam as matrizes orig
 
 | _id | TabelaDeExemplo_Faturas_dim1_idx | invoice_id | item | preço | Desconto |
 | --- | --- | --- | --- | --- | --- |
-| 1111 |0 |123 |torradeira |456 |0.2 |
-| 1111 |1 |124 |forno |1235 |0.2 |
-| 2222 |0 |135 |geladeira |12543 |0.0 |
+| 1111 |0 |123 |torradeira |456 |0,2 |
+| 1111 |1 |124 |forno |1235 |0,2 |
+| 2222 |0 |135 |geladeira |12543 |0,0 |
 
 **Tabela “ExampleTable_Ratings":**
 

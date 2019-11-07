@@ -1,5 +1,5 @@
 ---
-title: Camadas de serviço do Banco de Dados SQL do Azure – modelo de compra baseado em DTU | Microsoft Docs
+title: 'Camadas de serviço do banco de dados SQL do Azure-modelo de compra baseado em DTU '
 description: Saiba mais sobre as camadas de serviço do modelo de compra baseado em DTU, para bancos de dados individuais e em pool, para fornecer tamanhos de computação e de armazenamento.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: e735d8832912f5b512b7cfe015ca47efbe641da7
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 43f4f9e0d1e5f33dde32e5274dddf9d17776db21
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72000436"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687310"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Camadas de serviço no modelo de compra baseado em DTU
 
@@ -35,8 +35,8 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 | :-- | --: |--:| --:|
 |Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
 |SLA de tempo de atividade|99,99%|99,99%|99,99%|
-|Retenção de backup máxima|Sete dias|35 dias|35 dias|
-|CPU|Baixa|Baixo, Médio, Alto|Médio, Alto|
+|Retenção de backup máxima|7 dias|35 dias|35 dias|
+|CPU|Baixo|Baixo, Médio, Alto|Médio, Alto|
 |Taxa de transferência de E/S (aproximada) |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
 |Latência de E/S (aproximada)|5 ms (leitura), 10 ms (gravação)|5 ms (leitura), 10 ms (gravação)|2 ms (leitura/gravação)|
 |Indexação ColumnStore |N/D|S3 e acima|Suportado|
@@ -52,7 +52,7 @@ Os tamanhos da computação são expressos em termos de DTUs (unidades de transa
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
-| Tamanho máximo do armazenamento | 2 GB | 1 TB | 4 TB  |
+| Tamanho máximo de armazenamento | 2 GB | 1 TB | 4 TB  |
 | Máximo de DTUs | 5 | 3000 | 4000 | 
 |||||
 
@@ -71,7 +71,7 @@ Os tamanhos da computação são expressos em termos de DTUs (unidades de transa
 |||||
 
 > [!IMPORTANT]
-> Mais de 1 TB de armazenamento na camada Premium está atualmente disponível em todas as regiões, exceto: Leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, Centro-oeste dos EUA, regiões US DoD e US Government Central. Nessas regiões, o armazenamento máximo na camada Premium é limitado a 1 TB.  Para obter mais informações, confira [Limitações atuais de P11-P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em todas as regiões, exceto: Leste da China, Norte da China, Alemanha central, Alemanha nordeste, Oeste EUA Central, regiões de US DoD e central do governo dos EUA. Nessas regiões, o armazenamento máximo na camada Premium é limitado a 1 TB.  Para obter mais informações, confira [Limitações atuais de P11-P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, confira [Gerenciar espaço para arquivo no Banco de Dados SQL do Azure](sql-database-file-space-management.md).
 
@@ -103,7 +103,7 @@ O banco de dados é dimensionado com base em um "fator de escala". O fator de es
 
 A carga de trabalho consiste em nove tipos de transação, conforme mostrado na tabela a seguir. Cada transação é projetada para realçar um conjunto de características do sistema em particular no mecanismo de banco de dados e no hardware do sistema, com alto contraste em relação às outras transações. Essa abordagem facilita a avaliação do impacto dos diferentes componentes no desempenho geral. Por exemplo, a transação "Leitura Intensa" gera um número significativo de operações de leitura do disco.
 
-| Tipo de transação | Descrição |
+| Tipo de transação | DESCRIÇÃO |
 | --- | --- |
 | Leitura Simples |SELECT; na memória; somente leitura |
 | Leitura Média |SELECT; maior parte na memória; somente leitura |
@@ -119,7 +119,7 @@ A carga de trabalho consiste em nove tipos de transação, conforme mostrado na 
 
 As transações são selecionadas aleatoriamente em uma distribuição ponderada com a combinação geral a seguir. A combinação geral tem uma taxa de leitura/gravação de aproximadamente 2:1.
 
-| Tipo de Transação | % de combinação |
+| Tipo de transação | % de combinação |
 | --- | --- |
 | Leitura Simples |35 |
 | Leitura Média |20 |
@@ -155,7 +155,7 @@ Por exemplo, um fator de escala de 500 (SF = 500) bancos de dados terá 100 usu�
 
 Uma execução válida do parâmetro de comparação exige uma duração da medida permanente de pelo menos uma hora.
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>Métricas
 
 As principais métricas no parâmetro de comparação são a taxa de transferência e o tempo de resposta.
 

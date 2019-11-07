@@ -1,5 +1,5 @@
 ---
-title: Visão geral de modelos para Azure Data Factory | Microsoft Docs
+title: Visão geral dos modelos para Azure Data Factory
 description: Saiba como usar um modelo predefinido para iniciar rapidamente com Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/04/2019
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: eb7a7eb8e1bdacae4b74e3a0019a376c440fe4d5
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7895fedd0f68ae1c8ea4808c54a18a4e73b57b2c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091970"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684054"
 ---
 # <a name="templates"></a>Modelos
 

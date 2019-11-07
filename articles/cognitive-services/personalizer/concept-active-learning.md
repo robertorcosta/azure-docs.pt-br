@@ -1,7 +1,7 @@
 ---
 title: Eventos ativos e inativos – personalizador
 titleSuffix: Azure Cognitive Services
-description: ''
+description: Este artigo aborda o uso de eventos ativos e inativos, configurações de aprendizado e políticas de aprendizado no serviço personalizador.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,51 +10,50 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 321f12fef44cae43caf53d78b2908e68f9edd0a8
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 1641a1020193395d7d2ddb9c4893bd7bc89cdcd0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043901"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681867"
 ---
 # <a name="active-and-inactive-events"></a>Eventos ativos e inativos
 
-Quando o aplicativo chama a API de classificação, você recebe a ação que o aplicativo deve mostrar no campo rewardActionId.  A partir desse momento, o personalizador estará esperando uma chamada de recompensa com o mesmo eventId. A pontuação de recompensa será usada para treinar o modelo que será usado para futuras chamadas de classificação. Se nenhuma chamada de recompensa for recebida para o eventId, um prêmio bits será aplicado. As recompensas padrão são estabelecidas no portal do Azure.
+Quando o aplicativo chama a API de classificação, você recebe a ação que o aplicativo deve mostrar no campo **rewardActionId** .  A partir desse momento, o personalizador espera uma chamada de recompensa com o mesmo eventId. A pontuação de recompensa será usada para treinar o modelo para futuras chamadas de classificação. Se nenhuma chamada de recompensa for recebida para o eventId, um prêmio padrão será aplicado. As recompensas padrão são definidas no portal do Azure.
 
-Em alguns casos, o aplicativo pode precisar chamar a classificação antes mesmo de saber se o resultado será usado ou exibido para o usuário. Isso pode acontecer em situações em que, por exemplo, a renderização de página de conteúdo promovido é substituída por uma campanha de marketing. Se o resultado da chamada de classificação nunca foi usado e o usuário nunca conseguiu vê-la, seria incorreto treiná-la com qualquer recompensa, zero ou de outra forma.
-Normalmente, isso acontece quando:
+Em alguns cenários, o aplicativo pode precisar chamar a classificação antes mesmo de saber se o resultado será usado ou exibido para o usuário. Isso pode acontecer em situações em que, por exemplo, a renderização da página de conteúdo promovido é substituída por uma campanha de marketing. Se o resultado da chamada de classificação nunca foi usado e o usuário nunca o viu, não envie uma chamada de recompensa correspondente.
 
-* Talvez você esteja renderizando previamente alguma interface do usuário que o usuário pode ou não ver. 
-* Seu aplicativo pode estar realizando uma personalização preditiva na qual as Chamadas de classificação são realizadas com menos contexto de tempo real e sua saída pode ou não ser usada pelo aplicativo. 
+Normalmente, esses cenários acontecem quando:
 
-Nesses casos, a maneira correta de usar o personalizador é chamar rank solicitando que o evento fique _inativo_. O personalizador não esperará um prêmio para esse evento e também não aplicará uma recompensa padrão. Posteriormente, em sua lógica de negócios, se o aplicativo usar as informações da chamada de classificação, tudo o que você precisará fazer é _Ativar_ o evento. A partir do momento em que o evento está ativo, o personalizador esperará um prêmio para o evento ou aplicará um recompensa padrão se nenhuma chamada explícita for feita na API de recompensa.
+* Você está processando a IU que o usuário pode ou não conseguir ver. 
+* Seu aplicativo está fazendo uma personalização preditiva na qual as chamadas de classificação são feitas com pouco contexto em tempo real e o aplicativo pode ou não usar a saída. 
 
-## <a name="get-inactive-events"></a>Obter eventos inativos
+Nesses casos, use personalizador para chamar a classificação, solicitando que o evento fique _inativo_. O personalizador não esperará um prêmio para esse evento e não aplicará uma recompensa padrão. Posteriormente, em sua lógica de negócios, se o aplicativo usar as informações da chamada de classificação, basta _Ativar_ o evento. Assim que o evento estiver ativo, o personalizador espera um recompensa de evento. Se nenhuma chamada explícita for feita na API de recompensa, o personalizador aplicará uma recompensa padrão.
 
-Para desabilitar o treinamento de um evento, chame Rank com `learningEnabled = False`.
+## <a name="inactive-events"></a>Eventos inativos
 
-O aprendizado de um evento inativo será ativado implicitamente se você enviar uma recompensa para o eventId ou chamar a API `activate` para esse eventId.
+Para desabilitar o treinamento de um evento, chame Rank usando `learningEnabled = False`. Para um evento inativo, o aprendizado será ativado implicitamente se você enviar uma recompensa para o eventId ou chamar a API de `activate` para esse eventId.
 
 ## <a name="learning-settings"></a>Configurações de aprendizado
 
-As configurações de aprendizado determinam os *hiperparâmetros* específicos do treinamento do modelo. Dois modelos dos mesmos dados, treinados em diferentes configurações de aprendizado, acabarão sendo diferentes.
+As configurações de aprendizado determinam os *hiperparâmetros* do treinamento do modelo. Dois modelos dos mesmos dados que são treinados em diferentes configurações de aprendizado acabarão sendo diferentes.
 
 ### <a name="import-and-export-learning-policies"></a>Importar e exportar políticas de aprendizado
 
-É possível importar e exportar arquivos de política de aprendizado do portal do Azure. Isso permite que você salve políticas existentes, teste-as, substitua-as e arquive-as em seu controle do código-fonte como artefatos para referência e auditoria futuras.
+Você pode importar e exportar arquivos de política de aprendizagem do portal do Azure. Use esse método para salvar as políticas existentes, testá-las, substituí-las e arquivá-las no controle do código-fonte como artefatos para referência e auditoria futuras.
 
-### <a name="learning-policy-settings"></a>Configurações da política de aprendizado
+### <a name="understand-learning-policy-settings"></a>Entender as configurações da política de aprendizagem
 
-As configurações na **Política de Aprendizado** não se destinam a serem alteradas. Só altere as configurações quando entender como elas afetam o Personalizador. Alterar as configurações sem esse conhecimento causará efeitos colaterais, incluindo a invalidação de modelos do Personalizador.
+As configurações na política de aprendizado não devem ser alteradas. Altere as configurações somente se você entender como elas afetam o personalizador. Sem esse conhecimento, você pode causar problemas, incluindo a invalidação de modelos de personalização.
 
-### <a name="comparing-effectiveness-of-learning-policies"></a>Como comparar a eficácia de políticas de aprendizado
+### <a name="compare-learning-policies"></a>Comparar políticas de aprendizado
 
-É possível comparar como seria o desempenho de diferentes Políticas de Aprendizado com relação a dados passados em logs do Personalizador realizando [avaliações offline](concepts-offline-evaluation.md).
+Você pode comparar o desempenho das diferentes políticas de aprendizagem em relação aos dados anteriores nos logs do personalizado, fazendo [avaliações offline](concepts-offline-evaluation.md).
 
-[Carregue suas próprias Políticas de Aprendizado](how-to-offline-evaluation.md) para comparar com a política de aprendizado atual.
+[Carregue suas próprias políticas de aprendizado](how-to-offline-evaluation.md) para compará-las com a política de aprendizado atual.
 
-### <a name="discovery-of-optimized-learning-policies"></a>Descoberta de políticas de aprendizado otimizadas
+### <a name="optimize-learning-policies"></a>Otimizar políticas de aprendizado
 
-O Personalizador pode criar uma política de aprendizado mais otimizada ao fazer uma [avaliação offline](how-to-offline-evaluation.md). Uma política de aprendizado mais otimizada, que é mostrada para ter melhores recompensas em uma avaliação offline, renderá melhores resultados quando usada online no Personalizador.
+O personalizador pode criar uma política de aprendizado otimizada em uma [avaliação offline](how-to-offline-evaluation.md). Uma política de aprendizado otimizada que tem recompensas melhores em uma avaliação offline produzirá resultados melhores quando for usada online no personalizador.
 
-Depois que uma política de aprendizado otimizada tiver sido criada, será possível aplicá-la diretamente ao Personalizador para que ela substitua a política atual imediatamente ou salvá-la para uma avaliação adicional e decidir, no futuro, se você deseja descartá-la, salvá-la ou aplicá-la posteriormente.
+Depois de otimizar uma política de aprendizado, você pode aplicá-la diretamente ao personalizador para que ela substitua imediatamente a política atual. Ou você pode salvar a política otimizada para avaliação adicional e, posteriormente, decidir se deseja descartá-la, salvá-la ou aplicá-la.

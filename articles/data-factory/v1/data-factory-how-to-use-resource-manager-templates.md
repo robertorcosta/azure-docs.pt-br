@@ -1,5 +1,5 @@
 ---
-title: Usar modelos do Resource Manager no Data Factory | Microsoft Docs
+title: Usar modelos do Resource Manager no Data Factory
 description: Saiba como criar e usar modelos do Azure Resource Manager para criar entidades de Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d2360efe71327f02d5cb7d16cb8141f47c304b0c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: d9ee060b7d1f7a443357c7116c01e8aaf972e666
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164673"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682531"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usar modelos para criar entidades do Azure Data Factory
 > [!NOTE]
@@ -37,8 +37,8 @@ Além disso, como a organização deseja implantar essas 10 data factories diver
 ## <a name="tutorials"></a>Tutoriais
 Consulte os tutoriais a seguir para obter instruções passo a passo para criar entidades de Data Factory usando modelos do Resource Manager:
 
-* [Tutorial: Criar um pipeline para copiar os dados usando o modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-* [Tutorial: Criar um pipeline para processar os dados usando o modelo do Azure Resource Manager](data-factory-build-your-first-pipeline.md)
+* [Tutorial: criar um pipeline para copiar os dados usando o modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+* [Tutorial: criar um pipeline para processar os dados usando o modelo do Azure Resource Manager](data-factory-build-your-first-pipeline.md)
 
 ## <a name="data-factory-templates-on-github"></a>Modelos do Data Factory no GitHub
 Confira os seguintes modelos de início rápido do Azure no GitHub:

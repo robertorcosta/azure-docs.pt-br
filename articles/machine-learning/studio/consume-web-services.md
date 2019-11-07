@@ -1,6 +1,6 @@
 ---
 title: Consumir um serviço Web
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Depois que um serviço de Machine Learning é implantado do Azure Machine Learning Studio (clássico), o serviço Web RESTFul pode ser consumido como serviço de solicitação-resposta em tempo real ou como um serviço de execução em lote.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: a5f73e9814adeb44c2838a1fd3bd9c9fd34d4de5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b955b274f3e96eab7e6075b0e966117c2871bbf8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493301"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671428"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Como consumir um serviço Web Azure Machine Learning Studio (clássico)
 
@@ -24,7 +24,7 @@ Depois de implantar um modelo de previsão de Azure Machine Learning Studio (cl�
 Você pode encontrar mais informações sobre como criar e implantar um serviço Web Machine Learning usando Machine Learning Studio (clássico) aqui:
 
 * Para obter um tutorial sobre como criar um experimento no Machine Learning Studio (clássico), consulte [criar seu primeiro experimento](create-experiment.md).
-* Para obter detalhes sobre como implantar um serviço Web, confira [Implantar um serviço Web do Machine Learning](publish-a-machine-learning-web-service.md).
+* Para obter detalhes sobre como implantar um serviço Web, confira [Implantar um serviço Web do Machine Learning](deploy-a-machine-learning-web-service.md).
 * Para obter mais informações sobre o Machine Learning em geral, visite o [Centro de Documentação do Machine Learning do Azure](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 
@@ -32,12 +32,12 @@ Você pode encontrar mais informações sobre como criar e implantar um serviço
 ## <a name="overview"></a>Visão geral
 Com o serviço Web do Azure Machine Learning, um aplicativo externo se comunica com um modelo de pontuação do fluxo de trabalho do Machine Learning em tempo real. Uma chamada do serviço Web do Machine Learning retorna resultados de previsão para um aplicativo externo. Para fazer uma chamada de serviço Web do Machine Learning, transmita uma chave de API que é criada quando você implanta uma previsão. O serviço Web do Machine Learning baseia-se em REST, uma opção popular de arquitetura para projetos de programação da Web.
 
-A versão clássica do Tnão da Azure Machine Learning Studio tem dois tipos de serviços:
+A versão clássica do Azure Machine Learning Studio tem dois tipos de serviços:
 
 * RRS (serviço de solicitação-resposta) – um serviço de baixa latência e altamente escalonável que fornece uma interface para os modelos sem estado criados e implantados a partir do Machine Learning Studio (clássico).
 * Serviço de Execução de Lote (BES) – Um serviço assíncrono que pontua um lote de registros de dados.
 
-Para obter mais informações sobre os serviços Web do Machine Learning, confira [Implantar um serviço Web do Machine Learning](publish-a-machine-learning-web-service.md).
+Para obter mais informações sobre os serviços Web do Machine Learning, confira [Implantar um serviço Web do Machine Learning](deploy-a-machine-learning-web-service.md).
 
 ## <a name="get-an-authorization-key"></a>Obter uma chave de autorização
 Quando você implanta seu experimento, as chaves de API são geradas para o serviço Web. Você pode recuperar as chaves de vários locais.

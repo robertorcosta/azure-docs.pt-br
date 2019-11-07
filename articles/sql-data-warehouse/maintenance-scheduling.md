@@ -1,5 +1,5 @@
 ---
-title: Agendamentos de manutenção do Azure (versão prévia) | Microsoft Docs
+title: Agendamentos de manutenção do Azure
 description: O agendamento de manutenção permite que os clientes planejem os eventos de manutenção programada necessários que o serviço do Azure SQL Data Warehouse usa para implantar novos recursos, atualizações e correções.
 services: sql-data-warehouse
 author: antvgski
@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 07/16/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e5df583112bbb6db9651004e5deaceb6b5b9d12
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 91b202f8a5df841fa3d6aa1f0903999b395f8137
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958885"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686058"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Use agendas de manutenção para gerenciar atualizações e manutenção de serviços
 
@@ -83,13 +83,13 @@ Para alterar o agendamento de manutenção para seu data warehouse, conclua as s
    ![Folha de configurações de manutenção](media/sql-data-warehouse-maintenance-scheduling/maintenance-settings-page.png)
 
 5. Escolha suas janelas de manutenção preferencial de primário e secundário, usando as caixas de lista suspensa:
-   - **Dia**: Dia preferencial para executar a manutenção durante a janela selecionada.
-   - **Hora de início:** Hora de início preferencial para a janela de manutenção.
-   - **Janela de tempo**: Duração preferencial da sua janela de tempo.
+   - **Dia**: dia preferencial para executar a manutenção durante a janela selecionada.
+   - **Hora de início**: hora de início preferencial para a janela de manutenção.
+   - **Janela de tempo**: duração preferencial da sua janela de tempo.
 
    A área do **Resumo de agendamento** na parte inferior da folha é atualizada com base nos valores que você selecionou. 
   
-6. Clique em **Salvar**. Será exibida uma mensagem confirmando que seu novo agendamento agora está ativo. 
+6. Selecione **Salvar**. Será exibida uma mensagem confirmando que seu novo agendamento agora está ativo. 
 
    Se você estiver salvando um agendamento em uma região que não dá suporte a agendamento de manutenção, a seguinte mensagem será exibida. As configurações são salvas e se tornam ativas quando o recurso estiver disponível em sua região selecionada.    
 

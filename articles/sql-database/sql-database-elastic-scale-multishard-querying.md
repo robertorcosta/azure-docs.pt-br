@@ -1,5 +1,5 @@
 ---
-title: Consultar bancos de dados fragmentados do SQL do Azure | Microsoft Docs
+title: Consultar bancos de dados SQL do Azure fragmentados
 description: Execute consultas entre fragmentos usando a biblioteca de cliente de banco de dados elástico.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 471af9e1bc699ccaa8bc930ab930d6d40bbdc984
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 108da61323f61b009fbfdedac4cd345c6b87a7be
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568368"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690170"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Consulta de múltiplos fragmentos usando ferramentas do banco de dados elástico
 
@@ -66,6 +66,6 @@ Uma limitação com as consultas de vários fragmentos no momento é a ausência
 
 ## <a name="multi-shard-queries-and-split-merge-operations"></a>Consultas de vários fragmentos e operações de divisão/mesclagem
 
-Consultas de vários fragmentos não verificam se shardlets do banco de dados consultado estão participando de operações de divisão/mesclagem em andamento. (Veja [Escalando com a ferramenta de divisão e mesclagem de Banco de Dados Elástico](sql-database-elastic-scale-overview-split-and-merge.md).) Isso pode levar a inconsistências em que as linhas do mesmo shardlet são mostradas para vários bancos de dados na mesma consulta de vários fragmento. Lembre-se dessas limitações e considere drenar as operações de divisão/mesclagem em execução e alterações no mapa de fragmentos ao executar consultas de vários fragmentos.
+Consultas de vários fragmentos não verificam se shardlets do banco de dados consultado estão participando de operações de divisão/mesclagem em andamento. (Consulte [dimensionamento usando a ferramenta de divisão/mesclagem do banco de dados elástico](sql-database-elastic-scale-overview-split-and-merge.md).) Isso pode levar a inconsistências em que as linhas do mesmo shardlet mostram para vários bancos de dados na mesma consulta de vários fragmentos. Lembre-se dessas limitações e considere drenar as operações de divisão/mesclagem em execução e alterações no mapa de fragmentos ao executar consultas de vários fragmentos.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

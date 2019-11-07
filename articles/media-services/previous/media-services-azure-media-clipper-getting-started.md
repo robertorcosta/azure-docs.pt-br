@@ -2,19 +2,19 @@
 title: Introdução ao Azure Media Clipper | Microsoft Docs
 description: Introdução ao Azure Media Clipper, uma ferramenta para criação de clipes de vídeo com ativos dos Serviços de Mídia do Azure
 services: media-services
-keywords: clipe;subclipe;codificação;mídia
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+keywords: clipe; subclipe; codificação; mídia
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 51848b9ba4d18b3ac7d652cfbd97cab6b85f2ee8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45ecc81967d6a95f817b10bce7f8396d9379bc94
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466265"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685086"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Criar clipes com o Azure Media Clipper
 Esta seção mostra as etapas básicas de como começar a usar o Azure Media Clipper. As próximas seções fornecem informações específicas sobre como configurar o Azure Media Clipper.
@@ -89,7 +89,7 @@ var subclipper = new subclipper({
 
 Os parâmetros para a chamada do método de inicialização são:
 - `selector` {REQUIRED, string}: seletor de CSS do elemento HTML correspondente no qual o widget deve ser renderizado.
-- `restVersion` {REQUIRED, string}: a versão da API REST de destino dos Serviços de Mídia do Azure. A versão da REST define o formato da saída gerada pelo widget. Atualmente, há suporte apenas para 2.0.
+- `restVersion` {REQUIRED, string}: a versão de API REST dos Serviços de Mídia do Azure a ser direcionada. A versão da REST define o formato da saída gerada pelo widget. Atualmente, há suporte apenas para 2.0.
 - `submitSubclipCallback` {REQUIRED, promise} A função de retorno de chamada invocada ao clicar no botão “Enviar” do widget. A função de retorno de chamada deve esperar a saída gerada pelo widget (uma configuração do trabalho de renderização ou uma definição de filtro). Para obter mais informações, consulte Enviar retorno de chamada de subclipe.
 - `logLevel` {OPTIONAL, {'info', 'warn', 'error'}}: o nível de log a ser exibido no console do navegador. Valor padrão: 'error'
 - `minimumMarkerGap` {OPTIONAL, int}: o tamanho mínimo de um subclipe (em segundos). Observação: o valor deve ser maior ou igual a 6, que também é o padrão.
@@ -98,7 +98,7 @@ Os parâmetros para a chamada do método de inicialização são:
 - `keymap` {OPTIONAL, json object} Permite personalizar os atalhos de teclado do widget. Para obter mais informações, consulte [Atalhos de teclado personalizáveis](media-services-azure-media-clipper-keyboard-shortcuts.md).
 - `assetsPanelLoaderCallback` {OPTIONAL, promise} A função de retorno de chamada invocada para carregar (de forma assíncrona) uma nova página de ativos no painel de ativos sempre que o usuário rolar para baixo até a parte inferior do painel. Para obter mais informações, consulte Retorno de chamada de carregador do painel de ativos.
 - `height` {OPTIONAL, number} A altura total do widget (a altura mínima é de 600 px sem o painel de ativos e 850 px com o painel de ativos).
-- `subclippingMode` (OPTIONAL, {'all', 'render', 'filter'}): os modos de subclipping permitidos. O valor padrão é 'all'.
+- `subclippingMode` (OPTIONAL, {'all', 'render', 'filter'}): os modos de sub-recorte permitidos. O valor padrão é 'all'.
 - `filterAssetsTypes` (OPTIONAL, bool): filterAssetsTypes permite mostrar/ocultar a lista suspensa de filtros do painel de ativos. O valor padrão é true.
 - `speedLevels` (OPTIONAL, array): speedLevels permite configurar diferentes níveis de velocidade para o player de vídeo. Consulte a [documentação do Player de Mídia do Azure](https://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) para obter mais informações.
 - `resetOnJobDone` (OPTIONAL, bool): resetOnJobDone permite que o Clipper redefina o subclipper para um estado inicial quando um trabalho é enviado com êxito.

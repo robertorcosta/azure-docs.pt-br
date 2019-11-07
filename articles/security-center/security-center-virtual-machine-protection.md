@@ -1,5 +1,5 @@
 ---
-title: Protegendo suas máquinas e aplicativos na Central de Segurança do Azure | Microsoft Docs
+title: Proteger seus computadores e aplicativos na central de segurança do Azure
 description: Este documento aborda as recomendações da Central de Segurança que ajudam a proteger suas máquinas virtuais, seus computadores e os ambientes de aplicativos Web e do Serviço de Aplicativo.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 2317d0206e3fc4a342606d17c172ac42cbe82870
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 803e64c9df1b52a33a1b50714f77b005032bf200
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520685"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686345"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protegendo suas máquinas e aplicativos na Central de Segurança do Azure
 A central de segurança do Azure analisa o estado de segurança de seus recursos do Azure, servidores não Azure e máquinas virtuais. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria recomendações que orientam você durante o processo de configuração dos controles necessários. As recomendações aplicam-se aos tipos de recursos do Azure: VMs (máquinas virtuais) e computadores, aplicativos, rede, SQL e a identidade e acesso.
@@ -110,10 +110,10 @@ Para detalhar as recomendações de segurança para cada VM, clique na VM.
 Veja aqui os detalhes de segurança da VM ou do computador. Na parte inferior, você pode ver a ação recomendada e a gravidade de cada problema.
 ![Serviços de nuvem](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
-### <a name="cloud-services"></a>Serviços de nuvem
+### <a name="cloud-services"></a>Serviços de Nuvem
 Para serviços de nuvem, uma recomendação será criada quando a versão do sistema operacional estiver desatualizada.
 
-![Serviços de nuvem](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png)
+![Serviços de Nuvem](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png)
 
 Em um cenário no qual há uma recomendação (que não é o caso do exemplo anterior), você precisa seguir as etapas na recomendação para atualizar a versão do sistema operacional. Quando uma atualização estiver disponível, você terá um alerta (vermelho ou laranja - depende da gravidade do problema). Ao selecionar esse alerta nas linhas WebRole1 (executa o Windows Server com aplicativo Web implantado automaticamente no IIS) ou WorkerRole1 (executa o Windows Server com aplicativo Web implantado automaticamente no IIS), você verá mais detalhes sobre essa recomendação.
 
@@ -143,7 +143,7 @@ Há três tipos de ícones representados nesta lista:
 
 1. Selecione um aplicativo Web. Abre uma exibição de resumo com três guias:
 
-   - **Recomendações**: com base nas avaliações realizadas pela Central de segurança que falhou.
+   - **Recomendações**: com base em avaliações executadas pela central de segurança que falharam.
    - **Avaliações aprovadas**: lista de avaliações realizadas pela Central de Segurança que foram aprovadas.
    - **Avaliações não disponíveis**: lista de avaliações que falharam devido a um erro ou a recomendação não é relevante para o Serviço de Aplicativo específico
 
@@ -153,7 +153,7 @@ Há três tipos de ícones representados nesta lista:
 
 2. Selecione uma recomendação para ver uma descrição da recomendação e uma lista de recursos não íntegros, recursos íntegros e recursos não examinados.
 
-   - Na coluna **Avaliações aprovadas** há uma lista de avaliações aprovadas.  Gravidade dessas avaliações sempre é verde.
+   - Na coluna **Avaliações aprovadas** há uma lista de avaliações aprovadas. Gravidade dessas avaliações sempre é verde.
 
    - Selecione uma avaliação passada na lista para obter uma descrição da avaliação, uma lista de recursos íntegros e não íntegros e uma lista de recursos não examinados. Há uma guia para os recursos não íntegros, mas essa lista está sempre vazia, pois a avaliação foi aprovada.
 
@@ -198,7 +198,7 @@ Se você quiser definir todos os conjuntos de dimensionamento existentes para in
 |Computar recursos (lote)|5|Ativar logs de diagnóstico em contas em lote|Ativar os logs e mantenha-os por até um ano. Isso permite recriar trilhas de atividades para fins de investigação quando ocorre um incidente de segurança ou quando sua rede é comprometida. |
 |Recursos de computação (hub de eventos)|5|Os logs de diagnóstico no Hub de eventos devem ser habilitados|Ativar os logs e mantenha-os por até um ano. Isso permite recriar trilhas de atividades para fins de investigação quando ocorre um incidente de segurança ou quando sua rede é comprometida. |
 |Recursos de computação (aplicativos lógicos)|5|Ativar logs de diagnósticos em aplicativos lógicos|Ativar os logs e mantenha-os por até um ano. Isso permite recriar trilhas de atividades para fins de investigação quando ocorre um incidente de segurança ou quando sua rede é comprometida. |
-|Recursos de computação (estrutura de serviço)|15|Defina a propriedade ClusterProtectionLevel para EncryptAndSign no Service Fabric|O Service Fabric fornece três níveis de proteção (Nenhum, Sinal e EncryptAndSign) para comunicação de nó a nó usando um certificado de cluster principal.  Defina o nível de proteção para garantir que todas as mensagens de nó a nó sejam criptografadas e assinadas digitalmente. |
+|Recursos de computação (estrutura de serviço)|15|Defina a propriedade ClusterProtectionLevel para EncryptAndSign no Service Fabric|O Service Fabric fornece três níveis de proteção (Nenhum, Sinal e EncryptAndSign) para comunicação de nó a nó usando um certificado de cluster principal. Defina o nível de proteção para garantir que todas as mensagens de nó a nó sejam criptografadas e assinadas digitalmente. |
 |Recursos de computação (barramento de serviço)|1|Remover todas as regras de autorização, exceto RootManageSharedAccessKey, do namespace do Service Bus |Os clientes do Service Bus não devem usar uma diretiva de acesso no nível do namespace que forneça acesso a todas as filas e tópicos em um namespace. Para alinhar-se ao modelo de segurança com menos privilégios, você deve criar políticas de acesso no nível da entidade para que as filas e os tópicos forneçam acesso somente à entidade específica.|
 |Recursos de computação (hub de eventos)|1|Todas as regras de autorização, exceto RootManageSharedAccessKey, devem ser removidas do namespace do hub de eventos|Os clientes do Hub de Eventos não devem usar uma política de acesso no nível do namespace que forneça acesso a todas as filas e tópicos em um namespace. Para alinhar-se ao modelo de segurança com menos privilégios, você deve criar políticas de acesso no nível da entidade para que as filas e os tópicos forneçam acesso somente à entidade específica.|
 |Recursos de computação (hub de eventos)|5|As regras de autorização na entidade do hub de eventos devem ser definidas|Auditar regras de autorização na entidade do Hub de Eventos para conceder acesso com privilégios mínimos.|
@@ -220,7 +220,7 @@ Se você quiser definir todos os conjuntos de dimensionamento existentes para in
 |Computador|15|Adicione um firewall do aplicativo Web| Implemente uma solução WAF (firewall de aplicativo da web) para proteger seus aplicativos da web. |
 |Computador|30|As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades|As máquinas virtuais para as quais uma solução de terceiros de avaliação de vulnerabilidade é implantada estão sendo continuamente avaliadas em relação às vulnerabilidades do aplicativo e do sistema operacional. Sempre que essas vulnerabilidades forem encontradas, elas estarão disponíveis para mais informações como parte da recomendação.|
 |Computador|30|Instalar uma solução de avaliação de vulnerabilidades em suas máquinas virtuais|Instalar uma solução de avaliação de vulnerabilidades em suas máquinas virtuais|
-|Computador|1|As máquinas virtuais devem ser migradas para novos recursos do AzureRM|Use o Azure Resource Manager para suas máquinas virtuais para fornecer melhorias de segurança como: controle de acesso mais rígido (RBAC), melhor auditoria, implantação e governança baseadas no Resource Manager, acesso a identidades gerenciadas, acesso ao cofre de chaves para segredos, autenticação baseada no Azure AD e suporte a marcas e grupos de recursos para facilitar o gerenciamento de segurança. |
+|Computador|1|As máquinas virtuais devem ser migradas para novos recursos do AzureRM|Use Azure Resource Manager para que suas máquinas virtuais forneçam aprimoramentos de segurança como: RBAC (controle de acesso mais forte), melhor auditoria, implantação e governança baseadas no Resource Manager, acesso a identidades gerenciadas, acesso ao key Vault para segredos, Autenticação baseada no Azure AD e suporte para marcas e grupos de recursos para facilitar o gerenciamento da segurança. |
 |Computador|30|As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades|As máquinas virtuais para as quais uma solução de terceiros de avaliação de vulnerabilidade é implantada estão sendo continuamente avaliadas em relação às vulnerabilidades do aplicativo e do sistema operacional. Sempre que essas vulnerabilidades forem encontradas, elas estarão disponíveis para mais informações como parte da recomendação.|
 |Conjunto de escala de máquina virtual |4|Os logs de diagnóstico em conjuntos de dimensionamento de máquinas virtuais devem ser habilitados|Habilite os logs e retenha-os por até um ano. Isso permite recriar trilhas de atividades para fins de investigação. Além disso, será útil quando ocorrer um incidente de segurança ou sua rede estiver comprometida.|
 |Conjunto de escala de máquina virtual|35|As vulnerabilidades da configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas|Corrija as vulnerabilidades na configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais para protegê-los contra ataques. |

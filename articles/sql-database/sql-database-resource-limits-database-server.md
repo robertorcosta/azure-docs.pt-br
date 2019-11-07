@@ -1,5 +1,5 @@
 ---
-title: Limites de recursos do servidor do Banco de Dados SQL do Azure | Microsoft Docs
+title: Limites de recursos do servidor do banco de dados SQL do Azure
 description: Este artigo fornece uma visão geral dos limites de recursos do servidor do Banco de Dados SQL do Azure para bancos de dados individuais e pools elásticos. Também fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou excedidos.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 04/18/2019
-ms.openlocfilehash: 175f694cbe46f871349136c9ce91888b6de48d21
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b358e69df1df579e91a9098c120c7e6b4e3f2ead
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566856"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687492"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de recursos de Banco de Dados SQL para servidor do Banco de Dados SQL do Azure
 
@@ -31,7 +31,7 @@ Este artigo fornece uma visão geral dos limites de recursos do Banco de Dados S
 | :--- | :--- |
 | Bancos de dados por servidor | 5\.000 |
 | Número padrão de servidores por assinatura por região | 20 |
-| Número máximo padrão de servidores por assinatura por região | 200 |  
+| Número máximo de servidores por assinatura por região | 200 |  
 | DTU / cota de eDTU por servidor | 54.000 |  
 | Cota de vCore por servidor/instância | 540 |
 | Pools de máx por servidor | Limitado pelo número de DTUs ou vCores. Por exemplo, se cada pool tiver 1.000 DTUs, um servidor poderá dar suporte a 54 pools.|
@@ -51,7 +51,7 @@ Este artigo fornece uma visão geral dos limites de recursos do Banco de Dados S
 
 ### <a name="compute-dtus-and-edtus--vcores"></a>Computação (DTUs e eDTUs/ vCores)
 
-Quando a utilização de computação de banco de dados (medida por DTUs e eDTUs ou vCores) torna-se alta, a latência da consulta aumenta e pode até mesmo atingir o tempo limite. Sob essas condições, as consultas poderão ser colocadas em fila pelo serviço e receberão recursos para execução à medida que os recursos forem liberados.
+Quando a utilização de computação de banco de dados (medida por DTUs e eDTUs ou vCores) se torna alta, a latência de consulta aumenta e pode até atingir o tempo limite. Sob essas condições, as consultas podem ser enfileiradas pelo serviço e são fornecidas recursos para execução à medida que o recurso se torna gratuito.
 Ao encontrar uma utilização alta de computação, as opções de atenuação incluem:
 
 - Aumentar o tamanho da computação do banco de dados ou do pool elástico a fim de fornecer ao banco de dados mais recursos de computação. Consulte [limites de recursos do banco de dados individual em escala](sql-database-single-database-scale.md) e [limites de recursos do pool elástico](sql-database-elastic-pool-scale.md).
@@ -88,7 +88,7 @@ As taxas de log são definidas de modo que elas possam ser alcançadas e mantida
 
 As taxas de geração de log reais impostas em tempo de execução também podem ser influenciadas por mecanismos de comentários, reduzindo temporariamente as taxas de log permitidas para que o sistema possa se estabilizar. Gerenciamento de espaço de arquivo de log, evitando a execução de condições de espaço de log e os mecanismos de replicação de grupo de disponibilidade podem diminuir temporariamente os limites gerais do sistema. 
 
-A modelagem de tráfego do administrador de taxa de log é revelada por meio dos seguintes tipos de espera (expostos na DMV [Sys. dm _db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) ):
+A modelagem de tráfego do administrador da taxa de log é apresentada por meio dos seguintes tipos de espera (expostos na DMV [Sys. dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) ):
 
 | Tipo de espera | Observações |
 | :--- | :--- |

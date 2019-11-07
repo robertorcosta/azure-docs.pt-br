@@ -1,5 +1,5 @@
 ---
-title: Migração do banco de dados do SQL Server para o banco de dados individual/em pool no Banco de Dados SQL do Azure | Microsoft Docs
+title: SQL Server migração de banco de dados para um banco de dados individual/em pool no banco de dados SQL do Azure
 description: Saiba mais sobre a migração do banco de dados do SQL Server para um banco de dados individual ou de pool elástico no Banco de Dados SQL do Azure.
 keywords: migração de banco de dados, migração de banco de dados do sql server, ferramentas de migração de banco de dados, migrar banco de dados, migrar banco de dados sql
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: a156d73c7eedcbdf7c703b946a26d46ca9129632
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67030d14670ccc51c89a04863f8b39ab6a9bb183
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566598"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687193"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração do banco de dados do SQL Server para o Banco de Dados SQL do Azure
 
@@ -32,7 +32,7 @@ Em ambos os casos, você precisa garantir que o banco de dados de origem seja co
 > [!NOTE]
 > Para migrar um banco de dados não SQL Server, incluindo Microsoft Access, Sybase, MySQL Oracle e DB2 para o Banco de Dados SQL do Azure, confira [SQL Server Migration Assistant](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
 
-## <a name="method-1-migration-with-downtime-during-the-migration"></a>Método 1: Migração com tempo de inatividade durante a migração
+## <a name="method-1-migration-with-downtime-during-the-migration"></a>Método 1: migração com tempo de inatividade durante a migração
 
  Use esse método para migrar para um banco de dados individual ou em pool se você puder ter algum tempo de inatividade ou se estiver executando uma migração de teste de um banco de dados de produção para migração posterior. Para ver um tutorial, consulte [Migrar um Banco de Dados do SQL Server](../dms/tutorial-sql-server-to-azure-sql.md).
 
@@ -47,7 +47,7 @@ A lista a seguir contém o fluxo de trabalho geral para uma migração de banco 
 5. [Migre](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) a cópia do banco de dados para um novo Banco de Dados SQL do Azure usando o Assistente de Migração de Dados.
 
 > [!NOTE]
-> Em vez de usar o DMA, também use um arquivo BACPAC. Consulte [Importar um arquivos BACPAC para um novo Banco de Dados SQL do Azure](sql-database-import.md).
+> Em vez de usar o DMA, também use um arquivo BACPAC. Consulte [Importar um arquivo BACPAC para um novo Banco de Dados SQL do Azure](sql-database-import.md).
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Otimizando o desempenho de transferência de dados durante a migração
 
@@ -64,7 +64,7 @@ A lista a seguir contém recomendações para melhorar o desempenho durante o pr
 
 [Atualize as estatísticas](https://msdn.microsoft.com/library/ms187348.aspx) com uma verificação completa após a migração ser concluída.
 
-## <a name="method-2-use-transactional-replication"></a>Método 2: Usar Replicação Transacional
+## <a name="method-2-use-transactional-replication"></a>Método 2: usar replicação transacional
 
 Quando não houver a possibilidade de remover seu banco de dados do SQL Server da produção durante a migração, você poderá usar a replicação transacional do SQL Server como sua solução de migração. Para usar esse método, o banco de dados de origem deve atender a [requisitos para replicação transacional](https://msdn.microsoft.com/library/mt589530.aspx) e ser compatível com o banco de dados SQL do Azure. Para saber mais sobre a replicação do SQL com o AlwaysOn, consulte [Configurar a replicação para Grupos de Disponibilidade AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 

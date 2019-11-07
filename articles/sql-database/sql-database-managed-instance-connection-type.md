@@ -1,5 +1,5 @@
 ---
-title: Tipos de conexão de instância gerenciada do banco de dados SQL do Azure | Microsoft Docs
+title: Tipos de conexão de instância gerenciada do banco de dados SQL do Azure
 description: Saiba mais sobre os tipos de conexão de instância gerenciada
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
-ms.openlocfilehash: 4ebd81f9c04bd739f1c18f636094040882b5ce36
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: c810f1f07587c84a5900460d4a865b0de16ae208
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001764"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688221"
 ---
 # <a name="azure-sql-database-managed-instance-connection-types"></a>Tipos de conexão de instância gerenciada do banco de dados SQL do Azure
 
@@ -65,6 +65,6 @@ $mi = $mi | Set-AzSqlInstance -ProxyOverride "Redirect" -force
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Restaurar um banco de dados em uma instância gerenciada](sql-database-managed-instance-get-started-restore.md)
+- [Restaurar um banco de dados para uma instância gerenciada](sql-database-managed-instance-get-started-restore.md)
 - Saiba como [configurar um ponto de extremidade público na instância gerenciada](sql-database-managed-instance-public-endpoint-configure.md)
 - Saiba mais sobre a [arquitetura de conectividade da instância gerenciada](sql-database-managed-instance-connectivity-architecture.md)

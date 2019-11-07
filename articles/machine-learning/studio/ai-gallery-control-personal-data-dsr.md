@@ -1,6 +1,6 @@
 ---
-title: Gerenciar dados da Galeria de IA do Azure
-titleSuffix: Azure Machine Learning Studio (classic)
+title: Gerenciar dados de Galeria de IA do Azure
+titleSuffix: ML Studio (classic) Azure
 description: Você pode exportar e excluir seus dados de usuário do produto da Galeria de IA do Azure usando a interface ou a API de Catálogo da Galeria de IA. Este artigo mostra como fazer isso.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: f0b0bd4b01056769d38179597e477ecb164fa9ab
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b99fa6ae740de4e9c87061b201f2104d6d025e6c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493551"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684897"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Exibir e excluir dados de usuário do produto da Galeria de IA do Azure
 

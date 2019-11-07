@@ -1,5 +1,5 @@
 ---
-title: Banco de dados SQL do Azure sem servidor | Microsoft Docs
+title: Recurso sem servidor do Banco de Dados SQL do Azure
 description: Este artigo descreve a nova camada de computação sem servidor e a compara com a camada existente de computação provisionada
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: e8629baa3487795349844229b26d80321c1316ee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fcd79182e046d94f9e67acecebd5cf6a45f2706f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496245"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687391"
 ---
 # <a name="azure-sql-database-serverless"></a>Recurso sem servidor do Banco de Dados SQL do Azure
 
@@ -174,8 +174,6 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
    |VCores mín.|Depende do máximo de vCores configurado-consulte [limites de recursos](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|vCores de 0,5|
    |Atraso de pausa automática|Mínimo: 60 minutos (1 hora)<br>Máximo: 10080 minutos (7 dias)<br>Incrementos: 60 minutos<br>Desabilitar pausa automática: -1|60 minutos|
 
-> [!NOTE]
-> Não há suporte para usar o T-SQL para mover um banco de dados existente para uma camada sem servidor ou alterar seu tamanho da computação, mas isso pode ser feito por meio do portal do Azure ou do PowerShell.
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Criar novo banco de dados na camada de computação sem servidor 
 
@@ -200,6 +198,17 @@ New-AzSqlDatabase `
   -AutoPauseDelayInMinutes 720
 ```
 
+#### <a name="use-transact-sql-t-sql"></a>Usar Transact-SQL (T-SQL)
+
+O exemplo a seguir cria um novo banco de dados na camada de computação sem servidor.
+
+```sql
+CREATE DATABASE testdb
+( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
+```
+
+Para obter detalhes, consulte [criar banco de dados](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
+
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Mover o banco de dados da camada de computação provisionada para a camada de computação sem servidor
 
 #### <a name="use-powershell"></a>Usar o PowerShell
@@ -218,6 +227,17 @@ Set-AzSqlDatabase `
   -MaxVcore 4 `
   -AutoPauseDelayInMinutes 1440
 ```
+
+#### <a name="use-transact-sql-t-sql"></a>Usar Transact-SQL (T-SQL)
+
+O exemplo a seguir move um banco de dados da camada de computação provisionada para a camada de computação sem servidor. 
+
+```sql
+ALTER DATABASE testdb 
+MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
+```
+
+Para obter detalhes, consulte [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
 
 ### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>Mover o banco de dados da camada de computação sem servidor para a camada de computação provisionada
 
@@ -323,6 +343,10 @@ Mais precisamente, a fatura de computação neste exemplo é calculada da seguin
 |Total de segundos vCore cobrados em 24 horas||||50400 segundos de vCore|
 
 Suponha que o preço de unidade de computação seja US$ 0,000073/vCore/segundo.  Em seguida, a computação cobrada para esse período de 24 horas é o produto do preço unitário de computação e os segundos de vCore cobrados: $0.000073/vCore/segundo * 50400 vCore segundos = $3.68
+
+### <a name="azure-hybrid-benefit-and-reserved-capacity"></a>Benefício Híbrido do Azure e capacidade reservada
+
+Benefício Híbrido do Azure (AHB) e os descontos de capacidade reservada não se aplicam à camada de computação sem servidor.
 
 ## <a name="available-regions"></a>Regiões disponíveis
 

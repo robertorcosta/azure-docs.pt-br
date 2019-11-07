@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de e para o SQL Data Warehouse do Azure usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados de e para o Azure SQL Data Warehouse usando Azure Data Factory
 description: Aprenda como copiar dados de armazenamentos de fontes suportados para o SQL Data Warehouse do Azure ou do SQL Data Warehouse para armazenamentos de coletores suportados usando o Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: jingwang
-ms.openlocfilehash: 5351f7f01bbe99b1e3ebc3c94a0805f0419cc1cf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b64bfd046a42a630e7913c45213053e84377a037
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387906"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681160"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de e para o SQL Data Warehouse do Azure usando o Azure Data Factory 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -43,9 +43,9 @@ Especificamente, esse conector do Azure SQL Data Warehouse suporta estas funçõ
 
 > [!IMPORTANT]
 > Se você copiar dados usando o Tempo de Execução de Integração do Azure Data Factory, configure um [firewall do servidor SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) para que os serviços do Azure possam acessar o servidor.
-> Se você copiar dados usando um runtime de integração auto-hospedada, configure o firewall do servidor SQL do Azure para permitir o intervalo de IP apropriado. Esse intervalo inclui o IP da máquina usado para se conectar ao Banco de Dados SQL do Azure.
+> Se você copiar dados usando um tempo de execução de integração auto-hospedado, configure o firewall do servidor SQL do Azure para permitir o intervalo de IP apropriado. Esse intervalo inclui o IP da máquina usado para se conectar ao Banco de Dados SQL do Azure.
 
-## <a name="get-started"></a>Comece agora
+## <a name="get-started"></a>Introdução
 
 > [!TIP]
 > Para obter melhor desempenho, use o PolyBase para carregar dados no SQL Data Warehouse. A seção [Use PolyBase to load data into Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) (Usar o PolyBase para carregar dados para o Azure SQL Data Warehouse) apresenta os detalhes. Para ver um passo a passo com um caso de uso, veja [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](load-azure-sql-data-warehouse.md) (Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Azure Data Factory).
@@ -58,14 +58,14 @@ As seções a seguir fornecem detalhes sobre propriedades que definem entidades 
 
 As seguintes propriedades são suportadas para um serviço vinculado do Data Warehouse SQL do Azure:
 
-| Propriedade            | Descrição                                                  | obrigatórios                                                     |
+| Propriedade            | DESCRIÇÃO                                                  | Obrigatório                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| type                | A propriedade type deve ser definida como  **AzureSqlDW**.             | SIM                                                          |
-| connectionString    | Especifique as informações necessárias para conectar-se à instância do Azure SQL Data Warehouse para a propriedade  **connectionString**. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha/chave da entidade de serviço no Azure Key Vault e se sua autenticação do SQL efetua pull da configuração da `password` da cadeia de conexão. Veja o exemplo de JSON abaixo da tabela e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | SIM                                                          |
+| Tipo                | A propriedade type deve ser definida como  **AzureSqlDW**.             | Sim                                                          |
+| connectionString    | Especifique as informações necessárias para conectar-se à instância do Azure SQL Data Warehouse para a propriedade  **connectionString**. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha/chave da entidade de serviço no Azure Key Vault e se sua autenticação do SQL efetua pull da configuração da `password` da cadeia de conexão. Veja o exemplo de JSON abaixo da tabela e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) que fornece mais detalhes. | Sim                                                          |
 | servicePrincipalId  | Especifique a ID do cliente do aplicativo.                         | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço. |
-| servicePrincipalKey | Especifique a chave do aplicativo. Marque esse campo como um SecureString para armazená-lo de forma segura no Data Factory, ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço. |
+| servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço. |
 | locatário              | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-lo focalizando o canto superior direito do portal do Azure. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço. |
-| connectVia          | O [tempo de execução de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Azure Integration runtime ou um runtime de integração auto-hospedada (se o seu armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não                                                           |
+| connectVia          | O [integration runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Tempo de Execução de Integração do Azure ou um tempo de execução de integração auto-hospedado (se o seu armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não                                                           |
 
 Para diferentes tipos de autenticação, consulte as seções a seguir sobre pré-requisitos e amostras JSON, respectivamente:
 
@@ -132,7 +132,7 @@ Para diferentes tipos de autenticação, consulte as seções a seguir sobre pr�
 
 Para usar a autenticação de token de aplicativo do Azure AD com base em entidade de serviço, siga estas etapas:
 
-1. **[ Crie um aplicativo do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** no portal do Azure. Anote o nome do aplicativo e os seguintes valores que definem o serviço vinculado:
+1. **[Crie um aplicativo do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** no portal do Azure. Anote o nome do aplicativo e os seguintes valores que definem o serviço vinculado:
 
     - ID do aplicativo
     - Chave do aplicativo
@@ -227,13 +227,13 @@ Para usar a autenticação de identidade gerenciada, siga estas etapas:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do Azure SQL Data Warehouse.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do Azure SQL Data Warehouse.
 
 Para copiar dados de ou para o Azure SQL Data Warehouse, há suporte para as seguintes propriedades:
 
-| Propriedade  | Descrição                                                  | obrigatórios                    |
+| Propriedade  | DESCRIÇÃO                                                  | Obrigatório                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| type      | A propriedade **tipo** do conjunto de dados deve ser definida como  **AzureSqlDWTable**. | SIM                         |
+| Tipo      | A propriedade **tipo** do conjunto de dados deve ser definida como  **AzureSqlDWTable**. | Sim                         |
 | schema | Nome do esquema. |Não para fonte, Sim para o coletor  |
 | tabela | Nome da tabela/exibição. |Não para fonte, Sim para o coletor  |
 | tableName | Nome da tabela/exibição com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Para uma nova carga de trabalho, use `schema` e `table`. | Não para fonte, Sim para o coletor |
@@ -267,9 +267,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do SQL Data Warehouse do Azure, defina a propriedade **tipo** na origem da Atividade de Cópia para  **SqlDWSource**. As seguintes propriedades são suportadas na seção **source** da atividade de cópia:
 
-| Propriedade                     | Descrição                                                  | obrigatórios |
+| Propriedade                     | DESCRIÇÃO                                                  | Obrigatório |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| type                         | A propriedade **tipo** da origem da Atividade de Cópia deve ser configurada para **SqlDWSource**. | SIM      |
+| Tipo                         | A propriedade **tipo** da origem da Atividade de Cópia deve ser configurada para **SqlDWSource**. | Sim      |
 | sqlReaderQuery               | Utiliza a consulta SQL personalizada para ler os dados. Exemplo: `select * from MyTable`. | Não       |
 | sqlReaderStoredProcedureName | O nome do procedimento armazenado que lê dados da tabela de origem. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. | Não       |
 | storedProcedureParameters    | Parâmetros para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não       |
@@ -277,7 +277,7 @@ Para copiar dados do SQL Data Warehouse do Azure, defina a propriedade **tipo** 
 ### <a name="points-to-note"></a>Pontos a serem observados
 
 - Se o **sqlReaderQuery** for especificado para o **SqlSource**, a Atividade de Cópia executará essa consulta em relação à origem do Azure SQL Data Warehouse para obter os dados. Ou você pode especificar um procedimento armazenado. Especifique**sqlReaderStoredProcedureName** e **storedProcedureParameters** se o procedimento armazenado receber parâmetros.
-- Se você não especificar **sqlReaderQuery** ou  **sqlReaderStoredProcedureName**, as colunas definidas na seção **structure** do conjunto de dados JSON serão usadas para construir uma consulta. `select column1, column2 from mytable` é executado no Azure SQL Data Warehouse. Se a definição do conjunto de dados não tiver a **estrutura**, todas as colunas serão selecionadas da tabela.
+- Se você não especificar **sqlReaderQuery** ou **sqlReaderStoredProcedureName**, as colunas definidas na seção **structure** do conjunto de dados JSON serão usadas para construir uma consulta. `select column1, column2 from mytable` é executado no Azure SQL Data Warehouse. Se a definição do conjunto de dados não tiver a **estrutura**, todas as colunas serão selecionadas da tabela.
 
 #### <a name="sql-query-example"></a>Exemplo de consulta SQL
 
@@ -370,9 +370,9 @@ GO
 
 Para copiar dados para o SQL Data Warehouse do Azure, defina o tipo de coletor em Atividade de Cópia para **SqlDWSink**. As seguintes propriedades são suportadas na seção Copy Activity **sink**:
 
-| Propriedade          | Descrição                                                  | obrigatórios                                      |
+| Propriedade          | DESCRIÇÃO                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| type              | A propriedade **tipo** do coletor de Atividade de Cópia deve ser definida como **SqlDWSink**. | SIM                                           |
+| Tipo              | A propriedade **tipo** do coletor de Atividade de Cópia deve ser definida como **SqlDWSink**. | Sim                                           |
 | allowPolyBase     | Indica se deve usar o PolyBase, quando aplicável, em vez do mecanismo BULKINSERT. <br/><br/> Recomendamos que você carregue dados no SQL Data Warehouse usando o PolyBase. Consulte o [Use PolyBase para carregar dados na seção do Azure SQL Data Warehouse ](#use-polybase-to-load-data-into-azure-sql-data-warehouse)para restrições e detalhes.<br/><br/>Os valores permitidos são **True** e **False** (padrão). | Não                                            |
 | polyBaseSettings  | Um grupo de propriedades que pode ser especificado quando a propriedade **allowPolybase** está definida como **true**. | Não                                            |
 | rejectValue       | Especifica o número ou o percentual de linhas que podem ser rejeitadas antes de a consulta falhar.<br/><br/>Saiba mais sobre as opções de rejeição do PolyBase na seção Argumentos de [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Os valores permitidos são 0 (padrão), 1, 2 etc. | Não                                            |
@@ -438,9 +438,9 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
    1. O caminho da pasta não contém o filtro curinga.
    2. O nome do arquivo está vazio ou aponta para um único arquivo. Se você especificar o nome de arquivo curinga na atividade de cópia, ele só poderá ser `*` ou `*.*`.
    3. `rowDelimiter` é **Default**, **\n**, **\r\n**ou **\r**.
-   4. `nullValue` é deixado como padrão ou definido como **cadeia de caracteres vazia** (""), e `treatEmptyAsNull` é deixado como padrão ou definido como true.
+   4. `nullValue` é deixado como padrão ou definida como **cadeia de caracteres vazia** (""), e `treatEmptyAsNull` é deixado como padrão ou definido como true.
    5. `encodingName` é deixado como padrão ou definido como **UTF-8**.
-   6. `quoteChar`, `escapeChar` e `skipLineCount` não são especificados. O polybase oferece suporte à linha de cabeçalho Skip, que pode ser configurada como `firstRowAsHeader` no ADF.
+   6. `quoteChar`, `escapeChar`e `skipLineCount` não estão especificados. O polybase oferece suporte à linha de cabeçalho Skip, que pode ser configurada como `firstRowAsHeader` no ADF.
    7. `compression` pode ser **sem compactação**, **GZip** ou **Deflate**.
 
 3. Se sua origem for uma pasta, `recursive` na atividade de cópia deverá ser definida como true.
@@ -602,30 +602,30 @@ Quando você copia dados de ou para o Azure SQL Data Warehouse, os seguintes map
 | Tipo de dados do SQL Data Warehouse do Azure    | Tipo de dados provisório do Data Factory |
 | :------------------------------------ | :----------------------------- |
 | bigint                                | Int64                          |
-| binary                                | Byte[]                         |
+| binário                                | Byte[]                         |
 | bit                                   | Booliano                        |
 | char                                  | String, Char[]                 |
-| date                                  | DateTime                       |
-| DateTime                              | DateTime                       |
+| data                                  | DateTime                       |
+| Datetime                              | DateTime                       |
 | datetime2                             | DateTime                       |
-| Datetimeoffset                        | DateTimeOffset                 |
+| Datetimeoffset                        | Datetimeoffset                 |
 | Decimal                               | Decimal                        |
-| FILESTREAM attribute (varbinary(max)) | Byte[]                         |
-| Float                                 | DOUBLE                         |
-| image                                 | Byte[]                         |
+| Atributo FILESTREAM (varbinary(max)) | Byte[]                         |
+| Float                                 | Duplo                         |
+| imagem                                 | Byte[]                         |
 | int                                   | Int32                          |
 | money                                 | Decimal                        |
 | nchar                                 | String, Char[]                 |
-| numeric                               | Decimal                        |
+| numérico                               | Decimal                        |
 | nvarchar                              | String, Char[]                 |
-| real                                  | Individual                         |
+| real                                  | Single                         |
 | rowversion                            | Byte[]                         |
 | smalldatetime                         | DateTime                       |
 | smallint                              | Int16                          |
 | smallmoney                            | Decimal                        |
-| time                                  | timespan                       |
+| tempo real                                  | TimeSpan                       |
 | tinyint                               | Byte                           |
-| uniqueidentifier                      | GUID                           |
+| uniqueidentifier                      | Guid                           |
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
 
@@ -637,5 +637,5 @@ Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](c
 
 Para saber detalhes sobre as propriedades, verifique a [atividade GetMetadata](control-flow-get-metadata-activity.md) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de repositórios de dados com suporte como fontes e repositórios por Atividade de Cópia no Azure Data Factory, consulte [ repositórios de dados e formatos suportados ](copy-activity-overview.md##supported-data-stores-and-formats).

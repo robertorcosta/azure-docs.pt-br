@@ -1,5 +1,5 @@
 ---
-title: Atividade de pesquisa no Azure Data Factory | Microsoft Docs
+title: Atividade de pesquisa no Azure Data Factory
 description: Saiba como usar a atividade Lookup para pesquisar um valor de uma fonte externa. Essa saída pode ser referenciada ainda mais pelas atividades com êxito.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 9658987092027b38ab0cab1feb3df4be0a91e350
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 04285de6fa7ef678e36767b7336f732ed9b45329
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141657"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679715"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 
@@ -53,11 +53,11 @@ As seguintes fontes de dados são compatíveis com a atividade Lookup. O maior n
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Nome | Descrição | Tipo | Obrigatório?
+Nome | DESCRIÇÃO | Tipo | Obrigatório?
 ---- | ----------- | ---- | --------
 dataset | Fornece a referência de conjunto de dados para a pesquisa. Obtenha detalhes na seção **Propriedades do conjunto de dados** em cada artigo de conector correspondente. | Pares chave/valor | Sim
-origem | Contém propriedades de origem específicas do banco de dados, as mesmas que as da origem da atividade Copy. Obtenha detalhes na seção **Propriedades da atividade Copy** em cada artigo de conector correspondente. | Pares chave/valor | Sim
-firstRowOnly | Indica se deve-se retornar apenas a primeira linha ou todas as linhas. | Boolean | Nº O padrão é `true`.
+fonte | Contém propriedades de origem específicas do banco de dados, as mesmas que as da origem da atividade Copy. Obtenha detalhes na seção **Propriedades da atividade Copy** em cada artigo de conector correspondente. | Pares chave/valor | Sim
+firstRowOnly | Indica se deve-se retornar apenas a primeira linha ou todas as linhas. | Booliano | Não. O padrão é `true`.
 
 > [!NOTE]
 > 
@@ -105,7 +105,7 @@ Neste exemplo, a atividade Copy copia dados de uma tabela SQL em uma instância 
 Este exemplo demonstra a pesquisa apenas para a primeira linha. Para pesquisar por todas as linhas e para encadear os resultados com a atividade ForEach, consulte os exemplos em [Copiar várias tabelas em massa usando o Azure Data Factory](tutorial-bulk-copy.md).
 
 ### <a name="pipeline"></a>Pipeline
-Esse pipeline contém duas atividades: Pesquisa e cópia. 
+Esse pipeline contém duas atividades: Lookup e Copy. 
 
 - A atividade Lookup está configurada para usar **LookupDataset**, que se refere a um local no armazenamento de Blobs do Azure. A atividade Lookup lê o nome da tabela SQL de um arquivo JSON nesse local. 
 - A atividade Copy usa a saída da atividade Lookup, que é o nome da tabela SQL. A propriedade **tableName** no **SourceDataset** está configurada para usar a saída da atividade Lookup. A atividade Copy copia dados da tabela SQL para um local no armazenamento de Blobs do Azure. O local é especificado pela propriedade **SinkDataset**. 

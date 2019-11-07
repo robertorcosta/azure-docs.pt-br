@@ -1,5 +1,5 @@
 ---
-title: DNS personalizado da Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
+title: Instância Gerenciada do Banco de Dados SQL do Azure DNS personalizado
 description: Este tópico descreve opções de configuração para um DNS personalizado com uma Instância Gerenciada do Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 07/17/2019
-ms.openlocfilehash: 9b15ebc40e99c1cd454396ccde5cca6b1a46abbc
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b44c2b1fdf27f285868c5681c38fe3ffa6e5e86d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244758"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688162"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurar DNS personalizado para Instância Gerenciada do Banco de Dados SQL do Azure
 

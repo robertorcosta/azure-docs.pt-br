@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Cassandra usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do Cassandra usando o Azure Data Factory
 description: Saiba como copiar dados do Cassandra para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 1531f2530af9c2fbc90d1bf25f04962fb4148a8d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 9068874704233b3bbb5f38345648bc3455433768
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090479"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681101"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiar dados do Cassandra usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -59,14 +59,14 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do Cassandra:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type |A propriedade type deve ser definida como: **Cassandra** |Sim |
+| Tipo |A propriedade type deve ser definida como: **Cassandra** |Sim |
 | host |Um ou mais endereços IP ou nomes de host dos servidores Cassandra.<br/>Especifique uma lista separada por vírgulas de endereços IP ou nomes de host para se conectar simultaneamente a todos os servidores. |Sim |
-| port |A porta TCP usada pelo servidor Cassandra para ouvir conexões de cliente. |Não (o padrão é 9042) |
-| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Cassandra.<br/>Valores permitidos são: **Básico** e **Anônimo**. |Sim |
-| username |Especifique o nome de usuário da conta de usuário. |Sim, se authenticationType for definida como Básica. |
-| password |Especifique a senha para a conta de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim, se authenticationType for definida como Básica. |
+| porta |A porta TCP usada pelo servidor Cassandra para ouvir conexões de cliente. |Não (o padrão é 9042) |
+| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Cassandra.<br/>Os valores permitidos são: **Básica** e **Anônima**. |Sim |
+| Nome de Usuário |Especifique o nome de usuário da conta de usuário. |Sim, se authenticationType for definida como Básica. |
+| Senha |Especifique a senha para a conta de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim, se authenticationType for definida como Básica. |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 >[!NOTE]
@@ -102,9 +102,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Cassandra, defina a propriedade type do conjunto de dados como **CassandraTable**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **CassandraTable** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **CassandraTable** | Sim |
 | keyspace |Nome do keyspace ou do esquema no banco de dados Cassandra. |Não (se a "consulta" para "CassandraSource" estiver especificada) |
 | tableName |Nome da tabela no banco de dados Cassandra. |Não (se a "consulta" para "CassandraSource" estiver especificada) |
 
@@ -137,11 +137,11 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Cassandra, defina o tipo de fonte na atividade de cópia como **CassandraSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **CassandraSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **CassandraSource** | Sim |
 | query |Utiliza a consulta personalizada para ler os dados. Consulta SQL-92 ou consulta CQL. Veja [Referência ao CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao usar a consulta SQL, especifique **keyspace name.table name** para representar a tabela que deseja consultar. |Não (se "tableName" e "keyspace" no conjunto de dados estiverem especificados). |
-| consistencyLevel |O nível de consistência especifica quantas réplicas devem responder a uma solicitação de leitura antes de retornar dados ao aplicativo cliente. O Cassandra verifica o número especificado de réplicas de dados atender à solicitação de leitura. Confira [Configuring data consistency (Configurando a consistência de dados)](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) para obter detalhes.<br/><br/>Valores permitidos são: **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** e **LOCAL_ONE**. |Não (o padrão é `ONE`) |
+| consistencyLevel |O nível de consistência especifica quantas réplicas devem responder a uma solicitação de leitura antes de retornar dados ao aplicativo cliente. O Cassandra verifica o número especificado de réplicas de dados atender à solicitação de leitura. Confira [Configuring data consistency (Configurando a consistência de dados)](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) para obter detalhes.<br/><br/>Os valores permitidos são: **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** e **LOCAL_ONE**. |Não (o padrão é `ONE`) |
 
 **Exemplo:**
 
@@ -181,20 +181,20 @@ Ao copiar dados do Cassandra, os seguintes mapeamentos são usados de tipos de d
 
 | Tipo de dados Cassandra | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
-| ASCII |String |
+| ASCII |Cadeia de caracteres |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| Boolean |Boolean |
-| Decimal |DECIMAL |
-| DOUBLE |DOUBLE |
-| FLOAT |Simples |
-| INET |String |
+| BOOLEAN |Booliano |
+| DECIMAL |Decimal |
+| DOUBLE |Duplo |
+| FLOAT |Single |
+| INET |Cadeia de caracteres |
 | INT |Int32 |
-| TEXT |String |
+| TEXT |Cadeia de caracteres |
 | TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |String |
+| VARCHAR |Cadeia de caracteres |
 | VARINT |Decimal |
 
 > [!NOTE]
@@ -252,7 +252,7 @@ As tabelas a seguir mostram as tabelas virtuais que normalizam novamente os dado
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |O |
+| 1 |S1 |Uma |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
@@ -260,10 +260,10 @@ As tabelas a seguir mostram as tabelas virtuais que normalizam novamente os dado
 
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |O |
+| 1 |Uma |
 | 1 |b |
 | 1 |C |
-| 3 |O |
+| 3 |Uma |
 | 3 |E |
 
 ## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa

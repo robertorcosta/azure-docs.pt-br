@@ -1,5 +1,5 @@
 ---
-title: Definir atividade variável no Azure Data Factory | Microsoft Docs
+title: Definir Atividade Variável no Azure Data Factory
 description: Saiba como usar a atividade Definir Variável para definir o valor de uma variável existente definida em um pipeline do Data Factory
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: cfe6dd63234a7750fe01614d6f1b38bb7cce1adb
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 2589e56d3170b235f31d07f902eb75c749e8573f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142436"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679294"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Definir Atividade Variável no Azure Data Factory
 
@@ -25,13 +25,13 @@ Use a atividade Definir Variável para definir o valor de uma variável existent
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | Obrigatório
+Propriedade | DESCRIÇÃO | Obrigatório
 -------- | ----------- | --------
-name | Nome da atividade no pipeline | Sim
-description | Texto descrevendo o que a atividade realiza | não
-type | Tipo de atividade é SetVariable | sim
-value | Literal de cadeia de caracteres ou valor do objeto de expressão usado para definir a variável especificada | sim
-variableName | Nome da variável que será definida por essa atividade | sim
+Nome | Nome da atividade no pipeline | Sim
+Descrição | Texto descrevendo o que a atividade realiza | não
+Tipo | Tipo de atividade é SetVariable | Sim
+valor | Literal de cadeia de caracteres ou valor do objeto de expressão usado para definir a variável especificada | Sim
+variableName | Nome da variável que será definida por essa atividade | Sim
 
 
 ## <a name="next-steps"></a>Próximas etapas

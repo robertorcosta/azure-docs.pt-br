@@ -1,5 +1,5 @@
 ---
-title: Noções básicas de preços do Azure Data Factory por meio de exemplos | Microsoft Docs
+title: Noções básicas sobre preços Azure Data Factory por meio de exemplos
 description: Este artigo explica e demonstra o modelo de preços do Azure Data Factory com exemplos detalhados
 documentationcenter: ''
 author: djpmsft
@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.openlocfilehash: 168d977b9dc0ea6117796cf98a8562f168258d28
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c42946733ee49ed6acf2c8deadf850208e003339
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387448"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684528"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Noções básicas de preços do Data Factory por meio de exemplos
 
@@ -161,11 +161,11 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 - Operações do Data Factory = **US$ 0,0001**
   - Leitura/gravação = 10\*00001 = US$ 0,0001 [1 L/G = US$ 0,50/50000 = 0,00001]
   - Monitoramento = 2\*000005 = US$ 0,00001 [1 monitoramento = US$ 0,25/50000 = 0,000005]
-- Orquestração de pipeline &amp; execução = **$0.301**
+- Execução de &amp; de orquestração de pipeline = **$0.301**
   - Execuções de atividade = 001\*2 = 0,002 [1 execução = US$ 1/1000 = 0,001]
   - Atividades de fluxo de dados = $0.299 rateado por 20 minutos (tempo de execução de 10 min + 10 minutos TTL). $0.112/hora em Azure Integration Runtime com 8 núcleos de computação geral
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você entendeu o preço do Azure Data Factory, pode começar a usá-lo!
 

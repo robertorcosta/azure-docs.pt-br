@@ -1,6 +1,6 @@
 ---
 title: Como um modelo se torna um serviço Web
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Uma visão geral da mecânica de como seu modelo de Azure Machine Learning Studio (clássico) progride de um experimento de desenvolvimento para um serviço Web.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: c82e636b06d33140ca6dae606d39855084aac04d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 24a2c31271d123d6378732bd9f85f6341a78d65c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496853"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671241"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Como um modelo de Machine Learning Studio (clássico) progride de um experimento para um serviço Web
 Azure Machine Learning Studio (clássico) fornece uma tela interativa que permite desenvolver, executar, testar e iterar um ***experimento*** que representa um modelo de análise preditiva. Há uma grande variedade de módulos disponíveis que podem:
@@ -108,7 +108,7 @@ Se você deseja fazer alterações em seu teste preditivo original, como selecio
 Para obter mais detalhes sobre o processo de desenvolvimento e teste, veja os seguintes artigos:
 
 * convertendo o experimento- [como preparar seu modelo para implantação no Azure Machine Learning Studio (clássico)](convert-training-experiment-to-scoring-experiment.md)
-* implantando o serviço Web – [Implantar um serviço Web do Azure Machine Learning](publish-a-machine-learning-web-service.md)
+* implantando o serviço Web – [Implantar um serviço Web do Azure Machine Learning](deploy-a-machine-learning-web-service.md)
 * treinando novamente o modelo - [Treinar novamente os modelos do Machine Learning de forma programática](/azure/machine-learning/studio/retrain-machine-learning-model)
 
 Para obter exemplos do processo inteiro, consulte:

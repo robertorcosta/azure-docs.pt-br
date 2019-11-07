@@ -1,5 +1,5 @@
 ---
-title: Auditoria da instância gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
+title: Auditoria de instância gerenciada do banco de dados SQL do Azure
 description: Saiba como começar a auditoria da Instância Gerenciada do Banco de Dados SQL do Azure usando o T-SQL
 services: sql-database
 ms.service: sql-database
@@ -13,12 +13,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 04/08/2019
-ms.openlocfilehash: 23e3a15ac26cdf0950ee31fddad2af4a3b7414c2
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 915d804cd3ae67848b4b9aa2f50fb5f1b4f1f092
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025379"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689432"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à Auditoria da instância gerenciada do Banco de Dados SQL do Azure
 
@@ -171,7 +171,7 @@ Os logs de auditoria de uma instância gerenciada podem ser enviados para até m
 
 5. Selecione um destino para os eventos de auditoria – Hub de eventos, logs de Azure Monitor ou ambos. Configure os parâmetros necessários (por exemplo, espaço de trabalho do Log Analytics) para cada destino.
 
-6. Clique em **Save** (Salvar).
+6. Clique em **Salvar**.
 
     ![Definir as configurações de diagnóstico](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 
@@ -235,9 +235,9 @@ As principais diferenças na sintaxe `CREATE AUDIT` para a auditoria do armazena
 - Uma nova sintaxe `TO EXTERNAL MONITOR` é fornecida para habilitar o Hub par e Azure Monitor destinos de logs.
 - A sintaxe `TO FILE` **não tem suporte** porque a instância gerenciada do Banco de Dados SQL não pode acessar compartilhamentos de arquivos do Windows.
 - A opção de desligamento **não é compatível**.
-- **Não há suporte** para `queue_delay` de 0.
+- `queue_delay`Não há suporte**para** de 0.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma lista completa de métodos de consumo de log de auditoria, consulte o [Introdução à auditoria de banco de dados do SQL](sql-database-auditing.md).
 - Para obter mais informações sobre os programas do Azure que dão suporte à conformidade com padrões, consulte a [central de confiabilidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde você pode encontrar a lista mais atual de certificações de conformidade do banco de dados SQL.

@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell e CLI: habilitar o SQL TDE-with Azure Key Vault-traga sua própria chave-banco de dados SQL do Azure | Microsoft Docs'
+title: 'PowerShell e CLI: habilitar o SQL TDE-with Azure Key Vault-traga sua própria chave-banco de dados SQL do Azure '
 description: Saiba como configurar um Data Warehouse e Banco de Dados SQL do Azure para começar a usar a TDE (Transparent Data Encryption) para criptografia em repouso usando PowerShell ou CLI.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: beeb5fa4f979ac457db8a779dd8f8f2e94ef87f5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 232f38b239090356ae3ad1a70b522188f6ab6a4f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163859"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686764"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e CLI: habilitar Transparent Data Encryption com chave gerenciada pelo cliente de Azure Key Vault
 
@@ -175,7 +175,7 @@ Use [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-a
    -ResourceGroupName <SQLDatabaseResourceGroupName>   
    ```
  
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solucionar problemas
 
 Se um problema ocorrer, verifique o seguinte:
 - Se o cofre de chaves não puder ser encontrado, verifique se você está na assinatura correta usando o cmdlet [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) .
@@ -189,7 +189,7 @@ Se um problema ocorrer, verifique o seguinte:
    - A chave não deve ter uma data de validade
    - A chave deve ter as operações *get*, *codificar chave* e *decodificar chave* habilitadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como girar o protetor de TDE de um servidor para atender aos requisitos de segurança: [Girar o Protetor de TDE usando PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
 - Em caso de risco de segurança, saiba como remover um Protetor de TDE potencialmente comprometido: [Remover uma chave potencialmente comprometida](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md). 

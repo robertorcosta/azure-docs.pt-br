@@ -1,5 +1,5 @@
 ---
-title: Pipelines e atividades no Azure Data Factory | Microsoft Docs
+title: Pipelines e atividades no Azure Data Factory
 description: Aprenda sobre pipelines e atividades no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: cb776b28a8c06784a2aa41e42429a3f183254138
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: bed81633b27d5d0f89cb7e3d7a6e0975de4b6772
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984216"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681453"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -53,9 +53,9 @@ Atividades de transformação de dados | Ambiente de computação
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Streaming do Hadoop](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Atividades de Machine Learning: Execução de lote e Recurso de atualização](transform-data-using-machine-learning.md) | Azure VM
+[Atividades de Machine Learning: execução do Lote e recurso de atualização](transform-data-using-machine-learning.md) | VM do Azure
 [Procedimento armazenado](transform-data-using-stored-procedure.md) | SQL Azure, Azure SQL Data Warehouse ou SQL Server
-[U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
+[U-SQL](transform-data-using-data-lake-analytics.md) | Análise Azure Data Lake
 [Código Personalizado](transform-data-using-dotnet-custom-activity.md) | Lote do Azure
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
 [Atividade de jar do databricks](transform-data-databricks-jar.md) | Azure Databricks
@@ -66,7 +66,7 @@ Para obter mais informações, confira o artigo [Atividades de transformação d
 ## <a name="control-activities"></a>Atividades de controle
 Há suporte para as seguintes atividades de fluxo de controle:
 
-Atividade de controle | Descrição
+Atividade de controle | DESCRIÇÃO
 ---------------- | -----------
 [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md) | A atividade de execução de pipeline permite que um pipeline do Data Factory invoque outro pipeline.
 [ForEachActivity](control-flow-for-each-activity.md) | A atividade ForEach define um fluxo de controle repetitivo no seu pipeline. Essa atividade é usada para iterar em uma coleção e executa atividades especificadas em um loop. A implementação dessa atividade em loop é semelhante à estrutura em loop Foreach nas linguagens de programação.
@@ -74,7 +74,7 @@ Atividade de controle | Descrição
 [Atividade de pesquisa](control-flow-lookup-activity.md) | A atividade de pesquisa pode ser usada para ler ou procurar um registro/nome de tabela/valor de qualquer fonte externa. Essa saída pode referenciada pelas atividades com êxito.
 [Atividade de obtenção de metadados](control-flow-get-metadata-activity.md) | A atividade GetMetadata pode ser usada para recuperar metadados de todos os dados no Azure Data Factory.
 [Atividade Until](control-flow-until-activity.md) | Implementa o loop Do-Until, que é semelhante à estrutura de looping Do-Until em linguagens de programação. Ela executa um conjunto de atividades em um loop até que a condição associada à atividade seja avaliada como verdadeira. Especifique um valor de tempo limite para a atividade Until no Data Factory.
-[Atividade de Condição Se](control-flow-if-condition-activity.md) | A Condição If pode ser usada para ramificar com base em condições que são avaliadas como true ou false. A atividade If Condition fornece a mesma funcionalidade que uma instrução if fornece em linguagens de programação. Ela avalia um conjunto de atividades quando a condição é avaliada como `true` e outro conjunto de atividades quando a condição é avaliada como `false`.
+[Atividade de Condição If](control-flow-if-condition-activity.md) | A Condição If pode ser usada para ramificar com base em condições que são avaliadas como true ou false. A atividade If Condition fornece a mesma funcionalidade que uma instrução if fornece em linguagens de programação. Ela avalia um conjunto de atividades quando a condição é avaliada como `true` e outro conjunto de atividades quando a condição é avaliada como `false`.
 [Atividade de espera](control-flow-wait-activity.md) | Quando você usa uma atividade de espera em um pipeline, o pipeline aguarda o período de tempo especificado antes de continuar com a execução de atividades subsequentes.
 
 ## <a name="pipeline-json"></a>Pipeline de JSON
@@ -95,15 +95,15 @@ Veja como um pipeline é definido no formato JSON:
 }
 ```
 
-Marca | Descrição | Tipo | Necessário
+Marca | DESCRIÇÃO | Tipo | Obrigatório
 --- | ----------- | ---- | --------
-name | Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 140</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Sim
-description | Especifique o texto descrevendo para que o pipeline é usado. | String | Não
-activities | A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Confira a seção [Atividade JSON](#activity-json) para obter detalhes sobre o elemento das atividades JSON. | Array | Sim
-parameters | A seção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando seu pipeline flexível para reutilização. | List | Não
+Nome | Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 140</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | Cadeia de caracteres | Sim
+Descrição | Especifique o texto descrevendo para que o pipeline é usado. | Cadeia de caracteres | Não
+atividades | A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Confira a seção [Atividade JSON](#activity-json) para obter detalhes sobre o elemento das atividades JSON. | Matriz | Sim
+parâmetros | A seção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando seu pipeline flexível para reutilização. | Listar | Não
 
 ## <a name="activity-json"></a>Atividade JSON
-A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Há dois principais tipos de atividades: atividades de execução e controle.
+A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Há dois tipos principais de atividades: atividades de execução e de controle.
 
 ### <a name="execution-activities"></a>Atividades de execução
 As atividades de execução incluem [atividades de movimentação de dados](#data-movement-activities) e de [transformação de dados](#data-transformation-activities). Elas têm a seguinte estrutura de nível superior:
@@ -128,11 +128,11 @@ As atividades de execução incluem [atividades de movimentação de dados](#dat
 
 A seguinte tabela descreve as propriedades na definição de JSON da atividade:
 
-Marca | Descrição | Obrigatório
+Marca | DESCRIÇÃO | Obrigatório
 --- | ----------- | ---------
-name | Nome da atividade. Especifique um nome que represente a ação executada pela atividade. <br/><ul><li>Número máximo de caracteres: 55</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li></ul>
-description | Texto que descreve para que a atividade é usada | Sim
-type | Tipo da atividade. Confira as seções [Atividades de movimentação de dados](#data-movement-activities), [Atividades de transformação de dados](#data-transformation-activities) e [Atividades de controle](#control-activities) para diferentes tipos de atividade. | Sim
+Nome | Nome da atividade. Especifique um nome que represente a ação executada pela atividade. <br/><ul><li>Número máximo de caracteres: 55</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li></ul>
+Descrição | Texto que descreve para que a atividade é usada | Sim
+Tipo | Tipo da atividade. Confira as seções [Atividades de movimentação de dados](#data-movement-activities), [Atividades de transformação de dados](#data-transformation-activities) e [Atividades de controle](#control-activities) para diferentes tipos de atividade. | Sim
 linkedServiceName | Nome do serviço vinculado usado pela atividade.<br/><br/>Uma atividade pode exigir que você especifique o serviço vinculado que é vinculado ao ambiente de computação necessário. | Sim para Atividade de HDInsight, Atividade de Pontuação de Lote do Azure Machine Learning e Atividade de Procedimento Armazenado. <br/><br/>Não para todas as outros
 typeProperties | As propriedades na seção typeProperties dependem de cada tipo de atividade. Para ver as propriedades de tipo para uma atividade, clique em links para a atividade na seção anterior. | Não
 policy | Políticas que afetam o comportamento de tempo de execução da atividade. Essa propriedade inclui o comportamento de tempo limite e de repetição. Se não forem especificados, os valores padrão serão usados. Para obter mais informações, consulte a seção [Política de atividade](#activity-policy). | Não
@@ -169,12 +169,12 @@ Políticas afetam o comportamento de tempo de execução de uma atividade, ofere
 }
 ```
 
-Nome JSON | Descrição | Valores Permitidos | Necessário
+Nome JSON | DESCRIÇÃO | Valores Permitidos | Obrigatório
 --------- | ----------- | -------------- | --------
-timeout | Especifica o tempo limite para a atividade ser executada. | Intervalo de tempo | Não. O tempo limite padrão é 7 dias.
-retry | Número máximo de novas tentativas | Inteiro | Não. O padrão é 0
-retryIntervalInSeconds | O intervalo entre tentativas de repetição em segundos | Inteiro | Não. O padrão é de 30 segundos
-secureOutput | Quando definido como true, a saída da atividade é considerada segura e não será registrada em log para monitoramento. | Boolean | Não. O padrão é falso.
+Tempo limite | Especifica o tempo limite para a atividade ser executada. | Timespan | Não. O tempo limite padrão é 7 dias.
+tentar novamente | Número máximo de novas tentativas | Número inteiro | Não. O padrão é 0
+retryIntervalInSeconds | O intervalo entre tentativas de repetição em segundos | Número inteiro | Não. O padrão é de 30 segundos
+secureOutput | Quando definido como true, a saída da atividade é considerada segura e não será registrada em log para monitoramento. | Booliano | Não. O padrão é falso.
 
 ### <a name="control-activity"></a>Atividade de controle
 As atividades de controle têm a seguinte estrutura de nível superior:
@@ -193,27 +193,27 @@ As atividades de controle têm a seguinte estrutura de nível superior:
 }
 ```
 
-Marca | Descrição | Obrigatório
+Marca | DESCRIÇÃO | Obrigatório
 --- | ----------- | --------
-name | Nome da atividade. Especifique um nome que represente a ação executada pela atividade.<br/><ul><li>Número máximo de caracteres: 55</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li><ul>
-description | Texto que descreve para que a atividade é usada | Sim
-type | Tipo da atividade. Confira as seções [atividades de movimentação de dados](#data-movement-activities), [atividades de transformação de dados](#data-transformation-activities) e [atividades de controle](#control-activities) para diferentes tipos de atividade. | Sim
+Nome | Nome da atividade. Especifique um nome que represente a ação executada pela atividade.<br/><ul><li>Número máximo de caracteres: 55</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li><ul>
+Descrição | Texto que descreve para que a atividade é usada | Sim
+Tipo | Tipo da atividade. Confira as seções [atividades de movimentação de dados](#data-movement-activities), [atividades de transformação de dados](#data-transformation-activities) e [atividades de controle](#control-activities) para diferentes tipos de atividade. | Sim
 typeProperties | As propriedades na seção typeProperties dependem de cada tipo de atividade. Para ver as propriedades de tipo para uma atividade, clique em links para a atividade na seção anterior. | Não
 dependsOn | Essa propriedade é usada para definir a dependência de atividade e o modo como as atividades subsequentes dependem de atividades anteriores. Para obter mais informações, consulte [dependência de atividade](#activity-dependency). | Não
 
 ### <a name="activity-dependency"></a>Dependência de atividade
 A dependência de atividade define o modo como atividades subsequentes dependem de atividades anteriores, determinando a condição para que a execução continue ou não para a próxima tarefa. Uma atividade pode depender de uma ou várias atividades anteriores com condições de dependência diferentes.
 
-As condições de dependência diferentes são: Bem-sucedido, Com falha, Ignorado, Concluído.
+As diferentes condições de dependência são: Êxito, Falha, Ignorada, Concluída.
 
 Por exemplo, se um pipeline tem atividade A -> atividade B, os diferentes cenários que podem acontecer são:
 
-- A atividade B tem a condição de dependência sobre a atividade A com **bem-sucedido**: A atividade B só será executada se a atividade A tiver um status final de bem-sucedido
-- A atividade B tem a condição de dependência sobre a atividade A com **falha**: A atividade B só será executada se a atividade A tiver um status final de falha
-- A atividade B tem a condição de dependência sobre a atividade A com **concluído**: A atividade B será executada se a atividade A tiver um status final de bem-sucedido ou falha
-- A atividade B tem a condição de dependência sobre a atividade A com **ignorado**: A atividade B será executada se a atividade A tiver um status final de ignorado. Ignorada ocorre no cenário de Atividade X -> Atividade Y -> Atividade Z, em que cada atividade é executada somente se a atividade anterior tem êxito. Se a Atividade X falhar, a Atividade Y terá um status de "Ignorada", porque nunca será executada. Da mesma forma, a Atividade Z também terá um status de "Ignorada".
+- A atividade B tem uma condição de dependência de atividade A com o resultado **êxito**: a atividade B só é executada se a atividade A tem um status final de êxito
+- A atividade B tem uma condição de dependência de atividade A com o resultado **falha**: a atividade B só é executada se a atividade A tem um status final de falha
+- A atividade B tem uma condição de dependência de atividade A com o resultado **concluída**: a atividade B só é executada se a atividade A tem um status final de êxito ou falha
+- A atividade B tem uma condição de dependência de atividade A com o resultado **ignorada**: a atividade B só é executada se a atividade A tem um status final de ignorada. Ignorada ocorre no cenário de Atividade X -> Atividade Y -> Atividade Z, em que cada atividade é executada somente se a atividade anterior tem êxito. Se a Atividade X falhar, a Atividade Y terá um status de "Ignorada", porque nunca será executada. Da mesma forma, a Atividade Z também terá um status de "Ignorada".
 
-#### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Exemplo: A Atividade 2 depende do êxito da Atividade 1
+#### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Exemplo: a Atividade 2 depende do êxito da Atividade 1
 
 ```json
 {

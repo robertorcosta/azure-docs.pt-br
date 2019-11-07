@@ -1,5 +1,5 @@
 ---
-title: Criar uma rede virtual para uma Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
+title: Criar uma rede virtual para uma Instância Gerenciada do Banco de Dados SQL do Azure
 description: Este artigo descreve como criar uma rede virtual em que você pode implantar uma Instância Gerenciada do Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
-ms.openlocfilehash: 2fd4055f1a2ec7b5b29d1a303f1c9ac3260f4cca
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ae18671000a2bfd3bedef7805ba5db964fe0cf95
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958490"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688176"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Criar uma rede virtual para uma Instância Gerenciada do Banco de Dados SQL do Azure
 

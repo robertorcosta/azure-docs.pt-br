@@ -1,5 +1,5 @@
 ---
-title: Conjuntos de dados públicos para análise do Azure | Microsoft Docs
+title: Conjuntos de dados públicos para a análise do Azure
 description: Saiba mais sobre os conjuntos de dados públicos que você pode usar para criar um protótipo e testar soluções e serviços de análise do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,25 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: a16f6d6b0bf8600270fdf4e00cfa379ee4422fd0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dc8b2a00882abc2e88b357d5778eaf96ec71b1bd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566998"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687579"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de dados públicos para criação de protótipos e testes
 
 Procure nesta lista de conjuntos de dados públicos os dados que você pode usar para soluções e serviços de armazenamento de protótipo e de teste.
 
-## <a name="us-government-and-agency-data"></a>EUA Dados do governo e agência
+## <a name="us-government-and-agency-data"></a>Dados do governo dos EUA e da Agência
 
 | Fonte de dados | Sobre os dados | Sobre os arquivos |
 |---|---|---|
 | [Dados do governo dos EUA](https://www.census.gov/data.html) | Mais de 190.000 conjuntos de dados que abrangem agricultura, clima, consumidor, ecossistemas, educação, energia, finanças, integridade, municipal, fabricação, marítima, oceano, segurança pública e ciência e pesquisa nos EUA. | Arquivos de vários tamanhos em vários formatos, incluindo HTML, XML, CSV, JSON, Excel e muitos outros. Você pode filtrar conjuntos de dados disponíveis pelo formato de arquivo. |
 | [Dados de censo dos EUA](https://www.census.gov/data.html) | Dados estatísticos sobre a população dos EUA | Os conjuntos de dados estão em vários formatos. |
 | [Dados de ciências da Terra da NASA](https://earthdata.nasa.gov/) | Mais de 32.000 coleções de dados que abrangem agricultura, atmosfera, biosfera, clima, criosfera, dimensões humanas, hidrosfera, superfície da Terra, oceanos, interações entre o sol e a terra e muito mais. | Os conjuntos de dados estão em vários formatos. |
-| [Atrasos de voo de companhia aérea e outros dados de transporte](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "O Departamento de Estatísticas de Transporte (BTS) do Departamento de Transporte (DOT) dos EUA rastreia o desempenho em tempo de voos domésticos operados por grandes companhias aéreas. Informações de resumo sobre o número de voos no horário, atrasados, cancelados e desviados aparecem... em tabelas de resumo postadas no site." | Os arquivos estão no formato CSV. |
+| [Atrasos de voo de companhia aérea e outros dados de transporte](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "O departamento de transporte (ponto) dos Estados Unidos das estatísticas de transporte (BTS) do governo dos EUA controla o desempenho em tempo de vôos domésticos operados por grandes operadoras de ar. Informações de resumo sobre o número de voos no horário, atrasados, cancelados e desviados aparecem... em tabelas de resumo postadas no site." | Os arquivos estão no formato CSV. |
 | [Mortes no trânsito - sistema de relatórios de análise de mortes nos EUA (FARS)](https://www.nhtsa.gov/FARS) | "O FARS é um censo nacional que fornece ao NHTSA, ao Congresso e ao público americano os dados anuais públicos sobre lesões fatais sofridas em colisões de veículos motorizados". | "Crie seus próprios dados sobre mortes executados online usando o Sistema de Consultas do FARS. Ou baixe todos os dados do FARS de 1975 até o presente do site de FTP”. |
 | [Dados sobre produtos químicos tóxicos - dados do EPA Toxicity ForeCaster (ToxCast™)](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "Os dados de toxidade de alta produtividade mais atualizados e publicamente disponíveis do EPA sobre milhares de produtos químicos. Esses dados são gerados por meio do esforço de pesquisa do ToxCast do EPA". | Os conjuntos de dados estão disponíveis em vários formatos, incluindo planilhas, pacotes R e arquivos de banco de dados MySQL. |
 | [Dados de produtos químicos tóxicos - Desafio de dados NIH Tox21 de 2014](https://tripod.nih.gov/tox21/challenge/) | "O desafio de dados Tox21 de 2014 foi projetado para ajudar a compreender o potencial de produtos e compostos químicos que estão sendo testados por meio da iniciativa Toxicology in the 21st Century para interromper caminhos biológicos de formas que possam resultar em efeitos tóxicos”. | Os conjuntos de dados estão disponíveis nos formatos SMILES e SDF. Os dados fornecem "dados de atividade de reagentes e estruturas químicas na coleção Tox21 de aproximadamente 10.000 compostos (Tox21 10K)". |
@@ -41,7 +41,7 @@ Procure nesta lista de conjuntos de dados públicos os dados que você pode usar
 |---|---|---|
 | [Dados de táxi de Nova York](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Os registros de corrida de táxi incluem campos que capturam as datas/horas de partida e chegada, distâncias, tarifas discriminadas, tipos de taxa, tipos de pagamento, e contagens de passageiro relatadas pelo motorista." | Os conjuntos de dados estão em arquivos CSV por mês. |
 | [Conjuntos de dados do Microsoft Research - "Ciência de Dados para Pesquisa"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Diversos conjuntos de dados que abrangem a interação homem — máquina, áudio/vídeo, mineração de dados/recuperação de informações, geoespaciais/localização, processamento de linguagem natural e visão robótica/computacional. | Os conjuntos de dados estão em vários formatos, compactados para download. |
-| [Dados públicos sobre genoma](https://www.completegenomics.com/public-data/) | "Um conjunto variado de dados de genomas humanos completos estão disponíveis gratuitamente para uso público para aprimorar qualquer estudo sobre genoma..." O provedor, Complete Genomics, é uma corporação privada com fins lucrativos. | Os conjuntos de dados, após a extração, estão no formato de texto UNIX. Também há ferramentas de análise disponíveis. |
+| [Dados públicos sobre genoma](https://www.completegenomics.com/public-data/) | "Um conjunto de dados diversificado de todo o genomas humano está disponível gratuitamente para uso público para aprimorar qualquer estudo de genoma..." O provedor, completo de genoma, é uma empresa privada para fins lucrativos. | Os conjuntos de dados, após a extração, estão no formato de texto UNIX. Também há ferramentas de análise disponíveis. |
 | [Dados da Open Science Data Cloud](https://www.opensciencedatacloud.org/) | "A Open Science Data Cloud fornece à comunidade científica recursos para armazenar, compartilhar e analisar terabytes e petabytes de conjuntos de dados científicos".| Os conjuntos de dados estão em vários formatos. |
 | [Dados sobre clima global – WorldClim](https://worldclim.org/) | "WorldClim é um conjunto de camadas de clima global (dados de clima matriciais) com uma resolução espacial de cerca de 1 km2. Esses dados podem ser usados para mapeamento e modelagem espacial". | Esses arquivos contêm dados geoespaciais. Para saber mais, veja [Formato de dados](https://worldclim.org/formats1). |
 | [Dados sobre a sociedade humana - o projeto GDELT](https://www.gdeltproject.org/data.html) | "O projeto GDELT é o maior e mais abrangente banco de dados aberto da sociedade humana já criado, além de contar com a maior resolução". | Os arquivos de dados brutos estão no formato CSV. |

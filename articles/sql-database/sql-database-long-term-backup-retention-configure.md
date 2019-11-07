@@ -1,5 +1,5 @@
 ---
-title: Gerenciar retenção de backup de longo prazo do Banco de Dados SQL do Azure | Microsoft Docs
+title: 'Gerenciar a retenção de backup de longo prazo do Banco de Dados SQL do Azure '
 description: Saiba como armazenar backups automatizados no armazenamento do SQL do Azure e como restaurá-los
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 08/21/2019
-ms.openlocfilehash: b90e364442e46269fc949ef4aecd9a756cff5595
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 32eb021ecd584e0b1b734abb236f383a32b79131
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904631"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689542"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerenciar a retenção de backup de longo prazo do Banco de Dados SQL do Azure
 

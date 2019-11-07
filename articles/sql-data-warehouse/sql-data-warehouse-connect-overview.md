@@ -1,5 +1,5 @@
 ---
-title: Conectar-se ao SQL Data Warehouse do Azure | Microsoft Docs
+title: Conectar-se ao SQL Data Warehouse do Azure
 description: Conecte-se ao SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 71f5c8ca56bc188c0664604a78c38a05be3c3b01
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 5a14b99753c9f06f2e0cf32dd8b5c7776cfdad89
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68479742"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685880"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Conectar-se ao SQL Data Warehouse do Azure
 Conecte-se ao SQL Data Warehouse do Azure.
@@ -63,8 +64,8 @@ O SQL Data Warehouse padroniza algumas configurações durante a conexão e a cr
 
 | Configuração de banco de dados | Valor |
 |:--- |:--- |
-| [ANSI_NULLS][ANSI_NULLS] |LIGAR |
-| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |LIGAR |
+| [ANSI_NULLS][ANSI_NULLS] |ATIVADO |
+| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |ATIVADO |
 | [DATEFORMAT][DATEFORMAT] |mdy |
 | [DATEFIRST][DATEFIRST] |7 |
 

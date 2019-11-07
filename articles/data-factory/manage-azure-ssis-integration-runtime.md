@@ -1,5 +1,5 @@
 ---
-title: Reconfigurar o tempo de execução de integração do Azure-SSIS | Microsoft Docs
+title: Reconfigurar o tempo de execução de integração do Azure-SSIS
 description: Saiba como reconfigurar o tempo de execução de integração do Azure-SSIS no Azure Data Factory depois de já tê-lo provisionado.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 3c1178a20debc36fbdbbd374eaf9adb6005a93a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 09ef8560edc47a6bb12fad782ae3d34987471127
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152382"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672548"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Reconfigurar o tempo de execução de integração do Azure-SSIS
 Este artigo descreve como reconfigurar um tempo de execução de integração existente do Azure-SSIS. Para criar um IR (tempo de execução de integração) do Azure-SSIS no Azure Data Factory, confira [Criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md).  
@@ -25,7 +25,7 @@ Este artigo descreve como reconfigurar um tempo de execução de integração ex
 ## <a name="data-factory-ui"></a>IU do Data Factory 
 Use a interface do usuário do Data Factory para parar, editar/reconfigurar ou excluir um IR do Azure SSIS. 
 
-1. Na **Interface do usuário do Data Factory**, mude para a guia **Editar**. Para iniciar a interface do usuário do Data Factory, clique em **Criar e Monitorar** na home page do data factory.
+1. Na **interface do usuário do data Factory**, alterne para a guia **Editar** . Para iniciar a interface do usuário do Data Factory, clique em **criar & monitor** na home page do data Factory.
 2. No painel esquerdo, clique em **Conexões**.
 3. No painel direito, mude para os **Tempos de Execução de Integração**. 
 4. Use os botões na coluna Ações para **parar**, **editar** ou **excluir** o tempo de execução de integração. O botão **Código** na coluna **Ações** permite que você exiba a definição de JSON associada ao tempo de execução de integração.  
@@ -47,17 +47,17 @@ Depois de provisionar e iniciar uma instância do tempo de execução de integra
 
 ### <a name="reconfigure-an-azure-ssis-ir"></a>Reconfigurar um IR do Azure-SSIS
 
-1. Em primeiro lugar, pare o tempo de execução de integração do Azure-SSIS usando o [Stop-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/stop-Azdatafactoryv2integrationruntime) cmdlet. Este comando libera todos os seus nós e interrompe a cobrança.
+1. Primeiro, pare o tempo de execução de integração do Azure-SSIS usando o cmdlet [Stop-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/stop-Azdatafactoryv2integrationruntime) . Este comando libera todos os seus nós e interrompe a cobrança.
 
     ```powershell
     Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
     ```
-2. Em seguida, reconfigure o IR Azure-SSIS usando o [AzDataFactoryV2IntegrationRuntime conjunto](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) cmdlet. O comando de exemplo a seguir escala horizontalmente um tempo de execução de integração do Azure-SSIS para cinco nós.
+2. Em seguida, reconfigure o Azure-SSIS IR usando o cmdlet [set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) . O comando de exemplo a seguir escala horizontalmente um tempo de execução de integração do Azure-SSIS para cinco nós.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
     ```  
-3. Em seguida, inicie o tempo de execução de integração do Azure-SSIS usando o [AzDataFactoryV2IntegrationRuntime início](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) cmdlet. Esse comando aloca todos os seus nós para executar pacotes do SSIS.   
+3. Em seguida, inicie o tempo de execução de integração do Azure-SSIS usando o cmdlet [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) . Esse comando aloca todos os seus nós para executar pacotes do SSIS.   
 
     ```powershell
     Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
@@ -95,7 +95,7 @@ Confira estes tópicos para obter mais informações sobre o tempo de execução
 
 - [Tempo de execução de integração do Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). Este artigo fornece informações conceituais sobre tempos de execução de integração em geral, incluindo o IR do Azure-SSIS. 
 - [Tutorial: implantar pacotes do SSIS para o Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo fornece instruções passo a passo para criar um IR do Azure-SSIS e usa um banco de dados SQL do Azure para hospedar o catálogo do SSIS. 
-- [Como: Criar um Integration Runtime do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar a Instância Gerenciada do Banco de Dados SQL do Azure e unir o IR a uma rede virtual. 
+- [Como: Criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar a Instância Gerenciada do Banco de Dados SQL do Azure e unir o IR a uma rede virtual. 
 - [Unir um IR do Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo fornece informações conceituais sobre como unir um IR do Azure-SSIS a uma rede virtual do Azure. Ele também apresenta as etapas para usar o portal do Azure para configurar a rede virtual para que o IR do Azure-SSIS possa unir-se à rede virtual. 
 - [Monitore um IR do Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime). Este artigo mostra como recuperar informações sobre um IR do Azure-SSIS e descrições de status nas informações retornadas. 
  

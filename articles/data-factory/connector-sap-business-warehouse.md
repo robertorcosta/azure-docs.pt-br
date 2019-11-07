@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do SAP BW usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados de SAP BW usando Azure Data Factory
 description: Saiba como copiar dados do SAP Business Warehouse para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: e53cb822d1100b3d13a96c9f86aee6db420e4bb1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: c2dbacc2fd7906aaf22447dfb39c543206f05392
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089602"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680277"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -66,14 +66,14 @@ As seções que se seguem fornecem detalhes sobre as propriedades que são usada
 
 As propriedades a seguir têm suporte no serviço vinculado do SAP BW (Business Warehouse):
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **SapBw** | Sim |
+| Tipo | A propriedade type deve ser definida como: **SapBw** | Sim |
 | server | Nome do servidor no qual reside a instância do SAP BW. | Sim |
 | systemNumber | Número de sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim |
 | clientId | ID de Cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma cadeia de caracteres. | Sim |
 | userName | Nome do usuário que tem acesso ao servidor SAP. | Sim |
-| password | Senha do usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| Senha | Senha do usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |Sim |
 
 **Exemplo:**
@@ -134,9 +134,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de SAP BW, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **SapBwSource** | Sim |
+| Tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como: **SapBwSource** | Sim |
 | query | Especifica a consulta MDX para ler dados da instância do SAP BW. | Sim |
 
 **Exemplo:**
@@ -171,7 +171,7 @@ Para copiar dados de SAP BW, as propriedades a seguir têm suporte na seção **
 ]
 ```
 
-Se você estiver usando `RelationalSource` a fonte digitada, ainda haverá suporte como está, enquanto você é sugerido para usar a nova no futuro.
+Se você estivesse usando `RelationalSource` fonte tipada, ainda há suporte no estado em que se encontra, enquanto você é sugerido para usar o novo no futuro.
 
 ## <a name="data-type-mapping-for-sap-bw"></a>Mapeamento de tipo de dados para SAP BW
 
@@ -180,27 +180,27 @@ Ao copiar dados do SAP BW, os seguintes mapeamentos são usados de tipos de dado
 | Tipo de dados do SAP BW | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
 | ACCP | Int |
-| CHAR | String |
-| CLNT | String |
+| CHAR | Cadeia de caracteres |
+| CLNT | Cadeia de caracteres |
 | CURR | Decimal |
-| CUKY | String |
+| CUKY | Cadeia de caracteres |
 | DEC | Decimal |
-| FLTP | Double |
+| FLTP | Duplo |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | Int |
-| LANG | String |
-| LCHR | String |
+| LANG | Cadeia de caracteres |
+| LCHR | Cadeia de caracteres |
 | LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | String |
-| UNIT | String |
-| DATS | String |
-| NUMC | String |
-| TIMS | Cadeia |
+| STRING | Cadeia de caracteres |
+| UNIDADE | Cadeia de caracteres |
+| DATS | Cadeia de caracteres |
+| NUMC | Cadeia de caracteres |
+| TIMS | Cadeia de caracteres |
 
 
 ## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa

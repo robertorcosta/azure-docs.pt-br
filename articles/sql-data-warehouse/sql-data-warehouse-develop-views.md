@@ -1,5 +1,5 @@
 ---
-title: Usando exibições do T-SQL no Azure SQL Data Warehouse | Microsoft Docs
+title: Usando exibições do T-SQL
 description: Dicas para usar exibições T-SQL no Azure SQL Data Warehouse para desenvolvimento de soluções.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1fd406243f0f2f5339c4170c4ec17286fcf2ef6d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 14ff990fa21f4af3c77b4dba10b4fea758ff32b6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901718"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685763"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Exibições no Azure SQL Data Warehouse
 As exibições podem ser usadas em diversas maneiras diferentes de melhorar a qualidade de sua solução. 
@@ -62,7 +63,7 @@ RENAME OBJECT DimDate_New TO DimDate;
 ```
 No entanto, essa abordagem pode resultar em tabelas que aparecem e desaparecem da exibição do usuário, bem como nas mensagens de erro "a tabela não existe". As exibições podem ser usadas para fornecer aos usuários uma camada de apresentação consistente enquanto os objetos subjacentes são renomeados. Fornecendo acesso a dados por meio de exibições, os usuários não precisam de visibilidade para as tabelas subjacentes. Essa camada fornece uma experiência de usuário consistente enquanto garante que os designers do data warehouse podem desenvolver o modelo de dados. Capacidade para desenvolver as tabelas subjacentes significa que os designers podem usar CTAS para maximizar o desempenho durante o processo de carregamento de dados.   
 
-## <a name="next-steps"></a>Próximos passos
-Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL Data Warehouse](sql-data-warehouse-overview-develop.md).
+## <a name="next-steps"></a>Próximas etapas
+Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvolvimento no SQL Data Warehouse](sql-data-warehouse-overview-develop.md).
 
 
