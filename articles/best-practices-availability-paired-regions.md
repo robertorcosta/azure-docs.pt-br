@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: 90111325677e1bdd12a03081ad7513a34f68fd40
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: b71048412f5715fd1b8ef3edf742716916672bd5
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044133"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718756"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
 
@@ -29,9 +29,9 @@ Figura 1 – Pares regionais do Azure
 | painel Geografia do app&#39;s selecionado | Regiões emparelhadas |  |
 |:--- |:--- |:--- |
 | Ásia |Ásia Oriental |Sudeste Asiático |
-| Austrália |Austrália Oriental |Sudeste da Austrália |
+| Austrália |Leste da Austrália |Sudeste da Austrália |
 | Austrália |Austrália Central |Austrália Central 2 |
-| Brasil |Sul do Brasil |Centro-Sul dos EUA |
+| Brasil |Sul do Brasil |Centro-Sul dos Estados Unidos |
 | Canadá |Canadá Central |Leste do Canadá |
 | China |Norte da China |Leste da China|
 | China |Norte da China 2 |Leste da China 2|
@@ -43,16 +43,16 @@ Figura 1 – Pares regionais do Azure
 | Japão |Leste do Japão |Oeste do Japão |
 | Coreia do Sul |Coreia Central |Sul da Coreia |
 | América do Norte |Leste dos EUA |Oeste dos EUA |
-| América do Norte |Leste dos EUA 2 |EUA Central |
-| América do Norte |Centro-Norte dos EUA |Centro-Sul dos EUA |
+| América do Norte |Leste dos EUA 2 |Centro dos EUA |
+| América do Norte |Centro-Norte dos EUA |Centro-Sul dos Estados Unidos |
 | América do Norte |Oeste dos EUA 2 |Centro-Oeste dos EUA 
 | África do Sul | Norte da África do Sul | Oeste da África do Sul
 | Reino Unido |Oeste do Reino Unido |Sul do Reino Unido |
 | Emirados Árabes Unidos | Norte dos EAU | EAU Central
-| Departamento de Defesa dos EUA |US DoD Leste |US DoD Central |
-| Governo dos EUA |US Gov - Arizona |US Gov - Texas |
-| Governo dos EUA |US Gov - Iowa |US Gov - Virgínia |
-| Governo dos EUA |US Gov - Virgínia |US Gov - Texas |
+| Departamento de Defesa dos EUA |DoD do Leste dos EUA |DoD Central dos EUA |
+| Governo dos EUA |Governo dos EUA do Arizona |Governo dos EUA do Texas |
+| Governo dos EUA |US Gov Iowa |Gov. dos EUA – Virgínia |
+| Governo dos EUA |Gov. dos EUA – Virgínia |Governo dos EUA do Texas |
 
 Tabela 1 – mapeamento de pares regionais do Azure
 
@@ -75,7 +75,7 @@ Figura 2 – par da região do Azure hipotético
 ## <a name="cross-region-activities"></a>Atividades entre regiões
 Como mencionado na Figura 2.
 
-![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Computação do Azure (IaaS)** – Você deve provisionar recursos de computação adicionais com antecedência para garantir que os recursos estejam disponíveis em outra região durante um desastre. Para saber mais, consulte [Diretrizes técnicas de resiliência do Azure](resiliency/resiliency-technical-guidance.md).
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Computação do Azure (IaaS)** – Você deve provisionar recursos de computação adicionais com antecedência para garantir que os recursos estejam disponíveis em outra região durante um desastre. Para saber mais, confira as [Orientação técnica de resiliência do Azure](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md).
 
 ![armazenamento](./media/best-practices-availability-paired-regions/2Green.png) **armazenamento do Azure** – se você estiver usando discos gerenciados, saiba mais sobre [backups entre regiões](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) com o backup do Azure e [replicando VMs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) de uma região para outra com Azure site Recovery. Se você estiver usando contas de armazenamento, o armazenamento com redundância geográfica (GRS) será configurado por padrão quando uma conta de armazenamento do Azure for criada. Com o GRS, seus dados são replicados automaticamente três vezes na região primária e três vezes na região emparelhada. Para saber mais, consulte [Opções de redundância do Armazenamento do Azure](storage/common/storage-redundancy.md).
 

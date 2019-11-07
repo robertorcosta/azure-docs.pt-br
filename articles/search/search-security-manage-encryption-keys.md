@@ -1,26 +1,24 @@
 ---
 title: Criptografia em repouso usando chaves gerenciadas pelo cliente no Azure Key Vault (versão prévia)
 titleSuffix: Azure Cognitive Search
-description: Complemente a criptografia do lado do servidor sobre índices e mapas de sinônimos no Azure Pesquisa Cognitiva por meio de chaves que você cria e gerencia no Azure Key Vault.
+description: Complemente a criptografia do lado do servidor sobre índices e mapas de sinônimos no Azure Pesquisa Cognitiva por meio de chaves que você cria e gerencia no Azure Key Vault. Esse recurso está atualmente em visualização pública.
 manager: nitinme
 author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 94c9d94edb9a9ca3f6117bd43ab9cefe1dad52a3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1521abfa327c69648b38f02d1d6313baa369f304
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794364"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721760"
 ---
 # <a name="content-encryption-of-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Criptografia de conteúdo do Azure Pesquisa Cognitiva usando chaves gerenciadas pelo cliente no Azure Key Vault
 
-> [!Note]
-> A criptografia com chaves gerenciadas pelo cliente está em versão prévia e não se destina ao uso em produção. A [API REST versão 2019-05-06-versão prévia](search-api-preview.md) fornece esse recurso. Você também pode usar o SDK do .NET versão 8,0-Preview.
->
-> Esse recurso não está disponível para serviços gratuitos. Você deve usar um serviço de pesquisa Faturável criado em ou após 2019-01-01. Não há suporte ao portal no momento.
+> [!IMPORTANT] 
+> O suporte para criptografia em repouso está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) e o [SDK do .NET versão 8,0-Preview](search-dotnet-sdk-migration-version-9.md) fornece esse recurso. No momento, não há suporte ao Portal.
 
 Por padrão, o Azure Pesquisa Cognitiva criptografa o conteúdo do usuário em repouso com [chaves gerenciadas pelo serviço](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Você pode complementar a criptografia padrão com uma camada de criptografia adicional usando as chaves que você cria e gerencia no Azure Key Vault. Este artigo orienta você pelas etapas.
 
@@ -233,7 +231,7 @@ Para criar um aplicativo do AAD no Portal:
 > Ao alterar um aplicativo do AAD ou sua chave de autenticação, qualquer índice de Pesquisa Cognitiva do Azure ou mapa de sinônimos que usa esse aplicativo deve primeiro ser atualizado para usar o novo aplicativo ID\key **antes** de excluir o aplicativo anterior ou sua autorização e antes de revogar seu Key Vault acesso a ele.
 > A falha ao fazer isso tornará o mapa de índice ou sinônimo inutilizável, pois ele não poderá descriptografar o conteúdo depois que o acesso à chave for perdido.   
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você não estiver familiarizado com a arquitetura de segurança do Azure, examine a [documentação de segurança do Azure](https://docs.microsoft.com/azure/security/)e, em particular, este artigo:
 

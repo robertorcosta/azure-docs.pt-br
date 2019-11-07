@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/15/2019
+ms.date: 11/06/2019
 ms.author: sedusch
-ms.openlocfilehash: 5632ccf6c9b9cb67d169c5b60f1adefd85b576b8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ffa2f937a14aa14750480d1c45498fb4c49fcc30
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791656"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721506"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade do SAP HANA nas VMs do Azure no SUSE Linux Enterprise Server
 
@@ -77,7 +77,7 @@ Primeiro, leia os seguintes documentos e Notas SAP:
   * Configuração de uma infraestrutura otimizada de desempenho do SAP HANA SR (SLES para Aplicativos SAP 12 SP1). O guia contém todas as informações necessárias para configurar a Replicação de Sistema do SAP HANA para desenvolvimento local. Use este guia como uma linha de base.
   * Configuração de uma infraestrutura otimizada para custo de SR do SAP HANA (SLES para aplicativos SAP 12 SP1)
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Para obter a alta disponibilidade, o SAP HANA é instalada em duas máquinas virtuais. Os dados são replicados usando a Replicação de Sistema do HANA.
 
@@ -124,7 +124,7 @@ Para implantar o modelo, siga estas etapas:
 1. Crie uma rede virtual.
 1. Crie um conjunto de disponibilidade.
    - Defina o máximo de domínio de atualização.
-1. Crie um balanceador de carga (interno).
+1. Crie um balanceador de carga (interno). Recomendamos o [balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
    - Selecione a rede virtual criada na etapa 2.
 1. Crie a máquina virtual 1.
    - Use uma imagem SLES4SAP na galeria do Azure que tem suporte para o SAP HANA no tipo de VM que você selecionou.
@@ -133,67 +133,107 @@ Para implantar o modelo, siga estas etapas:
    - Use uma imagem SLES4SAP na galeria do Azure que tem suporte para o SAP HANA no tipo de VM que você selecionou.
    - Selecione o conjunto de disponibilidade criado na etapa 3. 
 1. Adicione discos de dados.
-1. Configure o balanceador de carga. Primeiro, crie um pool de IP de front-end:
+1. Se estiver usando o balanceador de carga padrão, siga estas etapas de configuração:
+   1. Primeiro, crie um pool de IP de front-end:
+   
+      1. Abra o balanceador de carga, selecione **pool de front-end** e selecione **Adicionar**.
+      1. Insira o nome do novo pool de IP front-end (por exemplo, **hana-frontend**).
+      1. Defina a **Atribuição** para **Estático** e insira o endereço IP (por exemplo, **10.0.0.13**).
+      1. Selecione **OK**.
+      1. Depois que o novo pool de IP de front-end for criado, anote o endereço IP do pool.
+   
+   1. Em seguida, crie um pool de back-end:
+   
+      1. Abra o balanceador de carga, selecione **pools de back-end** e selecione **Adicionar**.
+      1. Insira o nome do novo pool de back-end (por exemplo, **hana-backend**).
+      1. Selecione **Rede Virtual**.
+      1. Selecione **Adicionar uma máquina virtual**.
+      1. Selecione * * máquina virtual * *.
+      1. Selecione as máquinas virtuais do cluster SAP HANA e seus endereços IP.
+      1. Selecione **Adicionar**.
+   
+   1. Em seguida, crie uma investigação de integridade:
+   
+      1. Abra o balanceador de carga, selecione **investigações de integridade** e selecione **Adicionar**.
+      1. Insira o nome da nova investigação de integridade (por exemplo, **hana-hp**).
+      1. Selecione **TCP** como o protocolo e porta 625**03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
+      1. Selecione **OK**.
+   
+   1. Em seguida, crie as regras de balanceamento de carga:
+   
+      1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
+      1. Insira o nome da nova regra do balanceador de carga (por exemplo, **Hana-lb**).
+      1. Selecione o endereço IP de front-end, o pool de back-ends e a investigação de integridade que você criou anteriormente (por exemplo, **Hana-frontend**, **Hana-backend** e **Hana-HP**).
+      1. Selecione **portas de alta disponibilidade**.
+      1. Aumente o **tempo limite de ociosidade** para 30 minutos.
+      1. Certifique-se de **habilitar IP Flutuante**.
+      1. Selecione **OK**.
 
-   1. Abra o balanceador de carga, selecione **pool de front-end** e selecione **Adicionar**.
-   1. Insira o nome do novo pool de IP front-end (por exemplo, **hana-frontend**).
-   1. Defina a **Atribuição** para **Estático** e insira o endereço IP (por exemplo, **10.0.0.13**).
-   1. Selecione **OK**.
-   1. Depois que o novo pool de IP de front-end for criado, anote o endereço IP do pool.
+   > [!Note]
+   > Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Azure Load Balancer padrão (sem endereço IP público), não haverá nenhuma conectividade com a Internet de saída, a menos que a configuração adicional seja executada para permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como obter conectividade de saída, consulte [conectividade de ponto de extremidade pública para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
-1. Em seguida, crie um pool de back-end:
+1. Como alternativa, se seu cenário determina o uso do Load Balancer básico, siga estas etapas de configuração:
+   1. Primeiro, crie um pool de IP de front-end:
+   
+      1. Abra o balanceador de carga, selecione **pool de front-end** e selecione **Adicionar**.
+      1. Insira o nome do novo pool de IP front-end (por exemplo, **hana-frontend**).
+      1. Defina a **Atribuição** para **Estático** e insira o endereço IP (por exemplo, **10.0.0.13**).
+      1. Selecione **OK**.
+      1. Depois que o novo pool de IP de front-end for criado, anote o endereço IP do pool.
+   
+   1. Em seguida, crie um pool de back-end:
+   
+      1. Abra o balanceador de carga, selecione **pools de back-end** e selecione **Adicionar**.
+      1. Insira o nome do novo pool de back-end (por exemplo, **hana-backend**).
+      1. Selecione **Adicionar uma máquina virtual**.
+      1. Selecione o conjunto de disponibilidade criado na etapa 3.
+      1. Selecione as máquinas virtuais do cluster do SAP HANA.
+      1. Selecione **OK**.
+   
+   1. Em seguida, crie uma investigação de integridade:
+   
+      1. Abra o balanceador de carga, selecione **investigações de integridade** e selecione **Adicionar**.
+      1. Insira o nome da nova investigação de integridade (por exemplo, **hana-hp**).
+      1. Selecione **TCP** como o protocolo e porta 625**03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
+      1. Selecione **OK**.
+   
+   1. Para o SAP HANA 1.0, crie as regras de balanceamento de carga:
+   
+      1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
+      1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3**03**15).
+      1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade que você criou anteriormente (por exemplo, **hana-frontend**).
+      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**15.
+      1. Aumente o **tempo limite de ociosidade** para 30 minutos.
+      1. Certifique-se de **habilitar IP Flutuante**.
+      1. Selecione **OK**.
+      1. Repita essas etapas para a porta 3**03**17.
+   
+   1. Para o SAP HANA 2.0, crie as regras de balanceamento de carga para o banco de dados do sistema:
+   
+      1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
+      1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3**03**13).
+      1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade que você criou anteriormente (por exemplo, **hana-frontend**).
+      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**13.
+      1. Aumente o **tempo limite de ociosidade** para 30 minutos.
+      1. Certifique-se de **habilitar IP Flutuante**.
+      1. Selecione **OK**.
+      1. Repita essas etapas para a porta 3**03**14.
+   
+   1. Para o SAP HANA 2.0, primeiro crie as regras de balanceamento de carga para o banco de dados do locatário:
+   
+      1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
+      1. Insira o nome da nova regra do balanceador de carga (por exemplo hana-lb-3**03**40).
+      1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade criados anteriormente (por exemplo, **hana-frontend**).
+      1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**40.
+      1. Aumente o **tempo limite de ociosidade** para 30 minutos.
+      1. Certifique-se de **habilitar IP Flutuante**.
+      1. Selecione **OK**.
+      1. Repita essas etapas para portas 3**03**41 e 3**03**42.
 
-   1. Abra o balanceador de carga, selecione **pools de back-end** e selecione **Adicionar**.
-   1. Insira o nome do novo pool de back-end (por exemplo, **hana-backend**).
-   1. Selecione **Adicionar uma máquina virtual**.
-   1. Selecione o conjunto de disponibilidade criado na etapa 3.
-   1. Selecione as máquinas virtuais do cluster do SAP HANA.
-   1. Selecione **OK**.
-
-1. Em seguida, crie uma investigação de integridade:
-
-   1. Abra o balanceador de carga, selecione **investigações de integridade** e selecione **Adicionar**.
-   1. Insira o nome da nova investigação de integridade (por exemplo, **hana-hp**).
-   1. Selecione **TCP** como o protocolo e porta 625**03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
-   1. Selecione **OK**.
-
-1. Para o SAP HANA 1.0, crie as regras de balanceamento de carga:
-
-   1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-   1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3**03**15).
-   1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade que você criou anteriormente (por exemplo, **hana-frontend**).
-   1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**15.
-   1. Aumente o **tempo limite de ociosidade** para 30 minutos.
-   1. Certifique-se de **habilitar IP Flutuante**.
-   1. Selecione **OK**.
-   1. Repita essas etapas para a porta 3**03**17.
-
-1. Para o SAP HANA 2.0, crie as regras de balanceamento de carga para o banco de dados do sistema:
-
-   1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-   1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3**03**13).
-   1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade que você criou anteriormente (por exemplo, **hana-frontend**).
-   1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**13.
-   1. Aumente o **tempo limite de ociosidade** para 30 minutos.
-   1. Certifique-se de **habilitar IP Flutuante**.
-   1. Selecione **OK**.
-   1. Repita essas etapas para a porta 3**03**14.
-
-1. Para o SAP HANA 2.0, primeiro crie as regras de balanceamento de carga para o banco de dados do locatário:
-
-   1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-   1. Insira o nome da nova regra do balanceador de carga (por exemplo hana-lb-3**03**40).
-   1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade criados anteriormente (por exemplo, **hana-frontend**).
-   1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**40.
-   1. Aumente o **tempo limite de ociosidade** para 30 minutos.
-   1. Certifique-se de **habilitar IP Flutuante**.
-   1. Selecione **OK**.
-   1. Repita essas etapas para portas 3**03**41 e 3**03**42.
-
-Para obter mais informações sobre as portas necessárias para SAP HANA, leia o capítulo [conexões a bancos de dados de locatário](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) no guia [SAP Hana bancos de dados de locatários](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) ou [SAP Note 2388694][2388694].
+   Para obter mais informações sobre as portas necessárias para SAP HANA, leia o capítulo [conexões a bancos de dados de locatário](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) no guia [SAP Hana bancos de dados de locatários](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) ou [SAP Note 2388694][2388694].
 
 > [!IMPORTANT]
-> Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. TCP _timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. tcp_timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 > Consulte também SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="create-a-pacemaker-cluster"></a>Criar um cluster do Pacemaker
@@ -1085,7 +1125,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]

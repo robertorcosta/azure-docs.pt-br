@@ -1,22 +1,20 @@
 ---
-title: Azure Functions plano Premium (visualização) | Microsoft Docs
+title: Plano Premium do Azure Functions
 description: Detalhes e opções de configuração (VNet, sem início frio, duração de execução ilimitada) para o plano Azure Functions Premium.
-services: functions
 author: jeffhollan
-manager: jeconnoc
-ms.assetid: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 4/11/2019
+ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: ce83d521d5bc986be7bb24ef874f1f0e1051e3ae
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 8cda3ce85e6e7e9d5d7787406eb3b9785c1f7724
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755409"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719039"
 ---
-# <a name="azure-functions-premium-plan-preview"></a>Azure Functions plano Premium (versão prévia)
+# <a name="azure-functions-premium-plan"></a>Plano Premium do Azure Functions
 
 O plano Premium Azure Functions é uma opção de hospedagem para aplicativos de funções. O plano Premium fornece recursos como conectividade VNet, sem início frio e hardware Premium.  Vários aplicativos de funções podem ser implantados no mesmo plano Premium e o plano permite que você configure o tamanho da instância de computação, o tamanho do plano base e o tamanho máximo do plano.  Para obter uma comparação do plano Premium e outros tipos de plano e hospedagem, consulte [Opções de escala e Hospedagem de função](functions-scale.md).
 
@@ -59,7 +57,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Azure Functions implantadas em um plano Premium aproveita a [nova integração de VNet para aplicativos Web](../app-service/web-sites-integrate-with-vnet.md).  Quando configurado, seu aplicativo pode se comunicar com recursos em sua VNet ou protegidos por meio de pontos de extremidade de serviço.  As restrições de IP também estão disponíveis no aplicativo para restringir o tráfego de entrada.
 
-Ao atribuir uma sub-rede ao seu aplicativo de funções em um plano Premium, você precisa de uma sub-rede com endereços IP suficientes para cada instância em potencial. Embora o número máximo de instâncias possa variar durante a visualização, exigimos um bloco de IP com pelo menos 100 endereços disponíveis.
+Ao atribuir uma sub-rede ao seu aplicativo de funções em um plano Premium, você precisa de uma sub-rede com endereços IP suficientes para cada instância em potencial. Exigimos um bloco de IP com pelo menos 100 endereços disponíveis.
 
 Para obter mais informações, consulte [integrar seu aplicativo de funções a uma VNet](functions-create-vnet.md).
 
@@ -71,11 +69,9 @@ Instâncias de computação adicionais são adicionadas automaticamente para seu
 
 Azure Functions em um plano de consumo são limitados a 10 minutos para uma única execução.  No plano Premium, o padrão de duração da execução é de 30 minutos para evitar execuções de fuga. No entanto, você pode [Modificar a configuração de host. JSON](./functions-host-json.md#functiontimeout) para torná-la desassociada para aplicativos de plano Premium.
 
-Na visualização, sua duração não é garantida após 12 minutos e terá a melhor chance de executar além de 30 minutos se seu aplicativo não for dimensionado além de sua contagem mínima de trabalhadores.
-
 ## <a name="plan-and-sku-settings"></a>Configurações de plano e SKU
 
-Ao criar o plano, você define duas configurações: o número mínimo de instâncias (ou o tamanho do plano) e o limite máximo de intermitência.  As instâncias mínimas para um plano Premium são 1, e a intermitência máxima durante a visualização é 20.  As instâncias mínimas são reservadas e sempre em execução.
+Ao criar o plano, você define duas configurações: o número mínimo de instâncias (ou o tamanho do plano) e o limite máximo de intermitência.  As instâncias mínimas são reservadas e sempre em execução.
 
 > [!IMPORTANT]
 > Você é cobrado por cada instância alocada na contagem mínima de instâncias, independentemente de as funções serem executadas ou não.
@@ -102,17 +98,17 @@ Ao criar ou dimensionar seu plano, você pode escolher entre três tamanhos de i
 
 ## <a name="regions"></a>Regiões
 
-Abaixo estão as regiões com suporte no momento para a visualização pública para cada sistema operacional.
+Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 
 |Região| Windows | Linux |
 |--| -- | -- |
-|Austrália Central| ✔ * | |
-|Austrália Central 2| ✔ * | |
-|Austrália Oriental| ✔ | |
+|Austrália Central| ✔<sup>1</sup> | |
+|Austrália Central 2| ✔<sup>1</sup> | |
+|Leste da Austrália| ✔ | |
 |Sudeste da Austrália | ✔ | ✔ |
-|Sul do Brasil| ✔ * * |  |
+|Sul do Brasil| ✔<sup>2</sup> |  |
 |Canadá Central| ✔ |  |
-|EUA Central| ✔ |  |
+|Centro dos EUA| ✔ |  |
 |Ásia Oriental| ✔ |  |
 |Leste dos EUA | ✔ | ✔ |
 |Leste dos EUA 2| ✔ |  |
@@ -121,25 +117,22 @@ Abaixo estão as regiões com suporte no momento para a visualização pública 
 |Oeste do Japão| ✔ | |
 |Coreia Central| ✔ |  |
 |Centro-Norte dos EUA| ✔ |  |
-|Europa Setentrional| ✔ | ✔ |
-|Centro-Sul dos EUA| ✔ |  |
+|Norte da Europa| ✔ | ✔ |
+|Centro-Sul dos Estados Unidos| ✔ |  |
 |Sul da Índia | ✔ | |
 |Sudeste Asiático| ✔ | ✔ |
 |Sul do Reino Unido| ✔ | |
 |Oeste do Reino Unido| ✔ |  |
-|Oeste da Europa| ✔ | ✔ |
+|Europa Ocidental| ✔ | ✔ |
 |Índia Ocidental| ✔ |  |
 |Oeste dos EUA| ✔ | ✔ |
+|Oeste dos EUA 2| ✔ |  |
 
-\* redução máxima limitada a 20 instâncias
+<sup>1</sup> Redução máxima limitada a 20 instâncias.  
+<sup>2</sup> Expansão máxima limitada a 60 instâncias.
 
-\** expansão máxima limitada a 60 instâncias
 
-## <a name="known-issues"></a>Problemas conhecidos
-
-Você pode acompanhar o status de problemas conhecidos da [Visualização pública no GitHub](https://github.com/Azure/Azure-Functions/wiki/Premium-plan-known-issues).
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Entender Azure Functions escala e opções de hospedagem](functions-scale.md)

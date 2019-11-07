@@ -1,17 +1,17 @@
 ---
-title: Compatibilidade das ferramentas de banco de dados do Azure para drivers MySQL e gerenciamento
+title: Compatibilidade de drivers do banco de dados do Azure para MySQL e ferramentas de gerenciamento
 description: Esse artigo descreve os drivers MySQL e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 03/19/2019
-ms.openlocfilehash: 05f48145973777052590f8d10e1a2ce1fd22ec7a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/06/2019
+ms.openlocfilehash: 916c02c30f6d54aef44459775a7a437fe96a4ff9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525387"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720147"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Drivers MySQL e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL
 Esse artigo descreve os drivers e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL.
@@ -19,15 +19,26 @@ Esse artigo descreve os drivers e as ferramentas de gerenciamento compatíveis c
 ## <a name="mysql-drivers"></a>Drivers MySQL
 O Banco de Dados do Azure para MySQL usa a edição de comunidade mais popular do mundo do banco de dados MySQL. Portanto, ele é compatível com uma ampla variedade de drivers e linguagens de programação. A meta é dar suporte às três versões mais recentes de drivers MySQL e os esforços com autores da comunidade de software livre para melhorar constantemente a funcionalidade e usabilidade dos drivers MySQL continuam. Na tabela a seguir, há uma lista de drivers que foram testados e que são compatíveis com o Banco de Dados do Azure para MySQL 5.6 e 5.7:
 
-| **Driver** | **Links** | **Versões compatíveis** | **Versões incompatíveis** | **Observações** |
-| :-------- | :------------------------ | :----------- | :---------------------- | :--------------------------------------- |
-| PHP | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5,3 | Para a conexão PHP 7.0 com o SSL MySQLi, adicione MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT na cadeia de conexão. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> PDO defina a opção ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` como false.|
-| .NET | [MySqlConnector no GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Pacote de instalação do Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0.27 e posterior | 0.26.5 e anterior | |
-| Conector MySQL/NET | [Conector MySQL/NET](https://github.com/mysql/mysql-connector-net) | 8.0, 7.0, 6.10 |  | Um bug de codificação pode causar falha em alguns sistemas não - UTF8 Windows nas conexões. |
-| Nodejs |  [MySQLjs no GitHub](https://github.com/mysqljs/mysql/) <br> Pacote de instalação do NPM:<br> Executar `npm install mysql` do NPM | 2.15 | 2.14.1 e anterior | |
-| GO | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 e anterior | Use `allowNativePasswords=true` na cadeia de conexão para a versão 1.3. Versão 1.4 contém uma correção e `allowNativePasswords=true` não é mais necessário. |
-| Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 e anterior | |
-| Java | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 e anterior | |
+| **Linguagem de programação** | **Driver** | **Links** | **Versões compatíveis** | **Versões incompatíveis** | **Observações** |
+| :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |
+| PHP | mysqli, pdo_mysql, mysqlnd | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5,3 | Para a conexão PHP 7.0 com o SSL MySQLi, adicione MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT na cadeia de conexão. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> PDO defina a opção ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` como false.|
+| .NET | Conector MySQL assíncrono para .NET | https://github.com/mysql-net/MySqlConnector <br> [Pacote de instalação do Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0.27 e posterior | 0.26.5 e anterior | |
+| .NET | Conector MySQL/NET | https://github.com/mysql/mysql-connector-net | 8.0, 7.0, 6.10 |  | Um bug de codificação pode causar falha em alguns sistemas não - UTF8 Windows nas conexões. |
+| Node.js | mysqljs | https://github.com/mysqljs/mysql/ <br> Pacote de instalação do NPM:<br> Executar `npm install mysql` do NPM | 2.15 | 2.14.1 e anterior | |
+| Node.js | nó-mysql2 | https://github.com/sidorares/node-mysql2 | 1.3.4 + | | |
+| Go | Acessar o driver do MySQL | https://github.com/go-sql-driver/mysql/releases | 1,3, 1,4 | 1.2 e anterior | Use `allowNativePasswords=true` na cadeia de conexão para a versão 1,3. A versão 1,4 contém uma correção e `allowNativePasswords=true` não é mais necessária. |
+| Python | Conector do MySQL/Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2,0, 2,1, 2,2, use 8.0.16 + com MySQL 8,0  | 1.2.2 e anterior | |
+| Python | PyMySQL | https://pypi.org/project/PyMySQL/ | 0.7.11, 0.8.0, 0.8.1, 0.9.3 + | 0.9.0-0.9.2 (regressão em web2py) | |
+| Java | Conector do MariaDB/J | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 e anterior | | 
+| Java | Conector do MySQL/J | https://github.com/mysql/mysql-connector-j | 5.1.20 +, use 8.0.17 + com MySQL 8,0 | 5.1.9 e abaixo | |
+| C | Conector do MySQL/C (libmysqlclient) | https://dev.mysql.com/doc/refman/5.7/en/c-api-implementations.html | 6.0.2 + | | |
+| C | Conector do MySQL/ODBC (MyODBC) | https://github.com/mysql/mysql-connector-odbc | 3.51.29 + | | |
+| C++ | Conector do MySQL/C++ | https://github.com/mysql/mysql-connector-cpp | 1.1.9 + | 1.1.3 e abaixo | | 
+| C++ | MySQL + +| https://tangentsoft.net/mysql++ | 3.2.3 + | | |
+| Ruby | mysql2 | https://github.com/brianmario/mysql2 | 0.4.10 + | | |
+| R | RMySQL | https://github.com/rstats-db/RMySQL | 0.10.16 + | | |
+| Swift | MySQL-Swift | https://github.com/novi/mysql-swift | 0.7.2 + | | |
+| Swift | vapor/MySQL | https://github.com/vapor/mysql-kit | 2.0.1 + | | |
 
 ## <a name="management-tools"></a>Ferramentas de gerenciamento
 A vantagem de compatibilidade se estende para as ferramentas de gerenciamento de banco de dados também. Suas ferramentas existentes devem continuar trabalhando com o Banco de Dados do Azure para MySQL, contanto que a manipulação do banco de dados seja operada dentro dos limites das permissões de usuário. Três ferramentas comuns de gerenciamento de banco de dados que foram testadas e identificadas como compatíveis com o Banco de Dados do Azure para MySQL 5.6 e 5.7 estão listadas na tabela a seguir:
@@ -37,7 +48,7 @@ A vantagem de compatibilidade se estende para as ferramentas de gerenciamento de
 | Criar, atualizar, ler, gravar, excluir | X | X | X |
 | Conexão SSL | X | X | X |
 | Preenchimento automático da consulta SQL | X | X |  |
-| Importar e exportar dados | X | X | X |
+| Importar e exportar dados | X | X | X | 
 | Exportar para vários formatos | X | X | X |
 | Backup e restauração |  | X |  |
 | Exibir parâmetros do servidor | X | X | X |

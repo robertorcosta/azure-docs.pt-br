@@ -1,7 +1,7 @@
 ---
 title: Testar e treinar novamente um modelo - Serviço de Visão Personalizada
 titleSuffix: Azure Cognitive Services
-description: Saiba como testar uma imagem e, em seguida, usá-la para treinar novamente o modelo.
+description: Este artigo mostrará como testar uma imagem e, em seguida, usá-la para treinar novamente seu modelo no serviço de Visão Personalizada.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 3f78f0b992581a44b030387f1bd0e37664df4cfd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c6ed8869f6d33609381a42fd22d728e9e5542802
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560917"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721191"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Testar e treinar novamente um modelo com o Serviço de Visão Personalizada
 
@@ -39,7 +39,7 @@ Agora você pode adicionar esta imagem de teste ao seu modelo e, em seguida, tre
 
 Para usar a imagem enviada anteriormente para treinamento, use as seguintes etapas:
 
-1. Para exibir imagens enviadas para o classificador, abra a [página da Web Visão Personalizada](https://customvision.ai) e selecione a guia __Previsões__.
+1. Para exibir imagens enviadas para o classificador, abra a [página da Web de Visão Personalizada](https://customvision.ai) e selecione a guia __Previsões__.
 
     ![Imagem da guia de previsões](./media/test-your-model/predictions-tab.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Melhorar o classificador - Serviço de Visão Personalizada
 titleSuffix: Azure Cognitive Services
-description: Saiba como melhorar a qualidade do classificador.
+description: Neste artigo, você aprenderá como a quantidade, a qualidade e a variedade de dados podem melhorar a qualidade do classificador no serviço de Visão Personalizada.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: d71c750185589fd488df70b63fd48e9e674ee3dc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c2858d5f9bca662cbbcd48b2345a7dc2c7ae48b2
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561049"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718534"
 ---
 # <a name="how-to-improve-your-classifier"></a>Como melhorar o seu classificador
 
@@ -53,15 +53,15 @@ Use imagens representativas do que será enviado ao classificador durante o uso 
 
 Para corrigir esse problema, inclua uma variedade de imagens para garantir que seu classificador possa generalizar bem. Abaixo, estão algumas maneiras de tornar o treinamento mais diversificado:
 
-* __Em Segundo Plano:__ Forneça imagens do seu objeto na frente de diferentes telas de fundo. Fotos em contextos naturais são melhores que fotos na frente de telas de fundo neutras, pois fornecem mais informações ao classificador.
+* __Plano de fundo:__ Forneça imagens do seu objeto na frente de diferentes planos de fundo. Fotos em contextos naturais são melhores que fotos na frente de telas de fundo neutras, pois fornecem mais informações ao classificador.
 
     ![Imagem de exemplos de tela de fundo](./media/getting-started-improving-your-classifier/background.png)
 
-* __Iluminação:__ Forneça imagens com iluminação variada (ou seja, tiradas com flash, alta exposição e assim por diante), principalmente se as imagens usadas para previsão tiverem uma iluminação diferente. Também é útil usar imagens com saturação, matiz e brilho variados.
+* __Iluminação:__ Forneça imagens com iluminação variada (ou seja, obtida com flash, alta exposição e assim por diante), especialmente se as imagens usadas para previsão têm iluminação diferente. Também é útil usar imagens com saturação, matiz e brilho variados.
 
     ![Imagem de exemplos de iluminação](./media/getting-started-improving-your-classifier/lighting.png)
 
-* __Tamanho do objeto:__ fornecer imagens nas quais os objetos variam em tamanho e número (por exemplo, uma foto de muitas bananas e um close-up de uma única banana). O dimensionamento diferente ajuda o classificador a generalizar melhor.
+* __Tamanho do objeto:__ Forneça imagens nas quais os objetos variam em tamanho e número (por exemplo, uma foto de vários bananas e closeup de um único banana). O dimensionamento diferente ajuda o classificador a generalizar melhor.
 
     ![Imagem de exemplos de tamanho](./media/getting-started-improving-your-classifier/size.png)
 
@@ -69,7 +69,7 @@ Para corrigir esse problema, inclua uma variedade de imagens para garantir que s
 
     ![Imagem de amostras de ângulo](./media/getting-started-improving-your-classifier/angle.png)
 
-* __Estilo:__ forneça imagens de estilos diferentes da mesma classe (por exemplo, diferentes variedades da mesma fruta). No entanto, se você tem objetos de estilos drasticamente diferentes (como Mickey Mouse em comparação com um rato da vida real), recomendamos rotulá-los como classes separadas para representar melhor seus diferentes recursos.
+* __Estilo:__ Forneça imagens de diferentes estilos da mesma classe (por exemplo, diferentes variedades da mesma fruta). No entanto, se você tem objetos de estilos drasticamente diferentes (como Mickey Mouse em comparação com um rato da vida real), recomendamos rotulá-los como classes separadas para representar melhor seus diferentes recursos.
 
     ![Imagem de exemplos de estilo](./media/getting-started-improving-your-classifier/style.png)
 
@@ -86,7 +86,7 @@ Em algum ponto do seu projeto, você precisa adicionar _exemplos negativos_ para
 
 Quando você usa ou testa o classificador de imagens enviando imagens para o ponto de extremidade de previsão, o Serviço de Visão Personalizada armazena essas imagens. É possível usá-las para melhorar o modelo.
 
-1. Para exibir as imagens enviadas ao classificador, abra a [página da Web Visão Personalizada](https://customvision.ai), acesse o projeto e selecione a guia __Previsões__. A exibição padrão mostra imagens da iteração atual. É possível usar o menu suspenso __Iteração__ para exibir imagens enviadas durante iterações anteriores.
+1. Para exibir imagens enviadas ao classificador, abra a [página da web visão personalizada](https://customvision.ai), vá para seu projeto e selecione a guia __previsões__ . O modo de exibição padrão mostra imagens da iteração atual. É possível usar o menu suspenso __Iteração__ para exibir imagens enviadas durante iterações anteriores.
 
     ![captura de tela da guia de previsões com imagens em exibição](./media/getting-started-improving-your-classifier/predictions.png)
 
