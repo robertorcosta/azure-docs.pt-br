@@ -1,18 +1,18 @@
 ---
-title: Identificar problemas com o recurso de diagnóstico de área de trabalho virtual do Windows – Azure
-description: Descreve o recurso de diagnóstico de área de trabalho virtual do Windows e como usá-lo.
+title: Problemas de diagnóstico de área de trabalho virtual do Windows – Azure
+description: Como usar o recurso de diagnóstico de área de trabalho virtual do Windows para diagnosticar problemas.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 5401260921aee5fc54b50c1222188a6b244a0c5a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 0e04b075259ed1d003df4a03686d46b1adf694d3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840140"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606854"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificar e diagnosticar problemas
 
@@ -32,7 +32,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="diagnose-issues-with-powershell"></a>Diagnosticar problemas com o PowerShell
 
-O diagnóstico de área de trabalho virtual do Windows usa apenas um cmdlet do PowerShell, mas contém muitos parâmetros opcionais para ajudar a restringir e isolar problemas. As seções a seguir listam os cmdlets que você pode executar para diagnosticar problemas. A maioria dos filtros pode ser aplicada em conjunto. Os valores listados entre colchetes, `<tenantName>`como, devem ser substituídos pelos valores que se aplicam à sua situação.
+O diagnóstico de área de trabalho virtual do Windows usa apenas um cmdlet do PowerShell, mas contém muitos parâmetros opcionais para ajudar a restringir e isolar problemas. As seções a seguir listam os cmdlets que você pode executar para diagnosticar problemas. A maioria dos filtros pode ser aplicada em conjunto. Os valores listados entre colchetes, como `<tenantName>`, devem ser substituídos pelos valores que se aplicam à sua situação.
 
 ### <a name="retrieve-diagnostic-activities-in-your-tenant"></a>Recuperar atividades de diagnóstico em seu locatário
 
@@ -140,7 +140,7 @@ A tabela a seguir lista os erros comuns que seus administradores podem encontrar
 
 ### <a name="external-management-error-codes"></a>Códigos de erro de gerenciamento externo
 
-|Código numérico|Código de erro|Solução sugerida|
+|Código numérico|Código do erro|Solução sugerida|
 |---|---|---|
 |3|UnauthorizedAccess|O usuário que tentou executar o cmdlet administrador do PowerShell não tem permissões para fazer isso ou digitar seu nome de usuário indigitadamente.|
 |1000|TenantNotFound|O nome do locatário que você inseriu não corresponde a nenhum locatário existente. Examine o nome do locatário para erros de digitação e tente novamente.|
@@ -161,7 +161,7 @@ A tabela a seguir lista os erros comuns que seus administradores podem encontrar
 
 ### <a name="external-connection-error-codes"></a>Códigos de erro de conexão externa
 
-|Código numérico|Código de erro|Solução sugerida|
+|Código numérico|Código do erro|Solução sugerida|
 |---|---|---|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|O host da sessão não está ingressado corretamente no Active Directory.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|As conexões falharam porque o host da sessão não está disponível. Verifique a integridade do host da sessão.|

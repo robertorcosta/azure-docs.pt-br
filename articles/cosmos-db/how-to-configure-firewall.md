@@ -4,14 +4,14 @@ description: Saiba como configurar políticas de controle de acesso de IP para s
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: d4fab572f31d3187135ea3ac406431ced98828b1
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 8522a537301c1d35da2a2eb46b4374fa4daf6a27
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815922"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580692"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurar o firewall de IP no Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Quando você habilita uma política de controle de acesso IP de forma programát
 |------|----------|
 |Alemanha|51.4.229.218|
 |China|139.217.8.252|
-|US Gov|52.244.48.71|
+|Gov dos EUA|52.244.48.71|
 |Todas as outras regiões|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
 Você pode habilitar o acesso ao portal do Azure selecionando a opção **Permitir acesso do Portal do Azure**, conforme mostrado na captura de tela a seguir:
@@ -100,7 +100,7 @@ Para configurar o controle de acesso à sua conta do Azure Cosmos DB, certifique
 {
   "type": "Microsoft.DocumentDB/databaseAccounts",
   "name": "[variables('accountName')]",
-  "apiVersion": "2016-03-31",
+  "apiVersion": "2019-08-01",
   "location": "[parameters('location')]",
   "kind": "GlobalDocumentDB",
   "properties": {
@@ -108,8 +108,7 @@ Para configurar o controle de acesso à sua conta do Azure Cosmos DB, certifique
     "locations": "[variables('locations')]",
     "databaseAccountOfferType": "Standard",
     "enableAutomaticFailover": "[parameters('automaticFailover')]",
-    "enableMultipleWriteLocations": "[parameters('multipleWriteLocations')]",
-    "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+    "ipRangeFilter":"40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
   }
 }
 ```

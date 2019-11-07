@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas de Azure Site Recovery para problemas e erros de conectividade de rede do Azure para o Azure | Microsoft Docs
+title: Solucionar problemas de conectividade do Azure para a recuperação de desastre do Azure com o Azure Site Recovery
 description: Solucionar problemas e erros ao replicar máquinas virtuais do Azure para recuperação de desastre
 services: site-recovery
 author: asgang
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/05/2019
 ms.author: asgang
-ms.openlocfilehash: 8e1350a22554bab257e8c99954c2beaa357de2ff
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4995a4086c471a06fe859febfd2d1af7fbb22a76
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934517"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622443"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Solucionar problemas de conectividade de rede de VM do Azure para Azure
 
@@ -30,7 +30,7 @@ login.microsoftonline.com | Necessário para autorização e autenticação para
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Conectividade de saída para intervalos de IP ou URLs de recuperação de Site (código de erro 151037 ou 151072)
 
-## <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema nº 1: Falha ao registrar a máquina virtual do Azure no Site Recovery (151195) </br>
+## <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: falha ao registrar a máquina virtual do Azure com o Site Recovery (151195) </br>
 - **Possível causa** </br>
   - A conexão não pode ser estabelecida com Site Recovery pontos de extremidade devido à falha na resolução do DNS.
   - Isso é visto com mais frequência durante a proteção novamente quando você fizer failover da máquina virtual, mas o servidor DNS não está acessível da região de recuperação de Desastre.
@@ -41,7 +41,7 @@ login.microsoftonline.com | Necessário para autorização e autenticação para
     ![com-erro](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
 
 
-## <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: Falha na configuração do Site Recovery (151196)
+## <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: falha na configuração do Azure Site Recovery (151196)
 
 > [!NOTE]
 > Se as máquinas virtuais estiverem atrás do Load balancer interno **padrão** , ele não teria acesso aos IPS do O365 (ou seja, login.microsoftonline.com) por padrão. Altere-o para o tipo **básico** de balanceador de carga interno ou crie acesso de saída conforme mencionado no [artigo](https://aka.ms/lboutboundrulescli).
@@ -75,7 +75,7 @@ Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
 
    **Localidade** | **Endereço IP do Site Recovery** |  **Endereço IP de monitoramento do Site Recovery**
     --- | --- | ---
-   EUA Central | 40.69.144.231 | 52.165.34.144
+   Centro dos EUA | 40.69.144.231 | 52.165.34.144
 
 ### <a name="nsg-rules---central-us"></a>Regras de NSG – EUA Central
 
@@ -89,8 +89,8 @@ Essas regras são necessárias para que a replicação possa ser ativada da regi
 
    **Localidade** | **Endereço IP do Site Recovery** |  **Endereço IP de monitoramento do Site Recovery**
     --- | --- | ---
-   EUA Central | 13.82.88.226 | 104.45.147.24
-## <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: Falha na configuração do Site Recovery (151197)
+   Centro dos EUA | 13.82.88.226 | 104.45.147.24
+## <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: falha na configuração do Site Recovery (151197)
 - **Possível causa** </br>
   - Não é possível estabelecer conexão com pontos de extremidade de serviço de Recuperação de Site.
 
@@ -98,7 +98,7 @@ Essas regras são necessárias para que a replicação possa ser ativada da regi
   - O Azure Site Recovery requer acesso para a [intervalos de IP de recuperação de Site](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) dependendo da região. Certifique-se de que necessários intervalos os de IP são acessíveis a partir da máquina virtual.
 
 
-## <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: Falha na replicação do A2A quando o tráfego de rede passa pelo servidor proxy local (151072)
+## <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: falha na replicação do A2A quando o tráfego de rede passa pelo servidor proxy local (151072)
 - **Possível causa** </br>
   - As configurações de proxy personalizadas são inválidas e Azure Site Recovery agente do serviço de mobilidade não detectou automaticamente as configurações de proxy do IE
 

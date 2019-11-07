@@ -1,18 +1,18 @@
 ---
 title: Atualização assíncrona para modelos do Azure Analysis Services | Microsoft Docs
-description: Aprenda a codificar atualização assíncrona usando a API REST.
+description: Descreve como usar a API REST do Azure Analysis Services para codificar a atualização assíncrona de dados de modelo.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5fbb3f2cbc0e53ab1bc04d57b583802e26b92a60
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7c6fba10264939335cdef26f288973f8217f340b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147355"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573387"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 
@@ -56,7 +56,7 @@ Por exemplo, você pode usar o verbo POST na coleção Refreshes para executar u
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 Todas as chamadas devem ser autenticadas com um token do Azure Active Directory (OAuth 2) válido no cabeçalho Authorization e devem atender aos seguintes requisitos:
 
@@ -97,7 +97,7 @@ O corpo pode ser semelhante ao seguinte:
 
 Não é necessário especificar parâmetros. O padrão será aplicado.
 
-| name             | Type  | Descrição  |Padrão  |
+| Nome             | Tipo  | DESCRIÇÃO  |Padrão  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | O tipo de processamento a ser executado. Os tipos são alinhados com os tipos de [comandos de atualização](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) da TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Não há suporte para a adição de tipo.      |   automático      |
 | `CommitMode`     | Enum  | Determina se os objetos serão confirmados em lotes ou somente na conclusão. Os modos incluem: default, transactional, partialBatch.  |  transacional       |
@@ -211,9 +211,9 @@ Consulte [Criar entidade de serviço - portal do Azure](../active-directory/deve
 3.  Execute o exemplo.
 
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Confira também
 
 [Exemplos](analysis-services-samples.md)   
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

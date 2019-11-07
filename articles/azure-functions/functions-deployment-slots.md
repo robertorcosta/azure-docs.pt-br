@@ -1,8 +1,6 @@
 ---
 title: Azure Functions slots de implantação
 description: Aprenda a criar e usar slots de implantação com Azure Functions
-services: functions
-documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 keywords: Azure functions, funções
@@ -10,12 +8,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: 50337745b008cdd38dd860a0329e44ee712e7acd
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 23a4870332266ce180c2e94aeb0b5ca24073878b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70085676"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576311"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions slots de implantação
 
@@ -27,7 +25,7 @@ O seguinte reflete como as funções são afetadas por slots de permuta:
 - Se uma função estiver em execução durante uma permuta, a execução continuará e os gatilhos subsequentes serão roteados para a instância do aplicativo trocado.
 
 > [!NOTE]
-> Os slots não estão disponíveis para o plano de consumo do Linux.
+> No momento, os slots não estão disponíveis para o plano de consumo do Linux.
 
 ## <a name="why-use-slots"></a>Por que usar Slots?
 
@@ -111,8 +109,8 @@ Você pode trocar os slots por meio da [CLI](https://docs.microsoft.com/cli/azur
 
 1. Navegue até o aplicativo de funções
 1. Clique no nome do slot de origem que você deseja alternar
-1. Na guia *visão geral* , clique no botão **alternar** ![Swap Azure Functions slot de implantação ](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-1. Verifique os parâmetros de configuração de sua permuta e clique em **trocar** ![Swap Azure Functions slot de implantação ](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. Na guia *visão geral* , clique no botão **alternar** ![slot de implantação de Azure Functions de permuta](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
+1. Verifique os parâmetros de configuração para sua permuta e clique em **trocar** ![trocar Azure Functions slot de implantação](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
 
 A operação pode demorar um pouco enquanto a operação de permuta está em execução.
 
@@ -136,8 +134,8 @@ Usando o [CLI do Azure](https://docs.microsoft.com/cli/azure/functionapp/deploym
 
 - [create](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
 - [delete](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
-- [lista](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
-- [permuta](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
+- [list](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
+- [swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
 - [troca automática](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
 
 ## <a name="change-app-service-plan"></a>Alterar plano do serviço de aplicativo
@@ -181,13 +179,13 @@ Há dois níveis de suporte para slots de implantação:
 
 | Sistema operacional/plano de hospedagem           | Nível de suporte     |
 | ------------------------- | -------------------- |
-| Consumo do Windows       | Disponibilidade geral |
-| Windows Premium (versão prévia) | Versão prévia              |
-| Windows dedicado         | Disponibilidade geral |
+| Consumo do Windows       | Disponibilidade Geral |
+| Windows Premium           | Disponibilidade Geral  |
+| Windows dedicado         | Disponibilidade Geral |
 | Consumo do Linux         | Sem suporte          |
-| Linux Premium (versão prévia)   | Versão prévia              |
-| Linux dedicado           | Disponibilidade geral |
+| Linux Premium             | Disponibilidade Geral  |
+| Linux dedicado           | Disponibilidade Geral |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Tecnologias de implantação no Azure Functions](./functions-deployment-technologies.md)

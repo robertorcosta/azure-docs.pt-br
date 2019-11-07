@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 28a391fded422b00508e006bfd613d6c98d82f17
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1fda05ffcac8952ee5a12c23383aad1a04d36b97
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166465"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601310"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns nas Instâncias de Contêiner do Azure
 
@@ -30,7 +30,7 @@ Ao definir a especificação de contêiner, alguns parâmetros exigem aderência
 | --- | --- | --- | --- | --- | --- |
 | Nome do grupo de contêineres | 1-64 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nome do contêiner | 1-64 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Portas de contêiner | Entre 1 e 65535 |Integer |Um número inteiro entre 1 e 65535 |`<port-number>` |`443` |
+| Portas de contêiner | Entre 1 e 65535 |Número inteiro |Um número inteiro entre 1 e 65535 |`<port-number>` |`443` |
 | Rótulo do nome DNS | 5 a 63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`frontend-site1` |
 | Variável de ambiente | 1-63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e sublinhado (_) em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`MY_VARIABLE` |
 | Nome do volume | 5 a 63 |Não diferencia maiúsculas de minúsculas |Letras minúsculas, números e hifens em qualquer lugar, exceto o primeiro ou último caractere. Não pode conter dois hífenes consecutivos. |`<name>` |`batch-output-volume` |
@@ -176,7 +176,7 @@ Outra maneira de reduzir o impacto do pull da imagem no tempo de inicialização
 
 ### <a name="cached-images"></a>Imagens armazenadas em cache
 
-As instâncias de contêiner do Azure usam um mecanismo de cache para ajudar a acelerar o tempo de inicialização do contêiner para imagens criadas em [imagens básicas](container-instances-faq.md#what-windows-base-os-images-are-supported)comuns do Windows, incluindo `nanoserver:1809`, `servercore:ltsc2019` e `servercore:1809`. Imagens do Linux comumente usadas, como `ubuntu:1604` e `alpine:3.6`, também são armazenadas em cache. Para obter uma lista atualizada de imagens e marcas armazenadas em cache, use a API da [lista de imagens em cache][list-cached-images] .
+As instâncias de contêiner do Azure usam um mecanismo de cache para ajudar a acelerar o tempo de inicialização do contêiner para imagens criadas em [imagens básicas](container-instances-faq.md#what-windows-base-os-images-are-supported)comuns do Windows, incluindo `nanoserver:1809`, `servercore:ltsc2019`e `servercore:1809`. Imagens do Linux comumente usadas, como `ubuntu:1604` e `alpine:3.6`, também são armazenadas em cache. Para obter uma lista atualizada de imagens e marcas armazenadas em cache, use a API da [lista de imagens em cache][list-cached-images] .
 
 > [!NOTE]
 > Use as imagens com base no Windows Server 2019 nas instâncias de contêiner do Azure nesta versão prévia.
@@ -206,9 +206,9 @@ As Instâncias de Contêiner do Azure não expõem acesso direto para a infraest
 
 As instâncias de contêiner do Azure ainda não dão suporte ao mapeamento de porta como com a configuração regular do Docker. Se você achar que o endereço IP de um grupo de contêineres não está acessível quando acreditar que deveria ser, certifique-se de ter configurado sua imagem de contêiner para escutar as mesmas portas que você expõe em seu grupo de contêineres com a propriedade `ports`.
 
-Se você quiser confirmar que as instâncias de contêiner do Azure podem escutar na porta configurada na sua imagem de contêiner, teste uma implantação da imagem `aci-helloworld` que expõe a porta. Execute também o aplicativo `aci-helloworld` para que ele escute na porta. `aci-helloworld` aceita uma variável de ambiente opcional `PORT` para substituir a porta padrão 80 escutada. Por exemplo, para testar a porta 9000:
+Se você quiser confirmar que as instâncias de contêiner do Azure podem escutar na porta configurada na sua imagem de contêiner, teste uma implantação da imagem `aci-helloworld` que expõe a porta. Execute também o aplicativo `aci-helloworld` para que ele escute na porta. `aci-helloworld` aceita uma variável de ambiente opcional `PORT` para substituir a porta padrão 80 escutada. Por exemplo, para testar a porta 9000, defina a [variável de ambiente](container-instances-environment-variables.md) ao criar o grupo de contêineres:
 
-1. Configure o grupo de contêineres para expor a porta 9000 e passe o número da porta como o valor da variável de ambiente:
+1. Configure o grupo de contêineres para expor a porta 9000 e passe o número da porta como o valor da variável de ambiente. O exemplo é formatado para o shell bash. Se preferir outro shell, como o PowerShell ou o prompt de comando, você precisará ajustar a atribuição de variável de forma adequada.
     ```azurecli
     az container create --resource-group myResourceGroup \
     --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \

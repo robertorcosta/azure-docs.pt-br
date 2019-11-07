@@ -7,16 +7,16 @@ ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 4858d803b4fccdc6ae4d5a790721bad60d218313
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 44e7bbde40dbd4b79a6ce3735ab5a1ac81421d3b
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274210"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622570"
 ---
 # <a name="get-resource-changes"></a>Obter alterações de recurso
 
-Os recursos são alterados com o curso de uso diário, reconfiguração e até mesmo a reimplantação.
+Os recursos são alterados durante o uso diário, a reconfiguração e até mesmo pela reimplantação.
 A alteração pode vir de um indivíduo ou de um processo automatizado. A maioria das alterações é por design, mas, às vezes, não é. Com os últimos 14 dias do histórico de alterações, o grafo de recursos do Azure permite que você:
 
 - Localizar quando foram detectadas alterações em uma propriedade Azure Resource Manager
@@ -44,9 +44,9 @@ A primeira etapa para ver o que mudou em um recurso é localizar os eventos de a
 
 O ponto de extremidade **resourceChanges** aceita os seguintes parâmetros no corpo da solicitação:
 
-- **Resourceid** \[Required @ no__t-2: O recurso do Azure no qual procurar alterações.
-- **intervalo** \[Required @ no__t-2: Uma propriedade com datas de _início_ e de _término_ para quando verificar um evento de alteração usando o **fuso horário Zulu (Z)** .
-- **fetchPropertyChanges** (opcional): Uma propriedade booliana que define se o objeto de resposta inclui alterações de propriedade.
+- **Resourceid** \[necessário\]: o recurso do Azure no qual procurar alterações.
+- **interval** \[\]necessário: uma propriedade com datas de _início_ e de _término_ para quando verificar se há um evento de alteração usando o **Z (fuso horário) Zulu**.
+- **fetchPropertyChanges** (opcional): uma propriedade booliana que define se o objeto de resposta inclui alterações de propriedade.
 
 Exemplo de corpo de solicitação:
 
@@ -149,12 +149,12 @@ Cada evento de alteração detectado para o **ResourceId** tem as seguintes prop
 - **ChangeId** -esse valor é exclusivo para esse recurso. Embora a cadeia de caracteres **ChangeId** às vezes possa conter outras propriedades, só é garantido que seja exclusivo.
 - **beforeSnapshot** -contém o **instantâneoid** e o **carimbo de data/hora** do instantâneo de recursos que foi realizado antes de uma alteração ser detectada.
 - **afterSnapshot** -contém o **instantâneoid** e o **carimbo de data/hora** do instantâneo de recursos que foi obtido após a detecção de uma alteração.
-- **ChangeType** – descreve o tipo de alteração detectada para todo o registro de alteração entre **beforeSnapshot** e **afterSnapshot**. Os valores são: _Criar_, _Atualizar_e _excluir_. A matriz da propriedade **propertyChanges** só é incluída quando o **ChangeType** é _Update_.
+- **ChangeType** – descreve o tipo de alteração detectada para todo o registro de alteração entre **beforeSnapshot** e **afterSnapshot**. Os valores são: _criar_, _Atualizar_e _excluir_. A matriz da propriedade **propertyChanges** só é incluída quando o **ChangeType** é _Update_.
 - **propertyChanges** -essa matriz de propriedades detalha todas as propriedades de recurso que foram atualizadas entre **beforeSnapshot** e **afterSnapshot**:
   - **PropertyName** -o nome da propriedade de recurso que foi alterada.
-  - **changeCategory** -descreve o que fez a alteração. Os valores são: _Sistema_ e _usuário_.
+  - **changeCategory** -descreve o que fez a alteração. Os valores são: _System_ e _User_.
   - **ChangeType** – descreve o tipo de alteração detectada para a propriedade de recurso individual.
-    Os valores são: _Inserir_, _Atualizar_, _remover_.
+    Os valores são: _Insert_, _Update_, _Remove_.
   - **antes** de-o valor da propriedade de recurso no **beforeSnapshot**. Não é exibido quando **altertype** é _Insert_.
   - **aftervalue** -o valor da propriedade de recurso no **afterSnapshot**. Não é exibido quando **altertype** é _Remove_.
 
@@ -164,8 +164,8 @@ Com o **ChangeId** do ponto de extremidade **resourceChanges** , o ponto de extr
 
 O ponto de extremidade **resourceChangeDetails** requer dois parâmetros no corpo da solicitação:
 
-- **resourceId**: O recurso do Azure para comparar as alterações.
-- **changeId**: O evento de alteração exclusivo para o **ResourceId** coletado de **resourceChanges**.
+- **ResourceId**: o recurso do Azure para comparar as alterações.
+- **ChangeId**: o evento de alteração exclusivo para o **ResourceId** coletado de **resourceChanges**.
 
 Exemplo de corpo de solicitação:
 
@@ -292,4 +292,4 @@ Para comparar os resultados, use a propriedade **Changes** em **resourceChanges*
 
 - Consulte o idioma em uso em [consultas de início](../samples/starter.md).
 - Consulte usos avançados em [consultas avançadas](../samples/advanced.md).
-- Aprenda a [explorar os recursos](../concepts/explore-resources.md).
+- Saiba mais sobre como [explorar recursos](../concepts/explore-resources.md).

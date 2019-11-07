@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 148d0c203248e4dcde5baaadc596d56e8b8ea17a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606522"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669389"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server
 Neste tutorial, você obtém um passo a passo sobre como criar e implantar um modelo de aprendizado de máquina usando o SQL Server e um conjunto de dados disponível publicamente – [Corridas de Táxi em NYC](https://www.andresmh.com/nyctaxitrips/). O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, projetar recursos para facilitar o aprendizado e, em seguida, criar e implantar um modelo.
@@ -47,14 +47,14 @@ A chave exclusiva para unir trip\_data e trip\_fare é composta pelos campos: me
 Formularemos três problemas de previsão com base em *tip\_amount*, sendo eles:
 
 1. Classificação binária: prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount* maior que US$ 0 é um exemplo positivo, enquanto um *tip\_amount* de US$ 0 é um exemplo negativo.
-2. Classificação multiclasse: prever o intervalo do valor da gorjeta pago pela corrida. Dividimos *tip\_amount* em cinco compartimentos ou classes:
+2. Classificação multiclasse: prever o intervalo da gorjetas pagas pela corrida. Dividimos *tip\_amount* em cinco compartimentos ou classes:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. Tarefa de regressão: prever o valor da gorjeta pago por uma corrida.  
+3. Tarefa de regressão: prever o valor da gorjeta paga por uma corrida.  
 
 ## <a name="setup"></a>Configurando o ambiente de ciência de dados do Azure para análise avançada
 Como indicado no guia [Planejar seu ambiente](plan-your-environment.md) , há várias opções para trabalhar com o conjunto de dados de Corridas de Táxi em NYC no Azure:
@@ -79,7 +79,7 @@ Para configurar seu ambiente de Ciência de Dados do Azure:
    > 
    > 
 
-Dependendo do tamanho do conjunto de dados, da localização da fonte de dados e do ambiente de destino do Azure selecionado, esse cenário será semelhante ao [Cenário \#5: conjunto de dados grande em arquivos locais, com o SQL Server de destino na VM do Azure](plan-sample-scenarios.md#largelocaltodb).
+Dependendo do tamanho do conjunto de dados, do local da fonte de dados e do ambiente de destino do Azure selecionado, esse cenário será semelhante ao [Cenário \#5: Conjunto de dados grande em arquivos locais, SQL Server de destino na VM do Azure](plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Obter os dados de fonte pública
 Para obter o conjunto de dados [Corridas de Táxi em NYC](https://www.andresmh.com/nyctaxitrips/) do seu local público, você pode usar qualquer um dos métodos descritos em [Mover dados bidirecionalmente no Armazenamento de Blobs do Azure](move-azure-blob.md) para copiar os dados em sua nova máquina virtual.
@@ -87,7 +87,7 @@ Para obter o conjunto de dados [Corridas de Táxi em NYC](https://www.andresmh.c
 Para copiar os dados usando AzCopy:
 
 1. Faça logon na sua VM (máquina virtual)
-2. Criar um novo diretório no disco de dados da VM (observação: não use o disco temporário que vem com a VM como um disco de dados).
+2. Crie um novo diretório no disco de dados da VM (Observação: não use o Disco Temporário que acompanha a VM como um Disco de Dados).
 3. Em uma janela de Prompt de Comando, execute a seguinte linha de comando Azcopy, substituindo <path_to_data_folder> pela pasta de dados criada em (2):
    
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -137,7 +137,7 @@ O desempenho do carregamento/transferência de grandes volumes de dados para um 
 12. Os dados de Corridas de Táxi em NYC são carregados em duas tabelas separadas. Para melhorar as operações de associação, é altamente recomendável indexá-las. O exemplo de script **create\_partitioned\_index.sql** cria índices particionados na chave de associação composta **medallion, hack\_license e pickup\_datetime**.
 
 ## <a name="dbexplore"></a>Exploração de dados e engenharia de recursos no SQL Server
-Nesta seção, realizaremos exploração de dados e geração de recursos executando consultas SQL diretamente no **SQL Server Management Studio** usando o banco de dados do SQL Server criado anteriormente. Um script de exemplo chamado **sample\_queries.sql** é fornecido na pasta **Scripts de Exemplo**. Modificar o script para alterar o nome do banco de dados se for diferente do padrão: **TaxiNYC**.
+Nesta seção, realizaremos exploração de dados e geração de recursos executando consultas SQL diretamente no **SQL Server Management Studio** usando o banco de dados do SQL Server criado anteriormente. Um script de exemplo chamado **sample\_queries.sql** é fornecido na pasta **Scripts de Exemplo**. Modifique o script para alterar o nome do banco de dados, se for diferente do padrão: **TaxiNYC**.
 
 Neste exercício, você vai:
 
@@ -150,8 +150,8 @@ Neste exercício, você vai:
 
 Quando você estiver pronto para prosseguir para o Azure Machine Learning, você pode:  
 
-1. Salve a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo [Importar Dados][import-data] no Azure Machine Learning ou
-2. Mantenha os dados de exemplo projetados que você planeja usar para criar modelos em uma nova tabela de banco de dados e use a nova tabela no módulo [Importar Dados][import-data] no Azure Machine Learning.
+1. Salve a consulta SQL final para extrair e obter amostras dos dados e copiar e colar a consulta diretamente em um módulo [importar dados][import-data] no Azure Machine Learning ou
+2. Persista os dados de amostra e de engenharia que você planeja usar para a criação de modelos em uma nova tabela de banco de dados e use a nova tabela no módulo [importar data][import-data] no Azure Machine Learning.
 
 Nesta seção, salvaremos a consulta final para extrair e coletar amostras dos dados. O segundo método é demonstrado na seção [Exploração de dados e engenharia de recursos no IPython Notebook](#ipnb) .
 
@@ -172,7 +172,7 @@ Este exemplo identifica o medalhão (número do táxi) com mais de 100 corridas 
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploração: distribuição de corridas por licença e carteira de habilitação
+#### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Exploração: distribuição de corridas por medallion e hack_license
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
@@ -191,7 +191,7 @@ Este exemplo investiga se qualquer um dos campos longitude e/ou latitude contém
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploração: com gorjeta vs. sem gorjeta
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploração: distribuição de corridas com gorjeta versus sem gorjeta
 Este exemplo localiza o número de corridas que receberam gorjetas em comparação com aquelas que não receberam em um determinado período de tempo (ou no conjunto de dados completo se abrangendo todo o ano). Essa distribuição reflete a distribuição de rótulo binário a ser usado posteriormente para modelagem de classificação binária.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -215,7 +215,7 @@ Esse exemplo calcula a distribuição dos intervalos de gorjetas em um determina
     WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tip_class
 
-#### <a name="exploration-compute-and-compare-trip-distance"></a>Exploração: calcular e comparar a distância da corrida
+#### <a name="exploration-compute-and-compare-trip-distance"></a>Exploração: calcular e comparar distância de viagem
 Este exemplo converte a longitude e a latitude de pickup e dropoff em pontos de geografia SQL, calcula a distância da viagem usando a diferença de pontos de geografia SQL e retorna uma amostra aleatória dos resultados para comparação. O exemplo limita os resultados às coordenadas válidas apenas usando a consulta de avaliação de qualidade de dados abordada anteriormente.
 
     SELECT
@@ -233,7 +233,7 @@ Este exemplo converte a longitude e a latitude de pickup e dropoff em pontos de 
 As consultas de exploração de geração de rótulos e conversão de geografia também podem ser usadas para gerar rótulos/recursos removendo a parte da contagem. Exemplos de engenharia de recursos SQL adicionais são fornecidos na seção [Exploração de dados e engenharia de recursos no IPython Notebook](#ipnb) . É mais eficiente executar consultas de geração do recurso no conjunto de dados completo ou em um grande subconjunto dele usando consultas SQL, as quais são executadas diretamente na instância de banco de dados do SQL Server. As consultas podem ser executadas no **SQL Server Management Studio**, IPython Notebook ou qualquer ferramenta/ambiente de desenvolvimento que possa acessar o banco de dados local ou remotamente.
 
 #### <a name="preparing-data-for-model-building"></a>Preparando dados para criação de modelo
-A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera um rótulo de classificação binária **tipped**, um rótulo de classificação de multiclasse **tip\_class** e extrai uma amostra aleatória de 1% do conjunto de dados totalmente unido. Essa consulta pode ser copiada e colada diretamente no módulo [Importar Dados][import-data] do [Azure Machine Learning Studio](https://studio.azureml.net) para ingestão direta de dados da instância de banco de dados do SQL Server no Azure. A consulta exclui registros com coordenadas incorretas (0, 0).
+A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera um rótulo de classificação binária **tipped**, um rótulo de classificação de multiclasse **tip\_class** e extrai uma amostra aleatória de 1% do conjunto de dados totalmente unido. Essa consulta pode ser copiada e colada diretamente no módulo [Azure Machine Learning Studio](https://studio.azureml.net) [importar dados][import-data] para a ingestão direta de dados da instância de banco de SQL Server no Azure. A consulta exclui registros com coordenadas incorretas (0, 0).
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -264,8 +264,8 @@ A sequência recomendada ao trabalhar com grandes volumes de dados é a seguinte
 
 Quando estiver pronto para prosseguir para o Azure Machine Learning, você pode:  
 
-1. Salve a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo [Importar Dados][import-data] no Azure Machine Learning. Esse método é demonstrado na seção [Criando modelos no Azure Machine Learning](#mlmodel) .    
-2. Mantenha os dados de exemplo projetados que você planeja usar para criar modelos em uma nova tabela de banco de dados e use a nova tabela no módulo do [Importar Dados][import-data].
+1. Salve a consulta SQL final para extrair e obter amostras dos dados e copiar e colar a consulta diretamente em um módulo [importar dados][import-data] no Azure Machine Learning. Esse método é demonstrado na seção [Criando modelos no Azure Machine Learning](#mlmodel) .    
+2. Persista os dados de amostra e projetados que você planeja usar para a criação de modelos em uma nova tabela de banco de dados e, em seguida, use a nova tabela no módulo [importar data][import-data] .
 
 A seguir estão alguns exemplos de exploração de dados, visualização de dados e engenharia de recursos. Para obter mais exemplos, consulte o IPython Notebook SQL de exemplo na pasta **IPython Notebook de Exemplo** .
 
@@ -282,7 +282,7 @@ Inicialize as configurações de conexão de banco de dados nas seguintes variá
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-#### <a name="report-number-of-rows-and-columns-in-table-nyctaxitrip"></a>Relatar o número de linhas e colunas na tabela nyctaxi_trip
+#### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a>Relatar o número de linhas e colunas na tabela nyctaxi_trip
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('nyctaxi_trip')
@@ -328,14 +328,14 @@ Agora está tudo pronto para explorar os dados amostrados. Começamos observando
 
     df1['trip_distance'].describe()
 
-#### <a name="visualization-box-plot-example"></a>Visualização: exemplo de gráfico de caixa
+#### <a name="visualization-box-plot-example"></a>Visualização: exemplo de plotagem da caixa
 Em seguida, analisamos a caixa para a distância de viagem para visualizar os quantis
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
 ![Plotar nº 1][1]
 
-#### <a name="visualization-distribution-plot-example"></a>Visualização: exemplo de gráfico de distribuição
+#### <a name="visualization-distribution-plot-example"></a>Visualização: exemplo de plotagem de distribuição
     fig = plt.figure()
     ax1 = fig.add_subplot(1,2,1)
     ax2 = fig.add_subplot(1,2,2)
@@ -344,7 +344,7 @@ Em seguida, analisamos a caixa para a distância de viagem para visualizar os qu
 
 ![Plotar nº 2][2]
 
-#### <a name="visualization-bar-and-line-plots"></a>Visualização: gráficos de linhas e barras
+#### <a name="visualization-bar-and-line-plots"></a>Visualização: plotagens de barra e linha
 Neste exemplo, podemos compartimentalizar a distância da viagem em cinco compartimentos e visualizar os resultados de compartimentalização.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -362,7 +362,7 @@ Podemos plotar a distribuição de compartimentos acima em um gráfico de barras
 
 ![Plotar nº 4][4]
 
-#### <a name="visualization-scatterplot-example"></a>Visualização: exemplo de gráfico de dispersão
+#### <a name="visualization-scatterplot-example"></a>Visualização: exemplo de plotagem de dispersão
 Mostramos o gráfico de dispersão entre **trip\_time\_in\_secs** e **trip\_distance** para ver se há alguma correlação
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
@@ -376,7 +376,7 @@ Da mesma forma, é possível verificar a relação entre **rate\_code** e **trip
 ![Plotar nº 8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>Redução de amostragem dos dados no SQL
-Ao preparar os dados para a criação de modelo no [Azure Machine Learning Studio](https://studio.azureml.net), você pode decidir se a **consulta SQL deve ser usada diretamente no módulo Importar Dados** ou se mantém os dados de exemplo projetados em uma nova tabela, que pode se usada no módulo [Importar Dados][import-data] com um simples **SELECT * FROM <nome\_da\_nova\_tabela>** .
+Ao preparar dados para a criação de modelos no [Azure Machine Learning Studio](https://studio.azureml.net), você pode decidir sobre a **consulta SQL a ser usada diretamente no módulo importar dados** ou manter os dados com engenharia e amostra em uma nova tabela, que pode ser usada na [importação ][import-data]Módulo de dados com um simples **Select * de < sua\_nova tabela de\_\_nome >** .
 
 Nesta seção, criaremos uma nova tabela para armazenar os dados amostrados e engenhados. Um exemplo de uma consulta direta de SQL para criação de modelos é fornecido na seção [Exploração de dados e engenharia de recursos no SQL Server](#dbexplore) .
 
@@ -407,7 +407,7 @@ Nesta seção, unimos as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, extraím
 ### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>Exploração de dados usando consultas SQL em IPython Notebook
 Nesta seção, exploraremos distribuições de dados usando os dados de amostra de 1% que são mantidos na nova tabela criada acima. Observe que explorações semelhantes podem ser executadas usando as tabelas originais, opcionalmente usando **TABLESAMPLE** para limitar a exploração de amostras ou limitando os resultados em um período de tempo determinado usando as partições **pickup\_datetime**, conforme ilustrado na seção [Exploração de dados e engenharia de recursos no SQL Server](#dbexplore).
 
-#### <a name="exploration-daily-distribution-of-trips"></a>Exploração: Distribuição diária de corridas
+#### <a name="exploration-daily-distribution-of-trips"></a>Exploração: distribuição diária de corridas
     query = '''
         SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
         FROM nyctaxi_one_percent
@@ -456,7 +456,7 @@ No exemplo a seguir, geramos dois conjuntos de rótulos a serem utilizados para 
         cursor.execute(nyctaxi_one_percent_update_col)
         cursor.commit()
 
-#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Engenharia de recursos: recursos de contagem de colunas categóricas
+#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Engenharia de recurso: recursos de contagem de colunas categóricas
 Este exemplo transforma um campo de categoria em um campo numérico, substituindo cada categoria pela contagem de suas ocorrências nos dados.
 
     nyctaxi_one_percent_insert_col = '''
@@ -486,7 +486,7 @@ Este exemplo transforma um campo de categoria em um campo numérico, substituind
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Engenharia de recursos: recursos de compartimento de colunas categóricas
+#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Engenharia de recurso: recursos de compartimento para colunas numéricas
 Este exemplo transforma um campo numérico contínuo em intervalos de categoria predefinidos, ou seja, transformação de campo numérico em um campo de categoria.
 
     nyctaxi_one_percent_insert_col = '''
@@ -514,8 +514,8 @@ Este exemplo transforma um campo numérico contínuo em intervalos de categoria 
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Engenharia de recursos: extrair recursos de localização de latitude/longitude decimal
-Este exemplo divide a representação decimal de um campo de latitude e/ou longitude em vários campos de granularidade diferente, região, como país/região, cidade, cidade, bloco, etc. Observe que os novos campos geográficos não são mapeados para os locais reais. Para saber mais sobre o mapeamento de locais de codificação geográfica, veja [Serviços REST do Bing Mapas](https://msdn.microsoft.com/library/ff701710.aspx).
+#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Recurso de engenharia: extrair recursos de local de latitude/longitude decimal
+Este exemplo divide a representação decimal de um campo de latitude e/ou longitude em vários campos de região de granularidade diferente, como país/região, cidade, cidade, bloco, etc. Observe que os novos campos geográficos não são mapeados para locais reais. Para saber mais sobre o mapeamento de locais de codificação geográfica, veja [Serviços REST do Bing Mapas](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent
@@ -548,7 +548,7 @@ Agora estamos prontos para prosseguir com a criação e implantação de modelo 
 
 1. Classificação binária: prever se uma gorjeta foi ou não paga em uma corrida.
 2. Classificação multiclasse: prever o intervalo da gorjeta paga, de acordo com as classes definidas anteriormente.
-3. Tarefa de regressão: prever o valor da gorjeta pago por uma corrida.  
+3. Tarefa de regressão: prever o valor da gorjeta paga por uma corrida.  
 
 ## <a name="mlmodel"></a>Criando modelos no Azure Machine Learning
 Para iniciar o exercício de modelagem, faça logon no seu workspace do Azure Machine Learning. Se ainda não tiver criado um workspace do Machine Learning, consulte [Criar um workspace do Azure Machine Learning](../studio/create-workspace.md).
@@ -572,7 +572,7 @@ Uma experiência de treinamento típico consiste no seguinte:
 
 Neste exercício, já exploramos e definimos os dados no SQL Server e escolhemos o tamanho da amostra para ingestão no Azure Machine Learning. Para compilar um ou mais dos modelos de previsão, decidimos:
 
-1. Transmita os dados para o Azure Machine Learning usando o módulo [Importar Dados][import-data], disponível na seção **Entrada e Saída de Dados**. Para saber mais, veja a página de referência do módulo [Importar Dados][import-data].
+1. Obtenha os dados para Azure Machine Learning usando o módulo [importar dados][import-data] , disponível na seção **entrada e saída de dados** . Para obter mais informações, consulte a página de referência do módulo [importar dados][import-data] .
    
     ![Importar Dados no Azure Machine Learning][17]
 2. Selecione **Banco de Dados SQL do Azure** como a **Fonte de dados** no painel **Propriedades**.
@@ -588,12 +588,12 @@ Um exemplo de um experimento de classificação binária lendo dados diretamente
 > [!IMPORTANT]
 > Nos exemplos de modelagem de extração de dados e consulta de amostragem fornecidos nas seções anteriores, **todos os rótulos para os três exercícios de modelagem são incluídos na consulta**. Uma etapa importante (obrigatória) em cada um dos exercícios modelagem é **excluir** os rótulos desnecessários para os dois problemas e qualquer outro **vazamento de destino**. Por exemplo, ao usar a classificação binária, use o rótulo **tipped** e exclua os campos **tip\_class**, **tip\_amount** e **total\_amount**. Esses últimos são vazamentos de destino, já que eles indicam a gorjeta paga.
 > 
-> Para excluir as colunas desnecessárias e/ou vazamentos de destino, é possível usar o módulo [Selecionar Colunas do Conjunto de Dados][select-columns] ou [Editar Metadados][edit-metadata]. Para saber mais, veja as páginas de referência [Selecionar Colunas no Conjunto de Dados][select-columns] e [Editar Metadados][edit-metadata].
+> Para excluir colunas desnecessárias e/ou vazamentos de destino, você pode usar o módulo [selecionar colunas no conjunto][select-columns] de módulos ou [Editar metadados][edit-metadata]. Para obter mais informações, consulte [selecionar colunas nas páginas de referência do conjunto][select-columns] de dados e [Editar metadados][edit-metadata] .
 > 
 > 
 
 ## <a name="mldeploy"></a>Implantando modelos no Azure Machine Learning
-Quando o modelo estiver pronto, você pode implantá-lo facilmente como um serviço Web diretamente do experimento. Para obter mais informações sobre como implantar os serviços Web do Azure Machine Learning, veja [Implantar um serviço Web do Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
+Quando o modelo estiver pronto, você pode implantá-lo facilmente como um serviço Web diretamente do experimento. Para obter mais informações sobre como implantar os serviços Web do Azure Machine Learning, veja [Implantar um serviço Web do Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 
 Para implantar um novo serviço Web, você precisa:
 
@@ -610,7 +610,7 @@ O Azure Machine Learning tentará criar um experimento de pontuação com base n
 2. Identificar uma **porta de entrada** lógica para representar o esquema de dados de entrada esperado.
 3. Identificar uma **porta de saída** lógica para representar o esquema de saída do serviço Web.
 
-Quando o experimento de pontuação for criado, revise-o e ajuste conforme necessário. Um ajuste típico é substituir o conjunto de dados de entrada e/ou a consulta por uma exclua os campos de rótulo, pois eles não estarão disponíveis quando o serviço for chamado. Também é uma prática recomendada reduzir o tamanho do conjunto de dados de entrada e/ou da consulta a apenas alguns registros, suficientes para indicar o esquema de entrada. Para a porta de saída, é comum excluir todos os campos de entrada e incluir apenas os **Rótulos Pontuados** e **Probabilidades Pontuadas** na saída usando o módulo [Selecionar Colunas do Conjunto de Dados][select-columns].
+Quando o experimento de pontuação for criado, revise-o e ajuste conforme necessário. Um ajuste típico é substituir o conjunto de dados de entrada e/ou a consulta por uma exclua os campos de rótulo, pois eles não estarão disponíveis quando o serviço for chamado. Também é uma prática recomendada reduzir o tamanho do conjunto de dados de entrada e/ou da consulta a apenas alguns registros, suficientes para indicar o esquema de entrada. Para a porta de saída, é comum excluir todos os campos de entrada e incluir apenas os **Rótulos pontuados** e as **probabilidades pontuadas** na saída usando o módulo [selecionar colunas no conjunto][select-columns] de dados.
 
 Um exemplo de experimento de pontuação é mostrado na figura abaixo. Quando estiver pronto para implantar, clique no botão **PUBLICAR SERVIÇO WEB** na barra de ação inferior.
 

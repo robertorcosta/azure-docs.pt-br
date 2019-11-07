@@ -1,7 +1,7 @@
 ---
 title: O que é um workspace e projeto? - Tradutor personalizado
 titleSuffix: Azure Cognitive Services
-description: Um workspace é uma área de trabalho para compor e construir seu sistema de tradução personalizado. Um workspace pode conter vários projetos, modelos e documentos. Um projeto é um wrapper para um modelo, documentos e testes. Cada projeto inclui automaticamente todos os documentos que são carregados nesse workspace que possuem o par de idiomas correto.
+description: Este artigo explicará as diferenças entre um espaço de trabalho e um projeto, bem como categorias e rótulos de projeto para o serviço de Tradutor personalizado.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 23db27ba7b51b0f5a312498dbcb1d0f2741245bb
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d2f7903fa85c645357e46a753d1cb043e0893254
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595351"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647309"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>O que é um workspace do Tradutor Personalizado?
 
-Um workspace é uma área de trabalho para compor e construir seu sistema de tradução personalizado. Um workspace pode conter vários projetos, modelos e documentos. Todos os trabalhos que você fizer no Tradutor Personalizado estará em um workspace específico.
+Um workspace é uma área de trabalho para compor e construir o sistema de tradução personalizado. Um workspace pode conter vários projetos, modelos e documentos. Todos os trabalhos que você fizer no Tradutor Personalizado estará em um workspace específico.
 
 O workspace é particular a você e às pessoas que você convida para o seu workspace. Pessoas não convidadas não têm acesso ao conteúdo do seu workspace. Você pode convidar quantas pessoas quiser para o seu workspace e modificar ou remover os respectivos acessos a qualquer momento. Além disso, você também pode criar um novo workspace. Por padrão, um workspace não conterá nenhum projeto ou documento que esteja em outros workspaces.
 
 ## <a name="what-is-a-custom-translator-project"></a>O que é um projeto do Tradutor Personalizado?
 
-Um projeto é um wrapper para um modelo, documentos e testes. Cada projeto inclui automaticamente todos os documentos que são carregados nesse workspace que possuem o par de idiomas correto. Por exemplo, se você tiver um projeto de inglês para espanhol e um de espanhol para inglês, os mesmos documentos serão incluídos nos dois projetos. Cada projeto tem uma ID de Categoria associada ao projeto que é utilizada ao consultar a [API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) para traduções. A ID de Categoria é o parâmetro usado para obter traduções de um sistema personalizado criado com o Tradutor Personalizado.
+Um projeto é um wrapper para um modelo, documentos e testes. Cada projeto inclui automaticamente todos os documentos que são carregados nesse workspace que tenham o par de idiomas correto. Por exemplo, se você tiver um projeto de inglês para espanhol e um de espanhol para inglês, os mesmos documentos serão incluídos nos dois projetos. Cada projeto tem uma ID de Categoria associada ao projeto que é utilizada ao consultar a [API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) para traduções. A ID de Categoria é o parâmetro usado para obter traduções de um sistema personalizado criado com o Tradutor Personalizado.
 
 ## <a name="project-categories"></a>Categorias de projeto
 

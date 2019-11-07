@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: b92975e3fe73fb1c882bdfc4338fd8e169728e8b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 58eb5abc9a8857b81ada65c96eb7deaaa5cc5aeb
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387643"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622674"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explore seus recursos do Azure com o Gráfico de Recursos
 
@@ -308,10 +308,10 @@ az graph query -q="Resources | where type =~ 'Microsoft.Network/publicIPAddresse
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
 ```
 
-Para ver como realizar essas etapas em uma única consulta com o operador `join`, consulte a amostra [listar máquinas virtuais com a interface de rede e IP público](../samples/advanced.md#join-vmpip) .
+Para ver como realizar essas etapas em uma única consulta com o operador `join`, consulte a amostra [listar máquinas virtuais com seu adaptador de rede e IP público](../samples/advanced.md#join-vmpip) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre a [linguagem de consulta](query-language.md)
-- Ver a linguagem em uso em [Consultas iniciais](../samples/starter.md)
-- Ver usos avançados em [Consultas avançadas](../samples/advanced.md)
+- Saiba mais sobre a [linguagem de consulta](query-language.md).
+- Consulte o idioma em uso em [consultas de início](../samples/starter.md).
+- Consulte usos avançados em [consultas avançadas](../samples/advanced.md).

@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2019
+ms.date: 11/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 6093e1017af2fb8c54eaf1c3192f937172567982
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 21a66b7389df64a776cdecb45c41de56d7d258e4
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080549"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606370"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Manipuladores de eventos na Grade de Eventos do Azure
 
@@ -39,7 +39,7 @@ Ao usar o Azure Functions como o manipulador, use o gatilho Grade de Eventos em 
 | [Gatilho de Grade de Eventos para o Azure Functions](../azure-functions/functions-bindings-event-grid.md) | Visão geral do uso do gatilho da Grade de Eventos no Functions. |
 | [Tutorial: automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos](resize-images-on-storage-blob-upload-event.md) | Os usuários fazem o upload de imagens por meio do aplicativo Web para a conta de armazenamento. Quando um blob de armazenamento é criado, a Grade de Eventos envia um evento para o aplicativo de função, que redimensiona a imagem carregada. |
 | [Tutorial: transmitir Big Data para um data warehouse](event-grid-event-hubs-integration.md) | Quando os Hubs de Eventos criam um arquivo de Captura, a Grade de Eventos envia um evento para um aplicativo de função. O aplicativo recupera o arquivo de Captura e migra dados para um data warehouse. |
-| [Tutorial: Exemplos de integração do Barramento de Serviço do Azure para a Grade de Eventos do Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | A Grade de Eventos envia mensagens do tópico do Barramento de Serviço para o aplicativo de função e o aplicativo lógico. |
+| [Tutorial: exemplos do Barramento de Serviço do Azure para a integração da Grade de Eventos do Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | A Grade de Eventos envia mensagens do tópico do Barramento de Serviço para o aplicativo de função e o aplicativo lógico. |
 
 ## <a name="event-hubs"></a>Hubs de Eventos
 
@@ -70,53 +70,14 @@ Use aplicativos lógicos para automatizar processos de negócios para responder 
 |---------|---------|
 | [Tutorial: como monitorar alterações de máquina virtual com a Grade de Eventos do Azure e os aplicativos lógicos](monitor-virtual-machine-changes-event-grid-logic-app.md) | Um aplicativo lógico monitora as alterações feitas em uma máquina virtual e envia emails sobre essas alterações. |
 | [Tutorial: enviar notificações por email sobre os eventos do Hub IoT usando Aplicativos Lógicos](publish-iot-hub-events-to-logic-apps.md) | Um aplicativo lógico envia um email de notificação sempre que um dispositivo é adicionado ao seu hub de IoT. |
-| [Tutorial: Exemplos de integração do Barramento de Serviço do Azure para a Grade de Eventos do Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | A Grade de Eventos envia mensagens do tópico do Barramento de Serviço para o aplicativo de função e o aplicativo lógico. |
+| [Tutorial: exemplos do Barramento de Serviço do Azure para a integração da Grade de Eventos do Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | A Grade de Eventos envia mensagens do tópico do Barramento de Serviço para o aplicativo de função e o aplicativo lógico. |
 
-## <a name="service-bus-queue-preview"></a>Fila do barramento de serviço (versão prévia)
-
-Use o barramento de serviço como um manipulador de eventos para encaminhar os eventos na grade de eventos diretamente para as filas do barramento de serviço para uso em cenários de armazenamento em buffer ou comando e controle em aplicativos empresariais. A visualização não funciona com tópicos do barramento de serviço e sessões, mas ele funciona com todas as camadas de filas do barramento de serviço.
-
-Observe que, ao barramento de serviço como um manipulador está em visualização pública, você deve instalar a extensão CLI ou o PowerShell quando usando essas credenciais para criar assinaturas de eventos.
-
-### <a name="install-extension-for-azure-cli"></a>Instalar extensão para CLI do Azure
-
-Para Azure CLI, é necessária a [extensão da Grade de Eventos](/cli/azure/azure-cli-extensions-list).
-
-No [CloudShell](/azure/cloud-shell/quickstart):
-
-* Se você tiver instalado a extensão anteriormente, atualize-o com `az extension update -n eventgrid`.
-* Se você ainda não instalou a extensão anteriormente, instalá-lo usando `az extension add -n eventgrid`.
-
-Para uma instalação local:
-
-1. [Instale a CLI do Azure](/cli/azure/install-azure-cli). Certifique-se de que você tenha a versão mais recente, verificando com `az --version`.
-1. Desinstalar as versões anteriores da extensão com `az extension remove -n eventgrid`.
-1. Instalar o `eventgrid` extensão com `az extension add -n eventgrid`.
-
-### <a name="install-module-for-powershell"></a>Instale o módulo para PowerShell
-
-Para PowerShell, é necessário o [módulo AzureRM.EventGrid](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview).
-
-No [CloudShell](/azure/cloud-shell/quickstart-powershell):
-
-* Instalar o módulo com `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
-
-Para uma instalação local:
-
-1. Abra o console do PowerShell como administrador.
-1. Instalar o módulo com `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
-
-Se o parâmetro `-AllowPrerelease` não estiver disponível, use as seguintes etapas:
-
-1. Execute `Install-Module PowerShellGet -Force`.
-1. Execute `Update-Module PowerShellGet`.
-1. Feche o console do PowerShell.
-1. Reinicie o PowerShell como administrador.
-1. Instalar o módulo `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+## <a name="service-bus-queue"></a>Fila do Barramento de Serviço 
+Você pode rotear eventos na grade de eventos diretamente para filas do barramento de serviço para uso em buffer ou comando & cenários de controle em aplicativos empresariais.
 
 ### <a name="using-cli-to-add-a-service-bus-handler"></a>Usando a CLI para adicionar um manipulador de barramento de serviço
 
-CLI do Azure, o exemplo a seguir assina e se conecta a um tópico de grade de eventos para uma fila do barramento de serviço:
+Por CLI do Azure, o exemplo a seguir assina e conecta um tópico da grade de eventos a uma fila do barramento de serviço:
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
@@ -130,7 +91,7 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
 ```
 
-## <a name="queue-storage"></a>Armazenamento de Filas
+## <a name="queue-storage"></a>Armazenamento de Fila
 
 Use Armazenamento de filas para receber eventos que precisam ser extraídos. Você pode usar o Armazenamento de Filas quando tem um processo de execução longa que demora muito para responder. Ao enviar eventos para o Armazenamento de Filas, o aplicativo pode receber e processar os eventos de acordo com a própria agenda.
 

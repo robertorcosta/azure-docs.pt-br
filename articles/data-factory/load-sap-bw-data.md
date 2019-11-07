@@ -1,6 +1,6 @@
 ---
-title: Carregar dados do SAP Business Warehouse usando o Azure Data Factory | Microsoft Docs
-description: Usar o Azure Data Factory para copiar dados do SAP BW (Business Warehouse)
+title: Carregar dados do SAP Business Warehouse usando Azure Data Factory
+description: Usar Azure Data Factory para copiar dados do SAP Business Warehouse (BW)
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,168 +11,168 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: 3c846ab3e81e7ab8a4948aa4ed96cfa75e8eb3f4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0c96ecff27a57b3277e7c8105766059b739d11af
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449695"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672657"
 ---
-# <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse usando o Azure Data Factory
+# <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse usando Azure Data Factory
 
-Este artigo mostra como usar o Azure Data Factory para copiar dados do SAP BW (Business Warehouse) por meio do Open Hub para o armazenamento do Azure Data Lake Gen2. Você pode usar um processo semelhante para copiar dados para outro [suporte para repositórios de dados](copy-activity-overview.md#supported-data-stores-and-formats).
+Este artigo mostra como usar Azure Data Factory para copiar dados do SAP Business Warehouse (BW) via hub aberto para Azure Data Lake Storage Gen2. Você pode usar um processo semelhante para copiar dados para outros [armazenamentos de dados de coletor com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!TIP]
-> Para obter informações gerais sobre como copiar dados do SAP BW, incluindo a integração do SAP BW Open Hub e o fluxo de extração de delta, consulte [copiar dados do SAP Business Warehouse por meio do Open Hub usando o Azure Data Factory](connector-sap-business-warehouse-open-hub.md).
+> Para obter informações gerais sobre como copiar dados de SAP BW, incluindo SAP BW integração de Hub aberta e fluxo de extração de Delta, consulte [copiar dados do SAP Business Warehouse via hub aberto usando Azure data Factory](connector-sap-business-warehouse-open-hub.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Azure Data Factory**: Se você não tiver uma, siga as etapas a serem [criar um data factory](quickstart-create-data-factory-portal.md#create-a-data-factory).
+- **Azure data Factory**: se você não tiver uma, siga as etapas para [criar uma data Factory](quickstart-create-data-factory-portal.md#create-a-data-factory).
 
-- **SAP BW Open Hub de destino (OHD) com o tipo de destino "Tabela de banco de dados"** : Para criar um OHD ou verifique se o seu OHD está configurado corretamente para integração com o Data Factory, consulte a [configurações de destino SAP BW do Open Hub](#sap-bw-open-hub-destination-configurations) seção deste artigo.
+- **SAP BW Ohd (destino de Hub aberto) com o tipo de destino "tabela de banco de dados"** : para criar um Ohd ou para verificar se o Ohd está configurado corretamente para integração de data Factory, consulte a seção [SAP BW configurações de destino do Hub aberto](#sap-bw-open-hub-destination-configurations) deste artigo.
 
-- **O usuário do SAP BW precisa das seguintes permissões**:
+- **O usuário SAP BW precisa das seguintes permissões**:
 
-  - Autorização para chamadas de função remota (RFC) e SAP BW.
-  - Permissões para a atividade de "Executar" das **S_SDSAUTH** o objeto de autorização.
+  - Autorização para RFC (chamadas de função remota) e SAP BW.
+  - Permissões para a atividade "executar" do objeto de autorização de **S_SDSAUTH** .
 
-- **Um [integration runtime (IR) auto-hospedado](concepts-integration-runtime.md#self-hosted-integration-runtime) com o conector do SAP .NET 3.0**. Siga estas etapas de instalação:
+- **Um [ir (Integration Runtime) auto-hospedado](concepts-integration-runtime.md#self-hosted-integration-runtime) com o conector do SAP .net 3,0**. Siga estas etapas de configuração:
 
-  1. Instalar e registrar o integration runtime auto-hospedado, versão 3.13 ou posterior. (Esse processo é descrito neste artigo).
+  1. Instale e registre o Integration Runtime de hospedagem interna, versão 3,13 ou posterior. (Esse processo é descrito posteriormente neste artigo.)
 
-  2. Baixe o [conector do SAP de 64 bits para o Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) no site da SAP e instalá-lo no mesmo computador que o ir auto-hospedado. Durante a instalação, verifique se você selecionou **instalar Assemblies ao GAC** na **etapas de configuração opcionais** caixa de diálogo, como mostra a imagem a seguir:
+  2. Baixe o [conector SAP de 64 bits para Microsoft .NET 3,0](https://support.sap.com/en/product/connectors/msnet.html) do site da SAP e instale-o no mesmo computador que o ir hospedado internamente. Durante a instalação, certifique-se de selecionar **instalar assemblies no GAC** na caixa de diálogo **etapas de configuração opcionais** , como mostra a imagem a seguir:
 
-     ![Configurar a caixa de diálogo SAP .NET Connector](media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
+     ![Caixa de diálogo Configurar conector do SAP .NET](media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
 
-## <a name="do-a-full-copy-from-sap-bw-open-hub"></a>Fazer uma cópia completa do SAP BW Open Hub
+## <a name="do-a-full-copy-from-sap-bw-open-hub"></a>Faça uma cópia completa do Hub SAP BW Open
 
-No portal do Azure, vá para seu data factory. Selecione **autor & Monitor** para abrir a IU do Data Factory em uma guia separada.
+Na portal do Azure, vá para o data factory. Selecione **criar & monitor** para abrir a interface do usuário do data Factory em uma guia separada.
 
-1. Sobre o **vamos começar** página, selecione **copiar dados** para abrir a ferramenta Copy Data.
+1. Na página **vamos começar** , selecione **copiar dados** para abrir a ferramenta copiar dados.
 
-2. Sobre o **propriedades** , especifique um **nome da tarefa**e, em seguida, selecione **próxima**.
+2. Na página **Propriedades** , especifique um **nome de tarefa**e, em seguida, selecione **Avançar**.
 
-3. Sobre o **armazenamento de dados de origem** página, selecione **+ criar nova conexão**. Selecione **Open Hub do SAP BW** na Galeria de conector e, em seguida, selecione **continuar**. Para filtrar os conectores, você pode digitar **SAP** na caixa de pesquisa.
+3. Na página **armazenamento de dados de origem** , selecione **+ criar nova conexão**. Selecione **SAP BW Hub aberto** na galeria do conector e selecione **continuar**. Para filtrar os conectores, você pode digitar **SAP** na caixa de pesquisa.
 
-4. Sobre o **conexão especificar SAP BW Open Hub** página, siga estas etapas para criar uma nova conexão.
+4. Na página **especificar conexão de Hub aberta SAP BW** , siga estas etapas para criar uma nova conexão.
 
-   ![Página Criar serviço vinculado SAP BW Open Hub](media/load-sap-bw-data/create-sap-bw-open-hub-linked-service.png)
+   ![Criar SAP BW página de serviço vinculado ao Hub aberto](media/load-sap-bw-data/create-sap-bw-open-hub-linked-service.png)
 
-   1. Dos **conectar por meio do tempo de execução de integração** , selecione um ir auto-hospedado existente. Ou optar por criar um se você ainda não tiver uma.
+   1. Na lista **conectar via tempo de execução de integração** , selecione um ir para hospedagem interna existente. Ou então, escolha criar um se você ainda não tiver um.
 
-      Para criar um novo IR auto-hospedado, selecione **+ novo**e, em seguida, selecione **auto-hospedado**. Insira um **nome**e, em seguida, selecione **próxima**. Selecione **instalação expressa** para instalar no computador atual, ou siga o **Configuração Manual** etapas que são fornecidas.
+      Para criar um novo IR de hospedagem interna, selecione **+ novo**e, em seguida, selecione **auto-hospedado**. Insira um **nome**e, em seguida, selecione **Avançar**. Selecione **instalação expressa** para instalar no computador atual ou siga as etapas de **configuração manual** que são fornecidas.
 
-      Conforme mencionado na [pré-requisitos](#prerequisites), certifique-se de que você tem o conector do SAP para o Microsoft .NET 3.0 instalado no mesmo computador onde o IR auto-hospedado está em execução.
+      Conforme mencionado em [pré-requisitos](#prerequisites), verifique se você tem o conector SAP para Microsoft .net 3,0 instalado no mesmo computador em que o ir auto-hospedado está em execução.
 
-   2. Preencha o SAP BW **nome do servidor**, **número do sistema**, **ID do cliente** **idioma** (se diferente de **EN**) , **Nome de usuário**, e **senha**.
+   2. Preencha o nome do **servidor**SAP BW, **o número do sistema**, a ID do **cliente,** o **idioma** (se diferente de **en**), o **nome de usuário**e a **senha**.
 
-   3. Selecione **Testar conexão** para validar as configurações e, em seguida, selecione **concluir**.
+   3. Selecione **testar conexão** para validar as configurações e, em seguida, selecione **concluir**.
 
-   4. Uma conexão nova é criada. Selecione **Avançar**.
+   4. Uma nova conexão é criada. Selecione **Avançar**.
 
-5. Sobre o **selecionar destinos de Hub aberto** página, procure os destinos de Hub aberto que estão disponíveis no seu SAP BW. Selecione o OHD para copiar dados de e, em seguida, selecione **próxima**.
+5. Na página **selecionar destinos de Hub abertos** , procure os destinos de Hub abertos que estão disponíveis em seu SAP BW. Selecione o OHD para copiar os dados e, em seguida, selecione **Avançar**.
 
-   ![Selecione a tabela de destino SAP BW do Open Hub](media/load-sap-bw-data/select-sap-bw-open-hub-table.png)
+   ![Selecione SAP BW tabela de destino de Hub aberto](media/load-sap-bw-data/select-sap-bw-open-hub-table.png)
 
-6. Especifique um filtro, se você precisar de um. Se seu OHD contém apenas dados de uma execução de processo (DTP) de transferência de dados única com uma ID de solicitação única ou se você tiver certeza de que seu DTP for concluída e você deseja copiar os dados, desmarque a **excluir a última solicitação** caixa de seleção.
+6. Especifique um filtro, se você precisar de um. Se o seu OHD contiver apenas dados de uma única execução do DTP (processo de transferência de dados) com uma única ID de solicitação, ou se você tiver certeza de que o DTP está concluído e deseja copiar os dados, desmarque a caixa de seleção **excluir última solicitação** .
 
-   Saiba mais sobre essas configurações na [configurações de destino SAP BW do Open Hub](#sap-bw-open-hub-destination-configurations) seção deste artigo. Selecione **validar** verificar quais dados serão retornados. Em seguida, selecione **Avançar**.
+   Saiba mais sobre essas configurações na seção [SAP BW configurações de destino do Hub aberto](#sap-bw-open-hub-destination-configurations) deste artigo. Selecione **validar** para verificar se os dados serão retornados. Em seguida, selecione **Avançar**.
 
-   ![Configurar filtro do Open Hub do SAP BW](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
+   ![Configurar SAP BW filtro de Hub aberto](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
-7. Sobre o **armazenamento de dados de destino** página, selecione **+ criar nova conexão** > **Gen2 de armazenamento do Azure Data Lake**  >   **Continuar**.
+7. Na página **armazenamento de dados de destino** , selecione **+ criar nova conexão** > **Azure data Lake Storage Gen2** > **continuar**.
 
-8. Sobre o **conexão de especificar o Azure Data Lake Storage** página, siga estas etapas para criar uma conexão.
+8. Na página **especificar conexão Azure data Lake Storage** , siga estas etapas para criar uma conexão.
 
-   ![Criar uma página de serviço vinculado do ADLS Gen2](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
+   ![Criar uma página de serviço vinculado ADLS Gen2](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
-   1. Selecione sua conta com capacidade de armazenamento do Data Lake Gen2 na **nome** lista suspensa.
+   1. Selecione sua conta com capacidade de Data Lake Storage Gen2 na lista suspensa **nome** .
    2. Selecione **Concluir** para criar a conexão. Em seguida, selecione **Avançar**.
 
-9. Sobre o **escolha o arquivo de saída ou a pasta** , insira **copyfromopenhub** como o nome da pasta de saída. Em seguida, selecione **Avançar**.
+9. Na página **escolher o arquivo de saída ou a pasta** , insira **copyfromopenhub** como o nome da pasta de saída. Em seguida, selecione **Avançar**.
 
-   ![Escolha a página da pasta de saída](media/load-sap-bw-data/choose-output-folder.png)
+   ![Página Escolher pasta de saída](media/load-sap-bw-data/choose-output-folder.png)
 
-10. Sobre o **formato de arquivo de configuração** página, selecione **próxima** para usar as configurações padrão.
+10. Na página **configuração de formato de arquivo** , selecione **Avançar** para usar as configurações padrão.
 
-    ![Especifique a página do formato de coletor](media/load-sap-bw-data/specify-sink-format.png)
+    ![Página especificar formato do coletor](media/load-sap-bw-data/specify-sink-format.png)
 
-11. Sobre o **as configurações** página, expanda **configurações de desempenho**. Insira um valor para **grau de paralelismo de cópia** como 5 para carregar do SAP BW em paralelo. Em seguida, selecione **Avançar**.
+11. Na página **configurações** , expanda **configurações de desempenho**. Insira um valor para o **grau de paralelismo de cópia** , como 5, para carregar de SAP BW em paralelo. Em seguida, selecione **Avançar**.
 
-    ![Definir as configurações de cópia](media/load-sap-bw-data/configure-copy-settings.png)
+    ![Definir configurações de cópia](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. Sobre o **resumo** , reveja as configurações. Em seguida, selecione **Avançar**.
+12. Na página **Resumo** , examine as configurações. Em seguida, selecione **Avançar**.
 
-13. Sobre o **implantação** página, selecione **Monitor** para monitorar o pipeline.
+13. Na página **implantação** , selecione **Monitor** para monitorar o pipeline.
 
     ![Página Implantação](media/load-sap-bw-data/deployment.png)
 
-14. Observe que o **Monitor** guia no lado esquerdo da página é selecionado automaticamente. O **ações** coluna inclui links para exibir detalhes de execução de atividade e executar novamente o pipeline.
+14. Observe que a guia **Monitor** no lado esquerdo da página é selecionada automaticamente. A coluna **ações** inclui links para exibir os detalhes da execução da atividade e para executar novamente o pipeline.
 
-    ![Exibição de monitoramento do pipeline](media/load-sap-bw-data/pipeline-monitoring.png)
+    ![Exibição de monitoramento de pipeline](media/load-sap-bw-data/pipeline-monitoring.png)
 
-15. Para exibir execuções de atividade que estão associadas com a execução do pipeline, selecione **exibir execuções de atividade** na **ações** coluna. Há apenas uma atividade (atividade de cópia) no pipeline, assim, você vê apenas uma entrada. Para voltar para o modo de exibição de execuções de pipeline, selecione a **Pipelines** link na parte superior. Selecione **Atualizar** para atualizar a lista.
+15. Para exibir as execuções de atividade que estão associadas à execução do pipeline, selecione **Exibir execuções de atividade** na coluna **ações** . Há apenas uma atividade (atividade de cópia) no pipeline. Assim, você vê apenas uma entrada. Para voltar para a exibição pipeline – execuções, selecione o link **pipelines** na parte superior. Selecione **Atualizar** para atualizar a lista.
 
-    ![Tela monitoramento de atividades](media/load-sap-bw-data/activity-monitoring.png)
+    ![Tela de monitoramento de atividade](media/load-sap-bw-data/activity-monitoring.png)
 
-16. Para monitorar os detalhes de execução para cada atividade de cópia, selecione o **detalhes** link, que é um ícone de óculos abaixo **ações** no modo de exibição de monitoramento de atividades. Detalhes disponíveis incluem o volume de dados copiados da origem para o coletor, taxa de transferência de dados, as etapas de execução e duração e configurações usadas.
+16. Para monitorar os detalhes de execução de cada atividade de cópia, selecione o link **detalhes** , que é um ícone de óculos abaixo de **ações** no modo de exibição atividade-monitoramento. Os detalhes disponíveis incluem o volume de dados copiado da origem para o coletor, a taxa de transferência de dados, as etapas de execução e a duração e as configurações usadas.
 
-    ![Detalhes do monitoramento de atividade](media/load-sap-bw-data/activity-monitoring-details.png)
+    ![Detalhes do monitoramento de atividades](media/load-sap-bw-data/activity-monitoring-details.png)
 
-17. Para exibir o **ID da solicitação máxima**, volte para o modo de exibição e selecione monitoramento de atividades **saída** sob **ações**.
+17. Para exibir a **ID de solicitação máxima**, volte para o modo de exibição de monitoramento de atividade e selecione **saída** em **ações**.
 
-    ![Tela de saída de atividade](media/load-sap-bw-data/activity-output.png)
+    ![Tela de saída da atividade](media/load-sap-bw-data/activity-output.png)
 
-    ![Exibição de detalhes de saída de atividade](media/load-sap-bw-data/activity-output-details.png)
+    ![Exibição de detalhes da saída da atividade](media/load-sap-bw-data/activity-output-details.png)
 
-## <a name="incremental-copy-from-sap-bw-open-hub"></a>Cópia incremental de Hub aberto do SAP BW
+## <a name="incremental-copy-from-sap-bw-open-hub"></a>Cópia incremental do Hub SAP BW Open
 
 > [!TIP]
-> Ver [fluxo de extração de delta de conector SAP BW Open Hub](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) para saber como o conector do SAP BW Open Hub no Data Factory copia dados incrementais do SAP BW. Este artigo pode ajudá-lo a entender a configuração básica do conector.
+> Veja [SAP BW fluxo de extração Delta do conector de Hub aberto](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) para saber como o SAP BW conector de Hub aberto no data Factory copia dados incrementais do SAP BW. Este artigo também pode ajudá-lo a entender a configuração básica do conector.
 
-Agora, vamos continuar a configurar uma cópia incremental de Hub aberto do SAP BW.
+Agora, vamos continuar a configurar a cópia incremental de SAP BW Hub aberto.
 
-Cópia incremental usa um mecanismo de "alto-marca d'água" que se baseia o **ID da solicitação**. Essa ID é gerado automaticamente no destino SAP BW do Open Hub pelo DTP. O diagrama a seguir mostra esse fluxo de trabalho:
+A cópia incremental usa um mecanismo de "marca d' água alta" com base na **ID da solicitação**. Essa ID é gerada automaticamente em SAP BW destino de Hub aberto pelo DTP. O diagrama a seguir mostra este fluxo de trabalho:
 
 ![Fluxograma de fluxo de trabalho de cópia incremental](media/load-sap-bw-data/incremental-copy-workflow.png)
 
-No data factory **vamos começar** página, selecione **criar o pipeline de modelo** para usar o modelo interno.
+Na página data factory **vamos começar** , selecione **criar pipeline do modelo** para usar o modelo interno.
 
-1. Pesquise **SAP BW** para localizar e selecionar o **Incremental copiar do SAP BW para armazenamento do Azure Data Lake Gen2** modelo. Este modelo copia dados para o armazenamento do Azure Data Lake Gen2. Você pode usar um fluxo de trabalho semelhante para copiar para outros tipos de coletor.
+1. Pesquise **SAP BW** para localizar e selecionar a **cópia incremental de SAP BW para Azure data Lake Storage Gen2** modelo. Este modelo copia dados em Azure Data Lake Storage Gen2. Você pode usar um fluxo de trabalho semelhante para copiar para outros tipos de coletor.
 
-2. Na página principal do modelo, selecione ou crie as seguintes conexões de três e, em seguida, selecione **Use este modelo** no canto inferior direito da janela.
+2. Na página principal do modelo, selecione ou crie as três conexões a seguir e, em seguida, selecione **usar este modelo** no canto inferior direito da janela.
 
-   - **O armazenamento de BLOBs do Azure**: Neste passo a passo, usamos o armazenamento de BLOBs do Azure para armazenar a marca d'água alta, que é o *máx copiados ID da solicitação*.
-   - **SAP BW Open Hub**: Essa é a fonte para copiar dados do. Consulte o passo a passo completo de cópia anterior para a configuração detalhada.
-   - **Azure Data Lake Storage Gen2**: Isso é para copiar dados para o coletor. Consulte o passo a passo completo de cópia anterior para a configuração detalhada.
+   - **Armazenamento de BLOBs do Azure**: neste passo a passos, usamos o armazenamento de BLOBs do Azure para armazenar a marca d' água alta, que é a *ID de solicitação máxima copiada*.
+   - **SAP BW Open Hub**: essa é a origem da qual copiar dados. Consulte a explicação completa anterior para obter uma configuração detalhada.
+   - **Azure data Lake Storage Gen2**: é o coletor no qual copiar dados. Consulte a explicação completa anterior para obter uma configuração detalhada.
 
    ![Cópia incremental do modelo de SAP BW](media/load-sap-bw-data/incremental-copy-from-sap-bw-template.png)
 
-3. Esse modelo gera um pipeline com as três seguintes atividades e faz com que sejam encadeadas em caso de êxito: *Pesquisa*, *copiar dados*, e *Web*.
+3. Este modelo gera um pipeline com as três atividades a seguir e as torna encadeadas em um êxito: *Lookup*, *copiar dados*e *Web*.
 
-   Vá para o pipeline **parâmetros** guia. Você verá todas as configurações que você precisa fornecer.
+   Vá para a guia **parâmetros** de pipeline. Você verá todas as configurações que precisa fornecer.
 
-   ![Cópia incremental de configuração do SAP BW](media/load-sap-bw-data/incremental-copy-from-sap-bw-pipeline-config.png)
+   ![Cópia incremental da configuração de SAP BW](media/load-sap-bw-data/incremental-copy-from-sap-bw-pipeline-config.png)
 
-   - **SAPOpenHubDestinationName**: Especifique o nome da tabela para copiar dados de Hub aberto.
+   - **SAPOpenHubDestinationName**: especifique o nome da tabela de Hub aberta para a qual copiar dados.
 
-   - **ADLSGen2SinkPath**: Especifique o caminho de destino de armazenamento do Azure Data Lake Gen2 para copiar dados para. Se o caminho não existir, a atividade de cópia do Data Factory cria um caminho durante a execução.
+   - **ADLSGen2SinkPath**: especifique o caminho de Azure data Lake Storage Gen2 de destino para copiar dados. Se o caminho não existir, a atividade de cópia Data Factory criará um caminho durante a execução.
 
-   - **HighWatermarkBlobPath**: Especifique o caminho para armazenar o valor de marca d'água alta, tais como `container/path`.
+   - **HighWatermarkBlobPath**: especifique o caminho para armazenar o valor de marca d' água alta, como `container/path`.
 
-   - **HighWatermarkBlobName**: Especifique o nome do blob para armazenar o valor de marca d'água alta, tais como `requestIdCache.txt`. No armazenamento de BLOBs, vá para o caminho correspondente do HighWatermarkBlobPath + HighWatermarkBlobName, tais como *container/path/requestIdCache.txt*. Crie um blob com conteúdo 0.
+   - **HighWatermarkBlobName**: especifique o nome do blob para armazenar o valor de marca d' água alta, como `requestIdCache.txt`. No armazenamento de BLOBs, vá para o caminho correspondente de HighWatermarkBlobPath + HighWatermarkBlobName, como *container/Path/requestIdCache. txt*. Crie um blob com o conteúdo 0.
 
       ![Conteúdo do blob](media/load-sap-bw-data/blob.png)
 
-   - **LogicAppURL**: Neste modelo, usamos WebActivity chamar aplicativos de lógicos do Azure para definir o valor de marca d'água alta no armazenamento de BLOBs. Ou, você pode usar o banco de dados SQL do Azure para armazená-lo. Use uma atividade de procedimento armazenado para atualizar o valor.
+   - **LogicAppURL**: neste modelo, usamos o webactivity para chamar os aplicativos lógicos do Azure para definir o valor de marca d' água alta no armazenamento de BLOBs. Ou, você pode usar o banco de dados SQL do Azure para armazená-lo. Use uma atividade de procedimento armazenado para atualizar o valor.
 
-      Primeiro, você deve criar um aplicativo lógico, como mostra a imagem a seguir. Em seguida, cole a **URL de HTTP POST**.
+      Primeiro, você deve criar um aplicativo lógico, como mostra a imagem a seguir. Em seguida, Cole a **URL http post**.
 
       ![Configuração do aplicativo lógico](media/load-sap-bw-data/logic-app-config.png)
 
-      1. Vá para o portal do Azure. Selecione uma nova **aplicativos lógicos** service. Selecione **+ aplicativo lógico em branco** para ir até **Designer de aplicativos lógicos**.
+      1. Vá para o portal do Azure. Selecione um novo serviço de **aplicativos lógicos** . Selecione **+ aplicativo lógico em branco** para ir para o **Designer de aplicativos lógicos**.
 
-      2. Criar um gatilho de **quando uma solicitação HTTP é recebida**. Especifique o corpo da solicitação HTTP da seguinte maneira:
+      2. Crie um gatilho de **quando uma solicitação HTTP é recebida**. Especifique o corpo da solicitação HTTP da seguinte maneira:
 
          ```json
          {
@@ -185,90 +185,90 @@ No data factory **vamos começar** página, selecione **criar o pipeline de mode
          }
          ```
 
-      3. Adicionar um **criar blob** ação. Para **caminho da pasta** e **nome do Blob**, use os mesmos valores que você configurou anteriormente no **HighWatermarkBlobPath** e **HighWatermarkBlobName**.
+      3. Adicione uma ação **criar blob** . Para o **caminho da pasta** e o nome do **blob**, use os mesmos valores que você configurou anteriormente em **HighWatermarkBlobPath** e **HighWatermarkBlobName**.
 
-      4. Clique em **Salvar**. Em seguida, copie o valor de **URL de HTTP POST** usar no pipeline do Data Factory.
+      4. Selecione **Salvar**. Em seguida, copie o valor da **URL http post** para usar no pipeline data Factory.
 
-4. Depois de fornecer os parâmetros de pipeline do Data Factory, selecione **Debug** > **concluir** para invocar uma execução para validar a configuração. Ou, selecione **publicar tudo** para publicar as alterações e, em seguida, selecione **gatilho** executar uma execução.
+4. Depois de fornecer os parâmetros de pipeline Data Factory, selecione **depurar** > **concluir** para invocar uma execução para validar a configuração. Ou então, selecione **publicar tudo** para publicar as alterações e, em seguida, selecione **gatilho** para executar uma execução.
 
-## <a name="sap-bw-open-hub-destination-configurations"></a>Configurações de destino SAP BW do Open Hub
+## <a name="sap-bw-open-hub-destination-configurations"></a>SAP BW configurações de destino de Hub aberto
 
-Esta seção apresenta a configuração do lado do SAP BW para usar o conector do SAP BW Open Hub no Data Factory para copiar dados.
+Esta seção apresenta a configuração do lado de SAP BW para usar o conector de Hub SAP BW Open no Data Factory para copiar dados.
 
-### <a name="configure-delta-extraction-in-sap-bw"></a>Configurar a extração de delta no SAP BW
+### <a name="configure-delta-extraction-in-sap-bw"></a>Configurar extração de Delta no SAP BW
 
-Se você precisar copiar histórico e cópia incremental ou somente cópia incremental, configure a extração de delta no SAP BW.
+Se você precisar de cópia histórica e cópia incremental ou apenas cópia incremental, configure a extração Delta em SAP BW.
 
-1. Crie o destino do Open Hub. Você pode criar o OHD no SAP transação RSA1, que cria automaticamente o processo de transferência de dados e transformação necessária. Use as configurações a seguir:
+1. Crie o destino do Hub aberto. Você pode criar o OHD no SAP Transaction RSA1, que cria automaticamente a transformação necessária e o processo de transferência de dados. Use as configurações a seguir:
 
-   - **ObjectType**: Você pode usar qualquer tipo de objeto. Aqui, usaremos **InfoCube** como exemplo.
-   - **Tipo de destino**: Selecione **tabela de banco de dados**.
-   - **Chave da tabela**: Selecione **técnica chave**.
-   - **Extração**: Selecione **manter dados e inserir registros na tabela**.
+   - **Objecttype**: você pode usar qualquer tipo de objeto. Aqui, usamos **InfoCube** como exemplo.
+   - **Tipo de destino**: selecione **tabela de banco de dados**.
+   - **Chave da tabela**: selecione **chave técnica**.
+   - **Extração**: selecione **manter dados e inserir registros na tabela**.
 
-   ![Criar caixa de diálogo de extração do SAP BW OHD delta](media/load-sap-bw-data/create-sap-bw-ohd-delta.png)
+   ![Criar SAP BW caixa de diálogo extração de OHD Delta](media/load-sap-bw-data/create-sap-bw-ohd-delta.png)
 
-   ![Criar caixa de diálogo do SAP BW OHD delta2 extração](media/load-sap-bw-data/create-sap-bw-ohd-delta2.png)
+   ![Criar SAP BW caixa de diálogo de extração OHD Delta2](media/load-sap-bw-data/create-sap-bw-ohd-delta2.png)
 
-   Você pode aumentar o número de paralelo executando os processos de trabalho do SAP para o DTP:
+   Você pode aumentar o número de processos de trabalho do SAP em execução paralela para o DTP:
 
-   ![create-sap-bw-ohd-delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
+   ![Create-SAP-BW-Ohd-Delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
 
-2. Agende o DTP em cadeias de processo.
+2. Agende as cadeias de DTP em processo.
 
-   Um delta DTP para um cubo só funciona se as linhas necessárias ainda não foram compactadas. Certifique-se de compactação de cubo BW não está em execução antes do DTP na tabela do Open Hub. A maneira mais fácil de fazer isso é integrar o DTP em suas cadeias de processo existente. No exemplo a seguir, o DTP (para OHD) é inserido na cadeia de processo entre o *ajustar* (acumulação agregada) e *Collapse* etapas (compactação de cubo).
+   Um DTP de Delta para um cubo só funcionará se as linhas necessárias não tiverem sido compactadas. Certifique-se de que a compactação de cubo BW não esteja em execução antes do DTP para a tabela de Hub aberta. A maneira mais fácil de fazer isso é integrar o DTP às cadeias de processo existentes. No exemplo a seguir, o DTP (para o OHD) é inserido na cadeia de processo entre as etapas *ajustar* (ROLLUP agregado) e *recolher* (compactação de cubo).
 
-   ![Criar um gráfico de fluxo de cadeia de processo do SAP BW](media/load-sap-bw-data/create-sap-bw-process-chain.png)
+   ![Criar SAP BW gráfico de fluxo de cadeia de processo](media/load-sap-bw-data/create-sap-bw-process-chain.png)
 
-### <a name="configure-full-extraction-in-sap-bw"></a>Configurar a extração completa no SAP BW
+### <a name="configure-full-extraction-in-sap-bw"></a>Configurar extração completa no SAP BW
 
-Além de extração de delta, talvez você queira uma extração completa da mesma BW InfoProvider da SAP. Isso geralmente se aplica se você quiser que a cópia completa, mas não incremental, ou você deseja [ressincronizar a extração de delta](#resync-delta-extraction).
+Além da extração Delta, talvez você queira uma extração completa do mesmo SAP BW Infoprovider. Isso geralmente se aplica se você quiser fazer cópia completa, mas não incremental, ou se quiser [ressincronizar a extração Delta](#resync-delta-extraction).
 
-Você não pode ter o DTP mais de um para o mesmo OHD. Portanto, você deve criar um OHD adicional antes da extração de delta.
+Você não pode ter mais de um DTP para o mesmo OHD. Portanto, você deve criar um OHD adicional antes da extração de Delta.
 
 ![Criar SAP BW OHD completo](media/load-sap-bw-data/create-sap-bw-ohd-full.png)
 
-Para uma carga completa OHD, escolha Opções de diferentes para extração de delta:
+Para obter um OHD de carga completo, escolha opções diferentes em vez de extração Delta:
 
-- No OHD: Defina a **extração** opção **registros de inserir e excluir dados**. Caso contrário, os dados serão extraídos muitas vezes, quando você repetir o DTP em uma cadeia de processo do BW.
+- Em OHD: defina a opção de **extração** para **excluir dados e inserir registros**. Caso contrário, os dados serão extraídos muitas vezes quando você repetir o DTP em uma cadeia de processo BW.
 
-- No DTP: Definir **modo de extração** à **completo**. Você deve alterar o DTP criado automaticamente na **Delta** ao **completo** imediatamente após a criação de OHD, como mostra esta imagem:
+- No DTP: defina o **modo de extração** como **completo**. Você deve alterar o DTP criado automaticamente de **Delta** para **completo** imediatamente após a criação do Ohd, pois essa imagem mostra:
 
-   ![Criar SAP BW OHD caixa de diálogo configurada para extração "Full"](media/load-sap-bw-data/create-sap-bw-ohd-full2.png)
+   ![Criar SAP BW caixa de diálogo OHD configurada para extração "completa"](media/load-sap-bw-data/create-sap-bw-ohd-full2.png)
 
-- No conector BW Open Hub da fábrica de dados: Desative **última solicitação de exclusão**. Caso contrário, nada será extraído.
+- No conector de Hub aberto BW do Data Factory: desative **excluir a última solicitação**. Caso contrário, nada será extraído.
 
-Você normalmente executa o DTP completo manualmente. Ou, você pode criar uma cadeia de processo para o DTP completo. Geralmente, é uma cadeia separada que é independente de suas cadeias de processo existente. Em ambos os casos *Certifique-se de que o DTP é concluído antes de iniciar a extração usando a cópia do Data Factory*. Caso contrário, apenas os dados parciais serão copiados.
+Normalmente, você executa o DTP completo manualmente. Ou, você pode criar uma cadeia de processo para o DTP completo. Normalmente, é uma cadeia separada que é independente de suas cadeias de processo existentes. Em ambos os casos, *Verifique se o DTP foi concluído antes de iniciar a extração usando data Factory cópia*. Caso contrário, somente os dados parciais serão copiados.
 
-### <a name="run-delta-extraction-the-first-time"></a>Executar a extração de delta na primeira vez
+### <a name="run-delta-extraction-the-first-time"></a>Executar extração de Delta na primeira vez
 
-Tecnicamente, a extração de delta a primeira é uma *completo extração*. Por padrão, o conector do SAP BW Open Hub exclui a última solicitação quando ela copia os dados. Para a extração de delta primeiro, nenhum dado é extraído pela atividade de cópia de fábrica de dados até que um DTP subsequente gera dados de delta na tabela com uma ID de solicitação separada. Há duas maneiras de evitar esse cenário:
+A primeira extração Delta é tecnicamente uma *extração completa*. Por padrão, o conector de Hub aberto SAP BW exclui a última solicitação ao copiar dados. Para a primeira extração Delta, nenhum dado é extraído pelo Data Factory atividade de cópia até que um DTP subsequente gere dados Delta na tabela com uma ID de solicitação separada. Há duas maneiras de evitar esse cenário:
 
-- Desativar o **última solicitação de exclusão** opção para a extração de delta primeiro. Certifique-se de que o primeiro delta DTP é concluído antes de iniciar a extração de delta na primeira vez.
--  Use o procedimento para ressincronizar a extração de delta, conforme descrito na próxima seção.
+- Desative a opção de **exclusão da última solicitação** para a primeira extração Delta. Verifique se o primeiro DTP de Delta foi concluído antes de iniciar a extração Delta na primeira vez.
+-  Use o procedimento para ressincronizar a extração Delta, conforme descrito na próxima seção.
 
-### <a name="resync-delta-extraction"></a>Ressincronização de extração de delta
+### <a name="resync-delta-extraction"></a>Resincronização de reextração Delta
 
-Os seguintes cenários alteram os dados em cubos do SAP BW, mas não são considerados pelo DTP delta:
+Os cenários a seguir alteram os dados em SAP BW cubos, mas não são considerados pelo DTP do Delta:
 
-- Exclusão seletiva de SAP BW (de linhas, usando qualquer condição de filtro)
-- Exclusão de solicitação do SAP BW (de solicitações com falha)
+- SAP BW exclusão seletiva (de linhas usando qualquer condição de filtro)
+- SAP BW a exclusão da solicitação (de solicitações com falha)
 
-Um destino do Open Hub SAP não é um destino de dados controlados de armazém de dados (em todos os pacotes de suporte do SAP BW desde 2015). Portanto, você pode excluir dados de um cubo sem alterar os dados em que o OHD. Em seguida, será preciso ressincronizar os dados do cubo com o Data Factory:
+Um destino do Hub aberto do SAP não é um destino de dados controlado por Data Mart (em todos os pacotes de suporte a SAP BW desde 2015). Portanto, você pode excluir dados de um cubo sem alterar os dados no OHD. Em seguida, você deve ressincronizar os dados do cubo com Data Factory:
 
-1. Execute uma extração completa no Data Factory (por meio de um DTP completa no SAP).
-2. Exclua todas as linhas da tabela do Open Hub para o delta DTP.
-3. Definir o status do delta DTP para **buscadas**.
+1. Execute uma extração completa no Data Factory (usando um DTP completo no SAP).
+2. Exclua todas as linhas na tabela de Hub aberta para o centro de DTP Delta.
+3. Defina o status do Delta DTP a ser **buscado**.
 
-Depois disso, todas as extrações de delta de Data Factory e delta subsequentes DTPs funcionam conforme o esperado.
+Depois disso, todas as extrações Delta DTPs e Data Factory Delta funcionam conforme o esperado.
 
-Para definir o status do delta DTP para **buscadas**, você pode usar a opção a seguir para executar o delta DTP manualmente:
+Para definir o status do Delta DTP a ser **buscado**, você pode usar a seguinte opção para executar o conjunto de DTP Delta manualmente:
 
     *No Data Transfer; Delta Status in Source: Fetched*
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o suporte do conector SAP BW Open Hub:
+Saiba mais sobre SAP BW suporte ao conector de Hub aberto:
 
 > [!div class="nextstepaction"]
->[Conector do SAP Business Warehouse Open Hub](connector-sap-business-warehouse-open-hub.md)
+>[Conector de Hub aberto do SAP Business Warehouse](connector-sap-business-warehouse-open-hub.md)

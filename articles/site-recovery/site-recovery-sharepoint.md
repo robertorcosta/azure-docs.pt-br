@@ -1,5 +1,5 @@
 ---
-title: Configurar a recuperação de desastres para um aplicativo do SharePoint de várias camadas usando o Azure Site Recovery | Microsoft Docs
+title: Recuperação de desastre para um aplicativo do SharePoint de várias camadas usando o Azure Site Recovery
 description: Este artigo descreve como configurar a recuperação de desastres para um aplicativo do SharePoint de várias camadas usando os recursos do Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: e9b688d54049c21da3276a20e27dcc9ad3d4ceca
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: cc72cb4134e6492478805421e448df26a8dc4554
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231481"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622422"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurar a recuperação de desastre para um aplicativo do SharePoint de várias camadas para recuperação de desastres usando o Azure Site Recovery
 
@@ -65,7 +65,7 @@ Site Recovery é independente de aplicativo e deve funcionar com qualquer versã
 **Hyper-V** | Sim | Sim
 **VMware** | Sim | Sim
 **Servidor físico** | Sim | Sim
-**As tabelas** | N/A | Sim
+**As tabelas** | ND | Sim
 
 
 ### <a name="things-to-keep-in-mind"></a>Algumas coisas que se deve manter em mente
@@ -86,7 +86,7 @@ Siga [estas diretrizes](site-recovery-vmware-to-azure.md) para começar a replic
 
 ## <a name="networking-configuration"></a>Configuração de rede
 
-### <a name="network-properties"></a>Propriedades de rede
+### <a name="network-properties"></a>Propriedades da rede
 
 * Para as VMs de camada da Web e de Aplicativo, defina configurações de rede no Portal do Azure para que as VMs sejam anexadas à rede de DR correta após o failover.
 
@@ -102,7 +102,7 @@ Siga [estas diretrizes](site-recovery-vmware-to-azure.md) para começar a replic
 Para sites voltados para a Internet, [crie um perfil do Gerenciador de Tráfego do tipo 'Prioridade'](../traffic-manager/traffic-manager-create-profile.md) na assinatura do Azure. Em seguida, configure seu perfil do Gerenciador de Tráfego e de DNS da maneira descrita a seguir.
 
 
-| **Onde** | **Source** | **Destino**|
+| **Onde** | **Origem** | **Destino**|
 | --- | --- | --- |
 | DNS público | DNS público para sites do SharePoint <br/><br/> Por exemplo: sharepoint.contoso.com | Gerenciador de Tráfego <br/><br/> contososharepoint.trafficmanager.net |
 | DNS local | sharepointonprem.contoso.com | IP público no farm local |

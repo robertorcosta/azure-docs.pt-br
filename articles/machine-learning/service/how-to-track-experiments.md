@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2d8bf44f5e5e7a3f8c328a47480599f9dd18b845
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: d8a2c456c725a3170bc940bf17dec6b0c4ad2c3e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489535"
+ms.locfileid: "73584536"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitorar execuções e métricas de experimento do Azure ML
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,6 +26,9 @@ Aprimore o processo de criação de modelo rastreando suas experiências e monit
 
 > [!NOTE]
 > Azure Machine Learning também pode registrar informações de outras fontes durante o treinamento, como execuções automatizadas do Machine Learning ou o contêiner do Docker que executa o trabalho de treinamento. Esses logs não estão documentados. Se você encontrar problemas e entrar em contato com o suporte da Microsoft, eles podem ser capazes de usar esses logs durante a solução de problemas.
+
+> [!TIP]
+> As informações neste documento são basicamente para cientistas de dados e desenvolvedores que desejam monitorar o processo de treinamento de modelo. Se você for um administrador interessado em monitorar o uso de recursos e eventos do Azure Machine Learning, como cotas, execuções de treinamento concluídas ou implantações de modelo concluídas, consulte [monitoramento Azure Machine Learning](monitor-azure-machine-learning.md).
 
 ## <a name="available-metrics-to-track"></a>Métricas disponíveis para acompanhar
 

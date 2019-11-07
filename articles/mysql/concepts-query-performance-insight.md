@@ -5,29 +5,26 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: b7395a8ab71e860c2e584339dcd581077a4f4020
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/04/2019
+ms.openlocfilehash: 38299a8ffd72722c2d2c1dda9227b7fbf76c0386
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595470"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603118"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Análise de Desempenho de Consultas no banco de dados do Azure para MySQL
 
 **Aplica-se a:** Banco de dados do Azure para MySQL 5,7
 
-> [!IMPORTANT]
-> Análise de Desempenho de Consultas está em versão prévia.
-
-Análise de Desempenho de Consultas ajuda a identificar rapidamente o que são suas consultas em execução mais longas, como elas mudam com o passar do tempo e quais esperas estão afetando-as.
+A Análise de Desempenho de Consultas ajuda você a identificar rapidamente quais são suas consultas de execução mais longa, como elas mudam ao longo do tempo e quais esperas as estão afetando.
 
 ## <a name="common-scenarios"></a>Cenários comuns
 
 ### <a name="long-running-queries"></a>Consultas de longa execução
 
-- Identificando consultas de execução mais longa nas últimas X horas
-- Identificando as N principais consultas que estão aguardando recursos
+- Identificar consultas de execução mais longas nas últimas X horas
+- Identificar as principais N consultas que estão aguardando recursos
  
 ### <a name="wait-statistics"></a>Estatísticas de espera
 
@@ -36,25 +33,25 @@ Análise de Desempenho de Consultas ajuda a identificar rapidamente o que são s
 
 ## <a name="permissions"></a>Permissões
 
-Permissões de **proprietário** ou **colaborador** necessárias para exibir o texto das consultas no análise de desempenho de consultas. O **leitor** pode exibir gráficos e tabelas, mas não texto de consulta.
+**Permissões do Proprietário** ou **Colaborador** necessárias para exibir o texto das consultas na Análise de Desempenho de Consultas **Leitor** podem exibir gráficos e tabelas, mas não o texto da consulta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para que Análise de Desempenho de Consultas funcionem, os dados devem existir no [repositório de consultas](concepts-query-store.md).
+Para a Análise de Desempenho de Consultas funcionar, os dados precisam existir no [Repositório de Consultas](concepts-query-store.md).
 
-## <a name="viewing-performance-insights"></a>Exibindo informações de desempenho
+## <a name="viewing-performance-insights"></a>Exibição de análises de desempenho
 
-A exibição de [análise de desempenho de consultas](concepts-query-performance-insight.md) no portal do Azure orientará as visualizações de informações de chave de repositório de consultas.
+A visualização da [Análise de Desempenho de Consultas](concepts-query-performance-insight.md) no portal do Azure será superficial visualizações em informações do Repositório de Consultas.
 
 Na página do portal do seu banco de dados do Azure para servidor MySQL, selecione **análise de desempenho de consultas** na seção **desempenho inteligente** da barra de menus.
 
 ### <a name="long-running-queries"></a>Consultas de longa execução
 
-A guia **consultas de longa execução** mostra as 5 principais consultas por duração média por execução, agregadas em intervalos de 15 minutos. Você pode exibir mais consultas selecionando na lista suspensa **número de consultas** . As cores do gráfico podem ser alteradas para uma ID de consulta específica quando você fizer isso.
+A guia **consultas de longa execução** mostra as 5 principais consultas por duração média por execução, agregadas em intervalos de 15 minutos. Você pode exibir mais consultas selecionando na lista suspensa **número de consultas** . As cores do gráfico pode ser alteradas para uma ID de consulta específica ao fazer isso.
 
-Você pode clicar e arrastar o gráfico para restringir a uma janela de tempo específica. Como alternativa, use os ícones ampliar e reduzir para exibir um período de tempo menor ou maior, respectivamente.
+Você pode clicar e arrastar no gráfico para restringi-lo a uma janela de tempo específico. Como alternativa, use os ícones ampliar e reduzir para exibir um período de tempo menor ou maior, respectivamente.
 
-![Análise de Desempenho de Consultas consultas de longa execução](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+![Consultas de execução longa da Análise de Desempenho de Consultas](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
 
 ### <a name="wait-statistics"></a>Estatísticas de espera
 
@@ -63,12 +60,12 @@ Você pode clicar e arrastar o gráfico para restringir a uma janela de tempo es
 
 Estatísticas de espera fornece uma exibição dos eventos de espera que ocorrem durante a execução de uma consulta específica. Saiba mais sobre os tipos de evento de espera na [documentação do mecanismo MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 
-Selecione a guia **Estatísticas de espera** para exibir as visualizações correspondentes em esperas no servidor.
+Selecione a guia das **Estatísticas de Espera** guia para exibir as visualizações correspondentes em espera no servidor.
 
 As consultas exibidas na exibição Estatísticas de espera são agrupadas pelas consultas que exibem as maiores esperas durante o intervalo de tempo especificado.
 
 ![Estatísticas de esperas de Análise de Desempenho de Consultas](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [monitoramento e ajuste](concepts-monitoring.md) no banco de dados do Azure para MySQL.

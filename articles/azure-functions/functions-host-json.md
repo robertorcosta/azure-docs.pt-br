@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 96c346db74c1e6c43c3501b657621d09e019309c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 584fb7b97b8342289d7ca2f23b0479eb1169867a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469210"
+ms.locfileid: "73575890"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Referência host.json para o Azure Functions 2.x  
 
@@ -113,11 +113,11 @@ Controla o [recurso de amostragem no Application Insights](./functions-monitorin
 
 |Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
-|isEnabled|true|Habilita ou desabilita a amostragem.| 
+|isEnabled|verdadeiro|Habilita ou desabilita a amostragem.| 
 |maxTelemetryItemsPerSecond|20|O limite em que a amostragem começa.| 
-|EnableLiveMetrics |true|Habilita a coleta de métricas em tempo real.|
-|EnableDependencyTracking|true|Habilita o rastreamento de dependência.|
-|EnablePerformanceCountersCollection|true|Habilita a coleta de contadores de desempenho kudu.|
+|EnableLiveMetrics |verdadeiro|Habilita a coleta de métricas em tempo real.|
+|EnableDependencyTracking|verdadeiro|Habilita o rastreamento de dependência.|
+|EnablePerformanceCountersCollection|verdadeiro|Habilita a coleta de contadores de desempenho kudu.|
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -174,7 +174,7 @@ Definições de configuração para [monitor de integridade de Host](https://git
 
 |Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
-|Habilitado|true|Especifica se o recurso está habilitado. | 
+|Habilitado|verdadeiro|Especifica se o recurso está habilitado. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade em segundo plano. | 
 |healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto com a configuração `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes de uma reciclagem de host ser iniciada.| 
@@ -182,23 +182,7 @@ Definições de configuração para [monitor de integridade de Host](https://git
 
 ## <a name="http"></a>http
 
-As definições de configuração podem ser encontradas em [Associações e gatilhos HTTP](functions-bindings-http-webhook.md).
-
-```json
-{
-    "extensions": {
-        "http": {
-            "routePrefix": "api",
-            "maxOutstandingRequests": 200,
-            "maxConcurrentRequests": 100,
-            "dynamicThrottlesEnabled": true
-        }
-    }
-}
-```
-
-
-[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
+As definições de configuração podem ser encontradas em [Associações e gatilhos HTTP](functions-bindings-http-webhook.md#hostjson-settings).
 
 ## <a name="logging"></a>registro em log
 
@@ -206,7 +190,7 @@ Controla os comportamentos de registro em log do aplicativo de funções, inclui
 
 ```json
 "logging": {
-    "fileLoggingMode": "debugOnly",
+    "fileLoggingMode": "debugOnly"
     "logLevel": {
       "Function.MyFunction": "Information",
       "default": "None"
@@ -223,9 +207,9 @@ Controla os comportamentos de registro em log do aplicativo de funções, inclui
 |Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qual nível de log de arquivos está habilitado.  As opções são: `never`, `always` e `debugOnly`. |
-|logLevel|N/D|Objeto que define a filtragem da categoria de log para funções no aplicativo. A versão 2.x segue o layout do ASP.NET Core para filtragem de categoria de log. Isso permite filtrar o registro para funções específicas. Para obter mais informações, consulte [Filtragem de logs](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
-|console|N/D| A configuração de log do [console](#console). |
-|applicationInsights|N/D| A configuração [applicationInsights](#applicationinsights). |
+|logLevel|n/d|Objeto que define a filtragem da categoria de log para funções no aplicativo. A versão 2.x segue o layout do ASP.NET Core para filtragem de categoria de log. Isso permite filtrar o registro para funções específicas. Para obter mais informações, consulte [Filtragem de logs](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
+|console|n/d| A configuração de log do [console](#console). |
+|applicationInsights|n/d| A configuração [applicationInsights](#applicationinsights). |
 
 ## <a name="console"></a>console
 
@@ -293,7 +277,7 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 |listenerLockPeriod|00:01:00|O período em que ocorrem os bloqueios de ouvinte.| 
 |listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo usado para a recuperação do bloqueio de ouvinte caso não tenha sido possível adquirir um bloqueio de ouvinte durante a inicialização.| 
 |lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo em que o tempo de execução tenta adquirir um bloqueio.| 
-|lockAcquisitionPollingInterval|N/D|O intervalo entre as tentativas de aquisição de bloqueio.| 
+|lockAcquisitionPollingInterval|n/d|O intervalo entre as tentativas de aquisição de bloqueio.| 
 
 ## <a name="version"></a>version
 

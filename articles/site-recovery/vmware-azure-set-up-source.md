@@ -1,5 +1,5 @@
 ---
-title: Configurar o ambiente de origem para replicação de VMware no Azure com o Azure Site Recovery | Microsoft Docs
+title: Definir configurações de origem para a recuperação de desastres do VMware no Azure com Azure Site Recovery
 description: Este artigo descreve como configurar seu ambiente local para replicar máquinas virtuais VMware no Azure com o Azure Site Recovery.
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: bf1ff4dfba105b6c90ab949217453e1db82d109d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791767"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622204"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurar o ambiente de origem para replicação de VMware no Azure
 
@@ -84,5 +84,5 @@ Exclua estas pastas do software antivírus
 7. Azure Site Recovery diretório de instalação do servidor de processo com balanceamento de carga, exemplo: C:\Arquivos de programas (x86) \Microsoft Azure Site Recovery
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Configurar o ambiente de destino](./vmware-azure-set-up-target.md) 

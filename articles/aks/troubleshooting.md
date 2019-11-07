@@ -1,75 +1,75 @@
 ---
-title: Solucionar problemas comuns do serviço kubernetes do Azure
-description: Saiba como solucionar problemas comuns ao usar o serviço de kubernetes do Azure (AKS)
+title: Solucionar problemas comuns do Serviço do Azure Kubernetes
+description: Aprenda a solucionar problemas comuns ao usar o Serviço de Kubernetes do Azure (AKS)
 services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 2c25069ce5231a1f89027dea69579231f0fe4bcd
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 270dbb24d851645ff7a7f0bcf5f78bfb95bcd095
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72517083"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604739"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
-Ao criar ou gerenciar clusters do AKS (serviço kubernetes do Azure), ocasionalmente, você pode encontrar problemas. Este artigo fornece detalhes sobre alguns problemas comuns e etapas de solução de problemas.
+Quando você cria ou gerencia clusters do Serviço de Kubernetes do Azure (AKS), você pode ocasionalmente encontrar problemas. Este artigo detalha alguns problemas comuns e etapas de solução de problemas.
 
-## <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-problems"></a>Em geral, onde encontro informações sobre a depuração de problemas do kubernetes?
+## <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-problems"></a>Em geral, onde encontro informações sobre como depurar problemas do Kubernetes?
 
-Experimente o [guia oficial para solucionar problemas de clusters do kubernetes](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
-Há também um [Guia de solução de problemas](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md), publicado por um engenheiro da Microsoft para solucionar problemas de pods, nós, clusters e outros recursos.
+Experimente o [guia oficial para solucionar problemas de clusters de Kubernetes](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
+Há também um [guia de solução de problemas](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md) publicado por um engenheiro da Microsoft sobre solução de problemas de pods, nós, clusters e outros recursos.
 
-## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Estou recebendo um erro de "cota excedido" durante a criação ou a atualização. O que devo fazer? 
+## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Estou recebendo um erro de “cota excedida” durante a criação ou atualização. O que devo fazer? 
 
 Você precisa [solicitar núcleos](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Qual é a configuração máxima de pods por nó para AKS?
+## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Qual é a configuração máxima de pods por nó para o AKS?
 
-A configuração de pods máxima por nó será de 30 por padrão se você implantar um cluster AKS no portal do Azure.
-A configuração de pods máxima por nó será 110 por padrão se você implantar um cluster AKS no CLI do Azure. (Verifique se você está usando a versão mais recente do CLI do Azure). Essa configuração padrão pode ser alterada usando o sinalizador `–-max-pods` no comando `az aks create`.
+A configuração máxima de pods por nó é 30 por padrão, se você implantar um cluster AKS no portal do Azure.
+A configuração máxima de pods por nó é 110 por padrão, se você implantar um cluster AKS na CLI do Azure. (Verifique se está usando a versão mais recente da CLI do Azure). Essa configuração padrão pode ser alterada usando o sinalizador `–-max-pods` no comando `az aks create`.
 
-## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Estou recebendo um erro de insufficientSubnetSize ao implantar um cluster AKS com rede avançada. O que devo fazer?
+## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Estou recebendo o erro “insuficienteSubnetSize” ao implantar um cluster AKS com a rede avançada. O que devo fazer?
 
-Se o Azure CNI (rede avançada) for usado, o AKS prefixará o IP endereçado com base no "Max-pods" por nó configurado. O número de nós em um cluster AKS pode ser de qualquer lugar entre 1 e 110. Com base no máximo de pods configurado por nó, o tamanho da sub-rede deve ser maior que o "produto do número de nós e o Pod máximo por nó". A equação básica a seguir descreve isso:
+Se o Azure CNI (rede avançada) for usado, o AKS alocará endereços IP com base no "Max-pods" por nó configurado. Com base no máximo de pods configurado por nó, o tamanho da sub-rede deve ser maior que o produto do número de nós e a configuração do pod máximo por nó. A equação a seguir descreve isso:
 
-O tamanho da sub-rede > número de nós no cluster (levando em consideração os requisitos de dimensionamento futuros) * máximo de pods por nó.
+O tamanho da sub-rede > número de nós no cluster (levando em consideração os requisitos de dimensionamento futuros) * máximo de pods por conjunto de nós.
 
-Para obter mais informações, consulte [planejar o endereçamento de IP para o cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
+Para saber mais, confira [Planejar o endereçamento IP para o cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Meu pod está preso no modo CrashLoopBackOff. O que devo fazer?
 
-Pode haver vários motivos para o Pod estar preso nesse modo. Você pode examinar:
+Pode haver vários motivos para o pod trave nesse modo. Você pode examinar:
 
-* O próprio Pod, usando `kubectl describe pod <pod-name>`.
+* O próprio pod, usando `kubectl describe pod <pod-name>`.
 * Os logs, usando `kubectl log <pod-name>`.
 
-Para obter mais informações sobre como solucionar problemas de Pod, consulte [depurar aplicativos](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
+Para obter mais informações sobre como solucionar problemas de pod, consulte [Depurar aplicativos](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
-## <a name="im-trying-to-enable-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Estou tentando habilitar o RBAC em um cluster existente. Como posso fazer isso?
+## <a name="im-trying-to-enable-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Estou tentando habilitar RBAC em um cluster existente. Como posso fazer isso?
 
-Infelizmente, não há suporte para habilitar o controle de acesso baseado em função (RBAC) em clusters existentes no momento. Você deve criar explicitamente novos clusters. Se você usar a CLI, o RBAC será habilitado por padrão. Se você usar o portal do AKS, um botão de alternância para habilitar o RBAC estará disponível no fluxo de trabalho de criação.
+Infelizmente, a ativação do controle de acesso baseado em função (RBAC) em clusters existentes não é suportada no momento. Você deve explicitamente criar novos clusters. Se você usar a CLI, o RBAC é habilitado por padrão. Se você usar o portal do AKS, um botão de alternância para habilitar o RBAC está disponível no fluxo de trabalho de criação.
 
-## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Criei um cluster com o RBAC habilitado usando o CLI do Azure com os padrões ou o portal do Azure, e agora vejo muitos avisos no painel do kubernetes. O painel usado para funcionar sem avisos. O que devo fazer?
+## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Eu criei um cluster com o RBAC habilitado usando a CLI do Azure com padrões ou o portal do Azure, agora vejo vários avisos no painel do Kubernetes. O painel costumava trabalhar sem nenhum aviso. O que devo fazer?
 
-O motivo para os avisos no painel é que o cluster agora está habilitado com RBAC e o acesso a ele foi desabilitado por padrão. Em geral, essa abordagem é uma boa prática porque a exposição padrão do painel a todos os usuários do cluster pode levar a ameaças de segurança. Se você ainda quiser habilitar o painel, siga as etapas nesta [postagem no blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
+O motivo para os avisos no painel é que agora o cluster está habilitado com o RBAC e o acesso a ele foi desabilitado por padrão. Em geral, essa abordagem é uma boa prática, já que a exposição padrão do painel a todos os usuários do cluster pode levar a ameaças de segurança. Se você ainda quiser ativar o painel, siga os passos nesta [postagem de blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
-## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Não consigo me conectar ao painel. O que devo fazer?
+## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Não consigo conectar-me ao painel. O que devo fazer?
 
-A maneira mais fácil de acessar o serviço fora do cluster é executar `kubectl proxy`, quais proxies as solicitações enviaram para a porta localhost 8001 para o servidor de API kubernetes. A partir daí, o servidor de API pode fazer proxy para seu serviço: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
+A maneira mais fácil de acessar seu serviço fora do cluster é executar `kubectl proxy`, que enviará solicitações de proxy para sua porta local 8001 ao servidor Kubernetes API. A partir daí, o servidor de API pode usar um proxy ao seu serviço: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
 
-Se você não vir o painel do kubernetes, verifique se o Pod `kube-proxy` está em execução no namespace `kube-system`. Se não estiver em um estado de execução, exclua o pod e ele será reiniciado.
+Se você não vir o painel do Kubernetes, verifique se o pod `kube-proxy` está em execução no namespace `kube-system`. Se não estiver em estado de execução, exclua o pod e ele será reiniciado.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Não consigo obter logs usando logs do kubectl ou não consigo me conectar ao servidor de API. Estou recebendo "erro do servidor: erro ao discar back-end: discar TCP...". O que devo fazer?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Não consigo obter os logs, usando kubectl logs ou não é possível conectar-se ao servidor de API. Estou recebendo "erro do servidor: erro ao discar back-end: discar TCP...". O que devo fazer?
 
-Verifique se o grupo de segurança de rede padrão não foi modificado e se a porta 22 e 9000 estão abertas para conexão com o servidor de API. Verifique se o pod de `tunnelfront` está em execução no namespace *Kube-System* usando o comando `kubectl get pods --namespace kube-system`. Se não estiver, force a exclusão do pod e ela será reiniciada.
+Verifique se o grupo de segurança de rede padrão não foi modificado e se a porta 22 e 9000 estão abertas para conexão com o servidor de API. Verifique se o pod de `tunnelfront` está em execução no namespace *Kube-System* usando o comando `kubectl get pods --namespace kube-system`. Se não estiver, force a exclusão do pod e ele será reiniciado.
 
-## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Estou tentando atualizar ou dimensionar e estou recebendo um erro "mensagem: a alteração da propriedade ' imageReference ' não é permitida". Como fazer corrigir esse problema?
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Estou tentando atualizar ou dimensionar e estou recebendo um erro "mensagem: a alteração da propriedade ' imageReference ' não é permitida". Como faço para corrigir esse problema?
 
-Você pode estar recebendo esse erro porque modificou as marcas nos nós de agente dentro do cluster AKS. Modificar e excluir marcas e outras propriedades de recursos no grupo de recursos MC_ * pode levar a resultados inesperados. Modificar os recursos no grupo MC_ * no cluster AKS interrompe o SLO (objetivo de nível de serviço).
+Você pode estar recebendo este erro porque modificou as tags nos nós do agente dentro do cluster do AKS. Modificar e excluir tags e outras propriedades de recursos no grupo de recursos MC_ * pode levar a resultados inesperados. Modificar os recursos sob o grupo MC_ * no cluster do AKS quebra o objetivo de nível de serviço (SLO).
 
 ## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Estou recebendo erros de que meu cluster está em estado de falha e a atualização ou o dimensionamento não funcionará até que seja corrigido
 
@@ -77,7 +77,7 @@ Você pode estar recebendo esse erro porque modificou as marcas nos nós de agen
 
 Esse erro ocorre quando os clusters entram em um estado de falha por vários motivos. Siga as etapas abaixo para resolver o estado de falha do cluster antes de repetir a operação que falhou anteriormente:
 
-1. Até que o cluster esteja fora do estado de `failed`, as operações de `upgrade` e `scale` não terão sucesso. As resoluções e problemas de raiz comuns incluem:
+1. Até que o cluster esteja fora do estado `failed`, as operações `upgrade` e `scale` não terão sucesso. As resoluções e problemas de raiz comuns incluem:
     * Dimensionamento com **cota de computação insuficiente (CRP)** . Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga estas [etapas para solicitar um aumento de cota de computação](../azure-supportability/resource-manager-core-quotas-request.md) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
     * Dimensionamento de um cluster com rede avançada e **recursos de sub-rede (rede) insuficientes**. Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga [estas etapas para solicitar um aumento de cota de recursos](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
 2. Depois que a causa subjacente da falha de atualização for resolvida, o cluster deverá estar em um estado com êxito. Quando um estado bem-sucedido for verificado, repita a operação original.
@@ -118,7 +118,7 @@ Siga as etapas *antes de começar* no documento apropriado para criar corretamen
 
 As restrições de nomenclatura são implementadas pela plataforma do Azure e AKS. Se um nome de recurso ou parâmetro quebrar uma dessas restrições, será retornado um erro solicitando que você forneça uma entrada diferente. As seguintes diretrizes de nomenclatura comuns se aplicam:
 
-* O nome do grupo de recursos AKS *MC_* combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerada automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` não deve ser maior que 80 caracteres. Se necessário, reduza o tamanho do nome do grupo de recursos ou do nome do cluster AKS.
+* O nome do grupo de recursos do AKS *MC_* combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerada automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` não deve ser maior que 80 caracteres. Se necessário, reduza o tamanho do nome do grupo de recursos ou do nome do cluster AKS.
 * O *dnsPrefix* deve começar e terminar com valores alfanuméricos. Os caracteres válidos incluem valores alfanuméricos e hifens (-). O *dnsPrefix* não pode incluir caracteres especiais, como um ponto (.).
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Estou recebendo erros ao tentar criar, atualizar, dimensionar, excluir ou atualizar o cluster. essa operação não é permitida porque outra operação está em andamento.
@@ -144,7 +144,7 @@ Use as seguintes soluções alternativas para isso:
 
 ## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>Estou recebendo erros depois de restringir o tráfego de egresso
 
-Ao restringir o tráfego de saída de um cluster AKS, há regras de saída/portas de rede [recomendadas e opcionais necessárias](limit-egress-traffic.md) e regras de FQDN/aplicativo para AKs. Se suas configurações estiverem em conflito com qualquer uma dessas regras, talvez você não possa executar determinados comandos de `kubectl`. Você também pode ver erros ao criar um cluster AKS.
+Ao restringir o tráfego de saída de um cluster AKS, há regras de saída/portas de rede [recomendadas e opcionais necessárias](limit-egress-traffic.md) e regras de FQDN/aplicativo para AKs. Se suas configurações estiverem em conflito com qualquer uma dessas regras, talvez você não possa executar determinados comandos `kubectl`. Você também pode ver erros ao criar um cluster AKS.
 
 Verifique se as configurações não estão em conflito com nenhuma das portas de rede/regras de saída necessárias ou opcionais recomendadas ou regras de FQDN/aplicativo.
 
@@ -191,7 +191,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | Versão do kubernetes | Versão corrigida |
 | -- | :--: |
 | 1,10 | 1.10.2 ou posterior |
-| 1,11 | 1.11.0 ou posterior |
+| 1.11 | 1.11.0 ou posterior |
 | 1,12 e posterior | N/D |
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Falha ao definir UID e GID em mountoptions para disco do Azure
@@ -263,7 +263,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | Versão do kubernetes | Versão corrigida |
 | -- | :--: |
 | 1,10 | 1.10.10 ou posterior |
-| 1,11 | 1.11.5 ou posterior |
+| 1.11 | 1.11.5 ou posterior |
 | 1,12 | 1.12.3 ou posterior |
 | 1,13 | 1.13.0 ou posterior |
 | 1,14 e posterior | N/D |
@@ -284,7 +284,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | Versão do kubernetes | Versão corrigida |
 | -- | :--: |
 | 1,10 | 1.10.12 ou posterior |
-| 1,11 | 1.11.6 ou posterior |
+| 1.11 | 1.11.6 ou posterior |
 | 1,12 | 1.12.4 ou posterior |
 | 1,13 | 1.13.0 ou posterior |
 | 1,14 e posterior | N/D |
@@ -305,7 +305,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 
 | Versão do kubernetes | Versão corrigida |
 | -- | :--: |
-| 1,11 | 1.11.9 ou posterior |
+| 1.11 | 1.11.9 ou posterior |
 | 1,12 | 1.12.7 ou posterior |
 | 1,13 | 1.13.4 ou posterior |
 | 1,14 e posterior | N/D |
