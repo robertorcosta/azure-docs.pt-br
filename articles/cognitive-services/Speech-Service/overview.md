@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 07/05/2019
+ms.date: 11/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 993064a36bd12c95e83ffb7c9635c3e4dfcec0f0
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 46e9182d9660729dbf65367f52483d96428760ff
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803340"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467395"
 ---
 # <a name="what-are-the-speech-services"></a>O que é o Serviço de Fala?
 
@@ -35,7 +35,7 @@ Esses recursos compõem o Serviço de Fala do Azure. Use os links nesta tabela p
 | [Conversão de Texto em Fala](text-to-speech.md) | Conversão de texto em fala | A conversão de texto em fala converte o texto de entrada em uma fala sintetizada semelhante à humana usando [Linguagem de marcação de síntese de fala (SSML)](text-to-speech.md#speech-synthesis-markup-language-ssml). Escolha entre as vozes padrão e vozes neurais (consulte [Suporte para idiomas](language-support.md)). | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Criar Vozes Personalizadas](#customize-your-speech-experience) | Crie fontes de voz personalizadas exclusivas para sua marca ou produto. | Não | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Tradução de Fala](speech-translation.md) | Tradução de fala | A tradução de fala possibilita a tradução em tempo real e em vários idiomas de fala para seus aplicativos, suas ferramentas e seus dispositivos. Use esse serviço para tradução de fala em fala e fala em texto. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Não |
-| [Assistentes virtuais que têm como prioridade o uso de voz](voice-first-virtual-assistants.md) | Assistentes virtuais que têm como prioridade o uso de voz | Assistentes virtuais personalizados usando os Serviços de Fala do Azure capacitam os desenvolvedores a criar interfaces de conversação natural, semelhante à humana, para seus aplicativos e suas experiências. O Canal de Fala de Direct Line do Bot Framework aprimora essas funcionalidades fornecendo um ponto de entrada coordenado e orquestrado para um bot compatível que permite a interação com entrada e saída de voz com baixa latência e alta confiabilidade. | [Sim](voice-first-virtual-assistants.md) | Não |
+| [Assistentes de voz](voice-assistants.md) | Assistentes de voz | Assistentes de voz que usam os Serviços de Fala do Azure capacitam os desenvolvedores a criarem interfaces de conversação natural, semelhante à humana, para seus aplicativos e suas experiências. O serviço de assistente de voz fornece interação rápida e confiável entre um dispositivo e uma implementação de assistente que usa o Canal de Fala de Linha Direta do Bot Framework ou o serviço integrado de Comandos Personalizados (versão prévia) para a conclusão da tarefa. | [Sim](voice-assistants.md) | Não |
 
 ## <a name="news-and-updates"></a>Novidades e atualizações
 
@@ -48,7 +48,7 @@ Saiba o que há de novo no Serviço de Fala do Azure.
   * Adição de um novo estilo de fala, [`chat`](speech-synthesis-markup.md#adjust-speaking-styles), para a voz `en-US-JessaNeural`. 
 * Junho de 2019
   * Lançamento do SDK de Fala 1.6.0. Para obter uma lista completa de atualizações, melhorias e problemas conhecidos, confira [Notas sobre a versão](releasenotes.md).
-* Maio de 2019 – A documentação já está disponível para [Transcrição de Conversas](conversation-transcription-service.md), [Transcrição de Call Center](call-center-transcription.md) e [Assistentes Virtuais que têm como prioridade o uso de voz](voice-first-virtual-assistants.md).
+* Maio de 2019: a documentação já está disponível para [transcrição de conversas](conversation-transcription-service.md), [transcrição de Call Center](call-center-transcription.md) e [assistentes de voz](voice-assistants.md).
 * Maio de 2019
   * Lançamento do SDK de Fala 1.5.1. Para obter uma lista completa de atualizações, melhorias e problemas conhecidos, confira [Notas sobre a versão](releasenotes.md).
   * Lançamento do SDK de Fala 1.5.0. Para obter uma lista completa de atualizações, melhorias e problemas conhecidos, confira [Notas sobre a versão](releasenotes.md).
@@ -59,10 +59,9 @@ Nós oferecemos guias de início rápido nas linguagens de programação mais po
 
 | Conversão de fala em texto (SDK) | Conversão de texto em fala (SDK) | Tradução (SDK) |
 |----------------------|----------------------|-------------------|
-| [C#, .NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [C#, .NET Framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) |
-| [JavaScript (Navegador)](quickstart-js-browser.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) |
-| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) |
-| [Java (Windows, Linux)](quickstart-java-jre.md) | | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) |
+| [Reconhecer uma fala de um arquivo de áudio](quickstarts/speech-to-text-from-file.md) | [Sintetizar fala em um arquivo de áudio](quickstarts/text-to-speech-audio-file.md) | [Converter fala em texto](quickstarts/translate-speech-to-text.md) |
+| [Reconhecer fala com um microfone](quickstarts/speech-to-text-from-microphone.md) | [Sintetizar fala para um locutor](quickstarts/text-to-speech.md) | [Traduzir fala para vários idiomas de destino](quickstarts/translate-speech-to-text-multiple-languages.md) |
+| [Reconhecer uma fala armazenada no Armazenamento de Blobs](quickstarts/from-blob.md) | [Sintetização assíncrona para áudio de fala contínua](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) | [Traduzir fala em fala](quickstarts/translate-speech-to-speech.md) |
 
 > [!NOTE]
 > A conversão de fala em texto e de texto em fala também tem pontos de extremidade REST e inícios rápidos associados.
@@ -80,7 +79,7 @@ Há um código de exemplo disponível no GitHub para cada um dos Serviços de Fa
 * [Amostras de conversão de fala em texto, conversão de texto em fala e tradução de fala (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Exemplos de transcrição em lote (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 * [Exemplos de conversão de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
-* [Exemplos de assistentes virtuais que têm como prioridade o uso de voz (SDK)](https://aka.ms/csspeech/samples)
+* [Exemplos de assistente de voz (SDK)](https://aka.ms/csspeech/samples)
 
 ## <a name="customize-your-speech-experience"></a>Personalize sua experiência de fala
 

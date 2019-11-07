@@ -8,18 +8,18 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bc013469610d5535c89870947fe094da93660012
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60530873"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488430"
 ---
 # <a name="app-service-documentation"></a>Documentação do Serviço de Aplicativo
-O Serviço de Aplicativo do Azure permite criar e hospedar aplicativos Web na linguagem de programação de sua escolha, sem gerenciamento de infra-estrutura nem tempo de execução de estrutura da Web ou linguagem. Ele oferece dimensionamento automático e alta disponibilidade, compatível com Windows e Linux, e permite implantações automatizadas do GitHub, Azure DevOps Services ou qualquer repositório Git. Saiba como usar o Serviço de Aplicativo do Azure com nossos inícios rápidos, tutoriais e exemplos.
+O Serviço de Aplicativo do Azure permite criar e hospedar aplicativos Web na linguagem de programação de sua escolha, sem gerenciamento de infra-estrutura nem runtime de estrutura da Web ou linguagem. Ele oferece dimensionamento automático e alta disponibilidade, compatível com Windows e Linux, e permite implantações automatizadas do GitHub, Azure DevOps Services ou qualquer repositório Git. Saiba como usar o Serviço de Aplicativo do Azure com nossos inícios rápidos, tutoriais e exemplos.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux e Docker
-[Aplicativos Web](/app-service/overview) é o Serviço de Aplicativo principal de oferta para a criação e hospedagem de aplicativos da Web usando os ambientes do Windows. Os desenvolvedores que preferem ambientes Linux podem escolher o [Serviço de Aplicativo para Linux](/app-service/containers/app-service-linux-intro). Os desenvolvedores também podem implantar imagens do Docker diretamente no Serviço de Aplicativo para Linux para implantar os tempos de execução/estruturas personalizados.
+[Aplicativos Web](/app-service/overview) é o Serviço de Aplicativo principal de oferta para a criação e hospedagem de aplicativos da Web usando os ambientes do Windows. Os desenvolvedores que preferem ambientes Linux podem escolher o [Serviço de Aplicativo para Linux](/app-service/containers/app-service-linux-intro). Os desenvolvedores também podem implantar imagens do Docker diretamente no Serviço de Aplicativo para Linux para implantar os runtimes/estruturas personalizados.
 
 ## <a name="5-minute-quickstarts"></a>Guia de início rápido de 5 minutos
 
@@ -42,7 +42,7 @@ Saiba como implantar, gerenciar e monitorar aplicativos Web seguros no Azure.
   - [Java com MySQL](/app-service/app-service-web-tutorial-java-mysql)
   - [Python com PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
 - [Mapear um domínio personalizado existente para seu aplicativo ](/azure/app-service/app-service-web-tutorial-custom-domain)
-- [Associar um certificado SSL existente ao seu aplicativo](/azure/app-service/app-service-web-tutorial-custom-SSL)
+- [Associar um certificado SSL ao seu aplicativo](/azure/app-service/configure-ssl-bindings)
 
 ## <a name="free-pluralsight-video-training"></a>Treinamento em Vídeo Pluralsight gratuito
 

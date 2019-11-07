@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/05/2019
 ms.author: kraigb
-ms.openlocfilehash: 12d9a1a92c0b008244c7db4ec23d5a28888b042a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: ad4a1d89809ebd1b7ac933ef391965accbfd1a6c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973158"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496726"
 ---
 # <a name="overview-of-azure-notebooks"></a>Visão geral do Azure Notebooks
 
@@ -62,7 +62,7 @@ Servidores de notebook com certeza existem por no máximo 8 horas. Na maioria do
 
 ## <a name="available-kernels-and-environments"></a>Ambientes e kernels disponíveis
 
-Para cada notebook, selecione o kernel (ou seja, o ambiente de tempo de execução) usado para executar todas as células de código. O Azure Notebooks dá suporte aos seguintes kernels:
+Para cada notebook, selecione o kernel (ou seja, o ambiente de runtime) usado para executar todas as células de código. O Azure Notebooks dá suporte aos seguintes kernels:
 
 - Python 2.7 + Anaconda2-5.3.0
 - Python 3.6 + Anaconda3-5.3.0
@@ -118,4 +118,4 @@ Para discutir suas dúvidas sobre o Azure Notebooks, registre um problema sobre 
   - [Exibir uma apresentação de slides](present-jupyter-notebooks-slideshow.md)
   - [Trabalhar com arquivos de dados](work-with-project-data-files.md)
   - [Acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
-  - [Usar os Serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+  - [Usar Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

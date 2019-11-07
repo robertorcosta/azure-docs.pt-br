@@ -3,14 +3,14 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 07/31/2019
+ms.date: 11/04/2019
 ms.author: mathoma
-ms.openlocfilehash: ff5505c2cb35d088565773e8d0ba01e8abb4b8c3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0fad326107fa101cbba869311724710bd3f5307b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933220"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496171"
 ---
 Nesta etapa, você criará um banco de dados individual do Banco de Dados SQL do Azure. 
 
@@ -55,12 +55,12 @@ Crie o grupo de recursos e o banco de dados individual usando o portal do Azure.
 
      ![Detalhes do Banco de Dados SQL](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
-   - Selecione **Provisionado** e **Gen5**.
+   - Selecione **Provisionado**.
 
      ![Gen4 provisionado](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
-   - Examine as configurações para **Máximo de vCores**, **Mínimo de vCores**, **Atraso de pausa automática** e **Tamanho máximo de dados**. Altere-as conforme desejado.
-   - Aceite os termos de versão prévia e clique em **OK**.
+   - Revise as configurações de **vCores**e de **tamanho máximo de dados**. Altere-as conforme desejado. 
+     - Opcionalmente, você também pode selecionar **Alterar Configuração** para alterar a geração do hardware.
    - Escolha **Aplicar**.
 
 5. Selecione a guia **Configurações adicionais**. 

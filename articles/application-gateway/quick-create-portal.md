@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 07/17/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6d12b006583c004d12c50bda171c82397ff7949f
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 565620f477382ff81f854336dbee7bdb1ad06f01
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276599"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469720"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início Rápido: Direcionar o tráfego da Web com o Gateway de Aplicativo do Azure – portal do Azure
 
@@ -30,7 +30,7 @@ Entre no [portal do Azure](https://portal.azure.com) com sua conta do Azure.
 
 ## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
-1. Selecione **Criar um recurso** no menu esquerdo do portal do Azure. A janela **Novo** é exibida.
+1. No portal do Azure ou na página **Início**, selecione **Criar um recurso**. A janela **Novo** é exibida.
 
 2. Selecione **Rede** e depois **Gateway de Aplicativo** na lista **em destaque**.
 
@@ -43,7 +43,7 @@ Entre no [portal do Azure](https://portal.azure.com) com sua conta do Azure.
 
      ![Criar gateway de aplicativo: Noções básicas](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
-2.  Para que o Azure se comunique entre os recursos que você cria, ele precisa de uma rede virtual. Você pode criar uma nova rede virtual ou usar uma existente. Neste exemplo, você criará uma rede virtual ao mesmo tempo em que cria o gateway de aplicativo. As instâncias do Gateway de Aplicativo são criadas em sub-redes separadas. Crie duas sub-redes neste exemplo: uma para o gateway de aplicativo e outra para os servidores de back-end.
+2. Para que o Azure se comunique entre os recursos que você cria, ele precisa de uma rede virtual. Você pode criar uma nova rede virtual ou usar uma existente. Neste exemplo, você criará uma rede virtual ao mesmo tempo em que cria o gateway de aplicativo. As instâncias do Gateway de Aplicativo são criadas em sub-redes separadas. Crie duas sub-redes neste exemplo: uma para o gateway de aplicativo e outra para os servidores de back-end.
 
     Em **Configurar rede virtual**, crie uma rede virtual selecionando **Criar nova**. Na janela **Criar rede virtual** que é aberta, insira os seguintes valores para criar a rede virtual e duas sub-redes:
 
@@ -135,7 +135,7 @@ Para fazer isso, você precisará:
 
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-1. No portal do Azure, selecione **Criar um recurso**. A janela **Novo** é exibida.
+1. No portal do Azure ou na página **Início**, selecione **Criar um recurso**. A janela **Novo** é exibida.
 2. Selecione **Computação** e, em seguida, selecione **Datacenter do Windows Server 2016** na lista **Popular**. A página **Criar uma máquina virtual** é exibida.<br>O Gateway de Aplicativo pode rotear o tráfego para qualquer tipo de máquina virtual usada no pool de back-end. Neste exemplo, você usa um Windows Server 2016 Datacenter.
 3. Insira esses valores na guia **Noções básicas** para as seguintes configurações de máquina virtual:
 
@@ -176,7 +176,7 @@ Neste exemplo, você instala IIS nas máquinas virtuais apenas para verificar se
 
 ### <a name="add-backend-servers-to-backend-pool"></a>Adicionar servidores back-end ao pool de back-end
 
-1. Selecione **Todos os recursos** e, em seguida, **myAppGateway**.
+1. No menu portal do Azure, selecione **Todos os recursos** ou pesquise e selecione *Todos os recursos*. Em seguida, selecione **myAppGateway**.
 
 2. Selecione **Pools de back-end** no menu esquerdo.
 
@@ -205,7 +205,8 @@ Embora o IIS não seja exigido para criar o gateway de aplicativo, você o insta
 Quando não precisar mais dos recursos que você criou com o gateway de aplicativo, remova o grupo de recursos. Ao remover o grupo de recursos, você também remove o gateway de aplicativo e todos os recursos relacionados. 
 
 Para remover o grupo de recursos:
-1. No menu esquerdo do portal do Azure, selecione **Grupos de recursos**.
+
+1. No menu do portal do Azure, selecione **Grupos de recursos** ou pesquise e selecione *Grupos de recursos*.
 2. Na página **Grupos de recursos**, pesquise por **myResourceGroupAG** na lista e, em seguida, selecione.
 3. Na página **Grupo de recursos**, selecione **Excluir grupo de recursos**.
 4. Insira *myResourceGroupAG* para **DIGITAR O NOME DO GRUPO DE RECURSOS** e selecione **Excluir**

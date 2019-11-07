@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Crie um projeto, adicione marcas, carregue imagens, treine o projeto e detecte objetos usando o SDK do Go.
 services: cognitive-services
 author: areddish
+ms.author: areddish
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
-ms.author: daauld
-ms.openlocfilehash: 3831f89842f969ecce582c5b5d7a5f8a54c5e7a1
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 050d0593f64c939c687601eb25677f2356f4ba51
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946220"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73519080"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Início Rápido: Criar um projeto de detecção de objeto com o SDK do Go para Visão Personalizada
 
@@ -24,6 +24,7 @@ Este artigo fornece informações e um código de exemplo para ajudar você a co
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Go 1.8 ou posterior](https://golang.org/doc/install)
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="install-the-custom-vision-sdk"></a>Instalar o SDK da Visão Personalizada
 
@@ -48,7 +49,9 @@ Crie um arquivo chamado *sample.go* no diretório de seu projeto de preferência
 
 ### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do Serviço de Visão Personalizada
 
-Adicione o código a seguir ao seu script para criar um novo projeto do Serviço de Visão Personalizada. Insira as chaves de assinatura nas definições pertinentes. Confira o método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar outras opções ao criar seu projeto (explicado no guia do portal da Web [Criar um detector](get-started-build-detector.md)).
+Adicione o código a seguir ao seu script para criar um novo projeto do Serviço de Visão Personalizada. Insira as chaves de assinatura nas definições pertinentes. Além disso, obtenha sua URL de Ponto de Extremidade no painel Configurações do site da Visão Personalizada.
+
+Confira o método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar outras opções ao criar seu projeto (explicado no guia do portal da Web [Criar um detector](get-started-build-detector.md)).
 
 ```go
 import(
@@ -67,7 +70,7 @@ var (
     training_key string = "<your training key>"
     prediction_key string = "<your prediction key>"
     prediction_resource_id = "<your prediction resource id>"
-    endpoint string = "https://southcentralus.api.cognitive.microsoft.com"
+    endpoint string = "<your endpoint URL>"
     project_name string = "Go Sample OD Project"
     iteration_publish_name = "detectModel"
     sampleDataDirectory = "<path to sample images>"

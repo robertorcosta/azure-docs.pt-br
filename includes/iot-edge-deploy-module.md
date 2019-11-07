@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/04/2019
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: c20a14ef2bc74d73b93ab39ee52fe1be8a5f984f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 12661c77c6a950b482187b09e4465c964e6d6652
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67172040"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494063"
 ---
 Um dos principais recursos do Azure IoT Edge é a possibilidade de implantar código em seus dispositivos IoT Edge na nuvem. **Módulos do IoT Edge** são pacotes executáveis implementados como contêineres. Nesta seção, você implanta um módulo pré-criado na [seção Módulos do IoT Edge do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). 
 
@@ -37,7 +37,7 @@ Para implantar seu primeiro módulo do Azure Marketplace, use as seguintes etapa
 
 3. Agora que você escolheu um módulo do IoT Edge do Azure Marketplace e escolheu um dispositivo IoT Edge para receber o módulo, você será levado para um assistente de três etapas que lhe ajudará a definir exatamente como implantar o módulo. Na etapa **Adicionar Módulos** do assistente, observe que o módulo **SimulatedTemperatureSensor** é populado automaticamente. Nos tutoriais, você usa essa página para adicionar outros módulos à implantação. Para este início rápido, basta implantar esse único módulo. Selecione **Avançar** para continuar e ir para a próxima etapa do assistente.
 
-4. Na etapa **Especificar Rotas** do assistente, você definirá como as mensagens são passadas entre os módulos e ao Hub IoT. Para o início rápido, você deseja que todas as mensagens de todos os módulos sejam direcionadas ao Hub IoT (`$upstream`). Se ele não for populado automaticamente, adicione o seguinte código e selecione **Avançar**:
+4. Na etapa **Especificar Rotas** do assistente, você definirá como as mensagens são passadas entre os módulos e ao Hub IoT. Para o início rápido, você deseja que todas as mensagens de todos os módulos sejam direcionadas ao Hub IoT (`$upstream`). Se ele não for preenchido automaticamente, adicione o seguinte código:
 
    ```json
     {
@@ -46,6 +46,7 @@ Para implantar seu primeiro módulo do Azure Marketplace, use as seguintes etapa
         }
     }
    ```
+   Em seguida, selecione **Avançar**.
 
 5. Na etapa **Examinar Implantação** do assistente, você poderá visualizar o arquivo JSON que define todos os módulos implantados no dispositivo IoT Edge. Observe que o módulo **SimulatedTemperatureSensor** está incluído, bem como dois módulos de sistema adicionais chamados **edgeAgent** e **edgeHub**. Selecione **Enviar** quando terminar de examiná-lo.
 

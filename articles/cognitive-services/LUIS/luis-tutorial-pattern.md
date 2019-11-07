@@ -9,18 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 69f853b77e3fbab149dbf163ed5cccb08578aa4e
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 4e4f1787db86378eaeff9df196cc061c42d0ab1e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390348"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499002"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Tutorial: Adicionar formatos comuns de enunciado de modelo padrão
 
 Neste tutorial, use padrões para aumentar a previsão de intenção e entidade enquanto fornece menos enunciados de exemplo. O padrão é fornecido por meio de um exemplo de enunciado de modelo, que inclui sintaxe para identificar entidades e texto ignorável. Um padrão é uma combinação da correspondência entre expressões e o aprendizado de máquina.  O exemplo de enunciado de modelo, junto com os enunciados de intenções, fornecem ao LUIS uma melhor compreensão de quais enunciados se encaixam na intenção. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **Neste tutorial, você aprenderá a:**
 
@@ -69,7 +71,7 @@ Use as seguintes etapas:
     |A quem Jill Jones se reporta diretamente?|
     |Quem é o supervisor de Jill Jones?|
 
-    [![Captura de tela de LUIS adicionando novas declarações de intenção](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Captura de tela de LUIS adicionando novas declarações a intenção")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
+    [![Captura de tela de LUIS adicionando novos enunciados à intenção](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Captura de tela de LUIS adicionando novos enunciados à intenção")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
 
     Não se preocupe se a entidade keyPhrase estiver rotulada nos enunciados da intenção, em vez da entidade do funcionário. Ambos são previstos corretamente no painel Teste e no ponto de extremidade. 
 
@@ -257,7 +259,7 @@ Para que um padrão seja correspondido a um enunciado, as entidades dentro do en
 
 ## <a name="query-endpoint-when-patterns-are-used"></a>Ponto de extremidade de consulta quando os padrões são usados
 
-Agora que os padrões foram adicionados ao aplicativo, treine, publique e consulte o aplicativo no ponto de extremidade de tempo de execução de previsão.
+Agora que os padrões foram adicionados ao aplicativo, treine, publique e consulte o aplicativo no ponto de extremidade de runtime de previsão.
 
 1. Treine e publique o aplicativo novamente.
 

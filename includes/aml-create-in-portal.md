@@ -8,25 +8,25 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 08/14/2019
-ms.openlocfilehash: 1da2afc6c0dfa0571d6e7ccbf358bb574aa736c5
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: d49a84f26453a6a7b2ff6d7f419fbc53ad8b98ba
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71830031"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475967"
 ---
-1. Entre no [portal do Microsoft Azure](https://portal.azure.com/) usando as credenciais de assinatura do Azure que você usará. 
+1. Entre no [portal do Microsoft Azure](https://portal.azure.com/) usando as credenciais de assinatura do Azure.
 
 1. No canto superior esquerdo do portal do Azure, selecione **+ Criar um recurso**.
 
       ![Criar um novo recurso](media/aml-create-in-portal/portal-create-resource.png)
 
-1. Use a barra de pesquisa para localizar o **Workspace de serviço do Machine Learning**.
+1. Use a barra de pesquisa para localizar **Machine Learning**.
 
-1. Selecione **Workspace de serviço do Machine Learning**.
+1. Selecione **Machine Learning**.
 
-1. No painel **Workspace de serviço do Machine Learning**, selecione **Criar** para começar.
+1. No painel **Machine Learning**, selecione **Criar** para começar.
 
 1. Forneça as informações a seguir para configurar o novo workspace:
 
@@ -36,8 +36,9 @@ ms.locfileid: "71830031"
    Subscription |Selecione a assinatura do Azure que você deseja usar.
    Resource group | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. 
    Location | Selecione a localização mais próxima aos usuários e recursos de dados para criar o workspace.
+   Edição do Workspace | Selecione **Basic** como o tipo de workspace para este tutorial. O tipo de workspace (Basic e Enterprise) determina os recursos aos quais você terá acesso, bem como os preços. Todo o conteúdo deste tutorial pode ser realizado com um workspace Basic ou Enterprise.
 
-1. Quando terminar de configurar o workspace, selecione **Criar**. 
+1. Quando terminar de configurar o workspace, selecione **Revisar + Criar**. 
 
    > [!Warning] 
    > Pode levar vários minutos para criar seu workspace na nuvem.

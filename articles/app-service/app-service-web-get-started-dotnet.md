@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 82a1dc293a019e4a48760ccbce830d067f2d620d
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 919e717811b3b04ca7407772fcf11f293d58508c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240933"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471589"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Criar um aplicativo Web ASP.NET Core no Azure
 
@@ -139,17 +139,19 @@ Quando a publicação está concluída, o Visual Studio inicia um navegador para
 
 ## <a name="manage-the-azure-app"></a>Gerenciar o aplicativo do Azure
 
-1. Acesse o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo Web.
+Para gerenciar o aplicativo Web, vá para o [portal do Azure](https://portal.azure.com) e procure e selecione **Serviços de Aplicativo**.
 
-1. No menu à esquerda, selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do seu aplicativo do Azure.
+![Selecionar Serviços de Aplicativo](./media/app-service-web-get-started-dotnet/app-services.png)
 
-   ![Navegação no Portal para o aplicativo do Azure](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
+Na página **Serviços de Aplicativo**, selecione o nome do seu aplicativo Web.
 
-   A página Visão Geral do seu aplicativo Web é exibida. Aqui, você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir.
+![Navegação no Portal para o aplicativo do Azure](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
 
-   ![Serviço de Aplicativo no portal do Azure](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+A página Visão Geral do seu aplicativo Web é exibida. Aqui, você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir.
 
-   O menu à esquerda fornece páginas diferentes para configurar seu aplicativo.
+![Serviço de Aplicativo no portal do Azure](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+
+O menu à esquerda fornece páginas diferentes para configurar seu aplicativo.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

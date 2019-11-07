@@ -1,6 +1,6 @@
 ---
-title: Criar um painel em tempo real com o Banco de Dados do Azure para PostgreSQL – Tutorial de Hyperscale (Citus) (versão prévia)
-description: Este tutorial mostra como criar, popular e consultar tabelas distribuídas em Hyperscale (Citus) do Banco de Dados do Azure para PostgreSQL (versão prévia).
+title: Criar um painel em tempo real com o Banco de Dados do Azure para PostgreSQL – Tutorial de Hiperescala (Citus)
+description: Este tutorial mostra como criar, preencher e consultar tabelas distribuídas em Hiperescala (Citus) do Banco de Dados do Azure para PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,16 +8,16 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: a5e4b2073a29785ee851b2733c12d6331afe59d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 32487d65397a96d9e96ae3bf3476eed23ddb8adc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791319"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482873"
 ---
-# <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Tutorial: Criar um painel de análise em tempo real usando o Banco de Dados do Azure para PostgreSQL – Hyperscale (Citus) (versão prévia)
+# <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: Criar um painel de análise em tempo real usando o Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus)
 
-Neste tutorial, você utiliza o Banco de Dados do Azure para PostgreSQL – Hyperscale (Citus) (versão prévia) para saber como:
+Neste tutorial, você utiliza o Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus) para saber como:
 
 > [!div class="checklist"]
 > * Criar um grupo de servidores Hyperscale (Citus)
@@ -34,7 +34,7 @@ Neste tutorial, você utiliza o Banco de Dados do Azure para PostgreSQL – Hype
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Usar o utilitário psql para criar um esquema
 
-Uma vez conectado ao Banco de Dados do Azure para PostgreSQL - Hyperscale (Citus) (versão prévia) usando o psql, é possível realizar algumas tarefas básicas. Este tutorial orienta você a ingerir dados de tráfego do Web Analytics e, em seguida, acumular os dados para fornecer painéis em tempo real com base nesses dados.
+Uma vez conectado ao Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus) usando o psql, é possível realizar algumas tarefas básicas. Este tutorial orienta você a ingerir dados de tráfego do Web Analytics e, em seguida, acumular os dados para fornecer painéis em tempo real com base nesses dados.
 
 Vamos criar uma tabela que consumirá todos os nossos dados brutos de tráfego da Web. Execute os seguintes comandos no terminal do psql:
 

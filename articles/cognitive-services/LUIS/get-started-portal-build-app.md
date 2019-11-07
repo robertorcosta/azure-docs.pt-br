@@ -10,14 +10,17 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: ff666437790a1e32dde83f9e3be90b4c62637181
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 6888c53122e649d6a0e91f8ece30101f051c08e8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307750"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488783"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Início Rápido: Criar um aplicativo no portal do LUIS
+
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 Neste início rápido, você criará um aplicativo no [portal do LUIS](https://www.luis.ai). Primeiro, você criará as partes básicas de um aplicativo, **intenções** e **entidades**. Em seguida, você testará o aplicativo fornecendo um enunciado de usuário de exemplo no painel de teste interativo para obter a intenção prevista.
 
@@ -27,7 +30,7 @@ A criação de um aplicativo é gratuita e não exige uma assinatura do Azure. Q
 
 ## <a name="create-an-app"></a>Criar um aplicativo
 
-1. Selecione **Criar aplicativo** da barra de ferramentas de contexto.
+1. Selecione **+Criar** na barra de ferramentas de contexto.
 
    [![Criar aplicativo no portal do LUIS](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
 
@@ -106,7 +109,7 @@ Por design, esses enunciados de exemplo variam das seguintes maneiras:
 
 ## <a name="create-a-regular-expression-entity"></a>Criar uma entidade de expressão regular
 
-Para retornar o número de formulário na resposta de previsão do tempo de execução, o formulário precisa ser marcado como uma entidade. Como o texto do número de formulário é altamente estruturado, você pode marcá-lo usando uma entidade de expressão regular. Crie a entidade com as seguintes etapas:
+Para retornar o número de formulário na resposta de previsão do runtime, o formulário precisa ser marcado como uma entidade. Como o texto do número de formulário é altamente estruturado, você pode marcá-lo usando uma entidade de expressão regular. Crie a entidade com as seguintes etapas:
 
 1. Selecione **Entidades** no menu à esquerda.
 

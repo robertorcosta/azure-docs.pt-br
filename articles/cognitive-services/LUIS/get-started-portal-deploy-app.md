@@ -8,16 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: f640921e6f48559db3f1414551d6ed974df15e4f
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: ecae5c7db02436fe34fec19989f174504fd1e03a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703212"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488722"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início Rápido: Implantar um aplicativo no portal do LUIS
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 
 Depois que o aplicativo estiver pronto para retornar previsões de enunciado para um aplicativo cliente, como um chat bot, você precisará implantar o aplicativo no ponto de extremidade de previsão.
 
@@ -73,64 +76,71 @@ Sempre que você criar um novo recurso para LUIS, será necessário atribuir o r
 
 ## <a name="train-and-publish-the-app"></a>Treinar e publicar o aplicativo
 
-Treine o aplicativo quando estiver pronto para testá-lo. Publique o aplicativo sempre que quiser que a versão atualmente treinada esteja disponível para aplicativos cliente provenientes do tempo de execução de ponto de extremidade de previsão.
+Treine o aplicativo quando estiver pronto para testá-lo. Publique o aplicativo sempre que quiser que a versão atualmente treinada esteja disponível para aplicativos cliente provenientes do runtime de ponto de extremidade de previsão.
 
 1. Se o aplicativo não estiver treinado, selecione **Treinar** no menu do canto superior direito.
 
-1. Selecione **Publicar** no menu superior. Aceite as configurações de ambiente padrão e, em seguida, selecione **Publicar**.
+1. Selecione **Publicar** no menu superior. Selecione o slot de produção e Publicar.
 
-1. Quando a barra de notificação de êxito verde aparecer na parte superior da janela do navegador, selecione **Consultar a lista dos pontos de extremidade**.
+1. Quando a barra de notificação for exibida, a publicação estará concluída.
 
-   ![Barra de notificação do aplicativo publicado com êxito no navegador](./media/get-started-portal-deploy-app/successfully-published-notification.png)
+1. Na seção Gerenciar da página de **Recursos do Azure**, localize a lista de recursos atribuídos e as URLs de ponto de extremidade correspondentes.
 
-1. Na página **Configurações de chaves e de ponto de extremidade**, localize a lista de recursos atribuídos e as URLs de ponto de extremidade correspondentes na parte inferior.
-
-1. Selecione a URL do ponto de extremidade associada ao seu novo nome de recurso. Esta ação abre um navegador da Web com uma URL corretamente construída para fazer uma solicitação `GET` ao tempo de execução do ponto de extremidade de previsão.
+1. Copie a consulta de exemplo em uma janela do navegador e adicione o enunciado do usuário como parâmetro `query`.
 
 ## <a name="prediction-endpoint-request"></a>Solicitação de ponto de extremidade de previsão
 
-<!-- V3FIX -->
-
-O `q=` no final da URL é a abreviação de **consulta** e é onde a expressão do usuário é anexada à solicitação GET. Após `q=`, insira a mesma expressão de usuário usado no final do guia de início rápido anterior:
+O `query=` no final da URL é a abreviação de **consulta** e é onde a expressão do usuário é anexada à solicitação GET. Após `query=`, insira a mesma expressão de usuário usado no final do guia de início rápido anterior:
 
 ```Is there a form named hrf-234098```
 
-O navegador mostra a resposta, que é o mesmo JSON que o seu aplicativo cliente receberá:
+Verifique se a cadeia de caracteres de consulta inclui os seguintes pares:
+
+* `show-all-intents=true`
+* `verbose=true`
+
+O navegador mostra a resposta:
 
 ```JSON
 {
-"query": "Is there a form named hrf-234098",
-"topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.9768753
-},
-"intents": [
-    {
-    "intent": "FindForm",
-    "score": 0.9768753
-    },
-    {
-    "intent": "None",
-    "score": 0.0216071066
+    "query": "Is there a form named hrf-234098",
+    "prediction": {
+        "topIntent": "FindForm",
+        "intents": {
+            "FindForm": {
+                "score": 0.9768753
+            },
+            "None": {
+                "score": 0.0216071177
+            }
+        },
+        "entities": {
+            "Human Resources Form Number": [
+                "hrf-234098"
+            ],
+            "$instance": {
+                "Human Resources Form Number": [
+                    {
+                        "type": "Human Resources Form Number",
+                        "text": "hrf-234098",
+                        "startIndex": 22,
+                        "length": 10,
+                        "modelTypeId": 8,
+                        "modelType": "Regex Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
     }
-],
-"entities": [
-    {
-    "entity": "hrf-234098",
-    "type": "Human Resources Form Number",
-    "startIndex": 22,
-    "endIndex": 31
-    }
-    ]
 }
 ```
 
-Essa resposta fornece mais informações do que o painel de teste padrão do tutorial anterior. Para ver este mesmo nível de informações no painel de teste, publique o aplicativo. Depois que o aplicativo for publicado, selecione **Comparar ao publicado** no painel de teste. Use **Mostrar exibição JSON** no painel de teste publicado para ver o mesmo JSON da etapa anterior. Dessa forma, você pode comparar o aplicativo atual, que está trabalhando com um aplicativo que é publicado no ponto de extremidade.
+Para ver este mesmo nível de informações no painel de teste, publique o aplicativo. Depois que o aplicativo for publicado, selecione **Comparar ao publicado** no painel de teste. Use **Mostrar exibição JSON** no painel de teste publicado para ver o mesmo JSON da etapa anterior. Dessa forma, você pode comparar o aplicativo atual, que está trabalhando com um aplicativo que é publicado no ponto de extremidade.
 
 [![Compare editando no momento versus a versão publicada do aplicativo](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
-
-
-
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

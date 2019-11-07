@@ -1,30 +1,26 @@
 ---
 title: Início Rápido – Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure | Microsoft Docs
 description: Saiba como criar um rapidamente um conjunto de dimensionamento de máquinas virtuais no Portal do Azure
-keywords: conjuntos de escala de máquina virtual
 services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: azure-resource-manager
-ms.assetid: 9c1583f0-bcc7-4b51-9d64-84da76de1fda
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
-ms.date: 03/27/2018
+ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: a2081bab2aebf0d49f3bde2467dac1fa683452ab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1bbbef6d8037b819c557e1c7fc3fff6248507986
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008720"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466356"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure
+
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. É possível dimensionar o número de VMs manualmente no conjunto de dimensionamento ou definir as regras para o dimensionamento automático com base no uso de recursos, como CPU, demanda de memória ou tráfego de rede. Um balanceador de carga do Azure então distribui o tráfego para as instâncias de VM no conjunto de dimensionamento. Neste início rápido, você criará um conjunto de dimensionamento de máquinas virtuais no Portal do Azure.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -33,48 +29,59 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 Faça logon no Portal do Azure em https://portal.azure.com.
 
+## <a name="create-a-load-balancer"></a>Criar um balanceador de carga
+
+O [balanceador de carga](../load-balancer/load-balancer-overview.md) do Azure distribui o tráfego de entrada entre instâncias de máquina virtual íntegras. 
+
+Primeiro, crie um Load Balancer Básico usando o portal. O nome e o endereço IP público que você criar são configurados automaticamente como o front-end do balanceador de carga.
+
+1. Na caixa de pesquisa, digite **balanceador de carga**. Em **Marketplace** nos resultados da pesquisa, escolha **Balanceador de carga**.
+1. Na guia **Básico** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações:
+
+    | Configuração                 | Valor   |
+    | ---| ---|
+    | Subscription  | Selecione sua assinatura.    |    
+    | Resource group | Selecione **Criar novo** e digite *myVMSSResourceGroup* na caixa de texto.|
+    | NOME           | *myLoadBalancer*         |
+    | Região         | Selecione **Leste dos EUA**.       |
+    | Type          | Selecione **Público**.       |
+    | SKU           | Selecione **Padrão**.       |
+    | Endereço IP público | Selecione **Criar novo**. |
+    | Nome do endereço IP público  | *MyPip*   |
+    | Atribuição| estático |
+
+1. Quando terminar, selecione **Revisar + criar** 
+1. Depois de passar na validação, selecione **Criar**. 
+
+![Criar um balanceador de carga](./media/virtual-machine-scale-sets-create-portal/load-balancer.png)
 
 ## <a name="create-virtual-machine-scale-set"></a>Criar conjunto de dimensionamento de máquinas virtuais
 Você pode implantar um conjunto de dimensionamento com uma imagem do Windows Server ou do Linux como CentOS, RHEL, Ubuntu ou SLES.
 
-1. Clique em **Criar um recurso** no canto superior esquerdo do Portal do Azure.
-2. Pesquise por *conjunto de dimensionamento*, escolha **Conjunto de dimensionamento de máquinas virtuais** e selecione **Criar**.
-3. Insira um nome para o conjunto de dimensionamento, tal como *myScaleSet*.
-4. Selecione o tipo de SO desejado, tal como *Datacenter do Windows Server 2016*.
-5. Insira o nome do grupo de recursos desejado, tal como *myResourceGroup*, bem como o local, por exemplo, *Leste dos EUA*.
-6. Insira o nome de usuário desejado e selecione o tipo de autenticação que prefere.
+1. Digite **Conjunto de dimensionamento** na caixa de pesquisa. Nos resultados, em **Marketplace**, selecione **Conjuntos de dimensionamento de máquinas virtuais**. A página **Criar um conjunto de dimensionamento de máquinas virtuais** será aberta. 
+1. Na guia **Básico**, em **Detalhes do projeto**, verifique se a assinatura correta está selecionada e, em seguida, escolha **Criar** grupo de recursos. Digite *myVMSSResourceGroup* para o nome e, em seguida, selecione **OK**. 
+1. Digite *myScaleSet* como o nome do conjunto de dimensionamento.
+1. Em **Região**, selecione uma região próxima à sua área.
+1. Deixe o valor padrão **VMs do conjunto de dimensionamento** para **Orquestrador**.
+1. Selecione uma imagem do marketplace para **Imagem**. Neste exemplo, escolhemos *Ubuntu Server 18.04 LTS*.
+1. Insira o nome de usuário desejado e selecione o tipo de autenticação que prefere.
    - Uma **Senha** deve ter pelo menos 12 caracteres e atender três dos quatro requisitos de complexidade a seguir: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Para obter mais informações, consulte [requisitos de senha e nome de usuário](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
    - Se você selecionar uma imagem de disco do SO Linux, em vez disso, você poderá escolher **chave pública SSH**. Apenas forneça sua chave pública, tal como *~/.ssh/id_rsa.pub*. Você pode usar o Azure Cloud Shell por meio do portal para [criar e usar as chaves de SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
+   
+    ![Criar um conjunto de dimensionamento de máquinas virtuais](./media/virtual-machine-scale-sets-create-portal/quick-create-scaleset.png)
 
-     ![Detalhes Básicos para criar um conjunto de dimensionamento de máquinas virtuais no portal do Azure](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
-1. Selecione uma opção de balanceamento de carga, como *Balanceador de carga*, em **Escolher opções de Balanceamento de carga**. Insira os detalhes restantes para a opção de balanceamento de carga. Por exemplo, para o *Balanceador de carga*, você precisa inserir um **Nome do endereço IP público** e um **Rótulo do nome de domínio**.
-1. Insira os detalhes da rede virtual em **Configurar Redes Virtuais**. Por exemplo, você pode criar uma rede virtual, *myVirtualNetwork*, e uma nova sub-rede, *default*.
-1. Para confirmar as opções do conjunto de dimensionamento, selecione **Criar**.
-    ![Detalhes de Rede para criar um conjunto de dimensionamento de máquinas virtuais no portal do Azure](./media/virtual-machine-scale-sets-create-portal/create-scale-set-networking-details.png)
-
-
-
-## <a name="connect-to-a-vm-in-the-scale-set"></a>Conectar-se a uma VM no conjunto de dimensionamento
-Quando você cria um conjunto de dimensionamento no Portal, um balanceador de carga é criado. Regras de NAT (conversão de endereços de rede) são usadas para distribuir o tráfego para as instâncias do conjunto de dimensionamento para a conectividade remota, tais como RDP ou SSH.
-
-Para exibir essas regras NAT e informações de conexão para as instâncias do conjunto de dimensionamento:
-
-1. Selecione o grupo de recursos que você criou na etapa anterior, tal como *myResourceGroup*.
-2. Na lista de recursos, selecione seu **Balanceador de carga**, tal como *myScaleSetLab*.
-3. Escolha **Regras NAT de entrada** no menu à esquerda da janela.
-
-    ![Regras NAT de entrada permitem que você se conecte a instâncias de conjunto de dimensionamento de máquinas virtuais](./media/virtual-machine-scale-sets-create-portal/inbound-nat-rules.png)
-
-Você pode se conectar a cada VM no conjunto de escala usando estas regras NAT. Cada instância de VM lista um endereço IP de destino e um valor de porta TCP. Por exemplo, se o endereço IP de destino é *104.42.1.19* e a porta TCP é *50001*, você se conecta à instância de VM da seguinte maneira:
-
-- Para um conjunto de dimensionamento do Windows, conecte-se à instância de VM com RDP em `104.42.1.19:50001`
-- Para um conjunto de dimensionamento do Linux, conecte-se à instância de VM com SSH em `ssh azureuser@104.42.1.19 -p 50001`
-
-Quando solicitado, insira as credenciais especificadas na etapa anterior, quando você criou o conjunto de dimensionamento. As instâncias do conjunto de dimensionamento são VMs regulares com as quais você pode interagir normalmente. Para obter mais informações sobre como implantar e executar aplicativos nas instâncias do conjunto de dimensionamento, consulte [Implantar o aplicativo em conjuntos de dimensionamento de máquinas virtuais](virtual-machine-scale-sets-deploy-app.md)
+1. Selecione **Avançar** para acessar as outras páginas. 
+1. Deixe os padrões nas páginas **Instância** e **Discos**.
+1. Na página **Rede**, em **Balanceamento de carga**, selecione **Sim** para colocar as instâncias do conjunto de dimensionamento atrás de um balanceador de carga. 
+1. Para **Opções de balanceamento de carga**, selecione **Azure Load Balancer**.
+1. Em **Selecionar um balanceador de carga**, selecione o *myLoadBalancer* que você criou anteriormente.
+1. Em **Selecionar um pool de back-end**, selecione **Criar novo**, digite *myBackendPool* e selecione **Criar**.
+1. Quando terminar, selecione **Revisar + criar**. 
+1. Depois de passar na validação, selecione **Criar** para implantar o conjunto de dimensionamento.
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos da VM e clique em **Excluir**.
+Quando o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos do conjunto de dimensionamento e selecione **Excluir**.
 
 
 ## <a name="next-steps"></a>Próximas etapas

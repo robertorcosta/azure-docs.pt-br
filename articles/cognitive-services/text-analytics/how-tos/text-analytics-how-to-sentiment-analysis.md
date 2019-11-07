@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: ea145239d38a4030423a4517fe02c62b8eefa08a
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: d246b14a5bd6e60a7b6facae73c68d7449e2e097
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211776"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494456"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exemplo: Detectar o sentimento com a Análise de Texto
 
@@ -34,120 +34,23 @@ Análise de texto usa um algoritmo de classificação de aprendizado de máquina
 
 A análise de sentimento é executada em todo o documento, em vez de extrair o sentimento para uma entidade específica no texto. Na prática, há uma tendência de precisão de pontuação para melhorar quando documentos contêm uma ou duas frases em vez de um grande bloco de texto. Durante a fase de avaliação objetividade, o modelo determina se um documento como um todo é objetivo ou contém sentimento. Um documento que é principalmente objetivo não faz progresso para a frase de detecção de sentimento, resultando em uma pontuação 0,50, sem nenhum processamento adicional. Para documentos que continuam no pipeline, a próxima fase gera uma pontuação acima ou abaixo de 0,50. A pontuação depende do grau de sentimento detectado no documento.
 
-## <a name="preparation"></a>Preparação
-
-A análise de sentimento produz um resultado de qualidade superior quando você fornece a ela partes menores de texto nas quais trabalhar. Este é o oposto da extração de frase-chave que executa melhor em grandes blocos de texto. Para obter os melhores resultados de ambas as operações, considere a reestruturação de entradas adequadamente.
-
-Você deve ter documentos JSON neste formato: ID, texto e idioma.
-
-O tamanho do documento deve ser inferior a 5.120 caracteres. Você pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo da solicitação. A amostra a seguir é um exemplo de conteúdo que você pode enviar para análise de sentimento:
-
-```json
-    {
-        "documents": [
-            {
-                "language": "en",
-                "id": "1",
-                "text": "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!"
-            },
-            {
-                "language": "en",
-                "id": "2",
-                "text": "Poorly marked trails! I thought we were goners. Worst hike ever."
-            },
-            {
-                "language": "en",
-                "id": "3",
-                "text": "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children."
-            },
-            {
-                "language": "en",
-                "id": "4",
-                "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
-            },
-            {
-                "language": "en",
-                "id": "5",
-                "text": "This is my favorite trail. It has beautiful views and many places to stop and rest"
-            }
-        ]
-    }
-```
-
-## <a name="step-1-structure-the-request"></a>Etapa 1: Estruturar a solicitação
-
-Para obter mais informações sobre a definição de solicitação, confira [Chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são redeclarados para conveniência:
-
-+ Crie uma solicitação POST. Para examinar a documentação da API para esta solicitação, consulte [API de Análise de Sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9).
-
-+ Defina o ponto de extremidade HTTP para a análise de sentimento, usando um recurso de Análise de Texto no Azure ou um [contêiner de Análise de Texto](text-analytics-how-to-install-containers.md) instanciado. Você precisa incluir `/text/analytics/v2.1/sentiment` na URL. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`.
-
-+ Defina um cabeçalho de solicitação para incluir a [chave de acesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) para operações de Análise de Texto do Azure Machine Learning.
-
-+ No corpo da solicitação, forneça a coleção de documentos JSON preparada para esta análise
-
-> [!Tip]
-> Use o [Postman](text-analytics-how-to-call-api.md) ou abra o **console de teste da API** na [documentação](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) para estruturar uma solicitação e postá-la no serviço.
-
-## <a name="step-2-post-the-request"></a>Etapa 2: Postar a solicitação
-
-A análise é executada após o recebimento da solicitação. Para obter informações sobre o tamanho e o número de solicitações que você pode enviar por minuto e segundo, confira a seção [Limites de dados](../overview.md#data-limits) na visão geral.
-
-Lembre-se de que o serviço é sem estado. Nenhum dado é armazenado em sua conta. Os resultados são retornados imediatamente na resposta.
-
-
-## <a name="step-3-view-the-results"></a>Etapa 3: Exibir os resultados
-
-O analisador de sentimento classifica texto como predominantemente positivo ou negativo. Ele atribui uma pontuação no intervalo de 0 a 1. Valores próximos 0,5 são neutros ou indeterminados. Uma pontuação de 0,5 indica neutralidade. Quando uma cadeia de caracteres não pode ser analisada para sentimento ou não tem nenhum sentimento, a pontuação é sempre exatamente 0,5. Por exemplo, se você passar uma cadeia de caracteres espanhol com um código de idioma inglês, a pontuação é 0,5.
-
-A saída é retornada imediatamente. Você pode transmitir os resultados para um aplicativo que aceita JSON ou salvar a saída em um arquivo no sistema local. Em seguida, importe a saída para um aplicativo que você possa usar para classificar, pesquisar e manipular os dados.
-
-O exemplo a seguir mostra a resposta para o conjunto de documentos neste artigo:
-
-```json
-    {
-        "documents": [
-            {
-                "score": 0.9999237060546875,
-                "id": "1"
-            },
-            {
-                "score": 0.0000540316104888916,
-                "id": "2"
-            },
-            {
-                "score": 0.99990355968475342,
-                "id": "3"
-            },
-            {
-                "score": 0.980544924736023,
-                "id": "4"
-            },
-            {
-                "score": 0.99996328353881836,
-                "id": "5"
-            }
-        ],
-        "errors": []
-    }
-```
-
 ## <a name="sentiment-analysis-v3-public-preview"></a>Análise de Sentimento v3 em versão prévia pública
 
-A [próxima versão da Análise de Sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) agora está disponível em versão prévia pública. Ele fornece melhorias significativas na precisão e nos detalhes da pontuação e categorização de texto da API.
+A [próxima versão da Análise de Sentimento](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c9) agora está disponível em versão prévia pública. Ele fornece melhorias significativas na precisão e nos detalhes da pontuação e categorização de texto da API.
 
 > [!NOTE]
 > * O formato de solicitação e os [limites de dados](../overview.md#data-limits) da Análise de Sentimento v3 são os mesmos que os da versão anterior.
 > * No momento, a Análise de Sentimento v3:
->    * No momento, é compatível com inglês, francês, italiano, japonês, chinês simplificado e chinês tradicional.
+>    * Atualmente, há suporte para os idiomas inglês (`en`), japonês (`ja`), chinês simplificado (`zh-Hans`), chinês tradicional (`zh-Hant`), francês (`fr`), italiano (`it`), espanhol (`es`), holandês (`nl`), português (`pt`) e alemão (`de`).
 >    * Está disponível nas seguintes regiões: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe` e `West US 2`.
 
 |Recurso |DESCRIÇÃO  |
 |---------|---------|
 |Precisão aprimorada     | Melhoria significativa na detecção de sentimento positivo, neutro, negativo e misto em documentos de texto com relação às versões anteriores.           |
 |Pontuação de sentimento no nível da frase e do documento     | Detecte o sentimento de um documento e de suas frases individuais. Se o documento incluir várias frases, cada frase também receberá uma pontuação de sentimento.         |
-|Categoria e pontuação de sentimento     | Agora, a API retorna categorias de sentimento para texto, além de uma pontuação de sentimento. As categorias são `positive`, `negative`, `neutral` e `mixed`.       |
+|Rotulação e pontuação de sentimento     | Agora, a API retorna categorias de sentimento para texto, além de uma pontuação de sentimento. As categorias são `positive`, `negative`, `neutral` e `mixed`.       |
 | Resultados aprimorados | Agora, a Análise de Sentimento retorna informações sobre um documento de texto inteiro e suas frases individuais. |
+| Parâmetro model-version | Um parâmetro opcional para escolher qual versão do modelo de Análise de Texto é usada em seus dados. |
 
 ### <a name="sentiment-labeling"></a>Rotulação de sentimento
 
@@ -159,6 +62,13 @@ A Análise de Sentimento v3 pode retornar pontuações e rótulos no nível do d
 | Pelo menos uma frase é negativa e o restante das frases são neutras.  | `negative`     |
 | Pelo menos uma frase é negativa e pelo menos uma frase é positiva.         | `mixed`        |
 | Todas as sentenças são neutras.                                                 | `neutral`      |
+
+### <a name="model-versioning"></a>Controle de versão de modelo
+
+> [!NOTE]
+> O controle de versão de modelo para análise de sentimentos está disponível a partir da versão `v3.0-preview.1`.
+
+[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
 ### <a name="sentiment-analysis-v3-example-request"></a>Exemplo de solicitação da Análise de Sentimento v3
 
@@ -258,6 +168,104 @@ Embora o formato da solicitação seja o mesmo que o da versão anterior, o form
 ### <a name="example-c-code"></a>Código C# de exemplo
 
 Você pode encontrar um aplicativo em C# de exemplo que chama esta versão da Análise de Sentimento no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
+
+## <a name="preparation"></a>Preparação
+
+A análise de sentimento produz um resultado de qualidade superior quando você fornece a ela partes menores de texto nas quais trabalhar. Este é o oposto da extração de frase-chave que executa melhor em grandes blocos de texto. Para obter os melhores resultados de ambas as operações, considere a reestruturação de entradas adequadamente.
+
+Você deve ter documentos JSON neste formato: ID, texto e idioma.
+
+O tamanho do documento deve ser inferior a 5.120 caracteres. Você pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo da solicitação. A amostra a seguir é um exemplo de conteúdo que você pode enviar para análise de sentimento:
+
+```json
+    {
+        "documents": [
+            {
+                "language": "en",
+                "id": "1",
+                "text": "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!"
+            },
+            {
+                "language": "en",
+                "id": "2",
+                "text": "Poorly marked trails! I thought we were goners. Worst hike ever."
+            },
+            {
+                "language": "en",
+                "id": "3",
+                "text": "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children."
+            },
+            {
+                "language": "en",
+                "id": "4",
+                "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
+            },
+            {
+                "language": "en",
+                "id": "5",
+                "text": "This is my favorite trail. It has beautiful views and many places to stop and rest"
+            }
+        ]
+    }
+```
+
+## <a name="step-1-structure-the-request"></a>Etapa 1: Estruturar a solicitação
+
+Para obter mais informações sobre a definição de solicitação, confira [Chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são redeclarados para conveniência:
+
++ Crie uma solicitação POST. Para examinar a documentação da API para esta solicitação, consulte [API de Análise de Sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9).
+
++ Defina o ponto de extremidade HTTP para a análise de sentimento, usando um recurso de Análise de Texto no Azure ou um [contêiner de Análise de Texto](text-analytics-how-to-install-containers.md) instanciado. Você precisa incluir `/text/analytics/v2.1/sentiment` na URL. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`.
+
++ Defina um cabeçalho de solicitação para incluir a [chave de acesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) para operações de Análise de Texto do Azure Machine Learning.
+
++ No corpo da solicitação, forneça a coleção de documentos JSON preparada para esta análise
+
+> [!Tip]
+> Use o [Postman](text-analytics-how-to-call-api.md) ou abra o **console de teste da API** na [documentação](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) para estruturar uma solicitação e postá-la no serviço.
+
+## <a name="step-2-post-the-request"></a>Etapa 2: Postar a solicitação
+
+A análise é executada após o recebimento da solicitação. Para obter informações sobre o tamanho e o número de solicitações que você pode enviar por minuto e segundo, confira a seção [Limites de dados](../overview.md#data-limits) na visão geral.
+
+Lembre-se de que o serviço é sem estado. Nenhum dado é armazenado em sua conta. Os resultados são retornados imediatamente na resposta.
+
+
+## <a name="step-3-view-the-results"></a>Etapa 3: Exibir os resultados
+
+O analisador de sentimento classifica texto como predominantemente positivo ou negativo. Ele atribui uma pontuação no intervalo de 0 a 1. Valores próximos 0,5 são neutros ou indeterminados. Uma pontuação de 0,5 indica neutralidade. Quando uma cadeia de caracteres não pode ser analisada para sentimento ou não tem nenhum sentimento, a pontuação é sempre exatamente 0,5. Por exemplo, se você passar uma cadeia de caracteres espanhol com um código de idioma inglês, a pontuação é 0,5.
+
+A saída é retornada imediatamente. Você pode transmitir os resultados para um aplicativo que aceita JSON ou salvar a saída em um arquivo no sistema local. Em seguida, importe a saída para um aplicativo que você possa usar para classificar, pesquisar e manipular os dados.
+
+O exemplo a seguir mostra a resposta para o conjunto de documentos neste artigo:
+
+```json
+    {
+        "documents": [
+            {
+                "score": 0.9999237060546875,
+                "id": "1"
+            },
+            {
+                "score": 0.0000540316104888916,
+                "id": "2"
+            },
+            {
+                "score": 0.99990355968475342,
+                "id": "3"
+            },
+            {
+                "score": 0.980544924736023,
+                "id": "4"
+            },
+            {
+                "score": 0.99996328353881836,
+                "id": "5"
+            }
+        ],
+        "errors": []
+    }
+```
 
 ## <a name="summary"></a>Resumo
 

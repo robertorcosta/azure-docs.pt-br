@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8264030593a1e44b2a50d9f95dce925136eb4d26
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: edb100901dea4419d65635f9214555c27c1949f0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965980"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494070"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Início Rápido: Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual do Windows
 
@@ -114,14 +114,14 @@ Como os dispositivos IoT Edge se comportam e podem ser gerenciados diferentement
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Copie o valor da chave `connectionString` da saída JSON e salve-o. Esse valor é a cadeia de conexão do dispositivo. Você usará essa cadeia de conexão para configurar o runtime do IoT Edge na próxima seção.
+3. Copie o valor da chave `connectionString` da saída JSON e salve-o. Esse valor é a cadeia de conexão do dispositivo. Você usará essa cadeia de conexão para configurar o tempo de execução do IoT Edge na próxima seção.
 
    ![Recuperar a cadeia de conexão da saída da CLI](./media/quickstart/retrieve-connection-string.png)
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Instalar e iniciar o runtime do IoT Edge
 
 Instale o runtime do Azure IoT Edge no dispositivo IoT Edge e configure-o com uma cadeia de conexão do dispositivo.
-![Diagrama – Iniciar o tempo de execução no dispositivo](./media/quickstart/start-runtime.png)
+![Diagrama – Iniciar o runtime no dispositivo](./media/quickstart/start-runtime.png)
 
 O runtime do IoT Edge é implantado em todos os dispositivos IoT Edge. Tem três componentes. O **daemon de segurança do IoT Edge** é iniciado sempre que um dispositivo IoT Edge é iniciado e inicializa o dispositivo inicializando o agente do IoT Edge. O **agente do IoT Edge** gerencia a implantação e o monitoramento de módulos no dispositivo IoT Edge, incluindo o hub do IoT Edge. O **hub do IoT Edge** controla a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT.
 
@@ -139,7 +139,7 @@ Use o PowerShell para baixar e instalar o runtime do IoT Edge. Use a cadeia de c
 
 1. Caso ainda não o tenha feito, siga as etapas em [Registrar um novo dispositivo Azure IoT Edge](how-to-register-device.md) para registrar seu dispositivo e recuperar a cadeia de caracteres de conexão do dispositivo.
 
-2. Execute o PowerShell como administrador.
+2. Na máquina virtual, execute o PowerShell como administrador.
 
    >[!NOTE]
    >Use uma sessão do AMD64 do PowerShell para instalar o IoT Edge e não o PowerShell (x86). Se não tiver certeza de qual tipo de sessão você está usando, execute o seguinte comando:
@@ -148,7 +148,7 @@ Use o PowerShell para baixar e instalar o runtime do IoT Edge. Use a cadeia de c
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-3. O comando **Deploy-IoTEdge** verifica se seu computador Windows está usando uma versão compatível, ativa o recurso de contêineres, baixa o runtime do moby e baixa o runtime do IoT Edge.
+3. O comando **Deploy-IoTEdge** verifica se seu computador Windows está usando uma versão compatível, ativa o recurso de contêineres, baixa o tempo de execução do Moby e do IoT Edge.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `

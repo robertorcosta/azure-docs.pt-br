@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: fe40eb27b07304aba48be4a47fb22168cb60434c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5bf8aea05855d81e88face1dd507f0006cc19cab
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332264"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73483898"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, você configura um laboratório de sala de aula com máquinas virtuais que são usadas por alunos na sala de aula.  
@@ -111,11 +111,11 @@ Crie um evento agendado para o laboratório, de modo que as VMs no laboratório 
 1. Alterne para a página **Agendamentos** e selecione **Adicionar evento agendado** na barra de ferramentas. 
 
     ![Botão Adicionar agendamento na página Agendamentos](../media/how-to-create-schedules/add-schedule-button.png)
-2. Confirme se **Padrão** está selecionado para o **Tipo de evento**. Selecione **Iniciar apenas** para especificar apenas a hora de início das VMs. Selecione **Parar apenas** para especificar apenas a hora de término das VMs. 
-7. Na seção **Repetir**, selecione a agenda atual. 
+2. Confirme se a opção **Padrão** está marcada para o **Tipo de evento**. Selecione **Iniciar apenas** para especificar apenas a hora de início das VMs. Selecione **Parar apenas** para especificar apenas a hora de término das VMs. 
+3. Na seção **Repetir**, selecione a agenda atual. 
 
     ![Botão Adicionar agendamento na página Agendamentos](../media/how-to-create-schedules/select-current-schedule.png)
-5. Na caixa de diálogo **Repetir**, execute as seguintes etapas:
+4. Quando você escolher o agendamento, a caixa de diálogo **Repetir** será aberta. Nesta caixa de diálogo, siga as seguintes etapas:
     1. Confirme se a opção **toda semana** está definida para o campo **Repetir**. 
     3. Especifique a **data de início**.
     4. Especifique a **hora de início** em que deseja iniciar as VMs.
@@ -124,10 +124,8 @@ Crie um evento agendado para o laboratório, de modo que as VMs no laboratório 
     2. Selecione os dias nos quais deseja que a agenda entre em vigor. No exemplo a seguir, Segunda-Quinta foi selecionado. 
     8. Clique em **Salvar**. 
 
-        ![Definir agenda de repetição](../media/how-to-create-schedules/set-repeat-schedule.png)
-
-3. Agora, na página **Adicionar evento agendado**, em **Observações (opcional)** , insira uma descrição ou observações para o agendamento. 
-4. Na página **Adicionar evento agendado**, selecione **Salvar**. 
+5. Agora, na página **Adicionar evento agendado**, em **Observações (opcional)** , insira uma descrição ou observações para o agendamento. 
+6. Na página **Adicionar evento agendado**, selecione **Salvar**. 
 
     ![Agendamento semanal](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 

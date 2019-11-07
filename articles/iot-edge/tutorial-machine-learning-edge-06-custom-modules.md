@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5fa13f209d6f4df0ebd531f803e75cdb657abf5c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 731abdde2160c16123ed648b5e552e9e62378438
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163131"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493999"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Criar e implantar módulos do IoT Edge personalizados
 
@@ -172,7 +172,7 @@ Em seguida, adicionaremos o módulo Roteador à nossa solução. O módulo Rotea
 4. Quando solicitado para seu Repositório de Imagens do Docker, use o Registro do Workspace do Machine Learning (é possível localizar o Registro no nó registryCredentials do seu arquivo *deployment.template.json*). Esse valor é o endereço totalmente qualificado para o Registro, como **\<seu Registro\>.azurecr.io/turbofanrouter**.
 
     > [!NOTE]
-    > Neste artigo, usamos o Registro de Contêiner do Azure criado pelo workspace do Serviço do Azure Machine Learning, que usamos para treinar e implantar nosso classificador. Isso destina-se meramente para sua conveniência. Poderíamos ter criado um registro de contêiner e publicado nossos módulos lá.
+    > Neste artigo, usamos o Registro de Contêiner do Azure criado pelo espaço de trabalho do Azure Machine Learning, que usamos para treinar e implantar nosso classificador. Isso destina-se meramente para sua conveniência. Poderíamos ter criado um registro de contêiner e publicado nossos módulos lá.
 
 5. Abra uma nova janela de terminal no Visual Studio Code (**Exibir** > **Terminal**) e copie arquivos do diretório de módulos.
 
@@ -714,9 +714,9 @@ Configure o recurso de upload de arquivo do Hub IoT para permitir que o módulo 
 
 Agora que fizemos as alterações de configuração, estamos prontos para criar as imagens e publicá-las no Registro de Contêiner do Azure. O processo de build usa o arquivo deployment.template.json para determinar quais módulos precisam ser criados. As configurações de cada módulo, incluindo a versão, são encontradas no arquivo module.json na pasta do módulo. O processo de build executa um build do Docker primeiro no Dockerfiles que corresponde à configuração atual encontrada no arquivo module.json para criar uma imagem. Em seguida, ele publica a imagem no Registro do arquivo module.json com uma tag de versão que corresponde ao arquivo module.json. Por fim, ele produz um manifesto de implantação específico de configuração (por exemplo, deployment.amd64.json), que implantaremos no dispositivo IoT Edge. O dispositivo IoT Edge lê as informações no manifesto de implantação e, com base nas instruções, baixará os módulos, configurará as rotas e definirá propriedades desejadas. Esse método de implantação tem dois efeitos colaterais aos quais você deve estar atento:
 
-* **Atraso na implantação:** como o tempo de execução do IoT Edge deve reconhecer a alteração em suas propriedades desejadas antes do começo da reconfiguração, pode levar algum tempo após você implantar seus módulos até que o tempo de execução os selecione e inicie a atualização do dispositivo IoT Edge.
+* **Atraso na implantação:** como o runtime do IoT Edge deve reconhecer a alteração em suas propriedades desejadas antes do começo da reconfiguração, pode levar algum tempo após você implantar seus módulos até que o runtime os selecione e inicie a atualização do dispositivo IoT Edge.
 
-* **As versões do módulo importam:** se você publicar uma nova versão do contêiner de um módulo em seu registro de contêiner usando as mesmas marcas de versão que o módulo anterior, o tempo de execução não baixará a nova versão do módulo. Ele faz uma comparação da tag de versão da imagem local e da imagem desejada do manifesto de implantação. Se essas versões coincidirem, o runtime não executará nenhuma ação. Portanto, será importante incrementar a versão do seu módulo sempre que você desejar implantar novas alterações. Incremente a versão alterando a propriedade **version** na propriedade **tag** no arquivo module.json para o módulo que você está alterando. Em seguida, crie e publique o módulo.
+* **As versões do módulo importam:** se você publicar uma nova versão do contêiner de um módulo em seu registro de contêiner usando as mesmas marcas de versão que o módulo anterior, o runtime não baixará a nova versão do módulo. Ele faz uma comparação da tag de versão da imagem local e da imagem desejada do manifesto de implantação. Se essas versões coincidirem, o runtime não executará nenhuma ação. Portanto, será importante incrementar a versão do seu módulo sempre que você desejar implantar novas alterações. Incremente a versão alterando a propriedade **version** na propriedade **tag** no arquivo module.json para o módulo que você está alterando. Em seguida, crie e publique o módulo.
 
     ```json
     {
@@ -752,7 +752,7 @@ Agora que fizemos as alterações de configuração, estamos prontos para criar 
 
 Quando o build for concluído com sucesso, poderemos usar o portal do Azure para examinar nossos módulos publicados.
 
-1. No portal do Azure, navegue até o workspace do Serviço do Azure Machine Learning e clique no hiperlink do **Registro**.
+1. No portal do Azure, navegue até o espaço de trabalho do Azure Machine Learning e clique no hiperlink do **Registro**.
 
     ![Navegue até o Registro do workspace do serviço do Machine Learning](media/tutorial-machine-learning-edge-06-custom-modules/follow-registry-link.png)
 

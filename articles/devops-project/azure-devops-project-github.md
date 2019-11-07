@@ -16,12 +16,12 @@ ms.date: 06/27/2019
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4a48b5c413f6dfb58a1ba3f896ded49250cde306
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 15ac201a078864717d8e0079801507cf5fc0fe3b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286235"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481099"
 ---
 # <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Tutorial: Criar um pipeline de CI/CD para seu código existente usando o Azure DevOps Projects
 
@@ -48,7 +48,11 @@ O Azure DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possív
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. No painel esquerdo, selecione **+Criar um recurso** na barra de navegação à esquerda, depois procure o **DevOps Projects** e selecione **Criar**.
+2. No menu do portal do Azure, selecione **Criar um recurso**.
+
+   ![Menu do portal do Azure — criar um recurso](_img/azure-devops-project-github/createaresource.png)
+
+3. Selecione **DevOps > Projeto de DevOps**.
 
    ![O painel do DevOps Projects](_img/azure-devops-project-github/azuredashboard.png)
 
@@ -56,7 +60,7 @@ O Azure DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possív
 
 ## <a name="configure-access-to-your-github-repo-and-choose-a-framework"></a>Configurar o acesso ao seu repositório do GitHub e escolher uma estrutura
 
-1. Selecione o **GitHub** ou um repositório de código **Git** externo. Para este tutorial, selecione **GitHub**. Talvez seja necessário autenticar-se no GitHub pela primeira vez para permitir que o Azure acesse seu repositório GitHub.
+1. Selecione o **GitHub** ou um repositório de código **Git** externo. Para este tutorial, selecione **GitHub**. Talvez seja necessário autenticar-se no GitHub pela primeira vez para permitir que o Azure acesse seu repositório do GitHub.
 
 2. Conclua selecionando o **Repositório** e o **Branch** e selecione **Avançar**.
 

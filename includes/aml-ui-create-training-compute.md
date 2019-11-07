@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 10/09/2019
-ms.openlocfilehash: 3f969fb346ce341e694458dcc38bf193f012226b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f7cdfb8b9edbce5ef2b094cf6a603904d39a7404
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792648"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493615"
 ---
 Um pipeline é executado em um destino de computação, que é um recurso de computação anexado ao workspace. Depois de criar um destino de computação, você poderá reutilizá-lo para execuções futuras.
 
@@ -25,7 +25,7 @@ Um pipeline é executado em um destino de computação, que é um recurso de com
     Se já tiver um destino de computação disponível, você poderá selecioná-lo para executar esse pipeline.
 
     > [!NOTE]
-    > A interface visual só pode executar experimentos em destinos de Computação do Machine Learning. Outros destinos de computação não serão mostrados.
+    > O designer somente pode executar experimentos em destinos de Computação do Machine Learning. Outros destinos de computação não serão mostrados.
 
 1. Forneça um nome para o recurso de computação.
 

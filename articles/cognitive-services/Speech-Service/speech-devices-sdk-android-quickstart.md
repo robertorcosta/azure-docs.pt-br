@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: f7039b525cf0d52670b8d76a24d8ec3ea5115772
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: acb041ce29d0340686a09764158063ad8d000c7c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559108"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491303"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Início Rápido: Executar o aplicativo de exemplo do SDK de Dispositivos de Fala no Android
 
@@ -102,14 +102,14 @@ Para validar sua instalação do kit de desenvolvimento, crie e instale o aplica
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. A palavra de ativação padrão (palavra-chave) é "Computador". Você também pode tentar uma das outras palavras de ativação fornecidas, "Máquina" e "Assistente". Os arquivos de recurso para essas palavras alternativas de ativação estão no SDK de Dispositivos de Fala, na pasta de palavra-chave. Por exemplo, C:\SDSDK\Android-Sample-Release\keyword\Computer contém os arquivos usados para a palavra de ativação "Computador".
+1. A palavra-chave padrão é "Computador". Você também pode tentar uma das outras palavras-chave fornecidas, como "Máquina" e "Assistente". Os arquivos de recurso para essas alternativas de palavra-chave estão no SDK de Dispositivos de Fala, na pasta de palavra-chave. Por exemplo, C:\SDSDK\Android-Sample-Release\keyword\Computer contém os arquivos usados para a palavra-chave "Computador".
 
    > [!TIP]
-   > Você também pode [criar uma palavra de ativação personalizada](speech-devices-sdk-create-kws.md).
+   > Você também pode [criar uma palavra-chave personalizada](speech-devices-sdk-create-kws.md).
 
-    Para usar uma nova palavra de ativação, atualize as duas linhas a seguir em `MainActivity.java` e copie o pacote de palavras de ativação para o aplicativo. Por exemplo, para usar a palavra de ativação 'Computador' do pacote de palavras de ativação kws-machine.zip:
+    Para usar uma nova palavra-chave, atualize as duas linhas a seguir em `MainActivity.java` e copie o pacote de palavras de ativação para o aplicativo. Por exemplo, para usar a palavra-chave “Computador” do pacote de palavras-chave kws-machine.zip:
 
-   * Copie o pacote de palavras de ativação para a pasta “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
+   * Copie o pacote de palavras-chave para a pasta “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
    * Atualize o `MainActivity.java` com a palavra-chave e o nome do pacote:
 
      ```java
