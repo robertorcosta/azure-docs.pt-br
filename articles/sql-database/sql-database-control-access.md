@@ -1,5 +1,5 @@
 ---
-title: Permitindo acesso ao Banco de Dados SQL do Azure e ao SQL Data Warehouse do Azure | Microsoft Docs
+title: Concedendo acesso ao banco de dados SQL do Azure e SQL Data Warehouse
 description: Saiba mais sobre como permitir acesso ao Banco de Dados SQL do Azure e ao SQL Data Warehouse do Microsoft Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 1292dbf43b5246fe3da95ead4d5d9113b4bc84f9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c115cd7e4d531bfdc7ddbacd4f6eff2a892ea3c3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569039"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690758"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Controle de acesso ao Banco de Dados SQL e ao SQL Data Warehouse do Azure
 
@@ -39,10 +39,10 @@ O Banco de Dados SQL dá suporte a dois tipos de autenticação:
 
 - **Autenticação do SQL**:
 
-  Este método de autenticação usa um nome de usuário e senha. Quando você criou o servidor do Banco de Dados SQL para seu banco de dados, especificou um logon de "administrador de servidor" com um nome de usuário e uma senha. Usando essas credenciais, é possível se autenticar em qualquer banco de dados nesse servidor como o proprietário do banco de dados, ou "dbo". 
+  Esse método de autenticação usa um nome de usuário e senha. Quando você criou o servidor do Banco de Dados SQL para seu banco de dados, especificou um logon de "administrador de servidor" com um nome de usuário e uma senha. Usando essas credenciais, é possível se autenticar em qualquer banco de dados nesse servidor como o proprietário do banco de dados, ou "dbo". 
 - **Autenticação do Active Directory do Azure**:
 
-  Esse método de autenticação usa identidades gerenciadas pelo Azure Active Directory e tem suporte para domínios gerenciados e integrados. Se desejar usar a Autenticação do Active Directory do Azure, você deve criar outro administrador de servidor chamado “admin do AD do Azure”, que tenha permissão para administrar usuários e grupos do AD do Azure. Este administrador também pode executar todas as operações executadas por um administrador de servidor comum. Veja [Conectando-se ao Banco de Dados SQL usando a Autenticação do Active Directory do Azure](sql-database-aad-authentication.md) para ver um passo a passo de como criar um administrador do Azure AD para habilitar a Autenticação do Active Directory do Azure.
+  Esse método de autenticação usa identidades gerenciadas pelo Azure Active Directory e é suportado para domínios gerenciados e integrados. Se desejar usar a Autenticação do Active Directory do Azure, você deve criar outro administrador de servidor chamado “admin do AD do Azure”, que tenha permissão para administrar usuários e grupos do AD do Azure. Este administrador também pode executar todas as operações executadas por um administrador de servidor comum. Veja [Conectando-se ao Banco de Dados SQL usando a Autenticação do Active Directory do Azure](sql-database-aad-authentication.md) para ver um passo a passo de como criar um administrador do Azure AD para habilitar a Autenticação do Active Directory do Azure.
 
 O Mecanismo do Banco de dados fecha conexões permanecem ociosas por mais de 30 minutos. A conexão deve efetuar logon novamente para que possa ser usada. As conexões ativas continuamente para o banco de dados SQL requerem nova autorização (realizada pelo mecanismo de banco de dados) pelo menos a cada 10 horas. O mecanismo de banco de dados tenta uma nova autorização usando a senha enviada originalmente e não é necessária nenhuma entrada do usuário. Por motivos de desempenho, quando uma senha é redefinida no Banco de Dados SQL, a conexão não é autenticada novamente, mesmo se a conexão for redefinida devido ao pool de conexões. Isso é diferente do comportamento do SQL Server no local. Se a senha foi alterada desde que a conexão foi autorizada inicialmente, a conexão deverá ser encerrada e uma nova conexão deverá ser feita usando a nova senha. Um usuário com a permissão `KILL DATABASE CONNECTION` pode terminar explicitamente uma conexão ao Banco de dados SQL usando o comando [KILL](https://docs.microsoft.com/sql/t-sql/language-elements/kill-transact-sql).
 

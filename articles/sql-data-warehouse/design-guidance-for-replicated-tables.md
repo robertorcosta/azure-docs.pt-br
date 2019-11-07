@@ -1,5 +1,5 @@
 ---
-title: Diretrizes de design para tabelas replicadas – SQL Data Warehouse do Azure | Microsoft Docs
+title: Diretrizes de design para tabelas replicadas
 description: Recomendações para criar tabelas replicadas em seu esquema do SQL Data Warehouse do Azure. 
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c622edc6c3a37b2bc71323cf0e2c155f7aec6e33
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 18577cb729c9f17a112979cd1ebb763af38b9ca2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479322"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693050"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Diretrizes de design para usar tabelas replicadas no SQL Data Warehouse do Azure
 Este artigo fornece recomendações para criar tabelas replicadas no esquema do SQL Data Warehouse. Use essas recomendações para melhorar o desempenho da consulta ao reduzir a movimentação de dados e a complexidade da consulta.
@@ -23,7 +24,7 @@ Este artigo fornece recomendações para criar tabelas replicadas no esquema do 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que você esteja familiarizado com os conceitos de movimentação e distribuição de dados no SQL Data Warehouse.  Para saber mais, consulte o artigo sobre [arquitetura](massively-parallel-processing-mpp-architecture.md). 
+Este artigo pressupõe que você esteja familiarizado com os conceitos de movimentação e distribuição de dados no SQL Data Warehouse.  Para obter mais informações, consulte o artigo [arquitetura](massively-parallel-processing-mpp-architecture.md) . 
 
 Como parte do design de tabela, compreenda seus dados o tanto quanto possível e a maneira como eles são consultados.  Por exemplo, considere estas perguntas:
 
@@ -47,7 +48,7 @@ Considere usar uma tabela replicada quando:
  
 As tabelas replicadas poderão não render o melhor desempenho de consulta quando:
 
-- A tabela tiver operações frequentes de inserção, atualização e exclusão. Essas operações de DML (linguagem de manipulação de dados) exigem uma recompilação da tabela replicada. Recompilar com frequência pode causar um desempenho mais lento.
+- A tabela tiver operações frequentes de inserção, atualização e exclusão. Essas operações DML (linguagem de manipulação de dados) exigem uma recompilação da tabela replicada. A recompilação com frequência pode causar um desempenho mais lento.
 - O data warehouse for dimensionado com frequência. Dimensionar um data warehouse altera o número de nós de computação, o que incorre na recriação da tabela replicada.
 - A tabela tem um grande número de colunas, mas as operações de dados normalmente acessam somente um pequeno número de colunas. Neste cenário, em vez de replicar toda a tabela, pode ser mais eficaz fazer a distribuição da tabela e, em seguida, criar um índice nas colunas acessadas com frequência. Quando uma consulta exigir a movimentação de dados, o SQL Data Warehouse só moverá dados para as colunas solicitadas. 
 
@@ -70,7 +71,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Converter tabelas round robin existentes em tabelas replicadas
-Se você já tiver tabelas Round Robin, é recomendável convertê-las em tabelas replicadas se elas atenderem aos critérios descritos neste artigo. As tabelas replicadas melhoram o desempenho em tabelas round robin porque elas eliminam a necessidade da movimentação de dados.  Uma tabela round robin sempre requer a movimentação de dados para as junções. 
+Se você já tiver tabelas Round Robin, é recomendável convertê-las em tabelas replicadas se elas atenderem aos critérios descritos neste artigo. As tabelas replicadas melhoram o desempenho em tabelas round robin porque elas eliminam a necessidade da movimentação de dados.  Uma tabela Round Robin sempre requer a movimentação de dados para junções. 
 
 Este exemplo usa [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para alterar a tabela DimSalesTerritory para uma tabela replicada. Este exemplo funciona independentemente de DimSalesTerritory ser distribuído por hash ou por round robin.
 

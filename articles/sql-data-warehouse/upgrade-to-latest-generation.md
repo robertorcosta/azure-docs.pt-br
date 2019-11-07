@@ -1,5 +1,5 @@
 ---
-title: Atualizar para a última geração do SQL Data Warehouse do Azure | Microsoft Docs
+title: Atualizar para a última geração
 description: Atualize o SQL Data Warehouse do Azure para a última geração de arquitetura de armazenamento e hardware do Azure.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2864e3d29a0beccd2ef52732a85ea1495e1efab8
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 02c426cd921f4af19f3b8c271e4b1c08eae2c3c2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575292"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692461"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimize o desempenho ao fazer upgrade do SQL Data Warehouse
 
@@ -65,7 +66,7 @@ Esta atualização se aplica a data warehouses na camada de Computação Otimiza
 > [!NOTE]
 > A migração de Gen1 para Gen2 por meio da portal do Azure é permanente. Não há um processo para retornar ao Gen1.  
 
-## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
 
 Entre no [Portal do Azure](https://portal.azure.com/).
 
@@ -111,7 +112,7 @@ Entre no [Portal do Azure](https://portal.azure.com/).
 ## <a name="start-the-upgrade"></a>Inicie a atualização
 
 1. Vá para o data warehouse de camada de Computação Otimizada Gen1 no portal do Azure. Se o data warehouse na camada de Computação Otimizada Gen1 a ser atualizado estiver em pausa, [retome o data warehouse](pause-and-resume-compute-portal.md). 
-2. Selecione o cartão **Atualizar para Gen2** sob a guia Tarefas:  ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+2. Selecione **atualizar para** o cartão Gen2 na guia tarefas: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
     
     > [!NOTE]
     > Se você não vir o cartão **Fazer upgrade para Gen2** na guia Tarefas, seu tipo de assinatura será limitado na região atual.

@@ -1,5 +1,5 @@
 ---
-title: Executar consultas de relatório em vários bancos de dados SQL do Azure | Microsoft Docs
+title: Executar consultas de relatório em vários bancos de dados SQL do Azure
 description: Relatório entre locatários usando consultas distribuídas.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: billgib,ayolubek
 ms.date: 01/25/2019
-ms.openlocfilehash: fa8dbbbb09fbdc14049e168afe6eb4810ccc8254
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f9af2af7893bd908988ee45476ce14a56f9768a9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570239"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691896"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Relatório entre locatários usando consultas distribuídas
 
@@ -35,7 +35,7 @@ Neste tutorial, você aprende:
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
 
-* O aplicativo Wingtip Tickets SaaS Database Per Tenant é implantado. Para implantá-lo em menos de cinco minutos, veja [Implantar e explorar o aplicativo Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-get-started-deploy.md)
+* O aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets foi implantado. Para implantá-lo em menos de cinco minutos, consulte [Implantar e explorar o aplicativo Banco de Dados por Locatário SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * O SSMS (SQL Server Management Studio) está instalado. Para baixar e instalar a versão mais recente do SSMS, confira [Baixar o SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -92,7 +92,7 @@ Para examinar a definição da exibição *Locais*:
 
 1. Em **Pesquisador de Objetos**, expanda **contosoconcerthall** > **Exibições**:
 
-   ![exibições](media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![Modos de exibição](media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Clique com botão direito do mouse em **dbo.Venues**.
 3. Selecione **Modo de Exibição de Script como** > **CRIAR para** > **Janela do Editor Nova Consulta**
@@ -111,7 +111,7 @@ Este exercício implanta o banco de dados _adhocreporting_. Esse é o banco de d
 
 Na próxima seção, você adiciona o esquema ao banco de dados para que ele possa ser usado para executar consultas distribuídas.
 
-## <a name="configure-the-head-database-for-running-distributed-queries"></a>Configurar o banco de dados ‘principal’ para executar consultas distribuídas
+## <a name="configure-the-head-database-for-running-distributed-queries"></a>Configurar o banco de dados “principal” para executar consultas distribuídas
 
 Este exercício adiciona o esquema (a fonte de dados externa e as definições de tabela externa) ao banco de dados _adhocreporting_ para permitir a consulta em todos os bancos de dados de locatários.
 
@@ -172,7 +172,7 @@ Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano pa
 
    Essa consulta faz uma união e uma agregação um pouco mais complexas. A maior parte do processamento ocorre remotamente.  Apenas linhas simples contendo a contagem de venda diária de ingressos são retornadas para o banco de dados principal.
 
-   ![consultar](media/saas-tenancy-cross-tenant-reporting/query3-plan.png)
+   ![query](media/saas-tenancy-cross-tenant-reporting/query3-plan.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

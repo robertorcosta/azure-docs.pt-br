@@ -1,5 +1,5 @@
 ---
-title: Agente de Sincronização de Dados para a Sincronização de Dados SQL do Azure | Microsoft Docs
+title: Agente de Sincronização de Dados para a Sincronização de Dados SQL
 description: Saiba como instalar e executar o Agente de Sincronização de Dados para a sincronização de Dados SQL do Azure para sincronizar dados com os bancos de dados do SQL Server local
 services: sql-database
 ms.service: sql-database
@@ -11,19 +11,19 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 13a59a9b536a25897d7c545b6fb466c1192cb545
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 097c8547093a13f73f1ae5facdc0f7e6c75c071d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177703"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690791"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Agente de Sincronização de Dados para a Sincronização de Dados SQL
 
 Sincronize os dados com bancos de SQL Server locais Instalando e Configurando o agente de sincronização de dados para o Sincronização de Dados SQL do Azure. Para obter mais informações sobre Sincronização de Dados SQL, consulte [sincronizar dados entre vários bancos de dado de nuvem e locais com sincronização de dados SQL](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> No momento, a Sincronização de Dados SQL do Azure **não** dá suporte à Instância Gerenciada do Banco de Dados SQL do Azure.
+> Atualmente, a Sincronização de Dados SQL **não** dá suporte para Instância Gerenciada do Banco de Dados SQL do Azure.
 
 ## <a name="download-and-install"></a>Fazer o download e instalar
 
@@ -37,7 +37,7 @@ Para instalar silenciosamente o Agente de Sincronização de Dados a partir do p
 
 - Se você fornecer `LocalSystem` como o valor de **SERVICEACCOUNT**, use a autenticação do SQL Server ao configurar o agente para se conectar ao SQL Server local.
 
-- Se você fornecer uma conta de usuário de domínio ou uma conta de usuário local como o valor de **SERVICEACCOUNT**, você também precisará fornecer a senha com o argumento **SERVICEPASSWORD**. Por exemplo, `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
+- Se você fornecer uma conta de usuário de domínio ou uma conta de usuário local como o valor de **SERVICEACCOUNT**, você também precisará fornecer a senha com o argumento **SERVICEPASSWORD**. Por exemplo: `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
 
 ```cmd
 msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
@@ -314,7 +314,7 @@ SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -da
 SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -databaseName testdb -authentication windows -encryption true
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais informações sobre a Sincronização de Dados SQL, consulte os artigos a seguir:
 

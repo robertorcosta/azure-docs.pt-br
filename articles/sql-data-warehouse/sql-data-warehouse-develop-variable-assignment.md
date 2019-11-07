@@ -1,5 +1,5 @@
 ---
-title: Atribuir variáveis no SQL Data Warehouse do Azure | Microsoft Docs
+title: Atribuir variáveis
 description: Dicas para atribuir variáveis de T-SQL no SQL Data Warehouse do Azure para desenvolver soluções.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 6c943478f3904aac17a572f012f2b2b69ffa2223
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 1ae5285a8d1cf6fa391c082d0196b213e6b6a9c5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479554"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692766"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Atribuindo variáveis no SQL Data Warehouse do Azure
 
@@ -67,4 +68,4 @@ Você não pode usar UPDATE para atribuição de variável.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimento](sql-data-warehouse-overview-develop.md).
+Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento](sql-data-warehouse-overview-develop.md).

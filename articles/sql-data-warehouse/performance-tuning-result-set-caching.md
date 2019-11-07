@@ -1,6 +1,6 @@
 ---
-title: Ajuste de desempenho com cache de conjunto de resultados | Microsoft Docs
-description: Visão geral do recurso
+title: Ajuste de desempenho com cache de conjunto de resultados
+description: Visão geral do recurso de cache do conjunto de resultados para Azure SQL Data Warehouse
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.openlocfilehash: 6dd3172dd9098db0cb7ec09e812eec65f717340a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 461320b9c3ed48176fb60fe695704c582edcd552
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163214"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692945"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ajuste de desempenho com cache de conjunto de resultados  
 Quando o cache do conjunto de resultados estiver habilitado, o Azure SQL Data Warehouse armazenará em cache automaticamente os resultados da consulta no banco de dados do usuário para uso repetitivo.  Isso permite que as execuções de consulta subsequentes obtenham resultados diretamente do cache persistente, de modo que a recomputação não seja necessária.   O cache do conjunto de resultados melhora o desempenho da consulta e reduz o uso de recursos de computação.  Além disso, as consultas que usam resultados em cache definidos não usam nenhum slot de simultaneidade e, portanto, não contam com os limites de simultaneidade existentes. Por segurança, os usuários só poderão acessar os resultados armazenados em cache se tiverem as mesmas permissões de acesso a dados que os usuários que criam os resultados armazenados em cache.  
@@ -84,5 +85,5 @@ Os usuários podem esvaziar manualmente todo o cache do conjunto de resultados u
 
 Pausar um banco de dados não esvaziará o conjunto de resultados em cache.  
 
-## <a name="next-steps"></a>Próximos passos
-Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL Data Warehouse](sql-data-warehouse-overview-develop.md). 
+## <a name="next-steps"></a>Próximas etapas
+Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvolvimento no SQL Data Warehouse](sql-data-warehouse-overview-develop.md). 

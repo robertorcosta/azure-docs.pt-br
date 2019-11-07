@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted: Banco de Dados SQL – Azure Key Vault | Microsoft Docs'
+title: 'Always Encrypted: banco de dados SQL-Azure Key Vault '
 description: Este artigo mostra como proteger os dados confidenciais no banco de dados SQL com a criptografia de dados usando o Assistente Always Encrypted no SQL Server Management Studio.
 keywords: criptografia de dados, chave de criptografia, criptografia de nuvem
 services: sql-database
@@ -12,14 +12,14 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 924ec20b9922d12da7291dc4f44b7413c68728c6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7ba19f3f3e03c414d651082898976c5bd17e89c9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569572"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691257"
 ---
-# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: Proteja dados confidenciais e armazene chaves de criptografia no Azure Key Vault
+# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Sempre criptografado: proteja dados confidenciais e armazene chaves de criptografia no Cofre de Chaves do Azure
 
 Este artigo mostra como proteger os dados confidenciais no banco de dados SQL com a criptografia de dados usando o [Assistente Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) no [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Ele também inclui instruções que mostram como armazenar cada chave de criptografia no Cofre de Chaves do Azure.
 
@@ -47,7 +47,7 @@ Para este tutorial, será necessário:
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) versão 13.0.700.242 ou posterior.
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) ou posterior (no computador cliente).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* [Azure PowerShell](/powershell/azure/overview).
+* [PowerShell do Azure](/powershell/azure/overview).
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Habilitar seu aplicativo cliente para acessar o serviço do Banco de Dados SQL
 Você deve habilitar seu aplicativo cliente para acessar o serviço de Banco de Dados SQL ao configurar um aplicativo do Azure Active Directory (AAD) e copiar o *ID do Aplicativo* e *chave* que você precisará para autenticar seu aplicativo.
@@ -87,7 +87,7 @@ Você pode criar rapidamente um cofre de chaves executando o script a seguir. Pa
 2. Vá para **Criar um recurso** > **Bancos de Dados** > **Banco de Dados SQL**.
 3. Crie um banco de dados **Em branco** chamado **Clínica** em um servidor novo ou existente. Para obter diretrizes detalhadas sobre como criar um banco de dados no Portal do Azure, consulte [Seu primeiro Banco de Dados SQL do Azure](sql-database-single-database-get-started.md).
    
-    ![Criar um banco de dados vazio](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
+    ![Criar um banco de dados em branco](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 
 Você precisará da cadeia de conexão posteriormente no tutorial, então depois de criar o banco de dados, vá para o novo banco de dados de Clínica e copie a cadeia de conexão. Você pode obter a cadeia de conexão a qualquer momento, mas é fácil copiá-la para o portal do Azure.
 
@@ -137,7 +137,7 @@ O SSMS fornece um assistente que ajuda você a configurar facilmente o Always En
    
     ![Criptografar Colunas](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
 
-O assistente Always Encrypted inclui as seções a seguir: **Seleção de Coluna**, **Configuração da Chave Mestra**, **Validação** e **Resumo**.
+O assistente Always Encrypted inclui as seguintes seções: **Seleção de Coluna**, **Configuração da Chave Mestra**, **Validação** e **Resumo**.
 
 ### <a name="column-selection"></a>Seleção de coluna
 Clique em **Avançar** na página **Introdução** para abrir a página **Seleção de Coluna**. Nessa página, você escolherá as colunas que quer criptografar, [o tipo de criptografia e quais CEK (Chave de Criptografia da Coluna)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) usar.

@@ -1,5 +1,5 @@
 ---
-title: Replicação para o Banco de Dados SQL do Azure | Microsoft Docs"
+title: Replicação para o banco de dados SQL do Azure "
 description: Saiba como usar a replicação do SQL Server com bancos de dados únicos do banco de Dados SQL do Azure e bancos de dados em pools elásticos
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: eab8f4809742b69e92cb835801493722d28afe49
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ae564a98b77b1ac564fa9aae152b27c491187d0c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570470"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692210"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicação para bancos de dados individuais e em pool do Banco de Dados SQL
 

@@ -1,5 +1,5 @@
 ---
-title: Guia de instruções para austar automático as notificações por email – Banco de Dados SQL do Azure | Microsoft Docs
+title: Guia de instruções sobre o ajuste automático de notificações por email – banco de dados SQL do Azure
 description: Habilite notificações por email para o ajuste automático de consulta do Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: df9390c00c34fce82de8cc17efb5cc3bce2e4e3d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e1478ab6abc9705a67f2d47bc076d3c2fe54ccd4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569449"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691154"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificações por email para ajuste automático
 

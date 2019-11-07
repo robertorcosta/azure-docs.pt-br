@@ -1,5 +1,5 @@
 ---
-title: Práticas Recomendadas para a Sincronização de Dados SQL do Azure | Microsoft Docs
+title: 'Práticas recomendadas para o Azure Sincronização de Dados SQL '
 description: Conheça as práticas recomendadas para configurar e executar a Sincronização de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 01962770c011a0107abd4e035c25d6c0d45fa0a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 728ac8ab42573e1cab30eaf12dd38a6d33b97aac
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569377"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691073"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Práticas recomendadas para a Sincronização de Dados SQL 
 
@@ -41,7 +41,7 @@ Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincroniz
 
 -   **Para configuração da sincronização**. Criar/alterar tabela; alterar banco de dados; criar procedimento; selecionar/alterar esquema; criar tipo definido pelo usuário.
 
--   **Para a sincronização em andamento**. Selecionar/Inserir/Atualizar/Excluir em tabelas selecionadas para sincronização e em metadados de sincronização e tabelas de acompanhamento; permissão para Executar em procedimentos armazenados criados pelo serviço; permissão para Executar em tipos de tabela definidos pelo usuário.
+-   **Para sincronização em andamento**. Selecionar/inserir/atualizar/excluir em tabelas selecionadas para sincronização e em metadados de sincronização e tabelas de acompanhamento; Permissão EXECUTE em procedimentos armazenados criados pelo serviço; Permissão EXECUTE em tipos de tabela definidos pelo usuário.
 
 -   **Para desprovisionamento**. Alterar em tabelas que fazem parte da sincronização; Selecionar/Excluir em tabelas de metadados de sincronização; Controlar em tabelas de sincronização, procedimentos armazenados e tipos definidos pelo usuário.
 
@@ -94,7 +94,7 @@ A Sincronização de Dados SQL tem as seguintes limitações para provisionament
 -   Os gatilhos existentes nas tabelas de origem não são provisionados.  
 -   Exibições e procedimentos armazenados não são criados no banco de dados de destino.
 -   EM UPDATE CASCADE e ON DELETE CASCADE ações em restrições de chave estrangeira não são recriadas nas tabelas de destino.
--   Se você tiver colunas decimais ou numéricas com uma precisão maior que 28, a Sincronização de Dados SQL poderá encontrar um problema de estouro de conversão durante a sincronização. É recomendável que você limite a precisão de colunas decimais ou numéricas a 28 ou menos.
+-   Se você tiver colunas decimais ou numéricas com uma precisão maior que 28, Sincronização de Dados SQL poderá encontrar um problema de estouro de conversão durante a sincronização. Recomendamos que você limite a precisão de colunas decimais ou numéricas para 28 ou menos.
 
 #### <a name="recommendations"></a>Recomendações
 
@@ -128,7 +128,7 @@ Quando você criar um grupo de sincronização, comece com os dados em apenas um
 
 Se os bancos de dados estiverem em datacenters diferentes, cada linha deverá percorrer os diferentes datacenters. Isso aumenta o custo de uma sincronização inicial.
 
-#### <a name="recommendation"></a>Recomendação
+#### <a name="recommendation"></a>Recomendações
 
 Se for possível, comece com os dados em apenas um dos bancos de dados do grupo de sincronização.
 
@@ -157,7 +157,7 @@ As alterações podem apresentar falha na propagação por um dos seguintes moti
 > [!NOTE]
 > Essas alterações nunca se propagarão. A única maneira de recuperar-se neste cenário é recriar o grupo de sincronização.
 
-#### <a name="recommendation"></a>Recomendação
+#### <a name="recommendation"></a>Recomendações
 
 Monitore a integridade do banco de dados e do grupo de sincronização regularmente através da interface de log e do Portal.
 
@@ -198,7 +198,7 @@ Em algumas circunstâncias, cancelar o registro de um banco de dados com um agen
 1. O grupo de sincronização foi criado usando uma instância do Banco de Dados SQL e um Banco de Dados do SQL Server local, que está associado ao agente local 1.
 2. O mesmo banco de dados local está registrado com o agente local 2 (esse agente não está associado a nenhum grupo de sincronização).
 3. Cancelar o registro do banco de dados local do agente local 2 remove as tabelas meta e de acompanhamento referentes ao grupo de sincronização A do banco de dados local.
-4. As operações do grupo de sincronização A falham, exibindo este erro: "A operação atual não pôde ser concluída porque o banco de dados não está provisionado para sincronização ou você não tem permissões para as tabelas de configuração de sincronização."
+4. As operações do grupo de sincronização A falham com este erro: "A operação atual não pôde ser concluída porque o banco de dados não está provisionado para sincronização ou você não tem permissões para as tabelas de configuração de sincronização".
 
 #### <a name="solution"></a>Solução
 
@@ -223,7 +223,7 @@ Para obter mais informações sobre a Sincronização de Dados SQL, consulte:
 
 -   Visão geral - [Sincronize dados em vários bancos de dados locais e na nuvem com o Azure SQL Data Sync](sql-database-sync-data.md)
 -   Configurar sincronização de dados
-    - No portal - [Tutorial: Configurar sincronização de dados SQL para sincronizar dados entre o banco de dados SQL do Azure e SQL Server local](sql-database-get-started-sql-data-sync.md)
+    - No portal - [Tutorial: configure o SQL Data Sync para sincronizar dados entre o Banco de Dados SQL do Azure e o SQL Server local](sql-database-get-started-sql-data-sync.md)
     - Com o PowerShell
         -  [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial de SaaS Database-per-tenant – Banco de Dados SQL do Azure | Microsoft Docs
+title: Tutorial de SaaS de banco de dados por locatário-banco de dados SQL do Azure
 description: Implante e explore o aplicativo Wingtip Tickets SaaS multilocatário, que demonstra o banco de dados por locatário e outros padrões de SaaS usando o Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: d5f64f0a9abfa736c1db0e562b6f18ecfc1f6de5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: b271c4bbf942bee70c4995ee04ec370591d4f67d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023839"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692176"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o padrão de banco de dados por locatário com o Banco de Dados SQL
 
@@ -62,9 +62,9 @@ Escolha seus nomes agora e os escreva.
     > [!IMPORTANT]
     > Algumas autenticações e firewalls de servidor estão intencionalmente desprotegidos para fins de demonstração. É recomendável que você crie um novo grupo de recursos. Não use grupos de recursos, servidores ou pools existentes. Não use esse aplicativo, scripts ou qualquer recurso implantado para produção. Exclua esse grupo de recursos quando tiver terminado com o aplicativo para interromper a cobrança relacionada.
 
-    - **Grupo de recursos**: Selecione **Criar novo** e forneça o nome exclusivo que você escolheu anteriormente para o grupo de recursos.
-    - **Localização**: Selecione uma localização na lista suspensa.
-    - **Usuário**: Use o valor de nome de usuário que você escolheu anteriormente.
+    - **Grupo de recursos**: selecione **Criar novo** e forneça o nome exclusivo que você escolheu anteriormente para o grupo de recursos.
+    - **Localização**: selecione uma localização na lista suspensa.
+    - **Usuário**: use o valor de nome de usuário que você escolheu anteriormente.
 
 1. Implante o aplicativo.
 
@@ -116,7 +116,7 @@ Uma página central do **Hub de Eventos** fornece uma lista de links para os loc
 
 2. Selecione **Fabrikam Jazz Club** no Hub de eventos.
 
-    ![Events](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
+    ![Eventos](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
 ### <a name="azure-traffic-manager"></a>Gerenciador de Tráfego do Azure
 
@@ -202,7 +202,7 @@ A implantação inicial cria três locatários de amostra. Agora você cria outr
 3. Para executar o script, pressione F5. Deixe os valores padrão por ora.
 
    > [!NOTE]
-   > Vários scripts Wingtip SaaS usam *$PSScriptRoot* para navegar em pastas para chamar funções em outros scripts. Essa variável é avaliada apenas quando o script completo é executado ao pressionar F5. Destacar e executar uma seleção com F8 pode resultar em erros. Para executar os scripts, pressione F5.
+   > Vários scripts Wingtip SaaS usam *$PSScriptRoot* para navegar em pastas para chamar funções em outros scripts. Essa variável é avaliada apenas quando o script completo é executado ao pressionar F5. Realçar e executar uma seleção com F8 pode resultar em erros. Para executar os scripts, pressione F5.
 
 O novo banco de dados de locatário é:
 

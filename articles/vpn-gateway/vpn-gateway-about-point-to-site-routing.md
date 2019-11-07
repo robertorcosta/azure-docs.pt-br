@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: anzaman
-ms.openlocfilehash: cb5969ccb4ee9780b597326a3811395c3b7d9971
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ced1bc647f93beec73b8101a952944f31e497658
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168477"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693219"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Sobre o roteamento VPN Ponto a Site
 
@@ -56,7 +56,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é em
 
 Os clientes que usam o Windows podem acessar VNets emparelhadas diretamente, mas o cliente VPN deve ser baixado novamente, se as alterações são feitas para emparelhamento de rede virtual ou a topologia de rede. Os clientes não Windows podem acessar VNets emparelhadas diretamente. O acesso não é transitivo e é limitado a apenas VNets emparelhadas diretamente.
 
-![várias VNets emparelhadas](./media/vpn-gateway-about-point-to-site-routing/2.jpg "várias VNets emparaelhadas")
+![vários VNets emparelhados](./media/vpn-gateway-about-point-to-site-routing/2.jpg "vários VNets emparelhados")
 
 ### <a name="address-space"></a>Espaço de endereço:
 
@@ -195,7 +195,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é co
 
 Todos os clientes podem acessar apenas VNet1.
 
-![várias VNet S2S e filial](./media/vpn-gateway-about-point-to-site-routing/7.jpg "várias VNet S2S e filial")
+![S2S e filial de vários VNet](./media/vpn-gateway-about-point-to-site-routing/7.jpg "S2S e filial de vários VNet")
 
 ### <a name="address-space"></a>Espaço de endereço
 
@@ -209,7 +209,7 @@ Todos os clientes podem acessar apenas VNet1.
 
 ### <a name="routes-added"></a>Rotas adicionadas
 
-* Rotas adicionadas aos clientes: 10.1.0.0/16, 192.168.0.0/24
+* Rotas adicionadas aos clientes Windows: 10.1.0.0/16, 192.168.0.0/24
 
 * Rotas adicionadas aos clientes não Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
@@ -225,7 +225,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é co
 
 Os clientes que usam o Windows podem acessar VNets e sites que são conectados usando uma conexão VPN Site a Site, mas as rotas para VNet2, VNet3 e Site1 devem ser adicionados manualmente ao cliente. Os clientes não Windows podem acessar VNets e sites que são conectados usando uma conexão VPN Site a Site sem qualquer intervenção manual. O acesso é transitivo, e os clientes podem acessar recursos em todos os sites (local) e VNets conectadas.
 
-![várias VNet S2S e filial](./media/vpn-gateway-about-point-to-site-routing/8.jpg "várias VNet S2S e filial")
+![S2S e filial de vários VNet](./media/vpn-gateway-about-point-to-site-routing/8.jpg "S2S e filial de vários VNet")
 
 ### <a name="address-space"></a>Espaço de endereço
 
@@ -239,7 +239,7 @@ Os clientes que usam o Windows podem acessar VNets e sites que são conectados u
 
 ### <a name="routes-added"></a>Rotas adicionadas
 
-* Rotas adicionadas aos clientes: 10.1.0.0/16, 192.168.0.0/24
+* Rotas adicionadas aos clientes Windows: 10.1.0.0/16, 192.168.0.0/24
 
 * Rotas adicionadas aos clientes não Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 

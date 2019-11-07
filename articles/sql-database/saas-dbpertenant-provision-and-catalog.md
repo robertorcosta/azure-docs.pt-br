@@ -1,5 +1,5 @@
 ---
-title: Provisionar novos locatários em um aplicativo multilocatário que usa o Banco de Dados SQL do Azure | Microsoft Docs
+title: Provisionar novos locatários em um aplicativo multilocatário que usa o banco de dados SQL do Azure
 description: Saiba como provisionar e catalogar novos locatários em um aplicativo SaaS multilocatário do Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: b5a996fe6be5aa839b78b6693accac9b1000cef8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f0f1ebd8b2ef719a9556b6b20f6685d1da493263
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570426"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692118"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como provisionar novos locatários e registrá-los no catálogo
 
@@ -91,7 +91,7 @@ Para entender como o aplicativo Wingtip Tickets implementa o novo provisionament
 
 4. Depois que a execução do script for interrompida no ponto de interrupção, pressione F11 para entrar no código.
 
-   ![Depuração](media/saas-dbpertenant-provision-and-catalog/debug.png)
+   ![Depurando](media/saas-dbpertenant-provision-and-catalog/debug.png)
 
 
 
@@ -154,9 +154,9 @@ O script implanta um lote de locatários adicionais. Ele usa um [modelo do Azure
 
 Outros padrões de provisionamento não mencionados nesse tutorial:
 
-**Pré-provisionamento de bancos de dados**: O padrão de pré-provisionamento explora o fato de que os bancos de dados de um pool elástico não adicionam custo extra. A cobrança é para o pool elástico, não os bancos de dados. Bancos de dados ociosos não consomem recursos. Com o pré-provisionamento de bancos de dados em um pool e a alocação quando necessário, você pode reduzir o tempo para adicionar os locatários. O número de bancos de dados pré-provisionados pode ser ajustado conforme necessário para manter um buffer adequado para a taxa de provisionamento esperada.
+**Provisionamento prévio de bancos de dados**: o padrão de pré-provisionamento explora o fato de que os bancos de dados de um pool elástico não adicionam custo extra. A cobrança é para o pool elástico, não os bancos de dados. Bancos de dados ociosos não consomem recursos. Com o pré-provisionamento de bancos de dados em um pool e a alocação quando necessário, você pode reduzir o tempo para adicionar os locatários. O número de bancos de dados pré-provisionados pode ser ajustado conforme necessário para manter um buffer adequado para a taxa de provisionamento esperada.
 
-**Provisionamento automático**: No padrão de provisionamento automático, um serviço de provisionamento provisiona servidores, pools e bancos de dados automaticamente, conforme o necessário. Se desejar, você poderá incluir o provisionamento prévio de bancos de dados em pools elásticos. Se os bancos de dados forem encerrados e excluídos, as lacunas nos pools elásticos poderão ser preenchidas pelo serviço de provisionamento. Esse serviço pode ser simples ou complexo, como o tratamento de provisionamento em várias regiões geográficas e a configuração de replicação geográfica para recuperação de desastre. 
+**Provisionamento automático**: no padrão de provisionamento automático, um serviço de provisionamento provisiona servidores, pools e bancos de dados automaticamente, conforme o necessário. Se desejar, você poderá incluir o provisionamento prévio de bancos de dados em pools elásticos. Se os bancos de dados forem encerrados e excluídos, as lacunas nos pools elásticos poderão ser preenchidas pelo serviço de provisionamento. Esse serviço pode ser simples ou complexo, como o tratamento de provisionamento em várias regiões geográficas e a configuração de replicação geográfica para recuperação de desastre. 
 
 Com o padrão de provisionamento automático, um script ou aplicativo cliente envia uma solicitação de provisionamento a uma fila para ser processada pelo serviço de provisionamento. Em seguida, ele sonda o serviço para determinar a conclusão. Se o provisionamento prévio for usado, as solicitações serão manipuladas rapidamente. O serviço provisiona um banco de dados de substituição em segundo plano.
 

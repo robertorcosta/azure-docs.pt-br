@@ -1,5 +1,5 @@
 ---
-title: Otimizar transações para SQL Data Warehouse do Azure | Microsoft Docs
+title: Otimizando transações
 description: Saiba como otimizar o desempenho do código transacional no SQL Data Warehouse do Azure, minimizando o risco de reversões longas.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2299c526dd63eb8e8772661ee8fae66153fc36c3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: b8b8be9467ade870e57355be91b0de329b0f6217
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479670"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692867"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Otimizar transações no SQL Data Warehouse do Azure
 Saiba como otimizar o desempenho do código transacional no SQL Data Warehouse do Azure, minimizando o risco de reversões longas.
@@ -67,7 +68,7 @@ CTAS e INSERT...SELECT são ambas operações de carregamento em massa. No entan
 
 | Índice principal | Cenário de carga | Modo de registro em log |
 | --- | --- | --- |
-| Heap |Any |**Mínimo** |
+| Heap |Qualquer |**Mínimo** |
 | Índice clusterizado |Tabela de destino vazia |**Mínimo** |
 | Índice clusterizado |As linhas carregadas não se sobrepõem às páginas existentes no destino |**Mínimo** |
 | Índice clusterizado |Linhas carregadas se sobrepõem com páginas existentes no destino |Completo |
@@ -417,5 +418,5 @@ O melhor cenário é permitir que as transações de modificação de dados em t
 * Interromper a operação em partes; operando em um subconjunto das linhas
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira [Transações no SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) para saber mais sobre os níveis de isolamento e os limites transacionais.  Para obter uma visão geral de outras Melhores Práticas, consulte [Melhores práticas do SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Consulte [Transações no SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) para saber mais sobre os níveis de isolamento e os limites transacionais.  Para obter uma visão geral de outras práticas recomendadas, confira [Práticas recomendadas para o Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

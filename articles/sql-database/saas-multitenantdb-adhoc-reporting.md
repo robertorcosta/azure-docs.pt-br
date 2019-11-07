@@ -1,5 +1,5 @@
 ---
-title: Executar consultas de relatório ad hoc em vários bancos de dados SQL do Azure | Microsoft Docs
+title: Executar consultas de relatórios ad hoc em vários bancos de dados SQL do Azure
 description: Execute consultas de relatório ad hoc em vários bancos de dados SQL em um exemplo de aplicativo multilocatário.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 10/30/2018
-ms.openlocfilehash: 0a6b45db3c8b4071b591ca2b5fc604b986598c0c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3d345e222dac98a63400dd2661ce92674f2534f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570360"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692073"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Executar consultas de análise ad hoc em vários bancos de dados SQL do Azure
 
@@ -40,7 +40,7 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 
 ## <a name="ad-hoc-reporting-pattern"></a>Padrão dos relatórios ad hoc
 
-![padrão do relatório ad hoc](media/saas-multitenantdb-adhoc-reporting/adhocreportingpattern_shardedmultitenantDB.png)
+![padrão de relatórios ad hoc](media/saas-multitenantdb-adhoc-reporting/adhocreportingpattern_shardedmultitenantDB.png)
 
 Os aplicativos SaaS podem analisar a enorme quantidade de dados de locatários armazenados centralmente na nuvem. As análises revelam insights sobre a operação e o uso do aplicativo. Essas informações podem guiar o desenvolvimento do recurso, aprimoramentos de usabilidade e outros investimentos no aplicativo e nos serviços.
 
@@ -68,7 +68,7 @@ No aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets, os locatá
 
 Para obter esse padrão, todas as tabelas de locatários incluem uma coluna *VenueId* que identifica a qual locatário os dados pertencem. A *VenueId* é calculada como um hash do nome Venue, mas qualquer abordagem pode ser usada para introduzir um valor exclusivo nessa coluna. Essa abordagem é semelhante à forma como a chave de locatário é calculada para uso no catálogo. As tabelas que contém *VenueId* são usadas pela Consulta Elástica para paralelizar consultas e enviá-las por push para o banco de dados de locatários remoto apropriado. Isso reduz consideravelmente a quantidade de dados retornados e resulta em um aumento no desempenho, especialmente quando há vários locatários cujos dados são armazenados em bancos de dados de locatário único.
 
-## <a name="deploy-the-database-used-for-ad-hoc-distributed-queries"></a>Implantar o banco de dados usado para consultas ad hoc distribuídas
+## <a name="deploy-the-database-used-for-ad-hoc-distributed-queries"></a>Implantar o banco de dados usado para consultas distribuídas ad hoc
 
 Este exercício implanta o banco de dados *adhocreporting*. Esse é o banco de dados principal que contém o esquema usado para consultar em todos os bancos de dados de locatário. O banco de dados é implantado no servidor de catálogo existente, que é o servidor usado para todos os bancos de dados relacionados ao gerenciamento no aplicativo de exemplo.
 
@@ -79,7 +79,7 @@ Este exercício implanta o banco de dados *adhocreporting*. Esse é o banco de d
 
 Na próxima seção, você adiciona o esquema ao banco de dados para que ele possa ser usado para executar consultas distribuídas.
 
-## <a name="configure-the-head-database-for-running-distributed-queries"></a>Configurar o banco de dados ‘principal’ para executar consultas distribuídas
+## <a name="configure-the-head-database-for-running-distributed-queries"></a>Configurar o banco de dados “principal” para executar consultas distribuídas
 
 Este exercício adiciona o esquema (a fonte de dados externa e as definições de tabela externa) ao banco de dados de relatórios ad hoc que habilita a consulta em todos os bancos de dados de locatários.
 
@@ -138,7 +138,7 @@ Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano pa
 
    Essa consulta faz uma união e uma agregação um pouco mais complexas. O que é importante observar é que a maioria do processamento é feita remotamente e novamente, trazemos de volta apenas as linhas que precisamos, retornando apenas uma única linha para a contagem de venda de ingressos agregada por dia de cada local.
 
-   ![consultar](media/saas-multitenantdb-adhoc-reporting/query3-plan.png)
+   ![query](media/saas-multitenantdb-adhoc-reporting/query3-plan.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

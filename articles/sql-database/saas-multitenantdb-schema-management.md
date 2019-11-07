@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o esquema de Banco de Dados SQL do Azure em um aplicativo multilocatário | Microsoft Docs
+title: Gerenciar o esquema do banco de dados SQL do Azure em um aplicativo multilocatário
 description: Gerenciar o esquema para vários locatários em um aplicativo multilocatário que usa o Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: db6f471438324e984434704a2cab01d57c800ba5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a4838e571c6dc678fba470ef7f1026388f55d444
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570250"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691974"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gerenciar o esquema em um aplicativo SaaS que usa bancos de dados SQL multilocatários fragmentados
 
@@ -52,7 +52,7 @@ Neste tutorial, você aprenderá a:
 - O Azure PowerShell deve estar instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Este tutorial usa recursos do serviço do Banco de Dados SQL do Azure que estão em uma versão prévia limitada ([trabalhos de Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). Se você quiser fazer este tutorial, forneça sua ID de assinatura para *SaaSFeedback\@Microsoft.com* com Subject = trabalhos elásticos Preview. Após receber a confirmação de que sua assinatura foi habilitada, [baixe e instale as versões de pré-lançamento mais recentes dos cmdlets de trabalhos](https://github.com/jaredmoo/azure-powershell/releases). Essa visualização é limitada, então entre em contato com *SaaSFeedback\@Microsoft.com* para obter perguntas ou suporte relacionados.
+> Este tutorial usa recursos do serviço do Banco de Dados SQL do Azure que estão em uma versão prévia limitada ([trabalhos de Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). Se você quiser fazer este tutorial, forneça sua ID de assinatura para *SaaSFeedback\@Microsoft.com* com Subject = trabalhos elásticos Preview. Após receber a confirmação de que sua assinatura foi habilitada, [baixe e instale as versões de pré-lançamento mais recentes dos cmdlets de trabalhos](https://github.com/jaredmoo/azure-powershell/releases). Essa visualização é limitada, portanto, entre em contato com *SaaSFeedback\@Microsoft.com* para questões ou suporte relacionados.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introdução aos padrões de gerenciamento de esquema de SaaS
 
@@ -83,7 +83,7 @@ O script *Demo-SchemaManagement.ps1* chama o script *Deploy-SchemaManagement.ps1
 
 #### <a name="prepare"></a>Preparar
 
-Cada banco de dados de locatários inclui um conjunto de tipos de local na tabela **VenueTypes**. Cada tipo de local define os tipos de eventos que podem ser hospedados em um local. Esses tipos de local correspondem às imagens de tela de fundo que você vê no aplicativo de eventos de locatário.  Neste exercício, você implantará uma atualização em todos os bancos de dados para adicionar mais dois tipos de local: *Motorcycle Racing* e *Swimming Club*.
+Cada banco de dados de locatários inclui um conjunto de tipos de local na tabela **VenueTypes**. Cada tipo de local define os tipos de eventos que podem ser hospedados em um local. Esses tipos de local correspondem às imagens de tela de fundo que você vê no aplicativo de eventos de locatário.  Neste exercício, você implanta uma atualização em todos os bancos de dados para adicionar dois tipos de local: *Motorcycle Racing* e *Swimming Club*.
 
 Primeiro, revise os tipos de local incluídos em cada banco de dados de locatário. Conecte-se a um banco de dados de locatário no SSMS (SQL Server Management Studio) e verifique a tabela VenueTypes.  Você também pode consultar essa tabela no Editor de consultas no portal do Azure, acessado pela página do banco de dados.
 

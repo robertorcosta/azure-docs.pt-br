@@ -1,5 +1,5 @@
 ---
-title: 'Portal do Azure: Replicação geográfica do Banco de Dados SQL | Microsoft Docs'
+title: 'Portal do Azure: replicação geográfica do banco de dados SQL '
 description: Configurar a replicação geográfica para um banco de dados individual ou em pool no Banco de Dados SQL do Azure usando o portal do Azure e inicializar o failover
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 049122b97a26e63188142dd5494927c2ae71d852
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 2a9d627cb2b51d0d7d0b07052f18a8dbe1dc2f19
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103219"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691338"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar a replicação geográfica ativa para o Banco de Dados SQL do Azure usando o Portal do Azure e inicializar o failover
 
@@ -28,7 +28,7 @@ Para obter informações sobre grupos de failover automático com bancos de dado
 
 Para configurar a replicação geográfica ativa usando o Portal do Azure, você precisa do seguinte recurso:
 
-* Um Banco de Dados SQL do Azure: O banco de dados primário que você deseja replicar para uma região geográfica diferente.
+* Um Banco de Dados SQL do Azure: o banco de dados primário que você deseja replicar para uma região geográfica diferente.
 
 > [!Note]
 > Ao usar o portal do Azure, você só pode criar um banco de dados secundário na mesma assinatura que o primário. Caso o banco de dados secundário deva estar em uma assinatura diferente, use [Criar banco de dados REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) ou [API de Transact-SQL de ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).

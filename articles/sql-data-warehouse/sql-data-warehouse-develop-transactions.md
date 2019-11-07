@@ -1,5 +1,5 @@
 ---
-title: Usando transações no SQL Data Warehouse do Azure | Microsoft Docs
+title: Usando transações
 description: Dicas para implementar transações no Azure SQL Data Warehouse para o desenvolvimento de soluções.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f00f8a25d0abf3af6d76b372b44145546a79879
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 09fc0f7cee38f799322a1914848a5176e9a223a1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479601"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692778"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>Usando transações no SQL Data Warehouse
 Dicas para implementar transações no Azure SQL Data Warehouse para o desenvolvimento de soluções.
@@ -130,7 +131,7 @@ SELECT @xact_state AS TransactionState;
 
 O código anterior oferece a seguinte mensagem de erro:
 
-Msg 111233, Nível 16, Estado 1, Linha 1 111233; a transação atual foi anulada, e as alterações pendentes foram revertidas. Causa: Uma transação em um estado somente de reversão não foi revertida explicitamente antes de uma instrução DDL, DML ou SELECT.
+Msg 111233, Nível 16, Estado 1, Linha 1 111233; a transação atual foi anulada, e as alterações pendentes foram revertidas. Causa: uma transação em um estado somente de reversão não foi revertida explicitamente antes de uma instrução DDL, DML ou SELECT.
 
 Você não receberá a saída das funções ERROR_*.
 
@@ -175,7 +176,7 @@ O comportamento esperado é observado agora. O erro na transação é gerenciado
 
 Tudo o que mudou é que o ROLLBACK da transação deve ocorrer antes da leitura das informações de erro no bloco CATCH.
 
-## <a name="errorline-function"></a>Função Error_line()
+## <a name="error_line-function"></a>Função Error_line()
 Também vale a pena observar que o SQL Data Warehouse não implementa ou aceita a função ERROR_LINE(). Se você tiver isso em seu código, será necessário removê-lo para que ele esteja em conformidade com o SQL Data Warehouse. Em vez disso, use rótulos de consulta em seu código para implementar a funcionalidade equivalente. Para obter mais detalhes, consulte o artigo [LABEL](sql-data-warehouse-develop-label.md).
 
 ## <a name="using-throw-and-raiserror"></a>Uso de THROW e RAISERROR
@@ -198,5 +199,5 @@ Elas são as seguintes:
 * Não há suporte para DDL, como CREATE TABLE em uma transação definida pelo usuário
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre a otimização das transações, confira [Práticas recomendadas das transações](sql-data-warehouse-develop-best-practices-transactions.md). Para saber mais sobre outras melhores práticas do SQL Data Warehouse, consulte [SQL Data Warehouse best practices](sql-data-warehouse-best-practices.md) (Melhores práticas do SQL Data Warehouse).
+Para saber mais sobre a otimização das transações, consulte [Transactions best practices](sql-data-warehouse-develop-best-practices-transactions.md) (Melhores práticas de transações). Para saber mais sobre outras práticas recomendadas do SQL Data Warehouse, confira [Práticas recomendadas do SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

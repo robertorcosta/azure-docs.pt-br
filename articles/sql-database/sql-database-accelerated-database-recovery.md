@@ -1,5 +1,5 @@
 ---
-title: Recuperação Acelerada do Banco de Dados - Banco de Dados SQL do Azure | Microsoft Docs
+title: Recuperação de banco de dados acelerada-banco de dados SQL do Azure
 description: O Banco de Dados SQL do Azure tem um novo recurso que fornece recuperação de banco de dados rápida e consistente, reversão de transação instantânea e truncamento de log agressivo para bancos de dados individuais e em pool em Banco de Dados SQL do Azure, bem como bancos de dados no SQL Data Warehouse do Azure.
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,16 +10,16 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: d516dc51a25cbef92ff9fa22012773507b528a99
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e66b3e6563d796cc7b59e82233bd1b22bc906c6e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569621"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691342"
 ---
 # <a name="accelerated-database-recovery"></a>Recuperação de banco de dados acelerada
 
-**ADR (Accelerated Database Recovery - Recuperação Acelerada de Banco de Dados)** é um novo recurso de mecanismo de banco de dados SQL que melhora bastante a disponibilidade do banco de dados, especialmente na presença de transações de longa duração, reprojetando o processo de recuperação do mecanismo de banco de dados SQL. O ADR está disponível no momento para bancos de dados individuais e bancos de dados em pool no banco de dados SQL do Azure, e os bancos de dados no Azure SQL Data Warehouse (atualmente em visualização pública). Principais benefícios da ADR são:
+**Acelerada de recuperação de banco de dados (ADR)** é um novo recurso de mecanismo de banco de dados do SQL que melhora significativamente a disponibilidade do banco de dados, especialmente na presença de longa execução de transações, quanto remodelando o processo de recuperação do mecanismo de banco de dados SQL. O ADR está disponível no momento para bancos de dados individuais e bancos de dados em pool no banco de dados SQL do Azure, e os bancos de dados no Azure SQL Data Warehouse (atualmente em visualização pública). Principais benefícios da ADR são:
 
 - **Recuperação de banco de dados rápida e consistente**
 

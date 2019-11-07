@@ -1,5 +1,5 @@
 ---
-title: Arquitetura de conectividade de SQL Data Warehouse e banco de dados SQL do Azure | Microsoft Docs
+title: Arquitetura de conectividade de SQL Data Warehouse e banco de dados SQL do Azure
 description: Este documento explica a arquitetura de conectividade do SQL do Azure para conexões de banco de dados de dentro do Azure ou de fora do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: f26eb44dd407e379d0bf3291eb890d2e451c919e
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: d414276e081407af8ea21ebcbd96909d34455a22
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72807921"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690857"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -65,12 +65,12 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | --- | --- |
 | Austrália Central    | 20.36.105.0 |
 | Central2 da Austrália   | 20.36.113.0 |
-| Austrália Oriental       | 13.75.149.87, 40.79.161.1 |
+| Leste da Austrália       | 13.75.149.87, 40.79.161.1 |
 | Sudeste da Austrália | 191.239.192.109, 13.73.109.251 |
 | Sul do Brasil         | 104.41.11.5, 191.233.200.14 |
 | Canadá Central       | 40.85.224.249      |
 | Leste do Canadá          | 40.86.226.166      |
-| EUA Central           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
+| Centro dos EUA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
 | Leste da China           | 139.219.130.35     |
 | Leste da China 2         | 40.73.82.1         |
 | Norte da China          | 139.219.15.17      |
@@ -89,17 +89,17 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Coreia Central        | 52.231.32.42       |
 | Sul da Coreia          | 52.231.200.86      |
 | Centro-Norte dos EUA     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
-| Europa Setentrional         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
+| Norte da Europa         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | Norte da África do Sul   | 102.133.152.0      |
 | Oeste da África do Sul    | 102.133.24.0       |
-| Centro-Sul dos EUA     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
-| Sudeste Asiático      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
+| Centro-Sul dos Estados Unidos     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
+| Sudeste da Ásia      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | EAU Central          | 20.37.72.64        |
 | Norte dos EAU            | 65.52.248.0        |
 | Sul do Reino Unido             | 51.140.184.11      |
 | Oeste do Reino Unido              | 51.141.8.11        |
 | Centro-Oeste dos EUA      | 13.78.145.25       |
-| Oeste da Europa          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| Europa Ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
 | Oeste dos EUA              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
 | Oeste dos EUA 2            | 13.66.226.202      |
 |                      |                    |
@@ -177,7 +177,7 @@ az resource show --ids %sqlserverid%
 az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter informações sobre como alterar a política de conexão de Banco de Dados SQL do Azure para um servidor do Banco de Dados SQL do Azure, consulte [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - Para obter mais informações sobre o comportamento de conexão do Banco de Dados SQL do Azure para clientes que usam ADO.NET 4.5 ou uma versão mais recente, consulte [Portas depois da 1433 para ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).

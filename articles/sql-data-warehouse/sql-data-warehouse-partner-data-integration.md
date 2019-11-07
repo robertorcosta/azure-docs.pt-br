@@ -1,6 +1,6 @@
 ---
-title: Parceiros de integração de dados do SQL Data Warehouse | Microsoft Docs
-description: Listas de parceiros terceirizados com soluções de integração de dados que oferecem suporte ao SQL Data Warehouse Azure.
+title: Parceiros de integração de dados
+description: Listas de parceiros terceirizados com soluções de integração de dados que oferecem suporte ao Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mabasile-MSFT
 manager: craigg
@@ -10,18 +10,19 @@ ms.subservice: consume
 ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 96ffeb12413f236ca0c131051245306ae16d4288
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.custom: seo-lt-2019
+ms.openlocfilehash: e368894d7036d071285ebc7ba85056676d8d670d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045168"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692645"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Parceiros de integração de dados do SQL Data Warehouse
 Para criar sua solução de data warehouse, você pode escolher dentre uma ampla variedade de ferramentas líderes do setor. Este artigo destaca as empresas parceiras da Microsoft com soluções de integração de dados oficiais que dão suporte ao Azure SQL Data Warehouse.
 
 ## <a name="data-integration-partners"></a>Parceiros de integração de dados
-| Partner | Descrição | Link de site/produto |
+| Parceiro | DESCRIÇÃO | Link de site/produto |
 | ------- | ----------- | -------------------- |
 | ![Alooma][7] |**Alooma**<br> O Alooma é uma solução de ETL que permite às equipes de dados integrar, enriquecer e transmitir dados de vários silos de dados para SQL Data Warehouse tudo em tempo real. |[Página do produto][alooma_website] |
 | ![Alteryx][1] |**Alteryx**<br> O Alteryx Designer fornece um fluxo de trabalho reproduzível para análise de dados de autoatendimento que leva a análises mais aprofundadas em horas, e não as semanas típicas das abordagens tradicionais! O Alteryx Designer ajuda os analistas de dados, combinando a preparação de dados, combinação de dados e análises – preditiva, estatística e espacial – usando a mesma interface do usuário intuitiva. |[Página do produto][alteryx_designer_website]<br>[Azure Marketplace][alteryx_marketplace]<br>|
@@ -40,7 +41,7 @@ Para criar sua solução de data warehouse, você pode escolher dentre uma ampla
 | ![WhereScape][14] |**WhereScape vermelho**<br> WhereScape RED é um IDE que fornece às equipes ferramentas de automação para simplificar fluxos de trabalho ETL. O IDE fornece uma prática recomendada, código nativo otimizado para destinos de dados populares. Use WhereScape RED para reduzir o tempo para desenvolver, implantar e operar sua infraestrutura de dados.|[Página do produto][wherescape_website]<br> [Azure Marketplace][wherescape_marketplace] |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre outros parceiros, confira [parceiros de Business Intelligence][bi_partners] e [parceiros de gerenciamento de dados][dm_partners].
 
 <!--Article links-->

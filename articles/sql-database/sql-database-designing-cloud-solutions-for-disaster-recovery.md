@@ -1,5 +1,5 @@
 ---
-title: Projetar serviços globalmente disponíveis usando o banco de dados SQL do Azure | Microsoft Docs
+title: Projetar serviços disponíveis globalmente usando o banco de dados SQL do Azure
 description: Saiba mais sobre a criação de um aplicativo para serviços altamente disponíveis usando o Banco de Dados SQL do Azure.
 keywords: recuperação de desastre em nuvem, soluções de recuperação de desastre, backup de dados de aplicativo, replicação geográfica, planejamento de continuidade de negócios
 services: sql-database
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: a79fa40568502a73194e467de2227d54931d0100
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 034d696fd8c9aae826d0bbc7e4d028cefad09840
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568945"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690727"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Criar serviços globalmente disponíveis usando o banco de dados SQL do Azure
 
@@ -26,7 +26,7 @@ Ao criar e implantar serviços em nuvem com o Banco de Dados SQL do Azure, você
 > [!NOTE]
 > Se estiver utilizando bancos de dados Premium ou Comercialmente Crítico e pools elásticos, será possível torná-los resilientes a interrupções regionais convertendo-os para configuração de implantação com redundância de zona. Veja [Bancos de dados com redundância de zona](sql-database-high-availability.md).  
 
-## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Cenário 1: usar duas regiões do Azure para continuidade dos negócios com tempo de inatividade mínimo
+## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Cenário 1: Usando duas regiões do Azure para continuidade dos negócios com tempo de inatividade mínimo
 
 Nesse cenário, os aplicativos têm as seguintes características:
 
@@ -68,7 +68,7 @@ As principais **vantagens** desse padrão de design são:
 
 A principal **desvantagem** é que os recursos do aplicativo na Região B são subutilizados na maioria das vezes.
 
-## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>Cenário 2: regiões do Azure para continuidade dos negócios com preservação máxima dos dados
+## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>Cenário 2: regiões do Azure para continuidade dos negócios com preservação máxima de dados
 
 Essa opção é mais adequada para aplicativos com as seguintes características:
 
@@ -110,7 +110,7 @@ Neste cenário, o aplicativo tem as seguintes características:
 * O acesso de gravação aos dados deve ter suporte na mesma geografia para a maioria dos usuários
 * A latência de leitura é crítica para a experiência do usuário final
 
-Para atender a esses requisitos, você precisa garantir que o dispositivo do usuário **sempre** se conecta ao aplicativo implantado na mesma geografia para as operações somente leitura, como procura de dados, análise, etc. Por outro lado, as operações OLTP são processadas na mesma geografia na **maior parte do tempo**. Por exemplo, durante as horas do dia, as operações OLTP são processadas na mesma geografia, mas fora do horário comercial, elas podem ser processadas em uma geografia diferente. Se a atividade do usuário final geralmente ocorrer durante o horário de trabalho, você poderá garantir o desempenho ideal para a maioria dos usuários na maior parte do tempo. O diagrama a seguir mostra essa topologia.
+Para atender a esses requisitos, você precisa garantir que o dispositivo de usuário **sempre** se conecte ao aplicativo implantado na mesma geografia para as operações somente leitura, como procurar dados, análises, etc. Enquanto isso, as operações de OLTP são processadas na mesma geografia na **maior parte do tempo**. Por exemplo, durante as horas do dia, as operações OLTP são processadas na mesma geografia, mas fora do horário comercial, elas podem ser processadas em uma geografia diferente. Se a atividade do usuário final geralmente ocorrer durante o horário de trabalho, você poderá garantir o desempenho ideal para a maioria dos usuários na maior parte do tempo. O diagrama a seguir mostra essa topologia.
 
 Os recursos do aplicativo devem ser implantados em cada geografia em que há demanda de uso substancial. Por exemplo, se o aplicativo for usado ativamente nos Estados Unidos, na União Europeia e no Sudeste Asiático, ele deverá ser implantado em todas essas geografias. O banco de dados primário deve ser dinamicamente alternado de uma geografia para a próxima ao final do horário de trabalho. Esse método é chamado de “seguir o sol”. A carga de trabalho OLTP sempre se conecta ao banco de dados por meio do ouvinte de leitura/gravação **&lt;failover-group-name&gt;.database.windows.net** (1). A carga de trabalho somente leitura se conecta ao banco de dados local diretamente usando o ponto de extremidade do servidor de bancos de dados **&lt;server-name&gt;.database.windows.net** (2). O gerenciador de tráfego é configurado com o [método de roteamento de desempenho](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Isso garante que o dispositivo do usuário final seja conectado ao serviço Web na região mais próxima. O gerenciador de tráfego deve ser configurado com o monitoramento de ponto de extremidade habilitado para cada ponto de extremidade do serviço Web (3).
 

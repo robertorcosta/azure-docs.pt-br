@@ -1,5 +1,5 @@
 ---
-title: Introdução à auditoria do banco de dados SQL do Azure | Microsoft Docs
+title: Introdução à auditoria do banco de dados SQL do Azure
 description: Use a auditoria de banco de dados SQL do Azure para rastrear eventos de banco de dados para um log de auditoria.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 1171a3b6d38fe04a4213513e934be258d79a1aa0
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 9a154e677a7308553bbef16837efae39006d3dae
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045197"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691201"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
@@ -110,8 +110,8 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
 
     ![Hub de Eventos](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
-9. Clique em **Save** (Salvar).
-10. Se quiser personalizar os eventos auditados, você poderá fazer isso por meio de [cmdlets do PowerShell](#subheading-7) ou da API REST.
+9. Clique em **Salvar**.
+10. Se quiser personalizar os eventos auditados, você poderá fazer isso por meio de [cmdlets do PowerShell](#subheading-7) ou da [API REST](#subheading-9).
 11. Depois de definir as configurações de auditoria, você poderá ativar o novo recurso de detecção de ameaças e configurar emails para receber alertas de segurança. Ao usar a detecção de ameaças, você recebe alertas proativos sobre atividades anômalas do banco de dados que podem indicar possíveis ameaças à segurança. Para obter mais informações, consulte [Introdução à detecção de ameaças](sql-database-threat-detection-get-started.md).
 
 > [!IMPORTANT]

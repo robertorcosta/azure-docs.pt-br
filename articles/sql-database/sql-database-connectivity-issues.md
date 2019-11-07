@@ -1,5 +1,5 @@
 ---
-title: Trabalhando com erros transitórios - Banco de Dados SQL do Azure | Microsoft Docs
+title: Trabalhando com erros transitórios – banco de dados SQL do Azure
 description: Saiba como solucionar problemas, diagnosticar e evitar um erro de conexão do SQL ou um erro transitório no Banco de Dados SQL do Azure.
 keywords: conexão do sql, cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
 services: sql-database
@@ -13,12 +13,12 @@ manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 06/14/2019
-ms.openlocfilehash: aba404842658aaa946a14a3cde03853c2fb3062d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 0191506cab9a54ad3978bfa7387c9ba1112ae815
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792564"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690828"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabalhando com problemas de conexão do Banco de Dados SQL do Azure e erros transitórios
 
@@ -48,7 +48,7 @@ Não repita imediatamente o comando. Em vez disso, depois de um atraso, estabele
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-## <a name="retry-logic-for-transient-errors"></a>Lógica de repetição para erros transitórios
+## <a name="retry-logic-for-transient-errors"></a>Lógica de repetição para os erros transitórios
 
 Os programas cliente que ocasionalmente encontram um erro transitório são mais eficientes quando contêm lógica de repetição. Quando o programa se comunica com o Banco de Dados SQL por meio de um middleware de terceiros, pergunte ao fornecedor se o middleware contém lógica de repetição para erros transitórios.
 
@@ -95,7 +95,7 @@ Uma forma de testar sua lógica de repetição é desconectar seu computador cli
 
 Como parte da primeira tentativa de repetição, você pode reconectar o computador cliente à rede e, em seguida, tentar se conectar.
 
-Para tornar esse teste prático, desconecte o computador da rede antes de iniciar o programa. Em seguida, o programa reconhece um parâmetro de runtime que faz com que o programa:
+Para tornar esse teste prático, desconecte o computador da rede antes de iniciar o programa. Em seguida, o programa reconhece um parâmetro de tempo de execução que faz com que o programa:
 
 - Adicione temporariamente 11001 à sua lista de erros a serem considerados como transitórios.
 - Tente fazer sua primeira conexão como de costume.
@@ -113,7 +113,7 @@ Seu programa pode errar intencionalmente o nome de usuário antes da primeira te
 
 Como parte da primeira tentativa de repetição, o programa pode corrigir a ortografia e tentar se conectar.
 
-Para tornar esse teste prático, o programa reconhece um parâmetro de runtime que faz com que o programa:
+Para tornar esse teste prático, o programa reconhece um parâmetro de tempo de execução que faz com que o programa:
 
 - Adicione temporariamente 18456 à sua lista de erros a serem considerados como transitórios.
 - Adicione propositadamente 'WRONG_' ao nome de usuário.
@@ -275,7 +275,7 @@ O Enterprise Library 6 (EntLib60) oferece classes gerenciadas .NET para auxiliar
 
 Aqui estão algumas instruções SQL SELECT que consultam logs de erros e outras informações.
 
-| Consulta de log | Descrição |
+| Consulta de log | DESCRIÇÃO |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |A exibição [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) oferece informações sobre eventos individuais, o que inclui alguns que podem causar erros transitórios ou falhas de conectividade.<br/><br/>O ideal é que você possa correlacionar os valores **start_time** ou **end_time** com as informações sobre quando o programa cliente enfrentou problemas.<br/><br/>Você deve se conectar ao banco de dados  *mestre* para executar essa consulta. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |A exibição [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) oferece contagens agregadas dos tipos de eventos para diagnóstico adicional.<br/><br/>Você deve se conectar ao banco de dados  *mestre* para executar essa consulta. |
@@ -442,7 +442,7 @@ public bool IsTransient(Exception ex)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre como resolver outros problemas de conexão do Banco de Dados SQL, visite [Solucionar problemas de conexão com o Banco de Dados SQL do Azure](sql-database-troubleshoot-common-connection-issues.md).
 - [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)

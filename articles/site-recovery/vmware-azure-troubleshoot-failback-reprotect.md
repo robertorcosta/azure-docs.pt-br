@@ -1,5 +1,5 @@
 ---
-title: Solucione o failback para local durante a recuperação de desastre de VMware para o Azure com o Azure Site Recovery | Microsoft Docs
+title: Solucionar problemas de failback em recuperação de desastre de VM VMware com Azure Site Recovery
 description: Este artigo descreve maneiras de solucionar problemas de failback e reprotecção durante a recuperação de desastres de VMs do VMware para o Azure com o Azure Site Recovery.
 author: rajani-janaki-ram
 manager: gauravd
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b597ecb67ab30c8617029fe741af1014444a9b70
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565592"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693157"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Resolver problemas de failback no local do Azure
 
@@ -56,7 +56,7 @@ Para resolver esse problema:
 
 Para resolver esse problema:
 
-Para proteger uma VM de failover, a VM do Azure deve estar executando para que o Serviço de Mobilidade registre-se no servidor de configuração local e possa iniciar a replicação comunicando-se com o servidor de processo. Se o computador está em uma rede incorreta ou não está em execução (não responder ou desligado), o servidor de configuração não pode acessar o serviço de mobilidade na VM para iniciar a nova proteção.
+Para proteger uma VM de failover, a VM do Azure deve estar executando para que o Serviço de Mobilidade registre-se no servidor de configuração local e possa iniciar a replicação comunicando-se com o servidor de processo. Se o computador estiver em uma rede incorreta ou não estiver em execução (não respondendo ou desligando), o servidor de configuração não poderá acessar o serviço de mobilidade na VM para iniciar a nova proteção.
 
 * Reinicie a VM para que possa começar a comunicar-se de volta no local.
 * Reinicie o trabalho de nova proteção depois de iniciar a máquina virtual do Azure.

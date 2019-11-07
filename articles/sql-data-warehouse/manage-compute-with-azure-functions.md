@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial: Gerenciar computação com o Azure Functions no SQL Data Warehouse do Azure | Microsoft Docs'
+title: 'Tutorial: gerenciar a computação com o Azure Functions'
 description: Como usar o Azure Functions para gerenciar a computação do seu data warehouse.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 04/27/2018
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: bc350ed092c063dcc7eca479f064114be9eb28f5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61083756"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693009"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Use o Azure Functions para gerenciar recursos de computação no SQL Data Warehouse do Azure
 
@@ -53,7 +54,7 @@ Depois de implantar o modelo, você deve encontrar três novos recursos: um plan
 
    ![Selecione Integrar para a função](media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. O valor exibido deve ser *ScaleDownTime %* ou *ScaleUpTime %* . Esses valores indicam que o agendamento se baseia nos valores definidos nas suas [Configurações do aplicativo][Application Settings]. Por enquanto, você pode ignorar esse valor e alterar o agendamento para a hora de sua preferência com base nas próximas etapas.
+3. O valor exibido deve ser *ScaleDownTime %* ou *ScaleUpTime %* . Esses valores indicam que a agenda é baseada em valores definidos nas [configurações do aplicativo][Application Settings]. Por enquanto, você pode ignorar esse valor e alterar o agendamento para a hora de sua preferência com base nas próximas etapas.
 
 4. Na área de agendamento, adicione a hora à expressão CRON para refletir a frequência desejada para escalar verticalmente o SQL Data Warehouse. 
 
@@ -64,7 +65,7 @@ Depois de implantar o modelo, você deve encontrar três novos recursos: um plan
    {second} {minute} {hour} {day} {month} {day-of-week}
    ```
 
-   Por exemplo *"0 30 9 * * 1-5"* refletiria um gatilho cada dia útil às 9:30. Para obter mais informações, visite [exemplos de agendamento][schedule examples] do Azure Functions.
+   Por exemplo *"0 30 9 * * 1-5"* refletiria um gatilho cada dia útil às 9:30. Para obter mais informações, visite Azure Functions [exemplos de agendamento][schedule examples].
 
 
 ## <a name="change-the-time-of-the-scale-operation"></a>Altere o tempo da operação de escala
@@ -92,7 +93,7 @@ Atualmente, as funções habilitadas por padrão são *DWScaleDownTrigger* e *DW
 3. Navegue até as guias *Integrar* dos respectivos gatilhos para alterar o agendamento.
 
    > [!NOTE]
-   > A diferença funcional entre os gatilhos de escala e os gatilhos de pausar/retomar é a mensagem que é enviada para a fila. Para saber mais, confira [Adicionar uma nova função de gatilho][Add a new trigger function].
+   > A diferença funcional entre os gatilhos de escala e os gatilhos de pausar/retomar é a mensagem que é enviada para a fila. Para obter mais informações, consulte [Adicionar uma nova função de gatilho][Add a new trigger function].
 
 
 ## <a name="add-a-new-trigger-function"></a>Adicionar uma nova função de gatilho

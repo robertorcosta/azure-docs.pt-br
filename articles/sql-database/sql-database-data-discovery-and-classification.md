@@ -1,5 +1,5 @@
 ---
-title: Classificação de & do banco de dados SQL do Azure e SQL Data Warehouse a descoberta | Microsoft Docs
+title: Classificação & do banco de dados SQL do Azure e SQL Data Warehouse data Discovery
 description: Classificação & do banco de dados SQL do Azure e data Discovery
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: b85793223e23aa3d668d6f86494da3ee78c43e91
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 9bcb8ce69a65892109702f0f0a409310945b6781
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009988"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690777"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Classificação & do banco de dados SQL do Azure e SQL Data Warehouse data Discovery
 
-A classificação de & da descoberta de dados fornece recursos avançados incorporados ao banco de dados SQL do Azure para **descobrir**, **classificar** & , **rotular**a**proteção** de informações confidenciais em seus bancos.
+A classificação de & de descoberta de dados fornece recursos avançados incorporados ao banco de dado SQL do Azure para **descobrir**, **classificar**, **rotular** & **proteger** os dados confidenciais em seus bancos.
 
 Descobrir e classificar seus dados mais confidenciais (negócios, financeiros, atendimento à saúde, PII [informações de identificação pessoal] etc.) pode desempenhar uma função essencial para a estatura de proteção das informações organizacionais. Pode servir como infraestrutura para:
 
@@ -134,8 +134,8 @@ Você pode usar o T-SQL para adicionar/remover classificações de coluna, bem c
 > [!NOTE]
 > Ao usar o T-SQL para gerenciar rótulos, não há nenhuma validação de que os rótulos adicionados a uma coluna existem na política de proteção de informações organizacionais (o conjunto de rótulos exibido nas recomendações do portal). Portanto, cabe a você validar isso.
 
-- Adicione/atualize a classificação de uma ou mais colunas: [ADICIONAR A CLASSIFICAÇÃO DE CONFIDENCIALIDADE](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-- Remova a classificação de uma ou mais colunas: [REMOVER A CLASSIFICAÇÃO DE CONFIDENCIALIDADE](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- Adicione/atualize a classificação de uma ou mais colunas: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- Remova a classificação de uma ou mais colunas: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Exiba todas as classificações no banco de dados: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 ### <a name="manage-classifications-using-rest-apis"></a>Gerenciar classificações usando APIs REST
@@ -144,8 +144,8 @@ Também é possível usar APIs REST para gerenciar programaticamente as classifi
 
 - [Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) – cria ou atualiza o rótulo de sensibilidade de uma determinada coluna
 - [Excluir](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - Exclui o rótulo de confidencialidade de uma determinada coluna
-- [Desabilitar recomendação](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/disablerecommendation) -desabilita as recomendações de sensibilidade em uma determinada coluna
-- [Habilitar recomendação](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/enablerecommendation) – habilita recomendações de sensibilidade em uma determinada coluna (as recomendações são habilitadas por padrão em todas as colunas)
+- [Desabilitar recomendação](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation) -desabilita as recomendações de sensibilidade em uma determinada coluna
+- [Habilitar recomendação](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation) – habilita recomendações de sensibilidade em uma determinada coluna (as recomendações são habilitadas por padrão em todas as colunas)
 - [Obter](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get)  - Obtém o rótulo de confidencialidade de uma determinada coluna
 - [Lista por Banco de Dados Atual](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - obtém os rótulos atuais de confidencialidade de determinado banco de dados
 
@@ -171,9 +171,9 @@ Você pode usar o PowerShell para obter todas as colunas recomendadas em um banc
 
 ## <a name="permissions"></a>Permissões
 
-As funções internas a seguir podem ler a classificação de dados de um Azure SQL Database: `Owner`, `Reader`, `Contributor` `SQL Security Manager` e `User Access Administrator`.
+As funções internas a seguir podem ler a classificação de dados de um Azure SQL Database: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` e `User Access Administrator`.
 
-As funções internas a seguir podem modificar a classificação de dados de um banco de dado SQL `Owner`do `Contributor`Azure `SQL Security Manager`:,,.
+As funções internas a seguir podem modificar a classificação de dados de um Azure SQL Database: `Owner`, `Contributor``SQL Security Manager`.
 
 Saiba mais sobre o [RBAC para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 

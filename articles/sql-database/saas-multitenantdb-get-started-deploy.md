@@ -1,5 +1,5 @@
 ---
-title: Implantar e explorar um aplicativo SaaS multilocatário que usa o Banco de Dados SQL do Azure | Microsoft Docs
+title: 'Implantar um aplicativo SaaS fragmentado de banco de dados multilocatário que usa o banco de dados SQL do Azure '
 description: Implantar e explore o aplicativo SaaS do Wingtip multilicatário, que demonstra os padrões SaaS usando o Banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
 ms.date: 10/16/2018
-ms.openlocfilehash: 2ddb1fe40507da5caa218f73284a1095035df951
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: aa61c9af2e8fbfbe1caeaffb6231afe5b8be6f3c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570381"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692052"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implantar e explorar um aplicativo multilocatário fragmentado
 
@@ -57,8 +57,8 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 ### <a name="plan-the-names"></a>Planejar os nomes
 
 Nas etapas desta seção, você fornece um valor *user* que é usado para garantir que os nomes de recursos fiquem globalmente exclusivos, e um nome para o *grupo de recursos* que contém todos os recursos criados por uma implantação do aplicativo. Para uma pessoa denominada *Aline Faria*, sugerimos:
-- *Usuário:* **AF1** *(Suas iniciais, mais um dígito.   Use um valor diferente (por exemplo, af2) se você implantar o aplicativo novamente.)*
-- *Grupo de recursos:* **wingtip-mt-af1** *(wingtip-mt indica que esse é o aplicativo multilocatário fragmentado. A anexação do nome de usuário af1 correlaciona o nome do grupo de recursos com os nomes dos recursos que ele contém.)*
+- *Usuário:* **AF1**  *(suas iniciais, mais um dígito. Use um valor diferente (por exemplo, AF2) se você implantar o aplicativo uma segunda vez.)*
+- *Grupo de recursos:* **Wingtip-MT-AF1** *(Wingtip-MT indica que este é o aplicativo multilocatário fragmentado. acrescentar o nome de usuário AF1 correlaciona o nome do grupo de recursos com os nomes dos recursos que ele contém.)*
 
 Escolha seus nomes agora e os escreva. 
 
@@ -124,7 +124,7 @@ Cada local obtém um aplicativo Web personalizado para listar seus eventos e ven
 Uma página da Web central do **Hub de Eventos** fornece uma lista de links para os locatários em sua implantação particular. Use as seguintes etapas para vivenciar a página da Web do **Hub de Eventos** e um aplicativo Web individual:
 
 1. Abra o **Hub de eventos** no navegador da web:
-   - http://events.wingtip-mt.&lt ;user&gt;.trafficmanager.net &nbsp; *(Substitua &lt; user&gt; pelo valor de usuário da implantação.)*
+   - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Substitua &lt;user&gt; pelo valor de usuário da implantação.)*
 
      ![hub de eventos](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -136,7 +136,7 @@ Uma página da Web central do **Hub de Eventos** fornece uma lista de links para
 
 Para controlar a distribuição das solicitações de entrada, o aplicativo Wingtip usa o [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md). A página de eventos de cada locatário inclui o nome do locatário em sua URL. Cada URL também inclui seu valor específico de Usuário. Cada URL obedece o formato mostrado usando as seguintes etapas:
 
-- http://events.wingtip-mt.&lt ;user&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. O aplicativo de eventos analisa o nome do locatário a partir da URL. O nome do locatário é *fabrikamjazzclub* na URL de exemplo anterior.
 2. O aplicativo faz o hash do nome do locatário para criar uma chave para acessar um catálogo usando o [gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md).

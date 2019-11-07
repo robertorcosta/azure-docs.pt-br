@@ -1,5 +1,5 @@
 ---
-title: Monitorar o desempenho de um banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário | Microsoft Docs
+title: Monitorar o desempenho de um banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário
 description: Monitorar e gerenciar o desempenho do banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 50fab6afe837ad409f05dbb0f3a8a44d089a894e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 03487c7e0e5fd08b6c93f81b733ab5ec1afb5605
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570330"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692029"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorar e gerenciar o desempenho do banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário
 
@@ -149,7 +149,7 @@ Os bancos de dados permanecem online e totalmente disponíveis durante todo o pr
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Provisionar um novo locatário em seu próprio banco de dados 
 
-O modelo multilocatário fragmentado permite que você escolha se deseja provisionar um novo locatário em um banco de dados multilocatário junto com outros locatários ou provisionar o locatário em um banco de dados separado. Com o provisionamento de um locatário em seu próprio banco de dados, ele se beneficia do isolamento inerente ao banco de dados separado, o que permite gerenciar o desempenho do locatário independentemente de outros, restaurá-lo independentemente de outros etc. Por exemplo, você pode colocar clientes regulares ou de avaliação gratuita em um banco de dados multilocatário e clientes premium em bancos de dados individuais.  Se bancos de dados de locatário único isolados forem criados, ainda poderão ser gerenciados coletivamente em um pool elástico para otimizar os custos de recursos.
+O modelo multilocatário fragmentado permite que você escolha se deseja provisionar um novo locatário em um banco de dados multilocatário junto com outros locatários ou provisionar o locatário em um banco de dados separado. Ao provisionar um locatário em seu próprio banco de dados, ele se beneficia do isolamento inerente ao banco de dados separado, permitindo que você gerencie o desempenho desse locatário independentemente de outros, restaure esse locatário independentemente de outros, etc. Por exemplo, você pode optar por colocar clientes regulares ou de avaliação gratuita em um banco de dados multilocatário e clientes Premium em bancos de dados individuais.  Se bancos de dados de locatário único isolados forem criados, ainda poderão ser gerenciados coletivamente em um pool elástico para otimizar os custos de recursos.
 
 Se você já provisionou um novo locatário em seu próprio banco de dados, ignore as próximas etapas.
 

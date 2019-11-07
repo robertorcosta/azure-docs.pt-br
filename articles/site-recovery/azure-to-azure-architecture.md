@@ -1,19 +1,19 @@
 ---
-title: Arquitetura de replicação do Azure para o Azure no Azure Site Recovery | Microsoft Docs
-description: Este artigo fornece uma visão geral dos componentes e da arquitetura usados ao configurar a recuperação de desastre entre regiões do Azure para VMs do Azure usando o serviço Azure Site Recovery.
+title: Arquitetura de recuperação de desastre do Azure para o Azure no Azure Site Recovery
+description: Visão geral da arquitetura usada quando você configura a recuperação de desastre entre regiões do Azure para VMs do Azure, usando o serviço de Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: d415f303976ae454cb99f07e8d6e15e338e24d7d
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: e83c14e5ce337e8a3c4c119acc2397b98afd5b56
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231459"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621117"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
 
@@ -91,7 +91,7 @@ O Site Recovery tira instantâneos da seguinte maneira:
 1. O Site Recovery tira instantâneos consistentes com falhas de dados por padrão e instantâneos consistentes com aplicativo se você especifica uma frequência para eles.
 2. Os pontos de recuperação são criados com base nos instantâneos e armazenados de acordo com as configurações de retenção na política de replicação.
 
-### <a name="consistency"></a>Coerência
+### <a name="consistency"></a>Consistência
 
 A tabela a seguir explica os diferentes tipos de consistência.
 
@@ -145,7 +145,7 @@ Observe que os detalhes dos requisitos de conectividade de rede podem ser encont
 
 **Regra** |  **Detalhes** | **Marca do serviço**
 --- | --- | --- 
-Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de origem | Repositório. \<> de nome de região.
+Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de origem | Repositório.\<> de nome de região.
 Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam ao Azure AD (Azure Active Directory).<br/><br/> Se forem adicionados endereços do Azure AD no futuro, você precisará criar regras do NSG (Grupo de Segurança de Rede).  | AzureActiveDirectory
 Permitir HTTPS de saída: porta 443 | Permita o acesso a [pontos de extremidade do Site Recovery](https://aka.ms/site-recovery-public-ips) que correspondam à localização de destino. 
 
@@ -153,7 +153,7 @@ Permitir HTTPS de saída: porta 443 | Permita o acesso a [pontos de extremidade 
 
 **Regra** |  **Detalhes** | **Marca do serviço**
 --- | --- | --- 
-Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de destino. | Repositório. \<> de nome de região.
+Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de destino. | Repositório.\<> de nome de região.
 Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam ao Azure AD.<br/><br/> Se forem adicionados endereços do Azure AD no futuro, você precisará criar regras do NSG.  | AzureActiveDirectory
 Permitir HTTPS de saída: porta 443 | Permita o acesso a [pontos de extremidade do Site Recovery](https://aka.ms/site-recovery-public-ips) que correspondam à localização de origem. 
 

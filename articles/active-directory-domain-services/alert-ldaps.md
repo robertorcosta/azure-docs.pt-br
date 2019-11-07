@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: iainfou
 ms.openlocfilehash: 06b0fa1979f18981ec5cf78dc9a9dbad8b196394
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 11/05/2019
 ms.locfileid: "71258045"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: LDAP Seguro alertas no Azure Active Directory Domain Services
@@ -24,11 +24,11 @@ Os aplicativos e serviços que usam o protocolo LDAP para se comunicar com Azure
 
 Este artigo ajuda você a entender e resolver alertas comuns com acesso LDAP seguro no Azure AD DS.
 
-## <a name="aadds101-secure-ldap-network-configuration"></a>AADDS101: Configuração de rede LDAP Seguro
+## <a name="aadds101-secure-ldap-network-configuration"></a>AADDS101: configuração de rede LDAP Seguro
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
-*LDAP Seguro pela internet está habilitado para o domínio gerenciado. No entanto, o acesso à porta 636 não é protegido usando um grupo de segurança de rede. Isso pode expor as contas de usuário no domínio gerenciado a ataques de força bruta da senha.*
+*LDAP Seguro pela Internet está habilitada para o domínio gerenciado. No entanto, o acesso à porta 636 não é bloqueado usando um grupo de segurança de rede. Isso pode expor as contas de usuário no domínio gerenciado para ataques de força bruta de senha.*
 
 ### <a name="resolution"></a>Resolução
 
@@ -48,7 +48,7 @@ A integridade do domínio gerenciado do AD DS do Azure se atualiza automaticamen
 > [!TIP]
 > A porta TCP 636 não é a única regra necessária para que o AD DS do Azure seja executado sem problemas. Para saber mais, confira o [Azure AD DS grupos de segurança de rede e portas necessárias](network-considerations.md#network-security-groups-and-required-ports).
 
-## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502: Certificado do LDAP Seguro expirando
+## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502: Expiração do certificado LDAP Seguro
 
 ### <a name="alert-message"></a>Mensagem de alerta
 

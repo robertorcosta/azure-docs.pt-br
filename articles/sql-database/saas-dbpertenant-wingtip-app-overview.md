@@ -1,5 +1,5 @@
 ---
-title: Exemplo de aplicativo de multilocatário do Banco de Dados SQL do Azure – Wingtip SaaS | Microsoft Docs
+title: Exemplo de aplicativo multilocatário do banco de dados SQL do Azure – Wingtip SaaS
 description: Aprenda usando um aplicativo de multilocatário de exemplo que usa o Banco de Dados SQL do Azure, o exemplo do Wingtip SaaS
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 16f4bb946af4720a327a8755c6bf9187f3b71ba6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1a4931a24802290e0e7e207f32528a1192fd880f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570346"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692069"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introdução a um aplicativo SaaS multilocatário que usa o padrão de banco de dados por locatário com o Banco de Dados SQL
 
@@ -39,7 +39,7 @@ Ao percorrer os tutoriais e trabalhar com o aplicativo, tenha em mente os padrõ
 Depois de implantar o aplicativo, explore a seguinte coleção de tutoriais que aproveitam a implantação inicial. Esses tutoriais exploram padrões comuns de SaaS que aproveitam os recursos internos do banco de dados SQL, SQL Data Warehouse do Azure e outros serviços do Azure. Os tutoriais incluem scripts do PowerShell com explicações detalhadas. As explicações simplificam a compreensão e a implementação dos mesmos padrões de gerenciamento de SaaS em seus aplicativos.
 
 
-| Tutorial | Descrição |
+| Tutorial | DESCRIÇÃO |
 |:--|:--|
 | [Diretrizes e dicas para o exemplo de aplicativo SaaS de multilocatário do Banco de Dados SQL](saas-tenancy-wingtip-app-guidance-tips.md) | Baixe e execute scripts do PowerShell para preparar as partes do aplicativo. |
 |[Implantar e explorar o aplicativo SaaS Wingtip](saas-dbpertenant-get-started-deploy.md)|  Implantar e explorar o aplicativo SaaS Wingtip com sua assinatura do Azure. |

@@ -1,5 +1,5 @@
 ---
-title: Executar consultas de análise em bancos de dados SQL do Azure | Microsoft Docs
+title: 'Executar consultas de análise em bancos de dados SQL do Azure '
 description: Consultas de análise entre locatários usando dados extraídos de vários bancos de dados do Banco de Dados SQL do Azure em um único aplicativo multilocatário.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 09/19/2018
-ms.openlocfilehash: b36911d274a3afb3582d60ea7e85b5afd5f52ece
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2044e72697526a1c757fa13aeffb85260a9b821e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570295"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691991"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Análise entre locatários usando dados extraídos – Aplicativo multilocatário
  
@@ -91,9 +91,9 @@ Nas etapas a seguir, você implanta o armazenamento da análise, que é chamado 
 2. Defina a variável $DemoScenario no script para corresponder à sua escolha de repositório de análise. Para fins de aprendizado, recomenda-se o banco de dados SQL sem columnstore.
     - Para usar o banco de dados SQL sem columnstore, defina **$DemoScenario** = **2**
     - Para usar o banco de dados SQL sem columnstore, defina **$DemoScenario** = **3**  
-3. Pressione **F5** para executar o script de demonstração (que chama o script *Deploy\<-TenantAnalytics XX >. ps1* ) que cria o repositório de análise de locatário. 
+3. Pressione **F5** para executar o script de demonstração (que chama o script *Deploy-TenantAnalytics\<XX >. ps1* ) que cria o repositório de análise de locatário. 
 
-Agora que você implantou o aplicativo e o preencheu com dados de locatário interessantes, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para conectar **tenants1\> -MT-\<User** e **Catalog-MT-\<user\>** servidores usando login = *Developer*, password *=\@P ssword1*.
+Agora que você implantou o aplicativo e o preencheu com dados de locatário interessantes, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para conectar o usuário do **tenants1-mt-\<\>** de usuários e os servidores de **\>do usuário do Catalog-MT-\<** usando Login = *Developer*, password = *P\@ssword1*.
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted: Banco de Dados SQL do Azure – Armazenamento de certificados do Windows | Microsoft Docs'
+title: 'Always Encrypted: banco de dados SQL do Azure-repositório de certificados do Windows '
 description: Este artigo mostra como proteger os dados confidenciais no banco de dados SQL com a criptografia de banco de dados usando o Assistente Always Encrypted no SQL Server Management Studio (SSMS). Ele mostra como armazenar suas chaves de criptografia no repositório de certificados do Windows.
 keywords: criptografar dados, criptografia do sql, criptografia de banco de dados, dados confidenciais, sempre criptografados
 services: sql-database
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 03/08/2019
-ms.openlocfilehash: e9aaa7cb022d4096ec8a175611d0b4c118007b40
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e19055f83ef9b943d5ac0068d38b4f58a2b3b17c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569564"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691234"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: proteger dados confidenciais e armazenar suas chaves de criptografia no repositório de certificados do Windows
 
@@ -50,7 +50,7 @@ Para este tutorial, será necessário:
 2. Clique em **Criar um recurso** > **Dados + Armazenamento** > **Banco de Dados SQL**.
 3. Crie um banco de dados **Em branco** chamado **Clínica** em um servidor novo ou existente. Para obter instruções detalhadas sobre como criar um banco de dados no Portal do Azure, consulte [Seu primeiro Banco de Dados SQL do Azure](sql-database-single-database-get-started.md).
 
-    ![Criar um banco de dados vazio](./media/sql-database-always-encrypted/create-database.png)
+    ![Criar um banco de dados em branco](./media/sql-database-always-encrypted/create-database.png)
 
 Você precisará da cadeia de conexão posteriormente neste tutorial. Depois que o banco de dados for criado, vá para o novo banco de dados Clínica e copie a cadeia de conexão. Você pode obter a cadeia de conexão a qualquer momento, mas é fácil para copiá-la quando estiver no Portal do Azure.
 
@@ -101,7 +101,7 @@ O SSMS fornece um assistente para configurar facilmente o Always Encrypted defin
 
     ![Criptografar Colunas](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-O assistente Always Encrypted inclui as seções a seguir: **Seleção de Coluna**, **Configuração da Chave Mestra** (CMK), **Validação** e **Resumo**.
+O assistente Always Encrypted inclui as seguintes seções: **Seleção de Coluna**, CMK (**Configuração da Chave Mestra**), **Validação** e **Resumo**.
 
 ### <a name="column-selection"></a>Seleção de coluna
 
@@ -157,7 +157,7 @@ Agora que o Always Encrypted está configurado, você pode compilar um aplicativ
 
 Esta seção explica como habilitar o Always Encrypted na sua cadeia de conexão de banco de dados. Você modificará o aplicativo de console que acabou de criar na próxima seção, "Exemplo de aplicativo de console do Always Encrypted".
 
-Para habilitar o Always Encrypted, você precisa adicionar a palavra-chave **Column Encryption Setting** na cadeia de conexão e defini-la como **Enabled**.
+Para habilitar o Sempre Criptografado, você precisa adicionar a palavra-chave **Column Encryption Setting** na cadeia de conexão e defini-la como **Enabled**.
 
 Isso pode ser definido diretamente na cadeia de conexão ou usando um [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx). O aplicativo de exemplo na próxima seção mostra como usar o **SqlConnectionStringBuilder**.
 
@@ -190,7 +190,7 @@ Este exemplo demonstra como:
 * Inserir dados nas colunas criptografadas.
 * Selecionar um registro por filtragem para um valor específico em uma coluna criptografada.
 
-Substitua o conteúdo de **Program.cs** pelo código a seguir. Substitua a cadeia de conexão pela variável global connectionString na linha diretamente acima do método Principal com a cadeia de conexão válida do Portal do Azure. Essa é a única alteração que você precisa fazer no código.
+Substitua os conteúdos do **Program.cs** pelo código a seguir. Substitua a cadeia de conexão pela variável global connectionString na linha diretamente acima do método Principal com a cadeia de conexão válida do Portal do Azure. Essa é a única alteração que você precisa fazer no código.
 
 Execute o aplicativo para ver o Always Encrypted em ação.
 
@@ -539,7 +539,7 @@ Depois de criar um banco de dados que usa o Always Encrypted, convém fazer o se
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* [Always Encrypted (desenvolvimento de cliente)](https://msdn.microsoft.com/library/mt147923.aspx)
+* [Always Encrypted (Desenvolvimento Cliente)](https://msdn.microsoft.com/library/mt147923.aspx)
 * [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Criptografia do SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Assistente do Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)

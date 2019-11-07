@@ -1,5 +1,5 @@
 ---
-title: Tutorial de SaaS com um locatário – Banco de Dados SQL do Azure | Microsoft Docs
+title: Tutorial de SaaS de locatário único-banco de dados SQL do Azure
 description: Implante e explore um aplicativo SaaS autônomo de locatário único que usa o Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 11/07/2018
-ms.openlocfilehash: 2e6b18e53358cad1bfe89e8c0ae7fbacec24d179
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: df9c3913851055f1bb477264cf5a7486f79b56b0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570206"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691968"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo autônomo de locatário único que usa o Banco de Dados SQL do Azure
 
@@ -55,7 +55,7 @@ Implante o aplicativo para os três locatários fornecidos:
     > Algumas autenticações e firewalls de servidor estão intencionalmente desprotegidos para fins de demonstração. **Crie um novo grupo de recursos** para cada implantação de aplicativo.  Não use um grupo de recursos existente. Não use este aplicativo ou todos os recursos que cria, para a produção. Exclua todos os grupos de recursos quando terminar com os aplicativos para interromper a cobrança relacionada.
 
     É melhor usar apenas letras minúsculas, números e hifens em seus nomes de recursos.
-    * Para **Grupo de recursos**, selecione Criar novo e, em seguida, forneça um Nom para o grupo de recursos (em minúsculas). **wingtip-sa-\<venueName\>-\<user\>** é o padrão recomendado.  Para \<o\>LocalName, substitua o nome do local sem espaços. Para \<usuário\>, substitua o valor do usuário abaixo.  Com esse padrão, os nomes do grupo de recursos podem ser *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
+    * Para **Grupo de recursos**, selecione {3}Criar novo e, em seguida, forneça um Nom para o grupo de recursos (em minúsculas). **wingtip-sa-\<venueName\>-\<user\>** é o padrão recomendado.  Para \<\>LocalName, substitua o nome do local sem espaços. Para \<\>de usuário, substitua o valor do usuário abaixo.  Com esse padrão, os nomes do grupo de recursos podem ser *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
     * Selecione uma **Localização** na lista suspensa.
 
     * Para **Usuário** – Recomendamos um valor de usuário curto, como as iniciais mais um dígito: por exemplo, *af1*.
@@ -75,16 +75,16 @@ O aplicativo apresenta locais que organizam eventos.  Os locais são os locatár
 
 1. Abra a página de eventos de cada um dos três locatários em guias separadas do navegador:
 
-   - http://events.contosoconcerthall.&lt ;user&gt;.trafficmanager.net
-   - http://events.dogwooddojo.&lt ;user&gt;.trafficmanager.net
-   - http://events.fabrikamjazzclub.&lt ;user&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
 
      (Em cada URL, substitua &lt;user&gt; pelo valor do usuário da implantação.)
 
    ![Eventos](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Para controlar a distribuição das solicitações de entrada, o aplicativo usa o [*Gerenciador de Tráfego do Azure*](../traffic-manager/traffic-manager-overview.md). Cada instância de aplicativo específica do locatário inclui o nome do locatário como parte do nome de domínio na URL. Todas as URLs de locatário incluem o valor do **Usuário** específico. As URLs seguem este formato:
-- http://events.&lt ;venuename&gt;.&lt; user&gt;.trafficmanager.net
+- http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
 
 O **Local** do banco de dados de cada locatário está incluído nas configurações do aplicativo implantado correspondente.
 

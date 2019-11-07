@@ -1,6 +1,6 @@
 ---
-title: Solução de problemas do Azure SQL Data Warehouse | Microsoft Docs
-description: Solução de problemas do Azure SQL Data Warehouse.
+title: Solução de problemas de conectividade
+description: Solução de problemas de conectividade no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: ebdeaf21253e89a9a14e3a56ca7be0f6e8adceb0
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d1139032176b3b44c58471b87cabd10ffeaa3d20
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859237"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692413"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Solucionar problemas de conectividade
 
@@ -41,7 +42,7 @@ O status do seu SQL Data Warehouse será mostrado aqui. Se o serviço não estiv
 
 Se o seu Resource Health mostrar que o data warehouse está em pausa ou em escala, siga as orientações para retomar o data warehouse.
 
-![O serviço está](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) em pausa informações adicionais sobre Resource Health podem ser encontradas aqui.
+![serviço em pausa](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) informações adicionais sobre Resource Health podem ser encontradas aqui.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Verificar a operação em pausa ou em escala
 
@@ -57,7 +58,7 @@ Caso contrário, verifique com seu administrador de ti para verificar se essa ma
 
 ## <a name="check-your-firewall-settings"></a>Verifique as configurações do firewall
 
-O SQL Data Warehouse comunica-se pela porta 1433.   Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não seja permitido pelo firewall da rede. Nesse caso, você não pode se conectar ao servidor do banco de dados SQL do Azure, a menos que o departamento de ti Abra a porta 1433. Informações adicionais sobre as configurações de firewall podem ser encontradas [aqui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules).
+O SQL Data Warehouse comunica-se pela porta 1433.   Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 pode não ser permitido pelo firewall da sua rede. Nesse caso, você não pode se conectar ao servidor do banco de dados SQL do Azure, a menos que o departamento de ti Abra a porta 1433. Informações adicionais sobre as configurações de firewall podem ser encontradas [aqui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Verifique as configurações de ponto de extremidade de serviço/VNet
 

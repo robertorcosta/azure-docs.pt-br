@@ -1,5 +1,5 @@
 ---
-title: 'Aplicativo SaaS: Monitorar o desempenho de muitos bancos de dados SQL do Azure | Microsoft Docs'
+title: 'Aplicativo SaaS: monitorar o desempenho de muitos bancos de dados SQL do Azure '
 description: Monitore e gerencie o desempenho dos pools e dos bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 322cc2fd53972c7c084da76ac0c80b757d0d2297
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4860766ddb4214591dc2c77f2746f958cb101741
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570411"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692126"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitore e gerencie o desempenho dos pools e dos bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
 
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
-* O aplicativo Wingtip Tickets SaaS Database Per Tenant é implantado. Para implantá-lo em menos de cinco minutos, veja [Implantar e explorar o aplicativo Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-get-started-deploy.md)
+* O aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets foi implantado. Para implantá-lo em menos de cinco minutos, consulte [Implantar e explorar o aplicativo Banco de Dados por Locatário SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introdução aos padrões de gerenciamento de desempenho de SaaS

@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o esquema do Banco de Dados SQL do Azure em um aplicativo de locatário único | Microsoft Docs
+title: Gerenciar o esquema do banco de dados SQL do Azure em um aplicativo de locatário único
 description: Gerenciar o Esquema para vários locatários em um aplicativo de locatário único que usa o Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
-ms.openlocfilehash: 95d13c997d3871815ebd541e5985eb9fef726a76
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 32460feebeb55b2639a237db32dbc3923ba27171
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029747"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691849"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerenciar o esquema em um aplicativo SaaS usando o padrão de banco de dados por locatário com o Banco de Dados SQL do Azure
  
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, certifique-se de atender a todos os seguintes pré-requisitos:
 
-* O aplicativo Wingtip Tickets SaaS Database Per Tenant é implantado. Para implantá-lo em menos de cinco minutos, veja [Implantar e explorar o aplicativo de banco de dados por locatário SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md)
+* O aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets foi implantado. Para implantá-lo em menos de cinco minutos, veja [Implantar e explorar o aplicativo de banco de dados por locatário SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * A última versão do SQL Server Management Studio (SSMS) está instalada. [Baixar e Instalar o SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
@@ -72,7 +72,7 @@ O script *Demo-SchemaManagement.ps1* chama o script *Deploy-SchemaManagement.ps1
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Criar um trabalho para implantar novos dados de referência para todos os locatários
 
-No aplicativo Wingtip Tickets, cada banco de dados do locatário inclui um conjunto de tipos de local com suporte. Cada local é de um tipo específico, que define os tipos de evento que podem ser hospedados e determina a imagem de tela de fundo usada no aplicativo. Para o aplicativo dar suporte a novos tipos de eventos, esses dados de referência devem ser atualizados e novos tipos de local devem ser adicionados.  Neste exercício, você implantará uma atualização em todos os bancos de dados de locatário para adicionar dois tipos de local adicionais: *Motorcycle Racing* e *Swimming Club*.
+No aplicativo Wingtip Tickets, cada banco de dados do locatário inclui um conjunto de tipos de local com suporte. Cada local é de um tipo específico, que define os tipos de evento que podem ser hospedados e determina a imagem de tela de fundo usada no aplicativo. Para o aplicativo dar suporte a novos tipos de eventos, esses dados de referência devem ser atualizados e novos tipos de local devem ser adicionados.  Neste exercício, você implanta uma atualização em todos os bancos de dados de locatário para adicionar dois tipos de local: *Motorcycle Racing* e *Swimming Club*.
 
 Primeiro, revise os tipos de local incluídos em cada banco de dados de locatário. Conecte-se a um banco de dados de locatário no SSMS (SQL Server Management Studio) e verifique a tabela VenueTypes.  Você também pode consultar essa tabela no Editor de consultas no portal do Azure, acessado pela página do banco de dados. 
 
@@ -84,8 +84,8 @@ Agora vamos criar um trabalho para atualizar a tabela *VenueTypes* em todos os b
 Para criar um novo trabalho, use um conjunto de trabalhos que os procedimentos armazenados do sistema criou no banco de dados _jobagent_ quando a conta do agente de trabalho foi criada.
 
 1. No SSMS, conecte-se ao servidor de catálogo: *catalog-dpt-&lt;user&gt;.database.windows.net* 
-1. No SSMS, abra o arquivo …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
-1. Modifique a instrução: Defina @wtpUser = &lt;user @ no__t-2 e substitua o valor do usuário usado quando você implantou o aplicativo de banco de dados por locatário SaaS Wingtip tickets
+1. No SSMS, abra o arquivo ...\\Learning Modules\\Schema Management\\DeployReferenceData.sql
+1. Modifique a instrução: DEFINA @wtpUser = &lt;user&gt; e substitua o valor User usado quando você implantou o aplicativo Banco de Dados por Locatário SaaS Wingtip Tickets
 1. Verifique se você está conectado ao banco de dados _jobaccount_ e pressione **F5** para executar o script
 
 Observe os seguintes elementos no script *DeployReferenceData.sql*:

@@ -1,5 +1,5 @@
 ---
-title: Aplicativos multilocatários com RLS e ferramentas de banco de dados elástico | Microsoft Docs
+title: 'Aplicativos multilocatários com RLS e ferramentas de banco de dados elástico '
 description: Use ferramentas de banco de dados elástico com segurança em nível de linha para criar um aplicativo com uma camada de dados altamente dimensionável.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 996d4e2ba62c06992b0433fd255800ba8cea0af3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4d3f25a6e234c3d3dfd878aaae68cf58684f2fac
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570169"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691852"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha
 
@@ -40,12 +40,12 @@ O objetivo é usar as APIs do [roteamento dependente de dados](sql-database-elas
 
 - Usar o Visual Studio (2012 ou superior)
 - Criar três bancos de dados SQL do Azure
-- Faça o download do projeto de exemplo: [Ferramentas de Banco de Dados Elástico para o SQL do Azure - Fragmentos Multilocatários](https://go.microsoft.com/?linkid=9888163)
+- Baixar o projeto de exemplo: [Ferramentas de Banco de Dados Elástico para o SQL do Azure - Fragmentos Multilocatários](https://go.microsoft.com/?linkid=9888163)
   - Preencha as informações dos seus bancos de dados no início do **Program.cs**
 
 Esse projeto expande o descrito em [Ferramentas de Banco de Dados Elástico para o SQL do Azure - Integração com o Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) adicionando suporte para bancos de dados de fragmentos multilocatários. O projeto cria um aplicativo de console simples para a criação de blogs e postagens. O projeto inclui quatro locatários, além de dois bancos de dados de fragmento de multilocatário. Essa configuração é ilustrada no diagrama anterior.
 
-Crie e execute o aplicativo. Essa execução inicializa o gerenciador de mapas de fragmentos das ferramentas de banco de dados elástico e executa os seguintes testes:
+Compile e execute o aplicativo. Essa execução inicializa o gerenciador de mapas de fragmentos das ferramentas de banco de dados elástico e executa os seguintes testes:
 
 1. Usando o Entity Framework e o LINQ, crie um novo blog e exiba todos os blogs para cada locatário
 2. Usando o ADO.NET SqlClient, exiba todos os blogs para um locatário
@@ -53,10 +53,10 @@ Crie e execute o aplicativo. Essa execução inicializa o gerenciador de mapas d
 
 Observe que, como a RLS ainda não foi habilitada nos bancos de dados de fragmentos, cada um desses testes revela um problema: locatários podem ver blogs que não pertencem a eles e o aplicativo não é impedido de inserir um blog para o locatário errado. O restante deste artigo descreve como resolver esses problemas impondo o isolamento de locatários com RLS. Há duas etapas:
 
-1. **Camada de aplicativo**: Modifique o código do aplicativo para sempre definir TenantId atual em SESSION\_CONTEXT depois de abrir uma conexão. O projeto de exemplo já define o TenantId dessa maneira.
-2. **Camada de dados**: Crie uma política de segurança RLS em cada banco de dados de fragmentos para filtrar as linhas com base na TenantId armazenada em SESSION\_CONTEXT. Crie uma política para cada um dos seus bancos de dados de fragmentos, caso contrário, linhas em fragmentos multilocatários não serão filtradas.
+1. **Camada de aplicativo**: modifique o código do aplicativo para sempre definir TenantId atual em SESSION\_CONTEXT depois de abrir uma conexão. O projeto de exemplo já define o TenantId dessa maneira.
+2. **Camada de dados**: crie uma política de segurança RLS em cada banco de dados de fragmentos para filtrar as linhas com base na TenantId armazenada em SESSION\_CONTEXT. Crie uma política para cada um dos seus bancos de dados de fragmentos, caso contrário, linhas em fragmentos multilocatários não serão filtradas.
 
-## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Camada de aplicativo: Defina TenantId em SESSION\_CONTEXT
+## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. camada de aplicativo: definir Tenantid na sessão\_contexto
 
 Primeiro, você se conecta a um banco de dados do fragmento usando as APIs de roteamentos dependentes de dados da biblioteca de cliente do banco de dados elástico. O aplicativo ainda deve informar ao banco de dados qual TenantId está usando a conexão. O TenantId informa à política de segurança de RLS quais linhas devem ser filtradas como pertencentes a outros locatários. Armazene o TenantId atual no [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) da conexão.
 
@@ -212,7 +212,7 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ```
 
-## <a name="2-data-tier-create-row-level-security-policy"></a>2. Camada de dados: Crie a política de segurança no nível da linha
+## <a name="2-data-tier-create-row-level-security-policy"></a>2. camada de dados: criar política de segurança em nível de linha
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Criar uma política de segurança para filtrar as linhas que cada locatário pode acessar
 
@@ -340,8 +340,8 @@ GO
 
 ### <a name="maintenance"></a>Manutenção
 
-- **Adicionando novo fragmentos**: Execute o script T-SQL para habilitar RLS em qualquer novo fragmento; do contrário, as consultas nesses fragmentos não serão filtradas.
-- **Adicionando novas tabelas**: Adicione um predicado de FILTER e BLOCK à política de segurança em todos os fragmentos sempre que uma nova tabela for criada. Caso contrário, consultas na nova tabela não serão filtrados. Essa adição pode ser automatizada usando um gatilho DDL, conforme é descrito em [Aplicar Segurança em Nível de Linha automaticamente a tabelas recém-criadas (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Adicionando novos fragmentos**: execute o script T-SQL para habilitar RLS em qualquer novo fragmento; do contrário, as consultas nesses fragmentos não serão filtradas.
+- **Adicionando novas tabelas**: adicione um predicado de FILTER e BLOCK à política de segurança em todos os fragmentos sempre que uma nova tabela for criada. Caso contrário, consultas na nova tabela não serão filtrados. Essa adição pode ser automatizada usando um gatilho DDL, conforme é descrito em [Aplicar Segurança em Nível de Linha automaticamente a tabelas recém-criadas (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Resumo
 
@@ -353,7 +353,7 @@ Ferramentas de banco de dados elástico e segurança em nível de linha podem se
 - [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md)
 - [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](saas-tenancy-app-design-patterns.md)
 - [Autenticação em aplicativos multilocatários usando o Azure AD e o OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
-- [Aplicativo Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
+- [Aplicativo de Pesquisas Tailspin](../guidance/guidance-multitenant-identity-tailspin.md)
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e solicitações de recursos
 

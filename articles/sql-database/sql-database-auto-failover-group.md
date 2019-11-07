@@ -1,5 +1,5 @@
 ---
-title: Grupos de failover – Banco de Dados SQL do Azure | Microsoft Docs
+title: Grupos de failover-banco de dados SQL do Azure
 description: Os grupos de failover automático é um recurso do Banco de Dados SQL que permite que você gerencie a replicação e failover automático/coordenado de um grupo de bancos de dados em um servidor do Banco de Dados SQL ou todos os bancos de dados na instância gerenciada.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 10/23/2019
-ms.openlocfilehash: bb47f0d2e02ce5cd055ebaae2e2a2f33ce77cd43
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 70c8bb618cd25c21d6cc59dde305fff113ffe22f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901414"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691169"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 
@@ -192,7 +192,7 @@ Se seu aplicativo usar a instância gerenciada como a camada de dados, siga esta
 
 - **Criar a instância secundária na mesma zona DNS que a instância primária**
 
-  Para garantir conectividade ininterrupta à instância primária após o failover, ambas as instâncias primária e secundária precisam estar na mesma zona DNS. Ele garantirá que o mesmo certificado de vários domínios (SAN) possa ser usado para autenticar as conexões do cliente com uma das duas instâncias no grupo de failover. Quando seu aplicativo está pronto para implantação em produção, crie uma instância do secundário em uma região diferente e assegure que ela compartilhe a zona DNS com a instância do primário. Você pode fazer isso especificando um `DNS Zone Partner` parâmetro opcional usando o portal do Azure, o PowerShell ou a API REST. 
+  Para garantir conectividade ininterrupta à instância primária após o failover, ambas as instâncias primária e secundária precisam estar na mesma zona DNS. Ele garantirá que o mesmo certificado de vários domínios (SAN) possa ser usado para autenticar as conexões do cliente com uma das duas instâncias no grupo de failover. Quando seu aplicativo está pronto para implantação em produção, crie uma instância do secundário em uma região diferente e assegure que ela compartilhe a zona DNS com a instância do primário. Você pode fazer isso especificando um parâmetro opcional `DNS Zone Partner` usando o portal do Azure, o PowerShell ou a API REST. 
 
 > [!IMPORTANT]
 > A primeira instância criada na sub-rede determina a zona DNS para todas as instâncias subsequentes na mesma sub-rede. Isso significa que duas instâncias da mesma sub-rede não podem pertencer a diferentes zonas DNS.   
@@ -327,7 +327,7 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: gerenciar failover de banco de dados SQL com pools elásticos individuais
 
-| Cmdlet | Descrição |
+| Cmdlet | DESCRIÇÃO |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasefailovergroup) |Esse comando cria um grupo de failover e registra-o nos servidores primário e secundário|
 | [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Remove o grupo de failover do servidor e exclui todos os bancos de dados secundários incluídos no grupo |
@@ -343,7 +343,7 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 
 ### <a name="powershell-managing-sql-database-failover-groups-with-managed-instances"></a>PowerShell: Gerenciando grupos de failover do banco de dados SQL com instâncias gerenciadas 
 
-| Cmdlet | Descrição |
+| Cmdlet | DESCRIÇÃO |
 | --- | --- |
 | [New-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup) |Esse comando cria um grupo de failover e registra-o nos servidores primário e secundário|
 | [Set-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Modifica a configuração do grupo de failover|
@@ -354,7 +354,7 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: gerenciar grupos de failover do banco de dados SQL com bancos de dados únicos e em pool
 
-| API | Descrição |
+| API | DESCRIÇÃO |
 | --- | --- |
 | [Criar ou atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Criar ou atualizar grupo de failover |
 | [Excluir grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Remove o grupo de failover do servidor |
@@ -367,7 +367,7 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 
 ### <a name="rest-api-manage-failover-groups-with-managed-instances"></a>API REST: gerenciar grupos de failover com instâncias gerenciadas
 
-| API | Descrição |
+| API | DESCRIÇÃO |
 | --- | --- |
 | [Criar ou atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Criar ou atualizar grupo de failover |
 | [Excluir grupo de failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Remove o grupo de failover do servidor |
@@ -376,7 +376,7 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 | [Obter grupo de failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Obtém um grupo de failover. |
 | [Listar grupos de failover – listar por localização](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Lista os grupos de failover em uma localização. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter tutoriais detalhados, consulte
     - [Adicionar um banco de dados individual a um grupo de failover](sql-database-single-database-failover-group-tutorial.md)

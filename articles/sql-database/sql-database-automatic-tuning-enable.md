@@ -1,5 +1,5 @@
 ---
-title: Habilitar o ajuste automático para o Banco de Dados SQL do Azure | Microsoft Docs
+title: Habilitar o ajuste automático para o banco de dados SQL do Azure
 description: Habilite o ajuste automático do Banco de Dados SQL do Azure com facilidade.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: c9339b5c7c35378fb85daeae19a6daa01d54f350
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 52e3dd01446a6292c3404f14bd8ebfb32aa00dd6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809653"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691137"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Habilite o ajuste automático para monitorar consultas e melhorar o desempenho da carga de trabalho
 
@@ -114,7 +114,7 @@ Para usar o ajuste automático, a permissão mínima necessária para conceder a
 
 Consulte Guia de [notificações por email de ajuste automático](sql-database-automatic-tuning-email-notifications.md) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Leia o [artigo Ajuste automático](sql-database-automatic-tuning.md) para saber mais sobre o ajuste automático e como ele pode ajudar você a melhorar o desempenho.
 * Consulte [Recomendações de desempenho](sql-database-advisor.md) para obter uma visão geral das recomendações de desempenho do Banco de Dados SQL do Azure.

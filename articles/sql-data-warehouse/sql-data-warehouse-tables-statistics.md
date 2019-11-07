@@ -1,5 +1,5 @@
 ---
-title: Criação e atualização de estatísticas — SQL Data Warehouse do Azure | Microsoft Docs
+title: Criando, atualizando estatísticas
 description: Recomendações e exemplos para criar e atualizar as estatísticas de otimização de consulta em tabelas no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,13 +10,13 @@ ms.subservice: development
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seoapril2019
-ms.openlocfilehash: 00643e303b3352ce9ce39e5a27fd8b42246aac51
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c995358fc0135a1f9b504b57b23ecb3f6b41d6da
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479160"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692401"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Estatísticas de tabela no Azure SQL Data Warehouse
 
@@ -28,16 +28,16 @@ Quanto mais o SQL Data Warehouse do Azure souber sobre seus dados, mais rápido 
 
 ## <a name="automatic-creation-of-statistic"></a>Criação automática de estatística
 
-Quando a opção AUTO_CREATE_STATISTICS do banco de dados estiver ativada, SQL Data Warehouse analisará as consultas de usuário recebidas quanto a estatísticas ausentes. Se as estatísticas estiverem ausentes, o otimizador de consulta criará estatísticas em colunas individuais no predicado de consulta ou condição de junção para melhorar as estimativas de cardinalidade para o plano de consulta. Criação automática de estatísticas está atualmente ativada por padrão.
+Quando a opção de AUTO_CREATE_STATISTICS do banco de dados está ativada, SQL Data Warehouse analisa as consultas de usuário de entrada para obter as estatísticas ausentes. Se as estatísticas estiverem ausentes, o otimizador de consulta criará estatísticas em colunas individuais no predicado de consulta ou condição de junção para melhorar as estimativas de cardinalidade para o plano de consulta. Criação automática de estatísticas está atualmente ativada por padrão.
 
-Você pode verificar se o data warehouse tem o AUTO_CREATE_STATISTICS configurado executando o seguinte comando:
+Você pode verificar se o data warehouse tem AUTO_CREATE_STATISTICS configurado executando o seguinte comando:
 
 ```sql
 SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
 
-Se seu data warehouse não tiver o AUTO_CREATE_STATISTICS configurado, recomendamos que você habilite essa propriedade executando o seguinte comando:
+Se o data warehouse não tiver AUTO_CREATE_STATISTICS configurado, recomendamos que você habilite essa propriedade executando o seguinte comando:
 
 ```sql
 ALTER DATABASE <yourdatawarehousename>
@@ -46,11 +46,11 @@ SET AUTO_CREATE_STATISTICS ON
 
 Essas instruções irão disparar a criação automática de estatísticas:
 
-- SELECT
+- SELECIONAR
 - INSERT-SELECT
 - CTAS
 - UPDATE
-- DELETE
+- EXCLUIR
 - Explique quando contém uma junção ou se a presença de um predicado é detectada
 
 > [!NOTE]
@@ -59,9 +59,9 @@ Essas instruções irão disparar a criação automática de estatísticas:
 A criação automática de estatísticas é feita de forma síncrona para que você possa incorrer em um desempenho de consulta ligeiramente degradado se suas colunas estiverem com estatísticas ausentes. O tempo para criar estatísticas para uma única coluna depende do tamanho da tabela. Para evitar degradação de desempenho mensurável, especialmente em benchmarking de desempenho, você deve garantir que as estatísticas tenham sido criadas primeiro executando a carga de trabalho de parâmetro de comparação antes de criar o perfil do sistema.
 
 > [!NOTE]
-> A criação de estatísticas será registrada em [Sys. dm _pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) em um contexto de usuário diferente.
+> A criação de estatísticas será registrada em [Sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) em um contexto de usuário diferente.
 
-Quando as estatísticas automáticas são criadas, elas terá o formato: _WA_Sys_<id da coluna de 8 dígitos em Hex>_<id da tabela de 8 dígitos em Hex>. Você pode exibir estatísticas que já foram criadas executando o comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) :
+Quando são criadas estatísticas automáticas, terão o formato: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. Você pode exibir estatísticas que já foram criadas executando o comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) :
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -77,7 +77,7 @@ O seguinte são recomendações atualizando estatísticas:
 
 |||
 |-|-|
-| **Frequência de atualizações de estatísticas**  | Conservadora: Diariamente </br> Depois de carregar ou transformar os dados |
+| **Frequência de atualizações de estatísticas**  | Conservadora: diária </br> Depois de carregar ou transformar os dados |
 | **Amostragem** |  Menos de 1.000.000.000 linhas, use amostragem padrão (20 por cento). </br> Com mais de 1.000.000.000 linhas, use a amostragem de dois por cento. |
 
 Uma das primeiras perguntas a serem feitas quando você estiver solucionando problemas em uma consulta é, **"As estatísticas estão atualizadas?"**
@@ -134,7 +134,7 @@ Os seguintes princípios orientadores são fornecidos para atualizar suas estat�
 
 Para obter mais informações, consulte [Estimativa de cardinalidade](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
-## <a name="examples-create-statistics"></a>Exemplos: Criar estatísticas
+## <a name="examples-create-statistics"></a>Exemplos: criar estatísticas
 
 Estes exemplos mostram como usar várias opções para a criação de estatísticas. As opções usadas para cada coluna dependem das características dos dados e de como a coluna será usada em consultas.
 
@@ -352,7 +352,7 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 
 Para criar estatísticas de amostra em todas as colunas
 
-## <a name="examples-update-statistics"></a>Exemplos: Atualizar estatísticas
+## <a name="examples-update-statistics"></a>Exemplos: atualizar as estatísticas
 
 Para atualizar as estatísticas, você pode:
 
@@ -406,7 +406,7 @@ Há várias exibições e funções do sistema que podem ser utilizadas para loc
 
 Essas exibições do sistema fornecem informações sobre estatísticas:
 
-| Exibição do catálogo | Descrição |
+| Exibição do catálogo | DESCRIÇÃO |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Uma linha para cada coluna. |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Uma linha para cada objeto no banco de dados. |
@@ -420,7 +420,7 @@ Essas exibições do sistema fornecem informações sobre estatísticas:
 
 Essas funções de sistema são úteis para trabalhar com estatísticas:
 
-| Função do sistema | Descrição |
+| Função do sistema | DESCRIÇÃO |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |Data da última atualização do objeto de estatísticas. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Nível de resumo e informações detalhadas sobre a distribuição de valores conforme entendido pelo objeto de estatísticas. |
@@ -465,7 +465,7 @@ AND     st.[user_created] = 1
 ;
 ```
 
-## <a name="dbcc-showstatistics-examples"></a>Exemplos de DBCC SHOW_STATISTICS()
+## <a name="dbcc-show_statistics-examples"></a>Exemplos de DBCC SHOW_STATISTICS()
 
 DBCC SHOW_STATISTICS() mostra os dados contidos em um objeto de estatísticas. Esses dados estão divididos em três partes:
 
@@ -489,7 +489,7 @@ Por exemplo:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### <a name="show-one-or-more-parts-of-dbcc-showstatistics"></a>Mostrar uma ou mais partes de DBCC SHOW_STATISTICS()
+### <a name="show-one-or-more-parts-of-dbcc-show_statistics"></a>Mostrar uma ou mais partes de DBCC SHOW_STATISTICS()
 
 Se você estiver interessado apenas em visualizar partes específicas, use a cláusula `WITH` e especifique quais partes deseja ver:
 
@@ -503,13 +503,13 @@ Por exemplo:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## <a name="dbcc-showstatistics-differences"></a>Diferenças do DBCC SHOW_STATISTICS()
+## <a name="dbcc-show_statistics-differences"></a>Diferenças do DBCC SHOW_STATISTICS()
 
 DBCC SHOW_STATISTICS() é implementado mais estritamente no SQL Data Warehouse comparado ao SQL Server:
 
 - Não há suporte para recursos não documentados.
 - Não é possível usar Stats_stream.
-- Não é possível unir resultados para subconjuntos específicos de dados estatísticos. Por exemplo, STAT_HEADER JOIN DENSITY_VECTOR.
+- Não é possível unir resultados para subconjuntos específicos de dados estatísticos. Por exemplo, STAT_HEADER INGRESSAr DENSITY_VECTOR.
 - NO_INFOMSGS não pode ser definido para a supressão de mensagem.
 - Não é possível usar colchetes em nomes de estatísticas.
 - Não é possível usar nomes de coluna para identificar objetos de estatísticas.
