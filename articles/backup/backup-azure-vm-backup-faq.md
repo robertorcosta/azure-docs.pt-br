@@ -1,6 +1,6 @@
 ---
 title: Perguntas frequentes-fazendo backup de VMs do Azure com o backup do Azure
-description: Respostas para perguntas comuns sobre como fazer backup de VMs do Azure com o backup do Azure.
+description: Neste artigo, descubra respostas para perguntas comuns sobre como fazer backup de VMs do Azure com o serviço de backup do Azure.
 ms.reviewer: sogup
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: d93225186fe5b16300a3138d67dd40c66d56976e
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: ad5e715de2f3467d4530759cbb2acec0358e5597
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968401"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747271"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-fazer backup de VMs do Azure
 

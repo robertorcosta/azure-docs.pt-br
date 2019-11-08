@@ -1,6 +1,6 @@
 ---
-title: 'Serviço de Backup do Azure: Restaurar VMs do Azure usando a API REST'
-description: gerenciar operações de restauração do Backup de VM do Azure usando a API REST
+title: 'Backup do Azure: Restaurar máquinas virtuais do Azure usando a API REST'
+description: Neste artigo, saiba como gerenciar operações de restauração do backup de máquina virtual do Azure usando a API REST.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: bdbceec2f1d0a900ffdb392d8a0505ce11419036
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 364b6ab589cc0fa50953a71d55adeccc79462eed
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954898"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747526"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais do Azure usando a API REST
 
-Depois que o backup de uma máquina Virtual do Azure usando o Backup do Azure for concluído, será possível restaurar máquinas virtuais, discos ou arquivos do Azure na mesma cópia de backup. Este artigo descreve como restaurar uma VM ou discos do Azure usando a API REST.
+Depois que o backup de uma máquina virtual do Azure usando o backup do Azure for concluído, será possível restaurar as máquinas virtuais ou os discos ou arquivos inteiros do Azure da mesma cópia de backup. Este artigo descreve como restaurar uma VM ou discos do Azure usando a API REST.
 
 Para qualquer operação de restauração, é necessário identificar primeiro o ponto de recuperação relevante.
 
@@ -35,9 +35,9 @@ O `{containerName}` e `{protectedItemName}` são como construídos [aqui](backup
 
 O URI *GET* tem todos os parâmetros necessários. Não há necessidade de um corpo de solicitação adicional
 
-### <a name="responses"></a>Responses
+### <a name="responses"></a>Respostas
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Tipo  |DESCRIÇÃO  |
 |---------|---------|---------|
 |200 OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -137,9 +137,9 @@ O `{containerName}` e `{protectedItemName}` são como construídos [aqui](backup
 
 Para acionar uma restauração de disco a partir de um backup de VM do Azure, a seguir estão os componentes do corpo da solicitação.
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Tipo  |DESCRIÇÃO  |
 |---------|---------|---------|
-|properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+|propriedades     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
 Para obter uma lista de definições de corpo da solicitação e outros detalhes, consulte [disparar o documento de API de REST restaurar](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
 
@@ -169,11 +169,11 @@ O corpo de solicitação a seguir define as propriedades necessárias para dispa
 
 O disparo de um disco de restauração é um [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que essa operação cria outra operação que precisa ser rastreada separadamente.
 
-Duas respostas são retornadas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
+Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Tipo  |DESCRIÇÃO  |
 |---------|---------|---------|
-|202 Aceito     |         |     Aceito    |
+|202 Aceito     |         |     Aceita    |
 
 #### <a name="example-responses"></a>Respostas de exemplo
 
@@ -197,7 +197,7 @@ Location: https://management.azure.com/subscriptions//subscriptions/00000000-000
 X-Powered-By: ASP.NET
 ```
 
-Em seguida, rastreie a operação resultante usando o cabeçalho de local ou o cabeçalho Azure-AsyncOperation com um simples comando *GET*.
+Em seguida, rastreie a operação resultante usando o cabeçalho de localização ou o cabeçalho Azure-AsyncOperation com um simples comando *GET*.
 
 ```http
 GET https://management.azure.com/subscriptions//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/781a0f18-e250-4d73-b059-5e9ffed4069e?api-version=2016-12-01

@@ -4,20 +4,23 @@ description: Correções para problemas comuns com a colaboração B2B do Azure 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/25/2017
+tags: active-directory
 ms.author: mimart
 author: v-miegge
-manager: celestedg
+manager: dcscontentpm
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom:
+- it-pro
+- seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f91ddee8668316df69c98ed14fbcabcb06b6da82
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6449644f98280d75363f737be11f8e8b824cab36
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983389"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795190"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Solução de problemas de colaboração B2B do Azure Active Directory
 
@@ -90,7 +93,7 @@ Para resolver esse problema, você deve assumir o locatário abandonado. Consult
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Um usuário convidado com um locatário just-in-time ou "viral" não pode redefinir sua senha
 
-Se o locatário de identidade for um locatário JIT (just-in-time) ou viral (ou seja, um locatário do Azure não gerenciado e separado), somente o usuário convidado poderá redefinir sua senha. Às vezes, uma organização [assumirá o gerenciamento de locatários virais](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) que são criados quando os funcionários usam seus emails de trabalho para se inscrever em serviços. Depois que a organização assumir um locatário viral, somente um administrador da organização poderá redefinir a senha do usuário ou habilitar a SSPR. Se necessário, como a organização de convite, você pode remover a conta de usuário convidado do diretório e reenviar um convite.
+Se o locatário de identidade for um locatário JIT (just-in-time) ou viral (ou seja, um locatário do Azure não gerenciado e separado), somente o usuário convidado poderá redefinir sua senha. Às vezes, uma organização [assumirá o gerenciamento de locatários virais](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) que são criados quando os funcionários usam seus emails de trabalho para se inscrever em serviços. Depois que a organização assumir um locatário viral, somente um administrador da organização poderá redefinir a senha do usuário ou habilitar a SSPR. Se necessário, como a organização convidando, será possível remover a conta de usuário convidado do diretório e reenviar um convite.
 
 ## <a name="next-steps"></a>Próximas etapas
 

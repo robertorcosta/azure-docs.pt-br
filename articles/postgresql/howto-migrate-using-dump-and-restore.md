@@ -1,17 +1,17 @@
 ---
 title: Como despejar e restaurar no banco de dados do Azure para PostgreSQL-servidor único
-description: Descreve como extrair um banco de dados PostgreSQL em um arquivo de despejo e restaurá-lo a partir de um arquivo criado pelo pg_dump no banco de dados do Azure para PostgreSQL-servidor único.
+description: Descreve como extrair um banco de dados PostgreSQL em um arquivo de despejo e restaurá-lo a partir de um arquivo criado por pg_dump no banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 55e802aa1f7bdf0d67d1a9c3f020d255afdc8130
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4291db0bb1edbc366c42febed992a7c27d46eb15
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261914"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796747"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar seu banco de dados PostgreSQL usando despejar e restaurar
 Use [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) para extrair um banco de dados PostgreSQL para um arquivo de despejo, e [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) para restaurar o banco de dados PostgreSQL de um arquivo criado por pg_dump.
@@ -34,7 +34,7 @@ pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb -f testdb
 ```
 
 
-## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pg_restore"></a>Restaurar os dados no banco de dados de destino do Azure para PostgreSQL usando pg_restore
+## <a name="restore-the-data-into-the-target-azure-database-for-postgresql-using-pg_restore"></a>Restaurar os dados para o banco de dado de destino do Azure para PostgreSQL usando pg_restore
 Depois de criar o banco de dados de destino, você poderá usar o comando pg_restore e o parâmetro -d, --dbname para restaurar os dados no banco de dados de destino do arquivo de despejo.
 ```bash
 pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump

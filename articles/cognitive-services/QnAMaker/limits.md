@@ -11,22 +11,22 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c7b0dc39d2da403383f245b9ff3227734c58cbbe
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 4effd14029eaaee1e1c22cdb814096820e19e089
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193498"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794023"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
 
-Os limites de QnA Maker fornecidos abaixo são uma combinação dos [limites do tipo de preço Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity) e os [limites do tipo de preço do QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). Você precisa saber os dois conjuntos de limites para entender quantas bases de dados de conhecimento você pode criar por recurso e o tamanho de cada base de dados de conhecimento.
+Os limites de QnA Maker fornecidos abaixo são uma combinação dos [limites do tipo de preço do Azure pesquisa cognitiva](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity) e os limites do tipo de preço do [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). Você precisa saber os dois conjuntos de limites para entender quantas bases de dados de conhecimento você pode criar por recurso e o tamanho de cada base de dados de conhecimento.
 
 ## <a name="knowledge-bases"></a>Bases de dados de conhecimento
 
-O número máximo de bases de dados de conhecimento baseia-se nos [limites da camada de Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity).
+O número máximo de bases de dados de conhecimento baseia-se nos [limites da camada de pesquisa cognitiva do Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity).
 
-|**Camada do Azure Search** | **Gratuito** | **Básico** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Camada de Pesquisa Cognitiva do Azure** | **Gratuito** | **Básico** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Número máximo de bases de dados de conhecimento publicadas permitidas|2|14|49|199|199|2,999|
 
@@ -44,11 +44,11 @@ O número máximo de links profundos que podem ser rastreados para extração de
 
 ## <a name="metadata-limits"></a>Limites de metadados
 
-### <a name="by-azure-search-pricing-tier"></a>Por Azure Search tipo de preço
+### <a name="by-azure-cognitive-search-pricing-tier"></a>Pelo Azure Pesquisa Cognitiva tipo de preço
 
-O número máximo de campos de metadados por base de dados de conhecimento baseia-se em seus **[limites de camada de Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** .
+O número máximo de campos de metadados por base de dados de conhecimento baseia-se nos **[limites da camada de pesquisa cognitiva do Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** .
 
-|**Camada do Azure Search** | **Gratuito** | **Básico** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Camada de Pesquisa Cognitiva do Azure** | **Gratuito** | **Básico** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Máximo de campos de metadados por serviço QnA Maker (entre todas as bases de dados de conhecimento)|1\.000|100*|1\.000|1\.000|1\.000|1\.000|
 
@@ -58,21 +58,21 @@ O comprimento e os caracteres aceitáveis para o nome e o valor dos metadados s�
 
 |Item|Caracteres permitidos|Correspondência de padrão de Regex|Máximo de caracteres|
 |--|--|--|--|
-|Nome|Permitem<br>alfanumérico (letras e dígitos)<br>`_`sublinhado|`^[a-zA-Z0-9_]+$`|100|
-|Valor|Permite tudo, exceto<br>`:`pontos<br>`|`(canal vertical)|`^[^:|]+$`|500|
+|Nome|Permitem<br>alfanumérico (letras e dígitos)<br>`_` (sublinhado)|`^[a-zA-Z0-9_]+$`|100|
+|Valor|Permite tudo, exceto<br>`:` (dois-pontos)<br>`|` (barra vertical)|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>Limites de conteúdo da Base de Dados de Conhecimento
 Limites gerais sobre o conteúdo na base de dados de conhecimento:
-* Tamanho do texto de resposta: 25.000
-* Tamanho do texto da pergunta: 1.000
+* Comprimento do texto de resposta: 25.000
+* Comprimento do texto da pergunta: 1.000
 * Tamanho do texto de chave/valor dos metadados: 100
-* Caracteres com suporte para nome de metadados: Alfabetos, dígitos e`_`  
-* Caracteres com suporte para valor de metadados: Todos, `:` exceto e`|` 
+* Caracteres com suporte para nome de metadados: alfabetos, dígitos e `_`  
+* Caracteres com suporte para o valor de metadados: todos, exceto `:` e `|` 
 * Tamanho do nome do arquivo: 200
 * Formatos de arquivo com suporte: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Número máximo de perguntas alternativas: 300
-* Número máximo de pares de pergunta-resposta: Depende da **[camada de Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** escolhida. Um par de perguntas e respostas é mapeado para um documento no índice Azure Search. 
+* Número máximo de pares de resposta de pergunta: depende da **[camada de pesquisa cognitiva do Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** escolhida. Um par de perguntas e respostas é mapeado para um documento no índice de Pesquisa Cognitiva do Azure. 
 * URL/página HTML: 1 milhão caracteres
 
 ## <a name="create-knowledge-base-call-limits"></a>Criar limites de chamada da base de dados de conhecimento:

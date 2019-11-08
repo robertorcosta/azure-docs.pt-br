@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: f35ed65b25d469b524e7174affecb45ad7c4735c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d26210ab226f8e907aa845d51dca94f59badd6a3
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115711"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748084"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurar uma VPN site a site no emparelhamento da Microsoft para ExpressRoute
 
@@ -24,7 +24,7 @@ Este artigo ajuda você a configurar uma conectividade criptografada segura entr
 >
 >
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="architecture"></a>Arquitetura
 
@@ -53,7 +53,7 @@ Túneis VPN em emparelhamento da Microsoft podem ser terminados usando gateway d
 6. (Opcional) Configure firewalls/filtragem no dispositivo VPN local.
 7. Teste e valide a comunicação do IPsec sobre o circuito de ExpressRoute.
 
-## <a name="peering"></a>1. Configurar o emparelhamento da Microsoft
+## <a name="peering"></a>1. configurar o emparelhamento da Microsoft
 
 Para configurar uma conexão de VPN site a site em ExpressRoute, você deve aproveitar o emparelhamento da Microsoft do ExpressRoute.
 
@@ -65,9 +65,9 @@ Depois que tiver configurado seu circuito e emparelhamento da Microsoft, você p
 
 ![circuito](./media/site-to-site-vpn-over-microsoft-peering/ExpressRouteCkt.png)
 
-## <a name="routefilter"></a>2. Configurar filtros de rota
+## <a name="routefilter"></a>2. configurar filtros de rota
 
-Um filtro de rota permite identificar os serviços que você deseja consumir por meio de emparelhamento da Microsoft do seu circuito de ExpressRoute. Ele é essencialmente uma lista de permissões de todos os valores de comunidade do BGP. 
+Um filtro de rota permite identificar os serviços que você deseja consumir por meio de emparelhamento da Microsoft do seu circuito de ExpressRoute. É essencialmente uma lista de permissões de todos os valores de comunidade BGP. 
 
 ![filtro de rota](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
@@ -91,7 +91,7 @@ Este exemplo usa um comando Cisco IOS-XE. No exemplo, um roteamento virtual e o 
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-O resultado parcial a seguir mostra que 68 prefixos foram recebidos do vizinho \*243.229.34 com ASN 12076 (MSEE):
+A saída parcial a seguir mostra que os prefixos 68 foram recebidos do vizinho \*. 243.229.34 com o ASN 12076 (MSEE):
 
 ```
 ...
@@ -112,7 +112,7 @@ Para confirmar que está recebendo o conjunto correto de prefixos, você pode re
 Get-AzBgpServiceCommunity
 ```
 
-## <a name="vpngateway"></a>3. Configurar o gateway VPN e túneis IPsec
+## <a name="vpngateway"></a>3. configurar o gateway de VPN e os túneis IPsec
 
 Nesta seção, são criados os túneis VPN IPsec entre o gateway de VPN do Azure e o dispositivo VPN local. Os exemplos usam dispositivos VPN de roteador de serviço de nuvem da Cisco (CSR1000).
 
@@ -354,7 +354,7 @@ A ação final do script cria túneis de IPsec entre o gateway de VPN do Azure e
   }
 ```
 
-## <a name="device"></a>4. Configurar o dispositivo VPN local
+## <a name="device"></a>4. configurar o dispositivo VPN local
 
 O gateway de VPN do Azure é compatível com vários dispositivos VPN de fornecedores diferentes. Para obter informações de configuração e dispositivos que foram validados para trabalhar com o gateway de VPN, consulte [Sobre dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
@@ -475,11 +475,11 @@ ip route 10.2.0.229 255.255.255.255 Tunnel1
 !
 ```
 
-## <a name="firewalls"></a>5. Configurar a filtragem de dispositivo VPN e firewalls (opcional)
+## <a name="firewalls"></a>5. configurar firewalls e filtragem de dispositivo VPN (opcional)
 
 Configure o firewall e a filtragem de acordo com seus requisitos.
 
-## <a name="testipsec"></a>6. Testar e validar o túnel de IPsec
+## <a name="testipsec"></a>6. testar e validar o túnel IPsec
 
 O status de túneis de IPsec pode ser verificado no gateway de VPN do Azure por comandos do Powershell:
 

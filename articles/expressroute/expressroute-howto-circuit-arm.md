@@ -9,12 +9,12 @@ ms.date: 02/20/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 2ff22a3c0087ff7e24517f792ba9abacbae76e3a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 9d0df2d9eda861a06e2952ff1623fb4ad5160e81
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846632"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748319"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Criar e modificar um circuito do ExpressRoute usando o PowerShell
 > [!div class="op_single_selector"]
@@ -34,16 +34,16 @@ Antes de começar a configuração, examine os [pré-requisitos](expressroute-pr
 
 ### <a name="working-with-azure-powershell"></a>Trabalhando com o Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="create"></a>Criar e provisionar um circuito do ExpressRoute
-### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Entre na sua conta do Azure e selecione sua assinatura
+### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. entre em sua conta do Azure e selecione sua assinatura
 
 [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
-### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Obtenha a lista de provedores, de locais e de larguras de banda com suporte
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. obter a lista de provedores, locais e larguras de banda com suporte
 Antes de criar um circuito de ExpressRoute você precisará de uma lista de provedores de conectividade com suporte, dos locais e de opções de largura de banda.
 
 O cmdlet **Get-AzExpressRouteServiceProvider** do PowerShell retorna essas informações, que você usará em etapas posteriores:
@@ -60,7 +60,7 @@ Verifique se o provedor de conectividade está listado. Anote as informações a
 
 Agora você está pronto para criar um circuito do ExpressRoute.
 
-### <a name="3-create-an-expressroute-circuit"></a>3. Criar um circuito do ExpressRoute
+### <a name="3-create-an-expressroute-circuit"></a>3. criar um circuito do ExpressRoute
 Se você ainda não tiver um grupo de recursos, deverá criar um antes de criar o circuito do ExpressRoute. Faça isso ao executar o seguinte comando:
 
 ```azurepowershell-interactive
@@ -90,7 +90,7 @@ get-help New-AzExpressRouteCircuit -detailed
 ```
 
 
-### <a name="4-list-all-expressroute-circuits"></a>4. Listar todos os circuitos do ExpressRoute
+### <a name="4-list-all-expressroute-circuits"></a>4. listar todos os circuitos de ExpressRoute
 Para obter uma lista de todos os circuitos do ExpressRoute que você criou, execute o comando **Get-AzExpressRouteCircuit** :
 
 ```azurepowershell-interactive
@@ -153,7 +153,7 @@ A resposta se assemelha à seguinte:
     Peerings                         : []
 
 
-### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Enviar a chave de serviço ao seu provedor de conectividade para obter provisionamento
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. enviar a chave de serviço para o provedor de conectividade para provisionamento
 *ServiceProviderProvisioningState* fornece informações sobre o estado atual de provisionamento no lado do provedor de serviço. Status fornece o estado no lado da Microsoft. Para saber mais sobre os estados de provisionamento do circuito, consulte [Fluxos de trabalho](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
 Quando você cria um novo circuito do ExpressRoute, ele está no seguinte estado:
@@ -173,7 +173,7 @@ Para que você consiga usar um circuito do ExpressRoute, ele deverá estar no se
     ServiceProviderProvisioningState : Provisioned
     CircuitProvisioningState         : Enabled
 
-### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Verifique periodicamente o status e o estado da chave do circuito
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Verifique periodicamente o status e o estado da chave de circuito
 A verificação do status e o estado da chave do circuito informará quando o provedor tiver habilitado seu circuito. Após a configuração do circuito, o *ServiceProviderProvisioningState* será exibido como *Provisioned*, como mostrado neste exemplo:
 
 ```azurepowershell-interactive
@@ -205,7 +205,7 @@ A resposta se assemelha à seguinte:
     ServiceKey                       : **************************************
     Peerings                         : []
 
-### <a name="7-create-your-routing-configuration"></a>7. Criar sua configuração de roteamento
+### <a name="7-create-your-routing-configuration"></a>7. criar sua configuração de roteamento
 Para obter instruções passo a passo, confira o artigo [configuração do roteamento de circuito do ExpressRoute](expressroute-howto-routing-arm.md) para criar e modificar os emparelhamentos de circuito.
 
 > [!IMPORTANT]
@@ -213,7 +213,7 @@ Para obter instruções passo a passo, confira o artigo [configuração do rotea
 >
 >
 
-### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Vincular uma rede virtual a um circuito do ExpressRoute
+### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. vincular uma rede virtual a um circuito do ExpressRoute
 Em seguida, vincule uma rede virtual a seu circuito do ExpressRoute. Use o artigo [Vincular redes virtuais a circuitos do ExpressRoute](expressroute-howto-linkvnet-arm.md) ao trabalhar com o modelo de implantação do Gerenciador de Recursos.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Obtendo o status de um circuito do ExpressRoute
@@ -371,7 +371,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>Para controlar o acesso aos ambientes clássico e do Resource Manager
-Confira as instruções em [Mover os circuitos de ExpressRoute do modelo de implantação Clássico para o Resource Manager](expressroute-howto-move-arm.md).
+Confira as instruções em [Mover os circuitos do ExpressRoute do modelo de implantação Clássico para o Resource Manager](expressroute-howto-move-arm.md).
 
 ## <a name="delete"></a>Desprovisionamento e exclusão de um circuito do ExpressRoute
 Observe as seguintes informações:

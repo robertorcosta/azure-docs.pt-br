@@ -14,22 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: b6b1292e4c8874da826740d303cd0de26f9f46ee
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b2a86ffab0286559cfcce89252c889c530f00871
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092765"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750105"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extensão de máquina virtual de dependência Azure Monitor para Windows
 
 O recurso Mapa do Azure Monitor para VMs obtém seus dados do Microsoft Dependency Agent. A extensão da máquina virtual do agente de dependência de VM do Azure para Windows é publicada e tem suporte da Microsoft. A extensão instala o agente de dependência em máquinas virtuais do Azure. Este documento detalha as plataformas com suporte, as configurações e as opções de implantação para a extensão de máquina virtual do agente de dependência de VM do Azure para Windows.
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-### <a name="operating-system"></a>Sistema operacional
+## <a name="operating-system"></a>Sistema operacional
 
 A extensão do agente de dependência de VM do Azure para Windows pode ser executada nos sistemas operacionais com suporte listados na seção [sistemas operacionais com suporte](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) no artigo Azure monitor para VMs implantação.
 
@@ -78,9 +74,9 @@ O JSON a seguir mostra o esquema para a extensão do agente de dependência de V
 | Nome | Valor/exemplo |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
-| publisher | Microsoft.Azure.Monitoring.DependencyAgent |
-| type | DependencyAgentWindows |
-| typeHandlerVersion | 9.5 |
+| publicador | Microsoft. Azure. Monitoring. DependencyAgent |
+| Tipo | DependencyAgentWindows |
+| typeHandlerVersion | 9,5 |
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
@@ -88,7 +84,7 @@ Você pode implantar as extensões de VM do Azure com modelos de Azure Resource 
 
 O JSON para uma extensão de máquina virtual pode ser aninhado dentro do recurso de máquina virtual. Ou você pode colocá-lo no nível raiz ou superior de um modelo JSON do Resource Manager. O posicionamento do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/child-resource-name-type.md).
 
-O exemplo a seguir pressupõe que a extensão do agente de dependência está aninhada dentro do recurso de máquina virtual. Quando você Aninha o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
+O exemplo a seguir pressupõe que a extensão do agente de dependência está aninhada dentro do recurso de máquina virtual. Quando você Aninha o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
 
 
 ```json
@@ -131,7 +127,7 @@ Quando você coloca a extensão JSON na raiz do modelo, o nome do recurso inclui
 
 ## <a name="powershell-deployment"></a>Implantação do PowerShell
 
-Você pode usar o `Set-AzVMExtension` comando para implantar a extensão da máquina virtual do agente de dependência em uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam ser armazenadas em uma tabela de hash do PowerShell.
+Você pode usar o comando `Set-AzVMExtension` para implantar a extensão da máquina virtual do agente de dependência em uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam ser armazenadas em uma tabela de hash do PowerShell.
 
 ```powershell
 
@@ -146,7 +142,7 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solução de problemas
+### <a name="troubleshoot"></a>Solucionar problemas
 
 Os dados sobre o estado das implantações de extensão podem ser recuperados do portal do Azure e usando o módulo Azure PowerShell. Para ver o estado de implantação das extensões de uma determinada VM, execute o seguinte comando usando o módulo Azure PowerShell:
 

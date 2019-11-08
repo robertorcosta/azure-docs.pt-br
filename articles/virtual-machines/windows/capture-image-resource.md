@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: fd2b3a8a09ce69c07cc7d4715a4aaeacf64f0817
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 54743b191b0334c92c63f374d38870a7dbfd9a38
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200641"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749625"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerenciada de uma VM generalizada no Azure
 
 Um recurso de imagem gerenciada pode ser criado de uma VM (máquina virtual) generalizada que é armazenada como um disco gerenciado ou um disco não gerenciado em uma conta de armazenamento. Em seguida, a imagem pode ser usada para criar várias VMs. Para obter informações de como as imagens gerenciadas são cobradas, confira [Preços do Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizar a VM Windows usando Sysprep
 
@@ -44,11 +44,11 @@ Para generalizar a VM do Windows, siga estas etapas:
 
 1. Entre na VM do Windows.
    
-2. Abra uma janela de Prompt de comando como administrador. Mude para o diretório para %windir%\system32\sysprep e, em seguida, execute `sysprep.exe`.
+2. Abra uma janela de Prompt de comando como administrador. Altere o diretório para % windir%\system32\sysprep e, em seguida, execute `sysprep.exe`.
    
 3. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na OOBE (configuração inicial pelo usuário) do sistema** e marque a caixa de seleção **Generalizar**.
    
-4. Para **Opções de Desligamento**, selecione **Desligar**.
+4. Para **Opções de Desligamento**, selecione **Desligamento**.
    
 5. Selecione **OK**.
    
@@ -94,7 +94,7 @@ Para generalizar a VM do Windows, siga estas etapas:
 
 ## <a name="create-an-image-of-a-vm-using-powershell"></a>Criar uma imagem de uma VM usando o Powershell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 Criar uma imagem diretamente da VM garante que a imagem inclua todos os discos associados à VM, incluindo o disco do sistema operacional e os discos de dados. Este exemplo mostra como criar uma imagem gerenciada de uma VM que usa discos gerenciados.
 
@@ -250,6 +250,6 @@ Para criar uma imagem gerenciada de uma VM que não usa discos gerenciados, voc�
     ```
 
     
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [Criar uma VM de uma imagem gerenciada](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
 

@@ -7,15 +7,15 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 04/02/2019
-ms.openlocfilehash: 773ffe264446e6a4d9ef2e88634e4f2c9b8aeb45
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.date: 11/07/2019
+ms.openlocfilehash: 460079248e6cbd939c36b84f94cac41dce4dda2b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273989"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747670"
 ---
-# <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Tutorial: Consultar um contêiner do Docker do Linux do SQL Server em uma rede virtual de um notebook do Azure Databricks
+# <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Tutorial: consultar um contêiner SQL Server do Docker do Linux em uma rede virtual de um notebook Azure Databricks
 
 Este tutorial ensina a integrar o Azure Databricks com um contêiner do Docker do Linux SQL Server em uma rede virtual. 
 
@@ -42,11 +42,11 @@ Neste tutorial, você aprenderá como:
 
     ![Adicionar nova máquina virtual do Azure](./media/vnet-injection-sql-server/add-virtual-machine.png)
 
-2. Na guia **noções básicas** , escolha Ubuntu Server 16, 4 LTS. Altere o tamanho da VM para B1ms, que tem um VCPUS e 2 GB de RAM. O requisito mínimo para um contêiner do Docker para Linux SQL Server é 2 GB. Escolha um nome de usuário e senha de administrador.
+2. Na guia **noções básicas** , escolha Ubuntu Server 18, 4 LTS e altere o tamanho da VM para b2s. Escolha um nome de usuário e senha de administrador.
 
     ![Guia básico da nova configuração de máquina virtual](./media/vnet-injection-sql-server/create-virtual-machine-basics.png)
 
-3. Navegue até a guia **rede** . Escolha a rede virtual e a sub-rede pública que inclui o cluster Azure Databricks. Selecione **revisar + criar**e **criar** para implantar a máquina virtual.
+3. Navegue até a guia **rede** . escolha a rede virtual e a sub-rede pública que inclui o cluster Azure Databricks. Selecione **revisar + criar**e **criar** para implantar a máquina virtual.
 
     ![Guia rede da nova configuração de máquina virtual](./media/vnet-injection-sql-server/create-virtual-machine-networking.png)
 
@@ -64,14 +64,14 @@ Neste tutorial, você aprenderá como:
     
     |Configuração|Valor sugerido|DESCRIÇÃO|
     |-------|---------------|-----------|
-    |Origem|Endereços IP|Endereços IP especifica que o tráfego de entrada de um endereço IP de origem específico será permitido ou negado por essa regra.|
-    |Endereços IP da fonte|< seu IP público @ no__t-0|Insira o endereço IP público. Você pode encontrar seu endereço IP público visitando [Bing.com](https://www.bing.com/) e procurando por **"meu IP"** .|
-    |Source port ranges|*|Permitir o tráfego de qualquer porta.|
-    |Destination|Endereços IP|Endereços IP especifica que o tráfego de saída para um endereço IP de origem específico será permitido ou negado por essa regra.|
-    |Endereços IP de destino|< seu IP público de VM @ no__t-0|Insira o endereço IP público da máquina virtual. Você pode encontrá-lo na página **visão geral** de sua máquina virtual.|
+    |Fonte|Endereços IP|Endereços IP especifica que o tráfego de entrada de um endereço IP de origem específico será permitido ou negado por essa regra.|
+    |Endereços IP da fonte|< seu IP público\>|Insira o endereço IP público. Você pode encontrar seu endereço IP público visitando [Bing.com](https://www.bing.com/) e procurando por **"meu IP"** .|
+    |Intervalos de portas de origem|*|Permitir o tráfego de qualquer porta.|
+    |Destino|Endereços IP|Endereços IP especifica que o tráfego de saída para um endereço IP de origem específico será permitido ou negado por essa regra.|
+    |Endereços IP de destino|< o IP público de sua VM\>|Insira o endereço IP público da máquina virtual. Você pode encontrá-lo na página **visão geral** de sua máquina virtual.|
     |Intervalos de portas de destino|22|Abra a porta 22 para SSH.|
-    |Priority|290|Dê prioridade à regra.|
-    |NOME|SSH-databricks-tutorial-VM|Dê um nome à regra.|
+    |Prioridade|290|Dê prioridade à regra.|
+    |Nome|SSH-databricks-tutorial-VM|Dê um nome à regra.|
 
 
     ![Adicionar regra de segurança de entrada para a porta 22](./media/vnet-injection-sql-server/open-port.png)
@@ -80,14 +80,13 @@ Neste tutorial, você aprenderá como:
 
     |Configuração|Valor sugerido|DESCRIÇÃO|
     |-------|---------------|-----------|
-    |Origem|Endereços IP|Endereços IP especifica que o tráfego de entrada de um endereço IP de origem específico será permitido ou negado por essa regra.|
-    |Endereços IP da fonte|10.179.0.0/16|Insira o intervalo de endereços para sua rede virtual.|
-    |Source port ranges|*|Permitir o tráfego de qualquer porta.|
-    |Destination|Endereços IP|Endereços IP especifica que o tráfego de saída para um endereço IP de origem específico será permitido ou negado por essa regra.|
-    |Endereços IP de destino|< seu IP público de VM @ no__t-0|Insira o endereço IP público da máquina virtual. Você pode encontrá-lo na página **visão geral** de sua máquina virtual.|
+    |Fonte|Qualquer|Origem especifica que o tráfego de entrada de um endereço IP de origem específico será permitido ou negado por essa regra.|
+    |Intervalos de portas de origem|*|Permitir o tráfego de qualquer porta.|
+    |Destino|Endereços IP|Endereços IP especifica que o tráfego de saída para um endereço IP de origem específico será permitido ou negado por essa regra.|
+    |Endereços IP de destino|< o IP público de sua VM\>|Insira o endereço IP público da máquina virtual. Você pode encontrá-lo na página **visão geral** de sua máquina virtual.|
     |Intervalos de portas de destino|1433|Abra a porta 22 para SQL Server.|
-    |Priority|300|Dê prioridade à regra.|
-    |NOME|SQL-databricks-tutorial-VM|Dê um nome à regra.|
+    |Prioridade|300|Dê prioridade à regra.|
+    |Nome|SQL-databricks-tutorial-VM|Dê um nome à regra.|
 
     ![Adicionar regra de segurança de entrada para a porta 1433](./media/vnet-injection-sql-server/open-port2.png)
 
@@ -205,4 +204,4 @@ Quando não forem mais necessário, exclua o grupo de recursos, o workspace do A
 
 Avance para o próximo artigo para saber como extrair, transformar e carregar dados usando Azure Databricks.
 > [!div class="nextstepaction"]
-> [Tutorial: Extrair, transformar e carregar dados usando o Azure Databricks](databricks-extract-load-sql-data-warehouse.md)
+> [Tutorial: extrair, transformar e carregar dados usando Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

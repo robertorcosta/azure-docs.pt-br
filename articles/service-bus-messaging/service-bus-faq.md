@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 80809afc9f2a8e8da2f6adecfe916141c4cd3e45
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 8a2a704f39aa678be819a7297b30f8926e414e56
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278332"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748439"
 ---
 # <a name="service-bus-faq"></a>Perguntas frequentes sobre o Barramento de Serviço
 
@@ -51,14 +51,14 @@ Você pode usar os seguintes protocolos com o barramento de serviço do Azure pa
 
 Consulte a tabela a seguir para as portas de saída que você precisa abrir para usar esses protocolos para se comunicar com os hubs de eventos do Azure. 
 
-| Protocol | Portas | Detalhes | 
+| Protocolo | Portas | Detalhes | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 e 5672 | Consulte o [Guia do protocolo AMQP](service-bus-amqp-protocol-guide.md) | 
 | SBMP | 9350 a 9354 | Consulte [modo de conectividade](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP, HTTPS | 80, 443 | 
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quais endereços IP preciso para a lista de permissões?
-Para localizar os endereços IP corretos para a lista de permissões de suas conexões, siga estas etapas:
+Para localizar os endereços IP corretos para a lista branca de suas conexões, siga estas etapas:
 
 1. Execute o seguinte comando em um prompt de comando: 
 
@@ -112,9 +112,16 @@ Todas as transferências de dados dentro de uma determinada região do Azure sã
 ### <a name="does-service-bus-charge-for-storage"></a>O Barramento de Serviço cobra pelo armazenamento?
 Não, o Barramento de Serviço não cobra pelo armazenamento. No entanto, há uma cota que limita a quantidade máxima de dados que podem persistir por fila/tópico. Consulte as Perguntas Frequentes a seguir.
 
+### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Tenho um namespace standard do barramento de serviço. Por que vejo encargos no grupo de recursos ' $system '?
+O barramento de serviço do Azure atualizou os componentes de cobrança recentemente. Devido a isso, se você tiver um namespace padrão do barramento de serviço, poderá ver itens de linha para o recurso '/subscriptions/< azure_subscription_id >/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system ' no grupo de recursos ' $ sistema '.
+
+Esses encargos representam o encargo base por assinatura do Azure que provisionou um namespace padrão do barramento de serviço. 
+
+É importante observar que esses não são novos encargos, ou seja, eles já existiam no modelo de cobrança anterior. A única alteração é que agora eles estão listados em ' $system '. Isso é feito devido a restrições no novo sistema de cobrança que agrupa encargos de nível de assinatura, não vinculado a um recurso específico, sob a ID de recurso ' $system '.
+
 ## <a name="quotas"></a>Cotas
 
-Para obter uma lista de cotas e limites do barramento de serviço, consulte [visão geral][Quotas overview]das cotas do barramento de serviço.
+Para obter uma lista de cotas e limites do barramento de serviço, consulte [visão geral das cotas do barramento de serviço][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>O Barramento de Serviço tem cotas de uso?
 Por padrão, para qualquer serviço de nuvem, a Microsoft define uma cota de uso mensal agregado calculada entre todas as assinaturas de um cliente. Se precisar de mais do que esses limites, você poderá entrar em contato com o atendimento ao cliente em qualquer horário para que possamos entender suas necessidades e ajustar esses limites adequadamente. Para o Barramento de Serviço, a cota de uso agregado é de 5 bilhões de mensagens por mês.
@@ -126,7 +133,7 @@ Como ocorre com outros serviços no Azure, o Barramento de Serviço aplica um co
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>Como lidar com mensagens com mais de 1 MB?
 Os serviços de mensagens do Barramento de Serviço (filas e tópicos/assinaturas) permitem que o aplicativo envie mensagens com até 256 KB (camada standard) ou 1 MB (camada premium). Se você estiver lidando com mensagens de tamanho maior do que 1 MB, use o padrão de verificação de declaração descrito [nesta postagem de blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solucionar problemas
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Por que não eu consigo criar um namespace após excluí-lo de outra assinatura? 
 Quando você exclui um namespace de uma assinatura, aguarde até 4 horas antes de recriá-lo com o mesmo nome em outra assinatura. Caso contrário, a seguinte mensagem de erro será exibida: `Namespace already exists`. 
 

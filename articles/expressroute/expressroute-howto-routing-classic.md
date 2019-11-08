@@ -1,5 +1,5 @@
 ---
-title: 'Configurar o emparelhamento para um circuito – ExpressRoute: Azure: clássico | Microsoft Docs'
+title: 'Configurar o emparelhamento para um circuito-ExpressRoute: Azure: clássico | Microsoft Docs'
 description: Este artigo fornece uma orientação sobre as etapas de criação e de provisionamento do emparelhamento público, privado e da Microsoft de um circuito de ExpressRoute. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: a57681cc9f44593ceea6b2c1795274c1b16d3a94
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 01ec721fb7e7dea0e4e31e0c3052cc4246cf14b0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64726203"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748186"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Criar e modificar o emparelhamento de um circuito de ExpressRoute (clássico)
 > [!div class="op_single_selector"]
@@ -28,16 +28,13 @@ ms.locfileid: "64726203"
 
 Este artigo fornece uma orientação pelas etapas de criação e de gerenciamento da configuração de emparelhamento/roteamento de um circuito do ExpressRoute usando o PowerShell e o modelo de implantação clássico. As etapas a seguir também mostrarão a você como verificar o status, atualizar ou excluir e desprovisionar emparelhamentos de um circuito do ExpressRoute. Você pode configurar um, dois ou todos os três emparelhamentos (privado e público do Azure e da Microsoft) para um circuito da ExpressRoute. Você pode configurar emparelhamentos em qualquer ordem escolhida. No entanto, você deve concluir a configuração de um emparelhamento por vez. 
 
-Estas instruções aplicam-se apenas a circuitos criados com provedores de serviços que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que ofereça serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
+Estas instruções aplicam-se apenas a circuitos criados com provedores de serviços que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
 **Sobre modelos de implantação do Azure**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos de configuração
 
@@ -46,7 +43,7 @@ Estas instruções aplicam-se apenas a circuitos criados com provedores de servi
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>Baixe os cmdlets mais recentes do PowerShell
 
-Instale as versões mais recentes dos módulos PowerShell do Gerenciamento de Serviços do Azure (SM) e do módulo ExpressRoute. Ao usar o exemplo a seguir, observe que o número da versão (neste exemplo, 5.1.1) será alterado conforme versões mais recentes dos cmdlets forem liberadas.
+Instale as versões mais recentes dos módulos PowerShell do SM (Gerenciamento de Serviços) do Azure e do módulo ExpressRoute. Ao usar o exemplo a seguir, observe que o número da versão (neste exemplo, 5.1.1) será alterado conforme as versões mais recentes dos cmdlets forem lançadas.
 
 ```powershell
 Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
@@ -189,7 +186,7 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a configuração de emparelhamento público do Azure para um circuito do ExpressRoute.
 
 > [!NOTE]
-> Emparelhamento público do Azure foi preterido para circuitos de novo.
+> O emparelhamento público do Azure foi preterido para novos circuitos.
 >
 
 ### <a name="to-create-azure-public-peering"></a>Criar o emparelhamento público do Azure
@@ -336,9 +333,9 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
    * Uma sub-rede /30 para o link secundário. Este valor deve ser um prefixo IPv4 público válido próprio e registrado em um RIR/IRR.
    * Uma ID válida de VLAN para estabelecer esse emparelhamento. Verifique se nenhum outro emparelhamento no circuito usa o mesmo ID de VLAN.
    * Número de AS para emparelhamento. Você pode usar um número de AS de 2 e de 4 bytes.
-   * Prefixos anunciados: você precisa fornecer uma lista com todos os prefixos que planeja anunciar na sessão BGP. Somente prefixos de endereços IP públicos são aceitos. Você pode enviar uma lista separada por vírgula se planeja enviar um conjunto de prefixos. Esses prefixos devem ser registrados em seu nome em um RIR/IRR.
-   * ASN do cliente: se você estiver anunciando prefixos não registrados com o número AS de emparelhamento, especifique o número AS com o qual eles estão registrados. **Opcional**.
-   * Nome do registro de roteamento: é possível especificar o RIR/IRR no qual o número AS e os prefixos estão registrados.
+   * Prefixos anunciados: forneça uma lista com todos os prefixos que você pretende anunciar na sessão BGP. Somente prefixos de endereços IP públicos são aceitos. Você pode enviar uma lista separada por vírgula se planeja enviar um conjunto de prefixos. Esses prefixos devem ser registrados em seu nome em um RIR/IRR.
+   * ASN de cliente: se você estiver anunciando prefixos não registrados com o número AS de emparelhamento, especifique o número AS com o qual eles estão registrados. **Opcional**.
+   * Nome do registro de roteamento: você pode especificar o RIR/IRR com base no qual o número de AS e os prefixos estão registrados.
    * Um hash MD5, se você optar por usar um. **Opcional**
      
    Execute o seguinte cmdlet para configurar o Microsoft emparelhamento para o seu circuito:

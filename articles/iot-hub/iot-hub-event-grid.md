@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: f411771fbf39a99642506253fc025d6b29840423
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7d5a232d92c37a94ff427a3bf203f6f20764060e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648634"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748587"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir aos eventos do Hub IoT usando a Grade de Eventos para disparar ações
 
@@ -27,17 +27,17 @@ O Hub IoT do Azure integra-se com a Grade de Eventos do Azure para que você pos
 
 A integração da Grade de Eventos está disponível para os hubs IoT localizados nas regiões onde há suporte para a Grade de Eventos. Todos os eventos de dispositivo, exceto os eventos de telemetria do dispositivo, estão geralmente disponíveis. O evento de telemetria do dispositivo está em visualização pública e está disponível em todas as regiões, exceto leste dos EUA, oeste dos EUA, Europa Ocidental, [Azure governamental](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china)e [Azure Alemanha](https://azure.microsoft.com/global-infrastructure/germany/). Para obter a lista mais recente de regiões, consulte [Uma introdução à Grade de Eventos do Azure](../event-grid/overview.md).
 
-## <a name="event-types"></a>Tipos de eventos
+## <a name="event-types"></a>Tipos de evento
 
 Hub IoT publica os seguintes tipos de evento:
 
-| Tipo de evento | Descrição |
+| Tipo de evento | DESCRIÇÃO |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Publicado quando um dispositivo é registrado para um Hub IoT. |
-| Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é excluído de um Hub IoT. |
+| Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é excluído para um Hub IoT. |
 | Microsoft.Devices.DeviceConnected | Publicado quando um dispositivo é conectado a um Hub IoT. |
 | Microsoft.Devices.DeviceDisconnected | Publicado quando um dispositivo é desconectado de um Hub IoT. |
-| Microsoft.Devices.DeviceTelemetry | Publicado quando uma mensagem de telemetria do dispositivo é enviada a um hub IoT |
+| Microsoft. Devices. DeviceTelemetry | Publicado quando uma mensagem de telemetria do dispositivo é enviada a um hub IoT |
 
 Use o portal do Azure ou a CLI do Azure para configurar os eventos para publicar a partir de cada Hub IoT. Para um exemplo, experimente o tutorial [Enviar notificações por email sobre os eventos do Hub IoT usando Aplicativos Lógicos](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
@@ -74,7 +74,7 @@ O exemplo a seguir mostra o esquema de um evento de dispositivo conectado:
 
 A mensagem de telemetria do dispositivo deve estar em um formato JSON válido com o contentType definido como **Application/JSON** e contentEncoding definido como **UTF-8** nas [Propriedades do sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)de mensagens. Essas duas propriedades não diferenciam maiúsculas de minúsculas. Se a codificação de conteúdo não estiver definida, o Hub IoT gravará as mensagens no formato codificado 64 base.
 
-Você pode enriquecer os eventos de telemetria do dispositivo antes que eles sejam publicados na grade de eventos selecionando o ponto de extremidade como grade de eventos. Para obter mais informações, consulte [visão geral](iot-hub-message-enrichments-overview.md)de aprimoramentos de mensagem.
+Você pode enriquecer os eventos de telemetria do dispositivo antes que eles sejam publicados na grade de eventos selecionando o ponto de extremidade como grade de eventos. Para obter mais informações, consulte [visão geral de aprimoramentos de mensagem](iot-hub-message-enrichments-overview.md).
 
 O exemplo a seguir mostra o esquema de um evento de telemetria do dispositivo:
 
@@ -204,4 +204,4 @@ Aplicativos que tratam os eventos de Hub IoT devem seguir essas práticas sugeri
 
 * [Comparar as diferenças entre roteamento de eventos e mensagens do Hub IoT](iot-hub-event-grid-routing-comparison.md)
 
-* [Saiba como usar eventos de telemetria de IoT para implementar análises espaciais de IoT usando o Azure Maps (e o roteamento de mensagens do Hub IoT)](../azure-maps/tutorial-iot-hub-maps.md#filter-events-using-iot-hub-message-routing)
+* [Saiba como usar eventos de telemetria de IoT para implementar análises espaciais de IoT usando o Azure Maps](../azure-maps/tutorial-iot-hub-maps.md#create-an-azure-function-and-add-an-event-grid-subscription)
