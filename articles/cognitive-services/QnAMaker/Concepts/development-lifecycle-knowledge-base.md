@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 52d4efaba25dcede3322586d05fceb4d166f51e3
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 1cb5af13bdd309c762337e64ecde8538afc756b0
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973817"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794851"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida da base de dados de conhecimento no QnA Maker
 O QnA Maker aprende melhor em um ciclo iterativo de alterações de modelo, exemplos de expressão, publicação e coleta de dados de consultas de ponto de extremidade. 
@@ -35,7 +35,7 @@ A base de dados de conhecimento está pronta para testes, uma vez que é preench
 
 Este loop estreito de atualização de teste continuará até que você esteja satisfeito com os resultados. Saiba como [testar a base de dados de conhecimento](../How-To/test-knowledge-base.md).
 
-Para grandes KBs, use o teste automatizado com a [API generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e a propriedade de corpo `isTest`, que consulta a base de dados de conhecimento `test` em vez da base de dados de conhecimento publicada. 
+Para grandes KBs, use o teste automatizado com a [API generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e a propriedade de corpo `isTest`, que consulta a base de dados de conhecimento do `test` em vez da base de dados de conhecimento publicada. 
 
 ```json
 {
@@ -47,7 +47,7 @@ Para grandes KBs, use o teste automatizado com a [API generateAnswer](../how-to/
 ```
 
 ## <a name="publish-the-knowledge-base"></a>Publicar a base de dados de conhecimento
-Quando terminar de testar a base de dados de conhecimento, você poderá publicá-la. Publicar efetua push da última versão da base de dados de conhecimento testada para um índice do Azure Search dedicado que representa a base de dados de conhecimento **publicada**. Isso também cria um ponto de extremidade que pode ser chamado no aplicativo ou chat bot.
+Quando terminar de testar a base de dados de conhecimento, você poderá publicá-la. A publicação envia por push a versão mais recente da base de dados de conhecimento testada para um índice do Azure Pesquisa Cognitiva dedicado que representa a base de dados de conhecimento **publicada** . Isso também cria um ponto de extremidade que pode ser chamado no aplicativo ou chat bot.
 
 Dessa forma, quaisquer alterações feitas na versão de teste da base de dados de conhecimento não afetam a versão publicada que pode estar ativa em um aplicativo de produção.
 

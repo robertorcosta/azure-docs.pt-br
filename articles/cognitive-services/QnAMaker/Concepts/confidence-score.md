@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 14339a61e48866d51089db9a0008a3de982b1710
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
-ms.translationtype: MT
+ms.openlocfilehash: 4e6d86cb3fa304c8e85e7d0ff4a2810be1dc75af
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277100"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794943"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Pontuação de confiança de uma base de dados de conhecimento do QnA Maker
 Quando uma consulta de usuário é comparada com uma base de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Essa pontuação indica a confiança de que a resposta é a correspondência ideal da consulta do usuário. 
@@ -72,9 +72,9 @@ Quando várias respostas tiverem uma pontuação de confiança semelhante, é pr
 
 
 ## <a name="confidence-score-differences"></a>Diferenças de pontuação de confiança
-A pontuação de confiança de resposta pode alterar pouco entre o teste e a versão publicada da base de dados de conhecimento, mesmo se o conteúdo for o mesmo. Isso ocorre porque o conteúdo do teste e a base de dados de conhecimento publicada estão localizados em diferentes índices do Azure Search. Ao publicar uma base de dados de conhecimento, o conteúdo de perguntas e respostas base de dados de conhecimento é movido do índice de teste para um índice de produção no Azure Search. Veja como funciona a operação [publicar](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
+A pontuação de confiança de resposta pode alterar pouco entre o teste e a versão publicada da base de dados de conhecimento, mesmo se o conteúdo for o mesmo. Isso ocorre porque o conteúdo do teste e a base de dados de conhecimento publicado estão localizados em diferentes índices de Pesquisa Cognitiva do Azure. Ao publicar uma base de dados de conhecimento, o conteúdo de perguntas e respostas base de dados de conhecimento é movido do índice de teste para um índice de produção no Azure Search. Veja como funciona a operação [publicar](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
-Se você tiver uma base de conhecimento em regiões diferentes, cada região usa seu próprio índice do Azure Search. Como índices diferentes são usados, as pontuações não serão exatamente as mesmas. 
+Se você tiver uma base de dados de conhecimento em regiões diferentes, cada região usará seu próprio índice de Pesquisa Cognitiva do Azure. Como índices diferentes são usados, as pontuações não serão exatamente as mesmas. 
 
 
 ## <a name="no-match-found"></a>Nenhuma correspondência encontrada

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: aahi
-ms.openlocfilehash: e81a1de02c112abd5c52f0f83404a615d738e01c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 693a81cfb15407541311d7ab053bb2ab6a267b29
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73508062"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799639"
 ---
 ## <a name="general-entity-types"></a>Tipos de entidade geral:
 
@@ -26,7 +26,7 @@ Linguagens:
 |--------------|-------------------------|
 | N/D          | Nomes reconhecidos, por exemplo `Bill Gates`, `Marie Curie` |
 
-### <a name="location"></a>Localização
+### <a name="location"></a>Local
 
 Pontos de referência naturais e humanos, estruturas e recursos geográficos.
 
@@ -61,6 +61,19 @@ Linguagens:
 | Nome do subtipo | DESCRIÇÃO                                  |
 |----------|----------------------------------------------|
 | N/D         | Números de telefone, por exemplo `+1 123-123-123`. |
+
+### <a name="email"></a>Email
+
+Endereço de email. 
+
+Linguagens:
+
+
+* Visualização pública: `English`
+
+| Nome do subtipo | DESCRIÇÃO                                  |
+|----------|----------------------------------------------|
+| N/D         | Endereço de email, por exemplo `support@contoso.com` |
 
 ### <a name="url"></a>URL
 

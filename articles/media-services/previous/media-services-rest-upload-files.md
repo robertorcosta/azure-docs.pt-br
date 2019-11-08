@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b7583a0fda2fca0d8ff80879389b824a7b352a84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9563def1a7b510c403cf299a66066def0b03b59a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752879"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796781"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o REST  
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "66752879"
 > * [Portal](media-services-portal-upload-files.md)
 > 
 
-Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados no ativo, o conteúdo é armazenado com segurança na nuvem para processamento e transmissão adicionais. 
+Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) pode conter vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda codificada (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados no ativo, seu conteúdo é armazenado com segurança na nuvem para processamento e streaming adicionais. 
 
 Neste tutorial, aprenda a carregar um arquivo e outra operação associada a ele:
 
@@ -44,7 +44,8 @@ Neste tutorial, aprenda a carregar um arquivo e outra operação associada a ele
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 - [Crie uma conta dos Serviços de Mídia do Azure usando o Portal do Azure](media-services-portal-create-account.md).
-- Verifique o artigo [Acessar a API dos Serviços de Mídia do Azure com a visão geral de autenticação do AAD](media-services-use-aad-auth-to-access-ams-api.md).
+- Releia o artigo [Acessar a API dos Serviços de Mídia do Azure com a visão geral de autenticação do AAD](media-services-use-aad-auth-to-access-ams-api.md).
+- Além disso, para obter mais informações, consulte o artigo [usar a autenticação do Azure ad para acessar a API dos serviços de mídia com REST](https://docs.microsoft.com/en-us/azure/media-services/previous/media-services-rest-connect-with-aad) .
 - Configurar o **Postman** conforme descrito em [Configurar Postman para chamadas de API de REST dos Serviços de Mídia](media-rest-apis-with-postman.md).
 
 ## <a name="considerations"></a>Considerações
@@ -52,7 +53,7 @@ Neste tutorial, aprenda a carregar um arquivo e outra operação associada a ele
 As seguintes considerações se aplicam ao usar a API de REST de Serviços de Mídia:
  
 * Ao acessar entidades nos Serviços de Mídia do REST API, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md). <br/>A coleção do Postman usada neste tutorial se encarrega da configuração de todos os cabeçalhos necessários.
-* Os serviços de mídia usam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade **Name** não pode ter quaisquer dos seguintes [caracteres reservados para codificação de percentual](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+* Os serviços de mídia usam o valor da propriedade IAssetFile.Name ao compilar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}. Origin. mediaservices. Windows. net/{GUID}/{IAssetFile. Name}/streamingparameters.) Por esse motivo, a codificação por porcentagem não é permitida. O valor da propriedade **Name** não pode ter quaisquer dos seguintes [caracteres reservados para codificação de percentual](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 * O comprimento do nome não deve ser maior do que 260 caracteres.
 * Há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. Confira [este](media-services-quotas-and-limitations.md) artigo para obter detalhes sobre a limitação de tamanho do arquivo.
 
@@ -86,7 +87,7 @@ Para obter etapas sobre como configurar o Postman para este tutorial, consulte [
         ]
     }
     ```
-4. À esquerda da janela do **Postman**, clique em **1. Obtenha o token de autenticação do AAD** -> **Obter Token do Azure AD para Entidade de serviço**.
+4. À esquerda da janela do **postmaster** , clique em **1. Obtenha o token de autenticação do AAD** -> **obter o token do Azure ad para a entidade de serviço**.
 
     A parte da URL é preenchida com a variável de ambiente **AzureADSTSEndpoint** (anteriormente no tutorial, você definiu os valores de variáveis de ambiente que oferecem suporte à coleção).
 
@@ -122,7 +123,7 @@ Antes de carregar todos os arquivos no armazenamento de blobs, defina os direito
 
 Um [ativo](https://docs.microsoft.com/rest/api/media/operations/asset) é um contêiner para vários tipos ou conjuntos de objetos nos Serviços de Mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda. Na API REST, criar um ativo requer enviar solicitação POST para serviços de mídia e colocar qualquer informação de propriedade sobre seus ativos no corpo da solicitação.
 
-Uma das propriedades que você pode adicionar ao criar um ativo é **Opções**. As opções de criptografia a seguir poderão ser especificadas: **Nenhuma** (padrão, nenhuma criptografia é usada), **CriptografiaDeArmazenamento** (para o conteúdo que foi previamente criptografado com criptografia de armazenamento no lado do cliente), **CriptografiaComumProtegida**, ou **CriptografiaEnvelopeProtegida**. Quando você tiver um ativo criptografado, você precisa configurar uma política de entrega. Para obter mais informações, confira a seção [Configurando as políticas de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md).
+Uma das propriedades que você pode adicionar ao criar um ativo é **Opções**. Você pode especificar uma das seguintes opções de criptografia: **Nenhuma** (padrão, nenhuma criptografia é usada), **CriptografiaDeArmazenamento** (para o conteúdo que foi previamente criptografado com criptografia de armazenamento no lado do cliente), **CriptografiaComumProtegida**, ou **CriptografiaEnvelopeProtegida**. Quando você tiver um ativo criptografado, você precisa configurar uma política de entrega. Para obter mais informações, confira a seção [Configurando as políticas de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md).
 
 Se seu ativo for criptografado, você deve criar um **ContentKey** e vinculá-lo a seu ativo, conforme descrito no seguinte artigo: [Como criar um ContentKey](media-services-rest-create-contentkey.md). Após carregar os arquivos no ativo, você precisa atualizar as propriedades de criptografia na entidade **AssetFile** com os valores obtidos durante a criptografia dos **Ativos**. Faça isso usando a solicitação HTTP **MERGE** . 
 
@@ -156,7 +157,7 @@ Uma URL SAS tem o seguinte formato:
 Algumas considerações se aplicam:
 
 * Você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. Para saber mais, consulte Localizador.
-* Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, seu valor de StartTime deve estar no seguinte formato de data e hora: AAAA-MM-DDTHH:mm:ssZ (por exemplo, “2014-05-23T17:53:50Z”).    
+* Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, o valor de StartTime deve estar no seguinte formato DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").    
 * Pode haver um 30 a 40 segundos de atraso após a criação de um localizador quando ele está disponível para uso.
 
 ### <a name="create-a-sas-locator"></a>Criar um localizador SAS.
@@ -188,7 +189,7 @@ Criar e configurar uma nova solicitação:
 1. Pressione **+** para criar uma nova guia de solicitação.
 2. Selecione **COLOCAR** operação e cole **{{UploadURL}}** na URL.
 2. Deixe a guia **Autorização** como está (não a defina como **Token de portador**).
-3. Na guia **Cabeçalhos**, especifique: **Chave**: “x-ms-blob-type” e **Valor**: “BlockBlob”.
+3. Na guia **Cabeçalhos**, especifique: **Chave**: "x-ms-tipo-de-blob" e **Valor**: "BlockBlob".
 2. Na guia **Corpo**, clique em **binário**.
 4. Escolha o arquivo com o nome que você especificou na variável de ambiente **NomeDoArquivoDeMídia**.
 5. Pressione **Enviar**.

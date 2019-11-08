@@ -14,24 +14,24 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: f7f57a43697a9376062bdd3baa2d5f7333bf4a7f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 25091e8e58fbdba908fb00ece3cd2d3d296c5ab1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100152"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749060"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configurando o acesso do WinRM para as máquinas virtuais no Azure Resource Manager
 
 Aqui estão as etapas que você precisa realizar para configurar uma VM com conectividade do WinRM
 
 1. Criar um cofre de chaves
-2. Crie um certificado autoassinado
+2. Criar um certificado autoassinado
 3. Carregar seu certificado autoassinado no Cofre de Chaves
 4. Obtenha a URL para seu certificado autoassinado no Cofre de Chaves
 5. Referenciar a URL de seus certificados autoassinados ao criar uma VM
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="step-1-create-a-key-vault"></a>Etapa 1: Criar um cofre de chaves
 Você pode usar o comando abaixo para criar o Cofre de Chaves
@@ -40,7 +40,7 @@ Você pode usar o comando abaixo para criar o Cofre de Chaves
 New-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
 ```
 
-## <a name="step-2-create-a-self-signed-certificate"></a>Etapa 2: Crie um certificado autoassinado
+## <a name="step-2-create-a-self-signed-certificate"></a>Etapa 2: Criar um certificado autoassinado
 Você pode criar um certificado autoassinado usando esse script do PowerShell
 
 ```
@@ -78,11 +78,11 @@ $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
 Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
 ```
 
-## <a name="step-4-get-the-url-for-your-self-signed-certificate-in-the-key-vault"></a>Etapa 4: Obtenha a URL para seu certificado autoassinado no Cofre de Chaves
+## <a name="step-4-get-the-url-for-your-self-signed-certificate-in-the-key-vault"></a>Etapa 4: Obter a URL para seu certificado autoassinado no Cofre de Chaves
 O provedor de recursos Microsoft.Compute precisa de uma URL para o segredo do Cofre de Chaves ao provisionar a VM. Isso permite que o provedor de recursos Microsoft.Compute baixe o segredo e crie o certificado equivalente na VM.
 
 > [!NOTE]
-> A URL do segredo precisa incluir a versão também. Uma URL de exemplo é semelhante a https\/:/contosovault.Vault.Azure.net:443/Secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
+> A URL do segredo precisa incluir a versão também. Uma URL de exemplo é parecida com https:\//contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 
 #### <a name="templates"></a>Modelos
 Você pode obter o link para a URL no modelo usando o código abaixo

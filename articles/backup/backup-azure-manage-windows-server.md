@@ -1,18 +1,18 @@
 ---
 title: Gerenciar servidores e cofres dos Serviços de Recuperação do Microsoft Azure
-description: Gerenciar trabalhos e alertas em um cofre dos Serviços de Recuperação do Azure.
+description: Neste artigo, saiba como usar o painel Visão geral do cofre dos serviços de recuperação para monitorar e gerenciar seus cofres dos serviços de recuperação.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7e7312f942103125217c1f61ae8fe8007a49529b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a86af57f49b91615cc453946b0b5d51d22f2d163
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954755"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747449"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorar e gerenciar cofres dos Serviços de Recuperação
 
@@ -23,7 +23,6 @@ Este artigo explica como usar o painel de **Visão geral** do cofre dos Serviço
 Os pré-requisitos para este artigo são: uma assinatura do Azure, um cofre dos Serviços de Recuperação e a existência de pelo menos um item de backup configurado para o cofre.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-
 
 ## <a name="open-a-recovery-services-vault"></a>Abrir um cofre dos Serviços de Recuperação
 
@@ -66,7 +65,7 @@ Clique nos blocos (exceto o Armazenamento de Backup) para abrir o menu associado
 
 ![Menu alertas de backup filtrado para alertas críticos](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-O menu de alertas de Backup, na imagem acima, é filtrado por: O status está Ativo, Gravidade Crítica e tempo nas 24 horas anteriores.
+O menu Alertas de Backup, na imagem acima, está filtrado por: Status está ativo, Severidade é Crítica e Hora são as 24 horas anteriores.
 
 ## <a name="manage-backup-alerts"></a>Gerenciar alertas de Backup
 
@@ -84,8 +83,8 @@ A lista de Alertas de Backup exibe as informações selecionadas para os alertas
 
 | Nível de alerta | Eventos que geram alertas |
 | ----------- | ----------- |
-| Crítica | Você recebe alertas críticos quando: Falha dos trabalhos de backup, falha dos trabalhos de recuperação e quando você parar a proteção em um servidor, mas retém os dados.|
-| Aviso | Você receberá o aviso de alertas quando: Trabalhos de Backup são concluídos com avisos, por exemplo quando menos de 100 arquivos ficam sem backup devido a problemas de corrupção, ou quando o backup de mais de 1.000.000 de arquivos é feito com êxito). |
+| Crítico | Alertas críticos são recebidos quando: trabalhos de Backup falham, trabalhos de recuperação falham e quando você interrompe a proteção em um servidor, mas retém os dados.|
+| Aviso | Alertas de aviso são recebidos quando: trabalhos de Backup são concluídos com avisos, por exemplo quando menos de 100 arquivos ficam sem backup devido a problemas de corrupção, ou quando o backup de mais de 1.000.000 de arquivos é feito com êxito). |
 | Informativo | no momento, nenhum alerta informativo está em uso. |
 
 ### <a name="viewing-alert-details"></a>Exibir detalhes do alerta
@@ -99,9 +98,9 @@ Por padrão, todos os detalhes, exceto **Última hora da ocorrência**, são exi
 * Alerta
 * Item de backup
 * Servidor protegido
-* Severidade
+* Severity
 * Duração
-* Hora de Criação
+* Hora de criação
 * Status
 * Última hora da ocorrência
 
@@ -220,7 +219,7 @@ O Tipo de Item é o tipo de gerenciamento de backup da instância protegida. Há
 É possível exibir uma única operação ou todas as operações. Não é possível selecionar duas ou três operações. As Operações disponíveis são:
 
 * Todas as operações
-* Registro
+* Registrar
 * Configurar o backup
 * Backup
 * Restaurar
@@ -234,8 +233,8 @@ O Tipo de Item é o tipo de gerenciamento de backup da instância protegida. Há
 * Todos os status
 * Concluído
 * Em andamento
-* Falhou
-* Cancelada
+* Falha
+* Cancelado
 * Concluído com avisos
 
 #### <a name="start-time"></a>Hora de início
@@ -259,12 +258,11 @@ O bloco Armazenamento de Backup no painel mostra o armazenamento consumido no Az
 * Uso do armazenamento LRS de nuvem associado ao cofre
 * Uso do armazenamento GRS de nuvem associado ao cofre
 
-
 ## <a name="troubleshooting-monitoring-issues"></a>Solucionando problemas de monitoramento
 
-**Problema:** Trabalhos e/ou alertas do agente de Backup do Azure não aparecem no portal.
+**Problema:** trabalhos e/ou alertas do agente de Backup do Azure não aparecem no portal.
 
-**Etapas de solução de problemas:** O processo, ```OBRecoveryServicesManagementAgent```, envia os dados de alerta e de trabalho para o serviço de Backup do Azure. Ocasionalmente, esse processo pode ficar travado ou ser interrompido.
+**Etapas de solução de problemas:** o processo, ```OBRecoveryServicesManagementAgent```, envia os dados de alerta e de trabalho para o serviço de Backup do Azure. Ocasionalmente, esse processo pode ficar travado ou ser interrompido.
 
 1. Para verificar se o processo não está em execução, abra o **Gerenciador de Tarefas** e verifique se ```OBRecoveryServicesManagementAgent``` está em execução.
 
@@ -275,6 +273,7 @@ O bloco Armazenamento de Backup no painel mostra o armazenamento consumido no Az
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
 * Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
 * Visite o [Fórum de backup do Azure](https://go.microsoft.com/fwlink/p/?LinkId=290933)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 23519edb61df23c97dfd2162d6cabea6b7fa5d38
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: afbf77014ece981568d4123db7820a2fa0a8f60d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101765"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749116"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais em um modelo do Azure Resource Manager
 
@@ -27,7 +27,7 @@ Este artigo descreve os aspectos de um modelo do Azure Resource Manager aplicáv
 
 Há muitos [modelos na galeria](https://azure.microsoft.com/documentation/templates/?term=VM) que incluem o recurso de VM. Nem todos os elementos que podem ser incluídos em um modelo são descritos aqui.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 Este exemplo mostra uma seção de recursos típicos de um modelo para a criação de um número especificado de VMs:
 

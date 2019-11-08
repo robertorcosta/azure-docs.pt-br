@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: fa897b4b77f7f5869eab2ba2e7db9afbd84febfa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a87b4c07d2e961d9876fb44c6584f37ad9246df
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631253"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796652"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gerenciar o serviço do Gerenciador de Dados do StorSimple no portal do Azure
 
-Este artigo explica como você pode usar a interface do usuário do Gerenciador de Dados do StorSimple para transformar os dados que residem em dispositivos das séries StorSimple 8000. Os dados transformados podem ser consumidos por outros serviços do Azure, como os Serviços de Mídia do Azure, Azure HDInsight, Azure Machine Learning e Azure Search.
+Este artigo explica como você pode usar a interface do usuário do Gerenciador de Dados do StorSimple para transformar os dados que residem em dispositivos das séries StorSimple 8000. Os dados transformados podem ser consumidos por outros serviços do Azure, como os serviços de mídia do Azure, o Azure HDInsight, o Azure Machine Learning e o Azure Pesquisa Cognitiva.
 
 
 ## <a name="use-storsimple-data-transformation"></a>Usar a transformação de dados do StorSimple

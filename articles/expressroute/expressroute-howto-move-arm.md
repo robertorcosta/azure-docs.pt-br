@@ -1,5 +1,5 @@
 ---
-title: 'Mover circuitos clássicos para o Resource Manager – ExpressRoute: PowerShell: Azure | Microsoft Docs'
+title: 'Mover circuitos do clássico para o Resource Manager-ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Esta página descreve como mover um circuito clássico para o modelo de implantação do Resource Manager usando o PowerShell.
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 11a84d4ced3232102d262352b84abe1f813e2406
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 34dd7ed4c6352ed90793288f918d78b7fb07af80
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60365172"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748235"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Mover os circuitos do ExpressRoute do modelo de implantação clássico para o do Resource Manager usando o PowerShell
 
@@ -21,17 +21,17 @@ Para usar um circuito do ExpressRoute para os modelos de implantação clássico
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
-* Verifique se que você instalou o clássico e os módulos do PowerShell do Azure Az localmente no seu computador. Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
-* Leia os [pré-requisitos](expressroute-prerequisites.md), os [requisitos de roteamento](expressroute-routing.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+* Verifique se você instalou os módulos clássico e AZ Azure PowerShell localmente no seu computador. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview):
+* Certifique-se de que você leu os [pré-requisitos](expressroute-prerequisites.md), os [requisitos de roteamento](expressroute-routing.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 * Examine as informações fornecidas em [Como mover um circuito de ExpressRoute do clássico para o Resource Manager](expressroute-move.md). Certifique-se de entender completamente os limites e limitações.
 * Verifique se o circuito está totalmente operacional no modelo de implantação clássico.
 * Verifique se você tem um grupo de recursos que foi criado no modelo de implantação do Gerenciador de Recursos.
 
 ## <a name="move-an-expressroute-circuit"></a>Mover um circuito de ExpressRoute
 
-### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>Etapa 1: reunir detalhes do circuito do modelo de implantação clássico
+### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>Etapa 1: Coletar detalhes do circuito do modelo de implantação clássico
 
 Entre no ambiente clássico do Azure e obtenha a chave de serviço.
 
@@ -60,7 +60,7 @@ Entre no ambiente clássico do Azure e obtenha a chave de serviço.
    Get-AzureDedicatedCircuit
    ```
 
-### <a name="step-2-sign-in-and-create-a-resource-group"></a>Etapa 2: entrar e criar um grupo de recursos
+### <a name="step-2-sign-in-and-create-a-resource-group"></a>Etapa 2: Entrar e criar um grupo de recursos
 
 Entre no ambiente do Resource Manager e crie um novo grupo de recursos.
 
@@ -82,7 +82,7 @@ Entre no ambiente do Resource Manager e crie um novo grupo de recursos.
    New-AzResourceGroup -Name "DemoRG" -Location "West US"
    ```
 
-### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Etapa 3: Mova o circuito de ExpressRoute para o modelo de implantação do Gerenciador de Recursos
+### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Etapa 3: Mover o circuito de ExpressRoute para o modelo de implantação do Gerenciador de Recursos
 
 Agora você está pronto para mover o circuito de ExpressRoute do modelo de implantação clássico para o do Resource Manager. Antes de prosseguir, examine as informações fornecidas em [Como mover circuitos de ExpressRoute do modelo de implantação clássico para o Resource Manager](expressroute-move.md).
 
@@ -92,7 +92,7 @@ Para mover o circuito, modifique e execute o snippet a seguir:
 Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-No modo clássico, um circuito ExpressRoute não tem o conceito de estar ligado a uma região. No Gerenciador de Recursos, todo recurso precisa ser mapeado para uma região do Azure. A região especificada no cmdlet Move-AzExpressRouteCircuit tecnicamente pode ser qualquer região. Para propósitos organizacionais, você pode desejar escolher uma região que represente de perto seu local de emparelhamento.
+No modo clássico, um circuito ExpressRoute não tem o conceito de estar ligado a uma região. No Gerenciador de Recursos, todo recurso precisa ser mapeado para uma região do Azure. A região especificada no cmdlet Move-AzExpressRouteCircuit pode ser tecnicamente qualquer região. Para propósitos organizacionais, você pode desejar escolher uma região que represente de perto seu local de emparelhamento.
 
 > [!NOTE]
 > Após a movimentação, o novo nome que está relacionado no cmdlet anterior será usado para o recurso de endereço. O circuito essencialmente será renomeado.

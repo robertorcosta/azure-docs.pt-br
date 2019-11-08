@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: 0a88c1e4d357f2919635e36a223e79b0407c0b8b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: d3ad0e6d88ed849074989dc36698c01209921449
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168754"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749687"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Solucionar problemas de conexões de Área de Trabalho Remota a uma máquina virtual do Azure
 A conexão do protocolo RDP à sua VM (máquina virtual) do Azure baseada no Windows pode falhar por vários motivos, impedindo o seu acesso à VM. O problema pode ser com o serviço de Área de Trabalho Remota na VM, a conexão de rede ou o cliente de Área de Trabalho Remota no computador host. Este artigo explica alguns dos métodos mais comuns para resolver problemas de conexão de RDP. 
 
 Caso precise de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 <a id="quickfixrdp"></a>
 
@@ -67,7 +67,7 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. C
     No Portal do Azure, selecione sua VM. Role para baixo no painel de configurações até a seção **Suporte + Solução de Problemas**, próximo à parte inferior da lista. Clique no botão **Redefinir senha**. Defina o **Modo** como **Redefinir somente configuração** e, em seguida, clique no botão **Atualizar**:
    
     ![Redefinir a configuração de RDP no Portal do Azure](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **Verifique as regras de Grupo de Segurança de Rede**. Use a [verificação de fluxo de IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) para confirmar se uma regra em um Grupo de Segurança de Rede está bloqueando o tráfego de ou para uma máquina virtual. Você também pode examinar as regras de grupo de segurança efetivas para garantir que a regra "Permitir" NSG existe e é priorizada para a porta RDP(padrão 3389). Para saber mais, confira [Usar regras de segurança efetivas para solucionar problemas de fluxo de tráfego de VM](../../virtual-network/diagnose-network-traffic-filter-problem.md).
+2. **Verifique as regras de Grupo de Segurança de Rede**. Use a [verificação de fluxo de IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) para confirmar se uma regra em um Grupo de Segurança de Rede está bloqueando o tráfego de ou para uma máquina virtual. Você também pode examinar as regras de grupo de segurança efetivas para garantir que a regra "Permitir" NSG existe e é priorizada para a porta RDP(padrão 3389). Para obter mais informações, confira [Usar regras de segurança efetivas para solucionar problemas de fluxo de tráfego de VM](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 3. **Examine o diagnóstico de inicialização da VM**. Essa etapa de solução de problemas examina os logs do console da VM para determinar se a VM está reportando um problema. Nem todas as VMs têm diagnóstico de inicialização habilitado, portanto, essa etapa de solução de problemas pode ser opcional.
    
@@ -86,7 +86,7 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. C
     ![Redefinir as credenciais do usuário no Portal do Azure](./media/troubleshoot-rdp-connection/reset-password.png)
 7. **Reinicie a VM**. Essa etapa de solução de problemas pode corrigir qualquer problema subjacente experienciado pela própria VM.
    
-    Selecione sua VM no Portal do Azure e clique na guia **Visão Geral**. Clique no botão **Reiniciar**:
+    Selecione sua VM no portal do Azure e clique na guia **visão geral** . Clique no botão **reiniciar** :
    
     ![Reiniciar a VM no Portal do Azure](./media/troubleshoot-rdp-connection/restart-vm.png)
 8. **Reimplante a VM**. Essa etapa de solução de problemas reimplanta sua VM para outro host dentro do Azure para corrigir problemas subjacentes de rede ou de plataforma.
@@ -224,7 +224,7 @@ Após cada etapa de solução de problemas, tente se reconectar à VM.
     ![Redefinir as credenciais do usuário no Portal do Azure](./media/troubleshoot-rdp-connection/classic-reset-password.png)
 6. **Reinicie a VM**. Essa etapa de solução de problemas pode corrigir qualquer problema subjacente experienciado pela própria VM.
    
-    Selecione sua VM no Portal do Azure e clique na guia **Visão Geral**. Clique no botão **Reiniciar**:
+    Selecione sua VM no portal do Azure e clique na guia **visão geral** . Clique no botão **reiniciar** :
    
     ![Reiniciar a VM no Portal do Azure](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
 
@@ -238,7 +238,7 @@ Você pode encontrar uma mensagem de erro específica ao tentar se conectar à s
 * [A sessão remota foi desconectada porque não há Servidores de Licença da Área de Trabalho Remota disponíveis para fornecer uma licença](troubleshoot-specific-rdp-errors.md#rdplicense).
 * [A Área de Trabalho Remota não consegue localizar o "nome" do computador](troubleshoot-specific-rdp-errors.md#rdpname).
 * [Ocorreu um erro de autenticação. A Autoridade de Segurança Local não pode ser contatada](troubleshoot-specific-rdp-errors.md#rdpauth).
-* [Erro de segurança do Windows: suas credenciais não funcionaram](troubleshoot-specific-rdp-errors.md#wincred).
+* [Erro de Segurança do Windows: suas credenciais não funcionaram](troubleshoot-specific-rdp-errors.md#wincred).
 * [Este computador não pode se conectar ao computador remoto](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
 ## <a name="additional-resources"></a>Recursos adicionais

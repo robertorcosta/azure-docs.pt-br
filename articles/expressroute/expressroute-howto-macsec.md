@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 36cd1bfebe4e5379a1c8cfc551c8e003459ebf5c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 081c448ff09148668dbe5e244e80421a47d77152
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162435"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748281"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Configurar o MACsec em portas diretas do ExpressRoute
 
@@ -28,7 +28,7 @@ Antes de iniciar a configuração, confirme o seguinte:
 
 ### <a name="working-with-azure-powershell"></a>Trabalhando com o Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
@@ -47,7 +47,7 @@ Para iniciar a configuração, entre em sua conta do Azure e selecione a assinat
     $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
     ```
 
-    Se você já tiver um cofre de chaves ou um grupo de recursos, poderá reutilizá-los. No entanto, é essencial que você habilite o recurso de [ **exclusão reversível** ](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-soft-delete) em seu cofre de chaves existente. Se a exclusão reversível não estiver habilitada, você poderá usar os seguintes comandos para habilitá-la:
+    Se você já tiver um cofre de chaves ou um grupo de recursos, poderá reutilizá-los. No entanto, é essencial que você habilite o recurso de [ **exclusão reversível** ](../key-vault/key-vault-ovw-soft-delete.md) em seu cofre de chaves existente. Se a exclusão reversível não estiver habilitada, você poderá usar os seguintes comandos para habilitá-la:
 
     ```azurepowershell-interactive
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
@@ -134,7 +134,7 @@ Neste ponto, o MACsec está desabilitado nas portas diretas do ExpressRoute no l
 ### <a name="test-connectivity"></a>Testar a conectividade
 Depois de configurar o MACsec (incluindo a atualização de chave do MACsec) nas portas do ExpressRoute Direct, [Verifique](expressroute-troubleshooting-expressroute-overview.md) se as sessões BGP dos circuitos estão ativas e em execução. Se você ainda não tiver nenhum circuito nas portas, crie um primeiro e configure o emparelhamento privado do Azure ou o emparelhamento da Microsoft do circuito. Se MACsec estiver configurado incorretamente, incluindo incompatibilidade de chave MACsec, entre os dispositivos de rede e os dispositivos de rede da Microsoft, você não verá a resolução ARP na camada 2 e no estabelecimento de BGP na camada 3. Se tudo estiver configurado corretamente, você deverá ver as rotas BGP anunciadas corretamente em ambas as direções e o fluxo de dados do aplicativo de acordo com o ExpressRoute.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 1. [Criar um circuito do ExpressRoute no ExpressRoute Direct](expressroute-howto-erdirect.md)
 2. [Vincular um circuito do ExpressRoute a uma rede virtual do Azure](expressroute-howto-linkvnet-arm.md)
 3. [Verificar conectividade do ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)

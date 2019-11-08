@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 0e4daaa3417ce349111fbc811be36a4615058c76
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: 771a20ccf1c34958308d58dafb6fb01e36bb408a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791719"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749030"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade do NFSVMs do Azure no SUSE Linux Enterprise Server
 
@@ -78,7 +78,7 @@ Primeiro, leia os seguintes documentos e Notas SAP
 * [Guias de práticas recomendadas do SUSE Linux Enterprise Server para aplicativos SAP 12 SP3][sles-for-sap-bp]
 * [Notas de versão da extensão de alta disponibilidade do SUSE 12 SP3][suse-ha-12sp3-relnotes]
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Para obter alta disponibilidade, o SAP NetWeaver requer um servidor NFS. O servidor NFS está configurado em um cluster separado e pode ser usado por vários sistemas SAP.
 
@@ -94,7 +94,7 @@ O servidor usa um nome de host virtual dedicado e endereços IP virtuais para to
 * Porta de Investigação
   * Porta 61000 para NW1
   * Porta 61001 para NW2
-* Regras de balanceamento de carga
+* Regras de balanceamento de carga (se estiver usando o Load Balancer básico)
   * TCP 2049 para NW1
   * UDP 2049 para NW1
   * TCP 2049 para NW2
@@ -136,51 +136,88 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
    O SLES For SAP Applications 12 SP3 (BYOS) é usado  
    Selecione o Conjunto de Disponibilidade criado anteriormente  
 1. Adicione um disco de dados para cada sistema SAP para ambas as máquinas virtuais.
-1. Crie um Balanceador de Carga (interno)  
-   1. Criar os endereços IP de front-end
-      1. Endereço IP 10.0.0.4 para NW1
-         1. Abra o balanceador de carga, selecione o pool de IPs de front-end e clique em Adicionar
-         1. Digite o nome do novo pool de IPs de front-end (por exemplo **nw1-frontend**)
-         1. Defina a Atribuição ao Estático e digite o endereço IP (por exemplo **10.0.0.4**)
-         1. Clique em OK
-      1. Endereço IP 10.0.0.5 para NW2
-         * Repita as etapas acima para a porta NW2
-   1. Criar os pools de back-end
-      1. Conectado aos adaptadores de rede primários de todas as máquinas virtuais que devem ser parte do cluster NFS para NW1
-         1. Abra o balanceador de carga, selecione os pools de back-end e clique em Adicionar
-         1. Digite o nome do novo pool de back-end (por exemplo **nw1-backend**)
-         1. Clique em Adicionar uma máquina virtual
-         1. Selecione o Conjunto de Disponibilidade criado anteriormente
-         1. Selecione as máquinas virtuais do cluster NFS
-         1. Clique em OK
-      1. Conectado aos adaptadores de rede primários de todas as máquinas virtuais que devem ser parte do cluster NFS para NW2
-         * Repita as etapas acima para criar um pool de back-end para NW2
-   1. Crie as investigações de integridade
-      1. Porta 61000 para NW1
-         1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
-         1. Digite o nome da nova investigação de integridade (por exemplo, **nw1-hp**)
-         1. Escolha TCP como protocolo, porta 610**00**, mantenha o Intervalo como 5 e o Limite de não integridade como 2
-         1. Clique em OK
-      1. Porta 61001 para NW2
-         * Repita as etapas acima para criar uma investigação de integridade para NW2
-   1. Regras de balanceamento de carga
-      1. TCP 2049 para NW1
+1. Crie um Load Balancer (interno). Recomendamos o [balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+   1. Siga estas instruções para criar o balanceador de carga padrão:
+      1. Criar os endereços IP de front-end
+         1. Endereço IP 10.0.0.4 para NW1
+            1. Abra o balanceador de carga, selecione o pool de IPs de front-end e clique em Adicionar
+            1. Digite o nome do novo pool de IPs de front-end (por exemplo **nw1-frontend**)
+            1. Defina a Atribuição ao Estático e digite o endereço IP (por exemplo **10.0.0.4**)
+            1. Clique em OK
+         1. Endereço IP 10.0.0.5 para NW2
+            * Repita as etapas acima para a porta NW2
+      1. Criar os pools de back-end
+         1. Conectado aos adaptadores de rede primários de todas as máquinas virtuais que devem ser parte do cluster NFS para NW1
+            1. Abra o balanceador de carga, selecione os pools de back-end e clique em Adicionar
+            1. Digite o nome do novo pool de back-end (por exemplo **nw1-backend**)
+            1. Selecionar rede virtual
+            1. Clique em Adicionar uma máquina virtual
+            1. Selecione as máquinas virtuais do cluster NFS e seus endereços IP.
+            1. Clique em Adicionar.
+         1. Conectado aos adaptadores de rede primários de todas as máquinas virtuais que devem ser parte do cluster NFS para NW2
+            * Repita as etapas acima para criar um pool de back-end para NW2
+      1. Crie as investigações de integridade
+         1. Porta 61000 para NW1
+            1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
+            1. Digite o nome da nova investigação de integridade (por exemplo, **nw1-hp**)
+            1. Escolha TCP como protocolo, porta 610**00**, mantenha o Intervalo como 5 e o Limite de não integridade como 2
+            1. Clique em OK
+         1. Porta 61001 para NW2
+            * Repita as etapas acima para criar uma investigação de integridade para NW2
+      1. Regras de balanceamento de carga
          1. Clique no balanceador de carga, escolha as regras de balanceamento de carga e clique em Adicionar
-         1. Insira o nome da nova regra de balanceador de carga (por exemplo  **nw1-lb-2049**)
-         1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade criados anteriormente (por exemplo **, nw1-frontend**)
-         1. Mantenha o protocolo **TCP**, insira a porta **2049**
+         1. Insira o nome da nova regra do balanceador de carga (por exemplo **, NW1-lb**)
+         1. Selecione o endereço IP de front-end, o pool de back-ends e a investigação de integridade que você criou anteriormente (por exemplo **NW1-frontend**. **NW1-backend** e **NW1-HP**)
+         1. Selecione **portas de alta disponibilidade**.
          1. Aumente o tempo limite de ociosidade para 30 minutos
          1. **Habilite o IP Flutuante**
          1. Clique em OK
-      1. UDP 2049 para NW1
-         * Repita as etapas acima para a porta 2049 e UDP para NW1
-      1. TCP 2049 para NW2
-         * Repita as etapas acima para a porta 2049 e TCP para NW2
-      1. UDP 2049 para NW2
-         * Repita as etapas acima para a porta 2049 e UDP para NW2
+         * Repita as etapas acima para criar a regra de balanceamento de carga para NW2
+   1. Como alternativa, se seu cenário exigir o Load Balancer básico, siga estas instruções:
+      1. Criar os endereços IP de front-end
+         1. Endereço IP 10.0.0.4 para NW1
+            1. Abra o balanceador de carga, selecione o pool de IPs de front-end e clique em Adicionar
+            1. Digite o nome do novo pool de IPs de front-end (por exemplo **nw1-frontend**)
+            1. Defina a Atribuição ao Estático e digite o endereço IP (por exemplo **10.0.0.4**)
+            1. Clique em OK
+         1. Endereço IP 10.0.0.5 para NW2
+            * Repita as etapas acima para a porta NW2
+      1. Criar os pools de back-end
+         1. Conectado aos adaptadores de rede primários de todas as máquinas virtuais que devem ser parte do cluster NFS para NW1
+            1. Abra o balanceador de carga, selecione os pools de back-end e clique em Adicionar
+            1. Digite o nome do novo pool de back-end (por exemplo **nw1-backend**)
+            1. Clique em Adicionar uma máquina virtual
+            1. Selecione o Conjunto de Disponibilidade criado anteriormente
+            1. Selecione as máquinas virtuais do cluster NFS
+            1. Clique em OK
+         1. Conectado aos adaptadores de rede primários de todas as máquinas virtuais que devem ser parte do cluster NFS para NW2
+            * Repita as etapas acima para criar um pool de back-end para NW2
+      1. Crie as investigações de integridade
+         1. Porta 61000 para NW1
+            1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
+            1. Digite o nome da nova investigação de integridade (por exemplo, **nw1-hp**)
+            1. Escolha TCP como protocolo, porta 610**00**, mantenha o Intervalo como 5 e o Limite de não integridade como 2
+            1. Clique em OK
+         1. Porta 61001 para NW2
+            * Repita as etapas acima para criar uma investigação de integridade para NW2
+      1. Regras de balanceamento de carga
+         1. TCP 2049 para NW1
+            1. Clique no balanceador de carga, escolha as regras de balanceamento de carga e clique em Adicionar
+            1. Insira o nome da nova regra de balanceador de carga (por exemplo  **nw1-lb-2049**)
+            1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade criados anteriormente (por exemplo **, nw1-frontend**)
+            1. Mantenha o protocolo **TCP**, insira a porta **2049**
+            1. Aumente o tempo limite de ociosidade para 30 minutos
+            1. **Habilite o IP Flutuante**
+            1. Clique em OK
+         1. UDP 2049 para NW1
+            * Repita as etapas acima para a porta 2049 e UDP para NW1
+         1. TCP 2049 para NW2
+            * Repita as etapas acima para a porta 2049 e TCP para NW2
+         1. UDP 2049 para NW2
+            * Repita as etapas acima para a porta 2049 e UDP para NW2
 
 > [!IMPORTANT]
-> Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. TCP _timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. tcp_timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Criar cluster do Pacemaker
 
@@ -539,11 +576,11 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>sudo crm configure property maintenance-mode=false
    </code></pre>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Instale o SAP ASCS e o banco de dados](high-availability-guide-suse.md)
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
 * [Implantação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
-* Para saber como estabelecer o plano de recuperação de desastre do SAP HANA no Azure (instâncias grandes) e de alta disponibilidade, veja [Alta disponibilidade e recuperação de desastre do SAP HANA (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md).
+* Para saber como estabelecer a alta disponibilidade e o plano de recuperação de desastres do SAP HANA no Azure (instâncias grandes), confira [Alta disponibilidade e recuperação de desastres do SAP HANA (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md).
 * Para saber como estabelecer alta disponibilidade e planejar a recuperação de desastre de SAP HANA em VMs do Azure, consulte [alta disponibilidade de SAP Hana em VMS (máquinas virtuais) do Azure][sap-hana-ha]

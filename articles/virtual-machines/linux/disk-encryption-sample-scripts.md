@@ -7,18 +7,18 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 088ca5c20b0681cdd36da1b8a187873399aa32c6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b034bad8661e93cbf5797c93739f1db3a64626f0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828456"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748897"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption scripts de exemplo 
 
 Este artigo fornece scripts de exemplo para a preparação de VHDs e outras tarefas criptografados previamente.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="sample-powershell-scripts-for-azure-disk-encryption"></a>Exemplos de scripts do PowerShell para Azure Disk Encryption 
 
@@ -42,15 +42,15 @@ Se você já estiver familiarizado com os pré-requisitos do Azure Disk Encrypti
 A tabela a seguir mostra quais parâmetros podem ser usados no script do PowerShell: 
 
 
-|Parâmetro|Descrição|Obrigatório?|
+|Parâmetro|DESCRIÇÃO|Obrigatório?|
 |------|------|------|
 |$resourceGroupName| Nome do grupo de recursos ao qual o KeyVault pertence.  Um grupo de recursos com esse nome será criado caso ele ainda não exista.| True|
 |$keyVaultName|Nome do KeyVault no qual as chaves de criptografia devem ser colocadas. Um cofre com esse nome será criado caso ele ainda não exista.| True|
 |$location|Local do KeyVault. Verifique se o KeyVault e as VMs a serem criptografadas estão no mesmo local. Obtenha uma lista de locais com `Get-AzLocation`.|True|
 |$subscriptionId|Identificador da assinatura do Azure a ser usada.  Você pode obter sua ID de assinatura com `Get-AzSubscription`.|True|
-|$aadAppName|Nome do aplicativo do Azure AD que será usado para gravar segredos no KeyVault. Será criado um novo aplicativo com esse nome caso ele não exista. Se esse aplicativo já existir, passe o parâmetro aadClientSecret para o script.|False|
-|$aadClientSecret|Segredo do cliente do aplicativo do Azure AD que já foi criado.|False|
-|$keyEncryptionKeyName|Nome da chave de criptografia da chave opcional no KeyVault. Uma chave com esse nome será criada caso ela ainda não exista.|False|
+|$aadAppName|Nome do aplicativo do Azure AD que será usado para gravar segredos no KeyVault. Será criado um novo aplicativo com esse nome caso ele não exista. Se esse aplicativo já existir, passe o parâmetro aadClientSecret para o script.|Falso|
+|$aadClientSecret|Segredo do cliente do aplicativo do Azure AD que já foi criado.|Falso|
+|$keyEncryptionKeyName|Nome da chave de criptografia da chave opcional no KeyVault. Uma chave com esse nome será criada caso ela ainda não exista.|Falso|
 
 
 ### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Criptografar ou descriptografar VMs sem um aplicativo do Azure AD
@@ -181,7 +181,7 @@ Configure a criptografia durante a instalação da distribuição, realizando as
 
    ![Instalação do Ubuntu 16.04: concluir o particionamento](./media/disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
-5. Quando você inicializar a VM e precisar fornecer uma frase secreta, use a frase secreta que forneceu na etapa 3.
+5. Quando você inicializar a VM e precisar fornecer uma frase secreta, use a senha que forneceu na etapa 3.
 
    ![Instalação do Ubuntu 16.04: fornecer a frase secreta na inicialização](./media/disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
@@ -333,7 +333,7 @@ Para configurar a criptografia durante a instalação da distribuição, execute
 
    ![Instalação do CentOS 7: fornecer a frase secreta](./media/disk-encryption/centos-encrypt-fig3.png)
 
-4. Quando você inicializar a VM e precisar fornecer uma frase secreta, use a frase secreta que forneceu na etapa 3.
+4. Quando você inicializar a VM e precisar fornecer uma frase secreta, use a senha que forneceu na etapa 3.
 
    ![Instalação do CentOS 7: inserir a frase secreta na inicialização](./media/disk-encryption/centos-encrypt-fig4.png)
 

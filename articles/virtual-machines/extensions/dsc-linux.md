@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: e2faf444aa411f0e60f1b5c7b1f811abc2f6b63a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1825f9f0f5d525c0129341d800ca5949136ae633
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176682"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750081"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão de DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -35,7 +35,7 @@ A extensão DSCForLinux é publicada e suportada pela Microsoft. A extensão ins
 - Instalar os módulos de DSC personalizados à VM do Linux (instalar ExtensionAction)
 - Remover os módulos de DSC personalizados à VM do Linux (Remover ExtensionAction)
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -60,11 +60,11 @@ Aqui estão todos os parâmetros de configuração pública com suporte:
 
 * `FileUri`: (opcional, cadeia de caracteres) o uri do MOF Meta/arquivo MOF personalizado/arquivo ZIP do arquivo de recurso.
 * `ResourceName`: (opcional, cadeia de caracteres) o nome do módulo de recurso personalizado
-* `ExtensionAction`: (opcional, cadeia de caracteres) Especifica o que faz uma extensão. Valores válidos: Registrar, Efetuar Push, Efetuar Pull, Instalar, Remover. Se não for especificado, ele é considerado como a ação de enviar por Push por padrão.
+* `ExtensionAction`: (opcional, cadeia de caracteres) Especifica o que faz uma extensão. os valores válidos: registrar, enviar por Push, Pull, instalar, remover. Se não for especificado, ele é considerado como a ação de enviar por Push por padrão.
 * `NodeConfigurationName`: (opcional, cadeia de caracteres) o nome de uma configuração de nó a ser aplicada.
 * `RefreshFrequencyMins`: (opcional, int) Especifica a frequência (em minutos) que DSC tenta obter a configuração do servidor de pull. 
        Se a configuração no servidor de pull for diferente da atual no nó de destino, ela é copiada para o repositório pendente e aplicada.
-* `ConfigurationMode`: (opcional, cadeia de caracteres) Especifica como DSC deve aplicar a configuração. Os valores válidos são: ApplyOnly, ApplyandMonitior e ApplyandAutoCorrect.
+* `ConfigurationMode`: (opcional, cadeia de caracteres) Especifica como DSC deve aplicar a configuração. Os valores válido são: ApplyOnly, ApplyandMonitior e ApplyandAutoCorrect.
 * `ConfigurationModeFrequencyMins`: (opcional, int) Especifica a frequência (em minutos) DSC garante que a configuração está no estado desejado.
 
 > [!NOTE]
@@ -421,7 +421,7 @@ A saída de execução da extensão é registrada no seguinte arquivo:
 ```
 
 Código de erro: 51 representa a distribuição sem suporte ou ação de extensão sem suporte.
-Em alguns casos, o Linux DSC extensão Falha ao instalar a OMI quando uma versão superior do OMI já existe na máquina. [resposta de erro: (000003)Downgrade não permitido]
+Em alguns casos, o Linux DSC extensão Falha ao instalar a OMI quando uma versão superior do OMI já existe na máquina. [resposta de erro: não permitido de Downgrade (000003)]
 
 
 
