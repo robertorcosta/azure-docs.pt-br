@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 5fb1050fed2ab7318ad5b4ecafec7a96a9324575
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: cf0332909e053a0875d41a00d15f196b193ba15e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792062"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466722"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Recursos de documentação para enriquecimento de IA na Pesquisa Cognitiva do Azure
 
@@ -22,8 +22,8 @@ O enriquecimento de IA é uma funcionalidade da indexação da Pesquisa Cognitiv
 Os artigos a seguir são a documentação completa sobre o enriquecimento de IA.
 
 ## <a name="getting-started"></a>Introdução
-+ [Introdução ao enriquecimento de IA na Pesquisa Cognitiva do Azure](cognitive-search-concept-intro.md)
-+ [Início Rápido: Experimentar o enriquecimento de IA no portal](cognitive-search-quickstart-blob.md)
++ [Introdução à IA na Pesquisa Cognitiva do Azure](cognitive-search-concept-intro.md)
++ [Início Rápido: Criar um conjunto de habilidades no portal do Azure](cognitive-search-quickstart-blob.md)
 + [Tutorial: Indexação enriquecida com IA](cognitive-search-tutorial-blob.md)
 + [Exemplo: Como criar uma habilidade personalizada para enriquecimento de IA](cognitive-search-create-custom-skill-example.md)
 
@@ -49,6 +49,7 @@ Os artigos a seguir são a documentação completa sobre o enriquecimento de IA.
   + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
   + [Microsoft.Skills.Util.ConditionalSkill](cognitive-search-skill-conditional.md)
+  + [Microsoft.Skills.Util.DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + Habilidades personalizadas

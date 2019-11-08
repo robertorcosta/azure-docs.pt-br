@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: ef874e5d773e87963b6de8371986ac2196fc38f3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a0917f2649f1b780429f78406900c599c5ac853e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901382"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472064"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Criar uma nova instância do serviço de Gerenciamento de API do Azure
 
@@ -27,25 +27,27 @@ Este guia de início rápido descreve as etapas para criar uma nova instância d
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-![nova instância](./media/get-started-create-service-instance/get-started-create-service-instance-created.png)
+![Instância de Gerenciamento de API](./media/get-started-create-service-instance/get-started-create-service-instance-created.png)
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Faça logon no Portal do Azure em https://portal.azure.com.
+Entre no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-new-service"></a>Criar um novo serviço
 
-![Nova instância de Gerenciamento de API do Azure](./media/get-started-create-service-instance/00-CreateResource-01.png)
-
-1. No [portal do Azure](https://portal.azure.com/), selecione **Criar um recurso** > **Enterprise Integration** > **Gerenciamento de API**.
-
-    Como alternativa, escolha **Novo**, digite `API management` na caixa de pesquisa e pressione Enter. Clique em **Criar**.
-
-2. Na janela **Serviço de gerenciamento de API**, insira as configurações.
-
-    ![nova instância](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
-
-    | Configuração                 | Valor sugerido                               | Descrição                                                                                                                                                                                                                                                                                                                         |
+1. No menu do portal do Azure, selecione **Criar um recurso**. Você também pode selecionar **Criar um recurso** na **Página Inicial** do Azure. 
+   
+   ![Selecione Criar um recurso](./media/get-started-create-service-instance/00-CreateResource-01.png)
+   
+1. Na tela **Novo**, selecione **Integração** e, em seguida, selecione **Gerenciamento de API**.
+   
+   ![Nova instância de Gerenciamento de API do Azure](./media/get-started-create-service-instance/00-CreateResource-02.png)
+   
+1. Na tela **Serviço de Gerenciamento de API**, insira as configurações.
+   
+   ![nova instância](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
+   
+   | Configuração                 | Valor sugerido                               | Descrição                                                                                                                                                                                                                                                                                                                         |
 |-------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Nome**                | Um nome exclusivo para o serviço de gerenciamento de API | O nome não poderá ser alterado posteriormente. O nome do serviço é usado para gerar um nome de domínio padrão na forma de *{name}.azure-api.net.* Se você quiser usar um nome de domínio personalizado, consulte [Configurar um domínio personalizado](configure-custom-domain.md). <br/> O nome do serviço é usado para referir-se ao serviço e ao recurso do Azure correspondente. |
 | **Assinatura**        | Sua assinatura                             | A assinatura sob a qual essa nova instância de serviço será criada. Você pode selecionar a assinatura entre as diferentes assinaturas do Azure às quais você tem acesso.                                                                                                                                                            |
@@ -60,24 +62,25 @@ Faça logon no Portal do Azure em https://portal.azure.com.
     > [!TIP]
     > Geralmente leva entre 20 e 30 minutos para criar um serviço de Gerenciamento de API. Selecionar **Fixar ao painel** torna a localização de um serviço recém-criado mais fácil.
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+[!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, você poderá remover o grupo de recursos e todos os recursos relacionados seguindo estas etapas:
 
-1. No portal do Azure, clique em **Todos os serviços**.
-2. Insira `resource groups` na caixa de pesquisa e clique no resultado.
+1. No portal do Azure, procure por **Grupos de recursos** e selecione essa opção. Você também pode selecionar **Grupos de recursos** na **Página Inicial**. 
 
-    ![Navegação de grupos de recursos](./media/get-started-create-service-instance/00-DeleteResource-01.png)
+   ![Navegação de grupos de recursos](./media/get-started-create-service-instance/00-DeleteResource-01.png)
 
-3. Localize seu grupo de recursos e clique nele.
-4. Clique em **Excluir grupo de recursos**.
+1. Na página **Grupos de recursos**, selecione seu grupo de recursos.
 
-    ![Navegação de grupos de recursos](./media/get-started-create-service-instance/00-DeleteResource-02.png)
+   ![Navegação de grupos de recursos](./media/get-started-create-service-instance/00-DeleteResource-02.png)
 
-5. Confirme a exclusão inserindo o nome do seu grupo de recursos.
-6. Clique em **Excluir**.
+1. Na página Grupo de recursos, selecione **Excluir grupo de recursos**. 
+   
+1. Digite o nome do seu grupo de recursos e depois selecione **Excluir**.
+
+   ![Excluir grupo de recursos](./media/get-started-create-service-instance/00-DeleteResource-03.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

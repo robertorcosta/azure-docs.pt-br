@@ -7,16 +7,16 @@ ms.custom: include file
 ms.topic: include
 author: sgilley
 ms.author: sgilley
-ms.date: 10/16/2019
-ms.openlocfilehash: 0071b0df2c2e173eced1722372f88b1de2708afa
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 5a66212122745d0f4426e48e9487e9d674cec53f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692239"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489919"
 ---
 >[!IMPORTANT]
->Os recursos que você criou podem ser usados como pré-requisitos em outros tutoriais e artigos de instruções do Serviço do Azure Machine Learning.
+>Você pode usar os recursos que criou como pré-requisitos em outros tutoriais e artigos de instruções do Serviço do Azure Machine Learning.
 
 ### <a name="delete-everything"></a>Excluir tudo
 
@@ -32,7 +32,7 @@ Se você não pretende usar os recursos criados, exclua todo o grupo de recursos
 
 1. Selecione **Excluir grupo de recursos**.
 
-A exclusão de um grupo de recursos também exclui todos os recursos criados na interface visual.  
+A exclusão de um grupo de recursos também exclui todos os recursos criados no designer.  
 
 ### <a name="delete-only-the-compute-target"></a>Excluir apenas o destino de computação
 
@@ -48,6 +48,12 @@ O destino de computação que você criou aqui é *dimensionado automaticamente*
 
 ### <a name="delete-individual-assets"></a>Excluir recursos individuais
 
-Na interface visual em que você criou seu experimento, exclua ativos individuais selecionando-os e, em seguida, selecionando o botão **Excluir**. Os conjuntos de dados podem ter o registro cancelado do seu workspace. Para isso, selecione cada conjunto de dados e, em seguida, selecione **Cancelar registro**.
+No designer em que você criou seu experimento, exclua ativos individuais selecionando-os e, em seguida, selecionando o botão **Excluir**.
 
 ![Excluir ativos](./media/aml-ui-cleanup/delete-asset.png)
+
+Os conjuntos de dados podem ter o registro cancelado do seu workspace. Para isso, selecione cada conjunto de dados e, em seguida, selecione **Cancelar registro**.
+
+![Cancelar registro do conjunto de registros](./media/aml-ui-cleanup/unregister-dataset.png)
+
+

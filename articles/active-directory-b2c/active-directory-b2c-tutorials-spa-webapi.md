@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9ac95896e67338437325e8290a96b8e42b2fa3a7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 30e7059605ef86e6afd86251db0e416c9143a9ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374240"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475113"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Tutorial: Permitir acesso a uma API Web ASP.NET Core de um aplicativo de página única usando o Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Os escopos fornecem uma maneira de controlar o acesso a recursos protegidos. Esc
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Registre o **VALOR DO ESCOPO COMPLETO** do escopo `demo.read` a ser usado em uma etapa posterior ao configurar o aplicativo de página única. O valor de escopo completo é semelhante a `https://yourtenant.onmicrosoft.com/api/demo.read`.
+Registre o valor em **ESCOPOS** do escopo `demo.read` a ser usado em uma etapa posterior ao configurar o aplicativo de página única. O valor de escopo completo é semelhante a `https://contosob2c.onmicrosoft.com/api/demo.read`.
 
 ## <a name="grant-permissions"></a>Conceder permissões
 
@@ -133,8 +133,8 @@ Para alterar as configurações no SPA:
 
 1. Abra o arquivo *index.html* no projeto [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] que você baixou ou clonou no tutorial anterior.
 1. Configure a amostra com o URI para o escopo *demo.read* criado anteriormente e a URL da API Web.
-    1. Na definição `appConfig`, substitua o valor `b2cScopes` pelo URI completo do escopo (o **VALOR DO ESCOPO COMPLETO** registrado anteriormente).
-    1. Altere o valor `webApi` para o valor `applicationURL` especificado na seção anterior.
+    1. Na definição `appConfig`, substitua o valor `b2cScopes` pelo URI completo do escopo (o valor do **ESCOPO** que você registrou anteriormente).
+    1. Altere o valor de `webApi` para o URI de redirecionamento que você adicionou quando registrou o aplicativo de API Web em uma etapa anterior.
 
     A definição `appConfig` deve ser semelhante ao bloco de código (com o nome do locatário no lugar de `<your-tenant-name>`) a seguir:
 

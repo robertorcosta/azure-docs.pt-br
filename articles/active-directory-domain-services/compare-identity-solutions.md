@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: e3a8a537ae8c971119cfd08fbf80dc169df1d384
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 04a1f19ddf894467a9129e8a16c951298a6af529
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619747"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474720"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Comparar o Active Directory Domain Services autogerenciado, o Azure Active Directory e o Azure Active Directory Domain Services gerenciado
 
-Para fornecer acesso a uma identidade central a aplicativos, serviços ou dispositivos, há três maneiras comuns no Azure de usar serviços baseados no Active Directory. Essa opção nas soluções de identidade proporciona a flexibilidade de usar o diretório mais apropriado para as necessidades da organização. Por exemplo, se você gerenciar principalmente usuários somente de nuvem que executam dispositivos móveis, talvez não faça sentido compilar e executar sua própria solução de identidade de Active Directory Domain Services. Em vez disso, você poderia usar apenas o Azure Active Directory.
+Para fornecer acesso a uma identidade central a aplicativos, serviços ou dispositivos, há três maneiras comuns no Azure de usar serviços baseados no Active Directory. Essa opção nas soluções de identidade proporciona a flexibilidade de usar o diretório mais apropriado para as necessidades da organização. Por exemplo, se você gerenciar principalmente usuários somente de nuvem que executam dispositivos móveis, talvez não faça sentido compilar e executar sua própria solução de identidade de AD DS (Active Directory Domain Services). Em vez disso, você poderia usar apenas o Azure Active Directory.
 
 Embora as três soluções de identidade baseadas em Active Directory compartilhem um nome e uma tecnologia comuns, elas foram projetadas para fornecer serviços que atendem a diferentes demandas dos clientes. Em alto nível, essas soluções de identidade e conjuntos de recursos são:
 
@@ -36,12 +36,16 @@ Este artigo de visão geral compara e contrasta como essas soluções de identid
 
 Se você tiver aplicativos e serviços que precisam de acesso a mecanismos de autenticação tradicionais, tais como Kerberos ou NTLM, haverá duas maneiras de fornecer o Active Directory Domain Services na nuvem:
 
-* Um domínio *gerenciado* que você cria usando o Azure Active Directory Domain Services. A Microsoft cria e gerencia os recursos necessários.
-* Um *domínio autogerenciado* que você cria e configura usando recursos tradicionais, tais como VMs (máquinas virtuais), SO convidado do Windows Server e Active Directory Domain Services. Em seguida, você continua administrando esses recursos.
+* Um domínio *gerenciado* que você cria usando o Azure AD DS (Azure Active Directory Domain Services). A Microsoft cria e gerencia os recursos necessários.
+* Um *domínio autogerenciado* que você cria e configura usando recursos tradicionais, tais como VMs (máquinas virtuais), SO convidado do Windows Server e AD DS (Active Directory Domain Services). Em seguida, você continua administrando esses recursos.
 
-Com o Azure AD DS, os principais componentes de serviço são implantados e mantidos para você pela Microsoft como uma experiência de domínio *gerenciado*. Você não implanta, não gerencia, não aplica patches e nem protege a infraestrutura de AD DS de componentes como as VMs, o sistema operacional Windows Server ou DCs (controladores de domínio). O Azure AD DS fornece um subconjunto menor de recursos para o ambiente de AD DS tradicional autogerenciado, que reduz parte da complexidade do design e do gerenciamento. Por exemplo, não há florestas, domínios, sites e links de replicação do AD para criar e manter. Para aplicativos e serviços que são executados na nuvem e precisam de acesso a mecanismos de autenticação tradicionais, como Kerberos ou NTLM, o Azure AD DS fornece uma experiência de domínio gerenciado com o mínimo de sobrecarga administrativa.
+Com o Azure AD DS, os principais componentes de serviço são implantados e mantidos para você pela Microsoft como uma experiência de domínio *gerenciado*. Você não implanta, não gerencia, não aplica patches e nem protege a infraestrutura de AD DS de componentes como as VMs, o sistema operacional Windows Server ou DCs (controladores de domínio).
 
-Ao implantar e executar um ambiente de AD DS autogerenciado, você precisa manter toda a infraestrutura e os componentes de diretório associados. Há uma sobrecarga de manutenção adicional com um ambiente de AD DS autogerenciado, mas com ele você pode executar tarefas adicionais, tais como estender o esquema e criar relações de confiança de floresta. Os modelos de implantação comuns para um ambiente do AD DS autogerenciado que fornece identidade para aplicativos e serviços na nuvem incluem o seguinte:
+O Azure AD DS fornece um subconjunto menor de recursos para o ambiente de AD DS tradicional autogerenciado, que reduz parte da complexidade do design e do gerenciamento. Por exemplo, não há florestas, domínios, sites e links de replicação do AD para criar e manter. Para aplicativos e serviços que são executados na nuvem e precisam de acesso a mecanismos de autenticação tradicionais, como Kerberos ou NTLM, o Azure AD DS fornece uma experiência de domínio gerenciado com o mínimo de sobrecarga administrativa.
+
+Ao implantar e executar um ambiente de AD DS autogerenciado, você precisa manter toda a infraestrutura e os componentes de diretório associados. Há uma sobrecarga de manutenção adicional com um ambiente de AD DS autogerenciado, mas com ele você pode executar tarefas adicionais, tais como estender o esquema e criar relações de confiança de floresta.
+
+Os modelos de implantação comuns para um ambiente do AD DS autogerenciado que fornece identidade para aplicativos e serviços na nuvem incluem o seguinte:
 
 * **AD DS autônomo somente em nuvem** – as VMs do Azure são configuradas como controladores de domínio e um ambiente separado do AD DS somente na nuvem é criado. Esse ambiente do AD DS não se integra a um ambiente do AD DS local. Um conjunto diferente de credenciais é usado para entrar em VMs na nuvem e administrá-las.
 * **Implantação de floresta de recursos** – as VMs do Azure são configuradas como controladores de domínio e um domínio do AD DS como parte de uma floresta existente é criado. Uma relação de confiança é então configurada para um ambiente do AD DS local. Outras VMs do Azure podem ingressar em domínio nessa floresta de recursos na nuvem. A autenticação do usuário acontece em uma conexão de VPN/ExpressRoute para o ambiente do AD DS local.
@@ -70,9 +74,11 @@ A tabela a seguir descreve alguns dos recursos que podem ser necessários para s
 
 ## <a name="azure-ad-ds-and-azure-ad"></a>Azure AD DS e Azure AD
 
-O Azure AD permite que você gerencie a identidade dos dispositivos usados pela organização e controle o acesso aos recursos corporativos desses dispositivos. Os usuários podem registrar os dispositivos pessoais deles (um modelo BYO – traga seu próprio) com o Azure AD, que fornece uma identidade ao dispositivo. O Azure AD poderá então autenticar o dispositivo quando um usuário fizer logon no Azure AD e usar o dispositivo para acessar recursos protegidos. O dispositivo pode ser gerenciado usando o software de MDM (Gerenciamento de Dispositivo Móvel), como o Microsoft Intune. Essa capacidade de gerenciamento permite que você restrinja o acesso a recursos confidenciais somente a dispositivos gerenciados e em conformidade com a política.
+O Azure AD permite que você gerencie a identidade dos dispositivos usados pela organização e controle o acesso aos recursos corporativos desses dispositivos. Os usuários também podem registrar os dispositivos pessoais deles (um modelo BYO – traga seu próprio) com o Azure AD, que fornece uma identidade ao dispositivo. O Azure AD autentica então o dispositivo quando um usuário fizer logon no Azure AD e usar o dispositivo para acessar recursos protegidos. O dispositivo pode ser gerenciado usando o software de MDM (Gerenciamento de Dispositivo Móvel), como o Microsoft Intune. Essa capacidade de gerenciamento permite que você restrinja o acesso a recursos confidenciais somente a dispositivos gerenciados e em conformidade com a política.
 
-Computadores e laptops tradicionais também podem ingressar no Azure AD. Esse mecanismo oferece os mesmos benefícios de registrar um dispositivo pessoal com o Azure AD, tais como permitir que os usuários entrem no dispositivo usando as credenciais corporativas deles. Os dispositivos adicionados ao Azure AD oferecem os seguintes benefícios:
+Computadores e laptops tradicionais também podem ingressar no Azure AD. Esse mecanismo oferece os mesmos benefícios de registrar um dispositivo pessoal com o Azure AD, tais como permitir que os usuários entrem no dispositivo usando as credenciais corporativas deles.
+
+Os dispositivos adicionados ao Azure AD oferecem os seguintes benefícios:
 
 * SSO (logon único) para aplicativos protegidos pelo Azure AD.
 * Roaming em conformidade com a política corporativa das configurações de usuário entre dispositivos.
@@ -88,7 +94,9 @@ Os dispositivos podem ser ingressados no Azure AD com ou sem uma implantação h
 | Dispositivo pertencente à organização não adicionado ao AD DS local | Windows 10                       | Adicionado ao Azure AD        |
 | Dispositivo pertencente à organização adicionado a um AD DS local  | Windows 10                       | Adicionado ao Azure AD híbrido |
 
-Em um dispositivo registrado ou ingressado no Azure AD, a autenticação de usuário ocorre por meio do uso de protocolos modernos baseados em OAuth/OpenID Connect. Esses protocolos são projetados para funcionarem pela Internet e são ótimos para cenários móveis, nos quais os usuários acessam recursos corporativos de qualquer lugar. Com os dispositivos ingressados no Azure AD DS, os aplicativos podem usar os protocolos Kerberos e NTLM para autenticação e, portanto, podem dar suporte a aplicativos herdados migrados para execução em VMs do Azure como parte de uma estratégia de lift-and-shift. A tabela a seguir mostra as diferenças em como os dispositivos são representados e podem se autenticar no diretório:
+Em um dispositivo registrado ou ingressado no Azure AD, a autenticação de usuário ocorre por meio do uso de protocolos modernos baseados em OAuth/OpenID Connect. Esses protocolos são projetados para funcionarem pela Internet e são ótimos para cenários móveis, nos quais os usuários acessam recursos corporativos de qualquer lugar.
+
+Com os dispositivos ingressados no Azure AD DS, os aplicativos podem usar os protocolos Kerberos e NTLM para autenticação e, portanto, podem dar suporte a aplicativos herdados migrados para execução em VMs do Azure como parte de uma estratégia de lift-and-shift. A tabela a seguir mostra as diferenças em como os dispositivos são representados e podem se autenticar no diretório:
 
 | **Aspecto**                      | **Ingressados no Azure AD**                                 | **Ingressados no Azure AD DS**                                                    |
 |:--------------------------------| --------------------------------------------------- | ------------------------------------------------------------------------- |
@@ -96,7 +104,7 @@ Em um dispositivo registrado ou ingressado no Azure AD, a autenticação de usu�
 | Representação no diretório | Objetos de dispositivo no diretório do Azure AD            | Objetos de computador no domínio gerenciado do Azure AD DS                        |
 | Authentication                  | Protocolos baseados em OAuth/OpenID Connect              | Protocolos NTLM e Kerberos                                               |
 | Gerenciamento                      | Software de MDM (Gerenciamento de Dispositivo Móvel) como o Intune | Política de Grupo                                                              |
-| Rede                      | Funciona pela Internet                             | Exige que os computadores estejam na mesma rede virtual que o domínio gerenciado |
+| Rede                      | Funciona pela Internet                             | Deve estar conectado à rede virtual em que o domínio gerenciado está implantado ou estar emparelhado com ela |
 | Excelente para...                    | Dispositivos da área de trabalho ou móveis de usuários finais                  | VMs de servidor implantadas no Azure                                              |
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 83446d30de17973352e836d6107ad545b2da63e3
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: a480e459fdbbf135b00ee46d1513eddb0f36e09e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550323"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479608"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Início Rápido: Criar e criptografar uma máquina virtual com o portal do Azure
 
@@ -55,8 +55,8 @@ Entre no [Portal do Azure](https://portal.azure.com).
 
 1. Na página Novo, em Popular, selecione **Ubuntu Server 18.04 LTS**.
 1. Na guia **Básico**, em **Detalhes do projeto**, verifique se a assinatura correta está selecionada.
-1. Para **Grupo de recursos**, selecione o grupo de recursos que você criou ao criar o cofre de chaves acima (por exemplo, **myResourceGroup**)
-1. Para **Nome da máquina virtual**, insira *MyVM* e escolha 
+1. Para **Grupo de recursos**, selecione o grupo de recursos que você criou ao criar o cofre de chaves acima (por exemplo, **myResourceGroup**).
+1. Para **Nome da máquina virtual**, insira *MyVM*.
 1. Para **Região**, selecione a mesma região que você usou ao criar o cofre de chaves acima (por exemplo, **Leste dos EUA**).
 1. Verifique se o **Tamanho** é *Standard D2s v3*.
 1. Em **Conta do administrador**, selecione **Senha**. Digite um nome de usuário e uma senha.

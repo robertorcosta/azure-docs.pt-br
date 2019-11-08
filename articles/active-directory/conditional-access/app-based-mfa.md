@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36cb3b1555a339249528e290e376454dd78f1e53
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 7a23f8fc10e0e5a19be1f93cc6d6e5e8e301f86d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509066"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474034"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Início Rápido: Exigir MFA para aplicativos específicos com acesso condicional ao Azure Active Directory
 
@@ -65,8 +65,8 @@ Em sua política, defina:
 
 **Para configurar sua política de Acesso Condicional:**
 
-1. Faça login no [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou administrador de Acesso Condicional.
-1. No portal do Azure, na barra de navegação à esquerda, clique em **Azure Active Directory**.
+1. Faça login no [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Na portal do Azure, procure e selecione **Azure Active Directory**.
 
    ![Azure Active Directory](./media/app-based-mfa/02.png)
 
@@ -144,7 +144,7 @@ Ao clicar em **What If**, é criado um relatório de simulação que mostra:
 
 **Para avaliar sua política de Acesso Condicional:**
 
-1. Na página [Acesso condicional – Políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies), no menu superior, clique em **What If**.  
+1. Na página [Acesso Condicional – Políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies), no menu superior, clique em **What If**.  
 
    ![What If](./media/app-based-mfa/14.png)
 

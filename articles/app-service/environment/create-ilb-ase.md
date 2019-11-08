@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 08a18dc115990ad7d44a8b20412e07995c9af390
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 07b47374484cf954b1fc4279c93dddcc6cec7e61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069501"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470558"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Criar e usar um Ambiente do Serviço de Aplicativo de Balanceador de Carga Interno 
 
@@ -31,7 +31,7 @@ Este artigo mostra como criar um ASE ILB. Para obter uma visão geral do ASE, co
 
 ## <a name="overview"></a>Visão geral 
 
-Um ASE pode ser implantado com um ponto de extremidade acessível pela Internet ou com um endereço IP em sua VNet. Para definir o endereço IP como um endereço de VNet, o ASE deve ser implantado com um ILB. Quando você implanta o ASE com um ILB, você deve fornecer o nome do seu ASE. O nome do ASE é usado no sufixo de domínio para os aplicativos em seu ASE.  O sufixo de domínio do seu ILB ASE é &lt;nome do ASE&gt;.appservicewebsites.net. Aplicativos feitos em um ILB ASE não são colocados no DNS público. 
+Um ASE pode ser implantado com um ponto de extremidade acessível pela Internet ou com um endereço IP em sua VNet. Para definir o endereço IP como um endereço de VNet, o ASE deve ser implantado com um ILB. Quando você implanta o ASE com um ILB, você deve fornecer o nome do seu ASE. O nome do ASE é usado no sufixo de domínio para os aplicativos em seu ASE.  O sufixo de domínio do seu ILB ASE é &lt;ASE name&gt;.appserviceenvironment.net. Aplicativos feitos em um ILB ASE não são colocados no DNS público. 
 
 Versões anteriores do ILB ASE exigiam que você fornecesse um sufixo de domínio e um certificado padrão para conexões HTTPS. O sufixo de domínio não é mais coletado na criação do ILB ASE, e um certificado padrão também não é mais é coletado. Agora, quando você cria um ILB ASE, o certificado padrão é fornecido pela Microsoft e é de confiança do navegador. Ainda é possível definir nomes de domínio personalizados em aplicativos em seu ASE e definir certificados nesses nomes de domínio personalizados. 
 
@@ -88,7 +88,7 @@ Você pode criar um aplicativo em uma ASE ILB da mesma maneira que você cria um
 
 1. Selecione ou crie um grupo de recursos.
 
-1. Selecione a Publicação, Pilha de Tempo de Execução e Sistema Operacional.
+1. Selecione a Publicação, Pilha de Runtime e Sistema Operacional.
 
 1. Selecione um local que seja um ILB ASE existente.  Você também pode criar um novo ASE durante a criação do aplicativo, selecionando um plano do Serviço de Aplicativo Isolado. Se você quiser criar um novo ASE, selecione a região na qual você deseja criar o ASE.
 
@@ -107,9 +107,10 @@ Ao usar um VIP Externo, o DNS é gerenciado pelo Azure. Qualquer aplicativo cria
 Para configurar seu DNS:
 
 - crie uma zona para *&lt;nome do ASE&gt;.appserviceenvironment.net*
-- crie um registro A nessa zona que aponte * para o endereço IP do ILB 
+- crie um registro A nessa zona que aponte * para o endereço IP do ILB
+- crie um registro A nessa zona que aponte @ para o endereço IP do ILB
 - crie uma zona em *&lt;nome do ASE&gt;.appserviceenvironment.net* chamada scm
-- crie um registro A na zona scm que aponte para o endereço IP do ILB
+- crie um registro A na zona scm que aponte * para o endereço IP do ILB
 
 ## <a name="publish-with-an-ilb-ase"></a>Publicação com um ASE ILB
 
@@ -156,7 +157,7 @@ ILB ASEs criados antes de maio de 2019 exigiam a definição do sufixo de domín
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: cf5bf3dfd7b6a408179bb267156433168e562a8e
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 7f42d5914a2ec7f479a8b3d1df1b8672f318036b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326843"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464631"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Reconhecer as intenções da fala usando o SDK de Fala para C#
 
@@ -45,11 +45,12 @@ Você precisará ter os itens a seguir antes de começar este tutorial:
 
 O LUIS integra-se aos Serviços de Fala para reconhecer intenções de fala. Você não precisa de uma assinatura dos Serviços de Fala, apenas do LUIS.
 
-O LUIS usa dois tipos de chaves:
+O LUIS usa três tipos de chaves:
 
 |Tipo de chave|Finalidade|
 |--------|-------|
 |Criação|Permite criar e modificar aplicativos LUIS programaticamente|
+|Inicial|Permite testar o aplicativo LUIS usando somente texto|
 |Ponto de extremidade |Autoriza o acesso a um aplicativo LUIS específico|
 
 Para este tutorial, você precisará do tipo de chave de ponto de extremidade. O tutorial usa o aplicativo LUIS de Automação Residencial como exemplo, que pode ser criado seguindo o início rápido [Usar o aplicativo de Automação residencial predefinido](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Se já tiver criado um aplicativo LUIS próprio, você poderá usá-lo.
@@ -195,4 +196,4 @@ Procure o código neste artigo na pasta **samples/csharp/sharedcontent/console**
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Como reconhecer a fala](quickstart-csharp-dotnetcore-windows.md)
+> [Como reconhecer a fala](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)

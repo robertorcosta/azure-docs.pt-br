@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a863c8fe81a08f00385cb267bf360994918fe82
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9adf083f8e4c8c269b895dac87b4e4613ec1b023
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212111"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474397"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Início Rápido: Redefinição de senha de autoatendimento
 
@@ -33,7 +33,7 @@ Neste início rápido, você passa pela configuração da redefinição de senha
 
 [Exibir este processo como um vídeo no YouTube](https://youtu.be/Pa0eyqjEjvQ)
 
-1. A partir do seu locatário existente do Azure AD, no **Portal do Azure** em **Azure Active Directory** selecione **Redefinição de senha**.
+1. Do seu locatário existente do Azure AD, do menu do portal do Azure ou da **Página Inicial**, selecione o **Azure Active Directory**. Em seguida, selecione **Redefinição de senha**.
 
 2. Na página **Propriedades**, na opção **Redefinição da Senha de Autoatendimento Habilitada**, escolha **Selecionado**.
     * Em **Selecionar grupo**, escolha o grupo piloto criado como parte da seção de pré-requisitos deste artigo.

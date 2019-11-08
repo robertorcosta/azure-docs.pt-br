@@ -9,20 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 87e4fe3671f419383cb342fdb7dca55a8d2eb45d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: a917176cb06e833745996326520341c1f819c5bf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376260"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465408"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extrair nomes com uma entidade simples e uma lista de frases
 
 Neste tutorial, extraia dados de aprendizado de máquina de um nome de cargo de um enunciado usando a entidade **Simples**. Para aumentar a precisão da extração, adicione uma lista de frases de termos específicos para a entidade simples.
 
 A entidade simples detecta um conceito de dados único contido em palavras ou frases.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **Neste tutorial, você aprenderá a:**
 
@@ -93,7 +95,7 @@ Após as entidades serem marcadas nos enunciados de exemplo, é importante adici
 
 1. No enunciado, `I want to apply for the new accounting job`, selecione `accounting`, digite `Job` no campo superior do menu pop-up, depois selecione **Criar nova entidade** no menu pop-up. 
 
-    [![Captura de tela do LUIS com a intenção “ApplyForJob” com as etapas para criar a entidade realçadas](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Captura de tela do LUIS com a intenção “ApplyForJob” com as etapas para criar a entidade realçadas")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![Captura de tela do LUIS com intenção de 'ApplyForJob' com as etapas para criar a entidade realçadas](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Captura de tela do LUIS com intenção de 'ApplyForJob' com as etapas para criar a entidade realçadas")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 1. Na janela pop-up, verifique o nome e o tipo da entidade e selecione **Concluído**.
 
@@ -101,7 +103,7 @@ Após as entidades serem marcadas nos enunciados de exemplo, é importante adici
 
 1. Nos enunciados restantes, marque as palavras relacionadas ao trabalho com a entidade **Trabalho** selecionando a palavra ou frase e, em seguida, selecionando **Trabalho** no menu pop-up. 
 
-    [![Captura de tela da entidade de trabalho de rotulagem do LUIS realçada](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Captura de tela da entidade de trabalho de rotulagem do LUIS realçada")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
+    [![Captura de tela do LUIS rotulando a entidade trabalho realçada](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Captura de tela do LUIS rotulando a entidade trabalho realçada")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
 
 ## <a name="add-more-example-utterances-and-mark-entity"></a>Adicionar mais enunciados de exemplo e marcar a entidade
@@ -231,7 +233,7 @@ Abra o [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-service
 
 1. Nomeie a nova lista de frase como `JobNames` e copie a lista de jobs-phrase-list.csv para a caixa de texto **Valores**.
 
-    [![Captura de tela da caixa de diálogo pop-up Criar nova lista de frases](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Captura de tela da caixa de diálogo pop-up Criar nova lista de frases")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+    [![Captura de tela da caixa de diálogo pop-up Criar nova lista de frase](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Captura de tela da caixa de diálogo pop-up Criar nova lista de frase")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     Se você quiser adicionar mais palavras à lista de frases, selecione **Recommand** e, em seguida, examine os novos **Valores Relacionados**, adicionando os que forem relevantes. 
 
@@ -239,7 +241,7 @@ Abra o [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-service
 
 1. Selecione **Concluído** para ativar a lista de frases.
 
-    [![Captura de tela da caixa de diálogo pop-up Criar nova lista de frases com palavras na caixa de valores da lista de frases](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Captura de tela da caixa de diálogo pop-up Criar nova lista de frases com palavras na caixa de valores da lista de frases")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+    [![Captura de tela da caixa de diálogo pop-up Criar nova lista de frases, contendo palavras na caixa Valores da lista de frases](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Captura de tela da caixa de diálogo pop-up Criar nova lista de frases, contendo palavras na caixa Valores da lista de frases")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
 1. Treine e publique o aplicativo novamente para usar a lista de frases.
 

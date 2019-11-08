@@ -5,19 +5,19 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/01/2019
+ms.date: 11/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 3dc893ea10e47e867110f674a458498a6bd24a4f
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 022780f2b37c8bed49c81774d443b69bae41e5e7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560709"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476759"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Início Rápido: Criar uma sala de chat usando o Serviço do SignalR
 
 
-O Serviço Azure SignalR é um serviço do Azure que ajuda os desenvolvedores a criarem facilmente aplicativos Web com recursos em tempo real. Esse serviço tem base no [SignalR para ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
+O Serviço Azure SignalR é um serviço do Azure que ajuda os desenvolvedores a criarem facilmente aplicativos Web com recursos em tempo real. Esse serviço é baseado em [SignalR para ASP.NET Core 2.1](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-2.1), mas também dá suporte a [SignalR para ASP.NET Core 3.0](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.0).
 
 Este artigo mostra como usar o Serviço Azure SignalR. Neste início rápido, você criará um aplicativo de chat usando um aplicativo web MVC do ASP.NET Core. Este aplicativo faz uma conexão com o recurso do Serviço Azure SignalR a fim de habilitar atualizações de conteúdo em tempo real. Você hospedará o aplicativo Web localmente e se conectará com vários clientes do navegador. Cada cliente poderá enviar por push as atualizações de conteúdo para todos os outros clientes. 
 
@@ -95,7 +95,7 @@ Nesta seção, você adicionará a [ferramenta Gerenciador de Segredos](https://
     Esse segredo é acessado com a API de Configuração. Um sinal de dois pontos (:) funciona no nome da configuração com a API de Configuração em todas as plataformas com suporte. Consulte [Configuração por ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
 
 
-4. Abra *Startup.cs* e atualize o método `ConfigureServices` para usar o Serviço Azure SignalR chamando o método `services.AddSignalR().AddAzureSignalR()`:
+4. Abra *Startup.cs* e atualize o método `ConfigureServices` para usar o Serviço do Azure SignalR chamando o método `services.AddSignalR().AddAzureSignalR()`, somente para o ASP.NET Core 2:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -104,10 +104,11 @@ Nesta seção, você adicionará a [ferramenta Gerenciador de Segredos](https://
         services.AddSignalR().AddAzureSignalR();
     }
     ```
+    Para ASP.NET Core 3+, não há nenhuma alteração necessária para o método `ConfigureServices`.
 
     Ao não passar um parâmetro para `AddAzureSignalR()`, esse código usa a chave de configuração padrão para a cadeia de conexão do recurso Serviço do SignalR. A chave de configuração padrão é *Azure:SignalR:ConnectionString*.
 
-5. Também no *Startup.cs*, atualize o método `Configure` substituindo a chamada para `app.UseStaticFiles()` pelo código a seguir e salve o arquivo.
+5. Também no *Startup.cs*, atualize o método `Configure` substituindo a chamada para `app.UseStaticFiles()` pelo código a seguir e salve o arquivo, somente para o ASP.NET Core 2.
 
     ```csharp
     app.UseFileServer();
@@ -116,6 +117,18 @@ Nesta seção, você adicionará a [ferramenta Gerenciador de Segredos](https://
         routes.MapHub<Chat>("/chat");
     });
     ```            
+    Para o ASP.NET Core 3+, substitua o código acima por:
+
+    ```csharp
+    app.UseFileServer();
+    app.UseRouting();
+    app.UseAuthorization();
+
+    app.UseEndpoints(routes =>
+    {
+        routes.MapHub<Chat>("/chat");
+    });
+    ```
 
 ### <a name="add-a-hub-class"></a>Adicionar uma classe de hub
 
@@ -181,9 +194,9 @@ Se a conexão for bem-sucedida, essa conexão será passada para `bindConnection
 
 `HubConnection.start()` inicia a comunicação com o hub. Em seguida, o `onConnected()` adiciona os manipuladores de evento do botão. Esses manipuladores usam a conexão para permitir que esse cliente envie por push as atualizações de conteúdo a todos os clientes conectados.
 
-## <a name="add-a-development-runtime-profile"></a>Adicionar um perfil de tempo de execução de desenvolvimento
+## <a name="add-a-development-runtime-profile"></a>Adicionar um perfil de runtime de desenvolvimento
 
-Nesta seção, você adicionará um ambiente de tempo de execução de desenvolvimento para o ASP.NET Core. Para saber mais, confira [Trabalhar com vários ambientes no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments).
+Nesta seção, você adicionará um ambiente de runtime de desenvolvimento para o ASP.NET Core. Para saber mais, confira [Trabalhar com vários ambientes no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments).
 
 1. Crie uma pasta chamada *Propriedades* em seu projeto.
 
@@ -218,7 +231,7 @@ Nesta seção, você adicionará um ambiente de tempo de execução de desenvolv
 
         dotnet run
 
-    O aplicativo será hospedado localmente na porta 5000, conforme configurado em nosso perfil de tempo de execução de desenvolvimento:
+    O aplicativo será hospedado localmente na porta 5000, conforme configurado em nosso perfil de runtime de desenvolvimento:
 
         E:\Testing\chattest>dotnet run
         Hosting environment: Development

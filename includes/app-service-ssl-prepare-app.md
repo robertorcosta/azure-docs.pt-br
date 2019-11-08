@@ -8,26 +8,30 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: ecdd419331c88e712644851f9213861f882cf0f6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3a44dc35c27cd084e6589482f180b13b258f0b24
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67172082"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470955"
 ---
 ## <a name="prepare-your-web-app"></a>Preparar o aplicativo Web
 
 Para associar um certificado SSL personalizado (um certificado de terceiros ou certificado de Serviço de Aplicativo) ao aplicativo Web, o [Plano do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/) deve estar na camada **Básico**, **Standard**, **Premium** ou **Isolado**. Nesta etapa, você precisa ter certeza de que seu aplicativo Web está no tipo de preço com suporte.
 
-### <a name="log-in-to-azure"></a>Fazer logon no Azure
+### <a name="sign-in-to-azure"></a>Entrar no Azure
 
 Abra o [Portal do Azure](https://portal.azure.com).
 
 ### <a name="navigate-to-your-web-app"></a>Navegue até seu aplicativo Web
 
-No menu à esquerda, clique em **Serviços de Aplicativos** e, em seguida, clique no nome do aplicativo Web.
+Pesquise e selecione **Serviços de Aplicativos**.
 
-![Selecionar aplicativo Web](./media/app-service-ssl-prepare-app/select-app.png)
+![Selecionar Serviços de Aplicativos](./media/app-service-ssl-prepare-app/app-services.png)
+
+Na página **Serviços de Aplicativos**, selecione o nome do seu aplicativo do Azure.
+
+![Navegação no Portal para o aplicativo do Azure](./media/app-service-ssl-prepare-app/select-app.png)
 
 Você aterrissou na página de gerenciamento do aplicativo Web.  
 
