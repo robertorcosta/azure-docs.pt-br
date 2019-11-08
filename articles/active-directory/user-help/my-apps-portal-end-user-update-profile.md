@@ -1,5 +1,5 @@
 ---
-title: Atualize suas informações de perfil e conta no portal meus aplicativos-Azure Active Directory | Microsoft Docs
+title: Atualizar seu perfil e conta no portal meus aplicativos – Azure AD
 description: Saiba como atualizar seu perfil e suas informações de conta corporativa ou de estudante, incluindo alterar sua senha, ativar a redefinição de senha, atualizar seus métodos de verificação de segurança, exibir a instrução de termos de uso da sua organização e sair do em qualquer lugar em que você tenha entrado usando sua conta corporativa ou de estudante.
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40cf8e16e08db67c36009435758db36797518d96
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4416b35d2e2204cec2a9ffe2f50e92983d6204c0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160760"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820377"
 ---
-# <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Atualizar suas informações de perfil e conta no portal meus aplicativos
+# <a name="update-your-profile-and-account-info-on-the-my-apps-portal"></a>Atualizar suas informações de perfil e conta no portal meus aplicativos
 
 É possível usar sua conta corporativa ou de estudante com o portal **Meus Aplicativos** baseado na Web para exibir e iniciar muitos aplicativos baseados em nuvem da sua organização, para atualizar algumas informações do perfil e da conta, para ver suas informações de **Grupos** e para realizar **revisões de acesso** para seus aplicativos e grupos. Se você não tiver acesso ao portal **Meus Aplicativos**, será necessário contatar a assistência técnica para obter permissão.
 
@@ -132,7 +132,7 @@ Você pode optar por sair de todos os lugares em que estiver conectado no moment
 
 2. Na caixa de confirmação sair de todos os **lugares** , selecione **Sim** para confirmar que deseja sair de todas as suas sessões e dispositivos. Selecione **não** se você mudar de ideia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de concluir as atualizações na página de **perfil** , você pode:
 

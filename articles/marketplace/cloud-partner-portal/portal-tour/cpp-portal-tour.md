@@ -1,18 +1,19 @@
 ---
-title: Tour pelo Portal de parceiros de nuvem do Azure | O Azure Marketplace
-description: Visão geral da experiência do usuário do Portal do Cloud Partner para Azure Marketplace.
+title: Tour de Portal do Cloud Partner do Azure | Azure Marketplace
+description: Visão geral da experiência do usuário do Portal do Cloud Partner para o Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: pabutler
-ms.openlocfilehash: b0bf7af9b81025202c2fffa2a264982c9986e10b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85ddf2e2141ad77321710ad03e4d7f67572f3688
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943433"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821461"
 ---
 # <a name="cloud-partner-portal-tour"></a>Página tour pelo Portal do Cloud Partner
 
@@ -28,9 +29,9 @@ Depois de explicar os mecanismos de [navegação](./cpp-portal-navigation.md) do
 - O menu [Nova Oferta](./cpp-new-offer-menu.md) possibilita que os usuários criem novas ofertas do tipo especificado.
 - A página [Todas as ofertas](./cpp-all-offers-page.md) permite visualizar todas as ofertas enviadas e algumas de suas principais características. 
 - A página [Aprovações](./cpp-approvals-page.md) permite que os parceiros visualizem todas as ofertas aprovadas atualmente.
-- A página [Todos os editores](./cpp-all-publishers-page.md) lista todos os editores atuais de parceiros na nuvem registrados.
+- A página [Todos os publicadores](./cpp-all-publishers-page.md) lista todos os editores atuais de parceiros na nuvem registrados.
 - A página [Usuários](./cpp-users-page.md) lista todas as contas de usuário atuais associadas aos parceiros da nuvem registrados.
-- A página [Histórico ](./cpp-history-page.md) lista os eventos de publicação e modificação de ofertas para todos os editores. 
+- A página do [histórico ](./cpp-history-page.md) lista os eventos de publicação e modificação de ofertas para todos os editores. 
 - A página [Insights](./cpp-insights-page.md) contém os vários painéis que compõem o recurso *Insights do Vendedor* deste portal.
 
 

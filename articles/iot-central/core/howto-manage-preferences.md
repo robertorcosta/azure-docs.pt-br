@@ -1,6 +1,6 @@
 ---
 title: Gerencie suas preferências pessoais em IoT Central | Microsoft Docs
-description: Como gerenciar suas preferências de aplicativo pessoal no IoT Central
+description: Como gerenciar suas preferências pessoais de aplicativo, como alterar a linguagem e o tema em seu aplicativo IoT Central.
 author: lmasieri
 ms.author: lmasieri
 ms.date: 07/10/2019
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 154ac608d9d6174ca981f3c358bff1e8272182f8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6bfc70ada906f5c444ace5cd7bb96555700586db
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950074"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73806148"
 ---
 # <a name="manage-your-personal-application-preferences"></a>Gerenciar suas preferências de aplicativo pessoal
 
-*Este artigo se aplica a operadores, construtores e administradores.*
+*Este artigo aplica-se a operadores, construtores e administradores.*
 
 O IoT Central fornece a flexibilidade para personalizar seus aplicativos de acordo com suas necessidades. Nós também fornecemos alguma flexibilidade em uma base por usuário para personalizar sua própria exibição. Este artigo descreve as várias opções de personalização que um usuário pode aplicar ao seu perfil.
 
@@ -34,7 +34,7 @@ Temos suporte para o tema escuro e o tema claro. Embora o tema claro seja o padr
 > [!NOTE]
 > A opção de escolher entre os temas claro e escuro não estará disponível se o administrador tiver configurado um tema personalizado para o aplicativo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu como gerenciar seu perfil no Azure IoT Central, veja a próxima etapa sugerida:
 

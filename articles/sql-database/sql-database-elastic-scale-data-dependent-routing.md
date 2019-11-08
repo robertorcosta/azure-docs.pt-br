@@ -1,5 +1,5 @@
 ---
-title: Roteamento dependente de dados com o banco de dado SQL do Azure
+title: Roteamento dependente de dados
 description: Como usar a classe ShardMapManager em aplicativos .NET para o roteamento dependente de dados, um recurso dos bancos de dados fragmentados para o Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 319f2744cd437aea51a05592cd7a26f8b58fe761
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e5212ba7ed349f3596047fc0c027829b8667ddc5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690279"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823677"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Use o roteamento dependente dos dados para rotear uma consulta para o banco de dados apropriado
 

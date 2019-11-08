@@ -1,5 +1,5 @@
 ---
-title: Dimensionar recursos do pool elástico-banco de dados SQL do Azure
+title: Dimensionar recursos do pool elástico
 description: Esta página descreve os recursos de escala para pools elásticos no Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 3/14/2019
-ms.openlocfilehash: 812de89b43d1cb2bc7f9b5c5c619f3860344d5dd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ed67a21107f6a7d90341ae40feeb817671785778
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690424"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823809"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Dimensionar os recursos de pool elástico no banco de dados SQL do Azure
 

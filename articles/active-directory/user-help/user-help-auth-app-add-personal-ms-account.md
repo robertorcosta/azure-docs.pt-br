@@ -1,5 +1,5 @@
 ---
-title: Adicione suas contas Microsoft pessoais ao aplicativo Microsoft Authenticator – Azure Active Directory | Microsoft Docs
+title: Adicionar um conta Microsoft pessoal a um aplicativo autenticador-Azure AD
 description: Como fazer para adicionar suas contas Microsoft pessoais, tais como para o Outlook.com ou o Xbox LIVE, ao aplicativo Microsoft Authenticator para verificação de dois fatores.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf4629ca97abc5d4ce508f7078f4691467ba249
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9ca01aad76bfbeba0cf56be8ee74287a79f6346e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616076"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820250"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Adicionar suas contas Microsoft pessoais
 
@@ -25,7 +25,7 @@ Adicione suas contas Microsoft pessoais, tais como para o Outlook.com ou o Xbox 
 
 - **Método de verificação padrão de dois fatores.** Digite seu nome de usuário e senha no dispositivo no qual você está fazendo logon e, em seguida, escolha se o aplicativo Microsoft Authenticator envia uma notificação ou se você prefere copiar o código de verificação associado da tela **Contas** do aplicativo Microsoft Authenticator.
 
-- **Método de entrada sem senha.** Digite seu nome de usuário no dispositivo no qual você está fazendo logon para sua conta Microsoft pessoal, depois use seu dispositivo móvel para verificar sua identidade usando sua impressão digital, rosto ou PIN. Para esse método, você não precisa inserir sua senha.
+- **Método de entrada sem senha.** Digite seu nome de usuário no dispositivo no qual você está fazendo logon para sua conta Microsoft pessoal, depois use seu dispositivo móvel para verificar sua identidade usando sua impressão digital, rosto ou PIN. Para esse método, você não precisa inserir a senha.
 
 >[!Important]
 >Antes de poder adicionar sua conta, você deverá baixar e instalar o aplicativo Microsoft Authenticator. Se você ainda não tiver feito isso, siga as etapas no artigo [Baixar e instalar o aplicativo](user-help-auth-app-download-install.md).
@@ -39,7 +39,7 @@ Você pode adicionar sua conta Microsoft pessoal ativando primeiro a verificaç�
 
 ### <a name="turn-on-two-factor-verification"></a>Ativar a verificação de dois fatores
 
-1. No seu computador, vá para a página [Noções básicas sobre segurança](https://account.microsoft.com/security) e entre usando sua conta Microsoft pessoal. Por exemplo, alain@outlook.com.
+1. No seu computador, vá para a página [Noções básicas sobre segurança](https://account.microsoft.com/security) e entre usando sua conta Microsoft pessoal. Por exemplo: alain@outlook.com.
 
 2. Na parte inferior da página **Noções básicas de segurança**, escolha o link **mais opções de segurança**.
 
@@ -70,6 +70,6 @@ Você pode adicionar sua conta Microsoft pessoal ativando primeiro a verificaç�
 
 - Depois de adicionar as contas ao aplicativo, você poderá entrar usando o aplicativo Authenticator em seu dispositivo. Para obter mais informações, confira [Entrar usando o aplicativo](user-help-auth-app-sign-in.md).
 
-- Se você estiver tendo problemas para obter seu código de verificação para seu conta Microsoft pessoal, consulte a seção Solucionando problemas de **código de verificação** do artigo [conta Microsoft informações de segurança & códigos de verificação](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) .
+- Se você estiver tendo problemas para obter seu código de verificação para seu conta Microsoft pessoal, consulte a seção **Solucionando** problemas de código de verificação do artigo [conta Microsoft informações de segurança & códigos de verificação](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) .
 
 - Para dispositivos que executam o iOS, você também pode fazer backup das credenciais da sua conta e das configurações de aplicativos relacionadas, tais como a ordem de suas contas, na nuvem. Para obter mais informações, confira [Fazer backup e recuperar informações com o aplicativo Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

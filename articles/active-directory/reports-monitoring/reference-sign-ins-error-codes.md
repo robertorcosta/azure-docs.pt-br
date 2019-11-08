@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 931f2fbe5798966c41378d9b401dcd59cafc5cca
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 9bb7114611ce5c7eabb8124ad11db64d50e12946
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820881"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809815"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de login 
 
@@ -50,10 +50,10 @@ A seleção de um item da lista filtrada abre o bloco **Detalhes da atividade: L
 
 Você também pode acessar programaticamente os dados de login usando a [API de relatórios](concept-reporting-api.md).
 
-## <a name="error-codes"></a>Códigos de erro
+## <a name="error-codes"></a>Códigos do Erro
 
 
-|Erro|Descrição|
+|Erro|DESCRIÇÃO|
 |---|---|
 |16000|Este é um detalhe de implementação interna e não uma condição de erro. É possível ignorar essa referência com segurança.|
 |20001|Há um problema com seu provedor de identidade federada. Entre em contato com seu IDP para resolver esse problema.|
@@ -127,6 +127,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |50177|Desafio externo não é suportado para usuários intermediários.|
 |50178|Controle de sessão não é suportado para usuários de passagem.|
 |50180|Necessária a autenticação integrada do Windows. Habilite o locatário para um SSO contínuo.|
+|50181|Falha relacionada à OTP durante a entrada. |
 |50201|Essa interrupção de prompt de mensagem será mostrada ao usuário durante o logon quando informações adicionais devem ser fornecidas ao usuário.|
 |51001|Dica de Domínio não está presente com o Identificador de Segurança Local - UPN Local.|
 |51004|A conta de usuário não existe no diretório.|
@@ -171,7 +172,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |80012|Os usuários tentaram fazer logon fora das horas permitidas (isso é especificado no AD).|
 |80013|A tentativa de autenticação não pôde ser concluída devido à diferença de horário entre o computador executando o agente de autenticação e o AD. Corrija os problemas de sincronização de horário|
 |80014|O agente de autenticação atingiu o tempo limite. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com o código de erro, ID de correlação e data e hora para obter mais detalhes sobre esse erro.|
-|81001|O tíquete Kerberos do usuário é muito grande. Isso pode acontecer se o usuário estiver em muitos grupos e, portanto, o tíquete do Kerberos contém um número excessivo de associações de grupo. Reduza as associações de grupo do usuário e tente novamente.|
+|81001|O tíquete de Kerberos do usuário é muito grande. Isso pode acontecer se o usuário estiver em muitos grupos e, portanto, o tíquete do Kerberos contém um número excessivo de associações de grupo. Reduza as associações de grupo do usuário e tente novamente.|
 |81005|Pacote de Autenticação Não Suportado.|
 |81007|Locatário não está habilitado para SSO contínuo.|
 |81012|Isso não é uma condição de erro. Isso indica que o usuário que está tentando entrar no Azure AD é diferente do usuário conectado ao dispositivo. É possível ignorar esse código nos logs com segurança.|
@@ -190,7 +191,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |7000218|O corpo da solicitação deve conter o seguinte parâmetro: ' client_assertion ' ou ' client_secret '.|
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral de relatórios de entradas](concept-sign-ins.md)
-* [Acesso programático aos relatórios do Microsoft Azure Active Directory](concept-reporting-api.md)
+* [Acesso programático aos relatórios do Azure AD](concept-reporting-api.md)

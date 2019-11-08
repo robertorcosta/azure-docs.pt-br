@@ -1,6 +1,6 @@
 ---
 title: Perguntas frequentes da solução Connected Factory – Azure | Microsoft Docs
-description: Perguntas frequentes sobre o acelerador de solução Connected Factory
+description: Este artigo responde às perguntas frequentes sobre o Solution Accelerator da fábrica conectada. Ele inclui links para o repositório GitHub.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ed429d923cad2c715621990c146d4cf3a23e7bca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c84452ff71fa34a65b2e56ec753b68bf551c7e35
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447923"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826270"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas frequentes sobre o acelerador de solução Connected Factory
 
@@ -68,7 +68,7 @@ Se tiver implantado a solução de www.azureiotsolutions.com, você não poderá
 1. O nome de usuário a ser usado é `docker`.
 1. A senha a ser usada depende da versão usada para implantação:
     * Para soluções implantadas com o script build.ps1 antes de 1º de junho de 2017, a senha é `Passw0rd`.
-    * Para soluções implantadas com o script build.ps1 após 1º de junho de 2017, encontre a senha no arquivo `<name of your deployment>.config.user`. A senha é armazenada na configuração **VmAdminPassword**. A senha é gerada aleatoriamente no momento da implantação, a menos que você a especifique usando o parâmetro `-VmAdminPassword` do script `build.ps1`
+    * Para soluções implantadas com o script build.ps1 após 1º de junho de 2017, encontre a senha no arquivo `<name of your deployment>.config.user`. A senha é armazenada na configuração **VmAdminPassword**. A senha é gerada aleatoriamente no momento da implantação, a menos que você a especifique usando o parâmetro `build.ps1` do script `-VmAdminPassword`
 
 ### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Como fazer para interromper e iniciar todos os processos do Docker na VM de simulação?
 
@@ -148,7 +148,7 @@ Quando você implanta usando o `build.ps1`script no repositório do Connected Fa
 
 Você também pode adicionar uma chave de conta de mapas do Azure para o Acelerador de solução após a implantação. Navegue até o portal do Azure e acesse o recurso de serviço de aplicativo em sua implantação Connected Factory. Navegue até **configurações do aplicativo**, onde você pode encontrar uma seção **configurações do aplicativo**. Defina as **MapApiQueryKey** para o [chave da sua conta do Azure mapas](../azure-maps/how-to-manage-account-keys.md). Salvar as configurações e, em seguida, navegue até **Visão geral** e reinicie o serviço de aplicativo.
 
-### <a name="how-do-i-create-an-azure-maps-account"></a>Como criar uma conta de mapas do Azure?
+### <a name="how-do-i-create-an-azure-maps-account"></a>Como fazer criar uma conta do Azure Maps?
 
 Veja, [Como gerenciar sua conta e chaves do Azure Maps](../azure-maps/how-to-manage-account-keys.md).
 

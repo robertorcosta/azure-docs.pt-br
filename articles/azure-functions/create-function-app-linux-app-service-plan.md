@@ -1,21 +1,18 @@
 ---
 title: Criar um aplicativo de funções do Portal do Azure no Linux | Microsoft Docs
 description: Aprenda a criar sua primeira Função do Azure para a execução sem servidor usando o Portal do Azure.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: glenga
-ms.custom: ''
-ms.openlocfilehash: a612505acdc37591377eebf290365b65cc3836cd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 89755e8b70a490f1c5746b23e0d36c5d90b624c1
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098283"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571665"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Criar um aplicativo de funções em um Plano do Serviço de Aplicativo do Azure
 
@@ -47,10 +44,10 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
     | **Assinatura** | Sua assinatura | A assinatura na qual este novo aplicativo de funções será criado. | 
     | **[Grupo de Recursos](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nome do novo grupo de recursos no qual criar o seu aplicativo de funções. |
     | **SO** | Linux | O aplicativo de funções é executado no Linux. |
-    | **Publicar** | Código | O contêiner do Linux padrão para sua **pilha de tempo de execução** foi usado. Tudo o que você precisa fornecer é o código de projeto de aplicativo de função. Outra opção é publicar uma [imagem do Docker](functions-create-function-linux-custom-image.md) personalizada. |
+    | **Publicar** | Código | O contêiner do Linux padrão para sua **pilha de runtime** foi usado. Tudo o que você precisa fornecer é o código de projeto de aplicativo de função. Outra opção é publicar uma [imagem do Docker](functions-create-function-linux-custom-image.md) personalizada. |
     | **[Plano de hospedagem](functions-scale.md)** | Plano do Serviço de Aplicativo | Plano de hospedagem que define como os recursos são alocados para seu aplicativo de funções. Quando você executa em um Plano do Serviço de Aplicativo, deve gerenciar o [dimensionamento do aplicativo de funções](functions-scale.md).  |
     | **Plano/localização de serviço de aplicativo** | Criar plano | Escolha **Criar novo** e dê um nome ao **Plano de Serviço de Aplicativo**. Escolha um **local** em uma [região](https://azure.microsoft.com/regions/) perto de você ou perto de outros serviços acessados pelas suas funções. Escolha o **[tipo de preço](https://azure.microsoft.com/pricing/details/app-service/linux/)** desejado. <br/>É possível executar aplicativos de funções do Windows e Linux no mesmo plano do serviço de aplicativo. |
-    | **Pilha de tempo de execução** | Linguagem preferencial | Escolha um tempo de execução compatível com sua linguagem de programação de funções favorita. Escolha **.NET** para funções C# e F#. O [suporte para Python](functions-reference-python.md) está em versão prévia. |
+    | **Pilha de runtime** | Linguagem preferencial | Escolha um runtime compatível com sua linguagem de programação de funções favorita. Escolha **.NET** para funções C# e F#. |
     | **[Armazenamento](../storage/common/storage-quickstart-create-account.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento usada pelo seu aplicativo de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Você também pode usar uma conta existente, mas ela precisa atender aos [requisitos da conta de armazenamento](functions-scale.md#storage-account-requirements). |
     | **[Application Insights](functions-monitoring.md)** | habilitado | O Application Insights está desabilitado por padrão. É recomendável habilitar a integração do Application Insights agora e escolher um local de hospedagem perto da localização do plano de serviço de aplicativo. Se você quiser fazer isso mais tarde, consulte [Monitorar o Azure Functions](functions-monitoring.md).  |
 

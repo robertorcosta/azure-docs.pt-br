@@ -1,5 +1,5 @@
 ---
-title: Automação de trabalhos do SQL do Azure | Microsoft Docs
+title: Automação de trabalho
 description: Usar a Automação de Trabalhos para executar scripts T-SQL (Transact-SQL) em um conjunto de um ou mais bancos de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/25/2019
-ms.openlocfilehash: 432580017cec548b7ecd7cf766aa8f5cdb2253cc
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: c2548bb4537d17a3dab94d5476c743e2a70faad0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113587"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810102"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gerenciamento usando trabalhos de banco de dados
 
@@ -50,7 +50,7 @@ Vale a pena observar algumas diferenças entre o SQL Agent (disponível localmen
 
 |  |Trabalhos elásticos  |SQL Agent |
 |---------|---------|---------|
-|Escopo     |  Qualquer número de bancos de dados SQL do Azure e/ou data warehouses na mesma nuvem do Azure do agente de trabalho. Os destinos podem estar em diferentes servidores, assinaturas e/ou regiões do Banco de Dados SQL. <br><br>Os grupos de destino podem ser compostos de bancos de dados ou data warehouses individuais ou dos bancos de dados em um servidor, pool ou mapa de fragmentos (enumerados dinamicamente no tempo de execução do trabalho). | Qualquer banco de dados individual na mesma instância do SQL Server que o SQL Agent. |
+|Escopo     |  Qualquer número de bancos de dados SQL do Azure e/ou data warehouses na mesma nuvem do Azure do agente de trabalho. Os destinos podem estar em diferentes servidores, assinaturas e/ou regiões do Banco de Dados SQL. <br><br>Os grupos de destino podem ser compostos de bancos de dados ou data warehouses individuais ou dos bancos de dados em um servidor, pool ou mapa de fragmentos (enumerados dinamicamente no runtime do trabalho). | Qualquer banco de dados individual na mesma instância do SQL Server que o SQL Agent. |
 |Ferramentas e APIs com suporte     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SSMS (SQL Server Management Studio)     |
 
 ## <a name="sql-agent-jobs"></a>Trabalhos do SQL Agent
@@ -66,7 +66,7 @@ Há vários conceitos importantes em Trabalhos do SQL Agent:
 ### <a name="job-steps"></a>Etapas de trabalho
 
 As etapas do Trabalho do SQL Agent são sequências de ações que o SQL Agent deve executar. Cada etapa tem a seguinte etapa que deverá ser executada se a etapa tiver êxito ou falhar, número de repetições em caso de falha.
-O SQL Agent permite que você crie diferentes tipos das etapas de trabalho, como a etapa de trabalho Transact-SQL que executa um único lote do Transact-SQL com relação ao banco de dados ou as etapas comando/PowerShell do sistema operacional que podem executar um script personalizado do sistema operacional; as etapas de trabalho do SSIS permitem que você carregue dados usando o tempo de execução do SSIS ou as etapas de [replicação](sql-database-managed-instance-transactional-replication.md) que podem publicar alterações do seu banco de dados em outros.
+O SQL Agent permite que você crie diferentes tipos das etapas de trabalho, como a etapa de trabalho Transact-SQL que executa um único lote do Transact-SQL com relação ao banco de dados ou as etapas comando/PowerShell do sistema operacional que podem executar um script personalizado do sistema operacional; as etapas de trabalho do SSIS permitem que você carregue dados usando o runtime do SSIS ou as etapas de [replicação](sql-database-managed-instance-transactional-replication.md) que podem publicar alterações do seu banco de dados em outros.
 
 [Replicação transacional](sql-database-managed-instance-transactional-replication.md) é um recurso do Mecanismo de Banco de Dados que permite que você publique as alterações feitas em uma ou várias tabelas em um banco de dados e publique/distribua-as a um conjunto de bancos de dados do assinante. A publicação das alterações é implementada usando os seguintes tipos de etapa de trabalho do SQL Agent:
 
@@ -172,7 +172,7 @@ Para obter informações sobre o SQL Server Agent, consulte [SQL Server Agent](h
 
 Os **Trabalhos de Banco de Dados Elástico** permitem executar um ou mais scripts T-SQL em paralelo, em um grande número de bancos de dados, seja com agendamento ou sob demanda.
 
-**Execute trabalhos em qualquer combinação de bancos de dados**: um ou mais bancos de dados individuais, todos os bancos de dados em um servidor, todos os bancos de dados em um pool elástico ou mapa de fragmentos, com a flexibilidade extra de poder incluir ou excluir qualquer banco de dados. **Os trabalhos podem ser executados em diversos servidores e pools, até mesmo em bancos de dados presentes em assinaturas diferentes.** Os servidores e pools são enumerados dinamicamente no tempo de execução e, portanto, os trabalhos são executados em todos os bancos de dados existentes no grupo de destino no momento da execução.
+**Execute trabalhos em qualquer combinação de bancos de dados**: um ou mais bancos de dados individuais, todos os bancos de dados em um servidor, todos os bancos de dados em um pool elástico ou mapa de fragmentos, com a flexibilidade extra de poder incluir ou excluir qualquer banco de dados. **Os trabalhos podem ser executados em diversos servidores e pools, até mesmo em bancos de dados presentes em assinaturas diferentes.** Os servidores e pools são enumerados dinamicamente no runtime e, portanto, os trabalhos são executados em todos os bancos de dados existentes no grupo de destino no momento da execução.
 
 A imagem a seguir mostra um agente de trabalho executando trabalhos em diferentes tipos de grupos de destino:
 
@@ -229,7 +229,7 @@ Um *grupo de destino* define o conjunto de bancos de dados em que uma etapa de t
 - **Mapa de fragmentos**: bancos de dados de um mapa de fragmentos.
 
 > [!TIP]
-> No momento da execução do trabalho, a *enumeração dinâmica* reavalia o conjunto de bancos de dados em grupos de destino que incluem servidores ou grupos. A enumeração dinâmica garante que os **trabalhos serão executados em todos os bancos de dados existentes no servidor ou pool no momento da execução do trabalho**. A reavaliação da lista de bancos de dados no tempo de execução é especialmente útil para cenários em que a associação de pools ou servidores é alterada com frequência.
+> No momento da execução do trabalho, a *enumeração dinâmica* reavalia o conjunto de bancos de dados em grupos de destino que incluem servidores ou grupos. A enumeração dinâmica garante que os **trabalhos serão executados em todos os bancos de dados existentes no servidor ou pool no momento da execução do trabalho**. A reavaliação da lista de bancos de dados no runtime é especialmente útil para cenários em que a associação de pools ou servidores é alterada com frequência.
 
 É possível incluir ou excluir pools e bancos de dados individuais do grupo. Isso permite a criação de um grupo de destino com qualquer combinação de bancos de dados. Por exemplo, você pode adicionar um servidor a um grupo de destino, mas excluir bancos de dados específicos em um pool elástico (ou excluir um pool inteiro).
 

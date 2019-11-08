@@ -1,18 +1,19 @@
 ---
-title: Criar uma oferta de aplicativo do Power BI | O Azure Marketplace
+title: Criar uma oferta de aplicativo Power BI | Azure Marketplace
 description: Como criar uma oferta de aplicativo do Power BI para o Microsoft AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pabutler
-ms.openlocfilehash: 702be34a5be69c050b809713a5742c2189892a27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0ee26672697517556a2f639b533a1217712d03d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943327"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822692"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Criar uma oferta de Aplicativo do Power BI
 
@@ -23,7 +24,7 @@ Os grupos de ativos são descritos na tabela a seguir:
 |   Grupo de ativos      | DESCRIÇÃO                                                                         |
 | ----------------   | ----------------                                                                    |
 | Configurações da oferta     | As identificações primárias e o nome da oferta.                                      |
-| Informações técnicas     | A URL do instalador que você usa para instalar o aplicativo no workspace do Power BI do cliente. Para obter mais informações sobre como gerar essa URL, confira a [documentação do Aplicativo do Power BI](https://go.microsoft.com/fwlink/?linkid=2028636). |
+| Informações técnicas     | A URL do instalador que você usa para instalar o aplicativo no espaço de trabalho do Power BI do cliente. Para obter mais informações sobre como gerar essa URL, confira a [documentação do Aplicativo do Power BI](https://go.microsoft.com/fwlink/?linkid=2028636). |
 | Detalhes da vitrine | Contém ativos de marketing, jurídicos e de cliente potencial. Os ativos de marketing incluem uma descrição e os logotipos da oferta. Ativos jurídicos incluem uma política de privacidade, termos de uso e outras documentações legais. A política de gerenciamento de cliente potencial permite especificar como manusear os clientes potenciais do portal do usuário do AppSource. |
 | Contatos           | Contém informações de contato e política de suporte.                                     |
 

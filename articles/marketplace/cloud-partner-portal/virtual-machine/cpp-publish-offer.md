@@ -4,15 +4,16 @@ description: Lista as etapas necessárias para publicar uma oferta de máquina v
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: pabutler
-ms.openlocfilehash: 6796c2871cf8a5928beed2ab557cefdfe8ecaae9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b07f3f3edab47f8f75835dffd4cc3f89f17ab63
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938607"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824403"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>Publicar uma oferta de máquina virtual
 
@@ -30,7 +31,7 @@ A tabela a seguir descreve essas etapas e fornece uma estimativa de tempo máxim
 | Teste de unidade validação (opcional) | 2 horas | Se você tiver selecionado para habilitar o Test Drive, a Microsoft valida a configuração do Test Drive, sua implantação e replicação através das regiões selecionadas. |
 | Certificação                  | 3 dias | A oferta é analisada pela equipe de certificação do Azure. Esta etapa realizará varreduras por vírus, malware, conformidade de segurança e problemas de segurança. Comentários serão fornecidos se um problema for encontrado. |
 | Provisionamento                   | 4 dias   | A oferta de VM é replicada nos sistemas de produção de mercado.               |
-| Registro de embalagem e geração de leads | \< 1 hora  | Os recursos técnicos da oferta são empacotados para uso do cliente e os sistemas de leads são configurados e configurados. |
+| Registro de embalagem e geração de leads | \< 1 hora  | Os ativos técnicos da oferta são empacotados para uso do cliente e os sistemas de Lead são configurados e definidos. |
 |  Aprovação do publicador             |  -        | Revisão final do editor e confirmação antes que a oferta seja publicada. Você pode implantar sua oferta nas assinaturas selecionadas (nas etapas a informações de oferta) para verificar se ele atende a todos os seus requisitos.  |
 | Provisionamento                   | 4 dias | A oferta de VM finalizada é replicada em sistemas e regiões de produção de mercado. | 
 | Live                           | 4 dias | A oferta de VM é lançada, replicada para as regiões necessárias e disponibilizada ao público. |

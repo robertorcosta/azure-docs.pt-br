@@ -1,5 +1,5 @@
 ---
-title: Recomendações do SQL Data Warehouse
+title: Recomendações de SQL Data Warehouse
 description: Aprenda sobre as recomendações do SQL Data Warehouse e como elas são geradas
 services: sql-data-warehouse
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 09dff2c8ddf5b9038aa715cef02e099ccbc68f8a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1a93339b99c6591ee9ed615c032d0eac58a372fe
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685914"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827494"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>Recomendações do SQL Data Warehouse
 

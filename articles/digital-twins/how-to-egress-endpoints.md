@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: e7516fffb4aa8806062655e39c591e4691e779b1
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 9a5e060d6248d3144720930fe960e0a371a73d6e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959106"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822267"
 ---
 # <a name="egress-and-endpoints"></a>Pontos de extremidade e de saída
 
@@ -23,7 +23,7 @@ Eventos são roteados para pontos de extremidade de acordo com as preferências 
 
 Para saber mais sobre eventos, roteamento e tipos de eventos, consulte [Roteamento de eventos e as mensagens nos Gêmeos Digitais do Azure](./concepts-events-routing.md).
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventos
 
 Eventos são enviados por objetos de IoT (por exemplo, dispositivos e sensores) para processamento por agentes de mensagens e eventos do Azure. Eventos são definidos pela seguinte [Referência de esquema de evento da Grade de Eventos do Azure](../event-grid/event-schema.md).
 
@@ -47,11 +47,11 @@ Eventos são enviados por objetos de IoT (por exemplo, dispositivos e sensores) 
 }
 ```
 
-| Atributo | type | Descrição |
+| Atributo | Tipo | DESCRIÇÃO |
 | --- | --- | --- |
-| id | string | Identificador exclusivo do evento. |
+| ID | string | Identificador exclusivo do evento. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
-| data | object | Dados do evento específicos ao provedor de recursos. |
+| data | objeto | Dados do evento específicos ao provedor de recursos. |
 | eventType | string | Um dos tipos de evento registrados para a origem do evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
@@ -61,9 +61,9 @@ Eventos são enviados por objetos de IoT (por exemplo, dispositivos e sensores) 
 Para obter mais informações sobre o esquema de evento da Grade de Eventos:
 
 - Examine a [Referência de esquema de evento de Grade de Eventos do Azure](../event-grid/event-schema.md).
-- Leia a [Referência do Azure EventGrid Node.js SDK EventGridEvent](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+- Leia a [Referência do Azure EventGrid Node.js SDK EventGridEvent](https://docs.microsoft.com/javascript/api/@azure/eventgrid/eventgridevent?view=azure-node-latest).
 
-## <a name="event-types"></a>Tipos de eventos
+## <a name="event-types"></a>Tipos de evento
 
 Os tipos de eventos classificam a natureza do evento e são definidos no campo **eventType**. Tipos de evento disponíveis são fornecidos pela lista a seguir:
 
@@ -79,7 +79,7 @@ Formatos de eventos para cada um dos tipos de eventos são descritos nas seçõe
 
 **TopologyOperation** aplica-se a alterações no gráfico. O **assunto** propriedade especifica o tipo de objeto afetado. Os seguintes tipos de objetos podem acionar este evento:
 
-- Dispositivos
+- Dispositivo
 - DeviceBlobMetadata
 - DeviceExtendedProperty
 - ExtendedPropertyKey
@@ -96,7 +96,7 @@ Formatos de eventos para cada um dos tipos de eventos são descritos nas seçõe
 - SpaceResource
 - SpaceRoleAssignment
 - Sistema
-- User
+- Usuário
 - UserBlobMetadata
 - UserExtendedProperty
 

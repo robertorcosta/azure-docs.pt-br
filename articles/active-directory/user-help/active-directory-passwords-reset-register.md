@@ -1,6 +1,6 @@
 ---
-title: Registrar-se para redefinição de senha de autoatendimento - Azure Active Directory | Microsoft Docs
-description: Registrar dados de autenticação para redefinição de senha de autoatendimento do Azure AD
+title: Registre-se para redefinir sua própria senha-Azure AD
+description: Registre seus dados de autenticação para redefinição de senha de autoatendimento do Azure AD, para que você possa redefinir sua própria senha sem a ajuda do administrador.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f113c42ff45811f31eb77a92873fb187dd51ea6b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 796702b2189dcfb001f72913e4a01c0ae01462ad
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60530885"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820443"
 ---
-# <a name="register-for-self-service-password-reset"></a>Registro de redefinição de senha de autoatendimento
+# <a name="register-to-reset-your-own-password"></a>Registre-se para redefinir sua própria senha
 
 > [!IMPORTANT]
 > Você está aqui porque não consegue entrar? Se for o caso, confira [Redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md).
@@ -32,10 +32,10 @@ Como um usuário final, você poderá redefinir sua senha ou desbloquear sua con
 1. Abra o navegador da Web em seu dispositivo e vá para o [página de registro de redefinição de senha](https://aka.ms/ssprsetup).
 2. Digite o nome de usuário e a senha fornecida pelo administrador.
 3. Dependendo de como sua equipe de TI tiver configurado as coisas, uma ou mais das seguintes opções estarão disponíveis para configuração e verificação. Se o administrador tem sua permissão para usar suas informações, eles podem preencher algumas informações para você.
-    * **Telefone comercial**: Somente seu administrador pode definir essa opção.
-    * **Telefone de autenticação**: Defina essa opção como outro número de telefone ao qual você tenha acesso. Um exemplo é um telefone celular que pode receber uma mensagem de texto ou uma chamada.
-    * **Email de autenticação**: Defina essa opção como um endereço de email alternativo que você pode acessar sem a senha que será redefinida.
-    * **Perguntas de segurança**: Seu administrador aprovou a lista de perguntas a serem respondidas. Você não pode usar a mesma pergunta ou resposta mais de uma vez.
+    * **Telefone comercial**: somente o administrador pode definir essa opção.
+    * **Telefone de autenticação**: defina essa opção como outro número de telefone ao qual você tenha acesso. Um exemplo é um telefone celular que pode receber uma mensagem de texto ou uma chamada.
+    * **Email de autenticação**: defina essa opção como um endereço de email alternativo que você pode acessar sem a senha que será redefinida.
+    * **Perguntas de segurança**: seu administrador aprovou a lista de perguntas a serem respondidas. Você não pode usar a mesma pergunta ou resposta mais de uma vez.
 4. Forneça e verifique as informações exigidas pelo seu administrador. Se houver mais de uma opção, sugerimos que você registre vários métodos. Isso dá flexibilidade quando um dos métodos não está disponível. Um exemplo é quando você está viajando e não consegue acessar seu telefone comercial.
 
     ![Registre os métodos de autenticação e selecione Concluir][Register]

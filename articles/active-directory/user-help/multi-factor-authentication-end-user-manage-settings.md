@@ -1,5 +1,5 @@
 ---
-title: Gerenciar configurações de verificação de dois fatores-Azure Active Directory | Microsoft Docs
+title: Gerenciar suas configurações de verificação de dois fatores-Azure AD
 description: Saiba como alterar os detalhes do método de verificação de segurança, pois ele se relaciona com a verificação de dois fatores.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ed7d812a9c1cba356277a4454234531ce8d41ef
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4c402e0992a3a04d674477bc9dd19e0181fd6775
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616156"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805274"
 ---
 # <a name="manage-your-two-factor-verification-method-settings"></a>Gerenciar as configurações do método de verificação de dois fatores
 
@@ -76,7 +76,7 @@ Se você decidir que deseja alterar o método de verificação de segurança pad
 
     - **Use o código de verificação do aplicativo.** Você usará seu aplicativo autenticador para obter um código de verificação que digitará no prompt de sua conta corporativa ou de estudante.
 
-2. Clique em **Salvar**.
+2. Selecione **Salvar**.
 
 ## <a name="add-or-change-your-phone-number"></a>Adicionar ou alterar seu número de telefone
 
@@ -91,7 +91,7 @@ Você pode adicionar novos números de telefone ou atualizar números existentes
 
 2. Selecione a caixa ao lado da opção **telefone de autenticação alternativo** e digite um número de telefone secundário no qual você poderá receber mensagens de texto ou chamadas telefônicas se não puder acessar o dispositivo primário.
 
-3. Clique em **Salvar**.
+3. Selecione **Salvar**.
 
 ## <a name="add-a-new-account-to-the-microsoft-authenticator-app"></a>Adicionar uma nova conta ao aplicativo Microsoft Authenticator
 
@@ -107,7 +107,7 @@ Se você tiver configurado anteriormente sua conta corporativa ou de estudante n
 
     Você será solicitado a aprovar uma notificação por meio do aplicativo Microsoft Authenticator, para verificar suas informações.
 
-3. Clique em **Salvar**.
+3. Selecione **Salvar**.
 
 ## <a name="delete-your-account-or-device-from-the-microsoft-authenticator-app"></a>Excluir sua conta ou dispositivo do aplicativo Microsoft Authenticator
 
@@ -117,7 +117,7 @@ Você pode excluir sua conta do aplicativo Microsoft Authenticator e pode exclui
 
 1. Na seção **como você deseja responder?** da página de verificação de **segurança adicional** , selecione o botão **Configurar aplicativo autenticador** .
 
-2. Clique em **Salvar**.
+2. Selecione **Salvar**.
 
 ### <a name="to-delete-your-account-from-the-microsoft-authenticator-app"></a>Para excluir sua conta do aplicativo Microsoft Authenticator
 

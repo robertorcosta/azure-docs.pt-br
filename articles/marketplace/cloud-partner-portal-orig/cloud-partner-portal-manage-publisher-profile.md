@@ -1,19 +1,20 @@
 ---
-title: Gerenciar perfil do Editor do Azure Marketplace e AppSource
-description: Gerenciar perfil do Editor do Azure Marketplace e AppSource
+title: Gerenciar o perfil do Azure Marketplace e do AppSource Publisher
+description: Gerenciando o Azure Marketplace e o perfil do AppSource Publisher
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 manager: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pabutler
-ms.openlocfilehash: a72259e1deb97ca0256de5bfd3b2f6c78d92e3c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c9e8e73d18ec0c2a7334fbb5521e89ead4334cc7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935354"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826364"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Gerenciar perfil do editor 'Azure Marketplace' e 'AppSource'
 
@@ -23,7 +24,7 @@ Por esta altura, você concluiu as etapas para se tornar um editor do Azure Mark
 
 Se você não registrou sua empresa como um parceiro na nuvem, consulte [ Primeiros passos no portal do parceiro na nuvem ](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal).
 
-**Perfil do editor**: Seu perfil de editor distingue sua empresa no Azure Marketplace e AppSource. Ele é composto por sua ID de editor, nome de exibição e email(s) do proprietário. Um perfil bem gerenciado aumentará sua visibilidade e ajudará os usuários do Marketplace a identificar e selecionar facilmente uma oferta apropriada.
+**Perfil do editor**: seu perfil de editor distingue sua empresa no Azure Marketplace e AppSource. Ele é composto por sua ID de editor, nome de exibição e email(s) do proprietário. Um perfil bem gerenciado aumentará sua visibilidade e ajudará os usuários do Marketplace a identificar e selecionar facilmente uma oferta apropriada.
 
 > [!NOTE]
 > Seu ID de editor e o e-mail do proprietário registrado não são editáveis depois que você publica sua primeira oferta. No entanto, é possível exibir seu perfil e editar o nome de exibição do editor no Portal do Microsoft Cloud Partner.
@@ -39,7 +40,7 @@ Se você não registrou sua empresa como um parceiro na nuvem, consulte [ Primei
 
 ![Detalhes do perfil do editor - detalhes do perfil do editor](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledetails.png)
 
-**Vincular sua conta do Centro de Desenvolvimento**: Também é possível vincular sua conta do Centro de Desenvolvimento existente ao seu perfil de editor no Portal de Parceiros de Nuvem.
+**Vincular sua conta do Centro de Desenvolvimento**: também é possível vincular sua conta do Centro de Desenvolvimento existente ao seu perfil de editor no Portal de Parceiros de Nuvem.
 Primeiro faça logon no portal com o mesmo endereço de email usado para registrar sua conta do Centro de Desenvolvimento. Em seguida, sua página de perfil do editor exibe o status da sua conta do Centro de Desenvolvimento, o e-mail do proprietário da conta do Centro de Desenvolvimento e o nome da conta do Centro de Desenvolvimento.
 
 >[!NOTE]

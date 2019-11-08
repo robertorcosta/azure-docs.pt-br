@@ -1,6 +1,6 @@
 ---
 title: Configurar a topologia Connected Factory - Azure | Microsoft Docs
-description: Como configurar a topologia de um acelerador de solução Connected Factory.
+description: Este artigo descreve como configurar o acelerador de solução de fábrica conectada, incluindo sua topologia.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3ddbf5832424cdafad2c29254f51754203c7f079
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428311"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820126"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurar o acelerador da solução Connected Factory
 
@@ -264,10 +264,10 @@ Todas as propriedades usadas no arquivo de configuração podem ser agrupadas em
 
 As propriedades nesta categoria definem a aparência do painel Connected Factory. Os exemplos incluem:
 
-* NOME
+* Nome
 * DESCRIÇÃO
-* Image
-* Location
+* Imagem
+* Local
 * Unidades
 * Visible
 
@@ -282,7 +282,7 @@ Os números de OEE/KPI para a simulação Connected Factory são parametrizados 
 * Os valores de nó do OPC UA a serem incluídos no cálculo.
 * Como o número é computado por meio dos valores de telemetria.
 
-A fábrica conectada usa as fórmulas de OEE conforme publicadas pela [ http://www.oeefoundation.org ](http://www.oeefoundation.org).
+A fábrica conectada usa as fórmulas OEE como publicadas pelo [http://www.oeefoundation.org](http://www.oeefoundation.org).
 
 Os objetos de nó do OPC UA nas estações permitem a marcação para uso no cálculo de OEE/KPI. A propriedade **Relevance** indica para qual número de OEE/KPI o valor do nó do OPC UA deve ser usado. A propriedade **OpCode** define como o valor é incluído na computação.
 
@@ -307,9 +307,9 @@ Para determinadas operações, como visualizar o último valor ou criar consulta
 
   Identifica o valor do nó do servidor de OPC UA. O formato da propriedade deve ser conforme especificado na especificação do OPC UA. Nas mensagens ingeridas, essa propriedade é enviada como **NodeId**.
 
-Ver [o que é o publicador de OPC](overview-opc-publisher.md) para obter mais informações sobre como os dados de telemetria são ingeridos na fábrica conectada.
+Consulte [o que é o editor do OPC](overview-opc-publisher.md) para obter mais informações sobre como os dados de telemetria são ingeridos na fábrica conectada.
 
-## <a name="example-how-kpi1-is-calculated"></a>Exemplo: Como o KPI1 é calculado
+## <a name="example-how-kpi1-is-calculated"></a>Exemplo: como o KPI1 é calculado
 
 A configuração no arquivo `ContosoTopologyDescription.json` controla como os valores de KPI/OEE são calculados. O exemplo a seguir mostra como propriedades deste arquivo controlam o cálculo do KPI1.
 
@@ -340,4 +340,4 @@ O **OpCode** na configuração configura a lógica de cálculo para calcular o r
 
 ## <a name="next-steps"></a>Próximas etapas
 
-A próxima etapa sugerida é aprender como [personalizar a solução de fábrica conectada](iot-accelerators-connected-factory-customize.md).
+Uma próxima etapa sugerida é aprender a [Personalizar a solução de fábrica conectada](iot-accelerators-connected-factory-customize.md).

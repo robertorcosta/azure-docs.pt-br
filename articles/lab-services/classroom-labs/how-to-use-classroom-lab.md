@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 10813600621293e9f559129230193f81ea0c505a
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 2ac9e8b8d0635eceb7d4f85ad867b102f7d064f5
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161527"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585124"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Como acessar um laboratório de sala de aula no Azure Lab Services
 Este artigo descreve como se registrar em um laboratório de sala de aula, exibir todos os laboratórios que você pode acessar, iniciar/interromper uma VM no laboratório e se conectar a ela. 
@@ -107,7 +107,7 @@ Depois de se registrar nos laboratórios, você pode exibir todos os laboratóri
 2. Entre no serviço usando a conta de usuário usada para se registrar no laboratório. 
 3. Confirme que você vê todos os laboratórios aos quais tem acesso. 
 
-    ![Exibir todos os laboratórios](../media/how-to-use-classroom-lab/all-labs.png)
+    ![Exibir todos os laboratórios](../media/how-to-manage-classroom-labs/all-labs.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

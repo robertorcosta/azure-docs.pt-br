@@ -4,19 +4,20 @@ description: Go-To-Market Services – os recursos da Microsoft que os publicado
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 6ae761b9558a0d6c1b663c1202bc560382c7b0b6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7b563cd90ec3e46dfd2d4420b728cd6f69df40eb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752406"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818641"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Seus benefícios do Marketplace comercial
 
-Você publicou no Marketplace, agora deseja ver que sua oferta foi bem-sucedida. Fornecemos os benefícios – vendas, técnico e marketing-você precisa acelerar o crescimento da sua oferta.
+Você publicou no Marketplace, agora deseja ver que sua oferta foi bem-sucedida. Fornecemos os benefícios-vendas, técnico e marketing-você precisa acelerar o crescimento da sua oferta.
 
 Quando você entrar em contato com sua oferta, a equipe de recompensas do Marketplace entrará em contato para começar a trabalhar com você em seus benefícios qualificados. Os benefícios das recompensas do Marketplace se acumulam com base no seu envolvimento e vendas do Marketplace comercial. Quanto mais você se envolver, mais você obterá de volta.
 
@@ -104,7 +105,7 @@ Essa oferta é conduzida em inglês para todos os parceiros com uma oferta ao vi
 
 As transações comprovadas como fraudulentas não serão contadas na [camada do programa de vendas cobradas](https://aka.ms/marketplacepublisherrewards)do Publicador, conforme observado na [lista, avaliação,](#list-trial-and-consulting-benefits) seção de consultoria, seção de [benefícios do parceiro do Transact](#marketplace-rewards-for-transact-partners) e o [baralho detalhado do programa ](https://aka.ms/marketplacepublisherrewards). A Microsoft alocará parceiros a camadas de qualificação com base em suas vendas cobradas reais, depois que a fraude tiver sido removida. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você criou sua oferta no [portal do Cloud Partner](https://cloudpartner.azure.com), entre para criar ou configurar sua oferta.
 

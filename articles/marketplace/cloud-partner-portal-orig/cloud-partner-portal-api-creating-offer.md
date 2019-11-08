@@ -1,18 +1,19 @@
 ---
-title: Criar ou modificar uma oferta | O Azure Marketplace
+title: Criar ou modificar uma oferta | Azure Marketplace
 description: API para criar uma oferta nova ou atualizar uma existente.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 55f6aa60c836d55333e1c5b02a44114b91df822d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bfb9cfbe2c63caafef8487015f42a05b98afa29c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935516"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819711"
 ---
 <a name="create-or-modify-an-offer"></a>Criar ou modificar uma oferta
 =========================
@@ -27,9 +28,9 @@ Essa chamada atualiza uma oferta específica no namespace do editor ou cria uma 
 
 |  **Nome**         |  **Descrição**                      |  **Tipo de dados**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Identificador do editor, por exemplo `contoso` |   Cadeia de caracteres |
+| publisherId       |  Identificador do publicador, por exemplo `contoso` |   Cadeia de caracteres |
 | offerId           |  Identificador da oferta                     |   Cadeia de caracteres        |
-| api-version       |  Última versão da API            |   Data           |
+| api-version       |  Versão mais recente da API            |   Data           |
 |  |  |  |
 
 <a name="header"></a>Cabeçalho
@@ -127,7 +128,7 @@ O exemplo a seguir cria uma oferta com o offerID de `contosovirtualmachine`.
 ```
 
 
-### <a name="response"></a>Response
+### <a name="response"></a>Resposta
 
 ``` json
  {

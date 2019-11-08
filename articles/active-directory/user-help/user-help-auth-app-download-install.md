@@ -1,5 +1,5 @@
 ---
-title: Baixar e instalar o aplicativo Microsoft Authenticator – Azure Active Directory | Microsoft Docs
+title: Baixar e instalar o aplicativo Microsoft Authenticator-Azure AD
 description: Como baixar, instalar e usar o aplicativo Microsoft Authenticator para a verificação de dois fatores.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15ecdf0feb0d8e5307eac9916748e0bacdf51620
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ebe80d44d52ffa348413e51cd5e82e8468537479
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616039"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820219"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Baixar e instalar o aplicativo Microsoft Authenticator
 
@@ -27,7 +27,7 @@ ms.locfileid: "69616039"
 
 O aplicativo Microsoft Authenticator ajuda você a entrar em suas contas quando você usa a verificação de dois fatores. A verificação de dois fatores ajuda você a acessar suas contas com mais segurança, especialmente durante a exibição de informações confidenciais. Como as senhas podem ser esquecidas, roubadas ou comprometidas, a verificação de dois fatores é uma etapa adicional de segurança que ajuda a proteger sua conta, dificultando que ela seja invadida por outras pessoas.
 
-Você pode usar o aplicativo Microsoft Authenticator de várias maneiras, entre elas:
+Você pode usar o aplicativo Microsoft Authenticator de várias maneiras, incluindo:
 
 - **Verificação de dois fatores.** O método de verificação padrão, em que um dos fatores é a sua senha. Depois de entrar usando seu nome de usuário e a senha, você poderá aprovar uma notificação ou inserir um código de verificação fornecido.
 
@@ -52,7 +52,7 @@ Instale a última versão do aplicativo Microsoft Authenticator, com base no sis
 - **Apple iOS.** Em seu dispositivo iOS da Apple, acesse a App Store para [baixar e instalar o aplicativo Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 >[!Important]
->Se você não estiver no seu dispositivo móvel no momento, ainda poderá obter o aplicativo Microsoft Authenticator enviando a você mesmo um link de download da [página Microsoft Authenticator](https://www.microsoft.com/account/authenticator).
+>Se você não estiver no seu dispositivo móvel no momento, ainda poderá obter o aplicativo Microsoft Authenticator enviando a você mesmo um link de download da [página Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Próximas etapas
 

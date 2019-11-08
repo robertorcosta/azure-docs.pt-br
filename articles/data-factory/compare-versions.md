@@ -1,5 +1,5 @@
 ---
-title: Comparar o Azure Data Factory com a versão 1 do Data Factory | Microsoft Docs
+title: Comparar o Azure Data Factory com a versão 1 do Data Factory
 description: Este artigo compara o Azure Data Factory com a versão 1 do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 4cdb517e644d55504bfdafbd3bacdfd4bfa0b36c
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: cab4f156aa1fb2fa4d3b122377be1b28337f15a9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479294"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681602"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparar o Azure Data Factory com a versão 1 do Data Factory
 Este artigo compara o Data Factory com a versão 1 do Data Factory. Para obter uma introdução ao Data Factory, consulte [Introdução ao Data Factory](introduction.md). Para obter uma introdução à versão 1 do Data Factory, consulte [Introdução ao Azure Data Factory](v1/data-factory-introduction.md). 
@@ -27,10 +27,10 @@ A tabela a seguir compara os recursos do Data Factory com os recursos da versão
 | Recurso | Versão 1 | Versão atual | 
 | ------- | --------- | --------- | 
 | Conjunto de dados | Uma exibição nomeada de dados que faz referência aos dados que você deseja usar em suas atividades, como entradas e saídas. Conjuntos de dados identificam dados em armazenamentos de dados diferentes, como tabelas, arquivos, pastas e documentos. Por exemplo, um conjunto de dados de Blob do Azure especifica o contêiner de blobs e a pasta no armazenamento de Blobs do Azure dos quais a atividade deve ler os dados.<br/><br/>**Disponibilidade** define o modelo de divisão da janela de processamento do conjunto de dados (por exemplo, por hora ou diária, e assim por diante). | Os conjuntos de dados são os mesmos na versão atual. No entanto, você não precisa definir agendas de **disponibilidade** para os conjuntos de dados. Você pode definir um recurso de gatilho que pode agendar pipelines de um paradigma de agendador de relógio. Para saber mais, confira [Gatilhos](concepts-pipeline-execution-triggers.md#triggers) e [Conjuntos de dados](concepts-datasets-linked-services.md). | 
-| Serviços vinculados | Os serviços vinculados são como cadeias de conexão, que definem as informações de conexão necessárias para que o Data Factory se conecte aos recursos externos. | Os serviços vinculados são os mesmos que os do Data Factory V1, mas com uma nova propriedade **connectVia**, a fim de usar o ambiente de computação do Integration Runtime da versão atual do Data Factory. Para saber mais, confira [Tempo de execução de integração no Azure Data Factory](concepts-integration-runtime.md) e [Propriedades de serviço vinculado para o Armazenamento de Blobs do Azure](connector-azure-blob-storage.md#linked-service-properties). |
+| Serviços vinculados | Os serviços vinculados são como cadeias de conexão, que definem as informações de conexão necessárias para que o Data Factory se conecte aos recursos externos. | Os serviços vinculados são os mesmos que os do Data Factory V1, mas com uma nova propriedade **connectVia**, a fim de usar o ambiente de computação do Integration Runtime da versão atual do Data Factory. Para saber mais, confira [runtime de integração no Azure Data Factory](concepts-integration-runtime.md) e [Propriedades de serviço vinculado para o Armazenamento de Blobs do Azure](connector-azure-blob-storage.md#linked-service-properties). |
 | Pipelines | Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamento lógico de atividades que juntas executam uma tarefa. Você utiliza startTime, endTime, isPaused para agendar e executar pipelines. | Pipelines são grupos de atividades que são realizadas nos dados. No entanto, o agendamento das atividades no pipeline foi separado em novos recursos de gatilho. Pense em pipelines na versão atual do Data Factory mais como "unidades de fluxo de trabalho" que você agenda separadamente por meio de gatilhos. <br/><br/>Os pipelines não possuem “períodos” de execução de tempo na versão atual do Data Factory. Os conceitos de startTime, endTime e isPaused do Data Factory V1 não estão mais presentes na versão atual do Data Factory. Para saber mais, consulte [Execução e gatilhos de pipelines](concepts-pipeline-execution-triggers.md) e [Pipelines e atividades](concepts-pipelines-activities.md). |
 | Atividades | Atividades definem ações a serem executadas em seus dados dentro de um pipeline. Há suporte para atividades de movimentação de dados (atividade de cópia) e atividades de transformação de dados (como Hive, Pig e MapReduce). | Na versão atual do Data Factory, as atividades ainda são ações definidas em um pipeline. A versão atual do data Factory introduz novas [atividades de fluxo de controle](concepts-pipelines-activities.md#control-activities). Você pode usar essas atividades no fluxo de controle (loop e ramificação). Atividades de movimentação de dados e de transformação de dados com suporte na V1 também têm suporte na versão atual. Você pode definir as atividades de transformação sem usar conjuntos de dados na versão atual. |
-| Movimentação de dados híbridos e distribuição de atividades | Agora chamado de Integration Runtime, o [Gateway de Gerenciamento de Dados](v1/data-factory-data-management-gateway.md), oferecia suporte para a movimentação de dados entre o ambiente local e a nuvem.| O Gateway de Gerenciamento de Dados agora é chamado de Integration Runtime auto-hospedado. Ele fornece a mesma funcionalidade da versão 1. <br/><br/> O Integration Runtime do Azure-SSIS na versão atual do Data Factory também dá suporte à implantação e execução de pacotes SSIS (SQL Server Integration Services) na nuvem. Para obter mais informações, consulte [Tempo de execução de integração no Azure Data Factory](concepts-integration-runtime.md).|
+| Movimentação de dados híbridos e distribuição de atividades | Agora chamado de Integration Runtime, o [Gateway de Gerenciamento de Dados](v1/data-factory-data-management-gateway.md), oferecia suporte para a movimentação de dados entre o ambiente local e a nuvem.| O Gateway de Gerenciamento de Dados agora é chamado de Integration Runtime auto-hospedado. Ele fornece a mesma funcionalidade da versão 1. <br/><br/> O Integration Runtime do Azure-SSIS na versão atual do Data Factory também dá suporte à implantação e execução de pacotes SSIS (SQL Server Integration Services) na nuvem. Para obter mais informações, consulte [runtime de integração no Azure Data Factory](concepts-integration-runtime.md).|
 | parâmetros | ND | Parâmetros são pares de chave-valor de configurações somente leitura definidos em pipelines. Você pode passar argumentos para os parâmetros ao executar manualmente o pipeline. Se você estiver usando um gatilho de agendador, o gatilho também poderá passar valores para os parâmetros. As atividades no pipeline consomem os valores de parâmetro.  |
 | Expressões | O Data Factory V1 permite que você use funções e variáveis de sistema em consultas de seleção de dados e propriedades de atividade/conjunto de dados. | Na versão atual do Data Factory, você pode usar expressões em qualquer lugar em um valor de cadeia de caracteres JSON. Para saber mais, confira [Expressões e funções na versão atual do Data Factory](control-flow-expression-language-functions.md).|
 | Execuções de pipeline | ND | Uma instância única da uma execução do pipeline. Por exemplo, digamos que você tem um pipeline que é executado às 8h, 9h e 10h. Haveria três execuções de pipeline separadas nesse caso. Cada execução de pipeline possui uma ID de execução de pipeline exclusiva. A ID de execução de pipeline é um GUID que define exclusivamente essa execução de pipeline específica. As execuções de pipeline normalmente são instanciadas por meio da passagem de argumentos para parâmetros que são definidos nos pipelines. |
@@ -85,7 +85,7 @@ Você utiliza o SSIS do Azure se desejar mover suas cargas de trabalho de SSIS p
 
 O Integration Runtime do SSIS do Azure é um cluster totalmente gerenciado de VMs do Azure (nós) dedicados à execução dos seus pacotes de SSIS na nuvem. Quando você provisiona o Integration Runtime do SSIS do Azure, pode usar as mesmas ferramentas que costuma usar para implantar pacotes SSIS em um ambiente de SSIS local. 
 
-Por exemplo, você pode usar o SQL Server Data Tools ou o SQL Server Management Studio para implantar pacotes do SSIS nesse tempo de execução no Azure. Para obter as instruções passo a passo, confira o tutorial [Implantar os pacotes de serviços de integração do SQL Server no Azure](tutorial-create-azure-ssis-runtime-portal.md). 
+Por exemplo, você pode usar o SQL Server Data Tools ou o SQL Server Management Studio para implantar pacotes do SSIS nesse runtime no Azure. Para obter as instruções passo a passo, confira o tutorial [Implantar os pacotes de serviços de integração do SQL Server no Azure](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="flexible-scheduling"></a>Agendamento flexível
 Na versão atual do Data Factory, você não precisa definir agendas de disponibilidade do conjunto de dados. Você pode definir um recurso de gatilho que pode agendar pipelines de um paradigma de agendador de relógio. Você também pode passar parâmetros para pipelines de um gatilho para um modelo de agendamento e execução flexíveis. 
@@ -101,7 +101,7 @@ A versão atual oferece suporte à cópia de dados entre mais armazenamentos de 
 ## <a name="support-for-on-demand-spark-cluster"></a>Suporte a cluster do Spark sob demanda
 A versão atual oferece suporte à criação de um cluster do Azure HDInsight Spark sob demanda. Para criar um cluster do Spark sob demanda, especifique o tipo de cluster como Spark em sua definição de serviço vinculado do HDInsight sob demanda. Em seguida, configure a atividade do Spark em seu pipeline para usar esse serviço vinculado. 
 
-Em tempo de execução, quando a atividade é executada, o serviço do Data Factory cria automaticamente o cluster do Spark para você. Para obter mais informações, consulte os seguintes artigos:
+Em runtime, quando a atividade é executada, o serviço do Data Factory cria automaticamente o cluster do Spark para você. Para obter mais informações, consulte os seguintes artigos:
 
 - [Atividade do Spark na versão atual do Data Factory](transform-data-using-spark.md)
 - [Serviço vinculado do Azure HDInsight sob demanda](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)
@@ -142,7 +142,7 @@ Os SDKs que foram atualizados para a versão atual não são retrocompatíveis c
 A função de Colaborador de Data Factory versão 1 pode ser usada para criar e gerenciar recursos da versão atual do Data Factory. Para obter mais informações, consulte [Colaborador do Data Factory](../role-based-access-control/built-in-roles.md#data-factory-contributor).
 
 ## <a name="monitoring-experience"></a>Experiência de monitoramento
-Na versão atual, você também pode monitorar os data factories usando o [Azure Monitor](monitor-using-azure-monitor.md). Os novos cmdlets do PowerShell dão suporte ao monitoramento de [tempos de execução de integração](monitor-integration-runtime.md). A versão 1 e a versão 2 oferecem suporte ao monitoramento visual por meio do aplicativo de monitoramento, que pode ser iniciado no Portal do Azure.
+Na versão atual, você também pode monitorar os data factories usando o [Azure Monitor](monitor-using-azure-monitor.md). Os novos cmdlets do PowerShell dão suporte ao monitoramento de [runtimes de integração](monitor-integration-runtime.md). A versão 1 e a versão 2 oferecem suporte ao monitoramento visual por meio do aplicativo de monitoramento, que pode ser iniciado no Portal do Azure.
 
 
 ## <a name="next-steps"></a>Próximas etapas

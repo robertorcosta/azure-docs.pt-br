@@ -140,78 +140,20 @@
   items:
     - name: AU PROTEGIDO
       displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Aplicativo Web de infraestrutura como serviço
-          href: ../blueprints/au-protected-iaaswa-overview.md
-        - name: Aplicativo Web PaaS
-          href: ../blueprints/au-protected-paaswa-overview.md
     - name: FedRAMP
       displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Análise de dados
-          href: ../blueprints/fedramp-analytics-overview.md
-        - name: Data warehouse
-          href: ../blueprints/fedramp-datawarehouse-overview.md
-        - name: Aplicativo Web de infraestrutura como serviço
-          href: ../blueprints/fedramp-iaaswa-overview.md
-        - name: Aplicativo Web PaaS
-          href: ../blueprints/fedramp-paaswa-overview.md
     - name: FFIEC
       displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Análise de dados
-          href: ../blueprints/ffiec-analytics-overview.md
-        - name: Data warehouse
-          href: ../blueprints/ffiec-dw-overview.md
-        - name: Aplicativo Web de infraestrutura como serviço
-          href: ../blueprints/ffiec-iaaswa-overview.md
-        - name: Aplicativo Web PaaS
-          href: ../blueprints/ffiec-paaswa-overview.md
     - name: HIPAA/HITRUST
       displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Integridade dos Dados e da IA
-          href: ../blueprints/azure-health.md
     - name: NIST SP 800-171
       displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Análise de dados
-          href: ../blueprints/nist171-analytics-overview.md
-        - name: Data warehouse
-          href: ../blueprints/nist171-datawarehouse-overview.md
-        - name: Aplicativo Web de infraestrutura como serviço
-          href: ../blueprints/nist171-iaaswa-overview.md
-        - name: Aplicativo Web PaaS
-          href: ../blueprints/nist171-paaswa-overview.md
     - name: PCI DSS
       displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Análise de dados
-          href: ../blueprints/pcidss-analytics-overview.md
-        - name: Data warehouse
-          href: ../blueprints/pcidss-dw-overview.md
-        - name: Aplicativo Web de infraestrutura como serviço
-          href: ../blueprints/pcidss-iaaswa-overview.md
-        - name: Aplicativo Web PaaS
-          href: ../blueprints/pcidss-paaswa-overview.md
     - name: UK NHS
       displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Análise de dados
-          href: ../blueprints/uknhs-analytics-overview.md
-        - name: Data warehouse
-          href: ../blueprints/uknhs-datawarehouse-overview.md
-        - name: Aplicativo Web de infraestrutura como serviço
-          href: ../blueprints/uknhs-iaaswa-overview.md
-        - name: Aplicativo Web PaaS
-          href: ../blueprints/uknhs-paaswa-overview.md
     - name: OFICIAL DO REINO UNIDO
       displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Aplicativo Web de infraestrutura como serviço
-          href: ../blueprints/ukofficial-iaaswa-overview.md
-        - name: Aplicativo Web PaaS
-          href: ../blueprints/ukofficial-paaswa-overview.md
 - name: White papers de segurança
   href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
 - name: Serviços de segurança do Azure

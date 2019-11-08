@@ -1,22 +1,23 @@
 ---
-title: Suporte a configurações para uma imagem de contêineres do Azure | O Azure Marketplace
+title: Configurações de suporte para uma imagem de contêineres do Azure | Azure Marketplace
 description: Definir configurações de suporte para um contêiner do Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: 71436d7ee82d9e5162780719d9a7a063fa903c6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 144512683e6afa643639ba12b071e2a3ed7e01bd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942574"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823102"
 ---
 # <a name="container-support-tab"></a>Guia de suporte de contêiner
 
-Use a guia **Suporte** da página **Nova oferta** para fornecer recursos técnicos e de suporte ao usuário para sua oferta.  As seguintes áreas de entrada são fornecidas no formulário de suporte: **Contato de engenharia**, **atendimento**, e **dão suporte a Urls**. Um asterisco (*) anexado ao nome do campo indica que é obrigatório.
+Use a guia **Suporte** da página **Nova oferta** para fornecer recursos técnicos e de suporte ao usuário para sua oferta.  As seguintes áreas de entrada são fornecidas no formulário de Suporte: **Contato de Engenharia**, **Suporte ao Cliente** e **URLs de Suporte**. Um asterisco (*) anexado ao nome do campo indica que é obrigatório.
 
 
 ## <a name="support-form-fields"></a>Campos de formulário de suporte
@@ -28,18 +29,18 @@ Forneça as informações necessárias para os campos Contato de engenharia e Su
 
 O contato de engenharia é o contato técnico entre sua organização e a Microsoft. Os campos obrigatórios são indicados por um asterisco (*).
 
-- **Nome da\***  -nome da pessoa ou grupo que serve como o suporte técnico/engenharia.
-- **Email\***  -endereço de Email do contato técnico.
-- **Telefone\***  -número de telefone para suporte técnico.
+- **Nome\*** -nome da pessoa ou grupo que serve como suporte técnico/de engenharia.
+- **Email\*** -endereço de email deste contato técnico.
+- **Telefone\*** -número de telefone para suporte técnico.
 
 
 ### <a name="customer-support"></a>Suporte ao cliente
 
 O contato do Suporte ao Cliente recebe tickets de suporte abertos pelos clientes no Azure.  Os campos obrigatórios são indicados por um asterisco (*).
 
-- **Nome da\***  -nome da pessoa ou grupo que serve como o suporte ao cliente.
-- **Email\***  -endereço de Email do contato de suporte.
-- **Telefone\***  -número de telefone para suporte ao cliente.
+- **Nome\*** -nome da pessoa ou grupo que serve como atendimento ao cliente.
+- **Email\*** -endereço de email deste contato de suporte.
+- **Telefone\*** -número de telefone para atendimento ao cliente.
 
 
 ## <a name="next-steps"></a>Próximas etapas

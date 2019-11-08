@@ -13,15 +13,15 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b436fbdb0d70318e6820d3f59f1e198c639e5a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e98b09d8b07c625613e3be149e64ac8f06adc089
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561696"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805557"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou excluir usuários usando o Azure Active Directory
-Adicione novos usuários ou exclua usuários existentes da organização do Azure Active Directory (Azure AD).
+Adicione novos usuários ou exclua usuários existentes da organização do Azure Active Directory (Azure AD). Para adicionar ou excluir usuários, você deve ser um administrador de usuário ou um administrador global. 
 
 ## <a name="add-a-new-user"></a>Adicione um novo usuário
 Você pode criar um novo usuário usando o portal do Azure Active Directory.
@@ -39,7 +39,7 @@ Você pode criar um novo usuário usando o portal do Azure Active Directory.
 
    - **Nome (obrigatório).** O primeiro e último nome do novo usuário. Por exemplo, Mary Parker.
 
-   - **Nome de usuário (obrigatório).** O nome de usuário do novo usuário. Por exemplo, mary@contoso.com.
+   - **Nome de usuário (obrigatório).** O nome de usuário do novo usuário. Por exemplo: mary@contoso.com.
     
        A parte do domínio do nome de usuário deve usar o nome de domínio padrão inicial, <_yourdomainname_>. Onmicrosoft.com ou um nome de domínio personalizado, como contoso.com. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte [Como adicionar um nome de domínio personalizado ao Active Directory do Azure](add-custom-domain.md).
 

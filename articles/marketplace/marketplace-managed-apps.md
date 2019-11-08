@@ -5,17 +5,18 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 manager: evansma
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: v-qiwe
-ms.openlocfilehash: 29546b0969751a43959a55860fc22e9f3c3e225b
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: bdb2a54748c734d7b44dfa0b1f106d37e817f80e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154942"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822927"
 ---
-# <a name="azure-applications-managed-application-offer-publishing-guide"></a>Aplicativos Azure: Guia de publicação da oferta de aplicativo gerenciado
+# <a name="azure-applications-managed-application-offer-publishing-guide"></a>Aplicativos do Azure: Guia de publicação da oferta de aplicativo gerenciado
 
 Um aplicativo gerenciado é uma das principais formas de publicar uma solução no Marketplace. Use este guia para compreender os requisitos dessa oferta. 
 
@@ -32,15 +33,15 @@ Use o aplicativo do Azure: tipo de oferta de aplicativo gerenciado quando as seg
 
 |Requisitos |Detalhes  |
 |---------|---------|
-|Implantados na assinatura do Azure de um cliente | Aplicativos gerenciados devem ser implantados na assinatura do cliente e podem ser gerenciados por terceiros. | 
-|Cobrança e medição    |  Os recursos serão provisionados na assinatura do Azure do cliente. Máquinas virtuais pagas conforme o uso (PAYGO) serão negociadas com o cliente via Microsoft e cobradas por meio da assinatura do Azure do cliente (PAYGO). <br> No caso de traga-your-própria licença, enquanto a Microsoft cobrará os custos de infraestrutura inerentes a assinatura do cliente negociará seu diretamente de taxas para o cliente de licenciamento de software.        |
+|Implantado na assinatura do Azure de um cliente | Os aplicativos gerenciados devem ser implantados na assinatura do cliente e podem ser gerenciados por terceiros. | 
+|Cobrança e medição    |  Os recursos serão provisionados na assinatura do Azure do cliente. As máquinas virtuais PAYGO (pré-pagas) serão transacionadas com o cliente pela Microsoft, cobradas por meio da assinatura do Azure do cliente (PAYGO). <br> No caso do traga sua própria licença, enquanto a Microsoft cobrará os custos de infraestrutura incorridos na assinatura do cliente, você receberá suas tarifas de licenciamento de software diretamente para o cliente.        |
 |VHD (disco rígido virtual) compatível com Azure    |   As VMs devem ser criadas em Windows ou Linux.<ul> <ul> <li>Para obter mais informações sobre como criar um VHD Linux, consulte [Distribuições do Linux endossadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para obter mais informações sobre como criar um VHD Windows, consulte [Criar um VHD compatível com o Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
 
 >[!NOTE]
 > Aplicativos gerenciados devem poder ser implantados por meio do Marketplace. Se a comunicação do cliente é relevante, você deve falar com clientes interessados depois de habilitar o compartilhamento de leads.  
 
 >[!Note]
->Cloud Solution Providers (CSP) parceiro canal participar agora está disponível.  Consulte [Cloud Solution Providers](./cloud-solution-providers.md) para obter mais informações sobre sua oferta por meio do Microsoft CSP de marketing de parceiros canais.
+>A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](./cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP.
 
 ## <a name="next-steps"></a>Próximas etapas
 Caso ainda não tenha feito isso, 
@@ -49,4 +50,4 @@ Caso ainda não tenha feito isso,
 
 Se você estiver registrado e estiver criando uma nova oferta ou trabalhando em uma existente,
 
-- [Entrar no Portal do Cloud Partner](https://cloudpartner.azure.com) para criar ou concluir sua oferta.
+- [Entre no portal do Cloud Partner](https://cloudpartner.azure.com) para criar ou concluir sua oferta.

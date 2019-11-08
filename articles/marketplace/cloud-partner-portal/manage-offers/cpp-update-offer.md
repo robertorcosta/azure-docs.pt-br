@@ -1,18 +1,19 @@
 ---
-title: Atualizar as ofertas do marketplace | O Azure Marketplace
+title: Atualizar ofertas do Marketplace | Azure Marketplace
 description: Atualizar as ofertas nos Marketplaces do Azure e do AppSource usando o Portal do Cloud Partner
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pabutler
-ms.openlocfilehash: 73e2812c678dca7e21089ee9cc091db756d7e25a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b3f579dbdc943b2380c9de3dde6b2ebf4754d4d1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942395"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826721"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Atualizar as ofertas do Azure Marketplace e do AppSource
 
@@ -46,7 +47,7 @@ As seções a seguir explicam como executar algumas das operações de atualiza�
 
 Use as etapas a seguir para atualizar os contatos de suporte de sua oferta.
 1. Na página **Todas as Ofertas**, selecione a oferta.
-2. Selecione a guia **Contatos**. Atualize seus contatos.
+2. Selecione a guia **contatos** . atualize seus contatos.
 3. Selecione o botão **Salvar**.
 4. Selecione **publicar** para iniciar o processo de publicação.
 
@@ -61,7 +62,7 @@ Para implementar essas alterações, siga as etapas abaixo.
 
 Para ofertas do Azure Marketplace:
 
-1. Selecione a guia **SKUs**.  Selecione o SKU a modificar.
+1. Selecione a guia **SKUs** .  Selecione a SKU a ser modificada.
 1. Clique no botão **Selecionar Países** no campo **Disponibilidade por país/região**.
 1. Na caixa de diálogo de disponibilidade da região, adicione ou remova as regiões para este SKU.
 
@@ -90,7 +91,7 @@ Use as etapas a seguir para disponibilizar um novo SKU para uma oferta existente
 
 ### <a name="update-offer-marketplace-assets"></a>Atualizar ativos de marketplace da oferta
 
-Talvez haja situações em que você precisa atualizar os ativos de imagem e com base em texto do marketplace, tais como seus logotipos da empresa, descrição da oferta, etc. Use as etapas a seguir para atualizar esses ativos.
+Você pode ter cenários em que precisa atualizar os ativos de imagem e com base em texto do Marketplace, como logotipos da empresa, descrição da oferta, etc. Use as etapas a seguir para atualizar esses ativos.
 
 1. Na página **Todas as ofertas**, encontre a oferta. 
 2. Selecione a guia **Marketplace** e siga as instruções no tópico da *guia Marketplace* da oferta.

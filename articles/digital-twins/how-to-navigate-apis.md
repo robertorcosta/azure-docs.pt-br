@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/27/2019
-ms.openlocfilehash: 5df8bb0ba0323692bddf94ae2888e8fcf1ad24a9
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: b0c3d72085e008524811f479ccbdeec013e26c4c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063280"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822255"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Como usar as APIs de gerenciamento de Gêmeos Digitais do Azure
 
@@ -110,10 +110,10 @@ A lista a seguir descreve várias consultas com sintaxe de OData válida:
 - `YOUR_MANAGEMENT_API_URL/users?$top=4&$filter=endswith(LastName,'k')&$orderby=LastName`
 - `YOUR_MANAGEMENT_API_URL/spaces?$orderby=Name desc&$top=3&$filter=substringof('Floor',Name)`
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para aprender sobre alguns padrões comuns de consulta de API, leia [Como consultar as APIs de Gêmeos Digitais do Azure para tarefas comuns](./how-to-query-common-apis.md).
 
 Para saber mais sobre seus pontos de extremidade de API, leia [como usar o Swagger digital gêmeos](./how-to-use-swagger.md).
 
-Para examinar a sintaxe do OData e os operadores de comparação disponíveis, leia [operadores de comparação OData no Azure Search](../search/search-query-odata-comparison-operators.md).
+Para examinar a sintaxe do OData e os operadores de comparação disponíveis, leia [operadores de comparação OData no Azure pesquisa cognitiva](../search/search-query-odata-comparison-operators.md).

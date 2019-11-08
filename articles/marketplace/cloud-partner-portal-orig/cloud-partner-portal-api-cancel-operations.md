@@ -1,18 +1,19 @@
 ---
-title: Cancelar operação de API | O Azure Marketplace
+title: Cancelar API de operação | Azure Marketplace
 description: Cancela operações.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 70ffd13be4ba934b423e3bb5344eea0a9c36886c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 374425dbd2abacb2114b5792d7476bc341fa353a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935558"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819780"
 ---
 # <a name="cancel-operation"></a>Cancelar operação 
 
@@ -64,7 +65,7 @@ Você pode fornecer uma lista separada por vírgulas de endereços de email com 
 |  |  |
 
 
-### <a name="response"></a>Response
+### <a name="response"></a>Resposta
 
   `Operation-Location: https://cloudpartner.azure.com/api/publishers/contoso/offers/contoso-virtualmachineoffer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8`
 

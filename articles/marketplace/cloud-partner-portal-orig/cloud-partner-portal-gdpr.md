@@ -1,18 +1,19 @@
 ---
-title: Conformidade com GDPR | O Azure Marketplace
+title: Conformidade do GDPR | Azure Marketplace
 description: Portal do Cloud Partner e GDPR.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 91db369f9a2a0439bdbaf8600d1b329f0da00aa0
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: bc43a6cb3c30638d8c3904d7ca5b004e0905f1d2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786464"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824303"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Conformidade com GDPR do Portal do Cloud Partner
 ====================================
@@ -24,12 +25,12 @@ O Portal do Cloud Partner fornece informações detalhadas sobre o processamento
 <a name="discover"></a>Descobrir
 --------
 
-O Portal do Cloud Partner fornece acesso a todos os dados na guia Usuários. Você pode identificar seus dados pessoais lá. Para saber como adicionar/remover usuários, consulte nossa [documentação](./cloud-partner-portal-manage-users.md).
+Portal do Cloud Partner fornece acesso a todos os seus dados na guia usuários. Você pode identificar seus dados pessoais lá. Para saber como adicionar/remover usuários, consulte nossa [documentação](./cloud-partner-portal-manage-users.md).
 
 <a name="manage"></a>Gerenciar
 ------
 
-É possível gerenciar os dados pessoais, pressionando excluir na sua conta de usuário na guia Usuários. É possível ter funções de um **proprietário** e um **colaborador** que podem ser atribuídas a cada usuário específico e ambos podem ser atribuídos/copiados/atualizados/excluídos.
+Você pode gerenciar seus dados pessoais pressionando excluir na sua conta de usuário na guia usuários. Temos funções de um **proprietário** e um **colaborador** que podem ser atribuídos a cada usuário específico, e ambos podem ser atribuídos/copiados/atualizados/excluídos.
 
 <a name="consent"></a>Consentimento
 -------

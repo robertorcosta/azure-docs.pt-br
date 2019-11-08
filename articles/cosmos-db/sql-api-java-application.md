@@ -1,21 +1,21 @@
 ---
-title: Tutorial de desenvolvimento de aplicativo Java usando o Azure Cosmos DB
-description: Este tutorial de aplicativo Web Java mostra a você como usar o Azure Cosmos DB e a API de SQL para armazenar e acessar dados de um aplicativo Java hospedado nos Sites do Azure.
+title: 'Tutorial: Tutorial de desenvolvimento de aplicativo Java usando o Azure Cosmos DB'
+description: 'Tutorial: Este tutorial de aplicativo Web Java mostra a você como usar o Azure Cosmos DB e a API de SQL para armazenar e acessar dados de um aplicativo Java hospedado nos Sites do Azure.'
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 12/22/2018
+ms.date: 11/05/2019
 ms.author: ramkris
-ms.openlocfilehash: bd2894c23e206ed5f49fec8aa169d6ed852df4c6
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4a7c307e8a4d4088fe4d2f7800398fda4704219c
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616665"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720842"
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Compilar um aplicativo Web Java usando o Azure Cosmos DB e a API de SQL
+# <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutorial: Compilar um aplicativo Web Java usando o Azure Cosmos DB e a API de SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -65,7 +65,7 @@ Para criar o aplicativo JSP:
 1. Primeiro, começaremos criando um projeto Java. Inicie o Eclipse, clique em **Arquivo**, **Novo** e clique em **Projeto Web dinâmico**. Se você não vir o **Projeto Web Dinâmico** listado como um projeto disponível, faça o seguinte: clique em **Arquivo**, **Novo**, **Projeto...** , expanda **Web**, clique em **Projeto Web Dinâmico** e clique em **Avançar**.
    
     ![Desenvolvimento de aplicativo Java JSP](./media/sql-api-java-application/image10.png)
-2. Digite um nome de projeto na caixa **Nome do projeto** e no menu suspenso **Tempo de Execução de Destino**, selecione, opcionalmente, um valor (por exemplo, Apache Tomcat v 7.0) e clique em **Concluir**. Selecione um tempo de execução de destino que permite que você execute seu projeto localmente por meio do Eclipse.
+2. Digite um nome de projeto na caixa **Nome do projeto** e no menu suspenso **Runtime de Destino**, selecione, opcionalmente, um valor (por exemplo, Apache Tomcat v 7.0) e clique em **Concluir**. Selecione um runtime de destino que permite que você execute seu projeto localmente por meio do Eclipse.
 3. No Eclipse, na exibição do Explorador de Projeto, expanda o seu projeto. Clique com o botão direito do mouse em **WebContent**, clique em **Novo** e, em seguida, clique em **Arquivo JSP**.
 4. Na caixa de diálogo **Novo Arquivo JSP**, nomeie o arquivo como **index.jsp**. Mantenha a pasta pai como **WebContent**, conforme mostrado na ilustração a seguir e clique em **Avançar**.
    
@@ -77,7 +77,7 @@ Para criar o aplicativo JSP:
             <% out.println("Hello World!"); %>
         </body>
 7. Salve o arquivo index.jsp.
-8. Se definir um tempo de execução de destino na etapa 2, você pode clicar no **Projeto** e em **Executar** para executar o aplicativo JSP localmente:
+8. Se definir um runtime de destino na etapa 2, você pode clicar no **Projeto** e em **Executar** para executar o aplicativo JSP localmente:
    
     ![Hello World — tutorial de aplicativo Java](./media/sql-api-java-application/image12.png)
 
@@ -726,7 +726,7 @@ Sites do Azure tornam a implantação de aplicativos Java tão simples quanto a 
    * Clique em **Concluir**.
 3. Agora que tem um arquivo WAR em mãos, você pode simplesmente carregá-lo no seu diretório **webapps** do site do Azure. Para obter instruções sobre como carregar o arquivo, confira [Adicionar um aplicativo Java aos Aplicativos Web do Serviço de Aplicativo do Azure](../app-service/web-sites-java-add-app.md).
    
-    Uma vez carregado o arquivo WAR na pasta webapps, o ambiente de tempo de execução irá detectar que você o adicionou e o carregará automaticamente.
+    Uma vez carregado o arquivo WAR na pasta webapps, o ambiente de runtime irá detectar que você o adicionou e o carregará automaticamente.
 4. Para exibir seu produto final, navegue até `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/` e comece a adicionar tarefas!
 
 ## <a id="GetProject"></a>Obtenha o projeto do GitHub
@@ -745,8 +745,8 @@ Todos os exemplos neste tutorial foram incluídos no projeto [tarefas](https://g
 11. No **Gerenciador de Projetos**, navegue para azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java e substitua os valores HOST e MASTER_KEY pela URI e a CHAVE PRIMÁRIA de sua conta BD Cosmos do Azure, então, salve o arquivo. Para obter mais informações, consulte a [Etapa 1. Criar uma conta de banco de dados do Azure Cosmos](#CreateDB).
 12. Em **Explorador de Projeto**, clique com o botão direito do mouse em **azure-documentdb-java-sample**, clique em **Caminho de Build** e clique em **Configurar Caminho de Build**.
 13. Na tela **Caminho de Build Java**, no painel direito, selecione a guia **Bibliotecas** e clique em **Adicionar JARs Externos**. Navegue até o local do arquivo lombok.jar e clique em **Abrir** e clique em **OK**.
-14. Use a Etapa 12 para abrir a janela **Propriedades** novamente e, no painel esquerdo, clique em **Tempos de Execução Direcionados**.
-15. Na tela **Tempos de Execução Direcionados**, clique em **Novo**, selecione **Apache Tomcat v7.0** e clique em **OK**.
+14. Use a Etapa 12 para abrir a janela **Propriedades** novamente e, no painel esquerdo, clique em **Runtimes Direcionados**.
+15. Na tela **Runtimes Direcionados**, clique em **Novo**, selecione **Apache Tomcat v7.0** e clique em **OK**.
 16. Use a Etapa 12 para abrir a janela **Propriedades** novamente e, no painel esquerdo, clique em **Facetas do Projeto**.
 17. Na tela **Facetas do Projeto**, selecione **Módulo da Web Dinâmico** e **Java** e clique em **OK**.
 18. Na guia **Servidores** na parte inferior da tela, clique com o botão direito do mouse em **Servidor Tomcat v7.0 no localhost** e clique em **Adicionar e Remover**.

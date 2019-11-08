@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 16b75a98a5a42c9acf6d9a68330cbf8e005f7179
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b3d66cab8cf43d862bbf17d5783f0469e3e1a5f8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819803"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825644"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Criar uma nova oferta do Dynamics 365 Business central
 
@@ -56,7 +57,7 @@ Liste sua oferta aos clientes com um link para uma avaliação gratuita fornecen
 > [!NOTE]
 > Os tokens que seu aplicativo receberá por meio do link de avaliação só podem ser usados para obter informações do usuário por meio do Azure Active Directory (Azure AD) para automatizar a criação da conta em seu aplicativo. Não há suporte para contas da Microsoft para autenticação usando esse token.
 
-#### <a name="contact-me"></a>Contate-me
+#### <a name="contact-me"></a>Entrar em contato comigo
 
 Colete informações de contato do cliente conectando seu sistema de gerenciamento de relacionamento com o cliente (CRM). O cliente será solicitado a fornecer permissão para compartilhar suas informações. Esses detalhes do cliente, juntamente com o nome da oferta, a ID e a origem do Marketplace onde encontraram sua oferta, serão enviados para o sistema CRM que você configurou. Para obter mais informações sobre como configurar seu CRM, consulte [Connect Lead Management](#connect-lead-management). 
 
@@ -91,7 +92,7 @@ Para obter mais informações, consulte [visão geral do gerenciamento de Lead](
 
 Lembre-se de **salvar** antes de passar para a próxima seção!
 
-## <a name="properties"></a>propriedades
+## <a name="properties"></a>Propriedades
 
 A página **Propriedades** permite que você defina as categorias e os setores usados para agrupar sua oferta no Marketplace, sua versão do aplicativo e os contratos legais que dão suporte à sua oferta. Selecione **salvar** depois de concluir esta página.
 
@@ -130,7 +131,7 @@ Você precisará definir detalhes do Marketplace (nome da oferta, descrição, i
 > [!NOTE]
 > A oferta de conteúdo de listagem (como descrição, documentos, capturas de tela, termos de uso etc.) não precisa estar em inglês, desde que a descrição da oferta comece com a frase ", este aplicativo está disponível apenas em [idioma diferente do inglês]". Também é aceitável fornecer uma URL de *Link útil* para oferecer conteúdo em um idioma diferente daquele usado no conteúdo de listagem da oferta.
 
-### <a name="name"></a>name
+### <a name="name"></a>Nome
 
 O nome que você digitar aqui será mostrado aos clientes como o título da sua listagem de ofertas. Esse campo é preenchido previamente com o texto inserido para o **alias de oferta** quando você criou a oferta, mas pode alterar esse valor. Esse nome pode ser marcado (e você pode incluir os símbolos de marca registrada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -138,7 +139,7 @@ O nome que você digitar aqui será mostrado aos clientes como o título da sua 
 
 Forneça uma breve descrição da sua oferta (até 100 caracteres), que pode ser usada nos resultados da pesquisa do Marketplace.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIÇÃO
 
 Forneça uma descrição mais longa da sua oferta (até 3.000 caracteres). Essa descrição será exibida aos clientes na visão geral de listagem do Marketplace. Inclua a proposta de valor da sua oferta, os principais benefícios, a categoria e/ou as associações do setor, as oportunidades de compra no aplicativo e as divulgações necessárias. 
 
@@ -153,7 +154,7 @@ Algumas dicas para escrever sua descrição:
 - Use o vocabulário específico do setor ou palavras com base no benefício tanto quanto possível. 
 - Considere o uso de marcas HTML para formatar sua descrição e torná-la mais atraente.
 
-### <a name="search-keywords"></a>Pesquisar palavras-chave
+### <a name="search-keywords"></a>Palavras-chave para pesquisa
 
 Opcionalmente, você pode inserir até três palavras-chave de pesquisa para ajudar os clientes a localizar sua oferta no Marketplace. Para obter melhores resultados, tente usar essas palavras-chave em sua descrição também.
 
@@ -199,7 +200,7 @@ A imagem do Hero é opcional. Se você fornecer um, ele deve medir 815 x 290 pix
 
 Adicione capturas de tela que mostram como sua oferta funciona. Pelo menos três capturas de tela são necessárias e você pode adicionar até cinco. Todas as capturas de tela devem ser 1280 x 720 pixels.
 
-#### <a name="videos"></a>vídeos
+#### <a name="videos"></a>Vídeos
 
 Opcionalmente, você pode adicionar até cinco vídeos que demonstram sua oferta. Esses vídeos devem ser hospedados no YouTube e/ou no Vimeo. Para cada um, insira o nome do vídeo, sua URL e uma imagem em miniatura do vídeo (1280 x 720 pixels)
 
@@ -255,7 +256,7 @@ Necessário se sua oferta deve ser instalada junto com outra extensão que não 
 
 #### <a name="dependency-package-file"></a>Arquivo de pacote de dependência
 
-Necessário se sua oferta deve ser instalada junto com outra extensão que já foi publicada no Marketplace. Nesse caso, carregue seu arquivo de `.app` ou `.zip` aqui.
+Necessário se sua oferta deve ser instalada junto com outra extensão que já foi publicada no Marketplace. Nesse caso, carregue seu arquivo `.app` ou `.zip` aqui.
 
 ### <a name="url-to-app-installation"></a>URL para instalação do aplicativo
 
@@ -269,7 +270,7 @@ A página **Test Drive** permite que você configure uma demonstração (ou "Tes
 
 Os seguintes tipos de unidades de teste estão disponíveis, cada um com seus próprios requisitos de configuração técnica.
 
-- [Azure Resource Manager](#technical-configuration-for-azure-resource-manager-test-drive)
+- [Gerenciador de Recursos do Azure](#technical-configuration-for-azure-resource-manager-test-drive)
 - [Dynamics 365](#technical-configuration-for-dynamics-365-test-drive)
 - [Aplicativo lógico](#technical-configuration-for-logic-app-test-drive)
 - [Power bi](#technical-configuration-not-required-for-power-bi-test-drives) (configuração técnica não necessária)
@@ -369,7 +370,7 @@ Se sua oferta exigir a edição Premium do Microsoft Dynamics 365 Business centr
 
 ### <a name="key-usage-scenario"></a>Cenário de uso de chave
 
-Você deve carregar um arquivo de `.pdf` que lista os principais cenários de uso de sua oferta listados em um documento (formato. pdf). Todos os cenários listados aqui podem ser verificados por nossa equipe de validação antes de aprovarmos sua oferta para o Marketplace.
+Você deve carregar um arquivo `.pdf` que lista os principais cenários de uso de sua oferta listados em um documento (formato. pdf). Todos os cenários listados aqui podem ser verificados por nossa equipe de validação antes de aprovarmos sua oferta para o Marketplace.
 
 ### <a name="app-tests-automation"></a>Automação de testes de aplicativo
 
@@ -388,12 +389,12 @@ Depois de concluir todas as seções necessárias da oferta, selecione **publica
 Se for a primeira vez que publicar essa oferta, você poderá:
 
 - Consulte o status de conclusão de cada seção da oferta.
-    - *Não iniciado* – significa que a seção não foi tocada e precisa ser concluída.
-    - *Incompleto* – significa que a seção tem erros que precisam ser corrigidos ou que requer mais informações a serem fornecidas. Volte para a (s) seção (ões) e atualize-a.
-    - *Concluído* – significa que a seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta devem estar em um estado completo antes que você possa enviar a oferta.
+    - *Não iniciado* -significa que a seção não foi tocada e precisa ser concluída.
+    - *Incompleto* -significa que a seção tem erros que precisam ser corrigidos ou que requer mais informações a serem fornecidas. Volte para a (s) seção (ões) e atualize-a.
+    - *Concluir* -significa que a seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta devem estar em um estado completo antes que você possa enviar a oferta.
 - Na seção **notas de certificação** , forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de qualquer nota suplementar útil para entender seu aplicativo.
 - Envie a oferta para publicação selecionando **Enviar**. Nós lhe enviaremos um email quando uma versão prévia da oferta estiver disponível para revisão e aprovação. Retorne ao Partner Center e selecione **Go-Live** para a oferta para publicar sua oferta no público (ou se uma oferta privada, para o público privado).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Atualizar uma oferta existente no Marketplace comercial](./update-existing-offer.md)

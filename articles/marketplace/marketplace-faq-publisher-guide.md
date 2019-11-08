@@ -4,15 +4,16 @@ description: Respostas para perguntas comuns sobre o Azure Marketplace e Microso
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: c24f956a7aeb68fe6b0325705a9e7dab8e70b063
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 300f1783c1c514a6cc49d700c2741be85e69c3e8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330251"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822973"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Perguntas frequentes do Microsoft Commercial Marketplace
 
@@ -35,18 +36,18 @@ O Azure Marketplace foi projetado para profissionais de ti e desenvolvedores de 
 O Azure Marketplace oferece serviços e soluções técnicas da Microsoft e de parceiros, criados para estender os serviços e os produtos do Azure. O catálogo de soluções abrange várias categorias, incluindo:
 
 * sistemas operacionais de base
-* bancos de dados
+* databases
 * segurança
 * identidade
-* rede
+* Rede
 * blockchain
-* ferramentas para desenvolvedores
+* ferramentas de desenvolvedor
 
 ### <a name="azure-marketplace-for-customers"></a>Azure Marketplace para clientes
 
 **Como começo a usar o Azure Marketplace?**
 
-Você pode encontrar uma ampla variedade de soluções e aplicativos empresariais certificados e otimizados para execução no Azure acessando o [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps). O Azure Marketplace também pode ser acessado por meio do [Azure portal] quando você [**cria um recurso**](https://portal.azure.com/#create/hub).
+Você pode encontrar uma ampla variedade de soluções e aplicativos empresariais certificados e otimizados para execução no Azure acessando o [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps). O Azure Marketplace também pode ser acessado por meio do [portal do Azure] quando você [**cria um recurso**](https://portal.azure.com/#create/hub).
 
 **Quais são os principais benefícios do Azure Marketplace?**
 
@@ -57,7 +58,7 @@ Com o Azure Marketplace, os clientes podem descobrir aplicativos técnicos compi
 As ofertas do Azure Marketplace podem ser adquiridas por meio de:
 
 * [A vitrine baseada na Web](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [O portal do Azure][azure portal]
+* [O portal do Azure][portal do Azure]
 * [A CLI (interface de linha de comando) do Azure](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -91,7 +92,7 @@ O Azure Marketplace está disponível para clientes do Azure nos países/regiõe
 
 As transações podem ser conduzidas nas 17 moedas a seguir: AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, JPY, KRW, NOK, NZD, CONTAGIE, SEK, TWD, USD, RMB.
 
-### <a name="deploying-a-solution-from-azure-marketplace"></a>Implantação de uma solução do Azure Marketplace
+### <a name="deploying-a-solution-from-azure-marketplace"></a>Implantando uma solução do Azure Marketplace
 
 **Implantei uma VM (máquina virtual) do Azure Marketplace em uma assinatura e agora quero migrar a assinatura de uma conta do Azure para outra. Há suporte para isso atualmente?**
 
@@ -105,7 +106,7 @@ Para migrar uma assinatura da VM (Máquina Virtual) do Azure Marketplace para um
 
 **Como as assinaturas do Azure Marketplace são cobradas?**
 
-O preço varia de acordo com os tipos de produto e especificações do editor. As taxas de licença de software e os custos de uso do Azure são cobrados separadamente por meio de sua assinatura do Azure.
+O preço varia de acordo com os tipos de produto e especificações do editor. Os valores de licença de software e os custos de uso do Azure são cobrados separadamente por meio de sua assinatura do Azure.
 
 *Desempacotado:*
 
@@ -127,7 +128,7 @@ A assinatura do Azure está incluída no preço da solução ISV (fornecedores i
 
 + *Por usuário:* As assinaturas de SaaS podem ser cobradas por usuário com base em uma cobrança mensal ou anual. 
 
-Os detalhes de preços específicos da oferta podem ser encontrados na página de detalhes da solução no [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) ou no [Azure portal].
+Os detalhes de preços específicos da oferta podem ser encontrados na página de detalhes da solução em [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) ou na [portal do Azure].
 
 > [!Note]
 > Exceto por valores mensais, as cobranças de uso do Azure são aplicáveis a todos os modelos de preço, a menos que instruído de outro modo.
@@ -180,9 +181,9 @@ Não. O editor que é proprietário de soluções no Azure Marketplace pode defi
 
 **Em que local posso exibir detalhes de minha assinatura e informações de cobrança do Azure Marketplace?**
 
-MOSP-os clientes [do programa de assinatura do Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (Web Direct) podem exibir detalhes de compra do Marketplace na guia notas fiscais da seção Gerenciamento de custos + cobrança do [Azure portal].
+MOSP-os clientes [do programa de assinatura do Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (Web Direct) podem exibir detalhes de compra do Marketplace na guia notas fiscais da seção Gerenciamento de custos + cobrança do [portal do Azure].
 
-Os clientes do Enterprise Agreement (EA) podem exibir detalhes de compra do Marketplace na guia notas fiscais da seção Gerenciamento de custos + cobrança do [Azure portal].
+Os clientes do Enterprise Agreement (EA) podem exibir detalhes de compra do Marketplace na guia notas fiscais da seção Gerenciamento de custos + cobrança do [portal do Azure].
 
 Os parceiros do CSP (provedor de soluções na nuvem) podem exibir detalhes de compra do Marketplace para cada cliente no Partner Center na guia histórico de pedidos depois de selecionar uma empresa na exibição clientes.
 
@@ -208,7 +209,7 @@ O *preço* refere-se ao custo da máquina virtual do Azure para executar o softw
 
 **Como faço para descobrir quanto usei da minha compra do Azure Marketplace?**
 
-Uma informação de uso estimada pode ser encontrada no [Azure portal]. As informações de uso estimado podem não incluir atividades recentes e podem basear-se em projeções derivadas de consumo passado. Durante a versão prévia pública, essa funcionalidade pode não estar disponível para todas as compras e variar de acordo com o tipo de produto.
+Uma informação de uso estimada pode ser encontrada no [portal do Azure]. As informações de uso estimado podem não incluir atividades recentes e podem basear-se em projeções derivadas de consumo passado. Durante a versão prévia pública, essa funcionalidade pode não estar disponível para todas as compras e variar de acordo com o tipo de produto.
 
 ### <a name="customer-support"></a>Suporte ao cliente
 
@@ -246,7 +247,7 @@ As licenças canceladas estarão sujeitas à política de reembolso encontrada n
 
 **Os reembolsos têm suporte para ofertas baseadas em consumo?**
 
-Quaisquer encargos com base no consumo – sejam as VMs por hora ou os medidores personalizados – não são refundable por meio do cancelamento. Depois que o consumo ocorre, os encargos são processados pela plataforma comercial da Microsoft e qualquer qualidade de disputas de serviço em que um reembolso é solicitado seria manipulado fora dos sistemas da Microsoft entre o Publicador e o cliente diretamente. Ofertas que dão suporte a uma taxa fixa mais a cobrança limitada segue a política de reembolso padrão para os encargos de taxa fixa.
+Quaisquer encargos com base no consumo – sejam as VMs por hora ou os medidores personalizados-não são refundable por meio do cancelamento. Depois que o consumo ocorre, os encargos são processados pela plataforma comercial da Microsoft e qualquer qualidade de disputas de serviço em que um reembolso é solicitado seria manipulado fora dos sistemas da Microsoft entre o Publicador e o cliente diretamente. Ofertas que dão suporte a uma taxa fixa mais a cobrança limitada segue a política de reembolso padrão para os encargos de taxa fixa.
 
 **É possível alterar os planos de médio prazo?**
 
@@ -285,7 +286,7 @@ O Azure Marketplace oferece um mercado para os Microsoft Partner promoverem e ve
 
 Microsoft Partners podem escolher em que local publicar com base no público-alvo.
 
-A Microsoft fornece duas diferentes vitrines de marketplace de nuvem: Azure Marketplace e AppSource. Essas vitrines permitem que os clientes encontrem, testem e comprem serviços e aplicativos de nuvem. Cada vitrine atende a necessidades exclusivas do cliente e permite a Microsoft Partners direcionar suas soluções ou serviços com base no público-alvo.
+A Microsoft fornece duas vitrines de mercado de nuvem distintas – Azure Marketplace e AppSource. Essas vitrines permitem que os clientes encontrem, testem e comprem serviços e aplicativos de nuvem. Cada vitrine atende a necessidades exclusivas do cliente e permite a Microsoft Partners direcionar suas soluções ou serviços com base no público-alvo.
 
 Selecione [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps) para direcionar a desenvolvedores e profissionais de TI ou usuários técnicos.
 
@@ -335,7 +336,7 @@ Clientes potenciais são clientes que estão implantando seus produtos usando o 
 
 **Onde posso obter ajuda na configuração de meu destino de cliente potencial?**
 
-Saiba mais no [Partner Center-obtenha](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) a documentação de clientes potenciais ou envie um tíquete de suporte por meio do [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) , selecionando seu tipo de oferta e gerenciamento de leads.
+Saiba mais no [Partner Center-obtenha](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) a documentação de clientes potenciais ou envie um tíquete de suporte por meio de [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) selecionando seu tipo de oferta e gerenciamento de leads.
 
 **É necessário configurar um destino de cliente potencial para publicar uma oferta no Marketplace?**
 
@@ -372,7 +373,7 @@ Para obter mais informações, confira [Excluir uma oferta](./cloud-partner-port
 
 *Aplicativos do O365:*
 
-1.  Entre no <https://sellerdashboard.microsoft.com> com sua conta de desenvolvedor.
+1.  Entre no <https://sellerdashboard.microsoft.com> com sua conta de desenvolvimento.
 1.  Retire o suplemento.
 
     > [!NOTE]
@@ -392,7 +393,7 @@ Acesse [Serviços de GTM da Microsoft](https://partner.microsoft.com/reach-custo
 
 **Em que local as soluções do Azure Marketplace são promovidas nas propriedades da Web da Microsoft?**
 
-As soluções do Azure Marketplace estão disponíveis no Microsoft [Azure portal]e no [site do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). Desenvolvedores de Nuvem e Profissionais de TI que usam o Azure têm exposição a soluções de parceiros sempre que entram. Um subconjunto de soluções de parceiro também é apresentado e alternado na [página inicial do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) e na [página de soluções do Azure](https://azure.microsoft.com/solutions/).
+As soluções do Azure Marketplace estão disponíveis no Microsoft [portal do Azure]e no [site do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). Desenvolvedores de Nuvem e Profissionais de TI que usam o Azure têm exposição a soluções de parceiros sempre que entram. Um subconjunto de soluções de parceiro também é apresentado e alternado na [página inicial do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) e na [página de soluções do Azure](https://azure.microsoft.com/solutions/).
 
 ### <a name="billing-and-payments"></a>Cobrança e pagamentos
 
@@ -455,7 +456,7 @@ O Azure Marketplace dá suporte a 141 compras-de geografias, conforme definido p
 
 As transações podem ser realizadas nas 17 moedas a seguir: AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, JPY, KRW, NOK, NZD, CONTAGIE, SEK, TWD e USD.
 
-### <a name="pricing-and-payment"></a>Preços e pagamento
+### <a name="pricing-and-payment"></a>Preço e pagamento
 
 **Qual é a diferença entre Camada Gratuita e Avaliação de Software Gratuita?**
 
@@ -471,9 +472,9 @@ Para concluir uma compra por um preço muito baixo, a Microsoft sugere publicar 
 
 Sim, após a solicitação por meio do tíquete de suporte, a Microsoft processará créditos para seu cliente se você julgar apropriado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Visite a página do [Guia do Azure Marketplace e do AppSource Publisher](/azure/marketplace/marketplace-publishers-guide) .
 
 
-[Azure portal]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com

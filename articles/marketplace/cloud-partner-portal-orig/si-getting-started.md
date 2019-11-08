@@ -4,15 +4,16 @@ description: Introdução ao recurso Seller Insights do Portal do Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 6c903c87bc153864381a3f1763afaeeb7796090a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d335525a23ca2e1442ae009dcfbc062bff8cc77d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943051"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824757"
 ---
 <a name="getting-started-with-seller-insights"></a>Introdução ao Seller Insights
 ====================================
@@ -57,7 +58,7 @@ Apenas usuários com permissões *Proprietário* podem ver os módulos de **Paga
 <a name="finding-more-help"></a>Encontrar mais ajuda
 -----------------
 
-- [Definições do Seller Insights](./si-insights-definitions-v4.md) - Localizar definições para métricas e dados
+- [Definições dos Insights do Vendedor](./si-insights-definitions-v4.md) – localizar definições para métricas e dados
 
 - [Introdução ao Seller Insights](./si-getting-started.md) - Introdução ao recurso Seller Insights.
 

@@ -1,5 +1,5 @@
 ---
-title: Visão geral da instância gerenciada do banco de dados SQL
+title: Visão geral da instância gerenciada do SQL
 description: Este artigo descreve a instância gerenciada do banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 11/04/2019
-ms.openlocfilehash: 6075b07c1ed1e8d53bfe61a424d19e3a2ef6fd08
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6c5b913835b2080f30ff3dd73e6a59c1043ecf5d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687815"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823287"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>O que é a instância gerenciada do banco de dados SQL do Azure?
 

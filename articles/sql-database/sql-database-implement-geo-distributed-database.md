@@ -1,5 +1,5 @@
 ---
-title: Implementar uma solução de Banco de Dados SQL do Azure distribuída geograficamente | Microsoft Docs
+title: Implementar uma solução distribuída geograficamente
 description: Saiba como configurar o Banco de Dados SQL do Azure e o aplicativo para o failover para um banco de dados replicado e failover de teste.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 4a21fe3ed15d1dc2550f6863611b27d2b36c5c51
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 51380d312c778380602c64cac766b050511cf994
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568094"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810932"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementar um banco de dados distribuído geograficamente
 
@@ -25,7 +25,7 @@ Configurar um Banco de Dados SQL do Azure e o aplicativo para o failover para um
 > [!div class="checklist"]
 > - Criar um [grupo de failover](sql-database-auto-failover-group.md)
 > - Executar um aplicativo Java para consultar um Banco de Dados SQL do Azure
-> - Failover de teste
+> - Failover de Teste
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -296,7 +296,7 @@ As configurações de replicação geográfica também podem ser alteradas no po
    ...
    ```
 
-## <a name="test-failover"></a>Failover de teste
+## <a name="test-failover"></a>Failover de Teste
 
 Execute os scripts a seguir para simular um failover e observe os resultados do aplicativo. Observe como algumas inserções e seleções falharão durante a migração do banco de dados.
 
@@ -336,7 +336,7 @@ Neste tutorial, você configurou um Banco de Dados SQL do Azure e o aplicativo p
 > [!div class="checklist"]
 > - Criar um grupo de failover de replicação geográfica
 > - Executar um aplicativo Java para consultar um Banco de Dados SQL do Azure
-> - Failover de teste
+> - Failover de Teste
 
 Avance para o próximo tutorial sobre como migrar usando DMS.
 

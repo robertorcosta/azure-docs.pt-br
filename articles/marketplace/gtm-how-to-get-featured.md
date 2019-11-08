@@ -4,15 +4,16 @@ description: Serviços Go-To-Market – esta seção descreve como colocar uma l
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: a99237ec52d302dbb7fc3914c6abfff5fecf4523
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 12dcdff082ce1bac350d0e3a426df6acec6efe99
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962747"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819014"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Como obter destaque no AppSource e no Azure Marketplace
 
@@ -21,13 +22,13 @@ O Azure Marketplace e AppSource têm seções de **aplicativos em destaque**, na
 * Primeiro, se você tiver uma oferta de avaliação ou de transação, poderá usar o benefício de "promoção de categoria" por meio dos [benefícios do Marketplace comercial](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 * Em segundo lugar, examine a lista de práticas recomendadas e os critérios abaixo para obter uma vaga.
 
-O algoritmo de seleção de aplicativos em destaque gera uma pontuação atribuída a um aplicativo pela Microsoft, assim como a pontuação de crédito de uma pessoa nos EUA.  A seleção semanal de aplicativos em destaque se baseará em um cálculo de desempenho do aplicativo e do serviço.
+O algoritmo de seleção de aplicativos em destaque gera uma pontuação para um aplicativo pela Microsoft, assim como a pontuação de crédito de uma pessoa nos EUA.  A seleção semanal de aplicativos em destaque se baseará em um cálculo de desempenho do aplicativo e do serviço.
 
 ## <a name="steps-to-take"></a>Etapas a realizar
 
 Você pode realizar as seguintes ações para melhorar sua pontuação:
 
-1. *Verifique se o aplicativo ou serviço está categorizado adequadamente*: escolha três categorias que representam as funcionalidades do aplicativo ou serviço.
+1. *Verifique se seu aplicativo ou serviço está categorizado adequadamente*: escolha três categorias que representam os recursos do aplicativo ou do serviço.
 2. *Aplicativos do Azure Marketplace: aumente o seu consumo do Azure mês a mês.* Se for capaz de alcançar 1.000 horas mensais de uso do Azure, você aumentará significativamente suas chances de ficar em destaque.
 3. *Aplicativos do AppSource: aumente as aquisições que vêm para sua oferta.* Se for capaz de alcançar 10 aquisições mensais, você aumentará significativamente suas chances de ficar em destaque. 
 4. *Conquiste o status de pronto de venda conjunta*: complete os requisitos para estar pronto para venda conjunta.

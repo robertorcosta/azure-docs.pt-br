@@ -4,15 +4,16 @@ description: Soluções integradas no Azure Marketplace e Microsoft AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 8bffb2c71f5e07499338ea32e0c064392af81684
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: eaba5612221e712ad5b14f10876e083729970fde
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71706303"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818555"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicar uma solução integrada
 
@@ -40,7 +41,7 @@ Para obter uma visão geral do programa de soluções integradas, Assista [a est
     * Integração de aplicativos
     * Gerenciamento do ciclo de vida do aplicativo
     * Plataforma de Nuvem
-    * Análise de Dados
+    * Análise de dados
     * Datacenter
     * Plataforma de dados
     * DevOps
@@ -70,14 +71,14 @@ Depois que sua indicação for aprovada, use os recursos de programa vinculado p
     * Abordagem de suporte
     * Atividades de marketing
     * Processo de vendas
-    * Atividades
+    * atividades
 
     Sua discussão sobre a abordagem de integração deve envolver os seguintes pontos: 
     * Pontos de integração
     * Arquitetura da solução
     * Autenticação
     * Interface do usuário
-    * Monitorando
+    * Monitoramento
     * Mecanismo de implantação
     * APIs
     * Repositório de dados unificados
@@ -86,7 +87,7 @@ Depois que sua indicação for aprovada, use os recursos de programa vinculado p
 
     * [Guia de discussão do workshop de decisões de negócios](https://aka.ms/AA5qicx)
     * [Guia de discussão do workshop de decisões técnicas](https://aka.ms/AA5qid1)
-    * vídeo [Quickstart: Workshops técnicos e de negócios @ no__t-0
+    * [Vídeo de início rápido: Workshops técnicos e comerciais](https://aka.ms/AA5qos9)
 
 1. Identifique um gerente de projeto entre parceiros para orientar o plano de projeto e a linha do tempo que você desenvolveu nos workshops comerciais e técnicos.
 
