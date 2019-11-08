@@ -247,6 +247,8 @@
                   href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Manipulação de eventos
           href: storage-blob-event-overview.md
+        - name: Feed de alteração
+          href: storage-blob-change-feed.md
         - name: Recursos do blob de páginas
           href: storage-blob-pageblob-overview.md
         - name: Sites estáticos
@@ -374,6 +376,8 @@
           href: storage-custom-domain-name.md
         - name: Rotear eventos para um ponto de extremidade personalizado
           href: storage-blob-event-quickstart.md
+        - name: Processar logs do feed de alterações
+          href: storage-blob-change-feed-how-to.md
         - name: Pesquisar o armazenamento de blob com o Azure Search
           href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Transferir dados
@@ -432,24 +436,24 @@
           href: /cli/azure/storage
         - name: .NET
           items:
-            - name: 'Blobs, filas e arquivos'
-              href: /dotnet/api/overview/azure/storage/client
+            - name: Blobs (versão 12.x)
+              href: /dotnet/api/azure.storage.blobs
             - name: Movimentação de dados
               href: /dotnet/api/microsoft.azure.storage.datamovement
             - name: Provedor de recursos de armazenamento
               href: /dotnet/api/overview/azure/storage/management
         - name: Java
           items:
-            - name: 'Blobs, Filas e Arquivos (versão 12.x – versão prévia)'
-              href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
-            - name: 'Blobs, filas e arquivos (versão 8)'
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+            - name: Blobs (versão 12.x)
+              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html'
+            - name: Blobs (versão 8.x)
+              href: /java/api/com.microsoft.azure.storage.blob
             - name: Provedor de recursos de armazenamento
               href: /java/api/overview/azure/storage/management
-        - name: Node.js
-          href: /javascript/api/overview/azure/storage
-        - name: Python
-          href: /python/api/overview/azure/storage
+        - name: JavaScript (versão 12.x)
+          href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+        - name: Python (versão 12.x)
+          href: /python/api/azure-storage-blob/
         - name: REST
           items:
             - name: 'Blobs, Filas, Tabelas e Arquivos'
@@ -737,20 +741,24 @@
           href: /cli/azure/storage
         - name: .NET
           items:
-            - name: 'Blobs, Filas, Tabelas e Arquivos'
-              href: /dotnet/api/overview/azure/storage/client
+            - name: Blobs (versão 12.x)
+              href: /dotnet/api/azure.storage.blobs
             - name: Movimentação de dados
               href: /dotnet/api/microsoft.azure.storage.datamovement
-            - name: Gerenciador de Recursos
+            - name: Provedor de recursos de armazenamento
               href: /dotnet/api/overview/azure/storage/management
         - name: Java
           items:
-            - name: 'Blobs, Filas e Arquivos (versão 12.x – versão prévia)'
-              href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
-            - name: 'Blobs, filas e arquivos (versão 8)'
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+            - name: Blobs (versão 12.x)
+              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html'
+            - name: Blobs (versão 8.x)
+              href: /java/api/com.microsoft.azure.storage.blob
             - name: Provedor de recursos de armazenamento
               href: /java/api/overview/azure/storage/management
+        - name: JavaScript (versão 12.x)
+          href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+        - name: Python (versão 12.x)
+          href: /python/api/azure-storage-blob/
         - name: REST
           items:
             - name: 'Blobs, Filas, Tabelas e Arquivos'

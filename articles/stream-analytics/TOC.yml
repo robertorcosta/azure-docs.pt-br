@@ -107,6 +107,8 @@
           href: sql-reference-data.md
         - name: Autenticar com identidade gerenciada – saída de Blob
           href: blob-output-managed-identity.md
+        - name: Autenticar com identidade gerenciada – Power BI
+          href: powerbi-output-managed-identity.md
     - name: Compilar soluções
       items:
         - name: Análise de sentimento no Twitter

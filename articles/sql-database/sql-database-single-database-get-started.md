@@ -1,5 +1,5 @@
 ---
-title: Criar um banco de dados individual – Banco de Dados SQL do Azure | Microsoft Docs
+title: Criar um banco de dados individual
 description: Crie e consulte um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure, o PowerShell e a CLI do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
 ms.date: 09/09/2019
-ms.openlocfilehash: 831ebbd3f85ffa9b78ac3e97a6ec68a8c41bceb5
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 482fc3f08fb986908efcab83a82338ced36ee689
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845298"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821002"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Início Rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure, o PowerShell e a CLI do Azure
 
@@ -28,7 +28,7 @@ Para todas as etapas deste início rápido, entre no [portal do Azure](https://p
 
 ## <a name="create-a-single-database"></a>Criar um banco de dados individual
 
-Um banco de dados individual pode ser criado na camada de computação (versão prévia) provisionada ou sem servidor.
+Um banco de dados individual pode ser criado no nível de computação provisionada ou sem servidor.
 
 - Um banco de dados individual na camada de computação provisionada tem uma quantidade pré-alocada de recursos de computação, incluindo a CPU e a memória, usando um de dois [modelos de compra](sql-database-purchase-models.md).
 - Um banco de dados individual na camada de computação sem servidor tem uma variedade de recursos de computação, incluindo CPU e memória, que são dimensionados automaticamente e está disponível apenas nos [modelos de compra baseado em vCore](sql-database-service-tiers-vcore.md).
