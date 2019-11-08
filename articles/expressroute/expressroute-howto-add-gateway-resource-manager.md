@@ -1,5 +1,5 @@
 ---
-title: 'Adicionar um gateway de rede virtual a uma rede virtual do ExpressRoute: PowerShell: Azure | Microsoft Docs'
+title: 'Adicionar um gateway de rede virtual a uma VNet para a ExpressRoute: PowerShell: Azure| Microsoft Docs'
 description: Este artigo ensina como adicionar gateway de VNet a uma VNet do Resource Manager já existente do ExpressRoute.
 services: expressroute
 author: charwen
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/21/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 6ab701adcc2122270c607604f222ac5edbceeb37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbb091addd078a08a075d2754256ed016d8dd086
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730533"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748344"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Configurar um gateway de rede virtual para ExpressRoute usando PowerShell
 > [!div class="op_single_selector"]
@@ -24,15 +24,15 @@ ms.locfileid: "66730533"
 > 
 > 
 
-Este artigo ensina como adicionar, redimensionar e remover um gateway de VNet (rede virtual) para uma rede virtual já existente. As etapas para essa configuração se aplicam às redes virtuais que foram criados usando o modelo de implantação do Resource Manager para uma configuração de ExpressRoute. Para obter mais informações, confira [Sobre os gateways de rede virtual para ExpressRoute](expressroute-about-virtual-network-gateways.md).
+Este artigo ensina como adicionar, redimensionar e remover um gateway de VNet (rede virtual) para uma rede virtual já existente. As etapas para essa configuração se aplicam ao VNets que foram criados usando o modelo de implantação do Gerenciador de recursos para uma configuração do ExpressRoute. Para obter mais informações, confira [Sobre os gateways de rede virtual para ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
 ## <a name="before-beginning"></a>Antes de começar
 
-### <a name="working-with-powershell"></a>Trabalhar com o PowerShell
+### <a name="working-with-powershell"></a>Trabalhando com o PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
-[!INCLUDE [working with cloud shell](../../includes/expressroute-cloud-shell-powershell-about.md)]
+[!INCLUDE [working with cloud shell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ### <a name="configuration-reference-list"></a>Lista de referência de configuração
 

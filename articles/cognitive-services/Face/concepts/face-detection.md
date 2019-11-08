@@ -1,7 +1,7 @@
 ---
-title: Conceitos de atributos e de detecção facial
+title: Conceitos de detecção e atributos de face
 titleSuffix: Azure Cognitive Services
-description: Aprenda os conceitos sobre a detecção de face e atributos faciais.
+description: A detecção facial é a ação de localizar faces humanas em uma imagem e, opcionalmente, retornar tipos diferentes de dados relacionados à face.
 services: cognitive-services
 author: PatrickFarley
 manager: nitime
@@ -10,74 +10,74 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: e61048eeab9d7061c18f3237db22fc87ca52f526
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15e39eb9f5b8dd3556ea9ff8240bc2c9d252cd31
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65891159"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73743062"
 ---
-# <a name="face-detection-and-attributes"></a>Detecção facial e atributos
+# <a name="face-detection-and-attributes"></a>Detecção de face e atributos
 
-Este artigo explica os conceitos de detecção facial e de dados de atributo de face. Detecção facial é a ação de localização rostos humanos em uma imagem e, opcionalmente, retornar diferentes tipos de dados relacionados a face.
+Este artigo explica os conceitos de detecção de face e dados de atributos de face. A detecção facial é a ação de localizar faces humanas em uma imagem e, opcionalmente, retornar tipos diferentes de dados relacionados à face.
 
-Você usa o [enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) operação detectar faces em uma imagem. No mínimo, cada face detectada corresponde a um campo de faceRectangle na resposta. Esse conjunto de coordenadas de pixel para a esquerda, superior, largura e altura marcam a face localizada. Usando essas coordenadas, você pode obter a localização de face e seu tamanho. A resposta da API, faces são listadas na ordem de tamanho do maior ao menor.
+Você usa a operação de [detecção de face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para detectar faces em uma imagem. No mínimo, cada face detectada corresponde a um campo faceRectangle na resposta. Esse conjunto de coordenadas de pixel para o lado esquerdo, superior, largura e altura marca a face localizada. Usando essas coordenadas, você pode obter o local da face e seu tamanho. Na resposta da API, os rostos são listados na ordem de tamanho do maior para o menor.
 
 ## <a name="face-id"></a>Face ID
 
-A identificação de face é uma cadeia de caracteres de identificador exclusivo para cada face detectada em uma imagem. Você pode solicitar uma face ID em sua [enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) chamada à API.
+A ID de face é uma cadeia de caracteres de identificador exclusivo para cada face detectada em uma imagem. Você pode solicitar uma ID facial em sua chamada à API de [detecção de face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) .
 
 ## <a name="face-landmarks"></a>Pontos de referência facial
 
-Pontos de referência são um conjunto de pontos de fácil de encontrar no rosto, como os alunos ou a dica do nariz. Por padrão, há 27 pontos de referência facial predefinidos. A figura a seguir mostra todos os pontos de 27:
+As dicas de referência são um conjunto de pontos fáceis de encontrar em uma face, como o Pupils ou a gorjeta do nariz. Por padrão, há 27 pontos de referência facial predefinidos. A figura a seguir mostra todos os 27 pontos:
 
-![Um diagrama de face com todos os pontos de 27 referência rotulado](../Images/landmarks.1.jpg)
+![Um diagrama de face com todos os 27 pontos de referência rotulados](../Images/landmarks.1.jpg)
 
 As coordenadas dos pontos são retornadas em unidades de pixels.
 
 ## <a name="attributes"></a>Atributos
 
-Os atributos são um conjunto de recursos que opcionalmente podem ser detectados pelo [enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API. Os seguintes atributos podem ser detectados:
+Os atributos são um conjunto de recursos que, opcionalmente, podem ser detectados pela API de [detecção facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) . Os seguintes atributos podem ser detectados:
 
-* **Idade**. A idade estimada em anos de uma determinada face.
-* **Desfoque**. O pouco de desfoque da face na imagem. Esse atributo retorna um valor entre zero e um e uma classificação informal de baixa, média ou alta.
-* **Emoções**. Uma lista de emoções com confiança suas detecção para determinada face. Pontuações de confiança são normalizadas e as pontuações em todas as emoções adicionar até um. As emoções retornadas são felicidade, tristeza, neutral, raiva, desdém, aversão, surpresa e medo.
-* **Exposição**. A exposição da face na imagem. Esse atributo retorna um valor entre zero e um e uma classificação informal de subexposição, goodExposure ou Superexposição.
-* **Pelos faciais**. A presença de cabelo faciais estimado e o comprimento para determinada face.
-* **Gênero**. O sexo estimado de determinada face. Os valores possíveis são genderless masculino e feminino.
-* **Óculos**. Se a determinada face tem óculos. Os valores possíveis são NoGlasses, ReadingGlasses, óculos de sol e Swimming óculos.
-* **Hair**. O tipo de cabelo da face. Esse atributo mostra se os cabelos está visível, se baldness é detectado e quais cores de cabelo são detectadas.
-* **Head apresentar**. Orientação da superfície no espaço 3D. Esse atributo é descrito pelo pitch, roll e yaw ângulos em graus. Os intervalos de valores são os graus de-90 a 90 graus, - 180 graus a 180 graus e graus de-90 a 90 graus, respectivamente. Consulte o diagrama a seguir para mapeamentos de ângulo:
+* **Idade**. A idade estimada em anos de uma face específica.
+* **Desfoque**. O desfoque da face na imagem. Esse atributo retorna um valor entre zero e um e uma classificação informal de baixo, médio ou alto.
+* **Emoção**. Uma lista de emoções com a confiança de detecção para a face determinada. As pontuações de confiança são normalizadas e as pontuações em todas as emoções somam-se a uma. As emoções retornadas são felicidade, tristeza, neutral, raiva, contentative, aversão, surpresa e medo.
+* **Exposição**. A exposição da face na imagem. Esse atributo retorna um valor entre zero e um e uma classificação informal de underExposure, goodExposure ou superexposição.
+* **Cabelo facial**. A presença de cabelo facial estimada e o comprimento da face fornecida.
+* **Sexo**. O gênero estimado da face fornecida. Os valores possíveis são masculino, feminino e sexo.
+* **Óculos**. Se a face fornecida tem óculos. Os valores possíveis são novidros, ReadingGlasses, óculos e Goggles de nada.
+* **Cabelo**. O tipo de cabelo da face. Esse atributo mostra se o cabelo está visível, se baldness é detectado e quais cores de cabelo são detectadas.
+* **Pose de cabeçalho**. A orientação da face no espaço 3D. Esse atributo é descrito pelos ângulos de inclinação, roll e guinada em graus. Os intervalos de valores são de-90 graus a 90 graus,-180 graus a 180 graus e-90 graus para 90 graus, respectivamente. Consulte o diagrama a seguir para obter os mapeamentos de ângulo:
 
-    ![Um cabeçalho com o tom, roll e yaw eixos rotulados](../Images/headpose.1.jpg)
-* **Makeup**. Se a face tem composição. Esse atributo retorna um valor booleano para eyeMakeup e lipMakeup.
-* **Ruído**. Poluição visual detectada na imagem de face. Esse atributo retorna um valor entre zero e um e uma classificação informal de baixa, média ou alta.
-* **Oclusão**. Se houver objetos bloqueio partes da face. Esse atributo retorna um valor booleano para eyeOccluded, foreheadOccluded e mouthOccluded.
-* **Smiley**. A expressão de Smiley da face determinado. Esse valor está entre zero para nenhum Smiley e um para um sorriso claro.
+    ![Uma cabeça com os eixos de pitch, rolo e guinada rotulados](../Images/headpose.1.jpg)
+* **Composição**. Se a face tem composição. Esse atributo retorna um valor booliano para eyeMakeup e lipMakeup.
+* **Ruído**. O ruído visual detectado na imagem de face. Esse atributo retorna um valor entre zero e um e uma classificação informal de baixo, médio ou alto.
+* **Oclusão**. Se há objetos bloqueando partes da face. Esse atributo retorna um valor booliano para eyeOccluded, foreheadOccluded e mouthOccluded.
+* **Smiley**. A expressão de Smiley da face fornecida. Esse valor é entre zero e nenhum Smiley e um para um Smiley claro.
 
 > [!IMPORTANT]
-> Atributos faciais foram previstos com o uso de algoritmos estatísticos. Eles podem não ser precisos. Tenha cuidado ao tomar decisões com base nos dados de atributo.
+> Os atributos de face são previstos com o uso de algoritmos estatísticos. Eles talvez nem sempre sejam precisos. Tome cuidado ao tomar decisões com base em dados de atributos.
 
 ## <a name="input-data"></a>Dados de entrada
 
-Use as dicas a seguir para certificar-se de que suas imagens de entrada fornecer os resultados mais precisos de detecção:
+Use as seguintes dicas para garantir que suas imagens de entrada forneçam os resultados de detecção mais precisos:
 
-* Os formatos de imagem de entrada com suporte são JPEG, PNG, GIF, para o primeiro quadro e BMP.
-* O tamanho do arquivo de imagem deve ser maior do que 4 MB.
-* O intervalo de tamanhos de face detectáveis é de 36 x 36 a 4096 x 4096 pixels. Faces fora desse intervalo não serão detectados.
-* Algumas faces não podem ser detectados devido a desafios técnicos. Extremos ângulos de face (principal) ou oclusão face (objetos como óculos de sol ou mãos que bloqueiam a parte da face) pode afetar a detecção. Faces frontais e quase frontais fornecem os melhores resultados.
+* Os formatos de imagem de entrada com suporte são JPEG, PNG, GIF para o primeiro quadro e BMP.
+* O tamanho do arquivo de imagem não deve ser maior que 4 MB.
+* O intervalo de tamanhos de face detectáveis é de 36 x 36 a 4096 x 4096 pixels. As faces fora desse intervalo não serão detectadas.
+* Algumas faces podem não ser detectadas devido a desafios técnicos. Ângulos de face radicais (pose de cabeça) ou oclusão facial (objetos como óculos ou hands que bloqueiam parte da face) podem afetar a detecção. Os rostos frontais e Near-frontais fornecem os melhores resultados.
 
-Se você estiver detectando rostos de uma transmissão de vídeo, você poderá melhorar o desempenho ajustando determinadas configurações em sua câmera de vídeo:
+Se você estiver detectando rostos de um feed de vídeo, poderá melhorar o desempenho ajustando certas configurações em sua câmera de vídeo:
 
-* **A suavização**: Muitas câmeras de vídeo aplicar um efeito de atenuação. Você deve desativar isso se for possível, pois ele cria um desfoque entre os quadros e reduz a clareza.
-* **Obturador velocidade**: Uma rápida do obturador reduz a quantidade de movimento entre os quadros e faz com que cada quadro mais claro. É recomendável do obturador velocidade de 1/60 segundos ou mais rápido.
-* **Ângulo de obturador**: Algumas câmeras especificam ângulo do obturador, em vez de velocidade do obturador. Você deve usar um ângulo do obturador inferior se possível. Isso resultará em quadros de vídeo mais claros.
+* **Suavização**: muitas câmeras de vídeo aplicam um efeito de suavização. Você deve desativar essa opção se puder, pois ela cria um desfoque entre os quadros e reduz a clareza.
+* **Velocidade do obturador**: uma velocidade de obturador mais rápida reduz a quantidade de movimento entre os quadros e torna cada quadro mais claro. Recomendamos velocidades do obturador de 1/60 segundo ou mais rápido.
+* **Ângulo do obturador**: algumas câmeras especificam ângulo do obturador em vez de velocidade do obturador. Você deve usar um ângulo do obturador inferior, se possível. Isso resultará em quadros de vídeo mais claros.
 
     >[!NOTE]
-    > Uma câmera com um ângulo do obturador inferior receberá menos luz em cada quadro, portanto, a imagem será mais escura. Você precisará determinar o nível certo para usar.
+    > Uma câmera com um ângulo do obturador inferior receberá menos luz em cada quadro, de modo que a imagem será mais escura. Você precisará determinar o nível certo a ser usado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você está familiarizado com conceitos de detecção de face, saiba como escrever um script que detecta rostos em uma determinada imagem.
+Agora que você está familiarizado com os conceitos de detecção facial, saiba como escrever um script que detecta rostos em uma determinada imagem.
 
 * [Detectar faces em uma imagem](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

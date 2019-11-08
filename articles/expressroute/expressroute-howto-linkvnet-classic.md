@@ -1,5 +1,5 @@
 ---
-title: 'Vincular uma rede virtual a um circuito de ExpressRoute: PowerShell: clássico: Azure | Microsoft Docs'
+title: 'Vincular uma rede virtual a um circuito ExpressRoute: PowerShell: clássico: Azure| Microsoft Docs'
 description: Este documento fornece uma visão geral de como vincular as redes virtuais (VNets) aos circuitos de ExpressRoute usando o modelo de implantação clássico e o PowerShell.
 services: expressroute
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: 21676ff329613f792d6570713f044bb7440e58d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9365e36cb2beff21e795adecaef5fa41e0d7583c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370621"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748261"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Conectar uma rede virtual a um circuito do ExpressRoute usando o PowerShell (clássico)
 > [!div class="op_single_selector"]
@@ -35,8 +35,6 @@ Você pode vincular até 10 redes virtuais a um circuito de ExpressRoute. Todas 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="configuration-prerequisites"></a>Pré-requisitos de configuração
 
 * Analise os [pré-requisitos](expressroute-prerequisites.md), os [requisitos de roteamento](expressroute-routing.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
@@ -48,14 +46,14 @@ Você pode vincular até 10 redes virtuais a um circuito de ExpressRoute. Todas 
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>Baixe os cmdlets mais recentes do PowerShell
 
-Instale as versões mais recentes dos módulos PowerShell do Gerenciamento de Serviços do Azure (SM) e do módulo ExpressRoute. Ao usar o exemplo a seguir, observe que o número da versão (neste exemplo, 5.1.1) será alterado conforme as versões mais recentes dos cmdlets forem lançadas.
+Instale as versões mais recentes dos módulos PowerShell do SM (Gerenciamento de Serviços) do Azure e do módulo ExpressRoute. Ao usar o exemplo a seguir, observe que o número da versão (neste exemplo, 5.1.1) será alterado conforme as versões mais recentes dos cmdlets forem lançadas.
 
 ```powershell
 Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
 Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 ```
 
-Se você precisar de mais informações sobre o Azure PowerShell, consulte [Introdução aos cmdlets do Azure PowerShell](/powershell/azure/overview) para obter orientações passo a passo sobre como configurar o computador para usar os módulos do Azure PowerShell.
+Se você precisar de mais informações sobre o Azure PowerShell, consulte [Introdução aos cmdlets do Azure PowerShell](/powershell/azure/overview) para obter orientações passo a passo sobre como configurar seu computador para usar os módulos do Azure PowerShell.
 
 ### <a name="sign-in"></a>Entrar
 
@@ -102,7 +100,7 @@ Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VN
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Conectar uma rede virtual em uma assinatura diferente a um circuito
 Você pode compartilhar um circuito do ExpressRoute entre várias assinaturas. A figura a seguir mostra um esquema simples de como funciona o compartilhamento de circuitos do ExpressRoute entre várias assinaturas.
 
-Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas os departamentos podem compartilhar um único circuito do ExpressRoute para se conectar de volta à respectiva rede local. Um único departamento (neste exemplo: IT) pode ser proprietário do circuito do Microsoft Azure ExpressRoute. Outras assinaturas dentro da organização podem usar o circuito de ExpressRoute.
+Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas os departamentos podem compartilhar um único circuito do ExpressRoute para se conectar de volta à respectiva rede local. Um único departamento (neste exemplo: TI) pode ter o circuito do ExpressRoute. Outras assinaturas dentro da organização podem usar o circuito de ExpressRoute.
 
 > [!NOTE]
 > As cobranças por conectividade e largura de banda do circuito dedicado serão aplicadas ao proprietário do circuito do ExpressRoute. Todas as redes virtuais compartilham a mesma largura de banda.

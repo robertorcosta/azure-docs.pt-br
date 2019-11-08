@@ -1,5 +1,5 @@
 ---
-title: 'Vincular uma rede virtual a um circuito do ExpressRoute: PowerShell: Azure | Microsoft Docs'
+title: 'Vincular uma rede virtual a um circuito ExpressRoute: PowerShell: Azure| Microsoft Docs'
 description: Este documento fornece uma visão geral de como vincular as redes virtuais (VNets) aos circuitos de ExpressRoute usando o modelo de implantação do Gerenciador de Recursos e do PowerShell.
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/20/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 620eff5468d7d3b4bf8ddeea62fa67b39609fce6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4b746a245fc1ee2b0d3532bfabc973f513c7661
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65950378"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748299"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Conectar uma rede virtual a um circuito do ExpressRoute
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Este artigo ajuda a vincular as VNets (redes virtuais) aos circuitos do Azure Ex
 
 ### <a name="working-with-azure-powershell"></a>Trabalhando com o Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
@@ -61,7 +61,7 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -Resour
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Conectar uma rede virtual em uma assinatura diferente a um circuito
 Você pode compartilhar um circuito do ExpressRoute entre várias assinaturas. A figura a seguir mostra um esquema simples de como funciona o compartilhamento de circuitos do ExpressRoute entre várias assinaturas.
 
-Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas pode compartilhar um único circuito do ExpressRoute para se conectar de volta à respectiva rede local. Um único departamento (neste exemplo: IT) pode ser proprietário do circuito do Microsoft Azure ExpressRoute. Outras assinaturas dentro da organização podem usar o circuito de ExpressRoute.
+Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas pode compartilhar um único circuito do ExpressRoute para se conectar de volta à respectiva rede local. Um único departamento (neste exemplo: TI) pode ter o circuito do ExpressRoute. Outras assinaturas dentro da organização podem usar o circuito de ExpressRoute.
 
 > [!NOTE]
 > As cobranças por conectividade e largura de banda pelo circuito ExpressRoute serão aplicadas ao proprietário da assinatura. Todas as redes virtuais compartilham a mesma largura de banda.
@@ -176,11 +176,11 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 O intervalo de *RoutingWeight* é de 0 a 32.000. O valor padrão é 0.
 
-## <a name="configure-expressroute-fastpath"></a>Configurar ExpressRoute FastPath 
-Você pode habilitar [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) se o circuito de ExpressRoute estiver ativada [diretos do ExpressRoute](expressroute-erdirect-about.md) e seu gateway virtual newtork é ultradesempenho ou ErGw3AZ. FastPath melhora o desempenho do caminho de dados, como pacotes por segundo e conexões por segundo entre sua rede local e sua rede virtual. 
+## <a name="configure-expressroute-fastpath"></a>Configurar o ExpressRoute FastPath 
+Você pode habilitar o [Expressroute FastPath](expressroute-about-virtual-network-gateways.md) se o circuito do expressroute estiver no [expressroute Direct](expressroute-erdirect-about.md) e seu gateway de rede virtual for ultra performance ou ErGw3AZ. O FastPath melhora o desempenho do caminho de dados, como pacotes por segundo e conexões por segundo entre sua rede local e sua rede virtual. 
 
 > [!NOTE] 
-> Se você já tiver uma conexão de rede virtual, mas ainda não habilitou FastPath você precisa excluir a conexão de rede virtual e criar um novo. 
+> Se você já tiver uma conexão de rede virtual, mas não tiver habilitado FastPath, precisará excluir a conexão de rede virtual e criar uma nova. 
 > 
 >  
 

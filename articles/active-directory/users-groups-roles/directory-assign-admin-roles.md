@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 10/28/2019
+ms.date: 11/06/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea38317868d183bd02958398b51ef906eb78e799
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e1e4fe4c06833302ac3ef9794981ee4a47fa454b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177039"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747762"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -75,12 +75,12 @@ Usuários com essa função podem definir ou redefinir credenciais de não senha
 
 > [!IMPORTANT]
 > Usuários com essa função podem alterar credenciais de pessoas que podem ter acesso a informações confidenciais ou particulares ou a configurações críticas dentro e fora do Azure Active Directory. A alteração das credenciais de um usuário pode significar a capacidade de assumir a identidade e as permissões do usuário. Por exemplo:
-
-* Proprietários de Registro de Aplicativo e Aplicativos Empresariais, que podem gerenciar credenciais de aplicativos que eles possuem. Esses aplicativos podem ter permissões privilegiadas no Azure AD e em outro lugar que não foram concedidas a Administradores de Autenticação. Por meio desse caminho, um administrador de autenticação pode assumir a identidade de um proprietário do aplicativo e assumir ainda mais a identidade de um aplicativo com privilégios atualizando as credenciais para o aplicativo.
-* Proprietários de assinaturas do Azure, que podem ter acesso a informações confidenciais ou privadas ou configurações críticas no Azure.
-* Proprietários de Grupos de Segurança e de Grupos do Office 365, que podem gerenciar a associação de grupo. Esses grupos podem conceder acesso a informações confidenciais ou privadas ou configurações críticas no Azure AD e em outros lugares.
-* Administradores em outros serviços fora do Azure AD, como o Exchange Online, a Segurança do Office e o Centro de Conformidade e sistemas de recursos humanos.
-* Não administradores, como executivos, o departamento jurídico e os funcionários de recursos humanos, que podem ter acesso a informações confidenciais ou privadas.
+>
+>- Proprietários de Registro de Aplicativo e Aplicativos Empresariais, que podem gerenciar credenciais de aplicativos que eles possuem. Esses aplicativos podem ter permissões privilegiadas no Azure AD e em outro lugar que não foram concedidas a Administradores de Autenticação. Por meio desse caminho, um administrador de autenticação pode assumir a identidade de um proprietário do aplicativo e assumir ainda mais a identidade de um aplicativo com privilégios atualizando as credenciais para o aplicativo.
+>- Proprietários de assinaturas do Azure, que podem ter acesso a informações confidenciais ou privadas ou configurações críticas no Azure.
+>- Proprietários de Grupos de Segurança e de Grupos do Office 365, que podem gerenciar a associação de grupo. Esses grupos podem conceder acesso a informações confidenciais ou privadas ou configurações críticas no Azure AD e em outros lugares.
+>- Administradores em outros serviços fora do Azure AD, como o Exchange Online, a Segurança do Office e o Centro de Conformidade e sistemas de recursos humanos.
+>- Não administradores, como executivos, o departamento jurídico e os funcionários de recursos humanos, que podem ter acesso a informações confidenciais ou privadas.
 
 ### <a name="azure-devops-administratorazure-devops-administrator-permissions"></a>[Administrador de DevOps do Azure](#azure-devops-administrator-permissions)
 
@@ -133,25 +133,25 @@ Os usuários nessa função podem habilitar, desabilitar e excluir dispositivos 
 
 Os usuários com essa função têm permissões para gerenciar recursos relacionados à conformidade no centro de conformidade do Microsoft 365, no centro de administração do Microsoft 365, no Azure e no Centro de Conformidade e Segurança do Office 365. Os grupos também podem gerenciar todos os recursos no centro de administração do Exchange e as equipes & os centros de administração do Skype for Business e criar tíquetes de suporte para o Azure e Microsoft 365. Há mais informações disponíveis em [Sobre as funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-No | O que ele pode fazer
+Nesse | O que ele pode fazer
 ----- | ----------
 [Centro de conformidade do Microsoft 365](https://protection.office.com) | Proteger e gerenciar dados da sua organização em todos os serviços do Microsoft 365<br>Gerenciar alertas de conformidade
 [Gerenciador de Conformidade](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Acompanhar, atribuir e verificar as atividades de conformidade regulatória da sua organização
 [Centro de Conformidade e Segurança do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gerenciar a governança de dados<br>Executar investigação jurídica e de dados<br>Gerenciar solicitação do titular dos dados<br><br>Essa função tem as mesmas permissões que o [administrador de conformidade RoleGroup](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) no Office 365 centro de conformidade e segurança controle de acesso baseado em função.
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Exibir todos os dados de auditoria do Intune
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões somente leitura e pode gerenciar alertas<br>Pode criar e modificar políticas de arquivo e permitir ações de governança de arquivo<br> Pode exibir todos os relatórios internos em Gerenciamento de Dados
+[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões somente leitura e pode gerenciar alertas<br>Pode criar e modificar políticas de arquivo e permitir ações de governança de arquivo<br>Pode exibir todos os relatórios internos em Gerenciamento de Dados
 
 ### <a name="compliance-data-administratorcompliance-data-administrator-permissions"></a>[Administrador de dados de conformidade](#compliance-data-administrator-permissions)
 
 Os usuários com essa função têm permissões para rastrear dados no centro de conformidade Microsoft 365, no centro de administração do Microsoft 365 e no Azure. Os usuários também podem controlar os dados de conformidade no centro de administração do Exchange, no Compliance Manager e nas equipes & centro de administração do Skype for Business e criar tíquetes de suporte para o Azure e Microsoft 365.
 
-No | O que ele pode fazer
+Nesse | O que ele pode fazer
 ----- | ----------
 [Centro de conformidade do Microsoft 365](https://protection.office.com) | Monitorar políticas relacionadas à conformidade em serviços de Microsoft 365<br>Gerenciar alertas de conformidade
 [Gerenciador de Conformidade](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Acompanhar, atribuir e verificar as atividades de conformidade regulatória da sua organização
 [Centro de Conformidade e Segurança do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gerenciar a governança de dados<br>Executar investigação jurídica e de dados<br>Gerenciar solicitação do titular dos dados<br><br>Essa função tem as mesmas permissões que o [administrador de dados de conformidade RoleGroup](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) no Office 365 centro de conformidade e segurança controle de acesso baseado em função.
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Exibir todos os dados de auditoria do Intune
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões somente leitura e pode gerenciar alertas<br>Pode criar e modificar políticas de arquivo e permitir ações de governança de arquivo<br> Pode exibir todos os relatórios internos em Gerenciamento de Dados
+[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões somente leitura e pode gerenciar alertas<br>Pode criar e modificar políticas de arquivo e permitir ações de governança de arquivo<br>Pode exibir todos os relatórios internos em Gerenciamento de Dados
 
 ### <a name="conditional-access-administratorconditional-access-administrator-permissions"></a>[Administrador de acesso condicional](#conditional-access-administrator-permissions)
 
@@ -161,7 +161,7 @@ Os usuários com essa função têm a capacidade de gerenciar Azure Active Direc
 
 ### <a name="customer-lockbox-access-approvercustomer-lockbox-access-approver-permissions"></a>[Aprovador de acesso Sistema de Proteção de Dados do Cliente](#customer-lockbox-access-approver-permissions)
 
-Gerencia [sistema de proteção de dados do cliente solicitações](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) em sua organização. O aprovador recebe notificações de solicitações do Sistema de Proteção de Dados do Cliente por email e pode aprovar e negar solicitações do Centro de administração do Microsoft 365. Ele também pode ligar ou desligar o recurso Sistema de Proteção de Dados do Cliente. Somente os administradores globais podem redefinir as senhas das pessoas atribuídas à função acima.
+gerencia [solicitações do Sistema de Proteção de Dados do Cliente](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) em sua organização. O aprovador recebe notificações de solicitações do Sistema de Proteção de Dados do Cliente por email e pode aprovar e negar solicitações do Centro de administração do Microsoft 365. Ele também pode ligar ou desligar o recurso Sistema de Proteção de Dados do Cliente. Somente os administradores globais podem redefinir as senhas das pessoas atribuídas à função acima.
 
 ### <a name="desktop-analytics-administratordesktop-analytics-administrator-permissions"></a>[Administrador do desktop Analytics](#desktop-analytics-administrator-permissions)
 
@@ -170,7 +170,7 @@ Os usuários nessa função podem gerenciar a análise de desktops e a personali
 
 ### <a name="device-administratordevice-administrators-permissions"></a>[Administrador do dispositivo](#device-administrators-permissions)
 
-Essa função está disponível para atribuição somente como um administrador local adicional nas [configurações do dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Os usuários com essa função se tornam administradores de computador local em todos os dispositivos Windows 10 associados ao Azure Active Directory. Eles não têm a capacidade de gerenciar objetos de dispositivos no Azure Active Directory.
+Essa função está disponível para atribuição apenas como um administrador local adicional em [Configurações do dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Os usuários com essa função se tornam administradores de computador local em todos os dispositivos Windows 10 associados ao Azure Active Directory. Eles não têm a capacidade de gerenciar objetos de dispositivos no Azure Active Directory.
 
 ### <a name="directory-readersdirectory-readers-permissions"></a>[Leitores de diretório](#directory-readers-permissions)
 
@@ -185,7 +185,7 @@ Não use. Essa função é automaticamente atribuída ao serviço do Azure AD Co
 
 ### <a name="directory-writersdirectory-writers-permissions"></a>[Gravadores de diretório](#directory-writers-permissions)
 
-Esta é uma função herdada que deve ser atribuída a aplicativos que não dão suporte à [estrutura de consentimento](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Ele não deve ser atribuído a nenhum usuário.
+Essa é uma função herdada que deve ser atribuída a aplicativos que não tenham suporte em [Estrutura de Consentimento](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Ele não deve ser atribuído a nenhum usuário.
 
 ### <a name="dynamics-365-administrator--crm-administratorcrm-service-administrator-permissions"></a>[Administrador do Dynamics 365 administrador/CRM](#crm-service-administrator-permissions)
 
@@ -224,14 +224,14 @@ Os usuários nessa função podem ler configurações e informações administra
 > [!NOTE]
 > A função de leitor global tem algumas limitações no momento-
 >
->* Centro de administração do SharePoint – o centro de administração do SharePoint não oferece suporte à função de leitor global. Você não verá o ' SharePoint ' no painel esquerdo em centros de administração no [centro de administração do Microsoft 365](https://admin.microsoft.com/Adminportal/Home#/homepage).
->* [Centro de administração do onedrive](https://admin.onedrive.com/) – o centro de administração do onedrive não dá suporte à função de leitor global.
->* [Portal do AD do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -o leitor global não pode ler o modo de provisionamento de um aplicativo empresarial.
->* [Centro de administração do M365](https://admin.microsoft.com/Adminportal/Home#/homepage) -o leitor global não pode ler solicitações de lockbox do cliente. Você não encontrará a guia **solicitações de lockbox do cliente** em **suporte** no painel esquerdo do centro de administração do M365.
->* [Central de segurança do M365](https://security.microsoft.com/homepage) -o leitor global não pode ler rótulos de sensibilidade e retenção. Você não encontrará **Rótulos de sensibilidade**, **Rótulos de retenção**e guias de análise de **rótulo** no painel esquerdo da central de segurança do M365.
->* [Centro de administração do teams](https://admin.teams.microsoft.com) – o leitor global não pode ler o **ciclo de vida das equipes**, **relatórios de & de análise**, gerenciamento de dispositivo de **telefone IP** e **Catálogo**
->* [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) não oferece suporte à função de leitor global.
->* [Proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) – o leitor global tem suporte apenas para [relatórios centrais](https://docs.microsoft.com/azure/information-protection/reports-aip) e, quando o locatário não está na [plataforma de rotulamento unificado](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
+>- Centro de administração do SharePoint – o centro de administração do SharePoint não oferece suporte à função de leitor global. Você não verá o ' SharePoint ' no painel esquerdo em centros de administração no [centro de administração do Microsoft 365](https://admin.microsoft.com/Adminportal/Home#/homepage).
+>- [Centro de administração do onedrive](https://admin.onedrive.com/) – o centro de administração do onedrive não dá suporte à função de leitor global.
+>- [Portal do AD do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -o leitor global não pode ler o modo de provisionamento de um aplicativo empresarial.
+>- [Centro de administração do M365](https://admin.microsoft.com/Adminportal/Home#/homepage) -o leitor global não pode ler solicitações de lockbox do cliente. Você não encontrará a guia **solicitações de lockbox do cliente** em **suporte** no painel esquerdo do centro de administração do M365.
+>- [Central de segurança do M365](https://security.microsoft.com/homepage) -o leitor global não pode ler rótulos de sensibilidade e retenção. Você não encontrará **Rótulos de sensibilidade**, **Rótulos de retenção**e guias de análise de **rótulo** no painel esquerdo da central de segurança do M365.
+>- [Centro de administração do teams](https://admin.teams.microsoft.com) – o leitor global não pode ler o **ciclo de vida das equipes**, **relatórios de & de análise**, gerenciamento de dispositivo de **telefone IP** e **Catálogo**
+>- [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) não oferece suporte à função de leitor global.
+>- [Proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) – o leitor global tem suporte apenas [para relatórios centrais](https://docs.microsoft.com/azure/information-protection/reports-aip) e quando sua organização do Azure ad não está na [plataforma de rotulamento unificada](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
 > No momento, esses recursos estão em desenvolvimento.
 >
@@ -242,7 +242,7 @@ Os usuários nessa função podem criar/gerenciar grupos e suas configurações,
 
 ### <a name="guest-inviterguest-inviter-permissions"></a>[Convite do convidado](#guest-inviter-permissions)
 
-Os usuários nessa função podem gerenciar Azure Active Directory convites de usuário convidado B2B quando os **Membros podem convidar** a configuração de usuário estiver definido como não. Mais informações sobre a colaboração B2B em [Sobre a colaboração B2B do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Ela não inclui nenhuma outra permissão.
+Usuários nessa função podem gerenciar convites de usuários convidados do Azure Active Directory B2B quando a configuração do usuário **Membros podem convidar** estiver definida como Não. Mais informações sobre a colaboração B2B em [Sobre a colaboração B2B do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Ela não inclui nenhuma outra permissão.
 
 ### <a name="helpdesk-administratorhelpdesk-administrator-permissions"></a>[Administrador de assistência técnica](#helpdesk-administrator-permissions)
 
@@ -256,17 +256,16 @@ Usuários com essa função podem alterar senhas, invalidar tokens de atualizaç
 
 > [!IMPORTANT]
 > Usuários com essa função podem alterar senhas de pessoas que podem ter acesso a informações confidenciais ou particulares ou a configurações críticas dentro e fora do Azure Active Directory. A alteração da senha de um usuário pode significar a capacidade de assumir a identidade e as permissões do usuário. Por exemplo:
-
-* Proprietários de Registro de Aplicativo e Aplicativos Empresariais, que podem gerenciar credenciais de aplicativos que eles possuem. Esses aplicativos podem ter permissões privilegiadas no Azure AD e em outro lugar, não concedidas a Administradores de Assistência Técnica. Por esse caminho, um Administrador de Assistência Técnica pode ser capaz de assumir a identidade de um proprietário de aplicativo e, depois, assumir a identidade de um aplicativo com privilégios, atualizando as credenciais do aplicativo.
-* Proprietários de assinaturas do Azure, que podem ter acesso a informações confidenciais ou privadas ou configurações críticas no Azure.
-* Proprietários de Grupos de Segurança e de Grupos do Office 365, que podem gerenciar a associação de grupo. Esses grupos podem conceder acesso a informações confidenciais ou privadas ou configurações críticas no Azure AD e em outros lugares.
-* Administradores em outros serviços fora do Azure AD, como o Exchange Online, a Segurança do Office e o Centro de Conformidade e sistemas de recursos humanos.
-* Não administradores, como executivos, o departamento jurídico e os funcionários de recursos humanos, que podem ter acesso a informações confidenciais ou privadas.
-
-> [!NOTE]
-> A delegação de permissões administrativas em subconjuntos de usuários e aplicação de políticas a um subconjunto de usuários é possível com [unidades administrativas (versão prévia)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
 >
-> Essa função anteriormente era chamada de "administrador de senha" no [portal do Azure](https://portal.azure.com/). Alteramos seu nome para "administrador de assistência técnica" para corresponder ao nome no PowerShell do Azure AD, no Azure AD API do Graph e na API de Microsoft Graph.
+>- Proprietários de Registro de Aplicativo e Aplicativos Empresariais, que podem gerenciar credenciais de aplicativos que eles possuem. Esses aplicativos podem ter permissões privilegiadas no Azure AD e em outro lugar, não concedidas a Administradores de Assistência Técnica. Por esse caminho, um Administrador de Assistência Técnica pode ser capaz de assumir a identidade de um proprietário de aplicativo e, depois, assumir a identidade de um aplicativo com privilégios, atualizando as credenciais do aplicativo.
+>- Proprietários de assinatura do Azure, que podem ter acesso a informações confidenciais ou privadas ou configuração crítica no Azure.
+>- Proprietários de Grupos de Segurança e de Grupos do Office 365, que podem gerenciar a associação de grupo. Esses grupos podem conceder acesso a informações confidenciais ou privadas ou configurações críticas no Azure AD e em outros lugares.
+>- Administradores em outros serviços fora do Azure AD, como o Exchange Online, a Segurança do Office e o Centro de Conformidade e sistemas de recursos humanos.
+>- Não administradores, como executivos, o departamento jurídico e os funcionários de recursos humanos, que podem ter acesso a informações confidenciais ou privadas.
+
+A delegação de permissões administrativas em subconjuntos de usuários e aplicação de políticas a um subconjunto de usuários é possível com [unidades administrativas (agora em visualização pública)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+
+Essa função anteriormente era chamada de "administrador de senha" no [portal do Azure](https://portal.azure.com/). O nome "administrador de assistência técnica" no Azure AD agora corresponde ao seu nome no PowerShell do Azure AD, no Azure AD API do Graph e na API de Microsoft Graph.
 
 ### <a name="intune-administratorintune-service-administrator-permissions"></a>[Administrador do Intune](#intune-service-administrator-permissions)
 
@@ -289,7 +288,7 @@ Os usuários nessa função podem monitorar todas as notificações no centro de
 
 ### <a name="message-center-readermessage-center-reader-permissions"></a>[Leitor do centro de mensagens](#message-center-reader-permissions)
 
-Os usuários nessa função podem monitorar notificações e atualizações de integridade de consultoria no [centro de mensagens do Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) para sua organização em serviços configurados, como o Exchange, o Intune e o Microsoft Teams. Os Leitores do Centro de Mensagens recebem por email resumos semanais de postagens, atualizações e podem compartilhar postagens do Centro de Mensagens no Office 365. No Azure AD, os usuários atribuídos a essa função terão acesso somente leitura aos serviços do Azure AD como usuários e grupos. Essa função não tem acesso para exibir, criar nem gerenciar tíquetes de suporte.
+Usuários nessa função podem monitorar notificações e atualizações de integridade de consultoria no [Centro de Mensagens do Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) da organização em serviços configurados como Exchange, Intune e Microsoft Teams. Os Leitores do Centro de Mensagens recebem por email resumos semanais de postagens, atualizações e podem compartilhar postagens do Centro de Mensagens no Office 365. No Azure AD, os usuários atribuídos a essa função terão acesso somente leitura aos serviços do Azure AD como usuários e grupos. Essa função não tem acesso para exibir, criar nem gerenciar tíquetes de suporte.
 
 ### <a name="office-apps-administratoroffice-apps-administrator-permissions"></a>[Administrador de aplicativos do Office](#office-apps-administrator-permissions)
 
@@ -345,7 +344,7 @@ Os usuários nessa função podem criar, gerenciar e excluir conteúdo do Micros
 
 Os usuários com essa função têm permissões para gerenciar recursos relacionados à segurança na central de segurança do Microsoft 365, Azure Active Directory Identity Protection, Proteção de Informações do Azure e Centro de Conformidade e Segurança do Office 365. Mais informações sobre permissões do Office 365 estão disponíveis em [Permissões no Centro de Conformidade de Segurança do Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
-No | O que ele pode fazer
+Nesse | O que ele pode fazer
 --- | ---
 [Central de segurança do Microsoft 365](https://protection.office.com) | Monitorar políticas relacionadas a segurança em todos os serviços do Microsoft 365<br>Gerenciar alertas e ameaças de segurança<br>Exibir relatórios
 Identity Protection Center | Todas as permissões da função Leitor de Segurança<br>Além disso, a habilidade de executar todas as operações do Centro de Proteção de Identidade, exceto redefinir senhas
@@ -362,7 +361,7 @@ Windows Defender ATP e EDR | Atribuir funções<br>Gerenciar grupos de computado
 
 Os usuários com essa função podem gerenciar alertas e ter acesso somente leitura global no recurso relacionado à segurança, incluindo todas as informações na central de segurança Microsoft 365, Azure Active Directory, proteção de identidade, Privileged Identity Management e Office 365 Centro de Conformidade e Segurança. Mais informações sobre permissões do Office 365 estão disponíveis em [Permissões no Centro de Conformidade de Segurança do Office 365](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
 
-No | O que ele pode fazer
+Nesse | O que ele pode fazer
 --- | ---
 [Central de segurança do Microsoft 365](https://protection.office.com) | Todas as permissões da função Leitor de Segurança<br>Exibir, investigar e responder a alertas de ameaças de segurança
 Identity Protection Center | Todas as permissões da função Leitor de Segurança<br>Além disso, a habilidade de executar todas as operações do Centro de Proteção de Identidade, exceto redefinir senhas
@@ -377,7 +376,7 @@ Windows Defender ATP e EDR | Todas as permissões da função Leitor de Seguran�
 
 Usuários com essa função têm acesso somente leitura global em recurso relacionado à segurança, incluindo todas as informações no centro de segurança do Microsoft 365, no Azure Active Directory, no Identity Protection e no Privileged Identity Management, bem como a capacidade de ler logs de auditoria e relatórios de entrada do Azure Active Directory e no Centro de Conformidade e Segurança do Office 365. Mais informações sobre permissões do Office 365 estão disponíveis em [Permissões no Centro de Conformidade de Segurança do Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
-No | O que ele pode fazer
+Nesse | O que ele pode fazer
 --- | ---
 [Central de segurança do Microsoft 365](https://protection.office.com) | Exibir políticas relacionadas à segurança em todos os serviços do Microsoft 365<br>Exibir alertas e ameaças de segurança<br>Exibir relatórios
 Identity Protection Center | Ler todos os relatórios de segurança e informações de configurações para recursos de segurança<br><ul><li>Anti-spam<li>Criptografia<li>Prevenção de perda de dados<li>Antimalware<li>Proteção avançada contra ameaças<li>Antiphishing<li>Regras de fluxo de mensagens
@@ -440,12 +439,12 @@ Os usuários com essa função podem criar usuários e gerenciar todos os aspect
 
 > [!IMPORTANT]
 > Usuários com essa função podem alterar senhas de pessoas que podem ter acesso a informações confidenciais ou particulares ou a configurações críticas dentro e fora do Azure Active Directory. A alteração da senha de um usuário pode significar a capacidade de assumir a identidade e as permissões do usuário. Por exemplo:
-
-* Proprietários de Registro de Aplicativo e Aplicativos Empresariais, que podem gerenciar credenciais de aplicativos que eles possuem. Esses aplicativos podem ter permissões privilegiadas no Azure AD e em outro lugar, não concedida a Administradores de Usuário. Por esse caminho, um Administrador de Usuário pode ser capaz de assumir a identidade de um proprietário de aplicativo e, depois, assumir a identidade de um aplicativo com privilégios, atualizando as credenciais do aplicativo.
-* Proprietários de assinaturas do Azure, que podem ter acesso a informações confidenciais ou privadas ou configurações críticas no Azure.
-* Proprietários de Grupos de Segurança e de Grupos do Office 365, que podem gerenciar a associação de grupo. Esses grupos podem conceder acesso a informações confidenciais ou privadas ou configurações críticas no Azure AD e em outros lugares.
-* Administradores em outros serviços fora do Azure AD, como o Exchange Online, a Segurança do Office e o Centro de Conformidade e sistemas de recursos humanos.
-* Não administradores, como executivos, o departamento jurídico e os funcionários de recursos humanos, que podem ter acesso a informações confidenciais ou privadas.
+>
+>- Proprietários de Registro de Aplicativo e Aplicativos Empresariais, que podem gerenciar credenciais de aplicativos que eles possuem. Esses aplicativos podem ter permissões privilegiadas no Azure AD e em outro lugar, não concedida a Administradores de Usuário. Por esse caminho, um Administrador de Usuário pode ser capaz de assumir a identidade de um proprietário de aplicativo e, depois, assumir a identidade de um aplicativo com privilégios, atualizando as credenciais do aplicativo.
+>- Proprietários de assinaturas do Azure, que podem ter acesso a informações confidenciais ou privadas ou configurações críticas no Azure.
+>- Proprietários de Grupos de Segurança e de Grupos do Office 365, que podem gerenciar a associação de grupo. Esses grupos podem conceder acesso a informações confidenciais ou privadas ou configurações críticas no Azure AD e em outros lugares.
+>- Administradores em outros serviços fora do Azure AD, como o Exchange Online, a Segurança do Office e o Centro de Conformidade e sistemas de recursos humanos.
+>- Não administradores, como executivos, o departamento jurídico e os funcionários de recursos humanos, que podem ter acesso a informações confidenciais ou privadas.
 
 ## <a name="role-permissions"></a>Permissões de Função
 
@@ -712,7 +711,7 @@ Pode gerenciar todos os aspectos do Azure AD e dos serviços da Microsoft que us
 | Microsoft. Directory/Users/myproperties/mytasks | Criar e excluir usuários e ler e atualizar todas as propriedades no Azure Active Directory. |
 | Microsoft. directorySync/myentities/tarefas | Executar todas as ações no Azure AD Connect. |
 | microsoft.aad.identityProtection/allEntities/allTasks | Criar e excluir todos os recursos e ler e atualizar propriedades padrão em microsoft.aad.identityProtection. |
-| microsoft.aad.privilegedIdentityManagement/allEntities/read | Ler todos os recursos em microsoft.aad.privilegedIdentityManagement. |
+| microsoft.aad.privilegedIdentityMmicrosoft.aad.privilegedIdentityManagement/allEntities/readanagement/allEntities/read | Ler todos os recursos em microsoft.aad.privilegedIdentityManagement. |
 | microsoft.azure.advancedThreatProtection/allEntities/read | Ler todos os recursos em microsoft.azure.advancedThreatProtection. |
 | microsoft.azure.informationProtection/allEntities/allTasks | Gerencie todos os aspectos da proteção de informações do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
@@ -1451,7 +1450,7 @@ Pode ler informações e relatórios de segurança e gerenciar a configuração 
 | Microsoft. Directory/signInReports/myproperties/Read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Ler todos os recursos em microsoft.aad.identityProtection. |
 | microsoft.aad.identityProtection/allEntities/update | Atualize todos os recursos em microsoft.aad.identityProtection. |
-| microsoft.aad.privilegedIdentityManagement/allEntities/read | Ler todos os recursos em microsoft.aad.privilegedIdentityManagement. |
+| microsoft.aad.privilegedIdentityMmicrosoft.aad.privilegedIdentityManagement/allEntities/readanagement/allEntities/read | Ler todos os recursos em microsoft.aad.privilegedIdentityManagement. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | Microsoft.office365.protectionCenter/allEntities/Read | Ler todos os aspectos do Centro de Proteção do Office 365. |
@@ -1471,7 +1470,7 @@ Cria e gerencia eventos de segurança.
 | --- | --- |
 | microsoft.aad.cloudAppSecurity/allEntities/allTasks | Ler e configurar Microsoft Cloud App Security. |
 | microsoft.aad.identityProtection/allEntities/read | Ler todos os recursos em microsoft.aad.identityProtection. |
-| microsoft.aad.privilegedIdentityManagement/allEntities/read | Ler todos os recursos em microsoft.aad.privilegedIdentityManagement. |
+| microsoft.aad.privilegedIdentityMmicrosoft.aad.privilegedIdentityManagement/allEntities/readanagement/allEntities/read | Ler todos os recursos em microsoft.aad.privilegedIdentityManagement. |
 | microsoft.azure.advancedThreatProtection/allEntities/read | Leia e configure a proteção avançada contra ameaças do Azure AD. |
 | microsoft.intune/allEntities/allTasks | Gerencie todos os aspectos do Intune. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Ler e configurar Centro de Conformidade e Segurança. |
@@ -1493,7 +1492,7 @@ Pode ler relatórios e informações de segurança no Azure AD e no Office 365.
 | Microsoft. Directory/Devices/bitLockerRecoveryKeys/Read | Ler a propriedade devices.bitLockerRecoveryKeys no Azure Active Directory. |
 | Microsoft. Directory/signInReports/myproperties/Read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Ler todos os recursos em microsoft.aad.identityProtection. |
-| microsoft.aad.privilegedIdentityManagement/allEntities/read | Ler todos os recursos em microsoft.aad.privilegedIdentityManagement. |
+| microsoft.aad.privilegedIdentityMmicrosoft.aad.privilegedIdentityManagement/allEntities/readanagement/allEntities/read | Ler todos os recursos em microsoft.aad.privilegedIdentityManagement. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | Microsoft.office365.protectionCenter/allEntities/Read | Ler todos os aspectos do Centro de Proteção do Office 365. |
@@ -1729,7 +1728,7 @@ As seguintes funções não devem ser usadas. Eles foram preteridos e serão rem
 * Administrador de caixa de correio
 * Ingresso no Dispositivo no Local de Trabalho
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre como atribuir um usuário como um administrador de uma assinatura do Azure, veja [Gerenciar o acesso usando o portal do Azure e RBAC](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso a recursos no Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)

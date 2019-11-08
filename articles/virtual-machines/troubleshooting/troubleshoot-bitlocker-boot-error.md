@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: b0b8528a8eaf5cab22bb2482bd60e760d8bf5e3d
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058100"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749672"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de inicialização do BitLocker em uma VM do Azure
 
  Este artigo descreve os erros do BitLocker que você pode enfrentar ao iniciar uma VM (máquina virtual) do Windows no Microsoft Azure.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="symptom"></a>Sintoma
 
@@ -31,7 +31,7 @@ ms.locfileid: "71058100"
 
 - Conectar driver USB que tem a chave do BitLocker
 
-- Você está bloqueado! Insira a chave de recuperação para começar novamente (Layout de Teclado: As informações de entrada incorretas foram inseridas muitas vezes, portanto, o computador foi bloqueado para proteger sua privacidade. Para recuperar a chave de recuperação, vá para https://windows.microsoft.com/recoverykeyfaq em outro PC ou dispositivo móvel. Caso seja necessária, a ID da chave é XXXXXXX. Ou, você pode reiniciar o computador.
+- Você está bloqueado! Insira a chave de recuperação para começar novamente (Layout do teclado: EUA) As informações de entrada incorretas foram inseridas muitas vezes, portanto, o computador foi bloqueado para proteger sua privacidade. Para recuperar a chave de recuperação, vá para https://windows.microsoft.com/recoverykeyfaq em outro PC ou dispositivo móvel. Caso seja necessária, a ID da chave é XXXXXXX. Ou, você pode reiniciar o computador.
 
 - Insira a senha para desbloquear esta unidade [ ] Pressione a tecla Insert para ver a senha enquanto você digita.
 - Insira a chave de recuperação para Carregar a chave de recuperação de um dispositivo USB.
@@ -271,19 +271,19 @@ Para um cenário de Chave de Criptografia de Chave, siga estas etapas:
                     manage-bde -off F:
 ## <a name="script-troubleshooting"></a>Solução de problemas de script
 
-**Erro: Não foi possível carregar o arquivo ou o assembly**
+**Erro: não foi possível carregar o arquivo ou o assembly**
 
 Esse erro ocorre porque os caminhos dos assemblies da ADAL estão errados. Se o módulo AZ for instalado apenas para o usuário atual, os assemblies de ADAL estarão localizados em `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
 
-Você também pode procurar `Az.Accounts` pasta para localizar o caminho correto.
+Você também pode pesquisar `Az.Accounts` pasta para localizar o caminho correto.
 
 **Erro: Get-AzKeyVaultSecret ou Get-AzKeyVaultSecret não é reconhecido como o nome de um cmdlet**
 
-Se você estiver usando o módulo atual AZ PowerShell, deverá alterar os dois comandos para `Get-AzureKeyVaultSecret` e. `Get-AzureKeyVaultSecret`
+Se você estiver usando o módulo atual AZ PowerShell, deverá alterar os dois comandos para `Get-AzureKeyVaultSecret` e `Get-AzureKeyVaultSecret`.
 
 **Exemplos de parâmetros**
 
-| Parâmetros  | Exemplo de valor  |Comentários   |
+| parâmetros  | Exemplo de valor  |Comentários   |
 |---|---|---|
 |  $keyVaultName | myKeyVault2112852926  | O nome do cofre de chaves que armazena a chave |
 |$kekName   |MyKey   | O nome da chave usada para criptografar a VM|

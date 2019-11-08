@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 51d21dca1d8a5223e67cb7ea8489800989cff55c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7e98fd089ce8ec1285232840a40bb42ac5b81446
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026020"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795434"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solução de problemas para QnA Maker
 
@@ -121,7 +121,7 @@ Quando o ícone de cuidado está ao lado do valor para a base de dados de Conhec
 
 ### <a name="i-deleted-my-existing-search-service-how-can-i-fix-this"></a>Excluí meu serviço de pesquisa existente. Como posso corrigir isso?
 
-Se você excluir um índice do Azure Search, a operação será final e o índice não poderá ser recuperado. 
+Se você excluir um índice de Pesquisa Cognitiva do Azure, a operação será final e o índice não poderá ser recuperado. 
 
 ### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>Excluí meu índice `testkb` no meu serviço de pesquisa. Como posso corrigir isso? 
 
@@ -131,13 +131,13 @@ Seus dados antigos não podem ser recuperados. Crie um novo recurso QnA Maker e 
 
 Atualize suas chaves de ponto de extremidade se suspeitar que elas foram comprometidas.
 
-### <a name="can-i-use-the-same-azure-search-resource-for-knowledge-bases-using-multiple-languages"></a>Posso usar o mesmo recurso do Azure Search para bases de dados de conhecimento que usam vários idiomas?
+### <a name="can-i-use-the-same-azure-cognitive-search-resource-for-knowledge-bases-using-multiple-languages"></a>Posso usar o mesmo recurso de Pesquisa Cognitiva do Azure para bases de dados de conhecimento usando vários idiomas?
 
 Para usar vários idiomas e várias bases de dados de conhecimento, o usuário precisa criar um recurso do QnA Maker para cada idioma. Isso criará um serviço do Azure Search separado por idioma. Misturar bases de dados de conhecimento de idiomas diferentes em um único serviço de pesquisa do Azure resultará em resultados com relevância degradada.
 
-### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>Como alterar o nome do recurso do Azure Search usado pelo QnA Maker?
+### <a name="how-can-i-change-the-name-of-the-azure-cognitive-search-resource-used-by-qna-maker"></a>Como posso alterar o nome do recurso de Pesquisa Cognitiva do Azure usado pelo QnA Maker?
 
-O nome do recurso do Azure Search é o nome do recurso do QnA Maker com algumas letras aleatórias acrescentadas ao final. Isso torna difícil distinguir entre vários recursos de pesquisa do QnA Maker. Criar um serviço de Azure Search separado (nomeando-o a maneira que desejar) e conectá-lo ao seu QnA Service. As etapas são semelhantes às etapas que você precisa fazer para [atualizar uma pesquisa do Azure](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-search-service).
+O nome do recurso de Pesquisa Cognitiva do Azure é o nome do recurso de QnA Maker com algumas letras aleatórias anexadas no final. Isso torna difícil distinguir entre vários recursos de pesquisa do QnA Maker. Crie um serviço de pesquisa separado (nomeando-o como você gostaria) e conecte-o ao serviço QnA. As etapas são semelhantes às etapas que você precisa fazer para [atualizar uma pesquisa do Azure](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service).
 
 ### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>Quando QnA Maker retorna `Runtime core is not initialized,` como corrigi-lo?
 
@@ -174,7 +174,7 @@ Siga as instruções [nesta](./Tutorials/create-qna-bot.md) documentação para 
 Você precisa ter as seguintes informações sobre sua base de dados de conhecimento:
 
 * ID da base de dados de conhecimento.
-* O nome de subdomínio personalizado do ponto de extremidade publicado da base de dados de conhecimento, conhecido como `host`, encontrado na página de **configurações** após a publicação.
+* Nome de subdomínio personalizado do ponto de extremidade publicado da base de dados de conhecimento, conhecido como `host`, encontrado na página de **configurações** após a publicação.
 * Chave de ponto de extremidade publicada da base de dados de conhecimento-encontrada na página de **configurações** após a publicação. 
 
 Com essas informações, vá para o serviço de aplicativo do bot no portal do Azure. Em **configurações-> configuração – > configurações do aplicativo**, altere esses valores.  

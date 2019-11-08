@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: fd5014de622c37950c15006c2cc4dcbbb27ef8e1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2ae9a1419232cca051f7cab4e9bd8c70f885df73
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101118"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749037"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS em VMs do Azure no Red Hat Enterprise Linux para SAP NetWeaver
 
@@ -64,8 +64,8 @@ Primeiro, leia os seguintes documentos e Notas SAP
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP no Linux][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP no Linux (este artigo)][deployment-guide]
 * [Implantação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
-* [Documentação do produto do Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
-* Documentação geral do RHEL
+* [Documentação do produto para o armazenamento do Red Hat Gluster](https://access.redhat.com/documentation/red_hat_gluster_storage/)
+* Documentação geral RHEL
   * [Visão geral do complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
   * [Administração de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [Referência de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
@@ -85,8 +85,8 @@ Você pode usar um modelo do Azure do github para implantar todos os recursos ne
 
 ### <a name="deploy-linux-via-azure-template"></a>Implantar o Linux por meio do Modelo do Azure
 
-O Azure Marketplace contém uma imagem do Red Hat Enterprise Linux, você pode usar para implantar novas máquinas virtuais.
-Você pode usar um dos modelos de início rápido no github para implantar todos os recursos necessários. O modelo implanta as máquinas virtuais, conjunto de disponibilidade etc. Siga estas etapas para implantar o modelo:
+O Azure Marketplace contém uma imagem para o Red Hat Enterprise Linux que você pode usar para implantar novas máquinas virtuais.
+Você pode usar um dos modelos de início rápido no github para implantar todos os recursos necessários. O modelo implanta as máquinas virtuais, o conjunto de disponibilidade, etc. Siga estas etapas para implantar o modelo:
 
 1. Abra o [modelo de servidor de arquivos SAP][template-file-server] no portal do Azure
 1. Defina os seguintes parâmetros
@@ -98,11 +98,11 @@ Você pode usar um dos modelos de início rápido no github para implantar todos
    4. Chave de Admin Username, a senha de administrador ou SSH  
       É criado um novo usuário que pode ser usado para fazer logon no computador.
    5. ID da Sub-rede  
-      Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente tem esta aparência: /subscriptions/ **&lt;ID da assinatura&gt;** /resourceGroups/ **&lt;nome do grupo de recursos&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nome de rede virtual&gt;** /subnets/ **&lt;nome da sub-rede&gt;**
+      Se você deseja implantar a VM em uma VNet existente em que há uma sub-rede definida, a VM deve ser atribuída à ID dessa sub-rede específica. A ID geralmente tem esta aparência: /subscriptions/ **&lt;ID da assinatura&gt;** /resourceGroups/ **&lt;nome do grupo de recursos&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nome de rede virtual&gt;** /subnets/ **&lt;nome da sub-rede&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implantar o Linux manualmente por meio do portal do Azure
 
-Você primeiro precisa criar as máquinas virtuais para este cluster. Posteriormente, você pode cria um balanceador de carga e usar as máquinas virtuais nos pools de back-end.
+Você primeiro precisa criar as máquinas virtuais para este cluster. Posteriormente, você pode cria um balanceador de carga e usar as máquinas virtuais nos pools de back-end. Recomendamos o [balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
 
 1. Criar um grupo de recursos
 1. Criar uma rede virtual

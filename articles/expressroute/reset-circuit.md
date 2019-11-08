@@ -1,5 +1,5 @@
 ---
-title: 'Redefinir um circuito com falha - ExpressRoute: PowerShell: Azure | Microsoft Docs'
+title: 'Redefinir um circuito com falha-ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Este artigo ajuda a redefinir um circuito de ExpressRoute em um estado de falha.
 services: expressroute
 author: anzaman
@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: anzaman
 ms.custom: seodec18
-ms.openlocfilehash: f6fd8e5f0e5730e55fa5bbe13f74be796dd6a4cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: deeb1c65cae7e3a5b42230dbda1ad8efa717ba0b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115849"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748113"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>Redefinir um circuito de ExpressRoute com falha
 
 Quando uma operação em um circuito do Microsoft Azure ExpressRoute não for concluída, o circuito pode entrar em um estado 'Com falha'. Este artigo ajuda a redefinir um circuito da rota expressa com falha.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="reset-a-circuit"></a>Redefinir um circuito
 
@@ -35,7 +35,7 @@ Quando uma operação em um circuito do Microsoft Azure ExpressRoute não for co
    ```azurepowershell-interactive
    Get-AzSubscription
    ```
-4. Especifique a assinatura que você deseja usar.
+4. Especifique a assinatura que você quer usar.
 
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"

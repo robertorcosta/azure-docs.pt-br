@@ -1,18 +1,18 @@
 ---
 title: Fazer backup de uma VM do Azure das configurações da VM com o backup do Azure
-description: Aprenda a fazer backup de uma VM do Azure com o serviço de Backup do Azure
+description: Neste artigo, saiba como fazer backup de uma VM do Azure singular ou de várias VMs do Azure com o serviço de backup do Azure.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: cfbec94a2922995eed546d526c1f469e2ea54118
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 232c027ef60a031df53f2439586a0ae459ab67d5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969040"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747245"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Fazer backup de uma VM do Azure usando as configurações da VM
 
@@ -35,7 +35,7 @@ Para fazer backup de VMs do Azure, o Backup do Azure instala uma extensão no ag
 
 ## <a name="back-up-from-azure-vm-settings"></a>Fazer backup usando as configurações da VM do Azure
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **Todos os serviços** e no Filtro, digite **Máquinas virtuais** e, em seguida, clique em **Máquinas virtuais**.
 3. Na lista de VMs, selecione a VM que você deseja fazer backup.
 4. No menu da VM, clique em **Backup**.
@@ -60,7 +60,7 @@ Para fazer backup de VMs do Azure, o Backup do Azure instala uma extensão no ag
 8. Você pode acompanhar o progresso da configuração nas notificações do portal.
 9. Depois que o trabalho for concluído, no menu da VM, clique em **Backup**. A página mostra o status do backup para a VM, informações sobre pontos de recuperação, trabalhos em execução e alertas emitidos.
 
-   ![Status de backup](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
+   ![Status do backup](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
 10. Depois de habilitar o backup, um backup inicial é executado. Você pode começar o backup inicial imediatamente ou aguardar até que ele inicie de acordo com o agendamento de backup.
     - Até que o backup inicial seja concluído, o **Status do último backup** é mostrado como **Aviso (Backup inicial pendente)** .
@@ -86,7 +86,7 @@ Esse grupo de recursos também deve ser excluído de qualquer restrição de nom
 
 Siga as instruções neste artigo para habilitar o backup para VMs do Azure por meio da configuração de um cofre dos Serviços de Recuperação do Backup do Azure, habilitando o backup no cofre.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Se você tiver dificuldade com qualquer um dos procedimentos deste artigo, confira a [guia de solução de problemas](backup-azure-vms-troubleshoot.md).
 - [Saiba mais sobre](backup-azure-manage-vms.md) gerenciamento dos backups.

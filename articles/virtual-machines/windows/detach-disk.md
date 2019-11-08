@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: efbb6ccef9096ed89f6ccd16f8d3b37c9a97b278
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: de33ed80055c26870a29b4c4393a9072ec8dda5e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103209"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749479"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Windows
 
@@ -31,7 +31,7 @@ Quando não precisar mais de um disco de dados conectado a uma máquina virtual,
 
 Se desejar usar os dados existentes no disco novamente, você pode reanexá-lo à mesma máquina virtual ou anexá-lo a uma outra máquina virtual.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="detach-a-data-disk-using-powershell"></a>Desanexar um disco de dados usando o PowerShell
 
@@ -45,7 +45,7 @@ Remove-AzVMDataDisk -VM $VirtualMachine -Name "myDisk"
 Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 ```
 
-O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual.
+O disco permanece no armazenamento, mas não está mais conectado a uma máquina virtual.
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Desanexar um disco de dados usando o portal
 
@@ -57,7 +57,7 @@ O disco permanecerá no armazenamento, mas não estará mais conectado a uma má
 5. Depois que o disco for removido, clique em **Salvar** na parte superior do painel.
 6. No painel da máquina virtual, clique em **Visão Geral** e, em seguida, clique no botão **Iniciar** na parte superior do painel para reiniciar a VM.
 
-O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual.
+O disco permanece no armazenamento, mas não está mais conectado a uma máquina virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
 

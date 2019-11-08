@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a2b467eed010edbb842d536bd8f6e3f4107fcea8
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6d52062561e3f08a214f3e191706583edc844786
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984356"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794223"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerenciar QnA Maker recursos
 
@@ -28,7 +28,7 @@ Seu serviço de QnA Maker lida com dois tipos de chaves: **chaves de assinatura*
 
 ![Gerenciamento de chaves](../media/qnamaker-how-to-key-management/key-management.png)
 
-|Nome|Location|Finalidade|
+|Nome|Local|Finalidade|
 |--|--|--|
 |Chave de assinatura|[Portal do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
 |Chave do ponto de extremidade|[Portal de QnA Maker](http://www.qnamaker.ai)|Essas chaves são usadas para acessar o ponto de extremidade da base de dados de conhecimento publicado para obter uma resposta para uma pergunta de usuário. Normalmente, você usa esse ponto de extremidade em seu bot de chat ou no código do aplicativo cliente que se conecta ao serviço de QnA Maker. Essas chaves são criadas quando você publica sua base de dados de conhecimento QnA Maker.<br><br>Localize essas chaves na página **configurações de serviço** . Localize essa página no menu do usuário no canto superior direito da página no menu suspenso.|
@@ -52,8 +52,8 @@ Este procedimento cria os recursos do Azure necessários para gerenciar o conte�
     * Selecione o **tipo de preço** para os serviços de gerenciamento de QnA Maker (portal e APIs de gerenciamento). Veja [mais detalhes sobre os preços de SKU](https://aka.ms/qnamaker-pricing).
     * Crie um novo **grupo de recursos** (recomendado) ou use um existente para implantar esse QnA Maker recurso. QnA Maker cria vários recursos do Azure. Ao criar um grupo de recursos para manter esses recursos, você pode facilmente localizar, gerenciar e excluir esses recursos pelo nome do grupo de recursos.
     * Selecione um **local do grupo de recursos**.
-    * Escolha o **Tipo de preço de pesquisa** do serviço de Azure Search. Se a opção de camada gratuita não estiver disponível (aparece esmaecida), isso significa que você já tem uma camada de Azure Search gratuita implantada por meio de sua assinatura. Nesse caso, você precisará começar com a camada básica de Azure Search. Consulte [Azure Search detalhes de preços](https://azure.microsoft.com/pricing/details/search/).
-    * Escolha o **local de pesquisa** onde você deseja que Azure Search dados sejam implantados. As restrições sobre onde os dados do cliente devem ser armazenados ajudarão a determinar o local escolhido para Azure Search.
+    * Escolha o **tipo de preço de pesquisa** do serviço de pesquisa cognitiva do Azure. Se a opção camada gratuita não estiver disponível (aparece esmaecida), isso significa que você já tem um serviço gratuito implantado por meio de sua assinatura. Nesse caso, você precisará começar com a camada básica. Consulte [detalhes de preços do Azure pesquisa cognitiva](https://azure.microsoft.com/pricing/details/search/).
+    * Escolha o **local de pesquisa** onde você deseja que os índices de pesquisa cognitiva do Azure sejam implantados. As restrições sobre onde os dados do cliente devem ser armazenados ajudarão a determinar o local escolhido para o Azure Pesquisa Cognitiva.
     * No campo **nome do aplicativo** , insira um nome para sua instância de serviço de Azure app.
     * Por padrão, o serviço de aplicativo assume como padrão a camada padrão (S1). Você pode alterar o plano após a criação. Saiba mais sobre os [preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
     * Escolha o **local do site** em que o serviço de aplicativo será implantado.
@@ -106,13 +106,13 @@ As chaves de ponto de extremidade podem ser gerenciadas a partir do [portal do Q
 
 QnA Maker cria vários recursos do Azure. Para reduzir o gerenciamento e beneficiar-se do compartilhamento de custos, use a tabela a seguir para entender o que você pode e não consegue compartilhar:
 
-|Serviço|Compartilhar|Reason|
+|O Barramento de|Compartilhar|Motivo|
 |--|--|--|
 |Serviços Cognitivos|X|Não é possível por design|
-|plano de Serviço de Aplicativo|✔|Espaço em disco fixo alocado para um plano do serviço de aplicativo. Se outros aplicativos que compartilham o mesmo plano do serviço de aplicativo usarem um espaço em disco significativo, a instância do serviço de aplicativo do QnAMaker encontrará problemas.|
+|Plano do Serviço de Aplicativo|✔|Espaço em disco fixo alocado para um plano do serviço de aplicativo. Se outros aplicativos que compartilham o mesmo plano do serviço de aplicativo usarem um espaço em disco significativo, a instância do serviço de aplicativo do QnAMaker encontrará problemas.|
 |Serviço de Aplicativo|X|Não é possível por design|
 |Application Insights|✔|Pode ser compartilhada|
-|Serviço Search|✔|1. `testkb` é um nome reservado para o serviço QnAMaker; ele não pode ser usado por outros.<br>2. O mapa de sinônimos `synonym-map` pelo nome é reservado para o serviço QnAMaker.<br>3. O número de bases de dados de conhecimento publicadas é limitado pela camada de serviço de pesquisa. Se houver índices livres disponíveis, outros serviços poderão usá-los.|
+|Serviço Search|✔|1. `testkb` é um nome reservado para o serviço QnAMaker; Ele não pode ser usado por outras pessoas.<br>2. o mapa de sinônimos pelo nome `synonym-map` é reservado para o serviço QnAMaker.<br>3. o número de bases de dados de conhecimento publicadas é limitado pela camada de serviço de pesquisa. Se houver índices livres disponíveis, outros serviços poderão usá-los.|
 
 Saiba mais sobre o serviço de [aplicativo](../../../app-service/index.yml) e o [serviço de pesquisa](../../../search/index.yml).
 
@@ -124,11 +124,11 @@ Se você criar um serviço QnA por meio de modelos de Azure Resource Manager, po
 
 ## <a name="upgrade-qna-maker"></a>Atualizar QnA Maker
 
-|Atualizar|Reason|
+|Atualizar|Motivo|
 |--|--|
 |[Atualizar](#upgrade-qna-maker-sku) o SKU de gerenciamento de QnA Maker|Você deseja ter mais perguntas e respostas em sua base de dados de conhecimento.|
 |[Atualizar](#upgrade-app-service) o SKU do serviço de aplicativo|Sua base de dados de conhecimento precisa atender a mais solicitações do aplicativo cliente, como um bot de chat.|
-|[Atualizar](#upgrade-the-azure-search-service) o Serviço de Azure Search|Você planeja ter muitas bases de dados de conhecimento.|
+|[Atualizar](#upgrade-the-azure-cognitive-search-service) o Serviço de Pesquisa Cognitiva do Azure|Você planeja ter muitas bases de dados de conhecimento.|
 
 
 ### <a name="upgrade-qna-maker-sku"></a>Atualizar QnA Maker SKU
@@ -145,7 +145,7 @@ Para fazer upgrade da SKU de gerenciamento do QnA Maker:
 
     ![Preços do QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
-### <a name="upgrade-app-service"></a>Atualizar o Serviço de Aplicativo
+### <a name="upgrade-app-service"></a>Atualizar serviço de aplicativo
 
  Quando sua base de dados de conhecimento precisar atender a mais solicitações de seu aplicativo cliente, atualize seu tipo de preço do serviço de aplicativo.
 
@@ -155,9 +155,9 @@ Vá para o recurso serviço de aplicativo no portal do Azure e selecione a opç�
 
 ![Escala do serviço de aplicativo QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-### <a name="upgrade-the-azure-search-service"></a>Atualizar o serviço de Azure Search
+### <a name="upgrade-the-azure-cognitive-search-service"></a>Atualizar o serviço de Pesquisa Cognitiva do Azure
 
-Se você planeja ter muitas bases de dados de conhecimento, atualize seu tipo de preço do Azure Search Service.
+Se você planeja ter muitas bases de dados de conhecimento, atualize seu tipo de preço do serviço Pesquisa Cognitiva do Azure.
 
 No momento, não é possível realizar uma atualização in-loco da SKU do Azure Search. No entanto, pode criar um novo recurso de pesquisa do Azure com o SKU desejado, restaurar os dados para o novo recurso e vinculá-lo com a pilha do QnA Maker. Para fazer isso, siga estas etapas:
 
@@ -187,7 +187,7 @@ No momento, não é possível realizar uma atualização in-loco da SKU do Azure
 
 O tempo de execução do QnAMaker faz parte da instância do serviço de Azure App que é implantada quando você [cria um serviço QnAMaker](./set-up-qnamaker-service-azure.md) no portal do Azure. Atualizações são feitas periodicamente para o tempo de execução. A instância do serviço de aplicativo QnA Maker está no modo de atualização automática após a versão da extensão do site de abril de 2019 (versão 5 +). Essa atualização foi projetada para cuidar do tempo de inatividade ZERO durante as atualizações.
 
-Você pode verificar a versão atual em https://www.qnamaker.ai/UserSettings. Se sua versão for anterior à versão 5. x, você deverá reiniciar o serviço de aplicativo para aplicar as atualizações mais recentes:
+Você pode verificar sua versão atual em https://www.qnamaker.ai/UserSettings. Se sua versão for anterior à versão 5. x, você deverá reiniciar o serviço de aplicativo para aplicar as atualizações mais recentes:
 
 1. Vá para o serviço QnAMaker (grupo de recursos) no [portal do Azure](https://portal.azure.com).
 
