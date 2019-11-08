@@ -1,6 +1,6 @@
 ---
 title: O Azure IoT Central mostrar/ocultar o chat | Microsoft Docs
-description: Como usuário, saiba como mostrar e ocultar o chat.
+description: Este artigo descreve como mostrar e ocultar o chat em seu aplicativo IoT Central. Você pode usar o chat ao vivo para acessar o suporte técnico.
 author: v-krghan
 ms.author: v-krghan
 ms.date: 08/23/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8e1ad4f7f3f41d521b32ba5d92fa13c4f1c4ab9b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d861a5d1da6ebc9cedbe2dff764cd5b6e7dd04e1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952206"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827397"
 ---
 # <a name="toggle-live-chat"></a>Alternar chat ao vivo
 
@@ -44,7 +44,7 @@ Para mostrar o chat, escolha **Mostrar chat** no painel de **ajuda** :
 
  ![Mostrar chat](media/howto-show-hide-chat/show-chat.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu a ativar o chat ao vivo no Azure IoT Central, aqui está a próxima etapa sugerida:
 

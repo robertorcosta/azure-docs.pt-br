@@ -1,22 +1,22 @@
 ---
-title: Criar um agente de Trabalho Elástico do Banco de Dados SQL do Azure usando o PowerShell | Microsoft Docs
+title: Criar um agente de Trabalho Elástico usando o PowerShell
 description: Saiba como criar e gerenciar um agente de Trabalho Elástico usando o PowerShell.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 0d64bd150a43666679253f8244d80411e25dfdcd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9724e54b03e5de065b8b39cb57c6a9880cf37cc6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935051"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827201"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Criar um agente de Trabalho Elástico usando o PowerShell
 
@@ -72,7 +72,7 @@ A criação de um agente de Trabalho Elástico requer um banco de dados (S0 ou s
 
 *O script a seguir cria um novo grupo de recursos, servidor e banco de dados para uso como o banco de dados de trabalhos. O script abaixo também cria um segundo servidor com dois bancos de dados em branco nos quais os trabalhos serão executados.*
 
-Os Trabalhos Elásticos não têm nenhum requisito de nomenclatura específico. Você pode usar as convenções de nomenclatura que desejar, desde que estejam em conformidade com os [requisitos do Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+Os Trabalhos Elásticos não têm nenhum requisito de nomenclatura específico. Você pode usar as convenções de nomenclatura que desejar, desde que estejam em conformidade com os [requisitos do Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 ```powershell
 # Sign in to your Azure account

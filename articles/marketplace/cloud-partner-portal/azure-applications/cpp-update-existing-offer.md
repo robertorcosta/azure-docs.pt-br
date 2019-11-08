@@ -1,18 +1,19 @@
 ---
-title: Atualizar uma oferta existente do aplicativo do Azure | O Azure Marketplace
+title: Atualizar uma oferta de aplicativo do Azure existente | Azure Marketplace
 description: Como atualizar uma oferta existente de aplicativo do Azure no Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pabutler
-ms.openlocfilehash: a36df757e3a2682af641101ed82583a0cd293e0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6854e445ea63639866e9e39a6afc725237bbc8fe
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942816"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826106"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>Atualizar uma oferta existente de aplicativo do Azure
 
@@ -66,11 +67,11 @@ Utilize os seguintes passos para atualizar os metadados do mercado associados à
 
 1. Entrar no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 2. Em **Todas as ofertas**, localize a oferta que você gostaria de atualizar.
-3. Acesse a guia **Marketplace**. Use as instruções descritas em [Publicar oferta de aplicativo do Azure](./cpp-publish-offer.md) para fazer alterações nos metadados.
+3. Vá para a guia **Marketplace** . Use as instruções em [publicar a oferta de aplicativo do Azure](./cpp-publish-offer.md) para fazer alterações de metadados.
 4. Selecione **Publicar** para iniciar o fluxo de trabalho para publicar suas alterações.
  
 >[!Note]
->Cloud Solution Providers (CSP) parceiro canal participar agora está disponível.  Consulte [Cloud Solution Providers](../../cloud-solution-providers.md) para obter mais informações sobre sua oferta por meio do Microsoft CSP de marketing de parceiros canais.
+>A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](../../cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP.
 
 ## <a name="deleting-an-existing-offer"></a>Excluindo uma oferta existente
 

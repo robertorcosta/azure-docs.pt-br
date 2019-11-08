@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 11/07/2019
 ms.author: sedusch
-ms.openlocfilehash: 95cf66b8960b03c8bc055443945d5569450855a2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 13f751b472b3443ba50be5d54ab08e015d1a8f5a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101072"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824884"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Alta disponibilidade de máquinas virtuais do Azure para SAP NetWeaver no Red Hat Enterprise Linux
 
@@ -66,7 +66,7 @@ Primeiro, leia os seguintes documentos e Notas SAP
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP no Linux][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP no Linux][deployment-guide]
 * [Implantação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
-* [Documentação do produto do Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
+* [Documentação do produto para o armazenamento do Red Hat Gluster](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * [SAP Netweaver no cluster do pacemaker](https://access.redhat.com/articles/3150081)
 * Documentação geral RHEL
   * [Visão geral do complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
@@ -84,7 +84,7 @@ Para obter alta disponibilidade, o SAP NetWeaver requer armazenamento compartilh
 
 ![Visão geral da Alta Disponibilidade do SAP NetWeaver](./media/high-availability-guide-rhel/ha-rhel.png)
 
-O SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e o banco de dados SAP HANA usam o nome do host virtual e os endereços IP virtuais. No Azure, um balanceador de carga é necessário para usar um endereço IP virtual. A lista a seguir mostra a configuração do balanceador de carga (A) SCS e ERS.
+O SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e o banco de dados SAP HANA usam o nome do host virtual e os endereços IP virtuais. No Azure, um balanceador de carga é necessário para usar um endereço IP virtual. É recomendável usar o [balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). A lista a seguir mostra a configuração do balanceador de carga (A) SCS e ERS.
 
 > [!IMPORTANT]
 > **Não há suporte para**clustering de vários SIDs do SAP ASCS/ers com Red Hat Linux como sistema operacional convidado em VMs do Azure. O clustering de vários SID descreve a instalação de várias instâncias do SAP ASCS/ERS com SIDs diferentes em um cluster pacemaker.
@@ -98,13 +98,15 @@ O SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e o banco de dado
 * Porta de Investigação
   * Porta 620<strong>&lt;nr&gt;</strong>
 * Regras de balanceamento de carga
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 36<strong>&lt;nr&gt;</strong> TCP
-  * 39<strong>&lt;nr&gt;</strong> TCP
-  * 81<strong>&lt;nr&gt;</strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * Se estiver usando Standard Load Balancer, selecione **portas de alta disponibilidade**
+  * Se estiver usando Load Balancer básica, crie regras de balanceamento de carga para as seguintes portas
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 36<strong>&lt;nr&gt;</strong> TCP
+    * 39<strong>&lt;nr&gt;</strong> TCP
+    * 81<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -115,11 +117,13 @@ O SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e o banco de dado
 * Porta de Investigação
   * Porta 621<strong>&lt;nr&gt;</strong>
 * Regras de balanceamento de carga
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 33<strong>&lt;nr&gt;</strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * Se estiver usando Standard Load Balancer, selecione * * portas de alta disponibilidade * *
+  * Se estiver usando Load Balancer básica, crie regras de balanceamento de carga para as seguintes portas
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 33<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ## <a name="setting-up-glusterfs"></a>Configurando GlusterFS
 
@@ -131,7 +135,7 @@ Você pode usar um Modelo do Azure do GitHub para implantar todos os recursos do
 
 ### <a name="deploy-linux-via-azure-template"></a>Implantar o Linux por meio do Modelo do Azure
 
-O Azure Marketplace contém uma imagem do Red Hat Enterprise Linux, você pode usar para implantar novas máquinas virtuais. Você pode usar um dos modelos de início rápido no GitHub para implantar todos os recursos necessários. O modelo implanta as máquinas virtuais, o balanceador de carga, o conjunto de disponibilidade etc. Siga estas etapas para implantar o modelo:
+O Azure Marketplace contém uma imagem para o Red Hat Enterprise Linux que você pode usar para implantar novas máquinas virtuais. Você pode usar um dos modelos de início rápido no GitHub para implantar todos os recursos necessários. O modelo implanta as máquinas virtuais, o balanceador de carga, o conjunto de disponibilidade, etc. Siga estas etapas para implantar o modelo:
 
 1. Abra o [modelo ASCS/SCS][template-multisid-xscs] no portal do Azure  
 1. Defina os seguintes parâmetros
@@ -150,7 +154,7 @@ O Azure Marketplace contém uma imagem do Red Hat Enterprise Linux, você pode u
    1. Chave de Admin Username, a senha de administrador ou SSH  
       Um novo usuário é criado e pode ser usado para entrar no computador.
    1. ID da Sub-rede  
-   Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente tem esta aparência: /subscriptions/ **&lt;ID da assinatura&gt;** /resourceGroups/ **&lt;nome do grupo de recursos&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nome de rede virtual&gt;** /subnets/ **&lt;nome da sub-rede&gt;**
+   Se você deseja implantar a VM em uma VNet existente em que há uma sub-rede definida, a VM deve ser atribuída à ID dessa sub-rede específica. A ID geralmente tem esta aparência: /subscriptions/ **&lt;ID da assinatura&gt;** /resourceGroups/ **&lt;nome do grupo de recursos&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nome de rede virtual&gt;** /subnets/ **&lt;nome da sub-rede&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implantar o Linux manualmente por meio do portal do Azure
 
@@ -168,7 +172,44 @@ Você primeiro precisa criar as máquinas virtuais para este cluster. Posteriorm
    Selecione o Conjunto de Disponibilidade criado anteriormente  
 1. Adicione pelo menos um disco de dados para ambas as máquinas virtuais  
    Os discos de dados são usados para o diretório /usr/sap/`<SAPSID`>
-1. Crie um Balanceador de Carga (interno)  
+1. Criar balanceador de carga (interno, padrão):  
+   1. Criar os endereços IP de front-end
+      1. Endereço IP 10.0.0.7 para ASCS
+         1. Abra o balanceador de carga, selecione o pool de IPs de front-end e clique em Adicionar
+         1. Insira o nome do novo pool de IP de front-end (por exemplo, **nw1-ascs-frontend**)
+         1. Defina a Atribuição como Estática e insira o endereço IP (por exemplo, **10.0.0.7**)
+         1. Clique em OK
+      1. Endereço IP 10.0.0.8 para ERS do ASCS
+         * Repita as etapas acima para criar um endereço IP para ERS (por exemplo, **10.0.0.8** e **nw1-aers-backend**)
+   1. Criar os pools de back-end
+      1. Crie um pool de back-end para o ASCS
+         1. Abra o balanceador de carga, selecione os pools de back-end e clique em Adicionar
+         1. Insira o nome do novo pool de back-end (por exemplo, **nw1-ascs-backend**)
+         1. Clique em Adicionar uma máquina virtual.
+         1. Selecione máquina virtual.
+         1. Selecione as máquinas virtuais do cluster (A) SCS e seus endereços IP.
+         1. Clique em Adicionar
+      1. Crie um pool de back-end para o ERS do ASCS
+         * Repita as etapas acima para criar um pool de back-end para o ERS (por exemplo, **nw1-aers-backend**)
+   1. Crie as investigações de integridade
+      1. Porta 620**00** para ASCS
+         1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
+         1. Insira o nome da nova investigação de integridade (por exemplo, **nw1-ascs-hp**)
+         1. Selecione TCP como protocolo, porta 620**00**, mantenha o Intervalo 5 e o limite Não Íntegro 2
+         1. Clique em OK
+      1. Porta 621**02** para ASCS ERS
+         * Repita as etapas acima para criar uma investigação de integridade para ERS (por exemplo, 621**02** e **nw1-aers-hp**)
+   1. Regras de balanceamento de carga
+      1. Regras de balanceamento de carga para ASCS
+         1. Abra o balanceador de carga, selecione regras de balanceamento de carga e clique em Adicionar
+         1. Insira o nome da nova regra do balanceador de carga (por exemplo **NW1-lb-ASCs**)
+         1. Selecione o endereço IP de front-end, o pool de back-ends e a investigação de integridade que você criou anteriormente (por exemplo **NW1-ASCs-frontend**, **NW1-ASCs-backend** e **NW1-ASCs-HP**)
+         1. Selecionar **portas de alta disponibilidade**
+         1. Aumente o tempo limite de ociosidade para 30 minutos
+         1. **Habilite o IP Flutuante**
+         1. Clique em OK
+         * Repita as etapas acima para criar regras de balanceamento de carga para ERS (por exemplo **NW1-lb-ers**)
+1. Como alternativa, se seu cenário exigir o Load Balancer básico (interno), siga estas etapas:  
    1. Criar os endereços IP de front-end
       1. Endereço IP 10.0.0.7 para ASCS
          1. Abra o balanceador de carga, selecione o pool de IPs de front-end e clique em Adicionar
@@ -209,8 +250,12 @@ Você primeiro precisa criar as máquinas virtuais para este cluster. Posteriorm
       1. Portas adicionais para ERS do ASCS
          * Repita as etapas acima para portas 33**02**, 5**02**13, 5**02**14, 5**02**16 e TCP para o ERS do ASCS
 
+> [!TIP]
+> Quando as VMs sem endereços IP públicos são colocadas no pool de back-end de balanceador de carga Standard interno, as VMs não terão conectividade de saída com a Internet, a menos que a configuração adicional seja executada.  
+> Se seu cenário exigir conexões de saída para pontos de extremidade públicos, consulte [conectividade de ponto de extremidade público para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)para obter dicas e considerações sobre como obter a saída conectividade com pontos de extremidade públicos.
+
 > [!IMPORTANT]
-> Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. TCP _timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. tcp_timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Criar cluster do Pacemaker
 
@@ -508,7 +553,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    </code></pre>
 
    O SAP introduziu o suporte para o enqueue Server 2, incluindo a replicação, a partir do SAP NW 7,52. A partir do ABAP Platform 1809, o enqueue Server 2 é instalado por padrão. Consulte o SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416) para suporte ao servidor de enfileiramento 2.
-   Se estiver usando[ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)(Enqueue Server 2 Architecture), instale o agente de recurso Resource-Agents-SAP-4.1.1 12. EL7. x86_64 ou mais recente e defina os recursos da seguinte maneira:
+   Se estiver usando[ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)(Enqueue Server 2 Architecture), instale o agente de recurso Resource-Agents-SAP-4.1.1 12. el7. x86_64 ou mais recente e defina os recursos da seguinte maneira:
 
 <pre><code>sudo pcs property set maintenance-mode=true
    

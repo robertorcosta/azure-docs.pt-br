@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
 author: yijenj
 manager: nuno costa
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: f6f409c42c7ffa5639315e71ff565f9c672e227c
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 9aa41e63c275737874d57ba016e297a64f3eb124
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279753"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823015"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funcionalidades e considerações de transação do Marketplace comercial
 
@@ -40,7 +41,7 @@ Além das opções de publicação de lista e de avaliação, a opção Transact
 
 Ao usar a opção Transact Publishing, a Microsoft permite a venda de software de terceiros e a implantação de alguns tipos de oferta na assinatura do Azure do cliente. O Publicador deve considerar a cobrança de taxas de infraestrutura e as próprias tarifas de licenciamento de software do editor, ao selecionar um modelo de cobrança e um tipo de oferta.
 
-Atualmente, a opção Transact Publishing tem suporte para os seguintes tipos de oferta: Máquinas virtuais, aplicativos do Azure e aplicativos SaaS.
+Atualmente, a opção Transact Publishing tem suporte para os seguintes tipos de oferta: máquinas virtuais, aplicativos do Azure e aplicativos SaaS.
 
 
 ![[Transacionar Enterprise lida no Marketplace do Azure]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
@@ -49,7 +50,7 @@ Atualmente, a opção Transact Publishing tem suporte para os seguintes tipos de
 
 **Para máquinas virtuais e aplicativos do Azure**
 
-Para máquinas virtuais e aplicativos do Azure, os valores de uso da infraestrutura do Azure são cobradas da assinatura do Azure do cliente.  Os valores de uso da infraestrutura são precificadas e apresentadas separadamente dos valores de licenciamento do provedor de software na fatura do cliente.
+Para máquinas virtuais e aplicativos do Azure, as tarifas de uso da infraestrutura do Azure são cobradas na assinatura do Azure do cliente.  As tarifas de uso de infraestrutura são cobradas e apresentadas separadamente das tarifas de licenciamento do provedor de software na fatura do cliente.
 
 **Para aplicativos SaaS**
 
@@ -57,17 +58,17 @@ Para aplicativos SaaS, o editor deve contabilizar os valores de uso da infraestr
 
 ## <a name="transact-billing-models"></a>Transact modelos de cobrança
 
-Dependendo da opção de transação usada, os valores de licença de software do editor podem ser apresentados da seguinte forma:  
+Dependendo da opção de transação usada, as taxas de licença de software do Publicador podem ser apresentadas da seguinte maneira:  
 
 * Grátis: Sem custo para licenças de software. 
 
-* Traga sua própria licença (BYOL): Todas as cobranças aplicáveis por licenças de software são gerenciadas diretamente entre o editor e o cliente. A Microsoft só passa pelos valores de uso da infraestrutura do Azure. (Máquinas Virtuais e Aplicativos do Azure somente).
+* Traga sua própria licença (BYOL): todas as cobranças aplicáveis por licenças de software são gerenciadas diretamente entre o editor e o cliente. A Microsoft só passa pelos valores de uso da infraestrutura do Azure. (Máquinas Virtuais e Aplicativos do Azure somente).
 
-* Pago conforme o uso: Os valores da licença de software são apresentadas como uma taxa de preços por hora, por núcleo (vCPU) com base na infraestrutura do Azure usada. Isso se aplica apenas a máquinas virtuais e aplicativos do Azure.
+* Pague conforme o uso: as taxas de licença de software são apresentadas como uma taxa de preços por vCPU (por hora e por núcleo) com base na infraestrutura do Azure usada. Isso se aplica apenas a máquinas virtuais e aplicativos do Azure.
 
-* • Preço da assinatura: As taxas de licença de software são apresentadas como uma taxa de recorrência mensal ou anual, cobrada como uma taxa fixa ou por estação. Isso se aplica somente a aplicativos SaaS e aplicativos gerenciados do Azure.
+* • Preços de assinatura: as taxas de licença de software são apresentadas como uma taxa recorrente mensal ou anual, cobrada como uma taxa fixa ou por estação. Isso se aplica somente a aplicativos SaaS e aplicativos gerenciados pelo aplicativo do Azure.
 
-* Avaliação de software gratuita: Sem cobrança de licenças de software por 30 dias ou 90 dias.
+* Avaliação gratuita de software: sem cobrança de licenças de software por 30 dias ou 90 dias.
 
 ### <a name="free-and-bring-your-own-license-byol-pricing"></a>Preços gratuitos e traga sua própria licença (BYOL)
 
@@ -141,8 +142,8 @@ Essa opção deve ser configurada para vender pela Microsoft e pode ser cobrada 
 
 |Faturas da Microsoft  | US $100,00 por mês  |
 |---------|---------|
-|A Microsoft paga para você 80% do seu custo de licença <br> \*A Microsoft paga a você 90% do seu custo de licença para qualquer aplicativo SaaS qualificado   |   US $80,00 por mês <br> \*$90 por mês    |
-|A Microsoft mantém 20% do seu custo de licença <br> \*A Microsoft mantém 10% do seu custo de licença para qualquer aplicativo SaaS qualificado.  |  US $20,00 por mês <br> \*$10     |
+|A Microsoft paga para você 80% do seu custo de licença <br> \* a Microsoft paga 90% do seu custo de licença para qualquer aplicativo SaaS qualificado   |   US $80,00 por mês <br> \* $90 por mês    |
+|A Microsoft mantém 20% do seu custo de licença <br> \* a Microsoft mantém 10% do seu custo de licença para qualquer aplicativo SaaS qualificado.  |  US $20,00 por mês <br> \* $10     |
 
 * **Taxa reduzida de serviço do Marketplace:** Para determinados produtos SaaS que você publica em nosso mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%.  Para que seu produto seja qualificado, pelo menos um de seus produtos deve ser designado pela Microsoft como uma das vendas de covenda de IP pronta ou de IP. Para receber essa taxa de serviço do Marketplace reduzida para o mês, a qualificação deve ser atendida pelo menos cinco (5) dias úteis antes do final do mês do calendário anterior. A taxa reduzida de serviço do Marketplace não se aplicará a VMs, aplicativos gerenciados ou quaisquer outros produtos disponibilizados por meio de nosso mercado comercial.  Essa taxa de serviço do Marketplace reduzida estará disponível para ofertas qualificadas, com encargos de licença coletados pela Microsoft entre 1º de maio de 2019 e 30 de junho de 2020.  Após esse período, a taxa de serviço do Marketplace voltará ao seu valor normal.
 
@@ -150,11 +151,11 @@ Essa opção deve ser configurada para vender pela Microsoft e pode ser cobrada 
 
 **Faturamento e pagamento**
 
-O editor pode usar o método de faturamento preferido do cliente para fornecer valores de licença de software de assinatura ou PAYGO.
+O Publicador pode usar o método de faturamento preferido do cliente para fornecer assinatura ou taxas de licença de software PAYGO.
 
 **Contrato Enterprise** 
 
-Se o método de faturamento preferido do cliente for o Microsoft Enterprise Agreement, os valores de licença de software serão cobrados usando esse método de faturamento como um custo discriminado, separado dos custos de uso específicos do Azure.
+Se o método de faturamento preferido do cliente for o Microsoft Enterprise Agreement, suas tarifas de licença de software serão cobradas usando esse método de faturamento como um custo discriminado, separados de qualquer custo de uso específico do Azure.
 
 **Cartões de crédito e a fatura mensal** 
 
@@ -162,13 +163,13 @@ Os clientes também podem pagar usando um cartão de crédito e uma fatura mensa
 
 Por exemplo, se o cliente compra usando um cartão de crédito:
 
-|Descrição    |    Date  |
+|DESCRIÇÃO    |    Data  |
 |----------|----------|
 |Período de ordem   | 15 de agosto de 2018 – 30 de agosto de 2018 |
 |Prazo final (mês)   | 30 de agosto de 2018 |
 |Data de cobrança | 1 de setembro de 2018 |
 |Data de pagamento do cliente | 1 de setembro de 2018 |
-|Efetue a caução de período (cartões de crédito, 30 dias) | 1 de setembro de 2018 – 30 de setembro de 2018 |
+|Efetue a caução de período (cartões de crédito, 30 dias) | 1 de setembro de 2018-30 de setembro de 2018 |
 |Início do período de coleta | 1 de setembro de 2018 |
 |Término do período de coleta (máximo, 30 dias) | 30 de setembro de 2018 |
 |Data de cálculo de pagamento (mensalmente no dia 15) | 1 de outubro de 2018 |
@@ -176,12 +177,12 @@ Por exemplo, se o cliente compra usando um cartão de crédito:
 
 Se o cliente comprar usando um Enterprise Agreement:
 
-| Descrição |    Date  |
+| DESCRIÇÃO |    Data  |
 |----------|----------|
 |Período de ordem | 15 de agosto de 2018 – 30 de agosto de 2018 |
 |Prazo final (trimestre) | 30 de setembro de 2018 |
 |Data de cobrança | 15 de outubro de 2018 |
-|Efetue a caução de período (cartões de crédito, 30 dias) | N/D |
+|Efetue a caução de período (cartões de crédito, 30 dias) | n/d |
 |Início do período de coleta | 15 de outubro de 2018 |
 |Término do período de coleta (máximo, 90 dias) | 15 de janeiro de 2019 |
 |Data de pagamento do cliente | 30 de dezembro de 2018 |
@@ -231,9 +232,9 @@ A opção de publicação de transações está disponível apenas para uso com 
 
 **Máquina Virtual** 
 
-Selecione modelos gratuitos, traga sua licença própria ou pague conforme o preço e apresente-os como SKUs definidos no nível da oferta. Na fatura do cliente do Azure, a Microsoft apresenta os valores de licença de software do editor separadamente dos valores de infraestrutura subjacentes do Azure. Os valores de infraestrutura do Azure são impulsionadas pelo uso do software do editor.
+Selecione modelos gratuitos, traga sua licença própria ou pague conforme o preço e apresente-os como SKUs definidos no nível da oferta. Na fatura do Azure do cliente, a Microsoft apresenta as taxas de licença de software do Publicador separadamente das taxas de infraestrutura subjacentes do Azure. Os valores de infraestrutura do Azure são impulsionadas pelo uso do software do editor.
 
-**Aplicativos do Azure: Modelo de solução ou aplicativo gerenciado** 
+**Aplicativos do Azure: modelo de solução ou aplicativo gerenciado** 
 
 Deve provisionar uma ou mais máquinas virtuais e pulls por meio da soma dos preços de máquina virtual. Para aplicativos gerenciados em um único plano, uma assinatura mensal de taxa fixa pode ser selecionada como o modelo de preço, em vez do preço da máquina virtual. Em alguns casos, as tarifas de uso da infraestrutura do Azure são passadas para o cliente separadamente de taxas de licença de software, mas no mesmo demonstrativo de cobrança. No entanto, se você configurar uma oferta de aplicativo gerenciado para encargos de infraestrutura de ISV, os recursos do Azure serão cobrados para o Publicador e o cliente receberá uma tarifa fixa que inclui o custo de infraestrutura, licenças de software e serviços de gerenciamento.
 

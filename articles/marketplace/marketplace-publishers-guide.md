@@ -4,15 +4,16 @@ description: Uma visão geral do Microsoft Azure Marketplace e AppSource para ed
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: cd6b09a1130e50fae7bd83579a0f176af0b5b9cd
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: fba9c481ad9b3da1eb0dd5d8a4ff2499240a8cfa
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962615"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826476"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guia de publicação do Microsoft Azure Marketplace e AppSource
 
@@ -30,7 +31,7 @@ Este guia abrange os seguintes tópicos:
 
 Este guia contém informações técnicas e comerciais sobre as etapas necessárias que devem ser executadas antes de listar os aplicativos e serviços. Use o índice para acessar as diferentes seções do guia e ir diretamente para os principais tópicos.
 
-Para perguntas sobre o Microsoft Azure Marketplace e AppSource, envie-nos uma mensagem em **Tipo de Problema** > **Integração do Marketplace**.  Nossa equipe de integração de editores do Marketplace terá satisfação em ajudá-lo! 
+Para perguntas sobre o Microsoft Azure Marketplace e AppSource, envie-nos uma mensagem em **Tipo de Problema** > **Integração do Marketplace**.  Nossa equipe de integração do editor do Marketplace ficará feliz em ajudar! 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Benefícios em participar do Marketplace 
 
@@ -56,11 +57,11 @@ Obtenha informações sobre o desempenho de suas listagens por meio de insights 
 
 As novas listagens no Marketplace são qualificadas para um conjunto diversificado de benefícios gratuitos para ajudar os parceiros a expandir os negócios no Marketplace. Esses benefícios se enquadram nas seguintes categorias: 
 
-*   Técnico: Tudo o que é necessário para preparar o aplicativo para lançamento. Envolve suporte técnico, design de aplicativo, design de arquitetura e créditos Azure para desenvolvimento e teste. 
+*   Técnica: tudo o que é necessário para preparar o aplicativo para lançamento. Envolve suporte técnico, design de aplicativo, design de arquitetura e créditos Azure para desenvolvimento e teste. 
 
-*   Marketing conjunto: Tudo o que é necessário para lançar a oferta. Acesse os Conceitos Básicos de Lançamento de Entrada no Mercado da Microsoft gratuitos que podem ajudá-lo a lançar e promover soluções. Além disso, você pode qualificar-se para a inclusão de uma campanha de marketing adicional da Microsoft e criar oportunidades para destacar-se no Marketplace.
+*   Ações conjuntas de marketing: tudo o que é necessário para lançar a oferta. Acesse os Conceitos Básicos de Lançamento de Entrada no Mercado da Microsoft gratuitos que podem ajudá-lo a lançar e promover soluções. Além disso, você pode qualificar-se para a inclusão de uma campanha de marketing adicional da Microsoft e criar oportunidades para destacar-se no Marketplace.
 
-*   Venda conjunta: Comece ou impulsione sua jornada para vender com a Microsoft no Marketplace. Acesse programas e suporte para gerar vendas conjuntas com as equipes da Microsoft.
+*   Vendas conjuntas: comece ou impulsione sua jornada para vender com a Microsoft no Marketplace. Acesse programas e suporte para gerar vendas conjuntas com as equipes da Microsoft.
 
 Após [enviar a solução](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) ao Marketplace, nossa equipe de integração entrará em contato com você para auxiliá-lo na experiência de publicação.  Consulte [como criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obter mais informações.
 

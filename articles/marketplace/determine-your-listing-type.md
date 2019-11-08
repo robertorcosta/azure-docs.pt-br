@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 49723a80bb198e8151c7e85a90453183068c9d2b
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 967d33cb7a9eb3ec922f9d85cfc2581b85bce537
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962813"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825896"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
 A opção de publicação que você escolher para a oferta estará relacionada diretamente aos requisitos de qualificação e benefícios de GTM do Marketplace. O mais importante é que a seleção de opção de publicação e tipo de oferta define como os usuários irão interagir com sua oferta do Marketplace.
@@ -31,11 +32,11 @@ Neste artigo, você aprenderá...
 
 ## <a name="selecting-a-storefront-publishing-option-and-offer-type-for-your-solution"></a>Selecionar uma vitrine, opção de publicação e tipo de oferta para sua solução
 
-Antes de selecionar uma opção de publicação, é importante entender os requisitos de qualificação de vitrine para aplicativos, serviços e soluções do Marketplace:
+Antes de selecionar uma opção de publicação, é importante entender os requisitos de qualificação de vitrine para soluções, aplicativos e serviços do Marketplace:
 
 Os aplicativos **do Azure Marketplace** são soluções técnicas de "desenvolvimento-bloco" internas ou internas para o Azure e destinadas a um público de ti ou desenvolvedor. Serviços de consultoria do Azure Marketplace são ofertas de serviços profissionais que ajudam os clientes a começarem a usar o Azure, ou a aprenderem a usá-lo mais rápido.
 
-Os aplicativos da **AppSource** são soluções de linha de negócios que podem ser compiladas no Azure ou compiladas para: Dynamics 365, Office 365, Power BI ou Power apps. Serviços de consultoria do AppSource são ofertas de serviços profissionais que ajudam os clientes a começarem a usar o Dynamics 365 e o Power BI.
+Os aplicativos **AppSource** são soluções de linha de negócios que podem ser internas do Azure ou internas: Dynamics 365, Office 365, Power bi ou Power apps. Serviços de consultoria do AppSource são ofertas de serviços profissionais que ajudam os clientes a começarem a usar o Dynamics 365 e o Power BI.
 
 
 ## <a name="understand-storefront-selection"></a>Entenderá a seleção de vitrines
@@ -43,7 +44,7 @@ Os aplicativos da **AppSource** são soluções de linha de negócios que podem 
 A vitrine onde sua oferta será apresentada, o Azure Marketplace e/ou AppSource, será automaticamente determinado pelos detalhes da sua oferta e pelo público-alvo, bem como pelas categorias e setores selecionados por você ao criar sua oferta. 
 
 >[!Note]
->"Listagem de cruzada" (somente para aplicativos SaaS): quando uma lista ou oferta baseada em avaliação atende aos critérios tanto para um público de usuários técnicos quanto para os comerciais, sua oferta é listada em ambas as vitrines. Saiba mais sobre as opções de publicação abaixo.
+>"Listagem cruzada" (somente para aplicativos SaaS): quando uma oferta de lista ou de avaliação atende aos critérios para um público de usuário comercial e técnico, sua oferta será listada em ambas as vitrines. Saiba mais sobre as opções de publicação abaixo.
 
 ## <a name="choose-a-publishing-option"></a>Selecione uma opção de publicação
 
@@ -52,9 +53,9 @@ As opções de publicação disponíveis oferecem o envolvimento do cliente dife
 | **Opção de publicação**    | **Descrição**  |
 | :------------------- | :-------------------|
 | **Lista** | Listagem simples de seu aplicativo ou serviço que permite que um usuário do Marketplace solicite a conexão com o cliente por meio da chamada de ação **Entre em Contato Comigo**. |
-| **Avaliação** | Use o Marketplace para aprimorar a descoberta e automatizar o provisionamento da experiência de avaliação da solução, permitindo que os usuários potenciais usem sua experiência no aplicativo SaaS, IaaS ou Microsoft sem custos por um tempo limitado antes de comprarem. As chamadas de ação usadas para a opção de publicação de avaliação são: **Avaliação gratuita** ou **Test Drive**. |
+| **Avaliação** | Use o Marketplace para aprimorar a descoberta e automatizar o provisionamento da experiência de avaliação da solução, permitindo que os usuários potenciais usem sua experiência no aplicativo SaaS, IaaS ou Microsoft sem custos por um tempo limitado antes de comprarem. A chamada de ação usada para a opção de publicação de avaliação é uma entre: **Avaliação Gratuita** e **Test Drive**. |
 |**BYOL**  |Use o Marketplace para aprimorar a capacidade de descoberta e automatizar o provisionamento de sua solução e concluir a transação financeira separadamente. Os tipos de oferta BYOL são ideais para migrações de local para nuvem. O plano de ação é **obtê-lo agora**.
-| **Transação** | Seu aplicativo é executado no Azure e pode ser provisionado como um recurso diretamente na assinatura do Azure do cliente quando o cliente seleciona a ação **obter agora** . Suas taxas de licença de software, opcionalmente, podem ser compradas e cobradas pelo meio de pagamento e nas condições de escolha do cliente, e você pode optar por oferecer acesso por tempo limitado à sua **avaliação gratuita de software** (disponível apenas para o Azure Marketplace). |
+| **Transação** | Seu aplicativo é executado no Azure e pode ser provisionado como um recurso diretamente na assinatura do Azure do cliente quando o cliente seleciona a ação **obter agora** . As tarifas de licença de software podem, opcionalmente, ser compradas e cobradas por meio da opção de instrumento e termos de pagamento do cliente, e você pode optar por oferecer acesso limitado ao tempo para sua **avaliação de software gratuita** (disponível somente para o Azure Marketplace). |
 
 >[!Note]
 >Ao usar a opção de publicação de Transação, é importante entender as considerações de preços, cobrança, faturamento e pagamento antes de selecionar um tipo de oferta e criação de sua oferta. Examine o [artigo Cobrança do Marketplace e Considerações Comerciais para saber mais](./marketplace-commercial-transaction-capabilities-and-considerations.md).

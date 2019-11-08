@@ -1,5 +1,5 @@
 ---
-title: O Spark Connector com o Banco de Dados SQL do Azure e SQL Server| Microsoft Docs
+title: Conector do Spark com Banco de dados SQL do Azure e SQL Server
 description: Saiba como usar o Spark Connector para Banco de Dados SQL do Azure e SQL Server
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: efa31e72811b83c00c1b2ee4a5d1a42fc7089630
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d398019b62078da6943cb98cbafc3ac39640513f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163177"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820866"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Acelerar a análise de Big Data em tempo real com o conector do Spark para Banco de Dados SQL do Azure e SQL Server
 
@@ -33,7 +33,7 @@ Para começar, baixe conector Spark para BD SQL do [repositório azure-sqldb-spa
 | Scala                                |2.10 ou posterior            |
 | Microsoft JDBC Driver para SQL Server |6.2 ou posterior             |
 | Microsoft SQL Server                 |SQL Server 2008 ou posterior |
-| Banco de dados SQL do Azure                   |Com suporte                |
+| Banco de Dados SQL do Azure                   |Suportado                |
 
 O conector Spark para Banco de Dados SQL do Azure e o SQL Server utilizam o Microsoft JDBC Driver para SQL Server para mover dados entre nós de trabalho Spark e Bancos de Dados SQL:
  
@@ -211,7 +211,7 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 //df.bulkCopyToSqlDB(bulkCopyConfig) if no metadata is specified.
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Se ainda não tiver feito isso, baixe o conector do Spark para o Banco de Dados SQL do Azure e o SQL Server do [repositório do GitHub azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) e explore os recursos adicionais no repositório:
 
 -   [Blocos de anotações de exemplo do Azure Databricks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)

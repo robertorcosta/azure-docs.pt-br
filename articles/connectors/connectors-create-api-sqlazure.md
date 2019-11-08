@@ -10,13 +10,13 @@ ms.reviewer: klam; LADocs
 manager: carmonm
 ms.topic: conceptual
 tags: connectors
-ms.date: 11/06/2019
-ms.openlocfilehash: ed30ba305ec990256625052cb92f1b7524c826e2
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 11/08/2019
+ms.openlocfilehash: a6367e5897e9bd548550b099c0bd2e6186845d6d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720963"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826311"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatizar fluxos de trabalho para SQL Server ou banco de dados SQL do Azure usando aplicativos lógicos do Azure
 
@@ -44,10 +44,11 @@ Se você não estiver familiarizado com os Aplicativos Lógicos, examine [O que 
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
-* Antes de poder conectar aplicativos lógicos a sistemas locais, como SQL Server, você precisa [configurar um gateway de dados local](../logic-apps/logic-apps-gateway-install.md). Dessa forma, você pode selecionar o gateway ao criar a conexão SQL para seu aplicativo lógico.
+* O [Gateway de dados](../logic-apps/logic-apps-gateway-install.md) local instalado em um computador local e um [recurso do gateway de dados do Azure criado no portal do Azure](../logic-apps/logic-apps-gateway-connection.md) para estes cenários:
 
-  > [!IMPORTANT]
-  > Para usar a autenticação do Windows com esse conector, você deve usar o gateway de dados local. Esse conector não dá suporte à autenticação do Windows para um aplicativo lógico em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+  * Seus aplicativos lógicos não são executados em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+
+  * Seus aplicativos lógicos *são* executados em um ambiente de serviço de integração, mas você precisa usar a autenticação do Windows para sua conexão de SQL Server. Para esse cenário, use a versão não ISE do conector de SQL Server junto com o gateway de dados porque a versão do ISE não dá suporte à autenticação do Windows.
 
 * O aplicativo lógico em que você precisa de acesso ao banco de dados SQL. Para iniciar seu aplicativo lógico com um gatilho SQL, é necessário um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

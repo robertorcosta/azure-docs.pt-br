@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 771a20ccf1c34958308d58dafb6fb01e36bb408a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: HT
+ms.openlocfilehash: c20fc2142718d3cc49d4b80c6a5e22e26a350335
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749030"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824875"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade do NFSVMs do Azure no SUSE Linux Enterprise Server
 
@@ -114,7 +114,7 @@ Você pode usar um dos modelos de início rápido no GitHub para implantar todos
    1. Prefixo de recursos  
       Digite o prefixo que você deseja usar. O valor é usado como um prefixo para os recursos que serão implantados.
    2. Contagem do sistema SAP  
-      Insira o número de sistemas SAP que usará esse servidor de arquivos. Isso implantará a quantidade necessária de configurações de front-end, regras de balanceamento de carga, de portas de investigação, discos etc.
+      Insira o número de sistemas SAP que usará esse servidor de arquivos. Isso implantará a quantidade necessária de configurações de front-end, regras de balanceamento de carga, portas de investigação, discos, etc.
    3. Tipo de sistema operacional  
       Selecione uma das distribuições do Linux. Para este exemplo, selecione SLES 12
    4. Nome de Usuário de Administrador e Senha do Administrador  
@@ -165,7 +165,7 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
          1. Porta 61001 para NW2
             * Repita as etapas acima para criar uma investigação de integridade para NW2
       1. Regras de balanceamento de carga
-         1. Clique no balanceador de carga, escolha as regras de balanceamento de carga e clique em Adicionar
+         1. Abra o balanceador de carga, selecione regras de balanceamento de carga e clique em Adicionar
          1. Insira o nome da nova regra do balanceador de carga (por exemplo **, NW1-lb**)
          1. Selecione o endereço IP de front-end, o pool de back-ends e a investigação de integridade que você criou anteriormente (por exemplo **NW1-frontend**. **NW1-backend** e **NW1-HP**)
          1. Selecione **portas de alta disponibilidade**.
@@ -215,6 +215,9 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
             * Repita as etapas acima para a porta 2049 e TCP para NW2
          1. UDP 2049 para NW2
             * Repita as etapas acima para a porta 2049 e UDP para NW2
+
+> [!Note]
+> Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Azure Load Balancer padrão (sem endereço IP público), não haverá nenhuma conectividade com a Internet de saída, a menos que a configuração adicional seja executada para permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como obter conectividade de saída, consulte [conectividade de ponto de extremidade pública para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
 > Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. tcp_timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).

@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: da6fee7158344d331c6c2a68f0fab1b13cc3a291
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9eb283f538759f9591add4b04462de151f2cb014
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934109"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825576"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma nova oferta de SaaS
 
@@ -44,7 +45,7 @@ Exemplo: Test-offer-1
 
 <br>Exemplo: oferta de teste 1&#8482;
 
-Clique em **Criar**.  Uma página de **visão geral da oferta** é criada para esta oferta.  
+Selecione **Criar**.  Uma página de **visão geral da oferta** é criada para esta oferta.  
 
 <!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
@@ -57,10 +58,10 @@ A página **visão geral da oferta** inclui:
 - O **status de publicação** exibe uma representação visual das etapas necessárias para publicar essa oferta e quanto tempo cada etapa levará para ser concluída. Os ícones de etapa de publicação incompletos ficarão esmaecidos. 
 
 - O menu **visão geral da oferta** contém uma lista de links para executar operações nessa oferta. Essa lista de operações será alterada com base na seleção feita para sua oferta.  
-    - Se a oferta for um rascunho – excluir rascunho 
-    - Se a oferta for dinâmica, interrompa a oferta de venda 
-    - Se a oferta estiver em visualização – Go-Live 
-    - Se você ainda não concluiu a saída do Publicador – cancelar publicação
+    - Se a oferta for um rascunho de exclusão de rascunho 
+    - Se a oferta for Live-Stop Reseller offer 
+    - Se a oferta estiver em visualização-Go-Live 
+    - Se você ainda não concluiu a saída do Publicador, cancelar publicação
 
 ## <a name="offer-setup"></a>Instalação da oferta
 
@@ -129,7 +130,7 @@ Liste sua oferta aos clientes com um link para uma avaliação gratuita fornecen
 > [!NOTE]
 > Os tokens que seu aplicativo receberá por meio do link de avaliação só podem ser usados para obter informações do usuário por meio do Azure AD para automatizar a criação de contas em seu aplicativo. As contas da Microsoft (MSA) não têm suporte para autenticação usando esse token.
 
-##### <a name="contact-me"></a>Contate-me
+##### <a name="contact-me"></a>Entrar em contato comigo
 Colete informações de contato do cliente conectando seu sistema de gerenciamento de relacionamento com o cliente (CRM). O cliente será solicitado a fornecer permissão para compartilhar suas informações. Esses detalhes do cliente, juntamente com o nome da oferta, a ID e a origem do Marketplace onde encontraram sua oferta, serão enviados para o sistema CRM que você configurou. Para obter mais informações sobre como configurar seu CRM, consulte [Connect Lead Management](#connect-lead-management). 
 
 ## <a name="example-marketplace-offer-listing"></a>Exemplo de listagem de oferta do Marketplace
@@ -169,7 +170,7 @@ Ao habilitar o test drive, você será solicitado a configurar um ambiente de de
 
 Lembre-se de **salvar** antes de passar para a próxima seção!
 
-## <a name="properties"></a>propriedades
+## <a name="properties"></a>Propriedades
 A guia **Propriedades** solicita que você defina as categorias e os setores usados para agrupar sua oferta nos Marketplaces, os contratos legais que dão suporte à sua oferta e a versão do aplicativo. 
 
 Selecione **salvar** depois de concluir esses campos. 
@@ -249,7 +250,7 @@ Para tornar sua descrição de oferta mais atraente, você pode usar marcas HTML
     <p> Este é o primeiro parágrafo. </p>
     <p> Este é o meu segundo parágrafo. </p>
 
-1. Se você quiser adicionar uma **lista de itens com marcadores**, coloque o texto dentro das marcas `<li>` abaixo. Você pode copiar e colar mais itens com marcadores (itens entre as marcas `<li>` e `</li>`) nas marcas `<ul>` e `</ul>`. Certifique-se de adicionar o `<ul></ul>`. 
+1. Se você quiser adicionar uma **lista de itens com marcadores**, coloque o texto dentro das marcas de `<li>` abaixo. Você pode copiar e colar mais itens com marcadores (itens entre as marcas `<li>` e `</li>`) nas marcas `<ul>` e `</ul>`. Certifique-se de adicionar o `<ul></ul>`. 
 
     **Exemplo**:
 
@@ -331,7 +332,7 @@ Lembre-se de **salvar** antes de passar para a próxima seção!
 - [Práticas recomendadas para listagens de ofertas do Marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 
-## <a name="preview"></a>Versão prévia
+## <a name="preview"></a>Visualização
 
 A guia **Visualização** permite que você defina um **público de visualização** limitado para liberar sua oferta antes de publicar sua oferta em tempo real para o público mais amplo do Marketplace.
 
@@ -367,8 +368,8 @@ Depois de criado, você verá os nomes do plano, as IDs, os modelos de preços, 
 
 As **ações** disponíveis na **visão geral do plano** variam de acordo com o status atual do seu plano e podem incluir:
 
-- Se o status do plano for **rascunho** – excluir rascunho
-- Se o status do plano for **Live** – parar vender plano ou sincronizar público privado
+- Se o status do plano for **rascunho** -excluir rascunho
+- Se o status do plano for **Live** -parar o plano de venda ou sincronizar público privado
 
 **Criar novo plano** (mínimo de um plano para aqueles que selecionam vender pela Microsoft)
 
@@ -483,12 +484,12 @@ Depois de concluir todas as seções necessárias da oferta, selecione **publica
 Se esta for a primeira vez que você publica essa oferta, você pode:
 
 - Consulte o status de conclusão de cada seção da oferta.
-    - *Não iniciado* – significa que a seção não foi tocada e precisa ser concluída.
-    - *Incompleto* – significa que a seção tem erros que precisam ser corrigidos ou que requer mais informações a serem fornecidas. Volte para a (s) seção (ões) e atualize-a.
-    - *Concluído* – significa que a seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta devem estar em um estado completo antes que você possa enviar a oferta.
+    - *Não iniciado* -significa que a seção não foi tocada e precisa ser concluída.
+    - *Incompleto* -significa que a seção tem erros que precisam ser corrigidos ou que requer mais informações a serem fornecidas. Volte para a (s) seção (ões) e atualize-a.
+    - *Concluir* -significa que a seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta devem estar em um estado completo antes que você possa enviar a oferta.
 - Forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de qualquer nota suplementar útil para entender seu aplicativo.
 - Envie a oferta para publicação selecionando **Enviar**. Enviaremos um email para que você saiba quando uma versão prévia da oferta está disponível para revisão e aprovação. Você deve retornar ao Partner Center e selecionar **Go-Live** para a oferta para publicar sua oferta no público (ou se uma oferta privada, para o público privado).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Atualizar uma oferta existente no Marketplace comercial](./update-existing-offer.md)

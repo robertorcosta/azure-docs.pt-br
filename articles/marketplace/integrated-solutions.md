@@ -4,15 +4,16 @@ description: Soluções integradas no Azure Marketplace e AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: b6015ce2d52c140a966636b887d021e76e92990d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: a9e6cc42e4bc83cf36aefcf69a5ee700ed9043b7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "70993639"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826494"
 ---
 # <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Soluções integradas no Azure Marketplace e AppSource
 
@@ -28,7 +29,7 @@ As vantagens de uma abordagem integrada são:
 * *Tempo de*retorno: abordagem de implantação integrada para ajudá-lo a obter benefícios imediatos
 * *Melhores soluções*: Descubra a facilidade de uma experiência integrada de compra e de implementação
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode descobrir soluções integradas e conectar-se com esses parceiros importantes visitando suas listagens aqui:
 

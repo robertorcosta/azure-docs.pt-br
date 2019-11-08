@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6360c7ea5bfdfb2d348cc843288655ed904e6c74
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ca9b0289fbc8dd01427de38e0e7b30eec266bb12
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580786"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818599"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações do provedor de recursos do Azure Resource Manager
 
@@ -4778,8 +4778,8 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Search/searchServices/delete | Excluir o serviço de pesquisa. |
 > | Ação | Microsoft.Search/searchServices/deleteQueryKey/delete | Excluir a chave de consulta. |
 > | Ação | Microsoft.Search/searchServices/listAdminKeys/action | Ler as chaves de administração. |
-> | Ação | Microsoft. Search/SearchServices/listQueryKeys/Action | Retorna a lista de chaves de API de consulta para o serviço Azure Search especificado. |
-> | Ação | Microsoft.Search/searchServices/listQueryKeys/read | Retorna a lista de chaves de API de consulta para o serviço Azure Search especificado. |
+> | Ação | Microsoft. Search/SearchServices/listQueryKeys/Action | Retorna a lista de chaves de API de consulta para o serviço de Pesquisa Cognitiva do Azure fornecido. |
+> | Ação | Microsoft.Search/searchServices/listQueryKeys/read | Retorna a lista de chaves de API de consulta para o serviço de Pesquisa Cognitiva do Azure fornecido. |
 > | Ação | Microsoft.Search/searchServices/read | Ler o serviço de pesquisa. |
 > | Ação | Microsoft.Search/searchServices/regenerateAdminKey/action | Regenerar a chave de administração. |
 > | Ação | Microsoft.Search/searchServices/start/action | Iniciar o serviço de pesquisa. |

@@ -1,5 +1,5 @@
 ---
-title: Configurar um grupo de failover para o banco de dados SQL do Azure
+title: Configurar um grupo de failover
 description: Saiba como configurar um grupo de failover automático para um banco de dados único do banco de dados SQL do Azure, um pool elástico e uma instância gerenciada usando o portal do Azure, a CLI do AZ e o PowerShell.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 626677ef9444e0ad99fd3678e23bdeec62fd920c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fb9ee2378679c420a7675856ec95e60f6ae1d14f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933387"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827145"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurar um grupo de failover para o banco de dados SQL do Azure
 
@@ -363,7 +363,7 @@ Crie o gateway de rede virtual primária usando o portal do Azure.
 
    A tabela a seguir mostra os valores necessários para o gateway para a instância gerenciada primária:
  
-    | **Campo** | Value |
+    | **Campo** | Valor |
     | --- | --- |
     | **Assinatura** |  A assinatura na qual a instância gerenciada primária é. |
     | **Nome** | O nome do seu gateway de rede virtual. | 
@@ -424,7 +424,7 @@ Repita as etapas na seção anterior para criar a sub-rede de rede virtual e o g
 
    A tabela a seguir mostra os valores necessários para o gateway para a instância gerenciada secundária:
 
-   | **Campo** | Value |
+   | **Campo** | Valor |
    | --- | --- |
    | **Assinatura** |  A assinatura na qual a instância gerenciada secundária é. |
    | **Nome** | O nome do seu gateway de rede virtual, como `secondary-mi-gateway`. | 
@@ -650,7 +650,7 @@ O ponto de extremidade do ouvinte está na forma de `fog-name.database.windows.n
 - A remoção de um grupo de failover para um banco de dados único ou em pool não interrompe a replicação e não exclui o banco de dados replicado. Você precisará parar manualmente a replicação geográfica e excluir o banco de dados do servidor secundário se desejar adicionar um banco de dados individual ou em pool de volta a um grupo de failover depois que ele tiver sido removido. A falha de qualquer coisa pode resultar em um erro semelhante a `The operation cannot be performed due to multiple errors` ao tentar adicionar o banco de dados ao grupo de failover. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter etapas detalhadas sobre como configurar um grupo de failover, consulte os seguintes tutoriais:
 - [Adicionar um banco de dados individual a um grupo de failover](sql-database-single-database-failover-group-tutorial.md)

@@ -1,27 +1,28 @@
 ---
-title: Diretrizes de SEO do Marketplace do Azure
+title: Diretrizes de SEO do Azure Marketplace
 description: Fornece diretrizes sobre como maximizar a SEO (otimização do mecanismo de pesquisa).
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: pabutler
-ms.openlocfilehash: f5b956ed1197e3898c9536bda3a93a41e8ee35c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7115798faadc3209413d22a384433417ec0ddff0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935144"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819575"
 ---
-# <a name="azure-marketplace-seo-guidance"></a>Diretrizes de SEO do Marketplace do Azure
+# <a name="azure-marketplace-seo-guidance"></a>Diretrizes de SEO do Azure Marketplace
 
-Este artigo explica como maximizar a capacidade de descoberta da sua oferta por meio de funcionalidade de pesquisa do [do Azure Marketplace](https://azuremarketplace.microsoft.com) e [AppSource](https://appsource.microsoft.com). 
+Este artigo explica como maximizar a descoberta da sua oferta por meio da funcionalidade de pesquisa no [Azure Marketplace](https://azuremarketplace.microsoft.com) e no [AppSource](https://appsource.microsoft.com). 
 
 
 ## <a name="general-explanation-of-algorithm"></a>Explicação geral do algoritmo
 
-Marketplaces da Microsoft utilizam o Azure Search para capacitar os recursos de pesquisa do site. O algoritmo é baseado na frequência de termo – frequência de documento inverso ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). É usado o [Analisador Lucene](https://lucene.apache.org/core/) padrão.
+O Microsoft Marketplaces utiliza o Pesquisa Cognitiva do Azure para capacitar os recursos de pesquisa do site. O algoritmo é baseado na frequência de termo – frequência de documento inverso ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). É usado o [Analisador Lucene](https://lucene.apache.org/core/) padrão.
 
 Em geral, todos os campos de texto, categorias e setores e incluídos no peso da relevância. Termos especializados que são usados com pouca frequência por aplicativos, mas frequentemente no aplicativo, geram uma pontuação de correspondência maior com a pesquisa. Portanto, incluir termos como "VM" ofereceria pouco benefício, enquanto que o "Azure Search" seria muito mais especializado.
 A seguir, estão os campos mais relevantes a serem considerados.

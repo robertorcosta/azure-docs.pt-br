@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: a244e4f7ac406fecd4c053b39a5e9a9cb6ecab2c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 54b59cfecbbba6b71cf301aa4872892825d4b675
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105507"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827922"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Cobrança limitada usando o serviço de medição do Marketplace
 
@@ -117,7 +118,7 @@ Depois que um plano é publicado, os detalhes de nível de plano não podem mais
 
 O número máximo de dimensões que podem ser configuradas para uma única oferta é 18 dimensões exclusivas.
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
 Se você tiver um dos seguintes, poderá abrir um tíquete de suporte.
 
@@ -127,7 +128,7 @@ Se você tiver um dos seguintes, poderá abrir um tíquete de suporte.
 
 Siga as etapas abaixo para enviar seu tíquete de suporte:
 
-1. Vá para a [página de suporte](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Os primeiros menus suspensos são preenchidos automaticamente para você. Para obter suporte ao Marketplace, identifique a família de produtos como **serviços de nuvem e online**, o produto como Publicador do **Marketplace**.  Não altere as seleções de menu suspenso preenchidas previamente.
+1. Vá para a [página de suporte](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Os primeiros menus suspensos são preenchidos automaticamente para você. Para obter suporte ao Marketplace, identifique a família de produtos como **serviços de nuvem e online**, o produto como **Publicador do Marketplace**.  Não altere as seleções de menu suspenso preenchidas previamente.
 2. Em "selecionar a versão do produto", selecione **Gerenciamento de ofertas dinâmicas**.
 3. Em "Selecione uma categoria que melhor descreva o problema", escolha **aplicativos SaaS**.
 4. Em "Selecione um problema que melhor descreva o problema", selecione **cobrança limitada**.

@@ -1,18 +1,19 @@
 ---
-title: Configurar clientes potenciais | O Azure Marketplace
+title: Configurar leads do cliente | Azure Marketplace
 description: Configure clientes potenciais no Portal do Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: c3e483a33d986eff767b3529e30208319ad90b23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 312e172321c25248f1b0801bdbccf71762319989
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64934995"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818822"
 ---
 <a name="get-customer-leads"></a>Obter clientes potenciais
 ==================
@@ -65,7 +66,7 @@ Cada cliente potencial que você recebe durante o processo de aquisição de cli
 
 O formato de uma fonte de cliente potencial é **Fonte**-**Ação** |  **Oferta**
 
-**Origens**: "AzureMarketplace", "AzurePortal", "TestDrive", and "AppSource (SPZA)"
+**Fontes**: "AzureMarketplace", "AzurePortal", "TestDrive" e "SPZA (AppSource)"
 
 **Ações**:
 - "INS" – instalação. Essa ação ocorre no Azure Marketplace ou no AppSource quando um cliente compra seu produto.
@@ -76,19 +77,19 @@ O formato de uma fonte de cliente potencial é **Fonte**-**Ação** |  **Oferta*
 
 **Ofertas**
 
-Os exemplos a seguir mostram os identificadores exclusivos que são atribuídos a um publicador e uma oferta específica: checkpoint.check-ponto-r77-10sg-byol, bitnami.openedxcypress e docusign.3701c77e-1cfa - 4c 56 91e6 3ed0b622145a.
+Os exemplos a seguir mostram identificadores exclusivos que são atribuídos a um Publicador e uma oferta específica: Checkpoint. Check-Point-R77-10SG-byol, BitNami. openedxcypress e docusign. 3701c77e-1cfa-4c56-91e6-3ed0b622145a.
 
 
 ### <a name="customer-info"></a>Informações do cliente
 
 Os campos no exemplo a seguir mostram as informações do cliente que estão contidas em um cliente potencial.
-- FirstName: John
-- Sobrenome: Smith
+- Nome: Carlos
+- Sobrenome: Lima
 - Email: crlima\@microsoft.com
 - Telefone: 1234567890
 - País: EUA
 - Empresa: Microsoft
-- Título: CTO
+- Cargo: CTO
 
 >[!Note]
 >Nem todos os dados no exemplo anterior estão sempre disponíveis para cada cliente potencial.

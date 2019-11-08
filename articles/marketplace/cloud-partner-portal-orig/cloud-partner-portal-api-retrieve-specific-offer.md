@@ -1,18 +1,19 @@
 ---
-title: Recuperar uma oferta específica de API | O Azure Marketplace
+title: Recuperar uma API de oferta específica | Azure Marketplace
 description: A API recupera a oferta especificada no namespace do editor.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: bb6bbd457ff372ad46091f49cf4ae7e4b34b3d83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 030fb221b9227acf9c5dcda8797b106e51f56d64
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935433"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827341"
 ---
 <a name="retrieve-a-specific-offer"></a>Recuperar uma oferta específica
 =========================
@@ -61,7 +62,7 @@ Também é possível recuperar uma versão específica da oferta, recuperar a of
 <a name="body-example"></a>Exemplo de corpo
 ------------
 
-### <a name="response"></a>Response
+### <a name="response"></a>Resposta
 
 ``` json
 {
@@ -199,7 +200,7 @@ Também é possível recuperar uma versão específica da oferta, recuperar a of
 |  NotStarted                 | A oferta é nova e não iniciada.              |
 |  WaitingForPublisherReview  | A oferta aguarda aprovação do editor.      |
 |  Executando                    | O envio da oferta está sendo processado.          |
-|  Bem-sucedida                  | O envio da oferta concluiu o processamento.    |
+|  Bem-sucedido                  | O envio da oferta concluiu o processamento.    |
 |  Cancelado                   | O envio da oferta foi cancelado.                |
-|  Com falha                     | O envio da oferta falhou.                      |
+|  Falha                     | O envio da oferta falhou.                      |
 |  |  |

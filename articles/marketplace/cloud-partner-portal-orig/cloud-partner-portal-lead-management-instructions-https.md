@@ -1,18 +1,19 @@
 ---
-title: Ponto de extremidade HTTPS | O Azure Marketplace
+title: Ponto de extremidade HTTPS | Azure Marketplace
 description: Configurar o gerenciamento de cliente potencial para um ponto de extremidade HTTPS.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pabutler
-ms.openlocfilehash: 058ab30358811cb66ae033fb464974639569ae18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 817e431f5386b10345d414190e8bda0954ef2aca
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935271"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825222"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configurar o gerenciamento de cliente potencial usando um ponto de extremidade HTTPS
 

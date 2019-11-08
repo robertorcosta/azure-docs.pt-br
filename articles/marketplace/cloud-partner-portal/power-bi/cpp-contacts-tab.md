@@ -1,22 +1,23 @@
 ---
-title: Informações de contatos para uma oferta de aplicativo do Power BI | O Azure Marketplace
+title: Informações de contatos para uma oferta de aplicativo Power BI | Azure Marketplace
 description: Configure os campos de Contatos para uma oferta de aplicativo do Power BI para o Microsoft AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: f659ad2f75f9dad390c37f0e1736af5991a32dfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec1ed23b253f705e1830c1c014492fe52b2133f0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943235"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826530"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Guia de Contatos de aplicativos do Power BI
 
-Use a guia **Contatos** da página **Nova oferta** para fornecer recursos técnicos e suporte ao usuário para sua oferta. Ele é dividido em duas seções: **Engenharia** e **Atendimento ao cliente**.
+Use a guia **Contatos** da página **Nova oferta** para fornecer recursos técnicos e suporte ao usuário para sua oferta. Ele é dividido em duas seções: **engenharia** e **suporte ao cliente**.
 
 ![Guia Contatos](media/contacts-tab.png)
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: be66fd51b37c0e62b2b757a88ee1db9319b2093a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ecd27c1be0fa6b4f13415cc21a57fcdaaf962de
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60878816"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824581"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copiar dados de Azure Storage Blobs para o Azure Data Lake Storage Gen1
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "60878816"
 >
 >
 
-O Azure Data Lake Storage Gen1 fornece uma ferramenta de linha de comando, [AdlCopy](https://aka.ms/downloadadlcopy), para copiar dados das seguintes fontes:
+O Azure Data Lake Storage Gen1 fornece uma ferramenta de linha de comando, [AdlCopy](https://www.microsoft.com/download/details.aspx?id=50358), para copiar dados das seguintes fontes:
 
 * Dos Azure Storage Blobs para o Azure Data Lake Storage Gen1. Você não pode usar AdlCopy para copiar dados do Azure Data Lake Storage Gen1 para os Azure Storage Blobs.
 * Entre duas contas do Azure Data Lake Storage Gen1.
@@ -39,11 +39,11 @@ Além disso, você pode usar a ferramenta AdlCopy de dois modos diferentes:
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este artigo, você deve ter o seguinte:
 
-* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Blobs de Armazenamento do Azure** com alguns dados.
 * **Uma conta do Azure Data Lake Storage Gen1**. Para obter instruções sobre como criar uma, confira [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Conta do Azure Data Lake Analytics (opcional)** : confira [Introdução ao Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) para obter instruções sobre como criar a conta.
-* **Ferramenta AdlCopy**. Instale a ferramenta AdlCopy a partir de [https://aka.ms/downloadadlcopy](https://aka.ms/downloadadlcopy).
+* **Ferramenta AdlCopy**. Instale a [ferramenta AdlCopy](https://www.microsoft.com/download/details.aspx?id=50358).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>Sintaxe da ferramenta AdlCopy
 Use a sintaxe a seguir para trabalhar com a ferramenta AdlCopy
@@ -54,7 +54,7 @@ Os parâmetros na sintaxe estão descritos abaixo:
 
 | Opção | DESCRIÇÃO |
 | --- | --- |
-| source |Especifica o local da fonte de dados no blob de armazenamento do Azure. A origem pode ser um contêiner de blob, um blob ou outra conta do Data Lake Storage Gen1. |
+| Fonte |Especifica o local da fonte de dados no blob de armazenamento do Azure. A origem pode ser um contêiner de blob, um blob ou outra conta do Data Lake Storage Gen1. |
 | Dest |Especifica o destino do Data Lake Storage Gen1 para onde copiar. |
 | SourceKey |Especifica a chave de acesso de armazenamento para a fonte de blob de armazenamento do Azure. Esse parâmetro será necessário apenas se a origem for um contêiner de blob ou um blob. |
 | Conta |**Opcional**. Use essa opção se você deseja usar a conta do Azure Data Lake Analytics para executar o trabalho de cópia. Se você usar a opção /Account na sintaxe, mas não especificar uma conta do Data Lake Analytics, o AdlCopy usará uma conta padrão para executar o trabalho. Além disso, se você usar essa opção, deverá adicionar a origem (Azure Storage Blob) e o destino (Azure Data Lake Storage Gen1) como fontes de dados para sua conta do Data Lake Analytics. |
@@ -129,7 +129,7 @@ Ao usar AdlCopy como uma ferramenta autônoma, a cópia é executada em recursos
 ## <a name="use-adlcopy-with-data-lake-analytics-account-to-copy-data"></a>Usar o AdlCopy (com a conta do Data Lake Analytics) para copiar dados
 Você também pode usar sua conta do Data Lake Analytics para executar o trabalho AdlCopy para copiar dados de blobs do armazenamento do Azure para o Data Lake Storage Gen1. Você normalmente usará essa opção quando os dados a serem movidos estiverem no intervalo de gigabytes e terabytes e desejar uma taxa de transferência com desempenho melhor e previsível.
 
-Para usar a conta do Data Lake Analytics com o AdlCopy para copiar de um Blob de Armazenamento do Azure, a origem (Blob de Armazenamento do Azure) deve ser adicionada como uma fonte de dados para sua conta do Data Lake Analytics. Para obter instruções sobre como adicionar fontes de dados adicionais para sua conta da Data Lake Analytics, confira [Gerenciar fontes de dados de conta da Data Lake Analytics](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-data-sources).
+Para usar a conta do Data Lake Analytics com o AdlCopy para copiar de um Blob de Armazenamento do Azure, a origem (Blob de Armazenamento do Azure) deve ser adicionada como uma fonte de dados para sua conta do Data Lake Analytics. Para obter instruções sobre como adicionar fontes de dados adicionais para sua conta da Análise Data Lake, confira [Gerenciar fontes de dados de conta da Análise Data Lake](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-data-sources).
 
 > [!NOTE]
 > Se estiver copiando de uma conta do Azure Data Lake Storage Gen1 como a origem usando uma conta do Data Lake Analytics, você não precisará associar a conta do Data Lake Storage Gen1 à conta do Data Lake Analytics. O requisito para associar o repositório de origem à conta do Data Lake Analytics é somente quando a origem for uma conta de Armazenamento do Azure.

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: dc8b2a00882abc2e88b357d5778eaf96ec71b1bd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 763a45446771f7b13178e22b0f7a35bd68bfc8bd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687579"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821275"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de dados públicos para criação de protótipos e testes
 
@@ -42,7 +42,7 @@ Procure nesta lista de conjuntos de dados públicos os dados que você pode usar
 | [Dados de táxi de Nova York](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Os registros de corrida de táxi incluem campos que capturam as datas/horas de partida e chegada, distâncias, tarifas discriminadas, tipos de taxa, tipos de pagamento, e contagens de passageiro relatadas pelo motorista." | Os conjuntos de dados estão em arquivos CSV por mês. |
 | [Conjuntos de dados do Microsoft Research - "Ciência de Dados para Pesquisa"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Diversos conjuntos de dados que abrangem a interação homem — máquina, áudio/vídeo, mineração de dados/recuperação de informações, geoespaciais/localização, processamento de linguagem natural e visão robótica/computacional. | Os conjuntos de dados estão em vários formatos, compactados para download. |
 | [Dados públicos sobre genoma](https://www.completegenomics.com/public-data/) | "Um conjunto de dados diversificado de todo o genomas humano está disponível gratuitamente para uso público para aprimorar qualquer estudo de genoma..." O provedor, completo de genoma, é uma empresa privada para fins lucrativos. | Os conjuntos de dados, após a extração, estão no formato de texto UNIX. Também há ferramentas de análise disponíveis. |
-| [Dados da Open Science Data Cloud](https://www.opensciencedatacloud.org/) | "A Open Science Data Cloud fornece à comunidade científica recursos para armazenar, compartilhar e analisar terabytes e petabytes de conjuntos de dados científicos".| Os conjuntos de dados estão em vários formatos. |
+| [Dados da Open Science Data Cloud](https://www.opensciencedatacloud.org/projects/) | "A Open Science Data Cloud fornece à comunidade científica recursos para armazenar, compartilhar e analisar terabytes e petabytes de conjuntos de dados científicos".| Os conjuntos de dados estão em vários formatos. |
 | [Dados sobre clima global – WorldClim](https://worldclim.org/) | "WorldClim é um conjunto de camadas de clima global (dados de clima matriciais) com uma resolução espacial de cerca de 1 km2. Esses dados podem ser usados para mapeamento e modelagem espacial". | Esses arquivos contêm dados geoespaciais. Para saber mais, veja [Formato de dados](https://worldclim.org/formats1). |
 | [Dados sobre a sociedade humana - o projeto GDELT](https://www.gdeltproject.org/data.html) | "O projeto GDELT é o maior e mais abrangente banco de dados aberto da sociedade humana já criado, além de contar com a maior resolução". | Os arquivos de dados brutos estão no formato CSV. |
 | [Dados de previsão de cliques em publicidade para machine learning da Criteo](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "O maior conjunto de dados ML já lançado publicamente". Para saber mais, veja [Conjunto de dados de previsão de cliques de 1 TB da Criteo](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |

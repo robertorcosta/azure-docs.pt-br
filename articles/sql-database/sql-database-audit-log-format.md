@@ -1,5 +1,5 @@
 ---
-title: Formato do log de auditoria do banco de dados SQL
+title: Formato do log de auditoria
 description: Entenda como os logs de auditoria do banco de dados SQL são estruturados.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 5befd15beba6a5c8071a6f5a01e34dc109fd118a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 389404f59b5a0cba1acd7aa097ddd3dd929d8082
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691207"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821988"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato do log de auditoria do banco de dados SQL
 

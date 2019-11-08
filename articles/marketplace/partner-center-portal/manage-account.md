@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: c28469e15841e2675c20868b74cf044159c4e9ca
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 2962f6c5032ba317f9eb8f10c2abddb566aad904
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259187"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825516"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerenciar sua conta do Marketplace comercial no Partner Center 
 
@@ -48,12 +49,12 @@ As configurações de conta estão localizadas no canto superior direito do [pai
 ![Menu de configurações de conta no Partner Center](./media/dashboard-developer-settings.png)
 
 Dentro **das configurações de conta**, você poderá exibir seu:
-- **Detalhes da conta**: Tipo de conta e status da conta
-- **IDs**do Publicador: ID do vendedor, ID de usuário, ID de editor, locatários do Azure AD, etc.
-- **Informações de contato**: Nome de exibição do editor, nome do contato do vendedor, email, telefone e endereço
-- **Detalhes financeiros**: Conta de pagamento, perfil de imposto e status de retenção de pagamento
-- **Dispositivos**: Todos os dispositivos de teste associados à sua conta
-- **GUIDs de acompanhamento**: Quaisquer GUIDs de acompanhamento associados à sua conta
+- **Detalhes da conta**: tipo de conta e status da conta
+- **IDs do Publicador**: ID do vendedor, ID de usuário, ID do editor, locatários do Azure AD, etc.
+- **Informações de contato**: nome de exibição do Publicador, nome do contato do vendedor, email, telefone e endereço
+- **Detalhes financeiros**: conta de pagamento, perfil de imposto e status de retenção de pagamento
+- **Dispositivos**: quaisquer dispositivos de teste associados à sua conta
+- **GUIDs de acompanhamento**: qualquer GUID de acompanhamento associado à sua conta
 
 ### <a name="account-details"></a>Detalhes da conta
 
@@ -65,7 +66,7 @@ Na seção IDs do Publicador, você pode ver sua **ID do vendedor**, ID do **MPN
 
 ### <a name="contact-info"></a>Informações de contato
 
-Na seção informações de contato, você pode ver o **nome de exibição do editor**, **informações de contato do vendedor** (o nome do contato, email, número de telefone e endereço para o vendedor da empresa) e o aprovador **da empresa** (o nome, o email e o número de telefone do indivíduo com autoridade para aprovar decisões para a empresa). 
+Na seção informações de contato, você pode ver o **nome de exibição do editor**, **informações de contato do vendedor** (o nome do contato, email, número de telefone e endereço para o vendedor da empresa) e o **Aprovador da empresa** (o nome, o email e o número de telefone do indivíduo com autoridade para aprovar decisões para a empresa). 
 
 ### <a name="financial-details"></a>Detalhes financeiros
 
@@ -83,8 +84,8 @@ Para configurar sua conta de pagamento, você precisa **associar sua conta da Mi
 3. Para concluir a configuração da sua conta de pagamento, faça o log completamente fora do Partner Center e, em seguida, faça logon novamente com sua conta da Microsoft (em vez de sua conta corporativa). 
 
 Agora que sua conta da Microsoft está associada, para adicionar uma conta de pagamento, você precisará:
-- **Escolha um método de pagamento**: Conta bancária ou PayPal
-- **Adicionar informações de pagamento**: Isso pode incluir escolher um tipo de conta (verificação ou economia), inserir o nome do titular da conta, o número da conta e o número de roteamento, endereço de cobrança, número de telefone ou endereço de email do PayPal. \* Para obter mais informações sobre como usar o PayPal como seu método de pagamento de conta e descobrir se há suporte em sua região de mercado, consulte [informações de PayPal](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+- **Escolha um método de pagamento**: conta bancária ou paypal
+- **Adicionar informações de pagamento**: isso pode incluir a escolha de um tipo de conta (verificação ou economia), a inserção do nome do titular da conta, número da conta e número de roteamento, endereço de cobrança, número de telefone ou endereço de email do PayPal. \* Para obter mais informações sobre como usar o PayPal como seu método de pagamento de conta e descobrir se há suporte em sua região de mercado, consulte [informações de PayPal](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
 > [!IMPORTANT]
 > A alteração da conta de pagamento pode atrasar os pagamentos em até um ciclo de pagamento. Esse atraso ocorre porque precisamos verificar a alteração da conta, assim como fazemos ao configurar a conta de pagamento pela primeira vez. Você ainda receberá o valor total após a verificação de sua conta; os pagamentos atrasados do ciclo de pagamento atual serão adicionados ao próximo.  
@@ -177,7 +178,7 @@ Para adicionar usuários à sua conta do Partner Center que já existe na conta 
 \* Se você selecionar mais de um usuário para adicionar à sua conta do Partner Center, deverá atribuir a mesma função ou conjunto de permissões personalizadas. Para adicionar vários usuários com diferentes funções/permissões, repita essas etapas para cada função ou conjunto de permissões personalizadas.
 3.  Quando terminar de escolher usuários, clique em **Adicionar selecionado**.
 5.  Na seção **funções** , especifique a (s) função (ões) ou as permissões personalizadas para os usuários selecionados.
-6.  Clique em **Salvar**.
+6.  Selecione **Salvar**.
 
 #### <a name="create-new-users"></a>Criar novos usuários
 
@@ -189,7 +190,7 @@ Para criar contas de usuário totalmente novas, você deve ter uma conta com per
 1. Se tiver marcado a caixa para **tornar esse usuário um administrador global**, você precisará fornecer um **email de recuperação de senha** para que o usuário recupere sua senha, se necessário.
 1. Na seção **Associação de grupo** , selecione os grupos aos quais você deseja que o novo usuário pertença.
 1. Na seção **funções** , especifique a (s) função (ões) ou as permissões personalizadas para o usuário.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 A criação de um novo usuário no Partner Center também criará uma conta para esse usuário na conta de trabalho (locatário do Azure AD) na qual você está conectado. Fazer alterações no nome de um usuário no Partner Center fará as mesmas alterações na conta corporativa da sua organização (locatário do Azure AD).
 
@@ -200,7 +201,7 @@ Para convidar usuários que atualmente não fazem parte de sua conta de trabalho
 1. Vá para **usuários** (em **configurações de conta**), selecione **Adicionar usuários**e, em seguida, escolha **convidar usuários por email**.
 2. Insira um ou mais endereços de email (até dez), separados por vírgulas ou pontos-e-vírgulas.
 3. Na seção **funções** , especifique a (s) função (ões) ou as permissões personalizadas para o usuário.
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 Os usuários que você convidou receberão um convite por email para ingressar na sua conta do Partner Center. Uma nova conta de usuário convidado será criada em sua conta corporativa (locatário do Azure AD). Cada usuário precisará aceitar seu convite antes que possa acessar sua conta.
 
@@ -236,7 +237,7 @@ Para adicionar um grupo que já existe na conta corporativa da sua organização
 Se você selecionar mais de um grupo para adicionar à sua conta do Partner Center, deverá atribuir a mesma função ou conjunto de permissões personalizadas. Para adicionar vários grupos com diferentes funções/permissões, repita essas etapas para cada função ou conjunto de permissões personalizadas.
 3.  Quando terminar de escolher grupos, clique em **Adicionar selecionado**.
 4.  Na seção **funções** , especifique a (s) função (ões) ou as permissões personalizadas para os grupos selecionados. Todos os membros do grupo poderão acessar sua conta do Partner Center com as permissões que você aplicar ao grupo, independentemente das funções e permissões associadas à sua conta individual.
-5.  Clique em **Salvar**.
+5.  Selecione **Salvar**.
 
 Quando você adiciona um grupo existente, todos os usuários que são membros desse grupo poderão acessar sua conta do Partner Center, com as permissões associadas à função atribuída do grupo.
 
@@ -250,7 +251,7 @@ Para adicionar um grupo novo à marca à sua conta do Partner Center:
 4.  Especifique a (s) função (ões) ou as permissões personalizadas para o grupo. Todos os membros do grupo poderão acessar sua conta do Partner Center com as permissões que você aplicar aqui, independentemente das funções/permissões associadas à sua conta individual.
 5.  Selecione usuário (s) para o novo grupo na lista que aparece. Você pode usar a caixa de pesquisa para procurar usuários específicos.
 6.  Quando terminar de selecionar usuários, clique em **Adicionar selecionado** para adicioná-los ao novo grupo.
-7.  Clique em **Salvar**.
+7.  Selecione **Salvar**.
 
 Observe que esse novo grupo será criado na conta corporativa da sua organização (locatário do Azure AD) também, não apenas na sua conta do Partner Center.
 
@@ -270,7 +271,7 @@ Para adicionar aplicativos que já existem no Azure Active Directory da sua empr
 2.  Selecione um ou mais aplicativos do Azure AD na lista exibida. Você pode usar a caixa de pesquisa para procurar aplicativos específicos do Azure AD. Se você selecionar mais de um aplicativo do Azure AD para adicionar à sua conta do Partner Center, deverá atribuir a mesma função ou conjunto de permissões personalizadas. Para adicionar vários aplicativos do Azure AD com diferentes funções/permissões, repita essas etapas para cada função ou conjunto de permissões personalizadas.
 3.  Quando terminar de selecionar aplicativos do Azure AD, clique em **Adicionar selecionado**.
 5.  Na seção **funções** , especifique a (s) função (ões) ou permissões personalizadas para os aplicativos do Azure ad selecionados.
-6.  Clique em **Salvar**.
+6.  Selecione **Salvar**.
 
 #### <a name="add-new-azure-ad-applications"></a>Adicionar novos aplicativos do Azure AD 
 
@@ -281,7 +282,7 @@ Se você quiser conceder acesso à central de parceiros a uma conta de aplicativ
 3.  Insira a **URL de resposta** para o novo aplicativo do Azure AD. Essa é a URL em que os usuários podem entrar e usar seu aplicativo do Azure AD (às vezes, também conhecido como URL do aplicativo ou URL de logon). A **URL de resposta** não pode ter mais de 256 caracteres e deve ser exclusiva em seu diretório.
 4.  Insira o **URI da ID do aplicativo** para o novo aplicativo do Azure AD. Esse é um identificador lógico para o aplicativo do Azure AD que é apresentado quando uma solicitação de logon único é enviada ao Azure AD. Observe que o **URI da ID do aplicativo** deve ser exclusivo para cada aplicativo do Azure AD em seu diretório. Esta ID não pode ter mais de 256 caracteres. Para obter mais informações sobre o URI da ID do aplicativo, consulte [integrando aplicativos com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
 5.  Na seção **funções** , especifique a (s) função (ões) ou as permissões personalizadas para o aplicativo do Azure AD.
-6.  Clique em **Salvar**.
+6.  Selecione **Salvar**.
 
 Depois de adicionar ou criar um aplicativo do Azure AD, você pode retornar à seção **usuários** e selecionar o nome do aplicativo para examinar as configurações do aplicativo, incluindo a ID do locatário, a ID do cliente, a URL de resposta e o URI da ID do aplicativo.
 
@@ -339,9 +340,9 @@ Para criar um novo locatário do Azure AD com sua conta do Partner Center:
 
 1.  Na página **locatários** (em **configurações de conta**), selecione **criar um novo locatário do Azure ad**.
 2. Insira as informações de diretório para seu novo Azure AD:
-    - **Nome de domínio**: O nome exclusivo que usaremos para seu domínio do Azure AD, junto com ". onmicrosoft.com". Por exemplo, se você inseriu "example", seu domínio do Azure AD seria "example.onmicrosoft.com".
-    - **Email de contato**: Um endereço de email no qual podemos contatá-lo sobre sua conta, se necessário.
-    - **Informações da conta de usuário de administrador global**: Nome, sobrenome, nome de usuário e senha que você deseja usar para a nova conta de administrador global.
+    - **Nome de domínio**: o nome exclusivo que usaremos para seu domínio do Azure AD, juntamente com ". onmicrosoft.com". Por exemplo, se você inseriu "example", seu domínio do Azure AD seria "example.onmicrosoft.com".
+    - **Email de contato**: um endereço de email no qual podemos contatá-lo sobre sua conta, se necessário.
+    - **Informações da conta de usuário de administrador global**: nome, sobrenome, nome de usuário e senha que você deseja usar para a nova conta de administrador global.
 3. Selecione **criar** para confirmar as novas informações de domínio e conta.
 4. Entre com seu novo nome de usuário e senha de administrador global do Azure AD para começar a [Adicionar e gerenciar usuários](#manage-users).
 
@@ -349,7 +350,7 @@ Para obter mais informações sobre como criar novos locatários dentro de seu p
 
 ### <a name="remove-a-tenant"></a>Remover um locatário
 
-Para remover um locatário de sua conta do Partner Center, localize seu nome na página locatários (em **configurações da conta**) e selecione **remover**. Você será solicitado a confirmar que deseja remover o locatário. Depois de fazer isso, nenhum usuário nesse locatário poderá entrar na conta do Partner Center e todas as permissões configuradas para esses usuários serão removidas.
+Para remover um locatário de sua conta do Partner Center, localize seu nome na página **locatários** (em **configurações da conta**) e selecione **remover**. Você será solicitado a confirmar que deseja remover o locatário. Depois de fazer isso, nenhum usuário nesse locatário poderá entrar na conta do Partner Center e todas as permissões configuradas para esses usuários serão removidas.
 
 Quando você remove um locatário, todos os usuários que foram adicionados à conta do Partner Center desse locatário não poderão mais entrar na conta.
 

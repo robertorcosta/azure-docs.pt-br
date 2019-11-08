@@ -4,19 +4,20 @@ description: Os serviços Go-To-Market – esta seção descreve práticas recom
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 6/24/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4df5a94aebd91fc6941acbec149a5fde98d7f760
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5d2c6ce8682e24d981457ea8fc804ff04e226750
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441734"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823944"
 ---
 # <a name="marketing-best-practices"></a>Práticas recomendadas de marketing
 
-Uma listagem do marketplace otimizado e go-to-market campanhas podem ajudar a acelerar o crescimento de aquisição do cliente e, portanto, pode desempenhar um papel importante na sua estratégia de negócios de nuvem e o mecanismo. Prepare-se para listar ofertas, fornecer avaliações do cliente e conecte-se com os clientes da Microsoft e da comunidade de parceiros. Baixe o [AppSource & Azure Marketplace marketing guia de práticas recomendadas](https://aka.ms/marketplacebestpractices) para aprender a tirar o máximo proveito de seus esforços de marketing online.
+Uma listagem otimizada do Marketplace e campanhas de entrada no mercado podem ajudá-lo a acelerar o crescimento da aquisição do cliente e, assim, pode desempenhar um papel significativo em sua estratégia e mecanismo de negócios na nuvem. Prepare-se para listar ofertas, fornecer avaliações do cliente e conectar-se aos clientes da Microsoft e à comunidade de parceiros. Baixe o [Guia de práticas recomendadas de marketing do AppSource & Azure Marketplace](https://aka.ms/marketplacebestpractices) para saber como aproveitar ao máximo seus esforços de marketing online.
 
 **Próximas etapas**
 

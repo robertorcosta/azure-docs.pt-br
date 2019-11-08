@@ -1,31 +1,32 @@
 ---
-title: O Test Drive de práticas recomendadas de Marketing | O Azure Marketplace
-description: O Test Drive de práticas recomendadas de marketing para Publicadores
+title: Práticas recomendadas de marketing do Test Drive | Azure Marketplace
+description: Testar práticas recomendadas de marketing para Publicadores
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 02b2715c813f7814cf8bf5d23414bc14d5ff5a30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 177b4bd804ad878c8f983eefcd54399d1a72ba19
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939970"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824536"
 ---
 <a name="test-drive-marketing-and-best-practices"></a>Marketing e práticas recomendadas do test drive
 =======================================
 
 O test drive do Azure Marketplace é uma excelente ferramenta para os profissionais de marketing, e nós recomendamos que ela seja incorporada em suas iniciativas de entrada no mercado durante o lançamento. Há várias práticas recomendadas que você deve seguir imediatamente ao publicar que darão um excelente suporte à geração de mais clientes potenciais por meio do test drive:
 
-- **Página de referência**: Publicar uma página em sua presença na web que fala sobre a sua unidade de teste do Azure e lançar vários links de referência, direcionar o tráfego para seu test drive
-- **Mídia social**: Criar uma agenda em que você postar em seus canais de mídia social sobre seu test drive regularmente
-- **Blogs**: Escreva uma postagem de blog sobre a unidade de teste do Azure. Destaque os recursos e os benefícios que o usuário receberá ao experimentar gratuitamente em muito pouco tempo. Vincule sua página do test drive do Azure em vários locais na cópia do blog. Aqui está um link para uma postagem no blog de exemplo sobre o test drive do Azure. Melhor ainda? Poste links para sua postagem no blog em seus canais de mídia social.
-- **Email promovendo**: Informe aos clientes potenciais que têm envolvido com sua marca por meio de outros canais por email para informá-lo sobre a unidade de teste e incentivá-los para experimentá-lo gratuitamente.
-- **Ferramentas e treinamento de vendas**: Configure uma sessão de treinamento com suas equipes de vendas para a experiência de teste de unidade de demonstração e propor algumas maneiras, que eles podem envolver seus clientes potenciais e clientes com ele. O pessoal de vendas pode configurar uma demonstração com vários contatos em uma empresa e enviar a cada um o link para o test drive mais tarde para que eles o façam.
-- **Feiras de negócios e conferências**: Você tem uma cabine de em um evento do setor que virão a clientes em potencial? Configure alguns laptops no estande para executar o test drive para que os clientes possam fazê-lo no próprio estande e converse sobre o produto durante e após a experiência.
+- **Página de referência**: publique uma página em sua presença na Web que fale sobre o test drive do Azure e poste vários links de referência, direcionando o tráfego ao seu test drive
+- **Mídia social**: criar uma agenda em que você poste em seus canais de mídia social sobre seu test drive regularmente
+- **Blogs**: escrever uma postagem no blog sobre o test drive do Azure. Destaque os recursos e os benefícios que o usuário receberá ao experimentar gratuitamente em muito pouco tempo. Vincule sua página do test drive do Azure em vários locais na cópia do blog. Aqui está um link para uma postagem no blog de exemplo sobre o test drive do Azure. Melhor ainda? Poste links para sua postagem no blog em seus canais de mídia social.
+- **Promoção por email**: informe os clientes potenciais envolvidos com sua marca por meio de outros canais por email sobre o test drive e incentive-os a experimentá-lo gratuitamente.
+- **Ferramentas e treinamento de vendas**: configurar uma sessão de treinamento com suas equipes de vendas para demonstrar a experiência de test drive e inventar maneiras de envolver seus clientes potenciais e clientes com ela. O pessoal de vendas pode configurar uma demonstração com vários contatos em uma empresa e enviar a cada um o link para o test drive mais tarde para que eles o façam.
+- **Feiras de negócios e conferências**: montar um estande em um evento do setor que os clientes potenciais visitarão? Configure alguns laptops no estande para executar o test drive para que os clientes possam fazê-lo no próprio estande e converse sobre o produto durante e após a experiência.
 
 <a name="lead-management"></a>Gerenciamento de leads
 ---------------
