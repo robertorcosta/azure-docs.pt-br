@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: fc5a974273cbc0398e9fee7b60b424a46ef5dd30
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: f041381534dfe59036ce1b9d91792f9e78d0dace
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949725"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73522202"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos gerenciados
 
@@ -51,11 +51,11 @@ Para proteger contra desastres regionais, o [Backup do Azure](../articles/backup
 
 ## <a name="encryption"></a>Criptografia
 
-Os discos gerenciados oferecem dois tipos diferentes de criptografia. O primeiro é o SSE (Criptografia do Serviço de Armazenamento), que é executado pelo serviço de armazenamento. O segundo é o ADE (Azure Disk Encryption), que pode ser habilitado nos discos do sistema operacional e de dados das VMs.
+Os discos gerenciados oferecem dois tipos diferentes de criptografia. O primeiro é a SSE (Criptografia do Serviço de Armazenamento), executada pelo serviço de armazenamento. O segundo é o ADE (Azure Disk Encryption), que pode ser habilitado nos discos do sistema operacional e de dados das VMs.
 
-### <a name="storage-service-encryption-sse"></a>SSE (Criptografia do Serviço de Armazenamento)
+### <a name="server-side-encryption"></a>Criptografia no servidor
 
-A [Criptografia do Serviço de Armazenamento do Azure](../articles/storage/common/storage-service-encryption.md) fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança da organização. O SSE está habilitado por padrão para todos os discos gerenciados, instantâneos e imagens em todas as regiões nas quais os discos gerenciados estão disponíveis. Visite o [página de Perguntas frequentes do Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obter mais detalhes.
+A [Criptografia no Servidor do Azure](../articles/storage/common/storage-service-encryption.md) fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança da organização. A criptografia no servidor está habilitada por padrão para todos os discos gerenciados, instantâneos e imagens em todas as regiões nas quais os discos gerenciados estão disponíveis. Visite o [página de Perguntas frequentes do Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obter mais detalhes.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -85,12 +85,12 @@ Cada VM contém um disco temporário, que não é um disco gerenciado. O disco t
 
 Um instantâneo de disco gerenciado é uma cópia completa consistente com falhas e somente leitura de um disco gerenciado que, por padrão, é armazenada como um disco gerenciado padrão. Com os instantâneos, você pode fazer backup de seus discos gerenciados a qualquer momento. Esses instantâneos existem independentemente do disco de origem e podem ser usados para criar novos discos gerenciados. 
 
-Os instantâneos são cobrados com base no tamanho utilizado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, esse instantâneo será cobrado apenas pelo tamanho de dados usados de 10 GiB. Você poderá ver o tamanho utilizado dos instantâneos examinando o [relatório de uso do Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Por exemplo, se o tamanho dos dados utilizados de um instantâneo for 10 GiB, o relatório de uso mostrará 10 GiB/(31 dias x 24 horas) = 0,013441 GiB como a quantidade consumida.
+Os instantâneos são cobrados com base no tamanho utilizado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, esse instantâneo será cobrado apenas pelo tamanho de dados usados de 10 GiB. Você poderá ver o tamanho utilizado dos instantâneos examinando o [relatório de uso do Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Por exemplo, se o tamanho dos dados de um snapshot usado for 10 GiB, o relatório de uso **diário** mostrará 10 GiB/(31 dias) = 0,3226 como a quantidade consumida.
 
-Para saber mais sobre como criar instantâneos com discos gerenciados, confira os seguintes recursos:
+Para saber mais sobre como criar instantâneos para discos gerenciados, confira os seguintes recursos:
 
-* [Criar cópia de VHD armazenada como um disco gerenciado usando instantâneos no Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Criar cópia de VHD armazenada como um disco gerenciado usando instantâneos no Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Criar um instantâneo de um disco gerenciado no Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Criar um instantâneo de um disco gerenciado no Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Imagens
 

@@ -1,6 +1,6 @@
 ---
-title: Criar um banco de dados multilocatário com o Banco de Dados do Azure para PostgreSQL – Tutorial de Hyperscale (Citus) (versão prévia)
-description: Este tutorial mostra como criar, popular e consultar tabelas distribuídas em Hyperscale (Citus) do Banco de Dados do Azure para PostgreSQL (versão prévia).
+title: Criar um banco de dados multilocatário com o Banco de Dados do Azure para PostgreSQL – Tutorial de Hiperescala (Citus)
+description: Este tutorial mostra como criar, preencher e consultar tabelas distribuídas em Hiperescala (Citus) do Banco de Dados do Azure para PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,16 +9,16 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: ba20a048faecc9e37a2bfbe750de0fbeba88d538
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 130c3e9f5abb24ffcc4e0c4ad6b96af5fca62090
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70163995"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496540"
 ---
-# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Tutorial: criar um banco de dados multilocatário usando o Banco de Dados do Azure para PostgreSQL – Hyperscale (Citus) (versão prévia)
+# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: criar um banco de dados multilocatário usando o Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus)
 
-Neste tutorial, você utiliza o Banco de Dados do Azure para PostgreSQL – Hyperscale (Citus) (versão prévia) para saber como:
+Neste tutorial, você usa o Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus) para saber como:
 
 > [!div class="checklist"]
 > * Criar um grupo de servidores Hyperscale (Citus)
@@ -35,7 +35,7 @@ Neste tutorial, você utiliza o Banco de Dados do Azure para PostgreSQL – Hype
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Usar o utilitário psql para criar um esquema
 
-Uma vez conectado ao Banco de Dados do Azure para PostgreSQL - Hyperscale (Citus) (versão prévia) usando o psql, é possível realizar algumas tarefas básicas. Este tutorial orienta você durante a criação de um aplicativo Web que permite aos anunciantes acompanharem suas campanhas.
+Uma vez conectado ao Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus) usando o psql, é possível realizar algumas tarefas básicas. Este tutorial orienta você durante a criação de um aplicativo Web que permite aos anunciantes acompanharem suas campanhas.
 
 Várias empresas podem usar o aplicativo, então, vamos criar uma tabela para armazenar as empresas e outra para as campanhas delas. No console do psql, execute estes comandos:
 

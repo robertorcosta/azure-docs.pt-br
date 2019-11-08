@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Carregar dados e executar consultas em um cluster Apache Spark no Azure HDInsight'
+title: 'Tutorial: Carregar dados & executar consultas com Apache Spark – Azure HDInsight'
 description: Tutorial - Aprenda a carregar dados e executar consultas interativas em clusters do Spark no Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 10/03/2019
-ms.openlocfilehash: 3d6b7cf67faa94d0947d16cc79d0d5b839de7acb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8c5fe1970857a04c7b237a101ac228dea024815b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027798"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494487"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas em um cluster Apache Spark no Azure HDInsight
 
@@ -36,7 +36,7 @@ O Jupyter Notebook é um ambiente de notebook interativo que oferece suporte a v
 
 2. Na página da Web do Jupyter, selecione **Novo** > **PySpark** para criar um notebook.
 
-   ![Criar um Jupyter Notebook para executar consulta interativa SQL do Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Criar um Jupyter Notebook para executar uma consulta interativa SQL do Spark")
+   ![Criar um Jupyter Notebook para executar consultas SQL interativas do Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Criar um Jupyter Notebook para executar consultas SQL interativas do Spark")
 
    Um notebook é criado e aberto com o nome Untitled(`Untitled.ipynb`).
 
@@ -58,7 +58,7 @@ Os aplicativos podem criar dataframes diretamente de arquivos ou pastas no armaz
 
     Ao executar uma consulta interativa no Jupyter, a legenda da guia ou da janela do navegador da Web mostra um status **(Ocupado)** ao lado do título do notebook. Você também verá um círculo sólido ao lado do texto **PySpark** no canto superior direito. Após a conclusão do trabalho, isso será alterado para um círculo vazio.
 
-    ![Status de consulta interativa SQL Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status de consulta interativa SQL Spark")
+    ![Status de consulta SQL interativa do Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status de consulta SQL interativa do Spark")
 
 2. Execute o seguinte código para criar um dataframe e uma tabela temporária (**hvac**) executando o código a seguir.
 
@@ -81,11 +81,11 @@ Depois que a tabela for criada, você poderá executar uma consulta interativa n
 
    A saída tabular a seguir é exibida.
 
-     ![Tabela de saída do resultado da consulta interativa Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Tabela de saída do resultado da consulta interativa Spark")
+     ![Saída de tabela de resultado de consulta interativa do Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Saída de tabela de resultado de consulta interativa do Spark")
 
 2. Você também pode ver os resultados em outras visualizações. Para ver um gráfico de área para a mesma saída, selecione **Área** e, em seguida, defina outros valores conforme mostrado.
 
-    ![Grafo de área de resultado de consulta interativa do Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Grafo de área de resultado de consulta interativa do Spark")
+    ![Grafo de área do resultado da consulta interativa do Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Grafo de área do resultado da consulta interativa do Spark")
 
 3. Na barra de menus do notebook, navegue até **Arquivo** > **Salvar e Ponto de Verificação**.
 
@@ -97,7 +97,7 @@ Com o HDInsight, seus dados e seus Jupyter notebooks são armazenados no Armazen
 
 Abra o cluster no portal do Azure e selecione **Excluir**.
 
-![Excluir o cluster HDInsight](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Excluir o cluster HDInsight")
+![Excluir cluster HDInsight](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Excluir cluster HDInsight")
 
 Também é possível selecionar o nome do grupo de recursos para abrir a página do grupo de recursos, e depois selecionar **Excluir grupo de recursos**. Ao excluir o grupo de recursos, você exclui o cluster Spark do HDInsight e a conta de armazenamento padrão.
 

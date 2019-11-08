@@ -5,24 +5,20 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
-ms.date: 06/17/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: d153c876366c8c747e06bf50a0ea26bcdcea10eb
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 4cee16a4b6d4f87c8f09ad742d9a504cfc5fc394
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303585"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498316"
 ---
-# <a name="what-is-azure-bastion-preview"></a>O que é o Azure Bastion? (Visualização)
+# <a name="what-is-azure-bastion"></a>O que é o Azure Bastion?
 
 O serviço Azure Bastion é um novo serviço de PaaS, totalmente gerenciado pela plataforma e provisionado dentro de sua rede virtual. Ele fornece conectividade de RDP/SSH contínua e segura a suas máquinas virtuais, diretamente no portal do Azure, usando SSL. Quando você se conecta usando o Azure Bastion, suas máquinas virtuais não precisam de um endereço IP público.
 
  O Bastion fornece conectividade segura de RDP e SSH a todas as VMs na rede virtual em que é provisionado. O uso do Azure Bastion protege suas máquinas virtuais de expor as portas RDP/SSH ao mundo externo, ao mesmo tempo em que fornece acesso seguro usando RDP/SSH. Com o Azure Bastion, você se conecta à máquina virtual diretamente do portal do Azure. Não é preciso um cliente, agente ou software adicional.
-
-> [!IMPORTANT]
-> Essa versão prévia pública é fornecida sem um SLA e não deve ser usada para cargas de trabalho de produção. Determinados recursos podem não ter suporte, podem ter restrição ou podem não estar disponíveis em todos os locais do Azure. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
->
 
 ## <a name="architecture"></a>Arquitetura
 
@@ -42,7 +38,7 @@ Esta figura mostra a arquitetura de uma implantação do Azure Bastion. Neste di
 
 ## <a name="key-features"></a>Principais recursos
 
-Os seguintes recursos estão disponíveis para teste durante a versão prévia pública:
+Os seguintes recursos estão disponíveis:
 
 * **RDP e SSH diretamente no portal do Azure:** Você pode obter acesso direto à sessão RDP e SSH no portal do Azure usando uma experiência perfeita de único clique.
 * **Sessão remota sobre SSL e passagem de firewall para RDP/SSH:** O Azure Bastion usa um cliente Web baseado em HTML5 que é automaticamente transmitido para seu dispositivo local, para que você obtenha sua sessão RDP/SSH sobre SSL na porta 443, permitindo que você cruze firewalls corporativos com segurança.

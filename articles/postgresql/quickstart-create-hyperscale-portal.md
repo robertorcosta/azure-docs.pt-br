@@ -1,6 +1,6 @@
 ---
-title: Banco de Dados do Azure para PostgreSQL – Guia de início rápido para Hyperscale (Citus) (visualização)
-description: Guia de início rápido para criar e consultar tabelas distribuídas no Hyperscale (Citus) do Banco de Dados do Azure para PostgreSQL (visualização).
+title: Banco de Dados do Azure para PostgreSQL – início rápido de Hiperescala (Citus)
+description: Guia de início rápido para criar e consultar tabelas distribuídas em Hiperescala (Citus) do Banco de Dados do Azure para PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,16 +8,16 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: fe981167249e24a43a8cb14c51c9b7c1eb081225
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 6b5bfbf16e76cbf90a5536332d8e3bf1035f983a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70164012"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500067"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Início Rápido: Criar um Banco de Dados do Azure para PostgreSQL - Hyperscale (Citus) (visualização) no portal do Azure
+# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Início Rápido: Criar um Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus) no portal do Azure
 
-O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado usado para executar, gerenciar e dimensionar bancos de dados altamente disponíveis do PostgreSQL na nuvem. Este Guia de Início Rápido mostra como criar um Banco de Dados do Azure para PostgreSQL - grupo de servidores Hyperscale (Citus) (visualização) usando o portal do Azure. Você explorará os dados distribuídos: fragmentar tabelas entre os nós, ingerir dados de amostra e efetuar consultas que são executadas em vários nós.
+O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado usado para executar, gerenciar e dimensionar bancos de dados altamente disponíveis do PostgreSQL na nuvem. Este Guia de Início Rápido mostra como criar um Banco de Dados do Azure para PostgreSQL – grupo de servidores de Hiperescala (Citus) usando o portal do Azure. Você explorará os dados distribuídos: fragmentar tabelas entre os nós, ingerir dados de amostra e efetuar consultas que são executadas em vários nós.
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 

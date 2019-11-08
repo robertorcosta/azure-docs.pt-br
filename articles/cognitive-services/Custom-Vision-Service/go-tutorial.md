@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: ed49d5763db4c9ffcb11d24dfa835c899d76aeec
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7f78230028b66fb12e52f7d5e96cbecbfe8b99a3
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946199"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "73519477"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>Início Rápido: Criar um projeto de classificação de imagem com o SDK do Go da Visão Personalizada
 
@@ -24,6 +24,7 @@ Este artigo fornece informações e um código de exemplo para ajudar você a co
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Go 1.8 ou posterior](https://golang.org/doc/install)
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="install-the-custom-vision-sdk"></a>Instalar o SDK da Visão Personalizada
 
@@ -48,7 +49,9 @@ Crie um arquivo chamado *sample.go* no diretório de seu projeto de preferência
 
 ### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do Serviço de Visão Personalizada
 
-Adicione o código a seguir ao seu script para criar um novo projeto do Serviço de Visão Personalizada. Insira as chaves de assinatura nas definições pertinentes. Confira o método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar outras opções ao criar seu projeto (explicado no guia do portal da Web [Criar um classificador](getting-started-build-a-classifier.md)).
+Adicione o código a seguir ao seu script para criar um novo projeto do Serviço de Visão Personalizada. Insira as chaves de assinatura nas definições pertinentes. Além disso, obtenha sua URL de Ponto de Extremidade no painel Configurações do site da Visão Personalizada.
+
+Confira o método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar outras opções ao criar seu projeto (explicado no guia do portal da Web [Criar um classificador](getting-started-build-a-classifier.md)).
 
 ```go
 import(
@@ -67,7 +70,7 @@ var (
     training_key string = "<your training key>"
     prediction_key string = "<your prediction key>"
     prediction_resource_id = "<your prediction resource id>"
-    endpoint string = "https://southcentralus.api.cognitive.microsoft.com"
+    endpoint string = "<your endpoint URL>"
     project_name string = "Go Sample Project"
     iteration_publish_name = "classifyModel"
     sampleDataDirectory = "<path to sample images>"

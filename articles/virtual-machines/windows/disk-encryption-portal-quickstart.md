@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: bde0c483eacec7fb8e076530bba594eb33a32a12
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 2590b9851b654990795f111e76f6cc5ea6c96723
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553442"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491946"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Início Rápido: Criar e criptografar uma máquina virtual do Windows com o portal do Azure
 
@@ -55,8 +55,8 @@ Entre no [Portal do Azure](https://portal.azure.com).
 
 1. Na página Novo, em Popular, selecione **Datacenter do Windows Server 2016**.
 1. Na guia **Básico**, em **Detalhes do projeto**, verifique se a assinatura correta está selecionada.
-1. Para **Grupo de recursos**, selecione o grupo de recursos que você criou ao criar o cofre de chaves acima (por exemplo, **myResourceGroup**)
-1. Para **Nome da máquina virtual**, insira *MyVM* e escolha 
+1. Para **Grupo de recursos**, selecione o grupo de recursos que você criou ao fazer o cofre de chaves acima (por exemplo, **myResourceGroup**).
+1. Para **Nome da máquina virtual**, insira *MyVM*.
 1. Para **Região**, selecione a mesma região que você usou ao criar o cofre de chaves acima (por exemplo, **Leste dos EUA**).
 1. Verifique se o **Tamanho** é *Standard D2s v3*.
 1. Em **Conta do administrador**, selecione **Senha**. Digite um nome de usuário e uma senha.

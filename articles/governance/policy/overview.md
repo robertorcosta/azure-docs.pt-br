@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
-ms.openlocfilehash: b8628d60110818fe64e5b09b400a1396213147b6
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 46d78ca9f82017e1a11642af6e5dcdc68e239c8a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980783"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498275"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Visão geral do serviço do Azure Policy
 
@@ -48,12 +48,11 @@ A jornada de criação e implementação de uma política no Azure Policy começ
 
 No Azure Policy, oferecemos algumas políticas internas que estão disponíveis para você por padrão. Por exemplo:
 
-- **Exigir o SQL Server 12.0**: Valida que todos os servidores SQL usem a versão 12.0. O efeito é negar todos os servidores que não atendam a esses critérios.
 - **SKUs de conta de armazenamento permitidos**: Determina se uma conta de armazenamento que está sendo implantada está dentro de um conjunto de tamanhos de SKU. Seu efeito é negar todas as contas de armazenamento que não estão de acordo com o conjunto de tamanhos de SKU definido.
 - **Tipo de recurso permitido**: Define os tipos de recursos que você pode implantar. Seu efeito é negar a todos os recursos que não fazem parte dessa lista definida.
 - **Locais permitidos**: Restringe os locais disponíveis para novos recursos. O efeito é usado para impor seus requisitos de conformidade de área geográfica.
 - **SKUs de máquinas virtuais permitidas**: Especifica um conjunto de SKUs de máquina virtual que você pode implantar.
-- **Aplicar tag e seu valor padrão**: Aplica uma tag necessária e seu valor padrão se ele não é especificado pela solicitação de implantação.
+- **Adicionar uma marca aos recursos**: Aplica uma tag necessária e seu valor padrão se ele não é especificado pela solicitação de implantação.
 - **Impor tag e seu valor**: Impõe uma tag necessária e seu valor a um recurso.
 - **Tipos de recurso não permitidos**: Impede que uma lista de tipos de recurso seja implantada.
 

@@ -1,5 +1,5 @@
 ---
-title: Consultar Apache Hive com driver ODBC e PowerShell – Azure HDInsight
+title: Consultar Apache Hive com driver ODBC & PowerShell – Azure HDInsight
 description: Use o driver ODBC do Microsoft Hive e o PowerShell para consultar clusters do Apache Hive no Azure HDInsight.
 keywords: hive,odbc do hive,powershell
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
-ms.openlocfilehash: 04771ddc633c210ce8c7b3c42a9e46cb2f1ed349
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122167"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494321"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutorial: Consultar o Apache Hive com ODBC e PowerShell
 
@@ -36,7 +36,7 @@ Antes de começar este tutorial, você deve ter os seguintes itens:
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Instalar o driver ODBC do Microsoft Hive
 
-Baixe e instale o [Driver ODBC do Microsoft Hive](https://go.microsoft.com/fwlink/?LinkID=286698).
+Baixe e instale o [Driver ODBC do Microsoft Hive](https://www.microsoft.com/download/details.aspx?id=40886).
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Criar fonte de dados ODBC do Apache Hive
 
@@ -44,7 +44,7 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Apache Hive.
 
 1. No Windows, navegue até **Iniciar** > **Ferramentas Administrativas do Windows** > **Fontes de Dados ODBC (32 bits)/(64 bits)** .  Uma janela **Administrador de Fonte de Dados ODBC** é aberta.
 
-    ![Administrador de fonte de dados ODBC](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "Configurar um DSN usando o Administrador de Fonte de Dados ODBC")
+    ![Administrador de fonte de dados ODBC](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "Configurar um DSN usando o administrador de fonte de dados ODBC")
 
 1. Na guia **DSN de Usuário**, selecione **Adicionar** para abrir a janela **Criar Nova Fonte de Dados**.
 
@@ -70,7 +70,7 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Apache Hive.
    |  Linhas buscadas por bloco |Ao buscar uma grande quantidade de registros, o ajuste desse parâmetro poderá ser necessário para garantir o desempenho ideal. |
    |  Comprimento de coluna de cadeia de caracteres padrão, Comprimento da coluna binária e Escala da coluna decimal |Os tamanhos e as precisões dos tipos de dados podem afetar a maneira como os dados são retornados. Eles farão com que informações incorretas sejam retornadas devido à perda de precisão e truncamento. |
 
-    ![Opções avançadas de configuração de DSN](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Advanced DSN configuration options")
+    ![Opções de configuração avançada de DSN](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Opções de configuração avançada de DSN")
 
 1. Selecione **Testar** para testar a fonte de dados. Quando a fonte de dados estiver configurada corretamente, o resultado do teste mostrará **SUCESSO**.  
 

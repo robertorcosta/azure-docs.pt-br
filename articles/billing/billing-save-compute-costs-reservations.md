@@ -7,16 +7,16 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: b2c3fd9b59b371330e37dceb52b2e89b3db6c48e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 02a4ccc1bd7c18c36a7203f7d81cce8923ecf59a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390154"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499248"
 ---
 # <a name="what-are-azure-reservations"></a>O que são Reservas do Azure?
 
-As Reservas do Azure ajudam você a economizar comprometendo-se com um ano ou três anos de máquinas virtuais, de capacidade de computação do Banco de Dados SQL, de produtividade do Azure Cosmos DB ou de outros recursos do Azure. O compromisso permite que você obtenha um desconto nos recursos que usar. As reservas podem reduzir significativamente os custos com máquinas virtuais, computação do Banco de Dados SQL, Azure Cosmos DB ou outros recursos em até 72% nos preços pagos conforme o uso. As reservas fornecem um desconto de cobrança e não afetam o estado de tempo de execução dos recursos.
+As Reservas do Azure ajudam você a economizar comprometendo-se com um ano ou três anos de máquinas virtuais, de capacidade de computação do Banco de Dados SQL, de produtividade do Azure Cosmos DB ou de outros recursos do Azure. O compromisso permite que você obtenha um desconto nos recursos que usar. As reservas podem reduzir significativamente os custos com máquinas virtuais, computação do Banco de Dados SQL, Azure Cosmos DB ou outros recursos em até 72% nos preços pagos conforme o uso. As reservas fornecem um desconto de cobrança e não afetam o estado de runtime dos recursos.
 
 Você pode pagar por uma reserva de forma antecipada ou mensal. O custo total das reservas antecipadas e mensais é o mesmo e você não paga nenhuma taxa adicional quando opta por pagar mensalmente. O pagamento mensal está disponível para reservas do Azure, e não para produtos de terceiros.
 
@@ -125,7 +125,7 @@ Um desconto de reserva aplica-se apenas aos recursos associados aos tipos de ass
 
 ## <a name="when-the-reservation-term-expires"></a>Quando o prazo da reserva expira
 
-No final do terma da reserva, o desconto de cobrança expira. A máquina virtual, o Banco de Dados SQL, o Azure Cosmos DB ou outro recurso é cobrado pelo preço pago conforme o uso. As Reservas do Azure não são renovadas automaticamente. Para continuar recebendo o desconto de cobrança, você deve comprar uma nova reserva para serviços e softwares elegíveis.
+No final do período de reserva, o desconto de cobrança expira e os recursos são cobrados pelo preço de pré-pagamento. Por padrão, as reservas não são definidas para renovação automática. Você pode optar por habilitar a renovação automática de uma reserva selecionando a opção nas configurações de renovação. Com a renovação automática, uma reserva substituta será adquirida após a expiração da reserva existente. Por padrão, a reserva substituta tem os mesmos atributos que a reserva que está vencendo. Opcionalmente, você pode alterar a frequência de cobrança, o prazo ou a quantidade nas configurações de renovação. Qualquer usuário com acesso de proprietário na reserva e na assinatura usada para cobrança pode configurar a renovação.  
 
 ## <a name="discount-applies-to-different-sizes"></a>O desconto se aplica a diferentes tamanhos
 

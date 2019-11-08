@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 827338c299b19d04245d7114a99d946d0332c82f
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 42072894b99ebf1cfcbb5e622c2a9c3a4321a944
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973038"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496658"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um Jupyter Notebook com Python
 
@@ -430,4 +430,4 @@ Artigos de instrução:
 - [Exibir uma apresentação de slides](present-jupyter-notebooks-slideshow.md)
 - [Trabalhar com arquivos de dados](work-with-project-data-files.md)
 - [Acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Usar os Serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Usar o Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
