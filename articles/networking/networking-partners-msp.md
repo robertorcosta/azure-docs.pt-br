@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 089d54a2aae288511a283dfb28b03efa34c33b53
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
-ms.translationtype: MT
+ms.openlocfilehash: 83c3c72ad189720b8f0aa554b7804b55f3488b83
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715447"
+ms.locfileid: "73747955"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros MSP de rede do Azure
 
@@ -28,7 +28,7 @@ Os clientes podem comprar ofertas de serviços gerenciados por MSP no Azure Mark
 
 Use os links nesta seção para obter mais informações sobre os serviços de rede em nuvem gerenciados oferecidos pelos parceiros MSP de rede do Azure. Se o seu parceiro de serviços de rede de nuvem não estiver listado na seção abaixo, peça ao provedor entre em contato conosco. Ele pode entrar em contato conosco enviando um email para ManagedVirtualWAN@microsoft.com. 
 
-| **MSP** | **Serviços de transformação de rede em nuvem** | **ExpressRoute gerenciado** | **WAN virtual gerenciada** | **Firewall gerenciado** |**Computação de borda de rede gerenciada** |
+| **MSP** | **Serviços de transformação de rede em nuvem** | **ExpressRoute gerenciado** | **WAN virtual gerenciada** | **Serviços de segurança de rede gerenciados** |**Computação de borda de rede gerenciada** |
 | ---| ---| ---| ---| ---| ---|
 |[Amdocs](https://www.amdocs.com/)|||||Sim|
 |[Grupo ANS no Reino Unido](https://www.ans.co.uk/)|Sim|Sim||||

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: erhopf
-ms.openlocfilehash: ad90a6443cc1c94bcdb730e783b82dfdd4798676
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b1f23ffac26cb48493f013290654189162861a27
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553064"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468747"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>Início Rápido: Executar o aplicativo de exemplo do SDK de Dispositivos de Fala no Windows
 
@@ -89,14 +89,14 @@ Caso você planeje usar as intenções, será necessária uma assinatura do [LUI
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. A palavra de ativação padrão (palavra-chave) é "Computador". Você também pode tentar uma das outras palavras de ativação fornecidas, "Máquina" e "Assistente". Os arquivos de recurso para essas palavras alternativas de ativação estão no SDK de Dispositivos de Fala, na pasta de palavra-chave. Por exemplo, `C:\SDSDK\JRE-Sample-Release\keyword\Computer` contém os arquivos usados para a palavra de ativação "Computador".
+1. A palavra-chave padrão (palavra-chave) é "Computador". Você também pode tentar uma das outras palavras-chave fornecidas, assim como "Máquina" ou "Assistente". Os arquivos de recurso para essas alternativas de palavra-chave estão no SDK de Dispositivos de Fala, na pasta da palavra-chave. Por exemplo, `C:\SDSDK\JRE-Sample-Release\keyword\Computer` contém os arquivos usados para a palavra-chave "Computador".
 
    > [!TIP]
-   > Você também pode [criar uma palavra de ativação personalizada](speech-devices-sdk-create-kws.md).
+   > Você também pode [criar uma palavra-chave personalizada](speech-devices-sdk-create-kws.md).
 
-    Para usar uma nova palavra de ativação, atualize as duas linhas a seguir em `FunctionsList.java` e copie o pacote de palavras de ativação para o aplicativo. Por exemplo, para usar a palavra de ativação 'Computador' do pacote de palavras de ativação `kws-machine.zip`:
+    Para usar uma nova palavra-chave, atualize as duas linhas a seguir em `FunctionsList.java` e copie o pacote de palavras-chave para o aplicativo. Por exemplo, para usar a palavra-chave “Computador” do pacote de palavras-chave `kws-machine.zip`:
 
-   * Copie o pacote de palavra de ativação para a pasta do projeto **target/classes**.
+   * Copie o pacote de palavras-chave para a pasta do projeto **target/classes**.
 
    * Atualize o `FunctionsList.java` com a palavra-chave e o nome do pacote:
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e8543f1f6ef2cdf1695340b07dcbc51365a01a5
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 8d73a2dcd0aab3b972a3e0a9237e53d05d4a9a53
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72438145"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750026"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -28,7 +28,7 @@ As extensões da máquina virtual (VM) do Azure são pequenos aplicativos que fo
 
 Este artigo fornece uma visão geral das extensões da VM, pré-requisitos para utilização das extensões da VM do Azure e diretrizes sobre como detectar, gerenciar e remover as extensões da VM. Este artigo fornece informações generalizadas, pois há muitas extensões de VM disponíveis, cada uma delas tem uma configuração possivelmente exclusiva. Encontre detalhes específicos sobre cada extensão na documentação individual.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="use-cases-and-samples"></a>Casos de uso e exemplos
 
@@ -148,7 +148,7 @@ O exemplo a seguir mostra a instalação da extensão Microsoft Antimalware no p
 
 ![Instalar a extensão de antimalware](./media/features-windows/installantimalwareextension.png)
 
-### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
+### <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
 
 É possível adicionar extensões de VM a um modelo do Azure Resource Manager e executá-las com a implantação do modelo. Ao implantar uma extensão com um modelo, você pode criar implantações do Azure totalmente configuradas. Por exemplo, o JSON a seguir é obtido de um modelo do Resource Manager que implanta um conjunto de VMs com balanceamento de carga e um banco de dados SQL do Azure e, em seguida, instala um aplicativo .NET Core em cada VM. A extensão da VM se encarrega da instalação do software.
 
@@ -411,19 +411,19 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 
 Você também pode remover uma extensão no portal do Azure da seguinte maneira:
 
-1. Selecionar uma máquina virtual.
+1. Selecione uma VM.
 2. Escolha **Extensões**.
 3. Selecione a extensão desejada.
 4. Escolha **Desinstalar**.
 
 ## <a name="common-vm-extensions-reference"></a>Referência a extensões de VM comuns
-| Nome da extensão | Descrição | Mais informações |
+| Nome da extensão | DESCRIÇÃO | Mais informações |
 | --- | --- | --- |
 | Extensão de script personalizado para o Windows |Executar scripts em uma máquina virtual do Azure |[Extensão de script personalizado para o Windows](custom-script-windows.md) |
 | Extensão de DSC para o Windows |Extensão PowerShell DSC (Configuração de Estado Desejado) |[Extensão DSC para Windows](dsc-overview.md) |
 | Extensão de Diagnóstico do Azure |Gerenciar Diagnóstico do Azure |[Extensão de Diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Extensão de acesso à VM do Azure |Gerenciar usuários e credenciais |[Extensão de Acesso à VM para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre extensões de VM, consulte [Visão geral de recursos e extensões de máquina virtual do Azure](overview.md).

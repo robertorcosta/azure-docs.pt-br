@@ -1,5 +1,5 @@
 ---
-title: 'Configurar conexões VPN site a site e de ExpressRoute – coexistir: PowerShell: Azure | Microsoft Docs'
+title: 'Configurar conexões VPN site a site e de ExpressRoute – Coexist: PowerShell: Azure | Microsoft Docs'
 description: Configure uma conexão VPN site a site e de ExpressRoute que pode coexistir para o modelo do Resource Manager usando o PowerShell.
 services: expressroute
 author: charwen
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: fdd267937db589156aa5eddc7608323b143266de
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 8a89c5121d5010245ce16cade921bb96346fcbf5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508848"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748308"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurar conexões coexistentes Site a Site e ExpressRoute usando o PowerShell
 > [!div class="op_single_selector"]
@@ -71,13 +71,13 @@ Há dois conjuntos diferentes de procedimentos para escolher. O procedimento de 
     Se você ainda não tiver uma rede virtual, esse procedimento explica como criar uma nova rede virtual usando o modelo de implantação do Gerenciador de Recursos e criando novas conexões de VPN Site a Site e de ExpressRoute. Para configurar uma rede virtual, siga as etapas em [Para criar uma nova rede virtual e conexões coexistentes](#new).
 * Eu já tenho uma VNet do modelo de implantação do Gerenciador de Recursos.
   
-    Talvez você já tenha uma rede virtual implementada com uma conexão de VPN Site a Site ou uma conexão de ExpressRoute existente. Neste cenário, se a máscara de sub-rede de gateway é /28 ou menor (/28, /29, etc.), você precisa excluir o gateway existente. A seção [Para configurar conexões coexistentes para uma VNet já existente](#add) explica como excluir o gateway e, em seguida, criar novas conexões de VPN Site a Site e de ExpressRoute.
+    Talvez você já tenha uma rede virtual implementada com uma conexão de VPN Site a Site ou uma conexão do ExpressRoute existente. Neste cenário, se a máscara de sub-rede de gateway é /28 ou menor (/28, /29, etc.), você precisa excluir o gateway existente. A seção [Para configurar conexões coexistentes para uma VNet já existente](#add) explica como excluir o gateway e, em seguida, criar novas conexões de VPN Site a Site e de ExpressRoute.
   
     Se você excluir e recriar o gateway, você terá tempo de inatividade para as conexões entre locais. Entretanto, suas VMs e serviços ainda poderão se comunicar por meio do balanceador de carga enquanto você configura o seu gateway, se estiverem configurados para fazer isso.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [working with cloud shell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
@@ -216,7 +216,7 @@ Os cmdlets que você usará para essa configuração podem ser ligeiramente dife
    ```azurepowershell-interactive
    $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
    ```
-4. Neste ponto, você terá uma rede virtual sem gateways. Para criar novos gateways e configurar as conexões, use os exemplos a seguir:
+4. Neste ponto, você terá uma rede virtual sem gateways. Para criar novos gateways e configurar as conexões, use os seguintes exemplos:
 
    Defina as variáveis.
 
@@ -243,7 +243,7 @@ Os cmdlets que você usará para essa configuração podem ser ligeiramente dife
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Para adicionar a configuração de ponto a site ao gateway de VPN
 
-Você pode seguir as etapas abaixo para adicionar a configuração ponto a ponto ao seu gateway VPN em uma configuração de coexistência. Para carregar o certificado de raiz VPN, você deve instalar o PowerShell localmente em seu computador ou usar o portal do Azure.
+Você pode seguir as etapas abaixo para adicionar a configuração ponto a ponto ao seu gateway VPN em uma configuração de coexistência. Para carregar o certificado raiz de VPN, você deve instalar o PowerShell localmente no computador ou usar o portal do Azure.
 
 1. Adicione o pool de endereços do Cliente VPN.
 
@@ -251,7 +251,7 @@ Você pode seguir as etapas abaixo para adicionar a configuração ponto a ponto
    $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
    Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
    ```
-2. Carregue o certificado-raiz da VPN para Azure para seu gateway de VPN. Neste exemplo, supõe-se que o certificado raiz é armazenado no computador local em que os seguintes cmdlets do PowerShell são executados e se você estiver executando o PowerShell localmente. Você também pode carregar o certificado usando o portal do Azure.
+2. Carregue o certificado-raiz da VPN para Azure para seu gateway de VPN. Neste exemplo, supõe-se que o certificado raiz está armazenado no computador local em que os seguintes cmdlets do PowerShell são executados e que você está executando o PowerShell localmente. Você também pode carregar o certificado usando o portal do Azure.
 
    ```powershell
    $p2sCertFullName = "RootErVpnCoexP2S.cer" 

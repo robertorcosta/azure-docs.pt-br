@@ -1,5 +1,5 @@
 ---
-title: 'Obter tabelas ARP – Solução de Problemas – ExpressRoute: Azure| Microsoft Docs'
+title: 'Obter tabelas ARP-solução de problemas – ExpressRoute: Azure | Microsoft Docs'
 description: Esta página fornece instruções sobre como obter tabelas ARP para um circuito de ExpressRoute
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e35020923405ec072ac9c42093752ec5a9290824
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66151578"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748152"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Obtenção de tabelas ARP no modelo de implantação do Resource Manager
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Este artigo fornece uma orientação pelas etapas de aprendizado sobre as tabela
 > 
 > 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="address-resolution-protocol-arp-and-arp-tables"></a>ARP (Protocolo de resolução de endereço) e tabelas ARP
 ARP (Protocolo de resolução de endereço) é um protocolo de camada 2 definido no [RFC 826](https://tools.ietf.org/html/rfc826). ARP é usado para mapear o endereço de Ethernet (endereço MAC) com um endereço IP.
@@ -61,7 +61,7 @@ Verifique se você tem o seguinte antes de prosseguir
 * Você deve ter o módulo mais recente do PowerShell do Azure (versão 1.50 ou mais recente).
 
 > [!NOTE]
-> Se a camada 3 for fornecida pelo provedor de serviços e as tabelas ARP estiverem em branco no portal/saída abaixo, atualize a configuração de circuito usando o botão Atualizar no portal. Essa operação aplicará a configuração de roteamento correta em seu circuito. 
+> Se a camada 3 for fornecida pelo provedor de serviços e as tabelas ARP estiverem em branco no portal/saída abaixo, atualize a configuração de circuito usando o botão Atualizar no Portal. Essa operação aplicará a configuração de roteamento correta em seu circuito. 
 >
 >
 
@@ -148,7 +148,7 @@ A tabela ARP de um emparelhamento pode ser usada para determinar a validade da c
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Tabela de ARP quando o lado do provedor de conectividade/local tiver problemas
-Se houver problemas com o local ou provedor de conectividade, que você poderá ver que apenas uma entrada aparecerá na tabela ARP ou no endereço MAC local aparecerá incompleto. Isso mostrará o mapeamento entre o endereço MAC e o endereço IP usado no lado da Microsoft. 
+Se houver problemas com o provedor local ou de conectividade, você poderá ver que apenas uma entrada aparecerá na tabela ARP ou o endereço MAC local será mostrado incompleto. Isso mostrará o mapeamento entre o endereço MAC e o endereço IP usado no lado da Microsoft. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    

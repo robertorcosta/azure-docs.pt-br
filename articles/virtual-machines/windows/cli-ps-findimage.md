@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 645d969d71a0b8707d7969f4bf68a07ab0211d0a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 32264fc6c58dd1cb6c1514af1c07391ab0e9193d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080019"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749592"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Encontre imagens de VMs do Windows no Azure Marketplace com o Azure PowerShell
 
@@ -27,7 +27,7 @@ Este tópico descreve como usar o Azure PowerShell para localizar imagens de VM 
 
 Você também pode procurar imagens e ofertas disponíveis usando a vitrine do [Azure Marketplace](https://azuremarketplace.microsoft.com/), o [portal do Azure](https://portal.azure.com) ou a [CLI do Azure](../linux/cli-ps-findimage.md). 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -35,7 +35,7 @@ Você também pode procurar imagens e ofertas disponíveis usando a vitrine do [
 
 Essa tabela mostra um subconjunto do Skus disponível aos Publicadores e Ofertas indicados.
 
-| Publicador | Oferta | Sku |
+| Editor | Oferta | Sku |
 |:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-Core |
@@ -47,8 +47,8 @@ Essa tabela mostra um subconjunto do Skus disponível aos Publicadores e Ofertas
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
 | MicrosoftSharePoint |MicrosoftSharePointServer |2019 |
-| MicrosoftSQLServer |SQL2019-WS2016 |Corporativo |
-| MicrosoftRServer |RServer-WS2016 |Corporativo |
+| MicrosoftSQLServer |SQL2019-WS2016 |Enterprise |
+| MicrosoftRServer |RServer-WS2016 |Enterprise |
 
 ## <a name="navigate-the-images"></a>Navegar pelas imagens
 
