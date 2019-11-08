@@ -4,15 +4,16 @@ description: Configure o gerenciamento de leads para clientes do Marketo para o 
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: evansma
-ms.openlocfilehash: 9470a593f5db564689a0b26601a201874c215aa2
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8d13e8c3aeabf6d3fdea80ffddbae47b80adc139
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902085"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812129"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Configurar o gerenciamento de cliente potencial no Marketo
 
@@ -54,8 +55,8 @@ Este artigo descreve como configurar seu sistema CRM do Marketo para processar o
 
     **Outra maneira de descobrir esses valores**
 
-    - A ID do servidor é encontrada na URL da sua instância do Marketo, por exemplo`serverID.marketo.com`, "".
-    - Obtenha a ID do munching da sua assinatura acessando o menu do administrador > Munchkin no campo "ID da conta do Munchkin" ou na primeira parte do subdomínio do host da API REST `https://{Munchkin ID}.mktorest.com`do marketo:.
+    - A ID do servidor é encontrada na URL da sua instância do Marketo, por exemplo, "`serverID.marketo.com`".
+    - Obtenha a ID do munching da sua assinatura acessando o menu do administrador > Munchkin no campo "ID da conta do Munchkin" ou na primeira parte do subdomínio do host da API REST do Marketo: `https://{Munchkin ID}.mktorest.com`.
     - ID de formulário é a ID do formulário de código de inserção criado na etapa 7 para rotear clientes potenciais de nosso Marketplace.
 
 ## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Configurar sua oferta para enviar clientes potenciais ao Marketo

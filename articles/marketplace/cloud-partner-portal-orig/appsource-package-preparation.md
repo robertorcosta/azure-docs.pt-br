@@ -1,19 +1,20 @@
 ---
-title: Preparação do pacote do AppSource | O Azure Marketplace
+title: Preparação do pacote AppSource | Azure Marketplace
 description: Explicação sobre como preparar e criar pacotes do AppSource.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: ff822e87bfec5daa161172c0d47975eb06cc2808
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c6b78e62afb43562910c872d31e2c9f564040da
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935640"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73806093"
 ---
 # <a name="appsource-package-preparation"></a>Preparação do pacote do AppSource
 
@@ -33,8 +34,8 @@ O pacote do Package Deployer é uma parte do pacote do AppSource.
 
 Para criar um pacote do Package Deployer, siga as instruções a seguir: [https://msdn.microsoft.com/library/dn688182.aspx](https://msdn.microsoft.com/library/dn688182.aspx). Ao concluir, seu pacote consistirá nos ativos abaixo:
 
-1. Pasta do pacote: contém todas as soluções, os dados de configuração, os arquivos simples e o conteúdo do pacote. _Observação: No exemplo a seguir vamos pressupor que a pasta do pacote é chamada de "PkgFolder"_
-2. DLL: O assembly contém o código personalizado para seu pacote. _Observação: No exemplo a seguir vamos pressupor que esse arquivo é denominado "MicrosoftSample.dll"._
+1. Pasta do pacote: contém todas as soluções, os dados de configuração, os arquivos simples e o conteúdo do pacote. _Observação: no exemplo a seguir vamos considerar que a pasta do pacote se chama "PkgFolder"_
+2. dll: o assembly contém o código personalizado do pacote. _Observação: no exemplo a seguir vamos considerar que esse arquivo se chama "MicrosoftSample.dll"._
 
 Agora, você precisa criar um arquivo chamado "**Content_Types.xml**" Este arquivo listará todas as extensões de ativos que fazem parte do pacote. Aqui está o código de exemplo do arquivo.
 
@@ -111,13 +112,13 @@ Aqui está o código de exemplo de input.xml. Confira as definições na tabela 
 |SolutionAnchorName |Nome do arquivo zip da solução no Package Deployer que é usado para o nome de exibição e a descrição dos ativos da solução.|
 | StartDate| Essa é a data em que o pacote da solução será disponibilizado. O formato é MM/DD/AAAA|
 |EndDate|Essa é a data em que o pacote da solução deixará de estar disponível. O formato é MM/DD/AAAA |
-|SupportedCountries |Isso é uma lista delimitada por vírgulas dos países/regiões que devem ver esse pacote. Entre em contato com os serviços online para obter uma lista de todos os códigos de país/região atuais. No momento, este artigo lista era: O AE, AL, AM, SOL, AR, AT, AU, AZ, BA, BB, BD, SER, BG, BH, BM, BN, BO, BR PELA AUTORIDADE DE CERTIFICAÇÃO, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK, FAÇA, DZ, EC, EE, POR EXEMPLO, ES, FI, FR, GB, GE, GH, GR, GT, HONG KONG , HN, RH, HU, ID, IE, IL, IN, IQ, É, ELE, JM, JO, JP, KE, KG, KN, COREIA, KW, KY, KZ, BALANCEAMENTO DE CARGA, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, MÊS, MT, MU, MX, MY, NG, NI, NL, NÃO, NZ, OM, PA, PE, PH , PK, PL, PR, PS, PT, PY, CONTROLE DE QUALIDADE, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, EUA, UY, UZ, VE, VI, VN, ZA, ZW |
+|SupportedCountries |Esta é uma lista delimitada por vírgulas de países/regiões que devem ver este pacote. Entre em contato com os serviços online para obter uma lista de todos os códigos de país/região atuais. No momento da escrita desta lista, os códigos eram: AE, AL, AM, AO, AR, AT, AU, AZ, BA, BB, BD, BE, BG, BH, BM, BN, BO, BR, BY, CA, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GE, GH, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IQ, IS, IT, JM, JO, JP, KE, KG, KN, KR, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, MO, MT, MU, MX, MY, NG, NI, NL, NO, NZ, OM, PA, PE, PH, PK, PL, PR, PS, PT, PY, QA, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, US, UY, UZ, VE, VI, VN, ZA, ZW |
 |LearnMoreLink | URL da página de mais informações desse pacote. |
 |Localidades|Uma instância desse nó para cada idioma da UX ao qual você deseja dar suporte na UX da solução preferencial. Esse nó contém filhos que descrevem a localidade, o logotipo e os termos para cada idioma|
-|Localidades: PackageLocale.Code|LCID do idioma desse nó. Exemplo: Inglês é 1033|
+|Localidades: PackageLocale.Code|LCID do idioma desse nó. Exemplo: inglês dos EUA é 1033|
 |Localidades: PackageLocale.IsDefault|Indica que esse é o idioma padrão. Ele será usado como o idioma de fallback caso o idioma da UX escolhido pelo cliente não esteja disponível.|
-|Localidades: Logotipo|Esse é o logotipo que você deseja usar para este pacote. O tamanho de ícone é 32 x 32. Os formatos permitidos são PNG e JPG|
-|Localidades: termos: PackageTerm.File|Esse é o nome do arquivo do documento HTML que contém os termos da licença.|
+|Localidades: logotipo|Esse é o logotipo que você deseja usar para este pacote. O tamanho de ícone é 32 x 32. Os formatos permitidos são PNG e JPG|
+|Locales:Terms: PackageTerm.File|Esse é o nome do arquivo do documento HTML que contém os termos da licença.|
 
 O logotipo será exibido aqui:
 

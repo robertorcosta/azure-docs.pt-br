@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: dfc3ebc0274c87466d6dc27c93880483df023085
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 791821fbfe5854c27b7e3e6927a56a66ac1f1dc2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242480"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819092"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Acessar o Azure Cosmos DB de VNets (redes virtuais)
 
@@ -44,10 +44,10 @@ Depois que o ponto de extremidade de serviço do Azure Cosmos DB é habilitado e
 Apenas a rede virtual e suas sub-redes adicionadas à conta do Azure Cosmos têm acesso. Suas VNets emparelhadas não podem acessar a conta até que as sub-redes em redes virtuais separadas sejam adicionadas à conta.
 
 ### <a name="what-is-the-maximum-number-of-subnets-allowed-to-access-a-single-cosmos-account"></a>Qual é o número máximo de sub-redes com permissão para acessar uma única conta do Cosmos? 
-No momento, você pode ter no máximo 64 sub-redes permitidas para uma conta de Cosmos do Azure.
+No momento, você pode ter no máximo 64 sub-redes permitidas para uma conta do Azure Cosmos.
 
 ### <a name="can-i-enable-access-from-vpn-and-express-route"></a>Posso habilitar o acesso da VPN e do Expresso Route? 
-Para acessar a conta do Azure Cosmos pela rota expressa, de locais, você precisa habilitar o emparelhamento da Microsoft. Depois de colocar as regras de firewall de IP ou de acesso à rede virtual, você poderá adicionar os endereços IP públicos usados para o emparelhamento da Microsoft em seu firewall IP da conta do Azure Cosmos para permitir acesso de serviços nas instalações à conta do Azure Cosmos. 
+Para acessar a conta do Azure Cosmos sobre a rota expressa do local, você precisaria habilitar o emparelhamento da Microsoft. Depois de colocar as regras de firewall de IP ou de acesso à rede virtual, você poderá adicionar os endereços IP públicos usados para o emparelhamento da Microsoft em seu firewall IP da conta do Azure Cosmos para permitir acesso de serviços nas instalações à conta do Azure Cosmos. 
 
 ### <a name="do-i-need-to-update-the-network-security-groups-nsg-rules"></a>Preciso atualizar as regras do Network Security Groups (NSG)? 
 As regras NSG são usadas para limitar a conectividade de e para uma sub-rede com rede virtual. Quando você adiciona o ponto de extremidade de serviço do Azure Cosmos DB à sub-rede, não há necessidade de abrir a conectividade de saída no NSG para sua conta do Azure Cosmos. 
@@ -56,11 +56,11 @@ As regras NSG são usadas para limitar a conectividade de e para uma sub-rede co
 Não, somente as redes virtuais do Azure Resource Manager podem ter o ponto de extremidade do serviço ativado. As redes virtuais clássicas não suportam pontos de extremidade de serviço.
 
 ### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Posso "Aceitar conexões de datacenters públicos do Azure" quando o acesso ao ponto de extremidade de serviço está habilitado para o Banco de Dados do Azure Cosmos?  
-Isso é necessário somente quando você deseja que sua conta do Azure Cosmos DB seja acessada por outros serviços de terceiros do Azure primeiro, como Azure Data Factory, Azure Search ou qualquer serviço implantado em determinada região do Azure.
+Isso é necessário apenas quando você deseja que sua conta de Azure Cosmos DB seja acessada por outros serviços de terceiros do Azure, como o Azure data Factory, o Azure Pesquisa Cognitiva ou qualquer serviço implantado em determinada região do Azure.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Como limitar o acesso de conta do Azure Cosmos às sub-redes em redes virtuais](how-to-configure-vnet-service-endpoint.md)
-* [Como configurar o firewall de IP para sua conta do Azure Cosmos](how-to-configure-firewall.md)
+* [Como configurar o firewall de IP para a conta do Azure Cosmos](how-to-configure-firewall.md)
 

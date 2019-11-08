@@ -1,18 +1,19 @@
 ---
-title: Link Privado do Banco de Dados SQL do Azure e do Data Warehouse | Microsoft Docs
+title: Link Privado
 description: Visão geral do recurso do ponto de extremidade privado
 author: rohitnayakmsft
 ms.author: rohitna
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: 3adcccde89823f865535c9e1350ac4c3e541eef6
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: fcb89cbcadb5e101ab2b4bfd18d0b7b91c63c92a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71066249"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821305"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Link Privado do Banco de Dados SQL do Azure e do Data Warehouse (versão prévia)
 

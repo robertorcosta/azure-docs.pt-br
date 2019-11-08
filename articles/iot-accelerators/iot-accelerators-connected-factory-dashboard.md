@@ -1,6 +1,6 @@
 ---
 title: Usar o dashboard Connected Factory - Azure | Microsoft Docs
-description: Entenda como usar os recursos do painel da fábrica conectada.
+description: Este artigo descreve como usar os recursos do painel de fábrica conectado para monitorar e gerenciar seus dispositivos IoT industriais.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: 82045ddcc204fe369b7330fe9b3c2a8cadd56d88
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b53177d578768428665891704269e63bd8edb09e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067928"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820170"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Use funcionalidades no painel do acelerador de solução da Fábrica Conectada
 
@@ -111,5 +111,5 @@ Quando você terminar, poderá excluir o acelerador de solução de sua assinatu
 
 Agora que você implantou um acelerador de solução de trabalho, poderá continuar a introdução aos aceleradores de solução IoT lendo os seguintes artigos:
 
-* [Configurar o Acelerador de solução de fábrica conectada](iot-accelerators-connected-factory-configure.md)
+* [Configurar o acelerador de solução de fábrica conectada](iot-accelerators-connected-factory-configure.md)
 * [Permissões no site azureiotsolutions.com](iot-accelerators-permissions.md)

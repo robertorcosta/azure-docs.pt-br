@@ -5,15 +5,16 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: a6b2a7981452b47a3992b6c0efee286878e143fb
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: d47a67be157f71a30a6ae155790ed78a78fd6743
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962893"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814657"
 ---
 <a name="web-analytics"></a>Web Analytics
 =============
@@ -43,7 +44,7 @@ Há duas maneiras de gerar sua própria campanha.
 
 Por exemplo, você pode usar: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-1. (Avançado): Use uma das nossas IDs de campanha genéricas com suporte na URL. Desejamos poder aceitar marcas de referência adicionais que você eventualmente precise usar, portanto, damos suporte à convenção de reconhecer automaticamente estas marcas adicionais:
+1. (Avançado): Use uma de nossas IDs de campanha genéricas e compatíveis na URL. Desejamos poder aceitar marcas de referência adicionais que você eventualmente precise usar, portanto, damos suporte à convenção de reconhecer automaticamente estas marcas adicionais:
     
     1. **utm\_campaign**
     2. **utm\_source**
@@ -63,15 +64,15 @@ Por exemplo:
 
 Pode haver um cenário em que suas campanhas têm uma página intermediária para a qual você está direcionando o tráfego e que, em seguida, envia os clientes para o Marketplace. É importante passar as IDs de campanha iniciais para a URL final que você envia para o Marketplace.
 
-Veja um exemplo:
+Aqui está um exemplo:
 
-1. Funcionário de marketing compra anúncios do Google para direcionar o tráfego para a página de aterrissagem <https://contoso.com> da empresa. Esta página de aterrissagem tem um link \"experimente meu produto\" que leva para <https://appsource.com>.
+1. Funcionário de marketing compra anúncios do Google para direcionar o tráfego para a página de aterrissagem \' da empresa. Esta página de aterrissagem tem um link \"experimente meu produto\" que leva para <https://appsource.com>.
 2. Um usuário clica no anúncio e chega à página de aterrissagem de sua empresa.
     1.  URL de referência = google.com
     2.  URL da página de aterrissagem = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
 3. O usuário clica em no link \"experimente meu produto\" e entra no AppSource.
     1. URL de referência = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. URL da página de aterrissagem (**Verifique se esta URL tem utm\_campaign e utm\_source adicionados a ela**) = [https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_ campaign=MyCampaignAdName&utm\_ source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    2. URL da página de aterrissagem (**Verifique se esta URL tem utm\_campaign e utm\_source adicionados a ela**) = [https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>Como avaliar o sucesso de uma campanha
 -----------------------------------------
@@ -94,7 +95,7 @@ De modo semelhante a como mostramos a taxa de conversão da oferta inteira, nest
 
 Semelhante ao modo como examinamos os domínios dos clientes, este gráfico permite que você veja a distribuição dos dados segundo a campanha pela qual os usuários estão chegando ao Marketplace. \_NoCampaign significa que o cliente não tinha uma ID de campanha na URL quando navegou para o Marketplace.
 
-<a name="next-steps"></a>**Próximas Etapas**
+<a name="next-steps"></a>**Next Steps**
 --------------
 
 Agora que você tem a capacidade de acompanhar o sucesso da oferta, queremos encorajá-lo a criar suas próprias campanhas.

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 149b83b9aacf23cde06a2b35aed06c164afe9647
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 1e86658422e444cb7104c3e3428a74d31d453a72
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243320"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605966"
 ---
 # <a name="what-is-azure-databricks"></a>O que é o Azure Databricks?
 
@@ -96,9 +96,9 @@ Por meio da integração avançada com o Power BI, o Azure Databricks permite qu
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Início Rápido: executar um trabalho de Spark no Azure Databricks](quickstart-create-databricks-workspace-portal.md)
-* [Trabalhar com clusters do Spark](https://docs.azuredatabricks.net/user-guide/clusters/index.html)
-* [Trabalhar com blocos de notas](https://docs.azuredatabricks.net/user-guide/notebooks/index.html)
-* [Criar trabalhos do Spark](https://docs.azuredatabricks.net/user-guide/jobs.html)
+* [Trabalhar com clusters do Spark](/azure/databricks/clusters/index)
+* [Trabalhar com blocos de notas](/azure/databricks/notebooks/index)
+* [Criar trabalhos do Spark](/azure/databricks/jobs)
 
  
 

@@ -4,15 +4,16 @@ description: Configure o gerenciamento de leads do Dynamics 365 para o compromis
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 181a3f3a8d3cabb2fdf6caf79cef16201fab0c68
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 37cf613b6e0bd2ec9910dd3e7431c0feaa02431c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177800"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812299"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configurar o gerenciamento de Lead para o Dynamics 365 for Customer Engagement
 
@@ -62,7 +63,7 @@ Use as etapas a seguir para criar a conta de serviço e atribuir permissões. Vo
 >[!Note]
 >Com base na opção de autenticação selecionada, você pode pular para as instruções correspondentes com base em sua escolha. Consulte [Azure Active Directory](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#azure-active-directory) ou [Office 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#office-365).
 
-### <a name="azure-active-directory"></a>Active Directory do Azure
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 Recomendamos essa opção porque você tem o benefício adicional de nunca precisar atualizar seu nome de usuário/senha para continuar a obter clientes potenciais. Para usar a opção Azure Active Directory, forneça a ID do aplicativo, a chave do aplicativo e a ID do diretório do seu aplicativo Active Directory.
 
@@ -93,7 +94,7 @@ Use as etapas a seguir para configurar o Azure Active Directory do Dynamics 365 
 10. Assim que o segredo do cliente for criado com êxito, **Copie o valor do segredo do cliente**. Você não poderá recuperar o valor depois de sair da página. Salve esse valor, pois é o valor do *segredo do cliente* que você precisa fornecer no portal de publicação para receber clientes potenciais para sua oferta do Marketplace. 
 11. Selecione **permissões de API** na navegação à esquerda dos aplicativos e, em seguida, selecione **Adicionar uma permissão**.
 12. Selecione APIs da Microsoft e, em seguida, selecione **Dynamics CRM** como a API.
-13. Em *que tipo de permissões seu aplicativo exige*, verifique se **permissões delegadas** está selecionada. Verifique a permissão para acesso ao **user_impersonation** *Common Data Service como usuários da organização*. Selecione **adicionar permissões**.
+13. Em *que tipo de permissões seu aplicativo exige*, verifique se **permissões delegadas** está selecionada. Verifique a permissão para **user_impersonation** *Common Data Service de acesso como usuários da organização*. Selecione **adicionar permissões**.
 
     ![Adicionar permissões](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
@@ -105,7 +106,7 @@ Use as etapas a seguir para configurar o Azure Active Directory do Dynamics 365 
 
     ![Criar um novo usuário](./media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
 
-19. Em **novo usuário**, verifique se o usuário: O usuário do aplicativo está selecionado. Forneça um nome de usuário, um nomes completo e um endereço de email para aquele que você deseja usar com essa conexão. Além disso, Cole a **ID do aplicativo** para o aplicativo que você criou no portal do Azure da etapa 8. Selecione **salvar e fechar** para concluir a adição do usuário.
+19. Em **novo usuário**, verifique se o usuário usuário: aplicativo está selecionado. Forneça um nome de usuário, um nomes completo e um endereço de email para aquele que você deseja usar com essa conexão. Além disso, Cole a **ID do aplicativo** para o aplicativo que você criou no portal do Azure da etapa 8. Selecione **salvar e fechar** para concluir a adição do usuário.
 
     ![Novo usuário](./media/commercial-marketplace-lead-management-instructions-dynamics/new-user-info.png)
 
@@ -156,11 +157,11 @@ A etapa final é permitir que o usuário que você criou grave os leads.
 
     ![Funções de segurança](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
-7. Uma vez na função de segurança, selecione a guia **registros principais** . Pesquise a entidade "configurações de interface do usuário da entidade de usuários" e habilite as permissões criar, ler e gravar para o usuário (1/4 círculo amarelo) para essa entidade clicando uma vez em cada um dos círculos correspondentes.
+7. Uma vez na função de segurança, selecione a guia **registros de núcleo** . procure a entidade "configurações de interface do usuário da entidade User" e habilite as permissões criar, ler e gravar para o usuário (1/4 círculo amarelo) para essa entidade clicando uma vez em cada um dos círculos correspondentes.
 
     ![Microsoft Marketplace gravador de Lead-registros principais](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer.png)
 
-8. Agora, navegue até a guia **personalização** . Pesquise Tor a entidade "trabalho do sistema" e habilite as permissões de leitura, gravação e acréscimo para a organização (verde estável) para essa entidade clicando quatro vezes em cada um dos círculos correspondentes.
+8. Agora, navegue até a guia **personalização** . pesquise Tor a entidade "trabalho do sistema" e habilite as permissões ler, gravar e acrescentar para a organização (verde estável) para essa entidade clicando quatro vezes em cada um dos círculos correspondentes.
 
     ![Gravador de Lead Microsoft Marketplace-personalização](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 

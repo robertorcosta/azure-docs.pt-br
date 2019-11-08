@@ -7,18 +7,20 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 44a2b0feab19d042de58359a7ea13814415e6c9e
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 5fc9463d5f5ea15f08378d4a0245174a366fa2b9
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129556"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747470"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Fazer backup e restaurar compartilhamentos de arquivos do Azure
+
 Este artigo explica como usar o Portal do Azure para fazer backup e restaurar [compartilhamentos de arquivos do Azure](../storage/files/storage-files-introduction.md) no Azure.
 
 Neste guia, você aprenderá a:
 > [!div class="checklist"]
+>
 > * Configurar um cofre de Serviços de Recuperação para fazer backup de Arquivos do Azure
 > * Executar um trabalho de backup sob demanda para criar um ponto de restauração
 > * Restaurar um ou mais arquivos de um ponto de restauração
@@ -27,22 +29,24 @@ Neste guia, você aprenderá a:
 > * Excluir os dados de backup
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Antes de fazer backup de um compartilhamento de arquivos do Azure, verifique se ele está presente em um dos [tipos de Conta de Armazenamento com suporte](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Depois fazer essa verificação, é possível proteger o compartilhamento dos arquivos.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitações do backup do compartilhamento de arquivos do Azure durante a versão prévia
+
 O backup para compartilhamentos de arquivos do Azure está em versão prévia. Há suporte para compartilhamentos de arquivos do Azure em contas de armazenamento de uso geral v1 e de uso geral v2. Não há suporte para os cenários de backup a seguir para compartilhamentos de arquivos do Azure:
-- O suporte para Backup de Compartilhamentos de Arquivos do Azure em Contas de Armazenamento com replicação de ZRS ([armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md)) está limitado no momento a [estas regiões](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-).
-- Não há nenhuma CLI disponível para a proteção de Arquivos do Azure usando o Backup do Azure.
-- No momento, o Backup do Azure é compatível com a configuração de backups agendados uma vez por dia do Compartilhamento de Arquivos do Azure.
-- A quantidade máxima de backups agendados por dia é de um.
-- A quantidade máxima de backups sob demanda por dia é de quatro.
-- Use [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) na conta de armazenamento para impedir a exclusão acidental de backups em seu cofre dos Serviços de Recuperação.
-- Não exclua os instantâneos criados pelo Backup do Azure. A exclusão de instantâneos pode resultar na perda de pontos de recuperação e/ou em falhas de restauração.
-- Não exclua os compartilhamentos de arquivos protegidos pelo Backup do Azure. A solução atual excluirá todos os instantâneos tirados pelo Backup do Azure após a exclusão do compartilhamento de arquivo e, portanto, perderá todos os pontos de restauração.
 
-
+* O suporte para Backup de Compartilhamentos de Arquivos do Azure em Contas de Armazenamento com replicação de ZRS ([armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md)) está limitado no momento a [estas regiões](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares).
+* Não há nenhuma CLI disponível para a proteção de Arquivos do Azure usando o Backup do Azure.
+* No momento, o Backup do Azure é compatível com a configuração de backups agendados uma vez por dia do Compartilhamento de Arquivos do Azure.
+* A quantidade máxima de backups agendados por dia é de um.
+* A quantidade máxima de backups sob demanda por dia é de quatro.
+* Use [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) na conta de armazenamento para impedir a exclusão acidental de backups em seu cofre dos Serviços de Recuperação.
+* Não exclua os instantâneos criados pelo Backup do Azure. A exclusão de instantâneos pode resultar na perda de pontos de recuperação e/ou em falhas de restauração.
+* Não exclua os compartilhamentos de arquivos protegidos pelo Backup do Azure. A solução atual excluirá todos os instantâneos tirados pelo Backup do Azure após a exclusão do compartilhamento de arquivo e, portanto, perderá todos os pontos de restauração.
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Configurar o backup para um compartilhamento de arquivos do Azure
+
 Este tutorial presume que você já estabeleceu um compartilhamento de arquivos do Azure. Para fazer o backup do compartilhamento de arquivos do Azure:
 
 1. Crie um cofre de Serviços de Recuperação na mesma região que o compartilhamento de arquivos. Caso já tenha um cofre, abra a página de Visão geral do cofre e clique em **Backup**.
@@ -74,6 +78,7 @@ Este tutorial presume que você já estabeleceu um compartilhamento de arquivos 
     Depois de estabelecer uma política de backup, um instantâneo dos Compartilhamentos de Arquivos será executado no horário agendado, e o ponto de recuperação fica retido para o período escolhido.
 
 ## <a name="create-an-on-demand-backup"></a>Criar um backup sob demanda
+
 Ocasionalmente, talvez você queira gerar um instantâneo de backup ou um ponto de recuperação fora dos horários agendados na política de backup. Um horário comum para gerar um backup sob demanda é logo depois de configurar a política de backup. Com base no agendamento na política de backup, pode levar horas ou mesmo dias até que um instantâneo seja tirado. Para proteger seus dados até que a política de backup seja ativada, inicie um backup sob demanda. Muitas vezes, é preciso criar um backup sob demanda antes de fazer alterações planejadas em seus compartilhamentos de arquivos.
 
 ### <a name="to-create-an-on-demand-backup"></a>Para criar um backup sob demanda
@@ -97,11 +102,13 @@ Ocasionalmente, talvez você queira gerar um instantâneo de backup ou um ponto 
 5. Clique em **OK** para confirmar o trabalho de backup sob demanda.
 
 ## <a name="restore-from-backup-of-azure-file-share"></a>Restaurar a partir do backup do compartilhamento de arquivos do Azure
+
 Quer você precise restaurar um compartilhamento de arquivo inteiro, arquivos individuais ou pastas de um Ponto de Restauração, vá até o Item de Backup, conforme detalhado na seção anterior. Escolha **Restaurar Compartilhamento** para restaurar um compartilhamento de arquivo inteiro de um ponto no tempo. Na lista de Pontos de Restauração que aparece, selecione um para ser capaz de Substituir o compartilhamento de arquivos atual ou restaurá-lo para um compartilhamento de arquivo alternativo na mesma região.
 
    ![Clique em Backup para associar o compartilhamento de arquivos do Azure ao cofre](./media/backup-file-shares/select-restore-location.png)
 
 ## <a name="restore-individual-files-or-folders-from-backup-of-azure-file-shares"></a>Restaurar arquivos individuais ou pastas do backup dos compartilhamentos de arquivos do Azure
+
 O Backup do Azure fornece a capacidade de procurar um Ponto de Restauração no Portal do Azure. Para restaurar um arquivo ou a pasta de sua escolha, clique na Recuperação de Arquivo da página de Item de Backup e escolha a partir da lista de Pontos de Restauração. Selecione o Destino de Recuperação e clique em **Selecionar Arquivo** para navegar até o ponto de restauração. Selecione o arquivo ou a pasta de sua escolha e depois **Restaurar**.
 
    ![Clique em Backup para associar o compartilhamento de arquivos do Azure ao cofre](./media/backup-file-shares/restore-individual-files-folders.png)
@@ -109,11 +116,12 @@ O Backup do Azure fornece a capacidade de procurar um Ponto de Restauração no 
 ## <a name="manage-azure-file-share-backups"></a>Gerenciar backups de compartilhamento de arquivos do Azure
 
 Você pode executar várias tarefas de gerenciamento para backups de compartilhamento de arquivos na página **Trabalhos de Backup**, incluindo:
-- [Monitorar trabalhos](backup-azure-files.md#monitor-jobs)
-- [Criar uma nova política](backup-azure-files.md#create-a-new-policy)
-- [Interromper a proteção em um compartilhamento de arquivos](backup-azure-files.md#stop-protecting-an-azure-file-share)
-- [Retomar a proteção em um compartilhamento de arquivos](backup-azure-files.md#resume-protection-for-azure-file-share)
-- [Excluir dados de backup](backup-azure-files.md#delete-backup-data)
+
+* [Monitorar trabalhos](backup-azure-files.md#monitor-jobs)
+* [Criar uma nova política](backup-azure-files.md#create-a-new-policy)
+* [Interromper a proteção em um compartilhamento de arquivos](backup-azure-files.md#stop-protecting-an-azure-file-share)
+* [Retomar a proteção em um compartilhamento de arquivos](backup-azure-files.md#resume-protection-for-azure-file-share)
+* [Excluir dados de backup](backup-azure-files.md#delete-backup-data)
 
 ### <a name="monitor-jobs"></a>Monitorar trabalhos
 
@@ -121,7 +129,7 @@ Você pode monitorar o progresso de todos os trabalhos na página **Trabalhos de
 
 Para abrir a página **Trabalhos de Backup**:
 
-- Abra o cofre de Serviços de Recuperação que deseja monitorar e, no menu Cofre de Serviços de Recuperação, clique em **Trabalhos** e depois em **Trabalhos de Backup**.
+* Abra o cofre de Serviços de Recuperação que deseja monitorar e, no menu Cofre de Serviços de Recuperação, clique em **Trabalhos** e depois em **Trabalhos de Backup**.
 
    ![Selecionar o trabalho que deseja monitorar](./media/backup-file-shares/open-backup-jobs.png)
 
@@ -135,7 +143,7 @@ Para abrir a página **Trabalhos de Backup**:
 
 Para exibir as políticas de backup existentes:
 
-- Abra o cofre de Serviços de Recuperação que deseja e, no menu Cofre de Serviços de Recuperação, clique em **Políticas de backup**. Todas as políticas de backup são listadas.
+* Abra o cofre de Serviços de Recuperação que deseja e, no menu Cofre de Serviços de Recuperação, clique em **Políticas de backup**. Todas as políticas de backup são listadas.
 
    ![Selecionar o trabalho que deseja monitorar](./media/backup-file-shares/list-of-backup-policies.png)
 
@@ -154,8 +162,8 @@ Para criar uma nova política de backup:
 
 Caso opte por interromper a proteção de um compartilhamento de arquivos do Azure, você será perguntado se deseja manter os pontos de recuperação. Há duas maneiras de interromper a proteção de compartilhamentos de arquivos do Azure:
 
-- Parar todos os trabalhos de backup futuros e excluir todos os pontos de recuperação ou
-- Parar todos os trabalhos de backup futuros, mas deixar os pontos de recuperação
+* Parar todos os trabalhos de backup futuros e excluir todos os pontos de recuperação ou
+* Parar todos os trabalhos de backup futuros, mas deixar os pontos de recuperação
 
 Pode haver um custo associado ao deixar os pontos de recuperação no armazenamento, uma vez que os instantâneos subjacentes criados pelo Backup do Azure serão retidos. No entanto, a vantagem de deixar os pontos de recuperação é que você pode restaurar o compartilhamento de arquivos mais tarde, se desejado. Para obter informações sobre o custo de deixar os pontos de recuperação, confira os detalhes de preços. Caso opte por excluir todos os pontos de recuperação, não poderá restaurar o compartilhamento de arquivos.
 
@@ -194,6 +202,8 @@ Você pode excluir o backup de um compartilhamento de arquivo durante a interrup
 O procedimento a seguir pressupõe que o trabalho de backup da máquina virtual foi interrompido. Depois que o trabalho de backup for interrompido, as opções Retomar Backup e Excluir Dados do Backup ficam disponíveis no painel de itens do backup. Clique em Excluir Dados de Backup e digite o nome do compartilhamento de arquivos para confirmar a exclusão. Como opção, forneça um Motivo para a exclusão ou Comentário.
 
 ## <a name="see-also"></a>Veja também
+
 Para saber mais sobre os compartilhamentos de arquivos do Azure, confira
-- [Perguntas frequentes para o backup do compartilhamento de arquivos do Azure](backup-azure-files-faq.md)
-- [Solucionar problemas de backup de compartilhamento de arquivos do Azure](troubleshoot-azure-files.md)
+
+* [Perguntas frequentes para o backup do compartilhamento de arquivos do Azure](backup-azure-files-faq.md)
+* [Solucionar problemas de backup de compartilhamento de arquivos do Azure](troubleshoot-azure-files.md)

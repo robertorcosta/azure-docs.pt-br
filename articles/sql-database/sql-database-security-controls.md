@@ -1,5 +1,5 @@
 ---
-title: Controles de segurança para o banco de dados SQL do Azure
+title: Controles de segurança
 description: Uma lista de verificação de controles de segurança para avaliar o banco de dados SQL do Azure
 services: sql-database
 author: msmbaldwin
@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 77ff55389bac53d8719d86b4ac77f281415af49f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 58070cab1221b9d9585784d82cf1a48afcedb8af
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886596"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802835"
 ---
 # <a name="security-controls-for-azure-sql-database"></a>Controles de segurança para o banco de dados SQL do Azure
 
@@ -51,8 +51,8 @@ O banco de dados SQL inclui [um único banco de dados e uma](sql-database-single
 
 | Controle de segurança | Sim/Não | Observações |
 |---|---|--|
-| Criptografia no lado do servidor em repouso: Chaves gerenciadas pela Microsoft | Sim | Chamado "criptografia em uso", conforme descrito no artigo [Always Encrypted](sql-database-always-encrypted.md). A criptografia do lado do servidor usa a Transparent [Data Encryption](transparent-data-encryption-azure-sql.md).|
-| Criptografia em trânsito:<ul><li>Criptografia do Azure ExpressRoute</li><li>Criptografia em uma rede virtual</li><li>Criptografia entre redes virtuais</ul>| Sim | Usar HTTPS. |
+| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | Chamado "criptografia em uso", conforme descrito no artigo [Always Encrypted](sql-database-always-encrypted.md). A criptografia do lado do servidor usa a [Transparent Data Encryption](transparent-data-encryption-azure-sql.md).|
+| Criptografia em trânsito:<ul><li>Criptografia do Azure ExpressRoute</li><li>Criptografia em uma rede virtual</li><li>Criptografia entre redes virtuais</ul>| Sim | Usando HTTPS. |
 | Criptografia – manipulação de chaves, como CMK ou BYOK| Sim | O tratamento de chaves gerenciado pelo serviço e gerenciado pelo cliente é oferecido. O último é oferecido por meio de [Azure Key Vault](../key-vault/index.yml). |
 | Criptografia em nível de coluna fornecida pelos serviços de dados do Azure| Sim | Por meio de [Always Encrypted](sql-database-always-encrypted.md). |
 | Chamadas de API criptografadas| Sim | Usando HTTPS/SSL. |

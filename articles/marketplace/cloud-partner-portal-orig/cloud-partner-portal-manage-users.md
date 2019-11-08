@@ -1,19 +1,20 @@
 ---
-title: Gerenciando usuários no portal do cloud partner | O Azure Marketplace
+title: Gerenciando usuários no portal de parceiros de nuvem | Azure Marketplace
 description: Gerenciando usuários no portal de parceiros de nuvem
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 manager: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 5a3724729f85b7917b1559ce2ac3d859881e0de8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b14d40e9b3a2aa1ca71335b60e97f15b3782698f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935110"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823274"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Gerenciando usuários no portal de parceiros de nuvem
 ======================================
@@ -37,13 +38,13 @@ Para **adicionar usuários e atribuir funções** para publicação de oferta, s
 
 É possível adicionar o novo usuário como "proprietário" ou "colaborador".
 
-**Email**: adicione os endereços de email dos colegas de equipe que trabalharão na publicação da oferta. Há suporte para IDs da organização e para contas da Microsoft (Outlook, Hotmail e Live).
+**Email**: adicione os endereços de email dos colegas de equipe que trabalham na publicação da oferta. Há suporte para IDs da organização e para contas da Microsoft (Outlook, Hotmail e Live).
 
 o Adicione um 'grupo de segurança/alias do email de grupo/equipe' caso o indivíduo que está trabalhando na oferta saia da organização.
 
 o Certifique-se de que as IDs de email fornecidas no Portal do Cloud Partner são monitoradas para qualquer comunicação da Microsoft.
 
-**Função**: confira a tabela abaixo para identificar o tipo de função de usuário apropriada.
+**Função**: consulte a tabela abaixo para identificar o tipo de função de usuário apropriada.
 
 ![Atribuir função](./media/cloud-partner-portal-how-to-manage-users/assignrole.png)
 ![Nível de funções](./media/cloud-partner-portal-how-to-manage-users/roleaccesslevel.png)
@@ -54,7 +55,7 @@ Atualmente, apenas proprietários podem acessar as guias Pagamentos e Cliente Az
 ----------------------------------------------------------------------------------------------------------------------------
 
 > [!NOTE]
-> Os “nomes de editores” aos quais seu email é adicionado como proprietário ou colaborador são exibidos na lista suspensa Editor para seleção.
+> Os ' nomes de publicador ' para os quais seu email é adicionado como proprietário ou colaborador serão exibidos na lista suspensa do Publicador para seleção. '
 
 ![Atribuir função - selecione publicador](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 

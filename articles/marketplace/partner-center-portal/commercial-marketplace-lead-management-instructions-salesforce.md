@@ -4,15 +4,16 @@ description: Configure o gerenciamento de leads no Salesforce para clientes do A
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: evansma
-ms.openlocfilehash: d941a7902dd374a931147bdaa8f015c46268ee8a
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: bdd3bb50fc69083c73eb01a84bf0fb0db82a8a65
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69901981"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812146"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configurar o gerenciamento de clientes potenciais para o Salesforce
 
@@ -30,10 +31,10 @@ Este artigo descreve como configurar seu sistema Salesforce para processar clien
 
 3. Se você estiver usando a experiência clássica do Salesforce:
     1. Selecione **instalação** na home page do Salesforce.
-    ![Configuração do Salesforce clássico](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-setup.png)
+    ![a instalação clássica do Salesforce](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-setup.png)
 
     1. Na página de instalação, navegue pelo painel de navegação à esquerda para **Build-> Custom-> leads-> Web-to-Lead**.
-    ![Web-to-Lead clássico do Salesforce](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
+    ![](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png) da Web a Lead clássico do Salesforce
 
 O restante das instruções é o mesmo, independentemente da experiência do Salesforce que você está usando.
 
@@ -41,7 +42,7 @@ O restante das instruções é o mesmo, independentemente da experiência do Sal
 5. Em **Instalação do Web-to-Lead**, selecione **Criar Formulário Web-to-Lead**.
     ![Salesforce-configuração da Web para o Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-3.png)
 
-6. No **formulário criar um Web-to-Lead**, verifique se `the Include reCAPTCHA in HTML` a configuração está desmarcada e selecione **gerar**. 
+6. No **formulário criar um Web-to-Lead**, verifique se `the Include reCAPTCHA in HTML` configuração está desmarcada e selecione **gerar**. 
     ![Salesforce-criar um formulário da Web para o Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-4.png)
 
 7. Você verá um texto HTML. Procure o texto "OID" e copie o **valor de OID** do texto HTML (somente o texto entre aspas) e salve-o. Você colará esse valor no campo **identificador da organização** no portal de publicação.
@@ -55,11 +56,11 @@ Quando você estiver pronto para configurar as informações de gerenciamento de
 
 1. Navegue até a página de **instalação da oferta** para sua oferta.
 1. Selecione **conectar** na seção Gerenciamento de leads.
-    ![Gerenciamento de Lead-conectar](./media/commercial-marketplace-lead-management-instructions-salesforce/lead-management-connect.png)
+    gerenciamento de Lead ![-conectar](./media/commercial-marketplace-lead-management-instructions-salesforce/lead-management-connect.png)
 
-1. Na janela pop-up detalhes da conexão, selecione **Salesforce** para o **destino do cliente potencial** e `oid` Cole no formulário da Web para o Lead que você criou seguindo as etapas anteriores no campo **identificador da organização** .
+1. Na janela pop-up detalhes da conexão, selecione **Salesforce** para o **destino do cliente potencial** e cole o `oid` do formulário da Web para o Lead que você criou seguindo as etapas anteriores no campo **identificador da organização** .
 
-1. Clique em **Salvar**. 
+1. Selecione **Salvar**. 
 
     >[!Note]
     >Você deve concluir a configuração do restante da oferta e publicá-la antes de receber clientes potenciais para a oferta.

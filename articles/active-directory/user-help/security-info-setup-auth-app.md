@@ -1,5 +1,5 @@
 ---
-title: Configurar informações de segurança (versão prévia) para usar um aplicativo autenticador – Azure Active Directory | Microsoft Docs
+title: Configurar informações de segurança (versão prévia) para um aplicativo de autenticação-Azure AD
 description: Como configurar as informações de segurança para verificar sua identidade usando o aplicativo Microsoft Authenticator.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 101d478d37055a08a5ced9113e070bf826613bd3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 19f44f4df9e3c17c376830c6a404a21e8a5d67b2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160782"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805074"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Configurar informações de segurança (versão prévia) para usar um aplicativo autenticador
 
@@ -144,7 +144,7 @@ Você tem opções adicionais de como sua organização entra em contato com voc
     >[!Note]
     >Se algumas dessas opções estiverem ausentes, é mais provável que sua organização não permita esses métodos. Se esse for o caso, você precisará escolher um método disponível ou entrar em contato com o administrador para obter mais ajuda.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Entre usando o aplicativo Microsoft Authenticator, as etapas a seguir no artigo [entrar usando a verificação em duas etapas ou informações de segurança](security-info-setup-signin.md) .
 

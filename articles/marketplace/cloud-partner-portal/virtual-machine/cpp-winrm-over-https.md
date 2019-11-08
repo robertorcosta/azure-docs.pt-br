@@ -1,18 +1,19 @@
 ---
-title: Gerenciamento remoto do Windows via HTTPS para o Azure | O Azure Marketplace
-description: Explica como configurar uma VM hospedada no Azure, com base em Windows para que possam ser gerenciado remotamente com o PowerShell.
+title: Gerenciamento Remoto do Windows sobre HTTPS para o Azure | Azure Marketplace
+description: Explica como configurar uma VM do Windows hospedada no Azure para que ela possa ser gerenciada remotamente com o PowerShell.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: pabutler
-ms.openlocfilehash: fb661a2705d437d1f40ceebcad7e759c2a78540f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e159bd9b57b26c99afd590d6a9f2153dba2a205
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938220"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808419"
 ---
 # <a name="windows-remote-management-over-https"></a>Gerenciamento remoto do Windows por HTTPS
 
@@ -22,7 +23,7 @@ Se você tiver criado uma VM usando uma das abordagens "clássicas" do Azure –
 
 - Usando o [portal do Azure](https://portal.azure.com/), normalmente de uma base aprovada, conforme descrito na seção [Criar um VHD compatível com o Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
 - [Usando os modelos do Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
-- Usando o shell de comando do Azure PowerShell ou da CLI do Azure.  Para obter exemplos, confira [Início Rápido: criar uma máquina virtual do Windows no Azure com o PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell) e o [Início Rápido: criar uma máquina virtual do Linux com a CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli).
+- Usando o shell de comando do Azure PowerShell ou da CLI do Azure.  Para obter exemplos, consulte [início rápido: criar uma máquina virtual do Windows no Azure com o PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell) e [o início rápido: criar uma máquina virtual Linux com o CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli).
 
 Esse ponto de extremidade do WinRM também é necessário para executar o kit da ferramenta de certificação para a integração da VM, conforme descrito em [Certificar sua imagem de VM](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm).
 

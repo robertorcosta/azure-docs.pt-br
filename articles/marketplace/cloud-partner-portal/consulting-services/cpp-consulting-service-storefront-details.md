@@ -1,18 +1,19 @@
 ---
-title: Insira os detalhes da vitrine para a oferta de consultoria | O Azure Marketplace
-description: Defina detalhes da vitrine em um Azure ou Dynamics 365 consultoria oferta de serviço no Portal do Cloud Partner.
+title: Inserir detalhes da vitrine para oferta de consultoria | Azure Marketplace
+description: Defina detalhes da vitrine em uma oferta do serviço de consultoria do Azure ou Dynamics 365 no Portal do Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d741361cdeb25d6fc063f95da7bc301178f31fc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942705"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818091"
 ---
 # <a name="storefront-details-tab"></a>Guia Detalhes da Vitrine
 
@@ -30,38 +31,38 @@ Este artigo explica como inserir os detalhes de sua vitrine. A guia **Detalhes d
 
 A seção **Detalhes da Oferta** contém as caixas a seguir:
 
--   **Resumo da oferta\***
+-   **\* de resumo da oferta**
 -   **Descrição da oferta\***
 
 
-### <a name="offer-summary"></a>Resumo da oferta\*
+### <a name="offer-summary"></a>\* de resumo da oferta
 
 O resumo da oferta é uma breve descrição da oferta que aparece logo abaixo do nome dela. Use o texto sem formatação para inserir o resumo da oferta sem nenhuma quebra de linha. Os exemplos a seguir são bons resumos da oferta, juntamente com seus nomes de oferta correspondentes.
 
 *Exemplo 1*
 
--   **Nome da oferta**: Análise de nuvem: workshop de três dias
--   **Resuma da oferta**: visão geral do Microsoft Azure e do Power BI, avaliação do ambiente atual e mini prova de conceito.
+-   **Nome da oferta**: análise de nuvem: Workshop de três dias
+-   **Resumo da oferta**: visão geral de Microsoft Azure e Power bi, avaliação do ambiente atual e mini VDC.
 
 *Exemplo 2*
 
--   **Nome da oferta**: Azure IoT industrial: prova de conceito de 30 dias
--   **Resuma da oferta**: crie um produto industrial piloto conectado para vincular equipamentos em campo com segurança a uma solução de Hub IoT do Azure, com painéis, relatórios e notificações.
+-   **Nome da oferta**: Azure IOT industrial: prova de conceito de 30 dias
+-   **Resumo da oferta**: Crie um piloto de produto conectado por industrial para conectar com segurança o equipamento no campo a uma solução de Hub IOT do Azure com dashboards, relatórios e notificações.
 
 *Exemplo 3*
 
--   **Nome da oferta**: Serviços profissionais: resumo de uma hora
--   **Resuma da oferta**: Visão geral e demonstração da solução Dynamics 365 for Operations estendida e pré-configurada, que oferece gerenciamento avançado de projetos, cobrança e recursos para serviços profissionais.
+-   **Nome da oferta**: serviços profissionais: Resumo de 1 a HR
+-   **Resumo da oferta**: visão geral e demonstração da solução pré-configurada e estendida do Dynamics 365 for Operations que fornece gerenciamento aprimorado de projetos, cobrança e recursos para serviços profissionais.
 
 *Exemplo 4*
 
--   **Nome da oferta**: Power BI no seu mundo: workshop de quatro horas
--   **Resuma da oferta**: coloque seu primeiro painel para funcionar e aprenda as práticas recomendadas. Para até 12 alunos, realizado no local.
+-   **Nome da oferta**: Power bi em seu mundo: Workshop de 4 horas
+-   **Resumo da oferta**: entrar em funcionamento com seu primeiro painel e aprender as práticas recomendadas. Para até 12 alunos, realizado no local.
 
 *Exemplo 5*
 
--   **Nome da oferta**: Dynamics e projetos: avaliação de três dias
--   **Resuma da oferta**: coleta de requisitos e avaliação para uma solução de ERP elaborada para empresas de serviços profissionais e empresas orientadas a projetos.
+-   **Nome da oferta**: Dynamics e projetos: avaliação de 3 dias
+-   **Resumo da oferta**: coleta e avaliação de requisitos para uma solução de ERP projetada para empresas de serviços profissionais e negócios orientados por projeto.
 
 
 ### <a name="offer-description"></a>Descrição da oferta\*
@@ -78,11 +79,11 @@ Mantenha a descrição da oferta breve e respeite o limite de caracteres, pois o
 
 O exemplo a seguir demonstra uma descrição de oferta composta adequadamente, além do nome e do resumo relacionados:
 
-**Nome da oferta**: Análise de nuvem: workshop de três dias
+**Nome da oferta**: análise de nuvem: Workshop de três dias
 
-**Resuma da oferta**: visão geral do Microsoft Azure e do Power BI, avaliação do ambiente atual e mini prova de conceito.
+**Resumo da oferta**: visão geral de Microsoft Azure e Power bi, avaliação do ambiente atual e mini VDC.
 
-**Descrição da oferta:** este workshop de 3 dias é destinado a líderes técnicos e empresariais, sendo realizado no local, nas instalações do cliente.
+**Descrição da oferta**: Este workshop de três dias destina-se a líderes técnicos e de negócios e é mantido no local na instalação do cliente.
 
 Agenda
 
@@ -104,7 +105,7 @@ No final do workshop, o cliente é capaz de definir um plano de alto nível e um
 
 O arquivo Markdown de exemplo a seguir é para a oferta anterior:
 
-    This 3-day workshop is for technical and business leaders and is held on-site at the client’s facility.
+    This 3-day workshop is for technical and business leaders and is held on-site at the client's facility.
 
       ### Agenda
 
@@ -155,15 +156,15 @@ Os cinco tipos de ofertas a seguir estão incluídos:
 -   **Avaliação**: uma avaliação do ambiente de um cliente para determinar a aplicabilidade de uma solução e fornecer uma estimativa de custo e tempo.
 -   **Resumo**: uma introdução a uma solução ou um serviço de consultoria para atrair o interesse do cliente utilizando estruturas, demonstrações e exemplos de clientes. Os resumos devem ser feitos localmente.
 -   **Implementação**: uma instalação completa que resulta em uma solução totalmente funcional. Para este piloto, a Microsoft recomenda limitar a soluções que possam ser implementadas em uma semana ou menos.
--   **Prova de conceito**: uma implementação de escopo limitado para determinar se uma solução atende aos requisitos do cliente.
--   **Workshop**: uma participação interativa realizada nas instalações de um cliente que pode envolver sessões de treinamento, resumos, avaliações ou demonstrações com base nos dados ou no ambiente do cliente.
+-   **Prova de conceito**: uma implementação de escopo limitado para determinar se uma solução atende aos requisitos de um cliente.
+-   **Workshop**: um engajamento interativo realizado nos locais de um cliente que pode incluir sessões de treinamento, resumos, avaliações ou demonstrações criadas nos dados ou no ambiente do cliente.
 
 **Disponibilidade por país/região**
 
 Selecione o país e a região em que essa oferta de serviço de consultoria está disponível. Não é possível publicar uma única oferta em vários países ou regiões. Uma nova oferta precisa ser criada para cada país ou região.
 
 >[!Note]
->Serviços de consultoria do AppSource estão atualmente ativos no Canadá, nos Estados Unidos e no Reino Unido. Você pode enviar uma oferta para um país/região em que ainda não está ativo e será examinada e preparado para entrar no ar. Um número mínimo de ofertas prontos para entrar no ar é necessárias para abrir um novo país/região, portanto, são incentivadas a ofertas para países/regiões que não estão online.
+>Serviços de consultoria do AppSource estão atualmente ativos no Canadá, nos Estados Unidos e no Reino Unido. Você pode enviar uma oferta para um país/região que ainda não esteja ao vivo e ela será revisada e preparada para ficar ativa. Um número mínimo de ofertas prontas para ser ativadas é necessário para abrir um novo país/região, portanto, as ofertas para países/regiões que não estão ao vivo são incentivadas.
 
 **Indústrias**
 

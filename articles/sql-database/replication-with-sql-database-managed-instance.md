@@ -1,5 +1,5 @@
 ---
-title: 'Configurar a replicação em um banco de dados de instância gerenciada do Banco de Dados SQL do Azure '
+title: Configurar a replicação em um banco de dados de instância gerenciada
 description: Aprenda a configurar a replicação transacional em um banco de dados de instância gerenciada do Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 21275ce7716ffc394c1e7445c3f6836f09b44c87
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f303a363fd4d42889e7817273be5d5e5440a2293
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692174"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822583"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurar a replicação em um banco de dados de instância gerenciada do Banco de Dados SQL do Azure
 

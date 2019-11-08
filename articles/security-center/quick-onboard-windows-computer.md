@@ -1,5 +1,5 @@
 ---
-title: Início rápido da Central de Segurança do Azure – integrar seus computadores Windows à Central de Segurança | Microsoft Docs
+title: Integrar computadores Windows à Central de Segurança do Azure
 description: Este guia de início rápido mostra como provisionar o Microsoft Monitoring Agent em um computador com Windows.
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 46fffc40b315109c348247ac09f02f9bb8dbb3b7
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 417d8379d019a9ef0da41638cba4a1f9cb7b8bc2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202788"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686509"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início Rápido: Integrar computadores Windows à Central de Segurança do Azure
 Depois de integrar suas assinaturas do Azure, é possível habilitar a Central de Segurança para recursos sendo executados fora do Azure, por exemplo, no local ou em outras nuvens, por meio do provisionamento do Microsoft Monitoring Agent.
@@ -64,7 +64,7 @@ Agora você deve instalar o arquivo baixado no computador de destino.
 4. Na página **Pasta de Destino**, altere ou mantenha a pasta de instalação padrão e selecione **Avançar**.
 5. Na página **Opções de Instalação do Agente**, escolha conectar o agente ao Azure Log Analytics e selecione **Avançar**.
 6. Na página **Azure Log Analytics**, cole a **ID do Workspace** e a **Chave do Workspace (Chave Primária)** que você copiou para o Bloco de Notas no procedimento anterior.
-7. Caso o computador deva se reportar a um espaço de trabalho do Log Analytics na nuvem do Azure Governamental, selecione o formulário **Azure US Government** na lista suspensa do **Azure Cloud**.  Caso o computador precise se comunicar por meio de um servidor proxy ao serviço Log Analytics, selecione **Avançado** e forneça a URL e o número da porta do servidor proxy.
+7. Caso o computador deva se reportar a um espaço de trabalho do Log Analytics na nuvem do Azure Governamental, selecione o formulário **Azure US Government** na lista suspensa do **Azure Cloud**. Caso o computador precise se comunicar por meio de um servidor proxy ao serviço Log Analytics, selecione **Avançado** e forneça a URL e o número da porta do servidor proxy.
 8. Selecione **Avançar** depois de ter terminado de fornecer as configurações necessárias.
 
    ![Instalar o agente][5]

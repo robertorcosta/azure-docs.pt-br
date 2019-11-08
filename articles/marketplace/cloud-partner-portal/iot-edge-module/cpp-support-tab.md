@@ -1,22 +1,23 @@
 ---
-title: Suporte para um módulo do Azure IoT Edge | O Azure Marketplace
+title: Suporte para um módulo Azure IoT Edge | Azure Marketplace
 description: Opções de suporte para um módulo IoT Edge.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: fba5ac7669f7e2b1cfd3320e813891b5f99551d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe8ff895990471107cfaa229f7b4ced28b477afa
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943167"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813534"
 ---
 # <a name="iot-edge-module-support-tab"></a>Guia de suporte do módulo do IoT Edge
 
-Use a guia **Suporte** da página **Nova oferta** para fornecer recursos técnicos e de suporte ao usuário para sua oferta.  As seguintes áreas de entrada são fornecidas no formulário de suporte: **Contato de engenharia**, **atendimento**, e **dão suporte a Urls**. Um asterisco (*) anexado ao nome do campo indica que é obrigatório.
+Use a guia **Suporte** da página **Nova oferta** para fornecer recursos técnicos e de suporte ao usuário para sua oferta.  As seguintes áreas de entrada são fornecidas no formulário de Suporte: **Contato de Engenharia**, **Suporte ao Cliente** e **URLs de Suporte**. Um asterisco (*) anexado ao nome do campo indica que é obrigatório.
 
 ![Guia Suporte no formulário Nova Oferta para os módulos do IoT Edge](./media/iot-edge-module-support-tab.png)
 

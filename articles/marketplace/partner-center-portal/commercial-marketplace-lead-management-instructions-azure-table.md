@@ -4,15 +4,16 @@ description: Configure o gerenciamento de clientes potenciais para a tabela do A
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 7151be3ac9f55825fd2e9dde35c9afda6a30726a
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 9b24e6eb714c531b49ba08591bf4ed33d0f10101
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902631"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812330"
 ---
 # <a name="configure-lead-management-using-an-azure-table"></a>Configurar o gerenciamento de leads usando uma tabela do Azure
 
@@ -69,7 +70,7 @@ Use este exemplo como um guia para criar um fluxo simples que automaticamente en
 5.  Na janela *criar um fluxo agendado* em *repetir a cada* , selecione "1" para o intervalo e "hora" para frequência. Além disso, dê um nome ao fluxo, se desejar. Selecione **Criar**.
 
     >[!Note]
-    >Embora este exemplo use um intervalo de 1 hora, você pode selecionar o intervalo e a frequência com que é melhor para suas necessidades de negócios.
+    >Embora este exemplo use um intervalo de 1 hora, você pode selecionar o intervalo e a frequência que é melhor para suas necessidades de negócios.
 
     ![Crie um fluxo agendado.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
@@ -88,7 +89,7 @@ Use este exemplo como um guia para criar um fluxo simples que automaticamente en
 >[!TIP] 
 >Você pode verificar seu fluxo a qualquer momento para verificar se cada etapa está configurada corretamente. Para verificar seu fluxo, selecione **Verificador de Fluxo** na barra de menus do Fluxo.
 
-No próximo conjunto de etapas, você vai se conectar à sua tabela do Azure e configurar a lógica de processamento para lidar com novos clientes potenciais.
+No próximo conjunto de etapas, você se conectará à tabela do Azure e configurará a lógica de processamento para lidar com novos clientes potenciais.
 
 9. Após a etapa obter hora anterior, selecione **+ nova etapa**e, em seguida, pesquise "obter entidades" na janela *escolher uma ação* .
 10. Em **ações**, selecione **obter entidades (armazenamento de tabelas do Azure)** .
@@ -96,7 +97,7 @@ No próximo conjunto de etapas, você vai se conectar à sua tabela do Azure e c
 
     * *Nome da conexão* – forneça um nome significativo para a conexão que você está estabelecendo entre esse fluxo e a tabela do Azure.
     * *Nome da conta de armazenamento* – forneça o nome da conta de armazenamento para sua tabela do Azure. Você pode encontrá-la na página chaves de **acesso** da conta de armazenamento.
-    * *Chave de armazenamento compartilhado* – forneça o valor de chave para sua conta de armazenamento para sua tabela do Azure. Você pode encontrá-la na página chaves de **acesso** da conta de armazenamento.
+    * *Chave de armazenamento compartilhado* -forneça o valor de chave para sua conta de armazenamento para sua tabela do Azure. Você pode encontrá-la na página chaves de **acesso** da conta de armazenamento.
 
         ![Armazenamento de Tabelas do Azure.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
@@ -106,7 +107,7 @@ No próximo conjunto de etapas, você vai se conectar à sua tabela do Azure e c
 
             ![Entidades Get de tabela do Azure.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-        * *Consulta de filtro* – Selecione este campo e cole essa função no campo:`Timestamp gt datetime'@{body('Get_past_time')}'`
+        * *Consulta de filtro* – Selecione este campo e cole essa função no campo: `Timestamp gt datetime'@{body('Get_past_time')}'`
 
             ![Tabela do Azure obter entidades-filtrar querry.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
@@ -121,14 +122,14 @@ No próximo conjunto de etapas, você vai se conectar à sua tabela do Azure e c
 15. Cole `length(body('Get_entities')?['value'])` no campo ***fx***. Selecione **OK** para adicionar essa função. 
 
 16. Ao terminar de configurar a condição:
-    1. Escolha “é maior que” na lista suspensa.
+    1. Selecione "é maior que" na lista suspensa.
     2. Digite 0 como o valor
 
         ![Tabela-condição do Azure.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition.png)
 
 Nas próximas etapas, você configurará a ação a ser tomada com base no resultado da condição.
 
-* Se a condição for resolvida para **Se nenhum**, não faça nada.
+* Se a condição for resolvida como **se não**, não faça nada.
 * Se a condição for resolvida para **Em caso afirmativo**, dispare uma ação que conecta sua conta do Office 365 para enviar um email. 
 
 17. Selecione **Adicionar uma ação** em **se sim**.
@@ -145,7 +146,7 @@ Nas próximas etapas, você configurará a ação a ser tomada com base no resul
 19. Na janela do **Outlook do Office 365** , forneça informações para os seguintes campos:
 
     1. **Para** -Insira um endereço de email para todos que obterão essa notificação.
-    1. **Assunto** – Indique o assunto do email. Por exemplo: Novos clientes potenciais!
+    1. **Assunto** -forneça um assunto para o email. Por exemplo: novos leads!
     1. **Corpo** – adicione o texto que você deseja incluir em cada email (opcional) e cole no corpo `body('Get_entities')?['value']`.
 
     >[!Note]
@@ -153,7 +154,7 @@ Nas próximas etapas, você configurará a ação a ser tomada com base no resul
 
     ![Tabela do Azure-condição, * * se Sim * *, janela do Outlook do Office 365.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-outlook.png)
 
-20. Selecione **Salvar** para salvar o fluxo. O Microsoft Flow automaticamente irá testar o fluxo de erros. Se não houver erros, o fluxo começa a ser executado depois que é salvo.
+20. Selecione **Salvar** para salvar o fluxo. O Microsoft Flow automaticamente irá testar o fluxo de erros. Se não houver nenhum erro, seu fluxo começará a ser executado após ser salvo.
 
 A próxima captura de tela mostra um exemplo de como o fluxo final deve parecer.
 
@@ -161,13 +162,13 @@ A próxima captura de tela mostra um exemplo de como o fluxo final deve parecer.
 
 ### <a name="manage-your-flow"></a>Gerenciar seu fluxo
 
-É fácil gerenciar seu fluxo depois que ser executado. Você tem controle total sobre seu fluxo. Por exemplo, você pode interrompê-lo, editá-lo, ver um histórico e obter análises. A próxima captura de tela mostra as opções que estão disponíveis para gerenciar um fluxo. 
+O gerenciamento do fluxo após sua execução é fácil. Você tem controle total sobre seu fluxo. Por exemplo, você pode interrompê-lo, editá-lo, ver um histórico e obter análises. A próxima captura de tela mostra as opções que estão disponíveis para gerenciar um fluxo. 
 
  ![Gerenciar um fluxo](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-manage-completed.png)
 
 O fluxo continua em execução até você pará-lo usando a opção **Desativar fluxo**.
 
-Se você não estiver recebendo quaisquer notificações de email de cliente potencial, significa que novos clientes potenciais ainda não foram adicionados à tabela do Azure. Se houver quaisquer falhas de fluxo, você receberá um email semelhante ao exemplo na próxima captura de tela.
+Se você não estiver obtendo notificações por email de Lead, isso significa que novos clientes potenciais não foram adicionados à tabela do Azure. Se houver alguma falha de fluxo, você receberá um email como o exemplo na próxima captura de tela.
 
  ![Notificação de e-mail de falha de fluxo](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-failure-note.png)
 
@@ -178,7 +179,7 @@ Quando você estiver pronto para configurar as informações de gerenciamento de
 1. Navegue até a página de **instalação da oferta** para sua oferta.
 2. Selecione **conectar** na seção Gerenciamento de leads.
 3. Na janela pop-up detalhes da conexão, selecione **tabela do Azure** para o **destino do cliente potencial**e cole a cadeia de conexão da conta de armazenamento do Azure criada seguindo as etapas anteriores na **cadeia de conexão da conta de armazenamento** campo.
-4. Clique em **Salvar**. 
+4. Selecione **Salvar**. 
 
 >[!Note]
 >Você deve concluir a configuração do restante da oferta e publicá-la antes de receber clientes potenciais para a oferta.

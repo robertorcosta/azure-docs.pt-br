@@ -1,18 +1,19 @@
 ---
-title: Publicar oferta de módulo do Azure IoT Edge | O Azure Marketplace
+title: Publicar Azure IoT Edge oferta do módulo | Azure Marketplace
 description: Como publicar uma oferta de módulo do IoT Edge.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pabutler
-ms.openlocfilehash: c853bd3bad9f02f6824c26fb5d18e9e59d921fe8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2310d7a7cad16009bbb58469190a77eedb0619f8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942056"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813826"
 ---
 # <a name="publish-iot-edge-module-offer"></a>Publicar oferta de módulo do IoT Edge
 
@@ -32,7 +33,7 @@ A tabela a seguir descreve cada etapa de publicação, com um tempo estimado (m�
 |  -------------------           | --------    | ---------------                                                            |
 | Validar os pré-requisitos         | 15 min   | Informações de oferta e configurações de oferta são validadas.                        |
 | Certificação                  | 2 semanas | A oferta é analisada pela equipe de certificação do Azure. Esta etapa realizará varreduras por vírus, malware, conformidade de segurança e problemas de segurança. Ele verificará se essa oferta de módulo do IoT Edge atende a todos os critérios de qualificação (consulte [pré-requisitos](./cpp-prerequisites.md) e [Preparando seus ativos técnicos](./cpp-create-technical-assets.md)). Comentários serão fornecidos se um problema for encontrado. |
-| Empacotamento | 1 hora  | Os recursos técnicos da oferta são empacotados para uso do cliente e os sistemas de leads são configurados e configurados. |
+| Empacotamento | 1 hora  | Os ativos técnicos da oferta são empacotados para uso do cliente e os sistemas de Lead são configurados e definidos. |
 |  O editor termina             |  -        | Revisão final do editor e confirmação antes que a oferta seja publicada. Você pode implantar sua oferta nas assinaturas selecionadas (nas etapas a informações de oferta) para verificar se ele atende a todos os seus requisitos.  Selecione **Go Live** para que sua oferta possa passar para a próxima etapa. |
 | Empacotamento                 | 1 hora | A oferta finalizada é replicada nos sistemas e regiões de produção do mercado. | 
 | Live                           | 4 dias |A oferta é lançada, replicada para as regiões exigidas e disponibilizada ao público. |

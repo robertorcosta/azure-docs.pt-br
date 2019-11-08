@@ -1,18 +1,19 @@
 ---
-title: Criar uma conta Microsoft Developer | O Azure Marketplace
+title: Criar uma conta de desenvolvedor da Microsoft | Azure Marketplace
 description: Requisitos e etapas para criar uma conta de Desenvolvedor da Microsoft.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 4fde5d81fb97bec23fdb46ff53b05874c88d9d67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 522caa53123ad5ccb8076839d2dfa7dc1236b022
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935855"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818420"
 ---
 <a name="create-a-microsoft-developer-account"></a>Criar uma conta de Desenvolvedor da Microsoft
 ====================================
@@ -99,7 +100,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
    ![Selecionar país/região](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >"De origem de venda" países/regiões: Para vender seus serviços no Azure Marketplace, sua entidade registrada precisa ser um dos aprovados "de origem de venda" países/regiões mostrados na lista suspensa. Essa restrição é por razões de pagamento e tributação. Para saber mais, confira as políticas de participação no Marketplace.
+    >"Vender-de" países/regiões: para vender seus serviços no Azure Marketplace, sua entidade registrada precisa ser de um dos países/regiões "vender-de" aprovados mostrados na lista suspensa. Essa restrição é por razões de pagamento e tributação. Para saber mais, confira as políticas de participação no Marketplace.
 
 5. Selecione **Empresa** como seu "Tipo de conta" e selecione **Avançar**.
 

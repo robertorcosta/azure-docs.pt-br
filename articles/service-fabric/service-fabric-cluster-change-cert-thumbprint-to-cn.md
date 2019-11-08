@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2019
 ms.author: atsenthi
-ms.openlocfilehash: 3618339349d618b371a40d3b37ebc30192c067ca
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 25aaad02cf8c90c67e87d49553a02cacf033281f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764818"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819483"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Alterar o cluster de impressão digital do certificado para nome comum
 Dois certificados não podem ter a mesma impressão digital, o que dificulta a substituição ou gerenciamento de certificados de cluster. Vários certificados, no entanto, podem ter o mesmo nome comum ou assunto.  Alternar um cluster implantado do uso de impressões digitais de certificado para o uso de nomes comuns do certificado simplifica muito o gerenciamento de certificados. Este artigo descreve como atualizar um cluster do Service Fabric em execução para usar o nome comum do certificado em vez da impressão digital do certificado.
@@ -188,6 +188,8 @@ Em seguida, abra o arquivo de modelo em um editor de texto e faça três atualiz
             },
         ...
     ```
+
+Para obter informações adicionais, consulte [alterar cluster da impressão digital do certificado para nome comum.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn)
 
 ## <a name="deploy-the-updated-template"></a>Implantar o modelo atualizado
 Reimplante o modelo atualizado após fazer as alterações.

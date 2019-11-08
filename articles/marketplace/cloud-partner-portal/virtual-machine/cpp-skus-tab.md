@@ -4,15 +4,16 @@ description: Descreve a guia SKUs usada na criação de uma oferta de máquina v
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: dceb82af73061b91676ffb7061c7495995e76667
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 101f928e296d0b48b4e077676393772829aa76ab
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868715"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808979"
 ---
 # <a name="virtual-machine-skus-tab"></a>Guia de SKUs de máquina virtual
 
@@ -27,7 +28,7 @@ Inicialmente, uma nova oferta não terá quaisquer SKUs associadas, assim você 
 
 <br/>
 
-A caixa de diálogo **Mova SKU** é exibida.  Insira o identificador para a nova SKU, em seguida, clique em **OK**. (consulte abaixo para convenções de nomenclatura de identificador).  As **SKUs** agora exibem os campos disponíveis para edição.    Um asterisco anexado (*) no nome do campo indica que isso é necessário.
+A caixa de diálogo **Mova SKU** é exibida.  Insira o identificador para a nova SKU, em seguida, clique em **OK**. (Veja abaixo as convenções de nomenclatura de identificadores.)  Agora, a guia **SKUs** exibirá os campos disponíveis para edição.    Um asterisco anexado (*) no nome do campo indica que isso é necessário.
 
 <!-- TD: This tab has been updated, now has "Old Pricing" and "Simplified Currency Pricing" sections"! -->
 
@@ -40,19 +41,19 @@ A tabela a seguir descreve a finalidade, o conteúdo e a formatação desses cam
 |  **Campo**       |     **Descrição**                                                          |
 |  ---------       |     ---------------                                                          |
 |  *Configurações de SKU*   |    |
-| **ID DO SKU\***       | Identificador dessa SKU.  Esse nome tem um máximo de 50 caracteres, consistindo em caracteres alfanuméricos minúsculos ou traços (-), mas não pode terminar com um traço.  Não pode ser modificado depois que a oferta é publicada.  |
+| **ID do SKU\***       | Identificador dessa SKU.  Esse nome tem um máximo de 50 caracteres, consistindo em caracteres alfanuméricos minúsculos ou traços (-), mas não pode terminar com um traço.  Não pode ser modificado depois que a oferta é publicada.  |
 |  *Detalhes da SKU*   |  |
 | **Título\***        | Nome amigável para a oferta para exibição no marketplace. Comprimento máximo de 50 caracteres. |
-| **Resumo\***      | Descrição sucinta da oferta para exibição no marketplace. Comprimento máximo de 100 caracteres. |
+| **\* de resumo**      | Descrição sucinta da oferta para exibição no marketplace. Comprimento máximo de 100 caracteres. |
 | **Descrição\***  | Texto de descrição que fornece uma explicação mais detalhada da oferta.  <!-- TD: max len/guidance? 3k characters -->  |
-| **Ocultar esta SKU\*** | Indica se o SKU deve estar visível no mercado para os clientes.  Você talvez queira ocultar a SKU se só a quiser disponível por meio de modelos de solução e não para compra individualmente.  Também pode ser útil para testes iniciais ou para ofertas temporárias ou sazonais. |
-| **Disponibilidade na nuvem\*** | Determina em quais nuvens SKU deve estar disponível.  O padrão é a versão pública do Azure.  O Microsoft Azure Governamental é uma nuvem comunitária do governo com acesso controlado para o Governo Federal, estado, governos locais ou tribais e seus parceiros certificados.  Para obter mais informações sobre a nuvem governamental, consulte [Bem-vindo ao Azure Governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). |
+| **Ocultar este\* de SKU** | Indica se o SKU deve estar visível no mercado para os clientes.  Você talvez queira ocultar a SKU se só a quiser disponível por meio de modelos de solução e não para compra individualmente.  Também pode ser útil para testes iniciais ou para ofertas temporárias ou sazonais. |
+| **\* de disponibilidade na nuvem** | Determina em quais nuvens SKU deve estar disponível.  O padrão é a versão pública do Azure.  O Microsoft Azure Governamental é uma nuvem comunitária do governo com acesso controlado para o Governo Federal, estado, governos locais ou tribais e seus parceiros certificados.  Para obter mais informações sobre a nuvem governamental, consulte [Bem-vindo ao Azure Governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). |
 | **Este é um SKU privado?\*** | Indica se a SKU é pública ou privada. O padrão é **Não** (público).  Para obter mais informações, consulte [SKUs Públicas e Privadas](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md). |
 | **Disponibilidade de país/região\*** | Determina quais países ou regiões do mundo a SKU estará disponível para compra. Selecione pelo menos um país/região. <!-- TD: Is this parameter an AMP visibility control or a contractual one, or both? --> |  
 |  *Preços*   |  |
-| **Modelo de licença\***| Modelo de cobrança padronizado para usar.  Se você selecionar **SKU cobrada numa base mensal**, uma seção accordion será aberta para permitir que você especifique os detalhes de preço por núcleo e se você desejar oferecer um período de avaliação gratuita.  Esta seção também permite que você exporte e importe esse agendamento de preços para o Excel. Para obter mais informações, consulte [Opções de cobrança no Azure Marketplace](../../billing-options-azure-marketplace.md). | 
+| **\* do modelo de licença**| Modelo de cobrança padronizado para usar.  Se você selecionar **SKU cobrada numa base mensal**, uma seção accordion será aberta para permitir que você especifique os detalhes de preço por núcleo e se você desejar oferecer um período de avaliação gratuita.  Esta seção também permite que você exporte e importe esse agendamento de preços para o Excel. Para obter mais informações, consulte [Opções de cobrança no Azure Marketplace](../../billing-options-azure-marketplace.md). | 
 |  *Imagens de VM*   |  |
-| **Família do sistema operacional\*** | Indica se a VM de solução é baseada em Windows ou Linux. |
+| **\* da família do sistema operacional** | Indica se a VM de solução é baseada em Windows ou Linux. |
 | **Selecione o tipo de Sistema Operacional** | Fornecedor específico ou a versão do sistema operacional especificado. |
 | **Nome amigável do sistema operacional\*** | Nome do sistema operacional a ser exibido para os clientes.  |
 | **Tamanhos de VM recomendados\*** | Habilita a seleção de até seis tamanhos de VM recomendados de uma lista padronizada.  Essa lista é passada para o portal do Azure e o Microsoft Marketplaces.  O primeiro tamanho de VM nessa lista que é válido (para essa assinatura de cliente, região, zona etc.) é definido como o padrão para esse cliente potencial.  O usuário pode alterar esse tamanho para qualquer compatível com a imagem da solução. | 
@@ -81,11 +82,11 @@ A partir de 1º de setembro de 2018, uma nova seção chamada **Precificação s
 
 ### <a name="additional-information-on-taxes-and-prices"></a>Informações adicionais sobre impostos e preços
 
-* A Microsoft classifica alguns países/regiões como países remetidos pelo *imposto*.  Em tais países/regiões, a Microsoft coleta impostos de clientes, em seguida, paga (remete) impostos para o governo.  Em outros países/regiões, os parceiros são normalmente responsáveis por coletar impostos de seus clientes e pagar impostos para o governo. Se você optar por vender nos últimos países/regiões, deverá ter a capacidade de calcular e pagar impostos locais.  <!-- TD: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps -->
+* A Microsoft classifica alguns países/regiões como *países remetidos pelo imposto*.  Em tais países/regiões, a Microsoft coleta impostos de clientes, em seguida, paga (remete) impostos para o governo.  Em outros países/regiões, os parceiros são normalmente responsáveis por coletar impostos de seus clientes e pagar impostos para o governo. Se você optar por vender nos últimos países/regiões, deverá ter a capacidade de calcular e pagar impostos locais.  <!-- TD: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps -->
 * Os preços não são alteráveis depois que uma oferta entra no ar. Porém, ainda será possível adicionar/remover regiões com suporte. 
 * A Microsoft cobra do cliente da VM do Azure padrão as taxas de uso, além dos valores de SKUs programados.
 * Os preços são definidos para todas as regiões em moeda local nas taxas de moeda disponíveis no momento da definição de preços.  <!-- TD: Meaning? - Offer created, published, other? -->
-* Para definir o preço de cada região individualmente, exporte a planilha de preços, aplicar preços personalizados e importar. 
+* Para definir o preço de cada região individualmente, exporte a planilha de preços, aplique preços personalizados e importe. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

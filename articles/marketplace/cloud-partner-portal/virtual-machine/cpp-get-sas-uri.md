@@ -4,15 +4,16 @@ description: Explica como obter o URI de assinatura de acesso compartilhado (SAS
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: c242fbcd19187abb608ca80a49d04dae195bd7c6
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: dda074d81857247a922eb7a179b33aa2593e5bf8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374363"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824484"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtenha o URI de assinatura de acesso compartilhado para suas imagens VM
 
@@ -33,7 +34,7 @@ A URL de SAS pode ser gerada de duas maneiras comuns usando as seguintes ferrame
 -   CLI do Azure - recomendado para ambientes de integração contínua ou automatizada e sistemas operacionais Windows
 
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI do Azure
 
 Use as etapas a seguir para gerar um URI de SAS com a CLI do Azure.
 
@@ -129,6 +130,6 @@ Revise e verifique se que cada URI SAS gerado usando a seguinte lista de verific
 - Copie e cole o URI em um navegador para começar a fazer o download do blob associado.  (você pode cancelar a operação antes que o download seja concluído)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você estiver tendo dificuldades para gerar um URI de SAS, consulte [URL de SAS comum emite](./cpp-common-sas-url-issues.md).  Caso contrário, salve as URI(s) a SAS para um local seguro para uso posterior. Será necessário [publicar sua oferta VM](./cpp-publish-offer.md) no Portal do Cloud Partner.

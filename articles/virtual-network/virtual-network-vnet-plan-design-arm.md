@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: f7f45e479ad21b27832573b73a5e09e8da1b37b1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 47da2524f719e53edcbd89686a1a0b76fa6e79cd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756125"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802721"
 ---
 # <a name="plan-virtual-networks"></a>Planejar redes virtuais
 
@@ -27,7 +27,7 @@ Criar uma rede virtual para fazer experiências com ela é bastante simples, mas
 
 ## <a name="naming"></a>Nomenclatura
 
-Todos os recursos do Azure têm um nome. O nome deve ser exclusivo dentro de um escopo, o que pode variar para cada tipo de recurso. Por exemplo, o nome de uma rede virtual deve ser exclusivo dentro de um [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), mas pode ser duplicado em uma [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) ou região do [Azure](https://azure.microsoft.com/regions/#services). Definir uma convenção de nomenclatura que você pode usar consistentemente ao nomear recursos é útil ao gerenciar vários recursos de rede ao longo do tempo. Para sugestões, consulte [Convenções de nomenclatura](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#virtual-networking).
+Todos os recursos do Azure têm um nome. O nome deve ser exclusivo dentro de um escopo, o que pode variar para cada tipo de recurso. Por exemplo, o nome de uma rede virtual deve ser exclusivo dentro de um [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), mas pode ser duplicado em uma [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) ou região do [Azure](https://azure.microsoft.com/regions/#services). Definir uma convenção de nomenclatura que você pode usar consistentemente ao nomear recursos é útil ao gerenciar vários recursos de rede ao longo do tempo. Para sugestões, consulte [Convenções de nomenclatura](/azure/architecture/best-practices/resource-naming#networking).
 
 ## <a name="regions"></a>Regiões
 
@@ -115,6 +115,6 @@ O Azure Policy habilita que você crie, atribua ou gerencie definições de pol�
 
 As políticas são aplicadas à hierarquia a seguir: grupo de gerenciamento, assinatura e grupo de recursos. Saiba mais sobre os modelos da [política do Azure](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou implantar uma rede virtual [modelo de política](policy-samples.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre todas as tarefas, configurações e opções para uma [rede virtual](manage-virtual-network.md), [sub-rede e ponto de extremidade de serviço](virtual-network-manage-subnet.md), [adaptador de rede](virtual-network-network-interface.md), [emparelhamento](virtual-network-manage-peering.md),  [grupo de segurança de aplicativo e rede](manage-network-security-group.md) ou [tabelas de rotas](manage-route-table.md).

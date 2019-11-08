@@ -4,15 +4,16 @@ description: Problemas de controle de versão, tratamento de erro e autorizaçã
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 762c90b62ed2a9347ae88a50a11bfe02f3b23ba4
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 07cdb5e44dde0ca655191111d0a23dbab85b4cb2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162659"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819736"
 ---
 # <a name="api-considerations"></a>Considerações sobre API
 
@@ -35,7 +36,7 @@ A resposta a uma solicitação com uma versão de API desconhecida ou inválida 
     }
 ```            
 
-<a name="errors"></a>Errors
+<a name="errors"></a>Erros
 ------
 
 A API responde a erros com os códigos de status HTTP correspondentes e, opcionalmente, informações adicionais na resposta serializada como JSON.

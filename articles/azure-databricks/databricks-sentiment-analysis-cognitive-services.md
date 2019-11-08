@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 9070c19c668529fac5edea5b4d233361043de16d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 12e6d292779d497d907bb68eece3fc2338f072fd
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469554"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602056"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análise de sentimento em dados de transmissão usando o Azure Databricks
 
@@ -640,4 +640,5 @@ Neste tutorial, você aprendeu a usar o Azure Databricks para transmitir dados p
 Avance para o próximo tutorial a fim de saber mais sobre como executar tarefas de aprendizado de máquina usando o Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Aprendizado de máquina usando o Azure Databricks](https://docs.azuredatabricks.net/applications/machine-learning/index.html)
+>[Aprendizado de máquina usando o Azure Databricks](/azure/databricks/applications/machine-learning/mllib/decision-trees)
+

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: bade2e7ac53277b2e23e8cf6847cc30940cd4819
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b72be7026b0b8077cf5bf9f775d10fd03edd9118
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666824"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815630"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referência de Script do JSON
 > [!NOTE]
@@ -378,7 +378,7 @@ Clique no link para o armazenamento no qual você está interessado em ver os es
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Banco de Dados SQL do Azure](#azure-sql-database) |
 | &nbsp; |[SQL Data Warehouse do Azure](#azure-sql-data-warehouse) |
-| &nbsp; |[Azure Search](#azure-search) |
+| &nbsp; |[Pesquisa Cognitiva do Azure](#azure-cognitive-search) |
 | &nbsp; |[Armazenamento de Tabelas do Azure](#azure-table-storage) |
 | **Bancos de dados** |[Amazon Redshift](#amazon-redshift) |
 | &nbsp; |[IBM DB2](#ibm-db2) |
@@ -1279,15 +1279,15 @@ Se você estiver copiando dados de um SQL Data Warehouse do Azure, defina o **si
 
 Para obter mais informações, consulte o artigo [Conector do SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties).
 
-## <a name="azure-search"></a>Azure Search
+## <a name="azure-cognitive-search"></a>Pesquisa Cognitiva do Azure
 
 ### <a name="linked-service"></a>Serviço vinculado
-Para definir um serviço vinculado do Azure Search, defina o **type** do serviço vinculado para **AzureSearch**e especifique as propriedades a seguir na seção **typeProperties**:
+Para definir um serviço vinculado do Azure Pesquisa Cognitiva, defina o **tipo** do serviço vinculado para **AzureSearch**e especifique as propriedades a seguir na seção **typeproperties** :
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | -------- | ----------- | -------- |
-| url | URL para o serviço Azure Search. | Sim |
-| chave | Chave de administração para o serviço Azure Search. | Sim |
+| url | URL para o serviço de pesquisa. | Sim |
+| chave | Chave de administração para o serviço de pesquisa. | Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -1304,15 +1304,15 @@ Para definir um serviço vinculado do Azure Search, defina o **type** do serviç
 }
 ```
 
-Para obter mais informações, consulte o artigo [Conector do Azure Search](data-factory-azure-search-connector.md#linked-service-properties).
+Para obter mais informações, consulte o artigo [conector de pesquisa cognitiva do Azure](data-factory-azure-search-connector.md#linked-service-properties) .
 
 ### <a name="dataset"></a>Conjunto de dados
-Para definir um conjunto de dados do Azure Search, defina o **type** do conjunto de dados para **AzureSearchIndex** e especifique as propriedades a seguir na seção **typeProperties**:
+Para definir um conjunto de Pesquisa Cognitiva do Azure, defina o **tipo** do conjunto de um como **AzureSearchIndex**e especifique as propriedades a seguir na seção **typeproperties** :
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | -------- | ----------- | -------- |
 | Tipo | A propriedade type deve ser definida como: **AzureSearchIndex**.| Sim |
-| indexName | Nome do índice do Azure Search. O Data Factory não cria o índice. O índice deve existir no Azure Search. | Sim |
+| indexName | Nome do índice de pesquisa. O Data Factory não cria o índice. O índice deve existir no Pesquisa Cognitiva do Azure. | Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -1333,15 +1333,15 @@ Para definir um conjunto de dados do Azure Search, defina o **type** do conjunto
 }
 ```
 
-Para obter mais informações, consulte o artigo [Conector do Azure Search](data-factory-azure-search-connector.md#dataset-properties).
+Para obter mais informações, consulte o artigo [conector de pesquisa cognitiva do Azure](data-factory-azure-search-connector.md#dataset-properties) .
 
-### <a name="azure-search-index-sink-in-copy-activity"></a>Coletor do Índice do Azure Search na Atividade de Cópia
-Se você estiver copiando dados para um índice do Azure Search, defina o **sink type** da atividade de cópia para **AzureSearchIndexSink** e especifique as propriedades a seguir na seção **sink**:
+### <a name="azure-cognitive-search-index-sink-in-copy-activity"></a>Coletor de índice de Pesquisa Cognitiva do Azure na atividade de cópia
+Se você estiver copiando dados para um índice de pesquisa, defina o **tipo de coletor** da atividade de cópia como **AzureSearchIndexSink**e especifique as propriedades a seguir na seção **Sink** :
 
 | Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Especifica se deve mesclar ou substituir quando já existe um documento no índice. | Merge (padrão)<br/>Carregar| Não |
-| WriteBatchSize | Carrega dados para o índice do Azure Search quando o tamanho do buffer atinge writeBatchSize. | 1 a 1.000. O valor padrão é 1000. | Não |
+| WriteBatchSize | Carrega dados no índice de pesquisa quando o tamanho do buffer atinge writeBatchSize. | 1 a 1.000. O valor padrão é 1000. | Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -1386,7 +1386,7 @@ Se você estiver copiando dados para um índice do Azure Search, defina o **sink
 }
 ```
 
-Para obter mais informações, consulte o artigo [Conector do Azure Search](data-factory-azure-search-connector.md#copy-activity-properties).
+Para obter mais informações, consulte o artigo [conector de pesquisa cognitiva do Azure](data-factory-azure-search-connector.md#copy-activity-properties) .
 
 ## <a name="azure-table-storage"></a>Armazenamento de Tabelas do Azure
 

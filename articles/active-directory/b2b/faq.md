@@ -1,23 +1,23 @@
 ---
-title: Colaboração do B2B perguntas frequentes — Azure Active Directory | Microsoft Docs
+title: Perguntas frequentes sobre colaboração B2B-Azure Active Directory | Microsoft Docs
 description: Obtenha respostas para as perguntas frequentes sobre a colaboração B2B do Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 04/10/2019
+ms.date: 11/07/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 523f1adc94870f79d198366059f33ad52f5dad68
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 2fd72aea9087b03dcd5c6072676e8f98e7cfc1ee
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293066"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816459"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Perguntas frequentes sobre a colaboração B2B do Azure Active Directory
 
@@ -42,30 +42,36 @@ Sim. Os usuários convidados podem redefinir seu método de autenticação multi
 A organização emissora do convite realiza a autenticação multifator. Ela deve garantir que a organização tem licenças suficientes para seus usuários B2B que estão usando a autenticação multifator.
 
 ### <a name="what-if-a-partner-organization-already-has-multi-factor-authentication-set-up-can-we-trust-their-multi-factor-authentication-and-not-use-our-own-multi-factor-authentication"></a>E se uma organização de parceiros já tiver a autenticação multifator configurada? Podemos confiar em sua autenticação multifator e não usar nossa própria autenticação multifator?
-Esse recurso não é suportado atualmente. Se o acesso aos recursos da sua organização exigir a autenticação multifator, será necessário se registrar para a autenticação multifator na organização do parceiro de sua (o convidando) organização.
+Não há suporte para este recurso no momento. Se o acesso aos recursos de sua organização exigir a autenticação multifator, a organização parceira precisará se registrar para a autenticação multifator na organização (a convite).
 
 ### <a name="how-can-i-use-delayed-invitations"></a>Como fazer para usar convites atrasados?
 Talvez uma organização queira adicionar usuários de colaboração B2B, provisioná-los aos aplicativos conforme necessário e, em seguida, enviar convites. Use a API de convite de colaboração B2B para personalizar o fluxo de trabalho de integração.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>É possível tornar os usuários convidados visíveis na Lista de Endereços Global do Exchange?
-Sim. Objetos de convidado não são visíveis na lista de endereços global (GAL) da sua organização por padrão, mas você pode usar o Azure Active Directory PowerShell para torná-las visíveis. Consulte [posso tornar objetos convidado visível na lista de endereços global?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list)
+Sim. Os objetos convidados não são visíveis na GAL (lista de endereços global) de sua organização por padrão, mas você pode usar Azure Active Directory PowerShell para torná-los visíveis. Veja posso [tornar os objetos convidados visíveis na lista de endereços global?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>Posso tornar um usuário convidado um administrador limitado?
 Com certeza. Para obter mais informações, consulte [Adicionando usuários convidados a uma função](add-guest-to-role.md).
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>A colaboração do Azure AD B2B permite que os usuários B2B tenham acesso ao portal do Azure?
-A menos que um usuário é atribuído a função de administrador limitado, os usuários de colaboração B2B não precisarão de acesso ao portal do Azure. No entanto, os usuários de colaboração de B2B que recebem a função de administrador limitado podem acessar o portal. Além disso, se um usuário convidado que não tenha uma dessas funções administrativas acessa o portal, o usuário poderá acessar determinadas partes da experiência. A função de usuário convidado tem algumas permissões no diretório.
+A menos que um usuário receba a função de administrador limitado, os usuários de colaboração B2B não precisarão acessar o portal do Azure. No entanto, os usuários de colaboração B2B que recebem a função de administrador limitado podem acessar o Portal. Além disso, se um usuário convidado que não tenha uma dessas funções administrativas acessa o portal, o usuário poderá acessar determinadas partes da experiência. A função de usuário convidado tem algumas permissões no diretório.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Posso bloquear o acesso ao Portal do Azure para usuários convidados?
-Sim! Ao configurar essa política, tenha cuidado para evitar o bloqueio acidental do acesso a membros e administradores.
-Para bloquear o acesso de um usuário convidado para o [portal do Azure](https://portal.azure.com), usar uma política de acesso condicional na API do modelo de implantação clássica do Windows Azure:
-1. Modifique o grupo **Todos os Usuários** para que ele contenha somente os membros.
-   ![Captura de tela mostrando que o grupo todos os usuários em que o UserType não é igual convidado](media/faq/modify-all-users-group.png)
-2. Crie um grupo dinâmico que contém usuários convidados.
-   ![Captura de tela mostrando um novo grupo de todos os usuários convidados](media/faq/group-with-guest-users.png)
-3. Configure uma política de acesso condicional para convidado de impedir que os usuários acessem o portal, conforme mostrado no vídeo a seguir:
-  
-   > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
+
+Sim! Você pode criar uma política de acesso condicional que impede que todos os usuários convidados e externos acessem o portal do Azure. Ao configurar essa política, tenha cuidado para evitar o bloqueio acidental do acesso a membros e administradores.
+
+1. Entre no [portal do Azure](https://portal.azure.com/) como administrador de segurança ou como administrador de acesso condicional.
+2. No portal do Azure, selecione **Azure Active Directory**. 
+3. Em **gerenciar**, selecione **segurança**.
+4. Em **proteger**, selecione **acesso condicional**. Selecione **Nova política**.
+5. Na página **novo** , na caixa de texto **nome** , insira um nome para a política (por exemplo, "bloquear convidados de acessar o portal").
+6. Em **Atribuições**, selecione **Usuários e grupos**.
+7. Na guia **incluir** , escolha **Selecionar usuários e grupos**e, em seguida, selecione **todos os usuários convidados e externos (versão prévia)** .
+9. Selecione **Concluído**.
+10. Na página **novo** , na seção **atribuições** , selecione **aplicativos de nuvem ou ações**.
+11. Na página **aplicativos de nuvem ou ações** , escolha **selecionar aplicativos**e escolha **selecionar**.
+12. Na página **Selecionar**, escolha **Gerenciamento do Microsoft Azure** e escolha **Selecionar**.
+13. Na página **aplicativos de nuvem ou ações** , selecione **concluído**.
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>A colaboração do Azure AD B2B dá suporte à autenticação multifator e a contas de email do consumidor?
 Sim. Há suporte para a autenticação multifator e a contas de email do consumidor na colaboração do Azure AD B2B.
@@ -75,7 +81,7 @@ Se o seu locatário do Microsoft Azure Active Directory para o diretório inicia
  
 * Os usuários convidados que entrarem com uma conta da Microsoft (por exemplo, guestuser@live.com) podem redefinir suas próprias senhas usando a redefinição de senha de autoatendimento da conta da Microsoft (SSPR). Veja [Como redefinir a senha da sua conta da Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Os usuários convidados que fazem login com uma Conta do Google ou outro provedor de identidade externo podem redefinir suas próprias senhas usando o método SSPR do provedor de identidade. Por exemplo, um usuário convidado com a Conta do Google guestuser@gmail.com pode redefinir sua senha seguindo as instruções em [Alterar ou redefinir sua senha](https://support.google.com/accounts/answer/41078).
-* Se o inquilino de identidade for um inquilino Just-in-time (JIT) ou "viral" (ou seja, um inquilino separado do Azure não gerenciado), somente o usuário convidado poderá redefinir sua senha. Às vezes, uma organização [ assume o gerenciamento de locatários virais](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) que são criados quando os funcionários usam seus endereços de email de trabalho para inscreverem-se nos serviços. Depois que a organização assumir um locatário viral, somente um administrador da organização poderá redefinir a senha do usuário ou habilitar a SSPR. Se necessário, como a organização convidando, será possível remover a conta de usuário convidado do diretório e reenviar um convite.
+* Se o inquilino de identidade for um inquilino Just-in-time (JIT) ou "viral" (ou seja, um inquilino separado do Azure não gerenciado), somente o usuário convidado poderá redefinir sua senha. Às vezes, uma organização [assumirá o gerenciamento de locatários virais](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) que são criados quando os funcionários usam seus emails de trabalho para se inscrever em serviços. Depois que a organização assumir um locatário viral, somente um administrador da organização poderá redefinir a senha do usuário ou habilitar a SSPR. Se necessário, como a organização convidando, será possível remover a conta de usuário convidado do diretório e reenviar um convite.
 * Se o diretório inicial do usuário convidado for o seu locatário do Microsoft Azure Active Directory, você poderá redefinir a senha do usuário. Por exemplo, você pode ter criado um usuário ou sincronizado um usuário em seu Active Directory local e definir seu UserType como Convidado. Como esse usuário está hospedado em seu diretório, você pode redefinir sua senha no portal do Azure.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>O Microsoft Dynamics 365 fornece suporte online para a colaboração do Azure AD B2B?
@@ -108,7 +114,7 @@ Se o parceiro tiver um locatário do Azure AD que está federado à infraestrutu
 Estamos removendo as diferenças entre a colaboração B2B e B2C (entre clientes) em termos de quais identidades têm suporte. A identidade usada não é uma boa razão para escolher entre usar B2B ou usar B2C. Para obter informações sobre como escolher sua opção de colaboração, consulte [Comparação da colaboração B2B e B2C no Azure Active Directory](compare-with-b2c.md).
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Quais aplicativos e serviços fornecem suporte aos usuários convidados B2B do Azure?
-Todos os aplicativos integrados ao AD do Azure podem dar suporte a usuários convidados de B2B do Azure, mas eles devem usar um ponto de extremidade configurado como um locatário para autenticar os usuários convidados. Talvez você também precise [personalizar as declarações](claims-mapping.md) no token SAML que é emitido quando um usuário convidado se autentica no aplicativo. 
+Todos os aplicativos integrados ao Azure AD podem dar suporte a usuários convidados do Azure B2B, mas eles devem usar um ponto de extremidade configurado como um locatário para autenticar usuários convidados. Talvez você também precise [personalizar as declarações](claims-mapping.md) no token SAML que é emitido quando um usuário convidado se autentica no aplicativo. 
 
 ### <a name="can-we-force-multi-factor-authentication-for-b2b-guest-users-if-our-partners-dont-have-multi-factor-authentication"></a>Podemos forçar a autenticação multifator para usuários convidados B2B se os parceiros não têm a autenticação multifator?
 Sim. Para obter mais informações, consulte [acesso condicional para usuários de colaboração B2B](conditional-access.md).

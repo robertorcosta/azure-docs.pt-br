@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracych
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 4390fab3d59706bf692de46d17923dad4f9a8f21
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 615536fbba38279a23516352c69461c19f9972ed
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489625"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796723"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar inferência de lote em grandes quantidades de dados usando o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -184,7 +184,7 @@ model = Model.register(model_path="models/",
 ## <a name="write-your-inference-script"></a>Escrever seu script de inferência
 
 >[!Warning]
->O código a seguir é apenas uma amostra usada pelo [notebook de exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/notebooks/contrib/batch_inferencing/file-dataset-image-inference-mnist.ipynb). Será preciso criar seu próprio script para o seu cenário.
+>O código a seguir é apenas uma amostra usada pelo [notebook de exemplo](https://aka.ms/batch-inference-notebooks). Será preciso criar seu próprio script para o seu cenário.
 
 O script *deve conter* duas funções:
 - `init()`: Use essa função para qualquer preparação dispendiosa ou comum para inferência posterior. Por exemplo, use-a para carregar o modelo em um objeto global.
@@ -347,7 +347,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para ver esse processo funcionando de ponta a ponta, experimente o [notebook de inferência de lote](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/). 
+Para ver esse processo funcionando de ponta a ponta, experimente o [notebook de inferência de lote](https://aka.ms/batch-inference-notebooks). 
 
 Para obter diretrizes de depuração e solução de problemas para pipelines, confira o [guia de instruções](how-to-debug-pipelines.md).
 

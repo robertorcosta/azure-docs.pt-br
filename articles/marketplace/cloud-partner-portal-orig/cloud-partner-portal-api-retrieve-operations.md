@@ -1,18 +1,19 @@
 ---
-title: Recuperar operações de API | O Azure Marketplace
+title: Recuperar API de operações | Azure Marketplace
 description: Recuperar todas as operações na oferta ou obter uma operação específica para a operationId especificada.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 1fbcc1d50dbc4488c4123be64e85de612233ccc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3eb77744d61322ca0aed20bb2b3f486cc02ac70
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935771"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819603"
 ---
 <a name="retrieve-operations"></a>Recuperar operações
 ===================
@@ -33,7 +34,7 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 
 |  **Nome**          |      **Descrição**                                                                                           | **Tipo de dados** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificador do editor, por exemplo `Contoso`                                                                   |  Cadeia de caracteres       |
+|  publisherId       |  Identificador do publicador, por exemplo `Contoso`                                                                   |  Cadeia de caracteres       |
 |  offerId           |  Identificador da oferta                                                                                              |  Cadeia de caracteres       |
 |  operationId       |  GUID que identifica exclusivamente a operação na oferta. A operationId pode ser recuperada usando essa API e também é retornada no cabeçalho HTTP da resposta para qualquer operação longa, como a API [Publicar oferta](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
 |  filteredStatus    | Parâmetro de consulta opcional usado para filtrar por status (por exemplo, `running`) na coleção retornada por essa API.  |   Cadeia de caracteres |
@@ -54,7 +55,7 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 <a name="body-example"></a>Exemplo de corpo
 ------------
 
-### <a name="response"></a>Response
+### <a name="response"></a>Resposta
 
 #### <a name="get-operations"></a>Operações GET
 
@@ -178,7 +179,7 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 
 |  **Nome**                    |  **Descrição**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
-|  id                          | GUID que identifica exclusivamente a operação                                                       |
+|  ID                          | GUID que identifica exclusivamente a operação                                                       |
 |  submissionType              | Identifica o tipo de operação que está sendo relatada para a oferta, por exemplo, `Publish/GGoLive`      |
 |  createdDateTime             | Data e hora em UTC quando a operação foi criada                                                       |
 |  lastActionDateTime          | Data e hora em UTC quando a última atualização foi feita na operação                                       |
@@ -194,5 +195,5 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 |  200      | `OK` - A solicitação foi processada com êxito e as operações solicitadas foram retornadas.        |
 |  400      | `Bad/Malformed request` - O corpo da resposta de erro pode conter mais informações.                    |
 |  403      | `Forbidden` - O cliente não tem acesso ao namespace especificado.                          |
-|  404      | `Not found` – a entidade especificada não existe.                                                 |
+|  404      | `Not found` - A entidade especificada não existe.                                                 |
 |  |  |

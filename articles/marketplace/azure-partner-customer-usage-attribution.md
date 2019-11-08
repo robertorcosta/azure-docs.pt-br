@@ -4,15 +4,16 @@ description: Visão geral de como acompanhar o uso do cliente para soluções do
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 9/23/2019
 ms.author: pabutler
-ms.openlocfilehash: c077b93b887482dda5ae127bb3dbaec71b2ea11b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c84f5538d2f553a713b52aa795a10acddac9aff8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260076"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819879"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de uso do cliente do parceiro do Azure
 
@@ -22,9 +23,9 @@ A Microsoft agora oferece um método para ajudar os parceiros a rastrear melhor 
 
 Como parceiro da Microsoft, você pode associar o uso do Azure a quaisquer recursos do Azure fornecidos em nome de um cliente. Você pode formar a associação por meio do Azure Marketplace, do repositório do Quickstart, dos repositórios privados do GitHub e do envolvimento individual do cliente. A atribuição de uso do cliente dá suporte a três opções de implantação:
 
-- Modelos do Azure Resource Manager: Os parceiros podem usar modelos do Resource Manager para implantar os serviços do Azure para executar o software do parceiro. Os parceiros podem criar um modelo do Resource Manager para definir a infraestrutura e a configuração de sua solução do Azure. Um modelo do Resource Manager permite que você e seus clientes implantem sua solução em todo o seu ciclo de vida. Você pode ter certeza de que seus recursos são implantados em um estado consistente.
-- APIs do Azure Resource Manager: Os parceiros podem chamar as APIs do Resource Manager diretamente para implantar um modelo do Resource Manager ou gerar as chamadas da API para provisionar diretamente os serviços do Azure.
-- Terraform Os parceiros podem usar o Orchestrator de nuvem como o Terraform para implantar um modelo do Resource Manager ou implantar diretamente os serviços do Azure.
+- Modelos de Azure Resource Manager: os parceiros podem usar modelos do Resource Manager para implantar os serviços do Azure para executar o software do parceiro. Os parceiros podem criar um modelo do Resource Manager para definir a infraestrutura e a configuração de sua solução do Azure. Um modelo do Resource Manager permite que você e seus clientes implantem sua solução em todo o seu ciclo de vida. Você pode ter certeza de que seus recursos são implantados em um estado consistente.
+- APIs do Azure Resource Manager: os parceiros podem chamar as APIs do Resource Manager diretamente para implantar um modelo do Resource Manager ou gerar as chamadas da API para provisionar diretamente os serviços do Azure.
+- Terraform: os parceiros podem usar o Orchestrator de nuvem como o Terraform para implantar um modelo do Resource Manager ou implantar diretamente os serviços do Azure.
 
 A atribuição de uso do cliente destina-se à nova implantação e não dá suporte à marcação de recursos existentes que já foram implantados.
 
@@ -40,7 +41,7 @@ Para saber mais sobre como criar e publicar Modelos de Solução, confira
 
 * [Criar e implantar seu primeiro modelo do Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 * [Oferta de aplicativo do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
-* Vídeo: [Compilar modelos de solução e aplicativos gerenciados para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+* Vídeo: [criando modelos de solução e aplicativos gerenciados para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
 ## <a name="add-a-guid-to-your-template"></a>Adicionar um GUID para o modelo
@@ -101,7 +102,7 @@ Para habilitar a atribuição de uso do cliente, quando você cria suas chamadas
 
 #### <a name="example-the-python-sdk"></a>Exemplo: O SDK do Python
 
-Para o Python, use o **config** atributo. Você só pode adicionar o atributo a um UserAgent. Veja um exemplo:
+Para o Python, use o **config** atributo. Você só pode adicionar o atributo a um UserAgent. Aqui está um exemplo:
 
 ![Adicione o atributo para um agente do usuário](media/marketplace-publishers-guide/python-for-lu.PNG)
 
@@ -127,7 +128,7 @@ Para obter mais informações, consulte [SDK do Azure para linguagem go](https:/
 
 ## <a name="use-terraform"></a>Usar Terraform
 
-O suporte para Terraform está disponível por meio da versão 1.21.0 do provedor [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019)do Azure:.  Esse suporte se aplica a todos os parceiros que implantam sua solução via Terraform e todos os recursos implantados e medidos pelo provedor do Azure (versão 1.21.0 ou posterior).
+O suporte para Terraform está disponível por meio da versão 1.21.0 do provedor do Azure: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Esse suporte se aplica a todos os parceiros que implantam sua solução via Terraform e todos os recursos implantados e medidos pelo provedor do Azure (versão 1.21.0 ou posterior).
 
 O provedor do Azure para Terraform adicionou um novo campo opcional chamado [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) , que é onde você especifica o GUID de rastreamento que você usa para sua solução. O valor desse campo também pode ser originado da variável de ambiente *ARM_PARTNER_ID* .
 
@@ -137,7 +138,7 @@ provider "azurerm" {
           client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           ……
           # new stuff for ISV attribution
-          partner_id = “xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
+          partner_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
 ```
 Os parceiros que desejam fazer sua implantação por meio do Terraform acompanhado pela atribuição de uso do cliente precisam fazer o seguinte:
 
@@ -186,7 +187,7 @@ Depois de adicionar o GUID ao modelo ou no agente do usuário, e registrar o GUI
 
 1. Para registrar mais de um GUID, selecione **Adicionar GUID de Rastreamento** novamente. Caixas adicionais aparecerão na página.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 
 ## <a name="verify-the-guid-deployment"></a>Verificar a implantação de GUID
@@ -254,7 +255,7 @@ Quando você implanta o software \<PARTNER>, a Microsoft pode identificar a inst
 
 Há dois canais de suporte, dependendo dos problemas que você está enfrentando.
 
-Se você encontrar problemas no Partner Center, como ver o relatório de atribuição de uso do cliente ou entrar, crie uma solicitação de suporte com a equipe de suporte do Partner Center aqui:[https://partner.microsoft.com/support](https://partner.microsoft.com/support)
+Se você encontrar problemas no Partner Center, como ver o relatório de atribuição de uso do cliente ou entrar, crie uma solicitação de suporte com a equipe de suporte do Partner Center aqui: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
@@ -297,13 +298,13 @@ Você também pode receber orientações técnicas de um consultor técnico de p
     * Insira um título e a descrição do problema (forneça o máximo de detalhes possível).
 1. Clique em enviar
 
-Veja as instruções passo a passo com capturas de tela [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions)em.
+Veja as instruções passo a passo com capturas de tela em [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions).
 
 ### <a name="whats-next"></a>O que vem a seguir
 
 Você será contatado por um consultor técnico de parceiros da Microsoft para configurar uma chamada para definir o escopo de suas necessidades.
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>Perguntas frequentes
 
 **Qual é o benefício de adicionar o GUIA ao modelo?**
 

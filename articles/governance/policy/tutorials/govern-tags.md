@@ -6,16 +6,16 @@ ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-ms.openlocfilehash: 79219b9405f76e7044a4d403b37ba2f1545dfbea
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 780dbf02fbdb0a607f29c710da9a6320a8626f7b
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510000"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643768"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Gerenciar a governança de marca com o Azure Policy
 
-[Marcas](../../../azure-resource-manager/resource-group-using-tags.md) representam um aspecto fundamental da organização dos recursos do Azure em uma taxonomia. Ao seguir as [práticas recomendadas para gerenciamento de marcas](/azure/architecture/cloud-adoption/ready/considerations/name-and-tag#metadata-tags), essas podem ser a base de aplicação das suas políticas de negócios com o Azure Policy ou para [controlar custos com o Gerenciamento de Custos](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+[Marcas](../../../azure-resource-manager/resource-group-using-tags.md) representam um aspecto fundamental da organização dos recursos do Azure em uma taxonomia. Ao seguir as [práticas recomendadas para gerenciamento de marcas](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), essas podem ser a base de aplicação das suas políticas de negócios com o Azure Policy ou para [controlar custos com o Gerenciamento de Custos](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
 Não importa como ou por quê você usa essas marcas, é importante que possa adicionar, alterar e removê-las rapidamente de seus recursos do Azure.
 
 O efeito [Modificar](../concepts/effects.md#modify) do Azure Policy foi desenvolvido para ajudar na governança das marcas, independentemente do estágio atual da governança do recurso. O **Modificar** ajuda quando:

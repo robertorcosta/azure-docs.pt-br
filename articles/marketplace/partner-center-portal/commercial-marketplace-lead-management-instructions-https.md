@@ -4,15 +4,16 @@ description: Configurar o gerenciamento de cliente potencial para um ponto de ex
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: evansma
-ms.openlocfilehash: 6a34bdcab5a13af682515bbae96e9a1800ccc37f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 83efb9cfd1ee7464a334ebc4064dbfaa20ab30de
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902189"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812282"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configurar o gerenciamento de cliente potencial usando um ponto de extremidade HTTPS
 
@@ -24,7 +25,7 @@ Se o seu sistema de gerenciamento de relacionamento com o cliente (CRM) não tiv
 
 2. Inscreva-se e selecione **Meus fluxos** na barra de menus.
 
-3. Selecione **+ automatizado – de em branco**.
+3. Selecione **+ automatizado de em branco**.
 
     ![Meus fluxos + automatizados de em branco](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
@@ -118,7 +119,7 @@ Se o seu sistema de gerenciamento de relacionamento com o cliente (CRM) não tiv
 
     ![Adicionar conteúdo dinâmico](./media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png)
 
-5. Mapeie os campos desejados e, em seguida, selecione **Salvar** para salvar o fluxo. Uma URL HTTP POST é criada e pode ser acessada na janela *quando uma solicitação HTTP é recebida* . Copie essa URL usando o controle de cópia que está localizado à direita da URL POST HTTP – isso é importante para que você não perca erroneamente nenhuma parte da URL inteira. Salve essa URL, pois será necessária quando você estiver configurando o gerenciamento de Lead no portal de publicação.
+5. Mapeie os campos desejados e, em seguida, selecione **Salvar** para salvar o fluxo. Uma URL HTTP POST é criada e pode ser acessada na janela *quando uma solicitação HTTP é recebida* . Copie essa URL usando o controle de cópia que está localizado à direita da URL POST HTTP-isso é importante para que você não perca erroneamente nenhuma parte da URL inteira. Salve essa URL, pois será necessária quando você estiver configurando o gerenciamento de Lead no portal de publicação.
 
     ![Quando uma solicitação HTTP é recebida.](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
 
@@ -148,15 +149,15 @@ Se o seu sistema de gerenciamento de relacionamento com o cliente (CRM) não tiv
 
        ![Adicionar uma ação de e-mail](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
 
-5. Selecione **Salvar** para concluir seu fluxo. Uma URL HTTP POST é criada e pode ser acessada na janela *quando uma solicitação HTTP é recebida* . Copie essa URL usando o controle de cópia que está localizado à direita da URL POST HTTP – isso é importante para que você não perca erroneamente nenhuma parte da URL inteira. Salve essa URL, pois será necessária quando você estiver configurando o gerenciamento de Lead no portal de publicação.
+5. Selecione **Salvar** para concluir seu fluxo. Uma URL HTTP POST é criada e pode ser acessada na janela *quando uma solicitação HTTP é recebida* . Copie essa URL usando o controle de cópia que está localizado à direita da URL POST HTTP-isso é importante para que você não perca erroneamente nenhuma parte da URL inteira. Salve essa URL, pois será necessária quando você estiver configurando o gerenciamento de Lead no portal de publicação.
 
-   ![URL DE HTTP POST ](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
+   ![URL HTTP POST ](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
 
-### <a name="testing"></a>Testes
+### <a name="testing"></a>Testando
 
 Você pode testar se tudo funciona conforme o esperado usando as etapas a seguir usando uma ferramenta chamada [postmaster](https://app.getpostman.com/app/download/win64), que pode ser baixada online. Isso está disponível para o Windows. 
 
-1. Inicie o postmaster e selecione **nova** > **solicitação** para configurar sua ferramenta de teste. 
+1. Inicie o postmaster e selecione **nova** **solicitação** de > para configurar sua ferramenta de teste. 
 
    ![Solicitação para configurar sua ferramenta de teste](./media/commercial-marketplace-lead-management-instructions-https/postman-request.png)
 
@@ -202,7 +203,7 @@ Quando você estiver pronto para configurar as informações de gerenciamento de
 1. Navegue até a página de **instalação da oferta** para sua oferta.
 2. Selecione **conectar** na seção Gerenciamento de leads.
 3. Na janela pop-up detalhes da conexão, selecione **ponto de extremidade https** para o **destino do cliente potencial** e cole a URL http post do fluxo criado seguindo as etapas anteriores no campo **URL do ponto de extremidade https** .
-4. Clique em **Salvar**. 
+4. Selecione **Salvar**. 
 
 >[!Note] 
 >Você deve concluir a configuração do restante da oferta e publicá-la antes de receber clientes potenciais para a oferta.

@@ -1,5 +1,5 @@
 ---
-title: Gerenciamento de espaço de arquivo de bancos de dados individuais/em pool do Banco de Dados SQL do Azure | Microsoft Docs
+title: Gerenciamento de espaço de arquivo de bancos de dados individuais/em pool
 description: Esta página descreve como gerenciar o espaço no arquivo com bancos de dados individuais e em pool no Banco de Dados SQL do Azure e fornece exemplos de código para determinar se você precisará reduzir um banco de dados individual ou em pool, além de como executar uma operação de redução do banco de dados.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: c92ffb6aa6db9c77a859661115d54ff63ea02401
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a8fe58313bce6e9a21b07aa095672ec35ce572d2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568193"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803052"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gerenciar o espaço de arquivo para bancos de dados individuais e em pool no Banco de Dados SQL do Azure
 

@@ -1,18 +1,19 @@
 ---
-title: Conectar-se à sua máquina de virtual do Microsoft baseado no Azure | O Azure Marketplace
+title: Conectar-se à sua máquina virtual baseada em Microsoft Azure | Azure Marketplace
 description: Explica como conectar-se à nova máquina virtual criada no Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: ca002a77fd7252466f604b995af949b54694bc8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 256952d06e8b417be9ab2bc3c6c8c6857d50e2ea
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938590"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73817363"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Conectar-se à máquina virtual baseada no Azure
 
@@ -47,7 +48,7 @@ Para conectar-se a VM com base em Linux, é necessário um cliente do protocolo 
 7. Clique em **Abrir** para abrir um terminal do PuTTY.  
 8. Quando você for solicitado, insira o nome da conta e a senha da sua conta de VM do Linux. 
 
-   Se você estiver tendo problemas de conexão, consulte a documentação do cliente SSH, por exemplo [capítulo 10: Mensagens de erro comuns](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
+   Se você estiver tendo problemas de conexão, consulte a documentação do cliente SSH, por exemplo [Capítulo 10: mensagens de erro comuns](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
 
 Para obter mais informações, incluindo como adicionar uma área de trabalho a uma VM Linux provisionada, consulte [Instalar e configurar a área de trabalho remota para se conectar a uma VM do Linux no Azure](../../../virtual-machines/linux/use-remote-desktop.md).
 

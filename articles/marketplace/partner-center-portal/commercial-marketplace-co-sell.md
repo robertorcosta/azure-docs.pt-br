@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 7364bc41a67d8651c91745a8763fff62fee722fe
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 027a35db9fcb6c0e95be5da276f673b9295ad436
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784811"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812711"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opção de venda conjunta no Partner Center
 
@@ -34,7 +35,7 @@ Selecione o tipo de oferta:
 | :------------------- | :-------------------|
 | Dispositivo | Uma oferta que envolve a criação ou a venda de hardware de um fabricante de dispositivos. |
 | IP | Aplicativos ou outros materiais com direitos autorais licenciados para uso do cliente. Por exemplo: um programa CRM que pode ser licenciado e instalado localmente. |
-| Serviço | Experiência prática para um projeto único específico, geralmente entregue por meio de consultores. Por exemplo: configurar um banco de dados de cliente para um cliente (com o cliente assumindo a responsabilidade de operar o banco de dados após a entrega). |
+| O Barramento de | Experiência prática para um projeto único específico, geralmente entregue por meio de consultores. Por exemplo: configurar um banco de dados de cliente para um cliente (com o cliente assumindo a responsabilidade de operar o banco de dados após a entrega). |
 | Serviço gerenciado | Experiência prática para um projeto baseado em nuvem, geralmente em uma base contínua. Por exemplo: fornecendo uma plataforma e ferramentas para executar um banco de dados online, com gerenciamento contínuo fornecido pelo provedor de serviços gerenciado. |
 
 ## <a name="solution-areas"></a>Áreas de solução
@@ -83,6 +84,6 @@ Você também pode exportar sua lista existente de contatos de uma oferta e, em 
 
 * *Estados/províncias (opcional):*  Ao preencher o modelo, use o formato XX-XX, conforme listado na [tabela Estados/províncias](./commercial-marketplace-co-sell-states.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações, consulte [vender com a Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).

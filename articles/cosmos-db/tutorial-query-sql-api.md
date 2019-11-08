@@ -1,19 +1,19 @@
 ---
-title: Como consultar com SQL no Azure Cosmos DB?
-description: Saiba como consultar com SQL no Azure Cosmos DB
+title: 'Tutorial: Como consultar com SQL no Azure Cosmos DB?'
+description: 'Tutorial: Saiba como consultar com SQL no Azure Cosmos DB'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
-ms.date: 05/21/2019
+ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ffebdb0a46fdae981ca73a4569344365459dd7b8
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 295b4168d858238a94e737b1abc3a38e2419370f
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756814"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720729"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: Consultar o Azure Cosmos DB usando a API do SQL
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 7078a1a5edc310c799690f0f7236dd0947e3290b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9aeffa8b756340851ca4c82ebaed2453d4ac03bc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059190"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819533"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Backup e restauração periódicos no Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -55,17 +55,17 @@ O Service Fabric fornece um conjunto de APIs para obter a funcionalidade a segui
 - Gerenciamento de backups de retenção (em breve)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Cluster do Service Fabric com Fabric versão 6.4 ou posterior. Consulte o [artigo](service-fabric-cluster-creation-via-arm.md) para ver as etapas para criar um cluster do Service Fabric usando o modelo de recurso do Azure.
+* Service Fabric cluster com a versão 6,4 ou superior do fabric. Consulte o [artigo](service-fabric-cluster-creation-via-arm.md) para ver as etapas para criar um cluster do Service Fabric usando o modelo de recurso do Azure.
 * Certificado X.509 para criptografia de segredos necessária para se conectar ao armazenamento para armazenar backups. Consulte o [artigo](service-fabric-cluster-creation-via-arm.md) para saber como obter ou criar um certificado X.509.
-* Aplicativo Service Fabric Reliable Stateful criado usando o SDK do Service Fabric versão 3.0 ou superior. Para aplicativos destinados ao .NET Core 2.0, aplicativo deve ser criado usando o SDK do Service Fabric versão 3.1 ou superior.
+* Aplicativo Service Fabric Reliable Stateful criado usando o SDK do Service Fabric versão 3.0 ou superior. Para aplicativos destinados ao .NET Core 2,0, o aplicativo deve ser criado usando Service Fabric SDK versão 3,1 ou superior.
 * Crie uma conta de armazenamento do Azure para armazenar backups de aplicativo.
-* Instale o módulo de Microsoft.ServiceFabric.Powershell.Http [versão prévia em] para fazer chamadas de configuração.
+* Instale o módulo Microsoft. perfabric. PowerShell. http [em versão prévia] para fazer chamadas de configuração.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-* Certifique-se de que o Cluster está conectado usando o `Connect-SFCluster` comando antes de fazer qualquer solicitação de configuração usando o módulo Microsoft.ServiceFabric.Powershell.Http.
+* Verifique se o cluster está conectado usando o comando `Connect-SFCluster` antes de fazer qualquer solicitação de configuração usando o módulo Microsoft. onfabric. PowerShell. http.
 
 ```powershell
 
@@ -77,9 +77,9 @@ O Service Fabric fornece um conjunto de APIs para obter a funcionalidade a segui
 
 ### <a name="using-azure-portal"></a>Usando o Portal do Azure
 
-Habilitar `Include backup restore service` caixa de seleção em `+ Show optional settings` em `Cluster Configuration` guia.
+Habilitar `Include backup restore service` caixa de seleção em `+ Show optional settings` na guia `Cluster Configuration`.
 
-![Habilitar o serviço de Backup e restauração com o Portal][1]
+![Habilitar serviço de restauração de backup com o portal][1]
 
 
 ### <a name="using-azure-resource-manager-template"></a>Usar o modelo do Azure Resource Manager
@@ -127,6 +127,21 @@ Primeiro, você precisa habilitar o _serviço de backup e restauração_ no seu 
 
 4. Depois de atualizar o modelo de cluster com as alterações anteriores, aplique-as e permita que a implantação/atualização seja concluída. Depois de concluído, o _serviço de backup e restauração_ começa a ser executado no seu cluster. O URI deste serviço é `fabric:/System/BackupRestoreService` e o serviço pode ser localizado na seção de serviço do sistema no Service Fabric Explorer. 
 
+### <a name="using-service-fabric-explorer"></a>Usando Service Fabric Explorer
+
+1. Verifique se o modo avançado está habilitado.
+
+    ![Habilitar o modo avançado][2]
+
+2. Selecione um aplicativo e vá para a ação. Clique em Habilitar/atualizar backup do aplicativo.
+
+    ![Habilitar o backup do aplicativo][3] 
+
+3. Por fim, selecione a política desejada e clique em Habilitar backup.
+
+    ![Selecionar política][4]
+
+
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Habilitar o backup periódico para o serviço confiável com estado e Reliable Actors
 Vamos percorrer as etapas para habilitar o backup periódico do serviço confiável com estado e do Reliable Actors. Essas etapas pressupõem que
 - O cluster está configurado usando a segurança X.509 com o _serviço de backup e restauração_.
@@ -139,9 +154,9 @@ A primeira etapa é criar a política de backup que descreve a agenda de backup,
 
 Para armazenamento de backup, use a conta de Armazenamento do Azure criada acima. O contêiner `backup-container` está configurado para armazenar backups. Um contêiner com esse nome é criado, caso ainda não exista, durante o carregamento de backup. Preencha `ConnectionString` com uma cadeia de conexão válida para a conta de Armazenamento do Azure, substituindo `account-name` por seu nome de conta de armazenamento, e `account-key` por sua chave de conta de armazenamento.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft. infabric. PowerShell. http
 
-Execute o seguinte cmdlets do PowerShell para criar nova política de backup. Substitua `account-name` pelo nome da sua conta de armazenamento, e `account-key` pela sua chave de conta de armazenamento.
+Execute os cmdlets do PowerShell a seguir para criar uma nova política de backup. Substitua `account-name` pelo nome da sua conta de armazenamento, e `account-key` pela sua chave de conta de armazenamento.
 
 ```powershell
 
@@ -149,7 +164,7 @@ New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrem
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Chamada de REST usando o PowerShell
+#### <a name="rest-call-using-powershell"></a>Chamada REST usando o PowerShell
 
 Execute o seguinte script do PowerShell para invocar a API REST necessária para criar nova política. Substitua `account-name` pelo nome da sua conta de armazenamento, e `account-key` pela sua chave de conta de armazenamento.
 
@@ -188,14 +203,14 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ### <a name="enable-periodic-backup"></a>Habilitar backup periódico
 Depois de definir a política de backup para atender aos requisitos de proteção de dados do aplicativo, a política de backup deve ser associada a ele. Dependendo do requisito, a política de backup pode ser associada um aplicativo, serviço ou partição.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft. infabric. PowerShell. http
 
 ```powershell
 
 Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
 
 ```
-#### <a name="rest-call-using-powershell"></a>Chamada de REST usando o PowerShell
+#### <a name="rest-call-using-powershell"></a>Chamada REST usando o PowerShell
 
 Execute o seguinte script do PowerShell para invocar a API REST necessária para associar a política de backup com o nome `BackupPolicy1` criada no etapa anterior com o aplicativo `SampleApp`.
 
@@ -220,14 +235,14 @@ Depois de habilitar o backup para o nível do aplicativo, todas as partições q
 
 Backups associados a todas as partições que pertencem aos serviços confiáveis com estado e Reliable Actors do aplicativo podem ser enumerados usando a API _GetBackups_. Os backups podem ser enumerados por aplicativo, serviço ou partição.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft. infabric. PowerShell. http
 
 ```powershell
     
 Get-SFApplicationBackupList -ApplicationId WordCount
 ```
 
-#### <a name="rest-call-using-powershell"></a>Chamada de REST usando o PowerShell
+#### <a name="rest-call-using-powershell"></a>Chamada REST usando o PowerShell
 
 Execute o seguinte script do PowerShell para invocar a API HTTP para enumerar os backups criados para todas as partições dentro do aplicativo `SampleApp`.
 
@@ -280,14 +295,23 @@ CreationTimeUtc         : 2018-04-06T21:25:36Z
 FailureError            : 
 ```
 
+#### <a name="using-service-fabric-explorer"></a>Usando Service Fabric Explorer
+
+Para exibir os backups em Service Fabric Explorer, navegue até uma partição e selecione a guia backups.
+
+![Enumerar backups][5]
+
 ## <a name="limitation-caveats"></a>Limite/Limitações
-- Cmdlets do PowerShell do Service Fabric estão no modo de visualização.
+- Service Fabric cmdlets do PowerShell estão no modo de visualização.
 - Não há suporte para clusters do Service Fabric no Linux.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Noções básicas sobre a configuração de backup periódico](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Referência da API REST de backup e restauração](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
-[0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png
+[0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event-azure.png
 [1]: ./media/service-fabric-backuprestoreservice/enable-backup-restore-service-with-portal.png
-
+[2]: ./media/service-fabric-backuprestoreservice/advanced-mode.png
+[3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
+[4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
+[5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png

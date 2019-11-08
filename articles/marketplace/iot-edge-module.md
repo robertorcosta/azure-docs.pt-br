@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, IoT Edge
 author: qianw211
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: pabutler
-ms.openlocfilehash: 54369e0f2c943c146d186605833198253b960022
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: db501c34a4418bc7b08b19105a9b28585288f877
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949534"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823059"
 ---
 # <a name="iot-edge-modules"></a>Módulos do IoT Edge
 
@@ -76,11 +77,11 @@ Os principais requisitos técnicos de um IoT Edge Module, para que ele seja cert
 
 ## <a name="documentation-and-resources"></a>Documentação e recursos
 
-[Criar uma oferta de módulo do IoT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) – as etapas para publicar uma nova oferta de módulo do IoT Edge no Portal de publicação na nuvem.
+[Criar uma oferta de módulo IOT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) --as etapas para publicar uma nova oferta de módulo IOT Edge com o portal de publicação na nuvem.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Faça o seguinte, caso ainda não tenha feito:
+Caso ainda não tenha feito isso,
 
 - [Registre-se](https://azuremarketplace.microsoft.com/sell) no Marketplace.
 

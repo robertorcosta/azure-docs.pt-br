@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: a7e9acbe78ffdca2e615873cc4c33f86b250a429
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dccf1550052910269efe156b999882234669d7dc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551476"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815697"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura de Painéis do Azure
 Este documento explica a estrutura de um painel do Azure, usando o painel a seguir como exemplo:
@@ -295,7 +295,7 @@ Vamos dividir as seções relevantes do JSON.  As propriedades de nível superio
 
 ### <a name="the-id-property"></a>A propriedade id
 
-A ID de recurso do Azure está sujeita às [convenções de nomenclatura dos recursos do Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Quando o portal cria um painel, ele, geralmente, escolhe uma ID na forma de um GUID, mas você é livre para usar qualquer nome válido ao criar programaticamente. 
+A ID de recurso do Azure está sujeita às [convenções de nomenclatura dos recursos do Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). Quando o portal cria um painel, ele, geralmente, escolhe uma ID na forma de um GUID, mas você é livre para usar qualquer nome válido ao criar programaticamente. 
 
 ### <a name="the-name-property"></a>A propriedade name
 O nome é o segmento da ID de recurso que não inclui informações de assinatura, tipo de recurso ou grupo de recursos. Basicamente, é o último segmento da ID de recurso.
@@ -429,6 +429,6 @@ Da mesma forma, o bloco de vídeo tem suas próprias configurações que contêm
 ```
 
 ### <a name="the-asset-object"></a>O objeto asset
-Os blocos que estão associados aos objetos de portal gerenciáveis de primeira classe (chamados de ativos) têm essa relação expressa pelo objeto asset.  Em nosso painel de exemplo, o bloco de máquina virtual contém a descrição do ativo.  A propriedade __idInputName__ informa ao portal que a entrada da ID contém o identificador exclusivo para o ativo, neste caso, a ID de recurso. A maioria dos tipos de recursos do Azure tem ativos definidos no portal.
+Os blocos que estão associados aos objetos de portal gerenciáveis de primeira classe (chamados de ativos) têm essa relação expressa pelo objeto asset.  Em nosso painel de exemplo, o bloco de máquina virtual contém a descrição do ativo.  A propriedade __idInputName__ informa ao portal que a entrada de ID contém o identificador exclusivo para o ativo, nesse caso, a ID do recurso. A maioria dos tipos de recursos do Azure tem ativos definidos no Portal.
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`

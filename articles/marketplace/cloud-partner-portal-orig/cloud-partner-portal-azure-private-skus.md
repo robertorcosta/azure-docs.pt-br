@@ -4,15 +4,16 @@ description: Como usar SKUs privados para gerenciar a disponibilidade de oferta.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: pabutler
-ms.openlocfilehash: 940b50cf4a04abacd4d7be2104dd97fb8b3db736
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: eb6eac5eafaeea239bfaf9cf2aface3db659dd57
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883125"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818827"
 ---
 <a name="private-skus-and-plans"></a>SKUs Privados e Planos
 ============
@@ -98,7 +99,7 @@ Se você estiver usando a API e não quiser manter um arquivo CSV, poderá geren
 
 ###  <a name="managing-subscriptions-with-the-api"></a>Gerenciando assinaturas com a API
 
-Você pode usar a API para carregar um CSV ou gerenciar seu público diretamente (sem usar um CSV). Em geral, você simplesmente precisa recuperar sua oferta, atualizar o `restrictedAudience` objeto e, em seguida, enviar essas alterações de volta para sua oferta para adicionar ou remover membros públicos.
+Você pode usar a API para carregar um CSV ou gerenciar seu público diretamente (sem usar um CSV). Em geral, você simplesmente precisa recuperar sua oferta, atualizar o objeto `restrictedAudience` e enviar essas alterações de volta para sua oferta a fim de adicionar ou remover membros públicos.
 
 Veja como atualizar de forma programática sua lista de audiências:
 
@@ -136,7 +137,7 @@ Veja como atualizar de forma programática sua lista de audiências:
 
     c. Carregue o arquivo CSV atualizado em um local, como o [armazenamento de BLOBs do Azure](../../storage/blobs/storage-blobs-overview.md) ou o [onedrive](https://onedrive.live.com), e crie um link somente leitura para o arquivo. Esse será o novo *SasUrl*.
 
-    d. Atualize a `restrictedAudience.uploadedCsvUri` chave com seu novo *SasUrl*.
+    d. Atualize a chave de `restrictedAudience.uploadedCsvUri` com seu novo *SasUrl*.
 
     **Se você inseriu manualmente a lista original de assinaturas para sua oferta privada do Portal do Cloud Partner:**
 
@@ -156,7 +157,7 @@ Veja como atualizar de forma programática sua lista de audiências:
         ]}
     ```
 
-    a. Para cada objeto público restrito, adicione ou exclua entradas na `restrictedAudience.manualEntries` lista, conforme necessário.
+    a. Para cada objeto público restrito, adicione ou exclua entradas na lista de `restrictedAudience.manualEntries`, conforme necessário.
 
 4. Ao concluir a atualização de todos os objetos *restrictedAudience* para cada SKU de sua oferta privada, [atualize a oferta](cloud-partner-portal-api-creating-offer.md):
 

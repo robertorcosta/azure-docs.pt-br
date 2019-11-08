@@ -7,13 +7,13 @@ ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
-ms.date: 05/14/2019
-ms.openlocfilehash: 01319de8fd72875ca35bb7a869a6eaedee62f2a7
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.date: 11/04/2019
+ms.openlocfilehash: 4a09a0fe4aa1f04e665aeb71ebece17a8b368090
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285525"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582381"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Tutorial: Criar um cluster do Red Hat OpenShift no Azure
 
@@ -34,8 +34,6 @@ Nesta série de tutoriais, você aprenderá a:
 
 > [!IMPORTANT]
 > Este tutorial exige a CLI do Azure versão 2.0.65 ou posterior.
->    
-> Antes que possa usar o Red Hat OpenShift no Azure, você precisará comprar um mínimo de 4 nós de aplicativo reservados do Red Hat OpenShift no Azure, conforme descrito em [Configurar o ambiente de desenvolvimento do Red Hat OpenShift no Azure](howto-setup-environment.md#purchase-azure-red-hat-openshift-application-nodes-reserved-instances).
 
 Antes de começar este tutorial:
 

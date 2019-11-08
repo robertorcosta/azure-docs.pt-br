@@ -1,26 +1,27 @@
 ---
-title: Preenchimento de SaaS v1 APIs | O Azure Marketplace
-description: Explica como criar e gerenciar uma oferta de SaaS no Azure Marketplace usando as preenchimento v1 APIs associadas.
+title: APIs de cumprimento de SaaS v1 | Azure Marketplace
+description: Explica como criar e gerenciar uma oferta de SaaS no Azure Marketplace usando as APIs de cumprimento v1 associadas.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78162983601e9126bd34cb737e74783df982bacb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99dd6db7003e0358ddde2438f6897cd767932227
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258933"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816579"
 ---
-# <a name="saas-fulfillment-apis-version-1-deprecated"></a>APIs de preenchimento SaaS versão 1 (preterido)
+# <a name="saas-fulfillment-apis-version-1-deprecated"></a>APIs de preenchimento de SaaS versão 1 (preterido)
 
-Este artigo explica como criar uma oferta de SaaS com APIs. As APIs, compostas de métodos REST e pontos de extremidade, são necessárias para permitir que as assinaturas para sua oferta de SaaS se tiver vendidos por meio do Azure selecionados.  
+Este artigo explica como criar uma oferta de SaaS com APIs. As APIs, compostas de métodos REST e pontos de extremidade, são necessárias para permitir assinaturas para sua oferta de SaaS se você tiver vendido por meio do Azure selecionado.  
 
 > [!WARNING]
-> Esta versão inicial da API de preenchimento SaaS foi preterida; em vez disso, use [SaaS cumprimento API V2](./pc-saas-fulfillment-api-v2.md).  Esta versão inicial da API atualmente está sendo mantida apenas para servir editores existentes. 
+> Esta versão inicial da API de preenchimento de SaaS foi preterida; em vez disso, use a [API de preenchimento de SaaS v2](./pc-saas-fulfillment-api-v2.md).  Esta versão inicial da API está sendo mantida no momento apenas para atender aos Publicadores existentes. 
 
 As APIs a seguir são fornecidas para ajudá-lo a integrar o seu serviço SaaS ao Azure:
 
@@ -30,7 +31,7 @@ As APIs a seguir são fornecidas para ajudá-lo a integrar o seu serviço SaaS a
 -   Cancelar assinatura
 
 
-## <a name="api-methods-and-endpoints"></a>Pontos de extremidade e métodos de API
+## <a name="api-methods-and-endpoints"></a>Métodos de API e pontos de extremidade
 
 As seções a seguir descrevem os métodos de API e os pontos de extremidade disponíveis para habilitar assinaturas para uma oferta de SaaS.
 
@@ -46,7 +47,7 @@ A versão atual da API é `api-version=2017-04-15`.
 
 A ação POST ao resolver o ponto de extremidade permite que os usuários resolvam um token do marketplace para uma ID de recurso persistente.  A ID de recurso é o identificador exclusivo para a assinatura de SAAS. 
 
-Quando um usuário é redirecionado para um site do ISV, a URL contém um token nos parâmetros de consulta. O ISV deve usar esse token e fazer uma solicitação para resolvê-lo. A resposta contém a ID de assinatura exclusiva de SAAS, nome, ID de oferta e o plano para o recurso. Esse token é válido por apenas uma hora.
+Quando um usuário é redirecionado para o site de um ISV, a URL contém um token nos parâmetros de consulta. O ISV deve usar esse token e fazer uma solicitação para resolvê-lo. A resposta contém a ID de assinatura exclusiva de SAAS, nome, ID de oferta e o plano para o recurso. Esse token é válido por apenas uma hora.
 
 *Solicitação*
 
@@ -65,10 +66,10 @@ Quando um usuário é redirecionado para um site do ISV, a URL contém um token 
 | **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | Não           | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente, preferencialmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-| x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Este campo se correlaciona a todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse campo correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | Content-type       | Sim          | `application/json`                                        |
-| authorization      | Sim          | O token de portador JWT (Token Web JSON).                    |
-| x-ms-marketplace-token| Sim| O parâmetro de consulta de token na URL quando o usuário é redirecionado ao site do ISV SaaS partindo do Azure. **Observação:** Esse token é válido somente por 1 hora. Realize também a decodificação URL do valor do token do navegador antes de usá-lo.|
+| autorização      | Sim          | O token de portador JWT (Token Web JSON).                    |
+| x-ms-marketplace-token| Sim| O parâmetro de consulta de token na URL quando o usuário é redirecionado para o site de ISVs do SaaS do Azure. **Observação:** Esse token só é válido por 1 hora. Realize também a decodificação URL do valor do token do navegador antes de usá-lo.|
 |  |  |  |
   
 
@@ -85,7 +86,7 @@ Quando um usuário é redirecionado para um site do ISV, a URL contém um token 
 
 | **Nome do parâmetro** | **Tipo de dados** | **Descrição**                       |
 |--------------------|---------------|---------------------------------------|
-| id                 | Cadeia de caracteres        | A ID da assinatura de SaaS.          |
+| ID                 | Cadeia de caracteres        | A ID da assinatura de SaaS.          |
 | subscriptionName| Cadeia de caracteres| Nome da assinatura de SaaS definida pelo usuário no Azure ao assinar o serviço SaaS.|
 | OfferId            | Cadeia de caracteres        | ID da oferta que o usuário assinou. |
 | planId             | Cadeia de caracteres        | ID do plano que o usuário assinou.  |
@@ -110,7 +111,7 @@ Quando um usuário é redirecionado para um site do ISV, a URL contém um token 
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sim          | O valor da ID de solicitação recebido do cliente.                                                                   |
 | x-ms-correlationid | Sim          | A ID de correlação se passada pelo cliente. Caso contrário, esse valor é a ID de correlação do servidor.                   |
-| x-ms-activityid    | Sim          | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do serviço. Essa ID é usada para qualquer reconciliações. |
+| x-ms-activityid    | Sim          | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do serviço. Essa ID é usada para qualquer reconciliação. |
 | Retry-After        | Não           | Esse valor é definido somente para uma resposta 429.                                                                   |
 |  |  |  |
 
@@ -125,7 +126,7 @@ O ponto de extremidade do assinante permite aos usuários iniciar uma assinatura
 
 | **Nome do Parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | Assinatura de ID de SaaS exclusiva que é obtida depois de resolver o token por meio da API de resolver.                              |
+| subscriptionId      | ID exclusiva da assinatura de SaaS que é obtida após a resolução do token por meio da API de resolução.                              |
 | api-version         | A versão da operação a ser usada para esta solicitação. |
 |  |  |
 
@@ -137,8 +138,8 @@ O ponto de extremidade do assinante permite aos usuários iniciar uma assinatura
 | x-ms-correlationid     |   Não         | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | If-Match/If-None-Match |   Não         |   Valor de ETag de validador forte.                                                          |
 | content-type           |   Sim        |    `application/json`                                                                   |
-|  authorization         |   Sim        |    O token de portador JWT (Token Web JSON).                                               |
-| x-ms-marketplace-session-mode| Não | Sinalizador para habilitar o modo de simulação ao assinar uma oferta de SaaS. Se definido, a assinatura não será cobrada. Isso é útil para cenários de teste de ISV. Defina-o como **'dryrun'**|
+|  autorização         |   Sim        |    O token de portador JWT (Token Web JSON).                                               |
+| x-ms-marketplace-session-mode| Não | Sinalizador para habilitar o modo de simulação ao assinar uma oferta de SaaS. Se definido, a assinatura não será cobrada. Isso é útil para cenários de teste de ISV. Defina-o como **' simulação '**|
 |  |  |  |
 
 *Corpo*
@@ -151,7 +152,7 @@ O ponto de extremidade do assinante permite aos usuários iniciar uma assinatura
 
 | **Nome do elemento** | **Tipo de dados** | **Descrição**                      |
 |------------------|---------------|--------------------------------------|
-| planId           | Cadeia de caracteres (obrigatória)        | ID do plano do serviço SaaS está assinando.  |
+| planId           | Cadeia de caracteres (obrigatória)        | A ID do plano do usuário do serviço SaaS está assinando.  |
 |  |  |  |
 
 *Códigos de resposta*
@@ -167,7 +168,7 @@ O ponto de extremidade do assinante permite aos usuários iniciar uma assinatura
 | 503                  | `ServiceUnavailable` | Serviço inativo temporariamente, tente novamente mais tarde.                          |
 |  |  |  |
 
-Para obter uma resposta 202, acompanhe o status da operação de solicitação no cabeçalho 'Localização da operação'. A autenticação é a mesma que a de outras APIs do Marketplace.
+Para uma resposta de 202, acompanhe o status da operação de solicitação no cabeçalho ' Operation-location '. A autenticação é a mesma que a de outras APIs do Marketplace.
 
 *Cabeçalhos de resposta*
 
@@ -202,7 +203,7 @@ O ponto de extremidade de alteração permite que o usuário converta seu plano 
 | x-ms-correlationid      | Não           | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | If-Match/If-None-Match | Não           | Valor de ETag de validador forte.                              |
 | content-type            | Sim          | `application/json`                                        |
-| authorization           | Sim          | O token de portador JWT (Token Web JSON).                    |
+| autorização           | Sim          | O token de portador JWT (Token Web JSON).                    |
 |  |  |  |
 
 *Corpo*
@@ -215,7 +216,7 @@ O ponto de extremidade de alteração permite que o usuário converta seu plano 
 
 |  **Nome do elemento** |  **Tipo de dados**  | **Descrição**                              |
 |  ---------------- | -------------   | --------------------------------------       |
-|  planId           |  Cadeia de caracteres (obrigatória)         | ID do plano do serviço SaaS está assinando.          |
+|  planId           |  Cadeia de caracteres (obrigatória)         | A ID do plano do usuário do serviço SaaS está assinando.          |
 |  |  |  |
 
 *Códigos de resposta*
@@ -264,7 +265,7 @@ A ação de exclusão no ponto de extremidade de assinatura permite que um usuá
 |--------------------|--------------| ----------------------------------------------------------|
 | x-ms-requestid     | Não           | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
 | x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| authorization      | Sim          | O token de portador JWT (Token Web JSON).                    |
+| autorização      | Sim          | O token de portador JWT (Token Web JSON).                    |
 |  |  |  |
 
 *Códigos de resposta*
@@ -279,7 +280,7 @@ A ação de exclusão no ponto de extremidade de assinatura permite que um usuá
 | 503                  | `ServiceUnavailable` | Serviço inativo temporariamente. Tente novamente mais tarde.                          |
 |  |  |  |
 
-Para obter uma resposta 202, acompanhe o status da operação de solicitação no cabeçalho 'Localização da operação'. A autenticação é a mesma que a de outras APIs do Marketplace.
+Para uma resposta de 202, acompanhe o status da operação de solicitação no cabeçalho ' Operation-location '. A autenticação é a mesma que a de outras APIs do Marketplace.
 
 *Cabeçalhos de resposta*
 
@@ -314,7 +315,7 @@ Esse ponto de extremidade permite que o usuário acompanhe o status de uma opera
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Não           | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
 | x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-| authorization      | Sim          | O token de portador JWT (Token Web JSON).                    |
+| autorização      | Sim          | O token de portador JWT (Token Web JSON).                    |
 |  |  |  | 
 
 *Corpo da resposta*
@@ -331,7 +332,7 @@ Esse ponto de extremidade permite que o usuário acompanhe o status de uma opera
 
 | **Nome do parâmetro** | **Tipo de dados** | **Descrição**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | Cadeia de caracteres        | A ID da operação.                                                                      |
+| ID                 | Cadeia de caracteres        | A ID da operação.                                                                      |
 | status             | Enum          | Status da operação, um dos seguintes: `In Progress`, `Succeeded` ou `Failed`.          |
 | resourceLocation   | Cadeia de caracteres        | Link para a assinatura que foi criada ou modificada. Isso ajuda o cliente a obter o estado atualizado após a operação. Esse valor não é definido para operações `Unsubscribe`. |
 | criado            | DateTime      | Hora de criação de operação em UTC.                                                           |
@@ -345,7 +346,7 @@ Esse ponto de extremidade permite que o usuário acompanhe o status de uma opera
 | 200                  | `OK`                 | A solicitação get foi resolvida com êxito e o corpo contém a resposta.    |
 | 400                  | `BadRequest`         | Os cabeçalhos necessários estão ausentes ou um valor inválido de api-version foi especificado. |
 | 403                  | `Forbidden`          | O chamador não está autorizado a realizar esta operação.                      |
-| 404                  | `NotFound`           | Assinatura não encontrada com a ID especificada.                                     |
+| 404                  | `NotFound`           | Assinatura não encontrada com a ID fornecida.                                     |
 | 429                  | `RequestThrottleId`  | O serviço está ocupado processando solicitações, tente novamente mais tarde.                     |
 | 503                  | `ServiceUnavailable` | Serviço inativo temporariamente, tente novamente mais tarde.                             |
 |  |  |  |
@@ -382,7 +383,7 @@ A ação Get no ponto de extremidade da assinatura permite que um usuário recup
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Não           | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente, preferencialmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
 | x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| authorization      | Sim          | O token de portador JWT (Token Web JSON).                                                                    |
+| autorização      | Sim          | O token de portador JWT (Token Web JSON).                                                                    |
 |  |  |  |
 
 *Corpo da resposta*
@@ -401,11 +402,11 @@ A ação Get no ponto de extremidade da assinatura permite que um usuário recup
 
 | **Nome do parâmetro**     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | Cadeia de caracteres        | ID do recurso de assinatura de SaaS no Azure.    |
+| ID                     | Cadeia de caracteres        | ID do recurso de assinatura de SaaS no Azure.    |
 | offerId                | Cadeia de caracteres        | ID da oferta que o usuário assinou.         |
 | planId                 | Cadeia de caracteres        | ID do plano que o usuário assinou.          |
 | saasSubscriptionName   | Cadeia de caracteres        | O nome da assinatura de SaaS.                |
-| saasSubscriptionStatus | Enum          | Status da operação.  Um dos seguintes:  <br/> - `Subscribed`: a assinatura está ativa.  <br/> - `Pending`: o usuário cria o recurso, mas ele não é ativado pelo ISV.   <br/> - `Unsubscribed`: o usuário cancelou a assinatura.   <br/> - `Suspended`: o usuário suspendeu a assinatura.   <br/> - `Deactivated`:  a assinatura do Azure está suspensa.  |
+| saasSubscriptionStatus | Enum          | Status da operação.  Um dos seguintes:  <br/> - `Subscribed`: a assinatura está ativa.  <br/> - `Pending`: o usuário cria o recurso, mas ele não é ativado pelo ISV.   <br/> - `Unsubscribed`: o usuário cancelou a assinatura.   <br/> - `Suspended`: o usuário suspendeu a assinatura.   <br/> - `Deactivated`: a assinatura do Azure está suspensa.  |
 | criado                | DateTime      | Valor do carimbo de data/hora de criação da assinatura em UTC. |
 | lastModified           | DateTime      | Valor do carimbo de data/hora de modificação da assinatura em UTC. |
 |  |  |  |
@@ -454,7 +455,7 @@ A ação Get no ponto de extremidade de assinaturas permite que um usuário recu
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | Não           | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.             |
 | x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| authorization      | Sim          | O token de portador JWT (Token Web JSON).                    |
+| autorização      | Sim          | O token de portador JWT (Token Web JSON).                    |
 |  |  |  |
 
 *Corpo da resposta*
@@ -473,13 +474,13 @@ A ação Get no ponto de extremidade de assinaturas permite que um usuário recu
 
 | **Nome do parâmetro**     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | Cadeia de caracteres        | Recursos de assinatura de ID de SaaS no Azure    |
-| offerId                | Cadeia de caracteres        | ID da oferta que o usuário inscrito         |
-| planId                 | Cadeia de caracteres        | ID do plano que o usuário inscrito          |
-| saasSubscriptionName   | Cadeia de caracteres        | Nome da assinatura do SaaS                |
-| saasSubscriptionStatus | Enum          | Status da operação.  Um dos seguintes:  <br/> - `Subscribed`: a assinatura está ativa.  <br/> - `Pending`: o usuário cria o recurso, mas ele não é ativado pelo ISV.   <br/> - `Unsubscribed`: o usuário cancelou a assinatura.   <br/> - `Suspended`: o usuário suspendeu a assinatura.   <br/> - `Deactivated`:  a assinatura do Azure está suspensa.  |
-| criado                | DateTime      | Valor de carimbo de hora de criação de assinatura em UTC |
-| lastModified           | DateTime      | Assinatura modificado o valor de carimbo de hora em UTC |
+| ID                     | Cadeia de caracteres        | ID do recurso de assinatura SaaS no Azure    |
+| offerId                | Cadeia de caracteres        | ID da oferta à qual o usuário se inscreveu         |
+| planId                 | Cadeia de caracteres        | ID do plano para o qual o usuário se inscreveu          |
+| saasSubscriptionName   | Cadeia de caracteres        | Nome da assinatura de SaaS                |
+| saasSubscriptionStatus | Enum          | Status da operação.  Um dos seguintes:  <br/> - `Subscribed`: a assinatura está ativa.  <br/> - `Pending`: o usuário cria o recurso, mas ele não é ativado pelo ISV.   <br/> - `Unsubscribed`: o usuário cancelou a assinatura.   <br/> - `Suspended`: o usuário suspendeu a assinatura.   <br/> - `Deactivated`: a assinatura do Azure está suspensa.  |
+| criado                | DateTime      | Valor timestamp de criação da assinatura em UTC |
+| lastModified           | DateTime      | Valor de carimbo de data/hora modificado pela assinatura em UTC |
 |  |  |  |
 
 *Códigos de resposta*
@@ -523,17 +524,17 @@ Um webhook de SaaS é usado para notificar sobre alterações de forma proativa 
 
 | **Nome do parâmetro**     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id  | Cadeia de caracteres       | ID exclusiva para a operação disparada.                |
+| ID  | Cadeia de caracteres       | ID exclusiva para a operação disparada.                |
 | activityId   | Cadeia de caracteres        | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do serviço. Isso é usado para quaisquer eventuais reconciliações.               |
 | subscriptionId                     | Cadeia de caracteres        | ID do recurso de assinatura de SaaS no Azure.    |
 | offerId                | Cadeia de caracteres        | ID da oferta que o usuário assinou. Fornecido somente com a ação "Atualizar".        |
 | publisherId                | Cadeia de caracteres        | ID do editor da oferta de SaaS         |
 | planId                 | Cadeia de caracteres        | ID do plano que o usuário assinou. Fornecido somente com a ação "Atualizar".          |
-| action                 | Cadeia de caracteres        | A ação que está disparando esta notificação. Os valores possíveis: ativar, excluir, suspender, restabelecer, atualizar          |
+| ação                 | Cadeia de caracteres        | A ação que está disparando esta notificação. Os valores possíveis: ativar, excluir, suspender, restabelecer, atualizar          |
 | timeStamp                 | Cadeia de caracteres        | Valor de carimbo de hora em UTC quando essa notificação foi disparada.          |
 |  |  |  |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os desenvolvedores também programaticamente podem recuperar e manipulação de cargas de trabalho, ofertas e publisher perfis usando o [as APIs REST do Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).
+Os desenvolvedores também podem recuperar e manipular programaticamente cargas de trabalho, ofertas e perfis de Publicador usando as [APIs REST do portal do Cloud Partner](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).
