@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: victorh
-ms.openlocfilehash: 53a4fca0c05cd54bae6d01d07e72e1033a247a05
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: afdb5d256c33042655c122e9c84a4ab07c94f14c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327356"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470044"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Tutorial: Configurar um gateway de aplicativo com terminação SSL usando o portal do Azure
 
@@ -62,7 +62,7 @@ Use o [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkicl
 > Não use nenhum caractere especial na senha de seu arquivo .pfx. Somente caracteres alfanuméricos têm suporte.
 
 ```powershell
-$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+$pwd = ConvertTo-SecureString -String "Azure123456" -Force -AsPlainText
 Export-PfxCertificate `
   -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
   -FilePath c:\appgwcert.pfx `
@@ -150,7 +150,7 @@ Na guia **Configuração**, você conectará o front-end e o pool de back-end qu
 
    - **Arquivo de certificado PFX** – procure e selecione o arquivo c:\appgwcert.pfx criado anteriormente.
    - **Nome do certificado** – digite *mycert1* para o nome do certificado.
-   - **Senha** – digite *Azure123456!* para a senha.
+   - **Senha** – digite *Azure123456* para a senha.
   
         Aceite os valores padrão para as outras configurações na guia **Ouvinte** e, em seguida, selecione a guia **Destinos de back-end** para configurar o restante da regra de roteamento.
 
@@ -194,7 +194,7 @@ Para fazer isso, você precisará:
     - **Grupo de recursos**: Selecione **myResourceGroupAG** para o nome do grupo de recursos.
     - **Nome da máquina virtual**: Insira *myVM* para o nome da máquina virtual.
     - **Nome de usuário**: Insira *azureuser* para o nome de usuário do administrador.
-    - **Senha**: Insira *Azure123456!* para a senha de administrador.
+    - **Senha**: Digite *Azure123456* para a senha do administrador.
 4. Aceite os outros padrões e selecione **Próximo: Discos**.  
 5. Aceite os padrões na guia **Discos** e selecione **Próximo: Rede**.
 6. Na guia **Rede**, verifique se **myVNet** está selecionado para a **Rede virtual** e se a **Sub-rede** está definida como **myBackendSubnet**. Aceite os outros padrões e selecione **Próximo: Gerenciamento**.
