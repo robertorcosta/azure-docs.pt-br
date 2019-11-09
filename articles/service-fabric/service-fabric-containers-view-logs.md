@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: atsenthi
-ms.openlocfilehash: 3fa40d794d02da08d29b6cac652edf493977f8e1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: fd1787318e8573183293ddd832a11cf8cfe09cf2
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599736"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832616"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Exibir logs para um serviço de contêiner do Service Fabric
 O Microsoft Azure Service Fabric é um orquestrador de contêineres e dá suporte a [contêineres de Linux e Windows](service-fabric-containers-overview.md).  Este artigo descreve como exibir logs de contêiner de um serviço de contêiner em execução ou contêiner inativo para que você possa diagnosticar e solucionar problemas.
 
 ## <a name="access-the-logs-of-a-running-container"></a>Acessar os logs de um contêiner em execução
-Logs de contêiner podem ser acessados usando [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  Em um navegador da web, abra o Service Fabric Explorer do ponto de extremidade de gerenciamento do cluster navegando até [http://mycluster.region.cloudapp.azure.com:19080/Explorer](http://mycluster.region.cloudapp.azure.com:19080/Explorer).  
+Logs de contêiner podem ser acessados usando [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  Em um navegador da Web, abra Service Fabric Explorer do ponto de extremidade de gerenciamento do cluster navegando até `http://mycluster.region.cloudapp.azure.com:19080/Explorer`.  
 
 Logs de contêiner estão localizados no nó de cluster que está executando a instância de serviço de contêiner. Por exemplo, obtenha os logs do contêiner do front-end da Web do [aplicativo de exemplo do Linux Voting](service-fabric-quickstart-containers-linux.md). No modo de exibição de árvore, expanda **Cluster**>**Aplicativos**>**VotingType**>**fabric:/Voting/azurevotefront**.  Em seguida, expanda a partição (d1aa737e-f22a-e347-be16-eec90be24bc1, neste exemplo) e veja que o contêiner está em execução no nó de cluster *_lnxvm_0*.
 
@@ -44,7 +44,7 @@ Para ajudar a diagnosticar as falhas de inicialização do contêiner, o Service
 
 A configuração **ContainersRetentionCount** especifica o número de contêineres mantidos quando ocorre uma falha. Se um valor negativo for especificado, todos os contêineres com falha serão mantidos. Quando o atributo **ContainersRetentionCount** não for especificado, nenhum contêiner será retido. O atributo **ContainersRetentionCount** também oferece suporte a Parâmetros de Aplicativo para que os usuários possam especificar valores diferentes para clusters de teste e produção. Use restrições de posicionamento para direcionar o serviço de contêiner para um determinado nó quando esses recursos forem usados com a finalidade de impedir que o serviço de contêiner se mova para outros nós. Todos os contêineres retidos usando esse recurso devem ser removidos manualmente.
 
-A configuração **RunInteractive** corresponde aos [sinalizadores](https://docs.docker.com/engine/reference/commandline/run/#options) `--interactive` e `tty` do Docker. Quando essa configuração é definida como verdadeira no arquivo de manifesto, esses sinalizadores são usados para iniciar o contêiner.  
+A configuração **RunInteractive** corresponde aos `--interactive`sinalizadores`tty` [ e ](https://docs.docker.com/engine/reference/commandline/run/#options) do Docker. Quando essa configuração é definida como verdadeira no arquivo de manifesto, esses sinalizadores são usados para iniciar o contêiner.  
 
 ### <a name="rest"></a>REST
 Use a operação [Obter Logs de Contêiner Implantados no Nó](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) para obter os logs para um contêiner de falha. Especifique o nome do contêiner em execução no nó, nome do aplicativo, nome do manifesto de serviço e o nome do pacote de código.  Especifique `&Previous=true`. A resposta conterá os logs do contêiner para o contêiner inativo da instância do pacote de código.

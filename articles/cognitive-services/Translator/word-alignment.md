@@ -1,7 +1,7 @@
 ---
 title: Alinhamento de palavras – API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Receber informações de alinhamento de palavras da API de Tradução de Texto.
+description: Para receber informações de alinhamento, use o método Traduzir e inclua o parâmetro opcional includeAlignment.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 5818d3f4d2ebed7cbcd46aadf538640914d3b7d4
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: dd4ff1e39c062910f4627973c801dc3c51f345e5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594787"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837220"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Como receber informações de alinhamento de palavras
 
@@ -26,7 +26,7 @@ Para receber informações de alinhamento, use o método Traduzir e inclua o par
 ## <a name="alignment-information-format"></a>Formato de informações de alinhamento
 O alinhamento é retornado como um valor de cadeia de caracteres do seguinte formato para cada palavra da fonte. As informações para cada palavra são separadas por um espaço, incluindo para idiomas não separados por espaço (scripts), como o chinês:
 
-[[SourceTextStartIndex]: [SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
+[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
 
 Exemplo de cadeia de caracteres de alinhamento: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 

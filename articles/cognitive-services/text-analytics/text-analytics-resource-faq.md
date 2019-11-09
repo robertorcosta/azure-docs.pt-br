@@ -1,7 +1,7 @@
 ---
 title: Perguntas frequentes sobre a API de Análise de Texto
 titleSuffix: Azure Cognitive Services
-description: Obtenha respostas para perguntas comuns sobre a API de Análise de Texto.
+description: Encontre respostas para perguntas frequentes sobre conceitos, código e cenários relacionados ao API de Análise de Texto para serviços cognitivas do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: a85fa543a6b26a5ea6452ce99fb91dc1ce465db7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aca3b0bea65923cee1bae25020058666c973922c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60827945"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837133"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>FAQ (perguntas frequentes) sobre o Serviço Cognitivo de Análise de Texto
 
@@ -51,7 +51,7 @@ Melhorias aos modelos e algoritmos serão anunciadas se a alteração for import
 
 A sua pergunta é sobre a falta de um recurso ou funcionalidade? Considere solicitar ou votar nisso em nosso [site UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
- [Stack Overflow: API de Análise de Texto   
- [Stack Overflow: Serviços Cognitivos](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [StackOverflow: API de Análise de Texto](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ [StackOverflow: Serviços Cognitivos](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

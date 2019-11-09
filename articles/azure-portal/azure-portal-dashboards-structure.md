@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: dccf1550052910269efe156b999882234669d7dc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5933521993b598ae3758df6e2e7dbf61bf424779
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815697"
+ms.locfileid: "73832786"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura de Painéis do Azure
 Este documento explica a estrutura de um painel do Azure, usando o painel a seguir como exemplo:
@@ -295,7 +295,7 @@ Vamos dividir as seções relevantes do JSON.  As propriedades de nível superio
 
 ### <a name="the-id-property"></a>A propriedade id
 
-A ID de recurso do Azure está sujeita às [convenções de nomenclatura dos recursos do Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). Quando o portal cria um painel, ele, geralmente, escolhe uma ID na forma de um GUID, mas você é livre para usar qualquer nome válido ao criar programaticamente. 
+A ID de recurso do Azure está sujeita às [convenções de nomenclatura dos recursos do Azure](/azure/architecture/best-practices/resource-naming). Quando o portal cria um painel, ele, geralmente, escolhe uma ID na forma de um GUID, mas você é livre para usar qualquer nome válido ao criar programaticamente. 
 
 ### <a name="the-name-property"></a>A propriedade name
 O nome é o segmento da ID de recurso que não inclui informações de assinatura, tipo de recurso ou grupo de recursos. Basicamente, é o último segmento da ID de recurso.

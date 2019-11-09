@@ -1,10 +1,10 @@
 ---
-title: Examinar o acesso às funções do Azure AD no PIM-Azure Active Directory | Microsoft Docs
-description: Saiba como examinar o acesso das funções do Azure AD no Azure AD Privileged Identity Management (PIM).
+title: Examinar o acesso às funções do Azure AD no PIM – Azure AD | Microsoft Docs
+description: Saiba como examinar o acesso de funções de Azure Active Directory no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8b9f16d6c7f738e64f154506228c832e31e0f5b
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 76eccb5d62b68865b7a117312be62753f203e2cb
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809060"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847102"
 ---
 # <a name="review-access-to-azure-ad-roles-in-privileged-identity-management"></a>Examinar o acesso às funções do Azure AD no Privileged Identity Management
 
@@ -33,7 +33,7 @@ Se você for um administrador com privilégios de função ou um administrador g
 
 Se você não tiver o serviço Azure AD Privileged Identity Management fixado ao seu painel no seu portal do Azure, siga estas etapas para começar.
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Selecione seu nome de usuário no canto superior direito do portal do Azure e selecione o diretório em que você vai operar.
 3. Selecione **Todos os serviços** e use a caixa de texto Filtrar para pesquisar o **Azure AD Privileged Identity Management**.
 4. Marque **Fixar no painel** e então clique em **Criar**. O aplicativo Privileged Identity Management será aberto.
@@ -50,6 +50,6 @@ Siga estas etapas para localizar e concluir a análise de acesso:
 5. Feche a folha **Funções de análise do AD do Azure** .
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Realizar uma revisão de acesso das minhas funções de recurso do Azure no PIM](pim-resource-roles-perform-access-review.md)

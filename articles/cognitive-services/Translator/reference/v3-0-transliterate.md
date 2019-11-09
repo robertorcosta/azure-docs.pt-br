@@ -1,7 +1,7 @@
 ---
 title: Método de Transliteração de API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Use o método de Transliteração de API de Tradução de Texto.
+description: Converta o texto em um idioma de um script para outro com o método transliterate API de Tradução de Texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 58c9399b3701e2d8f0737b48c00336159e9688a8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e6bb1541b2b668796b352bebc68d59b4ade143e3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931993"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837274"
 ---
-# <a name="translator-text-api-30-transliterate"></a>API de Tradução de Texto 3.0: Transliterate
+# <a name="translator-text-api-30-transliterate"></a>API de Tradução de Texto 3.0: transliteração
 
 Converte texto em um idioma de um script em outro script.
 
-## <a name="request-url"></a>URL da solicitação
+## <a name="request-url"></a>URL de Solicitação
 
 Envie uma solicitação `POST` para:
 
@@ -29,20 +29,20 @@ Envie uma solicitação `POST` para:
 https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 ```
 
-## <a name="request-parameters"></a>Parâmetros de solicitação
+## <a name="request-parameters"></a>Parâmetros da solicitação
 
 Os parâmetros de solicitação passados na cadeia de caracteres de consulta são:
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
-  <th>Descrição</th>
+  <th>DESCRIÇÃO</th>
   <tr>
     <td>api-version</td>
-    <td>*Parâmetro obrigatório*.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
+    <td>*Parâmetro necessário*.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
   </tr>
   <tr>
-    <td>language</td>
-    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto a converter de um script para outro. Idiomas possíveis estão listados no escopo de `transliteration` obtido consultando o serviço para os seus [idiomas compatíveis](./v3-0-languages.md).</td>
+    <td>idioma</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto a converter de um script para outro. Idiomas possíveis estão listados no escopo de `transliteration` obtido consultando o serviço para os seus [idiomas compatíveis](./v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
@@ -54,17 +54,17 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
 </table> 
 
-Os cabeçalhos de solicitação incluem:
+Os cabeçalhos da solicitação incluem:
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
-  <th>Descrição</th>
+  <th>DESCRIÇÃO</th>
   <tr>
     <td>Cabeçalho (s) de autenticação</td>
     <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
+    <td>Tipo de conteúdo</td>
     <td>*Cabeçalho de solicitação obrigatório*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
   </tr>
   <tr>
@@ -77,7 +77,7 @@ Os cabeçalhos de solicitação incluem:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Solicitar corpo
+## <a name="request-body"></a>Corpo da solicitação
 
 O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objeto JSON com uma propriedade de cadeia de caracteres denominada `Text`, que representa a cadeia de caracteres a converter.
 
@@ -115,7 +115,7 @@ Um exemplo de resposta JSON é:
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
-  <th>Descrição</th>
+  <th>DESCRIÇÃO</th>
   <tr>
     <td>X-RequestId</td>
     <td>Valor gerado pelo serviço para identificar a solicitação. É usado para fins de solução de problemas.</td>
@@ -127,11 +127,11 @@ Um exemplo de resposta JSON é:
 Veja a seguir os possíveis códigos de status HTTP retornados por uma solicitação. 
 
 <table width="100%">
-  <th width="20%">Código de Status</th>
-  <th>Descrição</th>
+  <th width="20%">Código de status</th>
+  <th>DESCRIÇÃO</th>
   <tr>
     <td>200</td>
-    <td>Êxito.</td>
+    <td>Sucesso.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -151,7 +151,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
   </tr>
   <tr>
     <td>500</td>
-    <td>Ocorreu um erro inesperado. Se o erro persistir, relate-o com: data e hora da falha, identificador da solicitação do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
+    <td>Erro inesperado. Se o erro persistir, relate-o com: data e hora da falha, identificador da solicitação do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>

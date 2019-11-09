@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 771a4ffde9f3929a55ee8ce48c2b38e16b83ad49
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 4fd6de848756cedf21d7bb1f7f1be31175de6627
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650672"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838249"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Como criar seu primeiro aplicativo de contêiner do Service Fabric no Windows
 
@@ -120,7 +120,7 @@ if __name__ == "__main__":
 
 <a id="Build-Containers"></a>
 ## <a name="build-the-image"></a>Criar a imagem
-Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Execute o seguinte comando:
+Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Execute o comando a seguir:
 
 ```
 docker build -t helloworldapp .
@@ -158,7 +158,7 @@ Se esse comando não retorna nada, execute o seguinte comando e inspecione o ele
 docker inspect my-web-site
 ```
 
-Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado, por exemplo, "\/http:/172.31.194.61". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
+Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado, por exemplo, "http:\//172.31.194.61". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
 Para interromper o contêiner, execute:
 
@@ -281,7 +281,7 @@ O Windows dá suporte a dois modos de isolamento para contêineres: processo e H
    >
 
 ## <a name="configure-resource-governance"></a>Configurar governança de recursos
-A [governança de recursos](service-fabric-resource-governance.md) restringe os recursos que o contêiner pode usar no host. O elemento `ResourceGovernancePolicy`, especificado no manifesto do aplicativo, é usado para declarar os limites de recurso para um pacote de códigos de serviço. Limites de recursos podem ser definidos para os seguintes recursos: Memory, MemorySwap, CpuShares (peso relativo da CPU), MemoryReservationInMB, BlkioWeight (peso relativo de BlockIO). Neste exemplo, o pacote de serviço Guest1Pkg obtém um núcleo nos nós de cluster em que ele é colocado. Os limites de memória são absolutos e, portanto, o pacote de códigos é limitado a 1024 MB de memória (e a uma reserva de garantia reversível da mesma). Os pacotes de códigos (contêineres ou processos) não podem alocar mais memória do que esse limite. A tentativa de fazer isso resultará em uma exceção de memória insuficiente. Para que a imposição do limite de recursos funcione, todos os pacotes de códigos em um pacote de serviço devem ter limites de memória especificados.
+A [governança de recursos](service-fabric-resource-governance.md) restringe os recursos que o contêiner pode usar no host. O elemento `ResourceGovernancePolicy`, especificado no manifesto do aplicativo, é usado para declarar os limites de recurso para um pacote de códigos de serviço. Os limites de recursos podem ser definidos para os seguintes recursos: Memory, MemorySwap, CpuShares (CPU relative weight), MemoryReservationInMB, BlkioWeight (BlockIO relative weight). Neste exemplo, o pacote de serviço Guest1Pkg obtém um núcleo nos nós de cluster em que ele é colocado. Os limites de memória são absolutos e, portanto, o pacote de códigos é limitado a 1024 MB de memória (e a uma reserva de garantia reversível da mesma). Os pacotes de códigos (contêineres ou processos) não podem alocar mais memória do que esse limite. A tentativa de fazer isso resultará em uma exceção de memória insuficiente. Para que a imposição do limite de recursos funcione, todos os pacotes de códigos em um pacote de serviço devem ter limites de memória especificados.
 
 ```xml
 <ServiceManifestImport>
@@ -320,7 +320,7 @@ Você pode configurar o comportamento do **HEALTHCHECK** para cada contêiner es
     </Policies>
 </ServiceManifestImport>
 ```
-Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido **como true**, *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false**e *TreatContainerUnhealthyStatusAsError* é definido como **false** . 
+Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido como **true**, *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false**e *TreatContainerUnhealthyStatusAsError* é definido como **false**. 
 
 Se o *RestartContainerOnUnhealthyDockerHealthStatus* for definido como **true**, um contêiner relatando repetidamente um estado não íntegro será reiniciado (possivelmente em outros nós).
 
@@ -331,15 +331,15 @@ Se você deseja desabilitar a integração do **HEALTHCHECK** para todo o cluste
 ## <a name="deploy-the-container-application"></a>Como implantar o aplicativo de contêiner
 Salve todas as suas alterações e compile o aplicativo. Para publicar o seu aplicativo, clique o botão direito do mouse em **MyFirstContainer** no Gerenciador de Soluções e selecione **Publicar**.
 
-Em **Ponto de Extremidade de Conexão**, insira o ponto de extremidade de gerenciamento para o cluster. Por exemplo, "containercluster.westus2.cloudapp.azure.com:19000". Você pode encontrar o ponto de extremidade de conexão do cliente na guia de Visão geral para o cluster no [portal do Azure](https://portal.azure.com).
+Em **Ponto de Extremidade de Conexão**, insira o ponto de extremidade de gerenciamento para o cluster. Por exemplo: `containercluster.westus2.cloudapp.azure.com:19000`. Você pode encontrar o ponto de extremidade de conexão do cliente na guia de Visão geral para o cluster no [portal do Azure](https://portal.azure.com).
 
 Clique em **Publicar**.
 
-O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma ferramenta baseada na Web para inspecionar e gerenciar aplicativos e nós em um cluster do Service Fabric. Abra um navegador e navegue até http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ e siga a implantação do aplicativo. O aplicativo é implantado, mas fica em estado de erro até que a imagem seja baixada nos nós de cluster (o que pode levar algum tempo, dependendo do tamanho da imagem): ![Erro][1]
+O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma ferramenta baseada na Web para inspecionar e gerenciar aplicativos e nós em um cluster do Service Fabric. Abra um navegador e navegue até `http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/` e siga a implantação do aplicativo. O aplicativo é implantado, mas fica em estado de erro até que a imagem seja baixada nos nós de cluster (o que pode levar algum tempo, dependendo do tamanho da imagem): ![Erro][1]
 
-O aplicativo está pronto quando está com o estado ```Ready```: ![Pronto][2]
+O aplicativo está pronto quando ele está em ```Ready``` estado: ![pronto][2]
 
-Abra um navegador e navegue até http://containercluster.westus2.cloudapp.azure.com:8081. Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
+Abra um navegador e navegue até `http://containercluster.westus2.cloudapp.azure.com:8081`. Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
 ## <a name="clean-up"></a>Limpar
 
@@ -507,7 +507,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Configurar o intervalo de tempo antes do contêiner ser forçado a terminar
 
-Você pode configurar um intervalo de tempo para a execução aguardar antes do contêiner ser removido após a exclusão do serviço (ou um movimento para outro nó) ter iniciado. Configurar o intervalo de tempo envia o comando `docker stop <time in seconds>` para o contêiner.  Para obter mais detalhes, consulte [parar docker](https://docs.docker.com/engine/reference/commandline/stop/). O intervalo de tempo de espera é especificado na seção `Hosting`. A `Hosting` seção pode ser adicionada na criação do cluster ou posteriormente em uma atualização de configuração. O snippet de manifesto do cluster a seguir mostra como definir o intervalo de espera:
+Você pode configurar um intervalo de tempo para a execução aguardar antes do contêiner ser removido após a exclusão do serviço (ou um movimento para outro nó) ter iniciado. Configurar o intervalo de tempo envia o comando `docker stop <time in seconds>` para o contêiner.  Para obter mais detalhes, consulte [parar docker](https://docs.docker.com/engine/reference/commandline/stop/). O intervalo de tempo de espera é especificado na seção `Hosting`. A seção `Hosting` pode ser adicionada na criação do cluster ou posteriormente em uma atualização de configuração. O snippet de manifesto do cluster a seguir mostra como definir o intervalo de espera:
 
 ```json
 "fabricSettings": [

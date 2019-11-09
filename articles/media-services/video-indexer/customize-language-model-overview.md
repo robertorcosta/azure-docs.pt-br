@@ -1,6 +1,6 @@
 ---
 title: Personalizar um modelo de linguagem no Video Indexer – Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Este artigo fornece uma visão geral do que é um modelo de linguagem no Video Indexer e como personalizá-lo.
 services: media-services
 author: anikaz
@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 516ecd8842e7b673201cc640b283c081a02d2b2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b096b9352be65033f2fb782b118e815dc16b43b6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799556"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838311"
 ---
 # <a name="customize-a-language-model-with-video-indexer"></a>Personalizar um modelo de linguagem no Video Indexer
 
-O Video Indexer dá suporte ao reconhecimento de fala automático por meio da integração com o [Serviço de Fala Personalizado](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/) da Microsoft. É possível personalizar o modelo de linguagem carregando o texto de adaptação, ou seja, o texto do domínio a cujo vocabulário você deseja que o mecanismo se adapte. Após você treinar seu modelo, novas palavras que aparecem no texto de adaptação serão reconhecidas, presumindo a pronúncia padrão, e o modelo de linguagem aprenderá novas sequências de palavras prováveis. Modelos de linguagem personalizados têm suporte para inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo, português (Brasil), híndi e coreano. 
+O Video Indexer dá suporte ao reconhecimento de fala automático por meio da integração com o [Serviço de Fala Personalizado](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/) da Microsoft. É possível personalizar o modelo de linguagem carregando o texto de adaptação, ou seja, o texto do domínio a cujo vocabulário você deseja que o mecanismo se adapte. Após você treinar seu modelo, novas palavras que aparecem no texto de adaptação serão reconhecidas, presumindo a pronúncia padrão, e o modelo de linguagem aprenderá novas sequências de palavras prováveis. Os modelos de idioma personalizados têm suporte para inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo, Português do Brasil, híndi e coreano. 
 
 Vamos pegar uma palavra altamente específica, como "Kubernetes" (no contexto do serviço de Kubernetes do Azure), como exemplo. Como a palavra é nova para o Video Indexer, ela é reconhecida como "comunidades". Você precisa treinar o modelo para reconhecê-la como "Kubernetes". Em outros casos, as palavras existem, mas o modelo de linguagem não está esperando que elas apareçam em um determinado contexto. Por exemplo, "serviço de contêiner" não é uma sequência de três palavras que um modelo de linguagem não especializado reconheceria como um conjunto específico de palavras.
 

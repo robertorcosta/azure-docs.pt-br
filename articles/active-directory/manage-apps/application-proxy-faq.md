@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 9743f25d89bed4e54b3deed815d1cf29030caff6
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 612b6caf47ec4764aa2bbef162592100198ed0c4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955465"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832207"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Perguntas frequentes sobre o proxy de aplicativo Active Directory (Azure AD)
 
@@ -66,7 +66,7 @@ Não há motivo para isso. Qualquer conta de administrador global ou de administ
 Há contadores do monitor de desempenho que são instalados junto com o conector do. Para exibi-los:  
 
 1. Selecione **Iniciar**, digite "Perfmon" e pressione Enter.
-2. Selecione **Monitor de desempenho** e clique no ícone verde **+** .
+2. Selecione **Monitor de desempenho** e clique no ícone de **+** verde.
 3. Adicione os contadores do **conector de proxy de aplicativo do Microsoft AAD** que você deseja monitorar.
 
 ### <a name="does-the-azure-ad-application-proxy-connector-have-to-be-on-the-same-subnet-as-the-resource"></a>O conector do Proxy de Aplicativo do AD do Azure precisa estar na mesma sub-rede que o recurso?
@@ -95,7 +95,7 @@ O método PrincipalsAllowedToDelegateToAccount é usado quando servidores de con
 Se os servidores do conector e a conta de serviço do aplicativo Web estiverem no mesmo domínio, você poderá usar Active Directory usuários e computadores para definir as configurações de delegação em cada uma das contas do computador do conector, permitindo que elas deleguem ao SPN de destino.
 
 Se os servidores do conector e a conta de serviço de aplicativo Web estiverem em domínios diferentes, a delegação baseada em recursos será usada. As permissões de delegação são configuradas no servidor Web de destino e na conta de serviço de aplicativo Web. Esse método de delegação restrita é relativamente novo. O método foi introduzido no Windows Server 2012, que dá suporte à delegação entre domínios, permitindo que o proprietário do recurso (serviço Web) controle quais contas de computador e serviço podem delegar a ele. Não há nenhuma interface do usuário para ajudar nessa configuração, portanto, você precisará usar o PowerShell.
-Para obter mais informações, consulte o White Paper [noções básicas sobre a delegação restrita de Kerberos com o proxy de aplicativo](http://aka.ms/kcdpaper).
+Para obter mais informações, consulte o White Paper [noções básicas sobre a delegação restrita de Kerberos com o proxy de aplicativo](https://aka.ms/kcdpaper).
 
 ## <a name="pass-through-authentication"></a>Autenticação de passagem
 
@@ -139,7 +139,7 @@ Consulte [habilitar o acesso remoto ao SharePoint com o Azure proxy de aplicativ
 
 ### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>Posso usar o Azure Proxy de Aplicativo do AD como AD FS proxy (como o proxy de aplicativo Web)?
 
-Nº O Proxy de Aplicativo do AD do Azure foi projetado para funcionar com o Azure AD e não atende aos requisitos para atuar como um proxy de AD FS.
+Não. O Proxy de Aplicativo do AD do Azure foi projetado para funcionar com o Azure AD e não atende aos requisitos para atuar como um proxy de AD FS.
 
 ## <a name="websocket"></a>WebSocket
 

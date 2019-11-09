@@ -1,7 +1,7 @@
 ---
 title: Método de pesquisa de dicionário de API do Translator texto
 titleSuffix: Azure Cognitive Services
-description: Use o método de pesquisa de dicionário de API do Translator texto.
+description: O método de pesquisa de dicionário fornece traduções alternativas para uma palavra e um pequeno número de frases idiomáticas.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 0bbdba343888bc91521245d0c9a0e4eaa87c5538
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: bd725d41f75bdfb1048b5bee7e8224679dbece4c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932014"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837262"
 ---
-# <a name="translator-text-api-30-dictionary-lookup"></a>API de Tradução de Texto 3.0: Pesquisa no dicionário
+# <a name="translator-text-api-30-dictionary-lookup"></a>Tradução de texto API 3.0: Pesquisa de dicionário
 
 Fornece as traduções alternativas para uma palavra e um pequeno número de frases idiomáticas. Cada tradução tem uma parte da fala e uma lista de traduções reversas. As traduções reversas possibilitam que um usuário entenda a tradução no contexto. A operação [Exemplo de Dicionário](./v3-0-dictionary-examples.md) permite mais detalhamento para ver os usos de exemplo de cada par de tradução.
 
-## <a name="request-url"></a>URL da solicitação
+## <a name="request-url"></a>URL de Solicitação
 
 Envie uma solicitação `POST` para:
 
@@ -29,38 +29,38 @@ Envie uma solicitação `POST` para:
 https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 ```
 
-## <a name="request-parameters"></a>Parâmetros de solicitação
+## <a name="request-parameters"></a>Parâmetros da solicitação
 
 Os parâmetros de solicitação passados na cadeia de caracteres de consulta são:
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
-  <th>Descrição</th>
+  <th>DESCRIÇÃO</th>
   <tr>
     <td>api-version</td>
-    <td>*Parâmetro obrigatório*.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
+    <td>*Parâmetro necessário*.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
   </tr>
   <tr>
-    <td>from</td>
-    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de entrada. O idioma de origem deve ser um dos [idiomas compatíveis](./v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
+    <td>Da</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de entrada. O idioma de origem deve ser um dos [idiomas compatíveis](./v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
   </tr>
   <tr>
     <td>para</td>
-    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas compatíveis](./v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas com suporte](./v3-0-languages.md) incluídos no escopo `dictionary`.</td>
   </tr>
 </table>
 
-Os cabeçalhos de solicitação incluem:
+Os cabeçalhos da solicitação incluem:
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
-  <th>Descrição</th>
+  <th>DESCRIÇÃO</th>
   <tr>
     <td>Cabeçalho (s) de autenticação</td>
     <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
+    <td>Tipo de conteúdo</td>
     <td>*Cabeçalho de solicitação obrigatório*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
   </tr>
   <tr>
@@ -73,7 +73,7 @@ Os cabeçalhos de solicitação incluem:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Solicitar corpo
+## <a name="request-body"></a>Corpo da solicitação
 
 O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objeto JSON com uma propriedade de cadeia de caracteres chamada `Text`, que representa o termo a pesquisar.
 
@@ -90,9 +90,9 @@ As seguintes limitações se aplicam:
 
 ## <a name="response-body"></a>Corpo da resposta
 
-Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
+Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
-  * `normalizedSource`: uma cadeia de caracteres fornecendo a forma normalizada do termo de origem. Por exemplo, se a solicitação for "JOHN", o formato normalizado será "john". O conteúdo desse campo se torna a entrada para [exemplos de pesquisa](./v3-0-dictionary-examples.md).
+  * `normalizedSource`: uma cadeia de caracteres fornecendo o formulário normalizado do termo de origem. Por exemplo, se a solicitação for "JOHN", o formato normalizado será "john". O conteúdo desse campo se torna a entrada para [exemplos de pesquisa](./v3-0-dictionary-examples.md).
     
   * `displaySource`: uma cadeia de caracteres fornecendo o termo de origem na forma mais adequada para exibição do usuário final. Por exemplo, se a entrada for "JOHN", o formato de exibição refletirá a ortografia normal do nome: "John". 
 
@@ -102,9 +102,9 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
 
     * `displayTarget`: uma cadeia de caracteres fornecendo o termo no idioma de destino e na forma mais adequada para exibição do usuário final. Em geral, isso diferirá do `normalizedTarget` apenas em termos de maiúsculas e minúsculas. Por exemplo, um substantivo próprio como "Juan" terá `normalizedTarget = "juan"` e `displayTarget = "Juan"`.
 
-    * `posTag`: uma cadeia de caracteres associando esse termo a uma marca de parte da fala.
+    * `posTag`: uma cadeia de caracteres associando esse termo a uma marcação de parte da fala.
 
-        | Nome da marca | Descrição  |
+        | Nome da marca | DESCRIÇÃO  |
         |----------|--------------|
         | ADJ      | Adjetivos   |
         | ADV      | Advérbios      |
@@ -125,9 +125,9 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
     
     * `backTranslations`: uma lista de "traduções reversas" do destino. Por exemplo, palavras de origem para as quais o destino pode ser traduzido. É garantido que a lista contenha a palavra de origem que foi solicitada (por exemplo, se a palavra de origem que está sendo pesquisada for "fly", será garantido que "fly" estará na lista `backTranslations`). No entanto, não é garantido que estará na primeira posição, e geralmente não estará. Cada elemento da lista `backTranslations` é um objeto descrito pelas seguintes propriedades:
 
-        * `normalizedText`: uma cadeia de caracteres fornecendo a forma normalizada do termo de origem é uma tradução reversa do destino. Esse valor deve ser usado como entrada para [exemplos de pesquisa](./v3-0-dictionary-examples.md).        
+        * `normalizedText`: uma cadeia de caracteres fornecendo o formulário normalizado do termo de origem é uma tradução reversa do destino. Esse valor deve ser usado como entrada para [exemplos de pesquisa](./v3-0-dictionary-examples.md).        
 
-        * `displayText`: uma cadeia de caracteres fornecendo o termo de origem que é uma tradução reversa do destino na forma mais adequada para a exibição do usuário final.
+        * `displayText`: uma cadeia de caracteres fornecendo o termo de origem que é uma tradução reversa do destino a forma mais adequada para a exibição do usuário final.
 
         * `numExamples`: um inteiro representando o número de exemplos que estão disponíveis para esse par de tradução. Exemplos reais devem ser recuperados com uma chamada separada para [exemplos de pesquisa](./v3-0-dictionary-examples.md). O número destina-se principalmente a facilitar a exibição em um UX. Por exemplo, uma interface do usuário pode adicionar um hiperlink para uma tradução reversa se o número de exemplos é maior que zero e mostrar a tradução reversa como texto sem formatação se não houver nenhum exemplo. Observe que o número real de exemplos retornados por uma chamada para [exemplos de pesquisa](./v3-0-dictionary-examples.md) pode ser menor que `numExamples`, pois filtragem adicional pode ser aplicada rapidamente para remover os exemplos "ruins".
         
