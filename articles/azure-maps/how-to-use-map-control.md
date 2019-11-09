@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c764460fb65287dab0031b27291d2f332cec3b3d
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ceb3b7315439aced7f781e8de5e62b49fd83818c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756543"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833811"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usar o controle de mapeamento do Azure Maps
 
@@ -174,7 +174,7 @@ Você pode inserir um mapa em uma página da Web usando a biblioteca Javascript 
 
 8. Abra o arquivo no seu navegador da Web e exiba o mapa renderizado. Ele deve ser semelhante ao seguinte código:
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="Como usar o controle de mapeamento" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Consulte a caneta <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>como usar o controle de mapa</a> pelo mapas do Azure (<a href='https://codepen.io/azuremaps'> @azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+    <iframe height="700" style="width: 100%;" scrolling="no" title="Como usar o controle de mapeamento" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Consulte a caneta <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>como usar o controle de mapa</a> pelo mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
     </iframe>
 
 ## <a name="localizing-the-map"></a>Localizando o mapa
@@ -183,7 +183,7 @@ O mapas do Azure fornece duas maneiras diferentes de definir o idioma e a exibi�
 
 ```javascript
 atlas.setLanguage('fr-FR');
-atlas.setView('auto');
+atlas.setView('Auto');
 ```
 
 A segunda opção é passar essas informações para as opções de mapa ao carregar o mapa, como:
@@ -191,7 +191,7 @@ A segunda opção é passar essas informações para as opções de mapa ao carr
 ```javascript
 map = new atlas.Map('myMap', {
     language: 'fr-FR',
-    view: 'auto',
+    view: 'Auto',
 
     authOptions: {
         authType: 'aad',
@@ -211,7 +211,7 @@ Aqui está um exemplo de mapas do Azure com o idioma definido como "fr-FR" e a e
 
 Uma lista completa de idiomas com suporte e exibições regionais está documentada [aqui](supported-languages.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como criar e interagir com um mapa:
 

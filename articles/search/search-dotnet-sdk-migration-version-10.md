@@ -1,7 +1,7 @@
 ---
-title: Atualizar para Azure Search SDK do .NET versão 10
+title: Atualizar para o Azure Pesquisa Cognitiva SDK do .NET versão 10
 titleSuffix: Azure Cognitive Search
-description: Migre o código para o Azure Search SDK do .NET versão 10 de versões mais antigas. Conheça as novidades e quais alterações de código são necessárias.
+description: Migre o código para o Azure Pesquisa Cognitiva .NET SDK versão 10 de versões mais antigas. Conheça as novidades e quais alterações de código são necessárias.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
@@ -9,30 +9,30 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4a8550a7f9c6a684a172da6f384039c6050797f6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ad912eb0b26354d40a654a1c8782dfcb960235e5
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793049"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847516"
 ---
-# <a name="upgrade-to-azure-search-net-sdk-version-10"></a>Atualizar para Azure Search SDK do .NET versão 10
+# <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Atualizar para o Azure Pesquisa Cognitiva SDK do .NET versão 10
 
 Se você estiver usando a versão 9,0 ou anterior do [SDK do .net Azure Search](https://aka.ms/search-sdk), este artigo o ajudará a atualizar seu aplicativo para usar a versão 10.
 
-Para obter uma explicação mais geral do SDK, incluindo exemplos, confira [Como usar o Azure Search de um aplicativo .NET](search-howto-dotnet-sdk.md).
+Azure Search é renomeado para o Azure Pesquisa Cognitiva na versão 10, mas os namespaces e nomes de pacote não são alterados. As versões anteriores do SDK (9,0 e anteriores) continuam a usar o nome anterior. Para obter mais informações sobre como usar o SDK, incluindo exemplos, consulte [como usar o Azure pesquisa cognitiva de um aplicativo .net](search-howto-dotnet-sdk.md).
 
 A versão 10 adiciona vários recursos e correções de bugs, levando-os ao mesmo nível funcional da versão mais recente da API REST `2019-05-06`. Nos casos em que uma alteração quebra o código existente, vamos orientá-lo pelas [etapas necessárias para resolver o problema](#UpgradeSteps).
 
 > [!NOTE]
 > Se você estiver usando a versão 8,0-Preview ou mais antiga, atualize para a versão 9 primeiro e, em seguida, atualize para a versão 10. Consulte [Atualizando para o SDK do .net Azure Search versão 9](search-dotnet-sdk-migration-version-9.md) para obter instruções.
 >
-> Sua instância de serviço do Azure Search dá suporte a várias versões da API REST, incluindo a última. Você pode continuar usando uma versão quando ela não for mais a última, mas aconselhamos a migrar seu código para usar a versão mais recente. Ao usar a API REST, você deve especificar a versão da API em cada solicitação por meio do parâmetro api-version. Ao usar o SDK do .NET, a versão do SDK que você está usando determina a versão correspondente da API REST. Se estiver usando um SDK mais antigo, você poderá continuar executando esse código sem alterações, mesmo se o serviço for atualizado para dar suporte a uma versão de API mais recente.
+> Sua instância do serviço de pesquisa dá suporte a várias versões da API REST, incluindo a mais recente. Você pode continuar usando uma versão quando ela não for mais a última, mas aconselhamos a migrar seu código para usar a versão mais recente. Ao usar a API REST, você deve especificar a versão da API em cada solicitação por meio do parâmetro api-version. Ao usar o SDK do .NET, a versão do SDK que você está usando determina a versão correspondente da API REST. Se estiver usando um SDK mais antigo, você poderá continuar executando esse código sem alterações, mesmo se o serviço for atualizado para dar suporte a uma versão de API mais recente.
 
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-10"></a>O que há de novo na versão 10
-A versão 10 do SDK do .NET Azure Search tem como alvo a versão mais recente disponível da API REST do Azure Search (`2019-05-06`) com essas atualizações:
+A versão 10 do SDK do .NET Pesquisa Cognitiva do Azure destina-se à versão mais recente disponível da API REST (`2019-05-06`) com essas atualizações:
 
 * Introdução de duas novas habilidades – habilidades [condicionais](cognitive-search-skill-conditional.md) e [habilidades de tradução de texto](cognitive-search-skill-text-translation.md).
 * As entradas de [habilidade do modelador](cognitive-search-skill-shaper.md) foram reestruturadas para acomodar a consolidação de contextos aninhados. Para obter mais informações, consulte esta [definição de JSON de exemplo](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts).
@@ -62,7 +62,7 @@ A versão 10 do SDK do .NET Azure Search tem como alvo a versão mais recente di
 Há várias alterações significativas na versão 10 que podem exigir alterações de código, além da recriação do aplicativo.
 
 > [!NOTE]
-> A lista de alterações abaixo não é exaustiva. Algumas alterações provavelmente não resultarão em erros de compilação, mas são tecnicamente quebradas, pois elas violam a compatibilidade binária com assemblies que dependem de versões anteriores do Azure Search assemblies do SDK do .NET. Alterações significativas que se enquadram nessa categoria também são listadas junto com as recomendações. Recompile seu aplicativo ao atualizar para a versão 10 para evitar problemas de compatibilidade binária.
+> A lista de alterações abaixo não é exaustiva. Algumas alterações provavelmente não resultarão em erros de compilação, mas são tecnicamente quebradas, pois elas violam a compatibilidade binária com assemblies que dependem de versões anteriores dos assemblies do SDK do .NET Pesquisa Cognitiva do Azure. Alterações significativas que se enquadram nessa categoria também são listadas junto com as recomendações. Recompile seu aplicativo ao atualizar para a versão 10 para evitar problemas de compatibilidade binária.
 
 ### <a name="custom-web-api-skill-definition"></a>Definição de habilidade da API Web personalizada
 
@@ -154,7 +154,7 @@ Se você optar por identificar as habilidades por um nome personalizado, atualiz
 > [!NOTE]
 > Começamos a estruturar nossos erros e avisos para incluir esses detalhes úteis sempre que possível. Estamos trabalhando para garantir que, para todos os erros e avisos, esses detalhes estejam presentes, mas é um trabalho em andamento e esses detalhes adicionais nem sempre podem ser preenchidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - As alterações na habilidade do modelador têm o impacto mais potencial sobre o código novo ou existente. Como uma próxima etapa, não se esqueça de revisitar este exemplo ilustrando a estrutura de entrada: [exemplo de definição de JSON de habilidade do shaper](cognitive-search-skill-shaper.md)
 - Percorra a [visão geral de enriquecimento de ia](cognitive-search-concept-intro.md).

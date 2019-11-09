@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: c5a07d8b52e83215b2fdc220d76557ca45e1eae9
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: e2f1747b8ae98ce53ce570422044a2f172c1a526
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286019"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834473"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implantar recursos com modelos do Resource Manager e a CLI do Azure
 
@@ -37,9 +37,11 @@ Para implantar em uma **assinatura**, use [AZ Deployment Create](/cli/azure/depl
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-Atualmente, as implantações de grupo de gerenciamento só têm suporte por meio da API REST. Consulte [implantar recursos com modelos do Resource Manager e a API REST do Gerenciador de recursos](resource-group-template-deploy-rest.md).
+Para obter mais informações sobre implantações de nível de assinatura, consulte [criar grupos de recursos e recursos no nível de assinatura](deploy-to-subscription.md).
 
-Os exemplos neste artigo usam implantações de grupo de recursos. Para obter mais informações sobre implantações de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](deploy-to-subscription.md).
+Atualmente, as implantações de grupo de gerenciamento só têm suporte por meio da API REST. Para obter mais informações sobre implantações de nível de grupo de gerenciamento, consulte [criar recursos no nível do grupo de gerenciamento](deploy-to-management-group.md).
+
+Os exemplos neste artigo usam implantações de grupo de recursos.
 
 ## <a name="deploy-local-template"></a>Implantar o modelo local
 
@@ -122,7 +124,7 @@ az group deployment create \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
-Obtendo um valor de parâmetro de um arquivo é útil quando você precisa fornecer valores de configuração. Por exemplo, você pode fornecer [valores de cloud-init para uma máquina virtual Linux](../virtual-machines/linux/using-cloud-init.md).
+Obtendo um valor de parâmetro de um arquivo é útil quando você precisa fornecer valores de configuração. Por exemplo, você pode fornecer [valores cloud-init para uma máquina virtual Linux](../virtual-machines/linux/using-cloud-init.md).
 
 O formato arrayContent.json é:
 
@@ -225,8 +227,8 @@ Se seu modelo tem um erro de sintaxe, o comando retorna um erro indicando que el
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para reverter para uma implantação bem-sucedida quando você receber um erro, consulte [reverter em caso de erro para a implantação bem-sucedida](rollback-on-error.md).
-- Para especificar como lidar com os recursos existentes no grupo de recursos, mas que não estão definidos no modelo, confira [Modos de implantação do Azure Resource Manager](deployment-modes.md).
+- Para especificar como lidar com os recursos existentes no grupo de recursos, mas que não estão definidos no modelo, consulte [Modos de implantação do Azure Resource Manager](deployment-modes.md).
 - Para entender como definir parâmetros em seu modelo, confira [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 - Para dicas sobre como resolver erros de implantação, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Para saber mais sobre como implantar um modelo que exija um token SAS, veja [Implantar o modelo particular com o token SAS](resource-manager-cli-sas-token.md).
+- Para obter mais informações sobre a implantação de um modelo que exija um token SAS, veja [Implantar modelo particular com o token SAS](resource-manager-cli-sas-token.md).
 - Para distribuir com segurança seu serviço para mais de uma região, consulte [Azure Deployment Manager](deployment-manager-overview.md).

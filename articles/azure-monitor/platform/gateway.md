@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 10/30/2019
-ms.openlocfilehash: 87e1995a84ae2b598b8097d4910914831a75a318
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7574f5c17c1b4598336b8db3108946164dc203f2
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162024"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847277"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conectar computadores sem acesso à Internet usando o gateway de Log Analytics no Azure Monitor
 
@@ -26,7 +26,7 @@ O gateway de Log Analytics é um proxy de encaminhamento HTTP que dá suporte ao
 
 O gateway do Log Analytics dá suporte a:
 
-* Relatando até os mesmos quatro Log Analytics agentes de espaço de trabalho que estão por trás dele e configurados com Hybrid runbook Workers de automação do Azure.  
+* Relatando até os mesmos espaços de trabalho Log Analytics configurados em cada agente por trás dele e configurados com Hybrid runbook Workers de automação do Azure.  
 * Computadores Windows nos quais o Microsoft Monitoring Agent está diretamente conectado a um espaço de trabalho Log Analytics no Azure Monitor.
 * Computadores Linux nos quais um agente Log Analytics para Linux está conectado diretamente a um espaço de trabalho Log Analytics no Azure Monitor.  
 * System Center Operations Manager 2012 SP1 com UR7, Operations Manager 2012 R2 com UR3 ou um grupo de gerenciamento no Operations Manager 2016 ou posterior que é integrado com Log Analytics.  
@@ -69,8 +69,8 @@ Os computadores designados para executar o gateway de Log Analytics devem ter a 
 
 O gateway de Log Analytics está disponível nestes idiomas:
 
-- Chinês (simplificado)
-- Chinês (tradicional)
+- Chinês (Simplificado)
+- Chinês (Tradicional)
 - Tcheco
 - Holandês
 - Inglês
@@ -99,7 +99,7 @@ A tabela a seguir mostra aproximadamente Quantos agentes podem se comunicar com 
 |Gateway |Agentes com suporte (aproximado)|  
 |--------|----------------------------------|  
 |CPU: processador Intel Xeon E5-2660 v3 \@ 2,6 GHz 2 núcleos<br> Memória: 4 GB<br> Largura de banda de rede: 1 Gbps| 600|  
-|CPU: processador Intel Xeon E5-2660 v3 \@ 2,6 GHz 4 núcleos<br> Memória: 8 GB<br> Largura de banda de rede: 1 Gbps| 1\.000|  
+|CPU: processador Intel Xeon E5-2660 v3 \@ 2,6 GHz 4 núcleos<br> Memória: 8 GB<br> Largura de banda de rede: 1 Gbps| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Fazer download do gateway do Log Analytics
 
@@ -115,7 +115,7 @@ Para obter o gateway de Log Analytics do portal do Azure, siga estas etapas:
  
    ![Captura de tela das etapas para baixar o gateway de Log Analytics](./media/gateway/download-gateway.png)
 
-ou 
+ou o 
 
 1. Na folha do seu workspace em **Configurações**, selecione **Configurações avançadas**.
 1. Acesse **fontes conectadas** > **servidores Windows** e selecione **baixar log Analytics gateway**.
@@ -153,7 +153,7 @@ O arquivo baixado para o gateway é um pacote Windows Installer que dá suporte 
  
 A tabela a seguir realça os parâmetros com suporte na instalação do.
 
-|parâmetros| Notas|
+|parâmetros| Observações|
 |----------|------| 
 |PORTNUMBER | Número da porta TCP para o gateway a ser escutado |
 |ACIONISTA | Endereço IP do servidor proxy |
@@ -300,13 +300,13 @@ Consulte a seção [configurar sua rede](../../automation/automation-hybrid-runb
 
 Se o seu computador estiver registrado como um Hybrid Runbook Worker automaticamente, por exemplo, se a solução de Gerenciamento de Atualizações estiver habilitada para uma ou mais VMs, siga estas etapas:
 
-1. Adicione as URLs de serviço de dados de runtime do trabalho à lista Hosts Permitidos no gateway do Log Analytics. Por exemplo: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Adicione as URLs de serviço de dados de tempo de execução do trabalho à lista Hosts Permitidos no gateway do Log Analytics. Por exemplo: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Reinicie o serviço do gateway do Log Analytics usando o seguinte cmdlet do PowerShell: `Restart-Service OMSGatewayService`
 
 Se o computador estiver ingressado na automação do Azure usando o cmdlet de registro Hybrid Runbook Worker, siga estas etapas:
 
 1. Adicione a URL do registro de serviço do agente à lista Hosts Permitidos no gateway do Log Analytics. Por exemplo: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-1. Adicione as URLs de serviço de dados de runtime do trabalho à lista Hosts Permitidos no gateway do Log Analytics. Por exemplo: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Adicione as URLs de serviço de dados de tempo de execução do trabalho à lista Hosts Permitidos no gateway do Log Analytics. Por exemplo: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Reinicie o serviço do gateway do Log Analytics.
     `Restart-Service OMSGatewayService`
 
@@ -325,7 +325,7 @@ Um erro na etapa 3 significa que o módulo não foi importado. O erro pode ocorr
 | **Cmdlet** | **Parâmetros** | **Descrição** | **Exemplo** |
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |Chave |Obtém a configuração do serviço |`Get-OMSGatewayConfig` |  
-| `Set-OMSGatewayConfig` |Chave (obrigatória) <br> Value |Altera a configuração do serviço |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Set-OMSGatewayConfig` |Chave (obrigatória) <br> Valor |Altera a configuração do serviço |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Obtém o endereço do proxy de retransmissão (upstream) |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |Endereço<br> Nome de Usuário<br> Senha |Define o endereço (e as credenciais) do proxy de retransmissão (upstream) |1. Defina um proxy de retransmissão e uma credencial:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Defina um proxy de retransmissão que não precise de autenticação: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. desmarque a configuração de proxy de retransmissão:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |Obtém o host atualmente permitido (somente o host permitido configurado localmente, os hosts permitidos que não foram baixados automaticamente) |`Get-OMSGatewayAllowedHost` | 
@@ -335,7 +335,7 @@ Um erro na etapa 3 significa que o módulo não foi importado. O erro pode ocorr
 | `Remove-OMSGatewayAllowedClientCertificate` |Assunto (obrigatório) |Remove o assunto do certificado do cliente da lista de permissões |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
 | `Get-OMSGatewayAllowedClientCertificate` | |Obtém os assuntos do certificado do cliente atualmente permitidos (somente os assuntos permitidos configurados localmente, não os assuntos permitidos automaticamente baixados) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solucionar problemas
 
 Para coletar eventos registrados pelo gateway, você deve ter o agente de Log Analytics instalado.
 
@@ -381,6 +381,6 @@ Para obter ajuda, selecione o ícone de ponto de interrogação no canto superio
 
 ![Captura de tela de uma nova solicitação de suporte](./media/gateway/support.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Adicione fontes de dados](../../azure-monitor/platform/agent-data-sources.md) para coletar dados de fontes conectadas e armazene os dados em seu espaço de trabalho do log Analytics.

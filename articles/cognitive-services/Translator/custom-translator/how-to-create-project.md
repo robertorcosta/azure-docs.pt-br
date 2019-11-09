@@ -1,7 +1,7 @@
 ---
-title: Como criar um projeto? -Tradutor personalizado
+title: Como criar um projeto-Tradutor personalizado
 titleSuffix: Azure Cognitive Services
-description: Como criar um projeto no conversor personalizado?
+description: Este artigo explica como criar e gerenciar um projeto no Tradutor personalizado de serviços cognitivas do Azure.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,16 +9,16 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: a62cc6133fe01bf7478166c526e32b3215ceebf1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 5b3a6f2e903d8178554b7a076ae1277633569353
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595760"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836559"
 ---
 # <a name="create-a-project"></a>Criar um projeto
 
-Um projeto é um contêiner para modelos, documentos e testes. Cada projeto inclui automaticamente todos os documentos que são carregados nesse workspace que possuem o par de idiomas correto.
+Um projeto é um contêiner para modelos, documentos e testes. Cada projeto inclui automaticamente todos os documentos que são carregados nesse workspace que tenham o par de idiomas correto.
 
 Criar um projeto é o primeiro passo para construir um modelo.
 
@@ -30,21 +30,21 @@ Criar um projeto é o primeiro passo para construir um modelo.
 
 2.  Digite os seguintes detalhes sobre o seu projeto na caixa de diálogo:
 
-    a.  Nome do projeto (obrigatório): Dê um nome exclusivo e significativo ao projeto. Não é necessário mencionar os idiomas dentro do título.
+    a.  Nome do projeto (obrigatório): dê ao seu projeto um nome exclusivo e significativo. Não é necessário mencionar os idiomas dentro do título.
 
     b.  Descrição: Um breve resumo sobre o projeto. Essa descrição não tem influência sobre o comportamento do Custom Translator ou de seu sistema personalizado resultante, mas pode ajudá-lo a diferenciar entre diferentes projetos.
 
-    c.  Par de idiomas (obrigatório): Selecione os idiomas de origem e destino da tradução.
+    c.  Par de idiomas (obrigatório): selecione o idioma para o qual você está traduzindo.
 
-    d.  Categoria (obrigatório): Selecione a categoria mais apropriada para o projeto. A categoria descreve a terminologia e o estilo dos documentos que você pretende traduzir.
+    d.  Categoria (obrigatório): selecione a categoria mais apropriada para o seu projeto. A categoria descreve a terminologia e o estilo dos documentos que você pretende traduzir.
 
-    e.  Descrição da categoria: Use esse campo para descrever melhor o campo ou o setor específico no qual você está trabalhando. Por exemplo, se a sua categoria for medicina, você poderá adicionar um documento específico, como uma cirurgia ou pediatria. A descrição não tem influência sobre o comportamento do Custom Translator ou do sistema personalizado resultante.
+    e.  Descrição da categoria: use este campo para descrever melhor o campo ou setor específico em que você está trabalhando. Por exemplo, se a sua categoria for medicina, você poderá adicionar um documento específico, como uma cirurgia ou pediatria. A descrição não tem influência sobre o comportamento do Custom Translator ou do sistema personalizado resultante.
 
-    f.  Rótulo do projeto: O [rótulo do projeto](workspace-and-project.md#project-labels) faz distinção entre projetos com o mesmo par de idiomas e a mesma categoria. Como prática recomendada, use um rótulo *somente* se você estiver planejando criar vários projetos para o mesmo par de idiomas e mesma categoria e quiser acessar esses projetos com um CategoryID diferente. Não use esse campo se você estiver criando sistemas apenas para uma categoria. Um rótulo de projeto não é necessário e não é útil para distinguir entre pares de idiomas. Você pode usar o mesmo rótulo para vários projetos.
+    f.  Rótulo do projeto: o [rótulo do projeto](workspace-and-project.md#project-labels) faz distinção entre projetos com o mesmo par de idiomas e categoria. Como prática recomendada, use um rótulo *somente* se você estiver planejando criar vários projetos para o mesmo par de idiomas e mesma categoria e quiser acessar esses projetos com um CategoryID diferente. Não use esse campo se você estiver criando sistemas apenas para uma categoria. Um rótulo de projeto não é necessário e não é útil para distinguir entre pares de idiomas. Você pode usar o mesmo rótulo para vários projetos.
 
     ![Criar caixa de diálogo do projeto](media/how-to/how-to-create-project-dialog.png)
 
-3.  Clique em Criar.
+3.  Clicar em Criar
 
 ## <a name="view-project-details"></a>Exibir detalhes do projeto
 
@@ -52,13 +52,13 @@ A página de entrada do Custom Translator mostra os primeiros 10 projetos em seu
 
 Depois de selecionar um projeto, você verá o seguinte na página do projeto:
 
-- CategoryID: Uma CategoryID é criada pela concatenação da WorkspaceID, do rótulo do projeto e do código da categoria. Você usa o CategoryID com o Text Translator API para obter traduções personalizadas.
+- CategoryID: Um CategoryID é criado pela concatenação do WorkspaceID, rótulo do projeto e código da categoria. Você usa o CategoryID com o Text Translator API para obter traduções personalizadas.
 
-- Botão Treinar: Use esse botão para iniciar um [treinamento de um modelo](how-to-train-model.md).
+- Botão Train: Use este botão para iniciar um [treinamento de um modelo](how-to-train-model.md).
 
-- Botão Adicionar documentos: Use esse botão para [carregar documentos](how-to-upload-document.md).
+- Botão Adicionar documentos: use este botão para [fazer upload de documentos](how-to-upload-document.md).
 
-- Botão Filtrar documentos: Use esse botão para filtrar e pesquisar documentos específicos.
+- Botão Filtrar documentos: use este botão para filtrar e pesquisar documentos específicos.
 
     ![Exibir detalhes do projeto](media/how-to/how-to-view-project.png)
 

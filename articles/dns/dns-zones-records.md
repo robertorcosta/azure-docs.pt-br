@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: ccc418cd3af14c0468ab8d669ad2e2e11a0b6d57
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: fdf9b60e38ad37334fe6183bb1a9c60cce9f85e1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772264"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832064"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
 
@@ -30,13 +30,13 @@ Esta página explica os principais conceitos de domínios, zonas DNS, conjuntos 
 
 O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia começa no domínio 'raiz', cujo nome é simplesmente ' **.** '.  Abaixo dele vêm domínios de nível superior, como 'com', 'net', 'org', 'uk' ou 'jp'.  Abaixo desses estão domínios de segundo nível, como 'org.uk' ou 'co.jp'. Os domínios na hierarquia de DNS são distribuídos globalmente, hospedados por servidores de nomes DNS em todo o mundo.
 
-Um registrador de nomes de domínio é uma organização que permite a você adquirir um nome de domínio, como 'contoso.com'.  A compra de um nome de domínio lhe dá o direito de controlar a hierarquia de DNS com esse nome, por exemplo, permitindo que você direcione o nome www.contoso.com para o site da sua empresa. O registrador pode hospedar o domínio em seus próprios servidores de nomes em seu nome ou você permitir que você especifique servidores de nomes alternativos.
+Um registrador de nome de domínio é uma organização que permite que você compre um nome de domínio, como `contoso.com`.  A compra de um nome de domínio lhe dá o direito de controlar a hierarquia de DNS com esse nome, por exemplo, permitindo que você direcione o nome `www.contoso.com` para o site da sua empresa. O registrador pode hospedar o domínio em seus próprios servidores de nomes em seu nome ou você permitir que você especifique servidores de nomes alternativos.
 
 O DNS do Azure fornece uma infraestrutura de servidores de nomes de alta disponibilidade e distribuída globalmente que você pode usar para hospedar seu domínio. Ao hospedar seus domínios no DNS do Azure, você poderá gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas, cobrança e suporte que seus outros serviços do Azure.
 
 O DNS do Azure não dá suporte a compra de nomes de domínio. Se você deseja adquirir um nome de domínio, precisa usar um registrador de nomes de domínio de terceiros. O registrador normalmente cobra uma pequena taxa anual. Os domínios, em seguida, podem ser hospedados no DNS do Azure para gerenciamento de registros DNS. Consulte [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md) para obter detalhes.
 
-## <a name="dns-zones"></a>zonas DNS
+## <a name="dns-zones"></a>Zonas DNS
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -59,7 +59,7 @@ Para criar um conjunto de registros curinga, use o nome do conjunto de registros
 ### <a name="caa-records"></a>Registros CAA
 
 Os registros CAA permitem aos proprietários do domínio especificar quais ACs (Autoridades de Certificação) estão autorizadas a emitir certificados para seus domínios. Isso permite que as ACs evitem emitir certificados incorretamente em algumas circunstâncias. Os registros CAA têm três propriedades:
-* **Sinalizadores**: Este é um inteiro entre 0 e 255, usado para representar o sinalizador crítico que tem um significado especial de acordo com a [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Sinalizadores**: esse é um inteiro entre 0 e 255, usado para representar o sinalizador crítico que tem um significado especial, conforme o [RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * **Marcação**: uma string ASCII que pode ser uma das seguintes:
     * **issue**: use essa opção se desejar especificar as ACs que têm permissão para emitir certificados (todos os tipos)
     * **issuewild**: use essa opção se desejar especificar as ACs que têm permissão para emitir certificados (somente certificados curinga)
@@ -78,7 +78,7 @@ Essas restrições são provenientes dos padrões DNS e não são limitações d
 
 O conjunto de registros de NS no apex da zona (nome '\@') é criado automaticamente com cada zona DNS e excluído automaticamente quando a zona é excluída (não pode ser excluído separadamente).
 
-Esse conjunto de registros contém os nomes dos servidores de nome DNS do Azure atribuídos à zona. Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à coospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados. 
+Esse conjunto de registros contém os nomes dos servidores de nome DNS do Azure atribuídos à zona. Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à co-hospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados. 
 
 Isso se aplica somente ao registro NS definido no ápice da zona. Outros conjuntos de registros NS na sua zona (conforme utilizados para delegar zonas filho) podem ser criados, modificados, e excluídos sem restrição.
 
@@ -136,7 +136,7 @@ No nível da API REST do DNS do Azure, as Etags são especificadas usando cabeç
 | Cabeçalho | Comportamento |
 | --- | --- |
 | Nenhum |PUT sempre terá êxito (nenhuma verificação de Etag) |
-| If-match \<etag> |PUT só terá êxito se o recurso existir e a Etag corresponder |
+| > If-Match \<ETag |PUT só terá êxito se o recurso existir e a Etag corresponder |
 | If-match * |PUT só terá êxito se houver recursos |
 | If-none-match * |PUT só terá êxito se não houver recursos |
 

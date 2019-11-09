@@ -1,6 +1,6 @@
 ---
 title: Gerenciar uma conta do Video Indexer
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Este artigo mostra como gerenciar uma conta do Video Indexer conectada ao Azure.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 37aef7c0ae06aefc69b8a72a80c8ade3951e8b0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8221cdcf7afe82ee969f645d7f459c69519711d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799527"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838979"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gerenciar uma conta do Video Indexer conectada ao Azure
 
@@ -76,6 +76,6 @@ Se sua conta precisar de alguns ajustes, você verá avisos e erros relevantes s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-É possível interagir programaticamente com a conta de avaliação e/ou com as contas do Video Indexer que estão conectadas ao Azure, seguindo as instruções em: [Usar APIs](video-indexer-use-apis.md).
+Você pode interagir programaticamente com sua conta de avaliação e / ou com suas contas do Video Indexer conectadas ao azure seguindo as instruções em: [Use APIs](video-indexer-use-apis.md).
 
 Você deve usar o mesmo usuário do Azure AD usado ao se conectar ao Azure.

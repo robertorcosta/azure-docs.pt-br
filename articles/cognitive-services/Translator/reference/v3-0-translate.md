@@ -1,7 +1,7 @@
 ---
 title: Método de Tradução de API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Usar o método de Tradução de API de Tradução de Texto.
+description: Entenda os parâmetros, os cabeçalhos e as mensagens de corpo para os serviços cognitivas do Azure API de Tradução de Texto o método translate para traduzir o texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 10/16/2019
 ms.author: swmachan
-ms.openlocfilehash: b809171549a8f3cbbbb6ccad1553608598afa345
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b4daa04a4dbf87006147fb0d44d7b128a6d8ecf4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161707"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835777"
 ---
 # <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3.0: tradução
 
@@ -23,7 +23,7 @@ Traduz texto.
 
 ## <a name="request-url"></a>URL de Solicitação
 
-Envia uma solicitação `POST` para:
+Envie uma solicitação `POST` para:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
@@ -35,10 +35,10 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
-  <th>Descrição</th>
+  <th>DESCRIÇÃO</th>
   <tr>
     <td>api-version</td>
-    <td><em>Parâmetro obrigatório</em>.<br/>Versão da API solicitada pelo cliente. O valor deve ser <code>3.0</code>.</td>
+    <td><em>Parâmetro necessário</em>.<br/>Versão da API solicitada pelo cliente. O valor precisa ser <code>3.0</code>.</td>
   </tr>
   <tr>
     <td>Da</td>
@@ -46,14 +46,14 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
   <tr>
     <td>para</td>
-    <td><em>Parâmetro obrigatório</em>.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos <a href="./v3-0-languages.md">idiomas compatíveis</a> incluídos no escopo de <code>translation</code>. Por exemplo, use <code>to=de</code> para traduzir para alemão.<br/>É possível traduzir para vários idiomas simultaneamente, repetindo o parâmetro na cadeia de caracteres de consulta. Por exemplo, use <code>to=de&to=it</code> para traduzir para alemão e italiano.</td>
+    <td><em>Parâmetro necessário</em>.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos <a href="./v3-0-languages.md">idiomas com suporte</a> incluídos no escopo <code>translation</code>. Por exemplo, use <code>to=de</code> para traduzir para alemão.<br/>É possível traduzir para vários idiomas simultaneamente, repetindo o parâmetro na cadeia de caracteres de consulta. Por exemplo, use <code>to=de&to=it</code> para traduzir para alemão e italiano.</td>
   </tr>
   <tr>
     <td>textType</td>
-    <td><em>Parâmetro opcional</em>.<br/>Define se o texto que está sendo traduzido é texto sem formatação ou texto HTML. Qualquer HTML precisa ser um elemento bem formado e completo. Os valores possíveis são: <code>plain</code> (padrão) ou <code>html</code>.</td>
+    <td><em>Parâmetro opcional</em>.<br/>Define se o texto que está sendo traduzido é texto sem formatação ou texto HTML. Qualquer HTML deve ser um elemento completo e bem formado. Os valores possíveis são: <code>plain</code> (padrão) ou <code>html</code>.</td>
   </tr>
   <tr>
-    <td>category</td>
+    <td>categoria</td>
     <td><em>Parâmetro opcional</em>.<br/>Uma cadeia de caracteres especificando a categoria (domínio) da tradução. Esse parâmetro é usado para obter traduções de um sistema personalizado compilado com <a href="../customization.md">Tradutor Personalizado</a>. Adicione a ID da categoria de seus <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">detalhes do projeto</a> do tradutor personalizado a esse parâmetro para usar seu sistema personalizado implantado. O valor padrão é: <code>general</code>.</td>
   </tr>
   <tr>
@@ -91,11 +91,11 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
 </table> 
 
-Os cabeçalhos de solicitação incluem:
+Os cabeçalhos da solicitação incluem:
 
 <table width="100%">
-  <th width="20%">headers</th>
-  <th>Descrição</th>
+  <th width="20%">Cabeçalhos</th>
+  <th>DESCRIÇÃO</th>
   <tr>
     <td>Cabeçalho (s) de autenticação</td>
     <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
@@ -131,7 +131,7 @@ As seguintes limitações se aplicam:
 
 ## <a name="response-body"></a>Corpo da resposta
 
-Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
+Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
   * `detectedLanguage`: um objeto que descreve o idioma detectado por meio das seguintes propriedades:
 
@@ -172,8 +172,8 @@ Exemplos de respostas JSON são fornecidos na seção [exemplos](#examples).
 ## <a name="response-headers"></a>Cabeçalhos de resposta
 
 <table width="100%">
-  <th width="20%">headers</th>
-  <th>Descrição</th>
+  <th width="20%">Cabeçalhos</th>
+  <th>DESCRIÇÃO</th>
     <tr>
     <td>X-RequestId</td>
     <td>Valor gerado pelo serviço para identificar a solicitação. É usado para fins de solução de problemas.</td>
@@ -190,7 +190,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
 
 <table width="100%">
   <th width="20%">Código de status</th>
-  <th>Descrição</th>
+  <th>DESCRIÇÃO</th>
   <tr>
     <td>200</td>
     <td>Sucesso.</td>
@@ -357,7 +357,7 @@ Se você quiser evitar conteúdo ofensivo na tradução, independentemente da pr
   <th>Ação</th>
   <tr>
     <td><code>NoAction</code></td>
-    <td>Esse é o comportamento padrão. O conteúdo ofensivo passará da origem para o destino.<br/><br/>
+    <td>Esse é o comportamento padrão. Vulgaridades passarão da origem para o destino.<br/><br/>
     <strong>Origem de exemplo (japonês)</strong>: 彼はジャッカスです。<br/>
     <strong>Tradução de exemplo (inglês)</strong>: Ele é um idiota.
     </td>
@@ -531,4 +531,4 @@ O resultado é:
 ]
 ```
 
-Esse recurso funciona da mesma maneira com `textType=text` ou com `textType=html`. O recurso deve ser usado com moderação. A maneira apropriada e muito melhor de personalizar a tradução é usando o Tradutor Personalizado. O Tradutor Personalizado faz uso total das probabilidades de estatística e contexto. Se você tiver ou puder criar dados de treinamento que mostrem o trabalho ou a frase no contexto, obterá resultados muito melhores. [Saiba mais sobre o Tradutor Personalizado](../customization.md).
+Esse recurso funciona da mesma maneira com `textType=text` ou com `textType=html`. O recurso deve ser usado com moderação. A maneira apropriada e muito melhor de personalizar a tradução é usando o Tradutor Personalizado. O Tradutor Personalizado faz uso total das probabilidades de estatística e contexto. Se você tiver ou puder arcar com a criação de dados de treinamento que mostrem seu trabalho ou frase no contexto, obterá resultados muito melhor. [Saiba mais sobre o Tradutor Personalizado](../customization.md).

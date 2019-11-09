@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: tarcher
 ms.subservice: common
-ms.openlocfilehash: 10bfc3ce4666ee1653110099a3c8d22a58d80f35
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 75b0ea106be04cd77b18bfed8487edb6a7b7f65b
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985292"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839178"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Usando o Armazenamento do Azure com uma solução Hudson Continuous Integration
 ## <a name="overview"></a>Visão geral
@@ -49,7 +49,7 @@ Será necessário o seguinte para usar o serviço Blob com a solução Hudson CI
 
   3. No seu navegador, abra `http://localhost:8080/`. Isso abrirá o painel do Hudson.
   4. Na primeira utilização do Hudson, conclua a configuração inicial em `http://localhost:8080/`.
-  5. Depois de concluir a configuração inicial, cancele a instância em execução do Hudson War, inicie o Hudson War novamente e reabra o painel do Hudson, `http://localhost:8080/`que você usará para instalar e configurar o plug-in do armazenamento do Azure.
+  5. Depois de concluir a configuração inicial, cancele a instância em execução do Hudson WAR, inicie o Hudson WAR novamente e reabra o painel da Hudson, `http://localhost:8080/`, que você usará para instalar e configurar o plug-in do armazenamento do Azure.
      
       Embora uma solução Hudson CI típica possa ser configurada para ser executada como um serviço, a execução do war do Hudson na linha de comando será suficiente para este tutorial.
 * Uma conta do Azure. Você pode se inscrever para uma conta do Azure em <https://www.azure.com>.
@@ -103,7 +103,7 @@ Para fins de instrução, primeiro será necessário criar um trabalho que crie 
 
 5. Na seção **Post-build Actions** de configuração do trabalho, clique em **Upload artifacts to Microsoft Azure Blob storage**.
 6. Em **Nome de Conta de Armazenamento**, selecione a conta de armazenamento a ser usada.
-7. Em **Nome do contêiner**, especifique o nome do contêiner. (O contêiner será criado se ele ainda não existir quando os artefatos de compilação forem carregados.) É possível usar variáveis do ambiente, portanto, para este exemplo, insira **${JOB_NAME}** como o nome do contêiner.
+7. Em **Nome do contêiner**, especifique o nome do contêiner. (O contêiner será criado se ele ainda não existir quando os artefatos de compilação forem carregados.) Você pode usar variáveis de ambiente, portanto, para este exemplo, insira **$ {JOB_NAME}** como o nome do contêiner.
    
     **Dica**
    
@@ -134,7 +134,7 @@ As etapas a seguir mostram como configurar uma etapa de compilação para baixar
 1. Na seção **Compilar** da configuração do trabalho, clique em **Adicionar etapa de compilação** e selecione **Baixar no armazenamento de Blob do Azure**.
 2. Em **Nome de conta de armazenamento**, selecione a conta de armazenamento a ser usada.
 3. Em **Nome do contêiner**, especifique o nome do contêiner que contém os blobs que você quer baixar. É possível usar variáveis de ambiente.
-4. Em **Nome do blob**, especifique o nome do blob. É possível usar variáveis de ambiente. Além disso, você pode usar um asterisco como um curinga depois de especificar a letra inicial do nome do blob. Por exemplo, **Project\\** * especificaria todos os BLOBs cujos nomes começam com **Project**.
+4. Em **Nome do blob**, especifique o nome do blob. É possível usar variáveis de ambiente. Além disso, você pode usar um asterisco como um curinga depois de especificar a letra inicial do nome do blob. Por exemplo, **project\\** * especificaria todos os BLOBs cujos nomes começam com **Project**.
 5. [Opcional] Em **Caminho do download**, especifique o caminho no computador Hudson, onde você quer baixar arquivos do armazenamento de Blob do Azure. Também é possível usar variáveis de ambiente. (Se você não fornecer um valor para **Caminho do download**, os arquivos no armazenamento de Blob do Azure serão baixados no workspace da tarefa).
 
 Se houver itens adicionais que deseja baixar do armazenamento de Blob do Azure, você poderá criar etapas de compilação adicionais.
@@ -144,10 +144,10 @@ Depois de executar uma compilação, você pode verificar a saída do console de
 ## <a name="components-used-by-the-blob-service"></a>Componentes usados pelo serviço Blob
 Segue abaixo uma visão geral dos componentes do serviço Blob.
 
-* **Conta de armazenamento**: Todo o acesso ao Armazenamento do Azure ocorre por meio de uma conta de armazenamento. Este é o nível mais alto do namespace para o acesso de blobs. Uma conta pode conter um número ilimitado de contêineres, desde que seu tamanho total seja inferior a 100 TB.
-* **Contêiner**: Um contêiner fornece um agrupamento de um conjunto de blobs. Todos os blobs devem ter um contêiner. Uma conta pode conter um número ilimitado de contêineres. Um contêiner pode armazenar um número ilimitado de blobs.
-* **Blob**: Um arquivo de qualquer tipo e tamanho. Existem dois tipos de blobs que podem ser armazenados no Armazenamento do Azure: blobs de blocos e de páginas. A maioria dos arquivos são blobs de bloco. Um único blob de blocos pode ter até 200 GB de tamanho. Este tutorial usa blobs de bloco. Os blobs de página, um outro tipo de blob, podem ter até 1 TB de tamanho e são mais eficientes quando os intervalos de bytes em um arquivo são modificados com frequência. Para obter mais informações sobre os blobs, consulte [Compreendendo os Blobs de Bloco, Blobs de Anexo e Blobs de Página](https://msdn.microsoft.com/library/azure/ee691964.aspx).
-* **Formato de URL**: Os blobs são endereçáveis usando o seguinte formato de URL:
+* **Conta de armazenamento**: todo o acesso ao Armazenamento do Azure é feito por meio de uma conta de armazenamento. Este é o nível mais alto do namespace para o acesso de blobs. Uma conta pode conter um número ilimitado de contêineres, desde que seu tamanho total seja inferior a 100 TB.
+* **Contêiner**: o contêiner fornece um agrupamento de conjunto de blobs. Todos os blobs devem ter um contêiner. Uma conta pode conter um número ilimitado de contêineres. Um contêiner pode armazenar um número ilimitado de blobs.
+* **Blob**: um arquivo de qualquer tipo e tamanho. Existem dois tipos de blobs que podem ser armazenados no Armazenamento do Azure: blobs de blocos e de páginas. A maioria dos arquivos são blobs de bloco. Um único blob de blocos pode ter até 200 GB de tamanho. Este tutorial usa blobs de bloco. Os blobs de página, um outro tipo de blob, podem ter até 1 TB de tamanho e são mais eficientes quando os intervalos de bytes em um arquivo são modificados com frequência. Para obter mais informações sobre os blobs, consulte [Compreendendo os Blobs de Bloco, Blobs de Anexo e Blobs de Página](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **Formato de URL**: os blobs são endereçáveis usando o seguinte formato de URL:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
@@ -160,8 +160,8 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
 ## <a name="next-steps"></a>Próximas etapas
 * [Conheça o Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [SDK de Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java)
-* [Referência de SDK do Cliente de Armazenamento do Azure](http://dl.windowsazure.com/storage/javadoc/)
+* [Referência de SDK do Cliente de Armazenamento do Azure](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog da equipe de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
+* [Blog da Equipe do Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
 
 Para saber mais, visite [Azure para desenvolvedores Java](/java/azure).

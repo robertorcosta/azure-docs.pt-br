@@ -16,14 +16,14 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dca71023cbed34ef3661ca980cf1eac4ca620c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e95b230d4f9699f15296ba94946c7063cabd0516
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784289"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847202"
 ---
-# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: Atributos sincronizados com o Active Directory do Azure
+# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Active Directory do Azure
 Este tópico lista os atributos que são sincronizados pela sincronização do Azure AD Connect.  
 Os atributos são agrupados pelos aplicativos relacionados do AD do Azure.
 
@@ -31,7 +31,7 @@ Os atributos são agrupados pelos aplicativos relacionados do AD do Azure.
 Uma pergunta comum é *qual é a lista de atributos mínimos para sincronizar*. A abordagem padrão e recomendada é manter os atributos padrão para que uma GAL (Lista de Endereços Global) completa possa ser construída na nuvem e obter todos os recursos nas cargas de trabalho do Office 365. Em alguns casos, há alguns atributos que sua organização não deseja sincronizar com a nuvem, já que eles contêm dados confidenciais ou PII (Informações de identificação pessoal), como neste exemplo:  
 ![atributos incorretos](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
-Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles que poderiam conter dados confidenciais ou PII e que não podem ser sincronizados. Então, desmarque-os durante a instalação usando o [aplicativo Azure AD e a filtragem de atributos](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
+Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles que poderiam conter dados confidenciais ou PII e que não podem ser sincronizados. Em seguida, desmarque-os durante a instalação usando o [Aplicativo Azure AD e a filtragem de atributos](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
 
 > [!WARNING]
 > Ao cancelar a seleção de atributos, seja cuidadoso e desmarque somente aqueles que não podem ser sincronizados em absoluto. Desmarcar outros atributos poderá causar um impacto negativo sobre os recursos.
@@ -48,7 +48,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | pwdLastSet |X |propriedade mecânica. Usado para saber quando invalidar tokens já emitidos. Usado pela sincronização de hash de senha, autenticação de passagem e federação. |
 |samAccountName|X| |
 | sourceAnchor |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o AD do Azure. |
-| usageLocation |X |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="exchange-online"></a>Exchange Online
@@ -64,7 +64,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | company |X |X | | |
 | countryCode |X |X | | |
 | department |X |X | | |
-| description |X |X |X | |
+| Descrição | | |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -86,7 +86,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
 | homePhone |X |X | | |
-| info |X |X |X |Atualmente, este atributo não é consumido para grupos. |
+| informações |X |X |X |Atualmente, este atributo não é consumido para grupos. |
 | Initials |X |X | | |
 | l |X |X | | |
 | legacyExchangeDN |X |X |X | |
@@ -166,9 +166,9 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| title |X |X | | |
+| título |X |X | | |
 | unauthOrig |X |X |X | |
-| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userCertificate |X |X | | |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 | userSMIMECertificates |X |X | | |
@@ -185,7 +185,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | company |X |X | | |
 | countryCode |X |X | | |
 | department |X |X | | |
-| description |X |X |X | |
+| Descrição |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -208,7 +208,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | givenName |X |X | | |
 | hideDLMembership | | |X | |
 | homePhone |X |X | | |
-| info |X |X |X | |
+| informações |X |X |X | |
 | Initials |X |X | | |
 | ipPhone |X |X | | |
 | l |X |X | | |
@@ -248,15 +248,15 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| title |X |X | | |
+| título |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |propriedade mecânica. País/região do usuário
+| usageLocation |X | | |propriedade mecânica. O país/região do usuário
 . Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 | wWWHomePage |X |X | | |
 
-## <a name="teams-and-skype-for-business-online"></a>As equipes e Skype for Business Online
+## <a name="teams-and-skype-for-business-online"></a>Equipes e Skype for Business Online
 | Nome do atributo | Usuário | Contato | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
@@ -265,7 +265,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | co |X |X | | |
 | company |X |X | | |
 | department |X |X | | |
-| description |X |X |X | |
+| Descrição |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
@@ -299,8 +299,8 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| title |X |X | | |
-| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
+| título |X |X | | |
+| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 | wWWHomePage |X |X | | |
 
@@ -316,7 +316,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | proxyAddresses |X |X |X |propriedade mecânica. Usado pelo AD do Azure. Contém todos os endereços de email secundários para o usuário. |
 | pwdLastSet |X | | |propriedade mecânica. Usado para saber quando invalidar tokens já emitidos. |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o AD do Azure. |
-| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |Este UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="intune"></a>Intune
@@ -325,7 +325,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | c |X |X | | |
 | cn |X | |X | |
-| description |X |X |X | |
+| Descrição |X |X |X | |
 | displayName |X |X |X | |
 | mail |X |X |X | |
 | mailNickname |X |X |X | |
@@ -334,7 +334,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |propriedade mecânica. Usado para saber quando invalidar tokens já emitidos. Usado pela sincronização de hash de senha, autenticação de passagem e federação. |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o AD do Azure. |
-| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
@@ -346,7 +346,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | co |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
-| description |X |X |X | |
+| Descrição |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
@@ -365,8 +365,8 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| title |X |X | | |
-| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
+| título |X |X | | |
+| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="3rd-party-applications"></a>aplicativos de terceira parte
@@ -393,7 +393,7 @@ Esse é um conjunto de atributos que poderão ser usados se o diretório do Azur
 | pwdLastSet |X | | |propriedade mecânica. Usado para saber quando invalidar tokens já emitidos. Usado pela sincronização de hash de senha, autenticação de passagem e federação. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o AD do Azure. |
-| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="windows-10"></a>Windows 10
@@ -425,11 +425,11 @@ Esses atributos para o **usuário** são adicionais aos outros aplicativos que v
 | Nome do atributo (AD local) | Nome do atributo (interface do usuário do Connect) | Usuário | Contato | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Derivado de cloudAnchor no AD do Azure. Esse atributo é novo no AD do Windows Server 2016 e Exchange 2016. |
-| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Arquivo Morto Online: permite que os clientes arquivem emails. |
-| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtragem: faz write-back de dados de remetentes bloqueados e seguros online e filtragem local nos clientes. |
-| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtragem: faz write-back de dados de remetentes bloqueados e seguros online e filtragem local nos clientes. |
-| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtragem: faz write-back de dados de remetentes bloqueados e seguros online e filtragem local nos clientes. |
-| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Habilitar UM (Unificação de Mensagens) – caixa postal online: usado pela integração do Microsoft Lync Server para indicar ao Lync Server local que o usuário tem caixa postal nos serviços online. |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Arquivo online: permite que os clientes arquivem emails. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtragem: faz write-back de dados de remetentes bloqueados e seguros de filtragem local e online por meio de clientes. |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtragem: faz write-back de dados de remetentes bloqueados e seguros de filtragem local e online por meio de clientes. |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtragem: faz write-back de dados de remetentes bloqueados e seguros de filtragem local e online por meio de clientes. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Habilitar UM (Unificação de Mensagens) – Caixa postal online: usado pela integração do Microsoft Lync Server para indicar ao Lync Server local que o usuário tem caixa postal nos serviços online. |
 | msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Retenção de Litígio: permite que os serviços de nuvem determinem quais usuários estão em Retenção de Litígio. |
 | proxyAddresses| proxyAddresses |X |X |X |Somente o endereço x500 do Exchange Online é inserido. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Permite que uma caixa de correio do Exchange Online obtenha direitos de SendOnBehalfTo para usuários com caixa de correio do Exchange local. Exige o Azure AD Connect, build 1.1.552.0 ou posterior. |

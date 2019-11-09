@@ -1,5 +1,5 @@
 ---
-title: Conectar-se à conta SFTP - aplicativos lógicos do Azure
+title: Conectar-se à conta SFTP-aplicativos lógicos do Azure
 description: Automatize tarefas e processos que monitoram, criam, gerenciam, enviam e recebem arquivos para um servidor SFTP por meio do SSH usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
@@ -8,16 +8,19 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, klam, LADocs
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 5b80339e90947b7cc45b1edb5df00652a13291ac
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 20702f5bc0dfc513d1fba84b69595dec885613ac
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293471"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837102"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorar, criar e gerenciar recursos do SFTP usando os Aplicativos Lógicos do Azure
+
+> [!IMPORTANT]
+> Use o [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md) , pois o conector SFTP foi preterido. Você não pode mais selecionar gatilhos e ações de SFTP no designer de aplicativo lógico.
 
 Para automatizar tarefas que monitoram, criam, enviam e recebem arquivos em um servidor [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/), você pode criar e automatizar fluxos de trabalho de integração usando os Aplicativos Lógicos do Azure e o conector SFTP. O SFTP é um protocolo de rede que fornece acesso a arquivos, transferência de arquivos e gerenciamento de arquivos em qualquer fluxo de dados confiável. Aqui estão algumas tarefas de exemplo que você pode automatizar:
 
@@ -26,11 +29,11 @@ Para automatizar tarefas que monitoram, criam, enviam e recebem arquivos em um s
 * Obter conteúdo e metadados do arquivo.
 * Extrair o arquivo para pastas.
 
-Você pode usar gatilhos que monitoram eventos em seu servidor SFTP e disponibilizam a saída para outras ações. Você pode usar ações que executam várias tarefas em seu servidor SFTP. Você também pode ter outras ações em seu aplicativo lógico usando a saída das ações do SFTP. Por exemplo, se você recuperar regularmente arquivos do servidor SFTP, poderá enviar alertas por email sobre esses arquivos e seu conteúdo usando o conector do Office 365 Outlook ou o conector Outlook.com. Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
+Você pode usar gatilhos que monitoram eventos em seu servidor SFTP e disponibilizam a saída para outras ações. Você pode usar ações que executam várias tarefas em seu servidor SFTP. Você também pode ter outras ações em seu aplicativo lógico usando a saída das ações do SFTP. Por exemplo, se você recuperar regularmente arquivos do servidor SFTP, poderá enviar alertas por e-mail sobre esses arquivos e seu conteúdo usando o conector do Office 365 Outlook ou o conector Outlook.com. Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
-O conector SFTP manipula somente arquivos que são *50 MB ou menor* e não dá suporte a [mensagem agrupamento](../logic-apps/logic-apps-handle-large-messages.md). Para arquivos maiores, use o [conector de SFTP SSH](../connectors/connectors-sftp-ssh.md). As diferenças entre o conector SFTP e o conector SFTP SSH, examine [comparar SFTP SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) o artigo SFTP SSH.
+O conector SFTP manipula apenas os arquivos que são *50 MB ou menores* e não dá suporte ao [agrupamento de mensagens](../logic-apps/logic-apps-handle-large-messages.md). Para arquivos maiores, use o [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md). Para diferenças entre o conector SFTP e o conector SFTP-SSH, examine [comparar SFTP-SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) no artigo SFTP-SSH.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +43,7 @@ O conector SFTP manipula somente arquivos que são *50 MB ou menor* e não dá s
 
   > [!NOTE]
   >
-  > O conector SFTP suporta estes formatos de chave privada: OpenSSH, ssh.com e PuTTY
+  > O conector SFTP suporta esses formatos de chave privada: OpenSSH, ssh.com e PuTTY
   >
   > Ao criar seu aplicativo lógico, depois de adicionar o acionador ou a ação SFTP desejada, você precisará fornecer informações de conexão para o servidor SFTP. 
   > Se você estiver usando uma chave privada SSH, certifique-se de ***copiar*** a chave do arquivo de chave privada SSH e ***colar*** essa chave nos detalhes da conexão, ***não insira ou edite manualmente a chave***, o que pode causar falha na conexão. 
@@ -50,9 +53,9 @@ O conector SFTP manipula somente arquivos que são *50 MB ou menor* e não dá s
 
 * O aplicativo lógico no qual você deseja acessar a conta SFTP. Para iniciar com um gatilho SFTP, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação de SFTP, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho de **Recorrência**.
 
-## <a name="how-sftp-triggers-work"></a>Como o SFTP dispara o trabalho
+## <a name="how-sftp-triggers-work"></a>Como funcionam os gatilhos do SFTP
 
-Trabalho de gatilhos SFTP no sistema de arquivos SFTP de sondagem e procurando por qualquer arquivo que foi alterado desde a última sondagem. Algumas ferramentas permitem preservar o registro de data e hora quando os arquivos são alterados. Nesses casos, você precisa desativar esse recurso para que seu gatilho funcione. Aqui estão algumas configurações comuns:
+Os gatilhos SFTP funcionam sondando o sistema de arquivos SFTP e procurando por qualquer arquivo que tenha sido alterado desde a última sondagem. Algumas ferramentas permitem preservar o registro de data e hora quando os arquivos são alterados. Nesses casos, você precisa desativar esse recurso para que seu gatilho funcione. Aqui estão algumas configurações comuns:
 
 | Cliente SFTP | Ação |
 |-------------|--------|
@@ -87,13 +90,13 @@ Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está conc
 
    1. Abra seu arquivo de chave privada SSH em um editor de texto. Essas etapas usam o bloco de notas do exemplo.
 
-   1. Sobre o bloco de notas **edite** menu, selecione **Selecionar tudo**.
+   1. No menu **Editar** do bloco de notas, selecione **selecionar tudo**.
 
    1. Selecione **Editar** > **Copiar**.
 
    1. No gatilho ou ação SFTP que você adicionou, cole a chave *completa* que você copiou na propriedade **SSH private key**, que suporta várias linhas. ***Certifique-se de colar*** a chave. ***Não insira ou edite manualmente a chave***.
 
-1. Quando você terminar inserindo os detalhes de conexão, escolha **criar**.
+1. Quando terminar de inserir os detalhes da conexão, escolha **Criar**.
 
 1. Forneça os detalhes necessários para o gatilho ou a ação selecionada e continue criando o fluxo de trabalho do aplicativo lógico.
 
@@ -101,7 +104,7 @@ Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está conc
 
 <a name="file-add-modified"></a>
 
-### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>Gatilho do SFTP: Quando um arquivo é adicionado ou modificado
+### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>Gatilho SFTP: quando um arquivo é adicionado ou modificado
 
 Esse acionador inicia um fluxo de trabalho de aplicativo lógico quando um arquivo é adicionado ou alterado em um servidor SFTP. Por exemplo, você pode adicionar uma condição que verifica o conteúdo do arquivo e obtém o conteúdo com base em se o conteúdo atende a uma condição especificada. Em seguida, você pode adicionar uma ação que obtém o conteúdo do arquivo e coloca esse conteúdo em uma pasta no servidor SFTP.
 
@@ -109,7 +112,7 @@ Esse acionador inicia um fluxo de trabalho de aplicativo lógico quando um arqui
 
 <a name="get-content"></a>
 
-### <a name="sftp-action-get-content"></a>Ação de SFTP: obter conteúdo
+### <a name="sftp-action-get-content"></a>Ação de SFTP: obter o conteúdo
 
 Esta ação obtém o conteúdo de um arquivo em um servidor SFTP. Por exemplo, você pode adicionar o gatilho do exemplo anterior e uma condição que o conteúdo do arquivo deve atender. Se a condição for verdadeira, a ação que obtém o conteúdo poderá ser executada.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: b2b32d6ccca69f330cfe15faa1446aa91fdb687a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d59646a87727409d759cc1903046fb3cdeade2e0
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465736"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847385"
 ---
 # <a name="developer-resources-for-language-understanding"></a>Recursos para desenvolvedores para Reconhecimento vocal
 
@@ -41,8 +41,10 @@ Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.
 
 As APIS de ponto de extremidade de criação e de previsão estão disponíveis em APIs REST:
 
-* Documentação de [referência](https://go.microsoft.com/fwlink/?linkid=2092087) de criação
-* [Documentação de referência](https://go.microsoft.com/fwlink/?linkid=2092356) de tempo de execução de previsão
+|Tipo|Versão|
+|--|--|
+|Criação|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[visualização v3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
+|Previsão|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
 
 ### <a name="language-based-sdks"></a>SDKs baseados em linguagem
 

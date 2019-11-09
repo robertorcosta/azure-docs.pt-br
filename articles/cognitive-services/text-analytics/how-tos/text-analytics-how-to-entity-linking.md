@@ -1,7 +1,7 @@
 ---
 title: Usar o reconhecimento de entidade com a API de Análise de Texto
 titleSuffix: Azure Cognitive Services
-description: Aprenda a reconhecer entidades usando a API REST de Análise de Texto.
+description: Saiba como identificar e desambiguar a identidade de uma entidade encontrada em texto com a API REST do Análise de Texto.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: aahi
-ms.openlocfilehash: e51e5945df8b08ec81db0c85416b31b3ec788ffd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b139f473bb20dbecde75c3b08dd92371849f096e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488637"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835660"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
@@ -102,7 +102,7 @@ Vinculação de entidade
 | Tipo  | SubType | Exemplo |
 |:-----------   |:------------- |:---------|
 | Pessoa        | N/D\*         | "João", "Bill Gates"     |
-| Localização      | N/D\*         | "Redmond, Washington", "Paris"  |
+| Local      | N/D\*         | "Redmond, Washington", "Paris"  |
 | Organização  | N/D\*         | "Microsoft"   |
 | Quantidade      | Número        | "6", "seis"     |
 | Quantidade      | Percentual    | "50%", "cinquenta por cento"|
@@ -113,7 +113,7 @@ Vinculação de entidade
 | Quantidade      | Temperatura   | "32 graus"    |
 | DateTime      | N/D\*         | "18h30 em 4 de fevereiro de 2012"      |
 | DateTime      | Data          | "2 de maio de 2017", "02/05/2017"   |
-| DateTime      | Tempo          | "8h", "8:00"  |
+| DateTime      | Hora          | "8h", "8:00"  |
 | DateTime      | DateRange     | "2 de maio a 5 de maio"    |
 | DateTime      | TimeRange     | "18h às 19h"     |
 | DateTime      | Duração      | "1 minuto e 45 segundos"   |

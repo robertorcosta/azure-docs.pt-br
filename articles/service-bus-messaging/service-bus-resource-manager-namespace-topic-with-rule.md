@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 8be34a85cb1a1863ee8a78c7b97af66627612fea
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6631528c9d1f2dfc6dcd3e9d6da81115a9ece637
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444754"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832071"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Criar um namespace do Barramento de Serviço com tópico, assinatura e regra usando um modelo do Azure Resource Manager
 
@@ -27,7 +27,7 @@ Este artigo mostra como usar um modelo do Azure Resource Manager que cria um nam
 
 Para saber mais sobre a criação de modelos, consulte [Criação de modelos do Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Para obter mais informações sobre as práticas e padrões em convenções de nomenclatura de recursos do Azure, consulte [convenções de nomenclatura para recursos do Azure recomendadas][Recommended naming conventions for Azure resources].
+Para obter mais informações sobre práticas e padrões em convenções de nomenclatura de recursos do Azure, consulte [convenções de nomenclatura recomendadas para recursos do Azure][Recommended naming conventions for Azure resources].
 
 Para ver o modelo completo, veja o [Modelo de namespace do Barramento de Serviço com tópico, assinatura e regra][Service Bus namespace with topic, subscription, and rule].
 
@@ -179,9 +179,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte o tópico a seguir que mostra como criar um filtro de assinatura: [Criar um namespace do barramento de serviço com tópico, assinatura e regra usando um modelo do Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)
+Consulte o tópico a seguir que mostra como criar um filtro de assinatura: [criar um namespace do barramento de serviço com tópico, assinatura e regra usando um modelo de Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)
 
-Saiba como gerenciar esses recursos consultando estes artigos:
+Saiba como gerenciar esses recursos exibindo estes artigos:
 
 * [Gerenciar o Barramento de Serviço do Azure](service-bus-management-libraries.md)
 * [Gerenciar o Barramento de Serviço com o PowerShell](service-bus-manage-with-ps.md)
@@ -192,7 +192,7 @@ Saiba como gerenciar esses recursos consultando estes artigos:
 [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
-[Recommended naming conventions for Azure resources]: ../guidance/guidance-naming-conventions.md
+[Recommended naming conventions for Azure resources]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 [Service Bus namespace with topic, subscription, and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 

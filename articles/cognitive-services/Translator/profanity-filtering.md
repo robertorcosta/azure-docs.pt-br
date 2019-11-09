@@ -1,7 +1,7 @@
 ---
 title: Filtragem de conteúdo ofensivo - API de tradução de texto
 titleSuffix: Azure Cognitive Services
-description: Use a API de tradução de texto de filtragem de conteúdo ofensivo.
+description: Use a filtragem de profanação para determinar o nível de profanação traduzido em seu texto no API de Tradução de Texto de serviços cognitivas do Azure.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 114dea098db5c824a1235ba1635f547383bf6743
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: e7e2097e0d3daf360f1fa0f30bf3fd2c62c07163
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595184"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836222"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Adicionar conteúdo ofensivo filtragem com a API de tradução de texto
 
@@ -26,7 +26,7 @@ Se você quiser evitar ver palavrões na tradução, mesmo que a profanidade est
 O método Translate () usa o parâmetro “options”, que contém o novo elemento “ProfanityAction”. Os valores aceitos de ProfanityAction são "NoAction", "Marcada" e "Excluído".
 
 ## <a name="accepted-values-of-profanityaction-and-examples"></a>Valores aceitos de ProfanityAction e exemplos
-|Valor de ProfanityAction | Action | Exemplo: Origem – japonês | Exemplo: Destino – inglês|
+|Valor de ProfanityAction | Ação | Exemplo: Origem - Japonês | Exemplo: Destino - Inglês|
 | :---|:---|:---|:---|
 | NoAction | Padrão. O mesmo que não configurar a opção. A linguagem obscena passa do texto de origem para o texto de destino. | 彼は変態です。 | Ele é um idiota. |
 | Marked | Palavras impróprias cercadas por marcas XML \<profanação >... \</profanity >. | 彼は変態です。 | Ele é um \<profanity>jerk\</profanity >. |

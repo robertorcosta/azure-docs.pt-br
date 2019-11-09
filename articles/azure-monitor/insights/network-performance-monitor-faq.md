@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: b451597d2d91117e11b1becd8b4ab96f981dade8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ce0b917f34cab31227e721e119c72cd5d1f99bff
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931309"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832011"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Perguntas da Solução do Monitor de Desempenho de Rede
 
@@ -48,7 +48,7 @@ Para o recurso de Monitor do ExpressRoute, os nós do Azure devem estar conectad
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>Qual protocolo entre TCP e ICMP deve ser escolhido para o monitoramento?
 Se você estiver monitorando sua rede usando nós baseados no Windows Server, recomendamos o uso de TCP como o protocolo de monitoramento, pois ele fornece maior precisão. 
 
-O ICMP é recomendado para nós baseados no sistema operacional Windows / desktops cliente. Essa plataforma does'nt permite que os dados TCP sejam enviados por meio de soquetes brutos, que o NPM usa para descobrir a topologia de rede.
+O ICMP é recomendado para nós baseados no sistema operacional Windows / desktops cliente. Essa plataforma não permite que dados TCP sejam enviados por soquetes brutos, que o NPM usa para descobrir a topologia de rede.
 
 Você pode obter mais detalhes sobre as vantagens relativas de cada protocolo [aqui](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol).
 
@@ -98,6 +98,42 @@ NPM usa um mecanismo probabilístico para atribuir as probabilidades de falha pa
 ### <a name="how-can-i-create-alerts-in-npm"></a>Como criar alertas no NPM?
 Consulte a [seção de alertas na documentação do](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts) para obter instruções passo a passo.
 
+### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Quais são as consultas de Log Analytics padrão para alertas
+Consulta do monitor de desempenho
+
+    NetworkMonitoring 
+     | where (SubType == "SubNetwork" or SubType == "NetworkPath") 
+     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and RuleName == "<<your rule name>>"
+    
+Consulta do monitor de conectividade de serviço
+
+    NetworkMonitoring                 
+     | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
+     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
+    
+Consultas do monitor do ExpressRoute: consulta de circuitos
+
+    NetworkMonitoring
+    | where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
+
+Emparelhamento privado
+
+    NetworkMonitoring 
+     | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ExpressRoutePath")   
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == "<<your circuit name>>" and VirtualNetwork == "<<vnet name>>"
+
+Emparelhamento da Microsoft
+
+    NetworkMonitoring 
+     | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
+
+Consulta comum   
+
+    NetworkMonitoring
+    | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") 
+
 ### <a name="can-npm-monitor-routers-and-servers-as-individual-devices"></a>O NPM pode monitorar roteadores e servidores como dispositivos individuais?
 NPM só identifica o IP e nome do host subjacente de saltos de rede (comutadores, roteadores, servidores, etc.) entre as IPs de origem e destino. Ele também identifica a latência entre esses saltos identificados. Ele não monitora individualmente esses saltos subjacentes.
 
@@ -110,17 +146,23 @@ Uso de largura de banda é o total de largura de banda de entrada e saída. Ele 
 ### <a name="can-we-get-incoming-and-outgoing-bandwidth-information-for-the-expressroute"></a>Podemos obter informações de largura de banda de entrada e saída para o ExpressRoute?
 Valores de entrada e saídas para a largura de banda primária e secundária podem ser capturados.
 
-Para informações de nível de emparelhamento, use a consulta mencionada na Pesquisa de Log abaixo
+Para informações de nível de emparelhamento MS, use a consulta abaixo mencionada na pesquisa de logs
 
     NetworkMonitoring 
-    | where SubType == "ExpressRoutePeeringUtilization"
-    | project CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | where SubType == "ERMSPeeringUtilization"
+     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+    
+Para obter informações de nível de emparelhamento privado, use a consulta abaixo mencionada na pesquisa de logs
+
+    NetworkMonitoring 
+     | where SubType == "ERVNetConnectionUtilization"
+     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
   
-Para informações de nível de circuito, use a consulta mencionada abaixo 
+Para informações de nível de circuito, use a consulta abaixo mencionada na pesquisa de logs
 
     NetworkMonitoring 
-    | where SubType == "ExpressRouteCircuitUtilization"
-    | project CircuitName,PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+        | where SubType == "ERCircuitTotalUtilization"
+        | project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>Quais regiões têm suporte para o Monitor de desempenho do NPM?
 O NPM pode monitorar a conectividade entre redes em qualquer parte do mundo, de um workspace que está hospedado em uma das [regiões com suporte](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
@@ -142,8 +184,8 @@ Um salto não pode responder a um rastreamento de rotas em um ou mais dos cenár
 * Os dispositivos de rede não estão permitindo o tráfego ICMP_TTL_EXCEEDED.
 * Um firewall está bloqueando a resposta ICMP_TTL_EXCEEDED do dispositivo de rede.
 
-### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy-"></a>Obtenho alertas para testes não íntegros, mas não vejo os valores altos no grafo de perda e latência do NPM. Como fazer verificar o que não está íntegro?
-O NPM emitirá um alerta se a latência de ponta a ponta entre a origem e o destino cruzar o limite para qualquer caminho entre eles. Algumas redes têm mais de um caminho conectando a mesma origem e destino. NPM gera um alerta é que qualquer caminho não está íntegro. A perda e a latência vistas nos grafos são o valor médio de todos os caminhos, portanto, ele pode não mostrar o valor exato de um único caminho. Para entender onde o limite foi violado, procure a coluna "subtipo" no alerta. Se o problema for causado por um caminho, o valor do subtipo será NetworkPath (para testes do monitor de desempenho), EndpointPath (para testes do monitor de conectividade de serviço) e ExpressRoutePath (para testes do monitor ExpressRotue). 
+### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>Obtenho alertas para testes não íntegros, mas não vejo os valores altos no grafo de perda e latência do NPM. Como fazer verificar o que não está íntegro?
+O NPM emitirá um alerta se a latência de ponta a ponta entre a origem e o destino cruzar o limite de qualquer caminho entre eles. Algumas redes têm vários caminhos conectando a mesma origem e destino. NPM gera um alerta é que qualquer caminho não está íntegro. A perda e a latência vistas nos grafos são o valor médio de todos os caminhos, portanto, ele pode não mostrar o valor exato de um único caminho. Para entender onde o limite foi violado, procure a coluna "subtipo" no alerta. Se o problema for causado por um caminho, o valor do subtipo será NetworkPath (para testes do monitor de desempenho), EndpointPath (para testes do monitor de conectividade de serviço) e ExpressRoutePath (para testes do monitor ExpressRotue). 
 
 A consulta de exemplo para localizar o caminho não está íntegra:
 
@@ -214,7 +256,7 @@ Isso pode ocorrer se uma um mais opções forem verdadeiras:
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>Na funcionalidade do Monitor de Conectividade do Serviço, o tempo de resposta do serviço for NA, mas a perda da rede, bem como a latência é válida
 Isso pode acontecer se o serviço de destino não for um aplicativo web, mas o teste está configurado como um teste da Web. Edite a configuração de teste e escolha o tipo de teste como Rede em vez de Web.
 
-## <a name="miscellaneous"></a>Disposições gerais
+## <a name="miscellaneous"></a>Diversos
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Há um impacto de desempenho no nó que está sendo usado para monitoramento?
 O processo do NPM está configurado para ser interrompido se ele utiliza mais de 5% dos recursos de CPU do host. Isso é para garantir que você pode continuar usando os nós para suas cargas de trabalho normais sem afetar o desempenho.
@@ -228,6 +270,6 @@ Você pode exibir o status de integridade de nós que estão sendo usados para m
 ### <a name="can-npm-report-latency-numbers-in-microseconds"></a>O NPM pode relatar os números de latência em microssegundos?
 O NPM arredonda os números de latência na interface do usuário e, em milissegundos. Os mesmos dados são armazenados em uma granularidade maior (às vezes, até quatro decimais).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o Monitor de desempenho de rede consultando [Solução de Monitor de Desempenho de Rede no Azure](../../azure-monitor/insights/network-performance-monitor.md).

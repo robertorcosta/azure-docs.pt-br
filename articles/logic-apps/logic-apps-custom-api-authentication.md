@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ecec237eab42cf434ab8627ebdf9b1e34f3ab3f1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66167394"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838126"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteger chamadas a APIs personalizadas dos Aplicativos Lógicos do Azure
 
@@ -24,12 +24,12 @@ Para proteger chamadas para suas APIs, você pode configurar a autenticação do
 
 Você pode proteger as chamadas à API personalizada das seguintes maneiras:
 
-* [Sem alterações de código](#no-code): Proteja sua API com [Azure AD (Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md) por meio do portal do Azure, para que você não precise atualizar o código ou reimplantar sua API.
+* [Sem alterações de código](#no-code): proteja sua API com [Azure AD (Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md) por meio do Portal do Azure, para que você não precise atualizar o código ou reimplantar sua API.
 
   > [!NOTE]
   > Por padrão, a autenticação do Azure AD que você ativa no Portal do Azure não fornece autorizações refinadas. Por exemplo, essa autenticação bloqueia sua API para apenas um locatário específico, não para um usuário ou aplicativo específico. 
 
-* [Atualizar o código da API](#update-code): Proteja sua API impondo a [autenticação de certificado](#certificate), a [autenticação básica](#basic) ou a [autenticação do Microsoft Azure Active Directory](#azure-ad-code) por meio de código.
+* [Atualizar o código da API](#update-code): proteja sua API impondo a [autenticação de certificado](#certificate), a [autenticação básica](#basic) ou a [autenticação do Azure AD](#azure-ad-code) por meio de código.
 
 <a name="no-code"></a>
 
@@ -43,13 +43,13 @@ Eis as etapas gerais para este método:
 
 3. Inclua as IDs de aplicativo na definição do aplicativo lógico.
 
-#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Parte 1: Criar uma identidade do aplicativo do Microsoft Azure Active Directory para seu aplicativo lógico
+#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Parte 1: Criar uma identidade do aplicativo do Azure AD para seu aplicativo lógico
 
 Seu aplicativo lógico usa essa identidade do aplicativo do Azure AD para autenticar no Azure AD. Você só precisa configurar essa identidade uma vez para seu diretório. Por exemplo, você pode optar por usar a mesma identidade para todos os seus aplicativos lógicos, embora possa criar identidades exclusivas para cada aplicativo lógico. É possível configurar essas identidades no Portal do Azure ou usar o [PowerShell](#powershell).
 
 **Criar a identidade do aplicativo para seu aplicativo lógico no Portal do Azure**
 
-1. No [portal do Azure](https://portal.azure.com "https://portal.azure.com"), escolha **Azure Active Directory**. 
+1. Na [portal do Azure](https://portal.azure.com "https://portal.azure.com"), escolha **Azure Active Directory**. 
 
 2. Confirme que você está no mesmo diretório que o aplicativo Web ou aplicativo de API.
 
@@ -100,21 +100,23 @@ Você pode executar essa tarefa por meio do Azure Resource Manager com o PowerSh
 
 1. `Add-AzAccount`
 
-2. `$SecurePassword = Read-Host -AsSecureString` (Insira uma senha e pressione enter)
+1. `$SecurePassword = Read-Host -AsSecureString`
 
-3. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+1. Insira uma senha e pressione Enter.
 
-4. Certifique-se de copiar a **ID do Locatário** (GUID para o locatário do Azure AD), a **ID do Aplicativo** e a senha usada.
+1. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+
+1. Certifique-se de copiar a **ID do Locatário** (GUID para o locatário do Azure AD), a **ID do Aplicativo** e a senha usada.
 
 Para obter mais informações, saiba como [criar uma entidade de serviço com o PowerShell para acessar os recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
-#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Parte 2: Criar uma identidade do aplicativo do Microsoft Azure Active Directory para seu aplicativo Web ou aplicativo de API
+#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Parte 2: Criar uma identidade do aplicativo do Azure AD para seu aplicativo Web ou aplicativo de API
 
 Se seu aplicativo Web ou aplicativo de API já estiver implantado, você poderá ativar a autenticação e criar a identidade do aplicativo no Portal do Azure. Caso contrário, você pode [ativar a autenticação quando implantar com um modelo do Azure Resource Manager](#authen-deploy). 
 
 **Criar a identidade do aplicativo e ativar a autenticação no Portal do Azure para aplicativos implantados**
 
-1. No [portal do Azure](https://portal.azure.com "https://portal.azure.com"), localize e selecione o aplicativo Web ou aplicativo de API. 
+1. Na [portal do Azure](https://portal.azure.com "https://portal.azure.com"), localize e selecione seu aplicativo Web ou aplicativo de API. 
 
 2. Em **Configurações**, escolha **Autenticação/Autorização**. Em **Autenticação do Serviço de Aplicativo**, **Ative** a autenticação. Em **Provedores de Autenticação**, escolha **Azure Active Directory**.
 
@@ -151,7 +153,7 @@ Agora você deve encontrar a ID do cliente e a ID do locatário para a identidad
 
 **Ativar a autenticação quando implantar com um modelo do Azure Resource Manager**
 
-Você ainda deve criar uma identidade do aplicativo do Azure AD para seu aplicativo Web ou aplicativo de API que seja diferente da identidade de aplicativo para seu aplicativo lógico. Para criar a identidade do aplicativo, siga as etapas anteriores na Parte 2 para o Portal do Azure. 
+Você ainda precisa criar uma identidade de aplicativo do Azure AD para seu aplicativo Web ou aplicativo de API que difere da identidade do aplicativo para seu aplicativo lógico. Para criar a identidade do aplicativo, siga as etapas anteriores na Parte 2 para o Portal do Azure. 
 
 Você também pode seguir as etapas na Parte 1, mas certifique-se de usar o `https://{URL}` real do aplicativo Web ou aplicativo de API para **URL de Entrada** e **URI da ID do Aplicativo**. Nessas etapas, você precisa salvar a ID do cliente e a ID do locatário para uso no modelo de implantação do aplicativo e na Parte 3.
 
@@ -161,19 +163,21 @@ Você também pode seguir as etapas na Parte 1, mas certifique-se de usar o `htt
 Depois que você obtiver a ID do cliente e a ID do locatário, inclua essas IDs como um recurso secundário do seu aplicativo Web ou aplicativo de API no seu modelo de implantação:
 
 ``` json
-"resources": [ {
-    "apiVersion": "2015-08-01",
-    "name": "web",
-    "type": "config",
-    "dependsOn": ["[concat('Microsoft.Web/sites/','parameters('webAppName'))]"],
-    "properties": {
-        "siteAuthEnabled": true,
-        "siteAuthSettings": {
-            "clientId": "{client-ID}",
-            "issuer": "https://sts.windows.net/{tenant-ID}/",
-        }
-    }
-} ]
+"resources": [ 
+   {
+      "apiVersion": "2015-08-01",
+      "name": "web",
+      "type": "config",
+      "dependsOn": ["[concat('Microsoft.Web/sites/','parameters('webAppName'))]"],
+      "properties": {
+         "siteAuthEnabled": true,
+         "siteAuthSettings": {
+            "clientId": "<client-ID>",
+            "issuer": "https://sts.windows.net/<tenant-ID>/"
+         }
+      }
+   } 
+]
 ```
 
 Para implantar automaticamente um aplicativo Web em branco e um aplicativo lógico com a autenticação do Azure Active Directory, [exiba o modelo completo aqui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json) ou clique em **Implantar no Azure** aqui:
@@ -184,17 +188,25 @@ Para implantar automaticamente um aplicativo Web em branco e um aplicativo lógi
 
 O modelo anterior já tem essa seção de autorização definida, mas se você estiver criando o aplicativo lógico diretamente, precisará incluir a seção de autorização completa.
 
-Abra a definição do seu aplicativo lógico na exibição do código, acesse a seção da ação **HTTP**, localize a seção **Autorização** e inclua essa linha:
+Abra a definição do aplicativo lógico na exibição de código, vá para a definição da ação **http** , localize a seção **autorização** e inclua estas propriedades:
 
-`{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
+```json
+{
+   "tenant": "<tenant-ID>",
+   "audience": "<client-ID-from-Part-2-web-app-or-API app>", 
+   "clientId": "<client-ID-from-Part-1-logic-app>",
+   "secret": "<key-from-Part-1-logic-app>", 
+   "type": "ActiveDirectoryOAuth"
+}
+```
 
-| Elemento | Obrigatório | Descrição | 
-| ------- | -------- | ----------- | 
-| tenant | Sim | O GUID para o locatário do Azure AD | 
-| audience | Sim | O GUID do recurso de destino que você deseja acessar, que é a ID do cliente da identidade de aplicativo para seu aplicativo Web ou aplicativo de API | 
+| Propriedade | Obrigatório | DESCRIÇÃO | 
+| -------- | -------- | ----------- | 
+| locatário | Sim | O GUID para o locatário do Azure AD | 
+| audiência | Sim | O GUID do recurso de destino que você deseja acessar, que é a ID do cliente da identidade de aplicativo para seu aplicativo Web ou aplicativo de API | 
 | clientId | Sim | O GUID do cliente que solicita o acesso, que é a ID do cliente da identidade do aplicativo para seu aplicativo lógico | 
-| secret | Sim | A chave ou a senha da identidade do aplicativo para o cliente que está solicitando o token de acesso | 
-| type | Sim | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
+| segredo | Sim | A chave ou a senha da identidade do aplicativo para o cliente que está solicitando o token de acesso | 
+| Tipo | Sim | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
 |||| 
 
 Por exemplo:
@@ -202,10 +214,9 @@ Por exemplo:
 ``` json
 {
    "actions": {
-      "some-action": {
-         "conditions": [],
+      "HTTP": {
          "inputs": {
-            "method": "post",
+            "method": "POST",
             "uri": "https://your-api-azurewebsites.net/api/your-method",
             "authentication": {
                "tenant": "tenant-ID",
@@ -214,7 +225,7 @@ Por exemplo:
                "secret": "key-from-azure-ad-app-for-logic-app",
                "type": "ActiveDirectoryOAuth"
             }
-         },
+         }
       }
    }
 }
@@ -230,14 +241,20 @@ Por exemplo:
 
 Para validar as solicitações recebidas do aplicativo lógico para o aplicativo Web ou aplicativo de API, você pode usar certificados do cliente. Para configurar seu código, [aprenda a configurar a autenticação mútua TLS](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
-Na seção **Autorização**, inclua essa linha: 
+Na seção **autorização** , inclua estas propriedades:
 
-`{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
+```json
+{
+   "type": "ClientCertificate",
+   "password": "<password>",
+   "pfx": "<long-pfx-key>"
+} 
+```
 
-| Elemento | Obrigatório | Descrição | 
-| ------- | -------- | ----------- | 
-| type | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. | 
-| password | Sim | A senha para acessar o certificado do cliente (arquivo PFX) | 
+| Propriedade | Obrigatório | DESCRIÇÃO | 
+| -------- | -------- | ----------- | 
+| Tipo | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. | 
+| Senha | Sim | A senha para acessar o certificado do cliente (arquivo PFX) | 
 | pfx | Sim | O conteúdo codificado por base64 do certificado do cliente (arquivo PFX) | 
 |||| 
 
@@ -247,15 +264,21 @@ Na seção **Autorização**, inclua essa linha:
 
 Para validar solicitações de entrada de seu aplicativo lógico para o aplicativo Web ou aplicativo de API, você pode usar a autenticação básica, como um nome de usuário e senha. A autenticação básica é um padrão comum e você pode usar essa autenticação em qualquer linguagem usada para compilar seu aplicativo Web ou aplicativo de API.
 
-Na seção **Autorização**, inclua essa linha:
+Na seção **autorização** , inclua estas propriedades:
 
-`{"type": "basic", "username": "username", "password": "password"}`.
+```json
+{
+   "type": "Basic",
+   "username": "<username>",
+   "password": "<password>"
+}
+```
 
-| Elemento | Obrigatório | Descrição | 
-| ------- | -------- | ----------- | 
-| type | Sim | O tipo de autenticação que você deseja usar. Para a autenticação básica, o valor deve ser `Basic`. | 
-| username | Sim | O nome de usuário que você deseja usar para autenticação | 
-| password | Sim | A senha que você deseja usar para autenticação | 
+| Propriedade | Obrigatório | DESCRIÇÃO | 
+| -------- | -------- | ----------- | 
+| Tipo | Sim | O tipo de autenticação que você deseja usar. Para a autenticação básica, o valor deve ser `Basic`. | 
+| Nome de Usuário | Sim | O nome de usuário que você deseja usar para autenticação | 
+| Senha | Sim | A senha que você deseja usar para autenticação | 
 |||| 
 
 <a name="azure-ad-code"></a>

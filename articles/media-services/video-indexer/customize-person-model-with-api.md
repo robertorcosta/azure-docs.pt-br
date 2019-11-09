@@ -1,6 +1,6 @@
 ---
 title: Usar a API do Video Indexer para personalizar um modelo de Pessoa – Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Este artigo mostra como personalizar um modelo de Pessoa com a API do Video Indexer.
 services: media-services
 author: anikaz
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 6c4980536eddd0226fac422ae17ddb717e34630d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44f97e3d9af9daac8d62ae42be76bd73dedbd453
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799462"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838259"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personalizar um modelo de Pessoa com a API do Video Indexer
 
@@ -57,16 +57,16 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 |**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
 |---|---|---|---|
-|location|cadeia de caracteres|Sim|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, confira [Regiões do Azure e Video Indexer](regions.md).|
-|accountId|cadeia de caracteres|Sim|Identificador global exclusivo para a conta|
-|name|cadeia de caracteres|Sim|O nome do modelo de Pessoa|
-|accessToken|cadeia de caracteres|Sim|Token de acesso (precisa ser do escopo [Token de Acesso da Conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) a ser autenticado na chamada. Os tokens de acesso expiram em 1 hora.|
+|location|string|Sim|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, confira [Regiões do Azure e Video Indexer](regions.md).|
+|accountId|string|Sim|Identificador global exclusivo para a conta|
+|Nome|string|Sim|O nome do modelo de Pessoa|
+|accessToken|string|Sim|Token de acesso (precisa ser do escopo [Token de Acesso da Conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) a ser autenticado na chamada. Os tokens de acesso expiram em 1 hora.|
 
 ### <a name="request-body"></a>Corpo da solicitação
 
 Nenhum outro corpo da solicitação é necessário para essa chamada.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Resposta
 
 A resposta fornece o nome e a ID de modelo gerada do modelo de Pessoa que você acabou de criar, seguindo o formato do exemplo a seguir.
 
@@ -102,16 +102,16 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 |**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
 |---|---|---|---|
-|location|cadeia de caracteres|Sim|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, confira [Regiões do Azure e Video Indexer](regions.md).|
-|accountId|cadeia de caracteres|Sim|Identificador global exclusivo para a conta|
-|id|cadeia de caracteres|Sim|A ID do modelo de Pessoa (gerada quando o modelo de pessoa é criado)|
-|accessToken|cadeia de caracteres|Sim|Token de acesso (precisa ser do escopo [Token de Acesso da Conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) a ser autenticado na chamada. Os tokens de acesso expiram em 1 hora.|
+|location|string|Sim|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, confira [Regiões do Azure e Video Indexer](regions.md).|
+|accountId|string|Sim|Identificador global exclusivo para a conta|
+|ID|string|Sim|A ID do modelo de Pessoa (gerada quando o modelo de pessoa é criado)|
+|accessToken|string|Sim|Token de acesso (precisa ser do escopo [Token de Acesso da Conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) a ser autenticado na chamada. Os tokens de acesso expiram em 1 hora.|
 
 ### <a name="request-body"></a>Corpo da solicitação
 
 Nenhum outro corpo da solicitação é necessário para essa chamada.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Resposta
 
 Não há nenhum conteúdo retornado quando o modelo de Pessoa é excluído com êxito.
 
@@ -139,15 +139,15 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
 |---|---|---|---|
-|location|cadeia de caracteres|Sim|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, confira [Regiões do Azure e Video Indexer](regions.md).|
-|accountId|cadeia de caracteres|Sim|Identificador global exclusivo para a conta|
-|accessToken|cadeia de caracteres|Sim|Token de acesso (precisa ser do escopo [Token de Acesso da Conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) a ser autenticado na chamada. Os tokens de acesso expiram em 1 hora.|
+|location|string|Sim|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, confira [Regiões do Azure e Video Indexer](regions.md).|
+|accountId|string|Sim|Identificador global exclusivo para a conta|
+|accessToken|string|Sim|Token de acesso (precisa ser do escopo [Token de Acesso da Conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) a ser autenticado na chamada. Os tokens de acesso expiram em 1 hora.|
 
 ### <a name="request-body"></a>Corpo da solicitação
 
 Nenhum outro corpo da solicitação é necessário para essa chamada.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Resposta
 
 A resposta fornece uma lista de todos os modelos de Pessoa em sua conta (incluindo o modelo de Pessoa padrão na conta especificada) e cada um de seus nomes e IDs seguindo o formato do exemplo abaixo.
 
@@ -194,12 +194,12 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 |**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
 |---|---|---|---|
-|location|cadeia de caracteres|Sim|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, confira [Regiões do Azure e Video Indexer](regions.md).|
-|accountId|cadeia de caracteres|Sim|Identificador global exclusivo para a conta|
-|videoId|cadeia de caracteres|Sim|ID do vídeo no qual o rosto que você deseja atualizar é exibido. Isso é criado quando o vídeo é carregado e indexado.|
+|location|string|Sim|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, confira [Regiões do Azure e Video Indexer](regions.md).|
+|accountId|string|Sim|Identificador global exclusivo para a conta|
+|videoId|string|Sim|ID do vídeo no qual o rosto que você deseja atualizar é exibido. Isso é criado quando o vídeo é carregado e indexado.|
 |faceId|inteiro|Sim|ID do rosto que será atualizado. Você pode obter o faceId do índice do vídeo|
-|accessToken|cadeia de caracteres|Sim|Token de acesso (precisa ser do escopo [Token de Acesso da Conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) a ser autenticado na chamada. Os tokens de acesso expiram em 1 hora.|
-|name|cadeia de caracteres|Sim|O novo nome com o qual atualizar o rosto.|
+|accessToken|string|Sim|Token de acesso (precisa ser do escopo [Token de Acesso da Conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) a ser autenticado na chamada. Os tokens de acesso expiram em 1 hora.|
+|Nome|string|Sim|O novo nome com o qual atualizar o rosto.|
 
 Os nomes são exclusivos para modelos de Pessoa; portanto se você der o mesmo valor do parâmetro **name** a dois rostos diferentes no mesmo modelo de Pessoa, o Video Indexer exibirá os rostos como a mesma pessoa e os convergirá depois que você reindexar o vídeo. 
 
@@ -207,7 +207,7 @@ Os nomes são exclusivos para modelos de Pessoa; portanto se você der o mesmo v
 
 Nenhum outro corpo da solicitação é necessário para essa chamada.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Resposta
 
 Nenhum conteúdo é retornado quando o rosto é atualizado com êxito.
 

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 12976e2b2dd37b640efe1823fc8d2ca7048ebcdb
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 005e93837d1d420526f6fb33e79d25a94da6fab7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73097355"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838543"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solucionar problemas de Arquivos do Azure no Linux
 
-Este artigo lista os problemas comuns relacionados aos Arquivos do Azure quando você se conecta de clientes Linux. Também fornece as possíveis causas e resoluções para esses problemas. 
+Este artigo lista os problemas comuns relacionados aos Arquivos do Azure quando você se conecta de clientes Linux. Ele também fornece possíveis causas e soluções para esses problemas. 
 
 Além das etapas de solução de problemas deste artigo, você pode usar [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) para garantir que o cliente Linux tenha pré-requisitos corretos. O AzFileDiagnostics automatiza a detecção da maioria dos sintomas mencionados neste artigo. Isso ajuda a configurar seu ambiente para obter um desempenho ideal. Você também pode encontrar essas informações na solução de problemas do [Compartilhamento de arquivos do Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). A solução de problemas fornece etapas para ajudá-lo com problemas de conexão, o mapeamento e montar os compartilhamentos de arquivos do Azure.
 
@@ -60,7 +60,7 @@ Para resolver o problema, use o [ferramenta de solução de problemas para os ar
 
 Por motivos de segurança, as conexões para compartilhamentos de arquivos do Azure são bloqueadas se o canal de comunicação não está criptografado e a tentativa de conexão não é feita do mesmo datacenter onde residem os compartilhamentos de arquivos do Azure. As conexões não criptografadas dentro do mesmo datacenter também podem ser bloqueadas se o [transferência segura obrigatória](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está habilitada na conta de armazenamento. Um canal de comunicação criptografado é fornecido somente quando o sistema operacional do cliente do usuário dá suporte à criptografia SMB.
 
-Para saber mais, confira [Pré-requisitos para montar um compartilhamento de arquivos do Azure com o Linux e o pacote cifs-utils](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux#prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package). 
+Para saber mais, confira [Pré-requisitos para montar um compartilhamento de arquivos do Azure com o Linux e o pacote cifs-utils](storage-how-to-use-files-linux.md#prerequisites). 
 
 ### <a name="solution-for-cause-1"></a>Solução para a causa 1
 
@@ -111,7 +111,7 @@ Para fechar identificadores abertos para um compartilhamento de arquivos, diret�
     - Ferramentas de terceiros de código aberto, como:
         - [GNU Parallel](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) -classifica os arquivos e os compacta em partições.
-        - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -usa fpart e uma ferramenta de cópia para gerar várias instâncias para migrar dados do src_dir para o dst_url.
+        - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -usa fpart e uma ferramenta de cópia para gerar várias instâncias para migrar dados de src_dir para dst_url.
         - [Vários](https://github.com/pkolano/mutil) multithreaded CP e md5sum com base no GNU coreutils.
 - Definir o tamanho do arquivo com antecedência, em vez de fazer cada gravação de uma gravação de extensão, ajuda a melhorar a velocidade de cópia em cenários em que o tamanho do arquivo é conhecido. Se for necessário evitar gravações estendidas, você poderá definir um tamanho de arquivo de destino com `truncate - size <size><file>` comando. Depois disso, `dd if=<source> of=<target> bs=1M conv=notrunc`comando copiará um arquivo de origem sem precisar atualizar repetidamente o tamanho do arquivo de destino. Por exemplo, você pode definir o tamanho do arquivo de destino para cada arquivo que deseja copiar (Suponha que um compartilhamento seja montado em/mnt/share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`

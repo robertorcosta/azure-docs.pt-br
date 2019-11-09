@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 00130114b793b5f4d4459eee3404fc4adaf6a8b4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 28a280ea7c3bf9ef84a1fff05da5090ed526fb12
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699405"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837466"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Desenvolvimento para o Arquivos do Azure com Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -227,8 +227,8 @@ Se você quiser saber mais sobre outras APIs de armazenamento do Azure, siga est
 * [Azure para desenvolvedores Java](/java/azure)/)
 * [SDK de Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java)
 * [SDK de Armazenamento do Azure para Android](https://github.com/azure/azure-storage-android)
-* [Referência de SDK do Cliente de Armazenamento do Azure](http://dl.windowsazure.com/storage/javadoc/)
+* [Referência de SDK do Cliente de Armazenamento do Azure](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog da equipe de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
-* [Transferir dados com o Utilitário da Linha de Comando AzCopy](../common/storage-use-azcopy.md)
+* [Blog da Equipe do Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
+* [Transferir dados com o Utilitário de Linha de Comando AzCopy](../common/storage-use-azcopy.md)
 * [Solução de problemas de Arquivos do Azure – Windows](storage-troubleshoot-windows-file-connection-problems.md)

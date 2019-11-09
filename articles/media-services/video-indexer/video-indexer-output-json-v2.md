@@ -1,6 +1,6 @@
 ---
 title: Examinar os serviços de mídia do Azure Video Indexer saída produzida pela API v2
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Este tópico examina a saída do Video Indexer produzida pela API v2.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: juliako
-ms.openlocfilehash: 20a973e5386cd9cad7d090236f021ced9a64cafc
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 0a42c2dce3976a1bf83c85644f56f4c1d8abc9c8
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300932"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839548"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examinar a saída de Video Indexer produzida pela API
 
@@ -33,12 +33,12 @@ Este artigo examina o conteúdo JSON retornado pela **API Get Video Index**.
 
 ## <a name="root-elements"></a>Elementos raiz
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
 |accountId|ID da conta VI da lista de reprodução.|
-|id|ID. da lista de reprodução.|
-|name|Nome da lista de reprodução.|
-|description|Descrição da lista de reprodução.|
+|ID|ID. da lista de reprodução.|
+|Nome|Nome da lista de reprodução.|
+|Descrição|Descrição da lista de reprodução.|
 |userName|O nome do usuário que criou a lista de reprodução.|
 |criado|Hora de criação da lista de reprodução.|
 |privacyMode|Modo de privacidade da lista de reprodução (pública/privada).|
@@ -75,9 +75,9 @@ Esta seção mostra o resumo das informações.
 
 |Atributo | DESCRIÇÃO|
 |---|---|
-|name|O nome do vídeo. Por exemplo, o Azure Monitor.|
-|id|A ID do vídeo. Por exemplo, 63c6d532ff.|
-|privacyMode|O detalhamento pode ter um dos seguintes modos: **Privado**, **Público**. **Público**: o vídeo é visível para todos na sua conta e para qualquer pessoa que tenha um link para o vídeo. **Privada** -o vídeo é visível para todos em sua conta.|
+|Nome|O nome do vídeo. Por exemplo, o Azure Monitor.|
+|ID|A ID do vídeo. Por exemplo, 63c6d532ff.|
+|privacyMode|Seu detalhamento pode ter um dos seguintes modos: **Particular**, **Público**. **Público**: o vídeo é visível para todos na sua conta e para qualquer pessoa que tenha um link para o vídeo. **Privada** -o vídeo é visível para todos em sua conta.|
 |duration|Contém uma duração que descreve o tempo que uma percepção ocorreu. Duração é em segundos.|
 |thumbnailVideoId|A ID do vídeo da qual a miniatura foi tirada.
 |thumbnailId|A ID da miniatura do vídeo. Para obter a miniatura real, chame [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passe-o thumbnailVideoId e thumbnailid.|
@@ -93,11 +93,11 @@ Esta seção mostra o resumo das informações.
 
 ## <a name="videos"></a>Vídeos
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
 |accountId|A ID da conta VI do vídeo.|
-|id|ID do vídeo.|
-|name|Nome do vídeo.
+|ID|ID do vídeo.|
+|Nome|Nome do vídeo.
 |state|Estado do vídeo (carregado, processado, processado, com falha, em quarentena).|
 |processingProgress|O progresso do processamento durante o processamento (por exemplo, 20%).|
 |failureCode|O código de falha se não for processado (por exemplo, 'UnsupportedFileType').|
@@ -112,7 +112,7 @@ Esta seção mostra o resumo das informações.
 |publishedUrlProxy|Uma URL para transmitir o vídeo (para dispositivos Apple).|
 |viewToken|Um símbolo de visualização de curta duração para transmitir o vídeo.|
 |sourceLanguage|O idioma de origem do vídeo.|
-|language|O idioma real do vídeo (tradução).|
+|idioma|O idioma real do vídeo (tradução).|
 |indexingPreset|A predefinição usada para indexar o vídeo.|
 |streamingPreset|A predefinição usada para publicar o vídeo.|
 |linguisticModelId|O modelo CRIS usado para transcrever o vídeo.|
@@ -147,12 +147,12 @@ Esta seção mostra o resumo das informações.
 
 Os insights são um conjunto de dimensões (por exemplo, linhas transcritas, faces, marcas, etc.), em que cada dimensão é uma lista de elementos exclusivos (por exemplo, face1, face2, face3) e cada elemento tem seus próprios metadados e uma lista de suas instâncias (que são intervalos de tempo com metadados opcionais adicionais).
 
-Um rosto pode ter uma ID, um nome, uma miniatura, outros metadados e uma lista de suas instâncias temporais (por exemplo: 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 e 00:41:21 – 00:41:49). Cada instância temporal pode ter metadados adicionais. Por exemplo, o retângulo da face coordena (20,230,60,60).
+Uma face pode ter uma ID, um nome, uma miniatura, outros metadados e uma lista de suas instâncias temporais (por exemplo: 00:00:05 – 00:00:10, 00:01:00-00:02:30 e 00:41:21 – 00:41:49). Cada instância temporal pode ter metadados adicionais. Por exemplo, o retângulo da face coordena (20,230,60,60).
 
 |Versão|A versão do código|
 |---|---|
 |sourceLanguage|O idioma de origem do vídeo (assumindo um idioma mestre). Na forma de um [BCP-47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
-|language|A linguagem de insights (traduzida do idioma de origem). Na forma de um [BCP-47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
+|idioma|A linguagem de insights (traduzida do idioma de origem). Na forma de um [BCP-47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
 |transcript|A dimensão da [transcrição](#transcript).|
 |ocr|A dimensão de [OCR](#ocr) .|
 |palavras-chave|A dimensão [palavras-chave](#keywords).|
@@ -193,16 +193,16 @@ Exemplo:
 
 Atributo | DESCRIÇÃO
 ---|---
-id|ID do bloco.|
+ID|ID do bloco.|
 instances|Uma lista de intervalos de tempo deste bloco.|
 
 #### <a name="transcript"></a>transcript
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
-|id|A ID da linha.|
+|ID|A ID da linha.|
 |texto|A própria transcrição.|
-|language|O idioma da transcrição. Tem o objetivo dar suporte à transcrição na qual cada linha pode ter um idioma diferente.|
+|idioma|O idioma da transcrição. Tem o objetivo dar suporte à transcrição na qual cada linha pode ter um idioma diferente.|
 |instances|Uma lista com os intervalos de tempo nos quais essa linha apareceu. Se a instância for transcrita, ela terá apenas 1 instância.|
 
 Exemplo:
@@ -236,12 +236,12 @@ Exemplo:
 
 #### <a name="ocr"></a>ocr
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
-|id|A ID da linha de OCR.|
+|ID|A ID da linha de OCR.|
 |texto|O texto de OCR.|
 |confidence|A confiança do reconhecimento.|
-|language|O idioma do OCR.|
+|idioma|O idioma do OCR.|
 |instances|Uma lista de intervalos de tempo nos quais essa OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
 |height|A altura do retângulo OCR|
 |top|O local principal em px|
@@ -271,12 +271,12 @@ Exemplo:
 
 #### <a name="keywords"></a>palavras-chave
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
-|id|A ID da palavra-chave.|
+|ID|A ID da palavra-chave.|
 |texto|O texto da palavra-chave.|
 |confidence|A confiança do reconhecimento da palavra-chave.|
-|language|O idioma da palavra-chave (quando traduzida).|
+|idioma|O idioma da palavra-chave (quando traduzida).|
 |instances|Uma lista de intervalos de tempo nos quais essa palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
 
 ```json
@@ -302,17 +302,17 @@ Exemplo:
 
 #### <a name="faces"></a>faces
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
-|id|A ID da face.|
-|name|O nome da face. Pode ser “Desconhecido #0”, uma celebridade identificada ou uma pessoa treinada pelo cliente.|
+|ID|A ID da face.|
+|Nome|O nome da face. Pode ser “Desconhecido #0”, uma celebridade identificada ou uma pessoa treinada pelo cliente.|
 |confidence|A confiança de identificação da face.|
-|description|Uma descrição da celebridade. |
+|Descrição|Uma descrição da celebridade. |
 |thumbnailId|O ID da miniatura dessa face.|
 |knownPersonId|Se é uma pessoa conhecida, o seu ID interno.|
 |referenceId|Se for uma celebridade do Bing, o seu ID do Bing.|
 |referenceType|No momento, apenas Bing.|
-|title|Se é uma celebridade, seu título (por exemplo, "CEO da Microsoft").|
+|título|Se é uma celebridade, seu título (por exemplo, "CEO da Microsoft").|
 |imageUrl|Se é uma celebridade, o seu URL de imagem.|
 |instances|Essas são as ocorrências do aparecimento da face no intervalo de tempo determinado. Cada ocorrência também tem uma thumbnailsId. |
 
@@ -347,11 +347,11 @@ Exemplo:
 
 #### <a name="labels"></a>rótulos
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
-|id|A ID do rótulo.|
-|name|O nome do rótulo (por exemplo, "Computador", "TV").|
-|language|O idioma do nome do rótulo (quando traduzido). BCP-47|
+|ID|A ID do rótulo.|
+|Nome|O nome do rótulo (por exemplo, "Computador", "TV").|
+|idioma|O idioma do nome do rótulo (quando traduzido). BCP-47|
 |instances|Uma lista de intervalos de tempo nos quais esse rótulo apareceu (um rótulo pode aparecer várias vezes). Cada instância tem um campo de confiança. |
 
 
@@ -406,9 +406,9 @@ Exemplo:
 
 #### <a name="scenes"></a>scenes
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
-|id|A ID da cena.|
+|ID|A ID da cena.|
 |instances|Uma lista de intervalos de tempo desta cena (uma cena só pode ter 1 instância).|
 
 ```json
@@ -439,9 +439,9 @@ Exemplo:
 
 #### <a name="shots"></a>shots
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
-|id|A ID da captura.|
+|ID|A ID da captura.|
 |keyFrames|Uma lista de quadros-chave dentro da captura (cada um tem uma ID e uma lista de instâncias de intervalos de tempo). Cada instância de quadro-chave tem um campo de miniaturaid, que contém a ID de miniatura do quadro-chave.|
 |instances|Uma lista de intervalos de tempo desta captura (uma captura pode ter apenas 1 instância).|
 
@@ -489,13 +489,13 @@ Exemplo:
 
 Nomes de marcas comerciais e de produtos detectados na fala para transcrição de texto e / ou Vídeo OCR. Isso não inclui reconhecimento visual de marcas ou detecção de logotipo.
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
-|id|A ID de marca.|
-|name|O nome de marcas.|
+|ID|A ID de marca.|
+|Nome|O nome de marcas.|
 |referenceId | O sufixo do URL da Wikipédia da marca. Por exemplo, "Target_Corporation" é o sufixo de [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |referenceUrl | A marca da url da Wikipedia, se existir. Por exemplo, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|description|A descrição de marcas.|
+|Descrição|A descrição de marcas.|
 |marcas|Uma lista de tags predefinidas associadas a essa marca.|
 |confidence|O valor de confiança do detector de marca indexador de vídeo (0-1).|
 |instances|Uma lista de intervalos de tempo desta marca. Cada instância tem um brandType, que indica se essa marca apareceu na transcrição ou no OCR.|
@@ -548,7 +548,7 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 
 #### <a name="statistics"></a>Estatísticas
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
 |CorrespondenceCount|Número de correspondências no vídeo.|
 |SpeakerWordCount|O número de palavras por alto-falante.|
@@ -558,10 +558,10 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
-|id|A ID do efeito de áudio.|
-|type|O tipo de efeito de áudio (por exemplo, Palmas, Fala, Silêncio).|
+|ID|A ID do efeito de áudio.|
+|Tipo|O tipo de efeito de áudio (por exemplo, Palmas, Fala, Silêncio).|
 |instances|Uma lista com os intervalos de tempo nos quais esse efeito de áudio apareceu.|
 
 ```json
@@ -587,9 +587,9 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 
 Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Neutro/Negativo). Por exemplo, 0-0.1, 0.1-0.2.
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
-|id|A ID do sentimento.|
+|ID|A ID do sentimento.|
 |averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - Neutral/positivo/negativo|
 |instances|Uma lista com os intervalos de tempo nos quais esse sentimento apareceu.|
 |sentimentType |O tipo pode ser 'Positivo', 'Neutro' ou 'Negativo'.|
@@ -626,9 +626,9 @@ O bloco visualContentModeration contém intervalos de tempo que o Video Indexer 
 
 Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis apenas para visualização privada. Os usuários têm a opção de enviar uma solicitação para uma revisão humana do conteúdo. Nesse caso, o atributo IsAdult conterá o resultado da revisão humana.
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
-|id|A ID de moderação de conteúdo visual.|
+|ID|A ID de moderação de conteúdo visual.|
 |adultScore|A pontuação de conteúdo adulta (do moderador de conteúdo).|
 |racyScore|A pontuação racista (de moderação de conteúdo).|
 |instances|Uma lista de intervalos de tempo em que apareceu esse visual moderação de conteúdo.|
@@ -662,20 +662,20 @@ Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis ape
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
-|id|O ID de moderação do conteúdo textual.|
+|ID|O ID de moderação do conteúdo textual.|
 |bannedWordsCount |O número de palavras proibidas.|
 |bannedWordsRatio |A proporção do número total de palavras.|
 
 #### <a name="emotions"></a>emotions
 
-O Video Indexer identifica emoções com base em indicações de fala e de áudio. A emoção identificada pode ser: alegria, tristeza, raiva ou medo.
+Video Indexer identifica emoções com base em indicações de fala e áudio. A emoção identificada poderia ser: Joy, tristeza, raiva ou medo.
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
-|id|A ID da emoção.|
-|type|O momento de emoção que foi identificado com base em indicações de fala e de áudio. A emoção pode ser: alegria, tristeza, raiva ou medo.|
+|ID|A ID da emoção.|
+|Tipo|O momento de emoção que foi identificado com base nas indicações de fala e áudio. A emoção poderia ser: alegria, tristeza, raiva ou medo.|
 |instances|Uma lista de intervalos de tempo nos quais essa emoção apareceu.|
 
 ```json
@@ -762,13 +762,13 @@ O Video Indexer identifica emoções com base em indicações de fala e de áudi
 
 O Video Indexer faz inferências dos principais tópicos das transcrições. Quando possível, a taxonomia [IPTC](https://iptc.org/standards/media-topics/) de 2º nível é incluída. 
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
-|id|A ID do tópico.|
-|name|O nome do tópico, por exemplo: "Farmacêuticos".|
-|referenceId|Trilhas refletindo a hierarquia de tópicos. Por exemplo: "Saúde e bem-estar / Medicina e serviços de saúde / Produtos farmacêuticos".|
+|ID|A ID do tópico.|
+|Nome|O nome do tópico, por exemplo: "Produtos farmacêuticos".|
+|referenceId|Trilhas refletindo a hierarquia de tópicos. Por exemplo: "Saúde e bem-estar/Medicina e atendimento à saúde /Produtos farmacêuticos".|
 |confidence|A pontuação de confiança no intervalo [0,1]. Um valor mais alto indica maior confiança.|
-|language|O idioma usado no tópico.|
+|idioma|O idioma usado no tópico.|
 |iptcName|O nome do código de mídia IPTC se detectado.|
 |instances |Atualmente, o Video Indexer não indexa um tópico segundo intervalos de tempo, portanto, o vídeo inteiro é usado como o intervalo.|
 

@@ -1,6 +1,6 @@
 ---
 title: Inserir Video Indexer widgets em seus aplicativos
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Saiba como inserir Video Indexer widgets em seu aplicativo.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 74518fb891c5ecb25e818b9642d31e3daaf828de
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 99d6647ab5e7fa8f35cef883dd00ae9fea866370
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162618"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839112"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Inserir Video Indexer widgets em seus aplicativos
 
@@ -29,7 +29,7 @@ A partir da versão 2, a URL base do widget inclui a região da conta especifica
 
 Um widget de análise cognitiva inclui todos os insights visuais que foram extraídos do seu processo de indexação de vídeo. O widget cognitiva insights dá suporte aos seguintes parâmetros de URL opcionais.
 
-|name|Definição|Descrição|
+|Nome|Definição|DESCRIÇÃO|
 |---|---|---|
 |`widgets`|Cadeias de caracteres separadas por vírgula|Permite que você controle as informações que deseja renderizar. <br/> Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderiza apenas pessoas e marcas da interface do usuário do.<br/>Opções disponíveis: people, keywords, annotations, brands, sentiments, transcript e search.<br/>Observe que o parâmetro de URL `widgets` não tem suporte na versão 2.<br/>|
 |`locale`|Um código de idioma curto|Controla o idioma do insights. O valor padrão é `en`. <br/> Exemplo: `locale=de`.|
@@ -39,7 +39,7 @@ Um widget de análise cognitiva inclui todos os insights visuais que foram extra
 
 Você pode usar o widget Player para transmitir vídeo usando a taxa de bits adaptável. O widget Player dá suporte aos seguintes parâmetros de URL opcionais.
 
-|name|Definição|Descrição|
+|Nome|Definição|DESCRIÇÃO|
 |---|---|---|
 |`t`|Segundos desde o início|Faz com que o Player comece a ser reproduzido do ponto de tempo especificado.<br/> Exemplo: `t=60`.|
 |`captions`|Um código de idioma|Busca a legenda no idioma especificado durante o carregamento do widget para estar disponível no menu **legendas** .<br/> Exemplo: `captions=en-US`.|
@@ -52,9 +52,9 @@ Você pode usar o widget Player para transmitir vídeo usando a taxa de bits ada
 
 Você pode usar o widget editor para criar novos projetos e gerenciar informações de um vídeo. O widget editor dá suporte aos seguintes parâmetros de URL opcionais.
 
-|name|Definição|Descrição|
+|Nome|Definição|DESCRIÇÃO|
 |---|---|---|
-|`accessToken`<sup>*</sup>|string|Fornece acesso a vídeos que estão apenas na conta que é usada para inserir o widget.<br> O widget do editor requer o parâmetro `accessToken`.|
+|`accessToken`<sup>*</sup>|Cadeia de caracteres|Fornece acesso a vídeos que estão apenas na conta que é usada para inserir o widget.<br> O widget do editor requer o parâmetro `accessToken`.|
 |`language`|Um código de idioma|Controla o idioma do jogador. O valor padrão é `en-US`.<br/>Exemplo: `language=de-DE`.|
 |`locale`|Um código de idioma curto|Controla o idioma do insights. O valor padrão é `en`.<br/>Exemplo: `language=de`.|
 
@@ -235,7 +235,7 @@ Por exemplo, se você quiser inserir um widget que contenha apenas pessoas e Pes
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
 
-O título da janela do iframe também pode ser personalizado fornecendo `&title=<YourTitle>` à URL do iframe. (Ele personaliza o \<title HTML > valor).
+O título da janela do iframe também pode ser personalizado fornecendo `&title=<YourTitle>` à URL do iframe. (Ele personaliza o HTML \<título > valor).
     
 Por exemplo, se você quiser dar à sua janela do iframe o título "MeusInsights", a URL terá esta aparência:
 
@@ -264,7 +264,7 @@ Se você quiser desabilitar legendas, poderá passar o valor do parâmetro `capt
 #### <a name="autoplay"></a>AutoPlay
 Por padrão, o Player começará a reproduzir o vídeo. Você pode optar por não passar `&autoplay=false` para a URL de inserção anterior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter informações sobre como exibir e editar insights Video Indexer, consulte [Exibir e editar informações de video indexer](video-indexer-view-edit.md).
 

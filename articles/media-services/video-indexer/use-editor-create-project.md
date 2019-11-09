@@ -1,7 +1,7 @@
 ---
-title: Use o editor do indexador de vídeo para criar projetos
-titlesuffix: Azure Media Services
-description: Este tópico demonstra como usar o editor do indexador de vídeo para criar projetos.
+title: Usar o editor de Video Indexer para criar projetos
+titleSuffix: Azure Media Services
+description: Este tópico demonstra como usar o editor de Video Indexer para criar projetos.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,114 +10,114 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: 725e265bb7f8c98db19971c50e690974cb38a0d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f16ab34dc9b37806f9c58b22a3f02afe839632e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518146"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839160"
 ---
-# <a name="use-the-video-indexer-editor-to-create-projects"></a>Use o editor do indexador de vídeo para criar projetos
+# <a name="use-the-video-indexer-editor-to-create-projects"></a>Usar o editor de Video Indexer para criar projetos
 
-Site do indexador de vídeo, permite que você use o aprofundamento dos seus vídeos para: localizar o conteúdo de mídia à direita, localize as partes que você está interessado e usa os resultados para criar um projeto inteiramente novo. Depois de criado, o projeto pode ser processado e baixado do indexador de vídeo e ser usado em sua própria edição de aplicativos ou fluxos de trabalho downstream.
+Video Indexer site, permite que você use o aprofundamento dos seus vídeos para: localizar o conteúdo de mídia correto, localizar as partes das quais você está interessado e usar os resultados para criar um projeto totalmente novo. Depois de criado, o projeto pode ser renderizado e baixado de Video Indexer e ser usado em seus próprios aplicativos de edição ou fluxos de trabalho downstream.
 
-Alguns cenários onde você pode encontrar esse recurso útil são: 
+Alguns cenários em que você pode achar esse recurso útil são: 
 
-* Destaques de criação de filmes para trailers.
-* Usando o antigos clipes de vídeos em conversões de notícias.
-* Criação de conteúdo mais curto de mídia social.
+* Criando destaques de filmes para os trailers.
+* Usando clipes antigos de vídeos em conversões de notícias.
+* Criação de conteúdo mais curto para mídia social.
 
-Este artigo mostra como criar um projeto a partir do zero e também como criar um projeto de um vídeo em sua conta.
+Este artigo mostra como criar um projeto do zero e também como criar um projeto de um vídeo em sua conta.
 
-## <a name="create-new-project-and-manage-videos"></a>Criar novo projeto e gerenciem vídeos
+## <a name="create-new-project-and-manage-videos"></a>Criar novo projeto e gerenciar vídeos
 
 1. Navegue até o site do [Video Indexer](https://www.videoindexer.ai/) e entre.
-1. Selecione o **projetos** guia. Se você tiver criado projetos antes, você verá todos os seus projetos outros aqui.
+1. Selecione a guia **projetos** . Se você tiver criado projetos antes, verá todos os outros projetos aqui.
 1. Clique em **criar novo projeto**.  
 
     ![Novo Projeto](./media/video-indexer-view-edit/new-project.png)
-1. Atribua um nome ao projeto clicando no ícone de lápis. Substitua o texto que diz "Projeto sem título" pelo nome do seu projeto e clique no cheque.
+1. Dê um nome ao seu projeto clicando no ícone de lápis. Substitua o texto que diz "projeto sem título" pelo nome do projeto e clique na marca de seleção.
 
     ![Novo Projeto](./media/video-indexer-view-edit/new-project3.png)
     
 ### <a name="add-videos-to-the-project"></a>Adicionar vídeos ao projeto
 
 > [!NOTE]
-> Atualmente, os projetos podem conter apenas vídeos indexados no mesmo idioma. Depois de selecionar um vídeo em um idioma, você não pode adicionar os vídeos em sua conta que estão em um idioma diferente.
+> Atualmente, os projetos podem conter apenas vídeos indexados no mesmo idioma. Depois de selecionar um vídeo em um idioma, você não poderá adicionar os vídeos em sua conta que estejam em um idioma diferente.
 
-1. Adicionar vídeos que você deseja trabalhar neste projeto, selecionando **Adicionar vídeos**.
+1. Adicione vídeos com os quais você deseja trabalhar neste projeto selecionando **adicionar vídeos**.
 
-    Você verá todos os vídeos em sua conta e uma caixa de pesquisa que diz "Pesquisar por texto, palavras-chave ou conteúdo visual". Para pesquisar vídeos que têm uma pessoa especificada, o rótulo, a marca, a palavra-chave ou o ocorrência na transcrição e OCR.
+    Você verá todos os vídeos em sua conta e uma caixa de pesquisa que diz "Pesquisar texto, palavras-chave ou conteúdo visual". Para pesquisar vídeos que tenham uma pessoa, rótulo, marca, palavra-chave ou ocorrência especificada na transcrição e no OCR.
     
     Por exemplo, na imagem abaixo, estamos procurando vídeos que mencionam "GitHub".
     
     ![GitHub](./media/video-indexer-view-edit/github.png)
 
-    Você pode filtrar ainda mais os resultados selecionando **filtrar resultados**. Você pode filtrar para mostrar os vídeos que têm uma determinada pessoa ou para especificar que você deseja ver os resultados de vídeos que são apenas um em um determinado idioma ou um proprietário específico. <br/> Você também pode especificar o escopo da consulta. Por exemplo, se você quiser pesquisar "GitHub" no OCR, selecione **texto Visual**.
+    Você pode filtrar seus resultados ainda mais, selecionando **filtrar resultados**. Você pode filtrar para mostrar vídeos que têm uma determinada pessoa neles ou para especificar que você deseja ver os resultados de vídeo que são um em um determinado idioma ou ter um proprietário específico. <br/> Você também pode especificar o escopo da sua consulta. Por exemplo, se você quiser Pesquisar "GitHub" no OCR, selecione **texto visual**.
 
     ![Filter](./media/video-indexer-view-edit/visual-text.png)
 
-    Você pode dispor em camadas vários filtros à sua consulta. Use o **+** / **-** botões para adicionar ou remover filtros. Use **Limpar filtros** para remover todos os filtros.
-1. Para adicionar vídeos, selecione-os e, em seguida, selecione **adicionar**.
-1. Agora, você verá todos os vídeos que você escolheu. Esses são os vídeos do qual você pretende selecionar clipes para seu projeto.
+    Você pode encamar vários filtros para sua consulta. Use os botões **+** / **-** para adicionar/remover filtros. Use **filtros claros** para remover todos os filtros.
+1. Para adicionar vídeos, selecione-os e, em seguida, selecione **Adicionar**.
+1. Agora, você verá todos os vídeos que escolheu. Esses são os vídeos dos quais você vai selecionar os clipes para seu projeto.
 
-    Você pode reorganizar a ordem dos vídeos arrastando e soltando ou selecionando o botão de menu de lista e selecionando **mover para baixo** ou **mover para cima**. No menu à lista, você também poderá remover o vídeo com base nesse projeto. 
+    Você pode reorganizar a ordem dos vídeos arrastando e soltando ou selecionando o botão de menu lista e selecionando **mover para baixo** ou **mover para cima**. No menu lista, você também poderá remover o vídeo deste projeto. 
 
     ![Reorganizar](./media/video-indexer-view-edit/rearrange.png)
     
-    Você tem a opção de adicionar mais vídeos a este projeto a qualquer momento selecionando **Adicionar vídeos**. Você também pode adicionar várias ocorrências do mesmo vídeo ao seu projeto. Você talvez queira fazer isso, se você quiser mostrar um clipe de um vídeo e, em seguida, um clipe de outro e, em seguida, outro clipe de vídeo primeiro. 
+    Você tem a opção de adicionar mais vídeos a este projeto a qualquer momento selecionando **adicionar vídeos**. Você também pode adicionar várias ocorrências do mesmo vídeo ao seu projeto. Talvez você queira fazer isso se quiser mostrar um clipe de um vídeo e, em seguida, um clipe de outro e, em seguida, outro clipe do primeiro vídeo. 
 
-### <a name="select-clips-to-use-in-your-project"></a>Selecione clipes para usar em seu projeto
+### <a name="select-clips-to-use-in-your-project"></a>Selecione os clipes para usar em seu projeto
 
-Se você clicar na seta para baixo à direita de cada vídeo, você abrirá os insights de vídeo com base em carimbos de data / hora (clipes de vídeo). 
+Se você clicar na seta para baixo no lado direito de cada vídeo, abrirá as informações no vídeo com base nos carimbos de data/hora (clipes do vídeo). 
 
-1. Selecione **exibir Insights** para personalizar quais informações você deseja ver, e que você não deseja ver. 
+1. Selecione **Exibir informações** para personalizar quais percepções você deseja ver e quais não deseja ver. 
 
-    ![Exibir insights](./media/video-indexer-view-edit/insights.png)
-1. Para criar consultas para clipes específicos, use a caixa de pesquisa que diz "Pesquisar no texto visual, transcrição, pessoas e rótulos".
-1. Adicionar filtros para especificar ainda mais detalhes sobre o que você está procurando, selecionando de cenas **opções de filtro**.
+    ![Exibir informações](./media/video-indexer-view-edit/insights.png)
+1. Para criar consultas para clipes específicos, use a caixa de pesquisa que diz "Pesquisar em transcrição, texto visual, pessoas e rótulos".
+1. Adicione filtros para especificar ainda mais detalhes sobre as cenas que você está procurando selecionando **Opções de filtro**.
 
     ![Opções de filtro](./media/video-indexer-view-edit/filter-options.png)
 
-    Por exemplo, você talvez queira ver onde o GitHub é mencionado enquanto Donovan Brown estiver na tela de clipes. Para isso, você precisará adicionar um filtro de "inclusão" que tem "Pessoas" como o tipo de informações. Em seguida, você precisa digitar "Donovan Brown" na caixa de pesquisa para o filtro.
+    Por exemplo, talvez você queira ver os clipes em que o GitHub é mencionado enquanto o Donovan Brown está na tela. Para isso, você precisa adicionar um filtro "include" que tenha "pessoas" como o tipo de Insight. Em seguida, você precisa digitar "Donovan Brown" na caixa de pesquisa do filtro.
     
     ![Incluir](./media/video-indexer-view-edit/include.png)
     
-    Se você quiser clipes em que o GitHub é mencionado enquanto estiver Donovan Brown _não_ na tela, bastaria você alterar o filtro de "inclusão" em um filtro de "excluir" usando o menu suspenso. 
+    Se você quiser os clipes em que o GitHub é mencionado enquanto Donovan Brown _não_ estiver na tela, bastaria alterar o filtro "include" para um filtro "exclude" usando a lista suspensa. 
 
-1. Adicione um clipe ao seu projeto, selecionando o segmento que você deseja adicionar. Você pode desmarcar o clipe clicando no segmento novamente.
+1. Adicione um clipe ao seu projeto selecionando o segmento que você deseja adicionar. Você pode cancelar a seleção deste clipe clicando no segmento novamente.
     
-    Adicionar todos os segmentos de um vídeo, clicando na opção de menu lista ao lado do vídeo e selecionando **selecionar todos os segmentos**. 
+    Adicione todos os segmentos de um vídeo clicando na opção de menu lista ao lado do vídeo e selecionando **selecionar todos os segmentos**. 
 
-    ![Adicionar todos](./media/video-indexer-view-edit/add-all.png)
+    ![Adicionar tudo](./media/video-indexer-view-edit/add-all.png)
 
-    Você pode limpar todos da sua seleção selecionando Limpar seleção.
+    Você pode limpar toda a sua seleção selecionando limpar seleção.
 
 > [!TIP]
-> Conforme você seleciona e ordenação os clipes, você pode visualizar o vídeo no player no lado direito da página. 
+> Ao selecionar e ordenar seus clipes, você pode visualizar o vídeo no Player no lado direito da página. 
 
 ![Visualização](./media/video-indexer-view-edit/preview.png)
 
-Lembre-se de salvar seu projeto quando você fizer alterações, selecionando **Salvar projeto**. 
+Lembre-se de salvar seu projeto ao fazer alterações selecionando **salvar projeto**. 
 
-### <a name="render-and-download-the-project"></a>Renderizar e baixe o projeto
+### <a name="render-and-download-the-project"></a>Renderizar e baixar o projeto
 
 > [!NOTE]
-> Indexador de vídeo pago contas, seu projeto de renderização tem custos de codificação. Vídeos contas de avaliação do indexador são limitadas a 5 horas de renderização.
+> Para contas pagas Video Indexer, a renderização do seu projeto tem custos de codificação. Video Indexer contas de avaliação são limitadas a 5 horas de renderização.
 
-1. Quando terminar, certifique-se de que seu projeto foi salvo. Agora você pode renderizar este projeto. Selecione **renderizar e baixar**. 
+1. Quando terminar, verifique se o projeto foi salvo. Agora você pode renderizar este projeto. Selecione **renderizar e baixar**. 
 
     ![Salvar](./media/video-indexer-view-edit/save.png)
 
-    Haverá um pop-up que informa que o indexador de vídeo renderizará um arquivo e, em seguida, o link de download será enviado ao seu email. Selecione continuar. 
+    Haverá um pop-up que informa que o indexador de vídeo renderizará um arquivo e, em seguida, o link de download será enviado para seu email. Selecione continuar. 
     
-    Você também verá uma notificação de que o projeto está sendo renderizado na parte superior da página. Quando terminar sendo processado, você verá uma nova notificação de que o projeto tenha sido processado com êxito. Clique na notificação para baixar o projeto. Ele baixará o projeto no formato mp4.
+    Você também verá uma notificação informando que o projeto está sendo renderizado na parte superior da página. Depois de fazer a renderização, você verá uma nova notificação informando que o projeto foi renderizado com êxito. Clique na notificação para baixar o projeto. O projeto será baixado no formato MP4.
 
-    ![Processamento concluído](./media/video-indexer-view-edit/rendering-done.png)
+    ![Renderização concluída](./media/video-indexer-view-edit/rendering-done.png)
 
-1. Você pode acessar projetos salvos a partir de **projetos** guia. 
+1. Você pode acessar projetos salvos na guia **projetos** . 
 
-    Se você selecionar este projeto, você verá todos os insights e a linha do tempo desse projeto. Se você selecionar **editor de vídeo**, você pode continuar a fazer edições para este projeto. Edições incluem adicionar ou remover vídeos e clipes ou renomear o projeto.
+    Se você selecionar este projeto, verá todas as informações e a linha do tempo deste projeto. Se você selecionar o **Editor de vídeo**, poderá continuar fazendo edições neste projeto. As edições incluem adicionar ou remover vídeos e clipes ou renomear o projeto.
 
     ![Editor de vídeo](./media/video-indexer-view-edit/video-editor.png)
      
@@ -125,12 +125,12 @@ Lembre-se de salvar seu projeto quando você fizer alterações, selecionando **
 
 Você pode criar um novo projeto diretamente de um vídeo em sua conta. 
 
-1. Vá para o **biblioteca** guia do site do indexador de vídeo.
-1. Abra o vídeo que você deseja usar para criar seu projeto. Na página de linha do tempo e insights, selecione a **editor de vídeo** botão.
+1. Vá para a guia **biblioteca** do site video indexer.
+1. Abra o vídeo que você deseja usar para criar seu projeto. Na página informações e linha do tempo, selecione o botão **Editor de vídeo** .
 
-    Isso leva você para a mesma página que você usou para criar um novo projeto. Ao contrário do novo projeto, você verá os segmentos de insights de data/hora do vídeo, que você começou editando anteriormente.
+    Isso levará você para a mesma página que você usou para criar um novo projeto. Ao contrário do novo projeto, você vê os segmentos de informações de carimbo de data/hora do vídeo, que começou a editar anteriormente.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 [Visão geral do indexador vídeo](video-indexer-overview.md)
 

@@ -1,7 +1,7 @@
 ---
 title: Introdução – API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Saiba como se inscrever para a API de Tradução de Texto e obter uma chave de assinatura.
+description: Este artigo mostrará como se inscrever para os serviços cognitivas do Azure API de Tradução de Texto e obter uma chave de assinatura.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: e51e6875681618b5f558d5c52ed5a2b14095b079
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cfae5318213e8af164c8d0cc9ed378705a5644b0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434961"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835699"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Como inscrever-se na API de Tradução de Texto
 
-## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
 
 - Não tem uma conta? É possível criar uma [conta gratuita](https://azure.microsoft.com/free/) para experimentar sem custo.
 - Já tem uma conta? [Entrar](https://ms.portal.azure.com/)

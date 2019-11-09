@@ -9,12 +9,12 @@ ms.service: storage
 custom: jenkins
 ms.date: 08/13/2019
 ms.subservice: common
-ms.openlocfilehash: dc62696700a5c34c28f5f8c4f347dbb4c5183cab
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 72756bd3eb12ca80f419a0d53db76e6637d884fc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986539"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839127"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Usando o Armazenamento do Azure com uma solução de integração contínua do Jenkins
 
@@ -92,7 +92,7 @@ Para fins de instrução, primeiro você precisa criar um trabalho que criará v
 
 5. No **ações de pós-build** seção da configuração do trabalho, selecione **Adicionar ação pós-compilação** e selecione **carregar artefatos no armazenamento de BLOBs do Azure**.
 6. Em **Nome de conta de armazenamento**, selecione a conta de armazenamento a ser usada.
-7. Em **Nome do contêiner**, especifique o nome do contêiner. (O contêiner será criado se ele ainda não existir quando os artefatos de compilação forem carregados.) Você pode usar variáveis de ambiente, assim, neste exemplo, insira `${JOB_NAME}` como o nome do contêiner.
+7. Em **Nome do contêiner**, especifique o nome do contêiner. (O contêiner será criado se ele ainda não existir quando os artefatos de compilação forem carregados.) Você pode usar variáveis de ambiente, portanto, para este exemplo, insira `${JOB_NAME}` como o nome do contêiner.
    
     **Dica**
    
@@ -118,7 +118,7 @@ As etapas a seguir ilustram para configurar uma etapa de compilação para baixa
 1. Na seção **Criar** da configuração do trabalho, selecione **Adicionar etapa de compilação** e selecione **Fazer o download do armazenamento do Azure Blob**.
 2. Em **Nome de conta de armazenamento**, selecione a conta de armazenamento a ser usada.
 3. Em **Nome do contêiner**, especifique o nome do contêiner que contém os blobs que você quer baixar. É possível usar variáveis de ambiente.
-4. Em **Nome do blob**, especifique o nome do blob. É possível usar variáveis de ambiente. Além disso, você pode usar um asterisco como um curinga depois de especificar a letra inicial do nome do blob. Por exemplo, **Project\\** * especificaria todos os BLOBs cujos nomes começam com **Project**.
+4. Em **Nome do blob**, especifique o nome do blob. É possível usar variáveis de ambiente. Além disso, você pode usar um asterisco como um curinga depois de especificar a letra inicial do nome do blob. Por exemplo, **project\\** * especificaria todos os BLOBs cujos nomes começam com **Project**.
 5. [Opcional] Em **Caminho de download**, especifique o caminho no computador do Jenkins onde você quer baixar arquivos do armazenamento de blob do Azure. Também é possível usar variáveis de ambiente. (Se você não fornecer um valor para **Caminho do download**, os arquivos no armazenamento de blob do Azure serão baixados no workspace da tarefa.)
 
 Se houver itens adicionais que deseja baixar do armazenamento de blobs do Azure, você poderá criar etapas de compilação adicionais.
@@ -128,10 +128,10 @@ Depois de executar uma compilação, você pode verificar a saída do console de
 ## <a name="components-used-by-the-blob-service"></a>Componentes usados pelo serviço Blob
 Esta seção fornece uma visão geral dos componentes do serviço Blob.
 
-* **Conta de Armazenamento**: Todo o acesso ao Armazenamento do Azure ocorre por meio de uma conta de armazenamento. Uma conta de armazenamento é o nível mais alto do namespace para acessar blobs. Uma conta pode conter um número ilimitado de contêineres, desde que seu tamanho total seja inferior a 100 TB.
-* **Contêiner**: Um contêiner fornece um agrupamento de um conjunto de blobs. Todos os blobs devem ter um contêiner. Uma conta pode conter um número ilimitado de contêineres. Um contêiner pode armazenar um número ilimitado de blobs.
-* **Blob**: Um arquivo de qualquer tipo e tamanho. Existem dois tipos de blobs que podem ser armazenados no Armazenamento do Azure: blobs de blocos e de páginas. A maioria dos arquivos são blobs de bloco. Um único blob de blocos pode ter até 200 GB de tamanho. Este tutorial usa blobs de bloco. Os blobs de página, um outro tipo de blob, podem ter até 1 TB de tamanho e são mais eficientes quando os intervalos de bytes em um arquivo são modificados com frequência. Para obter mais informações sobre os blobs, consulte [Compreendendo os Blobs de Bloco, Blobs de Anexo e Blobs de Página](https://msdn.microsoft.com/library/azure/ee691964.aspx).
-* **Formato de URL**: Os blobs são endereçáveis usando o seguinte formato de URL:
+* **Conta de Armazenamento**: todo o acesso ao Armazenamento do Azure é feito através de uma conta de armazenamento. Uma conta de armazenamento é o nível mais alto do namespace para acessar blobs. Uma conta pode conter um número ilimitado de contêineres, desde que seu tamanho total seja inferior a 100 TB.
+* **Contêiner**: o contêiner fornece um agrupamento de conjunto de blobs. Todos os blobs devem ter um contêiner. Uma conta pode conter um número ilimitado de contêineres. Um contêiner pode armazenar um número ilimitado de blobs.
+* **Blob**: um arquivo de qualquer tipo e tamanho. Existem dois tipos de blobs que podem ser armazenados no Armazenamento do Azure: blobs de blocos e de páginas. A maioria dos arquivos são blobs de bloco. Um único blob de blocos pode ter até 200 GB de tamanho. Este tutorial usa blobs de bloco. Os blobs de página, um outro tipo de blob, podem ter até 1 TB de tamanho e são mais eficientes quando os intervalos de bytes em um arquivo são modificados com frequência. Para obter mais informações sobre os blobs, consulte [Compreendendo os Blobs de Bloco, Blobs de Anexo e Blobs de Página](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **Formato de URL**: os blobs são endereçáveis usando o seguinte formato de URL:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
@@ -141,15 +141,15 @@ Esta seção fornece uma visão geral dos componentes do serviço Blob.
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>O plug-in do Jenkins de solução de problemas
+## <a name="troubleshooting-the-jenkins-plugin"></a>Solução de problemas do plug-in do Jenkins
 
 Se você encontrar bugs com os plug-ins do Jenkins, registre um problema no [JIRA do Jenkins](https://issues.jenkins-ci.org/) para o componente específico.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Conheça Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 * [SDK de Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java)
-* [Referência de SDK do Cliente de Armazenamento do Azure](http://dl.windowsazure.com/storage/javadoc/)
+* [Referência de SDK do Cliente de Armazenamento do Azure](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog da equipe de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
+* [Blog da Equipe do Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
 
 Para saber mais, visite [Azure para desenvolvedores Java](/java/azure).

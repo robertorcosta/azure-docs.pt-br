@@ -1,6 +1,6 @@
 ---
 title: Perguntas frequentes sobre o Video Indexer - Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Obtenha respostas às perguntas frequentes sobre o Video Indexer.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: f20d718d0b1d3bbdf117e502a380897c79a7905f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95f2af1b192564290551f9ed31f0fe158b4536f6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799511"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838223"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -34,7 +34,7 @@ Algumas das operações que podem ser executadas pelo Video Indexer em arquivos 
 * Identificar e extrair a fala e identificar os locutores.
 * Identificar e extrair o texto na tela em um vídeo.
 * Detectar objetos em um arquivo de vídeo.
-* Identificar marcas (por exemplo: Microsoft) de faixas de áudio e de texto na tela em um vídeo.
+* Identificar marcas (por exemplo: Microsoft) de faixas de áudio e texto na tela em um vídeo.
 * Detectar e reconhecer rostos de um banco de dados de celebridades e um banco de dados de rostos definido pelo usuário.
 * Extrair os tópicos discutidos, mas não necessariamente mencionados no conteúdo de áudio e vídeo.
 * Criar legendas ocultas ou subtítulos com base na faixa de áudio.
@@ -159,7 +159,7 @@ Os tokens de acesso expiram a cada hora, portanto, você precisa gerar um novo t
 
 O Video Indexer usa um modelo de pagamento conforme o uso, com base na duração da entrada de conteúdo que você indexar. Encargos adicionais podem ser aplicáveis para codificação, streaming, armazenamento, uso da rede e unidades reservadas de mídia. Para saber mais, consulte a página de [preços](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/).
 
-### <a name="when-am-i-billed-for-using-video-indexer"></a>Quando sou cobrado para usar o indexador de vídeo?
+### <a name="when-am-i-billed-for-using-video-indexer"></a>Quando sou cobrado por usar Video Indexer?
 
 Ao enviar um vídeo para ser indexado, o usuário definirá a indexação como análise de vídeo, análise de áudio ou ambos. Isso determinará quais SKUs serão cobradas. Se houver um erro de nível crítico durante o processamento, um código de erro retornará como resposta. Neste caso não haverá cobrança.  Um erro crítico pode ocorrer devido a um bug em nosso código ou uma falha crítica em uma dependência interna do serviço. Erros como identificação incorreta ou extração de insight não são considerados críticos e haverá retorno de resposta. Haverá cobrança no caso de uma resposta válida (código sem erro) retornar.
  

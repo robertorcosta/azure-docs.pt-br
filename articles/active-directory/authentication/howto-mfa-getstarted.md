@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d80ac949dea3c9d6c3d28d2a343c4ed7bad8983
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 22e3131a204589a506b2d5f1e2508c37ad3b4100
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474312"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847213"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planejando uma implantação da autenticação multifator do Azure baseada em nuvem
 
@@ -209,6 +209,9 @@ function Set-MfaState {
 Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
+> [!NOTE]
+> Alteramos recentemente o comportamento e o script do PowerShell acima de acordo. Anteriormente, o script economizou os métodos de MFA, desabilitou a MFA e restaurei os métodos. Isso não é mais necessário agora que o comportamento padrão para desabilitar não limpa os métodos.
+
 ## <a name="plan-conditional-access-policies"></a>Planejar políticas de acesso condicional
 
 Para planejar sua estratégia de política de acesso condicional, que determinará quando a MFA e outros controles são necessários, consulte [o que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md).
@@ -276,16 +279,16 @@ Escolha o que acontece quando os usuários que não estão registrados com o MFA
 
 | Chave | Valor | Padrão |
 | --- | --- | --- |
-| `REQUIRE_USER_MATCH` | VERDADEIRO/FALSO | Não definido (equivalente a TRUE) |
+| `REQUIRE_USER_MATCH` | TRUE/FALSE | Não definido (equivalente a TRUE) |
 
 A finalidade dessa configuração é determinar o que fazer quando um usuário não estiver inscrito na MFA. Os efeitos da alteração dessa configuração são listados na tabela a seguir.
 
 | Configurações | Status de MFA do usuário | Effect |
 | --- | --- | --- |
 | A chave não existe | Não registrado | O desafio de MFA não foi bem-sucedido |
-| Valor definido como true/not set | Não registrado | O desafio de MFA não foi bem-sucedido |
-| Chave definida como false | Não registrado | Autenticação sem MFA |
-| Chave definida como falsa ou verdadeira | Registrados | Deve autenticar com MFA |
+| Valor definido como True/not set | Não registrado | O desafio de MFA não foi bem-sucedido |
+| Chave definida como False | Não registrado | Autenticação sem MFA |
+| Chave definida como Falsa ou True | Registrados | Deve autenticar com MFA |
 
 ### <a name="integrate-with-active-directory-federation-services"></a>Integrar com o Serviços de Federação do Active Directory (AD FS)
 
@@ -344,7 +347,7 @@ Relatórios para o Azure MFA
 
 A autenticação multifator do Azure fornece relatórios por meio do portal do Azure:
 
-| Relatório | Localização | DESCRIÇÃO |
+| Relatório | Local | DESCRIÇÃO |
 | --- | --- | --- |
 | Alertas de fraudes e uso | Microsoft Azure AD > Entradas | Fornece informações sobre o uso geral, resumo do usuário e detalhes do usuário, assim como um histórico de alertas de fraude enviados durante o intervalo de datas especificado. |
 

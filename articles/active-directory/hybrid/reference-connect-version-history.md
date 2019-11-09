@@ -16,12 +16,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6968379722dc7f2deda95e8d3804a03d4dbc8686
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 38235e90ccf79cf1322ce0f26ed426d8c3a693cc
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176003"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847170"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -80,8 +80,8 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 - Foi adicionado um aviso de reprovação para o Gerenciador de serviços de sincronização na página de propriedades do conector. Esse aviso notifica o usuário de que as alterações devem ser feitas por meio do assistente de AADC.
 - Adição de novo erro para problemas com a política de senha de um usuário.
 - Impedir a configuração incorreta da filtragem de grupo por filtros de domínio e UO. A filtragem de grupo mostrará um erro quando o domínio/UO do grupo inserido já estiver filtrado e impedir que o usuário avance até que o problema seja resolvido.
-- Os usuários não podem mais criar um conector para Active Directory Domain Services ou para o Windows Azure Active Directory na interface do usuário antiga.
-- Correção da acessibilidade de controles de interface do usuário personalizados no Service Manager de sincronização
+- Os usuários não podem mais criar um conector para Active Directory Domain Services ou para o Windows Azure Active Directory na interface do usuário do Synchronization Service Manager.
+- Correção da acessibilidade de controles de interface do usuário personalizados no Synchronization Service Manager.
 - Habilitamos seis tarefas de gerenciamento de Federação para todos os métodos de entrada no Azure AD Connect.  (Anteriormente, apenas a tarefa "atualização AD FS certificado SSL" estava disponível para todas as entradas.)
 - Foi adicionado um aviso ao alterar o método de entrada de Federação para PHS ou PTA que todos os domínios e usuários do Azure AD serão convertidos para a autenticação gerenciada.
 - Certificados de assinatura de token removidos da tarefa "redefinir o Azure AD e AD FS confiança" e adicionou uma subtarefa separada para atualizar esses certificados.
@@ -133,7 +133,7 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 - Adicionar suporte para atualização de domínio 
 - O recurso de pastas públicas do Exchange mail vai para GA 
 - Melhorar o tratamento de erros do assistente para falhas de serviço 
-- Adicionado link de aviso para interface do usuário antiga na página Propriedades do conector. 
+- Adicionado o link de aviso na interface do usuário do Synchronization Service Manager na página de propriedades do conector. 
 - O recurso de write-back de grupos unificados agora está disponível 
 - Mensagem de erro SSPR aprimorada quando o controlador de domínio está sem um controle LDAP 
 - Foram adicionados diagnósticos para erros de registro DCOM durante a instalação  
@@ -159,7 +159,7 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 - Corrigir erros do VSS com o LocalDB  
 - Corrigir mensagem de erro enganosa quando o tipo de objeto não está no escopo 
 - Correção de um problema em que a instalação do PowerShell do Azure AD em um servidor poderia potencialmente causar um conflito de assembly com Azure AD Connect. 
-- Corrigido o bug PHS no servidor de preparo quando as credenciais do conector são atualizadas na interface do usuário antiga. 
+- Corrigido o bug PHS no servidor de preparo quando as credenciais do conector são atualizadas na interface do usuário do Synchronization Service Manager. 
 - Correção de alguns vazamentos de memória 
 - Correções de atualização automática diversas 
 - Correções diversas para exportar e não confirmado o processamento de importação 
@@ -338,9 +338,9 @@ Novos recursos e aprimoramentos
 - Assistente do Azure AD Connect: remoção do contêiner de “Configuração” da página de Domínio/filtragem de UO
 - Instalação do mecanismo de sincronização: remoção da lógica herdada desnecessária que falha ocasionalmente no msi de instalação do mecanismo de sincronização
 - Assistente do Azure AD Connect: correção do texto pop-up de ajuda na página de recursos opcionais para sincronização de hash de senha
-- runtime do mecanismo de sincronização: correção do cenário em que um objeto do CS tem uma importação excluída e regras de sincronização tentam reprovisionar o objeto.
-- runtime do mecanismo de sincronização: adição de link de ajuda para guia de solução de problemas de conectividade online para o log de eventos de um erro de importação
-- runtime do mecanismo de sincronização: uso de memória reduzido do agendador de sincronização ao enumerar os conectores
+- Tempo de execução do mecanismo de sincronização: correção do cenário em que um objeto do CS tem uma importação excluída e regras de sincronização tentam reprovisionar o objeto.
+- Tempo de execução do mecanismo de sincronização: adição de link de ajuda para guia de solução de problemas de conectividade online para o log de eventos de um erro de importação
+- Tempo de execução do mecanismo de sincronização: uso de memória reduzido do agendador de sincronização ao enumerar os conectores
 - Assistente do Azure AD Connect: correção de problema de resolução de uma conta de serviço de sincronização personalizada que não tem nenhum privilégios de leitura no AD
 - Assistente do Azure AD Connect: melhoria de registro em log do domínio e seleções de filtragem de UO
 - Assistente do Azure AD Connect: adição de declarações padrão do AD FS para confiança de federação criada para o cenário MFA
@@ -465,18 +465,18 @@ Bloqueie o acesso à conta do AD DS implementando as seguintes alterações de p
 *   Remova todas as ACEs no objeto especificado, exceto as ACEs específicas ao SELF. Queremos manter as permissões padrão intactas quando se trata do SELF.
 *   Atribua essas permissões específicas:
 
-Type     | name                          | Acesso               | Aplica-se A
+Tipo     | Nome                          | Access               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
-PERMITIR    | SYSTEM                        | Controle Total         | Este objeto  |
-PERMITIR    | Administradores Corporativos             | Controle Total         | Este objeto  |
-PERMITIR    | Administradores de Domínio                 | Controle Total         | Este objeto  |
-PERMITIR    | Administradores                | Controle Total         | Este objeto  |
-PERMITIR    | Controladores de Domínio Corporativo | Listar Conteúdo        | Este objeto  |
-PERMITIR    | Controladores de Domínio Corporativo | Ler Todas as Propriedades  | Este objeto  |
-PERMITIR    | Controladores de Domínio Corporativo | Permissões de Leitura     | Este objeto  |
-PERMITIR    | Usuários Autenticados           | Listar Conteúdo        | Este objeto  |
-PERMITIR    | Usuários Autenticados           | Ler Todas as Propriedades  | Este objeto  |
-PERMITIR    | Usuários Autenticados           | Permissões de Leitura     | Este objeto  |
+Permitir    | SYSTEM                        | Controle Total         | Este objeto  |
+Permitir    | Administradores Corporativos             | Controle Total         | Este objeto  |
+Permitir    | Administradores de Domínio                 | Controle Total         | Este objeto  |
+Permitir    | Administradores                | Controle Total         | Este objeto  |
+Permitir    | Controladores de Domínio Corporativo | Listar Conteúdo        | Este objeto  |
+Permitir    | Controladores de Domínio Corporativo | Ler Todas as Propriedades  | Este objeto  |
+Permitir    | Controladores de Domínio Corporativo | Permissões de Leitura     | Este objeto  |
+Permitir    | Usuários Autenticados           | Listar Conteúdo        | Este objeto  |
+Permitir    | Usuários Autenticados           | Ler Todas as Propriedades  | Este objeto  |
+Permitir    | Usuários Autenticados           | Permissões de Leitura     | Este objeto  |
 
 Para reforçar as configurações para a conta do AD DS você pode executar [este script do PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). O script do PowerShell atribuirá as permissões mencionadas acima para a conta do AD DS.
 
@@ -810,7 +810,7 @@ CBool(
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Selecionar|
     |CertKeyAlgorithmParams|CertHashString|Where|
-    |||Com|
+    |||With|
 
 * As seguintes alterações de esquema foram introduzidas para permitir que os clientes criem regras de sincronização personalizadas para transmitir sAMAccountName, domainNetBios e domainFQDN para objetos de grupo, bem como transmitir distinguishedName para objetos de usuário:
 
@@ -1229,7 +1229,7 @@ Nome alterado de Azure AD Sync para Azure AD Connect.
 * Instalação das [configurações expressas](how-to-connect-install-express.md)
 * Pode [configurar o AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs)
 * É possível [atualizar do DirSync](how-to-dirsync-upgrade-get-started.md)
-* [Impedir exclusões acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md)
+* [Evitar exclusões acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 * Apresentação do [modo de preparo](how-to-connect-sync-staging-server.md)
 
 **Novos recursos de visualização:**
@@ -1327,5 +1327,5 @@ Lançamento: setembro de 2014
 
 **Versão inicial do Azure AD Sync.**
 
-## <a name="next-steps"></a>Próximos passos
-Saiba mais sobre como [Integrar suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md).
+## <a name="next-steps"></a>Próximas etapas
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

@@ -1,6 +1,6 @@
 ---
 title: Conceitos do Video Indexer
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Este tópico descreve alguns conceitos do serviço do Video Indexer.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 156eceba856bf159d4821360639a0641d3ed02be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3795b699f5518efdbef117fb24d118041ed3e78
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799070"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839569"
 ---
 # <a name="video-indexer-concepts"></a>Conceitos do Video Indexer
  
@@ -37,6 +37,6 @@ Os blocos destinam-se a tornar mais fácil percorrer os dados. Por exemplo, o bl
 
 Para obter informações sobre como começar, consulte [How to sign up and upload your first video](video-indexer-get-started.md) (Como inscrever-se e carregar seu primeiro vídeo).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 [Visão geral do indexador vídeo](video-indexer-overview.md)

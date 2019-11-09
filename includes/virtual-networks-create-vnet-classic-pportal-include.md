@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: aa88bf3bd6c5037b41c09e9ffe47921f1b9dc9be
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ac5599a38c3fcbc4a6c331d2b14c6b6c55c31d82
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171836"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850265"
 ---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Como criar uma rede virtual clássica no portal do Azure
 Para criar uma VNet clássica com base no cenário anterior, siga estas etapas.
 
-1. Em um navegador, navegue até http://portal.azure.com e, se necessário, entre com sua conta do Azure.
+1. Em um navegador, navegue até https://portal.azure.com e, se necessário, entre com sua conta do Azure.
 2. Clique em **Criar um recurso** > **Rede** > **Rede virtual**. Observe que a lista **Selecionar um modelo de implantação** já mostra **Clássico**. 3. Clique em **Criar**, conforme mostrado na figura a seguir.
    
     ![Criar rede virtual no portal do Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)

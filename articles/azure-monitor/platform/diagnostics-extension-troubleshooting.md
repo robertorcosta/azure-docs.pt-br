@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/08/2019
-ms.openlocfilehash: 24a2b8a3c190ed440684ea3aa0ab35ebbf93fca0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0a6322edccc2047ffd9d67e4e3ed113e668898da
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161960"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834701"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
 Este artigo descreve informações de solução de problemas relevantes para o uso do Diagnóstico do Azure. Para mais informações sobre o Diagnóstico do Azure, consulte [Visão geral do Diagnóstico do Azure](diagnostics-extension-overview.md).
@@ -166,7 +166,7 @@ As tabelas no armazenamento do Azure que contêm eventos de ETW são nomeadas us
             tableName = "WAD" + eventDestination;
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">
@@ -216,7 +216,7 @@ Esse código gera quatro tabelas:
 ## <a name="references"></a>Referências
 
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>Como verificar a configuração da extensão de diagnóstico
-A maneira mais fácil de verificar sua configuração de extensão é acessar o [Azure Resource Explorer](http://resources.azure.com) e, em seguida, acessar a máquina virtual ou o serviço de nuvem onde a extensão do Diagnóstico do Azure (IaaSDiagnostics / PaaDiagnostics) está.
+A maneira mais fácil de verificar sua configuração de extensão é acessar o [Azure Resource Explorer](https://resources.azure.com) e, em seguida, acessar a máquina virtual ou o serviço de nuvem onde a extensão do Diagnóstico do Azure (IaaSDiagnostics / PaaDiagnostics) está.
 
 Como alternativa, acesse a área de trabalho remota na máquina e examine o arquivo de Configuração de Diagnóstico do Azure descrito na Seção do caminho de artefatos de log.
 
@@ -229,20 +229,20 @@ Para a função de serviço de nuvem, se você escolher a configuração a parti
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Códigos de saída do plug-in do Diagnóstico do Microsoft Azure
 O plug-in retorna os seguintes códigos de saída:
 
-| Código de saída | Descrição |
+| Código de saída | DESCRIÇÃO |
 | --- | --- |
 | 0 |Sucesso. |
 | -1 |Erro genérico. |
-| -2 |Não foi possível carregar o arquivo rcf.<p>Este erro interno somente deverá ocorrer se o iniciador do plug-in do agente convidado for invocado manualmente e incorretamente na VM. |
+| -2 |Não foi possível carregar o arquivo rcf.<p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
 | -3 |Não é possível carregar o arquivo de configuração do Diagnóstico.<p><p>Solução: causado por um arquivo de configuração que não passa pela validação do esquema. A solução é fornecer um arquivo de configuração que cumpre com o esquema. |
 | -4 |Outra instância do agente de monitoramento do Diagnostics já está usando o diretório de recurso local.<p><p>Solução: especifique um valor diferente para **LocalResourceDirectory**. |
-| -6 |O iniciador de plug-in do agente de convidado tentou iniciar o Diagnóstico com uma linha de comando inválida.<p><p>Este erro interno somente deverá ocorrer se o iniciador do plug-in do agente convidado for invocado manualmente e incorretamente na VM. |
+| -6 |O iniciador de plug-in do agente de convidado tentou iniciar o Diagnóstico com uma linha de comando inválida.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
 | -10 |O plug-in de Diagnostics saiu com uma exceção sem tratamento. |
 | -11 |O agente convidado não pôde criar o processo responsável por iniciar e monitorar o agente de monitoramento.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos.<p> |
-| -101 |Argumentos inválidos ao chamar o plug-in de Diagnóstico.<p><p>Este erro interno somente deverá ocorrer se o iniciador do plug-in do agente convidado for invocado manualmente e incorretamente na VM. |
+| -101 |Argumentos inválidos ao chamar o plug-in de Diagnóstico.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
 | -102 |O processo do plug-in não consegue inicializar-se sozinho.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos. |
 | -103 |O processo do plug-in não consegue inicializar-se sozinho. Especificamente, não é possível criar o objeto do agente.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos. |
-| -104 |Não foi possível carregar o arquivo rcf fornecido pelo agente convidado.<p><p>Este erro interno somente deverá ocorrer se o iniciador do plug-in do agente convidado for invocado manualmente e incorretamente na VM. |
+| -104 |Não foi possível carregar o arquivo rcf fornecido pelo agente convidado.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM. |
 | -105 |O plug-in de Diagnóstico não consegue abrir o arquivo de configuração do Diagnóstico.<p><p>Este erro interno somente deverá ocorrer se o plug-in do Diagnóstico for invocado manualmente e incorretamente na VM. |
 | -106 |Não é possível ler o arquivo de configuração do Diagnóstico.<p><p>Causado por um arquivo de configuração que não passa pela validação de esquema. <br><br>Solução: Forneça um arquivo de configuração que seja compatível com o esquema. Para obter mais informações, consulte [Como verificar a configuração da extensão do diagnóstico](#how-to-check-diagnostics-extension-configuration). |
 | -107 |O diretório de recursos que passa para o agente de monitoramento é inválido.<p><p>Este erro interno somente deverá ocorrer se o agente de monitoramento for invocado manualmente e incorretamente na VM.</p> |
@@ -280,7 +280,7 @@ Aqui está uma lista dos problemas conhecidos com mitigações conhecidas:
 
 **1. Dependência .NET 4.5**
 
-A Extensão de Diagnóstico do Microsoft Azure possui uma dependência de runtime no .NET 4.5 Framework ou posterior. No momento da gravação, todas as máquinas provisionadas para os Serviços de Nuvem do Azure, assim como todas as imagens oficiais baseadas em máquinas virtuais do Azure têm o .NET 4.5 ou posterior instalado.
+A Extensão de Diagnóstico do Microsoft Azure possui uma dependência de tempo de execução no .NET 4.5 Framework ou posterior. No momento da gravação, todas as máquinas provisionadas para os Serviços de Nuvem do Azure, assim como todas as imagens oficiais baseadas em máquinas virtuais do Azure têm o .NET 4.5 ou posterior instalado.
 
 Ainda é possível encontrar uma situação, na qual seja necessário executar a Extensão de Diagnóstico do Microsoft Azure em uma máquina que não tenha o .NET 4.5 ou posterior. Isso ocorre ao criar a máquina a partir de uma imagem antiga ou instantâneo, ou quando você traz seu próprio disco personalizado.
 

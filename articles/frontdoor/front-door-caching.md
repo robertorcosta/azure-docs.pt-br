@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 42ee1dea8c9735592f6d6c9e0542ca094a6be383
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70ee0af0b39e80aa90d143303b3c522fbb3cc780
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962904"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839211"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Cache com o Azure Front Door Service
 O documento a seguir especifica o comportamento do Azure Front Door Service com as regras de roteamento que tem o cache habilitado.
@@ -26,7 +26,7 @@ O Azure Front Door Service entrega arquivos grandes sem um limite no tamanho do 
 
 </br>Depois que a parte chega no ambiente do Front Door, ela é armazenada em cache e imediatamente distribuída para o usuário. Em seguida, o Front Door efetua a pré-busca da próxima parte em paralelo. Essa pré-busca garante que o conteúdo permaneça uma parte à frente do usuário, o que reduz a latência. Esse processo continua até que todo o arquivo é baixado (se solicitado), todos os intervalos de bytes estão disponíveis (se solicitado) ou o cliente encerra a conexão.
 
-</br>Para obter mais informações sobre a solicitação de intervalo de bytes, leia [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
+</br>Para obter mais informações sobre a solicitação de intervalo de bytes, leia [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 O Front Door armazena em cache todas as partes conforme são recebidas e, portanto, o arquivo inteiro não precisa ser armazenado no cache do Front Door. As solicitações subsequentes para o arquivo ou intervalos de bytes são disponibilizadas pela cache. Se nem todas as partes forem armazenadas em cache, a pré-busca será usada para solicitar as partes do back-end. Essa otimização depende da capacidade do servidor de origem para dar suporte a solicitações de intervalo de bytes; se o servidor de origem não dá suporte a solicitações de intervalo de bytes, essa otimização não será efetiva.
 
 ## <a name="file-compression"></a>Compactação de arquivos
@@ -82,29 +82,29 @@ Se uma solicitação com suporte para gzip e compactação Brotli, a compactaç�
 Quando uma solicitação de um ativo especificar a compactação e os resultados da solicitação em um cache forem perdidos, o Front Door realiza a compactação do ativo diretamente no servidor POP. Depois disso, o arquivo compactado será servido do cache. O item resultante é retornado com uma codificação de transferência: em partes.
 
 ## <a name="query-string-behavior"></a>Comportamento da cadeia de caracteres de consulta
-Com o Front Door, é possível controlar como os arquivos são armazenados em cache para uma solicitação da Web que contenha uma cadeia de caracteres de consulta. Em uma solicitação da Web com uma cadeia de caracteres de consulta, a cadeia de caracteres de consulta é aquela parte da solicitação que ocorre após um ponto de interrogação (?). Uma cadeia de caracteres de consulta pode conter um ou mais pares de chave-valor, no qual o nome do campo e seu valor são separados por um sinal de igual (=). Cada par chave-valor é separado por um e comercial (&). Por exemplo: http://www.contoso.com/content.mov?field1=value1&field2=value2. Se houver mais de um par chave-valor em uma cadeia de caracteres de consulta de uma solicitação, a ordem não importa.
-- **Ignorar as cadeias de caracteres de consulta**: Modo padrão. Neste modo, o Front Door passa as cadeias de caracteres de consulta do solicitante para a origem na primeira solicitação e armazena em cache o ativo. Todas as solicitações subsequentes para esse ativo que forem atendidas pelo ambiente do Front Door ignoram a cadeia de caracteres de consulta até que o ativo em cache expire.
+Com o Front Door, é possível controlar como os arquivos são armazenados em cache para uma solicitação da Web que contenha uma cadeia de caracteres de consulta. Em uma solicitação da Web com uma cadeia de caracteres de consulta, a cadeia de caracteres de consulta é aquela parte da solicitação que ocorre após um ponto de interrogação (?). Uma cadeia de caracteres de consulta pode conter um ou mais pares de chave-valor, no qual o nome do campo e seu valor são separados por um sinal de igual (=). Cada par chave-valor é separado por um e comercial (&). Por exemplo: `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Se houver mais de um par chave-valor em uma cadeia de caracteres de consulta de uma solicitação, a ordem não importa.
+- **Ignorar cadeias de caracteres de consulta**: modo padrão. Neste modo, o Front Door passa as cadeias de caracteres de consulta do solicitante para a origem na primeira solicitação e armazena em cache o ativo. Todas as solicitações subsequentes para esse ativo que forem atendidas pelo ambiente do Front Door ignoram a cadeia de caracteres de consulta até que o ativo em cache expire.
 
-- **Armazenar em cache todas as URLs exclusivas**: Nesse modo, cada solicitação com um URL exclusiva, incluindo a cadeia de caracteres de consulta, é tratada como um ativo exclusivo com seu próprio cache. Por exemplo, a resposta do servidor de back-end para uma solicitação de `www.example.ashx?q=test1` é armazenada em cache no Front Door e retornada para caches subsequentes com a mesma cadeia de caracteres de consulta. Uma solicitação `www.example.ashx?q=test2` é armazenada em cache como um ativo separado com sua própria configuração de vida útil.
+- **Armazenar em cada cache URL exclusiva**: nesse modo, cada solicitação com um URL exclusiva, incluindo a cadeia de caracteres de consulta, é tratada como um ativo exclusivo com seu próprio cache. Por exemplo, a resposta do servidor de back-end para uma solicitação de `www.example.ashx?q=test1` é armazenada em cache no Front Door e retornada para caches subsequentes com a mesma cadeia de caracteres de consulta. Uma solicitação `www.example.ashx?q=test2` é armazenada em cache como um ativo separado com sua própria configuração de vida útil.
 
 ## <a name="cache-purge"></a>Limpeza do cache
 O Front Door armazenará em cache os ativos até a TTL (vida útil) do ativo expirar. Após a TTL do ativo expirar, quando um cliente solicitar o ativo, o ambiente do Front Door irá recuperar uma nova cópia atualizada do ativo para atender à solicitação do cliente e atualizar o armazenamento da cache.
 </br>A prática recomendada para garantir que os usuários sempre obtenham a cópia mais recente de seus ativos é verter os ativos para cada atualização e publicá-los como novas URLs. O Front Door recuperará imediatamente os novos ativos para as próximas solicitações do cliente. Às vezes, convém limpar o conteúdo em cache de todos os nós de borda e forçá-los a recuperar novos ativos atualizados. Isso pode ocorrer devido a atualizações do aplicativo Web ou para atualizar rapidamente ativos que contenham informações incorretas.
 
 </br>Selecione os ativos que você deseja limpar dos nós de borda. Para limpar todos os ativos, clique na caixa de seleção Limpar todos. Caso contrário, digite o caminho de cada ativo que você quer limpar na caixa de texto Caminho. Veja abaixo os formatos com suporte no caminho.
-1. **Limpeza de URL única**: Limpe o ativo individual especificando a URL completa, com a extensão de arquivo, por exemplo, /pictures/strasbourg.png;
-2. **Limpeza de caracteres curinga**: O asterisco (\*) pode ser usado como um caractere curinga. Limpe todos os arquivos, pastas e subpastas em um ponto de extremidade com /\* no caminho ou limpe todos os arquivos e subpastas em uma determinada pasta especificando a pasta seguida por /\*, por exemplo, /pictures/\*.
-3. **Limpeza do domínio raiz**: Limpe a raiz do ponto de extremidade com "/" no caminho.
+1. **Limpeza de URL única**: limpe o ativo individual especificando a URL completa, com a extensão de arquivo, por exemplo, /pictures/strasbourg.png;
+2. **Limpeza de caractere curinga**: o asterisco (\*) pode ser usado como um caractere curinga. Limpe todos os arquivos, pastas e subpastas em um ponto de extremidade com /\* no caminho ou limpe todos os arquivos e subpastas em uma determinada pasta especificando a pasta seguida por /\*, por exemplo, /pictures/\*.
+3. **Limpeza do domínio raiz**: limpe a raiz do ponto de extremidade com "/" no caminho.
 
 As limpezas de cache do Front Door diferenciam maiúsculas de minúsculas. Além disso, as limpezas são independentes da cadeia de caracteres de consulta, significando que a limpeza de uma URL apagará todas as variações da cadeia de caracteres de consulta dessa URL. 
 
 ## <a name="cache-expiration"></a>Expiração do cache
 A ordem de cabeçalhos a seguir é usada para determinar por quanto tempo um item será armazenado em nosso cache:</br>
-1. Cache-Control: s-maxage=\<seconds>
-2. Cache-Control: max-age=\<seconds>
-3. Expira em: \<http-date >
+1. Cache-Control: s-maxage =\<segundos >
+2. Cache-Control: Max-age =\<segundos >
+3. Expira em: \<http-Date >
 
-Cabeçalhos de resposta de Cache-Control que indicam que a resposta não será ser armazenada em cache, como Cache-Control: private, Cache-Control: no-cache e Cache-Control: no-store não são respeitados. No entanto, se houverem várias solicitações em andamento em um POP para a mesma URL, elas podem compartilhar a resposta. Se nenhum controle de Cache estiver presente o comportamento padrão é que AFD armazenará em cache o recurso para X período de tempo em que o X é escolhido aleatoriamente entre 1 a 3 dias.
+Cabeçalhos de resposta de Cache-Control que indicam que a resposta não será ser armazenada em cache, como Cache-Control: private, Cache-Control: no-cache e Cache-Control: no-store não são respeitados. No entanto, se houverem várias solicitações em andamento em um POP para a mesma URL, elas podem compartilhar a resposta. Se nenhum controle de cache estiver presente, o comportamento padrão é que AFD armazenará em cache o recurso por X quantidade de tempo em que X é separado aleatoriamente entre 1 e 3 dias.
 
 
 ## <a name="request-headers"></a>Cabeçalhos da solicitação

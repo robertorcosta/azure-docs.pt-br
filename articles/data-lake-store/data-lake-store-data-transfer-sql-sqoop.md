@@ -1,5 +1,5 @@
 ---
-title: Copiar dados entre o Azure Data Lake Storage Gen1 e o Banco de Dados SQL do Azure usando o Sqoop | Microsoft Docs
+title: Copiar dados entre o Data Lake Storage Gen1 e o SQL do Azure-Sqoop | Microsoft Docs
 description: Usar o Sqoop para copiar dados entre o Banco de Dados SQL do Azure e o Azure Data Lake Storage Gen1
 services: data-lake-store
 author: twooley
@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: twooley
-ms.openlocfilehash: 22789deca0934a9d4e88d587cd24aacacc9b12c6
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: cf3893706afcb4c4cc5b90dd3d2431ecedc71d0a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619998"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839069"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Copiar dados entre o Data Lake Storage Gen1 e o Azure SQL Database usando o Sqoop
 
@@ -28,7 +28,7 @@ Os aplicativos de big data são uma opção natural para o processamento de dado
 
 Antes de começar, você deverá ter o seguinte:
 
-* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do Azure Data Lake Storage Gen1**. Para obter instruções sobre como criar a conta, consulte Introdução [ao Azure data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Cluster Azure HDInsight** com acesso a uma conta do Azure Data Lake Storage Gen1. Veja [Criar um cluster HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Este artigo pressupõe que você tenha um cluster HDInsight Linux com acesso ao Azure Data Lake Storage Gen1.
 * **Banco de dados SQL do Azure**. Para saber mais sobre como criar um, confira [Criar um banco de dados SQL do Azure](../sql-database/sql-database-get-started.md)
@@ -69,7 +69,7 @@ Antes de começar, você deverá ter o seguinte:
 
 ## <a name="use-sqoop-from-an-hdinsight-cluster-with-access-to-data-lake-storage-gen1"></a>Usar o Sqoop de um cluster HDInsight com acesso ao Data Lake Storage Gen1
 
-Um cluster HDInsight já tem os pacotes Sqoop disponíveis. Se você configurou o cluster HDInsight para usar Data Lake Storage Gen1 como armazenamento adicional, você pode usar Sqoop (sem nenhuma alteração de configuração) para importar/exportar dados entre um banco de dado relacional, como o Azure SQL Database, e uma conta de Data Lake Storage Gen1 .
+Um cluster HDInsight já tem os pacotes Sqoop disponíveis. Se você tiver configurado o cluster HDInsight para usar Data Lake Storage Gen1 como armazenamento adicional, poderá usar Sqoop (sem nenhuma alteração de configuração) para importar/exportar dados entre um banco de dado relacional, como o banco de dados SQL do Azure, e uma conta de Data Lake Storage Gen1.
 
 1. Neste artigo, presumimos que você criou um cluster do Linux para que você deve usar o SSH para se conectar ao cluster. Confira [Conectar-se a um cluster HDInsight baseado em Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -93,7 +93,7 @@ Um cluster HDInsight já tem os pacotes Sqoop disponíveis. Se você configurou 
 
        sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
-1. Verifique se os dados foram transferidos para a conta do Data Lake Storage Gen1. Execute o seguinte comando:
+1. Verifique se os dados foram transferidos para a conta do Data Lake Storage Gen1. Execute o comando a seguir:
 
        hdfs dfs -ls adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/
 
@@ -132,7 +132,7 @@ Um cluster HDInsight já tem os pacotes Sqoop disponíveis. Se você configurou 
 
 ## <a name="performance-considerations-while-using-sqoop"></a>Considerações de desempenho ao usar o Sqoop
 
-Para obter informações sobre ajuste de desempenho do trabalho do Sqoop para copiar dados para Data Lake Storage Gen1, consulte a postagem do [blog de desempenho do Sqoop](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/).
+Para obter informações sobre ajuste de desempenho do trabalho do Sqoop para copiar dados para Data Lake Storage Gen1, consulte a [postagem do blog de desempenho do Sqoop](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

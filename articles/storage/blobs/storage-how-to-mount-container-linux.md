@@ -1,23 +1,23 @@
 ---
 title: Como montar Armazenamento de Blobs do Azure como um sistema de arquivos no Linux | Microsoft Docs
 description: Montar um contêiner de Armazenamento de Blobs do Azure com FUSE no Linux
-author: normesta
+author: rishabpoh
 ms.service: storage
 ms.topic: conceptual
 ms.date: 2/1/2019
-ms.author: normesta
+ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: 88002999baacf38b4afd40b574686457c48546e4
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 35a4313d10231aec74685069a67d803ea32e68b1
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845011"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847553"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Como montar o Armazenamento de Blobs como um sistema de arquivos com blobfuse
 
 ## <a name="overview"></a>Visão geral
-O [Blobfuse](https://github.com/Azure/azure-storage-fuse) é um driver de sistema de arquivos virtual para o Armazenamento de Blob do Azure. O blobfuse permite que você acesse os dados de blob de blocos existentes em sua conta de armazenamento por meio do sistema de arquivos Linux. Blobfuse usa o esquema de diretório virtual com a barra "/" como um delimitador.  
+O [Blobfuse](https://github.com/Azure/azure-storage-fuse) é um driver de sistema de arquivos virtual para o Armazenamento de Blobs do Azure. O blobfuse permite que você acesse os dados de blob de blocos existentes em sua conta de armazenamento por meio do sistema de arquivos Linux. Blobfuse usa o esquema de diretório virtual com a barra "/" como um delimitador.  
 
 Este guia mostra como usar o blobfuse e montar um contêiner de Armazenamento de Blobs no Linux e acessar dados. Para saber mais sobre blobfuse, leia os detalhes no [repositório do blobfuse](https://github.com/Azure/azure-storage-fuse).
 
@@ -51,7 +51,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-Da mesma forma, altere a `.../ubuntu/16.04/...` URL `.../ubuntu/18.04/...` para ou para fazer referência a outra versão do Ubuntu.
+Da mesma forma, altere a URL para `.../ubuntu/16.04/...` ou `.../ubuntu/18.04/...` para fazer referência a outra versão do Ubuntu.
 
 ### <a name="install-blobfuse"></a>Instalar blobfuse
 

@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9107471448a58dc7866fb2cd6052abf168437d2b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e76e5c5d2cfcfd983f2b5cdc279f0c13fa6706e4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174169"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832698"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Controlar o acesso para usuários externos no gerenciamento de direitos do Azure AD
 
@@ -97,7 +97,7 @@ Para garantir que as pessoas fora de sua organização possam solicitar pacotes 
 
 ### <a name="review-your-sharepoint-online-external-sharing-settings"></a>Examinar suas configurações de compartilhamento externo do SharePoint Online
 
-- Se você quiser incluir sites do SharePoint Online em seus pacotes de acesso para usuários externos, verifique se a configuração de compartilhamento externo de nível de organização está definida como **qualquer pessoa** (os usuários não precisam de entrada) ou **convidados novos e existentes** (convidados devem assinar em ou forneça um código de verificação). Para obter mais informações, consulte [Ativar ou desativar o compartilhamento externo](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Se você quiser incluir sites do SharePoint Online em seus pacotes de acesso para usuários externos, verifique se a configuração de compartilhamento externo de nível de organização está definida como **qualquer pessoa** (os usuários não precisam entrar) ou **convidados novos e existentes** (convidados devem entrar ou fornecer um código de verificação). Para obter mais informações, consulte [Ativar ou desativar o compartilhamento externo](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
 - Se você quiser restringir qualquer compartilhamento externo fora do gerenciamento de direitos, poderá definir a configuração de compartilhamento externo como **convidados existentes**. Em seguida, somente os novos usuários convidados por meio do gerenciamento de direitos poderão obter acesso a esses sites. Para obter mais informações, consulte [Ativar ou desativar o compartilhamento externo](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
@@ -113,7 +113,7 @@ Para garantir que as pessoas fora de sua organização possam solicitar pacotes 
 
 ### <a name="review-your-teams-sharing-settings"></a>Examine as configurações de compartilhamento de suas equipes
 
-- Se você quiser incluir equipes em seus pacotes de acesso para usuários externos, verifique se a **permissão permitir acesso de convidado no Microsoft Teams** está definida como **ativado** para permitir o acesso de convidado. Para obter mais informações, consulte [Configurar o acesso de convidado no centro de administração do Microsoft Teams](https://docs.microsoft.com/microsoftteams/set-up-guests#configure-guest-access-in-the-microsoft-teams-admin-center).
+- Se você quiser incluir equipes em seus pacotes de acesso para usuários externos, verifique se a **permissão permitir acesso de convidado no Microsoft Teams** está definida como **ativado** para permitir o acesso de convidado. Para obter mais informações, consulte [Configurar o acesso de convidado no centro de administração do Microsoft Teams](/microsoftteams/set-up-guests#configure-guest-access-in-the-teams-admin-center).
 
 ## <a name="manage-the-lifecycle-of-external-users"></a>Gerenciar o ciclo de vida de usuários externos
 
@@ -143,9 +143,9 @@ Você pode selecionar o que acontece quando um usuário externo, que foi convida
 
 1. Se você quiser remover a conta de usuário convidado nesse diretório, poderá definir o número de dias antes que ele seja removido. Se você quiser remover a conta de usuário convidado assim que perder sua última atribuição para qualquer pacote de acesso, defina o **número de dias antes de remover o usuário externo desse diretório** para **0**.
 
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Adicionar uma organização conectada](entitlement-management-organization.md)
 - [Para usuários que não estão em seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

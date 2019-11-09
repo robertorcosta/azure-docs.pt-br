@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 1/17/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 335545f86c9c23feefb6ac21ca9cc5c8fcb5e7fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61184fc7415de3c142b460710cceefed61a25af3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715831"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835335"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedagem de vários sites do Gateway de Aplicativo
 
@@ -23,9 +23,9 @@ A hospedagem de vários sites permite que você configure mais de um aplicativo 
 > [!IMPORTANT]
 > As regras são processadas na ordem em que elas são listadas no portal. É altamente recomendável configurar primeiro os ouvintes de vários locais para configurar um ouvinte básico.  Isso irá garantir que o tráfego seja roteado para o back-end correto. Se um ouvinte básico for listado primeiro e corresponder a uma solicitação de entrada, ele é processado por esse ouvinte.
 
-As solicitações de http://contoso.com são encaminhadas para ContosoServerPool, e as de http://fabrikam.com são encaminhadas para FabrikamServerPool.
+As solicitações de `http://contoso.com` são encaminhadas para ContosoServerPool, e as de `http://fabrikam.com` são encaminhadas para FabrikamServerPool.
 
-Da mesma forma, dois subdomínios do mesmo domínio pai podem ser hospedados na mesma implantação do Gateway de Aplicativo. Exemplos de uso de subdomínios podem incluir http://blog.contoso.com e http://app.contoso.com hospedados em uma implantação de gateway de aplicativo único.
+Da mesma forma, dois subdomínios do mesmo domínio pai podem ser hospedados na mesma implantação do Gateway de Aplicativo. Exemplos de uso de subdomínios podem incluir `http://blog.contoso.com` e `http://app.contoso.com` hospedados em uma implantação de gateway de aplicativo único.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Cabeçalhos de host e SNI (Indicação de Nome de Servidor)
 

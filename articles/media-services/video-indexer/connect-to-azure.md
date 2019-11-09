@@ -1,6 +1,6 @@
 ---
 title: Criar uma conta do Video Indexer no portal do Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Este artigo mostra como criar uma conta do Video Indexer no portal do Azure.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: 0f67b2e37e264febf11f3fa55b4469d392c59712
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: dc844392d64178cb9000db15af39f923521efc19
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815671"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838389"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Crie uma conta do Video Indexer conectada ao Azure
 
@@ -72,7 +72,7 @@ Pesquise **Microsoft.Media** e **Microsoft.EventGrid**. Se não estiver no estad
 
     ![conectar-se o indexador de vídeo para o Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
-4. Selecione uma região do Azure nas localizações com suporte: Oeste dos EUA 2, Europa Setentrional ou Ásia Oriental.
+4. Selecione uma região do Azure nos locais com suporte: oeste dos EUA 2, norte da Europa ou leste da Ásia.
 5. Sob **conta de serviços de mídia do Azure**, escolha uma destas opções:
 
     * Para criar uma nova conta do Media Services, selecione **Criar novo grupo de recursos**. Forneça um nome para seu grupo de recursos.
@@ -140,15 +140,15 @@ Na caixa de diálogo **Conectar o Video Indexer a uma assinatura do Azure** da p
 
 Na caixa de diálogo, forneça as informações a seguir:
 
-|Configuração|Descrição|
+|Configuração|DESCRIÇÃO|
 |---|---|
-|Região da conta do Video Indexer|O nome da região da conta do Video Indexer. Para um melhor desempenho e custos mais baixos, é altamente recomendável especificar o nome da região em que o recurso Serviços de Mídia do Azure e a conta do Armazenamento do Azure estão localizados. |
+|Região da conta do Indexador de Vídeo|O nome da região da conta do Video Indexer. Para um melhor desempenho e custos mais baixos, é altamente recomendável especificar o nome da região em que o recurso Serviços de Mídia do Azure e a conta do Armazenamento do Azure estão localizados. |
 |Locatário do Azure Active Directory (AAD)|O nome do locatário do Azure AD, por exemplo "contoso.onmicrosoft.com". As informações do locatário podem ser recuperadas no portal do Azure. Coloque o cursor sobre o nome do usuário conectado no canto superior direito. Localize o nome à direita de **Domínio**.|
 |ID da assinatura|A assinatura do Azure na qual essa conexão deve ser criada. O ID da assinatura pode ser recuperado no portal do Azure. Clique em **Todos os serviços** no painel esquerdo e procure por "inscrições". Selecione **Assinaturas** e escolha a ID desejada na lista das assinaturas.|
-|Nome do grupo de recursos dos Serviços de Mídia do Azure|O nome do grupo de recursos no qual você criou a conta de Serviços de Mídia.|
-|Nome do recurso do serviço de mídia|O nome da conta de Serviços de Mídia do Azure que você criou na seção anterior.|
-|ID do Aplicativo|O ID do aplicativo do Azure AD (com permissões para a conta de Serviços de Mídia especificada) que você criou na seção anterior.|
-|Chave do Aplicativo|A chave de aplicativo do Azure AD que você criou na seção anterior. |
+|Nome do grupo de recursos dos Serviços de Mídia do Azur.|O nome do grupo de recursos no qual você criou a conta de Serviços de Mídia.|
+|Nome do recurso de serviço de mídia|O nome da conta de Serviços de Mídia do Azure que você criou na seção anterior.|
+|ID do aplicativo|O ID do aplicativo do Azure AD (com permissões para a conta de Serviços de Mídia especificada) que você criou na seção anterior.|
+|Chave do aplicativo|A chave de aplicativo do Azure AD que você criou na seção anterior. |
 
 ## <a name="considerations"></a>Considerações
 
@@ -173,7 +173,7 @@ As seguintes considerações relacionadas aos Serviços de Mídia do Azure se ap
 
 ## <a name="next-steps"></a>Próximas etapas
 
-É possível interagir programaticamente com a conta de avaliação e/ou com as contas do Video Indexer que estão conectadas ao Azure, seguindo as instruções em: [Usar APIs](video-indexer-use-apis.md).
+Você pode interagir programaticamente com sua conta de avaliação e / ou com suas contas do Video Indexer conectadas ao azure seguindo as instruções em: [Use APIs](video-indexer-use-apis.md).
 
 Você deve usar o mesmo usuário do Azure AD usado ao se conectar ao Azure.
 

@@ -1,25 +1,25 @@
 ---
-title: Usar funções personalizadas para recursos do Azure em Privileged Identity Management Azure Active Directory | Microsoft Docs
+title: Usar funções personalizadas para recursos do Azure no PIM – Azure AD | Microsoft Docs
 description: Saiba como usar funções personalizadas para recursos do Azure no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e940dd0e4c653ed4921a9e8f245aab34107ba95
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: fbe08cff2b57155f8f3315f5d3454abfbdad47a0
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895703"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847057"
 ---
 # <a name="use-custom-roles-for-azure-resources-in-privileged-identity-management"></a>Usar funções personalizadas para recursos do Azure no Privileged Identity Management
 
@@ -48,7 +48,7 @@ Depois que a função for criada em sua organização do Azure AD, vá para a p�
 
 Por fim, [atribua funções](pim-resource-roles-assign-roles.md) ao grupo distinto de membros que você deseja ter como destino com essas configurações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Definir configurações de função de recurso do Azure no Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
 - [Funções personalizadas no Azure](../../role-based-access-control/custom-roles.md)

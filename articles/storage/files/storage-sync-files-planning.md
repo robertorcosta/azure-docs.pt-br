@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e1f7aeb5615c1a22c1970f118c24c996ac936870
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3c70d2086fc5866b07c31966343397f8ccc809be
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826814"
+ms.locfileid: "73846742"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 Use o Azure File Sync para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure, mantendo a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -169,7 +169,7 @@ Observe que a economia de volume se aplica somente ao servidor; seus dados no co
 > A eliminação de duplicação de dados e a camada de nuvem não têm suporte no mesmo volume no servidor 2019 devido a um bug que será corrigido em uma atualização futura.
 
 **Windows Server 2012 R2**  
-Sincronização de Arquivos do Azure não dá suporte à eliminação de duplicação de dados e à camada de nuvem no mesmo volume. Se a eliminação de duplicação de dados estiver habilitada em um volume, a camada de nuvem deverá ser desabilitada. 
+Sincronização de Arquivos do Azure não dá suporte à eliminação de duplicação de dados e à camada de nuvem no mesmo volume no Windows Server 2012 R2. Se a eliminação de duplicação de dados estiver habilitada em um volume, a camada de nuvem deverá ser desabilitada. 
 
 **Observações**
 - Se a eliminação de duplicação de dados for instalada antes da instalação do agente de Sincronização de Arquivos do Azure, uma reinicialização será necessária para dar suporte à eliminação de duplicação de dados e à camada de nuvem no mesmo volume.
