@@ -1,5 +1,5 @@
 ---
-title: Exibir a atividade e o histórico de auditoria das funções de recurso do Azure no PIM-Azure Active Directory | Microsoft Docs
+title: Exibir relatório de auditoria para funções de recurso do Azure no PIM – Azure AD | Microsoft Docs
 description: Exiba a atividade e o histórico de auditoria para funções de recurso do Azure no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c9a58fb6cd8591f571b4e65c3ab88cc59e38cda
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 2585457d22b773407c41bb6ea82c30a25fbfb88e
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756325"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847158"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Exibir a atividade e o histórico de auditoria das funções de recurso do Azure no Privileged Identity Management
 
@@ -33,7 +33,7 @@ Para ver as ações que um usuário específico realizou em vários recursos, vo
 
 1. Abra o **Azure AD Privileged Identity Management**.
 
-1. Clique em **Recursos do Azure**.
+1. Clique em **recursos do Azure**.
 
 1. Clique no recurso para o qual deseja exibir a atividade e as ativações.
 
@@ -55,7 +55,7 @@ Talvez você tenha um requisito de conformidade no qual precisa fornecer uma lis
 
 1. Abra o **Azure AD Privileged Identity Management**.
 
-1. Clique em **Recursos do Azure**.
+1. Clique em **recursos do Azure**.
 
 1. Clique no recurso para o qual deseja exportar as atribuições de função, como uma assinatura.
 
@@ -75,7 +75,7 @@ A auditoria de recursos fornece uma exibição de todas as atividades de funçã
 
 1. Abra o **Azure AD Privileged Identity Management**.
 
-1. Clique em **Recursos do Azure**.
+1. Clique em **recursos do Azure**.
 
 1. Clique no recurso para o qual deseja exibir o histórico de auditoria.
 
@@ -99,7 +99,7 @@ A opção Minha auditoria permite que você exiba sua atividade de função pess
 
 1. Abra o **Azure AD Privileged Identity Management**.
 
-1. Clique em **Recursos do Azure**.
+1. Clique em **recursos do Azure**.
 
 1. Clique no recurso para o qual deseja exibir o histórico de auditoria.
 
@@ -109,7 +109,7 @@ A opção Minha auditoria permite que você exiba sua atividade de função pess
 
     ![Lista de auditoria para o usuário atual](media/azure-pim-resource-rbac/my-audit-time.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Atribuir funções de recurso do Azure no Privileged Identity Management](pim-resource-roles-assign-roles.md)
 - [Aprovar ou negar solicitações para funções de recurso do Azure no Privileged Identity Management](pim-resource-roles-approval-workflow.md)

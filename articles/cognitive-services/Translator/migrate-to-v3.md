@@ -1,7 +1,7 @@
 ---
 title: Migrar para V3 - API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Saiba como migrar da V2 para a V3 da API de Tradução de Texto.
+description: Este artigo fornece as etapas para ajudá-lo a migrar do v2 para a V3 do API de Tradução de Texto de serviços cognitivas do Azure.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 9ce9dc330ec1b0c32ce045437fadb5d8c191529e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: eb43d549d3e0cd449c865d533fc8701c4c3912fd
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595234"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837318"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migração da API de Tradução de Texto V2 para V3
 
@@ -61,7 +61,7 @@ A seguinte lista de métodos V2 e V3 identifica as APIs e os métodos da V3 que 
 
 A Tradução de Texto do Microsoft Translator V2 aceitava e retornava dados em formato XML. Na V3, todos os dados enviados e recebidos usando a API está em formato JSON. XML não será mais aceito nem retornado na V3.
 
-Esta alteração afetará vários aspectos de um aplicativo escrito para a API de Tradução de Texto V2. Por exemplo: A API de Idiomas retorna informações de idioma para tradução de texto, transliteração e os dois métodos de dicionário. Você pode solicitar todas as informações de idioma para todos os métodos em uma chamada ou solicitá-los individualmente.
+Esta alteração afetará vários aspectos de um aplicativo escrito para a API de Tradução de Texto V2. Como exemplo: uma API de Idiomas retorna informações de idioma para tradução de texto, transliteração e os dois métodos de dicionário. Você pode solicitar todas as informações de idioma para todos os métodos em uma chamada ou solicitá-los individualmente.
 
 O método languages não exige autenticação; ao clicar no link a seguir, você pode ver todas as informações de idioma para V3 em JSON:
 
