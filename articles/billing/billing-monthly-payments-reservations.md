@@ -6,14 +6,14 @@ author: bandersmsft
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/01/2019
 ms.author: banders
-ms.openlocfilehash: d211334ad2aa760cd63b98c6827fb2512811a1d3
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b1cc034b4d397f170b57e873cb9a5d74c91f83f4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806942"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73746450"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Comprar reservas com pagamentos mensais
 
@@ -24,6 +24,7 @@ O valor do pagamento mensal poderá variar de acordo com o câmbio da moeda loca
 Os pagamentos mensais estão disponíveis para:
 
 - Máquinas virtuais
+- Armazenamento do Azure
 - Banco de dados SQL
 - SQL Data Warehouse
 - Cosmos DB
@@ -60,20 +61,6 @@ Quando você troca uma reserva paga mensalmente, o custo total do tempo de vida 
 Ao cancelar uma reserva paga mensalmente, a Microsoft poderá aplicar uma taxa de cancelamento aos futuros pagamentos confirmados que foram cancelados. Os pagamentos confirmados restantes se acumulam até o limite de reembolso de US$ 50.000.
 
 Para saber mais sobre trocas e reembolsos, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
-
-## <a name="faq"></a>Perguntas frequentes
-
-P. O Azure oferece "Reservas antecipadas parciais?"<br>
-a. Não. Como os custos das reservas pagas antecipadamente e mensalmente são os mesmos, a Microsoft não dá suporte a pagamentos antecipados parciais.
-
-P. Os pagamentos mensais estão disponíveis para o programa de CSP (Provedor de Soluções de Nuvem) da Microsoft?<br>
-a. Sim, os parceiros podem comprar reservas para seus clientes CSP na portal do Azure. A capacidade de comprar reservas com cobrança mensal não está disponível no Partner Center.
-
-P. Sou cliente do Azure Governamental nos EUA, posso pagar mensalmente por compras de reserva?<br>
-a. Não atualmente.
-
-P. Quando posso fazer trocas ou reembolsos por conta própria no portal do Azure, em vez de criar um tíquete de suporte?<br>
-a. Não atualmente. Solicitações de troca e reembolso de reservas com pagamentos mensais são tratadas pelo Suporte do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
