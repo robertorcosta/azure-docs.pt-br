@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: ffe0d3a85006bbaad53e471a10b10fb1bbea89b1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7ea4762684a41e06687adcca91b13872a0c9f740
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664453"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73897463"
 ---
 Este artigo fornece uma visão geral dos recursos de disponibilidade das VMs (máquinas virtuais) do Azure.
 
-## <a name="high-availability"></a>Alta disponibilidade
+## <a name="high-availability"></a>alta disponibilidade
 
 As cargas de trabalho normalmente se disseminam entre diferentes máquinas virtuais para obter alta taxa de transferência, desempenho e para criar redundância no caso de uma VM ser afetada devido a uma atualização ou outro evento. 
 
@@ -82,5 +82,5 @@ As VMs em um conjunto de disponibilidade também são distribuídas automaticame
 ![Conjuntos de disponibilidade](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora você pode começar a usar esses recursos de redundância e disponibilidade para criar seu ambiente do Azure. Para obter informações de práticas recomendadas, confira [Práticas recomendadas de disponibilidade do Azure](../articles/best-practices-availability-checklist.md).
+Agora você pode começar a usar esses recursos de redundância e disponibilidade para criar seu ambiente do Azure. Para obter informações de práticas recomendadas, confira [Práticas recomendadas de disponibilidade do Azure](/azure/architecture/checklist/resiliency-per-service).
 
