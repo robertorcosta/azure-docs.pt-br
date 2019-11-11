@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 648c5ca1eb1cb1c0f1832654fc66d436b9318af3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 878658135bdb8844c5c86bc207db580ccd7ff63f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161836"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903609"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bancos de dados do SQL Server em VMs do Azure
 
@@ -27,7 +27,7 @@ O backup do Azure pode restaurar SQL Server bancos de dados que estão em execu�
 - Restaurar para uma data ou hora específica (para o segundo) usando backups de log de transações. O backup do Azure determina automaticamente o backup diferencial completo apropriado e a cadeia de backups de log que são necessários para restaurar com base na hora selecionada.
 - Restaure um backup completo ou diferencial específico para restaurar para um ponto de recuperação específico.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de restaurar um banco de dados, observe o seguinte:
 
@@ -76,9 +76,9 @@ Restaure da seguinte maneira:
    - **Local alternativo**: restaure o banco de dados para um local alternativo e mantenha o banco de dados de origem original.
    - **Substituir Banco de Dados**: restaure os dados para a mesma instância do SQL Server que a fonte original. Essa opção substitui o banco de dados original.
 
-           > [!IMPORTANT]
-           > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
-           >
+    > [!IMPORTANT]
+    > Se o banco de dados selecionado pertencer a um grupo de disponibilidade Always On, o SQL Server não permitirá que o banco de dados seja substituído. Somente **Localização Alternativa** está disponível.
+    >
    - **Restaurar como arquivos**: em vez de restaurar como um banco de dados, restaure os arquivos de backup que podem ser recuperados como um banco de dados posteriormente em qualquer computador em que os arquivos estejam presentes usando SQL Server Management Studio.
      ![menu de configuração de restauração](./media/backup-azure-sql-database/restore-configuration.png)
 
@@ -177,6 +177,6 @@ Se o tamanho total da cadeia de caracteres de arquivos em um banco de dados for 
 
   ![Restaurar banco de dados com arquivo grande](./media/backup-azure-sql-database/restore-large-files.jpg)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Gerenciar e monitorar](manage-monitor-sql-database-backup.md) SQL Server bancos de dados que são submetidos a backup pelo backup do Azure.

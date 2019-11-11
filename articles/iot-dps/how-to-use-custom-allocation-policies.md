@@ -8,44 +8,41 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 1e672e7bd43dcd05d048d22205939749c1d96579
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 11872f8efcebf39edef2f97cd30c225edbe74bb4
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348067"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903561"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como usar políticas de alocação personalizadas
 
-
 Uma política de alocação personalizada proporciona a você mais controle sobre como os dispositivos são atribuídos a um Hub IoT. Isso é feito usando código personalizado em uma [função do Azure](../azure-functions/functions-overview.md) para atribuir dispositivos a um Hub IoT. O serviço de provisionamento de dispositivos chama o código de função do Azure, fornecendo todas as informações relevantes sobre o dispositivo e o registro. O código de função é executado e retorna as informações do Hub IoT para provisionar o dispositivo.
 
-Por meio de políticas de alocação personalizadas, você define suas próprias políticas de alocação quando as políticas fornecidas pelo Serviço de Provisionamento de Dispositivos não atendem aos requisitos do seu cenário.
+Usando políticas de alocação personalizadas, você define suas próprias políticas de alocação quando as políticas fornecidas pelo serviço de provisionamento de dispositivos não atendem aos requisitos do seu cenário.
 
-Por exemplo, talvez você queira examinar o certificado que um dispositivo está usando durante o provisionamento e atribuir o dispositivo a um Hub IoT com base em uma propriedade de certificado. Talvez você tenha informações armazenadas em um banco de dados para seus dispositivos e precise consultar o banco de dados para determinar a qual Hub IoT um dispositivo deve ser atribuído.
-
+Por exemplo, talvez você queira examinar o certificado que um dispositivo está usando durante o provisionamento e atribuir o dispositivo a um hub IoT com base em uma propriedade de certificado. Ou, talvez você tenha informações armazenadas em um banco de dados para seus dispositivos e precise consultar o banco de dados para determinar a qual Hub IoT um dispositivo deve ser atribuído.
 
 Este artigo demonstra uma política de alocação personalizada usando uma função do Azure escrita em C#. Dois novos Hubs IoT são criados, representando uma *Divisão de Resistências da Contoso* e uma *Divisão de Bombas Térmicas da Contoso*. Dispositivos solicitando provisionamento devem ter uma ID de registro com um dos sufixos a seguir para serem aceitos para o provisionamento:
 
-- **-contoso-tstrsd-007**: Divisão de Resistências da Contoso
-- **-contoso-hpsd-088**: Divisão de Bombas Térmicas da Contoso
+* **-contoso-tstrsd-007**: Divisão de Resistências da Contoso
+* **-contoso-hpsd-088**: Divisão de Bombas Térmicas da Contoso
 
-Os dispositivos serão provisionados com base em um destes sufixos necessários na ID do registro. Esses dispositivos serão simulados usando uma amostra de provisionamento incluída no [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c). 
+Os dispositivos serão provisionados com base em um destes sufixos necessários na ID do registro. Esses dispositivos serão simulados usando uma amostra de provisionamento incluída no [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c).
 
-Neste artigo, você realizará as seguintes etapas:
+Você executa as seguintes etapas neste artigo:
 
 * Usar a CLI do Azure para criar dois Hubs IoT da divisão da Contoso (**Divisão de Resistências da Contoso** e **Divisão de Bombas Térmicas da Contoso**)
 * Criar um registro de grupo usando uma função do Azure para a política de alocação personalizada
 * Crie chaves de dispositivo para duas simulações do dispositivo.
 * Preparar o ambiente de desenvolvimento para o SDK de C do IoT do Azure
-* Simular os dispositivos para assegurar que eles sejam provisionados de acordo com o código de exemplo da política de alocação personalizada
-
+* Simular os dispositivos e verificar se eles são provisionados de acordo com o código de exemplo na política de alocação personalizada
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-* Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
+* Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md).
 * [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou posterior com a carga de trabalho ["Desenvolvimento para desktop com C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
@@ -53,11 +50,11 @@ Neste artigo, você realizará as seguintes etapas:
 
 ## <a name="create-two-divisional-iot-hubs"></a>Criar dois Hubs IoT divisionários
 
-Nesta seção, você usará o Azure Cloud Shell para criar dois novos Hubs IoT representando a **Divisão de Resistências da Contoso** e **Divisão de Bombas Térmicas da Contoso**.
+Nesta seção, você usa o Azure Cloud Shell para criar dois novos hubs IoT que representam a **divisão de torradeiras da Contoso** e a **divisão de bombas de aquecimento da Contoso**.
 
-1. Use o Azure Cloud Shell para criar um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
+1. Use o Azure Cloud Shell para criar um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
-    O exemplo a seguir cria um grupo de recursos chamado *contoso-us-resource-group* na região *eastus*. É recomendável que você use esse grupo para todos os recursos criados neste artigo. Essa abordagem facilitará a limpeza após você terminar.
+    O exemplo a seguir cria um grupo de recursos chamado *contoso-us-resource-group* na região *eastus*. É recomendável que você use esse grupo para todos os recursos criados neste artigo. Essa abordagem facilitará a limpeza depois que você terminar.
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location eastus
@@ -65,80 +62,73 @@ Nesta seção, você usará o Azure Cloud Shell para criar dois novos Hubs IoT r
 
 2. Use o Azure Cloud Shell para criar o Hub IoT **Divisão de Resistências da Contoso** com o comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). O Hub IoT será adicionado ao *contoso-us-resource-group*.
 
-    O exemplo a seguir cria um Hub IoT chamado *contoso-toasters-hub-1098* no local *eastus*. Você deve usar seu próprio nome de hub exclusivo. Crie seu próprio sufixo no nome do hub no lugar de **1098**. O código de exemplo para a política de alocação personalizada requer `-toasters-` no nome do hub.
+    O exemplo a seguir cria um Hub IoT chamado *contoso-toasters-hub-1098* no local *eastus*. Você deve usar um nome de Hub exclusivo. Crie seu próprio sufixo no nome do hub no lugar de **1098**. O código de exemplo para a política de alocação personalizada requer `-toasters-` no nome do hub.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location eastus --sku S1
     ```
-    
+
     Esse comando pode demorar um pouco para ser concluído.
 
 3. Use o Azure Cloud Shell para criar o Hub IoT **Divisão de Bombas Térmicas da Contoso** com o comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). Este Hub IoT também será adicionado ao *contoso-us-resource-group*.
 
-    O exemplo a seguir cria um Hub IoT chamado *contoso-heatpumps-hub-1098* no local *eastus*. Você deve usar seu próprio nome de hub exclusivo. Crie seu próprio sufixo no nome do hub no lugar de **1098**. O código de exemplo para a política de alocação personalizada requer `-heatpumps-` no nome do hub.
+    O exemplo a seguir cria um Hub IoT chamado *contoso-heatpumps-hub-1098* no local *eastus*. Você deve usar um nome de Hub exclusivo. Crie seu próprio sufixo no nome do hub no lugar de **1098**. O código de exemplo para a política de alocação personalizada requer `-heatpumps-` no nome do hub.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location eastus --sku S1
     ```
-    
+
     Esse comando também pode demorar um pouco para ser concluído.
-
-
-
 
 ## <a name="create-the-enrollment"></a>Criar o registro
 
-Nesta seção, você criará um novo grupo de registro que usará a política de alocação personalizada. Para simplificar, este artigo usa o [Atestado de chave simétrica](concepts-symmetric-key-attestation.md) com o registro. Para uma solução mais segura, considere usar o [Atestado de certificado X.509](concepts-security.md#x509-certificates) com uma cadeia de confiança.
+Nesta seção, você criará um novo grupo de registro que usa a política de alocação personalizada. Para simplificar, este artigo usa o [Atestado de chave simétrica](concepts-symmetric-key-attestation.md) com o registro. Para uma solução mais segura, considere usar o [Atestado de certificado X.509](concepts-security.md#x509-certificates) com uma cadeia de confiança.
 
 1. Entre no [portal do Azure](https://portal.azure.com) e abra a instância do Serviço de Provisionamento de Dispositivos.
 
 2. Selecione a guia **Gerenciar registros** e clique no botão **Adicionar grupo de registros** na parte superior da página. 
 
-3. Em **Adicionar Grupo de Registros**, insira as informações a seguir e clique no botão **Salvar**.
+3. Em **Adicionar grupo de registros**, insira as informações a seguir e clique no botão **Salvar**.
 
-    **Nome do grupo**: Insira **contoso-custom-allocated-devices**.
+    **Nome do grupo**: insira **contoso-custom-allocated-devices**.
 
-    **Tipo de Atestado**: selecione **Chave Simétrica**.
+    **Tipo de atestado**: selecione **Chave simétrica**.
 
-    **Gerar Chaves Automaticamente**: esta caixa de seleção já deve estar marcada.
+    **Gerar chaves automaticamente**: esta caixa de seleção já deve estar marcada.
 
-    **Selecione como deseja atribuir dispositivos aos hubs**: Selecione **Personalizado (Use o Azure Functions)** .
+    **Selecione como você deseja atribuir dispositivos a hubs**: selecione **Personalizado (Usar a função do Azure)** .
 
     ![Adicionar grupo de registros de alocação personalizado para atestado de chave simétrica](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
-
 4. Em **Adicionar grupo de registros**, clique em **Vincular um novo Hub IoT** para vincular ambos os seus novos Hubs IoT divisionários. 
 
-    Você precisa executar esta etapa para ambos os Hubs IoT divisionários.
+    Execute esta etapa para os dois hubs IoT de sua divisão.
 
-    **Assinatura**: Se você tem várias assinaturas, escolha a assinatura em que você criou os Hubs IoT divisionários.
+    **Assinatura**: se você tem várias assinaturas, escolha a assinatura em que você criou os Hubs IoT divisionários.
 
-    **Hub IoT**: Selecione um dos hubs divisionários que você criou.
+    **Hub IoT**: selecione um dos hubs divisionários que você criou.
 
-    **Política de Acesso**: Escolha **iothubowner**.
+    **Política de acesso**: escolha **iothubowner**.
 
     ![Vincular os Hubs IoT divisionários ao serviço de provisionamento](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
-
 
 5. Em **Adicionar grupo de registros**, depois que ambos os Hubs IoT divisionários foram vinculados, você deve selecioná-los como o grupo de Hubs IoT para o grupo de registro, conforme mostrado abaixo:
 
     ![Criar o grupo de hubs divisionários para o registro](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
 
-
 6. Em **Adicionar grupo de registros**, role para baixo até a seção **Selecionar função do Azure** e clique em **Criar um novo aplicativo de funções**.
 
 7. Na página de criação de **Aplicativo de funções** que é aberta, insira as seguintes configurações para sua nova função e clique em **Criar**:
 
-    **Nome do aplicativo**: Insira um nome de aplicativo de funções exclusivo. **contoso-function-app-1098** é mostrado como um exemplo.
+    **Nome do aplicativo**: insira um nome de aplicativo de funções exclusivo. **contoso-function-app-1098** é mostrado como um exemplo.
 
-    **Grupo de recursos**: Selecione **Usar existente** e **contoso-us-resource-group** para manter juntos todos os recursos criados neste artigo.
+    **Grupo de recursos**: selecione **Usar existente** e **contoso-us-resource-group** para manter juntos todos os recursos criados neste artigo.
 
-    **Application Insights**: Para este exercício, você pode desativar esse recurso.
+    **Application insights**: para este exercício, você pode desativar essa opção.
 
     ![Crie o aplicativo de funções](./media/how-to-use-custom-allocation-policies/function-app-create.png)
 
-
-8. Novamente na sua página **Adicionar grupo de registros**, verifique se seu novo aplicativo de funções está selecionado. Talvez você precise selecionar novamente a assinatura para atualizar a lista de aplicativos de funções.
+8. Novamente na sua página **Adicionar grupo de registros**, verifique se seu novo aplicativo de funções está selecionado. Talvez seja necessário selecionar novamente a assinatura para atualizar a lista de aplicativos de funções.
 
     Depois que seu novo aplicativo de funções for selecionado, clique em **Criar uma nova função**.
 
@@ -146,7 +136,7 @@ Nesta seção, você criará um novo grupo de registro que usará a política de
 
     Seu novo aplicativo de funções será aberto.
 
-9. No aplicativo de funções, clique para criar uma função
+9. Em seu aplicativo de funções, clique em **+** para criar uma nova função
 
     ![Crie o aplicativo de funções](./media/how-to-use-custom-allocation-policies/new-function.png)
 
@@ -154,7 +144,7 @@ Nesta seção, você criará um novo grupo de registro que usará a política de
 
     Isso cria uma nova função C# denominada **HttpTriggerCSharp1**.
 
-10. Substitua o código da nova função C# pelo código a seguir e clique em **Salvar**:    
+10. Substitua o código da nova função C# pelo código a seguir e clique em **Salvar**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -166,7 +156,7 @@ Nesta seção, você criará um novo grupo de registro que usará a política de
     {
         // Just some diagnostic logging
         log.Info("C# HTTP trigger function processed a request.");
-        log.Info("Request.Content:...");    
+        log.Info("Request.Content:...");
         log.Info(req.Content.ReadAsStringAsync().Result);
 
         // Get request body
@@ -248,7 +238,7 @@ Nesta seção, você criará um novo grupo de registro que usará a política de
             {
                 Content = new StringContent(JsonConvert.SerializeObject(obj, Formatting.Indented), Encoding.UTF8, "application/json")
             };
-    }    
+    }
 
     public class DeviceTwinObj
     {
@@ -265,31 +255,28 @@ Nesta seção, você criará um novo grupo de registro que usará a política de
     }
     ```
 
-
-11. Volte para a página **Adicionar grupo de registros** e verifique se a nova função está selecionada. Talvez você precise selecionar novamente o aplicativo de funções para atualizar a lista de funções.
+11. Volte para a página **Adicionar grupo de registros** e verifique se a nova função está selecionada. Talvez seja necessário selecionar novamente o aplicativo de função para atualizar a lista de funções.
 
     Depois que sua nova função estiver selecionada, clique em **Salvar** para salvar o grupo de registros.
 
     ![Por fim, salve o grupo de registros](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
 
-
 12. Após salvar o registro, abra-o novamente e anote a **Chave primária**. Para que as chaves sejam geradas, é preciso primeiro salvar o registro. Essa chave será usada mais tarde para gerar chaves de dispositivo exclusivas para dispositivos simulados.
-
 
 ## <a name="derive-unique-device-keys"></a>Derivar chaves de dispositivo exclusivas
 
 Nesta seção, você criará duas chaves de dispositivo exclusivas. Uma chave será usada para um dispositivo de resistência simulado. A outra chave será usada para um dispositivo de bomba térmica simulado.
 
-Para gerar a chave do dispositivo, use a **Chave primária** que você anotou anteriormente para computar o [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro de dispositivo para cada um dos dispositivos, depois converta o resultado no formato Base64. Para obter mais informações sobre como criar chaves de dispositivo derivadas com grupos de registro, veja a seção de registros de grupo de [Atestado de chave simétrica](concepts-symmetric-key-attestation.md).
+Para gerar a chave do dispositivo, use a **chave primária** que você anotou anteriormente para calcular o [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro do dispositivo para cada dispositivo e converta o resultado no formato base64. Para obter mais informações sobre como criar chaves de dispositivo derivadas com grupos de registro, veja a seção de registros de grupo de [Atestado de chave simétrica](concepts-symmetric-key-attestation.md).
 
 Para o exemplo neste artigo, use as duas IDs de registro de dispositivo a seguir e compute uma chave de dispositivo para ambos os dispositivos. As duas IDs de registro têm um sufixo válido para trabalhar com o código de exemplo para a política de alocação personalizada:
 
-- **breakroom499-contoso-tstrsd-007**
-- **mainbuilding167-contoso-hpsd-088**
+* **breakroom499-contoso-tstrsd-007**
+* **mainbuilding167-contoso-hpsd-088**
 
-#### <a name="linux-workstations"></a>Estações de trabalho do Linux
+### <a name="linux-workstations"></a>Estações de trabalho do Linux
 
-Se estiver usando uma estação de trabalho do Linux, você poderá usar openssl para gerar suas chaves de dispositivo derivadas, conforme mostrado no exemplo a seguir.
+Se você estiver usando uma estação de trabalho do Linux, poderá usar o OpenSSL para gerar as chaves de dispositivo derivadas, conforme mostrado no exemplo a seguir.
 
 1. Substitua o valor de **CHAVE** pela **Chave primária** que você anotou anteriormente.
 
@@ -311,10 +298,9 @@ Se estiver usando uma estação de trabalho do Linux, você poderá usar openssl
     mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
     ```
 
+### <a name="windows-based-workstations"></a>Estações de trabalho baseadas em Windows
 
-#### <a name="windows-based-workstations"></a>Estações de trabalho baseadas em Windows
-
-Se estiver usando uma estação de trabalho baseada no Windows, você poderá usar o PowerShell para gerar sua chave de dispositivo derivada, conforme mostrado no exemplo a seguir.
+Se você estiver usando uma estação de trabalho baseada no Windows, poderá usar o PowerShell para gerar a chave de dispositivo derivada, conforme mostrado no exemplo a seguir.
 
 1. Substitua o valor de **CHAVE** pela **Chave primária** que você anotou anteriormente.
 
@@ -339,29 +325,25 @@ Se estiver usando uma estação de trabalho baseada no Windows, você poderá us
     mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
     ```
 
-
 Os dispositivos simulados usarão as chaves do dispositivo derivadas com cada ID de registro para realizar o atestado de chave simétrica.
-
-
-
 
 ## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Preparar um ambiente de desenvolvimento do SDK de C do IoT do Azure
 
-Nesta seção, você preparará um ambiente de desenvolvimento usado para criar o [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c). O SDK inclui o código de exemplo para o dispositivo simulado. Este dispositivo simulado tentará realizar provisionamento durante a sequência de inicialização do dispositivo.
+Nesta seção, você prepara o ambiente de desenvolvimento usado para criar o [SDK do Azure IOT C](https://github.com/Azure/azure-iot-sdk-c). O SDK inclui o código de exemplo para o dispositivo simulado. Este dispositivo simulado tentará realizar provisionamento durante a sequência de inicialização do dispositivo.
 
 Esta seção é voltada para uma estação de trabalho baseada em Windows. Para obter um exemplo de Linux, consulte a configuração das VMs em [Como provisionar para multilocação](how-to-provision-multitenant.md).
 
 1. Baixe o [sistema de build CMake](https://cmake.org/download/).
 
-    É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho de "Desenvolvimento para Desktop com C++") estejam instalados em seu computador, **antes** da instalação de `CMake`. Após a instalação dos pré-requisitos e verificação do download, instale o sistema de compilação CMake.
+    É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho de "Desenvolvimento para Desktop com C++") estejam instalados no computador, **antes** da instalação de `CMake`. Após a instalação dos pré-requisitos e verificação do download, instale o sistema de build CMake.
 
 2. Abra um prompt de comando ou o shell Bash do Git. Execute o seguinte comando para clonar o repositório GitHub do SDK de C do IoT do Azure:
-    
+
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    Essa operação deve demorar alguns minutos.
 
+    Essa operação deve demorar alguns minutos.
 
 3. Crie um subdiretório `cmake` no diretório raiz do repositório git e navegue até essa pasta. 
 
@@ -376,8 +358,8 @@ Esta seção é voltada para uma estação de trabalho baseada em Windows. Para 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
-    
-    Se `cmake` não encontrar o compilador do C++, você poderá obter erros de build ao executar o comando acima. Se isso acontecer, tente executar esse comando no [prompt de comando do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+
+    Se `cmake` não encontrar seu C++ compilador, você poderá obter erros de compilação ao executar o comando. Se isso acontecer, tente executar o comando no [prompt de comando do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
 
     Após o sucesso da compilação, as últimas linhas de saída serão semelhantes à seguinte saída:
 
@@ -395,12 +377,9 @@ Esta seção é voltada para uma estação de trabalho baseada em Windows. Para 
     -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
     ```
 
-
-
-
 ## <a name="simulate-the-devices"></a>Simular os dispositivos
 
-Nesta seção, você atualizará um exemplo de provisionamento denominado **prov\_dev\_client\_sample** localizado no SDK de C do IoT do Azure configurado anteriormente. 
+Nesta seção, você atualiza um exemplo de provisionamento chamado **prov\_dev\_cliente\_exemplo** localizado no SDK do Azure IOT C que você configurou anteriormente.
 
 Esse código de exemplo simula uma sequência de inicialização do dispositivo que envia a solicitação de provisionamento à sua instância do Serviço de Provisionamento de Dispositivos. A sequência de inicialização fará com que o dispositivo de resistência seja reconhecido e atribuído ao Hub IoT usando a política de alocação personalizada.
 
@@ -422,7 +401,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
     static const char* id_scope = "0ne00002193";
     ```
 
-5. Encontre a definição da função `main()` no mesmo arquivo. Certifique-se de que a variável `hsm_type` está configurada para `SECURE_DEVICE_TYPE_SYMMETRIC_KEY`, conforme mostrado abaixo:
+5. Encontre a definição da função `main()` no mesmo arquivo. Verifique se a variável `hsm_type` está definida como `SECURE_DEVICE_TYPE_SYMMETRIC_KEY`, conforme mostrado abaixo:
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -433,8 +412,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
 
 6. Clique com botão direito do mouse no projeto **prov\_dev\_client\_sample** e selecione **Definir como Projeto de Inicialização**. 
 
-
-#### <a name="simulate-the-contoso-toaster-device"></a>Simular o dispositivo de resistência da Contoso
+### <a name="simulate-the-contoso-toaster-device"></a>Simular o dispositivo de resistência da Contoso
 
 1. Para simular o dispositivo de resistência, localize a chamada para `prov_dev_set_symmetric_key_info()` em **prov\_dev\_client\_sample.c** que é comentado.
 
@@ -443,18 +421,18 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    Remova a marca de comentário da chamada de função e substitua os valores de espaço reservado (incluindo os colchetes angulares) pela ID de registro da resistência e a chave de dispositivo derivada gerada anteriormente. O valor da chave **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** mostrado abaixo é fornecido apenas como um exemplo.
+    Remova a marca de comentário da chamada de função e substitua os valores de espaço reservado (incluindo os colchetes angulares) com a ID de registro do torradeira e a chave de dispositivo derivada gerada anteriormente. O valor da chave **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** mostrado abaixo é fornecido apenas como um exemplo.
 
     ```c
     // Set the symmetric key if using they auth type
     prov_dev_set_symmetric_key_info("breakroom499-contoso-tstrsd-007", "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=");
     ```
-   
+
     Salve o arquivo.
 
 2. No menu do Visual Studio, selecione **Depurar** > **Iniciar sem depuração** para executar a solução. No prompt para recompilar o projeto, clique em **Sim** para recompilar o projeto antes da execução.
 
-    A saída a seguir é um exemplo do dispositivo de resistência simulado inicializando com êxito e, em seguida, conectando-se à instância do serviço de provisionamento a ser atribuído ao Hub IoT de resistências pela política de alocação personalizada:
+    A saída a seguir é um exemplo do dispositivo de torradeira simulado inicializado com êxito e conectando-se à instância do serviço de provisionamento a ser atribuída ao Hub IoT dos torradeiras pela política de alocação personalizada:
 
     ```cmd
     Provisioning API Version: 1.2.9
@@ -470,8 +448,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
     Press enter key to exit:
     ```
 
-
-#### <a name="simulate-the-contoso-heat-pump-device"></a>Simular o dispositivo de bomba térmica da Contoso
+### <a name="simulate-the-contoso-heat-pump-device"></a>Simular o dispositivo de bomba térmica da Contoso
 
 1. Para simular o dispositivo de bomba térmica, atualize a chamada para `prov_dev_set_symmetric_key_info()` em **prov\_dev\_client\_sample.c** novamente com a ID de registro de bomba térmica e a chave do dispositivo derivada gerada anteriormente. O valor de chave **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** mostrado abaixo também é fornecido apenas como um exemplo.
 
@@ -479,12 +456,12 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
     // Set the symmetric key if using they auth type
     prov_dev_set_symmetric_key_info("mainbuilding167-contoso-hpsd-088", "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=");
     ```
-   
+
     Salve o arquivo.
 
-2. No menu do Visual Studio, selecione **Depurar** > **Iniciar sem depuração** para executar a solução. No prompt para recompilar o projeto, clique em **Sim** para recompilar o projeto antes da execução.
+2. No menu do Visual Studio, selecione **Depurar** > **Iniciar sem depuração** para executar a solução. No prompt para recompilar o projeto, clique em **Sim** para recompilar o projeto antes de executá-lo.
 
-    A saída a seguir é um exemplo do dispositivo de bomba térmica simulado inicializando com êxito e, em seguida, conectando-se à instância do serviço de provisionamento a ser atribuído ao Hub IoT de bombas térmicas pela política de alocação personalizada:
+    A saída a seguir é um exemplo do dispositivo de bomba de calor simulado Inicializando com êxito e conectando-se à instância do serviço de provisionamento a ser atribuída ao Hub IoT de bombas de aquecimento da Contoso pela política de alocação personalizada:
 
     ```cmd
     Provisioning API Version: 1.2.9
@@ -500,30 +477,27 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
     Press enter key to exit:
     ```
 
-
 ## <a name="troubleshooting-custom-allocation-policies"></a>Solução de problemas em políticas de alocação personalizadas
 
-A tabela a seguir mostra cenários esperados e os códigos de erro de resultados que podem ser encontrados. Use esta tabela para ajudar a solucionar problemas de falhas de política de alocação personalizada com o Azure Functions.
-
+A tabela a seguir mostra os cenários esperados e os códigos de erro de resultados que você pode receber. Use esta tabela para ajudar a solucionar problemas de falhas de política de alocação personalizada com o Azure Functions.
 
 | Cenário | Resultado de registro do serviço de provisionamento | Resultados do SDK de provisionamento |
 | -------- | --------------------------------------------- | ------------------------ |
 | O webhook retorna 200 OK com 'iotHubHostName' definido como um nome de host do Hub IoT válido | Status do resultado: Atribuído  | O SDK retorna PROV_DEVICE_RESULT_OK juntamente com informações de hub |
-| O webhook retorna 200 OK com 'iotHubHostName' presente na resposta, mas definido como uma cadeia de caracteres vazia ou nula | Status do resultado: Falhou<br><br> Código de erro: CustomAllocationIotHubNotSpecified (400208) | O SDK retorna PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
-| O webhook retorna 401 Não Autorizado | Status do resultado: Falhou<br><br>Código de erro: CustomAllocationUnauthorizedAccess (400209) | O SDK retorna PROV_DEVICE_RESULT_UNAUTHORIZED |
+| O webhook retorna 200 OK com 'iotHubHostName' presente na resposta, mas definido como uma cadeia de caracteres vazia ou nula | Status do resultado: Com falha<br><br> Código de erro: CustomAllocationIotHubNotSpecified (400208) | O SDK retorna PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
+| O webhook retorna 401 Não Autorizado | Status do resultado: Com falha<br><br>Código de erro: CustomAllocationUnauthorizedAccess (400209) | O SDK retorna PROV_DEVICE_RESULT_UNAUTHORIZED |
 | Um registro individual foi criado para desabilitar o dispositivo | Status do resultado: Desabilitado | O SDK retorna PROV_DEVICE_RESULT_DISABLED |
-| O webhook retorna o código de erro >= 429 | Orquestração do DPS tentará novamente várias vezes. A política de repetição atualmente é:<br><br>&nbsp;&nbsp;– Contagem de repetições: 10<br>&nbsp;&nbsp;– Intervalo inicial: 1s<br>&nbsp;&nbsp;– Incremento: 9s | O SDK ignorará o erro e enviará outra mensagem de obtenção de status no tempo especificado |
-| O webhook retorna qualquer outro código de status | Status do resultado: Falhou<br><br>Código de erro: CustomAllocationFailed (400207) | O SDK retorna PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
-
+| O webhook retorna o código de erro >= 429 | Orquestração do DPS tentará novamente várias vezes. A política de repetição atualmente é:<br><br>&nbsp;&nbsp;- Contagem de repetições: 10<br>&nbsp;&nbsp;- Intervalo inicial: 1 s<br>&nbsp;&nbsp;- Incremento: 9 s | O SDK ignorará o erro e enviará outra mensagem de obtenção de status no tempo especificado |
+| O webhook retorna qualquer outro código de status | Status do resultado: Com falha<br><br>Código de erro: CustomAllocationFailed (400207) | O SDK retorna PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Caso planeje continuar a trabalhar com recursos criados neste artigo, você pode mantê-los. Caso contrário, use as etapas a seguir para excluir todos os recursos criados por este artigo, a fim de evitar alterações desnecessárias.
+Se você planeja continuar trabalhando com os recursos criados neste artigo, você pode deixá-los. Se você não planeja continuar usando os recursos, use as etapas a seguir para excluir todos os recursos criados neste artigo para evitar encargos desnecessários.
 
 As etapas aqui supõem que você criou todos os recursos neste artigo, conforme instruído no mesmo grupo de recursos chamado **contoso-us-resource-group**.
 
 > [!IMPORTANT]
-> A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. Caso tenha criado o Hub IoT dentro de um grupo de recursos existente que contém recursos que você deseja manter, exclua apenas o próprio recurso do Hub IoT em vez de excluir o grupo de recursos.
+> A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente grupo de recursos ou recursos incorretos. Caso tenha criado o Hub IoT dentro de um grupo de recursos existente que contém recursos que você deseja manter, exclua apenas o próprio recurso do Hub IoT em vez de excluir o grupo de recursos.
 >
 
 Para excluir o grupo de recursos por nome:
@@ -534,20 +508,9 @@ Para excluir o grupo de recursos por nome:
 
 3. À direita do seu grupo de recursos, na lista de resultados, clique em **...** , depois em **Excluir grupo de recursos**.
 
-4. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Digite o nome do grupo de recursos novamente para confirmar e clique em **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
+4. Você será solicitado a confirmar a exclusão do grupo de recursos. Digite o nome do grupo de recursos novamente para confirmar e clique em **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre o reprovisionamento, consulte conceitos de reprovisionamento de [dispositivo do Hub IOT](concepts-device-reprovision.md) 
-- Para saber mais sobre desprovisionamento, confira [como desprovisionar dispositivos que foram previamente provisionados automaticamente](how-to-unprovision-devices.md) 
-
-
-
-
-
-
-
-
-
-
-
+* Para saber mais sobre o reprovisionamento, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](concepts-device-reprovision.md) 
+* Para saber mais sobre desprovisionamento, confira [como desprovisionar dispositivos que foram anteriormente autoprovisionados](how-to-unprovision-devices.md) 

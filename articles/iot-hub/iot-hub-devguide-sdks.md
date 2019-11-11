@@ -8,18 +8,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 7113914fe8681ca099fc0f3fc1e4a7d064c19480
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 22734d29973f0d7102307aa9038b6ebe7cc2521b
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000260"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903319"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Entender e usar os SDKs de Hub IoT do Azure
 
 Há duas categorias de SDKs (Kits de desenvolvimento de software) para trabalhar com o Hub IoT:
 
-* **SDKs do Dispositivo Hub IoT** permitem que você crie aplicativos que são executados em seus dispositivos de IoT usando o cliente do dispositivo ou do módulo. Esses aplicativos enviam telemetria ao Hub IoT e, opcionalmente, recebem mensagens, trabalho, método ou atualizações de gêmeos de seu Hub IoT.  Você também pode usar o cliente do módulo para criar [módulos](../iot-edge/iot-edge-modules.md) para [tempo de execução do Azure IoT Edge](../iot-edge/about-iot-edge.md).
+* **SDKs do Dispositivo Hub IoT** permitem que você crie aplicativos que são executados em seus dispositivos de IoT usando o cliente do dispositivo ou do módulo. Esses aplicativos enviam telemetria ao Hub IoT e, opcionalmente, recebem mensagens, trabalho, método ou atualizações de gêmeos de seu Hub IoT.  Você também pode usar o cliente do módulo para criar [módulos](../iot-edge/iot-edge-modules.md) para [runtime do Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
 * Os **SDKs de Serviço do Hub IoT** permitem criar aplicativos de back-end para gerenciar seu Hub IoT e, como opção, enviar mensagens, agendar trabalhos, chamar métodos diretos ou enviar atualizações de propriedade desejadas para os módulos ou dispositivos IoT.
 
@@ -84,7 +84,7 @@ SDK do dispositivo de Hub IoT do Azure para Python:
 SDK do dispositivo do Hub IoT para iOS: 
 
 * Instalar de [CocoaPod](https://cocoapods.org/pods/AzureIoTHubClient)
-* [Amostras](https://github.com/Azure-Samples/azure-iot-samples-ios)
+* [Exemplos](https://github.com/Azure-Samples/azure-iot-samples-ios)
 * Referência da API: consulte [referência da API C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 ## <a name="azure-iot-hub-service-sdks"></a>SDKs de serviços do Hub IoT
@@ -122,7 +122,7 @@ SDK de serviço de Hub IoT do Azure para C:
 SDK do serviço do Hub IoT para iOS: 
 
 * Instalar de [CocoaPod](https://cocoapods.org/pods/AzureIoTHubServiceClient)
-* [Amostras](https://github.com/Azure-Samples/azure-iot-samples-ios)
+* [Exemplos](https://github.com/Azure-Samples/azure-iot-samples-ios)
 
 > [!NOTE]
 > Consulte os arquivos Leiame nos repositórios GitHub para obter informações sobre como usar os gerenciadores de pacotes específicos à linguagem e à plataforma para instalar binários e dependências em seu computador de desenvolvimento.
@@ -164,7 +164,7 @@ Dispositivo de Provisionamento do Azure e SDKs de serviço para Python:
 
 Os SDKs de IoT do Azure também fornecem um conjunto de ferramentas para ajudá-lo com o desenvolvimento:
 * [iothub-diagnostics](https://github.com/Azure/iothub-diagnostics): uma ferramenta de linha de comando de plataforma cruzada para ajudar a diagnosticar problemas relacionados à conexão com o IoT Hub.
-* [Gerenciador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer): um aplicativo de desktop do Windows para se conectar ao seu IoT Hub.
+* [Azure-IOT-Explorer](https://github.com/Azure/azure-iot-explorer): um aplicativo de área de trabalho de plataforma cruzada para se conectar ao Hub IOT e adicionar/gerenciar/se comunicar com dispositivos IOT.
 
 Documentos relevantes relacionados ao desenvolvimento usando as SDKs de IoT do Azure:
 * Consulte [como gerenciar a conectividade e mensagens confiáveis](iot-hub-reliability-features-in-sdks.md) usando SDKs do Hub IoT.

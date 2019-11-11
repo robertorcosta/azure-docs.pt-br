@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/06/2019
-ms.openlocfilehash: 46164cfc0c2baff919808a831a67180b65a23ff7
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 11/07/2019
+ms.openlocfilehash: 225ee7028b9610a4974f9bee05da667d78d3355e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337645"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903747"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalar o bloco de anotações do Jupyter em seu computador e conectar-se ao Apache Spark no HDInsight
 
@@ -28,11 +28,11 @@ Há quatro etapas principais envolvidas na instalação do Jupyter e na conexão
 
 Para saber mais sobre os kernels personalizados e a sobre a mágica Spark disponível para blocos de notas Jupyter com o cluster HDInsight, confira [Kernels disponíveis para blocos de notas Jupyter com clusters do Apache Spark Linux no HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-Os pré-requisitos listados aqui não são para a instalação do Jupyter. Eles são para conectar o bloco de notas Jupyter a um cluster HDInsight depois que o bloco de notas está instalado.
+* Um cluster do Apache Spark no HDInsight. Para obter instruções, confira [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md). Esse é um pré-requisito para conectar o notebook Jupyter a um cluster HDInsight depois que o notebook for instalado.
 
-* Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* Familiaridade com o uso de anotações do Jupyter com Spark no HDInsight.
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Instalar bloco de notas Jupyter em seu computador
 
@@ -46,10 +46,10 @@ Baixe o [instalador do Anaconda](https://www.anaconda.com/download/) para sua pl
 
     |Versão do cluster | Comando de instalação |
     |---|---|
-    |v 3.6 e v 3.5 |`pip install sparkmagic==0.12.7`|
-    |v3.4|`pip install sparkmagic==0.2.3`|
+    |v 3.6 e v 3.5 |`pip install sparkmagic==0.13.1`|
+    |v 3.4|`pip install sparkmagic==0.2.3`|
 
-1. Verifique `ipywidgets` se o está instalado corretamente executando o seguinte comando:
+1. Verifique se `ipywidgets` está instalado corretamente executando o seguinte comando:
 
     ```cmd
     jupyter nbextension enable --py --sys-prefix widgetsnbextension
@@ -57,7 +57,7 @@ Baixe o [instalador do Anaconda](https://www.anaconda.com/download/) para sua pl
 
 ## <a name="install-pyspark-and-spark-kernels"></a>Instalar kernels PySpark e Spark
 
-1. Identifique onde `sparkmagic` o é instalado digitando o seguinte comando:
+1. Identifique onde o `sparkmagic` está instalado digitando o seguinte comando:
 
     ```cmd
     pip show sparkmagic
@@ -116,6 +116,10 @@ Nesta seção, você configura a mágica do Spark que você instalou anteriormen
         "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
       },
 
+      "custom_headers" : {
+        "X-Requested-By": "livy"
+      },
+
       "heartbeat_refresh_seconds": 5,
       "livy_server_heartbeat_timeout_seconds": 60,
       "heartbeat_retry_seconds": 1
@@ -126,10 +130,10 @@ Nesta seção, você configura a mágica do Spark que você instalou anteriormen
 
     |Valor do modelo | Novo valor |
     |---|---|
-    |USU|Logon do cluster, o `admin`padrão é.|
-    |{CLUSTERDNSNAME}|Nome do cluster|
+    |USU|Logon do cluster, o padrão é `admin`.|
+    |CLUSTERDNSNAME|Nome do cluster|
     |{BASE64ENCODEDPASSWORD}|Uma senha codificada em base64 para sua senha real.  Você pode gerar uma senha base64 em [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/).|
-    |`"livy_server_heartbeat_timeout_seconds": 60`|Mantenha se estiver `sparkmagic 0.12.7` usando (clusters v 3.5 e v 3.6).  Se estiver `sparkmagic 0.2.3` usando (clusters v 3.4), substitua `"should_heartbeat": true`por.|
+    |`"livy_server_heartbeat_timeout_seconds": 60`|Mantenha-se usando `sparkmagic 0.12.7` (clusters v 3.5 e v 3.6).  Se estiver usando `sparkmagic 0.2.3` (clusters v 3.4), substitua por `"should_heartbeat": true`.|
 
     Você pode ver um arquivo de exemplo completo em [Sample config. JSON](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
@@ -142,14 +146,14 @@ Nesta seção, você configura a mágica do Spark que você instalou anteriormen
     jupyter notebook
     ```
 
-6. Verifique se você pode usar a mágica do Spark disponível com os kernels. Execute as seguintes etapas:
+6. Verifique se você pode usar a mágica do Spark disponível com os kernels. Execute as seguintes etapas.
 
     a. Crie um novo bloco de anotações. No canto direito, selecione **novo**. Você deve ver o kernel padrão **Python 2** ou **Python 3** e os kernels que você instalou. Os valores reais podem variar dependendo das suas opções de instalação.  Selecione **PySpark**.
 
-    ![Kernels disponíveis em](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "kernels do notebook Jupyter no Jupyter Notebook")
+    ![Kernels disponíveis no notebook Jupyter](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels no notebook Jupyter")
 
     > [!IMPORTANT]  
-    > Depois de selecionar **nova** revisão, seu shell para quaisquer erros.  Se você vir o erro `TypeError: __init__() got an unexpected keyword argument 'io_loop'` , talvez esteja ocorrendo um problema conhecido com determinadas versões do tornado.  Nesse caso, pare o kernel e, em seguida, faça o downgrade da instalação do `pip install tornado==4.5.3`tornado com o seguinte comando:.
+    > Depois de selecionar **nova** revisão, seu shell para quaisquer erros.  Se você vir o erro `TypeError: __init__() got an unexpected keyword argument 'io_loop'` você pode estar enfrentando um problema conhecido com determinadas versões do tornado.  Nesse caso, pare o kernel e, em seguida, faça o downgrade da instalação do tornado com o seguinte comando: `pip install tornado==4.5.3`.
 
     b. Execute o snippet de código a seguir.
 
@@ -170,7 +174,7 @@ Pode haver vários motivos pelos quais você pode querer instalar o Jupyter em s
 * Com os blocos de notas disponíveis localmente, você pode se conectar a clusters Spark diferentes com base nos requisitos do aplicativo.
 * É possível usar o GitHub para implementar um sistema de controle de origem e ter o controle de versão para os blocos de notas. Você também pode ter um ambiente colaborativo, onde vários usuários podem trabalhar com o mesmo bloco de notas.
 * Você pode trabalhar com blocos de notas localmente sem sequer ter um cluster em operação. É preciso apenas um cluster no qual testar seus blocos de notas, e não para gerenciar manualmente os blocos de notas ou um ambiente de desenvolvimento.
-* Pode ser mais fácil configurar seu próprio ambiente de desenvolvimento local que configurar a instalação do Jupyter no cluster.  É possível aproveitar todo o software que você tem instalado localmente sem configurar um ou mais clusters remotos.
+* Pode ser mais fácil configurar seu próprio ambiente de desenvolvimento local do que configurar a instalação do Jupyter no cluster.  Você pode aproveitar todos os softwares que você instalou localmente sem configurar um ou mais clusters remotos.
 
 > [!WARNING]  
 > Com o Jupyter instalado no computador local, vários usuários podem executar o mesmo bloco de notas no mesmo cluster Spark ao mesmo tempo. Nessa situação, várias sessões Livy são criadas. Se você tiver um problema e desejar depurá-lo, será uma tarefa complexa rastrear qual sessão Livy pertence a qual usuário.  
@@ -178,5 +182,5 @@ Pode haver vários motivos pelos quais você pode querer instalar o Jupyter em s
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
-* [Apache Spark com BI: Executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: Usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema de HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com BI: execute análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com aprendizado de máquina: use o Spark no HDInsight para analisar a temperatura do edifício usando dados de HVAC](apache-spark-ipython-notebook-machine-learning.md)
