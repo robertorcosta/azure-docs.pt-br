@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 24e90ebd2994c5fffc1252167c06783421f2ac33
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: e072923c2c8b1d8e5bb281a5bcff992b25289b4d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035257"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888495"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup do Azure
 
@@ -48,8 +48,8 @@ Os cofres dos serviços de recuperação têm os seguintes recursos:
 - Você pode monitorar itens com backup em um cofre, incluindo VMs do Azure e computadores locais.
 - É possível gerenciar o acesso ao cofre com o [controle de acesso baseado em função (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) do Azure.
 - Você especifica como os dados no cofre são replicados para redundância:
-  - **LRS (armazenamento com redundância local)** : Para se proteger contra falhas em um datacenter, você pode usar o LRS. O LRS replica os dados para uma unidade de escala de armazenamento. [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-  - **GRS (Armazenamento com redundância geográfica)** : Para proteger contra interrupções em toda a região, você pode usar GRS. O GRS Replica seus dados para uma região secundária. [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+  - **LRS (armazenamento com redundância local)** : para se proteger contra falhas em um datacenter, você pode usar o lRS. O LRS replica os dados para uma unidade de escala de armazenamento. [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+  - **Armazenamento com redundância geográfica (GRS)** : para proteger contra interrupções em toda a região, você pode usar o grs. O GRS Replica seus dados para uma região secundária. [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
   - Por padrão, os cofres dos serviços de recuperação usam GRS.
 
 ## <a name="backup-agents"></a>Agentes de backup
@@ -98,15 +98,15 @@ A tabela a seguir resume os recursos com suporte para os diferentes tipos de bac
 
 **Recurso** | **Máquinas locais do Windows Server (diretas)** | **VMs do Azure** | **Computadores ou aplicativos com o DPM/MABS**
 --- | --- | --- | ---
-Fazer backup para o cofre | ![Sim][green] | ![Sim][green] | ![Sim][green]
-Fazer backup no disco do DPM/MABS e, em seguida, para o Azure | | | ![Sim][green]
-Compactar os dados enviados para backup | ![Sim][green] | Nenhuma compactação é usada durante a transferência de dados. O armazenamento está um pouco inflado, mas a restauração é mais rápida.  | ![Sim][green]
-Executa o backup incremental |![Sim][green] |![Sim][green] |![Sim][green]
+Fazer backup para o cofre | ![sim][green] | ![sim][green] | ![sim][green]
+Fazer backup no disco do DPM/MABS e, em seguida, para o Azure | | | ![sim][green]
+Compactar os dados enviados para backup | ![sim][green] | Nenhuma compactação é usada durante a transferência de dados. O armazenamento está um pouco inflado, mas a restauração é mais rápida.  | ![sim][green]
+Executa o backup incremental |![sim][green] |![sim][green] |![sim][green]
 Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][yellow]<br/><br/> Para servidores do MABS/DPM implantados apenas localmente.
 
 ![Chave de tabela](./media/backup-architecture/table-key.png)
 
-## <a name="architecture-direct-backup-of-azure-vms"></a>Arquitetura: Backup direto de VMs do Azure
+## <a name="architecture-direct-backup-of-azure-vms"></a>Arquitetura: backup direto de VMs do Azure
 
 1. Quando você habilita o backup para uma VM do Azure, um backup é executado de acordo com o agendamento especificado.
 1. Durante o primeiro backup, uma extensão de backup é instalada na VM se a VM estiver em execução.
@@ -120,13 +120,13 @@ Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][ye
     - Somente blocos de dados que foram alterados desde o último backup são copiados.
     - Os dados não são criptografados. O backup do Azure pode fazer backup de VMs do Azure que foram criptografadas usando Azure Disk Encryption.
     - Dados de instantâneo não podem ser imediatamente copiados no cofre. Em horários de pico, o backup pode levar algumas horas. O tempo total de backup de uma VM será menor que 24 horas para políticas de backup diárias.
-1. Depois que os dados são enviados para o cofre, um ponto de recuperação é criado. Por padrão, os instantâneos são retidos por dois dias antes de serem excluídos. Esse recurso permite a operação de restauração desses instantâneos, reduzindo assim os tempos de restauração. Ele reduz o tempo necessário para transformar e copiar dados de volta do cofre. Consulte [recurso de restauração instantânea do backup do Azure](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability).
+1. Depois que os dados são enviados para o cofre, um ponto de recuperação é criado. Por padrão, os instantâneos são retidos por dois dias antes de serem excluídos. Esse recurso permite a operação de restauração desses instantâneos, reduzindo assim os tempos de restauração. Ele reduz o tempo necessário para transformar e copiar dados de volta do cofre. Consulte [recurso de restauração instantânea do backup do Azure](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
 
 As VMs do Azure precisam de acesso à Internet para comandos de controle. Se você estiver fazendo backup de cargas de trabalho dentro da VM (por exemplo, SQL Server backups de banco de dados), o back-end também precisará de acesso à Internet.
 
 ![Backup de VMs do Azure](./media/backup-architecture/architecture-azure-vm.png)
 
-## <a name="architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders"></a>Arquitetura: Backup direto de máquinas locais do Windows Server ou arquivos ou pastas da VM do Azure
+## <a name="architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders"></a>Arquitetura: backup direto de máquinas locais do Windows Server ou arquivos ou pastas da VM do Azure
 
 1. Para configurar o cenário, baixe e instale o agente MARS no computador. Em seguida, selecione o que fazer backup, quando os backups serão executados e por quanto tempo eles serão mantidos no Azure.
 1. O backup inicial é executado de acordo com suas configurações de backup.
@@ -140,7 +140,7 @@ As VMs do Azure precisam de acesso à Internet para comandos de controle. Se voc
 
 ![Backup de máquinas locais do Windows Server com o agente MARS](./media/backup-architecture/architecture-on-premises-mars.png)
 
-## <a name="architecture-back-up-to-dpmmabs"></a>Arquitetura: Fazer backup para o DPM/MABS
+## <a name="architecture-back-up-to-dpmmabs"></a>Arquitetura: fazer backup para o DPM/MABS
 
 1. Instale o DPM ou o agente de proteção do MABS em computadores que você deseja proteger. Em seguida, você adiciona os computadores a um grupo de proteção do DPM.
     - Para proteger as máquinas locais, o servidor do DPM ou MABS deverá ser local.
@@ -157,10 +157,10 @@ As VMs do Azure precisam de acesso à Internet para comandos de controle. Se voc
 As VMs do Azure usam discos para armazenar seu sistema operacional, aplicativos e dados. Cada VM do Azure tem pelo menos dois discos: um disco para o sistema operacional e um disco temporário. As VMs do Azure também podem ter discos de dados para dados de aplicativo. Os discos são armazenados como VHDs.
 
 - Os VHDs são armazenados como BLOBs de páginas nas contas de armazenamento Standard ou Premium no Azure:
-  - **Armazenamento Standard:** suporte de disco confiável e de baixo custo para VMs que executam cargas de trabalho que não são sensíveis à latência. O armazenamento Standard pode usar discos SSD (unidade de estado sólido) padrão ou discos de unidade de disco rígido (HDD) padrão.
-  - **Armazenamento Premium:** suporte de disco de alto desempenho. Usa discos SSD premium.
+  - **Armazenamento Standard:** Suporte a disco confiável e de baixo custo para VMs que executam cargas de trabalho que não são sensíveis à latência. O armazenamento Standard pode usar discos SSD (unidade de estado sólido) padrão ou discos de unidade de disco rígido (HDD) padrão.
+  - **Armazenamento Premium:** Suporte a disco de alto desempenho. Usa discos SSD premium.
 - Há diferentes níveis de desempenho de discos:
-  - **HDD Standard disco:** Com suporte de HDDs e usado para armazenamento econômico.
+  - **HDD Standard disco:** Apoiado por HDDs e usado para armazenamento econômico.
   - **SSD Standard disco:** Combina elementos de discos SSD Premium e discos HDD padrão. Oferece desempenho e confiabilidade mais consistentes do que o HDD, mas ainda econômico.
   - **SSD Premium disco:** Apoiado pelo SSDs e fornece alto desempenho e baixa latência para VMs que executam cargas de trabalho intensivas de e/s.
 - Os discos podem ser gerenciados ou não:

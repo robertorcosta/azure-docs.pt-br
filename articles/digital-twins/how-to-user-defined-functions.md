@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 11/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 24b7f05bc59f3eb951897f5e36030b531d8f3aa9
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 5271b14ec008579d18a152a229b9768339927bb7
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959093"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888854"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Como criar funções definidas pelo usuário em Gêmeos Digitais do Azure
 
@@ -26,7 +26,7 @@ Este guia apresenta um exemplo que demonstra como detectar e alertar sobre qualq
 
 ## <a name="client-library-reference"></a>Referência da biblioteca de clientes
 
-As funções disponíveis como métodos auxiliares no tempo de execução de funções definidas pelo usuário são listadas no documento de [referência da biblioteca de clientes](./reference-user-defined-functions-client-library.md).
+As funções disponíveis como métodos auxiliares no runtime de funções definidas pelo usuário são listadas no documento de [referência da biblioteca de clientes](./reference-user-defined-functions-client-library.md).
 
 ## <a name="create-a-matcher"></a>Criar um correspondente
 
@@ -54,16 +54,18 @@ Com o corpo JSON:
 
 ```JSON
 {
-  "Name": "Temperature Matcher",
-  "Conditions": [
+  "id": "3626464-f39b-46c0-d9b0c-436aysj55",
+  "name": "Temperature Matcher",
+  "spaceId": "YOUR_SPACE_IDENTIFIER",
+  "conditions": [
     {
+      "id": "ag7gq35cfu3-e15a-4e9c-6437-sj6w68sy44s",
       "target": "Sensor",
       "path": "$.dataType",
       "value": "\"Temperature\"",
       "comparison": "Equals"
     }
-  ],
-  "SpaceId": "YOUR_SPACE_IDENTIFIER"
+  ]
 }
 ```
 

@@ -3,24 +3,21 @@ title: Exemplo de script do Azure PowerShell – Balanceamento de carga de vári
 description: Exemplo de script do Azure PowerShell – Balanceamento de carga de vários sites para a mesma máquina virtual
 services: load-balancer
 documentationcenter: load-balancer
-author: georgewallace
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: asudbring
+manager: KumudD
 ms.service: load-balancer
 ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
-ms.author: gwallace
-ms.openlocfilehash: 145b5a686b2707b6e60a481c08f187164d788580
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 0b266f5fcad0ef709e29a125f1b9b5ddba7fec90
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121229"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890299"
 ---
 # <a name="load-balance-multiple-websites"></a>Balanceamento de carga de vários sites
 
@@ -36,7 +33,7 @@ Se necessário, instale o Azure PowerShell usando a instrução encontrada no [g
 
 [!code-powershell[main](../../../powershell_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.ps1  "Load balance multiple web sites")]
 
-## <a name="clean-up-deployment"></a>Limpar a implantação 
+## <a name="clean-up-deployment"></a>Limpar implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -46,7 +43,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Esse script usa os seguintes comandos para criar um grupo de recursos, uma rede virtual, um balanceador de carga e todos os recursos relacionados. Cada comando da tabela é vinculado à documentação específica do comando.
+Esse script usa os seguintes comandos para criar um grupo de recursos, uma rede virtual, um balanceador de carga e todos os recursos relacionados. Cada comando na tabela redireciona para a documentação específica do comando.
 
 | Comando | Observações |
 |---|---|
@@ -68,6 +65,6 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma rede 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 Exemplos adicionais de script de PowerShell de rede podem ser encontrados na [Documentação de visão geral da rede do Azure](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

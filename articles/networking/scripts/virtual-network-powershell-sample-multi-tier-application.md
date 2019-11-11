@@ -3,24 +3,21 @@ title: Exemplo de script do Azure PowerShell – Criar uma rede para aplicativos
 description: Exemplo de script do Azure PowerShell – Criar uma rede virtual para aplicativos de várias camadas.
 services: virtual-network
 documentationcenter: virtual-network
-author: georgewallace
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: KumudD
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
-ms.author: gwallace
-ms.openlocfilehash: d5433cdd6e6702a289fe0a4b6eab87e9f196fb1c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: kumud
+ms.openlocfilehash: b619aa5e12a880b1976678ab2c0e44c606507a33
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66156908"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888522"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>Criar uma rede para aplicativos de várias camadas
 
@@ -36,7 +33,7 @@ Se necessário, instale o Azure PowerShell usando a instrução encontrada no [g
 
 [!code-powershell[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 
-## <a name="clean-up-deployment"></a>Limpar a implantação 
+## <a name="clean-up-deployment"></a>Limpar implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -62,6 +59,6 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma rede v
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 Exemplos adicionais de script de PowerShell de rede podem ser encontrados na [Documentação de visão geral da rede do Azure](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

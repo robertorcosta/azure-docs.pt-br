@@ -3,24 +3,21 @@ title: Exemplo de script da CLI do Azure - Criar uma rede para aplicativos de v�
 description: Exemplo de script da CLI do Azure - Criar uma rede virtual para aplicativos de várias camadas.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: KumudD
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: timlt
-ms.openlocfilehash: 1cdc10157fb324ac9167860b9786f4902b1b8b81
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.author: kumud
+ms.openlocfilehash: c211a476c31e386c9c74fcb0139fc61dad0a8eb8
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295569"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889397"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>Criar uma rede para aplicativos de várias camadas
 
@@ -36,7 +33,7 @@ Este exemplo de script cria uma rede virtual com sub-redes de front-end e back-e
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.sh  "Virtual network for multi-tier application")]
 
-## <a name="clean-up-deployment"></a>Limpar a implantação 
+## <a name="clean-up-deployment"></a>Limpar implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 

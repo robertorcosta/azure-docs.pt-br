@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 11e2a02277a47e070f91e8f057f0d8493235c5ce
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 183b85ad8a61c76942981ebb764512b8a090b0a8
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821342"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890453"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o hub IoT usando o protocolo MQTT
 
@@ -42,7 +42,7 @@ Quando um dispositivo está conectado a um Hub IoT, os SDKs do dispositivo forne
 
 A tabela a seguir contém links para exemplos de código de cada linguagem compatível e especifica o parâmetro a ser usado para estabelecer uma conexão com o Hub IoT usando o protocolo MQTT.
 
-| Idioma | Parâmetro do protocolo |
+| idioma | Parâmetro do protocolo |
 | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |azure-iot-device-mqtt |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
@@ -132,7 +132,7 @@ Este repositório contém:
 
 • DeviceTwinMQTTWin32: contém o código para consultar e assinar os eventos de entrelaçamento do dispositivo de um dispositivo no Hub IoT do Azure em um computador Windows.
 
-• PnPMQTTWin32: contém o código para enviar uma mensagem de telemetria com os recursos do dispositivo de visualização do plug & Play de IoT para um hub IoT do Azure, compilado e executado em um computador Windows. Mais sobre o & de plug-in IoT [aqui](https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play)
+• PnPMQTTWin32: contém o código para enviar uma mensagem de telemetria com os recursos do dispositivo de visualização do plug & Play de IoT para um hub IoT do Azure, compilado e executado em um computador Windows. Mais sobre o & de plug-in IoT [aqui](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 
 **Para Linux:**
 
@@ -140,9 +140,9 @@ Este repositório contém:
 
 • LinuxConsoleVS2019: contém o mesmo código, mas em um projeto VS2019 direcionado a WSL (subsistema Linux do Windows). Este projeto permite que você depure o código em execução no Linux passo a passo do Visual Studio.
 
-**Para mosquito_pub:**
+**Por mosquito_pub:**
 
-• Essa pasta contém dois comandos de exemplos usados com a ferramenta Utilitário mosquitto_pub fornecida pelo Mosquitto.org.
+• Essa pasta contém dois comandos de exemplos usados com a ferramenta de utilitário mosquitto_pub fornecida pelo Mosquitto.org.
 
 Mosquitto_sendmessage: para enviar uma mensagem de texto simples para um hub IoT do Azure atuando como um dispositivo.
 
@@ -309,7 +309,7 @@ O corpo de resposta contém a seção de propriedades do dispositivo gêmeo, com
 
 Os códigos de status possíveis são:
 
-|Status | Descrição |
+|Status | DESCRIÇÃO |
 | ----- | ----------- |
 | 204 | Êxito (nenhum conteúdo retorna) |
 | 429 | Muitas solicitações (limitadas), de acordo com a [limitação do Hub IOT](iot-hub-devguide-quotas-throttling.md) |
@@ -340,7 +340,7 @@ O corpo da mensagem de solicitação contém um documento JSON, que contém novo
 
 Os códigos de status possíveis são:
 
-|Status | Descrição |
+|Status | DESCRIÇÃO |
 | ----- | ----------- |
 | 200 | Sucesso |
 | 400 | Solicitação inválida. JSON malformado |
@@ -396,7 +396,7 @@ Para obter mais informações, consulte [Guia do desenvolvedor do método direto
 
 Como uma consideração final, se você precisar personalizar o comportamento do protocolo MQTT no lado da nuvem, examine o gateway do [protocolo IOT do Azure](iot-hub-protocol-gateway.md). Esse software permite que você implante um gateway de protocolo personalizado de alto desempenho que faz interface diretamente com o Hub IoT. O gateway do protocolo IoT do Azure permite que você personalize o protocolo de dispositivo para acomodar as implantações de MQTT de nível industrial ou outros protocolos personalizados. Essa abordagem exige, no entanto, que você execute e opere um gateway de protocolo personalizado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o protocolo MQTT, consulte a [documentação do MQTT](https://mqtt.org/documentation).
 

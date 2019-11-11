@@ -9,18 +9,18 @@ ms.author: robreed
 ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e655e286c3aebe28bcb09c8723516c2ff52ad20e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6c29015e2fd327d74183d5fbbd6214152507e517
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850351"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886778"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbook da Automação do Azure
 
 A Automação do Azure dá suporte a vários tipos de runbooks descritos brevemente na tabela a seguir.  As seções abaixo fornecem mais informações sobre cada tipo, incluindo considerações sobre quando usar cada um.
 
-| Tipo | Descrição |
+| Digite | DESCRIÇÃO |
 |:--- |:--- |
 | [Gráfico](#graphical-runbooks)|Com base no Windows PowerShell e criado e editado completamente no editor gráfico do portal do Azure. |
 | [Fluxo de Trabalho Gráfico do PowerShell](#graphical-runbooks)|Com base no Fluxo de Trabalho do Windows PowerShell e criado e editado completamente no editor gráfico do portal do Azure. |
@@ -64,7 +64,7 @@ Os runbooks do PowerShell se baseiam no Windows PowerShell.  Você edita o códi
 * Não é possível usar os [pontos de verificação](automation-powershell-workflow.md#checkpoints) para retomar o runbook em caso de erro.
 * Os runbooks de Fluxo de Trabalho e Gráficos do PowerShell só podem ser incluídos como runbooks filho usando o cmdlet Start-AzureAutomationRunbook, que cria um novo trabalho.
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 
 Veja a seguir problemas conhecidos atuais com os runbooks do PowerShell.
 
@@ -119,4 +119,4 @@ Leve em conta as considerações adicionais a seguir ao determinar qual tipo usa
 * Para saber mais sobre a criação de runbooks Gráficos, veja [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md)
 * Para entender as diferenças entre o PowerShell e o os fluxos de trabalho do PowerShell para runbooks, consulte [Aprendendo sobre o fluxo de trabalho do Windows PowerShell](automation-powershell-workflow.md)
 * Para obter mais informações sobre como criar ou importar um Runbook, consulte [Criando ou Importando um Runbook](manage-runbooks.md)
-* Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](https://docs.microsoft.com/powershell/scripting/overview).

@@ -1,18 +1,18 @@
 ---
-title: Integração de parceiros com imagens
+title: Integração com parceiros de imagens
 description: Descreve sobre a integração de parceiros com imagens
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c76fd151bf70bfff6eed3b45a673f94777e59467
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 2b15cc56cb4f804fac0b047819ccf166950e1cf3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797901"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890968"
 ---
-# <a name="imagery-partner-integration"></a>Integração de parceiros com imagens
+# <a name="imagery-partner-integration"></a>Integração com parceiros de imagens
 
 Este artigo descreve como usar o componente Azure FarmBeats Translator para enviar dados de imagens para o FarmBeats. Os dados de imagens agricultural podem ser de várias fontes, incluindo câmeras multispectrals, satélites e drones. Os parceiros de imagens agricultural podem se integrar ao FarmBeats para fornecer aos clientes mapas gerados personalizados para seus farms.
 
@@ -33,8 +33,8 @@ Você deve usar as seguintes credenciais no software de parceiro drone para vinc
 
 - Ponto de extremidade de API
 - ID do locatário
-- ID do cliente
-- Segredo do cliente
+- Id do Cliente
+- Segredo do Cliente
 
 ## <a name="api-development"></a>Desenvolvimento de API
 
@@ -48,8 +48,8 @@ Para obter mais informações sobre o, consulte [Azure Active Directory](https:/
 
 O FarmBeats data Hub usa a autenticação de portador, que precisa das seguintes credenciais:
 
-- ID do cliente
-- Segredo do cliente
+- Id do Cliente
+- Segredo do Cliente
 - ID do locatário
 
 Usando as credenciais acima, o chamador pode solicitar um token de acesso, que precisa ser enviado nas solicitações de API subsequentes, na seção de cabeçalho da seguinte maneira:
@@ -97,7 +97,7 @@ Opcionalmente, você pode incluir parâmetros de consulta em GET calls para filt
 
 A solicitação de exemplo abaixo é obter a lista de dispositivos:
 
-```
+```azurepowershell-interactive
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>”
@@ -108,7 +108,7 @@ A maioria das chamadas GET, POST e PUT exigem um corpo de solicitação JSON.
 A solicitação de exemplo abaixo é criar um dispositivo (isso tem um JSON de entrada com o corpo da solicitação).
 
 
-```json
+```azurepowershell-interactive
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  
 "accept: application/json" -H  
 "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d

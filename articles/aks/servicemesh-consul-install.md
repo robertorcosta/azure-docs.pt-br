@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 1c48e758e9ee69085034f714652632151912f8d4
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d5d0a575c3fb662df034b66a48135ac33393f95c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530622"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885400"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Instalar e usar o Consul no serviço kubernetes do Azure (AKS)
 
@@ -21,7 +21,7 @@ O [Consul][consul-github] é uma malha de serviço de software livre que fornece
 Este artigo mostra como instalar o Consul. Os componentes do Consul são instalados em um cluster kubernetes no AKS.
 
 > [!NOTE]
-> Estas instruções fazem referência à versão do Consul `1.6.0` e usam pelo menos a versão do Helm `2.14.2`.
+> Estas instruções fazem referência à versão do Consul `1.6.0`e usam pelo menos a versão do Helm `2.14.2`.
 >
 > As versões de `1.6.x` do Consul podem ser executadas em versões do kubernetes `1.13+`. Você pode encontrar versões adicionais do Consul em [versões do GitHub-Consul][consul-github-releases] e informações sobre cada uma das versões em [Consul-Release Notes][consul-release-notes].
 
@@ -129,7 +129,7 @@ consul-consul-sync-catalog-d846b79c-8ssr8                         1/1     Runnin
 consul-consul-tz2t5                                               1/1     Running   0          3m9s   10.240.0.12   aks-linux-92468653-vmss000000   <none>           <none>
 ```
 
-Todos os pods devem mostrar um status de `Running`. Se os pods não tiverem esses status, aguarde um ou dois minutos até que eles façam. Se qualquer pods relatar um problema, use o comando [kubectl para descrever o Pod][kubectl-describe] para revisar sua saída e status.
+Todos os pods devem mostrar um status de `Running`. Se os pods não tiverem esses status, aguarde um minuto ou dois até que tenham. Se qualquer pods relatar um problema, use o comando [kubectl para descrever o Pod][kubectl-describe] para revisar sua saída e status.
 
 ## <a name="accessing-the-consul-ui"></a>Acessando a interface do usuário do Consul
 
@@ -157,7 +157,7 @@ helm delete --purge consul
 kubectl delete namespace consul
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para explorar mais opções de instalação e configuração para o Consul, consulte os seguintes artigos oficiais do Consul:
 
@@ -186,7 +186,7 @@ Você também pode seguir cenários adicionais usando:
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-port-forward]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward
-[kubernetes-node-selectors]: https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#node-selectors
+[kubernetes-node-selectors]: https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#node-selectors
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

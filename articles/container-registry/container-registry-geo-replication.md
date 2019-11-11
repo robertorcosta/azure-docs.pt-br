@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: c0de5f958c6dcbf935de4eec9557cf64620abbcf
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: f6d1987012cb401d7167896d9352ba7eae821a04
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208011"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887980"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicação geográfica no Registro de Contêiner do Azure
 
@@ -121,7 +121,7 @@ No exemplo anterior, a Contoso consolidou dois registros inoperantes em um, adic
  
 Um cliente do Docker que efetua push de uma imagem para um registro com replicação geográfica pode não efetuar push de todas as camadas de imagem e seu manifesto para uma única região replicada. Isso pode ocorrer porque o Gerenciador de Tráfego do Azure roteia as solicitações de registro para o registro replicado mais próximo da rede. Se o registro tiver duas regiões de replicação *próximas*, as camadas de imagem e o manifesto poderão ser distribuídos para os dois sites, e a operação de push falhará quando o manifesto for validado. Esse problema ocorre devido à maneira como o nome DNS do registro é resolvido em alguns hosts Linux. Esse problema não ocorre no Windows, que fornece um cache DNS do lado do cliente.
  
-Se esse problema ocorrer, uma solução será aplicar um cache DNS do lado do cliente, como `dnsmasq`, no host Linux. Isso ajuda a garantir que o nome do registro seja resolvido de forma consistente. Caso esteja usando uma VM do Linux no Azure para efetuar push para um registro, confira as opções em [Opções de resolução de nomes DNS para máquinas virtuais do Linux no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/azure-dns).
+Se esse problema ocorrer, uma solução será aplicar um cache DNS do lado do cliente, como `dnsmasq`, no host Linux. Isso ajuda a garantir que o nome do registro seja resolvido de forma consistente. Caso esteja usando uma VM do Linux no Azure para efetuar push para um registro, confira as opções em [Opções de resolução de nomes DNS para máquinas virtuais do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/azure-dns).
 
 Para otimizar a resolução DNS para a réplica mais próxima ao efetuar push de imagens, configure um registro com replicação geográfica nas mesmas regiões do Azure da origem das operações de push ou a região mais próxima ao trabalhar fora do Azure.
 

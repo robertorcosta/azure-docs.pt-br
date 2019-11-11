@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cijothomas
 ms.author: cithomas
 ms.date: 09/15/2019
-ms.openlocfilehash: ccc7218575638c7ede2c56a99e41dd68cbd475c0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8dd46d8224567e1883fd2a397d5ba2b00a0fd43d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899224"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887288"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights para aplicativos de serviço de trabalho (aplicativos não HTTP)
 
@@ -24,7 +24,7 @@ O novo SDK não faz nenhuma coleção de telemetria por si só. Em vez disso, el
 
 O [SDK do Application insights para o serviço de trabalho](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) é mais adequado para aplicativos não http, independentemente de onde ou como eles são executados. Se seu aplicativo estiver em execução e tiver conectividade de rede com o Azure, a telemetria poderá ser coletada. Há suporte para o monitoramento de Application Insights em todos os lugares do .NET Core. Este pacote pode ser usado no [serviço de trabalho do .NET Core 3,0](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances)introduzido recentemente, [tarefas em segundo plano no ASP.NET Core 2.1/2.2](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2), aplicativos de console (.NET Core/.NET Framework), etc.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Uma chave de instrumentação de Application Insights válida. Essa chave é necessária para enviar qualquer telemetria para Application Insights. Se você precisar criar um novo recurso de Application Insights para obter uma chave de instrumentação, consulte [criar um recurso de Application insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
@@ -296,7 +296,7 @@ Esse aplicativo de console também usa o mesmo `TelemetryConfiguration`padrão e
 
 Execute seu aplicativo. Os operadores de exemplo de todas as versões acima acima fazem uma chamada http a cada segundo para bing.com e também emite alguns logs usando ILogger. Essas linhas são encapsuladas dentro de `StartOperation` chamada de `TelemetryClient`, que é usada para criar uma operação (neste exemplo `RequestTelemetry` chamada "Operation"). Application Insights coletará esses logs do ILogger (aviso ou acima por padrão) e dependências, e eles serão correlacionados à `RequestTelemetry` com relação pai-filho. A correlação também funciona com limites de processo/rede. Por exemplo, se a chamada foi feita para outro componente monitorado, ela também será correlacionada a esse pai.
 
-Essa operação personalizada do `RequestTelemetry` pode ser considerada como o equivalente de uma solicitação da Web de entrada em um aplicativo Web típico. Embora não seja necessário usar uma operação, ela se adapta melhor ao modelo de [dados de correlação Application insights](https://docs.microsoft.com/azure/azure-monitor/app/correlation) , com `RequestTelemetry` atuando como a operação pai, e cada telemetria gerada dentro da iteração do trabalho é tratada como logicamente pertencente à mesma operação. Essa abordagem também garante que toda a telemetria gerada (automática e manual) terá o mesmo `operation_id`. Como a amostragem é baseada em `operation_id`, o algoritmo de amostragem mantém ou descarta toda a telemetria de uma única iteração.
+Essa operação personalizada do `RequestTelemetry` pode ser considerada como o equivalente de uma solicitação da Web de entrada em um aplicativo Web típico. Embora não seja necessário usar uma operação, ela se adapta melhor ao modelo de [dados de correlação Application insights](https://docs.microsoft.com/azure/azure-monitor/app/correlation) , com `RequestTelemetry` atuando como a operação pai, e cada telemetria gerada dentro da iteração do trabalho é tratada como sendo logicamente pertencente à mesma operação. Essa abordagem também garante que toda a telemetria gerada (automática e manual) terá o mesmo `operation_id`. Como a amostragem é baseada em `operation_id`, o algoritmo de amostragem mantém ou descarta toda a telemetria de uma única iteração.
 
 O seguinte lista a telemetria completa coletada automaticamente pelo Application Insights.
 
@@ -353,22 +353,22 @@ Observe que `ApplicationInsightsServiceOptions` nesse SDK está no namespace `Mi
 
 Configurações comumente usadas no `ApplicationInsightsServiceOptions`
 
-|Configuração | Descrição | Padrão
+|Configuração | DESCRIÇÃO | Padrão
 |---------------|-------|-------
-|EnableQuickPulseMetricStream | Habilitar/desabilitar o recurso LiveMetrics | true
-|EnableAdaptiveSampling | Habilitar/desabilitar amostragem adaptável | true
-|EnableHeartbeat | Habilitar/desabilitar o recurso de pulsações, que periodicamente (padrão de 15 min) envia uma métrica personalizada chamada ' HeartBeatstate ' com informações sobre o tempo de execução como versão do .NET, informações de ambiente do Azure, se aplicável, etc. | true
-|AddAutoCollectedMetricExtractor | Habilitar/desabilitar o extrator AutoCollectedMetrics, que é um TelemetryProcessor que envia métricas previamente agregadas sobre solicitações/dependências antes que a amostragem ocorra. | true
+|EnableQuickPulseMetricStream | Habilitar/desabilitar o recurso LiveMetrics | verdadeiro
+|EnableAdaptiveSampling | Habilitar/desabilitar amostragem adaptável | verdadeiro
+|EnableHeartbeat | Habilitar/desabilitar o recurso de pulsações, que periodicamente (padrão de 15 min) envia uma métrica personalizada chamada ' HeartBeatstate ' com informações sobre o tempo de execução como versão do .NET, informações de ambiente do Azure, se aplicável, etc. | verdadeiro
+|AddAutoCollectedMetricExtractor | Habilitar/desabilitar o extrator AutoCollectedMetrics, que é um TelemetryProcessor que envia métricas previamente agregadas sobre solicitações/dependências antes que a amostragem ocorra. | verdadeiro
 
 Consulte as [configurações configuráveis em `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) para obter a lista mais atualizada.
 
-### <a name="sampling"></a>amostragem
+### <a name="sampling"></a>Amostragem
 
 O SDK do Application Insights para o serviço de trabalho dá suporte à amostragem de taxa fixa e adaptável. A amostragem adaptável é habilitada por padrão. Configurar a amostragem para o serviço de trabalho é feito da mesma maneira que para [aplicativos ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-adaptive-sampling-for-aspnet-core-applications).
 
 ### <a name="adding-telemetryinitializers"></a>Adicionando TelemetryInitializers
 
-Use [inicializadores de telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) quando desejar definir propriedades que são enviadas com toda a telemetria.
+Use [inicializadores de telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) quando desejar definir propriedades que são enviadas com toda a telemetria.
 
 Adicione qualquer `TelemetryInitializer` novo ao contêiner de `DependencyInjection` e o SDK irá adicioná-los automaticamente ao `TelemetryConfiguration`.
 
@@ -430,7 +430,7 @@ Os seguintes módulos de coleta automática estão habilitados por padrão. Esse
 * `AppServicesHeartbeatTelemetryModule`
 * `AzureInstanceMetadataTelemetryModule`
 
-Para configurar qualquer `TelemetryModule` padrão, use o método de extensão `ConfigureTelemetryModule<T>` em `IServiceCollection`, conforme mostrado no exemplo a seguir.
+Para configurar qualquer `TelemetryModule`padrão, use o método de extensão `ConfigureTelemetryModule<T>` em `IServiceCollection`, conforme mostrado no exemplo a seguir.
 
 ```csharp
     using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
@@ -541,7 +541,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 [Ler e contribuir para o código](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Use a API](../../azure-monitor/app/api-custom-events-metrics.md) para enviar seus próprios eventos e métricas para uma exibição detalhada do desempenho e do uso do seu aplicativo.
 * [Rastreie dependências adicionais não rastreadas automaticamente](../../azure-monitor/app/auto-collect-dependencies.md).

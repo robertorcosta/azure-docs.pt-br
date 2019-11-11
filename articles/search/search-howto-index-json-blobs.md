@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f8ddec95b92121c8dad4a39cf0c7b3f1798ec8ad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 81e652b90831af0e1e20e716842b4e79f5606d05
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789515"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889862"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Como indexar BLOBs JSON usando um indexador de blob no Azure Pesquisa Cognitiva
 
@@ -65,17 +65,11 @@ Na página **fonte de dados**, a fonte deve ser **Armazenamento de blobs do Azur
 
    ![Definição de fonte de dados de Blob](media/search-howto-index-json/import-wizard-json-data-source.png)
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4 - Pular a página de "Adicionar a pesquisa cognitiva" no assistente
+### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4-ignorar a página "conteúdo enriquecer" no assistente
 
-Adicionar habilidades cognitivas não é necessário para a importação de documentos JSON. A menos que você tenha uma necessidade específica de [Adicionar o enriquecimento de ia](cognitive-search-concept-intro.md) ao seu pipeline de indexação, ignore esta etapa.
+Adicionar habilidades cognitivas (ou enriquecimento) não é um requisito de importação. A menos que você tenha uma necessidade específica de [Adicionar o enriquecimento de ia](cognitive-search-concept-intro.md) ao seu pipeline de indexação, ignore esta etapa.
 
-Para ignorar a etapa, primeiro vá para a próxima página.
-
-   ![Botão Próxima página da pesquisa cognitiva](media/search-get-started-portal/next-button-add-cog-search.png)
-
-Nessa página, você pode pular para a personalização do índice.
-
-   ![Ignorar etapa de habilidades cognitivas](media/search-get-started-portal/skip-cog-skill-step.png)
+Para ignorar a etapa, clique nos botões azuis na parte inferior da página para "Avançar" e "ignorar".
 
 ### <a name="5---set-index-attributes"></a>5- Definir atributos de índice
 
@@ -124,7 +118,7 @@ A ordem das operações requer que você crie e chame objetos nesta ordem. Em co
 
 Os BLOBs JSON no armazenamento de BLOBs do Azure normalmente são um único documento JSON ou uma "matriz" JSON. O indexador de blob no Azure Pesquisa Cognitiva pode analisar qualquer construção, dependendo de como você define o parâmetro **parsingMode** na solicitação.
 
-| Documento JSON | parsingMode | Descrição | Disponibilidade |
+| Documento JSON | parsingMode | DESCRIÇÃO | Disponibilidade |
 |--------------|-------------|--------------|--------------|
 | Um por blob | `json` | Analisa blobs JSON como um único bloco de texto. Cada blob JSON se torna um único documento Pesquisa Cognitiva do Azure. | Geralmente disponível na API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e no SDK do [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) . |
 | Múltiplos por blob | `jsonArray` | Analisa uma matriz JSON no BLOB, em que cada elemento da matriz se torna um documento do Azure Pesquisa Cognitiva separado.  | Geralmente disponível na API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e no SDK do [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) . |
@@ -288,7 +282,7 @@ O SDK do .NET tem paridade total com a API REST. É recomendável examinar a se�
 
 Os BLOBs JSON podem assumir vários formulários. O parâmetro **parsingMode** no indexador JSON determina como o conteúdo do blob JSON é analisado e estruturado em um índice de pesquisa cognitiva do Azure:
 
-| parsingMode | Descrição |
+| parsingMode | DESCRIÇÃO |
 |-------------|-------------|
 | `json`  | Indexe cada blob como um único documento. Esse é o padrão. |
 | `jsonArray` | Escolha esse modo se os BLOBs consistirem em matrizes JSON e você precisar que cada elemento da matriz se torne um documento separado no Azure Pesquisa Cognitiva. |
@@ -430,9 +424,9 @@ Você também pode se referir a elementos individuais da matriz usando um índic
 >
 >
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 
-+ [Indexadores no Azure Pesquisa Cognitiva](search-indexer-overview.md)
++ [Indexadores na Pesquisa Cognitiva do Azure](search-indexer-overview.md)
 + [Indexando o armazenamento de BLOBs do Azure com o Azure Pesquisa Cognitiva](search-howto-index-json-blobs.md)
 + [Indexando BLOBs CSV com o indexador de blob Pesquisa Cognitiva do Azure](search-howto-index-csv-blobs.md)
 + [Tutorial: pesquisar dados semiestruturados do armazenamento de BLOBs do Azure](search-semi-structured-data.md)

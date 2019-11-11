@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: usar filas do barramento de serviço do Azure com Python'
-description: Saiba como usar as filas do barramento de serviço do Azure do Python.
+title: 'Início Rápido: Usar filas do Barramento de Serviço do Azure com Python'
+description: 'Início Rápido: Saiba como usar as filas do barramento de serviço do Azure do Python.'
 services: service-bus-messaging
 documentationcenter: python
 author: axisc
@@ -11,33 +11,33 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 69ae02ea7c0c04312dd4e64125c80384172c6528
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
-ms.translationtype: MT
+ms.openlocfilehash: 4319299eabb57451e3a25a69196a63094f66ab9b
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72438104"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721632"
 ---
-# <a name="tutorial-use-azure-service-bus-queues-with-python"></a>Tutorial: usar filas do barramento de serviço do Azure com Python
+# <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Início Rápido: Usar filas do Barramento de Serviço do Azure com Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Neste tutorial, você aprenderá a criar aplicativos Python para enviar e receber mensagens de uma fila do barramento de serviço. 
+Neste tutorial, você aprenderá a criar aplicativos Python para enviar mensagens para uma fila do Barramento de Serviço e receber mensagens dela. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Você pode ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga as etapas no artigo [usar portal do Azure para criar uma fila do barramento de serviço](service-bus-quickstart-portal.md) .
-    1. Leia a **visão geral** rápida das **filas**do barramento de serviço. 
-    2. Crie um **namespace**do barramento de serviço. 
-    3. Obter a **cadeia de conexão**. 
+1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. É possível ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga as etapas no artigo [Usar o portal do Azure para criar uma fila do Barramento de Serviço](service-bus-quickstart-portal.md).
+    1. Leia a rápida **visão geral** das **filas** do Barramento de Serviço. 
+    2. Crie um **namespace** do Barramento de Serviço. 
+    3. Obtenha a **cadeia de conexão**. 
 
         > [!NOTE]
-        > Você criará uma **fila** no namespace do barramento de serviço usando o Python neste tutorial. 
-1. Instale o Python ou o [pacote de barramento de serviço do Python Azure][Python Azure Service Bus package], consulte o [Guia de instalação do Python](/azure/python/python-sdk-azure-install). Consulte a documentação completa do SDK do Python do barramento de serviço [aqui](/python/api/overview/azure/servicebus?view=azure-python).
+        > Você criará uma **fila** no namespace do Barramento de Serviço usando o Python neste tutorial. 
+1. Instale o Python ou o [pacote do Barramento de Serviço do Azure para Python][Python Azure Service Bus package], confira o [Guia de Instalação do Python](/azure/python/python-sdk-azure-install). Confira a documentação completa do SDK do Python do Barramento de Serviço [aqui](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="create-a-queue"></a>Criar uma fila
 O objeto **ServiceBusClient** permite que você trabalhe com filas. Adicione o seguinte código próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o Barramento de Serviço de forma programática:
@@ -46,13 +46,13 @@ O objeto **ServiceBusClient** permite que você trabalhe com filas. Adicione o s
 from azure.servicebus import ServiceBusClient
 ```
 
-O código a seguir cria um objeto **ServiceBusClient** . Substitua `<CONNECTION STRING>` pela ConnectionString do ServiceBus.
+O código a seguir cria um objeto **ServiceBusClient**. Substitua `<CONNECTION STRING>` pelo seu connectionstring do servicebus.
 
 ```python
 sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')
 ```
 
-Os valores para o nome e o valor da chave SAS podem ser encontrados no [portal do Azure][Azure portal] informações de conexão ou no painel **Propriedades** do Visual Studio ao selecionar o namespace do barramento de serviço no Gerenciador de servidores (conforme mostrado na seção anterior).
+É possível encontrar os valores para o nome de chave e o valor da SAS nas informações de conexão do [portal do Azure][Azure portal] ou no painel **Propriedades** do Visual Studio ao selecionar o namespace do Barramento de Serviço no Gerenciador de Servidores (conforme mostrado na seção anterior).
 
 ```python
 sb_client.create_queue("taskqueue")
@@ -65,10 +65,10 @@ sb_client.create_queue("taskqueue", max_size_in_megabytes=5120,
                        default_message_time_to_live=datetime.timedelta(minutes=1))
 ```
 
-Para obter mais informações, consulte a [documentação do Python do barramento de serviço do Azure](/python/api/overview/azure/servicebus?view=azure-python).
+Para obter mais informações, confira a [Documentação do Python do Barramento de Serviço do Azure](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="send-messages-to-a-queue"></a>Enviar mensagens a uma fila
-Para enviar uma mensagem para uma fila do barramento de serviço, seu aplicativo chama o método `send` no objeto `ServiceBusClient`.
+Para enviar uma mensagem para uma fila do Barramento de Serviço, seu aplicativo chama o método `send` no objeto `ServiceBusClient`.
 
 O exemplo a seguir demonstra como enviar uma mensagem de teste à fila chamada `taskqueue` usando `send_queue_message`:
 
@@ -84,12 +84,12 @@ msg = Message(b'Test Message')
 queue_client.send(msg)
 ```
 
-As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para saber mais sobre cotas, confira [Cotas do Barramento de Serviço][Service Bus quotas].
+As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para saber mais sobre cotas, consulte [Cotas do Barramento de Serviço][Service Bus quotas].
 
-Para obter mais informações, consulte a [documentação do Python do barramento de serviço do Azure](/python/api/overview/azure/servicebus?view=azure-python).
+Para obter mais informações, confira a [Documentação do Python do Barramento de Serviço do Azure](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
-As mensagens são recebidas de uma fila usando o método `get_receiver` no objeto `ServiceBusService`:
+As mensagens são recebidas de uma fila que usa o método `get_receiver` no objeto `ServiceBusService`:
 
 ```python
 from azure.servicebus import QueueClient, Message
@@ -106,7 +106,7 @@ with queue_client.get_receiver() as queue_receiver:
         message.complete()
 ```
 
-Para obter mais informações, consulte a [documentação do Python do barramento de serviço do Azure](/python/api/overview/azure/servicebus?view=azure-python).
+Para obter mais informações, confira a [Documentação do Python do Barramento de Serviço do Azure](/python/api/overview/azure/servicebus?view=azure-python).
 
 
 As mensagens são excluídas da fila conforme são lidas quando o parâmetro `peek_lock` é definido como **False**. Você pode ler (espiar) e bloquear a mensagem sem excluí-la da fila ao definir o parâmetro `peek_lock` como **True**.
@@ -124,12 +124,12 @@ O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recupera
 
 Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o aplicativo não conseguir processar a mensagem antes da expiração do tempo limite do bloqueio (por exemplo, em caso de falha do aplicativo), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
 
-Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método **delete** seja chamado, a mensagem será fornecida novamente ao aplicativo quando ele for reiniciado. Isso é frequentemente chamado **de processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez, mas, em determinadas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
+Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método **delete** seja chamado, a mensagem será fornecida novamente ao aplicativo quando ele for reiniciado. Isso é frequentemente chamado de **processamento pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
 
 > [!NOTE]
 > É possível gerenciar os recursos do Barramento de Serviço com o [Gerenciador de Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador de Barramento de Serviço permite que usuários se conectem a um namespace de serviço do Barramento de Serviço e administrem entidades de mensagens de uma maneira fácil. A ferramenta fornece recursos avançados, como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Agora que você já aprendeu sobre as noções básicas das filas do Barramento de Serviço, confira estes artigo para saber mais.
 
 * [Filas, tópicos e assinaturas][Queues, topics, and subscriptions]

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 4dd4831d6437b7026459dc358455335dd0fa221b
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: f27a6df86ebbe2b07b73016f304ac364e88664bb
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063095"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891049"
 ---
-# <a name="expressroute-faq"></a>Perguntas frequentes sobre o ExpressRoute
+# <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
 ## <a name="what-is-expressroute"></a>O que é ExpressRoute?
 
@@ -65,12 +65,12 @@ O ExpressRoute dá suporte a [três domínios de roteamento](expressroute-circui
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI-disponível por meio de uma comunidade regional do Azure, consulte [aqui](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) para saber como descobrir a região do seu locatário de Power bi.
-* Azure Active Directory
+* Active Directory do Azure
 * [Área de trabalho virtual do Windows](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (comunidade de Serviços Globais do Azure)
 * Há suporte para a maioria dos serviços do Azure. Verifique diretamente o serviço que você deseja utilizar para confirmar o suporte.<br><br>**NÃO há suporte para os serviços a seguir**:
     * CDN
-    * Azure Front Door
+    * Porta da frente do Azure
     * Servidor de autenticação multifator (Herdado)
     * Gerenciador de Tráfego
 
@@ -84,7 +84,7 @@ O ExpressRoute dá suporte a [três domínios de roteamento](expressroute-circui
 * Há suporte para a maioria dos serviços do Azure. Verifique diretamente o serviço que você deseja utilizar para confirmar o suporte.<br><br>
   **NÃO há suporte para os serviços a seguir**:
     * CDN
-    * Azure Front Door
+    * Porta da frente do Azure
     * Servidor de autenticação multifator (Herdado)
     * Gerenciador de Tráfego
 
@@ -101,7 +101,7 @@ Se você vir a mensagem "validação necessária", colete os documentos que most
 Os ambientes do Dynamics 365 e do Common Data Service (CDS) são hospedados no Azure e, portanto, os clientes se beneficiam do suporte do ExpressRoute subjacente para os recursos do Azure. Você pode se conectar a seus pontos de extremidade de serviço se o filtro do roteador incluir as regiões do Azure em que seus ambientes Dynamics 365/CDS estão hospedados.
 
 > [!NOTE]
-> O [Expressroute Premium](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs#expressroute-premium) **não** é necessário para a conectividade do Dynamics 365 por meio do Azure ExpressRoute.
+> O [Expressroute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) **não** é necessário para a conectividade do Dynamics 365 por meio do Azure ExpressRoute.
 
 ## <a name="data-and-connections"></a>Dados e conexões
 

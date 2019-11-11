@@ -1,7 +1,7 @@
 ---
 title: Painel-Reconhecimento vocal-LUIS
 titleSuffix: Azure Cognitive Services
-description: Corrija as intenções com o painel de análise, uma ferramenta de relatório visualizada.
+description: Corrija as intenções e entidades com o painel de seu aplicativo treinado. O painel exibe informações gerais do aplicativo, com destaques de tentativas que devem ser corrigidas.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 22e187bba3782e485685354c203a6273d5bcc618
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: d9ae126753f55349f9bf3eefd20bc4d222866af1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735047"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888208"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Como usar o painel para melhorar seu aplicativo
 
@@ -100,7 +100,7 @@ Não adicione declarações à intenção None, a menos que seja sugerido no pai
 
 > [!Tip]
 > Use a terceira seção da página, **declarações por intenção** , com a configuração de **declarações (número)** , como um guia visual rápido do qual as tentativas precisam de mais declarações.  
-    ![Use ' declarações (Number) ' para localizar tentativas com desequilíbrio de dados.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
+    ![usar ' declarações (Number) ' para localizar tentativas com desequilíbrio de dados.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
 
 ### <a name="review-incorrect-predictions"></a>Revisar previsões incorretas
 

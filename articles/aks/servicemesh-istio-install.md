@@ -1,29 +1,29 @@
 ---
-title: Instalar o İSTİO no serviço kubernetes do Azure (AKS)
-description: Saiba como instalar e usar o İSTİO para criar uma malha de serviço em um cluster do AKS (serviço kubernetes do Azure)
+title: Instalar Istio no AKS (Serviço de Kubernetes do Azure)
+description: Saiba como instalar e usar o Istio para criar uma malha de serviço em um cluster do AKS (Serviço de Kubernetes do Azure)
 author: paulbouwer
 ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 9c9dcd567b8632626bf4b1f0bf2ef6b5e69b8a9d
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 245ac3b1fd88b8d2430e9ddefef3562efd16e6d1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530440"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885377"
 ---
-# <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalar e usar o İSTİO no serviço kubernetes do Azure (AKS)
+# <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalar e usar o Istio no AKS (Serviço de Kubernetes do Azure)
 
-O [İSTİO][istio-github] é uma malha de serviço de software livre que fornece um conjunto de chaves de funcionalidade em todos os microserviços em um cluster kubernetes. Esses recursos incluem gerenciamento de tráfego, identidade de serviço e segurança, imposição de política e observação. Para obter mais informações sobre İSTİO, consulte a documentação oficial [o que é o İSTİO?][istio-docs-concepts] .
+O [İSTİO][istio-github] é uma malha de serviço de software livre que fornece um conjunto de chaves de funcionalidade em todos os microserviços em um cluster kubernetes. Esses recursos incluem gerenciamento de tráfego, segurança e identidade do serviço, imposição de política e observabilidade. Para obter mais informações sobre İSTİO, consulte a documentação oficial [o que é o İSTİO?][istio-docs-concepts] .
 
-Este artigo mostra como instalar o İSTİO. O binário do İSTİO `istioctl` Client é instalado no computador cliente e os componentes do İSTİO são instalados em um cluster kubernetes no AKS.
+Este artigo mostra como instalar o Istio. O binário do İSTİO `istioctl` Client é instalado no computador cliente e os componentes do İSTİO são instalados em um cluster kubernetes no AKS.
 
 > [!NOTE]
-> Estas instruções fazem referência à versão do İSTİO `1.3.2` e usam pelo menos a versão do Helm `2.14.2`.
+> Estas instruções fazem referência à versão do İSTİO `1.3.2`e usam pelo menos a versão do Helm `2.14.2`.
 >
-> As versões de `1.3.x` do İSTİO foram testadas pela equipe do İSTİO em relação às versões do kubernetes `1.13`, `1.14` `1.15`. Você pode encontrar versões adicionais do İSTİO em [versões do GitHub-İSTİO][istio-github-releases], informações sobre cada uma das versões em [İSTİO News][istio-release-notes] e versões de kubernetes com suporte em [perguntas frequentes][istio-faq]sobre o İSTİO.
+> As versões de `1.3.x` do İSTİO foram testadas pela equipe do İSTİO em relação às versões do kubernetes `1.13`, `1.14``1.15`. Você pode encontrar versões adicionais do İSTİO em [versões do GitHub-İSTİO][istio-github-releases], informações sobre cada uma das versões em [İSTİO News][istio-release-notes] e versões de kubernetes com suporte em [perguntas frequentes][istio-faq]sobre o İSTİO.
 
 Neste artigo, você aprenderá a:
 
@@ -42,7 +42,7 @@ Você precisará de [Helm][helm] para seguir estas instruções e instalar o İS
 
 Verifique se você leu a documentação de [desempenho e escalabilidade do İSTİO](https://istio.io/docs/concepts/performance-and-scalability/) para entender os requisitos de recursos adicionais para executar o İSTİO em seu cluster AKs. Os requisitos de núcleo e memória variam de acordo com sua carga de trabalho específica. Escolha um número apropriado de nós e o tamanho da VM para atender à sua configuração.
 
-Este artigo separa as diretrizes de instalação do İSTİO em várias etapas discretas. O resultado final é o mesmo na estrutura que as [diretrizes][istio-install-helm]de instalação oficial do İSTİO.
+Este artigo separa as diretrizes de instalação do Istio em várias etapas discretas. O resultado final é o mesmo na estrutura que as [diretrizes][istio-install-helm]de instalação oficial do İSTİO.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -186,21 +186,21 @@ Neste ponto, você implantou o İSTİO em seu cluster AKS. Para garantir que ten
 
 ## <a name="validate-the-istio-installation"></a>Validar a instalação do İSTİO
 
-Primeiro, confirme que os serviços esperados foram criados. Use o comando [kubectl Get svc][kubectl-get] para exibir os serviços em execução. Consulte o namespace `istio-system`, em que os componentes İSTİO e complemento foram instalados pelo gráfico `istio` Helm:
+Primeiro, confirme se os serviços esperados foram criados. Use o comando [kubectl Get svc][kubectl-get] para exibir os serviços em execução. Consulte o namespace `istio-system`, em que os componentes İSTİO e complemento foram instalados pelo gráfico `istio` Helm:
 
 ```console
 kubectl get svc --namespace istio-system --output wide
 ```
 
-A saída de exemplo a seguir mostra os serviços que agora devem estar em execução:
+A saída de exemplo a seguir mostra os serviços que devem estar em execução agora:
 
 - serviços `istio-*`s
-- `jaeger-*`, `tracing` e `zipkin` serviços de rastreamento de complemento
+- `jaeger-*`, `tracing`e `zipkin` serviços de rastreamento de complemento
 - `prometheus` serviço de métricas complementares
 - `grafana` o serviço de painel de análise e monitoramento do complemento
 - serviço de painel de malha do serviço de `kiali` complementar
 
-Se o `istio-ingressgateway` mostrar um IP externo de `<pending>`, aguarde alguns minutos até que um endereço IP tenha sido atribuído pela rede do Azure.
+Se `istio-ingressgateway` mostrar um ip externo de `<pending>`, aguarde alguns minutos até que um endereço IP seja atribuído pela rede do Azure.
 
 ```console
 NAME                     TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                                                                                                                                      AGE   SELECTOR
@@ -227,7 +227,7 @@ Em seguida, confirme se os pods necessários foram criados. Use o comando [kubec
 kubectl get pods --namespace istio-system
 ```
 
-A saída de exemplo a seguir mostra os pods que estão em execução:
+A saída do exemplo a seguir mostra os pods em execução:
 
 - o pods de `istio-*`
 - o pod de métricas de complemento `prometheus-*`
@@ -252,9 +252,9 @@ kiali-65d55bcfb8-tqrfk                   1/1     Running     0          88s
 prometheus-846f9849bd-br8kp              1/1     Running     0          87s
 ```
 
-Deve haver três `istio-init-crd-*` pods com um status de `Completed`. Esses pods eram responsáveis por executar os trabalhos que criaram o CRDs em uma etapa anterior. Todos os outros pods devem mostrar um status de `Running`. Se os pods não tiverem esses status, aguarde um ou dois minutos até que eles façam. Se qualquer pods relatar um problema, use o comando [kubectl para descrever o Pod][kubectl-describe] para revisar sua saída e status.
+Deve haver três `istio-init-crd-*` pods com um status de `Completed`. Esses pods eram responsáveis por executar os trabalhos que criaram o CRDs em uma etapa anterior. Todos os outros pods devem mostrar um status de `Running`. Se os pods não tiverem esses status, aguarde um minuto ou dois até que tenham. Se qualquer pods relatar um problema, use o comando [kubectl para descrever o Pod][kubectl-describe] para revisar sua saída e status.
 
-## <a name="accessing-the-add-ons"></a>Acessando os Complementos
+## <a name="accessing-the-add-ons"></a>Acessar os complementos
 
 Vários Complementos foram instalados pelo İSTİO em nossa configuração acima que fornecem funcionalidade adicional. Os aplicativos Web para os complementos **não** são expostos publicamente por meio de um endereço IP externo. 
 
@@ -339,14 +339,14 @@ Os comandos acima excluem todos os componentes e o namespace İSTİO, mas ainda 
 
 ::: zone-end
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 A documentação a seguir descreve como você pode usar o İSTİO para fornecer roteamento inteligente para distribuir uma versão do canário:
 
 > [!div class="nextstepaction"]
 > [Cenário de roteamento inteligente do AKS İSTİO][istio-scenario-routing]
 
-Para explorar mais opções de instalação e configuração para o İSTİO, consulte os seguintes artigos oficiais do İSTİO:
+Para explorar mais opções de instalação e configuração para Istio, consulte os seguintes artigos oficiais do Istio:
 
 - [Guia de instalação do İSTİO-Helm][istio-install-helm]
 - [Opções de instalação do İSTİO-Helm][istio-install-helm-options]
@@ -383,7 +383,7 @@ Para saber como monitorar seu aplicativo AKS usando o Application Insights e o �
 [kubernetes-crd]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions
 [kubernetes-jobs]: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
 [kubernetes-secrets]: https://kubernetes.io/docs/concepts/configuration/secret/
-[kubernetes-node-selectors]: https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#node-selectors
+[kubernetes-node-selectors]: https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#node-selectors
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-port-forward]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward

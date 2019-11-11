@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: 63cf3301a08ce4073998c5d281f155a6b3eefe4d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4cb6d684171ac6e7e9e1cb7da556250f857cf2af
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491921"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891476"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
@@ -59,13 +59,15 @@ As VMs de geração 2 dão suporte às seguintes imagens do Marketplace:
 * Windows Server 2012 Datacenter
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 16.04+
+* Ubuntu Server 16.04, 18.04, 19, 4, 19,10
+* RHEL 8,0
+
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>VMs locais vs. Azure geração 2
 
 Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local dá suporte para VMs de geração 2.
 
-| Recurso de geração 2                | Hyper-V local | As tabelas |
+| Recurso de geração 2                | Hyper-V local | Azure |
 |-------------------------------------|---------------------|-------|
 | Inicialização segura                         | :heavy_check_mark:  | :x:   |
 | VM blindada                         | :heavy_check_mark:  | :x:   |

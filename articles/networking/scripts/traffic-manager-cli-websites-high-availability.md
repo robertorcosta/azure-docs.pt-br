@@ -3,24 +3,21 @@ title: Exemplo de script da CLI do Azure - Rotear o tráfego para alta disponibi
 description: Exemplo de script da CLI do Azure - Rotear o tráfego para alta disponibilidade de aplicativos
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
-manager: timlt
-editor: tysonn
-tags: azure-infrastructure
-ms.assetid: ''
+author: asudbring
+manager: KumudD
 ms.service: traffic-manager
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 06/26/2018
-ms.author: kumud
-ms.openlocfilehash: 3922eb76fa0954b9c02cc86f98acb142cc1d1fee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: fdd54039cd3e039439c70e02b962e56d72efa715
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565298"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890258"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>Rotear o tráfego para alta disponibilidade de aplicativos
 
@@ -35,7 +32,7 @@ Este script cria um grupo de recursos, dois planos de serviço de aplicativo, do
 [!code-azurecli-interactive[main](../../../cli_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.sh "Route traffic for high availability")]
 
 
-## <a name="clean-up-deployment"></a>Limpar a implantação 
+## <a name="clean-up-deployment"></a>Limpar implantação 
 
 Após a execução do exemplo de script, o comando a seguir pode ser usado para remover o grupo de recursos, o aplicativo do Serviço de Aplicativo e todos os recursos relacionados.
 
@@ -46,7 +43,7 @@ az group delete --name myResourceGroup2 --yes
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Esse script usa os seguintes comandos para criar um grupo de recursos, o aplicativo Web, o perfil do Gerenciador de tráfego e todos os recursos relacionados. Cada comando da tabela é vinculado à documentação específica do comando.
+Esse script usa os seguintes comandos para criar um grupo de recursos, o aplicativo Web, o perfil do Gerenciador de tráfego e todos os recursos relacionados. Cada comando na tabela redireciona para a documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

@@ -10,12 +10,12 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8a1395c89b047bb120c7f7e2d2d9bb9b4d2b0c50
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 0fc0aeab4e9603995130392e3560325ccaba1ffc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959955"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886800"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações no ambiente com a solução Controle de Alterações
 
@@ -65,7 +65,7 @@ Para iniciar o controle de alterações, é necessário habilitar a solução Co
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Configurar o Controle de Alterações e Inventário
 
-Para saber como integrar computadores para a visita de solução: [Soluções de Automação do Azure de integração](automation-onboard-solutions-from-automation-account.md). Quando você tem uma integração de computador com a solução de Controle de Alterações e de inventário, você pode configurar os itens para rastrear. Ao habilitar um uma chave de registro ou arquivo para controlar, ele será habilitado tanto para o Controle de Alterações como para Inventário.
+Para saber como integrar computadores para a solução, visite: [Integração das soluções de Automação do Azure](automation-onboard-solutions-from-automation-account.md). Quando você tiver uma integração de máquina com a solução de Controle de Alterações e inventário, poderá configurar os itens a serem acompanhados. Quando você habilita um novo arquivo ou chave do registro a ser acompanhado, ele é habilitado para Controle de Alterações e inventário.
 
 Para rastrear alterações em arquivos no Windows e Linux, os hashes MD5 dos arquivos são usados. Esses hashes são usados para detectar se uma alteração foi feita desde o último inventário.
 
@@ -80,7 +80,7 @@ A central de segurança do Azure adicionou o FIM (monitoramento de integridade d
 Se você já tiver habilitado o FIM e quiser experimentar a solução de Controle de Alterações completa, você precisará executar as etapas a seguir. As configurações não são removidas por esse processo.
 
 > [!NOTE]
-> A habilitação da solução de Controle de Alterações completa pode causar encargos adicionais, para obter mais informações, consulte [preços de automação](https://azure.microsoft.com/en-us/pricing/details/automation/).
+> A habilitação da solução de Controle de Alterações completa pode causar encargos adicionais, para obter mais informações, consulte [preços de automação](https://azure.microsoft.com/pricing/details/automation/).
 
 1. Remova a solução de monitoramento navegando até o espaço de trabalho e localizando-a na [lista de soluções de monitoramento instaladas](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
 2. Clique no nome da solução para abrir sua página de resumo e, em seguida, clique em excluir, conforme detalhado em [remover uma solução de monitoramento](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
@@ -95,17 +95,17 @@ Use as etapas a seguir para configurar o acompanhamento de arquivo em computador
 2. Na página **Controle de Alterações**, selecione **Arquivos Linux** e, em seguida, clique em **+ Adicionar** para adicionar o novo arquivo para controle.
 3. Em **Adicionar o Arquivo do Linux para o Controle de Alterações**, insira as informações para o arquivo ou para o diretório rastrear e clique em **Salvar**.
 
-|Propriedade  |Descrição  |
+|Propriedade  |DESCRIÇÃO  |
 |---------|---------|
-|Enabled     | Determina se a configuração é aplicada.        |
+|Habilitado     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado.        |
-|Grupo     | Um nome de grupo para o agrupamento lógico de arquivos.        |
-|Inserir o Caminho     | O caminho para verificar o arquivo. Por exemplo: “/etc/* .conf”       |
-|Tipo de Caminho     | Tipo de item a ser rastreado; possíveis valores são: Arquivo e Diretório.        |
+|Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos.        |
+|Insira o Caminho     | O caminho para verificar o arquivo. Por exemplo: “/etc/*.conf”       |
+|Tipo de caminho     | Tipo de item a ser rastreado; possíveis valores são: Arquivo e Diretório.        |
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
 |Usar o Sudo     | Essa configuração determina se o Sudo será usado durante a verificação do item.         |
 |Links     | Essa configuração determina como os links simbólicos lidam ao passar diretórios.<br> **Ignorar** – ignora os links simbólicos e não inclui os arquivos/diretórios referenciados.<br>**Seguir** - Segue os links simbólicos durante a recursão e inclui também os arquivos/diretórios referenciados.<br>**Gerenciar** - Segue os links simbólicos e permite a alteração do conteúdo retornado.     |
-|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **True** ou **False**.|
+|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. As opções disponíveis: **Verdadeiro** ou **Falso**.|
 
 > [!NOTE]
 > A opção "Gerenciar" links não é recomendada. Não há suporte para a recuperação de conteúdo do arquivo.
@@ -118,14 +118,14 @@ Use as etapas a seguir para configurar o acompanhamento de arquivos em computado
 2. Na página **Controle de Alterações**, selecione **Arquivos do Windows** e, em seguida, clique em **+ Adicionar** para adicionar o novo arquivo para controle.
 3. Em **Adicionar o Arquivo do Windows para o Controle de Alterações**, insira as informações para o arquivo a controlar e clique em **Salvar**.
 
-|Propriedade  |Descrição  |
+|Propriedade  |DESCRIÇÃO  |
 |---------|---------|
-|Enabled     | Determina se a configuração é aplicada.        |
+|Habilitado     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado.        |
-|Grupo     | Um nome de grupo para o agrupamento lógico de arquivos.        |
-|Inserir o Caminho     | O caminho para verificar em busca do arquivo. Por exemplo: "c:\temp\\\*.txt"<br>Você também pode usar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"       |
+|Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos.        |
+|Insira o Caminho     | O caminho para verificar em busca do arquivo. Por exemplo: "c:\temp\\\*.txt"<br>Você também pode usar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"       |
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
-|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **True** ou **False**.|
+|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. As opções disponíveis: **Verdadeiro** ou **Falso**.|
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Configurações de caractere curinga, recursão e ambiente
 
@@ -150,11 +150,11 @@ Use as etapas a seguir para configurar as chaves do registro para acompanhamento
 2. Na página **Controle de Alterações**, selecione **Registro do Windows** e, em seguida, clique em **+ Adicionar** para adicionar um novo registro para controle.
 3. Em **Adicionar Registro do Windows para Controle de Alterações**, insira as informações para a chave rastrear e clique em **Salvar**.
 
-|Propriedade  |Descrição  |
+|Propriedade  |DESCRIÇÃO  |
 |---------|---------|
-|Enabled     | Determina se a configuração é aplicada.        |
+|Habilitado     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável da chave de registro a ser rastreada.        |
-|Grupo     | Um nome de grupo para agrupar chaves de registro logicamente.        |
+|Agrupar     | Um nome de grupo para agrupar chaves de registro logicamente.        |
 |Chave de Registro do Windows   | O caminho para verificar a chave de registro. Por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>Limitações
@@ -176,7 +176,7 @@ Outras limitações:
 Atualmente, a solução Controle de Alterações está enfrentando os seguintes problemas:
 
 * Atualizações de hotfix não são coletadas em computadores Windows Server 2016 Core RS3.
-* Os daemons do Linux podem mostrar um estado alterado mesmo que não houvesse nenhuma alteração. Isso se deve ao modo como o campo `SvcRunLevels` é capturado.
+* Os daemons do Linux podem mostrar um estado alterado mesmo que não houvesse nenhuma alteração. Isso ocorre devido a como o campo de `SvcRunLevels` é capturado.
 
 ## <a name="change-tracking-data-collection-details"></a>Detalhes de coleta de dados do Controle de Alterações
 
@@ -264,15 +264,15 @@ Ao clicar em uma alteração ou evento, as informações detalhadas sobre essa a
 
 ![imagem dos detalhes do controle de alterações](./media/change-tracking/change-tracking-details.png)
 
-## <a name="search-logs"></a>Pesquisar logs
+## <a name="search-logs"></a>Pesquisa da logs
 
 Além dos detalhes fornecidos no portal, é possível fazer as pesquisas nos logs. Com a página **controle de alterações** aberta, clique em **log Analytics**, isso abrirá a página **logs** .
 
-### <a name="sample-queries"></a>Consultas de amostra
+### <a name="sample-queries"></a>Consultas de exemplo
 
 A tabela a seguir fornece pesquisas de logs de exemplo para os registros de alterações coletados por essa solução:
 
-|Consulta  |Descrição  |
+|Consultar  |DESCRIÇÃO  |
 |---------|---------|
 |ConfigurationData<br>&#124; onde   ConfigDataType == "WindowsServices" e SvcStartupType == "Auto"<br>&#124; onde SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) por SoftwareName, Computer         | Mostra os registros de inventário mais recentes para os Serviços do Windows que foram configurados para Automático, mas foram relatados como Parados<br>Os resultados estão limitados ao registro mais recente desse SoftwareName e Computador      |
 |ConfigurationChange<br>&#124; onde ConfigChangeType == "Software" e ChangeCategory == "Removed"<br>&#124; ordenar por TimeGenerated desc|Mostra os registros de alterações do software removido|
@@ -301,7 +301,7 @@ Após configurar os parâmetros e a lógica, podemos aplicar o alerta ao ambient
 
 Embora os alertas sobre alterações ao arquivo de Hosts sejam uma boa aplicação de alertas para Controle de Alterações ou dados de Inventário, há muitos outros cenários para alertas, incluindo casos definidos juntamente com suas consultas de exemplo na seção a seguir.
 
-|Consulta  |Descrição  |
+|Consultar  |DESCRIÇÃO  |
 |---------|---------|
 |ConfigurationChange <br>&#124; em que ConfigChangeType == "Files" e FileSystemPath contêm " c:\\windows\\system32\\drivers\\"|Útil para controlar alterações a arquivos críticos do sistema|
 |ConfigurationChange <br>&#124; em que FieldsChanged contém "FileContentChecksum" e FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Útil para controlar modificações a arquivos de configuração chave|
@@ -309,8 +309,8 @@ Embora os alertas sobre alterações ao arquivo de Hosts sejam uma boa aplicaç�
 |ConfigurationChange <br>&#124; em que ConfigChangeType == "Daemons" e SvcName contêm "ssh" e SvcState != "Running"|Útil para controlar alterações a serviços críticos do sistema|
 |ConfigurationChange <br>&#124; em que ConfigChangeType == "Software" e ChangeCategory == "Added"|Útil para ambientes que precisam bloquear configurações de software|
 |ConfigurationData <br>&#124; em que SoftwareName contém "Monitoring Agent" e CurrentVersion != "8.0.11081.0"|Útil para ver quais computadores têm uma versão de software desatualizada ou não em conformidade instalada. Relata o último estado de configuração relatada, não as alterações.|
-|ConfigurationChange <br>&#124;em que RegistryKey = = @ "HKEY_LOCAL_MACHINE @ no__t-1SOFTWARE @ no__t-2Microsoft @ no__t-3Windows @ no__t-4CurrentVersion @ no__t-5QualityCompat"| Útil para controlar alterações a chaves antivírus cruciais|
-|ConfigurationChange <br>&#124;onde RegistryKey contém @ "HKEY_LOCAL_MACHINE @ no__t-1SYSTEM @ no__t-2CurrentControlSet @ no__t-3Services @ no__t-4SharedAccess @ no__t-5Parameters @ no__t-6FirewallPolicy"| Útil para controlar alterações em configurações de firewall|
+|ConfigurationChange <br>&#124;onde RegistryKey = = @ "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Útil para controlar alterações a chaves antivírus cruciais|
+|ConfigurationChange <br>&#124;onde RegistryKey contém @ "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Útil para controlar alterações em configurações de firewall|
 
 ## <a name="next-steps"></a>Próximas etapas
 

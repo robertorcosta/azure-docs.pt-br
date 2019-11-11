@@ -1,18 +1,18 @@
 ---
-title: Recursos de solicitação de dados do cliente
+title: Recursos de solicitação de dados do cliente para dispositivos do Azure DPS
+description: Para dispositivos gerenciados no DPS (serviço de provisionamento de dispositivos) do Azure que são pessoais, este artigo mostra aos administradores como exportar ou excluir dados pessoais.
 author: dominicbetts
 ms.author: dobett
-manager: timlt
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 5dd027c886e8102e77ddefe93817daee0e1ec29b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1dcf1b9f62f94b8f75ef2fe77f3e237a387c53eb
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626427"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890647"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
 
@@ -58,7 +58,7 @@ Também é possível executar operações de exportação para ambos os tipos de
 * Para exportar informações sobre os dispositivos já provisionados, use [Estado do Registro – Obter Estado do Registro](/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate).
 
 > [!NOTE]
-> Quando você usa os serviços empresariais da Microsoft, a Microsoft gera algumas informações, conhecidas como logs gerados pelo sistema. Alguns logs gerados pelo sistema do Serviço de Provisionamento de Dispositivos não são acessíveis nem exportáveis por administradores de locatários. Esses logs constituem ações reais conduzidas no serviço e dados de diagnóstico relacionados a dispositivos individuais.
+> Quando você usa os serviços corporativos da Microsoft, a Microsoft gera algumas informações, conhecidas como logs gerados pelo sistema. Alguns logs gerados pelo sistema do Serviço de Provisionamento de Dispositivos não são acessíveis nem exportáveis por administradores de locatários. Esses logs constituem ações reais conduzidas no serviço e dados de diagnóstico relacionados a dispositivos individuais.
 
 ## <a name="links-to-additional-documentation"></a>Links para documentação adicional
 

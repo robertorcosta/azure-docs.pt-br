@@ -1,6 +1,6 @@
 ---
-title: Como usar os tópicos do Barramento de Serviço do Azure com o Python | Microsoft Docs
-description: Saiba como usar tópicos do Barramento de Serviço do Azure e assinaturas do Python.
+title: 'Início Rápido: Como usar os tópicos do Barramento de Serviço do Azure com o Python'
+description: 'Início Rápido: Saiba como usar tópicos do Barramento de Serviço do Azure e assinaturas do Python.'
 services: service-bus-messaging
 documentationcenter: python
 author: axisc
@@ -11,21 +11,21 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: ef0237b38c8f640c0fc4b1b1788215c8804a5cd4
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
-ms.translationtype: MT
+ms.openlocfilehash: 8f7d47879a025742dbca6a5cafa634899e60ee68
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141896"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719168"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Como usar tópicos e assinaturas do Barramento de Serviço com Python
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Início Rápido: Como usar tópicos e assinaturas do Barramento de Serviço com Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Este artigo descreve como usar tópicos e assinaturas do Barramento de Serviço. Os exemplos são escritos em Python e usam o [pacote do SDK do Python do Azure][Azure Python package]. Os cenários abordados incluem:
+Este artigo descreve como usar tópicos e assinaturas do Barramento de Serviço. Os exemplos são escritos no Python e usam o [pacote de SDK do Azure para Python][Azure Python package]. Os cenários abordados incluem:
 
 - Criar tópicos e assinaturas 
 - Criar filtros de assinatura 
@@ -34,12 +34,12 @@ Este artigo descreve como usar tópicos e assinaturas do Barramento de Serviço.
 - Excluir tópicos e assinaturas
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Você pode ativar os [benefícios do assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga as etapas no [início rápido: Use o portal do Azure para criar um tópico e assinaturas do barramento de serviço para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para criar um **namespace** do barramento de serviço e obter a **cadeia de conexão**.
+1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. É possível ativar os [benefícios de assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga as etapas no [Início Rápido: Usar o portal do Azure para criar um tópico e assinaturas do Barramento de Serviço para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) a fim de criar um **namespace** do Barramento de Serviço e obter a **cadeia de conexão**.
 
     > [!NOTE]
-    > Você criará um **tópico** e uma **assinatura** para o tópico usando o **python** neste guia de início rápido. 
-3. Instale o [pacote do Azure Python][Azure Python package]. Consulte o [Guia de instalação do Python](/azure/python/python-sdk-azure-install).
+    > Você criará um **tópico** e uma **assinatura** para o tópico usando o **Python** neste início rápido. 
+3. Instale o [pacote do Azure para Python][Azure Python package]. Confira o [Guia de Instalação do Python](/azure/python/python-sdk-azure-install).
 
 ## <a name="create-a-topic"></a>Criar um tópico
 
@@ -79,9 +79,9 @@ bus_service.create_topic('mytopic', topic_options)
 As assinaturas de tópicos também são criadas com o objeto **ServiceBusService**. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens entregues à fila virtual da assinatura.
 
 > [!NOTE]
-> Por padrão, as assinaturas são persistentes e continuarão existindo até que elas, ou o tópico no qual elas são assinadas, sejam excluídas.
+> Por padrão, as assinaturas são persistentes e continuarão existindo até que elas ou o tópico ao qual estão inscritas sejam excluídos.
 > 
-> Você pode fazer com que as assinaturas sejam excluídas automaticamente definindo a [Propriedade auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
+> É possível fazer as assinaturas serem excluídas automaticamente definindo a [propriedade auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
 
@@ -176,11 +176,11 @@ O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recupera
 
 Também há um tempo limite associado a uma mensagem bloqueada na assinatura e, se houver falha no processamento da mensagem pelo aplicativo antes da expiração do tempo limite de bloqueio (por exemplo, se o aplicativo travar), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
 
-Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método `delete` seja chamado, a mensagem será fornecida novamente ao aplicativo quando ele for reiniciado. Esse comportamento é chamado frequentemente de Pelo menos uma vez\*processada; ou seja, cada mensagem é processada pelo menos uma vez, mas em determinadas situações a mesma mensagem pode ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Para fazer isso, você pode usar a propriedade **MessageId** da mensagem, que permanece constante nas tentativas de entrega.
+Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método `delete` seja chamado, a mensagem será fornecida novamente ao aplicativo quando ele for reiniciado. Esse comportamento é chamado frequentemente de Processamento Pelo menos uma vez\*; ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Para fazer isso, você pode usar a propriedade **MessageId** da mensagem, que permanece constante nas tentativas de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Excluir tópicos e assinaturas
 
-Os tópicos e as assinaturas são persistentes, a menos que a [Propriedade auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) esteja definida. Eles podem ser excluídos por meio do [portal do Azure][Azure portal] ou de forma programática. O seguinte exemplo mostra como excluir o tópico chamado `mytopic`:
+Os tópicos e as assinaturas são persistentes, a menos que a [propriedade auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) seja definida. É possível excluí-los por meio do [portal do Azure][Azure portal] ou programaticamente. O seguinte exemplo mostra como excluir o tópico chamado `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')

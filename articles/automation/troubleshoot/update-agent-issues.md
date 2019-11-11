@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 956e31c157c667acd2f830702467249d869648cb
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: d3099498c3abea428e04d94ca0fcd553e6a0fec6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971283"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886410"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Reconheça os resultados da verificação de agente do Windows no Gerenciamento de Atualizações
 
@@ -79,9 +79,9 @@ As configurações de proxy e firewall devem permitir que o agente do Hybrid Run
 
 ### <a name="operations-endpoint"></a>Ponto de extremidade de operações
 
-Essa verificação determina se o agente pode se comunicar corretamente com o Serviço de dados do tempo de execução da tarefa.
+Essa verificação determina se o agente pode se comunicar corretamente com o Serviço de dados do runtime da tarefa.
 
-As configurações de proxy e firewall devem permitir que o agente do Hybrid Runbook Worker se comunique com o Serviço de Dados de Tempo de Execução do Trabalho. Para obter uma lista de endereços e portas a serem abertas, consulte [Planejamento de rede para trabalhadores híbridos](../automation-hybrid-runbook-worker.md#network-planning).
+As configurações de proxy e firewall devem permitir que o agente do Hybrid Runbook Worker se comunique com o Serviço de Dados de Runtime do Trabalho. Para obter uma lista de endereços e portas a serem abertas, consulte [Planejamento de rede para trabalhadores híbridos](../automation-hybrid-runbook-worker.md#network-planning).
 
 ## <a name="vm-service-health-checks"></a>Verificações de integridade do serviço de VM
 
@@ -107,7 +107,7 @@ A verificação de acesso à pasta Crypto determina se a conta do sistema local 
 
 ## <a name="troubleshoot-offline"></a>Solucionar problemas offline
 
-Você pode usar o solucionador de problemas em um Hybrid Runbook Worker offline, executando o script localmente. Você pode obter o script [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration), na Galeria do PowerShell. Você deve ter o WMF 4,0 ou superior instalado para executar o script. Para baixar a versão mais recente do PowerShell, consulte [Instalando várias versões do PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell).
+Você pode usar o solucionador de problemas em um Hybrid Runbook Worker offline, executando o script localmente. Você pode obter o script [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration), na Galeria do PowerShell. Você deve ter o WMF 4,0 ou superior instalado para executar o script. Para baixar a versão mais recente do PowerShell, consulte [Instalando várias versões do PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
 
 A saída deste script se parece com o seguinte exemplo:
 

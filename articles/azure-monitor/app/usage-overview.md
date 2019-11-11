@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2019
-ms.openlocfilehash: 7131cf1902cc92fed66ae4db59449700973c6913
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: aa37717c5037294c2b5ec61f7815b007cbf74992
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899426"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884817"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de uso com o Application Insights
 
@@ -125,7 +125,7 @@ Para essa técnica, você anexa valores de propriedade distintos para toda a tel
 
 No portal do Application Insights, filtre e divida seus dados segundo os valores da propriedade, de modo a comparar as diferentes versões.
 
-Para fazer isso, [configure um inicializador de telemetria](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer):
+Para fazer isso, [configure um inicializador de telemetria](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer):
 
 **Aplicativos ASP.NET**
 
@@ -170,10 +170,10 @@ Para aplicativos [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) , 
 
 Todos os novos TelemetryClients adicionam automaticamente o valor da propriedade que você especificar. Eventos de telemetria individuais podem substituir os valores padrão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
    - [Usuários, Sessões, Eventos](usage-segmentation.md)
    - [Funis](usage-funnels.md)
    - [Retenção](usage-retention.md)
    - [Fluxos de Usuário](usage-flows.md)
    - [Pastas de trabalho](../../azure-monitor/app/usage-workbooks.md)
-   - [Adicionar contexto de usuário](usage-send-user-context.md)
+   - [Adicionar o contexto de usuário](usage-send-user-context.md)

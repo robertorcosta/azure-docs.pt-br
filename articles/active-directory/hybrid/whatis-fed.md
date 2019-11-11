@@ -13,12 +13,12 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52f9832a4307ea9519df448f192eeca70043a6d6
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: aeb8886987c09b504262d6ea12863a646d6022cc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035184"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73883643"
 ---
 # <a name="what-is-federation-with-azure-ad"></a>O que é a federação com o Azure AD?
 
@@ -33,9 +33,9 @@ Você pode estabelecer a federação em seu ambiente local com o Azure AD e usar
 > Se você optar por usar a Federação com o Active Directory Federation Services (AD FS), outra opção será configurar a sincronização de hash de senha como um backup em caso de falha na infraestrutura do AD FS.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
-- [O que é identidade híbrida?](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-hybrid-identity)
+- [O que é identidade híbrida?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
 - [O que é o Azure AD Connect e o Connect Health?](whatis-azure-ad-connect.md)
 - [O que é a sincronização de hash da senha?](whatis-phs.md)
 - [O que é federação?](whatis-fed.md)

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: gwallace
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc9ca5f5a638f0b36a28d58172fe8052b3d1522f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: b59343fca5e14d211864a1354001819c918bd1ca
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875442"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891513"
 ---
 # <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>O que fazer caso uma interrupção de serviço do Azure afete as VMs do Azure
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis quando você precisar deles. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas.
@@ -33,12 +33,12 @@ Este artigo aborda um cenário real de recuperação de desastre, quando uma reg
 
 Para ajudar você a lidar com essas ocorrências raras, fornecemos as seguintes diretrizes para a máquina virtual do Azure no caso de uma interrupção de serviço de toda a região em que seu aplicativo da máquina virtual do Azure é implantado.
 
-## <a name="option-1-initiate-a-failover-by-using-azure-site-recovery"></a>Opção 1: Iniciar um failover usando Azure Site Recovery
+## <a name="option-1-initiate-a-failover-by-using-azure-site-recovery"></a>Opção 1: Iniciar um failover usando o Azure Site Recovery
 É possível configurar o Azure Site Recovery para suas VMs, de modo que você possa recuperar o aplicativo com um único clique em questão de minutos. É possível replicar para a região do Azure de sua escolha e não restrito para regiões emparelhadas. Você pode começar [replicando suas máquinas virtuais](https://aka.ms/a2a-getting-started). É possível [criar um plano de recuperação](../site-recovery/site-recovery-create-recovery-plans.md) para que você possa automatizar todo o processo de failover para sua aplicação. Você pode testar [seus failovers](../site-recovery/site-recovery-test-failover-to-azure.md) previamente sem afetar o aplicativo de produção ou a replicação em andamento. No caso de uma interrupção da região primária, você apenas [inicia um failover](../site-recovery/site-recovery-failover.md) e traz seu aplicativo na região alvo.
 
 
-## <a name="option-2-wait-for-recovery"></a>Opção 2: Aguardar a recuperação
-Nesse caso, nenhuma ação sua é necessária. Saiba que estamos trabalhando cuidadosamente para restaurar a disponibilidade do serviço. Você pode ver o status atual do serviço no nosso [Painel de Integridade do Serviço Azure](https://azure.microsoft.com/status/).
+## <a name="option-2-wait-for-recovery"></a>Opção 2: aguardar a recuperação
+Nesse caso, nenhuma ação sua é necessária. Saiba que estamos trabalhando cuidadosamente para restaurar a disponibilidade do serviço. Você pode ver o status atual do serviço no nosso [Painel de integridade do serviço Azure](https://azure.microsoft.com/status/).
 
 Essa será a melhor opção se você não tiver instalado o Azure Site Recovery, o armazenamento com redundância geográfica de acesso de leitura ou o armazenamento com redundância geográfica antes da interrupção. Se você configurou o armazenamento com redundância geográfica de acesso de leitura ou o armazenamento com redundância geográfica para a conta de armazenamento na qual os VHDs (discos rígidos virtuais) de sua VM estão armazenados, você poderá recuperar o VHD da imagem base e tentar provisionar uma nova VM por meio dele. Essa não é uma opção preferencial, pois não há nenhuma garantia de sincronização de dados. Consequentemente, não há garantia de funcionamento dessa opção.
 
@@ -54,7 +54,7 @@ Essa será a melhor opção se você não tiver instalado o Azure Site Recovery,
 
 - Para saber mais sobre como implementar uma estratégia de alta disponibilidade e recuperação de desastres, consulte [Recuperação de desastres e alta disponibilidade para aplicativos do Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-- Para desenvolver uma compreensão técnica detalhada dos recursos de uma plataforma de nuvem, consulte [Orientação técnica sobre a resiliência do Azure](../resiliency/resiliency-technical-guidance.md).
+- Para desenvolver uma compreensão técnica detalhada dos recursos de uma plataforma de nuvem, consulte [Orientação técnica sobre a resiliência do Azure](/azure/data-lake-store/data-lake-store-disaster-recovery-guidance).
 
 
 - Se as instruções não estiverem claras ou se você desejar que a Microsoft faça as operações em seu nome, entre em contato com o [Atendimento ao Cliente](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

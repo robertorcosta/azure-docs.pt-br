@@ -5,14 +5,14 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6fc70b55b3e672ecc67eb1145bb751de33d998a1
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: e6bd9b5c09e1af5ec587e1f0e52ab25d21d2293b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847429"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889608"
 ---
-# <a name="ingest-historical-telemetry-data"></a>Dados de telemetria históricos de ingestão
+# <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos históricos
 
 Este artigo descreve como ingerir dados de sensor históricos no Azure FarmBeats.
 
@@ -28,8 +28,8 @@ Você precisa habilitar a integração de parceiros à instância do FarmBeats d
 
 - Ponto de extremidade de API – é a URL do hub de dados, por exemplo, https://<datahub>. azurewebsites.net
 - ID do locatário
-- ID do cliente
-- Segredo do cliente
+- Id do Cliente
+- Segredo do Cliente
 - Cadeia de conexão do EventHub
 
 Siga as etapas abaixo para gerá-los:
@@ -50,11 +50,14 @@ Siga as etapas abaixo para gerá-los:
 
     ![Batidas no farm de projetos](./media/for-tutorials/power-shell-two-1.png)
 
-5. Vá para o diretório onde os arquivos foram carregados (por padrão, eles são carregados no diretório inicial/home/username/.
+5. Vá para o diretório onde os arquivos foram carregados
+
+   >[!NOTE]
+   > Por padrão, o arquivo é carregado para o diretório base/home/username/.
 6. Execute o script usando o comando:  
 
     ```azurepowershell-interactive
-    PS> ./generateCredentials.ps1
+    ./generateCredentials.ps1
     ```
 
 7. Siga as instruções na tela para concluir o procedimento.
@@ -77,16 +80,16 @@ Siga as etapas abaixo para gerá-los:
 |          Fabricante            |         2 estrelas     |
 |  ProductCode                    |  Código do produto do dispositivo ou nome/número do modelo. Por exemplo, EnviroMonitor # 6800.  |
 |            Portas          |     Nome da porta e tipo (digital/analógico)
-|     Nome                 |  Nome para identificar o recurso. Por exemplo, nome do modelo/nome do produto.
+|     NOME                 |  Nome para identificar o recurso. Por exemplo, nome do modelo/nome do produto.
       DESCRIÇÃO     | Forneça uma descrição significativa do modelo
 |    Propriedades          |    Propriedades adicionais do fabricante   |
 |    **Dispositivo**             |                      |
 |   DeviceModelId     |     ID do modelo de dispositivo associado  |
 |  HardwareID          | ID exclusiva para o dispositivo, como endereço MAC, etc.,
 |  ReportingInterval        |   Intervalo de relatórios em segundos
-|  Local            |  Dispositivo latitude (-90 a + 90)/longitude (-180 a 180)/Elevation (em metros)   
+|  Local padrão            |  Dispositivo latitude (-90 a + 90)/longitude (-180 a 180)/Elevation (em metros)   
 |ParentDeviceId       |    ID do dispositivo pai ao qual este dispositivo está conectado. Por exemplo, um nó conectado a um gateway. Um nó terá parentDeviceId como o gateway.  |
-|    Nome            | Um nome para identificar o recurso. Os parceiros de dispositivo devem enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo do parceiro for definido pelo usuário, o mesmo nome definido pelo usuário deverá ser propagado para FarmBeats.|
+|    NOME            | Um nome para identificar o recurso. Os parceiros de dispositivo devem enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo do parceiro for definido pelo usuário, o mesmo nome definido pelo usuário deverá ser propagado para FarmBeats.|
 |     DESCRIÇÃO       |      Forneça uma descrição significativa  |
 |     Propriedades    |  Propriedades adicionais do fabricante
 |     **Modelo de sensor**        |          |
@@ -98,7 +101,7 @@ Siga as etapas abaixo para gerá-los:
 |    Tipo de > SensorMeasures    |Tipo de medição dos dados de telemetria do sensor. A seguir estão os tipos definidos pelo sistema: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, comprimento, LiquidLevel, nitrate, O2, PH, phosphate, PointInTime, Potassium, pressão, RainGauge, RelativeHumidity, salinity, SoilMoisture, SoilTemperature, SolarRadiation, estado, tempo de duração, UVRadiation, UVIndex, volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Para adicionar mais, consulte API do/ExtendedType.|
 |        Unidade de > SensorMeasures              | Unidade de dados de telemetria do sensor. A seguir estão as unidades definidas pelo sistema: nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, mercúrio, PSI, milímetro, centímetro, medidor, polegada, pés, milhar, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, grau, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, porcentagem, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, litro, MilliLiter, segundos, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour para adicionar mais, consulte/ API estendida.|
 |    Agregatype de > SensorMeasures    |  Os valores podem ser nenhum, média, máximo, mínimo ou i  |
-|          Nome            | Nome para identificar o recurso. Por exemplo, nome do modelo/nome do produto.  |
+|          NOME            | Nome para identificar o recurso. Por exemplo, nome do modelo/nome do produto.  |
 |    DESCRIÇÃO        | Forneça uma descrição significativa do modelo  |
 |   Propriedades       |  Propriedades adicionais do fabricante  |
 |    **Sensores**      |          |
@@ -107,7 +110,7 @@ Siga as etapas abaixo para gerá-los:
 | location          |  Sensor latitude (-90 a + 90)/longitude (-180 a 180)/Elevation (em metros)|
 |   nome da > de porta        |  Nome e tipo da porta à qual o sensor está conectado no dispositivo. Isso precisa ser o mesmo nome definido no modelo do dispositivo. |
 |    DeviceID  |    ID do dispositivo ao qual o sensor está conectado     |
-| Nome            |   Nome para identificar o recurso. Por exemplo, nome do sensor/nome do produto e número do modelo/código do produto.|
+| NOME            |   Nome para identificar o recurso. Por exemplo, nome do sensor/nome do produto e número do modelo/código do produto.|
 |    DESCRIÇÃO      | Forneça uma descrição significativa |
 |    Propriedades        |Propriedades adicionais do fabricante |
 
@@ -121,13 +124,15 @@ Para fazer uma solicitação de API, você combina o método HTTP (POST), a URL 
 
 O FarmBeats data Hub usa a autenticação de portador, que precisa das seguintes credenciais que geramos na seção acima.
 
-- ID do cliente
-- Segredo do cliente
+- Id do Cliente
+- Segredo do Cliente
 - ID do locatário  
 
 Usando as credenciais acima, o chamador pode solicitar um token de acesso, que precisa ser enviado nas solicitações de API subsequentes na seção de cabeçalho da seguinte maneira:
 
-Headers = *{"Authorization": "portador" + access_token,...}*
+```
+headers = *{"Authorization": "Bearer " + access_token, …}*
+```
 
 **Cabeçalhos de solicitação HTTP**:
 
@@ -161,8 +166,10 @@ Aqui estão os cabeçalhos de solicitação mais comuns que precisam ser especif
     "additionalProp3": {}
   }
 }
+```
 
-Device
+Dispositivo
+
 ```json
 {
   "deviceModelId": "string",
@@ -242,7 +249,7 @@ Sensor
 ```
 A solicitação de exemplo abaixo é criar um dispositivo (isso tem um JSON de entrada como carga com o corpo da solicitação).  
 
-```
+```azurepowershell-interactive
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
 "accept: application/json" -H  "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>" -d "
@@ -266,6 +273,7 @@ Você deve enviar a telemetria para o Hub de eventos do Azure para processamento
 
 Depois de estabelecer uma conexão como um cliente do EventHub, você poderá enviar mensagens para o EventHub como um JSON.  
 Converta o formato de dados do sensor histórico em um formato canônico que o FarmBeats do Azure entenda. O formato de mensagem canônica é o seguinte:  
+
 
 
  ```

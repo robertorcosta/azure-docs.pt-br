@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac1b75536e092203490a390860a1cead7ac333b7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0398ff7eb8931acc400b326ff92deaf75f0aa97e
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817987"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882834"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implemente a sincronização de hash de senha com a sincronização do Azure AD Connect
 Este artigo fornece as informações necessárias para sincronizar suas senhas de usuário de uma instância do AD (Active Directory) local para uma instância do Azure AD (Azure Active Directory) baseada na nuvem.
@@ -32,7 +32,7 @@ Para sincronizar sua senha, a sincronização do Azure AD Connect extrai o hash 
 
 O fluxo de dados real do processo de sincronização de hash de senha é semelhante à sincronização de dados de usuário. Contudo, as senhas são sincronizadas com mais frequência do que a janela de sincronização de diretório padrão para outros atributos. O processo de sincronização de hash senha é executado a cada 2 minutos. Não é possível modificar a frequência desse processo. Ao sincronizar uma senha, ela substituirá a senha de nuvem existente.
 
-Na primeira vez que você habilitar o recurso de sincronização de hash de senha, ele executará uma sincronização inicial das senhas de todos os usuários no escopo. Você não pode definir explicitamente um subconjunto de senhas de usuário que deseja sincronizar. No entanto, se houver vários conectores, será possível desabilitar a sincronização de hash de senha para alguns conectores, mas não para outros usando o cmdlet [set-ADSyncAADPasswordSyncConfiguration](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant) .
+Na primeira vez que você habilitar o recurso de sincronização de hash de senha, ele executará uma sincronização inicial das senhas de todos os usuários no escopo. Você não pode definir explicitamente um subconjunto de senhas de usuário que deseja sincronizar. No entanto, se houver vários conectores, será possível desabilitar a sincronização de hash de senha para alguns conectores, mas não para outros usando o cmdlet [set-ADSyncAADPasswordSyncConfiguration](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant) .
 
 Quando você altera uma senha local, a senha atualizada é sincronizada, geralmente em questão de minutos.
 O recurso de sincronização de hash de senha repete automaticamente tentativas de sincronização com falha. Se ocorrer um erro durante uma tentativa de sincronização de senha, um erro é registrado no seu visualizador de eventos.
@@ -209,7 +209,7 @@ Se o servidor tiver sido bloqueado de acordo com o FIPS (Federal Information Pro
 
 1. Vá para %programfiles%\Azure AD Sync\Bin.
 2. Abra miiserver.exe.config.
-3. Acesse o nó configuração/tempo de execução no fim do arquivo.
+3. Acesse o nó configuração/runtime no fim do arquivo.
 4. Adicione o seguinte nó: `<enforceFIPSPolicy enabled="false"/>`
 5. Salve suas alterações.
 

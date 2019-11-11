@@ -3,24 +3,21 @@ title: Exemplo de script da CLI do Azure - Rotear o tráfego por meio de uma sol
 description: Exemplo de script da CLI do Azure - Rotear o tráfego por meio de uma solução de virtualização de rede de firewall.solução de virtualização.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: KumudD
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: timlt
-ms.openlocfilehash: f2ba4d919cc17d1c454a39490377477e99aa17e2
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.author: kumud
+ms.openlocfilehash: 55b9c9cba4a34fc9e209e03565861885ea192cc1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875506"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890233"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>Rotear o tráfego por meio de uma solução de virtualização de rede
 
@@ -36,7 +33,7 @@ Este exemplo de script cria uma rede virtual com sub-redes de front-end e back-e
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/route-traffic-through-nva/route-traffic-through-nva.sh "Route traffic through a network virtual appliance")]
 
-## <a name="clean-up-deployment"></a>Limpar a implantação 
+## <a name="clean-up-deployment"></a>Limpar implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 

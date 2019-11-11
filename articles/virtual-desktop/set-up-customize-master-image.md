@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 622b4e53be68025ad9553ce604041d14885bb2b2
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 7a0cce6b72240b95943fbece08cfbf61eaee3524
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330840"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891699"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem de VHD mestre
 
 Este artigo mostra como preparar uma imagem de VHD (disco rígido virtual) mestre para carregar no Azure, incluindo como criar máquinas virtuais (VMs) e instalar software neles. Essas instruções são referentes a uma configuração específica da Área de Trabalho Virtual do Windows que pode ser usada com os processos existentes de sua organização.
 
-## <a name="create-a-vm"></a>Criar uma VM
+## <a name="create-a-vm"></a>Criar uma máquina virtual
 
 O Windows 10 Enterprise Multi-Session está disponível na Galeria de imagens do Azure. Há duas opções para personalizar essa imagem.
 
@@ -70,7 +70,7 @@ Se os usuários precisarem acessar determinados aplicativos LOB, recomendamos qu
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Configurar o contêiner de perfil de usuário (FSLogix)
 
-Para incluir o contêiner FSLogix como parte da imagem, siga as instruções em [criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Você pode testar a funcionalidade do contêiner FSLogix com este guia de [início rápido](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
+Para incluir o contêiner FSLogix como parte da imagem, siga as instruções em [criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Você pode testar a funcionalidade do contêiner FSLogix com este guia de [início rápido](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial).
 
 ### <a name="configure-windows-defender"></a>Configurar o Windows Defender
 
@@ -86,7 +86,7 @@ Para saber mais sobre como configurar o Windows Defender para excluir determinad
 
 Para desabilitar Atualizações Automáticas via Política de Grupo local:
 
-1. Abra **Editor de política de grupo local @ no__t-1Administrative modelos @ no__t-2Windows componentes @ no__t-3Windows atualização**.
+1. Abra **Editor de Política de Grupo Local\\Modelos Administrativos\\componentes do Windows\\** Windows Update.
 2. Clique com o botão direito do mouse em **Configurar atualização automática** e defina-a como **desabilitada**.
 
 Você também pode executar o comando a seguir em um prompt de comando para desabilitar o Atualizações Automáticas.
@@ -109,7 +109,7 @@ As políticas de sessão remota podem ser impostas no nível de Política de Gru
 
 Para configurar políticas de sessão remota:
 
-1. Navegue até **modelos administrativos** **componentes do Windows** >   > **serviços de área de trabalho remota** > **host da sessão da área de trabalho remota** >  limites de**tempo de sessão**.
+1. Navegue até **modelos administrativos** **componentes do Windows** >  > serviços de área de trabalho remota ** > host da sessão da área de trabalho remota > ** **limites de tempo de sessão**.
 2. No painel no lado direito, selecione a política **definir limite de tempo para as sessões ativas, mas ociosas serviços de área de trabalho remota** .
 3. Depois que a janela modal for exibida, altere a opção de política de **não configurado** para **habilitado** para ativar a política.
 4. No menu suspenso abaixo da opção de política, defina a quantidade de tempo como **3 horas**.
@@ -134,7 +134,7 @@ Para redirecionar fusos horários:
 1. No Active Directory Server, abra o **console de gerenciamento de política de grupo**.
 2. Expanda seu domínio e Política de Grupo objetos.
 3. Clique com o botão direito do mouse no **objeto política de grupo** que você criou para as configurações da política de grupo e selecione **Editar**.
-4. Na **Editor de gerenciamento de política de grupo**, navegue até **configuração do computador** > **políticas** > **Modelos Administrativos** > **componentes do Windows** > **serviços de área de trabalho remota**@no__ t-10**Host da Sessão da Área de Trabalho Remota**2**redirecionamento de dispositivo e recurso**.
+4. Na **Editor de gerenciamento de política de grupo**, navegue até **configuração do computador** > **políticas** > **modelos administrativos** > **componentes do Windows** > **serviços de área de trabalho remota** > **host da sessão da área de trabalho remota > ** **dispositivo e redirecionamento de recursos**.
 5. Habilite a configuração **permitir redirecionamento de fuso horário** .
 
 Você também pode executar esse comando na imagem mestra para redirecionar os fusos horários:
@@ -220,7 +220,7 @@ As instruções a seguir lhe dirão como carregar sua imagem mestra em uma conta
 
     ![Uma captura de tela da notificação "imagem criada com êxito".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você tem uma imagem, você pode criar ou atualizar pools de hosts. Para saber mais sobre como criar e atualizar pools de hosts, consulte os seguintes artigos:
 

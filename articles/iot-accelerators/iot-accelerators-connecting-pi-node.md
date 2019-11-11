@@ -1,5 +1,5 @@
 ---
-title: Provisionar o Raspberry Pi para monitoramento remoto em Node.js – Azure | Microsoft Docs
+title: Conectar o Raspberry Pi à solução de monitoramento remoto-node. js – Azure | Microsoft Docs
 description: Descreve como conectar um dispositivo Raspberry Pi ao acelerador de solução de Monitoramento Remoto usando um aplicativo escrito em Node.js.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 20d50ac4ac4a1919077ebe67bb529e2dc5abf187
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 98d947e8aabf20fbfdb192cb80c9bc881007d5da
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61449567"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889279"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Conectar seu dispositivo Raspberry Pi ao acelerador da solução de monitoramento remoto (Node.js)
 

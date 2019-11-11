@@ -4,10 +4,7 @@ description: Exemplo de Script da CLI do Azure - Emparelhar duas redes virtuais
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.openlocfilehash: 072d62f925d4f4024aa17d648a56dc6f37de00f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e5aaf07b49546aca9f44dcb9a43a79127c82341
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60848394"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890236"
 ---
 # <a name="peer-two-virtual-networks"></a>Emparelhar duas redes virtuais
 
@@ -35,7 +32,7 @@ Este script cria e conecta duas redes virtuais na mesma região através da rede
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.sh "Peer two networks")]
 
-## <a name="clean-up-deployment"></a>Limpar a implantação 
+## <a name="clean-up-deployment"></a>Limpar implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -45,7 +42,7 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os comandos a seguir para criar um grupo de recursos, uma máquina virtual e todos os recursos relacionados. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir para criar um grupo de recursos, uma máquina virtual e todos os recursos relacionados. Cada comando na tabela redireciona para a documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

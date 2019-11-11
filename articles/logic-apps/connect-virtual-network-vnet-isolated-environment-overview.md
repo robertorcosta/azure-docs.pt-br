@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: da68cfe504332ed6641c52322f0df0d2efd95997
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e06ac0c0647d9a9a6b5adee289b497f2fe94b222
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820663"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889382"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acessar recursos de rede virtual do Azure a partir dos Aplicativos Lógicos do Azure usando ISEs (Ambientes de Serviço de Integração)
 
@@ -50,7 +50,7 @@ Os aplicativos lógicos em um ISE fornecem as mesmas experiências de usuário e
 
 * Armazenamento de Blobs, Armazenamento de Arquivos e Armazenamento de Tabelas do Azure
 * Filas do Azure, Barramento de Serviço do Azure, Hubs de Eventos do Azure e IBM MQ
-* FTP e SFTP-SSH
+* Sistema de arquivos, FTP e SFTP-SSH
 * SQL Server, SQL Data Warehouse do Azure, Azure Cosmos DB
 * AS2, X12 e EDIFACT
 
@@ -72,7 +72,7 @@ Um ISE também fornece limites maiores para duração da execução, retenção 
 
 Ao criar o ISE, você pode selecionar a SKU do desenvolvedor ou a SKU Premium. Estas são as diferenças entre estas SKUs:
 
-* **Desenvolvedores**
+* **Developer**
 
   Fornece um ISE de menor custo que você pode usar para experimentação, desenvolvimento e teste, mas não para teste de produção ou de desempenho. A SKU do desenvolvedor inclui gatilhos e ações internos, conectores padrão, conectores corporativos e uma única conta de integração de [camada gratuita](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) para um preço mensal fixo. No entanto, esse SKU não inclui nenhum SLA (contrato de nível de serviço), opções para escalar verticalmente a capacidade ou redundância durante a reciclagem, o que significa que você pode enfrentar atrasos ou tempo de inatividade.
 

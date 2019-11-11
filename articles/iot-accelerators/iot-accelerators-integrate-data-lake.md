@@ -1,5 +1,5 @@
 ---
-title: Integrar a solução de Monitoramento Remoto com o Data Lake Store - Azure | Microsoft Docs
+title: Transmitir dados do monitoramento remoto para o Data Lake Store-Azure | Microsoft Docs
 description: Saiba como integrar a solução de Monitoramento Remoto com o Azure Data Lake Store usando um trabalho do Azure Stream Analytics.
 author: philmea
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61449217"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889244"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrar a solução de Monitoramento Remoto com o Azure Data Lake Store
 
@@ -21,7 +21,7 @@ Talvez você tenha necessidades de análise avançada além do que é oferecido 
 
 Neste manual, você usará um trabalho do Azure Stream Analytics para transmitir dados do hub IoT em sua solução de Monitoramento Remoto para um Azure Data Lake Store.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir estas instruções, você precisará do seguinte:
 
@@ -178,6 +178,6 @@ O Azure Stream Analytics usa uma linguagem de consulta do tipo SQL para especifi
 
     ![Explorar os dados de streaming](./media/iot-accelerators-integrate-data-lake/data-lake-store-file-preview.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas Etapas
 
 O Azure Data Lake Analytics pode ser usado para executar análise de big data em seus conjuntos de dados do Data Lake Store. Saiba mais na [Documentação do Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics).

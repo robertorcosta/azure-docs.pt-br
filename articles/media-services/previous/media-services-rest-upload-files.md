@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 9563def1a7b510c403cf299a66066def0b03b59a
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: d5b84a9d216457720e9bd4e17b002d6ab9490f9d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796781"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888594"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o REST  
 > [!div class="op_single_selector"]
@@ -40,12 +40,12 @@ Neste tutorial, aprenda a carregar um arquivo e outra operação associada a ele
 > * Carregar um arquivo para o armazenamento de blob usando a URL de carregamento
 > * Criar um metadados no ativo para o arquivo de mídia carregado
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 - [Crie uma conta dos Serviços de Mídia do Azure usando o Portal do Azure](media-services-portal-create-account.md).
-- Releia o artigo [Acessar a API dos Serviços de Mídia do Azure com a visão geral de autenticação do AAD](media-services-use-aad-auth-to-access-ams-api.md).
-- Além disso, para obter mais informações, consulte o artigo [usar a autenticação do Azure ad para acessar a API dos serviços de mídia com REST](https://docs.microsoft.com/en-us/azure/media-services/previous/media-services-rest-connect-with-aad) .
+- Verifique o artigo [Acessar a API dos Serviços de Mídia do Azure com a visão geral de autenticação do AAD](media-services-use-aad-auth-to-access-ams-api.md).
+- Além disso, para obter mais informações, consulte o artigo [usar a autenticação do Azure ad para acessar a API dos serviços de mídia com REST](https://docs.microsoft.com/azure/media-services/previous/media-services-rest-connect-with-aad) .
 - Configurar o **Postman** conforme descrito em [Configurar Postman para chamadas de API de REST dos Serviços de Mídia](media-rest-apis-with-postman.md).
 
 ## <a name="considerations"></a>Considerações
@@ -104,7 +104,7 @@ Para obter etapas sobre como configurar o Postman para este tutorial, consulte [
 ### <a name="overview"></a>Visão geral 
 
 >[!NOTE]
->Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para saber mais, confira [este artigo](media-services-dotnet-manage-entities.md#limit-access-policies).
+>Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 Antes de carregar todos os arquivos no armazenamento de blobs, defina os direitos de política de acesso para gravar em um ativo. Para fazer isso, POSTE uma solicitação HTTP para o conjunto de entidade AccessPolicies. Defina um valor de DurationInMinutes durante a criação ou você receberá uma mensagem de erro de servidor interno 500 em resposta. Para saber mais sobre AccessPolicies, consulte [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 

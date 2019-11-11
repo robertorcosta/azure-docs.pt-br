@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1be891d38eb918d65cd8efda86e9a81fa629cf38
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60948496"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73883985"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperação de desastre no Azure Service Fabric
 Uma parte crítica da entrega de alta disponibilidade é garantir que os serviços possam sobreviver a todos os tipos diferentes de falhas. Isso é especialmente importante para falhas não planejadas e fora de seu controle. Este artigo descreve alguns modos de falha comuns que poderão se transformar em desastres se não forem modelados e gerenciados corretamente. Ele também aborda mitigações e ações a serem tomadas se, ainda assim, um desastre acontecer. A meta é limitar ou eliminar o risco de que haja tempo de inatividade ou perda de dados quando ocorrerem falhas, sejam elas planejadas ou não.
@@ -77,7 +77,7 @@ Domínios de Atualização são úteis para modelar áreas em que o software ser
 
 <center>
 
-![Nós espalhados pelos domínios de falha no Service Fabric Explorer][sfx-cluster-map]
+![nós se espalham entre domínios de falha no Service Fabric Explorer][sfx-cluster-map]
 </center>
 
 > [!NOTE]
@@ -124,7 +124,7 @@ Se você descobrir que as réplicas restantes são insuficientes para continuar 
 De modo geral, o cluster do Service Fabric em si é um ambiente altamente distribuído, sem pontos únicos de falha. Uma falha de qualquer um dos nós não causará problemas de disponibilidade ou confiabilidade para o cluster, principalmente porque os serviços de sistema do Service Fabric seguem as mesmas diretrizes fornecidas anteriormente: eles sempre são executados com três ou mais réplicas por padrão e os serviços de sistema sem estado são executados em todos os nós. As camadas subjacentes de detecção de falha e rede do Service Fabric são totalmente distribuídas. A maioria dos serviços de sistema podem ser recriados dos metadados no cluster ou sabem como ressincronizar seu estado de outros locais. A disponibilidade do cluster poderá ser comprometida se os serviços de sistema entrarem em situações de perda de quorum como as descritas acima. Nesses casos, talvez você não consiga executar determinadas operações no cluster, como iniciar uma atualização ou implantar novos serviços, mas o cluster em si ainda está ativo. Serviços que já estão em execução continuarão em execução nessas condições, a menos que eles exijam gravações nos serviços de sistema para continuar funcionando. Por exemplo, se o Gerenciador de Failover estiver em perda de quorum, todos os serviços continuarão sendo executados, mas os serviços que falharem não poderão ser reiniciados automaticamente, pois isso requer o envolvimento do Gerenciador de Failover. 
 
 ### <a name="failures-of-a-datacenter-or-azure-region"></a>Falhas de um data center ou região do Azure
-Raramente, um data center físico pode ficar indisponível temporariamente devido à perda de energia ou de conectividade de rede. Nesses casos, seus clusters e serviços do Service Fabric nesse data center ou região do Azure ficarão indisponíveis. No entanto, _os dados ficam preservados_. Para os clusters em execução no Azure, você pode exibir as atualizações sobre interrupções na [Página de status do Azure][azure-status-dashboard]. Na hipótese altamente improvável de um data center físico ser destruído parcial ou completamente, os clusters do Service Fabric hospedados nele ou os serviços dentro dele poderão ser perdidos. Isso inclui qualquer estado que não esteja salvo em backup fora desse data center ou região.
+Raramente, um data center físico pode ficar indisponível temporariamente devido à perda de energia ou de conectividade de rede. Nesses casos, seus clusters e serviços do Service Fabric nesse data center ou região do Azure ficarão indisponíveis. No entanto, _os dados ficam preservados_. Para clusters em execução no Azure, você pode exibir atualizações sobre interrupções na [página de status do Azure][azure-status-dashboard]. Na hipótese altamente improvável de um data center físico ser destruído parcial ou completamente, os clusters do Service Fabric hospedados nele ou os serviços dentro dele poderão ser perdidos. Isso inclui qualquer estado que não esteja salvo em backup fora desse data center ou região.
 
 Há duas estratégias diferentes para sobreviver a uma falha prolongada ou permanente de um único data center ou região. 
 
@@ -132,14 +132,14 @@ Há duas estratégias diferentes para sobreviver a uma falha prolongada ou perma
 2. Executar um único cluster do Service Fabric que abrange vários data centers ou regiões. A configuração mínima com suporte para isso é de três data centers ou regiões. O número recomendado de regiões ou data centers é cinco. Isso requer uma topologia de clusters mais complexa. No entanto, o benefício desse modelo é que a falha de um data center ou região é convertida de um desastre em uma falha normal. Essas falhas podem ser tratadas pelos mecanismos que funcionam para clusters dentro de uma única região. Domínios de falha, domínios de atualização e regras de posicionamento do Service Fabric garantem que as cargas de trabalho sejam distribuídas para que tolerem falhas normais. Para obter mais informações sobre políticas que podem ajudar a operar serviços nesse tipo de cluster, leia sobre as [políticas de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
 
 ### <a name="random-failures-leading-to-cluster-failures"></a>Falhas aleatórias que causam falhas de cluster
-O Service Fabric tem o conceito de Nós de Semente. Trata-se de nós que mantêm a disponibilidade do cluster subjacente. Esses nós ajudam a garantir que o cluster permaneça ativo estabelecendo concessões com outros nós e servindo como agentes de desempate durante determinados tipos de falhas de rede. Se falhas aleatórias removerem a maioria de nós de semente no cluster e eles não ficam novamente, o anel de federação de cluster recolhe conforme você perdeu o quorum de nós de semente e o cluster falhar. No Azure, o provedor de recursos de malha do serviço gerencia configurações de cluster do Service Fabric e por padrão distribui nós de propagação em domínios de falha e atualização do tipo de nó primário. Se o nodetype primário está marcado como durabilidade ouro ou Prata, quando você remove um nó de semente, colocação em escala no seu nodetype primário ou removendo manualmente um nó de propagação, o cluster tentará promover outro nó de semeação não o nodetype primário disponível capacidade e falharão se você tem capacidade menor disponível que requer do seu nível de confiabilidade do cluster para o tipo de nó primário.
+O Service Fabric tem o conceito de Nós de Semente. Trata-se de nós que mantêm a disponibilidade do cluster subjacente. Esses nós ajudam a garantir que o cluster permaneça ativo estabelecendo concessões com outros nós e servindo como agentes de desempate durante determinados tipos de falhas de rede. Se as falhas aleatórias removerem a maioria dos nós de semente no cluster e eles não forem devolvidos, o anel de Federação do cluster será recolhido conforme você perdeu o quorum do nó de propagação e o cluster falhará. No Azure, o provedor de recursos Service Fabric gerencia Service Fabric configurações de cluster e, por padrão, distribui os nós de semente entre os domínios de falha e de atualização do tipo de nó primário; Se o NodeType primário estiver marcado como durabilidade prata ou ouro, quando você remover um nó semente, seja dimensionando em seu NodeType primário ou removendo manualmente um nó semente, o cluster tentará promover outro nó não-semente do NodeType primário disponível capacidade e falhará se você tiver menos capacidade disponível do que o nível de confiabilidade do cluster exigir para o tipo de nó primário.
 
 Em clusters independentes do Service Fabric e no Azure, o "Tipo de nó primário" é aquela que executa as propagações. Ao definir um tipo de nó primário, o Service Fabric aproveitará automaticamente o número de nós fornecidos, criando até nove nós iniciais e 7 réplicas de cada um dos serviços do sistema. Se um conjunto de falhas aleatórias desativar a maior parte dessas réplicas do serviço de sistema ao mesmo tempo, os serviços de sistema entrarão em perda de quorum, conforme descrito acima. Se a maioria desses nós de semente for perdida, o cluster será desligado logo em seguida.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como simular várias falhas usando a [estrutura de capacidade de teste](service-fabric-testability-overview.md)
 - Leia outros recursos de recuperação de desastres e alta disponibilidade. A Microsoft publicou várias orientações sobre estes tópicos. Embora alguns desses documentos mencionem técnicas específicas para uso em outros produtos, eles contêm várias práticas recomendadas gerais que também se aplicam ao contexto do Service Fabric:
-  - [Lista de verificação de disponibilidade](../best-practices-availability-checklist.md)
+  - [Lista de verificação de disponibilidade](/azure/architecture/checklist/resiliency-per-service)
   - [Executando a análise de recuperação de desastre](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Recuperação de desastre e alta disponibilidade para aplicativos do Azure][dr-ha-guide]
 - Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)

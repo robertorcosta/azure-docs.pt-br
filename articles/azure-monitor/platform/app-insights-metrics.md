@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 903fd2309949036b62fb4975596fb645c021d06d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 847c56faae61483813286c46190764327e287783
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535043"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887248"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights métricas baseadas em log
 
@@ -36,7 +36,7 @@ Quando você plota a mesma métrica no [Metrics Explorer](metrics-getting-starte
 
 - Todas as dimensões de **filtro** selecionadas são convertidas em cláusulas *Where* adicionais.
 
-- A dimensão de **gráfico dividido** selecionada é convertida em uma propriedade resumida extra. Por exemplo, se você dividir o gráfico por *local*e plotar usando uma granularidade de tempo de 5 minutos, a cláusula resumete será resumida *... por compartimento (carimbo de data/hora, 5 m), local*.
+- A dimensão de **gráfico dividido** selecionada é convertida em uma propriedade resumida extra. Por exemplo, se você dividir o gráfico por *local*e plotar usando uma granularidade de tempo de 5 minutos, a cláusula *resumete* será resumida *... por compartimento (carimbo de data/hora, 5 m), local*.
 
 > [!NOTE]
 > Se você for novo na linguagem de consulta do Kusto, comece copiando e colando instruções Kusto no painel de consulta Log Analytics sem fazer nenhuma modificação. Clique em **executar** para ver o gráfico básico. Ao começar a entender a sintaxe da linguagem de consulta, você pode começar a fazer pequenas modificações e ver o impacto de sua alteração. Explorar seus próprios dados é uma ótima maneira de começar a concretizar todo o poder da [log Analytics](../../azure-monitor/log-query/get-started-portal.md) e [Azure monitor](../../azure-monitor/overview.md).
@@ -50,7 +50,7 @@ A métrica de *disponibilidade* mostra a porcentagem de execuções de teste na 
 
 |Unidade de medida|Agregações com suporte|Dimensões com suporte|
 |---|---|---|---|---|---|
-|Porcentagem|Average|Local de execução, nome do teste|
+|Percentual|Média|Local de execução, nome do teste|
 
 ```Kusto
 availabilityResults 
@@ -80,7 +80,7 @@ A métrica de *testes de disponibilidade* reflete a contagem dos testes da Web e
 
 |Unidade de medida|Agregações com suporte|Dimensões com suporte|
 |---|---|---|---|---|---|
-|Count|Count|Local de execução, nome do teste, resultado do teste|
+|Contagem|Contagem|Local de execução, nome do teste, resultado do teste|
 
 ```Kusto
 availabilityResults
@@ -99,7 +99,7 @@ As métricas do navegador são coletadas pelo SDK Application Insights JavaScrip
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|
 |---|---|---|
-|Milissegundos|Média, mín., máx.|Nenhum|
+|Milissegundos|Média, mín., máx.|nenhum|
 
 ```Kusto
 browserTimings
@@ -115,7 +115,7 @@ browserTimings
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|
 |---|---|---|
-|Milissegundos|Média, mín., máx.|Nenhum|
+|Milissegundos|Média, mín., máx.|nenhum|
 
 ```Kusto
 browserTimings
@@ -131,7 +131,7 @@ browserTimings
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|
 |---|---|---|
-|Milissegundos|Média, mín., máx.|Nenhum|
+|Milissegundos|Média, mín., máx.|nenhum|
 
 ```Kusto
 browserTimings
@@ -147,7 +147,7 @@ browserTimings
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|
 |---|---|---|
-|Milissegundos|Média, mín., máx.|Nenhum|
+|Milissegundos|Média, mín., máx.|nenhum|
 
 ```Kusto
 browserTimings
@@ -163,7 +163,7 @@ browserTimings
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|
 |---|---|---|
-|Milissegundos|Média, mín., máx.|Nenhum|
+|Milissegundos|Média, mín., máx.|nenhum|
 
 ```Kusto
 browserTimings
@@ -181,11 +181,11 @@ As métricas em **falhas** mostram problemas com solicitações de processamento
 
 ### <a name="browser-exceptions-exceptionsbrowser"></a>Exceções do navegador (exceções/navegador)
 
-Essa métrica reflete o número de exceções geradas do código do aplicativo em execução no navegador. Somente as exceções rastreadas com uma ```trackException()``` chamada à API Application insights são incluídas na métrica.
+Essa métrica reflete o número de exceções geradas do código do aplicativo em execução no navegador. Somente as exceções que são controladas com uma chamada à API ```trackException()``` Application Insights são incluídas na métrica.
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
 |---|---|---|---|
-|Count|Count|Nenhum|A versão baseada em log usa agregação **sum**|
+|Contagem|Contagem|nenhum|A versão baseada em log usa agregação **sum**|
 
 ```Kusto
 exceptions
@@ -200,7 +200,7 @@ O número de chamadas de dependência com falha.
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
 |---|---|---|---|
-|Count|Count|Nenhum|A versão baseada em log usa agregação **sum**|
+|Contagem|Contagem|nenhum|A versão baseada em log usa agregação **sum**|
 
 ```Kusto
 dependencies
@@ -215,7 +215,7 @@ Cada vez que você registra uma exceção em Application Insights, há uma chama
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
 |---|---|---|---|
-|Count|Contagem|Nome da função de nuvem, instância de função de nuvem, tipo de dispositivo|A versão baseada em log usa agregação **sum**|
+|Contagem|Contagem|Nome da função de nuvem, instância de função de nuvem, tipo de dispositivo|A versão baseada em log usa agregação **sum**|
 
 ```Kusto
 exceptions
@@ -225,11 +225,11 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>Solicitações com falha (solicitações/falha)
 
-A contagem de solicitações de servidor rastreadas que foram marcadas como *com falha*. Por padrão, o SDK do Application Insights marca automaticamente cada solicitação do servidor que retornou o código de resposta HTTP 5xx ou 4xx como uma solicitação com falha. Você pode personalizar essa lógica modificando a propriedade *Success* do item telemetria de solicitação em um inicializador de [telemetria personalizado](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer).
+A contagem de solicitações de servidor rastreadas que foram marcadas como *com falha*. Por padrão, o SDK do Application Insights marca automaticamente cada solicitação do servidor que retornou o código de resposta HTTP 5xx ou 4xx como uma solicitação com falha. Você pode personalizar essa lógica modificando a propriedade *Success* do item telemetria de solicitação em um [inicializador de telemetria personalizado](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
 |---|---|---|---|
-|Count|Count|Instância de função de nuvem, nome da função de nuvem, tráfego real ou sintético, desempenho da solicitação, código de resposta|A versão baseada em log usa agregação **sum**|
+|Contagem|Contagem|Instância de função de nuvem, nome da função de nuvem, tráfego real ou sintético, desempenho da solicitação, código de resposta|A versão baseada em log usa agregação **sum**|
 
 ```Kusto
 requests
@@ -244,7 +244,7 @@ Essa métrica mostra o número de exceções de servidor.
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
 |---|---|---|---|
-|Count|Count|Nome da função de nuvem, instância de função de nuvem|A versão baseada em log usa agregação **sum**|
+|Contagem|Contagem|Nome da função de nuvem, instância de função de nuvem|A versão baseada em log usa agregação **sum**|
 
 ```Kusto
 exceptions
@@ -253,7 +253,7 @@ exceptions
 | render barchart
 ```
 
-## <a name="performance-counters"></a>Contadores de desempenho
+## <a name="performance-counters"></a>contadores de desempenho
 
 Use as métricas na categoria **contadores de desempenho** para acessar os contadores de desempenho do [sistema coletados pelo Application insights](../../azure-monitor/app/performance-counters.md).
 
@@ -313,7 +313,7 @@ A métrica mostra quanto da capacidade total do processador é consumida pelo pr
 
 |Unidade de medida|Agregações com suporte|Dimensões com suporte|
 |---|---|---|
-|Porcentagem|Média, mín., máx.|Instância de função de nuvem
+|Percentual|Média, mín., máx.|Instância de função de nuvem
 
 ```Kusto
 performanceCounters
@@ -359,7 +359,7 @@ Consumo de CPU por *todos os* processos em execução na instância do servidor 
 
 |Unidade de medida|Agregações com suporte|Dimensões com suporte|
 |---|---|---|
-|Porcentagem|Média, mín., máx.|Instância de função de nuvem
+|Percentual|Média, mín., máx.|Instância de função de nuvem
 
 >[!NOTE]
 > A métrica de tempo do processador não está disponível para os aplicativos hospedados nos serviços de Azure App. Use a métrica [processar CPU](#process-cpu-performancecountersprocesscpupercentage) para acompanhar a utilização da CPU dos aplicativos Web hospedados nos serviços de aplicativos.

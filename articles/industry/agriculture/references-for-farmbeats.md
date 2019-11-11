@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 8e8e4524034f0a296045691309b065f8547bdaa0
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 057037807a75e50eb2305bfab19d1fcff7fe77ce
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797693"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889602"
 ---
 # <a name="references"></a>Referências
 
@@ -40,7 +40,7 @@ DeviceModel  | DeviceModel corresponde aos metadados do dispositivo, como o fabr
 Sensor  | O sensor corresponde a um sensor físico que registra valores. Um sensor normalmente é conectado a um dispositivo com uma ID de dispositivo.
 SensorModel  | SensorModel corresponde aos metadados do sensor, como o fabricante, tipo de sensor analógico ou digital, medida de sensor como temperatura ambiente, pressão etc.
 Telemetria  | A telemetria fornece a capacidade de ler mensagens de telemetria para um determinado sensor e intervalo de tempo.
-Trabalho  | O trabalho corresponde a qualquer Workflow de atividades, que são executadas no sistema FarmBeats para obter uma saída desejada. Cada trabalho é associado a uma ID de trabalho e tipo de trabalho.
+trabalho  | O trabalho corresponde a qualquer Workflow de atividades, que são executadas no sistema FarmBeats para obter uma saída desejada. Cada trabalho é associado a uma ID de trabalho e tipo de trabalho.
 JobType  | JobType corresponde a diferentes tipos de trabalho com suporte no sistema. Isso inclui o sistema definido & tipos de trabalho definidos pelo usuário.
 ExtendedType  | O extendetype corresponde à lista de & tipos definidos pelo usuário no sistema. Isso ajuda a configurar um novo sensor ou cena ou tipo de cena no sistema FarmBeats.
 Parceiro  | O parceiro corresponde ao parceiro de integração de sensor/imagens para FarmBeats
@@ -85,7 +85,7 @@ A URL para o serviço de API é a URL do hub de dados https://\<yourdatahub-site
 
 A solicitação de exemplo abaixo é obter a lista de dispositivos:
 
-```
+```azurepowershell-interactive
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
 ```
 
@@ -108,7 +108,6 @@ Por exemplo, ao consultar a lista de dispositivos (obter chamada em/Device), os 
 
 A API do hub de dados do Azure FarmBeats retorna os erros HTTP padrão. Os códigos de erro mais comuns são os seguintes:
 
-
  |Código do Erro             | DESCRIÇÃO |
  |---                    | --- |
  |200                    | Sucesso |
@@ -121,29 +120,29 @@ A API do hub de dados do Azure FarmBeats retorna os erros HTTP padrão. Os códi
 
 Além dos erros HTTP padrão, as APIs do hub de dados FarmBeats do Azure também retornam erros internos no formato abaixo:
 
-```
-{
-  "message": "<More information on the error>",
-  "status": "<error code>”,
-  "code": "<InternalErrorCode>",
-  "moreInfo": "<Details of the error>"
-}
-```
+    ```
+    {
+      "message": "<More information on the error>",
+      "status": "<error code>”,
+      "code": "<InternalErrorCode>",
+      "moreInfo": "<Details of the error>"
+    }
+    ```
 
 Exemplo: ao criar um farm, um campo obrigatório "Name" não foi especificado na carga de entrada. A mensagem de erro resultante seria:
 
-```
-{
-  "message": "Model validation failed",
-  "status": 400,
-  "code": "ModelValidationFailed",
-  "moreInfo": "[\"The Name field is required.\"]"
-}
-```
+    ```json
+    {
+      "message": "Model validation failed",
+      "status": 400,
+      "code": "ModelValidationFailed",
+      "moreInfo": "[\"The Name field is required.\"]"
+    }
+    ```
 
 ## <a name="adding-users-or-app-registrations-to-azure-active-directory"></a>Adicionando usuários ou registros de aplicativo a Azure Active Directory
 
- As APIs FarmBeats do Azure podem ser acessadas por um usuário ou um registro de aplicativo no Azure Active Directory. Para criar um registro de aplicativo em seu Azure Active Directory, siga as etapas abaixo:  
+As APIs FarmBeats do Azure podem ser acessadas por um usuário ou um registro de aplicativo no Azure Active Directory. Para criar um registro de aplicativo em seu Azure Active Directory, siga as etapas abaixo:  
 
 1. Vá para [portal do Azure](https://portal.azure.com) **Azure Active Directory, registros de aplicativo**> **novo registro**. Como alternativa, você pode usar uma conta existente.
 2. Para uma nova conta, certifique-se de concluir o seguinte:

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d73a2dcd0aab3b972a3e0a9237e53d05d4a9a53
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 8b99e919c396ebc3ef72c046fbe3fef1261050ad
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750026"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891585"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -42,7 +42,7 @@ Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um c
 
 Além de extensões específicas ao processo, uma extensão de Script Personalizado está disponível para máquinas virtuais Windows e Linux. A extensão de Script personalizado para Windows permite a execução de qualquer script do PowerShell em uma VM. Scripts personalizados são úteis para a criação de implantações do Azure que exigem uma configuração que vai além da capacidade das ferramentas nativas do Azure. Para saber mais, veja [Extensão de Script personalizado de VM do Windows](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para lidar com a extensão na VM, você precisa ter o agente do Windows Azure instalado. Algumas extensões individuais têm pré-requisitos, como acesso a recursos ou dependências.
 
@@ -54,18 +54,18 @@ Para saber mais sobre os sistemas operacionais com suporte e as instruções de 
 
 #### <a name="supported-agent-versions"></a>Versões do agente com suporte
 
-Para fornecer a melhor experiência possível, há versões mínimas do agente. Para obter mais informações, consulte [este artigo](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+Para fornecer a melhor experiência possível, há versões mínimas do agente. Para obter mais informações, consulte [este artigo](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 #### <a name="supported-oses"></a>Sistemas operacionais com suporte
 
-O agente Convidado do Windows é executado em vários sistemas operacionais. No entanto, a estrutura de extensões tem um limite para os sistemas operacionais com extensões. Para obter mais informações, consulte [este artigo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+O agente Convidado do Windows é executado em vários sistemas operacionais. No entanto, a estrutura de extensões tem um limite para os sistemas operacionais com extensões. Para obter mais informações, consulte [este artigo](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems
 ).
 
 Algumas extensões não têm suporte em todos os sistemas de operacionais e podem emitir *Código de Erro 51, 'SO sem suporte'* . Consulte a documentação da extensão individual sobre a capacidade de suporte.
 
 #### <a name="network-access"></a>Acesso à rede
 
-Os pacotes de extensão são baixados do repositório de extensão do Armazenamento do Microsoft Azure, e os carregamentos de status de extensão são postados no Armazenamento do Microsoft Azure. Se você usar a versão [com suporte](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) dos agentes, não será necessário permitir o acesso ao armazenamento do Azure na região da VM, como pode usar o agente para redirecionar a comunicação para o controlador de malha do Azure para comunicações do agente (recurso HostGAPlugin por meio do canal privilegiado em [168.63.129.16](https://docs.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16)IP privado). Se você estiver usando uma versão sem suporte do agente, será necessário permitir o acesso de saída no armazenamento do Microsoft Azure nessa região por meio da VM.
+Os pacotes de extensão são baixados do repositório de extensão do Armazenamento do Microsoft Azure, e os carregamentos de status de extensão são postados no Armazenamento do Microsoft Azure. Se você usar a versão [com suporte](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) dos agentes, não será necessário permitir o acesso ao armazenamento do Azure na região da VM, como pode usar o agente para redirecionar a comunicação para o controlador de malha do Azure para comunicações do agente (recurso HostGAPlugin por meio do canal privilegiado em [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)IP privado). Se você estiver usando uma versão sem suporte do agente, será necessário permitir o acesso de saída no armazenamento do Microsoft Azure nessa região por meio da VM.
 
 > [!IMPORTANT]
 > Se você tiver bloqueado o acesso ao *168.63.129.16* usando o firewall convidado ou com um proxy, as extensões falharão independentemente das anteriores. As portas 80, 443 e 32526 são necessárias.
@@ -411,7 +411,7 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 
 Você também pode remover uma extensão no portal do Azure da seguinte maneira:
 
-1. Selecione uma VM.
+1. Selecionar uma máquina virtual.
 2. Escolha **Extensões**.
 3. Selecione a extensão desejada.
 4. Escolha **Desinstalar**.

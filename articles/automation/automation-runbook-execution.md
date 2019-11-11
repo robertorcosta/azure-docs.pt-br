@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 01a321503a2c55bfc28720675932e6813cdab320
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2f8fa4c378ed394930a4018c58b99ed919cbc2c2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850601"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886957"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 
@@ -32,7 +32,7 @@ Os trabalhos têm acesso aos recursos do Azure fazendo uma conexão à sua assin
 
 Os runbooks na Automação do Azure podem ser executados em uma área restrita no Azure ou em um [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). Uma área restrita é um ambiente compartilhado no Azure que pode ser usado por vários trabalhos. Os trabalhos que usam a mesma área restrita são restringidos pelas limitações de recurso da área restrita. Hybrid runbook workers podem executar runbooks diretamente no computador que está hospedando a função e em relação aos recursos no ambiente para gerenciar esses recursos locais. Runbooks são armazenados e gerenciados na Automação do Azure e, em seguida, entregues a um ou mais computadores atribuídos. A maioria dos runbooks pode ser facilmente executada nas áreas restritas do Azure. Há cenários específicos em que pode ser recomendada a escolha de um Hybrid Runbook ao invés de uma área restrita do Azure para execução do seu runbook. Veja a seguinte tabela com uma lista de alguns exemplos de cenário:
 
-|Tarefa|Melhor opção|Observações|
+|tarefa|Melhor opção|Observações|
 |---|---|---|
 |Integração com serviços do Azure|Área restrita do Azure|Com hospedagem no Azure, a autenticação é mais simples. Se você está usando o Hybrid Runbook Worker em uma VM do Azure, é possível usar [identidades gerenciadas para recursos do Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
 |Desempenho ideal para gerenciar recursos do Azure|Área restrita do Azure|O script é executado no mesmo ambiente, que, por sua vez, tem menos latência|
@@ -45,14 +45,14 @@ Os runbooks na Automação do Azure podem ser executados em uma área restrita n
 |Uso de módulos com requisitos específicos| Hybrid Runbook Worker|Alguns exemplos incluem:</br> **WinSCP**: dependência de winscp.exe </br> **IISAdministration**: necessidade de que o IIS seja desabilitado|
 |Instalação do módulo que requer o instalador|Hybrid Runbook Worker|Os módulos para área restrita devem ser copiable|
 |Uso de runbooks ou módulos que exigem o .NET Framework diferente da versão 4.7.2|Hybrid Runbook Worker|Áreas restritas da Automação têm o .NET Framework 4.7.2 e não há maneira de atualizá-lo|
-|Scripts que exigem elevação|Hybrid Runbook Worker|As áreas restritas não permitem elevação. Para resolver isso, use um Hybrid runbook Worker e você pode desativar o UAC e usar `Invoke-Command` ao executar o comando que requer elevação|
+|Scripts que exigem elevação|Hybrid Runbook Worker|As áreas restritas não permitem elevação. Para resolver isso, use uma Hybrid Runbook Worker e você pode desativar o UAC e usar `Invoke-Command` ao executar o comando que requer elevação|
 |Scripts que exigem acesso ao WMI|Hybrid Runbook Worker|Trabalhos em execução em áreas restritas na nuvem [não têm acesso ao WMI](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Comportamento do runbook
 
 Os runbooks são executados com base na lógica que é definida dentro deles. Se um runbook é interrompido, ele é reiniciado no início. Esse comportamento exige que os runbooks sejam escritos de maneira a permitir a reinicialização em caso de problemas transitórios.
 
-Os trabalhos do PowerShell iniciados a partir de um runbook executado em uma área restrita do Azure podem não ser executados no modo de linguagem completa. Para saber mais sobre os modos de linguagem do PowerShell, confira [modos de linguagem do PowerShell](/powershell/module/microsoft.powershell.core/about/about_language_modes). Para obter detalhes adicionais sobre como interagir com trabalhos na automação do Azure, consulte Recuperando o [status do trabalho com o PowerShell](#retrieving-job-status-using-powershell)
+Os trabalhos do PowerShell iniciados a partir de um runbook executado em uma área restrita do Azure podem não ser executados no modo de linguagem completa. Para saber mais sobre os modos de linguagem do PowerShell, confira [modos de linguagem do PowerShell](/powershell/module/microsoft.powershell.core/about/about_language_modes). Para obter detalhes adicionais sobre como interagir com trabalhos na automação do Azure, consulte [recuperando o status do trabalho com o PowerShell](#retrieving-job-status-using-powershell)
 
 ### <a name="creating-resources"></a>Criar recursos
 
@@ -118,7 +118,7 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 
 ### <a name="working-with-multiple-subscriptions"></a>Trabalhando com várias assinaturas
 
-Ao criar runbooks que lidam com várias assinaturas, seu runbook precisa usar o cmdlet [Disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) para garantir que o contexto de autenticação não seja recuperado de outro runbook que possa estar em execução na mesma área restrita. Em seguida, você precisa usar `-AzureRmContext` o parâmetro em `AzureRM` seus cmdlets e passá-lo para o contexto apropriado.
+Ao criar runbooks que lidam com várias assinaturas, seu runbook precisa usar o cmdlet [Disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) para garantir que o contexto de autenticação não seja recuperado de outro runbook que possa estar em execução na mesma área restrita. Em seguida, você precisa usar o parâmetro `-AzureRmContext` em seus cmdlets `AzureRM` e passá-lo seu contexto adequado.
 
 ```powershell
 # Ensures you do not inherit an AzureRMContext in your runbook
@@ -149,7 +149,7 @@ Ao criar scripts, é importante poder lidar com exceções e possíveis falhas i
 
 #### <a name="erroractionpreference"></a>$ErrorActionPreference
 
-A variável de preferência [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina como o PowerShell responde a um erro de não finalização. Os erros de encerramento não são `$ErrorActionPreference`afetados pelo, eles sempre terminam. Usando `$ErrorActionPreference`, um erro normalmente não conclusivo, como `PathNotFound` no `Get-ChildItem` cmdlet, interromperá a conclusão do runbook. O exemplo a seguir mostra `$ErrorActionPreference`o uso de. A linha `Write-Output` final nunca será executada à medida que o script for interrompido.
+A variável de preferência [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina como o PowerShell responde a um erro de não finalização. Os erros de encerramento não são afetados pelo `$ErrorActionPreference`, eles sempre terminam. Usando `$ErrorActionPreference`, um erro normalmente não conclusivo, como `PathNotFound` do cmdlet `Get-ChildItem`, interromperá a conclusão do runbook. O exemplo a seguir mostra o uso de `$ErrorActionPreference`. A linha de `Write-Output` final nunca será executada, pois o script será interrompido.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -159,7 +159,7 @@ Write-Output "This message will not show"
 
 #### <a name="try-catch-finally"></a>Tentar capturar finalmente
 
-[Try catch](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) é usado em scripts do PowerShell para ajudá-lo a lidar com erros de encerramento. Usando try catch, você pode capturar exceções específicas ou exceções gerais. A instrução Catch deve ser usada para rastrear erros ou usada para tentar lidar com o erro. O exemplo a seguir tenta baixar um arquivo que não existe. Ele captura a `System.Net.WebException` exceção se houvesse outra exceção de que o último valor é retornado.
+[Try catch](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) é usado em scripts do PowerShell para ajudá-lo a lidar com erros de encerramento. Usando try catch, você pode capturar exceções específicas ou exceções gerais. A instrução Catch deve ser usada para rastrear erros ou usada para tentar lidar com o erro. O exemplo a seguir tenta baixar um arquivo que não existe. Ele captura a exceção `System.Net.WebException`, se houvesse outra exceção, o último valor será retornado.
 
 ```powershell-interactive
 try
@@ -177,9 +177,9 @@ catch
 }
 ```
 
-#### <a name="throw"></a>Throw
+#### <a name="throw"></a>throw
 
-[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) pode ser usado para gerar um erro de encerramento. Isso pode ser útil ao definir sua própria lógica em um runbook. Se um determinado critério for atendido que deve parar o script, você poderá usar `throw` para interromper o script. O exemplo a seguir mostra o computador um parâmetro de função `throw`exigido usando.
+[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) pode ser usado para gerar um erro de encerramento. Isso pode ser útil ao definir sua própria lógica em um runbook. Se um determinado critério for atendido que deve parar o script, você poderá usar `throw` para interromper o script. O exemplo a seguir mostra o computador um parâmetro de função necessário usando `throw`.
 
 ```powershell-interactive
 function Get-ContosoFiles
@@ -201,20 +201,20 @@ Os trabalhos de runbook executados em áreas restritas do Azure não têm acesso
 
 A tabela a seguir descreve os diferentes status possíveis para um trabalho. O PowerShell tem dois tipos de erros, erros de finalização e sem finalização. Erros de finalização definem o status do runbook como **Falhou**, caso ocorram. Erros sem finalização permitem que o script continue mesmo depois de ocorrerem. Um exemplo de um erro sem finalização é usar o cmdlet `Get-ChildItem` com um caminho que não existe. O PowerShell vê que o caminho não existe, gera um erro e continua até a próxima pasta. Esse erro não definiria o status do runbook como **Falhou** e poderia ser marcado como **Concluído**. Para forçar um runbook a parar se houver um erro sem finalização, você pode usar `-ErrorAction Stop` no cmdlet.
 
-| Status | Descrição |
+| Status | DESCRIÇÃO |
 |:--- |:--- |
 | Concluído |Operação concluída com sucesso. |
-| Falhou |Para [runbooks gráficos e de fluxo de trabalho do PowerShell](automation-runbook-types.md), o runbook falhou ao compilar. Para [runbooks de Script do PowerShell](automation-runbook-types.md), o runbook falhou ao iniciar ou o trabalho sofreu uma exceção. |
+| Falha |Para [runbooks gráficos e de fluxo de trabalho do PowerShell](automation-runbook-types.md), o runbook falhou ao compilar. Para [runbooks de Script do PowerShell](automation-runbook-types.md), o runbook falhou ao iniciar ou o trabalho sofreu uma exceção. |
 | Erro, aguardando recursos |O trabalho falhou porque atingiu o limite de [fração justa](#fair-share) três vezes e iniciou do mesmo ponto de verificação ou desde o início do runbook em cada uma das vezes. |
 | Em fila |O trabalho está aguardando recursos de um trabalho do Automation ficar disponível para que ele possa ser iniciado. |
 | Iniciando |O trabalho foi atribuído a um trabalhador e o sistema está iniciando-o. |
-| Retomando |O sistema está retomando o trabalho depois que ele ter sido suspenso. |
-| Em execução |O trabalho está em execução. |
+| Continuando |O sistema está retomando o trabalho depois que ele ter sido suspenso. |
+| Executando |O trabalho está em execução. |
 | Executando, aguardando recursos |O trabalho foi descarregado, pois atingiu o limite de [fração justa](#fair-share) . Ele será retomado em breve do seu último ponto de verificação. |
-| Parado |O trabalho foi interrompido pelo usuário antes de ser concluído. |
+| Parada |O trabalho foi interrompido pelo usuário antes de ser concluído. |
 | Parando |O sistema está parando o trabalho. |
 | Suspenso |O trabalho foi suspenso pelo usuário, pelo sistema ou por um comando no runbook. Se um runbook não tiver um ponto de verificação, ele começará desde o início do runbook. Se ele tiver um ponto de verificação, poderá iniciar novamente e retomar no último ponto de verificação. O runbook só é suspenso pelo sistema quando ocorre uma exceção. Por padrão, ErrorActionPreference é definido como **Continuar** o que significa que o trabalho continua a ser executado no caso de um erro. Se essa variável de preferência for definida como **Parar**, o trabalho será suspenso no caso de um erro. Aplica-se a somente [runbooks gráficos e de fluxo de trabalho do PowerShell](automation-runbook-types.md). |
-| Suspendendo |O sistema está tentando suspender o trabalho por solicitação do usuário. O runbook precisa atingir seu próximo ponto de verificação antes de poder ser suspenso. Se já passou de seu último ponto de verificação, ele será concluído antes de ser suspenso. Aplica-se a somente [runbooks gráficos e de fluxo de trabalho do PowerShell](automation-runbook-types.md). |
+| Suspensão |O sistema está tentando suspender o trabalho por solicitação do usuário. O runbook precisa atingir seu próximo ponto de verificação antes de poder ser suspenso. Se já passou de seu último ponto de verificação, ele será concluído antes de ser suspenso. Aplica-se a somente [runbooks gráficos e de fluxo de trabalho do PowerShell](automation-runbook-types.md). |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Exibindo o status do trabalho no portal do Azure
 
@@ -240,7 +240,7 @@ Como alternativa, você pode exibir detalhes de resumo do trabalho para um runbo
 
 ![Página Trabalhos da conta de automação](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
 
-### <a name="job-summary"></a>Resumo do Trabalho
+### <a name="job-summary"></a>Resumo do trabalho
 
 Você pode exibir uma lista de todos os trabalhos que foram criados para um determinado runbook e o status mais recente deles. Você pode filtrar essa lista pelo status do trabalho e o intervalo de datas para a última alteração no trabalho. Para exibir as informações detalhadas e o resultado, clique no nome de um trabalho. A exibição detalhada do trabalho inclui os valores para os parâmetros de runbook que foram fornecidos para esse trabalho.
 
@@ -327,4 +327,4 @@ Outra opção é otimizar o runbook usando runbooks filho. Se o runbook percorre
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre os diferentes métodos que podem ser usados para iniciar um runbook na Automação do Azure, confira [Iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)
-* Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](https://docs.microsoft.com/powershell/scripting/overview).

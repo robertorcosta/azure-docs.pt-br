@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.openlocfilehash: 6c61bc6075b3f0713dd790f1b3aa1a47af9d8e6c
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/07/2019
+ms.openlocfilehash: 723fe14db9089e1127f39eae3ed7b10bbddf70bf
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950030"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889721"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Conectividade do dispositivo e entrada de telemetria
 
@@ -45,7 +45,7 @@ Fazer uma chamada GET na API do Dispositivo com um parâmetro `includes=Connecti
 YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 ```
 
-| Parâmetro | Substitua por |
+| . | Substitua por |
 | --- | --- |
 | *YOUR_DEVICE_GUID* | A ID do dispositivo |
 
@@ -53,7 +53,7 @@ YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 YOUR_MANAGEMENT_API_URL/devices?HardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
 ```
 
-| Valor do parâmetro | Substitua por |
+| Valor de parâmetro | Substitua por |
 | --- | --- |
 | *YOUR_DEVICE_HARDWARE_ID* | A ID de hardware do dispositivo |
 
@@ -67,10 +67,10 @@ Você pode personalizar o payload e o formato de mensagem do dispositivo para at
 
  O conteúdo da carga útil de uma **Mensagem** pode ser um dado arbitrário de até 256 KB de tamanho. Existem alguns requisitos esperados para as propriedades do tipo [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet). A tabela mostra as propriedades obrigatórias e opcionais com suporte do sistema.
 
-| Nome da propriedade | Valor | Necessário | Descrição |
+| Nome da propriedade | Valor | obrigatórios | DESCRIÇÃO |
 |---|---|---|---|
-| **DigitalTwins-Telemetry** | 1.0 | Sim | Um valor constante que identifica uma mensagem para o sistema. |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | Sim | Um identificador exclusivo do sensor que envia a **Mensagem**. Esse valor deve corresponder a uma propriedade **HardwareId** do objeto para o sistema para processá-lo. Por exemplo: `00FF0643BE88-CO2`. |
+| **DigitalTwins-Telemetry** | 1.0 | sim | Um valor constante que identifica uma mensagem para o sistema. |
+| **DigitalTwins-SensorHardwareId** | `string(72)` | sim | Um identificador exclusivo do sensor que envia a **Mensagem**. Esse valor deve corresponder a uma propriedade **HardwareId** do objeto para o sistema para processá-lo. Por exemplo: `00FF0643BE88-CO2`. |
 | **CreationTimeUtc** | `string` | Não | Uma cadeia de data formatada [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que identifica o tempo de amostragem da carga útil. Por exemplo: `2018-09-20T07:35:00.8587882-07:00`. |
 | **CorrelationId** | `string` | Não | Um UUID que foi usado para eventos de rastreamento em todo o sistema. Por exemplo: `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
 

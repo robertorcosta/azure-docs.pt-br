@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: fa3cd84978119a5858e63712b4d22c2ea89ea528
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8f6fb9737d3d8dad93a95f31d566f7cc4706ded3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470908"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886040"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Linux para o serviço Azure App
 
@@ -35,7 +35,7 @@ Caso contrário, o método de implantação dependerá do tipo de arquivo morto:
 - Para implantar arquivos .war para Tomcat, use o ponto de extremidade `/api/wardeploy/` para executar POST de seu arquivo morto. Para obter mais informações sobre essa API, confira [essa documentação](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
 - Para implantar arquivos .jar nas imagens do Java SE, use o ponto de extremidade `/api/zipdeploy/` do site do Kudu. Para obter mais informações sobre essa API, confira [essa documentação](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
 
-Não implante seu .war ou .jar usando FTP. A ferramenta FTP foi projetada para carregar os scripts de inicialização, dependências ou outros arquivos de tempo de execução. Não é a opção ideal para a implantação de aplicativos Web.
+Não implante seu .war ou .jar usando FTP. A ferramenta FTP foi projetada para carregar os scripts de inicialização, dependências ou outros arquivos de runtime. Não é a opção ideal para a implantação de aplicativos Web.
 
 ## <a name="logging-and-debugging-apps"></a>Aplicativos de registro em log e depuração
 
@@ -86,7 +86,7 @@ Durante o intervalo de 30 segundos, você pode validar se a gravação está oco
 
 #### <a name="continuous-recording"></a>Gravação contínua
 
-Você pode usar o gravador de vôo Zulu para criar o perfil de seu aplicativo Java com impacto mínimo sobre o desempenho do tempo de execução ([origem](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). Para fazer isso, execute o seguinte comando CLI do Azure para criar uma configuração de aplicativo chamada JAVA_OPTS com a configuração necessária. O conteúdo da configuração do aplicativo JAVA_OPTS é passado para o comando `java` quando seu aplicativo é iniciado.
+Você pode usar o gravador de vôo Zulu para criar o perfil de seu aplicativo Java com impacto mínimo sobre o desempenho do tempo de execução ([origem](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). Para fazer isso, execute o seguinte comando CLI do Azure para criar uma configuração de aplicativo chamada JAVA_OPTS com a configuração necessária. O conteúdo da configuração JAVA_OPTS aplicativo é passado para o comando `java` quando seu aplicativo é iniciado.
 
 ```azurecli
 az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
@@ -114,9 +114,9 @@ O serviço de Azure App para Linux dá suporte ao ajuste e à personalização p
 - [Adicionar uma CDN](../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Configurar o site kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
-### <a name="set-java-runtime-options"></a>Definir opções de tempo de execução do Java
+### <a name="set-java-runtime-options"></a>Definir opções de runtime do Java
 
-Para definir a memória alocada ou outras opções de tempo de execução da JVM nos ambientes Tomcat e Java SE, crie uma [configuração de aplicativo](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) chamada `JAVA_OPTS` com as opções. O Serviço de Aplicativo no Linux passa essa configuração como uma variável de ambiente para o tempo de execução do Java quando ele é iniciado.
+Para definir a memória alocada ou outras opções de tempo de execução da JVM nos ambientes Tomcat e Java SE, crie uma [configuração de aplicativo](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) chamada `JAVA_OPTS` com as opções. O Serviço de Aplicativo no Linux passa essa configuração como uma variável de ambiente para o runtime do Java quando ele é iniciado.
 
 No portal do Azure, em **Configurações do aplicativo** para o aplicativo Web, crie uma configuração de aplicativo denominada `JAVA_OPTS` que inclui as configurações adicionais, como `-Xms512m -Xmx1204m`.
 
@@ -238,6 +238,24 @@ O [Azure keyvault](../../key-vault/key-vault-overview.md) fornece gerenciamento 
 Primeiro, siga as instruções para [conceder acesso ao aplicativo para Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) e [fazer uma referência de keyvault para seu segredo em uma configuração de aplicativo](../app-service-key-vault-references.md#reference-syntax). Você pode validar que a referência seja resolvida para o segredo imprimindo a variável de ambiente ao acessar remotamente o terminal do serviço de aplicativo.
 
 Para injetar esses segredos em seu arquivo de configuração Spring ou Tomcat, use a sintaxe de injeção de variável de ambiente (`${MY_ENV_VAR}`). Para arquivos de configuração do Spring, consulte esta documentação sobre [configurações externas](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
+
+## <a name="using-the-java-key-store"></a>Usando o repositório de chaves Java
+
+Por padrão, todos os certificados públicos ou privados [carregados no serviço de aplicativo Linux](../configure-ssl-certificate.md) serão carregados no repositório de chaves Java à medida que o contêiner for iniciado. Isso significa que os certificados carregados estarão disponíveis no contexto de conexão ao fazer conexões TLS de saída.
+
+Você pode interagir ou depurar a ferramenta de chave do Java [abrindo uma conexão SSH](app-service-linux-ssh-support.md) para o serviço de aplicativo e executando o comando `keytool`. Consulte a [documentação da ferramenta de chave](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) para obter uma lista de comandos. Os certificados são armazenados no local do arquivo de keystore padrão do Java, `$JAVA_HOME/jre/lib/security/cacerts`.
+
+A configuração adicional pode ser necessária para criptografar sua conexão JDBC. Consulte a documentação para o driver JDBC escolhido.
+
+- [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
+- [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
+- [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+
+### <a name="manually-initialize-and-load-the-key-store"></a>Inicializar e carregar manualmente o repositório de chaves
+
+Você pode inicializar o repositório de chaves e adicionar certificados manualmente. Crie uma configuração de aplicativo, `SKIP_JAVA_KEYSTORE_LOAD`, com um valor de `1` para desabilitar o serviço de aplicativo de carregar os certificados no repositório de chaves automaticamente. Todos os certificados públicos carregados no serviço de aplicativo por meio do portal do Azure são armazenados em `/var/ssl/certs/`. Os certificados privados são armazenados em `/var/ssl/private/`.
+
+Para obter mais informações sobre a API do keystore, consulte [a documentação oficial](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
 
 ## <a name="configure-apm-platforms"></a>Configurar plataformas APM
 
@@ -712,7 +730,7 @@ Para usar o Tomcat com Redis, você deve configurar seu aplicativo para usar uma
 
 8. Atualize a configuração de `azure-webapp-maven-plugin` no arquivo *pom. xml* do seu aplicativo para se referir às informações da sua conta do Redis. Esse arquivo usa as variáveis de ambiente que você definiu anteriormente para manter suas informações de conta fora dos seus arquivos de origem.
 
-    Se necessário, altere `1.7.0` para a versão atual do [plug-in do Maven para Azure app Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
+    Se necessário, altere `1.7.0` para a versão atual do [Plug-in do Maven para o Serviço de Aplicativo do Azure](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 
     ```xml
     <plugin>
@@ -775,10 +793,10 @@ Para usar o JDK do Zulu com suporte do Azure em seus contêineres, efetue pull e
 
 ### <a name="runtime-availability"></a>Disponibilidade de tempo de execução
 
-O Serviço de Aplicativo para Linux dá suporte a dois tempos de execução para hospedagem gerenciada de aplicativos Web do Java:
+O Serviço de Aplicativo para Linux dá suporte a dois runtimes para hospedagem gerenciada de aplicativos Web do Java:
 
 - O [contêiner do servlet do Tomcat](https://tomcat.apache.org/) para execução de aplicativos empacotados como arquivos Web (WAR). As versões com suporte são 8.5 e 9.0.
-- O ambiente de tempo de execução do Java SE para executar aplicativos empacotados como arquivos Java (JAR). As versões com suporte são Java 8 e 11.
+- O ambiente de runtime do Java SE para executar aplicativos empacotados como arquivos Java (JAR). As versões com suporte são Java 8 e 11.
 
 ### <a name="jdk-versions-and-maintenance"></a>Versões e manutenção do JDK
 
@@ -792,7 +810,7 @@ Os patches e as correções para grandes vulnerabilidades de segurança serão l
 
 ### <a name="deprecation-and-retirement"></a>Reprovação e desativação
 
-Se um tempo de execução do Java com suporte for desativado, os desenvolvedores do Azure que usam o tempo de execução afetado receberão um aviso de reprovação pelo menos seis meses antes de o tempo de execução ser desativado.
+Se um runtime do Java com suporte for desativado, os desenvolvedores do Azure que usam o runtime afetado receberão um aviso de reprovação pelo menos seis meses antes de o runtime ser desativado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,24 +3,21 @@ title: Exemplo de script do Azure PowerShell – Filtrar o tráfego de rede da V
 description: Exemplo de script do Azure PowerShell – Filtrar o tráfego de entrada e saída de rede da VM.
 services: virtual-network
 documentationcenter: virtual-network
-author: georgewallace
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: KumudD
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
-ms.author: gwallace
-ms.openlocfilehash: 168d374a070160eff158d6464d6e214880f486f0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: kumud
+ms.openlocfilehash: 46b368220a320679e93024f592d980f2b756c3a2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66156899"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890208"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic"></a>Filtrar o tráfego de entrada e saída de rede da VM
 
@@ -36,7 +33,7 @@ Se necessário, instale o Azure PowerShell usando a instrução encontrada no [g
 
 [!code-powershell[main](../../../powershell_scripts/virtual-network/filter-network-traffic/filter-network-traffic.ps1  "Filter VM network traffic")]
 
-## <a name="clean-up-deployment"></a>Limpar a implantação 
+## <a name="clean-up-deployment"></a>Limpar implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -64,6 +61,6 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma rede v
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 Exemplos adicionais de script de PowerShell de rede podem ser encontrados na [Documentação de visão geral da rede do Azure](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: cf4274931d83b51afb4a8ada7d1c9040ccce3c14
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7003e5b8574d2caa05bfe66e500b93db0c1cdcfa
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606843"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891630"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contêineres de perfil FSLogix e arquivos do Azure
 
@@ -48,11 +48,11 @@ A tabela a seguir mostra os benefícios e as limitações das tecnologias de per
 
 | Tecnologia | Configurações modernas | Configurações do Win32 | Configurações do so | Dados do usuário | Com suporte no SKU do servidor | Armazenamento de back-end no Azure | Armazenamento de back-end local | Suporte à versão | Hora de entrada subsequente |Observações|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Discos de perfil do usuário (UPD)** | Sim | Sim | Sim | Sim | Sim | Não | Sim | Win 7 + | Sim | |
-| **Perfil de usuário de roaming (RUP), modo de manutenção** | Não | Sim | Sim | Sim | Sim| Não | Sim | Win 7 + | Não | |
-| **Enterprise State Roaming (ESR)** | Sim | Não | Sim | Não | Consulte as observações | Sim | Não | Win 10 | Não | Funções no SKU do servidor, mas sem interface do usuário de suporte |
-| **User Experience Virtualization (UE-V)** | Sim | Sim | Sim | Não | Sim | Não | Sim | Win 7 + | Não |  |
-| **Arquivos de nuvem do OneDrive** | Não | Não | Não | Sim | Consulte as observações | Consulte as observações  | Consulte as observações | Win 10 RS3 | Não | Não testado no SKU do servidor. O armazenamento de back-end no Azure depende do cliente de sincronização. O armazenamento de back-end no local precisa de um cliente de sincronização. |
+| **Discos de perfil do usuário (UPD)** | sim | sim | sim | sim | sim | Não | sim | Win 7 + | sim | |
+| **Perfil de usuário de roaming (RUP), modo de manutenção** | Não | sim | sim | sim | sim| Não | sim | Win 7 + | Não | |
+| **Enterprise State Roaming (ESR)** | sim | Não | sim | Não | Consulte as observações | sim | Não | Win 10 | Não | Funções no SKU do servidor, mas sem interface do usuário de suporte |
+| **User Experience Virtualization (UE-V)** | sim | sim | sim | Não | sim | Não | sim | Win 7 + | Não |  |
+| **Arquivos de nuvem do OneDrive** | Não | Não | Não | sim | Consulte as observações | Consulte as observações  | Consulte as observações | Win 10 RS3 | Não | Não testado no SKU do servidor. O armazenamento de back-end no Azure depende do cliente de sincronização. O armazenamento de back-end no local precisa de um cliente de sincronização. |
 
 #### <a name="performance"></a>Desempenho
 
@@ -78,7 +78,7 @@ Desde a aquisição, a Microsoft começou a substituir as soluções de perfil d
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Integração de arquivos do Azure com o serviço de domínio Azure Active Directory
 
-O desempenho e os recursos dos contêineres de perfil do FSLogix aproveitam a nuvem. Em 7 de agosto de 2019, os arquivos de Microsoft Azure anunciaram a disponibilidade geral da [autenticação de arquivos do Azure com o AD DS (serviço de domínio Azure Active Directory)](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-overview). Ao abordar o custo e a sobrecarga administrativa, os arquivos do Azure com a autenticação de AD DS do Azure são uma solução premium para perfis de usuário no serviço de área de trabalho virtual do Windows.
+O desempenho e os recursos dos contêineres de perfil do FSLogix aproveitam a nuvem. Em 7 de agosto de 2019, os arquivos de Microsoft Azure anunciaram a disponibilidade geral da [autenticação de arquivos do Azure com o AD DS (serviço de domínio Azure Active Directory)](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview). Ao abordar o custo e a sobrecarga administrativa, os arquivos do Azure com a autenticação de AD DS do Azure são uma solução premium para perfis de usuário no serviço de área de trabalho virtual do Windows.
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Práticas recomendadas para área de trabalho virtual do Windows
 

@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.openlocfilehash: 217a1d94a4a5235fc5886f34986ffcb3aef60873
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/07/2019
+ms.openlocfilehash: f2479d9f3e278d23d62275b667f78d1fd70dd151
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949260"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889698"
 ---
 # <a name="routing-events-and-messages"></a>Roteamento de eventos e mensagens
 
@@ -23,15 +23,17 @@ As soluções de IoT geralmente unem vários serviços poderosos que incluem arm
 
 O Azure digital gêmeos oferece duas maneiras de conectar eventos de IoT com outros serviços do Azure ou aplicativos de negócios:
 
-* **Roteamento de eventos dos Gêmeos Digitais do Azure**: Um objeto no grafo espacial que é alterado, dados telemétricos que são recebidos ou uma função definida pelo usuário que cria uma notificação com base em condições predefinidas pode disparar eventos dos Gêmeos Digitais do Azure. Os usuários podem enviar esses eventos para [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [tópicos do Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/) ou [Grade de Eventos do Azure](https://azure.microsoft.com/services/event-grid/) para processamento adicional.
+* **Roteamento de eventos do Twins do Azure Digital**: um objeto no gráfico espacial que muda, dados de telemetria recebidos ou uma função definida pelo usuário que cria uma notificação com base em condições predefinidas pode acionar eventos do Gêmeos Digitais do Azure. Os usuários podem enviar esses eventos para [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [tópicos do Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/) ou [Grade de Eventos do Azure](https://azure.microsoft.com/services/event-grid/) para processamento adicional.
 
-* **Roteamento da telemetria de dispositivo**: Além do roteamento de eventos, os Gêmeos Digitais do Azure também podem encaminhar mensagens de telemetria bruta de dispositivo para os Hubs de Eventos para insights e análise posteriores. Esses tipos de mensagens não são processados pelo Gêmeos Digitais do Azure. E eles só estiverem encaminhados para o hub de eventos.
+* **Telemetria de dispositivo de roteamento**: além dos eventos de roteamentos, o recurso Gêmeos Digitais do Azure também pode rotear mensagens de telemetria brutas do dispositivo para os Hubs de Eventos para obter mais insights e análises. Esses tipos de mensagens não são processados pelo Gêmeos Digitais do Azure. E eles só estiverem encaminhados para o hub de eventos.
 
 Os usuários podem especificar um ou mais pontos de extremidade de saída para enviar eventos ou encaminhar mensagens. Eventos e mensagens serão enviados aos pontos de extremidade de acordo com essas preferências de roteamentos predefinidas. Em outras palavras, os usuários podem especificar um determinado ponto de extremidade para receber eventos de operação de gráfico, outro para receber eventos de telemetria de dispositivo e assim por diante.
 
-[roteamento de eventos de gêmeos digital de @no__t 1Azure](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
+[![o roteamento de eventos do Azure digital gêmeos](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
-Roteamento para Hubs de Eventos mantém a ordem na qual as mensagens de telemetria são enviadas. Então eles chegam ao ponto final na mesma sequência em que foram originalmente recebidos. A Grade de Eventos e o Barramento de Serviço do Microsoft Azure não garantem que os pontos de extremidade receberão eventos na mesma ordem em que ocorreram. No entanto, o esquema do evento inclui um registro de data e hora que pode ser usado para identificar a ordem após os eventos chegarem ao terminal.
+Roteamento para Hubs de Eventos mantém a ordem na qual as mensagens de telemetria são enviadas. Então eles chegam ao ponto final na mesma sequência em que foram originalmente recebidos. 
+
+A Grade de Eventos e o Barramento de Serviço do Microsoft Azure não garantem que os pontos de extremidade receberão eventos na mesma ordem em que ocorreram. No entanto, o esquema do evento inclui um registro de data e hora que pode ser usado para identificar a ordem após os eventos chegarem ao terminal.
 
 ## <a name="route-implementation"></a>Implementação de rota
 
