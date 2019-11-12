@@ -15,7 +15,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2019
 ms.locfileid: "73488885"
 ---
-1. Selecione **Conectar sites VPN** para abrir a página **Conectar sites **.
+1. Selecione **Conectar sites VPN** para abrir a página **Conectar sites**.
 
     ![connect](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "conectar")
 
