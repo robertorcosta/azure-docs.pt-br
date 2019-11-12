@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: vinigam
-ms.openlocfilehash: 831e75ba2d3f6af62496d437da3d1413dc612594
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 91fb4551f4651f44a1f7358951c5d4cc0ff70644
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686560"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907146"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -85,7 +85,7 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 * Sul da Índia
 * Leste do Japão 
 * Oeste do Japão
-* Gov. dos EUA – Virgínia
+* US Gov Virginia
 * Leste da China 2
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Regiões com suporte: espaços de trabalho do Log Analytics
@@ -95,13 +95,17 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 * Centro-Oeste dos EUA
 * Leste dos EUA
 * Leste dos EUA 2
+* Centro-Norte dos EUA
 * Centro-Sul dos Estados Unidos
+* Centro dos EUA
 * Oeste dos EUA
 * Oeste dos EUA 2
 * Centro dos EUA
 * França Central
-* Norte da Europa
 * Europa Ocidental
+* Norte da Europa
+* Sul do Brasil
+* Oeste do Reino Unido
 * Sul do Reino Unido
 * Leste da Austrália
 * Sudeste da Austrália
@@ -110,10 +114,10 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 * Coreia Central
 * Índia Central
 * Leste do Japão
-* Gov. dos EUA – Virgínia
+* US Gov Virginia
 * Leste da China 2
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 ### <a name="user-access-requirements"></a>Requisitos de acesso do usuário
 
@@ -123,7 +127,7 @@ A conta deve ser um membro de uma das [funções internas](../role-based-access-
 |---------          |---------               |
 |Gerenciador de Recursos   | Proprietário                  |
 |                   | Colaborador            |
-|                   | Leitor                 |
+|                   | leitor                 |
 |                   | Colaborador de rede    |
 
 Se a conta não estiver atribuída a uma das funções internas, ela deverá ser atribuída a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) à qual são atribuídas as ações a seguir, no nível da assinatura:

@@ -17,16 +17,16 @@ ms.date: 07/17/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b30b6463ed3d58ec1565f3c49f98388ad09ed4
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: a43c5849dcd037915a46de182064b3e630a663ec
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186278"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907176"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de auditoria no portal do Azure Active Directory 
 
-Com os relatórios do Azure Active Directory (Azure AD), você pode obter as informações necessárias para determinar o funcionamento do seu ambiente.
+Com os relatórios do Azure AD (Azure Active Directory), é possível obter as informações necessárias para determinar o desempenho do ambiente.
 
 A arquitetura de relatórios consiste nos seguintes componentes:
 
@@ -42,7 +42,7 @@ Este artigo fornece uma visão geral do relatório de auditoria.
 ## <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
 
 * Usuários nas funções **administrador de segurança**, **leitor de segurança**, leitor de **relatório** ou **administrador global**
-* Além disso, todos os usuários (não administradores) podem ver suas próprias atividades de auditoria
+* Além disso, todos os usuários (não administradores) podem ver suas próprias atividades de entrada
 
 ## <a name="audit-logs"></a>Logs de auditoria
 
@@ -78,7 +78,7 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 
 É possível filtrar os dados de auditoria nos seguintes campos:
 
-- Serviço
+- O Barramento de
 - Categoria
 - Atividade
 - Status
@@ -90,36 +90,36 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 
 O filtro de **serviço** permite que você selecione em uma lista suspensa dos seguintes serviços:
 
-- Todas
-- Revisões de Acesso
-- Provisionamento de Conta 
+- Todos
+- Revisões de acesso
+- Provisionamento de conta de usuário 
 - SSO de aplicativo
 - Métodos de autenticação
 - B2C
 - Acesso Condicional
 - Diretório principal
-- Gerenciamento de Direitos
+- Gerenciamento de direitos
 - Identity Protection
 - Usuários Convidados
 - PIM
 - Gerenciamento de grupos de autoatendimento
 - Gerenciamento de senhas de auto-atendimento
-- Termos de uso
+- Termos de Uso
 
 O filtro **categoria** permite que você selecione um dos seguintes filtros:
 
-- Todas
+- Todos
 - AdministrativeUnit
 - ApplicationManagement
 - Autenticação
 - Autorização
 - Contato
-- Dispositivos
+- Dispositivo
 - DeviceConfiguration
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Outros
+- outro
 - Política
 - ResourceManagement
 - RoleManagement
@@ -127,13 +127,13 @@ O filtro **categoria** permite que você selecione um dos seguintes filtros:
 
 O filtro de **atividade** é baseado na categoria e na seleção do tipo de recurso de atividade que você faz. Você pode selecionar uma atividade específica que deseja exibir ou escolher todas. 
 
-Você pode obter a lista de todas as atividades de auditoria usando o API do Graph:`https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
+Você pode obter a lista de todas as atividades de auditoria usando o API do Graph: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
 O filtro de **status** permite filtrar com base no status de uma operação de auditoria. O status pode ser um dos seguintes:
 
-- Todas
-- Êxito
-- Falha
+- Todos
+- Sucesso
+- Failure
 
 O filtro de **destino** permite que você pesquise um destino específico por nome ou nome principal do usuário (UPN). O nome de destino e o UPN diferenciam maiúsculas de minúsculas. 
 
@@ -180,7 +180,7 @@ Com relatórios de auditoria baseados em grupos e usuários, você pode obter re
 
 - Quais licenças foram atribuídas a um grupo ou a um usuário?
 
-Se você quiser revisar apenas os dados de auditoria relacionados aos usuários, poderá encontrar uma exibição filtrada em **logs de auditoria** na seção **atividade** da guia **usuários** . Este ponto de entrada tem usermanagement como categoria preselecionada.
+Se você quiser revisar apenas os dados de auditoria relacionados aos usuários, poderá encontrar uma exibição filtrada em **logs de auditoria** na seção **atividade** da guia **usuários** . Este ponto de entrada tem **usermanagement** como categoria preselecionada.
 
 ![Logs de auditoria](./media/concept-audit-logs/users.png "Logs de auditoria")
 

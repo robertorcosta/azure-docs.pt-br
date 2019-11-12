@@ -4,18 +4,21 @@ description: Descreve como configurar um dispositivo para avaliação de servido
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 11/11/2019
 ms.author: raynew
-ms.openlocfilehash: ddd659e8cbcb54a36868848d0c6327f294d531b1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a3212e4dac6856a5fd032c731d877453965584ae
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512620"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907171"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um dispositivo para servidores físicos
 
 Este artigo descreve como configurar o dispositivo de migrações para Azure se você estiver avaliando servidores físicos com a ferramenta migrações para Azure: Server Assessment.
+
+> [!NOTE]
+> Se os recursos forem mencionados aqui que você ainda não vê no portal de migrações para Azure, aguarde. Eles serão exibidos na próxima semana ou assim.
 
 O dispositivo de migrações para Azure é um dispositivo leve, usado pela avaliação de servidor de migrações para Azure para fazer o seguinte:
 
@@ -28,18 +31,18 @@ O dispositivo de migrações para Azure é um dispositivo leve, usado pela avali
 ## <a name="appliance-deployment-steps"></a>Etapas de implantação do dispositivo
 
 Para configurar o dispositivo:
-- Baixe um arquivo compactado com o script do instalador de migrações para Azure do portal do Azure.
+- Baixe um arquivo compactado com o script do instalador de Migrações para Azure do portal do Azure.
 - Extraia o conteúdo do arquivo compactado. Inicie o console do PowerShell com privilégios administrativos.
 - Execute o script do PowerShell para iniciar o aplicativo Web do dispositivo.
 - Configure o dispositivo pela primeira vez e registre-o com o projeto de Migrações para Azure.
 
-## <a name="download-the-installer-script"></a>Baixar o script do instalador
+## <a name="download-the-installer-script"></a>Baixe o script do instalador.
 
 Baixe o arquivo compactado para o dispositivo.
 
 1. Em **metas de migração** > **servidores** > **migrações para Azure: avaliação do servidor**, clique em **descobrir**.
 2. Em **Descobrir computadores** > **São seus computadores virtualizados?** , clique em **Não virtualizado/outro.**
-3. Clique em **baixar** para baixar o arquivo compactado.
+3. Clique em **Download** para baixar o arquivo compactado.
 
     ![Baixar VM](./media/how-to-set-up-appliance-hyper-v/download-appliance-hyperv.png)
 
@@ -52,7 +55,7 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 2. Execute o seguinte comando para gerar o hash para o VHD
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  Para a versão do dispositivo 1.19.05.10, o hash gerado deve corresponder a essas configurações.
+3.  Para a versão 1.19.05.10 do dispositivo, o hash gerado deve corresponder a essas configurações.
 
   **Algoritmo** | **Valor de hash**
   --- | ---
@@ -60,23 +63,23 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 
 
   
-## <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalador de migrações para Azure
-= O script do instalador faz o seguinte:
+## <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalador de Migrações para Azure
+= Esse script do instalador faz o seguinte:
 
 - Instala agentes e um aplicativo Web para avaliação e descoberta de servidor físico.
-- Instale as funções do Windows, incluindo o serviço de ativação do Windows, o IIS e o ISE do PowerShell.
-- Baixe e instale um módulo regravável do IIS. [Saiba mais](https://www.microsoft.com/download/details.aspx?id=7435).
-- Atualiza uma chave do registro (HKLM) com detalhes de configuração persistente para migrações para Azure.
-- Cria os seguintes arquivos no caminho:
-    - **Arquivos de configuração**:%ProgramData%\Microsoft Azure\Config
-    - **Arquivos de log**:%ProgramData%\Microsoft Azure\Logs
+- Instala as funções do Windows, incluindo o serviço de ativação do Windows, o IIS e o ISE do PowerShell.
+- Baixa e instala um módulo regravável do IIS. [Saiba mais](https://www.microsoft.com/download/details.aspx?id=7435).
+- Atualiza uma chave do registro (HKLM) com detalhes de configuração persistente para Migrações para Azure.
+- Cria os seguintes arquivos sob o caminho:
+    - **Arquivos de configuração**: %Programdata%\Microsoft Azure\Config
+    - **Arquivos de configuração**: %Programdata%\Microsoft Azure\Logs
 
 Crie o script da seguinte maneira:
 
-1. Extraia o arquivo compactado em uma pasta no servidor que hospedará o dispositivo.
+1. Extraia o arquivo compactado para uma pasta no servidor que hospedará o dispositivo.
 2. Inicie o PowerShell no servidor acima com privilégio administrativo (elevado).
 3. Altere o diretório do PowerShell para a pasta em que o conteúdo foi extraído do arquivo compactado baixado.
-4. Execute o script executando o seguinte comando:
+4. Execute o script, executando o seguinte comando:
     ```
     PS C:\Users\Administrators\Desktop> AzureMigrateInstaller-physical.ps1
     ```
@@ -120,13 +123,13 @@ Configure o dispositivo pela primeira vez.
 
 Conecte-se do dispositivo a servidores físicos e inicie a descoberta.
 
-1. Clique em **Adicionar credenciais** para especificar as credenciais de conta que o dispositivo usará para descobrir servidores.  
-2. Especifique o **sistema operacional**, o nome amigável para as credenciais, o **nome de usuário** e a **senha** e clique em **Adicionar**.
+1. Em **Adicionar credenciais**, especifique as credenciais de conta que o dispositivo usará para descobriros servidores.  
+2. Especifique o **Sistema operacional**, nome amigável para as credenciais, **Nome de usuário** e **Senha** e clique em **Adicionar**.
 Você pode adicionar um conjunto de credenciais para servidores Windows e Linux.
-4. Clique em **Adicionar servidor**e especifique os detalhes do servidor – endereço FQDN/IP e nome amigável das credenciais (uma entrada por linha) para se conectar ao servidor.
+4. Clique em **Adicionar servidor**e especifique detalhes do servidor – endereço FQDN/IP e nome amigável das credenciais (uma entrada por linha) para se conectar ao servidor.
 3. Clique em **Validar**. Após a validação, a lista de servidores que podem ser descobertos é mostrada.
-    - Se a validação falhar para um servidor, examine o erro passando o mouse sobre o ícone na coluna **status** . Corrija os problemas e valide novamente.
-    - Para remover um servidor, selecione > **excluir**.
+    - Se a validação falhar para um servidor, examine o erro passando o ponteiro do mouse sobre o ícone na coluna **Status**. Corrija os problemas e valide novamente.
+    - Para remover um servidor, selecione > **Excluir**.
 4. Após a validação, clique em **Salvar e iniciar descoberta** para iniciar o processo de descoberta.
 
 Isso iniciará a descoberta. São necessários cerca de 15 minutos para que os metadados das VMs descobertas sejam exibidos no portal do Azure. 
