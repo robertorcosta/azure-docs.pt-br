@@ -69,7 +69,7 @@
           href: service-fabric-tutorial-monitor-cluster.md
         - name: 3 – Dimensionar o cluster
           href: service-fabric-tutorial-scale-cluster.md
-        - name: 4 – Atualizar o tempo de execução do cluster
+        - name: 4 – Atualizar o runtime do cluster
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 5 – Excluir um cluster
           href: service-fabric-tutorial-delete-cluster.md
@@ -876,6 +876,8 @@
       href: service-fabric-common-questions.md
     - name: Fórum do MSDN
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
+    - name: Proteção de Implantação do Azure Resource Manager
+      href: service-fabric-azure-resource-manager-guardrails.md
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Calculadora de preço

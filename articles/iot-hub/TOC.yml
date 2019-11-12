@@ -91,6 +91,8 @@
       href: iot-hub-scaling.md
     - name: Alta disponibilidade e recuperação de desastres
       href: iot-hub-ha-dr.md
+    - name: Como clonar um Hub IoT para outra região
+      href: iot-hub-how-to-clone.md
     - name: Compreendendo o endereço IP do hub IoT
       href: iot-hub-understand-ip-address.md
     - name: Dar suporte a protocolos adicionais

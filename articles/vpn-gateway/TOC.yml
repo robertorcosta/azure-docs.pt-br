@@ -134,18 +134,18 @@
               href: point-to-site-vpn-client-configuration-radius.md
             - name: Integrar a autenticação de P2S VPN RADIUS com o servidor NPS
               href: vpn-gateway-radiuis-mfa-nsp.md
+        - name: Autenticação do Azure AD
+          items:
+            - name: Configurar um locatário
+              href: openvpn-azure-ad-tenant.md
+            - name: Configurar um cliente VPN
+              href: openvpn-azure-ad-client.md
         - name: OpenVPN
           items:
             - name: Configurar OpenVPN para conexões ponto a site
               href: vpn-gateway-howto-openvpn.md
             - name: Configurar clientes do OpenVPN
               href: vpn-gateway-howto-openvpn-clients.md
-            - name: Open VPN – Autenticação do Azure Active Directory
-              items:
-                - name: Configurar um locatário do Azure AD
-                  href: openvpn-azure-ad-tenant.md
-                - name: Configurar um cliente VPN – Azure AD
-                  href: openvpn-azure-ad-client.md
         - name: Fazer a transição para um certificado de gateway de autoridade de certificação pública para P2S
           href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Configurar um túnel de dispositivo VPN Always On

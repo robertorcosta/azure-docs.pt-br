@@ -150,6 +150,8 @@
               href: check-cluster-health.md
         - name: Banco de dados
           items:
+            - name: Bancos de dados de seguidores
+              href: follower.md
             - name: Gerenciar permissões de banco de dados
               href: manage-database-permissions.md
             - name: Políticas

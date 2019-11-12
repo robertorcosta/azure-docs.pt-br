@@ -96,6 +96,8 @@
       href: troubleshoot-vm-configuration.md
     - name: Solucionar problemas de máquinas virtuais do Windows 7 na Área de Trabalho Virtual do Windows
       href: troubleshoot-windows-7-vm.md
+    - name: Solucionar problemas da ferramenta de gerenciamento da Área de Trabalho Virtual do Windows
+      href: troubleshoot-management-tool.md
     - name: Conexões do cliente da Área de Trabalho Remota
       href: troubleshoot-client-connection.md
     - name: PowerShell da Área de Trabalho Virtual do Windows

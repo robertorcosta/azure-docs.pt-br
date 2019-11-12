@@ -16,7 +16,7 @@ metadata:
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: 'O Video Indexer dos Serviços de Mídia do Azure é um aplicativo de nuvem criado com base na Análise de Mídia do Azure, no Azure Search, nos Serviços Cognitivos (como a API de Detecção Facial, o Microsoft Translator, a API da Pesquisa Visual Computacional e o Serviço de Fala Personalizado). Ele permite que você extraia os insights de seus vídeos usando os modelos de áudio e vídeo do Video Indexer.<br/>Para entender quando você desejaria usar o Video Indexer vs. as predefinições de análise dos Serviços de Mídia, confira o <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">documento de comparação</a>.'
+  description: 'O Video Indexer dos Serviços de Mídia do Azure é um aplicativo de nuvem criado com base na Análise de Mídia do Azure, no Azure Cognitive Search e nos Serviços Cognitivos, como a API de Detecção Facial, o Microsoft Translator, a API de Pesquisa Visual Computacional e o Serviço de Fala Personalizado. Ele permite que você extraia os insights de seus vídeos usando os modelos de áudio e vídeo do Video Indexer.<br/>Para entender quando você desejaria usar o Video Indexer vs. as predefinições de análise dos Serviços de Mídia, confira o <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">documento de comparação</a>.'
 sections:
   - items:
       - type: list

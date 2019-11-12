@@ -106,12 +106,16 @@
 - name: Recursos
   items:
     - name: Preços
-      href: 'https://azure.microsoft.com/en-us/pricing/details/app-configuration/'
+      href: 'https://azure.microsoft.com/pricing/details/app-configuration/'
     - name: vídeos
       items:
         - name: Introdução
           href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
         - name: Gerenciamento de recursos
           href: 'https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement'
+        - name: Facilitação da configuração centralizada
+          href: 'https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210'
+        - name: Configuração de Aplicativos do Azure na apresentação nativa de nuvem
+          href: 'https://www.youtube.com/watch?v=DJqmA5PcfzE'
     - name: Fornecer comentários sobre o produto
       href: 'https://github.com/Azure/AppConfiguration/issues'

@@ -1,53 +1,18 @@
 - name: Documentação de conceitos básicos
   href: index.yml
-- name: Arquitetura e design
-  href: overview.md
+- name: Visão geral
   items:
+    - name: Introdução à segurança do Azure
+      href: overview.md
     - name: Responsabilidade compartilhada na nuvem
       href: shared-responsibility.md
-    - name: Detecção avançada de ameaças
-      displayName: 'vulnerability, virus, IDs, incident'
-      href: threat-detection.md
-    - name: Log e auditoria do Azure
-      displayName: incident
-      href: log-audit.md
-    - name: Segurança de rede do Azure
-      displayName: 'firewall, ssl, vpn, IDs, gateway, https, application gateway, azure application gateway, ips, waf'
-      href: 'https://azure.microsoft.com/resources/azure-network-security/'
-    - name: Isolamento na nuvem do Azure
-      displayName: trust boundary
-      href: isolation-choices.md
-    - name: Proteger arquitetura de rede híbrida
-      displayName: trust boundary
-      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
+- name: Proteção das cargas de trabalho no Azure
+  items:
     - name: Recursos técnicos de segurança
       href: technical-capabilities.md
-  expanded: false
-- name: Segurança e criptografia de dados
-  href: encryption-overview.md
-  items:
-    - name: Segurança de banco de dados
-      href: database-security-overview.md
-      items:
-        - name: Práticas recomendadas
-          href: database-best-practices.md
-        - name: Lista de verificação de segurança
-          href: database-security-checklist.md
-    - name: Criptografia do disco
-      items:
-        - name: Práticas recomendadas
-          displayName: transit
-          href: data-encryption-best-practices.md
-        - name: Criptografia de dados em repouso
-          href: encryption-atrest.md
-        - name: Azure Disk Encryption para máquinas virtuais
-          displayName: virtual machines and virtual machine scale sets
-          href: azure-disk-encryption-vms-vmss.md
-    - name: Guia de segurança de armazenamento
-      href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
-    - name: Sistema de Proteção de Dados do Cliente
-      href: customer-lockbox-overview.md
-- name: Plataforma e infraestrutura
+    - name: Controles de segurança interna
+      href: security-controls.md
+- name: Plataforma e infraestrutura do Azure
   items:
     - name: Segurança da infraestrutura
       href: infrastructure.md
@@ -73,40 +38,64 @@
           href: infrastructure-integrity.md
         - name: Proteção de dados
           href: protection-customer-data.md
-    - name: Microsoft Antimalware
-      displayName: virus
-      href: antimalware.md
-    - name: Segurança de IaaS
-      href: virtual-machines-overview.md
-      items:
-        - name: Práticas recomendadas - cargas de trabalho do IaaS
-          displayName: patch
-          href: iaas.md
-        - name: Imagens do Azure Marketplace
-          href: azure-marketplace-images.md
-    - name: Gerenciamento de identidades
+    - name: Isolamento na nuvem do Azure
+      href: isolation-choices.md
+- name: Gerenciamento de identidades
+  items:
+    - name: Visão geral da segurança
       href: identity-management-overview.md
-      items:
-        - name: Escolher Autenticação do Azure AD
-          displayName: 'identity, active directory, seamless sso'
-          href: choose-ad-authn.md
-        - name: Lista de verificação de segurança
-          displayName: 'identity, active directory, password'
-          href: steps-secure-identity.md
-        - name: Escolher sem senha
-          displayName: 'identity, active directory, passwordless'
-          href: ad-passwordless.md
-        - name: Práticas recomendadas
-          displayName: 'password, identity, active directory'
-          href: identity-management-best-practices.md
-    - name: Segurança de rede
-      displayName: 'firewall, ssl, vpn, IDs, gateway, https, azure application gateway, application gateway, ips, waf'
+    - name: Práticas recomendadas
+      href: identity-management-best-practices.md
+    - name: Lista de verificação de segurança
+      href: steps-secure-identity.md
+    - name: Escolher sem senha
+      href: ad-passwordless.md
+    - name: Escolher Autenticação do Azure AD
+      href: choose-ad-authn.md
+- name: Segurança de rede
+  items:
+    - name: Visão geral da segurança
       href: network-overview.md
+    - name: Práticas recomendadas
+      href: network-best-practices.md
+    - name: Proteção contra DDoS
+      href: ddos-best-practices.md
+    - name: Proteger arquitetura de rede híbrida
+      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
+- name: Segurança de IaaS
+  items:
+    - name: Microsoft Antimalware
+      href: antimalware.md
+    - name: Visão Geral da segurança de máquinas virtuais
+      href: virtual-machines-overview.md
+    - name: Práticas recomendadas - cargas de trabalho do IaaS
+      href: iaas.md
+    - name: Imagens do Azure Marketplace
+      href: azure-marketplace-images.md
+- name: 'Segurança de dados, criptografia e armazenamento'
+  items:
+    - name: Segurança e criptografia de dados
+      href: encryption-overview.md
+    - name: Criptografia do disco
       items:
         - name: Práticas recomendadas
-          href: network-best-practices.md
-        - name: Proteção contra DDoS
-          href: ddos-best-practices.md
+          href: data-encryption-best-practices.md
+        - name: Criptografia de dados em repouso
+          href: encryption-atrest.md
+        - name: Azure Disk Encryption para máquinas virtuais
+          href: azure-disk-encryption-vms-vmss.md
+    - name: Segurança de banco de dados
+      items:
+        - name: Visão geral
+          href: database-security-overview.md
+        - name: Práticas recomendadas
+          href: database-best-practices.md
+        - name: Lista de verificação de segurança
+          href: database-security-checklist.md
+    - name: Guia de segurança de armazenamento
+      href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
+    - name: Sistema de Proteção de Dados do Cliente
+      href: customer-lockbox-overview.md
 - name: Aplicativo
   items:
     - name: PaaS
@@ -121,53 +110,32 @@
     - name: Segurança do Azure Service Fabric
       href: service-fabric-best-practices.md
 - name: 'Monitoramento, auditoria e operações'
-  href: management-monitoring-overview.md
   items:
-    - name: Auditoria e log
-      items:
-        - name: Segurança do gerenciamento remoto
-          href: management.md
-        - name: Integração de log do Azure
+    - name: Proteção avançada contra ameaças
+      href: threat-detection.md
+    - name: Log e auditoria do Azure
+      href: log-audit.md
+    - name: Gerenciamento e monitoramento de segurança
+      href: management-monitoring-overview.md
     - name: Segurança operacional
-      href: operational-overview.md
       items:
+        - name: Visão geral
+          href: operational-overview.md
         - name: Práticas recomendadas
           href: operational-best-practices.md
         - name: Lista de verificação de segurança
           href: operational-checklist.md
-- name: Governança e conformidade
-  displayName: 'blueprint, privacy, certifications'
-  items:
-    - name: AU PROTEGIDO
-      displayName: 'blueprint, privacy, certifications'
-    - name: FedRAMP
-      displayName: 'blueprint, privacy, certifications'
-    - name: FFIEC
-      displayName: 'blueprint, privacy, certifications'
-    - name: HIPAA/HITRUST
-      displayName: 'blueprint, privacy, certifications'
-    - name: NIST SP 800-171
-      displayName: 'blueprint, privacy, certifications'
-    - name: PCI DSS
-      displayName: 'blueprint, privacy, certifications'
-    - name: UK NHS
-      displayName: 'blueprint, privacy, certifications'
-    - name: OFICIAL DO REINO UNIDO
-      displayName: 'blueprint, privacy, certifications'
-- name: White papers de segurança
-  href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
-- name: Serviços de segurança do Azure
-  href: services-technologies.md
-- name: Práticas recomendadas
-  href: best-practices-and-patterns.md
 - name: Recursos
   items:
-    - name: Controles de segurança interna
-      href: security-controls.md
+    - name: Serviços de segurança do Azure
+      href: services-technologies.md
+    - name: White papers de segurança
+      href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
+    - name: Práticas recomendadas
+      href: best-practices-and-patterns.md
     - name: Consultoria de segurança cibernética
       href: cyber-services.md
     - name: Registrar tíquete de suporte para eventos de segurança
       href: event-support-ticket.md
     - name: Teste de caneta
-      displayName: penetration
       href: pen-testing.md

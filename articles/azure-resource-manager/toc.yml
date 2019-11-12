@@ -138,6 +138,8 @@
           href: resource-group-create-multiple.md
         - name: Recursos do nível de assinatura
           href: deploy-to-subscription.md
+        - name: Recursos do nível de grupos de gerenciamento
+          href: deploy-to-management-group.md
     - name: Implantar modelos
       items:
         - name: Implantar – portal

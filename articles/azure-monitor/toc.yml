@@ -175,12 +175,93 @@
               href: app/ilogger.md
             - name: Java
               items:
-                - name: Métricas pré-agregadas e baseadas em log
-                  href: app/pre-aggregated-metrics-log-metrics.md
-                - name: Definições de métrica baseadas em log
-                  href: platform/app-insights-metrics.md
-                - name: Metrics Explorer clássico
-                  href: app/metrics-explorer.md
+                - name: Aplicativos Web
+                  displayname: java
+                  href: app/java-get-started.md
+                - name: Aplicativos Docker
+                  href: app/docker.md
+                - name: Rastreamentos de log
+                  href: app/java-trace-logs.md
+                - name: Métricas de UNIX
+                  href: app/java-collectd.md
+                - name: Dependências
+                  href: app/java-agent.md
+                - name: Filtrar telemetria
+                  href: app/java-filter-telemetry.md
+                - name: Métricas do Micrometer
+                  displayname: java
+                  href: app/micrometer-java.md
+                - name: Aplicativo Spring Boot
+                  displayname: java
+                  href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
+                - name: Solucionar problemas
+                  href: app/java-troubleshoot.md
+            - name: Node.js
+              href: app/nodejs.md
+            - name: Python
+              items:
+                - name: Visão geral
+                  displayname: 'python, Python, OpenCenus, OpenTelemetry, py'
+                  href: app/opencensus-python.md
+                - name: Dependências
+                  href: app/opencensus-python-dependency.md
+                - name: Requests
+                  href: app/opencensus-python-request.md
+            - name: Páginas da Web
+              items:
+                - name: JavaScript do lado do cliente
+                  href: app/javascript.md
+            - name: Resumo de API do Application Insights
+              displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
+              href: app/api-custom-events-metrics.md
+            - name: Solucionar problemas de ASP.NET
+              href: app/asp-net-troubleshoot-no-data.md
+        - name: Monitoramento sem código
+          items:
+            - name: VM e conjunto de dimensionamento do Azure
+              href: app/azure-vm-vmss-apps.md
+            - name: Serviço de aplicativo do Azure
+              displayname: 'App Service, web app, PaaS, Azure web app'
+              href: app/azure-web-apps.md
+            - name: Serviços de nuvem do Azure
+              displayname: 'cloud, cloud services, PaaS'
+              href: app/cloudservices.md
+            - name: Funções do Azure
+              displayname: 'functions, monitor functions, automation'
+              href: ../azure-functions/functions-monitoring.md
+            - name: Aplicativos do Kubernetes
+              displayname: 'aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks'
+              href: app/kubernetes.md
+            - name: Status Monitor (herdado)
+              displayname: 'IIS monitoring, on premises monitoring, on prem,'
+              href: app/monitor-performance-live-website-now.md
+            - name: Servidores locais
+              items:
+                - name: Visão geral
+                  displayname: 'IIS monitoring, on premises monitoring, on prem,'
+                  href: app/status-monitor-v2-overview.md
+                - name: Introdução
+                  href: app/status-monitor-v2-get-started.md
+                - name: Instruções detalhadas
+                  href: app/status-monitor-v2-detailed-instructions.md
+                - name: Solução de problemas e problemas conhecidos
+                  href: app/status-monitor-v2-troubleshoot.md
+                - name: API Disable-InstrumentationEngine
+                  href: app/status-monitor-v2-api-disable-instrumentation-engine.md
+                - name: API Disable-ApplicationInsightsMonitoring
+                  href: app/status-monitor-v2-api-disable-monitoring.md
+                - name: API Enable-InstrumentationEngine
+                  href: app/status-monitor-v2-api-enable-instrumentation-engine.md
+                - name: API Enable-ApplicationInsightsMonitoring
+                  href: app/status-monitor-v2-api-enable-monitoring.md
+                - name: API Get-ApplicationInsightsMonitoringConfig
+                  href: app/status-monitor-v2-api-get-config.md
+                - name: API Get-ApplicationInsightsMonitoringStatus
+                  href: app/status-monitor-v2-api-get-status.md
+                - name: API Set-ApplicationInsightsMonitoringConfig
+                  href: app/status-monitor-v2-api-set-config.md
+                - name: API Start-ApplicationInsightsMonitoringTrace
+                  href: app/status-monitor-v2-api-start-trace.md
             - name: Search
               href: app/diagnostic-search.md
             - name: Criador de perfil
@@ -297,84 +378,6 @@
                 - name: Rastreamentos de log
                   href: app/asp-net-trace-logs.md
                 - name: Métricas de UNIX
-                  href: app/java-collectd.md
-                - name: Dependências
-                  href: app/java-agent.md
-                - name: Filtrar telemetria
-                  href: app/java-filter-telemetry.md
-                - name: Métricas do Micrometer
-                  displayname: java
-                  href: app/micrometer-java.md
-                - name: Aplicativo Spring Boot
-                  displayname: java
-                  href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
-                - name: Solucionar problemas
-                  href: app/java-troubleshoot.md
-            - name: Node.js
-              href: app/nodejs.md
-            - name: Python
-              items:
-                - name: Visão geral
-                  href: app/opencensus-python.md
-                - name: Dependências
-                  href: app/opencensus-python-dependency.md
-                - name: Requests
-                  href: app/opencensus-python-request.md
-            - name: Páginas da Web
-              items:
-                - name: JavaScript do lado do cliente
-                  href: app/javascript.md
-            - name: Resumo de API do Application Insights
-              displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
-              href: app/api-custom-events-metrics.md
-            - name: Solucionar problemas de ASP.NET
-              href: app/asp-net-troubleshoot-no-data.md
-        - name: Monitoramento sem código
-          items:
-            - name: VM e conjunto de dimensionamento do Azure
-              href: app/azure-vm-vmss-apps.md
-            - name: Serviço de aplicativo do Azure
-              displayname: 'App Service, web app, PaaS, Azure web app'
-              href: app/azure-web-apps.md
-            - name: Serviços de nuvem do Azure
-              displayname: 'cloud, cloud services, PaaS'
-              href: app/cloudservices.md
-            - name: Funções do Azure
-              displayname: 'functions, monitor functions, automation'
-              href: ../azure-functions/functions-monitoring.md
-            - name: Aplicativos do Kubernetes
-              displayname: 'aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks'
-              href: app/kubernetes.md
-            - name: Status Monitor (herdado)
-              displayname: 'IIS monitoring, on premises monitoring, on prem,'
-              href: app/monitor-performance-live-website-now.md
-            - name: Servidores locais
-              items:
-                - name: Visão geral
-                  displayname: 'IIS monitoring, on premises monitoring, on prem,'
-                  href: app/status-monitor-v2-overview.md
-                - name: Introdução
-                  href: app/status-monitor-v2-get-started.md
-                - name: Instruções detalhadas
-                  href: app/status-monitor-v2-detailed-instructions.md
-                - name: Solução de problemas e problemas conhecidos
-                  href: app/status-monitor-v2-troubleshoot.md
-                - name: API Disable-InstrumentationEngine
-                  href: app/status-monitor-v2-api-disable-instrumentation-engine.md
-                - name: API Disable-ApplicationInsightsMonitoring
-                  href: app/status-monitor-v2-api-disable-monitoring.md
-                - name: API Enable-InstrumentationEngine
-                  href: app/status-monitor-v2-api-enable-instrumentation-engine.md
-                - name: API Enable-ApplicationInsightsMonitoring
-                  href: app/status-monitor-v2-api-enable-monitoring.md
-                - name: API Get-ApplicationInsightsMonitoringConfig
-                  href: app/status-monitor-v2-api-get-config.md
-                - name: API Get-ApplicationInsightsMonitoringStatus
-                  href: app/status-monitor-v2-api-get-status.md
-                - name: API Set-ApplicationInsightsMonitoringConfig
-                  href: app/status-monitor-v2-api-set-config.md
-                - name: API Start-ApplicationInsightsMonitoringTrace
-                  href: app/status-monitor-v2-api-start-trace.md
         - name: Criar um recurso
           href: app/create-new-resource.md
         - name: Painel do aplicativo
@@ -848,6 +851,8 @@
               href: insights/cosmosdb-insights-overview.md
         - name: Redes
           items:
+            - name: Azure Monitor para Redes
+              href: insights/network-insights-overview.md
             - name: Análise de Rede
               href: insights/azure-networking-analytics.md
             - name: DNS

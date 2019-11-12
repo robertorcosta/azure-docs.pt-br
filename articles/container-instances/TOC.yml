@@ -91,6 +91,8 @@
       items:
         - name: Configurar investigações de atividade
           href: container-instances-liveness-probe.md
+        - name: Configurar investigações de preparação
+          href: container-instances-readiness-probe.md
         - name: Parar e iniciar contêineres
           href: container-instances-stop-start.md
         - name: Atualizar contêineres em execução
