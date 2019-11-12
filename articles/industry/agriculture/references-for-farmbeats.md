@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 057037807a75e50eb2305bfab19d1fcff7fe77ce
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: efd294910531509d736dbda274406bd7c801c124
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889602"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931210"
 ---
 # <a name="references"></a>Referências
 
@@ -85,7 +85,7 @@ A URL para o serviço de API é a URL do hub de dados https://\<yourdatahub-site
 
 A solicitação de exemplo abaixo é obter a lista de dispositivos:
 
-```azurepowershell-interactive
+```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
 ```
 
@@ -93,7 +93,7 @@ A maioria das chamadas GET, POST e PUT exigem um corpo de solicitação JSON.
 
 A solicitação de exemplo abaixo é criar um dispositivo (isso tem um JSON de entrada com o corpo da solicitação).
 
-```json
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
@@ -120,25 +120,25 @@ A API do hub de dados do Azure FarmBeats retorna os erros HTTP padrão. Os códi
 
 Além dos erros HTTP padrão, as APIs do hub de dados FarmBeats do Azure também retornam erros internos no formato abaixo:
 
-    ```
+```json
     {
       "message": "<More information on the error>",
       "status": "<error code>”,
       "code": "<InternalErrorCode>",
       "moreInfo": "<Details of the error>"
     }
-    ```
+```
 
 Exemplo: ao criar um farm, um campo obrigatório "Name" não foi especificado na carga de entrada. A mensagem de erro resultante seria:
 
-    ```json
+ ```json    
     {
       "message": "Model validation failed",
       "status": 400,
       "code": "ModelValidationFailed",
       "moreInfo": "[\"The Name field is required.\"]"
     }
-    ```
+  ```
 
 ## <a name="adding-users-or-app-registrations-to-azure-active-directory"></a>Adicionando usuários ou registros de aplicativo a Azure Active Directory
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1e9f852d01d60ead9979b6b1190e285b35d5c312
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: bdbc50983708327cf5d3857282c92fcab1c28b09
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294033"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930544"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Log de diagnósticos no Azure Cosmos DB 
 
@@ -78,19 +78,19 @@ Use as etapas a seguir para habilitar o log de diagnóstico no portal do Azure:
 
 1. Na página **configurações de diagnóstico** , preencha o formulário com os seguintes detalhes: 
 
-    * **Nome**: Insira um nome para os logs a serem criados.
+    * **Nome**: insira um nome para os logs a serem criados.
 
     * Você pode armazenar os logs nos seguintes serviços:
 
-      * **Arquivar em uma conta de armazenamento**: Para usar essa opção, você precisa de uma conta de armazenamento existente à qual se conectar. Para criar uma nova conta de armazenamento no portal, consulte [o artigo criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md) . Em seguida, retorne ao painel configurações de diagnóstico do Azure Cosmos DB no portal para selecionar sua conta de armazenamento. Pode levar alguns minutos para que as contas de armazenamento recém-criadas sejam exibidas no menu suspenso.
+      * **Arquivar em uma conta de armazenamento**: para usar essa opção, você precisa de uma conta de armazenamento existente à qual se conectar. Para criar uma nova conta de armazenamento no portal, consulte [o artigo criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md) . Em seguida, retorne ao painel configurações de diagnóstico do Azure Cosmos DB no portal para selecionar sua conta de armazenamento. Pode levar alguns minutos para que as contas de armazenamento recém-criadas sejam exibidas no menu suspenso.
 
-      * **Transmitir para um hub de eventos**: Para usar essa opção, é necessário ter um namespace dos Hubs de Eventos e um hub de eventos ao qual se conectar. Para criar um namespace do Hubs de Eventos, consulte [Criar um namespace dos Hubs de Eventos e um hub de eventos usando o portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, retorne a esta página no portal para selecionar o namespace do hub de eventos e o nome da política.
+      * **Transmitir para um hub de eventos**: para usar essa opção, é necessário ter um namespace existente dos Hubs de Eventos e um hub de evento ao qual se conectar. Para criar um namespace do Hubs de Eventos, consulte [Criar um namespace dos Hubs de Eventos e um hub de eventos usando o portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, retorne a esta página no portal para selecionar o namespace do hub de eventos e o nome da política.
 
-      * **Enviar para o Log Analytics**: Para usar essa opção, use um espaço de trabalho existente ou crie um espaço de trabalho do Log Analytics seguindo as etapas para [Criar um espaço de trabalho](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) no portal. 
+      * **Enviar para Log Analytics**: para usar essa opção, use um espaço de trabalho existente ou crie um novo espaço de trabalho do Log Analytics seguindo as etapas para [criar um novo espaço de trabalho](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) no portal. 
 
    * Você pode registrar os seguintes dados:
 
-      * **DataPlaneRequests**: Selecione esta opção para fazer logon de solicitações de back-end para todas as APIs que incluem as contas SQL, Graph, MongoDB, Cassandra e API de Tabela no Azure Cosmos DB. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira. Os dados JSON a seguir são um exemplo de saída de detalhes registrados usando DataPlaneRequests. As propriedades de chave a serem observadas são: Requestcharge, statusCode, clientIPaddress e PartitionID:
+      * **DataPlaneRequests**: Selecione esta opção para registrar solicitações de back-end para todas as APIs que incluem as contas SQL, Graph, MongoDB, Cassandra e API de Tabela no Azure Cosmos DB. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira. Os dados JSON a seguir são um exemplo de saída de detalhes registrados usando DataPlaneRequests. As propriedades de chave a serem observadas são: Requestcharge, statusCode, clientIPaddress e PartitionID:
 
        ```
        { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
@@ -102,21 +102,21 @@ Use as etapas a seguir para habilitar o log de diagnóstico no portal do Azure:
        { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
        ```
 
-      * **QueryRuntimeStatistics**: Selecione esta opção para registrar em log o texto da consulta que foi executado.  Os dados JSON a seguir são um exemplo de saída de detalhes registrados usando QueryRuntimeStatistics:
+      * **QueryRuntimeStatistics**: Selecione esta opção para registrar o texto da consulta que foi executado.  Os dados JSON a seguir são um exemplo de saída de detalhes registrados usando QueryRuntimeStatistics:
 
        ```
        { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
        ```
 
-      * **PartitionKeyStatistics**: Esse log relata as estatísticas das chaves de partição. Atualmente, as estatísticas são representadas com o tamanho do armazenamento (KB) das chaves de partição. O log é emitido em relação às três primeiras chaves de partição que ocupam a maior parte do armazenamento de dados.
+      * **PartitionKeyStatistics**: esse log relata as estatísticas das chaves de partição. Atualmente, as estatísticas são representadas com o tamanho do armazenamento (KB) das chaves de partição. O log é emitido em relação às três primeiras chaves de partição que ocupam a maior parte do armazenamento de dados.
 
        ```
        { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
        ```
 
-      * **Solicitações de Métricas**: Selecione essa opção para armazenar dados detalhados em [métricas do Azure](../azure-monitor/platform/metrics-supported.md). Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
+      * **Solicitações de Métrica**: selecione esta opção para armazenar dados detalhados em [Métricas do Azure](../azure-monitor/platform/metrics-supported.md). Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
 
-3. Clique em **Salvar**.
+3. Selecione **Salvar**.
 
     Se você receber um erro que diga "Falha ao atualizar o diagnóstico para \<nome do workspace&gt;. Para a assinatura \<id da assinatura> não está registrado para usar o microsoft.insights", siga as instruções de [Solucionar problemas de diagnóstico do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para registrar a conta e repetir esse procedimento.
 
@@ -132,7 +132,7 @@ Para habilitar as métricas e o log de diagnósticos usando a CLI do Azure, use 
    az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   A `resource` é o nome da conta do Azure Cosmos DB. O recurso está no formato "/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/Providers/Microsoft. DocumentDB/databaseAccounts/< Azure_Cosmos_account_name >" o `storage-account` é o nome da conta de armazenamento para a qual você deseja enviar os logs. Você pode registrar outros logs atualizando os valores de parâmetro de categoria para "MongoRequests" ou "DataPlaneRequests". 
+   A `resource` é o nome da conta do Azure Cosmos DB. O recurso está no formato "/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/< Azure_Cosmos_account_name >" o `storage-account` é o nome da conta de armazenamento para a qual você deseja enviar os logs. Você pode registrar outros logs atualizando os valores de parâmetro de categoria para "MongoRequests" ou "DataPlaneRequests". 
 
 - Para habilitar o streaming dos Logs de Diagnóstico para um hub de eventos, use este comando:
 
@@ -386,7 +386,7 @@ Antes de exibir seus logs, verifique e veja se seu espaço de trabalho do Log An
 ![Azure Monitor logs no portal do Azure](./media/logging/azure-portal.png)
 
 >[!NOTE]
->Os workspaces do OMS agora são chamados de workspaces do Log Analytics.  
+>Os workspace do OMS agora são referidos como workspaces do Log Analytics.  
 
 Se você vir a seguinte mensagem na página **Espaço de Trabalho do Log Analytics**, isso significa que não foi feito o upgrade do seu espaço de trabalho para usar a nova linguagem. Para obter mais informações sobre como fazer o upgrade para a nova linguagem de consulta, confira [Atualizar o seu espaço de trabalho do Azure Log Analytics para nova pesquisa de logs](../log-analytics/log-analytics-log-search-upgrade.md). 
 
@@ -401,61 +401,105 @@ Agora que você habilitou a coleta de dados, execute o seguinte exemplo de pesqu
 ![Pesquisa de logs de exemplo para os 10 logs mais recentes](./media/logging/log-analytics-query.png)
 
 <a id="#queries"></a>
-### <a name="queries"></a>Consultas
+### <a name="cosmosdb-log-analytics-queries-in-azure-monitor"></a>CosmosDB Log Analytics consultas em Azure Monitor
 
-Aqui estão algumas consultas adicionais que você pode inserir na caixa de **pesquisa de log** para ajudá-lo a monitorar seus contêineres de Cosmos do Azure. Essas consultas funcionam com a [nova linguagem](../log-analytics/log-analytics-log-search-upgrade.md). 
+Aqui estão algumas consultas adicionais que você pode inserir na caixa de **pesquisa de log** para ajudá-lo a monitorar seus contêineres de Cosmos do Azure. Essas consultas funcionam com a [nova linguagem](../log-analytics/log-analytics-log-search-upgrade.md).  
 
 Para saber mais sobre o significado dos dados retornados pelas pesquisas de logs, consulte [Interpretar seus logs do Azure Cosmos DB](#interpret).
 
 * Para consultar todos os logs de diagnóstico do Azure Cosmos DB para um período especificado:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
     ```
 
 * Para consultar os 10 eventos registrados em log mais recentemente:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | take 10
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | limit 10
     ```
 
 * Para consultar todas as operações, agrupadas por tipo de operação:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by OperationName
     ```
 
 * Para consultar todas as operações, agrupadas por **Recurso**:
 
     ```
-    AzureActivity | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    AzureActivity 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by Resource
     ```
 
 * Para consultar toda a atividade do usuário, agrupada por recurso:
 
     ```
-    AzureActivity | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    AzureActivity 
+    | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by Resource
     ```
     > [!NOTE]
     > Este comando é para um log de atividades, não de um log de diagnóstico.
 
+* Para obter todas as consultas com mais de 100 RUs Unidas com dados de DataPlaneRequests e QueryRunTimeStatistics
+
+    ```
+    AzureDiagnostics
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
+    | project activityId_g, requestCharge_s
+    | join kind= inner (
+           AzureDiagnostics
+           | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
+           | project activityId_g, querytext_s
+    ) on $left.activityId_g == $right.activityId_g
+    | order by requestCharge_s desc
+    | limit 100
+    ```
+    
+      
+
 * Para consultar quais operações demoram mais de 3 milissegundos:
 
     ```
-    AzureDiagnostics | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    AzureDiagnostics 
+    | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
 * Para consultar qual agente está executando as operações:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName, userAgent_s
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by OperationName, userAgent_s
     ```
 
 * Para consultar quando foram executadas as operações de longa execução:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , duration_s | render timechart
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | project TimeGenerated , duration_s 
+    | render timechart
     ```
+    
+* Para obter estatísticas de chave de partição para avaliar a distorção entre as três principais partições para a conta de banco de dados:
+
+    ```
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
+    | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+    
+   
+    ```
+    
 
 Para obter mais informações sobre como usar a nova linguagem de pesquisa de logs, consulte [entender pesquisas de logs em logs de Azure monitor](../log-analytics/log-analytics-log-search-new.md). 
 
@@ -474,7 +518,7 @@ A tabela a seguir descreve o conteúdo de cada entrada de log.
 | **properties** | n/d | O conteúdo desse campo é descrito nas linhas a seguir. |
 | **activityId** | **activityId_g** | O GUID exclusivo da operação registrada. |
 | **userAgent** | **userAgent_s** | Uma cadeia de caracteres que especifica o agente do usuário cliente que executa a solicitação. O formato é {nome do agente do usuário}/{versão}.|
-| **requestResourceType** | **requestResourceType_s** | O tipo do recurso acessado. Esse valor pode ser um dos seguintes tipos de recursos: Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction ou Offer. |
+| **requestResourceType** | **requestResourceType_s** | O tipo do recurso acessado. Esse valor pode ser um dos seguintes tipos de recursos: Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction ou Offer. |
 | **statusCode** | **statusCode_s** | O status da resposta da operação. |
 | **requestResourceId** | **ResourceId** | O resourceId referente à solicitação. O valor pode apontar para databaseRid, collectionRid ou documentRid, dependendo da operação executada.|
 | **clientIpAddress** | **clientIpAddress_s** | Endereço IP do cliente. |

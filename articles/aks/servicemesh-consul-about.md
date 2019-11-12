@@ -6,16 +6,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: 7bf979e4f828b6971603d31ba5ba9e8bc791f799
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 7ffbd2386cd0e50cec8976e6bdd6c5778aa014d7
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530687"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928441"
 ---
 # <a name="consul"></a>Consul
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 [Consul][consul] é uma solução de rede de serviço com reconhecimento de vários data center para se conectar e proteger serviços em plataformas de tempo de execução. [Connect][consul-features] é o componente que fornece recursos de malha de serviço.
 
@@ -36,10 +36,10 @@ O diagrama de arquitetura a seguir demonstra como os vários componentes dentro 
 
 ## <a name="selection-criteria"></a>Critérios de seleção
 
-É importante entender e considerar as seguintes áreas ao avaliar Linkerd para suas cargas de trabalho:
+É importante entender e considerar as seguintes áreas ao avaliar Consul para suas cargas de trabalho:
 
 - [Princípios de Consul](#consul-principles)
-- [Técnicas](#capabilities)
+- [Funcionalidades](#capabilities)
 - [Cenários](#scenarios)
 
 
@@ -85,7 +85,7 @@ O Consul é adequado e sugerido para os seguintes cenários:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 A documentação a seguir descreve como você pode instalar o Consul no AKS (serviço kubernetes do Azure):
 

@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/06/2019
-ms.openlocfilehash: 178c60d82c8337987e9858a409fcdef7063c9559
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 743007d3636516a39dd36caf3d44d3edb650c030
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684901"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929533"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Referência de dados de monitoramento do Azure Machine Learning
 
@@ -63,17 +63,17 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 | Categoria | Nome do evento de log, AmlComputeClusterNodeEvent |
 | ProvisioningState | Estado de provisionamento do cluster |
 | ClusterName | Nome do cluster |
-| clusterType | Tipo do cluster |
+| ClusterType | Tipo do cluster |
 | CreatedBy | Usuário que criou o cluster |
 | CoreCount | Contagem dos núcleos no cluster |
-| vmSize | Tamanho da VM do cluster |
+| VmSize | Tamanho da VM do cluster |
 | VmPriority | Prioridade dos nós criados dentro de um cluster dedicado/LowPriority |
 | Dimensionartype | Tipo de dimensionamento manual/automático do cluster |
 | InitialNodeCount | Contagem de nós inicial do cluster |
 | MinimumNodeCount | Contagem mínima de nós do cluster |
 | MaximumNodeCount | Contagem máxima de nós do cluster |
 | NodeDeallocationOption | Como o nó deve ser desalocado |
-| Editor | Editor do tipo de cluster |
+| Publicador | Editor do tipo de cluster |
 | Oferta | Oferta com a qual o cluster é criado |
 | Sku | SKU do nó/VM criado dentro do cluster |
 | Versão | Versão da imagem usada enquanto o nó/VM é criado |
@@ -106,10 +106,10 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 | Categoria | Nome do evento de log, AmlComputeClusterNodeEvent |
 | ClusterName | Nome do cluster |
 | NodeId | ID do nó de cluster criado |
-| vmSize | Tamanho da VM do nó |
+| VmSize | Tamanho da VM do nó |
 | VmFamilyName | Família de VMs à qual o nó pertence |
 | VmPriority | Prioridade do nó criado dedicado/LowPriority |
-| Editor | Editor da imagem da VM, por exemplo, Microsoft-dsvm |
+| Publicador | Editor da imagem da VM, por exemplo, Microsoft-dsvm |
 | Oferta | Oferta associada à criação da VM |
 | Sku | SKU do nó/VM criado |
 | Versão | Versão da imagem usada enquanto o nó/VM é criado |
@@ -128,7 +128,7 @@ As tabelas a seguir listam as métricas de plataforma coletadas para Azure Machi
 
 **Modelo**
 
-| Modelo | Unidade | DESCRIÇÃO |
+| Métrica | Unidade | DESCRIÇÃO |
 | ----- | ----- | ----- |
 | Falha na implantação do modelo | Contagem | O número de implantações de modelo que falharam. |
 | Implantação de modelo iniciada | Contagem | O número de implantações de modelo iniciadas. |
@@ -192,7 +192,7 @@ Os valores válidos para a dimensão RunType são:
 | StepRun | Uma execução para uma etapa de pipeline. |
 | ReusedStepRun | Uma execução para uma etapa de pipeline que reutiliza uma execução anterior. |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - Consulte [monitoramento Azure Machine Learning](monitor-azure-machine-learning.md) para obter uma descrição do Azure Machine Learning de monitoramento.
 - Consulte [monitorando recursos do Azure com Azure monitor](/azure/azure-monitor/insights/monitor-azure-resource) para obter detalhes sobre como monitorar recursos do Azure.

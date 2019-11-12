@@ -16,16 +16,16 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1c054bf354b5cdc5e0803ba6849af19fab40f3c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 1fd72bba6e8c01644adebaa333c8fe588c35b8c7
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174164"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927311"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é o gerenciamento de direitos do Azure AD?
 
-O gerenciamento de direitos do Azure Active Directory (AD do Azure) é um recurso de [governança de identidade](identity-governance-overview.md) que permite que as organizações gerenciem o ciclo de vida de identidade e acesso em escala, automatizando fluxos de trabalho de solicitação de acesso, atribuições de acesso, revisões e Ela.
+O gerenciamento de direitos do Azure Active Directory (AD do Azure) é um recurso de [governança de identidade](identity-governance-overview.md) que permite que as organizações gerenciem o ciclo de vida de identidade e acesso em escala, automatizando fluxos de trabalho de solicitação de acesso, atribuições de acesso, revisões e expiração.
 
 Os funcionários em organizações precisam acessar vários grupos, aplicativos e sites para executar seu trabalho. O gerenciamento desse acesso é desafiador, conforme os requisitos mudam-novos aplicativos são adicionados ou os usuários precisam de direitos de acesso adicionais.  Esse cenário fica mais complicado quando você colabora com organizações externas – talvez não saiba quem na outra organização precisa de acesso aos recursos da sua organização e não saberá quais aplicativos, grupos ou sites sua organização está usando.
 
@@ -114,13 +114,13 @@ Os pacotes do Access não substituem outros mecanismos para atribuição de aces
 
 Para entender melhor o gerenciamento de direitos e sua documentação, você pode consultar novamente a lista de termos a seguir.
 
-| Prazo | Descrição |
+| Termo | DESCRIÇÃO |
 | --- | --- |
 | pacote de acesso | Um pacote de recursos que uma equipe ou projeto precisa e é regido por políticas. Um pacote do Access sempre está contido em um catálogo. Você criaria um novo pacote de acesso para um cenário no qual os usuários precisam solicitar acesso.  |
 | solicitação de acesso | Uma solicitação para acessar os recursos em um pacote do Access. Normalmente, uma solicitação passa por um fluxo de trabalho de aprovação.  Se aprovada, o usuário solicitante receberá uma atribuição de pacote de acesso. |
 | Design | Uma atribuição de um pacote de acesso a um usuário garante que o usuário tenha todas as funções de recurso desse pacote de acesso.  As atribuições de pacote do Access normalmente têm um limite de tempo antes de expirarem. |
 | catálogo | Um contêiner de recursos relacionados e pacotes de acesso.  Os catálogos são usados para delegação, para que não administradores possam criar seus próprios pacotes de acesso. Os proprietários do catálogo podem adicionar recursos que eles possuem a um catálogo. |
-| Criador do catálogo | Uma coleção de usuários que estão autorizados a criar novos catálogos.  Quando um usuário não administrador que está autorizado a ser um criador de catálogo cria um novo catálogo, ele se torna automaticamente o proprietário desse catálogo. |
+| criador do catálogo | Uma coleção de usuários que estão autorizados a criar novos catálogos.  Quando um usuário não administrador que está autorizado a ser um criador de catálogo cria um novo catálogo, ele se torna automaticamente o proprietário desse catálogo. |
 | organização conectada | Um diretório ou domínio do Azure AD externo com o qual você tem uma relação. Os usuários de uma organização conectada podem ser especificados em uma política como tendo permissão para solicitar acesso. |
 | policy | Um conjunto de regras que define o ciclo de vida do acesso, como a forma como os usuários obtêm acesso, quem pode aprovar e por quanto tempo os usuários têm acesso por meio de uma atribuição. Uma política está vinculada a um pacote do Access. Por exemplo, um pacote do Access pode ter duas políticas: uma para os funcionários solicitarem acesso e um segundo para que usuários externos solicitem acesso. |
 | recurso | Um ativo, como um grupo do Office, um grupo de segurança, um aplicativo ou um site do SharePoint Online, com uma função à qual um usuário pode receber permissões. |
@@ -146,7 +146,7 @@ Como parte das licenças para usuários Membros, você também pode permitir que
 
 Para obter informações sobre como atribuir licenças a seus usuários, consulte [atribuir ou remover licenças usando o portal de Azure Active Directory](../fundamentals/license-users-groups.md). Observe que o gerenciamento de direitos atualmente não impõe a atribuição de licença para os usuários.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Tutorial: criar seu primeiro pacote de acesso](entitlement-management-access-package-first.md)
 - [Cenários comuns](entitlement-management-scenarios.md)

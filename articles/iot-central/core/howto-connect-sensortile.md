@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: sandeep.pujar
-ms.openlocfilehash: 0969ee6dbc035ffa105dd54d34f3b4711d4915cf
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e46d4f99075a0d3fa326c84e17792b8959e23517
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951205"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930229"
 ---
 # <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>Conectar o dispositivo SensorTile. Box ao seu aplicativo IoT Central do Azure
 
@@ -27,7 +27,7 @@ Para concluir as etapas neste artigo, você precisa dos seguintes recursos:
 
 * Um dispositivo SensorTile. Box. Para obter mais informações, consulte [SensorTile. Box](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mems-motion-sensor-eval-boards/steval-mksbox1v1.html).
 * O aplicativo de sensor ST BLE instalado em seu dispositivo Android, você pode [baixá-lo aqui](https://play.google.com/store/apps/details?id=com.st.bluems). Para obter mais informações, visite: [St ble sensor](https://www.st.com/stblesensor)
-* Um aplicativo de IoT Central do Azure criado com base no modelo de aplicativo **DevKits** . Para obter mais informações, consulte [criar um início rápido de aplicativo](quick-deploy-iot-central.md).
+* Um aplicativo de IoT Central do Azure criado com base no modelo de aplicativo **DevKits** . Para obter mais informações, consulte o [Criar um início rápido de aplicativo](quick-deploy-iot-central.md).
 * Adicione o modelo de dispositivo **SensorTile. Box** ao seu aplicativo IOT central visitando a página **modelos de dispositivo** , clicando em **+ novo**e selecionando o modelo **SensorTile. Box** .
 
 ### <a name="get-your-device-connection-details"></a>Obter detalhes de conexão do dispositivo
@@ -90,10 +90,10 @@ Um aplicativo criado a partir do modelo de dispositivo SensorTile. Box com as se
 | -------------- | ------ | ------- | ------- | -------------- |
 | umidade       | %      | 30       | 90     | 1              |
 | temp           | °C     | 0     | 40     | 1              |
-| pressão       | mbar    | 900     | 1100    | 2              |
-| magnetometerX  | mgauss | -1000   | 1\.000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1\.000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1\.000    | 0              |
+| pressure       | mbar    | 900     | 1100    | 2              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
 | accelerometerX | mg     | -2000   | 2000    | 0              |
 | accelerometerY | mg     | -2000   | 2000    | 0              |
 | accelerometerZ | mg     | -2000   | 2000    | 0              |
@@ -104,6 +104,6 @@ Um aplicativo criado a partir do modelo de dispositivo SensorTile. Box com as se
 | FFT_Y     |    |    |     |               |
 | FFT_Z     |    |    |     |               |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu como conectar um SensorTile. Box ao seu aplicativo IoT Central do Azure, a próxima etapa sugerida é aprender [como configurar um modelo de dispositivo personalizado](howto-set-up-template.md) para seu próprio dispositivo IOT.

@@ -16,12 +16,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38235e90ccf79cf1322ce0f26ed426d8c3a693cc
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 52e15aa62043ba394ae6e8cfe2cc7f27709c7d33
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847170"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927449"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -43,9 +43,18 @@ Download | [Baixar o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=6
 Enquanto passarmos por esse processo, o número de versão da versão será mostrado com um "X" na posição do número de liberação secundária, como em "1.3. X. 0" – isso indica que as notas de versão deste documento são válidas para todas as versões que começam com "1,3.". Assim que finalizamos o processo de liberação, o número de versão de lançamento será atualizado para a versão lançada mais recentemente e o status da versão será atualizado para "liberado para download e atualização automática".
 Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O status da versão indicará se uma versão foi disponibilizada para atualização automática ou apenas para baixar. Se a atualização automática foi habilitada no seu servidor do Azure AD Connect, então esse servidor atualizará automaticamente para a versão mais recente do Azure AD Connect que é liberado para atualização automática. Observe que nem todas as configurações do Azure AD Connect estão qualificadas para atualização automática. Siga este link para ler mais sobre [atualização automática](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
+## <a name="14320"></a>1.4.32.0
+### <a name="release-status"></a>Status de liberação
+08/11/2019: liberado para download. Não disponível para atualização automática
+
+>[!IMPORTANT]
+>Devido a uma alteração de esquema interna nesta versão do Azure AD Connect, se você gerenciar as definições de configuração da relação de confiança do ADFS usando o PowerShell do MSOnline, deverá atualizar seu módulo do MSOnline PowerShell para a versão 1.1.183.57 ou superior
+### <a name="fixed-issues"></a>Problemas corrigidos
+
+Esta versão corrige um problema com dispositivos ingressados no Azure AD híbridos existentes. Esta versão contém uma nova regra de sincronização de dispositivo que corrige esse problema.
+Observe que essa alteração de regra pode causar a exclusão de dispositivos obsoletos do Azure AD. Isso não é uma causa de preocupação, pois esses objetos de dispositivo não são usados pelo Azure AD durante a autorização de acesso condicional. Para alguns clientes, o número de dispositivos que serão excluídos por meio dessa alteração de regra pode exceder o limite de exclusão. Se você vir a exclusão de objetos de dispositivo no Azure AD excedendo o limite de exclusão de exportação, é aconselhável permitir que as exclusões sejam passadas. [Como permitir que as exclusões fluam quando excederem o limite de exclusão](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes)
+
 ## <a name="14250"></a>1.4.25.0
-
-
 
 ### <a name="release-status"></a>Status de liberação
 9/28/2019: liberado para atualização automática para selecionar locatários. Não disponível para download.
@@ -338,9 +347,9 @@ Novos recursos e aprimoramentos
 - Assistente do Azure AD Connect: remoção do contêiner de “Configuração” da página de Domínio/filtragem de UO
 - Instalação do mecanismo de sincronização: remoção da lógica herdada desnecessária que falha ocasionalmente no msi de instalação do mecanismo de sincronização
 - Assistente do Azure AD Connect: correção do texto pop-up de ajuda na página de recursos opcionais para sincronização de hash de senha
-- Tempo de execução do mecanismo de sincronização: correção do cenário em que um objeto do CS tem uma importação excluída e regras de sincronização tentam reprovisionar o objeto.
-- Tempo de execução do mecanismo de sincronização: adição de link de ajuda para guia de solução de problemas de conectividade online para o log de eventos de um erro de importação
-- Tempo de execução do mecanismo de sincronização: uso de memória reduzido do agendador de sincronização ao enumerar os conectores
+- runtime do mecanismo de sincronização: correção do cenário em que um objeto do CS tem uma importação excluída e regras de sincronização tentam reprovisionar o objeto.
+- runtime do mecanismo de sincronização: adição de link de ajuda para guia de solução de problemas de conectividade online para o log de eventos de um erro de importação
+- runtime do mecanismo de sincronização: uso de memória reduzido do agendador de sincronização ao enumerar os conectores
 - Assistente do Azure AD Connect: correção de problema de resolução de uma conta de serviço de sincronização personalizada que não tem nenhum privilégios de leitura no AD
 - Assistente do Azure AD Connect: melhoria de registro em log do domínio e seleções de filtragem de UO
 - Assistente do Azure AD Connect: adição de declarações padrão do AD FS para confiança de federação criada para o cenário MFA
@@ -465,7 +474,7 @@ Bloqueie o acesso à conta do AD DS implementando as seguintes alterações de p
 *   Remova todas as ACEs no objeto especificado, exceto as ACEs específicas ao SELF. Queremos manter as permissões padrão intactas quando se trata do SELF.
 *   Atribua essas permissões específicas:
 
-Tipo     | Nome                          | Access               | Aplica-se A
+Digite     | NOME                          | Access               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
 Permitir    | SYSTEM                        | Controle Total         | Este objeto  |
 Permitir    | Administradores Corporativos             | Controle Total         | Este objeto  |
@@ -808,7 +817,7 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|Selecionar|
+    |CertVersion|CertSignatureAlgorithmOid|Escolha|
     |CertKeyAlgorithmParams|CertHashString|Where|
     |||With|
 
@@ -1328,4 +1337,4 @@ Lançamento: setembro de 2014
 **Versão inicial do Azure AD Sync.**
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
+Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md).

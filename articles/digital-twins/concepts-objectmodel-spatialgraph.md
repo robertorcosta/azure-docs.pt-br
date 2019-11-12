@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.openlocfilehash: 65e9e6235fd974a7731fa5e86322793f1b680ad9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: da345c0cf039e3cc2f7f8828a0769b6e65048571
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721332"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930406"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Noções básicas sobre modelos de objeto e grafos de inteligência espacial dos Gêmeos Digitais
 
@@ -78,10 +78,10 @@ Após implantar os Gêmeos Digitais pelo [portal do Azure](https://portal.azure.
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Nome | Substitua por |
+| NOME | Substitua por |
 | --- | --- |
-| YOUR_INSTANCE_NAME | O nome da instância dos Gêmeos Digitais |
-| YOUR_LOCATION | Em qual região do servidor de sua instância está hospedada |
+| NOME_DA_SUA_INSTÂNCIA | O nome da instância dos Gêmeos Digitais |
+| SUA_LOCALIZAÇÃO | Em qual região do servidor de sua instância está hospedada |
 
  O formato completo da URL aparece nesta imagem.
 

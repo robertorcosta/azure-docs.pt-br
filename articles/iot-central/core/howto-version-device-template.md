@@ -1,5 +1,5 @@
 ---
-title: Noções básicas sobre o controle de versão de modelo de dispositivo para aplicativos Azure IoT Central | Microsoft Docs
+title: Controle de versão de modelo de dispositivo para aplicativos de IoT Central do Azure | Microsoft Docs
 description: Iterar modelos de dispositivo criando novas versões e sem afetar os dispositivos conectados em tempo real
 author: sandeeppujar
 ms.author: sandeepu
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8d4e3b304000113e7ecbf748767780a3fcf17bb3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: feaa8abcb6635573b3680b77befa5ccb462ec73a
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952596"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930118"
 ---
 # <a name="create-a-new-device-template-version"></a>Criar uma nova versão do modelo de dispositivo
 
@@ -65,7 +65,7 @@ Os **painéis do dispositivo** podem conter vários tipos de blocos. Algumas blo
 
 ![Como migrar um dispositivo](media/howto-version-device-template/pick-version.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu a usar as versões de modelos de dispositivo no aplicativo Azure IoT Central, a próxima etapa sugerida é apresentada:
 

@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar regras de telemetria no aplicativo Azure IoT Central | Microsoft Docs
+title: Usar regras de telemetria em seu aplicativo de IoT Central do Azure | Microsoft Docs
 description: As regras de telemetria do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email, quando a regra é disparada.
 author: ankitgupta
 ms.author: ankitgup
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d586f899a46a1404af6e798eda4d783a5a7ead85
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3b2fff84b70c5c5e37d14faa87143e5dacc82bce
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953779"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930194"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de telemetria e configurar notificações no aplicativo Azure IoT Central
 
@@ -21,7 +21,7 @@ ms.locfileid: "72953779"
 
 [!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
-É possível usar o Azure IoT Central para monitorar remotamente os dispositivos conectados. As regras do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email ou disparar o Microsoft Flow. Com apenas alguns cliques, você pode definir a condição para monitorar os dados do dispositivo e configurar a ação correspondente. Este artigo explica como criar regras para monitorar a telemetria enviada pelo dispositivo.
+É possível usar a Azure IoT Central para monitorar remotamente os dispositivos conectados. As regras do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email ou disparar o Microsoft Flow. Com apenas alguns cliques, você pode definir a condição para monitorar os dados do dispositivo e configurar a ação correspondente. Este artigo explica como criar regras para monitorar a telemetria enviada pelo dispositivo.
 
 Dispositivos podem usar a medição de telemetria para enviar dados numéricos do dispositivo. Uma regra de telemetria é disparada quando a telemetria do dispositivo selecionado ultrapassa um limite especificado.
 
@@ -45,7 +45,7 @@ Para criar uma regra de telemetria, o modelo do dispositivo deve ter pelo menos 
 
 1. Para habilitar imediatamente a regra para todos os dispositivos criados para esse modelo, alterne **Habilitar regra para todos os dispositivos deste modelo**.
 
-   ![Detalhes da Regra](media/howto-create-telemetry-rules/rule_detail1.png)
+   ![Detalhe da Regra](media/howto-create-telemetry-rules/rule_detail1.png)
 
     A regra se aplica automaticamente a todos os dispositivos no modelo de dispositivo.
 
@@ -83,7 +83,7 @@ Esta seção mostra como configurar as ações a serem executadas quando a regra
 
 1. Para salvar a regra, escolha **Salvar**. A regra entra em ação em poucos minutos e começa a monitorar a telemetria enviada ao aplicativo. Quando a condição especificada na regra é atendida, a regra aciona a ação de e-mail configurada.
 
-É possível adicionar outras ações à regra, como o Microsoft Flow e webhooks. Você pode adicionar até cinco ações por regra.
+É possível adicionar outras ações à regra, como o Microsoft Flow e webhooks. Você pode adicionar até 5 ações por regra.
 
 - [Ação do Microsoft Flow](howto-add-microsoft-flow.md) para iniciar um fluxo de trabalho no Microsoft Flow quando uma regra é disparada 
 - [Ação do Webhook](howto-create-webhooks.md) para notificar outros serviços quando uma regra é disparada
@@ -108,7 +108,7 @@ Navegue até o dispositivo e escolha a regra que você deseja habilitar ou desab
 
 Navegue até o dispositivo e escolha a regra que você deseja habilitar ou desabilitar. Alterne o botão **Habilitar regra para este dispositivo** para habilitar ou desabilitar a regra para esse dispositivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu como criar regras no aplicativo Azure IoT Central, estas são algumas das próximas etapas:
 

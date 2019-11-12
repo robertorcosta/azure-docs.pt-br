@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/15/2017
-ms.openlocfilehash: bcf741e82e247a5b79a478ef1015a70cccb4d274
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c4d029de782ae408b83c265322a865db7b166c1e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899904"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928297"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Separação da telemetria de desenvolvimento, teste e produção
 
@@ -50,8 +50,8 @@ Defina a chave em um método de inicialização como global.aspx.cs em um servi�
 
 Nesse exemplo, as ikeys para os diferentes recursos são colocadas em diferentes versões do arquivo de configuração da Web. Trocar o arquivo de configuração da Web, que pode ser realizado como parte do script versão, alternará o recurso de destino.
 
-### <a name="web-pages"></a>Página da Web
-A iKey também é usada nas páginas da Web do aplicativo, no [script que você obteve da folha de início rápido](../../azure-monitor/app/javascript.md). Em vez de codificá-la literalmente no script, gere-a a partir do estado do servidor. Por exemplo, em um aplicativo ASP.NET:
+### <a name="web-pages"></a>Páginas da Web
+O iKey também é usado nas páginas da Web do seu aplicativo, no [script que você obteve na folha início rápido](../../azure-monitor/app/javascript.md). Em vez de codificá-la literalmente no script, gere-a a partir do estado do servidor. Por exemplo, em um aplicativo ASP.NET:
 
 *JavaScript no Razor*
 
@@ -81,7 +81,7 @@ No [portal.azure.com](https://portal.azure.com), adicione um recurso do Applicat
 
 A criação do recurso leva alguns segundos. Quando estiver pronto, você verá um alerta.
 
-(Você pode escrever um [script do PowerShell](../../azure-monitor/app/powershell-script-create-resource.md) para criar um recurso automaticamente.)
+(Você pode escrever um [script do PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) para criar um recurso automaticamente.)
 
 ### <a name="getting-the-instrumentation-key"></a>Obter a chave de instrumentação
 A chave de instrumentação identifica o recurso que você criou. 
@@ -134,7 +134,7 @@ Há vários métodos diferentes de definir a propriedade de Versão do aplicativ
     Para permitir que o MSBuild gere números de versão, defina a versão como `1.0.*` em AssemblyReference.cs
 
 ## <a name="version-and-release-tracking"></a>Versão e controle de versão
-Para controlar a versão do aplicativo, certifique-se de `buildinfo.config` é gerado pelo processo de Microsoft Build Engine. No arquivo. csproj, adicione:  
+Para controlar a versão do aplicativo, certifique-se de `buildinfo.config` é gerado pelo processo de Microsoft Build Engine. No arquivo `.csproj`, adicione:  
 
 ```XML
 
@@ -145,13 +145,13 @@ Para controlar a versão do aplicativo, certifique-se de `buildinfo.config` é g
 
 Quando ele tem as informações de compilação, o módulo da web Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite que você filtre por versão ao executar [pesquisas de diagnóstico](../../azure-monitor/app/diagnostic-search.md) ou ao [explorar métricas](../../azure-monitor/app/metrics-explorer.md).
 
-No entanto, observe que o número de versão de compilação é gerado apenas pelo Microsoft Build Engine, não pela compilação de desenvolvedor no Visual Studio.
+No entanto, observe que o número de versão da compilação é gerado apenas pelo Microsoft Build Engine, não pelo desenvolvedor Build do Visual Studio.
 
 ### <a name="release-annotations"></a>Anotações da versão
 Se usar o Azure DevOps, você poderá [obter um marcador de anotação](../../azure-monitor/app/annotations.md) adicionado a seus gráficos sempre que lançar uma nova versão. A imagem a seguir mostra como esse marcador é exibido.
 
 ![Captura de tela de anotação de versão de exemplo em um gráfico](media/separate-resources/release-annotation.png)
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Recursos compartilhados para várias funções](../../azure-monitor/app/app-map.md)
 * [Criar um Inicializador de Telemetria para distinguir variantes A | B](../../azure-monitor/app/api-filtering-sampling.md#add-properties)

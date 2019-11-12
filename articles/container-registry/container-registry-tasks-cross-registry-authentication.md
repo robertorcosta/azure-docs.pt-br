@@ -1,18 +1,18 @@
 ---
-title: Autenticação entre registros em uma tarefa de registro de contêiner do Azure
-description: Habilite uma identidade gerenciada para recursos do Azure em uma tarefa ACR (registro de contêiner do Azure) para permitir que a tarefa acesse outro registro de contêiner privado.
+title: Autenticação entre registros da tarefa de registro de contêiner do Azure
+description: Configurar uma tarefa de registro de contêiner do Azure (tarefa ACR) para acessar outro registro de contêiner do Azure privado usando uma identidade gerenciada para recursos do Azure
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 07fa7f3df5274ae88c93deac75093ead3f32f036
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f2ffb42ce109f5e6f7186461f931b7f8da57ff32
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509086"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931510"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticação entre registros em uma tarefa ACR usando uma identidade gerenciada pelo Azure 
 
@@ -20,7 +20,7 @@ Em uma [tarefa ACR](container-registry-tasks-overview.md), você pode [habilitar
 
 Neste artigo, você aprenderá a habilitar uma identidade gerenciada em uma tarefa que extrai uma imagem de um registro diferente daquele usado para executar a tarefa.
 
-Para criar os recursos do Azure, este artigo requer que você execute o CLI do Azure versão 2.0.68 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli].
+Para criar os recursos do Azure, este artigo requer que você execute o CLI do Azure versão 2.0.68 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure][azure-cli].
 
 ## <a name="scenario-overview"></a>Visão geral do cenário
 
@@ -30,7 +30,7 @@ Este exemplo mostra etapas usando uma identidade gerenciada atribuída pelo usu�
 
 Em um cenário do mundo real, uma organização pode manter um conjunto de imagens base usadas por todas as equipes de desenvolvimento para criar seus aplicativos. Essas imagens base são armazenadas em um registro corporativo, com cada equipe de desenvolvimento que tem apenas direitos de pull. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para este artigo, você precisa de dois registros de contêiner do Azure:
 
@@ -39,7 +39,7 @@ Para este artigo, você precisa de dois registros de contêiner do Azure:
 
 Substitua pelos seus próprios nomes de registro em etapas posteriores.
 
-Se você ainda não tiver os registros de contêiner do Azure necessários, [consulte início rápido: Criar um registro de contêiner privado usando a CLI do Azure](container-registry-get-started-azure-cli.md). Você ainda não precisa enviar imagens por push ao registro.
+Se você ainda não tiver os registros de contêiner do Azure necessários, consulte [início rápido: criar um registro de contêiner privado usando o CLI do Azure](container-registry-get-started-azure-cli.md). Você ainda não precisa enviar imagens por push ao registro.
 
 ## <a name="prepare-base-registry"></a>Preparar registro base
 
@@ -66,17 +66,17 @@ steps:
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
 ```
 
-A etapa de compilação usa `Dockerfile-app` o arquivo no repositório [Azure-Samples/ACR-Build-HelloWorld-node](https://github.com/Azure-Samples/acr-build-helloworld-node.git) para criar uma imagem. O `--build-arg` faz referência ao registro base para efetuar pull da imagem base. Quando compilada com êxito, a imagem é enviada por push para o registro usado para executar a tarefa.
+A etapa de compilação usa o arquivo `Dockerfile-app` no repositório [Azure-Samples/ACR-Build-HelloWorld-node](https://github.com/Azure-Samples/acr-build-helloworld-node.git) para criar uma imagem. O `--build-arg` faz referência ao registro base para efetuar pull da imagem base. Quando compilada com êxito, a imagem é enviada por push para o registro usado para executar a tarefa.
 
-## <a name="option-1-create-task-with-user-assigned-identity"></a>Opção 1: Criar tarefa com identidade atribuída pelo usuário
+## <a name="option-1-create-task-with-user-assigned-identity"></a>Opção 1: criar tarefa com identidade atribuída pelo usuário
 
-As etapas nesta seção criam uma tarefa e habilitam uma identidade atribuída pelo usuário. Se você quiser habilitar uma identidade atribuída pelo sistema, consulte [a opção 2: Crie uma tarefa com a identidade](#option-2-create-task-with-system-assigned-identity)atribuída pelo sistema. 
+As etapas nesta seção criam uma tarefa e habilitam uma identidade atribuída pelo usuário. Se você quiser habilitar uma identidade atribuída pelo sistema, consulte a [opção 2: criar tarefa com a identidade atribuída pelo sistema](#option-2-create-task-with-system-assigned-identity). 
 
 [!INCLUDE [container-registry-tasks-user-assigned-id](../../includes/container-registry-tasks-user-assigned-id.md)]
 
 ### <a name="create-task"></a>Criar tarefa
 
-Crie a tarefa *helloworldtask* executando o comando [AZ ACR Task Create][az-acr-task-create] a seguir. A tarefa é executada sem um contexto de código-fonte e o comando faz `helloworldtask.yaml` referência ao arquivo no diretório de trabalho. O `--assign-identity` parâmetro passa a ID de recurso da identidade atribuída pelo usuário. 
+Crie a tarefa *helloworldtask* executando o comando [AZ ACR Task Create][az-acr-task-create] a seguir. A tarefa é executada sem um contexto de código-fonte e o comando faz referência ao arquivo `helloworldtask.yaml` no diretório de trabalho. O parâmetro `--assign-identity` passa a ID de recurso da identidade atribuída pelo usuário. 
 
 ```azurecli
 az acr task create \
@@ -89,13 +89,13 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
-## <a name="option-2-create-task-with-system-assigned-identity"></a>Opção 2: Criar tarefa com identidade atribuída pelo sistema
+## <a name="option-2-create-task-with-system-assigned-identity"></a>Opção 2: criar tarefa com identidade atribuída pelo sistema
 
-As etapas nesta seção criam uma tarefa e habilitam uma identidade atribuída pelo sistema. Se você quiser habilitar uma identidade atribuída pelo usuário, consulte [a opção 1: Criar tarefa com identidade](#option-1-create-task-with-user-assigned-identity)atribuída pelo usuário. 
+As etapas nesta seção criam uma tarefa e habilitam uma identidade atribuída pelo sistema. Se você quiser habilitar uma identidade atribuída pelo usuário, consulte a [opção 1: criar tarefa com a identidade atribuída pelo usuário](#option-1-create-task-with-user-assigned-identity). 
 
 ### <a name="create-task"></a>Criar tarefa
 
-Crie a tarefa *helloworldtask* executando o comando [AZ ACR Task Create][az-acr-task-create] a seguir. A tarefa é executada sem um contexto de código-fonte e o comando faz `helloworldtask.yaml` referência ao arquivo no diretório de trabalho. O `--assign-identity` parâmetro sem valor habilita a identidade atribuída pelo sistema na tarefa. 
+Crie a tarefa *helloworldtask* executando o comando [AZ ACR Task Create][az-acr-task-create] a seguir. A tarefa é executada sem um contexto de código-fonte e o comando faz referência ao arquivo `helloworldtask.yaml` no diretório de trabalho. O parâmetro `--assign-identity` sem valor habilita a identidade atribuída pelo sistema na tarefa. 
 
 ```azurecli
 az acr task create \
@@ -117,7 +117,7 @@ Use o comando [AZ ACR show][az-acr-show] para obter a ID de recurso do registro 
 baseregID=$(az acr show --name mybaseregistry --query id --output tsv)
 ```
 
-Use o comando [AZ role Assignment Create][az-role-assignment-create] para atribuir a identidade `acrpull` à função ao registro base. Essa função tem permissões apenas para efetuar pull de imagens do registro.
+Use o comando [AZ role Assignment Create][az-role-assignment-create] para atribuir a identidade a função de `acrpull` ao registro base. Essa função tem permissões apenas para efetuar pull de imagens do registro.
 
 ```azurecli
 az role assignment create --assignee $principalID --scope $baseregID --role acrpull
@@ -125,7 +125,7 @@ az role assignment create --assignee $principalID --scope $baseregID --role acrp
 
 ## <a name="add-target-registry-credentials-to-task"></a>Adicionar credenciais do registro de destino à tarefa
 
-Agora, use o comando [AZ ACR Task Credential Add][az-acr-task-credential-add] para adicionar as credenciais da identidade à tarefa para que ela possa ser autenticada com o registro base. Execute o comando correspondente ao tipo de identidade gerenciada que você habilitou na tarefa. Se você habilitou uma identidade atribuída pelo usuário, `--use-identity` passe com a ID do cliente da identidade. Se você tiver habilitado uma identidade atribuída pelo sistema, `--use-identity [system]`passe.
+Agora, use o comando [AZ ACR Task Credential Add][az-acr-task-credential-add] para adicionar as credenciais da identidade à tarefa para que ela possa ser autenticada com o registro base. Execute o comando correspondente ao tipo de identidade gerenciada que você habilitou na tarefa. Se você habilitou uma identidade atribuída pelo usuário, passe `--use-identity` com a ID do cliente da identidade. Se você tiver habilitado uma identidade atribuída pelo sistema, passe `--use-identity [system]`.
 
 ```azurecli
 # Add credentials for user-assigned identity to the task

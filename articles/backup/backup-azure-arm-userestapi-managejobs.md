@@ -4,18 +4,18 @@ description: Neste artigo, saiba como rastrear e gerenciar trabalhos de backup e
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
-keywords: API REST; Backup de VM do Azure; Restauração de VM do Azure;
+keywords: API DE REST; Backup VM do Azure; Restauração de VM do Azure;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: c0ce79c68b9d9cf11ea20c2d6469f4240fb38a95
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 5fe0255a8f304061dc970907c651261832fee614
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747550"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929094"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Acompanhe as tarefas de backup e restauração usando a API REST
 
@@ -44,14 +44,14 @@ A tarefa de backup da VM do Azure é identificada pelo campo "jobId" e pode ser 
 ## <a name="tracking-the-job"></a>Acompanhando o trabalho
 
 ```http
-GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2017-07-01
+GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
 O `{jobName}` é "jobId" mencionado acima. A resposta é sempre 200 OK com o campo "status" indicando o status atual do trabalho. Uma vez que é "Completed" ou "CompletedWithWarnings", a seção "extendedInfo" revela mais detalhes sobre o trabalho.
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>resposta
 
-|Nome  |Tipo  |DESCRIÇÃO  |
+|NOME  |Digite  |DESCRIÇÃO  |
 |---------|---------|---------|
 |200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 

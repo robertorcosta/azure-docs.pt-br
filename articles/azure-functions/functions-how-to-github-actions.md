@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 483ac9380fa8d58f294112cb6c80e0393fa01589
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 486033ef4120d721458add7f23cdf9b78a44a388
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028978"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928348"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua usando a ação do GitHub
 
@@ -27,11 +27,14 @@ Um fluxo de trabalho é definido por um arquivo YAML (. yml) no caminho `/.githu
 
 Para um fluxo de trabalho Azure Functions, o arquivo tem três seções: 
 
-| `Section` | Tarefas |
+| Seção | Tarefas |
 | ------- | ----- |
 | **Autenticação** | <ol><li>Defina uma entidade de serviço.</li><li>Baixar o perfil de publicação.</li><li>Crie um segredo do GitHub.</li></ol>|
 | **Compilar** | <ol><li>Configure o ambiente.</li><li>Compile o aplicativo de funções.</li></ol> |
 | **Implantar** | <ol><li>Implante o aplicativo de funções.</li></ol>|
+
+> [!NOTE]
+> Você não precisará criar uma entidade de serviço se decidir usar o perfil de publicação para autenticação.
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
@@ -42,9 +45,6 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 ```
 
 Neste exemplo, substitua os espaços reservados no recurso por sua ID de assinatura, grupo de recursos e nome do aplicativo de funções. A saída são as credenciais de atribuição de função que fornecem acesso ao seu aplicativo de funções. Copie esse objeto JSON, que você pode usar para autenticar do GitHub.
-
-> [!NOTE]
-> Você não precisará criar uma entidade de serviço se decidir usar o perfil de publicação para autenticação.
 
 > [!IMPORTANT]
 > É sempre uma boa prática conceder acesso mínimo. É por isso que o escopo no exemplo anterior é limitado ao aplicativo de funções específico e não ao grupo de recursos inteiro.
@@ -71,7 +71,7 @@ O GitHub agora pode se autenticar no seu aplicativo de funções no Azure.
 
 A configuração do ambiente pode ser feita usando uma das ações de instalação de publicação.
 
-|Idioma | Ação de instalação |
+|idioma | Ação de instalação |
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
 |**Java**    | `actions/setup-java` |
@@ -200,7 +200,7 @@ Os exemplos a seguir mostram a parte do fluxo de trabalho que cria o aplicativo 
 
 Para implantar seu código em um aplicativo de funções, será necessário usar a ação `Azure/functions-action`. Esta ação tem dois parâmetros:
 
-|Parâmetro |Explicação  |
+|. |Explicação  |
 |---------|---------|
 |**_nome do aplicativo_** | Obrigatório O nome do seu aplicativo de funções. |
 |_**nome do slot**_ | Adicional O nome do [slot de implantação](functions-deployment-slots.md) no qual você deseja implantar. O slot já deve estar definido em seu aplicativo de funções. |

@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 93755ded8f9db27cf8e78079f32e90cccfac2831
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: ff86c25de006495e3536f2ff907e1cf40a216f8e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883822"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927855"
 ---
-# <a name="azure-dedicated-hsm-deployment-architecture"></a>Arquitetura de implantação do HSM dedicada do Azure
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Arquitetura de implantação de HSM Dedicado do Azure
 
 O HSM dedicado do Azure fornece armazenamento de chave criptográfica no Azure. Atende aos rigorosos requisitos de segurança. Os clientes se beneficiarão do uso do HSM dedicado do Azure se:
 
@@ -29,13 +29,14 @@ O HSM dedicado do Azure fornece armazenamento de chave criptográfica no Azure. 
 
 Os HSMs são distribuídos pelos datacenters da Microsoft e podem ser facilmente provisionados como um par de dispositivos como a base de uma solução altamente disponível. Eles também podem ser implantados em várias regiões para uma solução resiliente a desastres. As regiões com HSM dedicado atualmente disponíveis são:
 
-* East US
+* Leste dos EUA
 * Leste dos EUA 2
 * Oeste dos EUA
-* Centro-Sul dos EUA
-* Sudeste da Ásia
+* Oeste dos EUA 2
+* Centro-Sul dos Estados Unidos
+* Sudeste Asiático
 * Ásia Oriental
-* Europa Setentrional
+* Norte da Europa
 * Europa Ocidental
 * Sul do Reino Unido
 * Oeste do Reino Unido
@@ -51,7 +52,7 @@ Alguns fatores de design para qualquer solução Dedicada com base em HSM são l
 
 A localização ideal do dispositivo HSM está mais próxima dos aplicativos que executam operações criptográficas. Espera-se que a latência na região seja de um único dígito em milissegundos. A latência entre regiões pode ser de 5 a 10 vezes maior do que isso.
 
-## <a name="high-availability"></a>Alta disponibilidade
+## <a name="high-availability"></a>alta disponibilidade
 
 Para obter alta disponibilidade, um cliente deve usar dois dispositivos HSM em uma região configurada usando o software da Gemalto como um par de alta disponibilidade. Esse tipo de implantação garante a disponibilidade de chaves se um único dispositivo tiver um problema que o impeça de processar operações de chave. Também reduz significativamente o risco durante a manutenção de interrupções/reparos, como a substituição da fonte de alimentação. É importante que um design seja responsável por qualquer tipo de falha no nível regional. Falhas no nível regional podem acontecer quando há desastres naturais, como furacões, inundações ou terremotos. Esses tipos de eventos devem ser atenuados pelo provisionamento de dispositivos HSM em outra região. Dispositivos implantados em outra região podem ser emparelhados via configuração de software da Gemalto. Isso significa que a implantação mínima para uma solução altamente disponível e resiliente a desastres é de quatro dispositivos HSM em duas regiões. A redundância local e a redundância entre regiões podem ser usadas como uma linha de base para adicionar outras implantações de dispositivos HSM para suportar latência, capacidade ou atender a outros requisitos específicos de aplicativos.
 

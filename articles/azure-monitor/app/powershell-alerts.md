@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/31/2016
-ms.openlocfilehash: 0771079eb338c2f22cb0b1f31c48b0b9f80a3ff5
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: cf03fa0055710dde86a0f74cd58344575494faf1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819082"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928576"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usar o PowerShell para configurar alertas no Application Insights
 
@@ -93,7 +93,7 @@ Tenho um aplicativo em que uso o [TrackMetric()](../../azure-monitor/app/api-cus
 A mesma regra pode ser usada para a métrica relatada usando o [parâmetro de medida](../../azure-monitor/app/api-custom-events-metrics.md#properties) de outra chamada de controle, como TrackEvent ou trackPageView.
 
 ## <a name="metric-names"></a>Nomes de métrica
-| Nome da métrica | Nome da tela | Descrição |
+| Nome da métrica | Nome da tela | DESCRIÇÃO |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Exceções de navegador |Contagem de exceções não identificadas lançadas no navegador. |
 | `basicExceptionServer.count` |Exceções do servidor |Contagem de exceções sem tratamento lançadas pelo aplicativo |
@@ -122,7 +122,7 @@ As métricas são enviadas por diferentes módulos de telemetria:
 
 | Grupo de métricas | Módulo de coletor |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>exibir |[JavaScript do navegador](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[JavaScript do navegador](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[Desempenho](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Dependência](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[Solicitação do servidor](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
@@ -130,8 +130,8 @@ As métricas são enviadas por diferentes módulos de telemetria:
 ## <a name="webhooks"></a>Webhooks
 Você pode [automatizar sua resposta a um alerta](../../azure-monitor/platform/alerts-webhooks.md). O Azure ligará para um endereço web de sua escolha quando um alerta for gerado.
 
-## <a name="see-also"></a>Consulte
-* [Script para configurar o Application Insights](powershell-script-create-resource.md)
+## <a name="see-also"></a>Consulte também
+* [Script para configurar o Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Criar recursos de teste da Web e do Application Insights por meio de modelos](powershell.md)
 * [Automatizar o acoplamento do Diagnóstico do Microsoft Azure ao Application Insights](powershell-azure-diagnostics.md)
 * [Automatizar sua resposta a um alerta](../../azure-monitor/platform/alerts-webhooks.md)

@@ -1,5 +1,5 @@
 ---
-title: Conectar um aplicativo cliente Node.js genérico ao Azure IoT Central | Microsoft Docs
+title: Conectar um aplicativo cliente Node. js genérico ao Azure IoT Central | Microsoft Docs
 description: Como um desenvolvedor de dispositivos, como conectar um dispositivo node. js genérico ao aplicativo IoT Central do Azure.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 76ab6a229de14af1e3808326c62a7bdbbd188e81
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 87dbd7ab4d75150d09a8c26db50ce2e3b1a085db
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951361"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930233"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Conectar um aplicativo cliente genérico ao aplicativo Azure IoT Central (Node.js)
 
@@ -25,7 +25,7 @@ Este artigo descreve, como um desenvolvedor de dispositivos, como se conectar a 
 
 Para concluir as etapas neste artigo, você precisa do seguinte:
 
-- Um aplicativo Azure IoT Central. Para obter mais informações, consulte [criar um início rápido de aplicativo](quick-deploy-iot-central.md).
+- Um aplicativo Azure IoT Central. Para obter mais informações, consulte o [Criar um início rápido de aplicativo](quick-deploy-iot-central.md).
 - Um computador de desenvolvimento com [Node.js](https://nodejs.org/) versão 4.0.0 ou posterior instalado. É possível executar `node --version` na linha de comando para verificar a versão. O Node.js está disponível para uma ampla variedade de sistemas operacionais.
 
 ## <a name="create-a-device-template"></a>Criar um modelo de dispositivo
@@ -36,14 +36,14 @@ No aplicativo IoT Central do Azure, você precisa de um modelo de dispositivo co
 
 Adicione a seguinte telemetria na página **medidas** :
 
-| Nome de exibição | Nome do campo  | Unidades | Min | Máx. | Casas Decimais |
+| Nome de exibição | Nome do campo  | Unidades | Min | max | Casas Decimais |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | Temperatura  | temperatura | F     | 60  | 110 | 0              |
 | Umidade     | umidade    | %     | 0   | 100 | 0              |
-| Pressão     | pressão    | kPa   | 80  | 110 | 0              |
+| Pressão     | pressure    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
-> O tipo de dados da medida de telemetria é número de ponto flutuante.
+> O tipo de dados da medição de telemetria é um número de ponto flutuante.
 
 Insira os nomes dos campos exatamente como mostrado na tabela no modelo de dispositivo. Se os nomes de campo não corresponderem aos nomes de propriedade no código de dispositivo correspondente, a telemetria não poderá ser exibida no aplicativo.
 
@@ -53,10 +53,10 @@ Adicione o seguinte estado na página **medidas** :
 
 | Nome de exibição | Nome do campo  | Valor 1 | Nome de exibição | Valor 2 | Nome de exibição |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
-| Modo ventilação     | fanmode     | 1       | Executando      | 0       | Parado      |
+| Modo da ventoinha     | fanmode     | 1       | Executando      | 0       | Parada      |
 
 > [!NOTE]
-> O tipo de dados da medida de estado é cadeia de caracteres.
+> O tipo de dados da medida State é string.
 
 Insira os nomes dos campos exatamente como mostrado na tabela no modelo de dispositivo. Se os nomes de campo não corresponderem aos nomes de propriedade no código de dispositivo correspondente, o estado não poderá ser exibido no aplicativo.
 
@@ -64,7 +64,7 @@ Insira os nomes dos campos exatamente como mostrado na tabela no modelo de dispo
 
 Adicione o seguinte evento na página **medidas** :
 
-| Nome de exibição | Nome do campo  | Gravidade |
+| Nome de exibição | Nome do campo  | Severity |
 | ------------ | ----------- | -------- |
 | Superaquecimento  | overheat    | Erro    |
 
@@ -77,7 +77,7 @@ Adicione a seguinte medida de localização na página **medidas** :
 
 | Nome de exibição | Nome do campo  |
 | ------------ | ----------- |
-| Location     | location    |
+| Local padrão     | location    |
 
 O tipo de dados de medição local é composto de dois números de ponto flutuante para longitude e latitude e um número de ponto flutuante opcional para altitude.
 
@@ -89,8 +89,8 @@ Adicione as seguintes propriedades de dispositivo na página **Propriedades** :
 
 | Nome de exibição        | Nome do campo        | Tipo de dados |
 | ------------------- | ----------------- | --------- |
-| Número de série       | serialNumber      | text      |
-| Fabricante do dispositivo | manufacturer      | text      |
+| Número de série       | serialNumber      | texto      |
+| Fabricante do dispositivo | manufacturer      | texto      |
 
 Insira os nomes de campo exatamente conforme mostrado na tabela no modelo de dispositivo. Se os nomes de campo não corresponderem aos nomes de propriedade no código de dispositivo correspondente, as propriedades não poderão ser exibidas no aplicativo.
 
@@ -98,7 +98,7 @@ Insira os nomes de campo exatamente conforme mostrado na tabela no modelo de dis
 
 Adicione as seguintes configurações de **número** na página **configurações** :
 
-| Nome de exibição    | Nome do campo     | Unidades | Decimais | Min | Máx.  | Inicial |
+| Nome de exibição    | Nome do campo     | Unidades | Decimais | Min | max  | Inicial |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Velocidade da ventoinha       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | Temperatura definida | setTemperature | F     | 0        | 20  | 200  | 80      |
@@ -111,11 +111,11 @@ Adicione o seguinte comando na página **comandos** :
 
 | Nome de exibição    | Nome do campo     | Tempo limite padrão | Tipo de Dados |
 | --------------- | -------------- | --------------- | --------- |
-| Contagem regressiva       | contagem regressiva      | 30              | número    |
+| Contagem regressiva       | Contagem regressiva      | 30              | número    |
 
 Adicione o seguinte campo de entrada ao comando de contagem regressiva:
 
-| Nome de exibição    | Nome do campo     | Tipo de Dados | Value |
+| Nome de exibição    | Nome do campo     | Tipo de Dados | Valor |
 | --------------- | -------------- | --------- | ----- |
 | Contar de      | countFrom      | número    | 10    |
 
@@ -382,6 +382,6 @@ Como um operador no aplicativo Azure IoT Central, para o dispositivo real, é po
 
     ![Comando chamar contagem regressiva](media/howto-connect-nodejs/callcountdown.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu como conectar um cliente Node. js genérico ao aplicativo IoT Central do Azure, a próxima etapa sugerida é aprender a [configurar um modelo de dispositivo personalizado](howto-set-up-template.md) para seu próprio dispositivo IOT.

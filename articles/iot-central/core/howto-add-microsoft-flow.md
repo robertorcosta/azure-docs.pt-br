@@ -1,5 +1,5 @@
 ---
-title: Criar fluxos de trabalho com o conector da IoT Central do Azure no Microsoft Flow | Microsoft Docs
+title: Usar o conector de IoT Central do Azure no Microsoft Flow | Microsoft Docs
 description: Use o conector de IoT Central no Microsoft Flow para disparar fluxos de trabalho e criar, obter, atualizar, excluir dispositivos e executar comandos em fluxos de trabalho.
 services: iot-central
 author: viv-liu
@@ -8,16 +8,16 @@ ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 258020c8ccd690c524460873387293e73fc89125
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f1912b90df75f3d85f6ba5d730c723cf42803237
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951725"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930370"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Criar fluxos de trabalho com o conector da IoT Central no Microsoft Flow
 
-*Este tópico aplica-se a construtores e administradores.*
+*Este tópico se aplica a construtores e administradores.*
 
 [!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
@@ -30,7 +30,7 @@ Use o Microsoft Flow para automatizar fluxos de trabalho entre os vários aplica
 
 Confira [estes modelos do Microsoft Flow](https://aka.ms/iotcentralflowtemplates) que conectam a IoT Central a outros serviços, tais como notificações móveis e o Microsoft Teams.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Um aplicativo com pagamento conforme o uso
 - Uma conta pessoal ou corporativa ou de estudante da Microsoft para usar Microsoft Flow ([saiba mais sobre planos de Microsoft Flow](https://aka.ms/microsoftflowplans))
@@ -157,7 +157,7 @@ Aqui está um fluxo de trabalho de exemplo que exclui um dispositivo apenas pres
 
    ![Fluxo de trabalho de exclusão de dispositivo do Flow](./media/howto-add-microsoft-flow/flowdeletedevice.png)
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solucionando problemas
 
 Se você está tendo problemas ao criar uma conexão para o conector do Azure IoT Central, aqui estão algumas dicas para ajudá-lo.
 
@@ -173,7 +173,7 @@ Se você está tendo problemas ao criar uma conexão para o conector do Azure Io
     New-AzureADServicePrincipal -AppId 9edfcdd9-0bc5-4bd4-b287-c3afc716aac7 -DisplayName "Azure IoT Central"
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu a usar Microsoft Flow para criar fluxos de trabalho, a próxima etapa sugerida é [gerenciar dispositivos](howto-manage-devices.md).
 

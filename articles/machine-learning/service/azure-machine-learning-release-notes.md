@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0709143f1beb9726fc79eb837d59d7db7cf00d7
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 986e146e2129d26aa6accd747c89e12462d46667
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888572"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931132"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -23,7 +23,54 @@ Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obte
 
 Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender sobre erros e soluções conhecidas.
 
+## <a name="2019-11-11"></a>2019-11-11
 
+### <a name="azure-machine-learning-sdk-for-python-v1074"></a>Azure Machine Learning SDK para Python v 1.0.74
+ 
+  + **Recursos de visualização**
+    + **azureml-contrib-DataSet**
+      + Depois de importar o azureml-contrib-DataSet, você pode chamar `Dataset.Labeled.from_json_lines` em vez de `._Labeled` para criar um conjunto de um DataSet.
+      + Ao chamar `to_pandas_dataframe` em um DataSet rotulado com a opção de download, agora você pode especificar se deseja substituir os arquivos existentes ou não.
+      + Ao chamar `keep_columns` ou `drop_columns` que resulta em um cancelamento de uma coluna de série temporal, rótulo ou imagem, os recursos correspondentes também serão descartados para o conjunto de resultados.
+      + Correção de problemas com o carregador PyTorch ao chamar `dataset.to_torchvision()`.
+
++ **Correções de bugs e melhorias**
+  + **azure-cli-ml**
+    + Adicionada a criação de perfil de modelo à CLI de visualização.
+    + Corrige alterações significativas no armazenamento do Azure fazendo com que a CLI do AzureML falhe.
+    + Adicionado Load Balancer tipo a MLC para tipos AKS
+  + **azureml-automl-Core**
+    + Corrigido o problema com a detecção de horizonte máximo na série temporal, tendo valores ausentes e vários refinamentos.
+    + Correção do problema com falhas ao ditocar a geração de divisões de validação cruzada.
+    + Substitua esta seção por uma mensagem no formato de redução para aparecer nas notas de versão: tratamento aprimorado de refinamentos em conjuntos de dados de previsão.
+    + Correção do problema com o mascaramento de algumas informações do usuário durante o registro em log. -Registro em log dos erros aprimorados durante a previsão de execuções.
+    + Adicionar psutil como uma dependência Conda ao arquivo de implantação yml gerado automaticamente.
+  + **azureml-contrib-Mir**
+    + Corrige alterações significativas no armazenamento do Azure fazendo com que a CLI do AzureML falhe.
+  + **azureml-core**
+    + Corrige um bug que causou a implantação de modelos em Azure Functions para produzir o 500S.
+    + Corrigido um problema em que o arquivo amlignore não foi aplicado em instantâneos.
+    + Adicionada uma nova API amlcompute. get_active_runs que retorna um gerador para execução e em fila é executado em um determinado amlcompute.
+    + Adicionado Load Balancer tipo a MLC para tipos AKS.
+    + Adicionado append_prefix parâmetro BOOL para download_files em run.py e download_artifacts_from_prefix no artifacts_client. Esse sinalizador é usado para mesclar seletivamente o FilePath de origem para que apenas o nome de arquivo ou pasta seja adicionado ao output_directory
+    + Corrigir o problema de desserialização para `run_config.yml` com o uso do conjunto de um.
+    + Ao chamar `keep_columns` ou `drop_columns` que resulta em uma coluna da série temporal sendo removida, os recursos correspondentes também serão descartados para o conjunto de resultados.
+  + **azureml-interpretar**
+    + Atualizada a versão de interpretação da Comunidade para 0.1.0.3
+  + **azureml-train-automl**
+    + Corrigido um problema em que automl_step pode não imprimir problemas de validação.
+    + O register_model corrigido para ter sucesso mesmo que o ambiente do modelo não tenha dependências locais.
+    + Corrigido um problema em que algumas execuções remotas não estavam habilitadas para o Docker.
+    + Adicione o log da exceção que está causando a falha prematura de uma execução local.
+  + **azureml-train-core**
+    + Considere resume_from execuções no cálculo de melhores execuções de filhos de ajuste de hiperparâmetro.
+  + **azureml-pipeline-core**
+    + Manipulação de parâmetro fixo na construção de argumento de pipeline.
+    + Adicionada a descrição de pipeline e o parâmetro de tipo de etapa YAML.
+    + Novo formato YAML para etapa de pipeline e aviso de substituição adicionado para o formato antigo.
+    
+    
+  
 ## <a name="2019-11-04"></a>2019-11-04
 
 ### <a name="web-experience"></a>Experiência na Web 
